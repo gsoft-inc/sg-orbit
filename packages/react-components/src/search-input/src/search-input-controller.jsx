@@ -3,7 +3,7 @@ import { Button } from "../../button";
 import { CrossIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
 import { Ref, Search } from "semantic-ui-react";
-import { TextInput } from "../../text-input";
+import { TextInput } from "../../input";
 import { arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { createRef } from "react";
 import { debounce, isEmpty, isFunction, isNil } from "lodash";
@@ -31,8 +31,8 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: string,
         debounceDelay: number,
         loading: bool,
-        autofocus: bool,
-        autofocusDelay: number,
+        autoFocus: bool,
+        autoFocusDelay: number,
         fluid: bool,
         size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
         input: oneOfType([element, elementType]),
@@ -48,7 +48,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         minCharacters: 1,
         placeholder: "Search",
         debounceDelay: 200,
-        autofocusDelay: 50,
+        autoFocusDelay: 50,
         size: SIZE.medium,
         input: <TextInput />
     };
@@ -273,7 +273,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return (
             <Button
-                icon={<CrossIcon />}
+                iconLeft={<CrossIcon />}
                 onClick={this.handleClear}
                 ref={this._clearButtonRef}
                 data-testid="search-input-clear-button"
@@ -282,16 +282,15 @@ export class SearchInputController extends AutoControlledPureComponent {
     }
 
     renderInput = () => {
-        const { open, loading, disabled, autofocus, autofocusDelay, size, fluid, input, active, focus, hover } = this.props;
+        const { open, loading, disabled, autoFocus, autoFocusDelay, size, fluid, input, active, focus, hover } = this.props;
 
         return createOrAugmentElement(input, {
             onKeyDown: this.handleInputKeyDown,
-            icon: <MagnifierIcon />,
-            iconPosition: "left",
+            iconLeft: <MagnifierIcon />,
             button: this.renderClearButton(),
             loading: loading && !disabled,
-            autofocus: open || autofocus,
-            autofocusDelay: open ? undefined : autofocusDelay,
+            autoFocus: open || autoFocus,
+            autoFocusDelay: open ? undefined : autoFocusDelay,
             disabled,
             size,
             fluid,

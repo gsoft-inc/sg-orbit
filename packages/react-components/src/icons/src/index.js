@@ -42,6 +42,8 @@ import { ReactComponent as InnerEmailIcon24 } from "@orbit-ui/icons/dist/icon-em
 import { ReactComponent as InnerEmailIcon32 } from "@orbit-ui/icons/dist/icon-email-32.svg";
 import { ReactComponent as InnerEmailReminderIcon24 } from "@orbit-ui/icons/dist/icon-email-reminder-24.svg";
 import { ReactComponent as InnerEmailReminderIcon32 } from "@orbit-ui/icons/dist/icon-email-reminder-32.svg";
+import { ReactComponent as InnerEyeIcon24 } from "@orbit-ui/icons/dist/icon-eye-24.svg";
+import { ReactComponent as InnerEyeIcon32 } from "@orbit-ui/icons/dist/icon-eye-32.svg";
 import { ReactComponent as InnerFileIcon24 } from "@orbit-ui/icons/dist/icon-file-24.svg";
 import { ReactComponent as InnerFileIcon32 } from "@orbit-ui/icons/dist/icon-file-32.svg";
 import { ReactComponent as InnerFilterIcon24 } from "@orbit-ui/icons/dist/icon-filter-24.svg";
@@ -133,6 +135,8 @@ export const EmailIcon24 = createOrbitIcon(InnerEmailIcon24);
 export const EmailIcon32 = createOrbitIcon(InnerEmailIcon32);
 export const EmailReminderIcon24 = createOrbitIcon(InnerEmailReminderIcon24);
 export const EmailReminderIcon32 = createOrbitIcon(InnerEmailReminderIcon32);
+export const EyeIcon24 = createOrbitIcon(InnerEyeIcon24);
+export const EyeIcon32 = createOrbitIcon(InnerEyeIcon32);
 export const FileIcon24 = createOrbitIcon(InnerFileIcon24);
 export const FileIcon32 = createOrbitIcon(InnerFileIcon32);
 export const FilterIcon24 = createOrbitIcon(InnerFilterIcon24);
@@ -209,6 +213,7 @@ export const DownloadIcon = createOrbitMultiVariantIcon(InnerDownloadIcon24, Inn
 export const EditIcon = createOrbitMultiVariantIcon(InnerEditIcon24, InnerEditIcon32);
 export const EmailIcon = createOrbitMultiVariantIcon(InnerEmailIcon24, InnerEmailIcon32);
 export const EmailReminderIcon = createOrbitMultiVariantIcon(InnerEmailReminderIcon24, InnerEmailReminderIcon32);
+export const EyeIcon = createOrbitMultiVariantIcon(InnerEyeIcon24, InnerEyeIcon32);
 export const FileIcon = createOrbitMultiVariantIcon(InnerFileIcon24, InnerFileIcon32);
 export const FilterIcon = createOrbitMultiVariantIcon(InnerFilterIcon24, InnerFilterIcon32);
 export const FlagIcon = createOrbitMultiVariantIcon(InnerFlagIcon24, InnerFlagIcon32);

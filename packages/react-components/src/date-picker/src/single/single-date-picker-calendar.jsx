@@ -44,7 +44,7 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
          */
         buttons: element,
         /**
-         * Whether or not the calendar selected date can be cleared.
+         * Whether the calendar selected date can be cleared.
          */
         allowClear: bool,
         /**

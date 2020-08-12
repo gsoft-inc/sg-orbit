@@ -1,18 +1,12 @@
-import "./IconGroup.css";
-
 import { Children, cloneElement, forwardRef } from "react";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { mergeClasses } from "../../shared";
+import { Inline } from "../../layout";
+import { any, elementType, oneOfType, string } from "prop-types";
 
 const propTypes = {
     /**
-     * Size of the group icons.
+     * Size of the icons.
      */
     size: string,
-    /**
-     * Spacing between each icons. Accepts any [spacing variables](?path=/docs/materials-spacing--page#values) without the "--scale-" part e.g. "alpha" for "--scale-alpha".
-     */
-    spacing: oneOf(["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliett", "kilo", "lima", "mike"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -24,22 +18,14 @@ const propTypes = {
 };
 
 const defaultProps = {
-    spacing: "alpha",
     as: "span"
 };
 
-export function InnerIconGroup({ size, spacing, as: ElementType, className, style, children, forwardedRef, ...rest }) {
+export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
-        <ElementType
+        <Inline
             {...rest}
-            className={mergeClasses(
-                "o-ui icon-group",
-                className
-            )}
-            style={{
-                "--spacing": `var(--scale-${spacing})`,
-                ...style
-            }}
+            gap={1}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
@@ -47,8 +33,9 @@ export function InnerIconGroup({ size, spacing, as: ElementType, className, styl
                     size
                 });
             })}
-        </ElementType>
+        </Inline>
     );
+
 }
 
 InnerIconGroup.propTypes = propTypes;

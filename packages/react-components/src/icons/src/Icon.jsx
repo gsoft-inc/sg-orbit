@@ -1,32 +1,29 @@
-import { SIZE, mergeClasses } from "../../shared";
-import { elementType, oneOf } from "prop-types";
+import "./Icon.css";
+
+import { SIZE, mergeClasses, useSlotProps } from "../../shared";
+import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
 
-const DIMENSION_CLASSES = {
-    [SIZE.micro]: "w2 h2",
-    [SIZE.mini]: "w3 h3",
-    [SIZE.tiny]: "w4 h4",
-    [SIZE.small]: "w5 h5",
-    [SIZE.medium]: "w6 h6",
-    [SIZE.large]: "w7 h7",
-    [SIZE.big]: "w8 h8",
-    [SIZE.huge]: "w9 h9",
-    [SIZE.massive]: "w10 h10"
-};
-
-export function InnerIcon({ type: ComponentType, size, className, forwardedRef, ...rest }) {
-    const classes = mergeClasses(
-        "icon",
+export function InnerIcon(props) {
+    const {
+        type: ComponentType,
+        size,
         className,
-        DIMENSION_CLASSES[size || SIZE.medium]
-    );
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props, "icon");
 
     return (
         <ComponentType
             {...rest}
-            className={classes}
+            className={mergeClasses(
+                `o-ui icon icon-${size || SIZE.medium}`,
+                className
+            )}
+            focusable="false"
+            aria-hidden="true"
             ref={forwardedRef}
         />
     );
@@ -40,7 +37,11 @@ InnerIcon.propTypes = {
     /**
      * An icon can vary in size.
      */
-    size: oneOf(SIZES)
+    size: oneOf(SIZES),
+    /**
+     * Default slot override.
+     */
+    slot: string
 };
 
 export const Icon = forwardRef((props, ref) => (
@@ -55,7 +56,7 @@ function createIconFactory(type) {
     x.create = createIconFactory;
 });
 
-//////////////////////////////////////////////
+/******/
 
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;
@@ -86,7 +87,11 @@ InnerMultiVariantIcon.propTypes = {
     /**
      * An icon can vary in size.
      */
-    size: oneOf(SIZES)
+    size: oneOf(SIZES),
+    /**
+     * Default slot override.
+     */
+    slot: string
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (

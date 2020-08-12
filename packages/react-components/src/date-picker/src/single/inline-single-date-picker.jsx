@@ -33,7 +33,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     onVisibilityChange: func,
     /**
-     * Whether or not the calendar selected date(s) can be cleared.
+     * Whether the calendar selected date(s) can be cleared.
      */
     allowClear: bool,
     /**
@@ -65,7 +65,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     dateFormat: string,
     /**
-     * Whether or not the calendar will open upward.
+     * Whether the calendar will open upward.
      */
     upward: bool,
     /**
@@ -97,7 +97,7 @@ const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     defaultOpen: bool,
     /**
-     * Whether or not to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
+     * Whether to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
      */
     noPortal: bool,
     /**

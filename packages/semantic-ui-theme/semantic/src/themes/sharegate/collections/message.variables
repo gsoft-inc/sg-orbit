@@ -10,7 +10,7 @@
 @messageTextOpacity: 1;
 @iconOpacity: 1;
 @listItemMargin: 0;
-@warningTextColor: @marine500;
-@positiveTextColor: @marine500;
-@positiveHeaderColor: @marine500;
+@warningTextColor: @marine900;
+@positiveTextColor: @marine900;
+@positiveHeaderColor: @marine900;
 @floatingBoxShadow: @shadow100;

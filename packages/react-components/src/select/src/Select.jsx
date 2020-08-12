@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useDocumentListener, useEventCallback } from "../../shared";
+import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
 import { SelectContext } from "./SelectContext";
@@ -50,13 +50,13 @@ const propTypes = {
      */
     size: oneOf(["small", "large"]),
     /**
-     * Whether or not the dropdown should autofocus on render.
+     * Whether the dropdown should autoFocus on render.
      */
-    autofocus: bool,
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
      * A transparent select has no background.
      */
@@ -133,8 +133,8 @@ export function InnerSelect(props) {
         inline,
         transparent,
         size,
-        autofocus,
-        autofocusDelay,
+        autoFocus,
+        autoFocusDelay,
         fluid,
         disabled,
         onOpen,
@@ -165,16 +165,6 @@ export function InnerSelect(props) {
     // A select doesn't support children.
     // eslint-disable-next-line react/destructuring-assignment
     delete props["children"];
-
-    const setFocus = useCallback(() => {
-        if (!isNil(dropdownInnerRef.current)) {
-            if (search) {
-                dropdownInnerRef.current.querySelector("input.search").focus();
-            } else {
-                dropdownInnerRef.current.focus();
-            }
-        }
-    }, [search, dropdownInnerRef]);
 
     const handleOpen = useEventCallback((...args) => {
         setIsOpen(true);
@@ -228,7 +218,18 @@ export function InnerSelect(props) {
 
     useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
 
-    const autofocusProps = useAutofocus(autofocus, !isNil(autofocusDelay) ? autofocusDelay : 5, disabled, setFocus);
+    const setFocusWhenSearch = useCallback(() => {
+        if (!isNil(dropdownInnerRef.current)) {
+            if (search) {
+                dropdownInnerRef.current.querySelector("input.search").focus();
+            }
+        }
+    }, [search, dropdownInnerRef]);
+
+    useAutoFocus(dropdownInnerRef, autoFocus && !disabled, {
+        delay: autoFocusDelay ?? 5,
+        onFocus: setFocusWhenSearch
+    });
 
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 
@@ -244,14 +245,13 @@ export function InnerSelect(props) {
             style={wrapperStyle}
             tabIndex="-1"
             ref={forwardedRef}
-            data-testid="dropdown-wrapper"
+            data-testid="select-wrapper"
         >
             <SelectContext.Provider value={{ size }}>
                 <SemanticRef innerRef={dropdownInnerRef}>
                     <MonkeyPatchSemanticDropdown
-                        data-testid="dropdown"
+                        data-testid="select"
                         {...rest}
-                        {...autofocusProps}
                         options={options}
                         selectOnBlur={false}
                         selectOnNavigation={false}

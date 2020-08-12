@@ -1,6 +1,6 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
 import { SearchInputController } from "@react-components/search-input";
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { noop } from "lodash";
 
@@ -34,10 +34,10 @@ stories()
                  open: true
              })
     )
-    .add("autofocus",
+    .add("autoFocus",
          () =>
              createSearchInputController({
-                 autofocus: true
+                 autoFocus: true
              })
     )
     .add("fluid",

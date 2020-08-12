@@ -43,6 +43,9 @@ import {
     EmailReminderIcon,
     EmailReminderIcon24,
     EmailReminderIcon32,
+    EyeIcon,
+    EyeIcon24,
+    EyeIcon32,
     FileIcon,
     FileIcon24,
     FileIcon32,
@@ -102,6 +105,7 @@ import {
     PrinterIcon32,
     PrivacyIcon,
     PrivacyIcon24,
+    PrivacyIcon32,
     SignoutIcon,
     SignoutIcon24,
     SignoutIcon32,
@@ -157,6 +161,7 @@ stories()
     .add("edit", () => <TestSuite icon24={EditIcon24} icon32={EditIcon32} multiIcon={EditIcon} />)
     .add("email", () => <TestSuite icon24={EmailIcon24} icon32={EmailIcon32} multiIcon={EmailIcon} />)
     .add("email reminder", () => <TestSuite icon24={EmailReminderIcon24} icon32={EmailReminderIcon32} multiIcon={EmailReminderIcon} />)
+    .add("eye", () => <TestSuite icon24={EyeIcon24} icon32={EyeIcon32} multiIcon={EyeIcon} />)
     .add("file", () => <TestSuite icon24={FileIcon24} icon32={FileIcon32} multiIcon={FileIcon} />)
     .add("filter", () => <TestSuite icon24={FilterIcon24} icon32={FilterIcon32} multiIcon={FilterIcon} />)
     .add("flag", () => <TestSuite icon24={FlagIcon24} icon32={FlagIcon32} multiIcon={FlagIcon} />)
@@ -176,7 +181,7 @@ stories()
     .add("pdf", () => <TestSuite icon24={PdfIcon24} icon32={PdfIcon32} multiIcon={PdfIcon} />)
     .add("image", () => <TestSuite icon24={ImageIcon24} icon32={ImageIcon32} multiIcon={ImageIcon} />)
     .add("printer", () => <TestSuite icon24={PrinterIcon24} icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
-    .add("privacy", () => <TestSuite icon24={PrivacyIcon24} multiIcon={PrivacyIcon} />)
+    .add("privacy", () => <TestSuite icon24={PrivacyIcon24} icon32={PrivacyIcon32} multiIcon={PrivacyIcon} />)
     .add("signout", () => <TestSuite icon24={SignoutIcon24} icon32={SignoutIcon32} multiIcon={SignoutIcon} />)
     .add("sort", () => <TestSuite icon24={SortIcon24} icon32={SortIcon32} multiIcon={SortIcon} />)
     .add("trash", () => <TestSuite icon24={TrashIcon24} icon32={TrashIcon32} multiIcon={TrashIcon} />)

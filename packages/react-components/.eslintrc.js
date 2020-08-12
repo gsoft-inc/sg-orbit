@@ -8,10 +8,10 @@ module.exports = {
     plugins: ["jsx-control-statements"],
     overrides: [
         {
+            files: ["*.mdx"],
             globals: {
                 "props": true
             },
-            files: ["*.mdx"],
             extends: ["plugin:mdx/recommended"],
             rules: {
                 "semi": "off",
@@ -19,10 +19,19 @@ module.exports = {
                 "max-len": "off",
                 "react-hooks/rules-of-hooks": "off"
             }
+        },
+        {
+            files: ["*.chroma.jsx"],
+            rules: {
+                "max-len": "off",
+                "react/no-array-index-key": "off"
+            }
         }
     ],
     rules: {
+        "no-param-reassign": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
+        "react/destructuring-assignment": "off",
         "jsx-control-statements/jsx-use-if-tag": "off"
     }
 };

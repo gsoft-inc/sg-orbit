@@ -63,9 +63,7 @@ function getDropdownMenu(container) {
 }
 
 function getSearchInput(getByTestId) {
-    const searchInputNode = getByTestId(SEARCH_INPUT_ID);
-
-    return searchInputNode.querySelector("input");
+    return getByTestId(SEARCH_INPUT_ID);
 }
 
 function getSelectedItems(queryAllByTestId) {

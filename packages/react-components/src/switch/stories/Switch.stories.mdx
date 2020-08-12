@@ -1,0 +1,173 @@
+import { Badge } from "@react-components/badge";
+import { ControlledSwitch } from "./ControlledSwitch.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { InnerSwitch, Switch } from "@react-components/switch";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Switch")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/toggle/src" />)
+        .build()}
+/>
+
+# Switch
+
+A switch offers an on or off choice to a user.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Switch", component: InnerSwitch }
+    ]}
+/>
+
+## Usage
+
+### Label
+
+A switch can have a label.
+
+<Preview>
+    <Story name="label">
+        <Switch>Engines</Switch>
+    </Story>
+</Preview>
+
+### Checked
+
+A switch can be checked.
+
+<Preview>
+    <Story name="checked">
+        <Switch defaultChecked>Engines</Switch>
+    </Story>
+</Preview>
+
+
+### No label
+
+A switch can be rendered without a label.
+
+<Preview>
+    <Story name="no label">
+        <Switch />
+    </Story>
+</Preview>
+
+### Disabled
+
+A switch can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Switch disabled>Engines</Switch>
+    </Story>
+</Preview>
+
+### Readonly
+
+A switch can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <Switch readOnly>Engines</Switch>
+    </Story>
+</Preview>
+
+### Icon
+
+A switch can have [icons](?path=/docs/materials-icons--page) after his text.
+
+<Preview>
+    <Story name="icon">
+        <Inline>
+            <Switch icon={<LightbulbIcon />}>Pressurization</Switch>
+            <Switch icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Engines</Switch>
+        </Inline>
+    </Story>
+</Preview>
+
+### Badge
+
+A switch can have a [badge](?path=/docs/components-badge--default-story) after his text.
+
+<Preview>
+    <Story name="badge">
+        <Inline>
+            <Switch badge={<Badge>6</Badge>}>Pressurization</Switch>
+            <Switch badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+        </Inline>
+    </Story>
+</Preview>
+
+### Size
+
+A switch can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <Inline align="end">
+            <Switch size="small">Engines</Switch>
+            <Switch>Engines</Switch>
+            <Switch size="large">Engines</Switch>
+        </Inline>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Switch reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+    </Story>
+</Preview>
+
+### Render Props
+
+A switch can update is content with a render props based on the state values.
+
+<Preview>
+    <Story name="render props">
+        <Switch>
+            {
+                ({ isChecked }) => (
+                    <span className="label">{isChecked ? "On" : "Off"}</span>
+                )
+            }
+        </Switch>
+    </Story>
+</Preview>
+
+### Controlled
+
+A switch can handle `checked` state in controlled mode.
+
+<FilePreview filePath="/switch/stories/ControlledSwitch">
+    <ControlledSwitch />
+</FilePreview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Switch>Engines</Switch>
+    </RefLogger>
+</Story>
+

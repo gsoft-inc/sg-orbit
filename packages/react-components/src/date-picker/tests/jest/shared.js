@@ -8,9 +8,11 @@ export const CALENDAR_APPLY_BUTTON_ID = "date-picker-calendar-apply-button";
 export const DATE_FORMAT = "MMM Do YYYY";
 
 export function getInput(getByTestId) {
-    const searchInputNode = getByTestId("date-picker-textbox-input");
+    // const searchInputNode = getByTestId("date-picker-textbox-input");
 
-    return searchInputNode.querySelector("input");
+    // return searchInputNode.querySelector("input");
+
+    return getByTestId("date-picker-textbox-input");
 }
 
 export async function openCalendar(getByTestId) {

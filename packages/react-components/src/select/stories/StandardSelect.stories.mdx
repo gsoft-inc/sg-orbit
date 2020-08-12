@@ -231,26 +231,26 @@ A select can be open it's menu upward.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus placeholder="Astronaut" options={ASTRONAUTS} />
-        <Select autofocus disabled placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus disabled placeholder="Astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
-        <Select autofocus disabled autofocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus autoFocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus disabled autoFocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
     </div>
 </Story>
 

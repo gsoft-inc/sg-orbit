@@ -206,26 +206,26 @@ A multiple values select can be searchable.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus multiple placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus multiple disabled placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus multiple disabled placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus disabled autofocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus autoFocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus disabled autoFocusDelay={500} multiple placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 

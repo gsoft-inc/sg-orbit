@@ -1,5 +1,5 @@
 import { Dropdown } from "@react-components/dropdown";
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -62,7 +62,7 @@ test("ref is a DOM element when specifying a custom element type", async () => {
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("INPUT");
 });
 
 test("using a callback ref, ref is a DOM element when specifying a custom element type", async () => {
@@ -80,7 +80,7 @@ test("using a callback ref, ref is a DOM element when specifying a custom elemen
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    expect(refNode.tagName).toBe("INPUT");
 });
 
 test("set ref once when specifying a custom element type", async () => {

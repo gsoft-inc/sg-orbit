@@ -207,26 +207,26 @@ A searchable select can show that it is currently loading data.
 </Preview>
 
 <Story
-    name="autofocus"
+    name="autoFocus"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus search placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus search disabled placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus search disabled placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 
 <Story
-    name="autofocus delay"
+    name="autoFocus delay"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <div className="flex items-space-between">
-        <Select autofocus autofocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
-        <Select autofocus disabled autofocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus autoFocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus disabled autoFocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
     </div>
 </Story>
 

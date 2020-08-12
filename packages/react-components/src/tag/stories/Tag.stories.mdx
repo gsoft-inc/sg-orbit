@@ -1,10 +1,12 @@
 import { Badge } from "@react-components/badge";
-import { Button } from "@react-components/button";
-import { CheckIcon, CrossIcon, CheckCircleIcon } from "@react-components/icons";
+import { CheckCircleIcon, CheckIcon, CrossIcon, IconGroup } from "@react-components/icons";
+import { IconButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import CustomColorHover from "./CustomColorHover.mdx";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -49,7 +51,7 @@ A tag can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
     <Story name="button">
-        <Tag button={<Button icon={<CrossIcon />} />}>
+        <Tag button={<IconButton><CrossIcon /></IconButton>}>
             Falcon 9
         </Tag>
     </Story>
@@ -61,14 +63,17 @@ A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <div className="flex items-space-between">
+        <Inline>
             <Tag iconLeft={<CheckCircleIcon />}>
                 Falcon 9
             </Tag>
             <Tag iconRight={<CheckIcon />}>
                 Falcon 9
             </Tag>
-        </div>
+            <Tag iconRight={<IconGroup><CheckCircleIcon /><CheckCircleIcon /></IconGroup>}>
+                Falcon 9
+            </Tag>
+        </Inline>
     </Story>
 </Preview>
 
@@ -78,14 +83,17 @@ A tag can contain a left or right [badge](?path=/docs/components-badge--default-
 
 <Preview>
     <Story name="badge">
-        <div className="flex items-space-between">
+        <Inline>
             <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>
                 Falcon 9
             </Tag>
             <Tag badgeRight={<Badge>6</Badge>}>
                 Falcon 9
             </Tag>
-        </div>
+            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />} badgeRight={<Badge>6</Badge>}>
+                Falcon 9
+            </Tag>
+        </Inline>
     </Story>
 </Preview>
 
@@ -97,14 +105,21 @@ Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
-        <div className="flex items-end items-space-between">
+        <Inline align="end">
             <Tag size="small">Falcon 9</Tag>
             <Tag>Falcon 9</Tag>
             <Tag size="large">Falcon 9</Tag>
-            <Tag size="small" badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
-            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
-            <Tag size="large" badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>Falcon 9</Tag>
-        </div>
+        </Inline>
+    </Story>
+</Preview>
+
+### Fluid
+
+A tag can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Tag fluid iconLeft={<CheckCircleIcon />} badgeRight={<Badge>6</Badge>}>Falcon 9</Tag>
     </Story>
 </Preview>
 
@@ -135,6 +150,8 @@ Custom colors can be applied to a tag.
         </Tag>
     </Story>
 </Preview>
+
+<CustomColorHover />
 
 <Story
     name="ref"

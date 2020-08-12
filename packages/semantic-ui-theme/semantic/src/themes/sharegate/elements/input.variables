@@ -21,4 +21,4 @@
 @iconOpacity: 1;
 
 @disabledOpacity: 1;
-@placeholderErrorColor: @marine100;
+@placeholderErrorColor: var(--marine-500);

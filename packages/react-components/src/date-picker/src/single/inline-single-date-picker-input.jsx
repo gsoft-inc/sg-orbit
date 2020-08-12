@@ -50,7 +50,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
          */
         dateFormat: string,
         /**
-         * Whether or not the date picker is opened.
+         * Whether the date picker is opened.
          */
         open: bool
     };

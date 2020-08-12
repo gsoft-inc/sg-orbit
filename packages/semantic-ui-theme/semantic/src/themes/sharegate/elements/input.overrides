@@ -5,6 +5,7 @@
     height: var(--scale-hotel);
     line-height: var(--scale-hotel);
     min-width: 325px;
+    color: var(--marine-900);
 }
 
 /* STATE | Focus */
@@ -145,7 +146,7 @@
 }
 
 /* Clear button */
-.ui.input-clear-button {
+.o-ui.input-clear-button {
     position: absolute;
     top: 50%;
     right: calc(var(--scale-hotel) / 2);
@@ -154,8 +155,8 @@
 
 /* Input with clear button */
 .with-button .ui.input > input {
-    /* 20px padding + 32px button */
-    padding-right: calc(var(--scale-echo) + var(--scale-golf));
+    /* 20px padding + 24px button */
+    padding-right: calc(var(--scale-echo) + var(--scale-foxtrot));
 }
 
 .with-button .ui.input + .input-clear-button, {

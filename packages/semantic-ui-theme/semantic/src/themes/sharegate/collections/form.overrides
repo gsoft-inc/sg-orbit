@@ -55,7 +55,7 @@
 
 .ui.textarea:active,
 .ui.textarea.active {
-    border-color: var(--marine-500);
+    border-color: var(--marine-900);
 }
 
 .ui.textarea.error:active,
@@ -106,13 +106,13 @@
 }
 
 .ui.textarea::-webkit-input-placeholder {
-    color: @marine100;
+    color: @marine200;
 }
 .ui.textarea::-moz-placeholder {
-    color: @marine100;
+    color: @marine200;
 }
 .ui.textarea:-ms-input-placeholder {
-    color: @marine100;
+    color: @marine200;
 }
 
 /* LAYOUT | Sizes */

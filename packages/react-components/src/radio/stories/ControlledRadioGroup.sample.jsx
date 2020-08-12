@@ -1,21 +1,20 @@
-import { Radio } from "@react-components/radio";
+import { Radio, RadioGroup } from "@react-components/radio";
 import { useState } from "react";
 
 export function ControlledRadioGroup() {
-    const [value, setValue] = useState();
-
-    const handleChange = (event, { value: newValue }) => {
-        setValue(newValue);
-    };
+    const [value, setValue] = useState(null);
 
     return (
-        <>
-            <span className="dib mb4">Where are you heading?</span>
-            <div className="flex flex-column">
-                <Radio label="Earth" name="checkboxRadioGroup" value="earth" onChange={handleChange} checked={value === "earth"} className="mb2" />
-                <Radio label="Moon" name="checkboxRadioGroup" value="moon" onChange={handleChange} checked={value === "moon"} className="mb2" />
-                <Radio label="Mars" name="checkboxRadioGroup" value="mars" onChange={handleChange} checked={value === "mars"} />
-            </div>
-        </>
+        <RadioGroup
+            value={value}
+            onChange={(event, x) => {
+                setValue(x);
+                console.log(x);
+            }}
+        >
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     );
 }

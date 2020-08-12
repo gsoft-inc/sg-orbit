@@ -1,7 +1,7 @@
 import "./Tag.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
 import { embedButton } from "../../button";
 import { forwardRef } from "react";
@@ -12,7 +12,7 @@ const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["solid", "outline", "transparent"]),
+    variant: oneOf(["solid", "outline"]),
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
@@ -34,7 +34,11 @@ const propTypes = {
      */
     badgeRight: element,
     /**
-     * A tag can vary in sizes.
+     * Whether the tag take up the width of its container.
+     */
+    fluid: bool,
+    /**
+     * A tag can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**
@@ -52,8 +56,28 @@ const defaultProps = {
     as: "div"
 };
 
-export function InnerTag(props) {
-    const { variant, iconLeft, iconRight, button, badgeLeft, badgeRight, disabled, size, as: Element, className, children, forwardedRef, ...rest } = props;
+export function InnerTag({
+    variant,
+    iconLeft,
+    iconRight,
+    button,
+    badgeLeft,
+    badgeRight,
+    disabled,
+    fluid,
+    size,
+    active,
+    focus,
+    hover,
+    as: Element,
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const textMarkup = (
+        <span className="text">{children}</span>
+    );
 
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
@@ -65,9 +89,9 @@ export function InnerTag(props) {
 
     const buttonMarkup = !isNil(button) && embedButton(button, {
         size,
-        circular: true,
-        ghost: true,
-        secondary: true
+        variant: "ghost",
+        color: "secondary",
+        shape: "circular"
     });
 
     const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
@@ -85,7 +109,7 @@ export function InnerTag(props) {
     const content = (
         <>
             {iconLeftMarkup}{badgeLeftMarkup}
-            {children}
+            {textMarkup}
             {buttonMarkup}{iconRightMarkup}{badgeRightMarkup}
         </>
     );
@@ -96,15 +120,19 @@ export function InnerTag(props) {
             className={mergeClasses(
                 "o-ui tag",
                 variant,
-                disabled && "disabled",
                 buttonMarkup && "with-button",
                 iconLeftMarkup && "with-left-icon",
                 iconRightMarkup && "with-right-icon",
                 badgeLeftMarkup && "with-left-badge",
                 badgeRightMarkup && "with-right-badge",
+                fluid && "fluid",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
                 getSizeClass(size),
                 className
             )}
+            disabled={disabled}
             ref={forwardedRef}
         >
             {content}

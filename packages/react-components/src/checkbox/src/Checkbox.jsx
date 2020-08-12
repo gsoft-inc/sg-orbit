@@ -1,128 +1,190 @@
+import "./Checkbox.css";
+
 import { EmbeddedIcon } from "../../icons";
-import { Checkbox as SemanticCheckbox } from "semantic-ui-react";
-import { SemanticRef, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutofocus, useMergedRefs } from "../../shared";
-import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
+import { VisuallyHidden } from "../../visually-hidden";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embedBadge } from "../../badge";
-import { forwardRef, useCallback } from "react";
-import { isNil } from "lodash";
+import { forwardRef } from "react";
+import { isFunction, isNil } from "lodash";
+import { mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
+import { useCheckbox } from "./useCheckbox";
 
-const UNSUPPORTED_PROPS = ["slider", "type", "radio", "toggle"];
-
-export const CHECKBOX_PROP_TYPES = {
+const propTypes = {
     /**
-     * Whether or not the checkbox should autofocus on render.
+     * A controlled checked state value.
      */
-    autofocus: bool,
+    checked: bool,
+    /**
+     * The initial value of `checked` when uncontrolled.
+     */
+    defaultChecked: bool,
+    /**
+     * A controlled indeterminate state value.
+     */
+    indeterminate: bool,
+    /**
+     * The initial value of `indeterminate`.
+     */
+    defaultIndeterminate: bool,
+    /**
+     * The value to associate with when in a group.
+     */
+    value: oneOfType([string, number]),
+    /**
+     * Whether the checkbox should autoFocus on render.
+     */
+    autoFocus: bool,
     /**
      * Delay before trying to autofocus.
      */
-    autofocusDelay: number,
+    autoFocusDelay: number,
     /**
-     * The label associated to the checkbox.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    label: string,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) components rendered after the text.
-     */
-    icons: oneOfType([element, arrayOf(element)]),
+    icon: element,
     /**
      * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
     badge: element,
     /**
-     * A checkbox can vary in sizes.
+     * A checkbox can vary in size.
      */
-    size: oneOf(["small", "medium", "large"])
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * Invert the order the checkmark box and the label.
+     */
+    reverse: bool,
+    /**
+     * Called when the checkbox checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * Component children.
+     */
+    children: oneOfType([any, func])
 };
 
-const propTypes = CHECKBOX_PROP_TYPES;
+const defaultProps = {
+    as: "label"
+};
 
 export function InnerCheckbox(props) {
     const {
-        autofocus,
-        autofocusDelay,
-        label,
-        icons,
+        checked,
+        defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
+        value,
+        autoFocus,
+        autoFocusDelay,
+        onChange,
+        onCheck,
+        icon,
         badge,
         size,
+        reverse,
+        name,
+        tabIndex,
         active,
         focus,
         hover,
         disabled,
+        readOnly,
+        as: ElementType,
         className,
+        children,
         forwardedRef,
-        __unsupportedProps = UNSUPPORTED_PROPS,
-        __componentName = "@orbit-ui/react-components/Checkbox",
         ...rest
-    } = props;
+    } = useCheckableProps(props);
 
-    throwWhenUnsupportedPropIsProvided(props, __unsupportedProps, __componentName);
+    // Unnecessary since the component render an input="checkbox".
+    delete rest["role"];
 
-    const innerRef = useMergedRefs(forwardedRef);
+    const handleCheck = useEventCallback(event => {
+        onCheck(event, value);
+    });
 
-    const setFocus = useCallback(() => {
-        if (!isNil(innerRef.current)) {
-            innerRef.current.querySelector("input").focus();
-        }
-    }, [innerRef]);
+    const {
+        isChecked,
+        isIndeterminate,
+        wrapperProps,
+        inputProps
+    } = useCheckbox({
+        checked,
+        defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
+        autoFocus,
+        autoFocusDelay,
+        onChange: !isNil(onCheck) ? handleCheck : onChange,
+        icon,
+        badge,
+        size,
+        reverse,
+        name,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        className,
+        forwardedRef
+    });
 
-    const autofocusProps = useAutofocus(autofocus, autofocusDelay, disabled, setFocus);
+    const label = isFunction(children)
+        ? children({ isChecked, isIndeterminate }, props)
+        : children;
 
-    const hasLabel = !isNil(label);
-
-    const labelMarkup = hasLabel && (
-        <span className="label">
-            {label}
-        </span>
+    const labelMarkup = label && (
+        <span className="label">{label}</span>
     );
 
-    const iconsMarkup = !isNil(icons) && (
-        <>
-            {(Array.isArray(icons) ? icons : [icons]).map(
-                (x, index) =>
-                    // eslint-disable-next-line react/no-array-index-key
-                    <EmbeddedIcon size={size} key={index}>{x}</EmbeddedIcon>
-            )}
-        </>
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
     );
 
+    // TODO: Add reverse
     const badgeMarkup = !isNil(badge) && embedBadge(badge, {
         size,
-        highlight: true,
         disabled
     });
 
-    const content = (labelMarkup || iconsMarkup || badgeMarkup) && (
-        <label title={label || ""}>
+    const content = (
+        <>
             {labelMarkup}
-            {iconsMarkup}{badgeMarkup}
-        </label>
+            {iconMarkup}
+            {badgeMarkup}
+        </>
     );
 
     return (
-        <SemanticRef innerRef={innerRef}>
-            <SemanticCheckbox
-                data-testid="checkbox"
-                {...rest}
-                {...autofocusProps}
-                label={content || undefined}
-                disabled={disabled}
-                className={mergeClasses(
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    size && size,
-                    iconsMarkup && "with-icon",
-                    badgeMarkup && "with-badge",
-                    !hasLabel && "fitted",
-                    className
-                )}
+        <ElementType
+            data-testid="checkbox"
+            {...rest}
+            {...wrapperProps}
+            className={mergeClasses(
+                "o-ui checkbox",
+                wrapperProps.className
+            )}
+        >
+            <VisuallyHidden
+                {...inputProps}
             />
-        </SemanticRef>
+            <span className="box" />
+            {content}
+        </ElementType>
     );
 }
 
 InnerCheckbox.propTypes = propTypes;
+InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox { ...props } forwardedRef={ref} />

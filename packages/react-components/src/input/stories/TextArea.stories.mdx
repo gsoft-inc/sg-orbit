@@ -1,0 +1,203 @@
+import { CrossIcon } from "@react-components/icons";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
+import { InnerTextArea, TextArea } from "@react-components/input";
+import { LengthValidation } from "./LengthValidation.sample";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./TextInputImports.mdx";
+
+<Meta
+    title={createComponentSection("TextArea")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
+        .build()}
+/>
+
+# TextArea
+
+A text area is a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "TextArea", component: InnerTextArea }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default text input.
+
+<Preview>
+    <Story name="default">
+        <TextArea placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Label
+
+A text area can be identified by a label.
+
+<Preview>
+    <Story name="label">
+        <Inline>
+            <TextArea label="Why should you go to space?" />
+            <TextArea label="Why should you go to space?" required />
+        </Inline>
+    </Story>
+</Preview>
+
+### Description
+
+A text area can have additional text to further describe the input.
+
+<Preview>
+    <Story name="description">
+        <TextArea label="Why should you go to space?" description="We currently can't afford to send more than 2 austronauts per year. We must choose wisely!" />
+    </Story>
+</Preview>
+
+### Value
+
+A text area can have a value.
+
+<Preview>
+    <Story name="value">
+        <TextArea defaultValue="To fly high!" placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Button
+
+A text area can contain a [button](?path=/docs/components-button--default-story).
+
+<Preview>
+    <Story name="button">
+        <Inline>
+            <TextArea button={<IconButton><CrossIcon /></IconButton>} placeholder="Why should you go to space?" />
+        </Inline>
+    </Story>
+</Preview>
+
+### Max Rows
+
+A text are can be limited to a maximum number of rows.
+
+<Preview>
+    <Story name="max rows">
+        <Inline>
+            <TextArea maxRows={5} placeholder="Why should you go to space?" />
+        </Inline>
+    </Story>
+</Preview>
+
+### Size
+
+A text area can vary in size.
+
+Can be set to: `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <Inline align="end">
+            <TextArea size="small" placeholder="Why should you go to space?" />
+            <TextArea placeholder="Why should you go to space?" />
+            <TextArea size="large" placeholder="Why should you go to space?" />
+        </Inline>
+    </Story>
+</Preview>
+
+### Disabled
+
+A text area can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <TextArea disabled placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Readonly
+
+A text area can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <TextArea readOnly defaultValue="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
+    </Story>
+</Preview>
+
+### Loading
+
+A text area can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <TextArea loading />
+    </Story>
+</Preview>
+
+### Fluid
+
+A text area can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <TextArea fluid placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Message
+
+A message can be displayed beneath a text area.
+
+<Preview>
+    <Story name="message">
+        <Inline>
+            <TextArea helpMessage="Why should we choose you over another candidate?" label="Why should you go to space?" placeholder="When I was young..." />
+            <TextArea invalidMessage="Not good enough." validationState="invalid" label="Why should you go to space?" defaultValue="Because it's my dream." />
+            <TextArea validMessage="Welcome aboard!" validationState="valid" label="Why should you go to space?" defaultValue="I possess a master's degree in engineering, biological and physical science. I do have over 1,000 hours of jet aircraft air time and I am in great physical condition." />
+        </Inline>
+    </Story>
+</Preview>
+
+### Transparent
+
+A text area can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextArea variant="transparent" placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Validation
+
+A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the text input via the `validationState` prop.
+
+The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
+
+<FilePreview filePath="/input/stories/LengthValidation">
+    <LengthValidation />
+</FilePreview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger><TextArea /></RefLogger>
+</Story>
+
+

@@ -1,0 +1,29 @@
+.o-ui.input-label {
+    color: var(--marine-200);
+    margin-bottom: var(--scale-alpha);
+}
+
+/* SIZE | SMALL */
+.o-ui.input-label.small {
+    font-size: var(--type-scale-9);
+}
+
+/* SIZE | MEDIUM */
+.o-ui.input-label.medium {
+    font-size: var(--type-scale-8);
+}
+
+/* SIZE | LARGE */
+.o-ui.input-label.large {
+    font-size: var(--type-scale-7);
+}
+
+/* DESCRIPTION */
+.o-ui.input-label.with-description {
+    display: flex;
+    align-items: center;
+}
+
+.o-ui.input-label.with-description .input-description {
+    margin-left: var(--scale-alpha);
+}

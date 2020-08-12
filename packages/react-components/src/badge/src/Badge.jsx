@@ -10,11 +10,11 @@ const propTypes = {
      */
     variant: oneOf(["pill", "inline", "dot", "icon"]),
     /**
-     * Whether or not to add emphasis on the label text.
+     * Whether to add emphasis on the label text.
      */
     highlight: bool,
     /**
-     * A badge can vary in sizes.
+     * A badge can vary in size.
      */
     size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
     /**
@@ -45,7 +45,7 @@ export function InnerBadge(props) {
             className={mergeClasses(
                 "o-ui badge",
                 variant,
-                content && "with-content",
+                variant === "dot" && !content && "empty",
                 variant !== "inline" && variant !== "icon" && getSizeClass(size),
                 highlight && "highlight",
                 className

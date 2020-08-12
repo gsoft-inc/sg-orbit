@@ -5,10 +5,10 @@ import { Popper } from "@react-components/popper";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
-import { useAutoControlledState } from "@react-components/shared";
+import { useControllableState } from "@react-components/shared";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Popper/popper"))
+    return storiesOfBuilder(module, createChromaticSection("Popper"))
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -34,7 +34,7 @@ const RedBox = forwardRef((props, ref) => {
 
 const RedBoxPopper = forwardRef(({ show, defaultShow, ...rest }, ref) => {
     const [triggerElement, setTriggerElement] = useState();
-    const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
+    const [isVisible, setIsVisible] = useControllableState(show, defaultShow, false);
 
     return (
         <>

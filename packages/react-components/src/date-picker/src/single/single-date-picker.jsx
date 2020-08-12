@@ -36,7 +36,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     onVisibilityChange: func,
     /**
-     * Whether or not the calendar selected date(s) can be cleared.
+     * Whether the calendar selected date(s) can be cleared.
      */
     allowClear: bool,
     /**
@@ -68,7 +68,7 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     dateFormat: string,
     /**
-     * Whether or not the calendar will open upward.
+     * Whether the calendar will open upward.
      */
     upward: bool,
     /**
@@ -100,15 +100,15 @@ export const SINGLE_DATE_PICKER_PROP_TYPES = {
      */
     defaultOpen: bool,
     /**
-     * Whether or not the date picker take up the width of its container.
+     * Whether the date picker take up the width of its container.
      */
     fluid: bool,
     /**
-     * A date picker can vary in sizes.
+     * A date picker can vary in size.
      */
     size: oneOf(SIZES),
     /**
-     * Whether or not to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
+     * Whether to render the calendar element with React portal. The calendar element will be rendered within it's parent DOM hierarchy.
      */
     noPortal: bool,
     /**

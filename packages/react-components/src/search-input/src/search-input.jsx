@@ -68,7 +68,7 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         resultRenderer: func,
         /**
-         * Whether or not the query should be cleared when a result is selected.
+         * Whether the query should be cleared when a result is selected.
          */
         clearOnSelect: bool,
         /**
@@ -96,19 +96,19 @@ export class SearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether or not the search input should autofocus on render.
+         * Whether the search input should autoFocus on render.
          */
-        autofocus: bool,
+        autoFocus: bool,
         /**
          * Delay before trying to autofocus.
          */
-        autofocusDelay: number,
+        autoFocusDelay: number,
         /**
          * A search input can have different sizes.
          */
         size: oneOf(SIZES),
         /**
-         * Whether or not the search input take up the width of its container.
+         * Whether the search input take up the width of its container.
          */
         fluid: bool,
         /**
@@ -239,8 +239,8 @@ export class SearchInput extends AutoControlledPureComponent {
             debounceDelay,
             placeholder,
             disabled,
-            autofocus,
-            autofocusDelay,
+            autoFocus,
+            autoFocusDelay,
             size,
             fluid,
             input,
@@ -269,8 +269,8 @@ export class SearchInput extends AutoControlledPureComponent {
                 debounceDelay={debounceDelay}
                 placeholder={placeholder}
                 disabled={disabled}
-                autofocus={autofocus}
-                autofocusDelay={autofocusDelay}
+                autoFocus={autoFocus}
+                autoFocusDelay={autoFocusDelay}
                 size={size}
                 fluid={fluid}
                 input={input}

@@ -1,4 +1,4 @@
-import { TextInput } from "@react-components/text-input";
+import { TextInput } from "@react-components/input";
 import { createOrAugmentElement } from "@react-components/shared";
 import { isElement } from "react-is";
 

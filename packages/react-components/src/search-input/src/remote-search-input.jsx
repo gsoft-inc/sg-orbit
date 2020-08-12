@@ -1,14 +1,10 @@
-import {
-    AutoControlledPureComponent,
-    KEYS,
-    cancellablePromise,
-    defer,
-    getAutoControlledStateFromProps,
-    httpGet
-} from "../../shared";
+import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { cancellablePromise } from "./cancellablePromise";
 import { debounce, isArray, isNil } from "lodash";
+import { defer } from "./defer";
+import { httpGet } from "./httpClient";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
 const SIZES = ["small", "medium", "large"];
@@ -124,7 +120,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         resultRenderer: func,
         /**
-         * Whether or not the query should be cleared when a result is selected.
+         * Whether the query should be cleared when a result is selected.
          */
         clearOnSelect: bool,
         /**
@@ -156,19 +152,19 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether or not the search input should autofocus on render.
+         * Whether the search input should autoFocus on render.
          */
-        autofocus: bool,
+        autoFocus: bool,
         /**
          * Delay before trying to autofocus.
          */
-        autofocusDelay: number,
+        autoFocusDelay: number,
         /**
          * A remote search input can have different sizes.
          */
         size: oneOf(SIZES),
         /**
-         * Whether or not the search input take up the width of its container.
+         * Whether the search input take up the width of its container.
          */
         fluid: bool,
         /**
@@ -383,8 +379,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
             minCharacters,
             placeholder,
             disabled,
-            autofocus,
-            autofocusDelay,
+            autoFocus,
+            autoFocusDelay,
             size,
             fluid,
             input,
@@ -414,8 +410,8 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
                 placeholder={placeholder}
                 loading={isLoading}
                 disabled={disabled}
-                autofocus={autofocus}
-                autofocusDelay={autofocusDelay}
+                autoFocus={autoFocus}
+                autoFocusDelay={autoFocusDelay}
                 size={size}
                 fluid={fluid}
                 input={input}

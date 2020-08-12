@@ -1,0 +1,12 @@
+:root {
+    --o-ui-outline: 0 0 0 2px var(--primary-200);
+}
+
+/* ROTATE */
+.o-ui-rotate-90 {
+    transform: rotate(90deg);
+}
+
+.o-ui-rotate-180 {
+    transform: rotate(180deg);
+}

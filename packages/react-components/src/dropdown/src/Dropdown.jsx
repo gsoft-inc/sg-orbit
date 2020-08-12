@@ -37,7 +37,7 @@ const propTypes = {
      */
     direction: oneOf(["left", "right"]),
     /**
-     * Whether or not the trigger will be rendered as fluid.
+     * Whether the trigger will be rendered as fluid.
      */
     fluid: bool,
     /**

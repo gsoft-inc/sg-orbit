@@ -76,8 +76,8 @@
 
 /* Input Text Color */
 @inputColor: @textColor;
-@inputPlaceholderColor: @marine100;
-@inputPlaceholderFocusColor: @marine100;
+@inputPlaceholderColor: var(--marine-500);
+@inputPlaceholderFocusColor: var(--marine-500);
 
 /* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
 @inputLineHeight: unit((17 / 14), em);
@@ -118,7 +118,7 @@
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
-@textColor           : @marine500;
+@textColor           : @marine900;
 
 /*-------------------
     Paragraph
@@ -460,7 +460,7 @@
 @infoColor              : @primary500;
 @infoBackgroundColor    : @moonstone50;
 @infoBorderColor        : #A9D5DE;
-@infoHeaderColor        : @marine500;
+@infoHeaderColor        : @marine900;
 @infoTextColor          : #276F86;
 
 /* Warning */

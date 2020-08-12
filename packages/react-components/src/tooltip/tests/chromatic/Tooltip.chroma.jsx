@@ -1,7 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
-import { Input } from "@react-components/input";
-import { TextArea } from "@react-components/text-area";
+import { TextArea, TextInput } from "@react-components/input";
 import { Tooltip } from "@react-components/tooltip";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -218,7 +217,7 @@ stories()
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button circular icon={<AddIcon />}>Add</Button>}
+                        trigger={<Button shape="circular" icon={<AddIcon />}>Add</Button>}
                         open
                     />
                 </div>
@@ -232,7 +231,7 @@ stories()
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button circular>A</Button>}
+                        trigger={<Button shape="circular">A</Button>}
                         open
                     />
                 </div>
@@ -260,7 +259,7 @@ stories()
             <div className="flex">
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Input />}
+                        trigger={<TextInput />}
                         open
                     />
                 </div>

@@ -139,9 +139,8 @@ export class TagsPickerDropdownTrigger extends PureComponent {
                     onKeyDown={this.handleKeyDown}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    secondary
-                    icon={<AddIcon />}
-                    iconPosition="right"
+                    color="secondary"
+                    iconRight={<AddIcon />}
                     size={size}
                     className={this.getClasses()}
                     disabled={disabled}

@@ -1,56 +1,183 @@
-import { Checkbox } from "../../checkbox";
-import { SemanticRef } from "../../shared";
-import { arrayOf, bool, element, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import "./Radio.css";
 
-const UNSUPPORTED_PROPS = ["defaultIndeterminate", "indeterminate", "slider", "toggle", "type"];
+import { EmbeddedIcon } from "../../icons";
+import { VisuallyHidden } from "../../visually-hidden";
+import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { embedBadge } from "../../badge";
+import { forwardRef, useImperativeHandle, useRef } from "react";
+import { getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { isFunction, isNil } from "lodash";
 
-// Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
-export const CHECKBOX_PROP_TYPES = {
+const propTypes = {
     /**
-     * Whether or not the radio should be autofocus on render.
+     * A controlled checked state value.
      */
-    autofocus: bool,
+    checked: bool,
     /**
-     * Delay before trying to autofocus.
+     * The initial value of `checked` when uncontrolled.
      */
-    autofocusDelay: number,
+    defaultChecked: bool,
     /**
-     * The label associated to the radio.
+     * The value to associate with when in a group.
      */
-    label: string,
+    value: oneOfType([string, number]).isRequired,
     /**
-     * [Icons](/?path=/docs/components-icon--default-story) rendered after the text.
+     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
-    icons: oneOfType([element, arrayOf(element)]),
+    icon: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) rendered after the text.
+     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
      */
     badge: element,
     /**
-     * A radio can vary in sizes.
+     * A checkbox can vary in size.
      */
-    size: oneOf(["small", "medium", "large"])
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * Invert the order the checkmark box and the label.
+     */
+    reverse: bool,
+    /**
+     * Called when the radio checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * Component children.
+     */
+    children: oneOfType([any, func]).isRequired
+};
+
+const defaultProps = {
+    as: "label"
 };
 
 export function InnerRadio(props) {
-    const { forwardedRef, ...rest } = props;
+    const {
+        value,
+        name,
+        checked,
+        defaultChecked,
+        autoFocus,
+        autoFocusDelay,
+        onChange,
+        onCheck,
+        icon,
+        badge,
+        size,
+        reverse,
+        tabIndex,
+        active,
+        focus,
+        hover,
+        disabled,
+        readOnly,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = useCheckableProps(props);
+
+    // Since this component render an input="radio" the role is unnecessary.
+    delete rest["role"];
+
+    const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
+
+    const labelRef = useRef();
+    const inputRef = useRef();
+
+    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+
+    const forwardInputApi = useForwardInputApi(inputRef);
+
+    useImperativeHandle(forwardedRef, () => {
+        return forwardInputApi(labelRef);
+    });
+
+    const label = isFunction(children)
+        ? children({ isChecked }, props)
+        : children;
+
+    const labelMarkup = label && (
+        <span className="label">{label}</span>
+    );
+
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    );
+
+    // TODO: Add reverse
+    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+        size,
+        disabled
+    });
+
+    const content = (
+        <>
+            {labelMarkup}
+            {iconMarkup}
+            {badgeMarkup}
+        </>
+    );
+
+    const handleChange = useEventCallback(event => {
+        setIsChecked(!isChecked);
+
+        if (!isNil(onChange)) {
+            onChange(event);
+        }
+    });
+
+    const handleCheck = useEventCallback(event => {
+        onCheck(event, value);
+    });
 
     return (
-        <SemanticRef innerRef={forwardedRef}>
-            <Checkbox
-                {...rest}
-                radio
-                __componentName="@orbit-ui/react-components/Radio"
-                __unsupportedProps={UNSUPPORTED_PROPS}
+        <ElementType
+            data-testid="radio"
+            {...rest}
+            className={mergeClasses(
+                "o-ui radio",
+                isChecked && "checked",
+                iconMarkup && "with-icon",
+                badgeMarkup && "with-badge",
+                reverse && "reverse",
+                disabled && "disabled",
+                readOnly && "readonly",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                getSizeClass(size),
+                className
+            )}
+            ref={labelRef}
+        >
+            <VisuallyHidden
+                as="input"
+                type="radio"
+                value={value}
+                name={name}
+                checked={readOnly ? undefined : isChecked}
+                onChange={readOnly ? undefined : !isNil(onCheck) ? handleCheck : handleChange}
+                disabled={disabled}
+                tabIndex={tabIndex}
+                ref={inputRef}
             />
-        </SemanticRef>
+            <span className="button"></span>
+            {content}
+        </ElementType>
     );
 }
 
-InnerRadio.propTypes = CHECKBOX_PROP_TYPES;
+InnerRadio.propTypes = propTypes;
+InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio { ...props } forwardedRef={ref} />
 ));
-

@@ -1,0 +1,29 @@
+@import "./Input.css";
+
+:root {
+    --o-ui-resize: vertical;
+}
+
+.o-ui.input.text-area textarea {
+    resize: var(--o-ui-resize);
+}
+
+/* SIZES */
+/* SIZES | SMALL */
+.o-ui.input.text-area.small textarea {
+    padding: var(--scale-bravo) var(--scale-delta);
+    min-height: 60px;
+}
+
+/* SIZES | MEDIUM */
+.o-ui.input.text-area.medium textarea {
+    padding: var(--scale-delta) var(--scale-echo);
+    min-height: 80px;
+}
+
+/* SIZES | LARGE */
+.o-ui.input.text-area.large textarea {
+    padding: var(--scale-echo) var(--scale-foxtrot);
+    line-height: 1.3333333;
+    min-height: 100px;
+}

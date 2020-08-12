@@ -1,8 +1,8 @@
-import { Button } from "../../button";
 import { CalendarIcon, CrossIcon } from "../../icons";
+import { IconButton } from "../../button";
 import { KEYS, SIZE, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
-import { TextInput } from "../../text-input";
+import { TextInput } from "../../input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
@@ -60,11 +60,12 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         }
 
         return (
-            <Button
-                icon={<CrossIcon />}
+            <IconButton
                 onClick={onClear}
                 data-testid="date-picker-textbox-clear-button"
-            />
+            >
+                <CrossIcon />
+            </IconButton>
         );
     }
 
@@ -79,8 +80,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
                 onBlur={onBlur}
                 value={value}
                 placeholder={placeholder}
-                icon={<CalendarIcon />}
-                iconPosition="left"
+                iconLeft={<CalendarIcon />}
                 button={this.renderClearButton()}
                 size={size}
                 disabled={disabled}

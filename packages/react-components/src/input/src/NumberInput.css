@@ -1,0 +1,129 @@
+@import "./Input.css";
+
+:root {
+    --o-ui-spinner-width: var(--scale-foxtrot);
+}
+
+/* INPUT */
+.o-ui.number-input input::-webkit-inner-spin-button,
+.o-ui.number-input input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.o-ui.number-input input {
+    -moz-appearance: textfield;
+}
+
+.o-ui.input.number-input {
+    width: 150px;
+}
+
+.o-ui.input.number-input input {
+    padding-right: var(--o-ui-spinner-width);
+}
+
+/* INPUT | FLUID */
+.o-ui.input.fluid.number-input {
+    width: 100%;
+}
+
+/* SPINNER */
+.o-ui.number-input .o-ui.spinner {
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    width: var(--o-ui-spinner-width);
+    margin: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.o-ui.number-input .o-ui.spinner .increment,
+.o-ui.number-input .o-ui.spinner .decrement {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-left: 1px solid var(--o-ui-border-color);
+    outline: none;
+    cursor: pointer;
+    background-color: var(--o-ui-neutral-100);
+}
+
+.o-ui.number-input .o-ui.spinner .increment {
+    border-top-right-radius: var(--o-ui-border-radius);
+    border-bottom: 1px solid var(--o-ui-border-color);
+}
+
+.o-ui.number-input .o-ui.spinner .decrement {
+    border-bottom-right-radius: var(--o-ui-border-radius);
+}
+
+/* SPINNER | VISIBILE */
+.o-ui.number-input:hover .o-ui.spinner,
+.o-ui.number-input.hover .o-ui.spinner,
+.o-ui.number-input input:focus + .o-ui.spinner,
+.o-ui.number-input.focus .o-ui.spinner {
+    visibility: visible;
+}
+
+/* SPINNER | SMALL */
+.o-ui.number-input.small .o-ui.spinner {
+    min-height: calc(var(--scale-golf) - 2px);
+}
+
+/* SPINNER | MEDIUM */
+.o-ui.number-input.medium .o-ui.spinner {
+    min-height: calc(var(--scale-hotel) - 2px);
+}
+
+/* SPINNER | LARGE */
+.o-ui.number-input.large .o-ui.spinner {
+    min-height: calc(var(--scale-india) - 2px);
+}
+
+/* SPINNER | ACTIVE */
+.o-ui.number-input .o-ui.spinner .increment:active,
+.o-ui.number-input .o-ui.spinner .decrement:active {
+    background-color: var(--neutral-300);
+}
+
+/* SPINNER | DISABLED */
+/* .o-ui.number-input .o-ui.spinner .increment:disabled,
+.o-ui.number-input .o-ui.spinner .decrement:disabled {
+    background-color: var(--o-ui-background-color);
+    opacity: var(--o-ui-background-opacity);
+    cursor: default;
+} */
+
+.o-ui.number-input .o-ui.spinner .increment:disabled,
+.o-ui.number-input .o-ui.spinner .decrement:disabled {
+    visibility: hidden;
+}
+
+/* SPINNER | LOADING */
+.o-ui.number-input.loading .o-ui.spinner {
+    display: none;
+}
+
+/* SPINNER | TRANSPARENT */
+.o-ui.number-input.transparent .o-ui.spinner .increment,
+.o-ui.number-input.transparent .o-ui.spinner .decrement {
+    background: none;
+    border: 0;
+}
+
+.o-ui.number-input.transparent .o-ui.spinner .increment {
+    border: 0;
+}
+
+/* SPINNER | TRANSPARENT | ACTIVE */
+.o-ui.number-input.transparent .o-ui.spinner .increment:active,
+.o-ui.number-input.transparent .o-ui.spinner .decrement:active {
+    background-color: var(--neutral-300);
+}

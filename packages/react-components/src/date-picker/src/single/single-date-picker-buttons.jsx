@@ -23,7 +23,7 @@ export class SingleDatePickerButtons extends PureComponent {
          */
         onApply: func,
         /**
-         * Whether or not the calendar selected date can be cleared.
+         * Whether the calendar selected date can be cleared.
          */
         allowClear: bool,
         /**

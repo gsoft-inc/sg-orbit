@@ -1,22 +1,25 @@
 import { Badge } from "../../badge";
 import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
-import { FilePreview, HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@blocks";
-import { InfoIcon, LightbulbIcon } from "@react-components/icons";
-import { InnerRadio, Radio } from "@react-components/radio";
+import { CustomGroup } from "./CustomGroup.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { IconGroup, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { ToggleButton } from "@react-components/button";
 import Imports from "./Imports.mdx";
 
 <Meta
     title={createComponentSection("Radio")}
     parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout semanticPath="/modules/checkbox" />)
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/radio/src" />)
         .build()}
 />
 
 # Radio
 
-Radio buttons allow a user to select one option from a set.
+A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.
 
 ## Installation
 
@@ -24,80 +27,124 @@ Radio buttons allow a user to select one option from a set.
 
 ## Props
 
-<HocWarning componentName="Checkbox" semanticPath="modules/checkbox/" />
-
 <Props
     componentsDefinitions={[
-        { displayName: "Radio", component: InnerRadio }
+        { displayName: "Radio", component: InnerRadio },
+        { displayName: "RadioGroup", component: InnerRadioGroup }
     ]}
 />
 
+## Accessibility
+
+This component follow WAI-ARIA [design pattern for radio group](https://www.w3.org/TR/wai-aria-practices-1.1/#radiobutton).
+
 ## Usage
 
-<WarningMessage>
-    This component have the same feature set as the <a href="?path=/docs/components-checkbox--text">checkbox</a> component.
-</WarningMessage>
+### Default
 
-### Label
-
-A radio can have a label.
+A default radio group.
 
 <Preview>
-    <Story name="label">
-        <Radio label="Mars"/>
+    <Story name="default">
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
-### Selected
+### Selected value
 
-A radio can be selected.
+A radio group can have a selected value.
 
 <Preview>
     <Story name="selected">
-        <Radio defaultChecked label="Mars"/>
+        <RadioGroup defaultValue="jupiter">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Label
+
+A radio group can have a label.
+
+<Preview>
+    <Story name="label">
+        <RadioGroup label="Your favorite planet">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
 ### Disabled
 
-A radio can be disabled.
+A single radio can be disabled.
 
 <Preview>
-    <Story name="disabled">
-        <Radio disabled label="Mars"/>
+    <Story name="disabled radio">
+        <RadioGroup>
+            <Radio disabled value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="disabled group">
+        <RadioGroup disabled>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
 ### Readonly
 
-A radio can be readonly.
+A single radio can be readonly.
 
 <Preview>
-    <Story name="readonly">
-        <Radio readOnly label="Mars" />
+    <Story name="readonly radio">
+        <RadioGroup>
+            <Radio readOnly value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
-### No label
-
-A radio can be rendered without a label.
+Or the whole group.
 
 <Preview>
-    <Story name="no label">
-        <Radio />
+    <Story name="readonly group">
+        <RadioGroup readOnly>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
-### Icons
+### Icon
 
-A radio can display a single or multiple [icons](?path=/docs/materials-icons--page) after his text.
+A radio can have [icons](?path=/docs/materials-icons--page) after his text.
 
 <Preview>
-    <Story name="icons">
-        <div className="flex items-lot-of-space-between">
-            <Radio label="Milky Way" icons={<LightbulbIcon />} />
-            <Radio label="Milky Way" icons={[<LightbulbIcon />, <InfoIcon />]} />
-        </div>
+    <Story name="icon">
+        <RadioGroup>
+            <Radio icon={<LightbulbIcon />} value="mars">Mars</Radio>
+            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>} value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
@@ -107,10 +154,25 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 
 <Preview>
     <Story name="badge">
-        <div className="flex items-lot-of-space-between">
-            <Radio label="Milky Way" badge={<Badge>6</Badge>} />
-            <Radio label="Milky Way" badge={<Badge inline>6</Badge>} />
-        </div>
+        <RadioGroup>
+            <Radio badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio badge={<Badge variant="inline">6</Badge>} value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A radio button can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <RadioGroup>
+            <Radio reverse icon={<LightbulbIcon />} badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio reverse value="jupiter">Jupiter</Radio>
+            <Radio reverse value="pluto" badge={<Badge variant="inline">6</Badge>}>Pluto</Radio>
+        </RadioGroup>
     </Story>
 </Preview>
 
@@ -118,31 +180,174 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 
 A radio can vary in size.
 
-Can be set to: `"small"`, `"large"` or omitted.
+Can be set on a single radio to: `"small"`, `"large"` or omitted.
 
 <Preview>
-    <Story name="size">
-        <div className="flex items-end items-lot-of-space-between">
-            <Radio size="small" label="Mars" />
-            <Radio label="Mars" />
-            <Radio size="large" label="Mars" />
+    <Story name="size radio">
+        <Inline align="end">
+            <Radio size="small" value="mars">Mars</Radio>
+            <Radio value="mars">Mars</Radio>
+            <Radio size="large" value="mars">Mars</Radio>
+        </Inline>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="size group">
+        <RadioGroup size="large">
+            <Radio value="mars" >Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Orientation
+
+A radio group can change is orientation to `horizontal` to render his elements horizontally.
+
+<Preview>
+    <Story name="orientation">
+        <RadioGroup orientation="horizontal">
+            <Radio value="mars" >Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Render Props
+
+A radio can update his content with a render props based on the state values:
+
+<Preview>
+    <Story name="radio render props">
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">
+                {
+                    ({ isChecked }) => {
+                        return isChecked ? "Selected" : "Jupiter";
+                    }
+                }
+            </Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or even use a render props for items:
+
+<Preview>
+    <Story name="group render props">
+        <RadioGroup>
+            {
+                ({ checkedValue }) =>
+                    ["Mars", "Jupiter", "Pluto"].map(x =>
+                        <Radio
+                            className={ checkedValue === x ? "primary-500" : undefined }
+                            value={x}
+                        >
+                            {checkedValue === x ? "Select" : x}
+                        </Radio>
+                    )
+            }
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Toggle Buttons
+
+In somes cases, you might want a group of toggle buttons to behave like a radio group.
+
+<Preview>
+    <Story name="toggle buttons">
+        <RadioGroup gap={2} orientation="horizontal">
+            <ToggleButton value="none" variant="outline">None</ToggleButton>
+            <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
+            <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
+            <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Custom Components
+
+In fact, any component implementing the `CheckableContext` can behave like a radio group.
+
+<FilePreview filePath="/radio/stories/CustomGroup">
+    <CustomGroup />
+</FilePreview>
+
+### Wrapped
+
+Checkable components can be wrap on multiple lines.
+
+<Preview>
+    <Story name="wrap toggle buttons">
+        <div style={{ width: "200px" }}>
+            <RadioGroup wrap gap={2} orientation="horizontal">
+                <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
+                <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
+                <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
+                <ToggleButton value="4" variant="outline" shape="circular">4</ToggleButton>
+                <ToggleButton value="5" variant="outline" shape="circular">5</ToggleButton>
+                <ToggleButton value="6" variant="outline" shape="circular">6</ToggleButton>
+                <ToggleButton value="7" variant="outline" shape="circular">7</ToggleButton>
+                <ToggleButton value="8" variant="outline" shape="circular">8</ToggleButton>
+            </RadioGroup>
         </div>
     </Story>
 </Preview>
 
-### Group
+### Controlled
 
-Radios buttons in a group must be controlled components.
+A radio group can handle `value` state in controlled mode.
 
 <FilePreview filePath="/radio/stories/ControlledRadioGroup">
     <ControlledRadioGroup />
 </FilePreview>
 
 <Story
-    name="ref"
+    name="radio ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Radio label="Mars" /></RefLogger>
+    <RefLogger>
+        <Radio>Mars</Radio>
+    </RefLogger>
+</Story>
+
+<Story
+    name="radio group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </RefLogger>
+</Story>
+
+<Story
+    name="labelled radio group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <RadioGroup label="Your favorite planet">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </RefLogger>
 </Story>

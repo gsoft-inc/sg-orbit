@@ -5,11 +5,13 @@
     border-left: 0.25rem solid;
     font-size: 1.125rem;
     border-color: @transparent;
+    color: var(--marine-900);
 }
 
 .ui.message .header + p,
 .ui.message .list:not(.ui) li {
     line-height: 1.3333333;
+    color: var(--marine-900);
 }
 
 .ui.message .list:not(.ui) li {

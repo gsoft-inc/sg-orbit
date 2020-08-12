@@ -1,6 +1,7 @@
-import { Button } from "@react-components/button";
+import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
@@ -16,16 +17,18 @@ function stories(segment) {
         .build();
 }
 
-const CustomTrigger = forwardRef((props, ref) => {
+const CustomTrigger = forwardRef(({ children, ...rest }, ref) => {
     const { isOpen } = useContext(DropdownContext);
 
     return (
         <Button
-            {...props}
+            {...rest}
             primary={isOpen}
             secondary={!isOpen}
             ref={ref}
-        />
+        >
+            {children}
+        </Button>
     );
 });
 
@@ -78,14 +81,15 @@ function CircularButtonDropdown({ active, focus, hover, ...rest }) {
     return (
         <Dropdown {...rest}>
             <Dropdown.Trigger
-                as={Button}
+                as={IconButton}
                 circular
                 secondary
-                icon={<VerticalDotsIcon />}
                 active={active}
                 focus={focus}
                 hover={hover}
-            />
+            >
+                <VerticalDotsIcon />
+            </Dropdown.Trigger>
             <Dropdown.Menu>
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -98,7 +102,9 @@ function CircularButtonDropdown({ active, focus, hover, ...rest }) {
 function CustomTriggerDropdown(props) {
     return (
         <Dropdown {...props}>
-            <Dropdown.Trigger as={CustomTrigger} circular icon={<VerticalDotsIcon />} />
+            <Dropdown.Trigger as={CustomTrigger} shape="circular">
+                <VerticalDotsIcon />
+            </Dropdown.Trigger>
             <Dropdown.Menu>
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -113,166 +119,132 @@ stories()
         <BasicDropdown />
     )
     .add("open", () =>
-        <BasicDropdown open />
-    )
-    .add("default open", () =>
-        <BasicDropdown defaultOpen />
+        <Inline gap="150px">
+            <BasicDropdown open />
+            <BasicDropdown defaultOpen />
+        </Inline>
+
     )
     .add("basic trigger", () =>
-        <div className="flex">
-            <div className="flex flex-column" style={{ marginRight: "300px" }}>
-                <div className="flex" style={{ marginBottom: "150px" }}>
-                    <BasicDropdown
-                        size="small"
-                        className="mr5"
-                    />
+        <Inline gap="300px">
+            <Stack gap="200px">
+                <Inline>
+                    <BasicDropdown size="small" />
                     <BasicDropdown
                         size="small"
                         open
                     />
-                </div>
-                <div className="flex" style={{ marginBottom: "200px" }}>
-                    <BasicDropdown className="mr5" />
+                </Inline>
+                <Inline>
+                    <BasicDropdown />
                     <BasicDropdown open />
-                </div>
-                <div className="flex">
-                    <BasicDropdown
-                        size="large"
-                        className="mr5"
-                    />
+                </Inline>
+                <Inline>
+                    <BasicDropdown size="large" />
                     <BasicDropdown
                         size="large"
                         open
                     />
-                </div>
-            </div>
-            <div className="flex flex-column">
-                <div className="flex">
-                    <BasicDropdown
-                        active
-                        className="mr5"
-                    />
-                    <BasicDropdown
-                        focus
-                        className="mr5"
-                    />
-                    <BasicDropdown
-                        hover
-                        className="mr5"
-                    />
+                </Inline>
+            </Stack>
+            <Stack>
+                <Inline>
+                    <BasicDropdown active />
+                    <BasicDropdown focus />
+                    <BasicDropdown hover />
                     <BasicDropdown
                         focus
                         hover
-                        className="mr5"
                     />
                     <BasicDropdown disabled />
-                </div>
-            </div>
-        </div>
+                </Inline>
+            </Stack>
+        </Inline>
     )
     .add("basic trigger icon", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "150px" }}>
+        <Stack gap="200px">
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="small"
-                    className="mr5"
                 />
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="small"
                     open
                 />
-            </div>
-            <div className="flex" style={{ marginBottom: "200px" }}>
+            </Inline>
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
-                    className="mr5"
                 />
                 <BasicDropdown
                     icon={<FileIcon />}
                     open
                 />
-            </div>
-            <div className="flex">
+            </Inline>
+            <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="large"
-                    className="mr5"
                 />
                 <BasicDropdown
                     icon={<FileIcon />}
                     size="large"
                     open
                 />
-            </div>
-        </div>
+            </Inline>
+        </Stack>
     )
     .add("button trigger", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "200px" }}>
-                <CircularButtonDropdown style={{ marginRight: "150px" }} />
+        <Stack gap="200px">
+            <Inline gap="200px">
+                <CircularButtonDropdown />
                 <CircularButtonDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <CircularButtonDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <CircularButtonDropdown
                     size="large"
                     open
                 />
-            </div>
-            <div className="flex" style={{ marginBottom: "200px" }}>
-                <BasicButtonDropdown style={{ marginRight: "150px" }} />
+            </Inline>
+            <Inline gap="200px">
+                <BasicButtonDropdown />
                 <BasicButtonDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <BasicButtonDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 />
                 <BasicButtonDropdown
                     size="large"
                     open
                 />
+            </Inline>
+            <div className="w-100">
+                <BasicButtonDropdown fluid />
             </div>
-            <div className="w-100" style={{ marginBottom: "50px" }}>
-                <BasicButtonDropdown
-                    fluid
-                    className="mr5"
-                />
-            </div>
-            <div className="flex">
-                <CircularButtonDropdown
-                    active
-                    className="mr5"
-                />
-                <CircularButtonDropdown
-                    focus
-                    className="mr5"
-                />
-                <CircularButtonDropdown
-                    hover
-                    className="mr5"
-                />
+            <Inline>
+                <CircularButtonDropdown active />
+                <CircularButtonDropdown focus />
+                <CircularButtonDropdown hover />
                 <CircularButtonDropdown
                     focus
                     hover
                 />
-            </div>
-        </div>
+            </Inline>
+        </Stack>
     )
     .add("advanced trigger", () =>
-        <div className="flex">
-            <CustomTriggerDropdown style={{ marginRight: "200px" }} />
-            <CustomTriggerDropdown open />
-        </div>
+        <Inline gap="200px">
+            <CustomTriggerDropdown>Task</CustomTriggerDropdown>
+            <CustomTriggerDropdown open>Task</CustomTriggerDropdown>
+        </Inline>
     )
     .add("scrolling", () =>
         <Dropdown open>
@@ -293,115 +265,102 @@ stories()
         </Dropdown>
     )
     .add("upward", () =>
-        <div className="flex flex-column">
-            <div style={{ marginTop: "150px" }}>
-                <BasicDropdown
-                    upward
-                    size="small"
-                    open
-                    style={{ marginRight: "200px" }}
-                />
-                <BasicDropdown
-                    upward
-                    open
-                    style={{ marginRight: "200px" }}
-                />
-                <BasicDropdown
-                    upward
-                    size="large"
-                    open
-                />
-            </div>
-        </div>
+        <Inline gap="200px" style={{ marginTop: "150px" }}>
+            <BasicDropdown
+                upward
+                size="small"
+                open
+            />
+            <BasicDropdown
+                upward
+                open
+            />
+            <BasicDropdown
+                upward
+                size="large"
+                open
+            />
+        </Inline>
     )
     .add("direction", () =>
-        <div className="flex">
-            <div className="flex flex-column mr12">
+        <Inline gap={12}>
+            <Stack gap="200px">
                 <BasicDropdown
                     direction="left"
                     size="small"
                     open
-                    style={{ marginBottom: "150px" }}
                 />
                 <BasicDropdown
                     direction="left"
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     direction="left"
                     size="large"
                     open
                 />
-            </div>
-            <div className="flex flex-column">
+            </Stack>
+            <Stack gap="200px">
                 <BasicDropdown
                     direction="right"
                     size="small"
                     open
-                    style={{ marginBottom: "150px" }}
                 />
                 <BasicDropdown
                     direction="right"
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     direction="right"
                     size="large"
                     open
                 />
-            </div>
-        </div>,
+            </Stack>
+        </Inline>,
          {
              ...paramsBuilder()
                  .canvasLayout({ paddingLeft: "100px" })
                  .build()
          })
     .add("fluid", () =>
-        <div className="flex">
-            <div className="flex flex-column w-50 mr12">
+        <Inline gap={12}>
+            <Stack gap="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     fluid
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     size="large"
                     fluid
                 />
-            </div>
-            <div className="flex flex-column w-50">
+            </Stack>
+            <Stack gap="200px" className="w-50">
                 <BasicDropdown
                     size="small"
                     fluid
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     fluid
                     open
-                    style={{ marginBottom: "200px" }}
                 />
                 <BasicDropdown
                     size="large"
                     fluid
                     open
                 />
-            </div>
-        </div>
+            </Stack>
+        </Inline>
     )
     .add("title", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "200px" }}>
+        <Stack gap="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     open
                     size="small"
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -417,11 +376,10 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </div>
-            <div className="flex" style={{ marginBottom: "200px" }}>
+            </Inline>
+            <Inline gap="200px">
                 <BasicDropdown
                     open
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -434,12 +392,11 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </div>
-            <div className="flex">
+            </Inline>
+            <Inline gap="200px">
                 <BasicDropdown
                     open
                     size="large"
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -455,15 +412,14 @@ stories()
                     <Dropdown.Item>Open...</Dropdown.Item>
                     <Dropdown.Item>Save as...</Dropdown.Item>
                 </BasicDropdown>
-            </div>
-        </div>
+            </Inline>
+        </Stack>
     )
     .add("divider", () =>
-        <div className="flex">
+        <Inline gap="200px">
             <BasicDropdown
                 open
                 size="small"
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -473,7 +429,6 @@ stories()
             </BasicDropdown>
             <BasicDropdown
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -491,64 +446,51 @@ stories()
                 <Dropdown.Item>Save as...</Dropdown.Item>
                 <Dropdown.Item>Rename</Dropdown.Item>
             </BasicDropdown>
-        </div>
+        </Inline>
     )
     .add("interaction states", () =>
-        <div className="flex flex-column">
-            <div className="flex mb5">
-                <BasicDropdown active className="mr5" />
-                <BasicDropdown focus />
-            </div>
-            <div className="flex">
-                <BasicDropdown hover className="mr5" />
-                <BasicDropdown focus hover />
-            </div>
-        </div>
+        <Inline>
+            <BasicDropdown active />
+            <BasicDropdown focus />
+            <BasicDropdown hover />
+            <BasicDropdown focus hover />
+        </Inline>
     )
     .add("disabled", () =>
         <BasicDropdown disabled />
     )
     .add("styling", () =>
-        <div className="flex">
-            <BasicDropdown
-                className="border-red mr5"
-            />
+        <Inline>
+            <BasicDropdown className="border-red" />
             <BasicDropdown
                 style={{
                     border: "1px solid red"
                 }}
             />
-        </div>
+        </Inline>
     )
     .add("item interaction states", () =>
-        <div className="flex">
-            <BasicDropdown
-                open
-                style={{ marginRight: "200px" }}
-            >
+        <Inline>
+            <BasicDropdown open>
                 <Dropdown.Item active>New</Dropdown.Item>
                 <Dropdown.Item focus>Open...</Dropdown.Item>
                 <Dropdown.Item hover>Save as...</Dropdown.Item>
                 <Dropdown.Item focus hover>Rename</Dropdown.Item>
             </BasicDropdown>
-        </div>
+        </Inline>
     )
     .add("item disabled", () =>
-        <BasicDropdown
-            open
-            style={{ marginRight: "200px" }}
-        >
+        <BasicDropdown open>
             <Dropdown.Item>New</Dropdown.Item>
             <Dropdown.Item>Open...</Dropdown.Item>
             <Dropdown.Item disabled>Save as...</Dropdown.Item>
         </BasicDropdown>
     )
     .add("item description", () =>
-        <div className="flex">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -556,7 +498,6 @@ stories()
             </BasicDropdown>
             <BasicDropdown
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -570,24 +511,20 @@ stories()
                 <Dropdown.Item>Open...</Dropdown.Item>
                 <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
             </BasicDropdown>
-        </div>
+        </Inline>
     )
     .add("item icon", () =>
-        <div className="flex">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
                 <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
-            <BasicDropdown
-                open
-                style={{ marginRight: "200px" }}
-            >
+            <BasicDropdown open>
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
@@ -596,7 +533,6 @@ stories()
             <BasicDropdown
                 size="large"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
                 <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
@@ -609,23 +545,19 @@ stories()
                 <Dropdown.Item iconRight={<EditIcon />} disabled>Save as...</Dropdown.Item>
                 <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
-        </div>
+        </Inline>
     )
     .add("item button", () =>
-        <div className="flex">
+        <Inline gap="200px">
             <BasicDropdown
                 size="small"
                 open
-                style={{ marginRight: "200px" }}
             >
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
             </BasicDropdown>
-            <BasicDropdown
-                open
-                style={{ marginRight: "200px" }}
-            >
+            <BasicDropdown open>
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
@@ -638,24 +570,20 @@ stories()
                 <Dropdown.ButtonItem onClick={noop}>Open...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
             </BasicDropdown>
-        </div>
+        </Inline>
     )
     .add("item link", () =>
-        <div className="flex flex-column">
-            <div className="flex" style={{ marginBottom: "200px" }}>
+        <Stack gap="200px">
+            <Inline gap="200px">
                 <BasicDropdown
                     size="small"
                     open
-                    style={{ marginRight: "200px" }}
                 >
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
-                <BasicDropdown
-                    open
-                    style={{ marginRight: "200px" }}
-                >
+                <BasicDropdown open>
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
@@ -668,12 +596,9 @@ stories()
                     <Dropdown.LinkItem href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
-            </div>
-            <div className="flex">
-                <BasicDropdown
-                    open
-                    style={{ marginRight: "200px" }}
-                >
+            </Inline>
+            <Inline gap="200px">
+                <BasicDropdown open>
                     <Dropdown.LinkItem active href="/internal-link">New</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus href="/internal-link">Open...</Dropdown.LinkItem>
                     <Dropdown.LinkItem hover href="/internal-link">Save as...</Dropdown.LinkItem>
@@ -685,6 +610,6 @@ stories()
                     <Dropdown.LinkItem hover href="https://www.sharegate.com" target="_blank">Save as...</Dropdown.LinkItem>
                     <Dropdown.LinkItem focus hover href="https://www.sharegate.com" target="_blank">Rename</Dropdown.LinkItem>
                 </BasicDropdown>
-            </div>
-        </div>
+            </Inline>
+        </Stack>
     );

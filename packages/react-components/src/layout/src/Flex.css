@@ -1,0 +1,46 @@
+/* Flex */
+.o-ui-flex {
+    /* It's important to redefine default values otherwise when flex components are nested children  will inherit their parent value when not set. */
+    --o-ui-direction: "row";
+    --o-ui-align-content: "stretch";
+    --o-ui-align-items: "stretch";
+    --o-ui-justify-content: "flex-start";
+    --o-ui-wrap: "nowrap";
+    display: flex;
+    flex-direction: var(--o-ui-direction);
+    align-content: var(--o-ui-align-content);
+    align-items: var(--o-ui-align-items);
+    justify-content: var(--o-ui-justify-content);
+    flex-wrap: var(--o-ui-wrap);
+    gap: var(--o-ui-gap);
+}
+
+/* Flex | No Gap | Row */
+.o-ui-flex.no-gap.row > *:not(:last-child) {
+    margin-right: var(--o-ui-gap);
+}
+
+.o-ui-flex.no-gap.row.reverse > *:not(:last-child) {
+    margin-left: var(--o-ui-gap);
+}
+
+/* Flex | No Gap | Column */
+.o-ui-flex.no-gap.column > *:not(:last-child) {
+    margin-bottom: var(--o-ui-gap);
+}
+
+.o-ui-flex.no-gap.column.reverse > *:not(:last-child) {
+    margin-top: var(--o-ui-gap);
+}
+
+/* Flex | Fluid */
+.o-ui-flex.fluid {
+    width: 100%;
+    height: 100%;
+}
+
+/* Flex | Item */
+.o-ui-flex .o-ui-flex-item {
+    width: 100%;
+    height: 100%;
+}

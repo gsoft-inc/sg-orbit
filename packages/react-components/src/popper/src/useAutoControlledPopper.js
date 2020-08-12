@@ -1,4 +1,4 @@
-import { KEYS, useAutoControlledState, useDocumentListener, useEventCallback } from "../../shared";
+import { KEYS, useControllableState, useDocumentListener, useEventCallback } from "../../shared";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect, useRef } from "react";
 
@@ -110,7 +110,7 @@ export function useAutoControlledPopper(props) {
     } = props;
     throwWhenMutuallyExclusivePropsAreProvided(props);
 
-    const [isVisible, setIsVisible] = useAutoControlledState(show, defaultShow, false);
+    const [isVisible, setIsVisible] = useControllableState(show, defaultShow, false);
     const lastTriggerEventRef = useRef();
 
     const setFocusTrigger = useCallback((delay = 0) => {
