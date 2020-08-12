@@ -1,4 +1,4 @@
-import { Children, forwardRef, useRef } from "react";
+import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
