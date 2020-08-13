@@ -298,7 +298,7 @@ export function InnerSelect(props) {
 InnerSelect.propTypes = propTypes;
 
 export const Select = forwardRef((props, ref) => (
-    <InnerSelect { ...props } forwardedRef={ref} />
+    <InnerSelect {...props} forwardedRef={ref} />
 ));
 
 // Divider, Header, Menu and SearchInput are not supported.

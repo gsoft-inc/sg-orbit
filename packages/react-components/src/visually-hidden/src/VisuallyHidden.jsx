@@ -35,6 +35,6 @@ InnerVisuallyHidden.propTypes = propTypes;
 InnerVisuallyHidden.defaultProps = defaultProps;
 
 export const VisuallyHidden = forwardRef((props, ref) => (
-    <InnerVisuallyHidden { ...props } forwardedRef={ref} />
+    <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));
 

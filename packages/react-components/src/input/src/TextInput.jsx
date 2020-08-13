@@ -235,5 +235,5 @@ InnerTextInput.propTypes = propTypes;
 InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
-    <InnerTextInput { ...props } forwardedRef={ref} />
+    <InnerTextInput {...props} forwardedRef={ref} />
 ));

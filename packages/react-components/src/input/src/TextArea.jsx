@@ -266,5 +266,5 @@ InnerTextArea.propTypes = propTypes;
 InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
-    <InnerTextArea { ...props } forwardedRef={ref} />
+    <InnerTextArea {...props} forwardedRef={ref} />
 ));

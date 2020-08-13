@@ -69,7 +69,7 @@ export function InnerTag({
     active,
     focus,
     hover,
-    as: Element,
+    as: ElementType,
     className,
     children,
     forwardedRef,
@@ -115,7 +115,7 @@ export function InnerTag({
     );
 
     return (
-        <Element
+        <ElementType
             {...rest}
             className={mergeClasses(
                 "o-ui tag",
@@ -136,7 +136,7 @@ export function InnerTag({
             ref={forwardedRef}
         >
             {content}
-        </Element>
+        </ElementType>
     );
 }
 
@@ -144,6 +144,6 @@ InnerTag.propTypes = propTypes;
 InnerTag.defaultProps = defaultProps;
 
 export const Tag = forwardRef((props, ref) => (
-    <InnerTag { ...props } forwardedRef={ref} />
+    <InnerTag {...props} forwardedRef={ref} />
 ));
 

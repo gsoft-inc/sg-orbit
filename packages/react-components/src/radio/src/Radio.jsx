@@ -179,5 +179,5 @@ InnerRadio.propTypes = propTypes;
 InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
-    <InnerRadio { ...props } forwardedRef={ref} />
+    <InnerRadio {...props} forwardedRef={ref} />
 ));

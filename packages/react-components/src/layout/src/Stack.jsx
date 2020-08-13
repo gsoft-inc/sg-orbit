@@ -69,5 +69,5 @@ InnerStack.propTypes = propTypes;
 InnerStack.defaultProps = defaultProps;
 
 export const Stack = forwardRef((props, ref) => (
-    <InnerStack { ...props } forwardedRef={ref} />
+    <InnerStack {...props} forwardedRef={ref} />
 ));

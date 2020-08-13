@@ -68,5 +68,5 @@ InnerInline.propTypes = propTypes;
 InnerInline.defaultProps = defaultProps;
 
 export const Inline = forwardRef((props, ref) => (
-    <InnerInline { ...props } forwardedRef={ref} />
+    <InnerInline {...props} forwardedRef={ref} />
 ));

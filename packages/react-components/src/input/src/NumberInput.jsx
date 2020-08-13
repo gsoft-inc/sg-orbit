@@ -401,5 +401,5 @@ InnerNumberInput.propTypes = propTypes;
 InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
-    <InnerNumberInput { ...props } forwardedRef={ref} />
+    <InnerNumberInput {...props} forwardedRef={ref} />
 ));

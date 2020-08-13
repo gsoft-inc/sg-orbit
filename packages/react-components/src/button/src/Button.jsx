@@ -172,7 +172,7 @@ InnerButton.propTypes = propTypes;
 InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
-    <InnerButton { ...props } forwardedRef={ref} />
+    <InnerButton {...props} forwardedRef={ref} />
 ));
 
 export const embedButton = createEmbeddableAdapter({

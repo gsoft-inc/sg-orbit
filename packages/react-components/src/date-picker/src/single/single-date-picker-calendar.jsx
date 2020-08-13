@@ -134,5 +134,5 @@ export class InnerSingleDatePickerCalendar extends PureComponent {
 }
 
 export const SingleDatePickerCalendar = forwardRef((props, ref) => (
-    <InnerSingleDatePickerCalendar { ...props } forwardedRef={ref} />
+    <InnerSingleDatePickerCalendar {...props} forwardedRef={ref} />
 ));

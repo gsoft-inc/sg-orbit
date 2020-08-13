@@ -28,7 +28,7 @@ export function InnerTooltip(props) {
 InnerTooltip.propTypes = propTypes;
 
 export const Tooltip = forwardRef((props, ref) => (
-    <InnerTooltip { ...props } forwardedRef={ref} />
+    <InnerTooltip {...props} forwardedRef={ref} />
 ));
 
 [InnerTooltip, Tooltip].forEach(x => {

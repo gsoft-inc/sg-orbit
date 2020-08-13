@@ -48,7 +48,7 @@ InnerText.propTypes = propTypes;
 InnerText.defaultProps = defaultProps;
 
 export const Text = forwardRef((props, ref) => (
-    <InnerText { ...props } forwardedRef={ref} />
+    <InnerText {...props} forwardedRef={ref} />
 ));
 
 export const textSlot = createSizeAdapterSlotFactory({

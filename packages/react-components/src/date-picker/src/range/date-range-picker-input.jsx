@@ -104,5 +104,5 @@ export class InnerDateRangePickerInput extends PureComponent {
 }
 
 export const DateRangePickerInput = forwardRef((props, ref) => (
-    <InnerDateRangePickerInput { ...props } forwardedRef={ref} />
+    <InnerDateRangePickerInput {...props} forwardedRef={ref} />
 ));

@@ -100,5 +100,5 @@ export class InnerDatePickerTextboxInput extends PureComponent {
 }
 
 export const DatePickerTextboxInput = forwardRef((props, ref) => (
-    <InnerDatePickerTextboxInput { ...props } forwardedRef={ref} />
+    <InnerDatePickerTextboxInput {...props} forwardedRef={ref} />
 ));

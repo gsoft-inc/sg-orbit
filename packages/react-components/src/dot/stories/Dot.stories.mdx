@@ -1,0 +1,92 @@
+import { Dot, InnerDot } from "@react-components/dot";
+import { Inline, Stack } from "@react-components/layout";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Dot")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/dot" />)
+        .build()}
+/>
+
+# Dot
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Dot", component: InnerDot }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default dot.
+
+<Preview>
+    <Story name="default">
+        <Dot />
+    </Story>
+</Preview>
+
+### Label
+
+A dot can have a label.
+
+<Preview>
+    <Story name="label">
+        <Dot>Habitable</Dot>
+    </Story>
+</Preview>
+
+### Color
+
+A dot can have a color.
+
+<Preview>
+    <Story name="color">
+        <Inline>
+            <Dot color="success-500">Habitable</Dot>
+            <Dot color="alert-500">Uninhabitable</Dot>
+        </Inline>
+    </Story>
+</Preview>
+
+### Size
+
+A dot can vary in size.
+
+Can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="size">
+        <Inline align="end">
+            <Dot size="mini">Habitable</Dot>
+            <Dot size="tiny">Habitable</Dot>
+            <Dot size="small">Habitable</Dot>
+            <Dot>Habitable</Dot>
+            <Dot size="large">Habitable</Dot>
+        </Inline>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Dot />
+    </RefLogger>
+</Story>

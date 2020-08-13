@@ -42,5 +42,5 @@ InnerIconGroup.propTypes = propTypes;
 InnerIconGroup.defaultProps = defaultProps;
 
 export const IconGroup = forwardRef((props, ref) => (
-    <InnerIconGroup { ...props } forwardedRef={ref} />
+    <InnerIconGroup {...props} forwardedRef={ref} />
 ));

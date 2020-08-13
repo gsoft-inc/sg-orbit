@@ -187,5 +187,5 @@ InnerCheckbox.propTypes = propTypes;
 InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
-    <InnerCheckbox { ...props } forwardedRef={ref} />
+    <InnerCheckbox {...props} forwardedRef={ref} />
 ));

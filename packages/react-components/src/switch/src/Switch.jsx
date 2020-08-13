@@ -163,7 +163,7 @@ InnerSwitch.propTypes = propTypes;
 InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
-    <InnerSwitch { ...props } forwardedRef={ref} />
+    <InnerSwitch {...props} forwardedRef={ref} />
 ));
 
 export const Toggle = Switch;

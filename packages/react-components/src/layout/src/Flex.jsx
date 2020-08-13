@@ -217,5 +217,5 @@ InnerFlex.propTypes = propTypes;
 InnerFlex.defaultProps = defaultProps;
 
 export const Flex = forwardRef((props, ref) => (
-    <InnerFlex { ...props } forwardedRef={ref} />
+    <InnerFlex {...props} forwardedRef={ref} />
 ));

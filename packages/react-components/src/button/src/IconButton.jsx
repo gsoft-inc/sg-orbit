@@ -118,7 +118,7 @@ InnerIconButton.propTypes = propTypes;
 InnerIconButton.defaultProps = defaultProps;
 
 export const IconButton = forwardRef((props, ref) => (
-    <InnerIconButton { ...props } forwardedRef={ref} />
+    <InnerIconButton {...props} forwardedRef={ref} />
 ));
 
 

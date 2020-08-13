@@ -74,5 +74,5 @@ InnerInputMessage.propTypes = propTypes;
 InnerInputMessage.defaultProps = defaultProps;
 
 export const InputMessage = forwardRef((props, ref) => (
-    <InnerInputMessage { ...props } forwardedRef={ref} />
+    <InnerInputMessage {...props} forwardedRef={ref} />
 ));

@@ -214,5 +214,5 @@ InnerPopper.propTypes = propTypes;
 InnerPopper.defaultProps = defaultProps;
 
 export const Popper = forwardRef((props, ref) => (
-    <InnerPopper { ...props } forwardedRef={ref} />
+    <InnerPopper {...props} forwardedRef={ref} />
 ));

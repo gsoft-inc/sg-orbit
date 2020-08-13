@@ -118,7 +118,7 @@ InnerToggleButton.propTypes = propTypes;
 InnerToggleButton.defaultProps = defaultProps;
 
 export const ToggleButton = forwardRef((props, ref) => (
-    <InnerToggleButton { ...props } forwardedRef={ref} />
+    <InnerToggleButton {...props} forwardedRef={ref} />
 ));
 
 

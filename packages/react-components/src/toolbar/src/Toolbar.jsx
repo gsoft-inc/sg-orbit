@@ -128,5 +128,5 @@ InnerToolbar.propTypes = propTypes;
 InnerToolbar.defaultProps = defaultProps;
 
 export const Toolbar = forwardRef((props, ref) => (
-    <InnerToolbar { ...props } forwardedRef={ref} />
+    <InnerToolbar {...props} forwardedRef={ref} />
 ));

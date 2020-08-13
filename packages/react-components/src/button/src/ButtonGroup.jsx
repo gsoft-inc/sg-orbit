@@ -42,5 +42,5 @@ InnerButtonGroup.propTypes = propTypes;
 InnerButtonGroup.defaultProps = defaultProps;
 
 export const ButtonGroup = forwardRef((props, ref) => (
-    <InnerButtonGroup { ...props } forwardedRef={ref} />
+    <InnerButtonGroup {...props} forwardedRef={ref} />
 ));

@@ -59,5 +59,5 @@ InnerInputLabel.propTypes = propTypes;
 InnerInputLabel.defaultProps = defaultProps;
 
 export const InputLabel = forwardRef((props, ref) => (
-    <InnerInputLabel { ...props } forwardedRef={ref} />
+    <InnerInputLabel {...props} forwardedRef={ref} />
 ));

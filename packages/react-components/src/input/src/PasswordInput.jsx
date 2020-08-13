@@ -124,5 +124,5 @@ InnerPasswordInput.propTypes = propTypes;
 InnerPasswordInput.defaultProps = defaultProps;
 
 export const PasswordInput = forwardRef((props, ref) => (
-    <InnerPasswordInput { ...props } forwardedRef={ref} />
+    <InnerPasswordInput {...props} forwardedRef={ref} />
 ));

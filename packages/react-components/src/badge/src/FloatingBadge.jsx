@@ -21,13 +21,13 @@ const defaultProps = {
     as: "span"
 };
 
-export function InnerFloatingBadge({ badge, as: Element, className, children, forwardedRef, ...rest }) {
+export function InnerFloatingBadge({ badge, as: ElementType, className, children, forwardedRef, ...rest }) {
     const badgeMarkup = !isNil(badge) && augmentElement(badge, {
         className: "anchored-badge"
     });
 
     return (
-        <Element
+        <ElementType
             {...rest}
             className={mergeClasses(
                 "o-ui floating-badge",
@@ -37,7 +37,7 @@ export function InnerFloatingBadge({ badge, as: Element, className, children, fo
         >
             {badgeMarkup}
             {children}
-        </Element>
+        </ElementType>
     );
 }
 

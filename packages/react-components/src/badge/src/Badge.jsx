@@ -4,6 +4,13 @@ import { Children, forwardRef } from "react";
 import { SIZE, augmentElement, createEmbeddableAdapter, getSizeClass, mergeClasses } from "../../shared";
 import { bool, elementType, oneOf, oneOfType, string } from "prop-types";
 
+/*
+TODO:
+    - remove inline variant
+    - remove highlight
+    - review of we need all these size
+*/
+
 const propTypes = {
     /**
      * Style to use.
@@ -29,7 +36,7 @@ const defaultProps = {
 };
 
 export function InnerBadge(props) {
-    const { variant, highlight, size, as: Element, className, children, forwardedRef, ...rest } = props;
+    const { variant, highlight, size, as: ElementType, className, children, forwardedRef, ...rest } = props;
 
     let content = children;
 
@@ -40,7 +47,7 @@ export function InnerBadge(props) {
     }
 
     return (
-        <Element
+        <ElementType
             {...rest}
             className={mergeClasses(
                 "o-ui badge",
@@ -53,7 +60,7 @@ export function InnerBadge(props) {
             ref={forwardedRef}
         >
             {content}
-        </Element>
+        </ElementType>
     );
 }
 
@@ -61,7 +68,7 @@ InnerBadge.propTypes = propTypes;
 InnerBadge.defaultProps = defaultProps;
 
 export const Badge = forwardRef((props, ref) => (
-    <InnerBadge { ...props } forwardedRef={ref} />
+    <InnerBadge {...props} forwardedRef={ref} />
 ));
 
 export const embedBadge = createEmbeddableAdapter({

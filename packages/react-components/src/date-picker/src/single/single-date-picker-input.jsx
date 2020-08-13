@@ -119,5 +119,5 @@ export class InnerSingleDatePickerInput extends PureComponent {
 }
 
 export const SingleDatePickerInput = forwardRef((props, ref) => (
-    <InnerSingleDatePickerInput { ...props } forwardedRef={ref} />
+    <InnerSingleDatePickerInput {...props} forwardedRef={ref} />
 ));

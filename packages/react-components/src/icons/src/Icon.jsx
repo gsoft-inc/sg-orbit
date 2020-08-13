@@ -45,7 +45,7 @@ InnerIcon.propTypes = {
 };
 
 export const Icon = forwardRef((props, ref) => (
-    <InnerIcon { ...props } forwardedRef={ref} />
+    <InnerIcon {...props} forwardedRef={ref} />
 ));
 
 function createIconFactory(type) {
@@ -95,7 +95,7 @@ InnerMultiVariantIcon.propTypes = {
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (
-    <InnerMultiVariantIcon { ...props } forwardedRef={ref} />
+    <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 ));
 
 function createMultiVariantFactory(type24, type32) {

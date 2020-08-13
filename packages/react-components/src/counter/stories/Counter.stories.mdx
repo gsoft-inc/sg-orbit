@@ -1,0 +1,98 @@
+import { Counter, InnerCounter } from "@react-components/counter";
+import { Inline, Stack } from "@react-components/layout";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Counter")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/counter" />)
+        .build()}
+/>
+
+# Counter
+
+A counter indicate a running tally. A counter is normally placed after the text of the thing it quantify or embedded in another component such as a [button](?path=/docs/components-button--default-story) or a [checkbox](?path=/docs/components-checkbox--default-story).
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Counter", component: InnerCounter }
+    ]}
+/>
+
+## Usage
+
+### Default
+
+A default counter.
+
+<Preview>
+    <Story name="default">
+        <Counter>15</Counter>
+    </Story>
+</Preview>
+
+### Pill
+
+A counter can be rendered as a pill.
+
+A pill size can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
+
+<Preview>
+    <Story name="pill">
+        <Inline align="end">
+            <Counter size="mini">15</Counter>
+            <Counter size="tiny">15</Counter>
+            <Counter size="small">15</Counter>
+            <Counter>15</Counter>
+            <Counter size="large">15</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Divider
+
+A counter can be rendered as a divider. A divider counter is not affected by the size property. The counter will inherit it's size from his parent font-size.
+
+<Preview>
+    <Story name="divider">
+        <Stack>
+            <span className="f5">Galaxies<Counter variant="divider">100+</Counter></span>
+            <span className="f4">Galaxies<Counter variant="divider">100+</Counter></span>
+        </Stack>
+    </Story>
+</Preview>
+
+### Color
+
+A counter can use a different color accent.
+
+<Preview>
+    <Story name="color">
+        <Inline align="center">
+            <Counter color="light">15</Counter>
+            <span>Galaxies<Counter color="light" variant="divider">100+</Counter></span>
+        </Inline>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Counter>15</Counter>
+    </RefLogger>
+</Story>
+

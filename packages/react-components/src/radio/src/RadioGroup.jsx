@@ -225,5 +225,5 @@ InnerRadioGroup.propTypes = propTypes;
 InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
-    <InnerRadioGroup { ...props } forwardedRef={ref} />
+    <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
