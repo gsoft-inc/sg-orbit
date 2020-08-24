@@ -1,6 +1,7 @@
-import { Badge, FloatingBadge, InnerBadge, InnerFloatingBadge } from "@react-components/badge";
-import { CheckCircleIcon } from "@react-components/icons";
-import { Inline, Stack } from "@react-components/layout";
+import { Badge, InnerBadge } from "@react-components/badge";
+import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
+import { Circle } from "./Circle.jsx";
+import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -17,7 +18,7 @@ import Imports from "./Imports.mdx";
 
 # Badge
 
-Badges contain numeric values and indicate a running tally. A badge is normally placed after the text of the thing it quantify or embedded in another component such as a button or a checkbox.
+A badge is a floating component displaying a notification such as a count.
 
 ## Installation
 
@@ -27,8 +28,7 @@ Badges contain numeric values and indicate a running tally. A badge is normally 
 
 <Props
     componentsDefinitions={[
-        { displayName: "Badge", component: InnerBadge },
-        { displayName: "FloatingBadge", component: InnerFloatingBadge }
+        { displayName: "Badge", component: InnerBadge }
     ]}
 />
 
@@ -40,17 +40,14 @@ A default badge.
 
 <Preview>
     <Story name="default">
-        <Badge>100</Badge>
-    </Story>
-</Preview>
-
-### Highlight
-
-A badge can draw attention on his text.
-
-<Preview>
-    <Story name="highlight">
-        <Badge highlight>100</Badge>
+        <Inline gap={8} align="center">
+            <Badge content="100">
+                <Square />
+            </Badge>
+            <Badge content="100" overlap="circle">
+                <Circle />
+            </Badge>
+        </Inline>
     </Story>
 </Preview>
 
@@ -58,45 +55,21 @@ A badge can draw attention on his text.
 
 A badge can vary in size.
 
-Can be set to: `"tiny"`, `"small"`, `"large"` or omitted.
+Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
         <Inline gap={8} align="end">
-            <Inline align="end">
-                <Badge size="tiny">5</Badge>
-                <Badge size="small">5</Badge>
-                <Badge>5</Badge>
-                <Badge size="large">5</Badge>
-            </Inline>
-            <Inline align="end">
-                <Badge size="tiny">100</Badge>
-                <Badge size="small">100</Badge>
-                <Badge>100</Badge>
-                <Badge size="large">100</Badge>
-            </Inline>
+            <Badge size="small" content="100" overlap="circle">
+                <Circle />
+            </Badge>
+            <Badge content="100" overlap="circle">
+                <Circle />
+            </Badge>
+            <Badge size="large" content="100" overlap="circle">
+                <Circle />
+            </Badge>
         </Inline>
-    </Story>
-</Preview>
-
-### Inline
-
-A badge can be rendered as inlined.
-
-<Preview>
-    <Story name="inline">
-        <span>Galaxies<Badge variant="inline">100 billion</Badge></span>
-    </Story>
-</Preview>
-
-An inline badge, is not affected by the `size` property. The badge will inherit it's size from his parent font-size.
-
-<Preview>
-    <Story name="inline size">
-        <Stack>
-            <span className="f5">Galaxies<Badge variant="inline">100+</Badge></span>
-            <span className="f4">Galaxies<Badge variant="inline">100+</Badge></span>
-        </Stack>
     </Story>
 </Preview>
 
@@ -106,18 +79,28 @@ A badge can be rendered as a dot. A single digit is supported.
 
 <Preview>
     <Story name="dot">
-        <Inline gap={8} align="end">
-            <Inline align="end">
-                <Badge variant="dot" size="tiny" />
-                <Badge variant="dot" size="small" />
-                <Badge variant="dot" />
-                <Badge variant="dot" size="large" />
+        <Inline gap={8} align="center">
+            <Inline>
+                <Badge variant="dot" size="small" overlap="circle">
+                    <Circle />
+                </Badge>
+                <Badge variant="dot" overlap="circle">
+                    <Circle />
+                </Badge>
+                <Badge variant="dot" size="large" overlap="circle">
+                    <Circle />
+                </Badge>
             </Inline>
-            <Inline align="end">
-                <Badge variant="dot" size="tiny">5</Badge>
-                <Badge variant="dot" size="small">5</Badge>
-                <Badge variant="dot">5</Badge>
-                <Badge variant="dot" size="large">5</Badge>
+            <Inline>
+                <Badge variant="dot" size="small" content="5">
+                    <EmailIcon size="large" />
+                </Badge>
+                <Badge variant="dot" content="5">
+                    <EmailIcon size="large" />
+                </Badge>
+                <Badge variant="dot" size="large" content="5">
+                    <EmailIcon size="large" />
+                </Badge>
             </Inline>
         </Inline>
     </Story>
@@ -130,36 +113,15 @@ A badge can be an icon.
 <Preview>
     <Story name="icon">
         <Inline align="end">
-            <Badge variant="icon" size="tiny"><CheckCircleIcon /></Badge>
-            <Badge variant="icon" size="small"><CheckCircleIcon /></Badge>
-            <Badge variant="icon"><CheckCircleIcon /></Badge>
-            <Badge variant="icon" size="large"><CheckCircleIcon /></Badge>
-        </Inline>
-    </Story>
-</Preview>
-
-### Floating
-
-A badge can float to the top right corner of an element.
-
-<Preview>
-    <Story name="floating">
-        <Inline>
-            <FloatingBadge badge={<Badge variant="dot" />}>
-                <Square />
-            </FloatingBadge>
-            <FloatingBadge badge={<Badge variant="dot" size="tiny">5</Badge>}>
-                <Square />
-            </FloatingBadge>
-            <FloatingBadge badge={<Badge variant="icon"><CheckCircleIcon /></Badge>}>
-                <Square />
-            </FloatingBadge>
-            <FloatingBadge badge={<Badge>9</Badge>}>
-                <Square />
-            </FloatingBadge>
-            <FloatingBadge badge={<Badge>100</Badge>}>
-                <Square />
-            </FloatingBadge>
+            <Badge variant="icon" size="small" content={<CheckCircleIcon />} overlap="circle">
+                <Circle />
+            </Badge>
+            <Badge variant="icon" content={<CheckCircleIcon />} overlap="circle">
+                <Circle />
+            </Badge>
+            <Badge variant="icon" size="large" content={<CheckCircleIcon />} overlap="circle">
+                <Circle />
+            </Badge>
         </Inline>
     </Story>
 </Preview>
@@ -171,8 +133,8 @@ A badge can float to the top right corner of an element.
         .build()}
 >
     <RefLogger>
-        <Badge>100</Badge>
+        <Badge content="100">
+            <Square />
+        </Badge>
     </RefLogger>
 </Story>
-
-

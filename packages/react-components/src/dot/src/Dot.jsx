@@ -1,5 +1,6 @@
 import "./Dot.css";
 
+import { Text } from "../../text";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
@@ -33,6 +34,12 @@ export function InnerDot({
     forwardedRef,
     ...rest
 }) {
+    const labelMarkup = children && (
+        <Text size={size}>
+            {children}
+        </Text>
+    );
+
     return (
         <ElementType
             {...rest}
@@ -48,7 +55,7 @@ export function InnerDot({
             }}
             ref={forwardedRef}
         >
-            {children}
+            {labelMarkup}
         </ElementType>
     );
 }

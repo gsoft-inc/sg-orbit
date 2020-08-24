@@ -1,6 +1,6 @@
 import { Children, cloneElement } from "react";
 import { SIZE, createSizeAdapterSlotFactory } from "../../shared";
-import { any, bool, string } from "prop-types";
+import { any, string } from "prop-types";
 
 const EMBED_SIZE = {
     [SIZE.micro]: SIZE.micro,
@@ -16,7 +16,6 @@ const EMBED_SIZE = {
 
 const propTypes = {
     size: string,
-    standalone: bool,
     children: any.isRequired
 };
 

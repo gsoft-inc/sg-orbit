@@ -1,49 +1,56 @@
 import "./Badge.css";
 
-import { Children, forwardRef } from "react";
-import { SIZE, augmentElement, createEmbeddableAdapter, getSizeClass, mergeClasses } from "../../shared";
-import { bool, elementType, oneOf, oneOfType, string } from "prop-types";
-
-/*
-TODO:
-    - remove inline variant
-    - remove highlight
-    - review of we need all these size
-*/
+import { EmbeddedText } from "../../text";
+import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, getSizeClass, mergeClasses } from "../../shared";
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
+     * The badge content.
+     */
+    content: oneOfType([string, element]),
+    /**
      * Style to use.
      */
-    variant: oneOf(["pill", "inline", "dot", "icon"]),
+    variant: oneOf(["pill", "dot", "icon"]),
     /**
-     * Whether to add emphasis on the label text.
+     * The shape of the element being overlap by the badge.
      */
-    highlight: bool,
+    overlap: oneOf(["rectangle", "circle"]),
     /**
      * A badge can vary in size.
      */
-    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 const defaultProps = {
     variant: "pill",
+    overlap: "rectangle",
     as: "span"
 };
 
-export function InnerBadge(props) {
-    const { variant, highlight, size, as: ElementType, className, children, forwardedRef, ...rest } = props;
-
-    let content = children;
+export function InnerBadge({ content, variant, overlap, size, as: ElementType, className, children, forwardedRef, ...rest }) {
+    let badgeContent;
 
     if (variant === "icon") {
-        content = augmentElement(Children.only(children), {
+        badgeContent = augmentElement(content, {
             size
         });
+    } else {
+        badgeContent = content && (
+            <EmbeddedText size={size}>
+                {content}
+            </EmbeddedText>
+        );
     }
 
     return (
@@ -51,15 +58,21 @@ export function InnerBadge(props) {
             {...rest}
             className={mergeClasses(
                 "o-ui badge",
-                variant,
-                variant === "dot" && !content && "empty",
-                variant !== "inline" && variant !== "icon" && getSizeClass(size),
-                highlight && "highlight",
                 className
             )}
             ref={forwardedRef}
         >
-            {content}
+            <span
+                className={mergeClasses(
+                    variant && `${variant}-badge`,
+                    variant === "dot" && !badgeContent && "empty",
+                    overlap && `overlap-${overlap}`,
+                    getSizeClass(size)
+                )}
+            >
+                {badgeContent}
+            </span>
+            {children}
         </ElementType>
     );
 }
@@ -70,12 +83,3 @@ InnerBadge.defaultProps = defaultProps;
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
-
-export const embedBadge = createEmbeddableAdapter({
-    [SIZE.micro]: SIZE.micro,
-    [SIZE.mini]: SIZE.micro,
-    [SIZE.tiny]: SIZE.micro,
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});

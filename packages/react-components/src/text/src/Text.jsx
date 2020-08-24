@@ -1,9 +1,20 @@
+import "./Text.css";
+
 import { SIZE, createSizeAdapterSlotFactory, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
+export const EMBED_SIZE = {
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium
+};
+
 const propTypes = {
-    size: oneOf(["mini", "tiny", "small", "large"]),
+    /**
+     * A text can vary in size.
+     */
+    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -51,8 +62,4 @@ export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 ));
 
-export const textSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
+export const textSlot = createSizeAdapterSlotFactory(EMBED_SIZE);

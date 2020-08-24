@@ -1,163 +1,103 @@
+.o-ui.badge {
+    display: inline-block;
+    position: relative;
+}
+
+.o-ui.badge .pill-badge,
+.o-ui.badge .dot-badge,
+.o-ui.badge .icon-badge {
+    position: absolute;
+    transform: scale(1) translate(50%, -50%);
+    transform-origin: 100% 0%;
+}
+
+.o-ui.badge .pill-badge.overlap-rectangle,
+.o-ui.badge .dot-badge.overlap-rectangle,
+.o-ui.badge .icon-badge.overlap-rectangle {
+    top: 0;
+    right: 0;
+}
+
+.o-ui.badge .pill-badge.overlap-circle,
+.o-ui.badge .dot-badge.overlap-circle,
+.o-ui.badge .icon-badge.overlap-circle {
+    top: 14%;
+    right: 14%;
+}
+
 /* PILL */
-.o-ui.badge.pill {
-    display: inline-flex;
+.o-ui.badge .pill-badge {
     background-color: var(--cloud-100);
     color: var(--marine-900);
-    justify-content: center;
     border-radius: 999px;
-    font-size: var(	--type-scale-7);
-    line-height: 1;
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-    padding: 0 var(--scale-charlie) 0 var(--scale-charlie);
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.o-ui.badge.pill.micro {
-    min-height: 0.75rem;
-    min-width: 0.75rem;
-    font-size: var(--type-scale-9);
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
-}
-
-.o-ui.badge.pill.mini {
-    min-height: 0.875rem;
-    min-width: 0.875rem;
-    font-size: var(--type-scale-9);
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
-}
-
-.o-ui.badge.pill.tiny {
-    min-height: 1rem;
-    min-width: 1rem;
-    font-size: var(--type-scale-9);
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
-}
-
-.o-ui.badge.pill.small {
+/* PILL | Sizes */
+.o-ui.badge .pill-badge.small {
     min-height: 1.25rem;
     min-width: 1.25rem;
-    font-size: var(--type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
-.o-ui.badge.pill.large {
-    font-size: var(--type-scale-6);
-    min-height: 2rem;
-    min-width: 2rem;
-    padding-left: var(--scale-delta);
-    padding-right: var(--scale-delta);
+.o-ui.badge .pill-badge.medium {
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    padding: 0 var(--scale-charlie) 0 var(--scale-charlie);
 }
 
-/* INLINE */
-.o-ui.badge.inline {
-    border-left: 1px solid var(--cloud-100);
-    padding-left: calc(1em / 2);
-    margin-left: calc(1em / 2);
+.o-ui.badge .pill-badge.large {
+    min-height: 2rem;
+    min-width: 2rem;
+    padding: 0 var(--scale-delta) 0 var(--scale-delta);
 }
 
 /* DOT */
-.o-ui.badge.dot {
-    border-radius: 999px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+.o-ui.badge .dot-badge {
     background-color: var(--cloud-100);
     color: var(--marine-900);
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-    font-size: var(--type-scale-7);
+    border-radius: 999px;
 }
 
-.o-ui.badge.dot.micro {
-    font-size: 0.5rem;
-    min-width: 0.5em;
-    min-height: 0.5em;
+.o-ui.badge .dot-badge:not(.empty) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.o-ui.badge.dot.tiny {
-    font-size: var(--type-scale-9);
+/* DOT | Sizes */
+.o-ui.badge .dot-badge.small {
     min-height: 1rem;
     min-width: 1rem;
 }
 
-.o-ui.badge.dot.small {
-    font-size: var(--type-scale-8);
+.o-ui.badge .dot-badge.medium {
     min-height: 1.25rem;
     min-width: 1.25rem;
 }
 
-.o-ui.badge.dot.large {
-    font-size: var(--type-scale-6);
-    min-height: 2rem;
-    min-width: 2rem;
+.o-ui.badge .dot-badge.large {
+    min-height: 1.5rem;
+    min-width: 1.5rem;
 }
 
-.o-ui.badge.dot.massive {
-    font-size: var(--type-scale-2);
-}
-
-/* DOT | Empty */
-.o-ui.badge.dot.empty {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: var(--type-scale-4);
-}
-
-/* DOT | Empty */
-.o-ui.badge.dot.empty.mini {
-    font-size: 0.75rem;
-    min-width: 0.5em;
-    min-height: 0.5em;
-}
-
-.o-ui.badge.dot.empty.tiny {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: var(--type-scale-7);
-}
-
-.o-ui.badge.dot.empty.small {
+/* DOT | Empty | Sizes */
+.o-ui.badge .dot-badge.empty.small {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-5);
 }
 
-.o-ui.badge.dot.empty.large {
+.o-ui.badge .dot-badge.empty.medium {
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--type-scale-4);
+}
+
+.o-ui.badge .dot-badge.empty.large {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: 1.75rem;
-}
-
-.o-ui.badge.dot.empty.big {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: var(--type-scale-3);
-}
-
-.o-ui.badge.dot.empty.huge {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: 2.25rem;
-}
-
-.o-ui.badge.dot.empty.massive {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: var(--type-scale-2);
-}
-
-/* DISABLED */
-.o-ui.badge[disabled] {
-    opacity: 0.4;
-}
-
-/* ICON | DISABLED */
-.o-ui.badge.icon[disabled] {
-    opacity: 0.4;
-}
-
-/* HIGHLIGHT */
-.o-ui.badge.highlight {
-    font-weight: 500;
 }
