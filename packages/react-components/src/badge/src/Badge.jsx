@@ -1,15 +1,12 @@
 import "./Badge.css";
 
-import { EmbeddedText } from "../../text";
-import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, getSizeClass, mergeClasses } from "../../shared";
-import { forwardRef } from "react";
+import { Children, forwardRef } from "react";
+import { SlotProvider, getSizeClass, mergeClasses } from "../../shared";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { isUndefined } from "lodash";
+import { textSlot } from "../../text";
 
 const propTypes = {
-    /**
-     * The badge content.
-     */
-    content: oneOfType([string, element]),
     /**
      * Style to use.
      */
@@ -17,7 +14,7 @@ const propTypes = {
     /**
      * The shape of the element being overlap by the badge.
      */
-    overlap: oneOf(["rectangle", "circle"]),
+    overlap: oneOf(["rectangle", "circle", "icon"]),
     /**
      * A badge can vary in size.
      */
@@ -38,41 +35,48 @@ const defaultProps = {
     as: "span"
 };
 
-export function InnerBadge({ content, variant, overlap, size, as: ElementType, className, children, forwardedRef, ...rest }) {
-    let badgeContent;
+export function InnerBadge({ variant, overlap, size, as: ElementType, className, children, forwardedRef, ...rest }) {
+    let [badgeContent, overlappedElement] = Children.toArray(children);
 
-    if (variant === "icon") {
-        badgeContent = augmentElement(content, {
-            size
-        });
-    } else {
-        badgeContent = content && (
-            <EmbeddedText size={size}>
-                {content}
-            </EmbeddedText>
-        );
+    const isEmpty = isUndefined(overlappedElement);
+
+    if (isEmpty) {
+        overlappedElement = badgeContent;
+        badgeContent = undefined;
     }
 
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui badge",
+                "o-ui-badge",
                 className
             )}
             ref={forwardedRef}
         >
-            <span
-                className={mergeClasses(
-                    variant && `${variant}-badge`,
-                    variant === "dot" && !badgeContent && "empty",
-                    overlap && `overlap-${overlap}`,
-                    getSizeClass(size)
-                )}
+            <SlotProvider
+                slots={{
+                    text: textSlot({
+                        size
+                    }),
+                    icon: {
+                        size
+                    }
+                }}
             >
-                {badgeContent}
-            </span>
-            {children}
+                <div
+                    className={mergeClasses(
+                        "o-ui-badge__anchor",
+                        `o-ui-badge__${variant}`,
+                        variant === "dot" && isEmpty && "o-ui-badge__dot--empty",
+                        overlap && `o-ui-badge__anchor--over-${overlap}`,
+                        getSizeClass(size, "o-ui-badge--")
+                    )}
+                >
+                    {badgeContent}
+                </div>
+            </SlotProvider>
+            {overlappedElement}
         </ElementType>
     );
 }

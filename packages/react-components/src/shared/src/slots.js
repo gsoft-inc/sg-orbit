@@ -39,7 +39,7 @@ export function createSizeAdapterSlotFactory(sizeAdapter) {
     return ({ size, ...rest }) => {
         return {
             ...rest,
-            size:  sizeAdapter[size || SIZE.medium]
+            size: sizeAdapter[size || SIZE.medium]
         };
     };
 }

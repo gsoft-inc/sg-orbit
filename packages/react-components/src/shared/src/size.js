@@ -22,6 +22,8 @@ export const SIZE_CLASS = {
     [SIZE.massive]: "massive"
 };
 
-export function getSizeClass(size) {
-    return SIZE_CLASS[size || SIZE.medium];
+export function getSizeClass(size, prefix) {
+    const className = SIZE_CLASS[size || SIZE.medium];
+
+    return prefix ? `${prefix}${className}` : className;
 }

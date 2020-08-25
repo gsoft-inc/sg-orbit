@@ -44,8 +44,7 @@ export function InnerText(props) {
             data-testid="text"
             {...rest}
             className={mergeClasses(
-                "o-ui text",
-                getSizeClass(size),
+                getSizeClass(size, "o-ui-text--"),
                 className
             )}
             ref={forwardedRef}
