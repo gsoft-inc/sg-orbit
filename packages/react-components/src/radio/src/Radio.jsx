@@ -26,10 +26,6 @@ const propTypes = {
      */
     icon: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
-    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -68,7 +64,7 @@ export function InnerRadio(props) {
         onChange,
         onCheck,
         icon,
-        badge,
+        counter,
         size,
         reverse,
         tabIndex,
@@ -113,16 +109,16 @@ export function InnerRadio(props) {
     );
 
     // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
+    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+    //     size,
+    //     disabled
+    // });
 
     const content = (
         <>
             {labelMarkup}
             {iconMarkup}
-            {badgeMarkup}
+            {counter}
         </>
     );
 
@@ -145,8 +141,6 @@ export function InnerRadio(props) {
             className={mergeClasses(
                 "o-ui radio",
                 isChecked && "checked",
-                iconMarkup && "with-icon",
-                badgeMarkup && "with-badge",
                 reverse && "reverse",
                 disabled && "disabled",
                 readOnly && "readonly",

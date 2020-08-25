@@ -14,9 +14,6 @@ function stories(segment) {
         .build();
 }
 
-// TODO:
-// - overlap (square, circle, icon, text)
-
 function SquareBadge({ children, ...rest }) {
     return (
         <Badge {...rest}>

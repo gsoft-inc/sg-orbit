@@ -10,8 +10,6 @@ export function useCheckbox({
     autoFocus,
     autoFocusDelay,
     onChange,
-    icon,
-    badge,
     size,
     reverse,
     name,
@@ -60,8 +58,6 @@ export function useCheckbox({
             className: mergeClasses(
                 isChecked && "checked",
                 isIndeterminate && "indeterminate",
-                !isNil(icon) && "with-icon",
-                !isNil(badge) && "with-badge",
                 reverse && "reverse",
                 disabled && "disabled",
                 readOnly && "readonly",

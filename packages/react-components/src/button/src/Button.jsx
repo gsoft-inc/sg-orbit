@@ -3,7 +3,6 @@ import "./Button.css";
 import { EmbeddedIcon } from "../../icons";
 import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, useSlotProps } from "../../shared";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useButton } from "./useButton";
@@ -24,15 +23,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
      */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
+    icon: element,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -89,9 +80,8 @@ export function InnerButton(props) {
         variant,
         color,
         shape,
-        iconLeft,
-        iconRight,
-        badge,
+        icon,
+        counter,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -129,24 +119,20 @@ export function InnerButton(props) {
         <span className="text">{children}</span>
     );
 
-    const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
+    const iconMarkup = !isNil(icon) && (
+        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
     );
 
-    const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
-    );
-
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
+    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+    //     size,
+    //     disabled
+    // });
 
     const content = (
         <>
-            {iconLeftMarkup}
+            {iconMarkup}
             {textMarkup}
-            {iconRightMarkup}{badgeMarkup}
+            {counter}
         </>
     );
 
@@ -157,9 +143,6 @@ export function InnerButton(props) {
             {...buttonProps}
             className={mergeClasses(
                 "o-ui button",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                badgeMarkup && "with-badge",
                 buttonProps.className
             )}
         >

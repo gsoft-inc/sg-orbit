@@ -1,5 +1,5 @@
-import { Badge } from "@react-components/badge";
 import { Button, embedButton } from "@react-components/button";
+import { Counter } from "@react-components/counter";
 import { Inline, Stack } from "@react-components/layout";
 import { SignoutIcon } from "@react-components/icons";
 import { createButtonTestSuite } from "./createButtonTestSuite";
@@ -52,17 +52,17 @@ stories("/link")
             </div>
         </Stack>
     )
-    .add("badge", () =>
+    .add("counter", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" badge={<Badge>60</Badge>} size="mini">Button</Button>
-                <Button variant="link" badge={<Badge>60</Badge>} size="tiny">Button</Button>
-                <Button variant="link" badge={<Badge>60</Badge>} size="small">Button</Button>
-                <Button variant="link" badge={<Badge>60</Badge>}>Button</Button>
-                <Button variant="link" badge={<Badge>60</Badge>} size="large">Button</Button>
+                <Button variant="link" counter={<Counter>60</Counter>} size="mini">Button</Button>
+                <Button variant="link" counter={<Counter>60</Counter>} size="tiny">Button</Button>
+                <Button variant="link" counter={<Counter>60</Counter>} size="small">Button</Button>
+                <Button variant="link" counter={<Counter>60</Counter>}>Button</Button>
+                <Button variant="link" counter={<Counter>60</Counter>} size="large">Button</Button>
             </Inline>
             <div>
-                <Button variant="link" disabled badge={<Badge variant="dot" />} badgeRight={<Badge>60</Badge>}>Button</Button>
+                <Button variant="link" disabled counter={<Counter>60</Counter>}>Button</Button>
             </div>
         </Stack>
     )

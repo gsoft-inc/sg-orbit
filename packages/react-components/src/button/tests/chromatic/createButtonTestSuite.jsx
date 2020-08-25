@@ -1,4 +1,4 @@
-import { Badge } from "@react-components/badge";
+import { Counter } from "@react-components/counter";
 import { IconGroup, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
@@ -39,76 +39,55 @@ export function createButtonTestSuite(element, stories) {
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <Button iconLeft={<SignoutIcon />} size="mini" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} size="tiny" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} size="large" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} size="mini" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} size="tiny" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} size="small" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button iconLeft={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="mini" element={element}>Button</Button>
-                    <Button iconLeft={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="tiny" element={element}>Button</Button>
-                    <Button iconLeft={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="small" element={element}>Button</Button>
-                    <Button iconLeft={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} element={element}>Button</Button>
-                    <Button iconLeft={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="large" element={element}>Button</Button>
+                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="mini" element={element}>Button</Button>
+                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="tiny" element={element}>Button</Button>
+                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="small" element={element}>Button</Button>
+                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} element={element}>Button</Button>
+                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button iconRight={<SignoutIcon />} size="mini" element={element}>Button</Button>
-                    <Button iconRight={<SignoutIcon />} size="tiny" element={element}>Button</Button>
-                    <Button iconRight={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button iconRight={<SignoutIcon />} element={element}>Button</Button>
-                    <Button iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button iconRight={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="mini" element={element}>Button</Button>
-                    <Button iconRight={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="tiny" element={element}>Button</Button>
-                    <Button iconRight={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="small" element={element}>Button</Button>
-                    <Button iconRight={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} element={element}>Button</Button>
-                    <Button iconRight={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="mini" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="tiny" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
-                    <Button iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="mini" element={element}>Button</Button>
-                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="tiny" element={element}>Button</Button>
-                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
-                    <Button loading iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} size="large" element={element}>Button</Button>
+                    <Button loading icon={<SignoutIcon />} size="mini" element={element}>Button</Button>
+                    <Button loading icon={<SignoutIcon />} size="tiny" element={element}>Button</Button>
+                    <Button loading icon={<SignoutIcon />} size="small" element={element}>Button</Button>
+                    <Button loading icon={<SignoutIcon />} element={element}>Button</Button>
+                    <Button loading icon={<SignoutIcon />} size="large" element={element}>Button</Button>
                 </Inline>
                 <div>
-                    <Button disabled iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
+                    <Button disabled icon={<SignoutIcon />} element={element}>Button</Button>
                 </div>
                 <div>
-                    <Button fluid iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />} element={element}>Button</Button>
+                    <Button fluid icon={<SignoutIcon />} element={element}>Button</Button>
                 </div>
             </Stack>
         )
-        .add("badge", () =>
+        .add("counter", () =>
             <Stack>
                 <Inline align="end">
-                    <Button badge={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button badge={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button badge={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button badge={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button badge={<Badge>60</Badge>} size="large" element={element}>Button</Button>
+                    <Button counter={<Counter>60</Counter>} size="mini" element={element}>Button</Button>
+                    <Button counter={<Counter>60</Counter>} size="tiny" element={element}>Button</Button>
+                    <Button counter={<Counter>60</Counter>} size="small" element={element}>Button</Button>
+                    <Button counter={<Counter>60</Counter>} element={element}>Button</Button>
+                    <Button counter={<Counter>60</Counter>} size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading badge={<Badge>60</Badge>} size="mini" element={element}>Button</Button>
-                    <Button loading badge={<Badge>60</Badge>} size="tiny" element={element}>Button</Button>
-                    <Button loading badge={<Badge>60</Badge>} size="small" element={element}>Button</Button>
-                    <Button loading badge={<Badge>60</Badge>} element={element}>Button</Button>
-                    <Button loading badge={<Badge>60</Badge>} size="large" element={element}>Button</Button>
+                    <Button loading counter={<Counter>60</Counter>} size="mini" element={element}>Button</Button>
+                    <Button loading counter={<Counter>60</Counter>} size="tiny" element={element}>Button</Button>
+                    <Button loading counter={<Counter>60</Counter>} size="small" element={element}>Button</Button>
+                    <Button loading counter={<Counter>60</Counter>} element={element}>Button</Button>
+                    <Button loading counter={<Counter>60</Counter>} size="large" element={element}>Button</Button>
                 </Inline>
                 <div>
-                    <Button disabled badge={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button disabled counter={<Counter>60</Counter>} element={element}>Button</Button>
                 </div>
                 <div>
-                    <Button fluid badge={<Badge>60</Badge>} element={element}>Button</Button>
+                    <Button fluid counter={<Counter>60</Counter>} element={element}>Button</Button>
                 </div>
             </Stack>
         )
@@ -122,7 +101,7 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="primary" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button iconLeft={<SignoutIcon />} color="primary" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} color="primary" element={element}>Button</Button>
                     <Button loading color="primary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -137,7 +116,7 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="secondary" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button iconLeft={<SignoutIcon />} color="secondary" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} color="secondary" element={element}>Button</Button>
                     <Button loading color="secondary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -152,7 +131,7 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button iconLeft={<SignoutIcon />} color="danger" element={element}>Button</Button>
+                    <Button icon={<SignoutIcon />} color="danger" element={element}>Button</Button>
                     <Button loading color="danger" element={element}>Button</Button>
                 </Inline>
             </Stack>

@@ -84,37 +84,37 @@
 }
 
 /* WITH ICON */
-.o-ui.checkbox.with-icon > .label {
+/* .o-ui.checkbox.with-icon > .label {
     margin-right: var(--scale-alpha);
-}
+} */
 
 /* WITH ICON | REVERSE */
-.o-ui.checkbox.with-icon.reverse > .label {
+/* .o-ui.checkbox.with-icon.reverse > .label {
     margin-right: 0;
     margin-left: var(--scale-alpha);
-}
+} */
 
 /* WITH ICON | ICON */
-.o-ui.checkbox.with-icon .icon {
+/* .o-ui.checkbox.with-icon .icon {
     fill: currentColor;
-}
+} */
 
 /* WITH ICON | REVERSE  */
-.o-ui.checkbox.with-icon.reverse .label {
+/* .o-ui.checkbox.with-icon.reverse .label {
     margin-left: var(--scale-alpha);
     margin-right: var(--scale-bravo);
-}
+} */
 
 /* WITH BADGE */
-.o-ui.checkbox.with-badge > .label {
+/* .o-ui.checkbox.with-badge > .label {
     margin-right: var(--scale-bravo);
-}
+} */
 
 /* WITH BADGE | REVERSE */
-.o-ui.checkbox.with-badge.reverse > .label {
+/* .o-ui.checkbox.with-badge.reverse > .label {
     margin-right: var(--scale-bravo);
     margin-left: var(--scale-bravo);
-}
+} */
 
 /* STATE | CHECKED */
 .o-ui.checkbox.checked .box {

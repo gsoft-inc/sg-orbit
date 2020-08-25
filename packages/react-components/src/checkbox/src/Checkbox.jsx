@@ -43,10 +43,6 @@ const propTypes = {
      */
     icon: element,
     /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
-    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -86,7 +82,7 @@ export function InnerCheckbox(props) {
         onChange,
         onCheck,
         icon,
-        badge,
+        counter,
         size,
         reverse,
         name,
@@ -123,8 +119,6 @@ export function InnerCheckbox(props) {
         autoFocus,
         autoFocusDelay,
         onChange: !isNil(onCheck) ? handleCheck : onChange,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -151,16 +145,16 @@ export function InnerCheckbox(props) {
     );
 
     // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
+    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+    //     size,
+    //     disabled
+    // });
 
     const content = (
         <>
             {labelMarkup}
             {iconMarkup}
-            {badgeMarkup}
+            {counter}
         </>
     );
 

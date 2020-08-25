@@ -3,7 +3,6 @@ import "./Switch.css";
 import { EmbeddedIcon } from "../../icons";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { mergeClasses } from "../../shared";
@@ -30,10 +29,6 @@ const propTypes = {
      * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
      */
     icon: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
     /**
      * A checkbox can vary in size.
      */
@@ -70,7 +65,7 @@ export function InnerSwitch(props) {
         autoFocusDelay,
         onChange,
         icon,
-        badge,
+        counter,
         size,
         reverse,
         name,
@@ -97,8 +92,6 @@ export function InnerSwitch(props) {
         autoFocus,
         autoFocusDelay,
         onChange,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -122,16 +115,16 @@ export function InnerSwitch(props) {
         );
 
         // TODO: Add reverse
-        const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-            size,
-            disabled
-        });
+        // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
+        //     size,
+        //     disabled
+        // });
 
         return (
             <>
                 {labelMarkup}
                 {iconMarkup}
-                {badgeMarkup}
+                {counter}
             </>
         );
     };

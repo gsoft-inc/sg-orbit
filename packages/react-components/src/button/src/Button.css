@@ -674,81 +674,55 @@ a.o-ui.button.ghost {
 
 /* BUTTON | FLUID | WITH ICON LEFT | SIZES */
 /* BUTTON | FLUID | WITH ICON LEFT | MEDIUM */
-.o-ui.button.fluid.with-left-icon {
+/* .o-ui.button.fluid.with-icon {
     padding-left: var(--padding-medium);
-}
+} */
 
 /* BUTTON | FLUID | WITH ICON LEFT | MINI */
-.o-ui.button.fluid.with-left-icon.mini {
+/* .o-ui.button.fluid.with-icon.mini {
     padding-left: var(--padding-mini);
-}
+} */
 
 /* BUTTON | FLUID | WITH ICON LEFT | WITH BADGE | TINY */
-.o-ui.button.fluid.with-left-icon.tiny {
+/* .o-ui.button.fluid.with-icon.tiny {
     padding-left: var(--padding-tiny);
-}
+} */
 
 /* BUTTON | FLUID | WITH ICON LEFT | WITH BADGE | SMALL */
-.o-ui.button.fluid.with-left-icon.small {
+/* .o-ui.button.fluid.with-icon.small {
     padding-left: var(--padding-small);
-}
+} */
 
 /* BUTTON | FLUID | WITH ICON LEFT | WITH BADGE | LARGE */
-.o-ui.button.fluid.with-left-icon.large {
+/* .o-ui.button.fluid.with-icon.large {
     padding-left: var(--padding-large);
-}
-
-/* BUTTON | FLUID | WITH ICON RIGHT | SIZES */
-/* BUTTON | FLUID | WITH ICON RIGHT | MEDIUM */
-.o-ui.button.fluid.with-right-icon {
-    padding-right: var(--padding-medium);
-}
-
-/* BUTTON | FLUID | WITH ICON RIGHT | MINI */
-.o-ui.button.fluid.with-right-icon.mini {
-    padding-right: var(--padding-mini);
-}
-
-/* BUTTON | FLUID | WITH ICON RIGHT | WITH BADGE | TINY */
-.o-ui.button.fluid.with-right-icon.tiny {
-    padding-right: var(--padding-tiny);
-}
-
-/* BUTTON | FLUID | WITH ICON RIGHT | WITH BADGE | SMALL */
-.o-ui.button.fluid.with-right-icon.small {
-    padding-right: var(--padding-small);
-}
-
-/* BUTTON | FLUID | WITH ICON RIGHT | WITH BADGE | LARGE */
-.o-ui.button.fluid.with-right-icon.large {
-    padding-right: var(--padding-large);
-}
+} */
 
 /* BUTTON | FLUID | WITH BADGE | SIZES */
 /* BUTTON | FLUID | WITH BADGE | MEDIUM */
-.o-ui.button.fluid.with-badge {
+/* .o-ui.button.fluid.with-badge {
     padding-right: var(--padding-medium);
-}
+} */
 
 /* BUTTON | FLUID | WITH BADGE | MINI */
-.o-ui.button.fluid.with-badge.mini {
+/* .o-ui.button.fluid.with-badge.mini {
     padding-right: var(--padding-mini);
-}
+} */
 
 /* BUTTON | FLUID | WITH BADGE | WITH BADGE | TINY */
-.o-ui.button.fluid.with-badge.tiny {
+/* .o-ui.button.fluid.with-badge.tiny {
     padding-right: var(--padding-tiny);
-}
+} */
 
 /* BUTTON | FLUID | WITH BADGE | WITH BADGE | SMALL */
-.o-ui.button.fluid.with-badge.small {
+/* .o-ui.button.fluid.with-badge.small {
     padding-right: var(--padding-small);
-}
+} */
 
 /* BUTTON | FLUID | WITH BADGE | WITH BADGE | LARGE */
-.o-ui.button.fluid.with-badge.large {
+/* .o-ui.button.fluid.with-badge.large {
     padding-right: var(--padding-large);
-}
+} */
 
 /* BUTTON | LOADING */
 .o-ui.button.loading {
@@ -983,219 +957,209 @@ a.o-ui.button.ghost {
     padding-right: var(--scale-bravo);
 }
 
-/* BUTTON | WITH LEFT ICON | ROUNDED | TEXT */
-.o-ui.button.rounded.with-left-icon .text {
-    padding-left: 0;
-}
-
-/* BUTTON | WITH LEFT ICON | ROUNDED | ICON */
-.o-ui.button.rounded.with-left-icon .icon:first-child {
-    margin-left: var(--scale-alpha);
-}
-
 /* BUTTON | WITH RIGHT ICON | ROUNDED | TEXT */
-.o-ui.button.rounded.with-right-icon .text {
+/* .o-ui.button.rounded.with-icon .text {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | WITH RIGHT ICON | ROUNDED | ICON */
-.o-ui.button.rounded.with-right-icon .icon:last-child {
+/* .o-ui.button.rounded.with-icon .icon:last-child {
     margin-right: var(--scale-alpha);
-}
+} */
 
 /* BUTTON | CONTENT */
 /* BUTTON | CONTENT | BADGE */
-.o-ui.button.with-badge  {
+/* .o-ui.button.with-badge  {
     padding-right: calc(var(--padding-medium) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED */
-.o-ui.button.with-badge.rounded  {
+/* .o-ui.button.with-badge.rounded  {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED | BADGE */
-.o-ui.button.with-badge.rounded .badge  {
+/* .o-ui.button.with-badge.rounded .badge  {
     margin-right: var(--scale-bravo);
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | MINI | ROUNDED | BADGE */
-.o-ui.button.with-badge.rounded.mini .badge  {
+/* .o-ui.button.with-badge.rounded.mini .badge  {
     margin-right: var(--scale-alpha);
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | TINY | ROUNDED | BADGE */
-.o-ui.button.with-badge.rounded.tiny .badge  {
+/* .o-ui.button.with-badge.rounded.tiny .badge  {
     margin-right: var(--scale-alpha);
-}
+} */
 
 /* BUTTON | SIZE | MINI | CONTENT | BADGE */
-.o-ui.button.with-badge.mini  {
+/* .o-ui.button.with-badge.mini  {
     padding-right: calc(var(--padding-mini) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED | MINI */
-.o-ui.button.with-badge.rounded.mini  {
+/* .o-ui.button.with-badge.rounded.mini  {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | BADGE */
-.o-ui.button.with-badge.tiny  {
+/* .o-ui.button.with-badge.tiny  {
     padding-right: calc(var(--padding-tiny) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED | TINY */
-.o-ui.button.with-badge.rounded.tiny  {
+/* .o-ui.button.with-badge.rounded.tiny  {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | SMALL | CONTENT | BADGE */
-.o-ui.button.with-badge.small  {
+/* .o-ui.button.with-badge.small  {
     padding-right: calc(var(--padding-small) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED | SMALL */
-.o-ui.button.with-badge.rounded.small  {
+/* .o-ui.button.with-badge.rounded.small  {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | LARGE | CONTENT | BADGE */
-.o-ui.button.with-badge.large  {
+/* .o-ui.button.with-badge.large  {
     padding-right: calc(var(--padding-large) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | BADGE | ROUNDED | LARGE */
-.o-ui.button.with-badge.rounded.large  {
+/* .o-ui.button.with-badge.rounded.large  {
     padding-right: 0;
-}
+} */
 
 /* LINK */
-.o-ui.button.link.with-badge  {
+/* .o-ui.button.link.with-badge  {
     padding-right: 0;
 }
 
 .o-ui.button.with-badge .text {
     margin-right: var(--scale-bravo);
-}
+} */
 
 /* BUTTON | CONTENT | ICON */
 /* BUTTON | CONTENT | ICON | LEFT */
-.o-ui.button.with-left-icon {
+/* .o-ui.button.with-icon {
     padding-left: calc(var(--padding-medium) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | ICON | LEFT | ROUNDED */
-.o-ui.button.with-left-icon.rounded {
+/* .o-ui.button.with-icon.rounded {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | SIZE | MINI | CONTENT | ICON | LEFT */
-.o-ui.button.mini.with-left-icon {
+/* .o-ui.button.mini.with-icon {
     padding-left: calc(var(--padding-mini) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | MINI | CONTENT | ICON | LEFT | ROUNDED */
-.o-ui.button.mini.with-left-icon.rounded {
+/* .o-ui.button.mini.with-icon.rounded {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | LEFT */
-.o-ui.button.tiny.with-left-icon {
+/* .o-ui.button.tiny.with-icon {
     padding-left: calc(var(--padding-tiny) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | LEFT */
-.o-ui.button.tiny.with-left-icon.rounded {
+/* .o-ui.button.tiny.with-icon.rounded {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | SIZE | SMALL | CONTENT | ICON | LEFT */
-.o-ui.button.small.with-left-icon {
+/* .o-ui.button.small.with-icon {
     padding-left: calc(var(--padding-small) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | SMALL | CONTENT | ICON | LEFT | ROUNDED */
-.o-ui.button.small.with-left-icon.rounded {
+/* .o-ui.button.small.with-icon.rounded {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | SIZE | LARGE | CONTENT | ICON | LEFT */
-.o-ui.button.large.with-left-icon {
+/* .o-ui.button.large.with-icon {
     padding-left: calc(var(--padding-large) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | LARGE | CONTENT | ICON | LEFT | ROUNDED */
-.o-ui.button.large.with-left-icon.rounded {
+/* .o-ui.button.large.with-icon.rounded {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | LINK | CONTENT | ICON */
 /* BUTTON | LINK | CONTENT | ICON | LEFT */
-.o-ui.button.with-left-icon.link {
+/* .o-ui.button.with-icon.link {
     padding-left: 0;
-}
+} */
 
 /* BUTTON | CONTENT | ICON | LEFT | TEXT */
-.o-ui.button.with-left-icon .text {
+/* .o-ui.button.with-icon .text {
     margin-left: var(--scale-alpha);
-}
+} */
 
 /* BUTTON | CONTENT | ICON | LEFT | RIGHT */
-.o-ui.button.with-right-icon .text {
+/* .o-ui.button.with-icon .text {
     margin-right: var(--scale-alpha);
-}
+} */
 
 /* BUTTON | CONTENT | ICON | RIGHT */
-.o-ui.button.with-right-icon {
+/* .o-ui.button.with-icon {
     padding-right: calc(var(--padding-medium) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | CONTENT | ICON | RIGHT | ROUNDED */
-.o-ui.button.with-right-icon.rounded {
+/* .o-ui.button.with-icon.rounded {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | MINI | CONTENT | ICON | RIGHT */
-.o-ui.button.mini.with-right-icon {
+/* .o-ui.button.mini.with-icon {
     padding-right: calc(var(--padding-mini) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | MINI | CONTENT | ICON | RIGHT | ROUNDED */
-.o-ui.button.with-right-icon.mini.rounded {
+/* .o-ui.button.with-icon.mini.rounded {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | RIGHT */
-.o-ui.button.tiny.with-right-icon {
+/* .o-ui.button.tiny.with-icon {
     padding-right: calc(var(--padding-tiny) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | RIGHT | ROUNDED */
-.o-ui.button.with-right-icon.tiny.rounded {
+/* .o-ui.button.with-icon.tiny.rounded {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | SMALL | CONTENT | ICON | RIGHT */
-.o-ui.button.small.with-right-icon {
+/* .o-ui.button.small.with-icon {
     padding-right: calc(var(--padding-small) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | RIGHT | ROUNDED */
-.o-ui.button.with-right-icon.small.rounded {
+/* .o-ui.button.with-icon.small.rounded {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | SIZE | LARGE | CONTENT | ICON | RIGHT */
-.o-ui.button.large.with-right-icon {
+/* .o-ui.button.large.with-icon {
     padding-right: calc(var(--padding-large) / var(--padding-ratio-factor));
-}
+} */
 
 /* BUTTON | SIZE | TINY | CONTENT | ICON | RIGHT | ROUNDED */
-.o-ui.button.with-right-icon.large.rounded {
+/* .o-ui.button.with-icon.large.rounded {
     padding-right: 0;
-}
+} */
 
 /* BUTTON | LINK | CONTENT | ICON | RIGHT */
-.o-ui.button.link.with-right-icon  {
+/* .o-ui.button.link.with-icon  {
     padding-right: 0;
-}
+} */

@@ -1,4 +1,4 @@
-import { Badge } from "@react-components/badge";
+import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
@@ -27,24 +27,24 @@ export function createTestSuite(element, stories) {
                     <Switch size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" badge={<Badge>60</Badge>} element={element}>Engines</Switch>
-                    <Switch badge={<Badge>60</Badge>} element={element}>Engines</Switch>
-                    <Switch size="large" badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="small" counter={<Counter>60</Counter>} element={element}>Engines</Switch>
+                    <Switch counter={<Counter>60</Counter>} element={element}>Engines</Switch>
+                    <Switch size="large" counter={<Counter>60</Counter>} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
-                    <Switch badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
-                    <Switch size="large" badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="small" counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
+                    <Switch counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
+                    <Switch size="large" counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
-                    <Switch icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
-                    <Switch size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="small" icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element}>Engines</Switch>
+                    <Switch icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
-                    <Switch icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
-                    <Switch size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Engines</Switch>
+                    <Switch size="small" icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
+                    <Switch icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
+                    <Switch size="large" icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>
                 </Inline>
             </Stack>
         )
@@ -66,24 +66,24 @@ export function createTestSuite(element, stories) {
                     <Switch size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" badge={<Badge>60</Badge>} element={element} />
-                    <Switch badge={<Badge>60</Badge>} element={element} />
-                    <Switch size="large" badge={<Badge>60</Badge>} element={element} />
+                    <Switch size="small" counter={<Counter>60</Counter>} element={element} />
+                    <Switch counter={<Counter>60</Counter>} element={element} />
+                    <Switch size="large" counter={<Counter>60</Counter>} element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Switch badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Switch size="large" badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch size="small" counter={<Counter variant="inline">60</Counter>} element={element} />
+                    <Switch counter={<Counter variant="inline">60</Counter>} element={element} />
+                    <Switch size="large" counter={<Counter variant="inline">60</Counter>} element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
-                    <Switch icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
-                    <Switch size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
+                    <Switch size="small" icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element} />
+                    <Switch icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element} />
+                    <Switch size="large" icon={<EmailIcon />} counter={<Counter>60</Counter>} element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Switch icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Switch size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Switch size="small" icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element} />
+                    <Switch icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element} />
+                    <Switch size="large" icon={<EmailIcon />} counter={<Counter variant="inline">60</Counter>} element={element} />
                 </Inline>
             </Stack>
         )
@@ -97,16 +97,16 @@ export function createTestSuite(element, stories) {
                     <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse element={element} />
                 </Inline>
                 <Inline>
-                    <Switch badge={<Badge>60</Badge>} reverse element={element}>Engines</Switch>
-                    <Switch badge={<Badge>60</Badge>} reverse element={element} />
-                    <Switch badge={<Badge variant="inline">60</Badge>} reverse element={element}>Engines</Switch>
-                    <Switch badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                    <Switch counter={<Counter>60</Counter>} reverse element={element}>Engines</Switch>
+                    <Switch counter={<Counter>60</Counter>} reverse element={element} />
+                    <Switch counter={<Counter variant="inline">60</Counter>} reverse element={element}>Engines</Switch>
+                    <Switch counter={<Counter variant="inline">60</Counter>} reverse element={element} />
                 </Inline>
                 <Inline>
-                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element}>Engines</Switch>
-                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element} />
-                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element}>Engines</Switch>
-                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter>60</Counter>} reverse element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter>60</Counter>} reverse element={element} />
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter variant="inline">60</Counter>} reverse element={element}>Engines</Switch>
+                    <Switch icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter variant="inline">60</Counter>} reverse element={element} />
                 </Inline>
             </Stack>
         )
@@ -153,10 +153,10 @@ export function createTestSuite(element, stories) {
                     <Switch icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
                 </div>
                 <div className="mw5">
-                    <Switch badge={<Badge variant="inline">60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
+                    <Switch counter={<Counter variant="inline">60</Counter>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
                 </div>
                 <div className="mw5">
-                    <Switch badge={<Badge>60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
+                    <Switch counter={<Counter>60</Counter>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
                 </div>
             </Stack>
         );

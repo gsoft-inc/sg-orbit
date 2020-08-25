@@ -1,5 +1,4 @@
 import { AddIcon, CheckIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
-import { Badge } from "@react-components/badge";
 import {
     Button,
     ButtonGroup,
@@ -13,6 +12,7 @@ import {
     ToggleIconButton
 } from "@react-components/button";
 import { ControlledToggleButton } from "./ControlledToggleButton.sample";
+import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -65,26 +65,25 @@ A default button.
 
 ### Icon
 
-A button can contain left or right [icons](?path=/docs/materials-icons--page).
+A button can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
         <Inline>
-            <Button iconLeft={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconRight={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconRight={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Cutoff</Button>
+            <Button icon={<LightbulbIcon />}>Cutoff</Button>
+            <Button icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Cutoff</Button>
         </Inline>
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A button can contain a [badge](?path=/story/components-badge--default-story).
+A button can contain a [counter](?path=/story/components-counter--default-story).
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <Inline>
-            <Button badge={<Badge>6</Badge>}>Cutoff</Button>
+            <Button counter={<Counter>6</Counter>}>Cutoff</Button>
         </Inline>
     </Story>
 </Preview>

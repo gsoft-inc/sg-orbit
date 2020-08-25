@@ -1,5 +1,5 @@
-import { Badge } from "@react-components/badge";
 import { ControlledSwitch } from "./ControlledSwitch.sample";
+import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
@@ -97,15 +97,15 @@ A switch can have [icons](?path=/docs/materials-icons--page) after his text.
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A switch can have a [badge](?path=/docs/components-badge--default-story) after his text.
+A switch can have a [counter](?path=/docs/components-counter--default-story) after his text.
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <Inline>
-            <Switch badge={<Badge>6</Badge>}>Pressurization</Switch>
-            <Switch badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+            <Switch counter={<Counter>6</Counter>}>Pressurization</Switch>
+            <Switch counter={<Counter variant="divider">6</Counter>}>Engines</Switch>
         </Inline>
     </Story>
 </Preview>

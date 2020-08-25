@@ -1,7 +1,7 @@
-import { Badge } from "@react-components/badge";
 import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@react-components/checkbox";
 import { ControlledCheckbox } from "./ControlledCheckbox.sample";
 import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
+import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
@@ -110,15 +110,15 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A checkbox can have a [badge](?path=/docs/components-badge--default-story) after his label.
+A checkbox can have a [counter](?path=/docs/components-counter--default-story) after his label.
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <Inline>
-            <Checkbox badge={<Badge>6</Badge>}>Milky Way</Checkbox>
-            <Checkbox badge={<Badge variant="inline">6</Badge>}>Andromeda</Checkbox>
+            <Checkbox counter={<Counter>6</Counter>}>Milky Way</Checkbox>
+            <Checkbox counter={<Counter variant="divider">6</Counter>}>Andromeda</Checkbox>
         </Inline>
     </Story>
 </Preview>

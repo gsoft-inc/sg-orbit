@@ -1,4 +1,4 @@
-import { Badge } from "@react-components/badge";
+import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
@@ -27,24 +27,24 @@ export function createTestSuite(element, stories) {
                     <Radio size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="large" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="large" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<EmailIcon />} badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="large" icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="large" icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
             </Stack>
         )
@@ -57,12 +57,12 @@ export function createTestSuite(element, stories) {
                     <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse value="any" element={element}>Milky Way</Radio>
                 </div>
                 <Inline>
-                    <Radio badge={<Badge>60</Badge>} reverse value="any" element={element}>Milky Way</Radio>
-                    <Radio badge={<Badge variant="inline">60</Badge>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio counter={<Counter>60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio counter={<Counter variant="divider">60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline>
-                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter>60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter variant="divider">60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
                 </Inline>
             </Stack>
         )
@@ -109,10 +109,10 @@ export function createTestSuite(element, stories) {
                     <Radio icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
                 </div>
                 <div className="flex items-end mw5">
-                    <Radio badge={<Badge variant="inline">60</Badge>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                    <Radio counter={<Counter variant="divider">60</Counter>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
                 </div>
                 <div className="flex items-end mw5">
-                    <Radio badge={<Badge>60</Badge>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                    <Radio counter={<Counter>60</Counter>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
                 </div>
             </Stack>
         );
