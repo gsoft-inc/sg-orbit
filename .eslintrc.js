@@ -18,6 +18,9 @@ module.exports = {
         "jest/globals": true
     },
     rules: {
-        "linebreak-style": ["warn", "unix"]
+        "linebreak-style": ["warn", "unix"],
+        "prefer-const": ["warn", {
+            "destructuring": "all"
+        }]
     }
 };

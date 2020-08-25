@@ -1,6 +1,6 @@
 import "./Icon.css";
 
-import { SIZE, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -19,7 +19,7 @@ export function InnerIcon(props) {
         <ComponentType
             {...rest}
             className={mergeClasses(
-                `o-ui icon icon-${size || SIZE.medium}`,
+                getSizeClass(size, "o-ui-icon--"),
                 className
             )}
             focusable="false"
