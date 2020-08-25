@@ -259,6 +259,7 @@
 .o-ui.input textarea.disabled {
     opacity: var(--o-ui-background-opacity);
     background-color: var(--o-ui-background-color);
+    cursor: not-allowed;
 }
 
 /* STATES | LOADING */

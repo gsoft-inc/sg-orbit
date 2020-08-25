@@ -57,7 +57,7 @@
 .o-ui.switch[disabled],
 .o-ui.switch.disabled {
     opacity: 0.4;
-    cursor: default;
+    cursor: not-allowed;
 }
 
 .o-ui.switch.readonly {

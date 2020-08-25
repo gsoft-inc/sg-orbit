@@ -2,12 +2,12 @@
     --padding-mini: var(--scale-bravo);
     --padding-tiny: var(--scale-charlie);
     --padding-small: var(--scale-delta);
-    --padding-default: var(--scale-echo);
+    --padding-medium: var(--scale-echo);
     --padding-large: var(--scale-foxtrot);
     --height-mini: var(--scale-echo);
     --height-tiny: var(--scale-foxtrot);
     --height-small: var(--scale-golf);
-    --height-default: var(--scale-hotel);
+    --height-medium: var(--scale-hotel);
     --height-large: var(--scale-india);
     --padding-ratio-factor: 1.5;
 }
@@ -17,14 +17,14 @@
     border: none;
     background-color: var(--marine-500);
     color: var(--white);
-    padding: 0 var(--padding-default);
-    min-height: var(--height-default);
+    padding: 0 var(--padding-medium);
+    min-height: var(--height-medium);
     font-size: var(--type-scale-6);
 }
 
 /* BUTTON | SOLID | PILL */
 .o-ui.button.solid.pill {
-    border-radius: calc(var(--height-default) / 2);
+    border-radius: calc(var(--height-medium) / 2);
 }
 
 /* BUTTON | SOLID | ROUNDED */
@@ -183,13 +183,13 @@ a.o-ui.button.solid {
     background-color: var(--white);
     color: var(--marine-500);
     box-shadow: 0 0 0 1px var(--marine-500) inset;
-    padding: 0 var(--padding-default);
-    min-height: var(--height-default);
+    padding: 0 var(--padding-medium);
+    min-height: var(--height-medium);
 }
 
 /* BUTTON | OUTLINE | PILL */
 .o-ui.button.outline.pill {
-    border-radius: calc(var(--height-default) / 2);
+    border-radius: calc(var(--height-medium) / 2);
 }
 
 /* BUTTON | OUTLINE | ROUNDED */
@@ -549,14 +549,14 @@ a.o-ui.button.link {
 .o-ui.button.ghost {
     background-color: transparent;
     border: none;
-    padding: 0 var(--padding-default);
-    min-height: var(--height-default);
+    padding: 0 var(--padding-medium);
+    min-height: var(--height-medium);
     color: var(--marine-500);
 }
 
 /* BUTTON | GHOST PILL */
 .o-ui.button.ghost.pill {
-    border-radius: calc(var(--height-default) / 2);
+    border-radius: calc(var(--height-medium) / 2);
 }
 
 /* BUTTON | GHOST ROUNDED */
@@ -673,9 +673,9 @@ a.o-ui.button.ghost {
 }
 
 /* BUTTON | FLUID | WITH ICON LEFT | SIZES */
-/* BUTTON | FLUID | WITH ICON LEFT | DEFAULT */
+/* BUTTON | FLUID | WITH ICON LEFT | MEDIUM */
 .o-ui.button.fluid.with-left-icon {
-    padding-left: var(--padding-default);
+    padding-left: var(--padding-medium);
 }
 
 /* BUTTON | FLUID | WITH ICON LEFT | MINI */
@@ -699,9 +699,9 @@ a.o-ui.button.ghost {
 }
 
 /* BUTTON | FLUID | WITH ICON RIGHT | SIZES */
-/* BUTTON | FLUID | WITH ICON RIGHT | DEFAULT */
+/* BUTTON | FLUID | WITH ICON RIGHT | MEDIUM */
 .o-ui.button.fluid.with-right-icon {
-    padding-right: var(--padding-default);
+    padding-right: var(--padding-medium);
 }
 
 /* BUTTON | FLUID | WITH ICON RIGHT | MINI */
@@ -725,9 +725,9 @@ a.o-ui.button.ghost {
 }
 
 /* BUTTON | FLUID | WITH BADGE | SIZES */
-/* BUTTON | FLUID | WITH BADGE | DEFAULT */
+/* BUTTON | FLUID | WITH BADGE | MEDIUM */
 .o-ui.button.fluid.with-badge {
-    padding-right: var(--padding-default);
+    padding-right: var(--padding-medium);
 }
 
 /* BUTTON | FLUID | WITH BADGE | MINI */
@@ -874,7 +874,7 @@ a.o-ui.button.ghost {
 .o-ui.button.disabled,
 .o-ui.button[disabled] {
     opacity: 0.4;
-    cursor: default;
+    cursor: not-allowed;
 }
 
 /* BUTTON | CIRCULAR */
@@ -1006,7 +1006,7 @@ a.o-ui.button.ghost {
 /* BUTTON | CONTENT */
 /* BUTTON | CONTENT | BADGE */
 .o-ui.button.with-badge  {
-    padding-right: calc(var(--padding-default) / var(--padding-ratio-factor));
+    padding-right: calc(var(--padding-medium) / var(--padding-ratio-factor));
 }
 
 /* BUTTON | CONTENT | BADGE | ROUNDED */
@@ -1081,7 +1081,7 @@ a.o-ui.button.ghost {
 /* BUTTON | CONTENT | ICON */
 /* BUTTON | CONTENT | ICON | LEFT */
 .o-ui.button.with-left-icon {
-    padding-left: calc(var(--padding-default) / var(--padding-ratio-factor));
+    padding-left: calc(var(--padding-medium) / var(--padding-ratio-factor));
 }
 
 /* BUTTON | CONTENT | ICON | LEFT | ROUNDED */
@@ -1147,7 +1147,7 @@ a.o-ui.button.ghost {
 
 /* BUTTON | CONTENT | ICON | RIGHT */
 .o-ui.button.with-right-icon {
-    padding-right: calc(var(--padding-default) / var(--padding-ratio-factor));
+    padding-right: calc(var(--padding-medium) / var(--padding-ratio-factor));
 }
 
 /* BUTTON | CONTENT | ICON | RIGHT | ROUNDED */

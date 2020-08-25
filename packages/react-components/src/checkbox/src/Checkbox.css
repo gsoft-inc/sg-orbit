@@ -139,7 +139,7 @@
 .o-ui.checkbox.disabled ,
 .o-ui.checkbox[disabled] {
     opacity: 0.4;
-    cursor: default;
+    cursor: not-allowed;
 }
 
 /* STATE | DISABLED | CHECKBOX */

@@ -83,7 +83,7 @@
 /* STATE | DISABLED */
 .o-ui.radio.disabled  {
     opacity: 0.4;
-    cursor: default;
+    cursor: not-allowed;
 }
 
 /* STATE | READONLY */

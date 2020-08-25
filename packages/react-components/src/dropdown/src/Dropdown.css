@@ -222,7 +222,7 @@
 .o-ui.dropdown-menu .item[disabled] {
     background-color: var(--cloud-50);
     border-color: var(--cloud-50);
-    cursor: default;
+    cursor: not-allowed;
 }
 
 /* Dropdown Menu | Item | Description  */
