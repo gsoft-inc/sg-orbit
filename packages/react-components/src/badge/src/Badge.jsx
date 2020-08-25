@@ -3,14 +3,13 @@ import "./Badge.css";
 import { Children, forwardRef } from "react";
 import { SlotProvider, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { isUndefined } from "lodash";
 import { textSlot } from "../../text";
 
 const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["pill", "dot", "icon"]),
+    variant: oneOf(["count", "dot", "icon"]),
     /**
      * The shape of the element being overlap by the badge.
      */
@@ -30,7 +29,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    variant: "pill",
+    variant: "count",
     overlap: "rectangle",
     as: "span"
 };
@@ -38,9 +37,7 @@ const defaultProps = {
 export function InnerBadge({ variant, overlap, size, as: ElementType, className, children, forwardedRef, ...rest }) {
     let [badgeContent, overlappedElement] = Children.toArray(children);
 
-    const isEmpty = isUndefined(overlappedElement);
-
-    if (isEmpty) {
+    if (variant === "dot") {
         overlappedElement = badgeContent;
         badgeContent = undefined;
     }
@@ -68,7 +65,6 @@ export function InnerBadge({ variant, overlap, size, as: ElementType, className,
                     className={mergeClasses(
                         "o-ui-badge__anchor",
                         `o-ui-badge__${variant}`,
-                        variant === "dot" && isEmpty && "o-ui-badge__dot--empty",
                         overlap && `o-ui-badge__anchor--over-${overlap}`,
                         getSizeClass(size, "o-ui-badge--")
                     )}

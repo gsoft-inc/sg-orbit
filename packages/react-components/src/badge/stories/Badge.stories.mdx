@@ -43,12 +43,20 @@ A default badge.
     <Story name="default">
         <Inline gap={8} align="center">
             <Badge>
-                <Text>100</Text>
+                <Text>5</Text>
                 <Square />
             </Badge>
-            <Badge overlap="circle">
-                <Text>100</Text>
-                <Circle />
+            <Badge>
+                <Text>5+</Text>
+                <Square />
+            </Badge>
+            <Badge>
+                <Text>50</Text>
+                <Square />
+            </Badge>
+            <Badge>
+                <Text>500</Text>
+                <Square />
             </Badge>
         </Inline>
     </Story>
@@ -57,8 +65,6 @@ A default badge.
 ### Size
 
 A badge can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -87,13 +93,12 @@ A badge can be rendered as a dot. A single digit is supported.
     <Story name="dot">
         <Inline gap={8} align="center">
             <Badge variant="dot" overlap="circle">
-                <Text>5</Text>
                 <Circle />
             </Badge>
             <Badge variant="dot" overlap="icon">
                 <EmailIcon size="large" />
             </Badge>
-            <Badge variant="dot" >
+            <Badge variant="dot">
                 Notifications
             </Badge>
         </Inline>
@@ -110,6 +115,56 @@ A badge can be an icon.
             <CheckCircleIcon />
             <Circle />
         </Badge>
+    </Story>
+</Preview>
+
+### Overlap
+
+A badge can overlap over elements with different shape.
+
+<Preview>
+    <Story name="overlap">
+        <Inline gap={13} align="center">
+            <Inline gap={8}>
+                <Badge>
+                    <Text>100</Text>
+                    <Square />
+                </Badge>
+                <Badge variant="dot">
+                    <Square />
+                </Badge>
+                <Badge variant="icon">
+                    <CheckCircleIcon />
+                    <Square />
+                </Badge>
+            </Inline>
+            <Inline gap={8}>
+                <Badge overlap="circle">
+                    <Text>100</Text>
+                    <Circle />
+                </Badge>
+                <Badge variant="dot" overlap="circle">
+                    <Circle />
+                </Badge>
+                <Badge variant="icon" overlap="circle">
+                    <CheckCircleIcon />
+                    <Circle />
+                </Badge>
+            </Inline>
+            <Inline gap={8}>
+                <Badge overlap="icon">
+                    <Text>100</Text>
+                    <EmailIcon size="large" />
+                </Badge>
+                <Badge variant="dot" overlap="icon">
+                    <EmailIcon size="large" />
+                </Badge>
+                <Badge variant="icon" overlap="icon">
+                    <CheckCircleIcon />
+                    <EmailIcon size="large" />
+                </Badge>
+            </Inline>
+        </Inline>
     </Story>
 </Preview>
 
