@@ -189,6 +189,22 @@
     border: 1px solid var(--marine-100);
 }
 
+/* STATE | HOVER | DISABLED | CHECKED */
+.o-ui.checkbox.disabled.checked:hover .box,
+.o-ui.checkbox.disabled.checked.hover .box,
+.o-ui.checkbox:disabled.checked:hover .box,
+.o-ui.checkbox:disabled.checked.hover .box {
+    border: 1px solid var(--primary-500);
+}
+
+/* STATE | HOVER | DISABLED | BOX */
+.o-ui.checkbox.disabled.checked:hover .box:before,
+.o-ui.checkbox.disabled.checked.hover .box:before,
+.o-ui.checkbox:disabled.checked:hover .box:before,
+.o-ui.checkbox:disabled.checked.hover .box:before {
+    border: 1px solid var(--primary-500);
+}
+
 /* SIZING */
 /* SIZING | SMALL */
 /* SIZING | SMALL | LABEL */

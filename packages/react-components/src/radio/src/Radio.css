@@ -80,6 +80,12 @@
     border: 1px solid var(--marine-300);
 }
 
+/* STATE | HOVER | DISABLED */
+.o-ui.radio.disabled:hover .button,
+.o-ui.radio.disabled.hover .button {
+    border: 1px solid var(--marine-100);
+}
+
 /* STATE | DISABLED */
 .o-ui.radio.disabled  {
     opacity: 0.4;

@@ -1,16 +1,16 @@
 :root {
-    --o-ui-padding-small: var(--scale-delta);
-    --o-ui-padding-medium: var(--scale-echo);
-    --o-ui-padding-large: var(--scale-foxtrot);
+    --o-ui-padding-small: var(--scale-charlie);
+    --o-ui-padding-medium: var(--scale-delta);
+    --o-ui-padding-large: var(--scale-echo);
     --o-ui-padding-small-with-icon: var(--scale-foxtrot);
     --o-ui-padding-medium-with-icon: var(--scale-golf);
     --o-ui-padding-large-with-icon: var(--scale-hotel);
-    --o-ui-padding-small-with-button: var(--scale-golf);
-    --o-ui-padding-medium-with-button: var(--scale-hotel);
-    --o-ui-padding-large-with-button: var(--scale-india);
-    --o-ui-padding-small-loading: var(--scale-india);
-    --o-ui-padding-medium-loading: var(--scale-hotel);
-    --o-ui-padding-large-loading: var(--scale-juliett);
+    --o-ui-padding-small-with-button: var(--scale-foxtrot);
+    --o-ui-padding-medium-with-button: var(--scale-golf);
+    --o-ui-padding-large-with-button: var(--scale-hotel);
+    --o-ui-padding-small-loading: var(--scale-foxtrot);
+    --o-ui-padding-medium-loading: var(--scale-golf);
+    --o-ui-padding-large-loading: var(--scale-hotel);
     --o-ui-border-color: var(--cloud-200);
     --o-ui-border-radius: var(--scale-alpha);
     --o-ui-background-color: var(--cloud-100);
@@ -38,7 +38,7 @@
     padding: 0 var(--o-ui-padding-medium);
     width: 100%;
     background-color: var(--white);
-    transition: all .12s ease-in;
+    transition: all .12s ease-in padding 0s linear;
 }
 
 .o-ui.input input {
@@ -265,10 +265,10 @@
 /* STATES | LOADING */
 @keyframes loading {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: translate(0, 0) rotate(360deg);
     }
 }
 
@@ -276,14 +276,15 @@
     content: "";
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 4px;
+    /* // ecrire calcul */
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50px;
     border: 2px solid var(--marine-100);
     border-top-color: var(--marine-300);
-    animation: loading 1s linear infinite;
-    transform: translate(-50%, -50%) rotate(0deg);
+    /* animation: loading 1s linear infinite; */
+    transform: translate(0, 0) rotate(0deg);
 }
 
 .o-ui.input.loading input {
