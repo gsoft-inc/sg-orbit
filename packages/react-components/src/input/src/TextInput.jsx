@@ -74,11 +74,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the value.
-     */
-    iconRight: element,
+    icon: element,
     /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
      */
@@ -128,8 +124,7 @@ export function InnerTextInput({
     type,
     autoFocus,
     autoFocusDelay,
-    iconLeft,
-    iconRight,
+    icon,
     button,
     disabled,
     readOnly,
@@ -188,20 +183,17 @@ export function InnerTextInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, { size, disabled });
-
-    const iconRightMarkup = useInputIcon(iconRight, { size, disabled });
+    const iconMarkup = useInputIcon(icon, { size, disabled });
 
     const buttonMarkup = useInputButton(button, { size, disabled });
 
     const content = (
         <>
-            {iconLeftMarkup}
+            {iconMarkup}
             <input
                 {...rest}
                 {...inputProps}
             />
-            {iconRightMarkup}
             {buttonMarkup}
             {messageMarkup}
         </>
@@ -213,8 +205,7 @@ export function InnerTextInput({
             {...wrapperProps}
             className={mergeClasses(
                 "o-ui input text-input",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
+                iconMarkup && "with-icon",
                 button && "with-button",
                 wrapperProps.className
             )}

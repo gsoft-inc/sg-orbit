@@ -68,7 +68,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
+    icon: element,
     /**
      * Whether theinput take up the width of its container.
      */

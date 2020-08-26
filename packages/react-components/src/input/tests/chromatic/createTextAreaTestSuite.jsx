@@ -79,6 +79,21 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
             </Stack>
         )
+        .add("description", () =>
+            <Stack>
+                <Inline align="end">
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="small" label="Where to?" element={element} />
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="large" label="Where to?" element={element} />
+                </Inline>
+                <div>
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
+                </div>
+                <div className="w-10">
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
+                </div>
+            </Stack>
+        )
         .add("value", () =>
             <Stack>
                 <Inline align="end">

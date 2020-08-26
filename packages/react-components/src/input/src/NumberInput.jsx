@@ -96,7 +96,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
+    icon: element,
     /**
      * Whether theinput take up the width of its container.
      */
@@ -213,7 +213,7 @@ export function InnerNumberInput({
     variant,
     autoFocus,
     autoFocusDelay,
-    iconLeft,
+    icon,
     disabled,
     readOnly,
     fluid,
@@ -353,7 +353,7 @@ export function InnerNumberInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, { size, disabled });
+    const iconLeftMarkup = useInputIcon(icon, { size, disabled });
 
     const content = (
         <>
