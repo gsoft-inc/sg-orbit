@@ -59,6 +59,7 @@ export function createTestSuite(element, stories) {
                     <Checkbox size="small" icon={<EmailIcon />} element={element} />
                     <Checkbox icon={<EmailIcon />} element={element} />
                     <Checkbox size="large" icon={<EmailIcon />} element={element} />
+                    <Checkbox disabled icon={<EmailIcon />} element={element} />
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
@@ -69,6 +70,7 @@ export function createTestSuite(element, stories) {
                     <Checkbox size="small" counter={<Counter>60</Counter>} element={element} />
                     <Checkbox counter={<Counter>60</Counter>} element={element} />
                     <Checkbox size="large" counter={<Counter>60</Counter>} element={element} />
+                    <Checkbox disabled counter={<Counter>60</Counter>} element={element} />
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" counter={<Counter variant="divider">60</Counter>} element={element} />
