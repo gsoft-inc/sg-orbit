@@ -8,6 +8,10 @@ import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
+// TODO:
+//  - iconLeft & iconRight -> icon (always to the left)
+//  - badge -> dot (left) & counter (right)
+
 const propTypes = {
     /**
      * Style to use.

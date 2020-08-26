@@ -1,5 +1,5 @@
 /* PILL */
-.o-ui.counter.pill {
+.o-ui-counter__pill {
     display: inline-flex;
     background-color: var(--cloud-100);
     color: var(--marine-900);
@@ -10,42 +10,42 @@
 }
 
 /* PILL | SIZES */
-.o-ui.counter.pill.micro {
+.o-ui-counter__pill.o-ui-counter--micro {
     min-height: 0.75rem;
     min-width: 0.75rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui.counter.pill.mini {
+.o-ui-counter__pill.o-ui-counter--mini {
     min-height: 0.875rem;
     min-width: 0.875rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui.counter.pill.tiny {
+.o-ui-counter__pill.o-ui-counter--tiny {
     min-height: 1rem;
     min-width: 1rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui.counter.pill.small {
+.o-ui-counter__pill.o-ui-counter--small {
     min-height: 1.25rem;
     min-width: 1.25rem;
     font-size: var(--type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
-.o-ui.counter.pill.medium {
+.o-ui-counter__pill.o-ui-counter--medium {
     min-height: 1.5rem;
     min-width: 1.5rem;
     font-size: var(--type-scale-7);
     padding: 0 var(--scale-charlie) 0 var(--scale-charlie);
 }
 
-.o-ui.counter.pill.large {
+.o-ui-counter__pill.o-ui-counter--large {
     font-size: var(--type-scale-6);
     min-height: 2rem;
     min-width: 2rem;
@@ -53,24 +53,42 @@
     padding-right: var(--scale-delta);
 }
 
-/* PILL | LIGHT */
-.o-ui.counter.pill.light {
+/* PILL | COLOR */
+.o-ui-counter__pill.o-ui-counter--light {
     background-color: var(--cloud-50);
 }
 
+.o-ui-counter__pill.o-ui-counter--bold {
+    font-weight: 600;
+}
+
 /* DIVIDER */
-.o-ui.counter.divider {
+.o-ui-counter__divider {
     border-left: 1px solid var(--cloud-100);
     padding-left: calc(1em / 2);
     margin-left: calc(1em / 2);
 }
 
-/* DIVIDER | LIGHT */
-.o-ui.counter.divider.light {
+/* DIVIDER | REVERSE */
+.o-ui-counter__divider.o-ui-counter--reverse {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+    border-right: 1px solid var(--cloud-100);
+    padding-right: calc(1em / 2);
+    margin-right: calc(1em / 2);
+}
+
+/* DIVIDER | COLOR */
+.o-ui-counter__divider.o-ui-counter--light {
     color: var(--cloud-200);
 }
 
+.o-ui-counter__divider.o-ui-counter--bold {
+    font-weight: 600;
+}
+
 /* DISABLED */
-.o-ui.counter[disabled] {
+.o-ui-counter[disabled] {
     opacity: 0.4;
 }

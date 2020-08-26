@@ -12,10 +12,6 @@ function stories(segment) {
         .build();
 }
 
-/*
-- embedded? via prebuild slot?
-*/
-
 stories()
     .add("default", () =>
         <Stack>
@@ -39,10 +35,19 @@ stories()
             <div className="f1">Planets Visited <Counter variant="divider">15</Counter></div>
         </Stack>
     )
+    .add("reverse", () =>
+        <div><Counter reverse variant="divider">15</Counter> Planets Visited </div>
+    )
     .add("light", () =>
-        <Inline>
+        <Inline align="center">
             <Counter color="light">15</Counter>
             <div>Planets Visited <Counter variant="divider" color="light">15</Counter></div>
+        </Inline>
+    )
+    .add("bold", () =>
+        <Inline align="center">
+            <Counter color="bold">15</Counter>
+            <div>Planets Visited <Counter variant="divider" color="bold">15</Counter></div>
         </Inline>
     )
     .add("disabled", () =>
