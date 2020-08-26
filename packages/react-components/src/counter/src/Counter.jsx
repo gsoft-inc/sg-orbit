@@ -1,13 +1,8 @@
 import "./Counter.css";
 
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { getSizeClass, mergeClasses } from "../../shared";
-
-/*
-TODO:
-    - reverse
-*/
 
 const propTypes = {
     /**
@@ -17,7 +12,11 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["light"]),
+    color: oneOf(["light", "bold"]),
+    /**
+     * Reverse counter elements order.
+     */
+    reverse: bool,
     /**
      * A counter can vary in size.
      */
@@ -40,6 +39,7 @@ const defaultProps = {
 export function InnerCounter({
     variant,
     color,
+    reverse,
     size,
     as: ElementType,
     className,
@@ -51,10 +51,11 @@ export function InnerCounter({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui counter",
-                variant,
-                color,
-                getSizeClass(size),
+                "o-ui-counter",
+                `o-ui-counter__${variant}`,
+                color && `o-ui-counter--${color}`,
+                reverse && "o-ui-counter--reverse",
+                getSizeClass(size, "o-ui-counter--"),
                 className
             )}
             ref={forwardedRef}
