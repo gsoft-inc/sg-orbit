@@ -10,6 +10,7 @@ export function InnerIcon(props) {
     const {
         type: ComponentType,
         size,
+        disabled,
         className,
         forwardedRef,
         ...rest
@@ -19,6 +20,7 @@ export function InnerIcon(props) {
         <ComponentType
             {...rest}
             className={mergeClasses(
+                disabled && "o-ui-icon--disabled",
                 getSizeClass(size, "o-ui-icon--"),
                 className
             )}

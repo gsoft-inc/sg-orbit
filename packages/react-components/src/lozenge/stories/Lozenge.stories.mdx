@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from "@react-components/icons";
+import { CheckCircleIcon, IconGroup } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -48,10 +48,8 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
-            <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
-        </Inline>
+        <Lozenge icon={<CheckCircleIcon />}>New</Lozenge>
+        <Lozenge icon={<IconGroup><CheckCircleIcon /><CheckCircleIcon /></IconGroup>}>New</Lozenge>
     </Story>
 </Preview>
 

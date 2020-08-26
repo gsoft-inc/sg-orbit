@@ -1,15 +1,15 @@
 import { EmbeddedIcon } from "../../icons";
 import { embedButton } from "../../button";
 
-export function useInputIcon(icon, size) {
+export function useInputIcon(icon, props) {
     return icon && (
-        <EmbeddedIcon size={size} className="input-icon">{icon}</EmbeddedIcon>
+        <EmbeddedIcon {...props} className="input-icon">{icon}</EmbeddedIcon>
     );
 }
 
-export function useInputButton(button, size) {
+export function useInputButton(button, props) {
     return button && embedButton(button, {
-        size,
+        ...props,
         variant: "ghost",
         color: "secondary",
         shape: "circular",

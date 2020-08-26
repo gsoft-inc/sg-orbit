@@ -3,7 +3,7 @@ import "./Badge.css";
 import { Children, forwardRef } from "react";
 import { SlotProvider, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { textSlot } from "../../text";
+import { embeddedTextSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -53,7 +53,7 @@ export function InnerBadge({ variant, overlap, size, as: ElementType, className,
         >
             <SlotProvider
                 slots={{
-                    text: textSlot({
+                    text: embeddedTextSlot({
                         size
                     }),
                     icon: {

@@ -20,6 +20,7 @@ export function createTestSuite(element, stories) {
                     <Radio size="small" icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
                     <Radio icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
                     <Radio size="large" icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>Milky Way</Radio>
@@ -30,11 +31,13 @@ export function createTestSuite(element, stories) {
                     <Radio size="small" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
                     <Radio counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
                     <Radio size="large" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
                     <Radio counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
                     <Radio size="large" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>

@@ -61,4 +61,4 @@ export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 ));
 
-export const textSlot = createSizeAdapterSlotFactory(EMBED_SIZE);
+export const embeddedTextSlot = createSizeAdapterSlotFactory(EMBED_SIZE);

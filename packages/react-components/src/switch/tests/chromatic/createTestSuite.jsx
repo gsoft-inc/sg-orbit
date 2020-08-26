@@ -20,6 +20,7 @@ export function createTestSuite(element, stories) {
                     <Switch size="small" icon={<EmailIcon />} element={element}>Engines</Switch>
                     <Switch icon={<EmailIcon />} element={element}>Engines</Switch>
                     <Switch size="large" icon={<EmailIcon />} element={element}>Engines</Switch>
+                    <Switch disabled icon={<EmailIcon />} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Engines</Switch>
@@ -30,6 +31,7 @@ export function createTestSuite(element, stories) {
                     <Switch size="small" counter={<Counter>60</Counter>} element={element}>Engines</Switch>
                     <Switch counter={<Counter>60</Counter>} element={element}>Engines</Switch>
                     <Switch size="large" counter={<Counter>60</Counter>} element={element}>Engines</Switch>
+                    <Switch disabled counter={<Counter>60</Counter>} element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" counter={<Counter variant="inline">60</Counter>} element={element}>Engines</Switch>

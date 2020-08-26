@@ -38,14 +38,6 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
      * Whether the button should autoFocus on render.
      */
     autoFocus: bool,

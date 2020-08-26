@@ -188,11 +188,11 @@ export function InnerTextInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, size);
+    const iconLeftMarkup = useInputIcon(iconLeft, { size, disabled });
 
-    const iconRightMarkup = useInputIcon(iconRight, size);
+    const iconRightMarkup = useInputIcon(iconRight, { size, disabled });
 
-    const buttonMarkup = useInputButton(button, size);
+    const buttonMarkup = useInputButton(button, { size, disabled });
 
     const content = (
         <>

@@ -222,7 +222,7 @@ export function InnerTextArea({
         <InputMessage {...messageProps} />
     );
 
-    const buttonMarkup = useInputButton(button, size);
+    const buttonMarkup = useInputButton(button, { size, disabled });
 
     const content = (
         <>
