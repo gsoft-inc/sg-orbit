@@ -1,12 +1,11 @@
 import "./Checkbox.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { EmbeddedIcon, embeddedIconSlot } from "../../icons";
+import { SlotProvider, mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
-import { mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 
 const propTypes = {
@@ -38,10 +37,10 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
+    // /**
+    //  * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+    //  */
+    // icon: element,
     /**
      * A checkbox can vary in size.
      */
@@ -81,8 +80,8 @@ export function InnerCheckbox(props) {
         autoFocusDelay,
         onChange,
         onCheck,
-        icon,
-        counter,
+        // icon,
+        // counter,
         size,
         reverse,
         name,
@@ -132,17 +131,17 @@ export function InnerCheckbox(props) {
         forwardedRef
     });
 
-    const label = isFunction(children)
+    const content = isFunction(children)
         ? children({ isChecked, isIndeterminate }, props)
         : children;
 
-    const labelMarkup = label && (
-        <span className="label">{label}</span>
-    );
+    // const labelMarkup = label && (
+    //     <span className="label">{label}</span>
+    // );
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
+    // const iconMarkup = !isNil(icon) && (
+    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    // );
 
     // TODO: Add reverse
     // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
@@ -150,13 +149,13 @@ export function InnerCheckbox(props) {
     //     disabled
     // });
 
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {counter}
-        </>
-    );
+    // const content = (
+    //     <>
+    //         {labelMarkup}
+    //         {iconMarkup}
+    //         {counter}
+    //     </>
+    // );
 
     return (
         <ElementType
@@ -168,11 +167,21 @@ export function InnerCheckbox(props) {
                 wrapperProps.className
             )}
         >
-            <VisuallyHidden
-                {...inputProps}
-            />
+            <VisuallyHidden {...inputProps} />
             <span className="box" />
-            {content}
+            <SlotProvider
+                slots={{
+                    label: {
+                        size
+                    },
+                    icon: embeddedIconSlot({
+                        size
+                    })
+                    // counter:
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

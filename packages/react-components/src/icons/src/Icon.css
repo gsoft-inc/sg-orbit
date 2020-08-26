@@ -43,3 +43,8 @@
     width: var(--scale-juliett);
     height: var(--scale-juliett);
 }
+
+/* DISABLED */
+.o-ui-icon--disabled {
+    opacity: 0.4;
+}

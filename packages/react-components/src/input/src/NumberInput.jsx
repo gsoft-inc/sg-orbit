@@ -353,7 +353,7 @@ export function InnerNumberInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, size);
+    const iconLeftMarkup = useInputIcon(iconLeft, { size, disabled });
 
     const content = (
         <>

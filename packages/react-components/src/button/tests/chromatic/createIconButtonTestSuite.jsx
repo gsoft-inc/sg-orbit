@@ -150,6 +150,13 @@ export function createIconButtonTestSuite(element, stories) {
                     <IconButton focus hover size="large" element={element}><AddIcon /></IconButton>
                     <IconButton loading focus hover element={element}><AddIcon /></IconButton>
                 </Inline>
+                <Inline align="end">
+                    <IconButton disabled size="mini" element={element}><AddIcon /></IconButton>
+                    <IconButton disabled size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton disabled size="small" element={element}><AddIcon /></IconButton>
+                    <IconButton disabled element={element}><AddIcon /></IconButton>
+                    <IconButton disabled size="large" element={element}><AddIcon /></IconButton>
+                </Inline>
             </Stack>
         )
         .add("as anchor", () =>

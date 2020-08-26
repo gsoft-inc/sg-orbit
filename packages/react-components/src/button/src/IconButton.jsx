@@ -96,7 +96,8 @@ export function InnerIconButton(props) {
     });
 
     const content = augmentElement(children, {
-        size
+        size,
+        disabled
     });
 
     return (

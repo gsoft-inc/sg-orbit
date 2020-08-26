@@ -22,6 +22,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput loading size="large" element={element} />
                 </Inline>
                 <div>
+                    <TextInput disabled element={element}></TextInput>
+                </div>
+                <div>
                     <TextInput fluid element={element}></TextInput>
                 </div>
                 <div className="w-10">
@@ -44,6 +47,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput loading placeholder="Where to?" element={element} />
                     <TextInput loading size="large" placeholder="Where to?" element={element} />
                 </Inline>
+                <div>
+                    <TextInput disabled placeholder="Where to?" element={element}></TextInput>
+                </div>
                 <div>
                     <TextInput fluid placeholder="Where to?" element={element}></TextInput>
                 </div>
@@ -127,6 +133,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
+                    <TextInput disabled iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                </div>
+                <div>
                     <TextInput fluid iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </div>
                 <div className="w10">
@@ -146,6 +155,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
+                <div>
+                    <TextInput disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                </div>
                 <div>
                     <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>

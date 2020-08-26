@@ -120,7 +120,9 @@ export function InnerButton(props) {
     );
 
     const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+        <EmbeddedIcon size={size} disabled={disabled}>
+            {icon}
+        </EmbeddedIcon>
     );
 
     // const badgeMarkup = !isNil(badge) && embedBadge(badge, {

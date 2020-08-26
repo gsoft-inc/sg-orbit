@@ -111,7 +111,9 @@ export function InnerSwitch(props) {
         );
 
         const iconMarkup = !isNil(icon) && (
-            <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+            <EmbeddedIcon size={size} disabled={disabled}>
+                {icon}
+            </EmbeddedIcon>
         );
 
         // TODO: Add reverse

@@ -34,22 +34,12 @@ stories("/link")
     .add("icon", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" iconLeft={<SignoutIcon />} size="mini">Button</Button>
-                <Button variant="link" iconLeft={<SignoutIcon />} size="tiny">Button</Button>
-                <Button variant="link" iconLeft={<SignoutIcon />} size="small">Button</Button>
-                <Button variant="link" iconLeft={<SignoutIcon />}>Button</Button>
-                <Button variant="link" iconLeft={<SignoutIcon />} size="large">Button</Button>
+                <Button variant="link" icon={<SignoutIcon />} size="mini">Button</Button>
+                <Button variant="link" icon={<SignoutIcon />} size="tiny">Button</Button>
+                <Button variant="link" icon={<SignoutIcon />} size="small">Button</Button>
+                <Button variant="link" icon={<SignoutIcon />}>Button</Button>
+                <Button variant="link" icon={<SignoutIcon />} size="large">Button</Button>
             </Inline>
-            <Inline align="end">
-                <Button variant="link" iconRight={<SignoutIcon />} size="mini">Button</Button>
-                <Button variant="link" iconRight={<SignoutIcon />} size="tiny">Button</Button>
-                <Button variant="link" iconRight={<SignoutIcon />} size="small">Button</Button>
-                <Button variant="link" iconRight={<SignoutIcon />}>Button</Button>
-                <Button variant="link" iconRight={<SignoutIcon />} size="large">Button</Button>
-            </Inline>
-            <div>
-                <Button variant="link" disabled iconLeft={<SignoutIcon />} iconRight={<SignoutIcon />}>Button</Button>
-            </div>
         </Stack>
     )
     .add("counter", () =>
