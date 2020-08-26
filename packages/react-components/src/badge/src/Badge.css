@@ -39,17 +39,20 @@
 /* COUNT | SIZES */
 .o-ui-badge__count.o-ui-badge--small {
     min-height: 1rem;
-    padding: 0 0.625rem 0 0.625rem;
+    min-width: 1rem;
+    padding: 0 0.375rem;
 }
 
 .o-ui-badge__count.o-ui-badge--medium {
     min-height: 1.25rem;
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
+    min-width: 1.25rem;
+    padding: 0 0.4rem;
 }
 
 .o-ui-badge__count.o-ui-badge--large {
     min-height: 1.5rem;
-    padding: 0 var(--scale-delta) 0 var(--scale-delta);
+    min-width: 1.5rem;
+    padding: 0 0.5rem;
 }
 
 /* DOT */
