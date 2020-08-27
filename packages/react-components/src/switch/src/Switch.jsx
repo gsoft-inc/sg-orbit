@@ -1,9 +1,9 @@
 import "./Switch.css";
 
 import { Label } from "../../text";
-import { SlotProvider, mergeClasses } from "../../shared";
+import { SlotProvider } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
@@ -25,10 +25,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
     /**
      * A checkbox can vary in size.
      */
@@ -64,8 +60,6 @@ export function InnerSwitch(props) {
         autoFocus,
         autoFocusDelay,
         onChange,
-        icon,
-        counter,
         size,
         reverse,
         name,

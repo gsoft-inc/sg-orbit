@@ -8,9 +8,6 @@ import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 
-// TODO:
-//   - disabled icon & counter look?
-
 const propTypes = {
     /**
      * A controlled checked state value.
