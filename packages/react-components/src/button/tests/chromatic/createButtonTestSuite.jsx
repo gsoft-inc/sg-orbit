@@ -152,20 +152,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading shape="circular" element={element}>Aa</Button>
                     <Button loading shape="circular" size="large" element={element}>Aa</Button>
                 </Inline>
-                <Inline align="end">
-                    <Button shape="circular" size="mini" element={element}><SignoutIcon /></Button>
-                    <Button shape="circular" size="tiny" element={element}><SignoutIcon /></Button>
-                    <Button shape="circular" size="small" element={element}><SignoutIcon /></Button>
-                    <Button shape="circular" element={element}><SignoutIcon /></Button>
-                    <Button shape="circular" size="large" element={element}><SignoutIcon /></Button>
-                </Inline>
-                <Inline align="end">
-                    <Button loading shape="circular" size="mini" element={element}><SignoutIcon /></Button>
-                    <Button loading shape="circular" size="tiny" element={element}><SignoutIcon /></Button>
-                    <Button loading shape="circular" size="small" element={element}><SignoutIcon /></Button>
-                    <Button loading shape="circular" element={element}><SignoutIcon /></Button>
-                    <Button loading shape="circular" size="large" element={element}><SignoutIcon /></Button>
-                </Inline>
             </Stack>
         )
         .add("rounded", () =>

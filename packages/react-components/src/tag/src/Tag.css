@@ -156,8 +156,6 @@ a.o-ui.tag.outline.disabled.hover {
     line-height: 1;
     color: var(--marine-900);
     border-radius: 999px;
-    min-height: var(--scale-hotel);
-    padding: 0 var(--o-ui-padding-medium);
     align-items: center;
     transition: background-color 0.1s linear;
 }
@@ -176,6 +174,13 @@ a.o-ui.tag:hover {
     padding: 0 var(--o-ui-padding-small);
 }
 
+/* SIZE */
+/* SIZE | MEDIUM */
+.o-ui.tag.medium {
+    min-height: var(--scale-hotel);
+    padding: 0 var(--o-ui-padding-medium);
+}
+
 /* SIZE | LARGE */
 .o-ui.tag.large {
     min-height: var(--scale-india);
@@ -183,7 +188,7 @@ a.o-ui.tag:hover {
 }
 
 /* WITH BUTTON */
-.o-ui.tag.with-button {
+.o-ui.tag.with-button.medium {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
@@ -205,22 +210,22 @@ a.o-ui.tag:hover {
 
 /* WITH BADGE */
 /* WITH BADGE | LEFT */
-.o-ui.tag.with-left-badge {
+.o-ui.tag.with-left-badge.medium {
     padding-left: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* BADGE IN TAG | LEFT > TEXT */
-.o-ui.tag.with-left-badge .text {
+.o-ui.tag.with-left-badge.medium .text {
     margin-left: var(--scale-bravo);
 }
 
 /* BADGE IN TAG | RIGHT > TEXT */
-.o-ui.tag.with-right-badge .text {
+.o-ui.tag.with-right-badge.medium .text {
     margin-right: var(--scale-bravo);
 }
 
 /* WITH BADGE | RIGHT */
-.o-ui.tag.with-right-badge {
+.o-ui.tag.with-right-badge.medium {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
