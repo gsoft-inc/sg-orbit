@@ -7,8 +7,8 @@ export function useInputIcon(icon, props) {
     );
 }
 
-export function useInputButton(button, props) {
-    return button && embedButton(button, {
+export function useInputButton(button, isActive, props) {
+    return button && isActive && embedButton(button, {
         ...props,
         variant: "ghost",
         color: "secondary",

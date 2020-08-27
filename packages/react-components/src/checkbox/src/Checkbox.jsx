@@ -1,12 +1,16 @@
 import "./Checkbox.css";
 
-import { EmbeddedIcon, embeddedIconSlot } from "../../icons";
 import { SlotProvider, mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+// import { embeddedIconSlot } from "../../icons";
+import { Label } from "../../text";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
+
+// TODO:
+//   - disabled icon & counter look?
 
 const propTypes = {
     /**
@@ -37,10 +41,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    // /**
-    //  * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-    //  */
-    // icon: element,
     /**
      * A checkbox can vary in size.
      */
@@ -80,8 +80,6 @@ export function InnerCheckbox(props) {
         autoFocusDelay,
         onChange,
         onCheck,
-        // icon,
-        // counter,
         size,
         reverse,
         name,
@@ -111,6 +109,7 @@ export function InnerCheckbox(props) {
         wrapperProps,
         inputProps
     } = useCheckbox({
+        cssModule: "o-ui-checkbox",
         checked,
         defaultChecked,
         indeterminate,
@@ -131,9 +130,13 @@ export function InnerCheckbox(props) {
         forwardedRef
     });
 
-    const content = isFunction(children)
+    let content = isFunction(children)
         ? children({ isChecked, isIndeterminate }, props)
         : children;
+
+    if (typeof children === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     // const labelMarkup = label && (
     //     <span className="label">{label}</span>
@@ -162,22 +165,24 @@ export function InnerCheckbox(props) {
             data-testid="checkbox"
             {...rest}
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui checkbox",
-                wrapperProps.className
-            )}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="box" />
+            <span className="o-ui-checkbox__box" />
             <SlotProvider
                 slots={{
                     label: {
-                        size
+                        size,
+                        className: "o-ui-checkbox__label"
                     },
-                    icon: embeddedIconSlot({
-                        size
-                    })
-                    // counter:
+                    icon: {
+                        size,
+                        className: "o-ui-checkbox__icon"
+                    },
+                    counter: {
+                        size,
+                        reverse,
+                        className: "o-ui-checkbox__counter"
+                    }
                 }}
             >
                 {content}

@@ -66,17 +66,14 @@
 .o-ui-counter__divider {
     border-left: 1px solid var(--cloud-100);
     padding-left: calc(1em / 2);
-    margin-left: calc(1em / 2);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter__divider.o-ui-counter--reverse {
     border-left: 0;
     padding-left: 0;
-    margin-left: 0;
     border-right: 1px solid var(--cloud-100);
     padding-right: calc(1em / 2);
-    margin-right: calc(1em / 2);
 }
 
 /* DIVIDER | COLOR */
