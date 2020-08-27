@@ -186,6 +186,25 @@ stories()
             </CheckboxGroup>
         </Inline>
     )
+    .add("description", () =>
+        <Inline align="end" gap={13}>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="small">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="large">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <CheckboxGroup className="bg-red">

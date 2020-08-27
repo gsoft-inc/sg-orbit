@@ -273,7 +273,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return (
             <Button
-                iconLeft={<CrossIcon />}
+                icon={<CrossIcon />}
                 onClick={this.handleClear}
                 ref={this._clearButtonRef}
                 data-testid="search-input-clear-button"
@@ -286,7 +286,7 @@ export class SearchInputController extends AutoControlledPureComponent {
 
         return createOrAugmentElement(input, {
             onKeyDown: this.handleInputKeyDown,
-            iconLeft: <MagnifierIcon />,
+            icon: <MagnifierIcon />,
             button: this.renderClearButton(),
             loading: loading && !disabled,
             autoFocus: open || autoFocus,

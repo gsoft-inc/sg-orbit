@@ -59,16 +59,18 @@ stories()
         <NumberInput fluid placeholder="Age" />
     )
     .add("label", () =>
-        <Stack>
-            <Inline align="end">
-                <NumberInput label="Age" size="small" />
-                <NumberInput label="Age" />
-                <NumberInput label="Age" size="large" />
-            </Inline>
-            <div>
-                <NumberInput disabled label="Age" />
-            </div>
-        </Stack>
+        <Inline align="end">
+            <NumberInput label="Age" size="small" />
+            <NumberInput label="Age" />
+            <NumberInput label="Age" size="large" />
+        </Inline>
+    )
+    .add("description", () =>
+        <Inline align="end">
+            <NumberInput description="How many years ago are you born?" label="Age" size="small" />
+            <NumberInput description="How many years ago are you born?" label="Age" />
+            <NumberInput description="How many years ago are you born?" label="Age" size="large" />
+        </Inline>
     )
     .add("invalid", () =>
         <Stack>

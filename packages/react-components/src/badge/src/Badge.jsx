@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * The shape of the element being overlap by the badge.
      */
-    overlap: oneOf(["rectangle", "circle", "icon"]),
+    overlap: oneOf(["circle", "icon"]),
     /**
      * A badge can vary in size.
      */
@@ -30,7 +30,6 @@ const propTypes = {
 
 const defaultProps = {
     variant: "count",
-    overlap: "rectangle",
     as: "span"
 };
 
