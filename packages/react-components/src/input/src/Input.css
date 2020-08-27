@@ -84,6 +84,14 @@
     box-shadow: 0 1px 0 0 var(--primary-200);
 }
 
+/* TRANSPARENT | STATE | DISABLED */
+.o-ui.input.transparent input:disabled,
+.o-ui.input.transparent input.disabled,
+.o-ui.input.transparent textarea:disabled,
+.o-ui.input.transparent textarea.disabled {
+    background-color: var(--transparent);
+}
+
 /* TRANSPARENT | ICON | LEFT */
 .o-ui.input.transparent.with-left-icon .input-icon,
 .o-ui.input.transparent.with-left-icon.small .input-icon,
@@ -263,12 +271,12 @@
 }
 
 /* STATES | LOADING */
-@keyframes loading {
+@keyframes o-ui-input-spinner {
     0% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: translate(0, -50%) rotate(0deg);
     }
     100% {
-        transform: translate(0, 0) rotate(360deg);
+        transform: translate(0, -50%) rotate(360deg);
     }
 }
 
@@ -276,15 +284,14 @@
     content: "";
     position: absolute;
     top: 50%;
-    right: 4px;
-    /* // ecrire calcul */
-    width: 1.5rem;
-    height: 1.5rem;
+    right: 6px;
+    /* ecrire calcul pour 6px */
+    width: 1.25rem;
+    height: 1.25rem;
     border-radius: 50px;
     border: 2px solid var(--marine-100);
     border-top-color: var(--marine-300);
-    /* animation: loading 1s linear infinite; */
-    transform: translate(0, 0) rotate(0deg);
+    animation: o-ui-input-spinner 1s linear infinite;
 }
 
 .o-ui.input.loading input {
