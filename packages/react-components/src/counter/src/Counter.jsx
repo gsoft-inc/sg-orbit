@@ -2,7 +2,7 @@ import "./Counter.css";
 
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
+import { getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -36,17 +36,19 @@ const defaultProps = {
     as: "span"
 };
 
-export function InnerCounter({
-    variant,
-    color,
-    reverse,
-    size,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerCounter(props) {
+    const {
+        variant,
+        color,
+        reverse,
+        size,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props, "counter");
+
     return (
         <ElementType
             {...rest}

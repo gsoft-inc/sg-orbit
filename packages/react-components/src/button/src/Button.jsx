@@ -43,7 +43,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * The button type.
      */

@@ -1,8 +1,12 @@
-import { getSizeClass, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
+// TODO:
+//  - because of switch we might want to provide something like a
+
 export function useCheckbox({
+    cssModule,
     checked,
     defaultChecked,
     indeterminate,
@@ -56,15 +60,18 @@ export function useCheckbox({
         isIndeterminate,
         wrapperProps: {
             className: mergeClasses(
-                isChecked && "checked",
-                isIndeterminate && "indeterminate",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                bemify(
+                    cssModule,
+                    isChecked && "--checked",
+                    isIndeterminate && "--indeterminate",
+                    reverse && "--reverse",
+                    disabled && "--disabled",
+                    readOnly && "--readonly",
+                    active && "--active",
+                    focus && "--focus",
+                    hover && "--hover",
+                    getSizeClass2(size)
+                ),
                 className
             ),
             ref: wrapperRef

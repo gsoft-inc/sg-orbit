@@ -6,6 +6,7 @@ import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
+import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { ToggleButton } from "@react-components/button";
@@ -104,8 +105,14 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
 <Preview>
     <Story name="icon">
         <Inline>
-            <Checkbox icon={<InfoIcon />}>Milky Way</Checkbox>
-            <Checkbox icon={<IconGroup><InfoIcon /><HelpIcon /></IconGroup>}>Andromeda</Checkbox>
+            <Checkbox>
+                <Label>Milky Way</Label>
+                <InfoIcon />
+            </Checkbox>
+            <Checkbox>
+                <Label>Andromeda</Label>
+                <IconGroup><InfoIcon /><HelpIcon /></IconGroup>
+            </Checkbox>
         </Inline>
     </Story>
 </Preview>
@@ -117,8 +124,14 @@ A checkbox can have a [counter](?path=/docs/components-counter--default-story) a
 <Preview>
     <Story name="counter">
         <Inline>
-            <Checkbox counter={<Counter>6</Counter>}>Milky Way</Checkbox>
-            <Checkbox counter={<Counter variant="divider">6</Counter>}>Andromeda</Checkbox>
+            <Checkbox>
+                <Label>Milky Way</Label>
+                <Counter>6</Counter>
+            </Checkbox>
+            <Checkbox>
+                <Label>Andromeda</Label>
+                <Counter variant="divider">6</Counter>
+            </Checkbox>
         </Inline>
     </Story>
 </Preview>
@@ -126,8 +139,6 @@ A checkbox can have a [counter](?path=/docs/components-counter--default-story) a
 ### Size
 
 A checkbox can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -145,7 +156,11 @@ A checkbox checkmark can be to the left or to the right of his label.
 
 <Preview>
     <Story name="reverse">
-        <Checkbox reverse icon={<InfoIcon />} counter={<Counter variant="divider">6</Counter>}>Milky Way</Checkbox>
+        <Checkbox reverse>
+            <Label>Milky Way</Label>
+            <InfoIcon />
+            <Counter variant="divider">6</Counter>
+        </Checkbox>
     </Story>
 </Preview>
 

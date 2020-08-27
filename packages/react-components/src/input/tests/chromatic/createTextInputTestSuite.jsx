@@ -156,9 +156,10 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
-                <div>
+                <Inline>
                     <TextInput disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                </div>
+                    <TextInput readOnly button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                </Inline>
                 <div>
                     <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>

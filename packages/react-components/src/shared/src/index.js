@@ -11,6 +11,7 @@ export * from "./keys";
 export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";
+export * from "./bemify";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createFocusableTreeWalker";
