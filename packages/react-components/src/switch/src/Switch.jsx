@@ -1,11 +1,11 @@
 import "./Switch.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { Label } from "../../text";
+import { SlotProvider, mergeClasses } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isFunction, isNil } from "lodash";
-import { mergeClasses } from "../../shared";
+import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
 
 const propTypes = {
@@ -87,6 +87,7 @@ export function InnerSwitch(props) {
         wrapperProps,
         inputProps
     } = useCheckbox({
+        cssModule: "o-ui-switch",
         checked,
         defaultChecked,
         autoFocus,
@@ -105,51 +106,41 @@ export function InnerSwitch(props) {
         forwardedRef
     });
 
-    const createMarkup = () => {
-        const labelMarkup = children && (
-            <span className="label">{children}</span>
-        );
-
-        const iconMarkup = !isNil(icon) && (
-            <EmbeddedIcon size={size} disabled={disabled}>
-                {icon}
-            </EmbeddedIcon>
-        );
-
-        // TODO: Add reverse
-        // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        //     size,
-        //     disabled
-        // });
-
-        return (
-            <>
-                {labelMarkup}
-                {iconMarkup}
-                {counter}
-            </>
-        );
-    };
-
-    const content = isFunction(children)
+    let content = isFunction(children)
         ? children({ isChecked }, props)
-        : createMarkup();
+        : children;
+
+    if (typeof content === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     return (
         <ElementType
             data-testid="switch"
             {...rest}
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui switch",
-                wrapperProps.className
-            )}
         >
-            <VisuallyHidden
-                {...inputProps}
-            />
-            <span className="switch" />
-            {content}
+            <VisuallyHidden {...inputProps} />
+            <span className="o-ui-switch__switch" />
+            <SlotProvider
+                slots={{
+                    label: {
+                        size,
+                        className: "o-ui-switch__label"
+                    },
+                    icon: {
+                        size,
+                        className: "o-ui-switch__icon"
+                    },
+                    counter: {
+                        size,
+                        reverse,
+                        className: "o-ui-switch__counter"
+                    }
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

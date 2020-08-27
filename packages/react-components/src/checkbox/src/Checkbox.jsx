@@ -1,10 +1,9 @@
 import "./Checkbox.css";
 
-import { SlotProvider, mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
+import { Label } from "../../text";
+import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-// import { embeddedIconSlot } from "../../icons";
-import { Label } from "../../text";
 import { forwardRef } from "react";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
@@ -134,31 +133,9 @@ export function InnerCheckbox(props) {
         ? children({ isChecked, isIndeterminate }, props)
         : children;
 
-    if (typeof children === "string") {
+    if (typeof content === "string") {
         content = <Label>{content}</Label>;
     }
-
-    // const labelMarkup = label && (
-    //     <span className="label">{label}</span>
-    // );
-
-    // const iconMarkup = !isNil(icon) && (
-    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    // );
-
-    // TODO: Add reverse
-    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-    //     size,
-    //     disabled
-    // });
-
-    // const content = (
-    //     <>
-    //         {labelMarkup}
-    //         {iconMarkup}
-    //         {counter}
-    //     </>
-    // );
 
     return (
         <ElementType
