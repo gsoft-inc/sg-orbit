@@ -2,9 +2,6 @@ import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useControllableState
 import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
-// TODO:
-//  - because of switch we might want to provide something like a
-
 export function useCheckbox({
     cssModule,
     checked,

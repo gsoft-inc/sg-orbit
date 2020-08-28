@@ -1,6 +1,8 @@
 .o-ui-checkbox {
-    display: inline-flex;
+    display: inline-grid;
     align-items: center;
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: "box label icon counter";
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
@@ -8,6 +10,7 @@
 
 /* BOX */
 .o-ui-checkbox__box {
+    grid-area: box;
     position: relative;
     display: inline-block;
     width: var(--scale-echo);
@@ -57,6 +60,7 @@
 
 /* LABEL */
 .o-ui-checkbox__label {
+    grid-area: label;
     margin-left: var(--scale-bravo);
     font-size: var(--type-scale-7);
     overflow: hidden;
@@ -64,48 +68,37 @@
     text-overflow: ellipsis;
 }
 
-/* REVERSE */
-.o-ui-checkbox--reverse {
-    flex-direction: row-reverse;
-}
-
 .o-ui-checkbox--reverse .o-ui-checkbox__label {
     margin-right: var(--scale-bravo);
     margin-left: 0;
 }
 
-/* WITH ICON */
-/* .o-ui-checkbox.with-icon > .label {
+/* ICON */
+.o-ui-checkbox__icon {
+    grid-area: icon;
+    margin-left: var(--scale-alpha);
+}
+
+.o-ui-checkbox--reverse .o-ui-checkbox__icon {
+    margin-left: 0;
     margin-right: var(--scale-alpha);
-} */
+}
 
-/* WITH ICON | REVERSE */
-/* .o-ui-checkbox.with-icon.reverse > .label {
-    margin-right: 0;
-    margin-left: var(--scale-alpha);
-} */
-
-/* WITH ICON | ICON */
-/* .o-ui-checkbox.with-icon .icon {
-    fill: currentColor;
-} */
-
-/* WITH ICON | REVERSE  */
-/* .o-ui-checkbox.with-icon.reverse .label {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-} */
-
-/* WITH BADGE */
-/* .o-ui-checkbox.with-badge > .label {
-    margin-right: var(--scale-bravo);
-} */
-
-/* WITH BADGE | REVERSE */
-/* .o-ui-checkbox.with-badge.reverse > .label {
-    margin-right: var(--scale-bravo);
+/* COUNTER */
+.o-ui-checkbox__counter {
+    grid-area: counter;
     margin-left: var(--scale-bravo);
-} */
+}
+
+.o-ui-checkbox--reverse .o-ui-checkbox__counter {
+    margin-left: 0;
+    margin-right: var(--scale-alpha);
+}
+
+/* REVERSE */
+.o-ui-checkbox--reverse {
+    grid-template-areas: "counter icon label box";
+}
 
 /* STATE | INDETERMINATE | CHECKED | HALF SQUARE */
 .o-ui-checkbox--indeterminate.o-ui-checkbox--checked .o-ui-checkbox__box::before {
