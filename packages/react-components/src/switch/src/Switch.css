@@ -125,8 +125,8 @@
 }
 
 .o-ui-switch--medium .o-ui-switch__switch::before {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--scale-delta);
+    height: var(--scale-delta);
 }
 
 .o-ui-switch--medium.o-ui-switch--checked .o-ui-switch__switch::before {
