@@ -88,32 +88,6 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    // const label = isFunction(children)
-    //     ? children({ isChecked }, props)
-    //     : children;
-
-    // const labelMarkup = label && (
-    //     <span className="label">{label}</span>
-    // );
-
-    // const iconMarkup = !isNil(icon) && (
-    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    // );
-
-    // TODO: Add reverse
-    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-    //     size,
-    //     disabled
-    // });
-
-    // const content = (
-    //     <>
-    //         {labelMarkup}
-    //         {iconMarkup}
-    //         {counter}
-    //     </>
-    // );
-
     let content = isFunction(children)
         ? children({ isChecked }, props)
         : children;

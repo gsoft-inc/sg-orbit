@@ -1,8 +1,8 @@
 import "./Counter.css";
 
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { bemify, getSizeClass2, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -21,6 +21,10 @@ const propTypes = {
      * A counter can vary in size.
      */
     size: oneOf(["tiny", "small", "medium", "large"]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -53,11 +57,13 @@ export function InnerCounter(props) {
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui-counter",
-                `o-ui-counter__${variant}`,
-                color && `o-ui-counter--${color}`,
-                reverse && "o-ui-counter--reverse",
-                getSizeClass(size, "o-ui-counter--"),
+                bemify(
+                    "o-ui-counter",
+                    `__${variant}`,
+                    color && `--${color}`,
+                    reverse && "--reverse",
+                    getSizeClass2(size)
+                ),
                 className
             )}
             ref={forwardedRef}

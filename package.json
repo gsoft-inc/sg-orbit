@@ -65,8 +65,10 @@
         "jest": "jest --config=jest/jest.config.js",
         "update": "run-s install:pkg install:sb",
         "diff": "lerna changed && lerna diff",
+        "deploy-sb-preview": "run-s build:sb netlify-deploy-sb-preview",
         "netlify-ci-sb": "yarn bootstrap && yarn build:pkg && yarn build:sb",
-        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs"
+        "netlify-ci-docs": "yarn bootstrap && yarn build:pkg && yarn build:docs",
+        "netlify-deploy-sb-preview": "netlify deploy --dir=storybook/dist/sb --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open"
     },
     "devDependencies": {
         "@babel/cli": "7.10.1",
