@@ -297,11 +297,6 @@ export function createTestSuite(element, stories) {
                     <Checkbox disabled element={element}>Milky Way</Checkbox>
                     <Checkbox disabled size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
-                <Inline align="end">
-                    <Checkbox readOnly size="small" element={element}>Milky Way</Checkbox>
-                    <Checkbox readOnly element={element}>Milky Way</Checkbox>
-                    <Checkbox readOnly size="large" element={element}>Milky Way</Checkbox>
-                </Inline>
             </Stack>
         )
         .add("overflow", () =>

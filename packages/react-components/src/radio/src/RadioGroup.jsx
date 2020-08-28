@@ -91,10 +91,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * Whether the radio group is read only.
-     */
-    readOnly: bool,
-    /**
    * An HTML element type or a custom React element type to render as.
    */
     as: oneOfType([string, elementType]),
@@ -125,7 +121,6 @@ export function InnerRadioGroup(props) {
         wrap,
         size,
         disabled,
-        readOnly,
         navigationMode,
         children,
         forwardedRef,
@@ -156,7 +151,6 @@ export function InnerRadioGroup(props) {
         gap,
         wrap,
         size,
-        readOnly,
         disabled,
         ref
     });
@@ -198,7 +192,6 @@ export function InnerRadioGroup(props) {
                             name: groupName,
                             size,
                             disabled,
-                            readOnly,
                             role: "radio"
                         });
                     })}
@@ -225,5 +218,6 @@ InnerRadioGroup.propTypes = propTypes;
 InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
-    <InnerRadioGroup {...props} forwardedRef={ref} />
+    <InnerRadioGroup { ...props } forwardedRef={ref} />
 ));
+

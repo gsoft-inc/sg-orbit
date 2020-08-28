@@ -86,13 +86,6 @@ stories()
             <Checkbox value={3}>3</Checkbox>
         </CheckboxGroup>
     )
-    .add("readonly", () =>
-        <CheckboxGroup readOnly defaultValue={[2]}>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
     .add("disabled", () =>
         <CheckboxGroup disabled>
             <Checkbox value="1">1</Checkbox>

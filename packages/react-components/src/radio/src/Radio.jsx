@@ -1,11 +1,10 @@
 import "./Radio.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { Label } from "../../text";
+import { SlotProvider, bemify, getSizeClass2, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -21,10 +20,6 @@ const propTypes = {
      * The value to associate with when in a group.
      */
     value: oneOfType([string, number]).isRequired,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
     /**
      * A checkbox can vary in size.
      */
@@ -63,8 +58,6 @@ export function InnerRadio(props) {
         autoFocusDelay,
         onChange,
         onCheck,
-        icon,
-        counter,
         size,
         reverse,
         tabIndex,
@@ -72,7 +65,6 @@ export function InnerRadio(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         as: ElementType,
         className,
         children,
@@ -96,17 +88,17 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    const label = isFunction(children)
-        ? children({ isChecked }, props)
-        : children;
+    // const label = isFunction(children)
+    //     ? children({ isChecked }, props)
+    //     : children;
 
-    const labelMarkup = label && (
-        <span className="label">{label}</span>
-    );
+    // const labelMarkup = label && (
+    //     <span className="label">{label}</span>
+    // );
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
+    // const iconMarkup = !isNil(icon) && (
+    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    // );
 
     // TODO: Add reverse
     // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
@@ -114,13 +106,21 @@ export function InnerRadio(props) {
     //     disabled
     // });
 
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {counter}
-        </>
-    );
+    // const content = (
+    //     <>
+    //         {labelMarkup}
+    //         {iconMarkup}
+    //         {counter}
+    //     </>
+    // );
+
+    let content = isFunction(children)
+        ? children({ isChecked }, props)
+        : children;
+
+    if (typeof content === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     const handleChange = useEventCallback(event => {
         setIsChecked(!isChecked);
@@ -139,15 +139,16 @@ export function InnerRadio(props) {
             data-testid="radio"
             {...rest}
             className={mergeClasses(
-                "o-ui radio",
-                isChecked && "checked",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                bemify(
+                    "o-ui-radio",
+                    isChecked && "--checked",
+                    reverse && "--reverse",
+                    disabled && "--disabled",
+                    active && "--active",
+                    focus && "--focus",
+                    hover && "--hover",
+                    getSizeClass2(size)
+                ),
                 className
             )}
             ref={labelRef}
@@ -157,14 +158,32 @@ export function InnerRadio(props) {
                 type="radio"
                 value={value}
                 name={name}
-                checked={readOnly ? undefined : isChecked}
-                onChange={readOnly ? undefined : !isNil(onCheck) ? handleCheck : handleChange}
+                checked={isChecked}
+                onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 ref={inputRef}
             />
-            <span className="button"></span>
-            {content}
+            <span className="o-ui-radio__button"></span>
+            <SlotProvider
+                slots={{
+                    label: {
+                        size,
+                        className: "o-ui-radio__label"
+                    },
+                    icon: {
+                        size,
+                        className: "o-ui-radio__icon"
+                    },
+                    counter: {
+                        size,
+                        reverse,
+                        className: "o-ui-radio__counter"
+                    }
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

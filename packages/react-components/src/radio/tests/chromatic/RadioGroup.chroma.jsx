@@ -82,13 +82,6 @@ stories()
             <Radio value={3}>3</Radio>
         </RadioGroup>
     )
-    .add("readonly", () =>
-        <RadioGroup readOnly defaultValue={2}>
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
-    )
     .add("disabled", () =>
         <RadioGroup disabled>
             <Radio value="1">1</Radio>

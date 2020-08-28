@@ -277,7 +277,7 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
-    .add("labelled groups", () =>
+    .add("labeled groups", () =>
         <Toolbar align="center">
             <CheckboxGroup>
                 <ToggleButton value="1">1</ToggleButton>

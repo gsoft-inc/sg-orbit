@@ -84,7 +84,6 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         as: ElementType,
         className,
         children,
@@ -121,7 +120,6 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         className,
         forwardedRef
     });

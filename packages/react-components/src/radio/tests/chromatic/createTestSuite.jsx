@@ -1,6 +1,7 @@
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { Label } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Radio({ element, ...rest }) {
@@ -17,37 +18,112 @@ export function createTestSuite(element, stories) {
                     <Radio size="large" value="any" element={element}>Milky Way</Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
-                    <Radio disabled icon={<EmailIcon />} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Radio>
+                    <Radio disabled value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio disabled counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio disabled value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio disabled counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                    <Radio disabled value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<EmailIcon />} counter={<Counter>60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Radio>
                 </Inline>
                 <Inline align="end">
-                    <Radio size="small" icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
-                    <Radio size="large" icon={<EmailIcon />} counter={<Counter variant="divider">60</Counter>} value="any" element={element}>Milky Way</Radio>
+                    <Radio size="small" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                    <Radio value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                    <Radio size="large" value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
                 </Inline>
             </Stack>
         )
@@ -57,15 +133,38 @@ export function createTestSuite(element, stories) {
                     <Radio reverse value="any" element={element}>Milky Way</Radio>
                 </div>
                 <div>
-                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio reverse value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                    </Radio>
                 </div>
                 <Inline>
-                    <Radio counter={<Counter>60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
-                    <Radio counter={<Counter variant="divider">60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio reverse value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio reverse value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
                 </Inline>
                 <Inline>
-                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter>60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
-                    <Radio icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} counter={<Counter variant="divider">60</Counter>} reverse value="any" element={element}>Milky Way</Radio>
+                    <Radio reverse value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                        <Counter>60</Counter>
+                    </Radio>
+                    <Radio reverse value="any" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
                 </Inline>
             </Stack>
         )
@@ -96,11 +195,6 @@ export function createTestSuite(element, stories) {
                     <Radio disabled value="any" element={element}>Milky Way</Radio>
                     <Radio disabled size="large" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
-                    <Radio readOnly size="small" value="any" element={element}>Milky Way</Radio>
-                    <Radio readOnly value="any" element={element}>Milky Way</Radio>
-                    <Radio readOnly size="large" value="any" element={element}>Milky Way</Radio>
-                </Inline>
             </Stack>
         )
         .add("overflow", () =>
@@ -109,13 +203,24 @@ export function createTestSuite(element, stories) {
                     <Radio value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
                 </div>
                 <div className="flex items-end mw5">
-                    <Radio icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                    <Radio value="any" element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Radio>
                 </div>
                 <div className="flex items-end mw5">
-                    <Radio counter={<Counter variant="divider">60</Counter>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                    <Radio value="any" element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
                 </div>
                 <div className="flex items-end mw5">
-                    <Radio counter={<Counter>60</Counter>} value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
+                    <Radio value="any" element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Counter>60</Counter>
+                    </Radio>
                 </div>
             </Stack>
         );
