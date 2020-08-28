@@ -87,5 +87,5 @@
 
 /* DISABLED */
 .o-ui-counter[disabled] {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
 }

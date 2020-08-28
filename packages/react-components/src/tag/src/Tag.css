@@ -40,7 +40,7 @@ button.o-ui.tag.solid.disabled,
 a.o-ui.tag.solid[disabled],
 a.o-ui.tag.solid.disabled {
     cursor: not-allowed;
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* As <a> / BUTTON | States | DISABLED | HOVER */
@@ -107,7 +107,7 @@ button.o-ui.tag.outline[disabled],
 a.o-ui.tag.outline[disabled],
 button.o-ui.tag.outline.disabled,
 a.o-ui.tag.outline.disabled {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -148,16 +148,14 @@ a.o-ui.tag.outline.disabled.hover {
 
 /* COMMON */
 .o-ui.tag {
-    --padding-small: var(--scale-delta);
-    --padding-medium: var(--scale-echo);
-    --padding-large: var(--scale-foxtrot);
+    --o-ui-padding-small: var(--scale-delta);
+    --o-ui-padding-medium: var(--scale-echo);
+    --o-ui-padding-large: var(--scale-foxtrot);
     border: none;
     display: inline-flex;
     line-height: 1;
     color: var(--marine-900);
     border-radius: 999px;
-    min-height: var(--scale-hotel);
-    padding: 0 var(--padding-medium);
     align-items: center;
     transition: background-color 0.1s linear;
 }
@@ -173,18 +171,25 @@ a.o-ui.tag:hover {
 /* SIZE | SMALL */
 .o-ui.tag.small {
     min-height: var(--scale-golf);
-    padding: 0 var(--padding-small);
+    padding: 0 var(--o-ui-padding-small);
+}
+
+/* SIZE */
+/* SIZE | MEDIUM */
+.o-ui.tag.medium {
+    min-height: var(--scale-hotel);
+    padding: 0 var(--o-ui-padding-medium);
 }
 
 /* SIZE | LARGE */
 .o-ui.tag.large {
     min-height: var(--scale-india);
-    padding: 0 var(--padding-large);
+    padding: 0 var(--o-ui-padding-large);
 }
 
 /* WITH BUTTON */
-.o-ui.tag.with-button {
-    padding-right: calc(var(--padding-medium) / 1.5);
+.o-ui.tag.with-button.medium {
+    padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* WITH BUTTON | TEXT */
@@ -195,18 +200,18 @@ a.o-ui.tag:hover {
 /* WITH BUTTON | SIZE */
 /* WITH BUTTON | SIZE | SMALL */
 .o-ui.tag.with-button.small {
-    padding-right: calc(var(--padding-small) / 1.5);
+    padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH BUTTON | SIZE | LARGE */
 .o-ui.tag.with-button.large {
-    padding-right: calc(var(--padding-large) / 1.5);
+    padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 
 /* WITH BADGE */
 /* WITH BADGE | LEFT */
 .o-ui.tag.with-left-badge {
-    padding-left: calc(var(--padding-medium) / 1.5);
+    padding-left: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* BADGE IN TAG | LEFT > TEXT */
@@ -221,35 +226,35 @@ a.o-ui.tag:hover {
 
 /* WITH BADGE | RIGHT */
 .o-ui.tag.with-right-badge {
-    padding-right: calc(var(--padding-medium) / 1.5);
+    padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* WITH BADGE | SIZE */
 /* WITH BADGE | LEFT | SMALL */
 .o-ui.tag.small.with-left-badge {
-    padding-left: calc(var(--padding-small) / 1.5);
+    padding-left: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH BADGE | LEFT | LARGE */
 .o-ui.tag.large.with-left-badge {
-    padding-left: calc(var(--padding-large) / 1.5);
+    padding-left: calc(var(--o-ui-padding-large) / 1.5);
 }
 
 /* WITH BADGE | SIZE */
 /* WITH BADGE | RIGHT | SMALL */
-.o-ui.tag.small.with-right-badge {
-    padding-right: calc(var(--padding-small) / 1.5);
+.o-ui.tag.with-right-badge.small {
+    padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH BADGE | RIGHT | LARGE */
-.o-ui.tag.large.with-right-badge {
-    padding-right: calc(var(--padding-large) / 1.5);
+.o-ui.tag.with-right-badge.large {
+    padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 
 /* WITH ICON */
 /* WITH ICON | LEFT */
 .o-ui.tag.with-left-icon {
-    padding-left: calc(var(--padding-medium) / 1.5);
+    padding-left: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* WITH ICON | LEFT > TEXT */
@@ -259,7 +264,7 @@ a.o-ui.tag:hover {
 
 /* WITH ICON | RIGHT */
 .o-ui.tag.with-right-icon {
-    padding-right: calc(var(--padding-medium) / 1.5);
+    padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* WITH ICON | RIGHT | ICON */
@@ -275,21 +280,21 @@ a.o-ui.tag:hover {
 /* WITH ICON | SIZE */
 /* WITH ICON | LEFT | SMALL */
 .o-ui.tag.small.with-left-icon {
-    padding-left: calc(var(--padding-small) / 1.5);
+    padding-left: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH ICON | LEFT | LARGE */
 .o-ui.tag.large.with-left-icon {
-    padding-right: calc(var(--padding-large) / 1.5);
+    padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 
 /* WITH ICON | SIZE */
 /* WITH ICON | RIGHT | SMALL */
 .o-ui.tag.small.with-right-icon {
-    padding-right: calc(var(--padding-small) / 1.5);
+    padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH ICON | RIGHT | LARGE */
 .o-ui.tag.large.with-right-icon {
-    padding-right: calc(var(--padding-large) / 1.5);
+    padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }

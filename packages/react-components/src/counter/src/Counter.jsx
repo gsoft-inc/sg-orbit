@@ -20,7 +20,7 @@ const propTypes = {
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

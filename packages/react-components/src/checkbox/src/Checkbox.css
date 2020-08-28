@@ -127,7 +127,7 @@
 /* STATE | DISABLED */
 .o-ui-checkbox--disabled,
 .o-ui-checkbox[disabled] {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -176,6 +176,22 @@
 .o-ui-checkbox:disabled:hover .o-ui-checkbox__box:before,
 .o-ui-checkbox:disabled.o-ui-checkbox--hover .o-ui-checkbox__box:before {
     border: 1px solid var(--marine-100);
+}
+
+/* STATE | HOVER | DISABLED | CHECKED */
+.o-ui.checkbox.disabled.checked:hover .box,
+.o-ui.checkbox.disabled.checked.hover .box,
+.o-ui.checkbox:disabled.checked:hover .box,
+.o-ui.checkbox:disabled.checked.hover .box {
+    border: 1px solid var(--primary-500);
+}
+
+/* STATE | HOVER | DISABLED | BOX */
+.o-ui.checkbox.disabled.checked:hover .box:before,
+.o-ui.checkbox.disabled.checked.hover .box:before,
+.o-ui.checkbox:disabled.checked:hover .box:before,
+.o-ui.checkbox:disabled.checked.hover .box:before {
+    border: 1px solid var(--primary-500);
 }
 
 /* STATE | READ ONLY */

@@ -19,8 +19,11 @@
     width: 150px;
 }
 
-.o-ui.input.number-input input {
-    padding-right: var(--o-ui-spinner-width);
+.o-ui.input.number-input input:focus,
+.o-ui.input.number-input input.focus,
+.o-ui.input.number-input:hover input,
+.o-ui.input.number-input.hover input {
+    padding-right: calc(var(--o-ui-spinner-width) + var(--scale-alpha));
 }
 
 /* INPUT | FLUID */
