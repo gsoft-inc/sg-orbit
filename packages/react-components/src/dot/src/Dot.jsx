@@ -46,8 +46,8 @@ export function InnerDot({
             className={mergeClasses(
                 bemify(
                     "o-ui-dot",
-                    getSizeClass2(size),
-                    children && "__label"
+                    children && "--labeled",
+                    getSizeClass2(size)
                 ),
                 className
             )}

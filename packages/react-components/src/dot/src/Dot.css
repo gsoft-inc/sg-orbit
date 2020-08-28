@@ -34,25 +34,25 @@
     font-size: var(--type-scale-4);
 }
 
-/* LABEL */
-.o-ui-dot__label {
+/* LABELED */
+.o-ui-dot--labeled {
     display: inline-flex;
     align-items: center;
 }
 
-.o-ui-dot__label--tiny:before {
+.o-ui-dot--labeled.o-ui-dot--tiny:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot__label--small:before {
+.o-ui-dot--labeled.o-ui-dot--small:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot__label--medium:before {
+.o-ui-dot--labeled.o-ui-dot--medium:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot__label--large:before {
+.o-ui-dot--labeled.o-ui-dot--large:before {
     margin-right: var(--scale-bravo);
 }
 
