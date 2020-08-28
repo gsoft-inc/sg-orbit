@@ -213,7 +213,7 @@ export function InnerTextInput({
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labelled-input">
+                    <div className="labeled-input">
                         {content}
                     </div>
                 </>

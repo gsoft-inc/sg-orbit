@@ -55,10 +55,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * Whether the checkbox group is read only.
-     */
-    readOnly: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -103,7 +99,6 @@ export function InnerCheckboxGroup(props) {
         wrap,
         size,
         disabled,
-        readOnly,
         children,
         forwardedRef,
         ...rest
@@ -122,7 +117,6 @@ export function InnerCheckboxGroup(props) {
         gap,
         wrap,
         size,
-        readOnly,
         disabled,
         ref: forwardedRef
     });
@@ -162,7 +156,6 @@ export function InnerCheckboxGroup(props) {
                         return augmentElement(x, {
                             size,
                             disabled,
-                            readOnly,
                             role: "checkbox"
                         });
                     })}

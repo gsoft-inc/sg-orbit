@@ -1,24 +1,21 @@
-.o-ui.radio {
-    display: inline-flex;
+.o-ui-radio {
+    display: inline-grid;
     align-items: center;
+    grid-template-columns: auto auto auto auto;
+    grid-template-areas: "button label icon counter";
     cursor: pointer;
 }
 
-/* LABEL */
-.o-ui.radio .label {
-    line-height: 1;
-    margin-left: var(--scale-bravo);
-}
-
-/* Circle */
-.o-ui.radio .button {
+/* BUTTON */
+.o-ui-radio .o-ui-radio__button {
+    grid-area: button;
     display: inline-block;
     background-color: var(--white);
     border-radius: 100%;
     border: 1px solid var(--marine-100);
 }
 
-.o-ui.radio .button::before {
+.o-ui-radio .o-ui-radio__button::before {
     content: "";
     display: block;
     background-color: var(--primary-500);
@@ -27,131 +24,124 @@
     transition: transform .125s ease-in;
 }
 
+/* LABEL */
+.o-ui-radio .o-ui-radio__label {
+    grid-area: label;
+    line-height: 1;
+    margin-left: var(--scale-bravo);
+}
+
+/* LABEL | REVERSE */
+.o-ui-radio--reverse .o-ui-radio__label {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+/* ICON */
+.o-ui-radio .o-ui-radio__icon {
+    grid-area: icon;
+    margin-left: var(--scale-bravo);
+}
+
+/* ICON | REVERSE */
+.o-ui-radio--reverse .o-ui-radio__icon {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+/* COUNTER */
+.o-ui-radio .o-ui-radio__counter {
+    grid-area: counter;
+    margin-left: var(--scale-bravo);
+}
+
+/* COUNTER | REVERSE */
+.o-ui-radio--reverse .o-ui-radio__counter {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
 /* SIZES */
 /* SMALL */
-.o-ui.radio.small .label {
+.o-ui-radio--small .o-ui-radio__label {
     font-size: var(--type-scale-8);
 }
 
-.o-ui.radio.small .button {
+.o-ui-radio--small .o-ui-radio__button {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui.radio.small .button::before {
+.o-ui-radio--small .o-ui-radio__button::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
 /* MEDIUM */
-.o-ui.radio.medium .label {
+.o-ui-radio--medium .o-ui-radio__label {
     font-size: var(--type-scale7);
 }
 
-.o-ui.radio.medium .button {
+.o-ui-radio--medium .o-ui-radio__button {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui.radio.medium .button::before {
+.o-ui-radio--medium .o-ui-radio__button::before {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
 /* LARGE */
-.o-ui.radio.large .label {
+.o-ui-radio--large .o-ui-radio__label {
     font-size: var(--type-scale-6);
 }
 
-.o-ui.radio.large .button {
+.o-ui-radio--large .o-ui-radio__button {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
-.o-ui.radio.large .button::before {
+.o-ui-radio--large .o-ui-radio__button::before {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
 /* STATE | CHECKED */
-.o-ui.radio.checked .button::before {
+.o-ui-radio--checked .o-ui-radio__button::before {
     transform: scale(0.5) translate(-2px, -2px);
 }
 
 /* STATE | FOCUS */
-.o-ui.radio input[type="radio"]:focus + .button,
-.o-ui.radio.focus > .button {
+.o-ui-radio input[type="radio"]:focus + .o-ui-radio__button,
+.o-ui-radio--focus .o-ui-radio__button {
     box-shadow: var(--o-ui-outline);
 }
 
 /* STATE | HOVER */
-.o-ui.radio:hover .button,
-.o-ui.radio.hover .button {
+.o-ui-radio:hover .o-ui-radio__button,
+.o-ui-radio--hover .o-ui-radio__button {
     border: 1px solid var(--marine-300);
 }
 
 /* STATE | HOVER | DISABLED */
-.o-ui.radio.disabled:hover .button,
-.o-ui.radio.disabled.hover .button {
+.o-ui-radio--disabled:hover .o-ui-radio__button,
+.o-ui-radio--disabled--hover .o-ui-radio__button {
     border: 1px solid var(--marine-100);
 }
 
 /* STATE | DISABLED */
-.o-ui.radio.disabled  {
+.o-ui-radio--disabled  {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
-/* STATE | READONLY */
-.o-ui.radio.readonly  {
-    cursor: default;
-}
-
 /* STATE | DISABLED | FOCUS | Circle */
-.o-ui.radio.disabled input[type="radio"]:focus + .button {
+.o-ui-radio--disabled input[type="radio"]:focus + .o-ui-radio__button {
     box-shadow: none;
 }
 
-/* WITH ICON */
-/* .o-ui.radio.with-icon > .label {
-    margin-right: var(--scale-alpha);
-} */
-
-/* WITH BADGE */
-/* .o-ui.radio.with-badge > .label {
-    margin-right: var(--scale-bravo);
-} */
-
-/* WITH BADGE | WITH ICON */
-/* .o-ui.radio.with-badge.with-icon > .label {
-    margin-right: var(--scale-alpha);
-} */
-
 /* REVERSE */
-.o-ui.radio.reverse {
-    flex-direction: row-reverse;
+.o-ui-radio--reverse {
+    grid-template-areas: "counter icon label button";
 }
-
-/* REVERSE | LABEL */
-.o-ui.radio.reverse .label {
-    margin-left: 0;
-    margin-right: var(--scale-bravo);
-}
-
-/* REVERSE | ICON */
-/* .o-ui.radio.reverse.with-icon > .label   {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-} */
-
-/* REVERSE | BADGE */
-/* .o-ui.radio.reverse.with-badge > .label {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-} */
-
-/* REVERSE | BADGE + ICON  */
-/* .o-ui.radio.reverse.with-badge.with-icon > .label {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-} */

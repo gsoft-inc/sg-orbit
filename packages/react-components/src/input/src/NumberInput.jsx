@@ -388,7 +388,7 @@ export function InnerNumberInput({
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labelled-input">
+                    <div className="labeled-input">
                         {content}
                     </div>
                 </>

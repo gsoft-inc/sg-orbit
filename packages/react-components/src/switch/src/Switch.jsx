@@ -68,7 +68,6 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         as: ElementType,
         className,
         children,
@@ -95,7 +94,6 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         className,
         forwardedRef
     });

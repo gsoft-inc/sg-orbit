@@ -5,6 +5,7 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
+import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { ToggleButton } from "@react-components/button";
@@ -108,32 +109,6 @@ Or the whole group.
     </Story>
 </Preview>
 
-### Readonly
-
-A single radio can be readonly.
-
-<Preview>
-    <Story name="readonly radio">
-        <RadioGroup>
-            <Radio readOnly value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
-Or the whole group.
-
-<Preview>
-    <Story name="readonly group">
-        <RadioGroup readOnly>
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
 ### Icon
 
 A radio can have [icons](?path=/docs/materials-icons--page) after his text.
@@ -141,8 +116,16 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
 <Preview>
     <Story name="icon">
         <RadioGroup>
-            <Radio icon={<LightbulbIcon />} value="mars">Mars</Radio>
-            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>} value="jupiter">Jupiter</Radio>
+            <Radio value="mars">
+                <Label>Mars</Label>
+                <LightbulbIcon />
+            </Radio>
+            <Radio value="jupiter">
+                <Label>Jupiter</Label>
+                <IconGroup>
+                    <LightbulbIcon /><LightbulbIcon />
+                </IconGroup>
+            </Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
@@ -155,9 +138,15 @@ A radio can have a [counter](?path=/docs/components-counter--default-story) afte
 <Preview>
     <Story name="counter">
         <RadioGroup>
-            <Radio counter={<Counter>6</Counter>} value="mars">Mars</Radio>
+            <Radio value="mars">
+                <Label>Mars</Label>
+                <Counter>6</Counter>
+            </Radio>
             <Radio value="jupiter">Jupiter</Radio>
-            <Radio counter={<Counter variant="divider">6</Counter>} value="pluto">Pluto</Radio>
+            <Radio value="pluto">
+                <Label>Pluto</Label>
+                <Counter variant="divider">6</Counter>
+            </Radio>
         </RadioGroup>
     </Story>
 </Preview>
@@ -169,9 +158,16 @@ A radio button can be to the left or to the right of his label.
 <Preview>
     <Story name="reverse">
         <RadioGroup>
-            <Radio reverse icon={<LightbulbIcon />} counter={<Counter>6</Counter>} value="mars">Mars</Radio>
+            <Radio reverse value="mars">
+                <Label>Mars</Label>
+                <LightbulbIcon />
+                <Counter>6</Counter>
+            </Radio>
             <Radio reverse value="jupiter">Jupiter</Radio>
-            <Radio reverse value="pluto" counter={<Counter variant="divider">6</Counter>}>Pluto</Radio>
+            <Radio reverse value="pluto">
+                <Label>Pluto</Label>
+                <Counter variant="divider">6</Counter>
+            </Radio>
         </RadioGroup>
     </Story>
 </Preview>
@@ -195,7 +191,7 @@ Or the whole group.
 <Preview>
     <Story name="size group">
         <RadioGroup size="large">
-            <Radio value="mars" >Mars</Radio>
+            <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
@@ -209,7 +205,7 @@ A radio group can change is orientation to `horizontal` to render his elements h
 <Preview>
     <Story name="orientation">
         <RadioGroup orientation="horizontal">
-            <Radio value="mars" >Mars</Radio>
+            <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
@@ -336,7 +332,7 @@ A radio group can handle `value` state in controlled mode.
 </Story>
 
 <Story
-    name="labelled radio group ref"
+    name="labeled radio group ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}

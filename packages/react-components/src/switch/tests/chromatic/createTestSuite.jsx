@@ -289,11 +289,6 @@ export function createTestSuite(element, stories) {
                     <Switch disabled element={element}>Engines</Switch>
                     <Switch disabled size="large" element={element}>Engines</Switch>
                 </Inline>
-                <Inline align="end">
-                    <Switch readOnly size="small" element={element}>Engines</Switch>
-                    <Switch readOnly element={element}>Engines</Switch>
-                    <Switch readOnly size="large" element={element}>Engines</Switch>
-                </Inline>
             </Stack>
         )
         .add("overflow", () =>

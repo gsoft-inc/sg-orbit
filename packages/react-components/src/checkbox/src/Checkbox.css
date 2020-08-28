@@ -68,6 +68,7 @@
     text-overflow: ellipsis;
 }
 
+/* LABEL | REVERSE */
 .o-ui-checkbox--reverse .o-ui-checkbox__label {
     margin-right: var(--scale-bravo);
     margin-left: 0;
@@ -79,6 +80,7 @@
     margin-left: var(--scale-alpha);
 }
 
+/* ICON | REVERSE */
 .o-ui-checkbox--reverse .o-ui-checkbox__icon {
     margin-left: 0;
     margin-right: var(--scale-alpha);
@@ -90,6 +92,7 @@
     margin-left: var(--scale-bravo);
 }
 
+/* COUNTER | REVERSE */
 .o-ui-checkbox--reverse .o-ui-checkbox__counter {
     margin-left: 0;
     margin-right: var(--scale-alpha);
@@ -192,11 +195,6 @@
 .o-ui.checkbox:disabled.checked:hover .box:before,
 .o-ui.checkbox:disabled.checked.hover .box:before {
     border: 1px solid var(--primary-500);
-}
-
-/* STATE | READ ONLY */
-.o-ui-checkbox--readonly {
-    cursor: default;
 }
 
 /* SIZING */

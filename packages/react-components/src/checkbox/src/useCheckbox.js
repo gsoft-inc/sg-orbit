@@ -19,7 +19,6 @@ export function useCheckbox({
     focus,
     hover,
     disabled,
-    readOnly,
     className,
     forwardedRef
 }) {
@@ -63,7 +62,6 @@ export function useCheckbox({
                     isIndeterminate && "--indeterminate",
                     reverse && "--reverse",
                     disabled && "--disabled",
-                    readOnly && "--readonly",
                     active && "--active",
                     focus && "--focus",
                     hover && "--hover",
@@ -76,8 +74,8 @@ export function useCheckbox({
         inputProps: {
             as: "input",
             type: "checkbox",
-            checked: !readOnly ? isChecked : undefined,
-            onChange: !readOnly ? handleChange : undefined,
+            checked: isChecked,
+            onChange: handleChange,
             disabled,
             name,
             tabIndex,
