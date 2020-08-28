@@ -13,7 +13,7 @@
 .o-ui.dot.mini:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-9);
+    font-size: var(--type-scale-8);
 }
 
 .o-ui.dot.tiny:before {
@@ -25,19 +25,19 @@
 .o-ui.dot.small:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-5);
+    font-size: var(--type-scale-6);
 }
 
 .o-ui.dot.medium:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-4);
+    font-size: var(--type-scale-5);
 }
 
 .o-ui.dot.large:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: 1.75rem;
+    font-size: var(--type-scale-4);
 }
 
 /* LABEL */
