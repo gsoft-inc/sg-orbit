@@ -9,7 +9,7 @@
 
 /* VALID */
 .o-ui.input-message.valid {
-    color: var(--success-400);
+    color: var(--success-500);
 }
 
 /* INVALID */
