@@ -1,20 +1,19 @@
 :root {
-    --o-ui-padding-small: var(--scale-charlie);
-    --o-ui-padding-medium: var(--scale-delta);
-    --o-ui-padding-large: var(--scale-echo);
+    --o-ui-padding-small: var(--scale-bravo);
+    --o-ui-padding-medium: var(--scale-charlie);
+    --o-ui-padding-large: var(--scale-delta);
     --o-ui-padding-small-with-icon: var(--scale-foxtrot);
-    --o-ui-padding-medium-with-icon: var(--scale-golf);
+    --o-ui-padding-medium-with-icon: calc(1.75rem + 1px);
     --o-ui-padding-large-with-icon: var(--scale-hotel);
-    --o-ui-padding-small-with-button: var(--scale-foxtrot);
-    --o-ui-padding-medium-with-button: var(--scale-golf);
-    --o-ui-padding-large-with-button: var(--scale-hotel);
-    --o-ui-padding-small-loading: var(--scale-foxtrot);
-    --o-ui-padding-medium-loading: var(--scale-golf);
-    --o-ui-padding-large-loading: var(--scale-hotel);
+    --o-ui-padding-small-with-button: var(--scale-golf);
+    --o-ui-padding-medium-with-button: var(--scale-hotel);
+    --o-ui-padding-large-with-button: var(--scale-india);
+    --o-ui-padding-small-loading: var(--scale-golf);
+    --o-ui-padding-medium-loading: calc(1.75rem + 1px);
+    --o-ui-padding-large-loading: var(--scale-india);
     --o-ui-border-color: var(--cloud-200);
     --o-ui-border-radius: var(--scale-alpha);
     --o-ui-background-color: var(--cloud-100);
-    --o-ui-background-opacity: 0.4;
 }
 
 .o-ui.input {
@@ -38,7 +37,7 @@
     padding: 0 var(--o-ui-padding-medium);
     width: 100%;
     background-color: var(--white);
-    transition: all .12s ease-in padding 0s linear;
+    transition: all .12s ease-in, padding 0s linear;
 }
 
 .o-ui.input input {
@@ -134,7 +133,8 @@
 .o-ui.input.with-icon .input-icon {
     position: absolute;
     top: 50%;
-    left: calc((var(--o-ui-padding-medium-with-icon) - var(--scale-echo) ) / 2);
+    left: 5px;
+    /* calcus du 4 et changer pour .medium */
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
@@ -231,7 +231,7 @@
 .o-ui.input input.disabled,
 .o-ui.input textarea:disabled,
 .o-ui.input textarea.disabled {
-    opacity: var(--o-ui-background-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     background-color: var(--o-ui-background-color);
     cursor: not-allowed;
 }
@@ -251,12 +251,10 @@
     position: absolute;
     top: 50%;
     right: 6px;
-    /* ecrire calcul pour 6px */
-    width: 1.25rem;
-    height: 1.25rem;
     border-radius: 50px;
     border: 2px solid var(--marine-100);
     border-top-color: var(--marine-300);
+    transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;
 }
 
@@ -277,6 +275,16 @@
 
 .o-ui.input.loading.small input {
     padding-right: var(--o-ui-padding-small-loading);
+}
+
+/* SIZES | MEDIUM | LOADING */
+.o-ui.input.loading.medium::before {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.o-ui.input.loading.medium input {
+    padding-right: var(--o-ui-padding-medium-loading);
 }
 
 /* SIZES | LARGE | LOADING */

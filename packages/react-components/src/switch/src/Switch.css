@@ -8,8 +8,6 @@
 
 .o-ui.switch > .switch {
     display: inline-block;
-    width: var(--scale-hotel);
-    height: var(--scale-echo);
     background-color: var(--cloud-200);
     border-radius: var(--scale-charlie);
     position: relative;
@@ -56,7 +54,7 @@
 
 .o-ui.switch[disabled],
 .o-ui.switch.disabled {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -114,6 +112,24 @@
 
 .o-ui.switch.small.checked > .switch::before {
     transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
+}
+
+.o-ui.switch.medium > .switch {
+    width: var(--scale-hotel);
+    height: var(--scale-echo);
+}
+
+.o-ui.switch.medium .label {
+    font-size: var(--type-scale-7);
+}
+
+.o-ui.switch.medium > .switch::before {
+    width: var(--scale-delta);
+    height: var(--scale-delta);
+}
+
+.o-ui.switch.medium.checked > .switch::before {
+    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
 .o-ui.switch.large > .switch {

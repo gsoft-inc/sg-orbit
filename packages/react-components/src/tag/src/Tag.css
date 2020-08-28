@@ -40,7 +40,7 @@ button.o-ui.tag.solid.disabled,
 a.o-ui.tag.solid[disabled],
 a.o-ui.tag.solid.disabled {
     cursor: not-allowed;
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* As <a> / BUTTON | States | DISABLED | HOVER */
@@ -107,7 +107,7 @@ button.o-ui.tag.outline[disabled],
 a.o-ui.tag.outline[disabled],
 button.o-ui.tag.outline.disabled,
 a.o-ui.tag.outline.disabled {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -210,22 +210,22 @@ a.o-ui.tag:hover {
 
 /* WITH BADGE */
 /* WITH BADGE | LEFT */
-.o-ui.tag.with-left-badge.medium {
+.o-ui.tag.with-left-badge {
     padding-left: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* BADGE IN TAG | LEFT > TEXT */
-.o-ui.tag.with-left-badge.medium .text {
+.o-ui.tag.with-left-badge .text {
     margin-left: var(--scale-bravo);
 }
 
 /* BADGE IN TAG | RIGHT > TEXT */
-.o-ui.tag.with-right-badge.medium .text {
+.o-ui.tag.with-right-badge .text {
     margin-right: var(--scale-bravo);
 }
 
 /* WITH BADGE | RIGHT */
-.o-ui.tag.with-right-badge.medium {
+.o-ui.tag.with-right-badge {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
@@ -242,12 +242,12 @@ a.o-ui.tag:hover {
 
 /* WITH BADGE | SIZE */
 /* WITH BADGE | RIGHT | SMALL */
-.o-ui.tag.small.with-right-badge {
+.o-ui.tag.with-right-badge.small {
     padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* WITH BADGE | RIGHT | LARGE */
-.o-ui.tag.large.with-right-badge {
+.o-ui.tag.with-right-badge.large {
     padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 

@@ -7,15 +7,12 @@
 /* LABEL */
 .o-ui.radio .label {
     line-height: 1;
-    font-size: var(--type-scale-7);
     margin-left: var(--scale-bravo);
 }
 
 /* Circle */
 .o-ui.radio .button {
     display: inline-block;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
     background-color: var(--white);
     border-radius: 100%;
     border: 1px solid var(--marine-100);
@@ -24,8 +21,6 @@
 .o-ui.radio .button::before {
     content: "";
     display: block;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
     background-color: var(--primary-500);
     border-radius: 100%;
     transform: scale(0) translate(-2px, -2px);
@@ -46,6 +41,21 @@
 .o-ui.radio.small .button::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
+}
+
+/* MEDIUM */
+.o-ui.radio.medium .label {
+    font-size: var(--type-scale7);
+}
+
+.o-ui.radio.medium .button {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+}
+
+.o-ui.radio.medium .button::before {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
 /* LARGE */
@@ -88,7 +98,7 @@
 
 /* STATE | DISABLED */
 .o-ui.radio.disabled  {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
