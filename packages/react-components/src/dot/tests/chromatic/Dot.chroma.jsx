@@ -15,7 +15,6 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end">
-            <Dot size="mini"></Dot>
             <Dot size="tiny"></Dot>
             <Dot size="small"></Dot>
             <Dot></Dot>
@@ -24,7 +23,6 @@ stories()
     )
     .add("label", () =>
         <Inline align="end">
-            <Dot size="mini">Habitable</Dot>
             <Dot size="tiny">Habitable</Dot>
             <Dot size="small">Habitable</Dot>
             <Dot>Habitable</Dot>

@@ -1,9 +1,9 @@
 import "./Dot.css";
 
 import { Text } from "../../text";
+import { bemify, getSizeClass2, mergeClasses } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
 
 const propTypes = {
     /**
@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * A dot can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -44,9 +44,11 @@ export function InnerDot({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui dot",
-                children && "with-label",
-                getSizeClass(size),
+                bemify(
+                    "o-ui-dot",
+                    getSizeClass2(size),
+                    children && "__label"
+                ),
                 className
             )}
             style={{
