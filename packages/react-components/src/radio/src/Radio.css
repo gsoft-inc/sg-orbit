@@ -136,7 +136,7 @@
     cursor: not-allowed;
 }
 
-/* STATE | DISABLED | FOCUS | Circle */
+/* STATE | DISABLED | FOCUS | BUTTON */
 .o-ui-radio--disabled input[type="radio"]:focus + .o-ui-radio__button {
     box-shadow: none;
 }

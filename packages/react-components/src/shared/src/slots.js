@@ -1,8 +1,8 @@
 // Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/Slots.tsx.
 // For more info about the slots architecture please read https://github.com/adobe/react-spectrum/blob/main/rfcs/2019-v3-slots.md.
 
-import { Children, cloneElement, createContext, useContext } from "react";
 import { SIZE } from "./size";
+import { createContext, useContext } from "react";
 import { mergeProps } from "./mergeProps";
 
 export const SlotContext = createContext({});

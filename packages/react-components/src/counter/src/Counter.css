@@ -61,11 +61,12 @@
     padding-right: calc(1em / 2);
 }
 
-/* DIVIDER | COLOR */
+/* DIVIDER | COLOR | LIGHT */
 .o-ui-counter__divider.o-ui-counter--light {
     color: var(--cloud-200);
 }
 
+/* DIVIDER | COLOR | BOLD */
 .o-ui-counter__divider.o-ui-counter--bold {
     font-weight: 600;
 }
