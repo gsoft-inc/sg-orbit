@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { CheckCircleIcon, CrossIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
+import { CheckCircleIcon, CrossIcon, IconGroup } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
@@ -28,35 +28,20 @@ export function createTestSuite(element, stories) {
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag iconLeft={<CheckCircleIcon />} size="small" element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<CheckCircleIcon />} element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<CheckCircleIcon />} size="large" element={element}>Falcon 9</Tag>
+                    <Tag icon={<CheckCircleIcon />} size="small" element={element}>Falcon 9</Tag>
+                    <Tag icon={<CheckCircleIcon />} element={element}>Falcon 9</Tag>
+                    <Tag icon={<CheckCircleIcon />} size="large" element={element}>Falcon 9</Tag>
                 </Inline>
                 <Inline align="end">
-                    <Tag iconLeft={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="small" element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="large" element={element}>Falcon 9</Tag>
-                </Inline>
-                <Inline align="end">
-                    <Tag iconRight={<CheckCircleIcon />} size="small" element={element}>Falcon 9</Tag>
-                    <Tag iconRight={<CheckCircleIcon />} element={element}>Falcon 9</Tag>
-                    <Tag iconRight={<CheckCircleIcon />} size="large" element={element}>Falcon 9</Tag>
-                </Inline>
-                <Inline align="end">
-                    <Tag iconRight={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="small" element={element}>Falcon 9</Tag>
-                    <Tag iconRight={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} element={element}>Falcon 9</Tag>
-                    <Tag iconRight={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="large" element={element}>Falcon 9</Tag>
-                </Inline>
-                <Inline align="end">
-                    <Tag iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} size="small" element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} element={element}>Falcon 9</Tag>
-                    <Tag iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} size="large" element={element}>Falcon 9</Tag>
+                    <Tag icon={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="small" element={element}>Falcon 9</Tag>
+                    <Tag icon={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} element={element}>Falcon 9</Tag>
+                    <Tag icon={<IconGroup><CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon /></IconGroup>} size="large" element={element}>Falcon 9</Tag>
                 </Inline>
                 <Inline>
-                    <Tag fluid iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} element={element}>Falcon 9</Tag>
+                    <Tag fluid icon={<CheckCircleIcon />} element={element}>Falcon 9</Tag>
                 </Inline>
                 <Inline className="w-10">
-                    <Tag fluid iconLeft={<CheckCircleIcon />} iconRight={<LightbulbIcon />} element={element}>Falcon 9</Tag>
+                    <Tag fluid icon={<CheckCircleIcon />} element={element}>Falcon 9</Tag>
                 </Inline>
             </Stack>
         )

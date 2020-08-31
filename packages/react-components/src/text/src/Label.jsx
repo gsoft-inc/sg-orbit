@@ -18,13 +18,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerLabel(props) {
     const {
         children,
+        as = "span",
         forwardedRef,
         ...rest
     } = useSlotProps(props, "label");
@@ -32,6 +29,7 @@ export function InnerLabel(props) {
     return (
         <Text
             {...rest}
+            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -40,7 +38,6 @@ export function InnerLabel(props) {
 }
 
 InnerLabel.propTypes = propTypes;
-InnerLabel.defaultProps = defaultProps;
 
 export const Label = forwardRef((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />

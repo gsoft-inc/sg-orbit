@@ -1,12 +1,11 @@
 import "./Tag.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
-import { embedButton } from "../../button";
+import { SlotProvider, getSizeClass, getSizeClass3, mergeClasses } from "../../shared";
+import { Text, embeddedTextSlot } from "../../text";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { embeddedButtonSlot } from "../../button";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
-import { isNil } from "lodash";
 
 // TODO:
 //  - iconLeft & iconRight -> icon (always to the left)
@@ -17,22 +16,6 @@ const propTypes = {
      * Style to use.
      */
     variant: oneOf(["solid", "outline"]),
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
-     */
-    button: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
-     */
-    badgeLeft: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badgeRight: element,
     /**
      * Whether the tag take up the width of its container.
      */
@@ -58,10 +41,6 @@ const defaultProps = {
 
 export function InnerTag({
     variant,
-    iconLeft,
-    button,
-    badgeLeft,
-    badgeRight,
     disabled,
     fluid,
     size,
@@ -74,40 +53,44 @@ export function InnerTag({
     forwardedRef,
     ...rest
 }) {
-    const textMarkup = (
-        <span className="text">{children}</span>
-    );
+    // const textMarkup = (
+    //     <span className="text">{children}</span>
+    // );
 
-    const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
-    );
+    // const iconMarkup = !isNil(icon) && (
+    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
+    // );
 
-    const buttonMarkup = !isNil(button) && embedButton(button, {
-        size,
-        variant: "ghost",
-        color: "secondary",
-        shape: "circular"
-    });
+    // const buttonMarkup = !isNil(button) && embedButton(button, {
+    //     size,
+    //     variant: "ghost",
+    //     color: "secondary",
+    //     shape: "circular"
+    // });
 
-    const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
-        disabled,
-        highlight: true,
-        size
-    });
+    // const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
+    //     disabled,
+    //     highlight: true,
+    //     size
+    // });
 
-    const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
-        disabled,
-        highlight: true,
-        size
-    });
+    // const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
+    //     disabled,
+    //     highlight: true,
+    //     size
+    // });
 
-    const content = (
-        <>
-            {iconLeftMarkup}{badgeLeftMarkup}
-            {textMarkup}
-            {buttonMarkup}{badgeRightMarkup}
-        </>
-    );
+    // const content = (
+    //     <>
+    //         {iconMarkup}
+    //         {textMarkup}
+    //         {buttonMarkup}
+    //     </>
+    // );
+
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
         <ElementType
@@ -115,10 +98,8 @@ export function InnerTag({
             className={mergeClasses(
                 "o-ui tag",
                 variant,
-                buttonMarkup && "with-button",
-                iconLeftMarkup && "with-left-icon",
-                badgeLeftMarkup && "with-left-badge",
-                badgeRightMarkup && "with-right-badge",
+                // buttonMarkup && "with-button",
+                // iconMarkup && "with-left-icon",
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
@@ -129,7 +110,37 @@ export function InnerTag({
             disabled={disabled}
             ref={forwardedRef}
         >
-            {content}
+            <SlotProvider
+                slots={{
+                    text: embeddedTextSlot({
+                        size,
+                        className: "o-ui-tag-text"
+                    }),
+                    icon: embeddedIconSlot({
+                        size,
+                        className: "o-ui-tag-icon"
+                    }),
+                    dot: {
+                        size,
+                        disabled,
+                        className: "o-ui-tag-dot"
+                    },
+                    counter: {
+                        size,
+                        disabled,
+                        className: "o-ui-tag-counter"
+                    },
+                    button: embeddedButtonSlot({
+                        size,
+                        variant: "ghost",
+                        color: "secondary",
+                        shape: "circular",
+                        className: "o-ui-tag-button"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

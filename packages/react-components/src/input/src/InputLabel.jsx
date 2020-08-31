@@ -13,15 +13,11 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerInputLabel({
     required,
     description,
     size,
-    as: ElementType,
+    as: ElementType = "label",
     className,
     children,
     forwardedRef,
@@ -56,7 +52,6 @@ export function InnerInputLabel({
 }
 
 InnerInputLabel.propTypes = propTypes;
-InnerInputLabel.defaultProps = defaultProps;
 
 export const InputLabel = forwardRef((props, ref) => (
     <InnerInputLabel {...props} forwardedRef={ref} />

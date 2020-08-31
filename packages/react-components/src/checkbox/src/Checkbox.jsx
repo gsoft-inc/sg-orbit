@@ -61,10 +61,6 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerCheckbox(props) {
     const {
         checked,
@@ -84,7 +80,7 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -164,7 +160,6 @@ export function InnerCheckbox(props) {
 }
 
 InnerCheckbox.propTypes = propTypes;
-InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />

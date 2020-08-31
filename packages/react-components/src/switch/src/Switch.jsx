@@ -49,10 +49,6 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerSwitch(props) {
     const {
         checked,
@@ -68,7 +64,7 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -138,7 +134,6 @@ export function InnerSwitch(props) {
 }
 
 InnerSwitch.propTypes = propTypes;
-InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />

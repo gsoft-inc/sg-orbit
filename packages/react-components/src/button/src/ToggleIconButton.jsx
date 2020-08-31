@@ -59,27 +59,25 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    as: IconButton
-};
-
 export function InnerToggleIconButton(props) {
     const {
+        variant = "solid",
+        shape = "pill",
         checked,
         defaultChecked,
         value,
         onChange,
         onClick,
         active,
-        as: ElementType,
+        as: ElementType = IconButton,
         children,
         forwardedRef,
         ...rest
     } = useCheckableProps(props);
 
     const { isChecked, buttonProps } = useToggleButton({
+        variant,
+        shape,
         checked,
         defaultChecked,
         value,
@@ -105,7 +103,6 @@ export function InnerToggleIconButton(props) {
 }
 
 InnerToggleIconButton.propTypes = propTypes;
-InnerToggleIconButton.defaultProps = defaultProps;
 
 export const ToggleIconButton = forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />

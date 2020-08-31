@@ -13,6 +13,7 @@ export function useButton({
     focus,
     hover,
     disabled,
+    type,
     className,
     forwardedRef
 }) {
@@ -37,6 +38,7 @@ export function useButton({
             className
         ),
         disabled,
+        type,
         ref: buttonRef
     };
 }

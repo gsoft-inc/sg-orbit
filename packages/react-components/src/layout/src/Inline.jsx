@@ -38,16 +38,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    gap: 5,
-    as: "div"
-};
-
 export function InnerInline({
     align,
     justify,
     children,
+    gap = 5,
     wrap,
+    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -56,7 +53,9 @@ export function InnerInline({
             {...rest}
             alignItems={align}
             justifyContent={justify}
+            gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
+            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -65,7 +64,6 @@ export function InnerInline({
 }
 
 InnerInline.propTypes = propTypes;
-InnerInline.defaultProps = defaultProps;
 
 export const Inline = forwardRef((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />

@@ -25,14 +25,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerText(props) {
     const {
         size,
-        as: ElementType,
+        as: ElementType = "span",
         className,
         children,
         forwardedRef,
@@ -58,7 +54,6 @@ export function InnerText(props) {
 }
 
 InnerText.propTypes = propTypes;
-InnerText.defaultProps = defaultProps;
 
 export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />

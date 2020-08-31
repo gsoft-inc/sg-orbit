@@ -43,7 +43,8 @@
     background-color: var(--cloud-50);
 }
 
-.o-ui-counter-pill.o-ui-counter-bold {
+/* PILL | HIGHLIGHT */
+.o-ui-counter-pill.o-ui-counter-highlight {
     font-weight: 600;
 }
 
@@ -67,8 +68,8 @@
     color: var(--cloud-200);
 }
 
-/* DIVIDER | COLOR | BOLD */
-.o-ui-counter-divider.o-ui-counter-bold {
+/* DIVIDER | HIGHLIGHT */
+.o-ui-counter-divider.o-ui-counter-highlight {
     font-weight: 600;
 }
 

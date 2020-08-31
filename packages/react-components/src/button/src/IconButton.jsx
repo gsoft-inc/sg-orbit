@@ -1,5 +1,5 @@
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeClasses, useSlotProps } from "../../shared";
+import { augmentElement, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 
@@ -50,18 +50,11 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button",
-    as: "button"
-};
-
 export function InnerIconButton(props) {
     const {
-        variant,
+        variant = "solid",
         color,
-        shape,
+        shape = "pill",
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -71,7 +64,8 @@ export function InnerIconButton(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        type = "button",
+        as: ElementType = "button",
         className,
         children,
         forwardedRef,
@@ -91,6 +85,7 @@ export function InnerIconButton(props) {
         focus,
         hover,
         disabled,
+        type,
         className,
         forwardedRef
     });
@@ -111,7 +106,6 @@ export function InnerIconButton(props) {
 }
 
 InnerIconButton.propTypes = propTypes;
-InnerIconButton.defaultProps = defaultProps;
 
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />

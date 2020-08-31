@@ -119,13 +119,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    step: 1,
-    clampValue: true,
-    variant: "outline",
-    as: "div"
-};
-
 export function Spinner({
     onIncrement,
     onDecrement,
@@ -199,8 +192,8 @@ export function InnerNumberInput({
     placeholder,
     min,
     max,
-    step,
-    clampValue,
+    step = 1,
+    clampValue = true,
     label,
     required,
     description,
@@ -210,7 +203,7 @@ export function InnerNumberInput({
     validationState,
     onChange,
     onBlur,
-    variant,
+    variant = "outline",
     autoFocus,
     autoFocusDelay,
     icon,
@@ -224,7 +217,7 @@ export function InnerNumberInput({
     hover,
     className,
     wrapperProps: userWrapperProps,
-    as: ElementType,
+    as: ElementType = "div",
     forwardedRef,
     ...rest
 }) {
@@ -398,7 +391,6 @@ export function InnerNumberInput({
 }
 
 InnerNumberInput.propTypes = propTypes;
-InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />

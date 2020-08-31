@@ -63,9 +63,9 @@
 
 /* SIZES */
 /* SMALL */
-.o-ui-radio-small .o-ui-radio-label {
+/* .o-ui-radio-small .o-ui-radio-label {
     font-size: var(--type-scale-8);
-}
+} */
 
 .o-ui-radio-small .o-ui-radio-button {
     width: var(--scale-delta);
@@ -78,9 +78,9 @@
 }
 
 /* MEDIUM */
-.o-ui-radio-medium .o-ui-radio-label {
+/* .o-ui-radio-medium .o-ui-radio-label {
     font-size: var(--type-scale7);
-}
+} */
 
 .o-ui-radio-medium .o-ui-radio-button {
     width: var(--scale-echo);
@@ -93,9 +93,9 @@
 }
 
 /* LARGE */
-.o-ui-radio-large .o-ui-radio-label {
+/* .o-ui-radio-large .o-ui-radio-label {
     font-size: var(--type-scale-6);
-}
+} */
 
 .o-ui-radio-large .o-ui-radio-button {
     width: var(--scale-foxtrot);

@@ -24,10 +24,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerInputMessage(props) {
     const {
         help,
@@ -37,7 +33,7 @@ export function InnerInputMessage(props) {
         size,
         className,
         forwardedRef,
-        as: ElementType,
+        as: ElementType = "span",
         ...rest
     } = props;
 
@@ -71,7 +67,6 @@ export function InnerInputMessage(props) {
 }
 
 InnerInputMessage.propTypes = propTypes;
-InnerInputMessage.defaultProps = defaultProps;
 
 export const InputMessage = forwardRef((props, ref) => (
     <InnerInputMessage {...props} forwardedRef={ref} />
