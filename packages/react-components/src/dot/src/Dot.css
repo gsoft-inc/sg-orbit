@@ -16,43 +16,43 @@
     font-size: var(--type-scale-7);
 }
 
-.o-ui-dot--small:before {
+.o-ui-dot-small:before {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-6);
 }
 
-.o-ui-dot--medium:before {
+.o-ui-dot-medium:before {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-5);
 }
 
-.o-ui-dot--large:before {
+.o-ui-dot-large:before {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-4);
 }
 
 /* LABELED */
-.o-ui-dot--labeled {
+.o-ui-dot-labeled {
     display: inline-flex;
     align-items: center;
 }
 
-.o-ui-dot--labeled.o-ui-dot--tiny:before {
+.o-ui-dot-labeled.o-ui-dot--tiny:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot--labeled.o-ui-dot--small:before {
+.o-ui-dot-labeled.o-ui-dot--small:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot--labeled.o-ui-dot--medium:before {
+.o-ui-dot-labeled.o-ui-dot--medium:before {
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-dot--labeled.o-ui-dot--large:before {
+.o-ui-dot-labeled.o-ui-dot--large:before {
     margin-right: var(--scale-bravo);
 }
 

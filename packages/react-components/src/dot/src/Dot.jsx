@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Text } from "../../text";
-import { bemify, getSizeClass2, mergeClasses } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -44,10 +44,10 @@ export function InnerDot({
         <ElementType
             {...rest}
             className={mergeClasses(
-                bemify(
+                cssModule(
                     "o-ui-dot",
-                    children && "--labeled",
-                    getSizeClass2(size)
+                    children && "labeled",
+                    getSizeClass3(size)
                 ),
                 className
             )}

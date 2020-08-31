@@ -1,7 +1,7 @@
 import "./Radio.css";
 
 import { Label } from "../../text";
-import { SlotProvider, bemify, getSizeClass2, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useImperativeHandle, useRef } from "react";
@@ -113,15 +113,15 @@ export function InnerRadio(props) {
             data-testid="radio"
             {...rest}
             className={mergeClasses(
-                bemify(
+                cssModule(
                     "o-ui-radio",
-                    isChecked && "--checked",
-                    reverse && "--reverse",
-                    disabled && "--disabled",
-                    active && "--active",
-                    focus && "--focus",
-                    hover && "--hover",
-                    getSizeClass2(size)
+                    isChecked && "checked",
+                    reverse && "reverse",
+                    disabled && "disabled",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass3(size)
                 ),
                 className
             )}
@@ -138,21 +138,21 @@ export function InnerRadio(props) {
                 tabIndex={tabIndex}
                 ref={inputRef}
             />
-            <span className="o-ui-radio__button"></span>
+            <span className="o-ui-radio-button"></span>
             <SlotProvider
                 slots={{
                     label: {
                         size,
-                        className: "o-ui-radio__label"
+                        className: "o-ui-radio-label"
                     },
                     icon: {
                         size,
-                        className: "o-ui-radio__icon"
+                        className: "o-ui-radio-icon"
                     },
                     counter: {
                         size,
                         reverse,
-                        className: "o-ui-radio__counter"
+                        className: "o-ui-radio-counter"
                     }
                 }}
             >

@@ -28,8 +28,6 @@ export function getSizeClass(size, prefix) {
     return prefix ? `${prefix}${className}` : className;
 }
 
-export function getSizeClass2(size) {
-    const className = SIZE_CLASS[size || SIZE.medium];
-
-    return `--${className}`;
+export function getSizeClass3(size) {
+    return SIZE_CLASS[size || SIZE.medium];
 }

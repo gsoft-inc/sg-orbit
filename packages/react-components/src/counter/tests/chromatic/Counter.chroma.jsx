@@ -29,24 +29,24 @@ stories()
     )
     .add("divider", () =>
         <Stack>
-            <div>Planets Visited <Counter variant="divider">15</Counter></div>
-            <div className="f3">Planets Visited <Counter variant="divider">15</Counter></div>
-            <div className="f1">Planets Visited <Counter variant="divider">15</Counter></div>
+            <div>Planets Visited <Counter variant="divider" pad>15</Counter></div>
+            <div className="f3">Planets Visited <Counter variant="divider" pad>15</Counter></div>
+            <div className="f1">Planets Visited <Counter variant="divider" pad>15</Counter></div>
         </Stack>
     )
     .add("reverse", () =>
-        <div><Counter reverse variant="divider">15</Counter> Planets Visited </div>
+        <div><Counter reverse variant="divider" pad>15</Counter> Planets Visited </div>
     )
     .add("light", () =>
         <Inline align="center">
             <Counter color="light">15</Counter>
-            <div>Planets Visited <Counter variant="divider" color="light">15</Counter></div>
+            <div>Planets Visited <Counter variant="divider" color="light" pad>15</Counter></div>
         </Inline>
     )
     .add("bold", () =>
         <Inline align="center">
             <Counter color="bold">15</Counter>
-            <div>Planets Visited <Counter variant="divider" color="bold">15</Counter></div>
+            <div>Planets Visited <Counter variant="divider" color="bold" pad>15</Counter></div>
         </Inline>
     )
     .add("disabled", () =>
@@ -59,8 +59,8 @@ stories()
                 <Counter style={{ backgroundColor: "red" }}>15</Counter>
             </Inline>
             <Inline>
-                <div>Planets Visited <Counter className="bg-red" variant="divider">15</Counter></div>
-                <div>Planets Visited <Counter style={{ backgroundColor: "red" }} variant="divider">15</Counter></div>
+                <div>Planets Visited <Counter className="bg-red" variant="divider" pad>15</Counter></div>
+                <div>Planets Visited <Counter style={{ backgroundColor: "red" }} variant="divider" pad>15</Counter></div>
             </Inline>
         </Stack>
     );
