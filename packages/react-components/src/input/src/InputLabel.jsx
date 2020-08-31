@@ -3,8 +3,8 @@ import "./InputLabel.css";
 import { EmbeddedIcon, InfoIcon } from "@react-components/icons";
 import { Tooltip } from "@react-components/tooltip";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { bemify, getSizeClass2, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
 
 const propTypes = {
     required: bool,
@@ -41,10 +41,11 @@ export function InnerInputLabel({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui input-label",
-                required && "required",
-                descriptionMarkup && "with-description",
-                getSizeClass(size),
+                bemify("o-ui-input-label",
+                       required && "--required",
+                       descriptionMarkup && "-with-description",
+                       getSizeClass2(size)
+                ),
                 className
             )}
             ref={forwardedRef}

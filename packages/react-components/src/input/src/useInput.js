@@ -1,7 +1,8 @@
-import { getSizeClass, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
+import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
 import { useInputMessage } from "./InputMessage";
 
 export function useInput({
+    cssModule,
     id,
     value,
     placeholder,
@@ -32,7 +33,7 @@ export function useInput({
 }) {
     const inputRef = useMergedRefs(inputRefProp, forwardedRef);
 
-    const inputId = useId(id, id ?? "o-ui-input");
+    const inputId = useId(id, id ?? "o-ui--input");
     const messageProps = useInputMessage(helpMessage, invalidMessage, validMessage, validationState, size);
 
     useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
@@ -41,13 +42,15 @@ export function useInput({
         wrapperProps: {
             ...wrapperProps,
             className: mergeClasses(
-                variant,
-                label && "with-label",
-                messageProps && "with-message",
-                fluid && "fluid",
-                loading && "loading",
-                validationState,
-                getSizeClass(size),
+                bemify(cssModule,
+                       `--${variant}`,
+                       fluid && "--fluid",
+                       loading && "--loading",
+                       getSizeClass2(size),
+                       label && "-labelled",
+                       messageProps && "-with-message",
+                       validationState && `--${validationState}`
+                ),
                 wrapperProps.className
             )
         },

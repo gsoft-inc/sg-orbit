@@ -20,7 +20,7 @@
 }
 
 /* BUTTON | SOLID | ROUNDED */
-.o-ui-button--solid--rounded {
+.o-ui-button--rounded {
     border-radius: var(--scale-alpha);
 }
 
