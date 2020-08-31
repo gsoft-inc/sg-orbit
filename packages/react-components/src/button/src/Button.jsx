@@ -142,7 +142,6 @@ export function InnerButton(props) {
             {...rest}
             {...buttonProps}
             className={mergeClasses(
-                "o-ui button",
                 buttonProps.className
             )}
         >
