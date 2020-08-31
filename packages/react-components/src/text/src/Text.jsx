@@ -1,6 +1,6 @@
 import "./Text.css";
 
-import { SIZE, createSizeAdapterSlotFactory, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, createSizeAdapterSlotFactory, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -44,7 +44,10 @@ export function InnerText(props) {
             data-testid="text"
             {...rest}
             className={mergeClasses(
-                getSizeClass(size, "o-ui-text--"),
+                cssModule(
+                    "o-ui-text",
+                    getSizeClass3(size)
+                ),
                 className
             )}
             ref={forwardedRef}

@@ -113,21 +113,21 @@ export function InnerSwitch(props) {
             {...wrapperProps}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-switch__switch" />
+            <span className="o-ui-switch-switch" />
             <SlotProvider
                 slots={{
                     label: {
                         size,
-                        className: "o-ui-switch__label"
+                        className: "o-ui-switch-label"
                     },
                     icon: {
                         size,
-                        className: "o-ui-switch__icon"
+                        className: "o-ui-switch-icon"
                     },
                     counter: {
                         size,
                         reverse,
-                        className: "o-ui-switch__counter"
+                        className: "o-ui-switch-counter"
                     }
                 }}
             >

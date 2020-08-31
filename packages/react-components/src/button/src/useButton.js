@@ -1,4 +1,4 @@
-import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useButton({
     variant,
@@ -22,16 +22,17 @@ export function useButton({
 
     return {
         className: mergeClasses(
-            bemify("o-ui-button",
-                   variant && `--${variant}`,
-                   color && `--${color}`,
-                   shape && `--${shape}`,
-                   fluid && "--fluid",
-                   loading && "--loading",
-                   active && "--active",
-                   focus && "--focus",
-                   hover && "--hover",
-                   getSizeClass2(size)
+            cssModule(
+                "o-ui-button",
+                variant,
+                color && color,
+                shape && shape,
+                fluid && "fluid",
+                loading && "loading",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                getSizeClass3(size)
             ),
             className
         ),

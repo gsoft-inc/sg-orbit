@@ -1,7 +1,7 @@
 import "./Counter.css";
 
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { bemify, getSizeClass2, mergeClasses, useSlotProps } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -57,12 +57,12 @@ export function InnerCounter(props) {
         <ElementType
             {...rest}
             className={mergeClasses(
-                bemify(
+                cssModule(
                     "o-ui-counter",
-                    `__${variant}`,
-                    color && `--${color}`,
-                    reverse && "--reverse",
-                    getSizeClass2(size)
+                    variant,
+                    color && color,
+                    reverse && "reverse",
+                    getSizeClass3(size)
                 ),
                 className
             )}

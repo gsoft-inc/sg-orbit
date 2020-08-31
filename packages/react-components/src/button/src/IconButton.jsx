@@ -104,10 +104,6 @@ export function InnerIconButton(props) {
             data-testid="icon-button"
             {...rest}
             {...buttonProps}
-            className={mergeClasses(
-                "o-ui button icon",
-                buttonProps.className
-            )}
         >
             {content}
         </ElementType>

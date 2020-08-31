@@ -1,5 +1,5 @@
 /* PILL */
-.o-ui-counter__pill {
+.o-ui-counter-pill {
     display: inline-flex;
     background-color: var(--cloud-100);
     color: var(--marine-900);
@@ -10,28 +10,28 @@
 }
 
 /* PILL | SIZES */
-.o-ui-counter__pill.o-ui-counter--tiny {
+.o-ui-counter-pill.o-ui-counter-tiny {
     min-height: 0.875rem;
     min-width: 0.875rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui-counter__pill.o-ui-counter--small {
+.o-ui-counter-pill.o-ui-counter-small {
     min-height: 1rem;
     min-width: 1rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui-counter__pill.o-ui-counter--medium {
+.o-ui-counter-pill.o-ui-counter-medium {
     min-height: 1.25rem;
     min-width: 1.25rem;
     font-size: var(--type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
-.o-ui-counter__pill.o-ui-counter--large {
+.o-ui-counter-pill.o-ui-counter-large {
     min-height: 1.5rem;
     min-width: 1.5rem;
     font-size: var(--type-scale-7);
@@ -39,37 +39,48 @@
 }
 
 /* PILL | COLOR */
-.o-ui-counter__pill.o-ui-counter--light {
+.o-ui-counter-pill.o-ui-counter-light {
     background-color: var(--cloud-50);
 }
 
-.o-ui-counter__pill.o-ui-counter--bold {
+.o-ui-counter-pill.o-ui-counter-bold {
     font-weight: 600;
 }
 
 /* DIVIDER */
-.o-ui-counter__divider {
+.o-ui-counter-divider {
     border-left: 1px solid var(--cloud-100);
     padding-left: calc(1em / 2);
 }
 
 /* DIVIDER | REVERSE */
-.o-ui-counter__divider.o-ui-counter--reverse {
+.o-ui-counter-divider.o-ui-counter-reverse {
     border-left: 0;
     padding-left: 0;
+    margin-left: 0;
     border-right: 1px solid var(--cloud-100);
     padding-right: calc(1em / 2);
 }
 
 /* DIVIDER | COLOR | LIGHT */
-.o-ui-counter__divider.o-ui-counter--light {
+.o-ui-counter-divider.o-ui-counter-light {
     color: var(--cloud-200);
 }
 
 /* DIVIDER | COLOR | BOLD */
-.o-ui-counter__divider.o-ui-counter--bold {
+.o-ui-counter-divider.o-ui-counter-bold {
     font-weight: 600;
 }
+
+/* PAD */
+/* .o-ui-counter--pad {
+    margin-left: calc(1em / 2);
+} */
+
+/* PAD | REVERSE */
+/* .o-ui-counter--pad.o-ui-counter--reverse {
+    margin-right: calc(1em / 2);
+} */
 
 /* DISABLED */
 .o-ui-counter[disabled] {

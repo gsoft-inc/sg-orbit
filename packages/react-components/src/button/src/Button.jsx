@@ -116,7 +116,7 @@ export function InnerButton(props) {
     });
 
     const textMarkup = (
-        <span className="text">{children}</span>
+        <span className="o-ui-button-text">{children}</span>
     );
 
     const iconMarkup = !isNil(icon) && (

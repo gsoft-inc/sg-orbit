@@ -5,7 +5,7 @@ import { useSlotProps } from "../../shared";
 
 const propTypes = {
     /**
-     * A text can vary in size.
+     * A label can vary in size.
      */
     size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**

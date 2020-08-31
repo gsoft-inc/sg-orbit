@@ -1,9 +1,9 @@
-import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
-    cssModule,
+    cssModule: cssPrefix,
     checked,
     defaultChecked,
     indeterminate,
@@ -56,16 +56,16 @@ export function useCheckbox({
         isIndeterminate,
         wrapperProps: {
             className: mergeClasses(
-                bemify(
-                    cssModule,
-                    isChecked && "--checked",
-                    isIndeterminate && "--indeterminate",
-                    reverse && "--reverse",
-                    disabled && "--disabled",
-                    active && "--active",
-                    focus && "--focus",
-                    hover && "--hover",
-                    getSizeClass2(size)
+                cssModule(
+                    cssPrefix,
+                    isChecked && "checked",
+                    isIndeterminate && "indeterminate",
+                    reverse && "reverse",
+                    disabled && "disabled",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass3(size)
                 ),
                 className
             ),

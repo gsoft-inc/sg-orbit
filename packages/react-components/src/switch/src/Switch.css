@@ -9,7 +9,7 @@
 }
 
 /* SWITCH */
-.o-ui-switch .o-ui-switch__switch {
+.o-ui-switch .o-ui-switch-switch {
     grid-area: switch;
     display: inline-block;
     background-color: var(--cloud-200);
@@ -18,7 +18,7 @@
     flex-shrink: 0;
 }
 
-.o-ui-switch .o-ui-switch__switch::before {
+.o-ui-switch .o-ui-switch-switch::before {
     content: "";
     display: inline-block;
     background-color: var(--white);
@@ -29,7 +29,7 @@
 }
 
 /* LABEL */
-.o-ui-switch .o-ui-switch__label {
+.o-ui-switch .o-ui-switch-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
     line-height: 1.15;
@@ -39,117 +39,117 @@
 }
 
 /* LABEL | REVERSE */
-.o-ui-switch--reverse .o-ui-switch__label {
+.o-ui-switch-reverse .o-ui-switch-label {
     margin-left: 0;
     margin-right: var(--scale-bravo);
 }
 
 /* ICON */
-.o-ui-switch .o-ui-switch__icon {
+.o-ui-switch .o-ui-switch-icon {
     grid-area: icon;
     margin-left: var(--scale-alpha);
 }
 
 /* ICON | REVERSE */
-.o-ui-switch--reverse .o-ui-switch__icon {
+.o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
     margin-right: var(--scale-alpha);
 }
 
 /* COUNTER */
-.o-ui-switch .o-ui-switch__counter {
+.o-ui-switch .o-ui-switch-counter {
     grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
 /* COUNTER | REVERSE */
-.o-ui-switch--reverse .o-ui-switch__counter {
+.o-ui-switch-reverse .o-ui-switch-counter {
     margin-left: 0;
     margin-right: var(--scale-alpha);
 }
 
 /* REVERSE */
-.o-ui-switch--reverse {
+.o-ui-switch-reverse {
     grid-template-areas: "counter icon label switch";
 }
 
 /* STATE */
 /* STATE | CHECKED */
-.o-ui-switch--checked .o-ui-switch__switch {
+.o-ui-switch-checked .o-ui-switch-switch {
     background-color: var(--primary-500);
 }
 
-.o-ui-switch--checked .o-ui-switch__switch::before {
+.o-ui-switch-checked .o-ui-switch-switch::before {
     transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
-.o-ui-switch input[type="checkbox"]:focus + .o-ui-switch__switch,
-.o-ui-switch--focus .o-ui-switch__switch {
+.o-ui-switch input[type="checkbox"]:focus + .o-ui-switch-switch,
+.o-ui-switch-focus .o-ui-switch-switch {
     box-shadow: var(--o-ui-outline);
 }
 
 /* STATE | DISABLED */
 .o-ui-switch[disabled],
-.o-ui-switch--disabled {
-    opacity: --o-ui-disabled-opacity;
+.o-ui-switch-disabled {
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
 /* SIZING */
 /* SMALL */
-.o-ui-switch--small .o-ui-switch__switch {
+.o-ui-switch-small .o-ui-switch-switch {
     width: var(--scale-golf);
     height: var(--scale-delta);
 }
 
-.o-ui-switch--small .o-ui-switch__label {
+.o-ui-switch-small .o-ui-switch-label {
     font-size: var(--type-scale-8);
 }
 
-.o-ui-switch--small .o-ui-switch__switch::before {
+.o-ui-switch-small .o-ui-switch-switch::before {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
 }
 
-.o-ui-switch--small.o-ui-switch--checked .o-ui-switch__switch::before {
+.o-ui-switch-small.o-ui-switch-checked .o-ui-switch-switch::before {
     transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
-.o-ui-switch--medium .o-ui-switch__switch {
+.o-ui-switch-medium .o-ui-switch-switch {
     width: var(--scale-hotel);
     height: var(--scale-echo);
 }
 
-.o-ui-switch--medium .o-ui-switch__label {
+.o-ui-switch-medium .o-ui-switch-label {
     font-size: var(--type-scale-7);
 }
 
-.o-ui-switch--medium .o-ui-switch__switch::before {
+.o-ui-switch-medium .o-ui-switch-switch::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-switch--medium.o-ui-switch--checked .o-ui-switch__switch::before {
+.o-ui-switch-medium.o-ui-switch-checked .o-ui-switch-switch::before {
     transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
 /* LARGE */
-.o-ui-switch--large .o-ui-switch__switch {
+.o-ui-switch-large .o-ui-switch-switch {
     width: var(--scale-india);
     height: var(--scale-foxtrot);
 }
 
-.o-ui-switch--large .o-ui-switch__label {
+.o-ui-switch-large .o-ui-switch-label {
     font-size: var(--type-scale-6);
 }
 
-.o-ui-switch--large .o-ui-switch__switch::before {
+.o-ui-switch-large .o-ui-switch-switch::before {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui-switch--large.o-ui-switch--checked .o-ui-switch__switch::before {
+.o-ui-switch-large.o-ui-switch-checked .o-ui-switch-switch::before {
     transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
 }

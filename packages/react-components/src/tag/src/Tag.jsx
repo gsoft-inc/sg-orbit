@@ -22,10 +22,6 @@ const propTypes = {
      */
     iconLeft: element,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
      */
     button: element,
@@ -63,7 +59,6 @@ const defaultProps = {
 export function InnerTag({
     variant,
     iconLeft,
-    iconRight,
     button,
     badgeLeft,
     badgeRight,
@@ -85,10 +80,6 @@ export function InnerTag({
 
     const iconLeftMarkup = !isNil(iconLeft) && (
         <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
-    );
-
-    const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
     );
 
     const buttonMarkup = !isNil(button) && embedButton(button, {
@@ -114,7 +105,7 @@ export function InnerTag({
         <>
             {iconLeftMarkup}{badgeLeftMarkup}
             {textMarkup}
-            {buttonMarkup}{iconRightMarkup}{badgeRightMarkup}
+            {buttonMarkup}{badgeRightMarkup}
         </>
     );
 
@@ -126,7 +117,6 @@ export function InnerTag({
                 variant,
                 buttonMarkup && "with-button",
                 iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
                 badgeLeftMarkup && "with-left-badge",
                 badgeRightMarkup && "with-right-badge",
                 fluid && "fluid",

@@ -139,21 +139,21 @@ export function InnerCheckbox(props) {
             {...wrapperProps}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-checkbox__box" />
+            <span className="o-ui-checkbox-box" />
             <SlotProvider
                 slots={{
                     label: {
                         size,
-                        className: "o-ui-checkbox__label"
+                        className: "o-ui-checkbox-label"
                     },
                     icon: {
                         size,
-                        className: "o-ui-checkbox__icon"
+                        className: "o-ui-checkbox-icon"
                     },
                     counter: {
                         size,
                         reverse,
-                        className: "o-ui-checkbox__counter"
+                        className: "o-ui-checkbox-counter"
                     }
                 }}
             >
