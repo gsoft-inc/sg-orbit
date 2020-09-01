@@ -38,16 +38,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    gap: 5,
-    as: "div"
-};
-
 export function InnerStack({
     align,
     justify,
+    gap = 5,
     wrap,
     children,
+    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -57,7 +54,9 @@ export function InnerStack({
             direction="column"
             alignItems={align}
             justifyContent={justify}
+            gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
+            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -66,7 +65,6 @@ export function InnerStack({
 }
 
 InnerStack.propTypes = propTypes;
-InnerStack.defaultProps = defaultProps;
 
 export const Stack = forwardRef((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />

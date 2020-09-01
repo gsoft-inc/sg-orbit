@@ -29,9 +29,9 @@ stories()
     )
     .add("divider", () =>
         <Stack>
-            <div>Planets Visited <Counter variant="divider" pad>15</Counter></div>
-            <div className="f3">Planets Visited <Counter variant="divider" pad>15</Counter></div>
-            <div className="f1">Planets Visited <Counter variant="divider" pad>15</Counter></div>
+            <Counter variant="divider" pad>15</Counter>
+            <Counter variant="divider" pad>15</Counter>
+            <div>Planets Visited <Counter variant="divider" className="ml2">15</Counter></div>
         </Stack>
     )
     .add("reverse", () =>
@@ -40,13 +40,13 @@ stories()
     .add("light", () =>
         <Inline align="center">
             <Counter color="light">15</Counter>
-            <div>Planets Visited <Counter variant="divider" color="light" pad>15</Counter></div>
+            <div>Planets Visited <Counter variant="divider" color="light">15</Counter></div>
         </Inline>
     )
-    .add("bold", () =>
+    .add("highlight", () =>
         <Inline align="center">
-            <Counter color="bold">15</Counter>
-            <div>Planets Visited <Counter variant="divider" color="bold" pad>15</Counter></div>
+            <Counter highlight>15</Counter>
+            <Counter variant="divider" highlight>15</Counter>
         </Inline>
     )
     .add("disabled", () =>
@@ -59,8 +59,8 @@ stories()
                 <Counter style={{ backgroundColor: "red" }}>15</Counter>
             </Inline>
             <Inline>
-                <div>Planets Visited <Counter className="bg-red" variant="divider" pad>15</Counter></div>
-                <div>Planets Visited <Counter style={{ backgroundColor: "red" }} variant="divider" pad>15</Counter></div>
+                <Counter className="bg-red" variant="divider">15</Counter>
+                <Counter style={{ backgroundColor: "red" }} variant="divider">15</Counter>
             </Inline>
         </Stack>
     );

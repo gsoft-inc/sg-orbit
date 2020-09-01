@@ -142,9 +142,9 @@ a.o-ui.tag.outline.disabled.hover {
     text-align: center;
 }
 
-.o-ui.tag.fluid .text {
+/* .o-ui.tag.fluid .text {
     flex-grow: 1;
-}
+} */
 
 /* COMMON */
 .o-ui.tag {

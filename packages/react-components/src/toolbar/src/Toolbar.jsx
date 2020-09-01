@@ -67,10 +67,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
@@ -82,6 +78,7 @@ export function InnerToolbar({
     size,
     disabled,
     readOnly,
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -105,6 +102,7 @@ export function InnerToolbar({
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             aria-orientation={orientation}
+            as={as}
             ref={ref}
         >
             <ToolbarContext.Provider
@@ -125,7 +123,6 @@ export function InnerToolbar({
 }
 
 InnerToolbar.propTypes = propTypes;
-InnerToolbar.defaultProps = defaultProps;
 
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />

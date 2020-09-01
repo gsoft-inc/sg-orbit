@@ -100,11 +100,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    orientation: "vertical",
-    as: "div"
-};
-
 export function InnerRadioGroup(props) {
     const {
         value,
@@ -116,12 +111,13 @@ export function InnerRadioGroup(props) {
         onChange,
         autoFocus,
         autoFocusDelay,
-        orientation,
+        orientation = "vertical",
         gap,
         wrap,
         size,
         disabled,
         navigationMode,
+        as = "div",
         children,
         forwardedRef,
         ...rest
@@ -152,6 +148,7 @@ export function InnerRadioGroup(props) {
         wrap,
         size,
         disabled,
+        as,
         ref
     });
 
@@ -215,7 +212,6 @@ export function InnerRadioGroup(props) {
 }
 
 InnerRadioGroup.propTypes = propTypes;
-InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />

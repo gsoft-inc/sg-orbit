@@ -18,15 +18,12 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerIconGroup(props) {
     const {
         size,
         disabled,
         children,
+        as = "span",
         forwardedRef,
         ...rest
     } = useSlotProps(props, "icon");
@@ -35,6 +32,7 @@ export function InnerIconGroup(props) {
         <Inline
             {...rest}
             gap={1}
+            as={as}
             ref={forwardedRef}
         >
             <ClearSlots>
@@ -50,7 +48,6 @@ export function InnerIconGroup(props) {
 }
 
 InnerIconGroup.propTypes = propTypes;
-InnerIconGroup.defaultProps = defaultProps;
 
 export const IconGroup = forwardRef((props, ref) => (
     <InnerIconGroup {...props} forwardedRef={ref} />

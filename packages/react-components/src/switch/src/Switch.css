@@ -103,9 +103,9 @@
     height: var(--scale-delta);
 }
 
-.o-ui-switch-small .o-ui-switch-label {
+/* .o-ui-switch-small .o-ui-switch-label {
     font-size: var(--type-scale-8);
-}
+} */
 
 .o-ui-switch-small .o-ui-switch-switch::before {
     width: var(--scale-charlie);
@@ -122,9 +122,9 @@
     height: var(--scale-echo);
 }
 
-.o-ui-switch-medium .o-ui-switch-label {
+/* .o-ui-switch-medium .o-ui-switch-label {
     font-size: var(--type-scale-7);
-}
+} */
 
 .o-ui-switch-medium .o-ui-switch-switch::before {
     width: var(--scale-delta);
@@ -141,9 +141,9 @@
     height: var(--scale-foxtrot);
 }
 
-.o-ui-switch-large .o-ui-switch-label {
+/* .o-ui-switch-large .o-ui-switch-label {
     font-size: var(--type-scale-6);
-}
+} */
 
 .o-ui-switch-large .o-ui-switch-switch::before {
     width: var(--scale-echo);

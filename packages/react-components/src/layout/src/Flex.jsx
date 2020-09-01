@@ -106,10 +106,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap) {
     return useMemo(() => {
@@ -162,7 +158,7 @@ export function InnerFlex({
     wrap,
     fluid,
     wrapChildren,
-    as: ElementType,
+    as: ElementType = "div",
     noGap,
     className,
     style,
@@ -214,7 +210,6 @@ export function InnerFlex({
 }
 
 InnerFlex.propTypes = propTypes;
-InnerFlex.defaultProps = defaultProps;
 
 export const Flex = forwardRef((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />

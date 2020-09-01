@@ -28,12 +28,16 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "count",
-    as: "span"
-};
-
-export function InnerBadge({ variant, overlap, size, as: ElementType, className, children, forwardedRef, ...rest }) {
+export function InnerBadge({
+    variant = "count",
+    overlap,
+    size,
+    as: ElementType = "span",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     let [badgeContent, overlappedElement] = Children.toArray(children);
 
     if (variant === "dot") {
@@ -77,7 +81,6 @@ export function InnerBadge({ variant, overlap, size, as: ElementType, className,
 }
 
 InnerBadge.propTypes = propTypes;
-InnerBadge.defaultProps = defaultProps;
 
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />

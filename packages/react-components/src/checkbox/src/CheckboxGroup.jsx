@@ -64,11 +64,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    orientation: "horizontal",
-    as: "div"
-};
-
 function arrayToggleValue(array, value) {
     if (isNil(array)) {
         return [value];
@@ -94,11 +89,12 @@ export function InnerCheckboxGroup(props) {
         required,
         description,
         onChange,
-        orientation,
+        orientation = "horizontal",
         gap,
         wrap,
         size,
         disabled,
+        as = "div",
         children,
         forwardedRef,
         ...rest
@@ -118,6 +114,7 @@ export function InnerCheckboxGroup(props) {
         wrap,
         size,
         disabled,
+        as,
         ref: forwardedRef
     });
 
@@ -179,7 +176,6 @@ export function InnerCheckboxGroup(props) {
 }
 
 InnerCheckboxGroup.propTypes = propTypes;
-InnerCheckboxGroup.defaultProps = defaultProps;
 
 export const CheckboxGroup = forwardRef((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />

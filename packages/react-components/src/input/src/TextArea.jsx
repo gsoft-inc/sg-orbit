@@ -110,12 +110,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    variant: "outline",
-    type: "text",
-    as: "div"
-};
-
 const pxToInt = value => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
@@ -134,8 +128,8 @@ export function InnerTextArea({
     validMessage,
     validationState,
     onChange,
-    variant,
-    type,
+    variant = "outline",
+    type = "text",
     autoFocus,
     autoFocusDelay,
     button,
@@ -152,7 +146,7 @@ export function InnerTextArea({
     className,
     style,
     wrapperProps: userWrapperProps,
-    as: ElementType,
+    as: ElementType = "div",
     forwardedRef,
     ...rest
 }) {
@@ -263,7 +257,6 @@ export function InnerTextArea({
 }
 
 InnerTextArea.propTypes = propTypes;
-InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />

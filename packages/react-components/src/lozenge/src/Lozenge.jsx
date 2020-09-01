@@ -25,11 +25,16 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
-
-export function InnerLozenge({ icon, size, as: ElementType, className, children, forwardedRef, ...rest }) {
+export function InnerLozenge({
+    icon,
+    size,
+    as: ElementType,
+    className,
+    children,
+    as = "span",
+    forwardedRef,
+    ...rest
+}) {
     const textMarkup = (
         <span className="text">{children}</span>
     );
@@ -53,6 +58,7 @@ export function InnerLozenge({ icon, size, as: ElementType, className, children,
                 getSizeClass(size),
                 className
             )}
+            as={as}
             ref={forwardedRef}
         >
             {content}
@@ -61,7 +67,6 @@ export function InnerLozenge({ icon, size, as: ElementType, className, children,
 }
 
 InnerLozenge.propTypes = propTypes;
-InnerLozenge.defaultProps = defaultProps;
 
 export const Lozenge = forwardRef((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />

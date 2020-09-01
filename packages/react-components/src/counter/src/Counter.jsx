@@ -12,9 +12,13 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["light", "bold"]),
+    color: oneOf(["light"]),
     /**
-     * Reverse counter elements order.
+     * Whether to add emphasis on the value or not.
+     */
+    highlight: bool,
+    /**
+     * Whether to reverse counter elements order or not.
      */
     reverse: bool,
     /**
@@ -35,18 +39,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "pill",
-    as: "span"
-};
-
 export function InnerCounter(props) {
     const {
-        variant,
+        variant = "pill",
         color,
+        highlight,
         reverse,
         size,
-        as: ElementType,
+        as: ElementType = "span",
         className,
         children,
         forwardedRef,
@@ -61,6 +61,7 @@ export function InnerCounter(props) {
                     "o-ui-counter",
                     variant,
                     color && color,
+                    highlight && "highlight",
                     reverse && "reverse",
                     getSizeClass3(size)
                 ),
@@ -74,7 +75,6 @@ export function InnerCounter(props) {
 }
 
 InnerCounter.propTypes = propTypes;
-InnerCounter.defaultProps = defaultProps;
 
 export const Counter = forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />

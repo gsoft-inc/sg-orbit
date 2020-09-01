@@ -1,7 +1,7 @@
 import "./Button.css";
 
 import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, useSlotProps } from "../../shared";
 import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -68,18 +68,11 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button",
-    as: "button"
-};
-
 export function InnerButton(props) {
     const {
-        variant,
+        variant = "solid",
         color,
-        shape,
+        shape = "pill",
         icon,
         counter,
         autoFocus,
@@ -91,7 +84,8 @@ export function InnerButton(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        type = "button",
+        as: ElementType = "button",
         className,
         children,
         forwardedRef,
@@ -111,6 +105,7 @@ export function InnerButton(props) {
         focus,
         hover,
         disabled,
+        type,
         className,
         forwardedRef
     });
@@ -141,9 +136,6 @@ export function InnerButton(props) {
             data-testid="button"
             {...rest}
             {...buttonProps}
-            className={mergeClasses(
-                buttonProps.className
-            )}
         >
             {content}
         </ElementType>
@@ -151,7 +143,6 @@ export function InnerButton(props) {
 }
 
 InnerButton.propTypes = propTypes;
-InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
@@ -163,7 +154,7 @@ export const embedButton = createEmbeddableAdapter({
     [SIZE.large]: SIZE.small
 });
 
-export const buttonSlot = createSizeAdapterSlotFactory({
+export const embeddedButtonSlot = createSizeAdapterSlotFactory({
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small

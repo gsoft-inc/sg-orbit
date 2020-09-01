@@ -62,7 +62,7 @@
 .o-ui-checkbox-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
-    font-size: var(--type-scale-7);
+    /* font-size: var(--type-scale-7); */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -200,9 +200,9 @@
 /* SIZING */
 /* SIZING | SMALL */
 /* SIZING | SMALL | LABEL */
-.o-ui-checkbox-small .o-ui-checkbox-label {
+/* .o-ui-checkbox-small .o-ui-checkbox-label {
     font-size: var(--type-scale-8);
-}
+} */
 
 /* SIZING | SMALL | LABEL | */
 .o-ui-checkbox-small .o-ui-checkbox-box {
@@ -224,9 +224,9 @@
 
 /* SIZING | LARGE */
 /* SIZING | LARGE | LABEL */
-.o-ui-checkbox-large .o-ui-checkbox-label {
+/* .o-ui-checkbox-large .o-ui-checkbox-label {
     font-size: var(--type-scale-6);
-}
+} */
 
 .o-ui-checkbox-large .o-ui-checkbox-box:before {
     width: var(--scale-foxtrot);

@@ -20,14 +20,10 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerDot({
     color,
     size,
-    as: ElementType,
+    as: ElementType = "span",
     className,
     style,
     children,
@@ -46,7 +42,7 @@ export function InnerDot({
             className={mergeClasses(
                 cssModule(
                     "o-ui-dot",
-                    children && "labeled",
+                    children && "with-label",
                     getSizeClass3(size)
                 ),
                 className
@@ -63,7 +59,6 @@ export function InnerDot({
 }
 
 InnerDot.propTypes = propTypes;
-InnerDot.defaultProps = defaultProps;
 
 export const Dot = forwardRef((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />

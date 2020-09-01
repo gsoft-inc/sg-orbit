@@ -44,10 +44,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerRadio(props) {
     const {
         value,
@@ -65,7 +61,7 @@ export function InnerRadio(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -163,7 +159,6 @@ export function InnerRadio(props) {
 }
 
 InnerRadio.propTypes = propTypes;
-InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />

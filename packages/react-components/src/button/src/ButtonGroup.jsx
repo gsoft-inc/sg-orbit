@@ -18,15 +18,18 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
-export function InnerButtonGroup({ size, children, forwardedRef, ...rest }) {
+export function InnerButtonGroup({
+    size,
+    children,
+    as = "div",
+    forwardedRef,
+    ...rest
+}) {
     return (
         <Inline
             {...rest}
             gap={2}
+            as={as}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
@@ -39,7 +42,6 @@ export function InnerButtonGroup({ size, children, forwardedRef, ...rest }) {
 }
 
 InnerButtonGroup.propTypes = propTypes;
-InnerButtonGroup.defaultProps = defaultProps;
 
 export const ButtonGroup = forwardRef((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
