@@ -1,8 +1,8 @@
-import { bemify, getSizeClass2, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
 import { useInputMessage } from "./InputMessage";
 
 export function useInput({
-    cssModule,
+    moduleName,
     id,
     value,
     placeholder,
@@ -33,7 +33,7 @@ export function useInput({
 }) {
     const inputRef = useMergedRefs(inputRefProp, forwardedRef);
 
-    const inputId = useId(id, id ?? "o-ui--input");
+    const inputId = useId(id, id ?? "o-ui-input");
     const messageProps = useInputMessage(helpMessage, invalidMessage, validMessage, validationState, size);
 
     useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
@@ -42,14 +42,14 @@ export function useInput({
         wrapperProps: {
             ...wrapperProps,
             className: mergeClasses(
-                bemify(cssModule,
-                       `--${variant}`,
-                       fluid && "--fluid",
-                       loading && "--loading",
-                       getSizeClass2(size),
-                       label && "-labelled",
-                       messageProps && "-with-message",
-                       validationState && `--${validationState}`
+                cssModule(moduleName,
+                          variant,
+                          fluid && "fluid",
+                          loading && "loading",
+                          getSizeClass3(size),
+                          label && "labelled",
+                          messageProps && "with-message",
+                          validationState && validationState
                 ),
                 wrapperProps.className
             )
@@ -60,9 +60,12 @@ export function useInput({
             placeholder,
             onChange,
             className: mergeClasses(
-                active && "active",
-                focus && "focus",
-                hover && "hover",
+                cssModule(
+                    moduleName,
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover"
+                ),
                 className
             ),
             type,

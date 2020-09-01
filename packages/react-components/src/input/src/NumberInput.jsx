@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { CarretIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
-import { SIZE, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
@@ -145,11 +145,11 @@ export function Spinner({
     return (
         <div
             {...rest}
-            className="o-ui spinner"
+            className="o-ui-spinner"
         >
             <button
                 onClick={handleIncrement}
-                className="increment"
+                className="o-ui-spinner-increment"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -159,7 +159,7 @@ export function Spinner({
             </button>
             <button
                 onClick={handleDecrement}
-                className="decrement"
+                className="o-ui-spinner-decrement"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -316,6 +316,7 @@ export function InnerNumberInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+        moduleName: "o-ui-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
@@ -380,15 +381,18 @@ export function InnerNumberInput({
             data-testid="number-input"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input number-input",
-                iconLeftMarkup && "with-left-icon",
+                "o-ui-number-input",
+                cssModule(
+                    "o-ui-input",
+                    iconLeftMarkup && "with-icon"
+                ),
                 wrapperProps.className
             )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labeled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>

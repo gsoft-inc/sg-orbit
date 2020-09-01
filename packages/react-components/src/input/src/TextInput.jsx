@@ -2,8 +2,8 @@ import "./Input.css";
 
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
-import { bemify, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
@@ -147,7 +147,7 @@ export function InnerTextInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
-        cssModule: "o-ui-input",
+        moduleName: "o-ui-input",
         id,
         value: inputValue,
         placeholder,
@@ -205,9 +205,9 @@ export function InnerTextInput({
             data-testid="text-input"
             {...wrapperProps}
             className={mergeClasses(
-                bemify( "o-ui-text-input",
-                        iconMarkup && "-with-icon",
-                        button && "-with-button"
+                cssModule( "o-ui-input",
+                           iconMarkup && "with-icon",
+                           button && "with-button"
                 ),
                 wrapperProps.className
             )}
