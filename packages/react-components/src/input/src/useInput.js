@@ -2,7 +2,7 @@ import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useId, useMergedR
 import { useInputMessage } from "./InputMessage";
 
 export function useInput({
-    moduleName,
+    cssModule: cssPrefix,
     id,
     value,
     placeholder,
@@ -42,13 +42,12 @@ export function useInput({
         wrapperProps: {
             ...wrapperProps,
             className: mergeClasses(
-                cssModule(moduleName,
+                cssPrefix,
+                cssModule("o-ui-input",
                           variant,
                           fluid && "fluid",
                           loading && "loading",
                           getSizeClass3(size),
-                          label && "labelled",
-                          messageProps && "with-message",
                           validationState && validationState
                 ),
                 wrapperProps.className
@@ -60,12 +59,9 @@ export function useInput({
             placeholder,
             onChange,
             className: mergeClasses(
-                cssModule(
-                    moduleName,
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
+                active && "active",
+                focus && "focus",
+                hover && "hover",
                 className
             ),
             type,

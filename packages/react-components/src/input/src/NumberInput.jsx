@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { CarretIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
-import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { SIZE, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
@@ -309,7 +309,7 @@ export function InnerNumberInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
-        moduleName: "o-ui-input",
+        cssPrefix: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
@@ -375,10 +375,6 @@ export function InnerNumberInput({
             {...wrapperProps}
             className={mergeClasses(
                 "o-ui-number-input",
-                cssModule(
-                    "o-ui-input",
-                    iconLeftMarkup && "with-icon"
-                ),
                 wrapperProps.className
             )}
         >

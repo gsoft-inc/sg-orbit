@@ -53,7 +53,7 @@ export function InnerInputMessage(props) {
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui input-message",
+                "o-ui-input-message",
                 color,
                 getSizeClass(size),
                 className

@@ -5,13 +5,13 @@
 }
 
 /* INPUT */
-.o-ui-number-input .o-ui-input::-webkit-inner-spin-button,
-.o-ui-number-input .o-ui-input::-webkit-outer-spin-button {
+.o-ui-number-input input::-webkit-inner-spin-button,
+.o-ui-number-input input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.o-ui-number-input .o-ui-input {
+.o-ui-number-input input {
     -moz-appearance: textfield;
 }
 
@@ -23,15 +23,15 @@
     width: 100%;
 }
 
-.o-ui-input.o-ui-number-input .o-ui-input:focus,
-.o-ui-input.o-ui-number-input .o-ui-input-focus,
-.o-ui-input.o-ui-number-input:hover .o-ui-input,
-.o-ui-input.o-ui-number-input.o-ui-number-input-hover .o-ui-input {
+.o-ui-number-input input:focus,
+.o-ui-number-input input.focus,
+.o-ui-number-input:hover input,
+.o-ui-number-input.o-ui-number-input-hover input {
     padding-right: calc(var(--o-ui-spinner-width) + var(--scale-alpha));
 }
 
 /* INPUT | FLUID */
-.o-ui.input.fluid.number-input {
+.o-ui-input.o-ui-input-fluid.o-ui-number-input {
     width: 100%;
 }
 
@@ -79,7 +79,7 @@
 .o-ui-number-input:hover .o-ui-spinner,
 .o-ui-number-input.hover .o-ui-spinner,
 .o-ui-number-input input:focus + .o-ui-spinner,
-.o-ui-number-input.focus .o-ui-spinner {
+.o-ui-number-input input.focus .o-ui-spinner {
     visibility: visible;
 }
 

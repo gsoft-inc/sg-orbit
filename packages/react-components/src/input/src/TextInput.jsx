@@ -141,7 +141,7 @@ export function InnerTextInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
-        moduleName: "o-ui-input",
+        cssPrefix: "o-ui-text-input",
         id,
         value: inputValue,
         placeholder,
@@ -198,13 +198,7 @@ export function InnerTextInput({
         <ElementType
             data-testid="text-input"
             {...wrapperProps}
-            className={mergeClasses(
-                cssModule( "o-ui-input",
-                           iconMarkup && "with-icon",
-                           button && "with-button"
-                ),
-                wrapperProps.className
-            )}
+            className={wrapperProps.className}
         >
             {!labelMarkup ? content : (
                 <>
