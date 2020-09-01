@@ -65,18 +65,18 @@
 }
 
 /* TRANSPARENT | STATE | FOCUS */
-.o-ui-input-transparent input:focus,
-.o-ui-input-transparent input.focus,
-.o-ui-input-transparent textarea:focus,
-.o-ui-input-transparent textarea.focus {
+.o-ui-input.o-ui-input-transparent input:focus,
+.o-ui-input.o-ui-input-transparent input.focus,
+.o-ui-input.o-ui-input-transparent textarea:focus,
+.o-ui-input.o-ui-input-transparent textarea.focus {
     box-shadow: 0 1px 0 0 var(--primary-200);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
-.o-ui-input-transparent input:disabled,
-.o-ui-input-transparent input.disabled,
-.o-ui-input-transparent textarea:disabled,
-.o-ui-input-transparent textarea.disabled {
+.o-ui-input.o-ui-input-transparent input:disabled,
+.o-ui-input.o-ui-input-transparent input.disabled,
+.o-ui-input.o-ui-input-transparent textarea:disabled,
+.o-ui-input.o-ui-input-transparent textarea.disabled {
     background-color: var(--transparent);
 }
 
@@ -86,7 +86,7 @@
 } */
 
 /* FLUID */
-.o-ui-input-fluid {
+.o-ui-input.o-ui-input-fluid {
     width: 100%;
 }
 
@@ -103,16 +103,16 @@
 }
 
 /* INVALID | TRANSPARENT */
-.o-ui-input-invalid.o-ui-input-transparent input,
-.o-ui-input-invalid.o-ui-input-transparent textarea {
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent input,
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea {
     box-shadow: 0 1px 0 0 var(--alert-200);
 }
 
 /* INVALID | TRANSPARENT | STATE | FOCUS */
-.o-ui-input-invalid.o-ui-input-transparent input:focus,
-.o-ui-input-invalid.o-ui-input-transparent input.focus,
-.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
-.o-ui-input-invalid.o-ui-input-transparent textarea.focus {
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent input:focus,
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent input.focus,
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
+.o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea.focus {
     box-shadow: 0 1px 0 0 var(--alert-500);
 }
 
@@ -181,8 +181,8 @@
 } */
 
 /* BUTTON | SMALL  */
-.o-ui-input-with-button.o-ui-input-small input,
-/* .o-ui-input-with-button.o-ui-input-small textarea {
+/* .o-ui-input-with-button.o-ui-input-small input,
+    .o-ui-input-with-button.o-ui-input-small textarea {
     padding-right: var(--o-ui-padding-small-with-button);
 } */
 
