@@ -160,6 +160,7 @@ export function InnerTextArea({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+        cssModule: "o-ui-text-area",
         id,
         value: inputValue,
         placeholder,
@@ -238,15 +239,11 @@ export function InnerTextArea({
         <ElementType
             data-testid="text-area"
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui-text-area",
-                wrapperProps.className
-            )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labeled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>

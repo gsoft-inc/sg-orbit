@@ -30,7 +30,7 @@
     font-size: var(--type-scale-7);
 }
 
-/* LABEL */
+/* CONTENT | LABEL */
 .o-ui-dot-has-label.o-ui-dot:before {
     margin-right: var(--scale-bravo);
 }

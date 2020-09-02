@@ -1,6 +1,6 @@
-import { Counter } from "@react-components/counter";
 import { IconGroup, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Button({ element, ...rest }) {
@@ -35,45 +35,64 @@ export function createButtonTestSuite(element, stories) {
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <Button icon={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button icon={<SignoutIcon />} element={element}>Button</Button>
-                    <Button icon={<SignoutIcon />} size="large" element={element}>Button</Button>
+                    <Button size="small" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button size="large" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                 </Inline>
                 <Inline align="end">
-                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="small" element={element}>Button</Button>
-                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} element={element}>Button</Button>
-                    <Button icon={<IconGroup><SignoutIcon /><SignoutIcon /><SignoutIcon /></IconGroup>} size="large" element={element}>Button</Button>
+                    <Button size="small" element={element}>
+                        <IconGroup>
+                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                        </IconGroup>
+                        <Text>Button</Text>
+                    </Button>
+                    <Button element={element}>
+                        <IconGroup>
+                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                        </IconGroup>
+                        <Text>Button</Text>
+                    </Button>
+                    <Button size="large" element={element}>
+                        <IconGroup>
+                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                        </IconGroup>
+                        <Text>Button</Text>
+                    </Button>
                 </Inline>
                 <Inline align="end">
-                    <Button loading icon={<SignoutIcon />} size="small" element={element}>Button</Button>
-                    <Button loading icon={<SignoutIcon />} element={element}>Button</Button>
-                    <Button loading icon={<SignoutIcon />} size="large" element={element}>Button</Button>
+                    <Button loading size="small" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button loading element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button loading size="large" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                 </Inline>
                 <div>
-                    <Button disabled icon={<SignoutIcon />} element={element}>Button</Button>
+                    <Button disabled element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                 </div>
                 <div>
-                    <Button fluid icon={<SignoutIcon />} element={element}>Button</Button>
-                </div>
-            </Stack>
-        )
-        .add("counter", () =>
-            <Stack>
-                <Inline align="end">
-                    <Button counter={<Counter>60</Counter>} size="small" element={element}>Button</Button>
-                    <Button counter={<Counter>60</Counter>} element={element}>Button</Button>
-                    <Button counter={<Counter>60</Counter>} size="large" element={element}>Button</Button>
-                </Inline>
-                <Inline align="end">
-                    <Button loading counter={<Counter>60</Counter>} size="small" element={element}>Button</Button>
-                    <Button loading counter={<Counter>60</Counter>} element={element}>Button</Button>
-                    <Button loading counter={<Counter>60</Counter>} size="large" element={element}>Button</Button>
-                </Inline>
-                <div>
-                    <Button disabled counter={<Counter>60</Counter>} element={element}>Button</Button>
-                </div>
-                <div>
-                    <Button fluid counter={<Counter>60</Counter>} element={element}>Button</Button>
+                    <Button fluid element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                 </div>
             </Stack>
         )
@@ -85,7 +104,10 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="primary" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button icon={<SignoutIcon />} color="primary" element={element}>Button</Button>
+                    <Button color="primary" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                     <Button loading color="primary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -98,7 +120,10 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="secondary" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button icon={<SignoutIcon />} color="secondary" element={element}>Button</Button>
+                    <Button color="secondary" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                     <Button loading color="secondary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -111,7 +136,10 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" size="large" element={element}>Button</Button>
                 </Inline>
                 <Inline align="end">
-                    <Button icon={<SignoutIcon />} color="danger" element={element}>Button</Button>
+                    <Button color="danger" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
                     <Button loading color="danger" element={element}>Button</Button>
                 </Inline>
             </Stack>

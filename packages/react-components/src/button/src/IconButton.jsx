@@ -1,6 +1,7 @@
-import { ClearSlots, augmentElement, useSlotProps } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, useSlotProps } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 
 const propTypes = {
@@ -73,6 +74,7 @@ export function InnerIconButton(props) {
     } = useSlotProps(props, "button");
 
     const buttonProps = useButton({
+        cssModule: "o-ui-icon-button",
         variant,
         color,
         shape,
@@ -90,10 +92,6 @@ export function InnerIconButton(props) {
         forwardedRef
     });
 
-    const content = augmentElement(children, {
-        size
-    });
-
     return (
         <ElementType
             data-testid="icon-button"
@@ -101,7 +99,16 @@ export function InnerIconButton(props) {
             {...buttonProps}
         >
             <ClearSlots>
-                {content}
+                <SlotProvider
+                    slots={{
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-button-icon"
+                        })
+                    }}
+                >
+                    {children}
+                </SlotProvider>
             </ClearSlots>
         </ElementType>
     );
@@ -112,5 +119,17 @@ InnerIconButton.propTypes = propTypes;
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 ));
+
+export const embedIconButton = createEmbeddableAdapter({
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
+});
+
+export const iconButtonSlot = createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.mini,
+    [SIZE.medium]: SIZE.tiny,
+    [SIZE.large]: SIZE.small
+});
 
 

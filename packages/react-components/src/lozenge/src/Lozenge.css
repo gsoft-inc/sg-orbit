@@ -26,12 +26,12 @@
     line-height: var(--scale-foxtrot);
 }
 
-/* TEXT */
+/* CONTENT | TEXT */
 .o-ui-lozenge-text {
     grid-area: text;
 }
 
-/* ICON */
+/*CONTENT | ICON */
 .o-ui-lozenge-has-icon {
     padding-left: calc(var(--scale-bravo) / 2);
 }

@@ -1,10 +1,10 @@
 import "./Button.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, useSlotProps } from "../../shared";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
+import { Text, textSlot } from "../../text";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
+import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 
 const propTypes = {
@@ -55,40 +55,32 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
 };
 
-export function InnerButton(props) {
-    const {
-        variant = "solid",
-        color,
-        shape = "pill",
-        icon,
-        counter,
-        autoFocus,
-        autoFocusDelay,
-        fluid,
-        loading,
-        size,
-        active,
-        focus,
-        hover,
-        disabled,
-        type = "button",
-        as: ElementType = "button",
-        className,
-        children,
-        forwardedRef,
-        ...rest
-    } = useSlotProps(props, "button");
-
-    const buttonProps = useButton({
+export function InnerButton({
+    variant = "solid",
+    color,
+    shape = "pill",
+    autoFocus,
+    autoFocusDelay,
+    fluid,
+    loading,
+    size,
+    active,
+    focus,
+    hover,
+    disabled,
+    type = "button",
+    as: ElementType = "button",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
         variant,
         color,
         shape,
@@ -106,34 +98,40 @@ export function InnerButton(props) {
         forwardedRef
     });
 
-    const textMarkup = (
-        <span className="o-ui-button-text">{children}</span>
-    );
+    const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
-
-    // const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-    //     size,
-    //     disabled
-    // });
-
-    const content = (
-        <>
-            {iconMarkup}
-            {textMarkup}
-            {counter}
-        </>
-    );
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
         <ElementType
             data-testid="button"
             {...rest}
             {...buttonProps}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-button",
+                    hasIcon && "has-icon"
+                ),
+                buttonClassName
+            )}
+            ref={buttonRef}
         >
-            {content}
+            <SlotProvider
+                slots={{
+                    text: textSlot({
+                        size,
+                        className: "o-ui-button-text"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-button-icon"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
@@ -143,18 +141,6 @@ InnerButton.propTypes = propTypes;
 export const Button = forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 ));
-
-export const embedButton = createEmbeddableAdapter({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
-
-export const buttonSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
 
 
 

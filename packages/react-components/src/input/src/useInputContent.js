@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { embedButton } from "../../button";
+import { embedIconButton } from "../../button";
 
 export function useInputIcon(icon, props) {
     return icon && (
@@ -8,7 +8,7 @@ export function useInputIcon(icon, props) {
 }
 
 export function useInputButton(button, isActive, props) {
-    return button && isActive && embedButton(button, {
+    return button && isActive && embedIconButton(button, {
         ...props,
         variant: "ghost",
         color: "secondary",

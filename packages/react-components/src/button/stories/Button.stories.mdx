@@ -12,11 +12,11 @@ import {
     ToggleIconButton
 } from "@react-components/button";
 import { ControlledToggleButton } from "./ControlledToggleButton.sample";
-import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -70,20 +70,16 @@ A button can contain [icons](?path=/docs/materials-icons--page).
 <Preview>
     <Story name="icon">
         <Inline>
-            <Button icon={<LightbulbIcon />}>Cutoff</Button>
-            <Button icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Cutoff</Button>
-        </Inline>
-    </Story>
-</Preview>
-
-### Counter
-
-A button can contain a [counter](?path=/story/components-counter--default-story).
-
-<Preview>
-    <Story name="counter">
-        <Inline>
-            <Button counter={<Counter>6</Counter>}>Cutoff</Button>
+            <Button>
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </Button>
+            <Button>
+                <IconGroup>
+                    <LightbulbIcon /><LightbulbIcon />
+                </IconGroup>
+                <Text>Cutoff</Text>
+            </Button>
         </Inline>
     </Story>
 </Preview>
@@ -128,7 +124,10 @@ A button can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Button fluid>To infinity and beyond</Button>
+        <Button fluid>
+            <LightbulbIcon />
+            <Text>To infinity and beyond</Text>
+        </Button>
     </Story>
 </Preview>
 
@@ -253,7 +252,10 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
     <Story name="toggle button">
         <Inline>
             <ToggleButton variant="outline" color="primary" shape="circular">On</ToggleButton>
-            <ToggleButton variant="outline" color="primary" icon={<LightbulbIcon />}>Cutoff</ToggleButton>
+            <ToggleButton variant="outline" color="primary">
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </ToggleButton>
         </Inline>
     </Story>
 </Preview>

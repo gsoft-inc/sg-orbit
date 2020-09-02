@@ -198,7 +198,6 @@ export function InnerTextInput({
         <ElementType
             data-testid="text-input"
             {...wrapperProps}
-            className={wrapperProps.className}
         >
             {!labelMarkup ? content : (
                 <>

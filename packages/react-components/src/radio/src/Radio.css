@@ -24,48 +24,42 @@
     transition: transform .125s ease-in;
 }
 
-/* LABEL */
+/* CONTENT | LABEL */
 .o-ui-radio .o-ui-radio-label {
     grid-area: label;
     line-height: 1;
     margin-left: var(--scale-bravo);
 }
 
-/* LABEL | REVERSE */
+/* CONTENT | LABEL | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-label {
     margin-left: 0;
     margin-right: var(--scale-bravo);
 }
 
-/* ICON */
+/* CONTENT | ICON */
 .o-ui-radio .o-ui-radio-icon {
     grid-area: icon;
     margin-left: var(--scale-bravo);
 }
 
-/* ICON | REVERSE */
+/* CONTENT | ICON | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-icon {
     margin-left: 0;
     margin-right: var(--scale-bravo);
 }
 
-/* COUNTER */
+/* CONTENT | COUNTER */
 .o-ui-radio .o-ui-radio-counter {
     grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
-/* COUNTER | REVERSE */
+/* CONTENT | COUNTER | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-counter {
     margin-left: 0;
     margin-right: var(--scale-bravo);
 }
-
-/* SIZES */
-/* SMALL */
-/* .o-ui-radio-small .o-ui-radio-label {
-    font-size: var(--type-scale-8);
-} */
 
 .o-ui-radio-small .o-ui-radio-button {
     width: var(--scale-delta);
@@ -77,11 +71,6 @@
     height: var(--scale-delta);
 }
 
-/* MEDIUM */
-/* .o-ui-radio-medium .o-ui-radio-label {
-    font-size: var(--type-scale7);
-} */
-
 .o-ui-radio-medium .o-ui-radio-button {
     width: var(--scale-echo);
     height: var(--scale-echo);
@@ -91,11 +80,6 @@
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
-
-/* LARGE */
-/* .o-ui-radio-large .o-ui-radio-label {
-    font-size: var(--type-scale-6);
-} */
 
 .o-ui-radio-large .o-ui-radio-button {
     width: var(--scale-foxtrot);

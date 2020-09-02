@@ -1,8 +1,9 @@
 export function cssModule(moduleName, ...values) {
     const classes = values
         .filter(Boolean)
-        .map(x => `${moduleName}-${x}`)
-        .join(" ");
+        .map(x => `${moduleName}-${x}`);
 
-    return `${moduleName} ${classes}`;
+    classes.unshift(moduleName);
+
+    return classes.join(" ");
 }

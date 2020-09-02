@@ -373,10 +373,6 @@ export function InnerNumberInput({
         <ElementType
             data-testid="number-input"
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui-number-input",
-                wrapperProps.className
-            )}
         >
             {!labelMarkup ? content : (
                 <>

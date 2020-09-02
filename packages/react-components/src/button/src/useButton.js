@@ -1,6 +1,7 @@
 import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useButton({
+    cssModule: module,
     variant,
     color,
     shape,
@@ -23,6 +24,7 @@ export function useButton({
 
     return {
         className: mergeClasses(
+            module,
             cssModule(
                 "o-ui-button",
                 variant,

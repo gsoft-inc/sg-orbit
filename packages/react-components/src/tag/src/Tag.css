@@ -195,76 +195,76 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
     cursor: default;
 }
 
-/* DOT */
+/* CONTENT | DOT */
 .o-ui-tag-dot {
     grid-area: dot;
     margin-right: var(--scale-bravo);
 }
 
-/* ICON */
+/* CONTENT | ICON */
 .o-ui-tag-icon {
     grid-area: icon;
     margin-right: var(--scale-alpha);
 }
 
-/* ICON | SMALL */
+/* CONTENT | ICON | SMALL */
 .o-ui-tag-has-icon.o-ui-tag-small {
     padding-left: calc(var(--o-ui-padding-small) / 1.5);
 }
 
-/* ICON | MEDIUM */
+/* CONTENT | ICON | MEDIUM */
 .o-ui-tag-has-icon.o-ui-tag-medium {
     padding-left: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
-/* ICON | LARGE */
+/* CONTENT | ICON | LARGE */
 .o-ui-tag-has-icon.o-ui-tag-large {
     padding-left: calc(var(--o-ui-padding-large) / 1.5);
 }
 
-/* TEXT */
+/* CONTENT | TEXT */
 .o-ui-tag-text {
     grid-area: text;
 }
 
-/* COUNTER */
+/* CONTENT | COUNTER */
 .o-ui-tag-counter {
     grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
-/* COUNTER | SMALL */
+/* CONTENT | COUNTER | SMALL */
 .o-ui-tag-has-counter.o-ui-tag-small {
     padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
-/* COUNTER | MEDIUM */
+/* CONTENT | COUNTER | MEDIUM */
 .o-ui-tag-has-counter.o-ui-tag-medium {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
-/* COUNTER | LARGE */
+/* CONTENT | COUNTER | LARGE */
 .o-ui-tag-has-counter.o-ui-tag-large {
     padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 
-/* BUTTON */
+/* CONTENT | BUTTON */
 .o-ui-tag-button {
     grid-area: button;
     margin-left: var(--scale-alpha);
 }
 
-/* BUTTON | SMALL */
+/* CONTENT | BUTTON | SMALL */
 .o-ui-tag-has-button.o-ui-tag-small {
     padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
-/* BUTTON | MEDIUM */
+/* CONTENT | BUTTON | MEDIUM */
 .o-ui-tag-has-button.o-ui-tag-medium {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
-/* BUTTON | LARGE */
+/* CONTENT | BUTTON | LARGE */
 .o-ui-tag-has-button.o-ui-tag-large {
     padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }

@@ -3,10 +3,10 @@ import "./Tag.css";
 import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { buttonSlot } from "../../button";
 import { counterSlot } from "../../counter";
 import { dotSlot } from "../../dot/src";
 import { forwardRef } from "react";
+import { iconButtonSlot } from "../../button";
 import { iconSlot } from "../../icons";
 import { textSlot } from "../../text";
 
@@ -101,7 +101,7 @@ export function InnerTag({
                         highlight: true,
                         className: "o-ui-tag-counter"
                     }),
-                    button: buttonSlot({
+                    button: iconButtonSlot({
                         size,
                         variant: "ghost",
                         color: "secondary",
