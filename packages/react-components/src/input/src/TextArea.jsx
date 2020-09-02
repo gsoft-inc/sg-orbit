@@ -239,8 +239,7 @@ export function InnerTextArea({
             data-testid="text-area"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input text-area",
-                button && "with-button",
+                "o-ui-text-area",
                 wrapperProps.className
             )}
         >

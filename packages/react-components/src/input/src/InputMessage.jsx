@@ -1,8 +1,8 @@
 import "./InputMessage.css";
 
+import { cssModule, getSizeClass3, mergeClasses } from "../../shared";
 import { elementType, node, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
 export function useInputMessage(help, invalid, valid, validationState, size) {
@@ -53,9 +53,9 @@ export function InnerInputMessage(props) {
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui-input-message",
-                color,
-                getSizeClass(size),
+                cssModule("o-ui-input-message",
+                          color,
+                          getSizeClass3(size)),
                 className
             )}
             aria-live="polite"

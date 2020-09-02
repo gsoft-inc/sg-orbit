@@ -141,7 +141,7 @@ export function InnerTextInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
-        cssPrefix: "o-ui-text-input",
+        cssModule: "o-ui-text-input",
         id,
         value: inputValue,
         placeholder,

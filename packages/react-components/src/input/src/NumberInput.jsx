@@ -309,7 +309,7 @@ export function InnerNumberInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
-        cssPrefix: "o-ui-number-input",
+        cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
