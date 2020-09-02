@@ -329,16 +329,6 @@
     min-height: var(--scale-india);
 }
 
-/* LABEL */
-.o-ui-input-labelled {
-    display: inline-flex;
-    flex-direction: column;
-}
-
-.o-ui-labeled-input {
-    position: relative;
-}
-
 /* MESSAGE */
 /* .o-ui-input-with-message {
     display: inline-flex;
