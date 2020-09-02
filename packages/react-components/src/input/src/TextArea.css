@@ -2,6 +2,9 @@
 
 :root {
     --o-ui-resize: vertical;
+    --o-ui-textarea-padding-small: var(--scale-bravo);
+    --o-ui-textarea-padding-medium: var(--scale-charlie);
+    --o-ui-textarea-padding-large: var(--scale-delta);
 }
 
 .o-ui-text-area textarea {
@@ -11,19 +14,19 @@
 /* SIZES */
 /* SIZES | SMALL */
 .o-ui-text-area.o-ui-input-small textarea {
-    padding: var(--scale-bravo) var(--scale-delta);
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-small);
     min-height: 60px;
 }
 
 /* SIZES | MEDIUM */
 .o-ui-text-area.o-ui-input-medium textarea {
-    padding: var(--scale-delta) var(--scale-echo);
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-medium);
     min-height: 80px;
 }
 
 /* SIZES | LARGE */
 .o-ui-text-area.o-ui-input-large textarea {
-    padding: var(--scale-echo) var(--scale-foxtrot);
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-large);
     line-height: 1.3333333;
     min-height: 100px;
 }
