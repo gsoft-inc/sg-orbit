@@ -1,7 +1,7 @@
 .o-ui-checkbox {
     display: inline-grid;
     align-items: center;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: max-content auto max-content max-content;
     grid-template-areas: "box label icon counter";
     cursor: pointer;
     line-height: 1;

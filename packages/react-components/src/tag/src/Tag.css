@@ -5,7 +5,7 @@
     border: none;
     display: inline-grid;
     align-items: center;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: max-content max-content auto max-content max-content;
     grid-template-areas: "dot icon text counter button";
     line-height: 1;
     color: var(--marine-900);
