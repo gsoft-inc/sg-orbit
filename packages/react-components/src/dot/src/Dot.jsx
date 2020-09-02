@@ -48,7 +48,7 @@ export function InnerDot(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-dot",
-                    children && "with-label",
+                    children && "has-label",
                     getSizeClass3(size)
                 ),
                 className
