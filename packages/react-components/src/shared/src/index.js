@@ -28,7 +28,7 @@ export * from "./useForwardInputApi";
 export * from "./useId";
 export * from "./useArrowNavigation";
 export * from "./useRovingFocus";
-export * from "./useHasChildren";
+export * from "./useHasChild";
 
 // Contexts
 export * from "./CheckableContext";

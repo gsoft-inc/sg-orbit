@@ -1,6 +1,6 @@
 import "./Tag.css";
 
-import { SlotProvider, getSizeClass, getSizeClass3, mergeClasses } from "../../shared";
+import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { buttonSlot } from "../../button";
@@ -47,6 +47,10 @@ export function InnerTag({
     forwardedRef,
     ...rest
 }) {
+    const ref = useMergedRefs(forwardedRef);
+
+    const { hasIcon, hasButton } = useHasChildren({ hasIcon: ".o-ui-tag-icon", hasButton: ".o-ui-tag-button" }, ref);
+
     const content = typeof children === "string"
         ? <Text>{children}</Text>
         : children;
@@ -55,17 +59,21 @@ export function InnerTag({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui tag",
-                variant,
-                fluid && "fluid",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-tag",
+                    variant,
+                    hasIcon && "has-icon",
+                    hasButton && "has-button",
+                    fluid && "fluid",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass3(size)
+                ),
                 className
             )}
             disabled={disabled}
-            ref={forwardedRef}
+            ref={ref}
         >
             <SlotProvider
                 slots={{

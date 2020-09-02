@@ -32,7 +32,7 @@
 }
 
 /* ICON */
-.o-ui-lozenge-with-icon {
+.o-ui-lozenge-has-icon {
     padding-left: calc(var(--scale-bravo) / 2);
 }
 
@@ -40,15 +40,3 @@
     grid-area: icon;
     margin-right: 0.125rem;
 }
-
-/* WITH ICON */
-/* .o-ui-lozenge-with-left-icon {
-    display: inline-flex;
-    align-items: center;
-    padding-left: calc(var(--scale-bravo) / 2);
-} */
-
-/* WITH ICON LEFT | ICON */
-/* .o-ui-lozenge-with-left-icon .text {
-    margin-left: 0.125rem;
-} */
