@@ -1,7 +1,8 @@
-import { getSizeClass, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useId, useMergedRefs } from "../../shared";
 import { useInputMessage } from "./InputMessage";
 
 export function useInput({
+    cssModule: cssPrefix,
     id,
     value,
     placeholder,
@@ -41,13 +42,14 @@ export function useInput({
         wrapperProps: {
             ...wrapperProps,
             className: mergeClasses(
-                variant,
-                label && "with-label",
-                messageProps && "with-message",
-                fluid && "fluid",
-                loading && "loading",
-                validationState,
-                getSizeClass(size),
+                cssPrefix,
+                cssModule("o-ui-input",
+                          variant,
+                          fluid && "fluid",
+                          loading && "loading",
+                          getSizeClass3(size),
+                          validationState && validationState
+                ),
                 wrapperProps.className
             )
         },

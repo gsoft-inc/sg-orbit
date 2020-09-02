@@ -3,8 +3,8 @@ import "./Input.css";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
-import { mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
 
@@ -141,6 +141,7 @@ export function InnerTextInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+        cssPrefix: "o-ui-text-input",
         id,
         value: inputValue,
         placeholder,
@@ -197,17 +198,12 @@ export function InnerTextInput({
         <ElementType
             data-testid="text-input"
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui input text-input",
-                iconMarkup && "with-icon",
-                button && "with-button",
-                wrapperProps.className
-            )}
+            className={wrapperProps.className}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labeled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>

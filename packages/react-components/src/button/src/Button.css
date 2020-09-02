@@ -19,8 +19,8 @@
     color: var(--white);
 }
 
-/* BUTTON | SOLID | ROUNDED */
-.o-ui-button-solid..o-ui-button-solid-rounded {
+/* BUTTON | ROUNDED */
+.o-ui-button--rounded {
     border-radius: var(--scale-alpha);
 }
 

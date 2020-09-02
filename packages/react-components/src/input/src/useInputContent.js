@@ -3,7 +3,7 @@ import { embedButton } from "../../button";
 
 export function useInputIcon(icon, props) {
     return icon && (
-        <EmbeddedIcon {...props} className="input-icon">{icon}</EmbeddedIcon>
+        <EmbeddedIcon {...props} className="o-ui-input-icon">{icon}</EmbeddedIcon>
     );
 }
 

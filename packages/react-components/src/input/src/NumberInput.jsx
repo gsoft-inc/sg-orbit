@@ -138,11 +138,11 @@ export function Spinner({
     return (
         <div
             {...rest}
-            className="o-ui spinner"
+            className="o-ui-spinner"
         >
             <button
                 onClick={handleIncrement}
-                className="increment"
+                className="o-ui-spinner-increment"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -152,7 +152,7 @@ export function Spinner({
             </button>
             <button
                 onClick={handleDecrement}
-                className="decrement"
+                className="o-ui-spinner-decrement"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -309,6 +309,7 @@ export function InnerNumberInput({
     });
 
     const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+        cssPrefix: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
@@ -373,15 +374,14 @@ export function InnerNumberInput({
             data-testid="number-input"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input number-input",
-                iconLeftMarkup && "with-left-icon",
+                "o-ui-number-input",
                 wrapperProps.className
             )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labeled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>
