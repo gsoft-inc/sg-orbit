@@ -3,7 +3,7 @@ import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
-    cssModule: cssPrefix,
+    cssModule: module,
     checked,
     defaultChecked,
     indeterminate,
@@ -57,7 +57,7 @@ export function useCheckbox({
         wrapperProps: {
             className: mergeClasses(
                 cssModule(
-                    cssPrefix,
+                    module,
                     isChecked && "checked",
                     isIndeterminate && "indeterminate",
                     reverse && "reverse",

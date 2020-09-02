@@ -37,10 +37,11 @@ export function InnerInputLabel({
         <ElementType
             {...rest}
             className={mergeClasses(
-                cssModule("o-ui-input-label",
-                          required && "required",
-                          descriptionMarkup && "with-description",
-                          getSizeClass3(size)
+                cssModule(
+                    "o-ui-input-label",
+                    required && "required",
+                    descriptionMarkup && "with-description",
+                    getSizeClass3(size)
                 ),
                 className
             )}
