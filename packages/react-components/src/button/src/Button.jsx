@@ -7,6 +7,9 @@ import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useButton } from "./useButton";
 
+// TODO:
+// - Does a button can contain a counter? I think these use cases should be dealed with a Tag rendered as a button instead.
+
 const propTypes = {
     /**
      * Style to use.
@@ -154,7 +157,7 @@ export const embedButton = createEmbeddableAdapter({
     [SIZE.large]: SIZE.small
 });
 
-export const embeddedButtonSlot = createSizeAdapterSlotFactory({
+export const buttonSlot = createSizeAdapterSlotFactory({
     [SIZE.small]: SIZE.mini,
     [SIZE.medium]: SIZE.tiny,
     [SIZE.large]: SIZE.small

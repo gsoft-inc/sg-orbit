@@ -1,7 +1,8 @@
 import "./Counter.css";
 
+import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -24,7 +25,7 @@ const propTypes = {
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * Default slot override.
      */
@@ -53,6 +54,10 @@ export function InnerCounter(props) {
         ...rest
     } = useSlotProps(props, "counter");
 
+    const content = variant === "divider"
+        ? <Text>{children}</Text>
+        : children;
+
     return (
         <ElementType
             {...rest}
@@ -69,7 +74,15 @@ export function InnerCounter(props) {
             )}
             ref={forwardedRef}
         >
-            {children}
+            <SlotProvider
+                slots={{
+                    text: textSlot({
+                        size
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
@@ -79,3 +92,5 @@ InnerCounter.propTypes = propTypes;
 export const Counter = forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 ));
+
+export const counterSlot = props => props;

@@ -1,9 +1,9 @@
 import "./Badge.css";
 
 import { Children, forwardRef } from "react";
-import { SlotProvider, getSizeClass, mergeClasses } from "../../shared";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embeddedTextSlot } from "../../text";
+import { textSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -27,6 +27,12 @@ const propTypes = {
      */
     children: any.isRequired
 };
+
+const textSlotAdapter = createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium
+});
 
 export function InnerBadge({
     variant = "count",
@@ -56,9 +62,9 @@ export function InnerBadge({
         >
             <SlotProvider
                 slots={{
-                    text: embeddedTextSlot({
+                    text: textSlot(textSlotAdapter({
                         size
-                    }),
+                    })),
                     icon: {
                         size
                     }

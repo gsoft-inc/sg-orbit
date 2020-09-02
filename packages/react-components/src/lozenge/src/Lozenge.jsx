@@ -1,16 +1,12 @@
 import "./Lozenge.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass3, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
+import { Text, textSlot } from "../../text";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
-import { isNil } from "lodash";
+import { iconSlot } from "../../icons";
 
 const propTypes = {
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    icon: element,
     /**
      * A lozenge can vary in size.
      */
@@ -25,43 +21,55 @@ const propTypes = {
     children: any.isRequired
 };
 
+const textSlotAdapter = createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium
+});
+
 export function InnerLozenge({
-    icon,
     size,
-    as: ElementType,
     className,
+    as: ElementType = "span",
     children,
-    as = "span",
     forwardedRef,
     ...rest
 }) {
-    const textMarkup = (
-        <span className="text">{children}</span>
-    );
+    const ref = useMergedRefs(forwardedRef);
 
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
+    const { hasIcon } = useHasChildren(ref, { hasIcon: ".o-ui-lozenge-icon" });
 
-    const content = (
-        <>
-            {iconMarkup}
-            {textMarkup}
-        </>
-    );
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui lozenge",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-lozenge",
+                    hasIcon && "with-icon",
+                    getSizeClass3(size)
+                ),
                 className
             )}
-            as={as}
-            ref={forwardedRef}
+            ref={ref}
         >
-            {content}
+            <SlotProvider
+                slots={{
+                    text: textSlot(textSlotAdapter({
+                        size,
+                        className: "o-ui-lozenge-text"
+                    })),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-lozenge-icon"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

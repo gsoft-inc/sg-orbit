@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Text } from "../../text";
-import { cssModule, getSizeClass3, mergeClasses } from "../../shared";
+import { cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -13,23 +13,29 @@ const propTypes = {
     /**
      * A dot can vary in size.
      */
-    size: oneOf(["tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType])
 };
 
-export function InnerDot({
-    color,
-    size,
-    as: ElementType = "span",
-    className,
-    style,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerDot(props) {
+    const {
+        color,
+        size,
+        as: ElementType = "span",
+        className,
+        style,
+        children,
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props, "dot");
+
     const labelMarkup = children && (
         <Text size={size}>
             {children}
@@ -63,3 +69,7 @@ InnerDot.propTypes = propTypes;
 export const Dot = forwardRef((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 ));
+
+export const dotSlot = props => props;
+
+

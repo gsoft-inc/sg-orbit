@@ -1,10 +1,12 @@
 import "./Checkbox.css";
 
-import { Label } from "../../text";
+import { Label, textSlot } from "../../text";
 import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 
@@ -138,19 +140,19 @@ export function InnerCheckbox(props) {
             <span className="o-ui-checkbox-box" />
             <SlotProvider
                 slots={{
-                    label: {
+                    label: textSlot({
                         size,
                         className: "o-ui-checkbox-label"
-                    },
-                    icon: {
+                    }),
+                    icon: iconSlot({
                         size,
                         className: "o-ui-checkbox-icon"
-                    },
-                    counter: {
+                    }),
+                    counter: counterSlot({
                         size,
                         reverse,
                         className: "o-ui-checkbox-counter"
-                    }
+                    })
                 }}
             >
                 {content}

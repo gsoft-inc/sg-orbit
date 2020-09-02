@@ -10,49 +10,31 @@
 }
 
 /* SIZES */
-.o-ui-dot-tiny:before {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: var(--type-scale-7);
-}
-
 .o-ui-dot-small:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-6);
+    font-size: var(--type-scale-9);
 }
 
 .o-ui-dot-medium:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-5);
+    font-size: var(--type-scale-8);
 }
 
 .o-ui-dot-large:before {
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-4);
+    font-size: var(--type-scale-7);
 }
 
-/* LABELED */
+/* LABEL */
 .o-ui-dot-with-label {
     display: inline-flex;
     align-items: center;
 }
 
-.o-ui-dot-with-label.o-ui-dot-tiny:before {
-    margin-right: var(--scale-bravo);
-}
-
-.o-ui-dot-with-label.o-ui-dot-small:before {
-    margin-right: var(--scale-bravo);
-}
-
-.o-ui-dot-with-label.o-ui-dot-medium:before {
-    margin-right: var(--scale-bravo);
-}
-
-.o-ui-dot-with-label.o-ui-dot-large:before {
+.o-ui-dot-with-label.o-ui-dot:before {
     margin-right: var(--scale-bravo);
 }
 

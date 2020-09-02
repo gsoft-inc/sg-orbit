@@ -215,6 +215,20 @@ stories()
             </RadioGroup>
         </Inline>
     )
+    .add("reverse", () =>
+        <Stack inline>
+            <RadioGroup reverse label="Select a package">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup reverse label="Select a package" description="You can find a detailed description of our flight packages on our website.">
+                <Radio value="1">1</Radio>
+                <Radio value="2">A very long option to read while you wait for the countdown to mars.</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Stack>
+    )
     .add("autofocus", () =>
         <RadioGroup autoFocus defaultValue="2">
             <Radio value="1">1</Radio>

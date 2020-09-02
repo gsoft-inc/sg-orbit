@@ -87,6 +87,10 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
+     * Invert the order of the button and the label of all children.
+     */
+    reverse: bool,
+    /**
      * Whether the radio group is disabled.
      */
     disabled: bool,
@@ -115,6 +119,7 @@ export function InnerRadioGroup(props) {
         gap,
         wrap,
         size,
+        reverse,
         disabled,
         navigationMode,
         as = "div",
@@ -147,6 +152,7 @@ export function InnerRadioGroup(props) {
         gap,
         wrap,
         size,
+        reverse,
         disabled,
         as,
         ref
@@ -176,7 +182,6 @@ export function InnerRadioGroup(props) {
                 {...additionalProps}
                 {...navigationProps}
                 {...itemsProps}
-                alignItems="start"
             >
                 <CheckableContext.Provider
                     value={{
@@ -188,6 +193,7 @@ export function InnerRadioGroup(props) {
                         return augmentElement(x, {
                             name: groupName,
                             size,
+                            reverse,
                             disabled,
                             role: "radio"
                         });
@@ -199,11 +205,7 @@ export function InnerRadioGroup(props) {
 
     return (
         !labelMarkup ? renderItems(groupProps) : (
-            <Flex
-                {...groupProps}
-                direction="column"
-                gap={2}
-            >
+            <Flex {...groupProps}>
                 {labelMarkup}
                 {renderItems()}
             </Flex>

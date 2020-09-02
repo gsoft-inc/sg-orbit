@@ -1,15 +1,14 @@
 import "./Tag.css";
 
 import { SlotProvider, getSizeClass, getSizeClass3, mergeClasses } from "../../shared";
-import { Text, embeddedTextSlot } from "../../text";
+import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embeddedButtonSlot } from "../../button";
-import { embeddedIconSlot } from "../../icons";
+import { buttonSlot } from "../../button";
+import { counterSlot } from "../../counter";
+import { dotSlot } from "../../dot/src";
 import { forwardRef } from "react";
-
-// TODO:
-//  - iconLeft & iconRight -> icon (always to the left)
-//  - badge -> dot (left) & counter (right)
+import { iconSlot } from "../../icons";
+import { textSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -34,60 +33,20 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    as: "div"
-};
-
 export function InnerTag({
-    variant,
+    variant = "solid",
     disabled,
     fluid,
     size,
     active,
     focus,
     hover,
-    as: ElementType,
+    as: ElementType = "div",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
-    // const textMarkup = (
-    //     <span className="text">{children}</span>
-    // );
-
-    // const iconMarkup = !isNil(icon) && (
-    //     <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    // );
-
-    // const buttonMarkup = !isNil(button) && embedButton(button, {
-    //     size,
-    //     variant: "ghost",
-    //     color: "secondary",
-    //     shape: "circular"
-    // });
-
-    // const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
-    //     disabled,
-    //     highlight: true,
-    //     size
-    // });
-
-    // const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
-    //     disabled,
-    //     highlight: true,
-    //     size
-    // });
-
-    // const content = (
-    //     <>
-    //         {iconMarkup}
-    //         {textMarkup}
-    //         {buttonMarkup}
-    //     </>
-    // );
-
     const content = typeof children === "string"
         ? <Text>{children}</Text>
         : children;
@@ -98,8 +57,6 @@ export function InnerTag({
             className={mergeClasses(
                 "o-ui tag",
                 variant,
-                // buttonMarkup && "with-button",
-                // iconMarkup && "with-left-icon",
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",
@@ -112,25 +69,26 @@ export function InnerTag({
         >
             <SlotProvider
                 slots={{
-                    text: embeddedTextSlot({
+                    text: textSlot({
                         size,
                         className: "o-ui-tag-text"
                     }),
-                    icon: embeddedIconSlot({
+                    icon: iconSlot({
                         size,
                         className: "o-ui-tag-icon"
                     }),
-                    dot: {
+                    dot: dotSlot({
                         size,
                         disabled,
                         className: "o-ui-tag-dot"
-                    },
-                    counter: {
+                    }),
+                    counter: counterSlot({
                         size,
                         disabled,
+                        highlight: true,
                         className: "o-ui-tag-counter"
-                    },
-                    button: embeddedButtonSlot({
+                    }),
+                    button: buttonSlot({
                         size,
                         variant: "ghost",
                         color: "secondary",
@@ -146,7 +104,6 @@ export function InnerTag({
 }
 
 InnerTag.propTypes = propTypes;
-InnerTag.defaultProps = defaultProps;
 
 export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />

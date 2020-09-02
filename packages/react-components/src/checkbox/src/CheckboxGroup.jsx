@@ -51,6 +51,10 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
+     * Invert the order of the checkbox and the label of all children.
+     */
+    reverse: bool,
+    /**
      * Whether the checkbox group is disabled.
      */
     disabled: bool,
@@ -93,6 +97,7 @@ export function InnerCheckboxGroup(props) {
         gap,
         wrap,
         size,
+        reverse,
         disabled,
         as = "div",
         children,
@@ -113,6 +118,7 @@ export function InnerCheckboxGroup(props) {
         gap,
         wrap,
         size,
+        reverse,
         disabled,
         as,
         ref: forwardedRef
@@ -141,7 +147,6 @@ export function InnerCheckboxGroup(props) {
             <Flex
                 {...additionalProps}
                 {...itemsProps}
-                alignItems="start"
             >
                 <CheckableContext.Provider
                     value={{
@@ -152,6 +157,7 @@ export function InnerCheckboxGroup(props) {
                     {Children.map(items, x => {
                         return augmentElement(x, {
                             size,
+                            reverse,
                             disabled,
                             role: "checkbox"
                         });
@@ -163,11 +169,7 @@ export function InnerCheckboxGroup(props) {
 
     return (
         !labelMarkup ? renderItems(groupProps) : (
-            <Flex
-                {...groupProps}
-                direction="column"
-                gap={2}
-            >
+            <Flex {...groupProps}>
                 {labelMarkup}
                 {renderItems()}
             </Flex>

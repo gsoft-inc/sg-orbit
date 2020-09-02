@@ -15,7 +15,7 @@ import Imports from "./Imports.mdx";
 
 # Counter
 
-A counter indicate a running tally. A counter is normally placed after the text of the thing it quantify or embedded in another component such as a [button](?path=/docs/components-button--default-story) or a [checkbox](?path=/docs/components-checkbox--default-story).
+A counter indicate a running tally. A counter is normally embedded in another component such as a [tag](?path=/docs/components-tag--default-story) or a [checkbox](?path=/docs/components-checkbox--default-story).
 
 ## Installation
 
@@ -45,12 +45,9 @@ A default counter.
 
 A counter can be rendered as a pill.
 
-A pill size can be set to: `"mini"`, `"tiny"`, `"small"`, `"large"` or omitted.
-
 <Preview>
     <Story name="pill">
         <Inline align="end">
-            <Counter size="tiny">15</Counter>
             <Counter size="small">15</Counter>
             <Counter>15</Counter>
             <Counter size="large">15</Counter>
@@ -64,10 +61,11 @@ A counter can be rendered as a divider. A divider counter is not affected by the
 
 <Preview>
     <Story name="divider">
-        <Stack>
-            <span className="f5">Galaxies<Counter variant="divider" pad>100+</Counter></span>
-            <span className="f4">Galaxies<Counter variant="divider" pad>100+</Counter></span>
-        </Stack>
+        <Inline align="end">
+            <Counter size="small" variant="divider">100+</Counter>
+            <Counter variant="divider">100+</Counter>
+            <Counter size="large" variant="divider">100+</Counter>
+        </Inline>
     </Story>
 </Preview>
 
@@ -80,6 +78,19 @@ A counter can use a different color accent.
         <Inline align="center">
             <Counter color="light">15</Counter>
             <Counter color="light" variant="divider">100+</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Highlight
+
+A counter value can be highlighted.
+
+<Preview>
+    <Story name="highlight">
+        <Inline align="center">
+            <Counter highlight color="light">15</Counter>
+            <Counter highlight color="light" variant="divider">100+</Counter>
         </Inline>
     </Story>
 </Preview>

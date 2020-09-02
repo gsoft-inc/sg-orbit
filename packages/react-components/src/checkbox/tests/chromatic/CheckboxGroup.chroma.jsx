@@ -211,6 +211,20 @@ stories()
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
         </Inline>
+    )
+    .add("reverse", () =>
+        <Stack inline>
+            <CheckboxGroup reverse label="Select your packages">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup reverse label="Select your packages" description="You can find a detailed description of our flight packages on our website.">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">A very long option to read while you wait for the countdown to mars.</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Stack>
     );
 
 

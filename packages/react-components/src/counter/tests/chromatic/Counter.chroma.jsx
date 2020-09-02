@@ -16,7 +16,6 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <Counter size="tiny">15</Counter>
                 <Counter size="small">15</Counter>
                 <Counter>15</Counter>
                 <Counter size="large">15</Counter>
@@ -40,7 +39,7 @@ stories()
     .add("light", () =>
         <Inline align="center">
             <Counter color="light">15</Counter>
-            <div>Planets Visited <Counter variant="divider" color="light">15</Counter></div>
+            <Counter variant="divider" color="light">15</Counter>
         </Inline>
     )
     .add("highlight", () =>

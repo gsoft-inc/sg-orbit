@@ -1,10 +1,12 @@
 import "./Switch.css";
 
-import { Label } from "../../text";
+import { Label, textSlot } from "../../text";
 import { SlotProvider } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
 
@@ -112,19 +114,19 @@ export function InnerSwitch(props) {
             <span className="o-ui-switch-switch" />
             <SlotProvider
                 slots={{
-                    label: {
+                    label: textSlot({
                         size,
                         className: "o-ui-switch-label"
-                    },
-                    icon: {
+                    }),
+                    icon: iconSlot({
                         size,
                         className: "o-ui-switch-icon"
-                    },
-                    counter: {
+                    }),
+                    counter: counterSlot({
                         size,
                         reverse,
                         className: "o-ui-switch-counter"
-                    }
+                    })
                 }}
             >
                 {content}

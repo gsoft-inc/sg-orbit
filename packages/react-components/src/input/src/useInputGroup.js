@@ -29,6 +29,7 @@ export function useInputGroup({
     gap,
     wrap,
     size,
+    reverse,
     readOnly,
     disabled,
     ref,
@@ -44,10 +45,16 @@ export function useInputGroup({
             "aria-disabled": disabled,
             "aria-orientation": orientation,
             "aria-labelledby": labelId,
+            ...(!label ? {} : {
+                direction: "column",
+                gap: 2
+            }),
             ref: ref
         },
         itemsProps: {
+            inline: reverse,
             direction: ITEMS_DIRECTION[orientation],
+            alignItems: reverse ? "end" : "start",
             gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.medium],
             wrap: !isNil(wrap) ? "wrap" : undefined
         },

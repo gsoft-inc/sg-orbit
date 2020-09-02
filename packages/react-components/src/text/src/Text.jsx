@@ -1,6 +1,6 @@
 import "./Text.css";
 
-import { SIZE, createSizeAdapterSlotFactory, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -59,4 +59,4 @@ export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 ));
 
-export const embeddedTextSlot = createSizeAdapterSlotFactory(EMBED_SIZE);
+export const textSlot = props => props;

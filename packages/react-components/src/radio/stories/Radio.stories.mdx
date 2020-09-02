@@ -156,15 +156,27 @@ A radio can have a [counter](?path=/docs/components-counter--default-story) afte
 A radio button can be to the left or to the right of his label.
 
 <Preview>
-    <Story name="reverse">
-        <RadioGroup>
-            <Radio reverse value="mars">
+    <Story name="reverse radio">
+        <Radio reverse value="mars">
+            <Label>Mars</Label>
+            <LightbulbIcon />
+            <Counter>6</Counter>
+        </Radio>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="reverse group">
+        <RadioGroup reverse>
+            <Radio value="mars">
                 <Label>Mars</Label>
                 <LightbulbIcon />
                 <Counter>6</Counter>
             </Radio>
-            <Radio reverse value="jupiter">Jupiter</Radio>
-            <Radio reverse value="pluto">
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">
                 <Label>Pluto</Label>
                 <Counter variant="divider">6</Counter>
             </Radio>

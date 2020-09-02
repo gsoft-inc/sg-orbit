@@ -204,4 +204,11 @@ stories()
                 <div>Charlie</div>
             </Flex>
         </Flex>
+    )
+    .add("inline", () =>
+        <Flex inline direction="column" alignItems="end">
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Flex>
     );

@@ -200,11 +200,6 @@
 /* SIZING */
 /* SIZING | SMALL */
 /* SIZING | SMALL | LABEL */
-/* .o-ui-checkbox-small .o-ui-checkbox-label {
-    font-size: var(--type-scale-8);
-} */
-
-/* SIZING | SMALL | LABEL | */
 .o-ui-checkbox-small .o-ui-checkbox-box {
     width: var(--scale-delta);
     height: var(--scale-delta);
@@ -224,10 +219,6 @@
 
 /* SIZING | LARGE */
 /* SIZING | LARGE | LABEL */
-/* .o-ui-checkbox-large .o-ui-checkbox-label {
-    font-size: var(--type-scale-6);
-} */
-
 .o-ui-checkbox-large .o-ui-checkbox-box:before {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);

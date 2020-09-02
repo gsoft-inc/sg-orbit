@@ -2,9 +2,13 @@ import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 import { walkAllFocusableElements } from "./createFocusableTreeWalker";
 
+// TODO:
+// - After doing a test for "useHasChild", I am pretty confident using "useLayoutEffect" with a ref has a dep is not enough to support dynamically added elements.
+// - SOLUTION: The solution should be to remove the deps from useLayoutEffect.
+
 export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
     useLayoutEffect(() => {
-        // Copy node to variable to ensure it the same node on cleanup.
+        // Copy node to variable to ensure it's the same node on cleanup.
         const root = rootRef.current;
         const scope = [];
 

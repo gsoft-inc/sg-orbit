@@ -10,13 +10,6 @@
 }
 
 /* PILL | SIZES */
-.o-ui-counter-pill.o-ui-counter-tiny {
-    min-height: 0.875rem;
-    min-width: 0.875rem;
-    font-size: var(--type-scale-9);
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
-}
-
 .o-ui-counter-pill.o-ui-counter-small {
     min-height: 1rem;
     min-width: 1rem;
@@ -45,7 +38,7 @@
 
 /* PILL | HIGHLIGHT */
 .o-ui-counter-pill.o-ui-counter-highlight {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* DIVIDER */
@@ -70,18 +63,8 @@
 
 /* DIVIDER | HIGHLIGHT */
 .o-ui-counter-divider.o-ui-counter-highlight {
-    font-weight: 600;
+    font-weight: 500;
 }
-
-/* PAD */
-/* .o-ui-counter--pad {
-    margin-left: calc(1em / 2);
-} */
-
-/* PAD | REVERSE */
-/* .o-ui-counter--pad.o-ui-counter--reverse {
-    margin-right: calc(1em / 2);
-} */
 
 /* DISABLED */
 .o-ui-counter[disabled] {

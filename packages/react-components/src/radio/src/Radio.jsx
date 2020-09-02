@@ -1,10 +1,12 @@
 import "./Radio.css";
 
-import { Label } from "../../text";
+import { Label, textSlot } from "../../text";
 import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
+import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -25,7 +27,7 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Invert the order the checkmark box and the label.
+     * Invert the order of the checkmark box and the label.
      */
     reverse: bool,
     /**
@@ -137,19 +139,19 @@ export function InnerRadio(props) {
             <span className="o-ui-radio-button"></span>
             <SlotProvider
                 slots={{
-                    label: {
+                    label: textSlot({
                         size,
                         className: "o-ui-radio-label"
-                    },
-                    icon: {
+                    }),
+                    icon: iconSlot({
                         size,
                         className: "o-ui-radio-icon"
-                    },
-                    counter: {
+                    }),
+                    counter: counterSlot({
                         size,
                         reverse,
                         className: "o-ui-radio-counter"
-                    }
+                    })
                 }}
             >
                 {content}

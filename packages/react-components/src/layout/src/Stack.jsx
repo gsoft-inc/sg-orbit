@@ -5,6 +5,14 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
+     * Whether or not to inline the elements.
+     */
+    inline: bool,
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse: bool,
+    /**
      * How the elements are aligned in the container along the main axis.
      */
     align: oneOf(["start", "end", "center"]),
