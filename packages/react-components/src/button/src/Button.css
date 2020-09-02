@@ -12,6 +12,29 @@
     --o-ui-button-padding-ratio-factor: 1.5;
 }
 
+.o-ui-button {
+    padding: 0;
+    display: grid;
+    align-items: center;
+    line-height: 1;
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    transition: all .12s ease-in;
+}
+
+.o-ui-button .icon {
+    transition: all .12s ease-in;
+}
+
+/* ANCHOR */
+a.o-ui-button {
+    display: inline-flex;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 /* BUTTON | SOLID */
 .o-ui-button-solid {
     border: none;
@@ -62,14 +85,6 @@
 /* BUTTON | SOLID | ICON */
 .o-ui-button-solid .icon {
     fill: var(--white);
-}
-
-/* BUTTON | SOLID | ANCHOR */
-a.o-ui-button-solid {
-    display: inline-flex;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -327,14 +342,6 @@ a.o-ui-button-solid {
     fill: var(--white);
 }
 
-/* BUTTON | OUTLINE | ANCHOR */
-a.o-ui-button-outline {
-    display: inline-flex;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
 /* BUTTON | OUTLINE | SIZES */
 .o-ui-button-outline.o-ui-button-mini {
     padding: 0 var(--o-ui-button-padding-mini);
@@ -442,14 +449,6 @@ a.o-ui-button-outline {
 .o-ui-button-link:active .o-ui-button-text,
 .o-ui-button-link.o-ui-button-active .o-ui-button-text {
     text-decoration: underline;
-}
-
-/* BUTTON | LINK | ANCHOR */
-a.o-ui-button-link {
-    display: inline-flex;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 /* BUTTON | LINK | SIZE */
@@ -601,14 +600,6 @@ a.o-ui-button-link {
 /* BUTTON | GHOST | ICON  */
 .o-ui-button-ghost .icon {
     fill: currentColor;
-}
-
-/* BUTTON | GHOST | ANCHOR */
-a.o-ui-button-ghost {
-    display: inline-flex;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 /* BUTTON | SOLID | SIZES */
@@ -968,22 +959,6 @@ a.o-ui-button-ghost {
 .o-ui-button-rounded .o-ui-button-text {
     padding-left: var(--scale-bravo);
     padding-right: var(--scale-bravo);
-}
-
-/* COMMON */
-.o-ui-button {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    line-height: 1;
-    cursor: pointer;
-    outline: none;
-    font-weight: 400;
-    transition: all .12s ease-in;
-}
-
-.o-ui-button .icon {
-    transition: all .12s ease-in;
 }
 
 /* BUTTON | WITH RIGHT ICON | ROUNDED | TEXT */

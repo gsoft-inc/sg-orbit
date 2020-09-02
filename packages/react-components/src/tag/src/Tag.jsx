@@ -49,7 +49,11 @@ export function InnerTag({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { hasIcon, hasButton } = useHasChildren({ hasIcon: ".o-ui-tag-icon", hasButton: ".o-ui-tag-button" }, ref);
+    const { hasIcon, hasCounter, hasButton } = useHasChildren({
+        hasIcon: ".o-ui-tag-icon",
+        hasCounter: ".o-ui-tag-counter",
+        hasButton: ".o-ui-tag-button"
+    }, ref);
 
     const content = typeof children === "string"
         ? <Text>{children}</Text>
@@ -63,6 +67,7 @@ export function InnerTag({
                     "o-ui-tag",
                     variant,
                     hasIcon && "has-icon",
+                    hasCounter && "has-counter",
                     hasButton && "has-button",
                     fluid && "fluid",
                     active && "active",

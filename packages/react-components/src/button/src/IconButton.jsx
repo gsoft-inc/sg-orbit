@@ -1,5 +1,5 @@
+import { ClearSlots, augmentElement, useSlotProps } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 
@@ -100,7 +100,9 @@ export function InnerIconButton(props) {
             {...rest}
             {...buttonProps}
         >
-            {content}
+            <ClearSlots>
+                {content}
+            </ClearSlots>
         </ElementType>
     );
 }

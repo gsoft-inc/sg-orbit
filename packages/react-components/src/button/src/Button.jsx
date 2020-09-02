@@ -7,9 +7,6 @@ import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useButton } from "./useButton";
 
-// TODO:
-// - Does a button can contain a counter? I think these use cases should be dealed with a Tag rendered as a button instead.
-
 const propTypes = {
     /**
      * Style to use.
@@ -23,10 +20,6 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    icon: element,
     /**
      * Whether the button should autoFocus on render.
      */

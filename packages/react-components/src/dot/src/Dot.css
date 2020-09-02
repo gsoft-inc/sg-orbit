@@ -1,4 +1,6 @@
 .o-ui-dot {
+    display: inline-flex;
+    align-items: center;
     --o-ui-dot-color: var(--cloud-100);
 }
 
@@ -29,11 +31,6 @@
 }
 
 /* LABEL */
-.o-ui-dot-has-label {
-    display: inline-flex;
-    align-items: center;
-}
-
 .o-ui-dot-has-label.o-ui-dot:before {
     margin-right: var(--scale-bravo);
 }

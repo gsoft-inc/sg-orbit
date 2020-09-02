@@ -24,9 +24,9 @@ button.o-ui-tag:hover {
     background-color: var(--cloud-100);
 }
 
-/* AS <a> */
-/* AS <a> | STATES */
-/* AS <a> | STATES | HOVER */
+/* AS ANCHOR */
+/* AS ANCHOR | STATES */
+/* AS ANCHOR | STATES | HOVER */
 a.o-ui-tag:hover {
     background-color: var(--cloud-100);
 }
@@ -52,7 +52,7 @@ a.o-ui-tag:hover {
 }
 
 /* FLUID */
-.o-ui-tag.fluid {
+.o-ui-tag-fluid {
     width: 100%;
     text-align: center;
 }
@@ -62,8 +62,8 @@ a.o-ui-tag:hover {
     background-color: var(--cloud-50);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES */
-/* SOLID | AS <a> / BUTTON | STATES | HOVER */
+/* SOLID | AS ANCHOR / BUTTON | STATES */
+/* SOLID | AS ANCHOR / BUTTON | STATES | HOVER */
 button.o-ui-tag-solid:hover,
 a.o-ui-tag-solid:hover,
 button.o-ui-tag-solid.o-ui-tag-hover,
@@ -76,7 +76,7 @@ a.o-ui-tag:hover {
     background-color: var(--cloud-100);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES | ACTIVE */
+/* SOLID | AS ANCHOR / BUTTON | STATES | ACTIVE */
 button.o-ui-tag-solid:active,
 a.o-ui-tag-solid:active
 button.o-ui-tag-solid.o-ui-tag-active,
@@ -84,7 +84,7 @@ a.o-ui-tag-solid.o-ui-tag-active {
     background-color: var(--cloud-200);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES | FOCUS */
+/* SOLID | AS ANCHOR / BUTTON | STATES | FOCUS */
 button.o-ui-tag-solid:focus,
 a.o-ui-tag-solid:focus,
 button.o-ui-tag-solid.o-ui-tag-focus,
@@ -93,7 +93,7 @@ a.o-ui-tag-solid.o-ui-tag-focus {
     box-shadow: var(--o-ui-outline);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES | DISABLED */
+/* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED */
 button.o-ui-tag-solid[disabled],
 button.o-ui-tag-solid.o-ui-tag-disabled,
 a.o-ui-tag-solid[disabled],
@@ -102,7 +102,7 @@ a.o-ui-tag-solid.o-ui-tag-disabled {
     opacity: var(--o-ui-disabled-opacity);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES | DISABLED | HOVER */
+/* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
 button.o-ui-tag-solid[disabled]:hover,
 button.o-ui-tag-solid.o-ui-tag-disabled:hover,
 button.o-ui-tag-solid[disabled].o-ui-tag-hover,
@@ -114,7 +114,7 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
     background-color: var(--cloud-50);
 }
 
-/* SOLID | AS <a> / BUTTON | STATES | DISABLED | FOCUS */
+/* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
 button.o-ui-tag-solid[disabled]:focus,
 button.o-ui-tag-solid.o-ui-tag-disabled:focus,
 button.o-ui-tag-solid[disabled].o-ui-tag-focus,
@@ -132,8 +132,8 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
     box-shadow: 0 0 0 1px var(--cloud-200) inset;
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES */
-/* OUTLINE | AS <a> / BUTTON | STATES | HOVER */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | HOVER */
 button.o-ui-tag-outline:hover,
 a.o-ui-tag-outline:hover,
 button.o-ui-tag-outline.o-ui-tag-hover,
@@ -142,7 +142,7 @@ a.o-ui-tag-outline.o-ui-tag-hover {
     box-shadow: 0 0 0 1px var(--cloud-300) inset;
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES | ACTIVE */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | ACTIVE */
 button.o-ui-tag-outline:active,
 a.o-ui-tag-outline:active,
 button.o-ui-tag-outline.o-ui-tag-active,
@@ -151,7 +151,7 @@ a.o-ui-tag-outline.o-ui-tag-active {
     box-shadow: 0 0 0 1px var(--cloud-500) inset;
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES | FOCUS */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS */
 button.o-ui-tag-outline:focus,
 a.o-ui-tag-outline:focus,
 button.o-ui-tag-outline.o-ui-tag-focus,
@@ -161,7 +161,7 @@ a.o-ui-tag-outline.o-ui-tag-focus {
     box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-outline);
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES | DISABLED */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */
 button.o-ui-tag-outline[disabled],
 a.o-ui-tag-outline[disabled],
 button.o-ui-tag-outline.o-ui-tag-disabled,
@@ -170,7 +170,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled {
     cursor: not-allowed;
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES | DISABLED | FOCUS */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
 button.o-ui-tag-outline[disabled]:focus,
 a.o-ui-tag-outline[disabled]:focus,
 button.o-ui-tag-outline.o-ui-tag-disabled:focus,
@@ -182,7 +182,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus {
     box-shadow: 0 0 0 1px var(--cloud-200) inset;
 }
 
-/* OUTLINE | AS <a> / BUTTON | STATES | DISABLED | HOVER */
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
 button.o-ui-tag-outline[disabled]:hover,
 a.o-ui-tag-outline[disabled]:hover,
 button.o-ui-tag-outline.o-ui-tag-disabled:hover,
@@ -234,17 +234,17 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 }
 
 /* COUNTER | SMALL */
-.o-ui-tag-counter.o-ui-tag-small {
+.o-ui-tag-has-counter.o-ui-tag-small {
     padding-right: calc(var(--o-ui-padding-small) / 1.5);
 }
 
 /* COUNTER | MEDIUM */
-.o-ui-tag-counter.o-ui-tag-medium {
+.o-ui-tag-has-counter.o-ui-tag-medium {
     padding-right: calc(var(--o-ui-padding-medium) / 1.5);
 }
 
 /* COUNTER | LARGE */
-.o-ui-tag-counter.o-ui-tag-large {
+.o-ui-tag-has-counter.o-ui-tag-large {
     padding-right: calc(var(--o-ui-padding-large) / 1.5);
 }
 
