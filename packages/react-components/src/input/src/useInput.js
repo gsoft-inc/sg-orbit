@@ -49,6 +49,9 @@ export function useInput({
                     fluid && "fluid",
                     loading && "loading",
                     validationState && validationState,
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
                     getSizeClass3(size)
                 ),
                 wrapperProps.className
@@ -59,12 +62,6 @@ export function useInput({
             value,
             placeholder,
             onChange,
-            className: mergeClasses(
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                className
-            ),
             type,
             disabled,
             readOnly,
