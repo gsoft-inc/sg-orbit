@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Text } from "../../text";
-import { cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -49,7 +49,7 @@ export function InnerDot(props) {
                 cssModule(
                     "o-ui-dot",
                     children && "has-label",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

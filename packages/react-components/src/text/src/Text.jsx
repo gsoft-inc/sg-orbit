@@ -1,14 +1,8 @@
 import "./Text.css";
 
-import { SIZE, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
-
-export const EMBED_SIZE = {
-    [SIZE.small]: SIZE.tiny,
-    [SIZE.medium]: SIZE.small,
-    [SIZE.large]: SIZE.medium
-};
 
 const propTypes = {
     /**
@@ -42,7 +36,7 @@ export function InnerText(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-text",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

@@ -1,7 +1,7 @@
 import "./Radio.css";
 
 import { Label, textSlot } from "../../text";
-import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -119,7 +119,7 @@ export function InnerRadio(props) {
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

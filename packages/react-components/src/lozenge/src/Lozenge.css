@@ -31,7 +31,7 @@
     grid-area: text;
 }
 
-/*CONTENT | ICON */
+/* CONTENT | ICON */
 .o-ui-lozenge-has-icon {
     padding-left: calc(var(--scale-bravo) / 2);
 }

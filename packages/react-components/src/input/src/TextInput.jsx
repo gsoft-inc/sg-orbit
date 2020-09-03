@@ -140,7 +140,7 @@ export function InnerTextInput({
         setValue(event.target.value);
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
         cssModule: "o-ui-text-input",
         id,
         value: inputValue,
@@ -166,7 +166,7 @@ export function InnerTextInput({
         focus,
         hover,
         className,
-        userWrapperProps,
+        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -198,6 +198,14 @@ export function InnerTextInput({
         <ElementType
             data-testid="text-input"
             {...wrapperProps}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-input",
+                    iconMarkup && "has-icon",
+                    buttonMarkup && "has-button"
+                ),
+                wrapperClassName
+            )}
         >
             {!labelMarkup ? content : (
                 <>

@@ -1,6 +1,6 @@
 import "./Lozenge.css";
 
-import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass3, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -50,7 +50,7 @@ export function InnerLozenge({
                 cssModule(
                     "o-ui-lozenge",
                     hasIcon && "has-icon",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

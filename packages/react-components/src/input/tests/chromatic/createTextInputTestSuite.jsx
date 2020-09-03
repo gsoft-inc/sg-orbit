@@ -221,13 +221,5 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput readOnly size="large" placeholder="Where to?" element={element} />
                 </Inline>
             </Stack>
-        )
-        .add("styling", () =>
-            <Inline>
-                <TextInput className="bg-red" element={element} />
-                <TextInput style={{ backgroundColor: "red" }} element={element} />
-                <TextInput wrapperProps={{ className: "border-red" }} element={element} />
-                <TextInput wrapperProps={{ style: { border: "1px solid red" } }} element={element} />
-            </Inline>
         );
 }

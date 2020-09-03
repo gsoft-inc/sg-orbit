@@ -1,4 +1,4 @@
-import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
@@ -65,7 +65,7 @@ export function useCheckbox({
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             ),

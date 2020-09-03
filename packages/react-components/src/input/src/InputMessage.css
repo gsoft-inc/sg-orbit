@@ -16,18 +16,3 @@
 .o-ui-input-message-invalid {
     color: var(--alert-400);
 }
-
-/* SIZE | SMALL */
-.o-ui-input-message-small {
-    font-size: var(--type-scale-9);
-}
-
-/* SIZE | MEDIUM */
-.o-ui-input-message-medium {
-    font-size: var(--type-scale-8);
-}
-
-/* SIZE | LARGE */
-.o-ui-input-message-large {
-    font-size: var(--type-scale-7);
-}

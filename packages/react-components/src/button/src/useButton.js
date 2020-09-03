@@ -1,4 +1,4 @@
-import { cssModule, getSizeClass3, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useButton({
     cssModule: module,
@@ -35,7 +35,7 @@ export function useButton({
                 active && "active",
                 focus && "focus",
                 hover && "hover",
-                getSizeClass3(size)
+                getSizeClass(size)
             ),
             className
         ),

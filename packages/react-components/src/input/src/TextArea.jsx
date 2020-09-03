@@ -3,9 +3,9 @@ import "./TextArea.css";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
 
@@ -159,7 +159,7 @@ export function InnerTextArea({
         setValue(event.target.value);
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
         cssModule: "o-ui-text-area",
         id,
         value: inputValue,
@@ -185,7 +185,7 @@ export function InnerTextArea({
         focus,
         hover,
         className,
-        userWrapperProps,
+        wrapperProps: userWrapperProps,
         inputRef,
         forwardedRef
     });
@@ -239,6 +239,13 @@ export function InnerTextArea({
         <ElementType
             data-testid="text-area"
             {...wrapperProps}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-input",
+                    buttonMarkup && "has-button"
+                ),
+                wrapperClassName
+            )}
         >
             {!labelMarkup ? content : (
                 <>

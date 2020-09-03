@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { CarretIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
-import { SIZE, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
@@ -138,11 +138,11 @@ export function Spinner({
     return (
         <div
             {...rest}
-            className="o-ui-spinner"
+            className="o-ui-number-input-spinner"
         >
             <button
                 onClick={handleIncrement}
-                className="o-ui-spinner-increment"
+                className="o-ui-number-input-spinner-increment"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -152,7 +152,7 @@ export function Spinner({
             </button>
             <button
                 onClick={handleDecrement}
-                className="o-ui-spinner-decrement"
+                className="o-ui-number-input-spinner-decrement"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -308,7 +308,7 @@ export function InnerNumberInput({
         inputRef.current.focus();
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
         cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
@@ -347,11 +347,11 @@ export function InnerNumberInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(icon, { size, disabled });
+    const iconMarkup = useInputIcon(icon, { size, disabled });
 
     const content = (
         <>
-            {iconLeftMarkup}
+            {iconMarkup}
             <input
                 {...rest}
                 {...inputProps}
@@ -373,6 +373,13 @@ export function InnerNumberInput({
         <ElementType
             data-testid="number-input"
             {...wrapperProps}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-input",
+                    iconMarkup && "has-icon"
+                ),
+                wrapperClassName
+            )}
         >
             {!labelMarkup ? content : (
                 <>

@@ -28,7 +28,7 @@ stories()
         <TextArea resize="none" />
     )
     .add("rows", () =>
-        <TextArea rows="12" />
+        <TextArea rows={12} />
     )
     .add("autofocus", () =>
         <TextArea autoFocus />
@@ -38,4 +38,12 @@ stories()
     )
     .add("autofocus with delay", () =>
         <TextArea autoFocus autoFocusDelay={50} />
+    )
+    .add("styling", () =>
+        <Inline>
+            <TextArea className="bg-red" />
+            <TextArea style={{ backgroundColor: "red" }} />
+            <TextArea wrapperProps={{ className: "border-red" }} />
+            <TextArea wrapperProps={{ style: { border: "1px solid red" } }} />
+        </Inline>
     );

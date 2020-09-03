@@ -197,13 +197,5 @@ export function createTextAreaTestSuite(element, stories) {
                     <TextArea readOnly size="large" placeholder="Where to?" element={element} />
                 </Inline>
             </Stack>
-        )
-        .add("styling", () =>
-            <Inline>
-                <TextArea className="bg-red" element={element} />
-                <TextArea style={{ backgroundColor: "red" }} element={element} />
-                <TextArea wrapperProps={{ className: "border-red" }} element={element} />
-                <TextArea wrapperProps={{ style: { border: "1px solid red" } }} element={element} />
-            </Inline>
         );
 }

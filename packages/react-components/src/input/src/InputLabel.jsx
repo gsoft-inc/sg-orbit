@@ -1,9 +1,10 @@
 import "./InputLabel.css";
 
 import { EmbeddedIcon, InfoIcon } from "@react-components/icons";
+import { EmbeddedText } from "../../text";
 import { Tooltip } from "@react-components/tooltip";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass3, mergeClasses } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -28,7 +29,11 @@ export function InnerInputLabel({
     const descriptionMarkup = description && (
         <Tooltip
             content={description}
-            trigger={<EmbeddedIcon size={size}><InfoIcon className="input-description" /></EmbeddedIcon>}
+            trigger={
+                <EmbeddedIcon size={size}>
+                    <InfoIcon className="o-ui-input-description" />
+                </EmbeddedIcon>
+            }
             size={size}
         />
     );
@@ -40,14 +45,16 @@ export function InnerInputLabel({
                 cssModule(
                     "o-ui-input-label",
                     required && "required",
-                    descriptionMarkup && "with-description",
-                    getSizeClass3(size)
+                    descriptionMarkup && "has-description",
+                    getSizeClass(size)
                 ),
                 className
             )}
             ref={forwardedRef}
         >
-            {label}
+            <EmbeddedText size={size}>
+                {label}
+            </EmbeddedText>
             {descriptionMarkup}
         </ElementType>
     );

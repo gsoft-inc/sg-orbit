@@ -1,6 +1,6 @@
 import "./Counter.css";
 
-import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
+import { SlotProvider, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -68,7 +68,7 @@ export function InnerCounter(props) {
                     color && color,
                     highlight && "highlight",
                     reverse && "reverse",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

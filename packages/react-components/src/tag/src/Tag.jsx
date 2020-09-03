@@ -1,6 +1,6 @@
 import "./Tag.css";
 
-import { SlotProvider, cssModule, getSizeClass3, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
+import { SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -73,7 +73,7 @@ export function InnerTag({
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

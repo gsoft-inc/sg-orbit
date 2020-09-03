@@ -1,6 +1,6 @@
 import "./Icon.css";
 
-import { SIZE, cssModule, getSizeClass3, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -23,7 +23,7 @@ export function InnerIcon(props) {
                 cssModule(
                     "o-ui-icon",
                     disabled && "disabled",
-                    getSizeClass3(size)
+                    getSizeClass(size)
                 ),
                 className
             )}

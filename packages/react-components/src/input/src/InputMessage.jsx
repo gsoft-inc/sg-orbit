@@ -1,6 +1,7 @@
 import "./InputMessage.css";
 
-import { cssModule, getSizeClass3, mergeClasses } from "../../shared";
+import { EmbeddedText } from "../../text";
+import { cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { elementType, node, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -24,19 +25,17 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-export function InnerInputMessage(props) {
-    const {
-        help,
-        invalid,
-        valid,
-        validationState,
-        size,
-        className,
-        forwardedRef,
-        as: ElementType = "span",
-        ...rest
-    } = props;
-
+export function InnerInputMessage({
+    help,
+    invalid,
+    valid,
+    validationState,
+    size,
+    className,
+    forwardedRef,
+    as: ElementType = "span",
+    ...rest
+}) {
     let message = { invalid, valid }[validationState];
     let color = validationState;
 
@@ -53,15 +52,19 @@ export function InnerInputMessage(props) {
         <ElementType
             {...rest}
             className={mergeClasses(
-                cssModule("o-ui-input-message",
-                          color,
-                          getSizeClass3(size)),
+                cssModule(
+                    "o-ui-input-message",
+                    color,
+                    getSizeClass(size)
+                ),
                 className
             )}
             aria-live="polite"
             ref={forwardedRef}
         >
-            {message}
+            <EmbeddedText size={size}>
+                {message}
+            </EmbeddedText>
         </ElementType>
     );
 }
