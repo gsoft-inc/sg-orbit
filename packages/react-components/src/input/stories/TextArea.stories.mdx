@@ -105,8 +105,6 @@ A text are can be limited to a maximum number of rows.
 
 A text area can vary in size.
 
-Can be set to: `"small"`, `"large"` or omitted.
-
 <Preview>
     <Story name="size">
         <Inline align="end">
@@ -157,6 +155,16 @@ A text area can take the width of its container.
     </Story>
 </Preview>
 
+### Validation
+
+A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the text input via the `validationState` prop.
+
+The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
+
+<FilePreview filePath="/input/stories/LengthValidation">
+    <LengthValidation />
+</FilePreview>
+
 ### Message
 
 A message can be displayed beneath a text area.
@@ -180,16 +188,6 @@ A text area can be transparent.
         <TextArea variant="transparent" placeholder="Why should you go to space?" />
     </Story>
 </Preview>
-
-### Validation
-
-A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the text input via the `validationState` prop.
-
-The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
-
-<FilePreview filePath="/input/stories/LengthValidation">
-    <LengthValidation />
-</FilePreview>
 
 <Story
     name="ref"

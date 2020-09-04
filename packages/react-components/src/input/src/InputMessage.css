@@ -1,33 +1,18 @@
-.o-ui.input-message {
+.o-ui-input-message {
     margin-top: calc(var(--scale-alpha) / 2);
 }
 
 /* NEUTRAL */
-.o-ui.input-message.neutral {
+.o-ui-input-message-neutral {
     color: var(--neutral-800);
 }
 
 /* VALID */
-.o-ui.input-message.valid {
-    color: var(--success-400);
+.o-ui-input-message-valid {
+    color: var(--success-500);
 }
 
 /* INVALID */
-.o-ui.input-message.invalid {
+.o-ui-input-message-invalid {
     color: var(--alert-400);
-}
-
-/* SIZE | SMALL */
-.o-ui.input-message.small {
-    font-size: var(--type-scale-9);
-}
-
-/* SIZE | MEDIUM */
-.o-ui.input-message.medium {
-    font-size: var(--type-scale-8);
-}
-
-/* SIZE | LARGE */
-.o-ui.input-message.large {
-    font-size: var(--type-scale-7);
 }

@@ -1,6 +1,7 @@
-import { getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useButton({
+    cssModule: module,
     variant,
     color,
     shape,
@@ -13,6 +14,7 @@ export function useButton({
     focus,
     hover,
     disabled,
+    type,
     className,
     forwardedRef
 }) {
@@ -22,18 +24,23 @@ export function useButton({
 
     return {
         className: mergeClasses(
-            variant && variant,
-            color && color,
-            shape && shape,
-            fluid && "fluid",
-            loading && "loading",
-            active && "active",
-            focus && "focus",
-            hover && "hover",
-            getSizeClass(size),
+            module,
+            cssModule(
+                "o-ui-button",
+                variant,
+                color && color,
+                shape && shape,
+                fluid && "fluid",
+                loading && "loading",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                getSizeClass(size)
+            ),
             className
         ),
         disabled,
+        type,
         ref: buttonRef
     };
 }

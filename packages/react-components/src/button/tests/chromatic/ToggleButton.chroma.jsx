@@ -30,7 +30,10 @@ stories()
                 <ToggleButton disabled>Cutoff</ToggleButton>
             </Inline>
             <div>
-                <ToggleButton iconLeft={<LightbulbIcon />}>Cutoff</ToggleButton>
+                <ToggleButton>
+                    <Text>Cutoff</Text>
+                    <LightbulbIcon />
+                </ToggleButton>
             </div>
         </Stack>
     )
@@ -72,7 +75,10 @@ stories()
         <Inline>
             <ToggleButton checked>Cutoff</ToggleButton>
             <ToggleButton defaultChecked>Cutoff</ToggleButton>
-            <ToggleButton iconLeft={<LightbulbIcon />} checked>Cutoff</ToggleButton>
+            <ToggleButton checked>
+                <Text>Cutoff</Text>
+                <LightbulbIcon />
+            </ToggleButton>
         </Inline>
     )
     .add("render props", () =>

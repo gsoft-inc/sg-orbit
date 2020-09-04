@@ -11,6 +11,7 @@ export * from "./keys";
 export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";
+export * from "./cssModule";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createFocusableTreeWalker";
@@ -27,6 +28,7 @@ export * from "./useForwardInputApi";
 export * from "./useId";
 export * from "./useArrowNavigation";
 export * from "./useRovingFocus";
+export * from "./useHasChild";
 
 // Contexts
 export * from "./CheckableContext";

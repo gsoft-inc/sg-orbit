@@ -3,9 +3,9 @@ import "./TextArea.css";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
 import { isNil } from "lodash";
-import { mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
 
@@ -110,12 +110,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    variant: "outline",
-    type: "text",
-    as: "div"
-};
-
 const pxToInt = value => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
@@ -134,8 +128,8 @@ export function InnerTextArea({
     validMessage,
     validationState,
     onChange,
-    variant,
-    type,
+    variant = "outline",
+    type = "text",
     autoFocus,
     autoFocusDelay,
     button,
@@ -152,7 +146,7 @@ export function InnerTextArea({
     className,
     style,
     wrapperProps: userWrapperProps,
-    as: ElementType,
+    as: ElementType = "div",
     forwardedRef,
     ...rest
 }) {
@@ -165,7 +159,8 @@ export function InnerTextArea({
         setValue(event.target.value);
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+        cssModule: "o-ui-text-area",
         id,
         value: inputValue,
         placeholder,
@@ -190,7 +185,7 @@ export function InnerTextArea({
         focus,
         hover,
         className,
-        userWrapperProps,
+        wrapperProps: userWrapperProps,
         inputRef,
         forwardedRef
     });
@@ -222,7 +217,7 @@ export function InnerTextArea({
         <InputMessage {...messageProps} />
     );
 
-    const buttonMarkup = useInputButton(button, size);
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
 
     const content = (
         <>
@@ -245,15 +240,17 @@ export function InnerTextArea({
             data-testid="text-area"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input text-area",
-                button && "with-button",
-                wrapperProps.className
+                cssModule(
+                    "o-ui-input",
+                    buttonMarkup && "has-button"
+                ),
+                wrapperClassName
             )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labelled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>
@@ -263,8 +260,7 @@ export function InnerTextArea({
 }
 
 InnerTextArea.propTypes = propTypes;
-InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
-    <InnerTextArea { ...props } forwardedRef={ref} />
+    <InnerTextArea {...props} forwardedRef={ref} />
 ));

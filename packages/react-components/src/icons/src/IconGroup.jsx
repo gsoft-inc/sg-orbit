@@ -1,4 +1,5 @@
 import { Children, cloneElement, forwardRef } from "react";
+import { ClearSlots, useSlotProps } from "../../shared";
 import { Inline } from "../../layout";
 import { any, elementType, oneOfType, string } from "prop-types";
 
@@ -17,30 +18,37 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
+export function InnerIconGroup(props) {
+    const {
+        size,
+        disabled,
+        children,
+        as = "span",
+        forwardedRef,
+        ...rest
+    } = useSlotProps(props, "icon");
 
-export function InnerIconGroup({ size, children, forwardedRef, ...rest }) {
     return (
         <Inline
             {...rest}
             gap={1}
+            as={as}
             ref={forwardedRef}
         >
-            {Children.map(children, x => {
-                return cloneElement(x, {
-                    size
-                });
-            })}
+            <ClearSlots>
+                {Children.map(children, x => {
+                    return cloneElement(x, {
+                        size,
+                        disabled
+                    });
+                })}
+            </ClearSlots>
         </Inline>
     );
-
 }
 
 InnerIconGroup.propTypes = propTypes;
-InnerIconGroup.defaultProps = defaultProps;
 
 export const IconGroup = forwardRef((props, ref) => (
-    <InnerIconGroup { ...props } forwardedRef={ref} />
+    <InnerIconGroup {...props} forwardedRef={ref} />
 ));

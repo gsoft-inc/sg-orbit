@@ -2,6 +2,8 @@ import { isNil } from "lodash";
 import { useChainedEventCallback, useControllableState } from "../../shared";
 
 export function useToggleButton({
+    variant,
+    shape,
     checked,
     defaultChecked,
     value,
@@ -28,6 +30,8 @@ export function useToggleButton({
     return {
         isChecked,
         buttonProps: {
+            variant,
+            shape,
             onClick: handleClick,
             value,
             active: active || isChecked,

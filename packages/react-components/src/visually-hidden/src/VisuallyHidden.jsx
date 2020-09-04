@@ -11,11 +11,13 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    as: "div"
-};
-
-export function InnerVisuallyHidden({ as: ElementType, className, children, forwardedRef, ...rest }) {
+export function InnerVisuallyHidden({
+    as: ElementType = "div",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <ElementType
             {...rest}
@@ -32,9 +34,8 @@ export function InnerVisuallyHidden({ as: ElementType, className, children, forw
 }
 
 InnerVisuallyHidden.propTypes = propTypes;
-InnerVisuallyHidden.defaultProps = defaultProps;
 
 export const VisuallyHidden = forwardRef((props, ref) => (
-    <InnerVisuallyHidden { ...props } forwardedRef={ref} />
+    <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));
 

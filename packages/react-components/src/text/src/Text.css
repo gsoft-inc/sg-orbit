@@ -1,0 +1,31 @@
+.o-ui-text-mini {
+    font-size: var(--type-scale-9);
+}
+
+.o-ui-text-tiny {
+    font-size: var(--type-scale-9);
+}
+
+.o-ui-text-small {
+    font-size: var(--type-scale-8);
+}
+
+.o-ui-text-medium {
+    font-size: var(--type-scale-7);
+}
+
+.o-ui-text-large {
+    font-size: var(--type-scale-6);
+}
+
+.o-ui-text-big {
+    font-size: var(--type-scale-5);
+}
+
+.o-ui-text-huge {
+    font-size: var(--type-scale-4);
+}
+
+.o-ui-text-massive {
+    font-size: var(--type-scale-3);
+}

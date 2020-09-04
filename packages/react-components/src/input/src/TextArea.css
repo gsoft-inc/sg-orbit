@@ -2,28 +2,33 @@
 
 :root {
     --o-ui-resize: vertical;
+    --o-ui-textarea-padding-small: var(--scale-bravo);
+    --o-ui-textarea-padding-medium: var(--scale-charlie);
+    --o-ui-textarea-padding-large: var(--scale-delta);
 }
 
-.o-ui.input.text-area textarea {
+.o-ui-text-area textarea {
     resize: var(--o-ui-resize);
+    /* Fixes a bug where Firefox adds one more row than the one specified. */
+    overflow-x: hidden;
 }
 
 /* SIZES */
 /* SIZES | SMALL */
-.o-ui.input.text-area.small textarea {
-    padding: var(--scale-bravo) var(--scale-delta);
+.o-ui-text-area.o-ui-input-small textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-small);
     min-height: 60px;
 }
 
 /* SIZES | MEDIUM */
-.o-ui.input.text-area.medium textarea {
-    padding: var(--scale-delta) var(--scale-echo);
+.o-ui-text-area.o-ui-input-medium textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-medium);
     min-height: 80px;
 }
 
 /* SIZES | LARGE */
-.o-ui.input.text-area.large textarea {
-    padding: var(--scale-echo) var(--scale-foxtrot);
+.o-ui-text-area.o-ui-input-large textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-large);
     line-height: 1.3333333;
     min-height: 100px;
 }

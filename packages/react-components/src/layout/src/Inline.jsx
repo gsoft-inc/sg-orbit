@@ -5,6 +5,14 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
+     * Whether or not to inline the elements.
+     */
+    inline: bool,
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse: bool,
+    /**
      * How the elements are aligned in the container along the main axis.
      */
     align: oneOf(["start", "end", "center"]),
@@ -38,16 +46,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    gap: 5,
-    as: "div"
-};
-
 export function InnerInline({
     align,
     justify,
     children,
+    gap = 5,
     wrap,
+    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -56,7 +61,9 @@ export function InnerInline({
             {...rest}
             alignItems={align}
             justifyContent={justify}
+            gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
+            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -65,8 +72,7 @@ export function InnerInline({
 }
 
 InnerInline.propTypes = propTypes;
-InnerInline.defaultProps = defaultProps;
 
 export const Inline = forwardRef((props, ref) => (
-    <InnerInline { ...props } forwardedRef={ref} />
+    <InnerInline {...props} forwardedRef={ref} />
 ));

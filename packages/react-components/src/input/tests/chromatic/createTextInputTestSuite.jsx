@@ -22,6 +22,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput loading size="large" element={element} />
                 </Inline>
                 <div>
+                    <TextInput disabled element={element}></TextInput>
+                </div>
+                <div>
                     <TextInput fluid element={element}></TextInput>
                 </div>
                 <div className="w-10">
@@ -45,6 +48,9 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput loading size="large" placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
+                    <TextInput disabled placeholder="Where to?" element={element}></TextInput>
+                </div>
+                <div>
                     <TextInput fluid placeholder="Where to?" element={element}></TextInput>
                 </div>
                 <div className="w-10">
@@ -58,18 +64,33 @@ export function createTextInputTestSuite(element, stories) {
         .add("label", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextInput label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextInput size="large" label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput size="small" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput size="large" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
                 </Inline>
                 <div>
-                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
                 </div>
                 <div>
-                    <TextInput fluid label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
+                    <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
                 </div>
                 <div className="w-10">
-                    <TextInput fluid label="Where to?" iconLeft={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
+                    <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
+                </div>
+            </Stack>
+        )
+        .add("description", () =>
+            <Stack>
+                <Inline align="end">
+                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="small" element={element} />
+                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
+                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="large" element={element} />
+                </Inline>
+                <div>
+                    <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
+                </div>
+                <div className="w-10">
+                    <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
                 </div>
             </Stack>
         )
@@ -103,34 +124,23 @@ export function createTextInputTestSuite(element, stories) {
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput size="large" iconLeft={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="small" icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="large" icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="small" iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput size="large" iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline align="end">
-                    <TextInput size="small" iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="large" iconLeft={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline align="end">
-                    <TextInput size="small" iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="large" iconRight={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline>
-                    <TextInput loading iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput size="small" icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <div>
-                    <TextInput fluid iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                    <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </div>
-                <div className="w10">
-                    <TextInput fluid iconLeft={<MagnifierIcon />} iconRight={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                <div>
+                    <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                </div>
+                <div className="w-10">
+                    <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )
@@ -145,6 +155,10 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                </Inline>
+                <Inline>
+                    <TextInput disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput readOnly button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
                     <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
@@ -207,13 +221,5 @@ export function createTextInputTestSuite(element, stories) {
                     <TextInput readOnly size="large" placeholder="Where to?" element={element} />
                 </Inline>
             </Stack>
-        )
-        .add("styling", () =>
-            <Inline>
-                <TextInput className="bg-red" element={element} />
-                <TextInput style={{ backgroundColor: "red" }} element={element} />
-                <TextInput wrapperProps={{ className: "border-red" }} element={element} />
-                <TextInput wrapperProps={{ style: { border: "1px solid red" } }} element={element} />
-            </Inline>
         );
 }

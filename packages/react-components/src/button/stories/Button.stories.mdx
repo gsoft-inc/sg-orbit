@@ -1,5 +1,4 @@
 import { AddIcon, CheckIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
-import { Badge } from "@react-components/badge";
 import {
     Button,
     ButtonGroup,
@@ -17,6 +16,7 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -51,6 +51,10 @@ A Button indicates a possible user action.
 
 This component follow WAI-ARIA [design pattern for button](https://www.w3.org/TR/wai-aria-practices-1.1/#button).
 
+## Slots
+
+A button component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`.
+
 ## Usage
 
 ### Default
@@ -65,26 +69,21 @@ A default button.
 
 ### Icon
 
-A button can contain left or right [icons](?path=/docs/materials-icons--page).
+A button can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
         <Inline>
-            <Button iconLeft={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconRight={<LightbulbIcon />}>Cutoff</Button>
-            <Button iconRight={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Cutoff</Button>
-        </Inline>
-    </Story>
-</Preview>
-
-### Badge
-
-A button can contain a [badge](?path=/story/components-badge--default-story).
-
-<Preview>
-    <Story name="badge">
-        <Inline>
-            <Button badge={<Badge>6</Badge>}>Cutoff</Button>
+            <Button>
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </Button>
+            <Button>
+                <IconGroup>
+                    <LightbulbIcon /><LightbulbIcon />
+                </IconGroup>
+                <Text>Cutoff</Text>
+            </Button>
         </Inline>
     </Story>
 </Preview>
@@ -92,8 +91,6 @@ A button can contain a [badge](?path=/story/components-badge--default-story).
 ### Size
 
 A button can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -131,7 +128,10 @@ A button can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Button fluid>To infinity and beyond</Button>
+        <Button fluid>
+            <LightbulbIcon />
+            <Text>To infinity and beyond</Text>
+        </Button>
     </Story>
 </Preview>
 
@@ -256,7 +256,10 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
     <Story name="toggle button">
         <Inline>
             <ToggleButton variant="outline" color="primary" shape="circular">On</ToggleButton>
-            <ToggleButton variant="outline" color="primary" iconLeft={<LightbulbIcon />}>Cutoff</ToggleButton>
+            <ToggleButton variant="outline" color="primary">
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </ToggleButton>
         </Inline>
     </Story>
 </Preview>

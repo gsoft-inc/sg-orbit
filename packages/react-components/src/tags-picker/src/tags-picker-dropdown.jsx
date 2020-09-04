@@ -324,7 +324,7 @@ export class TagsPickerDropdown extends PureComponent {
             return cloneElement(searchInput, props);
         }
 
-        return <TagsPickerDropdownSearchInput { ...props } { ...searchInput } />;
+        return <TagsPickerDropdownSearchInput {...props} { ...searchInput } />;
     };
 
     renderMenu = () => {

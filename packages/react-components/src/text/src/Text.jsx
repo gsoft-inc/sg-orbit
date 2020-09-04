@@ -1,9 +1,14 @@
-import { SIZE, createSizeAdapterSlotFactory, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import "./Text.css";
+
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
-    size: oneOf(["mini", "tiny", "small", "large"]),
+    /**
+     * A text can vary in size.
+     */
+    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -14,14 +19,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
-
 export function InnerText(props) {
     const {
         size,
-        as: ElementType,
+        as: ElementType = "span",
         className,
         children,
         forwardedRef,
@@ -33,8 +34,10 @@ export function InnerText(props) {
             data-testid="text"
             {...rest}
             className={mergeClasses(
-                "o-ui text",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-text",
+                    getSizeClass(size)
+                ),
                 className
             )}
             ref={forwardedRef}
@@ -45,14 +48,9 @@ export function InnerText(props) {
 }
 
 InnerText.propTypes = propTypes;
-InnerText.defaultProps = defaultProps;
 
 export const Text = forwardRef((props, ref) => (
-    <InnerText { ...props } forwardedRef={ref} />
+    <InnerText {...props} forwardedRef={ref} />
 ));
 
-export const textSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
+export const textSlot = props => props;

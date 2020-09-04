@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { CarretIcon } from "../../icons";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
-import { SIZE, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef } from "react";
 import { isNil } from "lodash";
@@ -96,7 +96,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
+    icon: element,
     /**
      * Whether theinput take up the width of its container.
      */
@@ -119,13 +119,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    step: 1,
-    clampValue: true,
-    variant: "outline",
-    as: "div"
-};
-
 export function Spinner({
     onIncrement,
     onDecrement,
@@ -145,11 +138,11 @@ export function Spinner({
     return (
         <div
             {...rest}
-            className="o-ui spinner"
+            className="o-ui-number-input-spinner"
         >
             <button
                 onClick={handleIncrement}
-                className="increment"
+                className="o-ui-number-input-spinner-increment"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -159,7 +152,7 @@ export function Spinner({
             </button>
             <button
                 onClick={handleDecrement}
-                className="decrement"
+                className="o-ui-number-input-spinner-decrement"
                 type="button"
                 tabIndex="-1"
                 disabled={disabled}
@@ -199,8 +192,8 @@ export function InnerNumberInput({
     placeholder,
     min,
     max,
-    step,
-    clampValue,
+    step = 1,
+    clampValue = true,
     label,
     required,
     description,
@@ -210,10 +203,10 @@ export function InnerNumberInput({
     validationState,
     onChange,
     onBlur,
-    variant,
+    variant = "outline",
     autoFocus,
     autoFocusDelay,
-    iconLeft,
+    icon,
     disabled,
     readOnly,
     fluid,
@@ -224,7 +217,7 @@ export function InnerNumberInput({
     hover,
     className,
     wrapperProps: userWrapperProps,
-    as: ElementType,
+    as: ElementType = "div",
     forwardedRef,
     ...rest
 }) {
@@ -315,7 +308,8 @@ export function InnerNumberInput({
         inputRef.current.focus();
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+        cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
@@ -353,11 +347,11 @@ export function InnerNumberInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, size);
+    const iconMarkup = useInputIcon(icon, { size, disabled });
 
     const content = (
         <>
-            {iconLeftMarkup}
+            {iconMarkup}
             <input
                 {...rest}
                 {...inputProps}
@@ -380,15 +374,17 @@ export function InnerNumberInput({
             data-testid="number-input"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input number-input",
-                iconLeftMarkup && "with-left-icon",
-                wrapperProps.className
+                cssModule(
+                    "o-ui-input",
+                    iconMarkup && "has-icon"
+                ),
+                wrapperClassName
             )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labelled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>
@@ -398,8 +394,7 @@ export function InnerNumberInput({
 }
 
 InnerNumberInput.propTypes = propTypes;
-InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
-    <InnerNumberInput { ...props } forwardedRef={ref} />
+    <InnerNumberInput {...props} forwardedRef={ref} />
 ));

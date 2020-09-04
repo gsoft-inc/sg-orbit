@@ -1,8 +1,9 @@
-import { getSizeClass, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
+    cssModule: module,
     checked,
     defaultChecked,
     indeterminate,
@@ -10,8 +11,6 @@ export function useCheckbox({
     autoFocus,
     autoFocusDelay,
     onChange,
-    icon,
-    badge,
     size,
     reverse,
     name,
@@ -20,7 +19,6 @@ export function useCheckbox({
     focus,
     hover,
     disabled,
-    readOnly,
     className,
     forwardedRef
 }) {
@@ -58,17 +56,17 @@ export function useCheckbox({
         isIndeterminate,
         wrapperProps: {
             className: mergeClasses(
-                isChecked && "checked",
-                isIndeterminate && "indeterminate",
-                !isNil(icon) && "with-icon",
-                !isNil(badge) && "with-badge",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                cssModule(
+                    module,
+                    isChecked && "checked",
+                    isIndeterminate && "indeterminate",
+                    reverse && "reverse",
+                    disabled && "disabled",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass(size)
+                ),
                 className
             ),
             ref: wrapperRef
@@ -76,8 +74,8 @@ export function useCheckbox({
         inputProps: {
             as: "input",
             type: "checkbox",
-            checked: !readOnly ? isChecked : undefined,
-            onChange: !readOnly ? handleChange : undefined,
+            checked: isChecked,
+            onChange: handleChange,
             disabled,
             name,
             tabIndex,

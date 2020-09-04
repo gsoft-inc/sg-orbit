@@ -1,11 +1,10 @@
 import "./Button.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { SIZE, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeClasses, useSlotProps } from "../../shared";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
+import { Text, textSlot } from "../../text";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
+import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 
 const propTypes = {
@@ -21,18 +20,6 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -52,7 +39,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * The button type.
      */
@@ -68,47 +55,32 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button",
-    as: "button"
-};
-
-export function InnerButton(props) {
-    const {
-        variant,
-        color,
-        shape,
-        iconLeft,
-        iconRight,
-        badge,
-        autoFocus,
-        autoFocusDelay,
-        fluid,
-        loading,
-        size,
-        active,
-        focus,
-        hover,
-        disabled,
-        as: ElementType,
-        className,
-        children,
-        forwardedRef,
-        ...rest
-    } = useSlotProps(props, "button");
-
-    const buttonProps = useButton({
+export function InnerButton({
+    variant = "solid",
+    color,
+    shape = "pill",
+    autoFocus,
+    autoFocusDelay,
+    fluid,
+    loading,
+    size,
+    active,
+    focus,
+    hover,
+    disabled,
+    type = "button",
+    as: ElementType = "button",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
         variant,
         color,
         shape,
@@ -121,34 +93,16 @@ export function InnerButton(props) {
         focus,
         hover,
         disabled,
+        type,
         className,
         forwardedRef
     });
 
-    const textMarkup = (
-        <span className="text">{children}</span>
-    );
+    const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
 
-    const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
-    );
-
-    const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
-    );
-
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
-
-    const content = (
-        <>
-            {iconLeftMarkup}
-            {textMarkup}
-            {iconRightMarkup}{badgeMarkup}
-        </>
-    );
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
         <ElementType
@@ -156,36 +110,37 @@ export function InnerButton(props) {
             {...rest}
             {...buttonProps}
             className={mergeClasses(
-                "o-ui button",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                badgeMarkup && "with-badge",
-                buttonProps.className
+                cssModule(
+                    "o-ui-button",
+                    hasIcon && "has-icon"
+                ),
+                buttonClassName
             )}
+            ref={buttonRef}
         >
-            {content}
+            <SlotProvider
+                slots={{
+                    text: textSlot({
+                        size,
+                        className: "o-ui-button-text"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-button-icon"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
 
 InnerButton.propTypes = propTypes;
-InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
-    <InnerButton { ...props } forwardedRef={ref} />
+    <InnerButton {...props} forwardedRef={ref} />
 ));
-
-export const embedButton = createEmbeddableAdapter({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
-
-export const buttonSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});
 
 
 

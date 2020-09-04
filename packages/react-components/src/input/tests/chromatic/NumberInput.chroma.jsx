@@ -15,11 +15,16 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
-            <NumberInput size="small" placeholder="Age" />
-            <NumberInput placeholder="Age" />
-            <NumberInput size="large" placeholder="Age" />
-        </Inline>
+        <Stack>
+            <Inline align="end">
+                <NumberInput size="small" placeholder="Age" />
+                <NumberInput placeholder="Age" />
+                <NumberInput size="large" placeholder="Age" />
+            </Inline>
+            <div>
+                <NumberInput disabled placeholder="Age" />
+            </div>
+        </Stack>
     )
     .add("min / max", () =>
         <Stack>
@@ -39,11 +44,16 @@ stories()
         <NumberInput defaultValue={12.10} step={0.1} placeholder="Grams" />
     )
     .add("icon", () =>
-        <Inline align="end">
-            <NumberInput iconLeft={<EditIcon />} size="small" placeholder="Age" />
-            <NumberInput iconLeft={<EditIcon />} placeholder="Age" />
-            <NumberInput iconLeft={<EditIcon />} size="large" placeholder="Age" />
-        </Inline>
+        <Stack>
+            <Inline align="end">
+                <NumberInput icon={<EditIcon />} size="small" placeholder="Age" />
+                <NumberInput icon={<EditIcon />} placeholder="Age" />
+                <NumberInput icon={<EditIcon />} size="large" placeholder="Age" />
+            </Inline>
+            <div>
+                <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
+            </div>
+        </Stack>
     )
     .add("fluid", () =>
         <NumberInput fluid placeholder="Age" />
@@ -53,6 +63,13 @@ stories()
             <NumberInput label="Age" size="small" />
             <NumberInput label="Age" />
             <NumberInput label="Age" size="large" />
+        </Inline>
+    )
+    .add("description", () =>
+        <Inline align="end">
+            <NumberInput description="How many years ago are you born?" label="Age" size="small" />
+            <NumberInput description="How many years ago are you born?" label="Age" />
+            <NumberInput description="How many years ago are you born?" label="Age" size="large" />
         </Inline>
     )
     .add("invalid", () =>
@@ -71,9 +88,6 @@ stories()
     )
     .add("readonly", () =>
         <NumberInput readOnly placeholder="Age" />
-    )
-    .add("disabled", () =>
-        <NumberInput disabled placeholder="Age" />
     )
     .add("loading", () =>
         <Inline align="end">

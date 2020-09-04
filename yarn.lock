@@ -3016,6 +3016,11 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@orbit-ui/icons@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@orbit-ui/icons/-/icons-7.0.0.tgz#895e3dde1e126343627d9bd5c7ab4427c2514131"
+  integrity sha512-0oTADI7RWOQJQvmL/9DLVJi19LZ9a8aJzpcwUSsVrr6OY5EjnfmuKlR9KfmKdYJRy6PWDNtBu/vIaR7RTJv4AA==
+
 "@popperjs/core@2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.2.2.tgz#2e254f5eb31f3abc35470060fb7116937d837739"

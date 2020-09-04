@@ -22,6 +22,9 @@ export function createTextAreaTestSuite(element, stories) {
                     <TextArea loading size="large" element={element} />
                 </Inline>
                 <div>
+                    <TextArea disabled element={element} />
+                </div>
+                <div>
                     <TextArea fluid element={element}></TextArea>
                 </div>
                 <div className="w-10">
@@ -44,6 +47,9 @@ export function createTextAreaTestSuite(element, stories) {
                     <TextArea loading placeholder="Where to?" element={element} />
                     <TextArea loading size="large" placeholder="Where to?" element={element} />
                 </Inline>
+                <div>
+                    <TextArea disabled placeholder="Where to?" element={element} />
+                </div>
                 <div>
                     <TextArea fluid placeholder="Where to?" element={element}></TextArea>
                 </div>
@@ -70,6 +76,21 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
                 <div className="w-10">
                     <TextArea fluid label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element}></TextArea>
+                </div>
+            </Stack>
+        )
+        .add("description", () =>
+            <Stack>
+                <Inline align="end">
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="small" label="Where to?" element={element} />
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="large" label="Where to?" element={element} />
+                </Inline>
+                <div>
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
+                </div>
+                <div className="w-10">
+                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
                 </div>
             </Stack>
         )
@@ -112,6 +133,9 @@ export function createTextAreaTestSuite(element, stories) {
                     <TextArea button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
+                <div>
+                    <TextArea disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                </div>
                 <div>
                     <TextArea loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>
@@ -173,13 +197,5 @@ export function createTextAreaTestSuite(element, stories) {
                     <TextArea readOnly size="large" placeholder="Where to?" element={element} />
                 </Inline>
             </Stack>
-        )
-        .add("styling", () =>
-            <Inline>
-                <TextArea className="bg-red" element={element} />
-                <TextArea style={{ backgroundColor: "red" }} element={element} />
-                <TextArea wrapperProps={{ className: "border-red" }} element={element} />
-                <TextArea wrapperProps={{ style: { border: "1px solid red" } }} element={element} />
-            </Inline>
         );
 }

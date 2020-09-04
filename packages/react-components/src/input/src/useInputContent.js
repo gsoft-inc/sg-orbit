@@ -1,19 +1,24 @@
 import { EmbeddedIcon } from "../../icons";
-import { embedButton } from "../../button";
+import { embedIconButton } from "../../button";
 
-export function useInputIcon(icon, size) {
+export function useInputIcon(icon, props) {
     return icon && (
-        <EmbeddedIcon size={size} className="input-icon">{icon}</EmbeddedIcon>
+        <EmbeddedIcon
+            {...props}
+            className="o-ui-input-icon"
+        >
+            {icon}
+        </EmbeddedIcon>
     );
 }
 
-export function useInputButton(button, size) {
-    return button && embedButton(button, {
-        size,
+export function useInputButton(button, isActive, props) {
+    return button && isActive && embedIconButton(button, {
+        ...props,
         variant: "ghost",
         color: "secondary",
         shape: "circular",
-        className: "button"
+        className: "o-ui-input-button"
     });
 }
 

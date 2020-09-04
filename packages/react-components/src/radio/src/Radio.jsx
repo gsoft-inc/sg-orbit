@@ -1,11 +1,12 @@
 import "./Radio.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { Label, textSlot } from "../../text";
+import { SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import { getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 
 const propTypes = {
@@ -22,19 +23,11 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
-    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**
-     * Invert the order the checkmark box and the label.
+     * Invert the order of the checkmark box and the label.
      */
     reverse: bool,
     /**
@@ -53,10 +46,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerRadio(props) {
     const {
         value,
@@ -67,8 +56,6 @@ export function InnerRadio(props) {
         autoFocusDelay,
         onChange,
         onCheck,
-        icon,
-        badge,
         size,
         reverse,
         tabIndex,
@@ -76,8 +63,7 @@ export function InnerRadio(props) {
         focus,
         hover,
         disabled,
-        readOnly,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -100,31 +86,13 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    const label = isFunction(children)
+    let content = isFunction(children)
         ? children({ isChecked }, props)
         : children;
 
-    const labelMarkup = label && (
-        <span className="label">{label}</span>
-    );
-
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
-
-    // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
-
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {badgeMarkup}
-        </>
-    );
+    if (typeof content === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     const handleChange = useEventCallback(event => {
         setIsChecked(!isChecked);
@@ -143,17 +111,16 @@ export function InnerRadio(props) {
             data-testid="radio"
             {...rest}
             className={mergeClasses(
-                "o-ui radio",
-                isChecked && "checked",
-                iconMarkup && "with-icon",
-                badgeMarkup && "with-badge",
-                reverse && "reverse",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-radio",
+                    isChecked && "checked",
+                    reverse && "reverse",
+                    disabled && "disabled",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass(size)
+                ),
                 className
             )}
             ref={labelRef}
@@ -163,21 +130,38 @@ export function InnerRadio(props) {
                 type="radio"
                 value={value}
                 name={name}
-                checked={readOnly ? undefined : isChecked}
-                onChange={readOnly ? undefined : !isNil(onCheck) ? handleCheck : handleChange}
+                checked={isChecked}
+                onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 ref={inputRef}
             />
-            <span className="button"></span>
-            {content}
+            <span className="o-ui-radio-button"></span>
+            <SlotProvider
+                slots={{
+                    label: textSlot({
+                        size,
+                        className: "o-ui-radio-label"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-radio-icon"
+                    }),
+                    counter: counterSlot({
+                        size,
+                        reverse,
+                        className: "o-ui-radio-counter"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
 
 InnerRadio.propTypes = propTypes;
-InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
-    <InnerRadio { ...props } forwardedRef={ref} />
+    <InnerRadio {...props} forwardedRef={ref} />
 ));

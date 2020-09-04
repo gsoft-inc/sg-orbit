@@ -1,20 +1,12 @@
 import "./Lozenge.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { any, element, elementType, oneOf, oneOfType, string } from "prop-types";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
+import { Text, textSlot } from "../../text";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
-import { isNil } from "lodash";
+import { iconSlot } from "../../icons";
 
 const propTypes = {
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
     /**
      * A lozenge can vary in size.
      */
@@ -29,51 +21,61 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "span"
-};
+const textSlotAdapter = createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium
+});
 
-export function InnerLozenge({ iconLeft, iconRight, size, as: ElementType, className, children, forwardedRef, ...rest }) {
-    const textMarkup = (
-        <span className="text">{children}</span>
-    );
+export function InnerLozenge({
+    size,
+    className,
+    as: ElementType = "span",
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    const ref = useMergedRefs(forwardedRef);
 
-    const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
-    );
+    const hasIcon = useHasChild(".o-ui-lozenge-icon", ref);
 
-    const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
-    );
-
-    const content = (
-        <>
-            {iconLeftMarkup}
-            {textMarkup}
-            {iconRightMarkup}
-        </>
-    );
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui lozenge",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-lozenge",
+                    hasIcon && "has-icon",
+                    getSizeClass(size)
+                ),
                 className
             )}
-            ref={forwardedRef}
+            ref={ref}
         >
-            {content}
+            <SlotProvider
+                slots={{
+                    text: textSlot(textSlotAdapter({
+                        size,
+                        className: "o-ui-lozenge-text"
+                    })),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-lozenge-icon"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
 
 InnerLozenge.propTypes = propTypes;
-InnerLozenge.defaultProps = defaultProps;
 
 export const Lozenge = forwardRef((props, ref) => (
-    <InnerLozenge { ...props } forwardedRef={ref} />
+    <InnerLozenge {...props} forwardedRef={ref} />
 ));

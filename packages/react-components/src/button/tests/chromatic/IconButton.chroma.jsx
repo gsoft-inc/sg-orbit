@@ -1,5 +1,5 @@
 import { AddIcon } from "@react-components/icons";
-import { IconButton, embedButton } from "@react-components/button";
+import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createIconButtonTestSuite } from "./createIconButtonTestSuite";
@@ -21,13 +21,6 @@ createIconButtonTestSuite(<IconButton variant="outline" />, stories("/outline"))
 createIconButtonTestSuite(<IconButton variant="ghost" />, stories("/ghost"));
 
 stories()
-    .add("embedded", () =>
-        <Inline align="end">
-            {embedButton(<IconButton><AddIcon /></IconButton>, { size: "small" })}
-            {embedButton(<IconButton><AddIcon /></IconButton>)}
-            {embedButton(<IconButton><AddIcon /></IconButton>, { size: "large" })}
-        </Inline>
-    )
     .add("styling", () =>
         <Inline>
             <IconButton className="bg-red"><AddIcon /></IconButton>

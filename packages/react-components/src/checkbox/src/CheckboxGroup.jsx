@@ -51,13 +51,13 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
+     * Invert the order of the checkbox and the label of all children.
+     */
+    reverse: bool,
+    /**
      * Whether the checkbox group is disabled.
      */
     disabled: bool,
-    /**
-     * Whether the checkbox group is read only.
-     */
-    readOnly: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -66,11 +66,6 @@ const propTypes = {
      * Component children.
      */
     children: oneOfType([any, func]).isRequired
-};
-
-const defaultProps = {
-    orientation: "horizontal",
-    as: "div"
 };
 
 function arrayToggleValue(array, value) {
@@ -98,12 +93,13 @@ export function InnerCheckboxGroup(props) {
         required,
         description,
         onChange,
-        orientation,
+        orientation = "horizontal",
         gap,
         wrap,
         size,
+        reverse,
         disabled,
-        readOnly,
+        as = "div",
         children,
         forwardedRef,
         ...rest
@@ -122,8 +118,9 @@ export function InnerCheckboxGroup(props) {
         gap,
         wrap,
         size,
-        readOnly,
+        reverse,
         disabled,
+        as,
         ref: forwardedRef
     });
 
@@ -150,7 +147,6 @@ export function InnerCheckboxGroup(props) {
             <Flex
                 {...additionalProps}
                 {...itemsProps}
-                alignItems="start"
             >
                 <CheckableContext.Provider
                     value={{
@@ -161,8 +157,8 @@ export function InnerCheckboxGroup(props) {
                     {Children.map(items, x => {
                         return augmentElement(x, {
                             size,
+                            reverse,
                             disabled,
-                            readOnly,
                             role: "checkbox"
                         });
                     })}
@@ -173,11 +169,7 @@ export function InnerCheckboxGroup(props) {
 
     return (
         !labelMarkup ? renderItems(groupProps) : (
-            <Flex
-                {...groupProps}
-                direction="column"
-                gap={2}
-            >
+            <Flex {...groupProps}>
                 {labelMarkup}
                 {renderItems()}
             </Flex>
@@ -186,9 +178,8 @@ export function InnerCheckboxGroup(props) {
 }
 
 InnerCheckboxGroup.propTypes = propTypes;
-InnerCheckboxGroup.defaultProps = defaultProps;
 
 export const CheckboxGroup = forwardRef((props, ref) => (
-    <InnerCheckboxGroup { ...props } forwardedRef={ref} />
+    <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
 

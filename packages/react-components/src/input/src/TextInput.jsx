@@ -3,8 +3,8 @@ import "./Input.css";
 import { InputLabel } from "./InputLabel";
 import { InputMessage } from "./InputMessage";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
-import { mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
 
@@ -74,11 +74,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the value.
-     */
-    iconRight: element,
+    icon: element,
     /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
      */
@@ -105,12 +101,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    variant: "outline",
-    type: "text",
-    as: "div"
-};
-
 export function InnerTextInput({
     id,
     value,
@@ -124,12 +114,11 @@ export function InnerTextInput({
     validMessage,
     validationState,
     onChange,
-    variant,
-    type,
+    variant = "outline",
+    type = "text",
     autoFocus,
     autoFocusDelay,
-    iconLeft,
-    iconRight,
+    icon,
     button,
     disabled,
     readOnly,
@@ -141,7 +130,7 @@ export function InnerTextInput({
     hover,
     className,
     wrapperProps: userWrapperProps,
-    as: ElementType,
+    as: ElementType = "div",
     forwardedRef,
     ...rest
 }) {
@@ -151,7 +140,8 @@ export function InnerTextInput({
         setValue(event.target.value);
     });
 
-    const { wrapperProps, inputProps, labelProps, messageProps } = useInput({
+    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+        cssModule: "o-ui-text-input",
         id,
         value: inputValue,
         placeholder,
@@ -176,7 +166,7 @@ export function InnerTextInput({
         focus,
         hover,
         className,
-        userWrapperProps,
+        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -188,20 +178,17 @@ export function InnerTextInput({
         <InputMessage {...messageProps} />
     );
 
-    const iconLeftMarkup = useInputIcon(iconLeft, size);
+    const iconMarkup = useInputIcon(icon, { size, disabled });
 
-    const iconRightMarkup = useInputIcon(iconRight, size);
-
-    const buttonMarkup = useInputButton(button, size);
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
 
     const content = (
         <>
-            {iconLeftMarkup}
+            {iconMarkup}
             <input
                 {...rest}
                 {...inputProps}
             />
-            {iconRightMarkup}
             {buttonMarkup}
             {messageMarkup}
         </>
@@ -212,17 +199,18 @@ export function InnerTextInput({
             data-testid="text-input"
             {...wrapperProps}
             className={mergeClasses(
-                "o-ui input text-input",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                button && "with-button",
-                wrapperProps.className
+                cssModule(
+                    "o-ui-input",
+                    iconMarkup && "has-icon",
+                    buttonMarkup && "has-button"
+                ),
+                wrapperClassName
             )}
         >
             {!labelMarkup ? content : (
                 <>
                     {labelMarkup}
-                    <div className="labelled-input">
+                    <div className="o-ui-labeled-input">
                         {content}
                     </div>
                 </>
@@ -232,8 +220,7 @@ export function InnerTextInput({
 }
 
 InnerTextInput.propTypes = propTypes;
-InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
-    <InnerTextInput { ...props } forwardedRef={ref} />
+    <InnerTextInput {...props} forwardedRef={ref} />
 ));

@@ -87,13 +87,13 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
+     * Invert the order of the button and the label of all children.
+     */
+    reverse: bool,
+    /**
      * Whether the radio group is disabled.
      */
     disabled: bool,
-    /**
-     * Whether the radio group is read only.
-     */
-    readOnly: bool,
     /**
    * An HTML element type or a custom React element type to render as.
    */
@@ -102,11 +102,6 @@ const propTypes = {
      * Component children.
      */
     children: oneOfType([any, func]).isRequired
-};
-
-const defaultProps = {
-    orientation: "vertical",
-    as: "div"
 };
 
 export function InnerRadioGroup(props) {
@@ -120,13 +115,14 @@ export function InnerRadioGroup(props) {
         onChange,
         autoFocus,
         autoFocusDelay,
-        orientation,
+        orientation = "vertical",
         gap,
         wrap,
         size,
+        reverse,
         disabled,
-        readOnly,
         navigationMode,
+        as = "div",
         children,
         forwardedRef,
         ...rest
@@ -156,8 +152,9 @@ export function InnerRadioGroup(props) {
         gap,
         wrap,
         size,
-        readOnly,
+        reverse,
         disabled,
+        as,
         ref
     });
 
@@ -185,7 +182,6 @@ export function InnerRadioGroup(props) {
                 {...additionalProps}
                 {...navigationProps}
                 {...itemsProps}
-                alignItems="start"
             >
                 <CheckableContext.Provider
                     value={{
@@ -197,8 +193,8 @@ export function InnerRadioGroup(props) {
                         return augmentElement(x, {
                             name: groupName,
                             size,
+                            reverse,
                             disabled,
-                            readOnly,
                             role: "radio"
                         });
                     })}
@@ -209,11 +205,7 @@ export function InnerRadioGroup(props) {
 
     return (
         !labelMarkup ? renderItems(groupProps) : (
-            <Flex
-                {...groupProps}
-                direction="column"
-                gap={2}
-            >
+            <Flex {...groupProps}>
                 {labelMarkup}
                 {renderItems()}
             </Flex>
@@ -222,8 +214,8 @@ export function InnerRadioGroup(props) {
 }
 
 InnerRadioGroup.propTypes = propTypes;
-InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />
 ));
+

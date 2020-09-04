@@ -1,10 +1,11 @@
 import "./InputLabel.css";
 
 import { EmbeddedIcon, InfoIcon } from "@react-components/icons";
+import { EmbeddedText } from "../../text";
 import { Tooltip } from "@react-components/tooltip";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
 
 const propTypes = {
     required: bool,
@@ -13,15 +14,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "label"
-};
+// TODO: Use Label instead of Text.
 
 export function InnerInputLabel({
     required,
     description,
     size,
-    as: ElementType,
+    as: ElementType = "label",
     className,
     children,
     forwardedRef,
@@ -32,7 +31,11 @@ export function InnerInputLabel({
     const descriptionMarkup = description && (
         <Tooltip
             content={description}
-            trigger={<EmbeddedIcon size={size}><InfoIcon className="input-description" /></EmbeddedIcon>}
+            trigger={
+                <EmbeddedIcon size={size}>
+                    <InfoIcon className="o-ui-input-description" />
+                </EmbeddedIcon>
+            }
             size={size}
         />
     );
@@ -41,23 +44,26 @@ export function InnerInputLabel({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui input-label",
-                required && "required",
-                descriptionMarkup && "with-description",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-input-label",
+                    required && "required",
+                    descriptionMarkup && "has-description",
+                    getSizeClass(size)
+                ),
                 className
             )}
             ref={forwardedRef}
         >
-            {label}
+            <EmbeddedText size={size}>
+                {label}
+            </EmbeddedText>
             {descriptionMarkup}
         </ElementType>
     );
 }
 
 InnerInputLabel.propTypes = propTypes;
-InnerInputLabel.defaultProps = defaultProps;
 
 export const InputLabel = forwardRef((props, ref) => (
-    <InnerInputLabel { ...props } forwardedRef={ref} />
+    <InnerInputLabel {...props} forwardedRef={ref} />
 ));

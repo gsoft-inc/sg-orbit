@@ -1,74 +1,91 @@
 import "./Badge.css";
 
 import { Children, forwardRef } from "react";
-import { SIZE, augmentElement, createEmbeddableAdapter, getSizeClass, mergeClasses } from "../../shared";
-import { bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { textSlot } from "../../text";
 
 const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["pill", "inline", "dot", "icon"]),
+    variant: oneOf(["count", "dot", "icon"]),
     /**
-     * Whether to add emphasis on the label text.
+     * The shape of the element being overlap by the badge.
      */
-    highlight: bool,
+    overlap: oneOf(["circle", "icon"]),
     /**
      * A badge can vary in size.
      */
-    size: oneOf(["micro", "mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["small", "medium", "large"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "pill",
-    as: "span"
-};
+const textSlotAdapter = createSizeAdapterSlotFactory({
+    [SIZE.small]: SIZE.tiny,
+    [SIZE.medium]: SIZE.small,
+    [SIZE.large]: SIZE.medium
+});
 
-export function InnerBadge(props) {
-    const { variant, highlight, size, as: Element, className, children, forwardedRef, ...rest } = props;
+export function InnerBadge({
+    variant = "count",
+    overlap,
+    size,
+    as: ElementType = "span",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
+    let [badgeContent, overlappedElement] = Children.toArray(children);
 
-    let content = children;
-
-    if (variant === "icon") {
-        content = augmentElement(Children.only(children), {
-            size
-        });
+    if (variant === "dot") {
+        overlappedElement = badgeContent;
+        badgeContent = undefined;
     }
 
     return (
-        <Element
+        <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui badge",
-                variant,
-                variant === "dot" && !content && "empty",
-                variant !== "inline" && variant !== "icon" && getSizeClass(size),
-                highlight && "highlight",
+                cssModule(
+                    "o-ui-badge",
+                    variant,
+                    overlap && `over-${overlap}`,
+                    getSizeClass(size)
+                ),
                 className
             )}
             ref={forwardedRef}
         >
-            {content}
-        </Element>
+            <SlotProvider
+                slots={{
+                    text: textSlot(textSlotAdapter({
+                        size
+                    })),
+                    icon: {
+                        size
+                    }
+                }}
+            >
+                <div className="o-ui-badge-anchor">
+                    {badgeContent}
+                </div>
+            </SlotProvider>
+            {overlappedElement}
+        </ElementType>
     );
 }
 
 InnerBadge.propTypes = propTypes;
-InnerBadge.defaultProps = defaultProps;
 
 export const Badge = forwardRef((props, ref) => (
-    <InnerBadge { ...props } forwardedRef={ref} />
+    <InnerBadge {...props} forwardedRef={ref} />
 ));
-
-export const embedBadge = createEmbeddableAdapter({
-    [SIZE.micro]: SIZE.micro,
-    [SIZE.mini]: SIZE.micro,
-    [SIZE.tiny]: SIZE.micro,
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
-});

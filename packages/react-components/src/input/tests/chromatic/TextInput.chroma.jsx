@@ -1,3 +1,4 @@
+import { Inline } from "@react-components/layout";
 import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTextInputTestSuite } from "./createTextInputTestSuite";
@@ -25,4 +26,12 @@ stories()
     )
     .add("autofocus with delay", () =>
         <TextInput autoFocus autoFocusDelay={50} />
+    )
+    .add("styling", () =>
+        <Inline>
+            <TextInput className="bg-red" />
+            <TextInput style={{ backgroundColor: "red" }} />
+            <TextInput wrapperProps={{ className: "border-red" }} />
+            <TextInput wrapperProps={{ style: { border: "1px solid red" } }} />
+        </Inline>
     );

@@ -1,11 +1,13 @@
-import { Badge } from "@react-components/badge";
 import { CheckCircleIcon, CheckIcon, CrossIcon, IconGroup } from "@react-components/icons";
+import { Counter } from "@react-components/counter";
+import { Dot } from "@react-components/dot";
 import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import CustomColorHover from "./CustomColorHover.mdx";
 import Imports from "./Imports.mdx";
 
@@ -33,6 +35,10 @@ A tag represent an interactive keyword that help label, organize and categorize 
     ]}
 />
 
+## Slots
+
+A tag component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`, `"dot"`, `"counter"`, `"button"`.
+
 ## Usage
 
 ### Default
@@ -51,57 +57,65 @@ A tag can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
     <Story name="button">
-        <Tag button={<IconButton><CrossIcon /></IconButton>}>
-            Falcon 9
+        <Tag>
+            <Text>Falcon 9</Text>
+            <IconButton>
+                <CrossIcon />
+            </IconButton>
         </Tag>
     </Story>
 </Preview>
 
 ### Icon
 
-A tag can contain a left or right [icon](?path=/docs/materials-icons--page).
+A tag can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
         <Inline>
-            <Tag iconLeft={<CheckCircleIcon />}>
-                Falcon 9
+            <Tag>
+                <CheckCircleIcon />
+                <Text>Falcon 9</Text>
             </Tag>
-            <Tag iconRight={<CheckIcon />}>
-                Falcon 9
-            </Tag>
-            <Tag iconRight={<IconGroup><CheckCircleIcon /><CheckCircleIcon /></IconGroup>}>
-                Falcon 9
+            <Tag>
+                <IconGroup>
+                    <CheckCircleIcon /><CheckCircleIcon />
+                </IconGroup>
+                <Text>Falcon 9</Text>
             </Tag>
         </Inline>
     </Story>
 </Preview>
 
-### Badge
+### Dot
 
-A tag can contain a left or right [badge](?path=/docs/components-badge--default-story).
+A tag can contain a [dot](?path=/docs/components-dot--default-story).
 
 <Preview>
-    <Story name="badge">
-        <Inline>
-            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />}>
-                Falcon 9
-            </Tag>
-            <Tag badgeRight={<Badge>6</Badge>}>
-                Falcon 9
-            </Tag>
-            <Tag badgeLeft={<Badge variant="dot" className="bg-primary-500" />} badgeRight={<Badge>6</Badge>}>
-                Falcon 9
-            </Tag>
-        </Inline>
+    <Story name="dot">
+        <Tag>
+            <Dot color="primary-500" />
+            <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### Counter
+
+A tag can contain a [counter](?path=/docs/components-counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Tag>
+            <Text>Falcon 9</Text>
+            <Counter>6</Counter>
+        </Tag>
     </Story>
 </Preview>
 
 ### Size
 
 A tag can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -119,7 +133,11 @@ A tag can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Tag fluid iconLeft={<CheckCircleIcon />} badgeRight={<Badge>6</Badge>}>Falcon 9</Tag>
+        <Tag fluid>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+            <Counter>6</Counter>
+        </Tag>
     </Story>
 </Preview>
 
@@ -159,7 +177,9 @@ Custom colors can be applied to a tag.
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Tag>Falcon 9</Tag></RefLogger>
+    <RefLogger>
+        <Tag>Falcon 9</Tag>
+    </RefLogger>
 </Story>
 
 

@@ -1,6 +1,6 @@
 import "./Icon.css";
 
-import { SIZE, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -10,6 +10,7 @@ export function InnerIcon(props) {
     const {
         type: ComponentType,
         size,
+        disabled,
         className,
         forwardedRef,
         ...rest
@@ -19,7 +20,11 @@ export function InnerIcon(props) {
         <ComponentType
             {...rest}
             className={mergeClasses(
-                `o-ui icon icon-${size || SIZE.medium}`,
+                cssModule(
+                    "o-ui-icon",
+                    disabled && "disabled",
+                    getSizeClass(size)
+                ),
                 className
             )}
             focusable="false"
@@ -45,7 +50,7 @@ InnerIcon.propTypes = {
 };
 
 export const Icon = forwardRef((props, ref) => (
-    <InnerIcon { ...props } forwardedRef={ref} />
+    <InnerIcon {...props} forwardedRef={ref} />
 ));
 
 function createIconFactory(type) {
@@ -95,7 +100,7 @@ InnerMultiVariantIcon.propTypes = {
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (
-    <InnerMultiVariantIcon { ...props } forwardedRef={ref} />
+    <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 ));
 
 function createMultiVariantFactory(type24, type32) {

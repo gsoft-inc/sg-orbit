@@ -1,9 +1,10 @@
-import { CheckCircleIcon } from "@react-components/icons";
+import { CheckCircleIcon, IconGroup } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -30,6 +31,10 @@ Lozenges are used to highlight an item's status for quick recognition or to give
     ]}
 />
 
+## Slots
+
+A lozenge component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`.
+
 ## Usage
 
 ### Default
@@ -48,18 +53,22 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Lozenge iconLeft={<CheckCircleIcon />}>New</Lozenge>
-            <Lozenge iconRight={<CheckCircleIcon />}>New</Lozenge>
-        </Inline>
+        <Lozenge>
+            <CheckCircleIcon />
+            <Text>New</Text>
+        </Lozenge>
+        <Lozenge>
+            <IconGroup>
+                <CheckCircleIcon /><CheckCircleIcon />
+            </IconGroup>
+            <Text>New</Text>
+        </Lozenge>
     </Story>
 </Preview>
 
 ### Size
 
 A lozenge can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">

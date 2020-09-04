@@ -91,21 +91,17 @@ A number input value can be forced between min & max boundaries.
 
 ### Icon
 
-A number input can have a left [icon](?path=/docs/materials-icons--page).
+A number input can have an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <NumberInput iconLeft={<EditIcon />} placeholder="Age" />
-        </Inline>
+        <NumberInput icon={<EditIcon />} placeholder="Age" />
     </Story>
 </Preview>
 
 ### Size
 
 A number input can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -157,6 +153,16 @@ A number input can take the width of its container.
     </Story>
 </Preview>
 
+### Validation
+
+A number input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the number input via the `validationState` prop.
+
+The example below illustrates how one would validate a required age value.
+
+<FilePreview filePath="/input/stories/RequiredAgeValidation">
+    <RequiredAgeValidation />
+</FilePreview>
+
 ### Message
 
 A message can be displayed beneath a number input.
@@ -180,16 +186,6 @@ A number input can be transparent.
         <NumberInput variant="transparent" placeholder="Age" />
     </Story>
 </Preview>
-
-### Validation
-
-A number input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the number input via the `validationState` prop.
-
-The example below illustrates how one would validate a required age value.
-
-<FilePreview filePath="/input/stories/RequiredAgeValidation">
-    <RequiredAgeValidation />
-</FilePreview>
 
 <Story
     name="ref"

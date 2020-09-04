@@ -1,12 +1,13 @@
 import "./Switch.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { Label, textSlot } from "../../text";
+import { SlotProvider } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
-import { isFunction, isNil } from "lodash";
-import { mergeClasses } from "../../shared";
+import { iconSlot } from "../../icons";
+import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
 
 const propTypes = {
@@ -26,14 +27,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
     /**
      * A checkbox can vary in size.
      */
@@ -58,10 +51,6 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerSwitch(props) {
     const {
         checked,
@@ -69,8 +58,6 @@ export function InnerSwitch(props) {
         autoFocus,
         autoFocusDelay,
         onChange,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -79,8 +66,7 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        readOnly,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -92,13 +78,12 @@ export function InnerSwitch(props) {
         wrapperProps,
         inputProps
     } = useCheckbox({
+        cssModule: "o-ui-switch",
         checked,
         defaultChecked,
         autoFocus,
         autoFocusDelay,
         onChange,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -107,63 +92,53 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         className,
         forwardedRef
     });
 
-    const createMarkup = () => {
-        const labelMarkup = children && (
-            <span className="label">{children}</span>
-        );
-
-        const iconMarkup = !isNil(icon) && (
-            <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-        );
-
-        // TODO: Add reverse
-        const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-            size,
-            disabled
-        });
-
-        return (
-            <>
-                {labelMarkup}
-                {iconMarkup}
-                {badgeMarkup}
-            </>
-        );
-    };
-
-    const content = isFunction(children)
+    let content = isFunction(children)
         ? children({ isChecked }, props)
-        : createMarkup();
+        : children;
+
+    if (typeof content === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     return (
         <ElementType
             data-testid="switch"
             {...rest}
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui switch",
-                wrapperProps.className
-            )}
         >
-            <VisuallyHidden
-                {...inputProps}
-            />
-            <span className="switch" />
-            {content}
+            <VisuallyHidden {...inputProps} />
+            <span className="o-ui-switch-switch" />
+            <SlotProvider
+                slots={{
+                    label: textSlot({
+                        size,
+                        className: "o-ui-switch-label"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-switch-icon"
+                    }),
+                    counter: counterSlot({
+                        size,
+                        reverse,
+                        className: "o-ui-switch-counter"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
 
 InnerSwitch.propTypes = propTypes;
-InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
-    <InnerSwitch { ...props } forwardedRef={ref} />
+    <InnerSwitch {...props} forwardedRef={ref} />
 ));
 
 export const Toggle = Switch;

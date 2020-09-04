@@ -1,9 +1,10 @@
-import { Badge } from "@react-components/badge";
 import { ControlledSwitch } from "./ControlledSwitch.sample";
+import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
+import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -30,6 +31,14 @@ A switch offers an on or off choice to a user.
         { displayName: "Switch", component: InnerSwitch }
     ]}
 />
+
+## Accessibility
+
+This component follow WAI-ARIA [design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+
+## Slots
+
+A switch component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
 
 ## Usage
 
@@ -74,16 +83,6 @@ A switch can be disabled.
     </Story>
 </Preview>
 
-### Readonly
-
-A switch can be readonly.
-
-<Preview>
-    <Story name="readonly">
-        <Switch readOnly>Engines</Switch>
-    </Story>
-</Preview>
-
 ### Icon
 
 A switch can have [icons](?path=/docs/materials-icons--page) after his text.
@@ -91,21 +90,35 @@ A switch can have [icons](?path=/docs/materials-icons--page) after his text.
 <Preview>
     <Story name="icon">
         <Inline>
-            <Switch icon={<LightbulbIcon />}>Pressurization</Switch>
-            <Switch icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>}>Engines</Switch>
+            <Switch>
+                <Label>Pressurization</Label>
+                <LightbulbIcon />
+            </Switch>
+            <Switch>
+                <Label>Engines</Label>
+                <IconGroup>
+                    <LightbulbIcon /><LightbulbIcon />
+                </IconGroup>
+            </Switch>
         </Inline>
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A switch can have a [badge](?path=/docs/components-badge--default-story) after his text.
+A switch can have a [counter](?path=/docs/components-counter--default-story) after his text.
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <Inline>
-            <Switch badge={<Badge>6</Badge>}>Pressurization</Switch>
-            <Switch badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+            <Switch>
+                <Label>Pressurization</Label>
+                <Counter>6</Counter>
+            </Switch>
+            <Switch>
+                <Label>Engines</Label>
+                <Counter variant="divider">6</Counter>
+            </Switch>
         </Inline>
     </Story>
 </Preview>
@@ -113,8 +126,6 @@ A switch can have a [badge](?path=/docs/components-badge--default-story) after h
 ### Size
 
 A switch can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -132,7 +143,11 @@ A checkbox checkmark can be to the left or to the right of his label.
 
 <Preview>
     <Story name="reverse">
-        <Switch reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Engines</Switch>
+        <Switch reverse>
+            <InfoIcon />
+            <Label>Engines</Label>
+            <Counter variant="divider">6</Counter>
+        </Switch>
     </Story>
 </Preview>
 
@@ -144,9 +159,9 @@ A switch can update is content with a render props based on the state values.
     <Story name="render props">
         <Switch>
             {
-                ({ isChecked }) => (
-                    <span className="label">{isChecked ? "On" : "Off"}</span>
-                )
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
+                }
             }
         </Switch>
     </Story>

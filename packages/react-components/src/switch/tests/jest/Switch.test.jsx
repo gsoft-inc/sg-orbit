@@ -55,20 +55,6 @@ test("dont call onChange when the switch is disabled", async () => {
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("dont call onChange when the switch is readonly", async () => {
-    const handler = jest.fn();
-
-    const { getByTestId } = render(
-        <Switch readOnly onChange={handler} />
-    );
-
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
-
-    expect(handler).not.toHaveBeenCalled();
-});
-
 test("can focus the switch with the focus api", async () => {
     let refNode = null;
 

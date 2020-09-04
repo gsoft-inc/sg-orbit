@@ -1,10 +1,11 @@
-import { Badge } from "../../badge";
 import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
+import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
+import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { ToggleButton } from "@react-components/button";
@@ -37,6 +38,10 @@ A radio group is a set of checkable buttons, known as radio buttons, where no mo
 ## Accessibility
 
 This component follow WAI-ARIA [design pattern for radio group](https://www.w3.org/TR/wai-aria-practices-1.1/#radiobutton).
+
+## Slots
+
+A radio component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
 
 ## Usage
 
@@ -108,32 +113,6 @@ Or the whole group.
     </Story>
 </Preview>
 
-### Readonly
-
-A single radio can be readonly.
-
-<Preview>
-    <Story name="readonly radio">
-        <RadioGroup>
-            <Radio readOnly value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
-Or the whole group.
-
-<Preview>
-    <Story name="readonly group">
-        <RadioGroup readOnly>
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
 ### Icon
 
 A radio can have [icons](?path=/docs/materials-icons--page) after his text.
@@ -141,23 +120,37 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
 <Preview>
     <Story name="icon">
         <RadioGroup>
-            <Radio icon={<LightbulbIcon />} value="mars">Mars</Radio>
-            <Radio icon={<IconGroup><LightbulbIcon /><LightbulbIcon /></IconGroup>} value="jupiter">Jupiter</Radio>
+            <Radio value="mars">
+                <Label>Mars</Label>
+                <LightbulbIcon />
+            </Radio>
+            <Radio value="jupiter">
+                <Label>Jupiter</Label>
+                <IconGroup>
+                    <LightbulbIcon /><LightbulbIcon />
+                </IconGroup>
+            </Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A radio can have a [badge](?path=/docs/components-badge--default-story) after his text.
+A radio can have a [counter](?path=/docs/components-counter--default-story) after his text.
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <RadioGroup>
-            <Radio badge={<Badge>6</Badge>} value="mars">Mars</Radio>
+            <Radio value="mars">
+                <Label>Mars</Label>
+                <Counter>6</Counter>
+            </Radio>
             <Radio value="jupiter">Jupiter</Radio>
-            <Radio badge={<Badge variant="inline">6</Badge>} value="pluto">Pluto</Radio>
+            <Radio value="pluto">
+                <Label>Pluto</Label>
+                <Counter variant="divider">6</Counter>
+            </Radio>
         </RadioGroup>
     </Story>
 </Preview>
@@ -167,11 +160,30 @@ A radio can have a [badge](?path=/docs/components-badge--default-story) after hi
 A radio button can be to the left or to the right of his label.
 
 <Preview>
-    <Story name="reverse">
-        <RadioGroup>
-            <Radio reverse icon={<LightbulbIcon />} badge={<Badge>6</Badge>} value="mars">Mars</Radio>
-            <Radio reverse value="jupiter">Jupiter</Radio>
-            <Radio reverse value="pluto" badge={<Badge variant="inline">6</Badge>}>Pluto</Radio>
+    <Story name="reverse radio">
+        <Radio reverse value="mars">
+            <Label>Mars</Label>
+            <LightbulbIcon />
+            <Counter>6</Counter>
+        </Radio>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="reverse group">
+        <RadioGroup reverse>
+            <Radio value="mars">
+                <Label>Mars</Label>
+                <LightbulbIcon />
+                <Counter>6</Counter>
+            </Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">
+                <Label>Pluto</Label>
+                <Counter variant="divider">6</Counter>
+            </Radio>
         </RadioGroup>
     </Story>
 </Preview>
@@ -179,8 +191,6 @@ A radio button can be to the left or to the right of his label.
 ### Size
 
 A radio can vary in size.
-
-Can be set on a single radio to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size radio">
@@ -197,7 +207,7 @@ Or the whole group.
 <Preview>
     <Story name="size group">
         <RadioGroup size="large">
-            <Radio value="mars" >Mars</Radio>
+            <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
@@ -211,7 +221,7 @@ A radio group can change is orientation to `horizontal` to render his elements h
 <Preview>
     <Story name="orientation">
         <RadioGroup orientation="horizontal">
-            <Radio value="mars" >Mars</Radio>
+            <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
@@ -338,7 +348,7 @@ A radio group can handle `value` state in controlled mode.
 </Story>
 
 <Story
-    name="labelled radio group ref"
+    name="labeled radio group ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}

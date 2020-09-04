@@ -1,12 +1,13 @@
 import "./Checkbox.css";
 
-import { EmbeddedIcon } from "../../icons";
+import { Label, textSlot } from "../../text";
+import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
-import { mergeClasses, useCheckableProps, useEventCallback } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 
 const propTypes = {
@@ -39,14 +40,6 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    icon: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badge: element,
-    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -70,10 +63,6 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerCheckbox(props) {
     const {
         checked,
@@ -85,8 +74,6 @@ export function InnerCheckbox(props) {
         autoFocusDelay,
         onChange,
         onCheck,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -95,8 +82,7 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        readOnly,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
@@ -116,6 +102,7 @@ export function InnerCheckbox(props) {
         wrapperProps,
         inputProps
     } = useCheckbox({
+        cssModule: "o-ui-checkbox",
         checked,
         defaultChecked,
         indeterminate,
@@ -123,8 +110,6 @@ export function InnerCheckbox(props) {
         autoFocus,
         autoFocusDelay,
         onChange: !isNil(onCheck) ? handleCheck : onChange,
-        icon,
-        badge,
         size,
         reverse,
         name,
@@ -133,59 +118,51 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        readOnly,
         className,
         forwardedRef
     });
 
-    const label = isFunction(children)
+    let content = isFunction(children)
         ? children({ isChecked, isIndeterminate }, props)
         : children;
 
-    const labelMarkup = label && (
-        <span className="label">{label}</span>
-    );
-
-    const iconMarkup = !isNil(icon) && (
-        <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-    );
-
-    // TODO: Add reverse
-    const badgeMarkup = !isNil(badge) && embedBadge(badge, {
-        size,
-        disabled
-    });
-
-    const content = (
-        <>
-            {labelMarkup}
-            {iconMarkup}
-            {badgeMarkup}
-        </>
-    );
+    if (typeof content === "string") {
+        content = <Label>{content}</Label>;
+    }
 
     return (
         <ElementType
             data-testid="checkbox"
             {...rest}
             {...wrapperProps}
-            className={mergeClasses(
-                "o-ui checkbox",
-                wrapperProps.className
-            )}
         >
-            <VisuallyHidden
-                {...inputProps}
-            />
-            <span className="box" />
-            {content}
+            <VisuallyHidden {...inputProps} />
+            <span className="o-ui-checkbox-box" />
+            <SlotProvider
+                slots={{
+                    label: textSlot({
+                        size,
+                        className: "o-ui-checkbox-label"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-checkbox-icon"
+                    }),
+                    counter: counterSlot({
+                        size,
+                        reverse,
+                        className: "o-ui-checkbox-counter"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }
 
 InnerCheckbox.propTypes = propTypes;
-InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
-    <InnerCheckbox { ...props } forwardedRef={ref} />
+    <InnerCheckbox {...props} forwardedRef={ref} />
 ));

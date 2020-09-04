@@ -80,7 +80,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
                 onBlur={onBlur}
                 value={value}
                 placeholder={placeholder}
-                iconLeft={<CalendarIcon />}
+                icon={<CalendarIcon />}
                 button={this.renderClearButton()}
                 size={size}
                 disabled={disabled}
@@ -100,5 +100,5 @@ export class InnerDatePickerTextboxInput extends PureComponent {
 }
 
 export const DatePickerTextboxInput = forwardRef((props, ref) => (
-    <InnerDatePickerTextboxInput { ...props } forwardedRef={ref} />
+    <InnerDatePickerTextboxInput {...props} forwardedRef={ref} />
 ));

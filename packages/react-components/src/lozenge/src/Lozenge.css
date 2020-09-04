@@ -1,4 +1,8 @@
-.o-ui.lozenge {
+.o-ui-lozenge {
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: max-content auto;
+    grid-template-areas: "icon text";
     background-color: var(--cloud-50);
     color: var(--marine-900);
     text-transform: uppercase;
@@ -10,39 +14,29 @@
 }
 
 /* SIZE */
-.o-ui.lozenge.small {
+.o-ui-lozenge-small {
     font-size: var(--type-scale-9);
     min-height: var(--scale-delta);
     line-height: var(--scale-delta);
 }
 
-.o-ui.lozenge.large {
+.o-ui-lozenge-large {
     font-size: var(--type-scale-7);
     min-height: var(--scale-foxtrot);
     line-height: var(--scale-foxtrot);
 }
 
-/* WITH ICON */
-.o-ui.lozenge.with-left-icon,
-.o-ui.lozenge.with-right-icon {
-    display: inline-flex;
-    align-items: center;
+/* CONTENT | TEXT */
+.o-ui-lozenge-text {
+    grid-area: text;
 }
 
-.o-ui.lozenge.with-left-icon {
+/* CONTENT | ICON */
+.o-ui-lozenge-has-icon {
     padding-left: calc(var(--scale-bravo) / 2);
 }
 
-.o-ui.lozenge.with-right-icon {
-    padding-right: calc(var(--scale-bravo) / 2);
-}
-
-/* WITH ICON LEFT | ICON */
-.o-ui.lozenge.with-left-icon .text {
-    margin-left: 0.125rem;
-}
-
-/* WITH ICON RIGHT | ICON */
-.o-ui.lozenge.with-right-icon .text {
+.o-ui-lozenge-icon {
+    grid-area: icon;
     margin-right: 0.125rem;
 }

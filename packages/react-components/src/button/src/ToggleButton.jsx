@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import { any, bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
 import { useCheckableProps } from "../../shared";
@@ -38,14 +38,6 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
      * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
@@ -67,14 +59,10 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    as: Button
-};
-
 export function InnerToggleButton(props) {
     const {
+        variant = "solid",
+        shape = "pill",
         checked,
         defaultChecked,
         value,
@@ -82,13 +70,15 @@ export function InnerToggleButton(props) {
         onClick,
         onCheck,
         active,
-        as: ElementType,
+        as: ElementType = Button,
         children,
         forwardedRef,
         ...rest
     } = useCheckableProps(props);
 
     const { isChecked, buttonProps } = useToggleButton({
+        variant,
+        shape,
         checked,
         defaultChecked,
         value,
@@ -115,10 +105,9 @@ export function InnerToggleButton(props) {
 }
 
 InnerToggleButton.propTypes = propTypes;
-InnerToggleButton.defaultProps = defaultProps;
 
 export const ToggleButton = forwardRef((props, ref) => (
-    <InnerToggleButton { ...props } forwardedRef={ref} />
+    <InnerToggleButton {...props} forwardedRef={ref} />
 ));
 
 

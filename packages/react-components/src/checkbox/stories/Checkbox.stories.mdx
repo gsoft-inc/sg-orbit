@@ -1,11 +1,12 @@
-import { Badge } from "@react-components/badge";
 import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@react-components/checkbox";
 import { ControlledCheckbox } from "./ControlledCheckbox.sample";
 import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
+import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
+import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { ToggleButton } from "@react-components/button";
@@ -38,6 +39,10 @@ A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
 ## Accessibility
 
 This component follow WAI-ARIA [design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+
+## Slots
+
+A checkbox component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
 
 ## Usage
 
@@ -104,21 +109,35 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
 <Preview>
     <Story name="icon">
         <Inline>
-            <Checkbox icon={<InfoIcon />}>Milky Way</Checkbox>
-            <Checkbox icon={<IconGroup><InfoIcon /><HelpIcon /></IconGroup>}>Andromeda</Checkbox>
+            <Checkbox>
+                <Label>Milky Way</Label>
+                <InfoIcon />
+            </Checkbox>
+            <Checkbox>
+                <Label>Andromeda</Label>
+                <IconGroup>
+                    <InfoIcon /><HelpIcon />
+                </IconGroup>
+            </Checkbox>
         </Inline>
     </Story>
 </Preview>
 
-### Badge
+### Counter
 
-A checkbox can have a [badge](?path=/docs/components-badge--default-story) after his label.
+A checkbox can have a [counter](?path=/docs/components-counter--default-story) after his label.
 
 <Preview>
-    <Story name="badge">
+    <Story name="counter">
         <Inline>
-            <Checkbox badge={<Badge>6</Badge>}>Milky Way</Checkbox>
-            <Checkbox badge={<Badge variant="inline">6</Badge>}>Andromeda</Checkbox>
+            <Checkbox>
+                <Label>Milky Way</Label>
+                <Counter>6</Counter>
+            </Checkbox>
+            <Checkbox>
+                <Label>Andromeda</Label>
+                <Counter variant="divider">6</Counter>
+            </Checkbox>
         </Inline>
     </Story>
 </Preview>
@@ -126,8 +145,6 @@ A checkbox can have a [badge](?path=/docs/components-badge--default-story) after
 ### Size
 
 A checkbox can vary in size.
-
-Can be set to: `"small"`, `"large"` or omitted.
 
 <Preview>
     <Story name="size">
@@ -145,7 +162,11 @@ A checkbox checkmark can be to the left or to the right of his label.
 
 <Preview>
     <Story name="reverse">
-        <Checkbox reverse icon={<InfoIcon />} badge={<Badge variant="inline">6</Badge>}>Milky Way</Checkbox>
+        <Checkbox reverse>
+            <Label>Milky Way</Label>
+            <InfoIcon />
+            <Counter variant="divider">6</Counter>
+        </Checkbox>
     </Story>
 </Preview>
 
@@ -192,7 +213,7 @@ Related checkboxes can be group together.
 A checkbox group can have a label.
 
 <Preview>
-    <Story name="labelled checkbox group">
+    <Story name="labeled checkbox group">
         <CheckboxGroup label="Your favorite galaxies">
             <Checkbox value="milky-way">Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
@@ -206,8 +227,22 @@ A checkbox group can have a label.
 A checkbox group can change his orientation to `vertical` to render his elements vertically.
 
 <Preview>
-    <Story name="orientation">
+    <Story name="checkbox group orientation">
         <CheckboxGroup orientation="vertical">
+            <Checkbox value="milky-way" >Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox group elements can be reversed.
+
+<Preview>
+    <Story name="checkbox group reverse">
+        <CheckboxGroup reverse>
             <Checkbox value="milky-way" >Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
             <Checkbox value="medusa">Medusa</Checkbox>
@@ -317,7 +352,7 @@ A checkbox group can handle `value` state in controlled mode.
 </Story>
 
 <Story
-    name="labelled checkbox group ref"
+    name="labeled checkbox group ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}

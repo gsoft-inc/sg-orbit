@@ -1,141 +1,131 @@
-.o-ui.radio {
-    display: inline-flex;
+.o-ui-radio {
+    display: inline-grid;
     align-items: center;
+    grid-template-columns: max-content auto max-content max-content;
+    grid-template-areas: "button label icon counter";
     cursor: pointer;
 }
 
-/* LABEL */
-.o-ui.radio .label {
-    line-height: 1;
-    font-size: var(--type-scale-7);
-    margin-left: var(--scale-bravo);
-}
-
-/* Circle */
-.o-ui.radio .button {
+/* BUTTON */
+.o-ui-radio .o-ui-radio-button {
+    grid-area: button;
     display: inline-block;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
     background-color: var(--white);
     border-radius: 100%;
     border: 1px solid var(--marine-100);
 }
 
-.o-ui.radio .button::before {
+.o-ui-radio .o-ui-radio-button::before {
     content: "";
     display: block;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
     background-color: var(--primary-500);
     border-radius: 100%;
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
 }
 
-/* SIZES */
-/* SMALL */
-.o-ui.radio.small .label {
-    font-size: var(--type-scale-8);
+/* CONTENT | LABEL */
+.o-ui-radio .o-ui-radio-label {
+    grid-area: label;
+    line-height: 1;
+    margin-left: var(--scale-bravo);
 }
 
-.o-ui.radio.small .button {
+/* CONTENT | LABEL | REVERSE */
+.o-ui-radio-reverse .o-ui-radio-label {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+/* CONTENT | ICON */
+.o-ui-radio .o-ui-radio-icon {
+    grid-area: icon;
+    margin-left: var(--scale-bravo);
+}
+
+/* CONTENT | ICON | REVERSE */
+.o-ui-radio-reverse .o-ui-radio-icon {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+/* CONTENT | COUNTER */
+.o-ui-radio .o-ui-radio-counter {
+    grid-area: counter;
+    margin-left: var(--scale-bravo);
+}
+
+/* CONTENT | COUNTER | REVERSE */
+.o-ui-radio-reverse .o-ui-radio-counter {
+    margin-left: 0;
+    margin-right: var(--scale-bravo);
+}
+
+.o-ui-radio-small .o-ui-radio-button {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui.radio.small .button::before {
+.o-ui-radio-small .o-ui-radio-button::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-/* LARGE */
-.o-ui.radio.large .label {
-    font-size: var(--type-scale-6);
+.o-ui-radio-medium .o-ui-radio-button {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
-.o-ui.radio.large .button {
+.o-ui-radio-medium .o-ui-radio-button::before {
+    width: var(--scale-echo);
+    height: var(--scale-echo);
+}
+
+.o-ui-radio-large .o-ui-radio-button {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
-.o-ui.radio.large .button::before {
+.o-ui-radio-large .o-ui-radio-button::before {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
 /* STATE | CHECKED */
-.o-ui.radio.checked .button::before {
+.o-ui-radio-checked .o-ui-radio-button::before {
     transform: scale(0.5) translate(-2px, -2px);
 }
 
 /* STATE | FOCUS */
-.o-ui.radio input[type="radio"]:focus + .button,
-.o-ui.radio.focus > .button {
+.o-ui-radio input[type="radio"]:focus + .o-ui-radio-button,
+.o-ui-radio-focus .o-ui-radio-button {
     box-shadow: var(--o-ui-outline);
 }
 
 /* STATE | HOVER */
-.o-ui.radio:hover .button,
-.o-ui.radio.hover .button {
+.o-ui-radio:hover .o-ui-radio-button,
+.o-ui-radio-hover .o-ui-radio-button {
     border: 1px solid var(--marine-300);
 }
 
+/* STATE | HOVER | DISABLED */
+.o-ui-radio-disabled:hover .o-ui-radio-button,
+.o-ui-radio-disabled-hover .o-ui-radio-button {
+    border: 1px solid var(--marine-100);
+}
+
 /* STATE | DISABLED */
-.o-ui.radio.disabled  {
-    opacity: 0.4;
-    cursor: default;
+.o-ui-radio-disabled  {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
 }
 
-/* STATE | READONLY */
-.o-ui.radio.readonly  {
-    cursor: default;
-}
-
-/* STATE | DISABLED | FOCUS | Circle */
-.o-ui.radio.disabled input[type="radio"]:focus + .button {
+/* STATE | DISABLED | FOCUS | CIRCLE */
+.o-ui-radio-disabled input[type="radio"]:focus + .o-ui-radio-button {
     box-shadow: none;
 }
 
-/* WITH ICON */
-.o-ui.radio.with-icon > .label {
-    margin-right: var(--scale-alpha);
-}
-
-/* WITH BADGE */
-.o-ui.radio.with-badge > .label {
-    margin-right: var(--scale-bravo);
-}
-
-/* WITH BADGE | WITH ICON */
-.o-ui.radio.with-badge.with-icon > .label {
-    margin-right: var(--scale-alpha);
-}
-
 /* REVERSE */
-.o-ui.radio.reverse {
-    flex-direction: row-reverse;
-}
-
-/* REVERSE | LABEL */
-.o-ui.radio.reverse .label {
-    margin-left: 0;
-    margin-right: var(--scale-bravo);
-}
-
-/* REVERSE | ICON */
-.o-ui.radio.reverse.with-icon > .label   {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-}
-
-/* REVERSE | BADGE */
-.o-ui.radio.reverse.with-badge > .label {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
-}
-
-/* REVERSE | BADGE + ICON  */
-.o-ui.radio.reverse.with-badge.with-icon > .label {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-bravo);
+.o-ui-radio-reverse {
+    grid-template-areas: "counter icon label button";
 }

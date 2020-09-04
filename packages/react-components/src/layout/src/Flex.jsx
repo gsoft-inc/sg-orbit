@@ -2,8 +2,8 @@ import "./Flex.css";
 
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, useMergedRefs } from "../../shared";
 import { isNil, isString } from "lodash";
-import { mergeClasses, useMergedRefs } from "../../shared";
 import { useMemo } from "react";
 
 const SPACING = [
@@ -27,6 +27,13 @@ const propTypes = {
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
     direction: oneOf(["row", "column"]),
+    /**
+     * Whether or not to inline the elements.
+     */
+    inline: bool,
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
     reverse: bool,
     /**
      * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
@@ -106,10 +113,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap) {
     return useMemo(() => {
@@ -154,6 +157,7 @@ function useShouldWrapForSpacing(isGapSupported, ref) {
 
 export function InnerFlex({
     direction,
+    inline,
     reverse,
     alignContent,
     alignItems,
@@ -162,7 +166,7 @@ export function InnerFlex({
     wrap,
     fluid,
     wrapChildren,
-    as: ElementType,
+    as: ElementType = "div",
     noGap,
     className,
     style,
@@ -190,11 +194,14 @@ export function InnerFlex({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui-flex",
-                direction || "row",
-                reverse && "reverse",
-                fluid && "fluid",
-                !isGapSupported && "no-gap",
+                cssModule(
+                    "o-ui-flex",
+                    direction || "row",
+                    inline && "inline",
+                    reverse && "reverse",
+                    fluid && "fluid",
+                    !isGapSupported && "no-gap"
+                ),
                 className
             )}
             style={{
@@ -214,8 +221,7 @@ export function InnerFlex({
 }
 
 InnerFlex.propTypes = propTypes;
-InnerFlex.defaultProps = defaultProps;
 
 export const Flex = forwardRef((props, ref) => (
-    <InnerFlex { ...props } forwardedRef={ref} />
+    <InnerFlex {...props} forwardedRef={ref} />
 ));

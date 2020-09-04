@@ -35,11 +35,19 @@ export function SlotProvider({ slots, children }) {
     );
 }
 
+export function ClearSlots({ children }) {
+    return (
+        <SlotContext.Provider value={{}}>
+            {children}
+        </SlotContext.Provider>
+    );
+}
+
 export function createSizeAdapterSlotFactory(sizeAdapter) {
     return ({ size, ...rest }) => {
         return {
             ...rest,
-            size:  sizeAdapter[size || SIZE.medium]
+            size: sizeAdapter[size || SIZE.medium]
         };
     };
 }

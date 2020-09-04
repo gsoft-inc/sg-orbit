@@ -1,6 +1,7 @@
-import { Badge, embedBadge } from "@react-components/badge";
-import { CheckIcon } from "@react-components/icons";
+import { Badge } from "@react-components/badge";
+import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -13,125 +14,264 @@ function stories(segment) {
         .build();
 }
 
-stories("/pill")
-    .add("default", () =>
-        <Inline align="end">
-            <Badge size="tiny">100</Badge>
-            <Badge size="small">100</Badge>
-            <Badge>100</Badge>
-            <Badge size="large">100</Badge>
-        </Inline>
-    )
-    .add("addition", () =>
-        <Badge>+1</Badge>
-    )
-    .add("removal", () =>
-        <Badge>-1</Badge>
-    )
-    .add("highlight", () =>
-        <Badge highlight>100</Badge>
-    )
-    .add("disabled", () =>
-        <Badge disabled>100</Badge>
-    )
-    .add("styling", () =>
-        <Inline>
-            <Badge className="bg-red">100</Badge>
-            <Badge style={{ backgroundColor: "red" }}>100</Badge>
-        </Inline>
-    )
-    .add("embedded", () =>
-        <Inline align="end">
-            {embedBadge(<Badge className="mr5">100</Badge>, { size: "mini" })}
-            {embedBadge(<Badge className="mr5">100</Badge>, { size: "tiny" })}
-            {embedBadge(<Badge className="mr5">100</Badge>, { size: "small" })}
-            {embedBadge(<Badge className="mr5">100</Badge>)}
-            {embedBadge(<Badge>100</Badge>, { size: "large" })}
-        </Inline>
+function SquareBadge({ children, ...rest }) {
+    return (
+        <Badge {...rest}>
+            {children}
+            <div className="bg-primary-500" style={{ width: "45px", height: "45px" }} />
+        </Badge>
     );
+}
 
-stories("/inline")
+function CircleBadge({ children, ...rest }) {
+    return (
+        <Badge
+            {...rest}
+            overlap="circle"
+        >
+            {children}
+            <div className="bg-primary-500 br-100" style={{ width: "45px", height: "45px" }} />
+        </Badge>
+    );
+}
+
+function IconBadge({ children, ...rest }) {
+    return (
+        <Badge
+            {...rest}
+            overlap="icon"
+        >
+            {children}
+            <EmailIcon size="large" />
+        </Badge>
+    );
+}
+
+function TextBadge({ children, ...rest }) {
+    return (
+        <Badge {...rest}>
+            {children}
+            Notifications
+        </Badge>
+    );
+}
+
+stories("/count")
     .add("default", () =>
-        <Stack>
-            <div>Planets Visited <Badge variant="inline">2</Badge></div>
-            <div className="f3">Planets Visited <Badge variant="inline">2</Badge></div>
-            <div className="f1">Planets Visited <Badge variant="inline">2</Badge></div>
+        <Stack gap={8}>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>5</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>5</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>5</Text>
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>5+</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>5+</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>5+</Text>
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>50</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>50</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>50</Text>
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>500</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>500</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>500</Text>
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>500+</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>500+</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>500+</Text>
+                </SquareBadge>
+            </Inline>
         </Stack>
     )
-    .add("addition", () =>
-        <Badge variant="inline">+1</Badge>
-    )
-    .add("removal", () =>
-        <Badge variant="inline">-1</Badge>
-    )
-    .add("highlight", () =>
-        <Badge highlight variant="inline">100</Badge>
-    )
-    .add("disabled", () =>
-        <Badge disabled variant="inline">100</Badge>
+    .add("overlap", () =>
+        <Stack gap={8}>
+            <Inline gap={8} align="end">
+                <SquareBadge size="small">
+                    <Text>50</Text>
+                </SquareBadge>
+                <SquareBadge>
+                    <Text>50</Text>
+                </SquareBadge>
+                <SquareBadge size="large">
+                    <Text>50</Text>
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <CircleBadge size="small">
+                    <Text>50</Text>
+                </CircleBadge>
+                <CircleBadge>
+                    <Text>50</Text>
+                </CircleBadge>
+                <CircleBadge size="large">
+                    <Text>50</Text>
+                </CircleBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <IconBadge size="small">
+                    <Text>50</Text>
+                </IconBadge>
+                <IconBadge>
+                    <Text>50</Text>
+                </IconBadge>
+                <IconBadge size="large">
+                    <Text>50</Text>
+                </IconBadge>
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
-        <Inline>
-            <Badge className="bg-red" variant="inline">100</Badge>
-            <Badge style={{ backgroundColor: "red" }} variant="inline">100</Badge>
+        <Inline gap={8}>
+            <SquareBadge className="border-red">
+                <Text>100</Text>
+            </SquareBadge>
+            <SquareBadge style={{ border: "1px solid red" }}>
+                <Text>100</Text>
+            </SquareBadge>
         </Inline>
-    )
-    .add("embedded", () =>
-        embedBadge(<Badge variant="inline">100</Badge>)
     );
 
 stories("/dot")
     .add("default", () =>
-        <Inline align="end">
-            <Badge variant="dot" size="tiny">5</Badge>
-            <Badge variant="dot" size="small">5</Badge>
-            <Badge variant="dot">5</Badge>
-            <Badge variant="dot" size="large">5</Badge>
+        <Inline gap={8} align="end">
+            <SquareBadge variant="dot" size="small" />
+            <SquareBadge variant="dot" />
+            <SquareBadge variant="dot" size="large" />
         </Inline>
     )
-    .add("empty", () =>
-        <Inline align="end">
-            <Badge variant="dot"size="tiny" />
-            <Badge variant="dot"size="small" />
-            <Badge variant="dot" />
-            <Badge variant="dot" size="large" />
-        </Inline>
-    )
-    .add("disabled", () =>
-        <Badge disabled variant="dot" />
+    .add("overlap", () =>
+        <Stack gap={8}>
+            <Inline gap={8} align="end">
+                <SquareBadge variant="dot" size="small" />
+                <SquareBadge variant="dot" />
+                <SquareBadge variant="dot" size="large" />
+            </Inline>
+            <Inline gap={8} align="end">
+                <CircleBadge variant="dot" size="small" />
+                <CircleBadge variant="dot" />
+                <CircleBadge variant="dot" size="large" />
+            </Inline>
+            <Inline gap={8} align="end">
+                <IconBadge variant="dot" size="small" />
+                <IconBadge variant="dot" />
+                <IconBadge variant="dot" size="large" />
+            </Inline>
+            <Inline gap={8} align="end">
+                <TextBadge variant="dot" size="small" />
+                <TextBadge variant="dot" />
+                <TextBadge variant="dot" size="large" />
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>
-            <Badge variant="dot" className="bg-red" />
-            <Badge variant="dot" style={{ backgroundColor: "red" }} />
-        </Inline>
-    )
-    .add("embedded", () =>
-        <Inline align="end">
-            {embedBadge(<Badge variant="dot" />, { size: "small" })}
-            {embedBadge(<Badge variant="dot" />)}
-            {embedBadge(<Badge variant="dot" />, { size: "large" })}
+            <SquareBadge variant="dot" className="border-red" />
+            <SquareBadge variant="dot" style={{ border: "1px solid red" }} />
         </Inline>
     );
 
 stories("/icon")
     .add("default", () =>
-        <Inline align="end">
-            <Badge variant="icon" size="tiny"><CheckIcon /></Badge>
-            <Badge variant="icon" size="small"><CheckIcon /></Badge>
-            <Badge variant="icon"><CheckIcon /></Badge>
-            <Badge variant="icon" size="large"><CheckIcon /></Badge>
+        <Inline gap={8} align="end">
+            <SquareBadge variant="icon" size="small">
+                <CheckCircleIcon />
+            </SquareBadge>
+            <SquareBadge variant="icon">
+                <CheckCircleIcon />
+            </SquareBadge>
+            <SquareBadge variant="icon" size="large">
+                <CheckCircleIcon />
+            </SquareBadge>
         </Inline>
     )
-    .add("highlight", () =>
-        <Badge highlight variant="icon"><CheckIcon /></Badge>
-    )
-    .add("disabled", () =>
-        <Badge disabled variant="icon"><CheckIcon /></Badge>
+    .add("overlap", () =>
+        <Stack gap={8}>
+            <Inline gap={8} align="end">
+                <SquareBadge variant="icon" size="small">
+                    <CheckCircleIcon />
+                </SquareBadge>
+                <SquareBadge variant="icon">
+                    <CheckCircleIcon />
+                </SquareBadge>
+                <SquareBadge variant="icon" size="large">
+                    <CheckCircleIcon />
+                </SquareBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <CircleBadge variant="icon" size="small">
+                    <CheckCircleIcon />
+                </CircleBadge>
+                <CircleBadge variant="icon">
+                    <CheckCircleIcon />
+                </CircleBadge>
+                <CircleBadge variant="icon" size="large">
+                    <CheckCircleIcon />
+                </CircleBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <IconBadge variant="icon" size="small">
+                    <CheckCircleIcon />
+                </IconBadge>
+                <IconBadge variant="icon">
+                    <CheckCircleIcon />
+                </IconBadge>
+                <IconBadge variant="icon" size="large">
+                    <CheckCircleIcon />
+                </IconBadge>
+            </Inline>
+            <Inline gap={8} align="end">
+                <TextBadge variant="icon" size="small">
+                    <CheckCircleIcon />
+                </TextBadge>
+                <TextBadge variant="icon">
+                    <CheckCircleIcon />
+                </TextBadge>
+                <TextBadge variant="icon" size="large">
+                    <CheckCircleIcon />
+                </TextBadge>
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>
-            <Badge className="bg-red" variant="icon"><CheckIcon /></Badge>
-            <Badge style={{ backgroundColor: "red" }} variant="icon"><CheckIcon /></Badge>
+            <SquareBadge className="border-red" variant="icon">
+                <CheckCircleIcon />
+            </SquareBadge>
+            <SquareBadge style={{ border: "1px solid red" }} variant="icon">
+                <CheckCircleIcon />
+            </SquareBadge>
         </Inline>
     );

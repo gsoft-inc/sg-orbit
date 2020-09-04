@@ -13,7 +13,7 @@ test("call onChange when the radio is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio onChange={handler} />
+        <Radio value="1" onChange={handler}>1</Radio>
     );
 
     act(() => {
@@ -27,7 +27,7 @@ test("call onChange when the radio is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio onChange={handler} />
+        <Radio value="1" onChange={handler}>1</Radio>
     );
 
     act(() => {
@@ -45,21 +45,7 @@ test("dont call onChange when the radio is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio disabled onChange={handler} />
-    );
-
-    act(() => {
-        userEvent.click(getInput(getByTestId("radio")));
-    });
-
-    expect(handler).not.toHaveBeenCalled();
-});
-
-test("dont call onChange when the radio is readonly", async () => {
-    const handler = jest.fn();
-
-    const { getByTestId } = render(
-        <Radio readOnly onChange={handler} />
+        <Radio disabled value="1" onChange={handler}>1</Radio>
     );
 
     act(() => {
@@ -74,10 +60,11 @@ test("can focus the radio with the focus api", async () => {
 
     render(
         <Radio
+            value="1"
             ref={node => {
                 refNode = node;
             }}
-        />
+        >1</Radio>
     );
 
     act(() => {
@@ -93,7 +80,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Radio ref={ref} />
+        <Radio value="1" ref={ref}>1</Radio>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -107,10 +94,11 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     render(
         <Radio
+            value="1"
             ref={node => {
                 refNode = node;
             }}
-        />
+        >1</Radio>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -123,7 +111,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Radio ref={handler} />
+        <Radio value="1" ref={handler}>1</Radio>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

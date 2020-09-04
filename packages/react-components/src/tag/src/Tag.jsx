@@ -1,38 +1,20 @@
 import "./Tag.css";
 
-import { EmbeddedIcon } from "../../icons";
-import { any, bool, element, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embedBadge } from "../../badge";
-import { embedButton } from "../../button";
+import { SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
+import { Text } from "../../text";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { counterSlot } from "../../counter";
+import { dotSlot } from "../../dot/src";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
-import { isNil } from "lodash";
+import { iconButtonSlot } from "../../button";
+import { iconSlot } from "../../icons";
+import { textSlot } from "../../text";
 
 const propTypes = {
     /**
      * Style to use.
      */
     variant: oneOf(["solid", "outline"]),
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
-     */
-    iconLeft: element,
-    /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
-     */
-    iconRight: element,
-    /**
-     * [Button](/?path=/docs/components-button--default-story) component rendered after the text.
-     */
-    button: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered before the text.
-     */
-    badgeLeft: element,
-    /**
-     * [Badge](/?path=/docs/components-badge--default-story) component rendered after the text.
-     */
-    badgeRight: element,
     /**
      * Whether the tag take up the width of its container.
      */
@@ -51,99 +33,92 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    as: "div"
-};
-
 export function InnerTag({
-    variant,
-    iconLeft,
-    iconRight,
-    button,
-    badgeLeft,
-    badgeRight,
+    variant = "solid",
     disabled,
     fluid,
     size,
     active,
     focus,
     hover,
-    as: Element,
+    as: ElementType = "div",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
-    const textMarkup = (
-        <span className="text">{children}</span>
-    );
+    const ref = useMergedRefs(forwardedRef);
 
-    const iconLeftMarkup = !isNil(iconLeft) && (
-        <EmbeddedIcon size={size}>{iconLeft}</EmbeddedIcon>
-    );
+    const { hasIcon, hasCounter, hasButton } = useHasChildren({
+        hasIcon: ".o-ui-tag-icon",
+        hasCounter: ".o-ui-tag-counter",
+        hasButton: ".o-ui-tag-button"
+    }, ref);
 
-    const iconRightMarkup = !isNil(iconRight) && (
-        <EmbeddedIcon size={size}>{iconRight}</EmbeddedIcon>
-    );
-
-    const buttonMarkup = !isNil(button) && embedButton(button, {
-        size,
-        variant: "ghost",
-        color: "secondary",
-        shape: "circular"
-    });
-
-    const badgeLeftMarkup = !isNil(badgeLeft) && embedBadge(badgeLeft, {
-        disabled,
-        highlight: true,
-        size
-    });
-
-    const badgeRightMarkup = !isNil(badgeRight) && embedBadge(badgeRight, {
-        disabled,
-        highlight: true,
-        size
-    });
-
-    const content = (
-        <>
-            {iconLeftMarkup}{badgeLeftMarkup}
-            {textMarkup}
-            {buttonMarkup}{iconRightMarkup}{badgeRightMarkup}
-        </>
-    );
+    const content = typeof children === "string"
+        ? <Text>{children}</Text>
+        : children;
 
     return (
-        <Element
+        <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui tag",
-                variant,
-                buttonMarkup && "with-button",
-                iconLeftMarkup && "with-left-icon",
-                iconRightMarkup && "with-right-icon",
-                badgeLeftMarkup && "with-left-badge",
-                badgeRightMarkup && "with-right-badge",
-                fluid && "fluid",
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                getSizeClass(size),
+                cssModule(
+                    "o-ui-tag",
+                    variant,
+                    hasIcon && "has-icon",
+                    hasCounter && "has-counter",
+                    hasButton && "has-button",
+                    fluid && "fluid",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    getSizeClass(size)
+                ),
                 className
             )}
             disabled={disabled}
-            ref={forwardedRef}
+            ref={ref}
         >
-            {content}
-        </Element>
+            <SlotProvider
+                slots={{
+                    text: textSlot({
+                        size,
+                        className: "o-ui-tag-text"
+                    }),
+                    icon: iconSlot({
+                        size,
+                        className: "o-ui-tag-icon"
+                    }),
+                    dot: dotSlot({
+                        size,
+                        disabled,
+                        className: "o-ui-tag-dot"
+                    }),
+                    counter: counterSlot({
+                        size,
+                        disabled,
+                        highlight: true,
+                        className: "o-ui-tag-counter"
+                    }),
+                    button: iconButtonSlot({
+                        size,
+                        variant: "ghost",
+                        color: "secondary",
+                        shape: "circular",
+                        className: "o-ui-tag-button"
+                    })
+                }}
+            >
+                {content}
+            </SlotProvider>
+        </ElementType>
     );
 }
 
 InnerTag.propTypes = propTypes;
-InnerTag.defaultProps = defaultProps;
 
 export const Tag = forwardRef((props, ref) => (
-    <InnerTag { ...props } forwardedRef={ref} />
+    <InnerTag {...props} forwardedRef={ref} />
 ));
 

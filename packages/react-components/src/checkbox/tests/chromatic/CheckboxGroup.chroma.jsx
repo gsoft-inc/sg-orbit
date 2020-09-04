@@ -86,13 +86,6 @@ stories()
             <Checkbox value={3}>3</Checkbox>
         </CheckboxGroup>
     )
-    .add("readonly", () =>
-        <CheckboxGroup readOnly defaultValue={[2]}>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
     .add("disabled", () =>
         <CheckboxGroup disabled>
             <Checkbox value="1">1</Checkbox>
@@ -186,6 +179,25 @@ stories()
             </CheckboxGroup>
         </Inline>
     )
+    .add("description", () =>
+        <Inline align="end" gap={13}>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="small">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="large">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <CheckboxGroup className="bg-red">
@@ -199,6 +211,20 @@ stories()
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
         </Inline>
+    )
+    .add("reverse", () =>
+        <Stack inline>
+            <CheckboxGroup reverse label="Select your packages">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup reverse label="Select your packages" description="You can find a detailed description of our flight packages on our website.">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">A very long option to read while you wait for the countdown to mars.</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Stack>
     );
 
 

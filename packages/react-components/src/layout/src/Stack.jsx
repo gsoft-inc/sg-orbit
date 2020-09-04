@@ -5,6 +5,14 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
+     * Whether or not to inline the elements.
+     */
+    inline: bool,
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse: bool,
+    /**
      * How the elements are aligned in the container along the main axis.
      */
     align: oneOf(["start", "end", "center"]),
@@ -38,16 +46,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    gap: 5,
-    as: "div"
-};
-
 export function InnerStack({
     align,
     justify,
+    gap = 5,
     wrap,
     children,
+    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -57,7 +62,9 @@ export function InnerStack({
             direction="column"
             alignItems={align}
             justifyContent={justify}
+            gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
+            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -66,8 +73,7 @@ export function InnerStack({
 }
 
 InnerStack.propTypes = propTypes;
-InnerStack.defaultProps = defaultProps;
 
 export const Stack = forwardRef((props, ref) => (
-    <InnerStack { ...props } forwardedRef={ref} />
+    <InnerStack {...props} forwardedRef={ref} />
 ));

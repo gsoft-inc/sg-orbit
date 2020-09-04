@@ -68,7 +68,7 @@ const propTypes = {
     /**
      * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
      */
-    iconLeft: element,
+    icon: element,
     /**
      * Whether theinput take up the width of its container.
      */
@@ -91,12 +91,12 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    variant: "outline",
-    as: "div"
-};
-
-export function InnerPasswordInput({ forwardedRef, ...rest }) {
+export function InnerPasswordInput({
+    variant = "outline",
+    as = "div",
+    forwardedRef,
+    ...rest
+}) {
     const [isHidden, setIsHidden] = useState(true);
 
     const handleClick = useEventCallback(() => {
@@ -106,6 +106,7 @@ export function InnerPasswordInput({ forwardedRef, ...rest }) {
     return (
         <TextInput
             {...rest}
+            variant={variant}
             type={isHidden ? "password" : "text"}
             button={
                 <IconButton
@@ -115,14 +116,14 @@ export function InnerPasswordInput({ forwardedRef, ...rest }) {
                     {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>
             }
+            as={as}
             ref={forwardedRef}
         />
     );
 }
 
 InnerPasswordInput.propTypes = propTypes;
-InnerPasswordInput.defaultProps = defaultProps;
 
 export const PasswordInput = forwardRef((props, ref) => (
-    <InnerPasswordInput { ...props } forwardedRef={ref} />
+    <InnerPasswordInput {...props} forwardedRef={ref} />
 ));

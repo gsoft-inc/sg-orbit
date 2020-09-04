@@ -1,6 +1,7 @@
-import { Badge } from "@react-components/badge";
+import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { Label } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Checkbox({ element, ...rest }) {
@@ -17,34 +18,100 @@ export function createTestSuite(element, stories) {
                     <Checkbox size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<EmailIcon />} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" icon={<EmailIcon />} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element}>Milky Way</Checkbox>
+                    <Checkbox size="small" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Label>Milky Way</Label>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
             </Stack>
         )
@@ -56,34 +123,88 @@ export function createTestSuite(element, stories) {
                     <Checkbox size="large" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} element={element} />
-                    <Checkbox icon={<EmailIcon />} element={element} />
-                    <Checkbox size="large" icon={<EmailIcon />} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <EmailIcon />
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <EmailIcon />
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <EmailIcon />
+                    </Checkbox>
+                    <Checkbox disabled element={element}>
+                        <EmailIcon />
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
-                    <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
-                    <Checkbox size="large" icon={<IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" badge={<Badge>60</Badge>} element={element} />
-                    <Checkbox badge={<Badge>60</Badge>} element={element} />
-                    <Checkbox size="large" badge={<Badge>60</Badge>} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox disabled element={element}>
+                        <Counter>60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Checkbox badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Checkbox size="large" badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
-                    <Checkbox icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
-                    <Checkbox size="large" icon={<EmailIcon />} badge={<Badge>60</Badge>} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <EmailIcon />
+                        <Counter>60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Checkbox icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
-                    <Checkbox size="large" icon={<EmailIcon />} badge={<Badge variant="inline">60</Badge>} element={element} />
+                    <Checkbox size="small" element={element}>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox element={element}>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox size="large" element={element}>
+                        <EmailIcon />
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
             </Stack>
         )
@@ -93,27 +214,66 @@ export function createTestSuite(element, stories) {
                     <Checkbox reverse element={element}>Milky Way</Checkbox>
                 </div>
                 <Inline>
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} reverse element={element} />
+                    <Checkbox reverse element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                    </Checkbox>
                 </Inline>
                 <Inline>
-                    <Checkbox badge={<Badge>60</Badge>} reverse element={element}>Milky Way</Checkbox>
-                    <Checkbox badge={<Badge>60</Badge>} reverse element={element} />
-                    <Checkbox badge={<Badge variant="inline">60</Badge>} reverse element={element}>Milky Way</Checkbox>
-                    <Checkbox badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                    <Checkbox reverse element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <Label>Milky Way</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
                 <Inline>
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge>60</Badge>} reverse element={element} />
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element}>Milky Way</Checkbox>
-                    <Checkbox icon={<IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>} badge={<Badge variant="inline">60</Badge>} reverse element={element} />
+                    <Checkbox reverse element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                        <Counter>60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <Label>Milky Way</Label>
+                        <IconGroup>
+                            <EmailIcon /><InfoIcon /><WarningIcon />
+                        </IconGroup>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
+                    <Checkbox reverse element={element}>
+                        <IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </Inline>
             </Stack>
         )
         .add("states", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox active size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox active size="small" element={element}></Checkbox>
                     <Checkbox active element={element}>Milky Way</Checkbox>
                     <Checkbox active size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
@@ -137,11 +297,6 @@ export function createTestSuite(element, stories) {
                     <Checkbox disabled element={element}>Milky Way</Checkbox>
                     <Checkbox disabled size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
-                <Inline align="end">
-                    <Checkbox readOnly size="small" element={element}>Milky Way</Checkbox>
-                    <Checkbox readOnly element={element}>Milky Way</Checkbox>
-                    <Checkbox readOnly size="large" element={element}>Milky Way</Checkbox>
-                </Inline>
             </Stack>
         )
         .add("overflow", () =>
@@ -150,13 +305,24 @@ export function createTestSuite(element, stories) {
                     <Checkbox element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox icon={<IconGroup><EmailIcon /><EmailIcon /></IconGroup>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
+                    <Checkbox element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <IconGroup>
+                            <EmailIcon /><EmailIcon />
+                        </IconGroup>
+                    </Checkbox>
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox badge={<Badge variant="inline">60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
+                    <Checkbox element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Counter variant="divider">60</Counter>
+                    </Checkbox>
                 </div>
                 <div className="flex items-end mw5">
-                    <Checkbox badge={<Badge>60</Badge>} element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
+                    <Checkbox element={element}>
+                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Counter>60</Counter>
+                    </Checkbox>
                 </div>
             </Stack>
         );
