@@ -2,6 +2,8 @@ import { SIZE } from "../../shared";
 import { Text } from "./Text";
 import { any, string } from "prop-types";
 
+// REMOVE THIS COMPONENT, THIS IS WRONG.
+
 const EMBED_SIZE = {
     [SIZE.small]: SIZE.tiny,
     [SIZE.medium]: SIZE.small,

@@ -14,6 +14,8 @@ const propTypes = {
     children: any.isRequired
 };
 
+// TODO: Use Label instead of Text.
+
 export function InnerInputLabel({
     required,
     description,
