@@ -69,20 +69,6 @@ test("dont call onChange when the checkbox is disabled", async () => {
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("dont call onChange when the checkbox is readonly", async () => {
-    const handler = jest.fn();
-
-    const { getByTestId } = render(
-        <Checkbox readOnly onChange={handler} />
-    );
-
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
-
-    expect(handler).not.toHaveBeenCalled();
-});
-
 test("can focus the checkbox with the focus api", async () => {
     let refNode = null;
 
