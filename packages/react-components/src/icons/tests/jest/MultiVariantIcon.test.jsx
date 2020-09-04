@@ -10,12 +10,6 @@ function createIcon(props = {}) {
     />;
 }
 
-test("has \"icon\" class", async () => {
-    const { container } = render(createIcon());
-
-    expect(container.querySelector("svg.icon")).not.toBeNull();
-});
-
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

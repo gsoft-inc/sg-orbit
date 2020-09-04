@@ -9,14 +9,6 @@ function createIcon(props = {}) {
     />;
 }
 
-// ***** API *****
-
-test("has \"icon\" class", async () => {
-    const { container } = render(createIcon());
-
-    await waitFor(() => expect(container.querySelector("svg.icon")).not.toBeNull());
-});
-
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
