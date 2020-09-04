@@ -21,6 +21,7 @@ module.exports = {
         "linebreak-style": ["warn", "unix"],
         "prefer-const": ["warn", {
             "destructuring": "all"
-        }]
+        }],
+        "jest/no-commented-out-tests": "off"
     }
 };
