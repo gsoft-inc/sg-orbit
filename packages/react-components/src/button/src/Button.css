@@ -203,11 +203,6 @@ a.o-ui-button {
     border-radius: var(--scale-alpha);
 }
 
-/* OUTLINE | ICON */
-.o-ui-button-outline .o-ui-button-icon {
-    fill: currentColor;
-}
-
 /* OUTLINE | HOVER */
 .o-ui-button-outline:hover,
 .o-ui-button-outline.o-ui-button-hover {
@@ -411,10 +406,6 @@ a.o-ui-button {
     padding: 0;
 }
 
-.o-ui-button-link .o-ui-button-icon {
-    fill: currentColor;
-}
-
 /* LINK | STATE | HOVER */
 .o-ui-button-link:hover,
 .o-ui-button-link.o-ui-button-hover {
@@ -590,11 +581,6 @@ a.o-ui-button {
 .o-ui-button-ghost.o-ui-button-disabled:hover,
 .o-ui-button-ghost.o-ui-button-disabled.o-ui-button-hover {
     background-color: var(--white);
-}
-
-/* GHOST | ICON  */
-.o-ui-button-ghost .o-ui-button-icon {
-    fill: currentColor;
 }
 
 /* SOLID | SIZES */
@@ -923,6 +909,11 @@ a.o-ui-button {
     padding-left: calc(var(--o-ui-button-padding-large) / var(--o-ui-button-padding-ratio-factor));
 }
 
+/* CONTENT | ICON | COLOUR */
+.o-ui-button-has-icon .o-ui-icon {
+    fill: currentColor;
+}
+
 /* CONTENT | ICON | ROUNDED */
 .o-ui-button-has-icon.o-ui-button-rounded {
     padding-left: 0;
@@ -941,4 +932,5 @@ a.o-ui-button {
 
 .o-ui-icon-button .o-ui-button-icon {
     margin-right: 0;
+    fill: currentColor;
 }
