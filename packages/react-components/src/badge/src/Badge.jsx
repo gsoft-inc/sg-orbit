@@ -1,7 +1,7 @@
 import "./Badge.css";
 
 import { Children, forwardRef } from "react";
-import { SIZE, SlotProvider, createSizeAdapterSlotFactory, getSizeClass, mergeClasses } from "../../shared";
+import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { textSlot } from "../../text";
 
@@ -55,7 +55,12 @@ export function InnerBadge({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui-badge",
+                cssModule(
+                    "o-ui-badge",
+                    variant,
+                    overlap && `over-${overlap}`,
+                    getSizeClass(size)
+                ),
                 className
             )}
             ref={forwardedRef}
@@ -70,14 +75,7 @@ export function InnerBadge({
                     }
                 }}
             >
-                <div
-                    className={mergeClasses(
-                        "o-ui-badge__anchor",
-                        `o-ui-badge__${variant}`,
-                        overlap && `o-ui-badge__anchor--over-${overlap}`,
-                        getSizeClass(size, "o-ui-badge--")
-                    )}
-                >
+                <div className="o-ui-badge-anchor">
                     {badgeContent}
                 </div>
             </SlotProvider>

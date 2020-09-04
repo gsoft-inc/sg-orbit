@@ -4,7 +4,7 @@
 }
 
 /* ANCHOR */
-.o-ui-badge__anchor {
+.o-ui-badge-anchor {
     position: absolute;
     top: 0;
     right: 0;
@@ -12,19 +12,19 @@
     transform-origin: 100% 0%;
 }
 
-/* ANCHOR | OVERLAP */
-.o-ui-badge__anchor--over-circle {
+/* OVERLAP */
+.o-ui-badge-over-circle .o-ui-badge-anchor {
     top: 14%;
     right: 14%;
 }
 
-.o-ui-badge__anchor--over-icon {
+.o-ui-badge-over-icon .o-ui-badge-anchor {
     top: 10%;
     right: 10%;
 }
 
 /* COUNT */
-.o-ui-badge__count {
+.o-ui-badge-count .o-ui-badge-anchor {
     background-color: var(--cloud-100);
     color: var(--marine-900);
     border-radius: 999px;
@@ -34,61 +34,62 @@
 }
 
 /* COUNT | SIZES */
-.o-ui-badge__count.o-ui-badge--small {
+.o-ui-badge-count.o-ui-badge-small .o-ui-badge-anchor {
     min-height: 1rem;
     min-width: 1rem;
     padding: 0 0.375rem;
 }
 
-.o-ui-badge__count.o-ui-badge--medium {
+.o-ui-badge-count.o-ui-badge-medium .o-ui-badge-anchor {
     min-height: 1.25rem;
     min-width: 1.25rem;
     padding: 0 0.4rem;
 }
 
-.o-ui-badge__count.o-ui-badge--large {
+.o-ui-badge-count.o-ui-badge-large .o-ui-badge-anchor {
     min-height: 1.5rem;
     min-width: 1.5rem;
     padding: 0 0.5rem;
 }
 
 /* DOT */
-.o-ui-badge__dot {
+.o-ui-badge-dot .o-ui-badge-anchor {
     background-color: var(--cloud-100);
     border-radius: 999px;
 }
 
 /* DOT | SIZES */
-.o-ui-badge__dot.o-ui-badge--small {
+.o-ui-badge-dot.o-ui-badge-small .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-5);
 }
 
-.o-ui-badge__dot.o-ui-badge--medium {
+.o-ui-badge-dot.o-ui-badge-medium .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-4);
 }
 
-.o-ui-badge__dot.o-ui-badge--large {
+.o-ui-badge-dot.o-ui-badge-large .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: 1.75rem;
 }
 
-/* ICON | OVERLAP */
-.o-ui-badge__icon.o-ui-badge__anchor {
+/* ICON */
+.o-ui-badge-icon .o-ui-badge-anchor {
     top: 4%;
     right: 4%;
 }
 
-.o-ui-badge__icon.o-ui-badge__anchor--over-circle {
+/* ICON | OVERLAP */
+.o-ui-badge-icon.o-ui-badge-over-circle .o-ui-badge-anchor {
     top: 18%;
     right: 18%;
 }
 
-.o-ui-badge__icon.o-ui-badge__anchor--over-icon {
+.o-ui-badge-icon.o-ui-badge-over-icon .o-ui-badge-anchor {
     top: 20%;
     right: 15%;
 }
