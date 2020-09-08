@@ -3,8 +3,6 @@ import { isFunction, isNil, isUndefined } from "lodash";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
-// TODO: support rest args.
-
 export class CompositeKeyWeakMap {
     _root = new WeakMap();
 
@@ -52,7 +50,9 @@ export class CompositeKeyWeakMap {
 
 const cache = new CompositeKeyWeakMap();
 
-function memoizedMerge(x, y, merge) {
+///////////////////////////////////////////////////////
+
+function memoizedMerge(x, y, fct) {
     const key = [x, y];
     const value = cache.get(key);
 
@@ -60,16 +60,14 @@ function memoizedMerge(x, y, merge) {
         return value;
     }
 
-    const mergeResult = merge(y, x);
+    const mergeResult = fct(y, x);
 
     cache.set(key, mergeResult);
 
     return mergeResult;
 }
 
-export function mergeProps(props, newProps) {
-    props = { ...props };
-
+function merge(props, newProps) {
     Object
         .keys(newProps)
         .forEach(x => {
@@ -94,4 +92,14 @@ export function mergeProps(props, newProps) {
         });
 
     return props;
+}
+
+export function mergeProps(...args) {
+    let result = {};
+
+    args.forEach(x => {
+        result = merge(result, x);
+    });
+
+    return result;
 }

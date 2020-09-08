@@ -243,6 +243,47 @@ describe("mergeProps", () => {
         expect(result1.ref).not.toBe(result2.ref);
         expect(result1.ref).not.toBe(result3.ref);
     });
+
+    test("can merge multiple props objects", () => {
+        const func1 = jest.fn();
+        const func2 = jest.fn();
+        const func3 = jest.fn();
+        const func4 = jest.fn();
+        const func5 = jest.fn();
+        const func6 = jest.fn();
+
+        const result = mergeProps({
+            className: "space-x",
+            placeholder: "SpaceX",
+            onClick: func1,
+            ref: func4
+        }, {
+            className: "made",
+            placeholder: "made",
+            onClick: func2,
+            ref: func5
+        }, {
+            className: "it",
+            placeholder: "it",
+            onClick: func3,
+            ref: func6
+        });
+
+        result.onClick();
+        result.ref();
+
+        expect(result.className).toBe("space-x made it");
+        expect(result.placeholder).toBe("SpaceX");
+
+        expect(func1).toHaveBeenCalledTimes(1);
+        expect(func2).toHaveBeenCalledTimes(1);
+        expect(func3).toHaveBeenCalledTimes(1);
+        expect(func4).toHaveBeenCalledTimes(1);
+        expect(func5).toHaveBeenCalledTimes(1);
+        expect(func6).toHaveBeenCalledTimes(1);
+
+
+    });
 });
 
 
