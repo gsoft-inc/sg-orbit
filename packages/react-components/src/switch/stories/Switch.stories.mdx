@@ -4,9 +4,9 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
-import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -44,10 +44,10 @@ A switch component support the following [slots](?path=/docs/getting-started-slo
 
 ### Label
 
-A switch can have a label.
+A default switch.
 
 <Preview>
-    <Story name="label">
+    <Story name="default">
         <Switch>Engines</Switch>
     </Story>
 </Preview>
@@ -91,11 +91,11 @@ A switch can have [icons](?path=/docs/materials-icons--page) after his text.
     <Story name="icon">
         <Inline>
             <Switch>
-                <Label>Pressurization</Label>
+                <Text>Pressurization</Text>
                 <LightbulbIcon />
             </Switch>
             <Switch>
-                <Label>Engines</Label>
+                <Text>Engines</Text>
                 <IconGroup>
                     <LightbulbIcon /><LightbulbIcon />
                 </IconGroup>
@@ -112,11 +112,11 @@ A switch can have a [counter](?path=/docs/components-counter--default-story) aft
     <Story name="counter">
         <Inline>
             <Switch>
-                <Label>Pressurization</Label>
+                <Text>Pressurization</Text>
                 <Counter>6</Counter>
             </Switch>
             <Switch>
-                <Label>Engines</Label>
+                <Text>Engines</Text>
                 <Counter variant="divider">6</Counter>
             </Switch>
         </Inline>
@@ -145,7 +145,7 @@ A checkbox checkmark can be to the left or to the right of his label.
     <Story name="reverse">
         <Switch reverse>
             <InfoIcon />
-            <Label>Engines</Label>
+            <Text>Engines</Text>
             <Counter variant="divider">6</Counter>
         </Switch>
     </Story>

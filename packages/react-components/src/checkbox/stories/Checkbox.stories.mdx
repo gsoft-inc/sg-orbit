@@ -6,9 +6,9 @@ import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
 import Imports from "./Imports.mdx";
 
@@ -45,6 +45,10 @@ This component follow WAI-ARIA [design pattern for checkbox](https://www.w3.org/
 A checkbox component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
 
 ## Usage
+
+### Label
+
+A default checkbox.
 
 <Preview>
     <Story name="default">
@@ -110,11 +114,11 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
     <Story name="icon">
         <Inline>
             <Checkbox>
-                <Label>Milky Way</Label>
+                <Text>Milky Way</Text>
                 <InfoIcon />
             </Checkbox>
             <Checkbox>
-                <Label>Andromeda</Label>
+                <Text>Andromeda</Text>
                 <IconGroup>
                     <InfoIcon /><HelpIcon />
                 </IconGroup>
@@ -131,11 +135,11 @@ A checkbox can have a [counter](?path=/docs/components-counter--default-story) a
     <Story name="counter">
         <Inline>
             <Checkbox>
-                <Label>Milky Way</Label>
+                <Text>Milky Way</Text>
                 <Counter>6</Counter>
             </Checkbox>
             <Checkbox>
-                <Label>Andromeda</Label>
+                <Text>Andromeda</Text>
                 <Counter variant="divider">6</Counter>
             </Checkbox>
         </Inline>
@@ -163,7 +167,7 @@ A checkbox checkmark can be to the left or to the right of his label.
 <Preview>
     <Story name="reverse">
         <Checkbox reverse>
-            <Label>Milky Way</Label>
+            <Text>Milky Way</Text>
             <InfoIcon />
             <Counter variant="divider">6</Counter>
         </Checkbox>
@@ -208,7 +212,7 @@ Related checkboxes can be group together.
     </Story>
 </Preview>
 
-### Label
+### Text
 
 A checkbox group can have a label.
 

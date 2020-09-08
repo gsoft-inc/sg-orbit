@@ -1,0 +1,27 @@
+.o-ui-field {
+    display: inline-grid;
+    align-items: center;
+    grid-template-areas:
+        "label"
+        "input"
+        "message";
+    row-gap: var(--scale-alpha);
+}
+
+/* LABEL */
+.o-ui-field-label {
+    grid-area: label;
+    color: var(--marine-200);
+    min-height: var(--scale-echo);
+    white-space: nowrap;
+}
+
+/* INPUT */
+.o-ui-field-input {
+    grid-area: input;
+}
+
+/* MESSAGE */
+.o-ui-field-message {
+    grid-area: message;
+}

@@ -3,19 +3,65 @@
 
 import { SIZE } from "./size";
 import { createContext, useContext } from "react";
+import { isNil } from "lodash";
 import { mergeProps } from "./mergeProps";
 
-export const SlotContext = createContext({});
+export const SlotContext = createContext(null);
 
-export function useSlotProps(props, defaultSlot) {
-    const key = props.slot || defaultSlot;
-    const { [key]: slotProps = {} } = useContext(SlotContext);
+// export function useSlotProps(props, defaultSlot) {
+//     const key = props.slot || defaultSlot;
+//     const { [key]: slotProps = {} } = useContext(SlotContext) || {};
 
-    return mergeProps(props, slotProps);
-}
+//     return mergeProps(props, slotProps);
+// }
+
+// export function useSlotContext(slot) {
+//     const context = useContext(SlotContext);
+
+//     if (!isNil(context)) {
+//         const slots = Array.isArray(slot) ? slot : [slot];
+
+//         return slots.reduce((slotProps, x) => {
+
+
+//             // slotProps = isNil(slotProps) ?
+
+//             // if (!isNil(slotProps))
+
+//             // slotProps = mergeProps()
+//         }, {});
+//     }
+
+//     return {};
+// }
+
+// export function useSlotProps(props, defaultSlot) {
+//     // const slot = !isNil(props.slot)
+//     //     ? [props.slot]
+//     //     : !isNil(defaultSlots)
+//     //         ? Array.isArray(defaultSlots) ? defaultSlots : [defaultSlots]
+//     //         : defaultSlots;
+
+//     const context = useContext(SlotContext);
+
+//     const slotProps = {};
+
+//     if (!isNil(context)) {
+//         const slot = props.slot || defaultSlot;
+//         const slots = Array.isArray(slot) ? slot : [slot];
+
+//         for (let i = 0; i < slots.length; i += 1) {
+
+//         }
+//     }
+
+//     // const { [key]: slotProps = {} } = useContext(SlotContext);
+
+//     return mergeProps(props, slotProps);
+// }
 
 export function SlotProvider({ slots, children }) {
-    const parentSlots = useContext(SlotContext);
+    const parentSlots = useContext(SlotContext) || {};
 
     const value = Object.keys(parentSlots)
         .concat(Object.keys(slots))

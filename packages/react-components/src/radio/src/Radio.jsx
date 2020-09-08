@@ -1,7 +1,7 @@
 import "./Radio.css";
 
-import { Label, textSlot } from "../../text";
 import { SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -91,7 +91,7 @@ export function InnerRadio(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     const handleChange = useEventCallback(event => {
@@ -139,7 +139,7 @@ export function InnerRadio(props) {
             <span className="o-ui-radio-button"></span>
             <SlotProvider
                 slots={{
-                    label: textSlot({
+                    text: textSlot({
                         size,
                         className: "o-ui-radio-label"
                     }),

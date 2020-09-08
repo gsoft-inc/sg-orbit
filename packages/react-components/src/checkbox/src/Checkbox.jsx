@@ -1,7 +1,7 @@
 import "./Checkbox.css";
 
-import { Label, textSlot } from "../../text";
 import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -127,7 +127,7 @@ export function InnerCheckbox(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     return (
@@ -140,7 +140,7 @@ export function InnerCheckbox(props) {
             <span className="o-ui-checkbox-box" />
             <SlotProvider
                 slots={{
-                    label: textSlot({
+                    text: textSlot({
                         size,
                         className: "o-ui-checkbox-label"
                     }),

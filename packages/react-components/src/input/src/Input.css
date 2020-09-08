@@ -331,10 +331,6 @@
     flex-direction: column;
 }
 
-/* .o-ui-labeled-input {
-    position: relative;
-} */
-
 /* MESSAGE */
 .o-ui-input-has-message {
     display: inline-flex;

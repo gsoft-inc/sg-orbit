@@ -54,10 +54,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * Whether the toolbar elements are read only.
-     */
-    readOnly: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -77,7 +73,6 @@ export function InnerToolbar({
     wrap,
     size,
     disabled,
-    readOnly,
     as = "div",
     children,
     forwardedRef,
@@ -113,8 +108,7 @@ export function InnerToolbar({
                 {Children.map(children, x => {
                     return x && augmentElement(x, {
                         size,
-                        disabled,
-                        readOnly
+                        disabled
                     });
                 })}
             </ToolbarContext.Provider>

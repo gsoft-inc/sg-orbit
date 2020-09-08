@@ -5,7 +5,7 @@ import { mergeProps } from "./mergeProps";
 export const CheckableContext = createContext(null);
 
 export function useCheckableContext(value) {
-    const { checkedValue, onCheck } = useContext(CheckableContext) ?? {};
+    const { checkedValue, onCheck } = useContext(CheckableContext) || {};
 
     const isChecked = !isUndefined(checkedValue)
         ? Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value

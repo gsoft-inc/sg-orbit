@@ -5,9 +5,9 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { IconGroup, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
-import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
 import Imports from "./Imports.mdx";
 
@@ -73,7 +73,7 @@ A radio group can have a selected value.
     </Story>
 </Preview>
 
-### Label
+### Text
 
 A radio group can have a label.
 
@@ -121,11 +121,11 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
     <Story name="icon">
         <RadioGroup>
             <Radio value="mars">
-                <Label>Mars</Label>
+                <Text>Mars</Text>
                 <LightbulbIcon />
             </Radio>
             <Radio value="jupiter">
-                <Label>Jupiter</Label>
+                <Text>Jupiter</Text>
                 <IconGroup>
                     <LightbulbIcon /><LightbulbIcon />
                 </IconGroup>
@@ -143,12 +143,12 @@ A radio can have a [counter](?path=/docs/components-counter--default-story) afte
     <Story name="counter">
         <RadioGroup>
             <Radio value="mars">
-                <Label>Mars</Label>
+                <Text>Mars</Text>
                 <Counter>6</Counter>
             </Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">
-                <Label>Pluto</Label>
+                <Text>Pluto</Text>
                 <Counter variant="divider">6</Counter>
             </Radio>
         </RadioGroup>
@@ -162,7 +162,7 @@ A radio button can be to the left or to the right of his label.
 <Preview>
     <Story name="reverse radio">
         <Radio reverse value="mars">
-            <Label>Mars</Label>
+            <Text>Mars</Text>
             <LightbulbIcon />
             <Counter>6</Counter>
         </Radio>
@@ -175,13 +175,13 @@ Or the whole group.
     <Story name="reverse group">
         <RadioGroup reverse>
             <Radio value="mars">
-                <Label>Mars</Label>
+                <Text>Mars</Text>
                 <LightbulbIcon />
                 <Counter>6</Counter>
             </Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">
-                <Label>Pluto</Label>
+                <Text>Pluto</Text>
                 <Counter variant="divider">6</Counter>
             </Radio>
         </RadioGroup>

@@ -1,7 +1,7 @@
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Label } from "@react-components/text";
+import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Radio({ element, ...rest }) {
@@ -19,37 +19,37 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Radio>
                     <Radio disabled value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -57,70 +57,70 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
                     <Radio disabled value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                     <Radio disabled value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
                 <Inline align="end">
                     <Radio size="small" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Radio>
                     <Radio value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Radio>
                     <Radio size="large" value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Radio>
@@ -134,7 +134,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div>
                     <Radio reverse value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -142,24 +142,24 @@ export function createTestSuite(element, stories) {
                 </div>
                 <Inline>
                     <Radio reverse value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
                     <Radio reverse value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                 </Inline>
                 <Inline>
                     <Radio reverse value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
                         <Counter>60</Counter>
                     </Radio>
                     <Radio reverse value="any" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -204,7 +204,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="flex items-end mw5">
                     <Radio value="any" element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -212,13 +212,13 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="flex items-end mw5">
                     <Radio value="any" element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
                 </div>
                 <div className="flex items-end mw5">
                     <Radio value="any" element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Radio>
                 </div>

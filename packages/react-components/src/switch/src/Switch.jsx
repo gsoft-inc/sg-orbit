@@ -1,7 +1,7 @@
 import "./Switch.css";
 
-import { Label, textSlot } from "../../text";
 import { SlotProvider } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -101,7 +101,7 @@ export function InnerSwitch(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     return (
@@ -114,7 +114,7 @@ export function InnerSwitch(props) {
             <span className="o-ui-switch-switch" />
             <SlotProvider
                 slots={{
-                    label: textSlot({
+                    text: textSlot({
                         size,
                         className: "o-ui-switch-label"
                     }),

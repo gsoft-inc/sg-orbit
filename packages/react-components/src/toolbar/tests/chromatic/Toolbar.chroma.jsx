@@ -84,23 +84,6 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
-    .add("readonly element", () =>
-        <Toolbar align="center">
-            <CheckboxGroup>
-                <ToggleButton value="1">1</ToggleButton>
-                <ToggleButton value="2">2</ToggleButton>
-                <ToggleButton value="3">3</ToggleButton>
-            </CheckboxGroup>
-            <ToggleIconButton shape="circular">
-                <NotificationIcon />
-            </ToggleIconButton>
-            <RadioGroup readOnly>
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Toolbar>
-    )
     .add("disabled element", () =>
         <Toolbar autoFocus align="center">
             <CheckboxGroup disabled>

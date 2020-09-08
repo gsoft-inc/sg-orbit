@@ -223,7 +223,7 @@ export function InnerNumberInput({
 }) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
-    const inputRef = useRef();
+    // const inputRef = useRef();
 
     const updateValue = (event, newValue) => {
         setValue(newValue);
@@ -308,7 +308,13 @@ export function InnerNumberInput({
         inputRef.current.focus();
     });
 
-    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+    const {
+        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        inputProps,
+        labelProps,
+        messageProps,
+        inputRef
+    } = useInput({
         cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",

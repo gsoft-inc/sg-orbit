@@ -14,6 +14,10 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired

@@ -1,12 +1,9 @@
 import { EditIcon, IconGroup } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, storiesOfBuilder } from "@utils";
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("IconGroup"))
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .build())
         .build();
 }
 
