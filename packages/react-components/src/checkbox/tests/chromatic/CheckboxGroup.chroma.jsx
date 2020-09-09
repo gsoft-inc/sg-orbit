@@ -160,38 +160,52 @@ stories()
             }
         </CheckboxGroup>
     )
-    .add("label", () =>
-        <Inline align="end" gap={13}>
-            <CheckboxGroup label="Select your packages" size="small">
+    // .add("label", () =>
+    //     <Inline align="end" gap={13}>
+    //         <CheckboxGroup label="Select your packages" size="small">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //         <CheckboxGroup label="Select your packages">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //         <CheckboxGroup label="Select your packages" size="large">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //     </Inline>
+    // )
+    // .add("description", () =>
+    //     <Inline align="end" gap={13}>
+    //         <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="small">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //         <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //         <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="large">
+    //             <Checkbox value="1">1</Checkbox>
+    //             <Checkbox value="2">2</Checkbox>
+    //             <Checkbox value="3">3</Checkbox>
+    //         </CheckboxGroup>
+    //     </Inline>
+    // )
+    .add("validation", () =>
+        <Inline gap={13}>
+            <CheckboxGroup validationState="invalid">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup label="Select your packages">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup label="Select your packages" size="large">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-        </Inline>
-    )
-    .add("description", () =>
-        <Inline align="end" gap={13}>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="small">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="large">
+            <CheckboxGroup validationState="valid">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>

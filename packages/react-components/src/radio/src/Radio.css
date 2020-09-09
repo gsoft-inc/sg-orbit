@@ -91,6 +91,11 @@
     height: var(--scale-foxtrot);
 }
 
+/* VALIDATION */
+.o-ui-radio-invalid .o-ui-radio-label {
+    color: var(--alert-500);
+}
+
 /* STATE | CHECKED */
 .o-ui-radio-checked .o-ui-radio-button::before {
     transform: scale(0.5) translate(-2px, -2px);

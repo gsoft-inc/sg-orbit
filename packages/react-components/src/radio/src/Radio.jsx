@@ -54,6 +54,7 @@ export function InnerRadio(props) {
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        validationState,
         onChange,
         onCheck,
         size,
@@ -115,6 +116,7 @@ export function InnerRadio(props) {
                     "o-ui-radio",
                     isChecked && "checked",
                     reverse && "reverse",
+                    validationState && validationState,
                     disabled && "disabled",
                     active && "active",
                     focus && "focus",
@@ -134,6 +136,7 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
+                aria-invalid={validationState === "invalid" ? true : undefined}
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>

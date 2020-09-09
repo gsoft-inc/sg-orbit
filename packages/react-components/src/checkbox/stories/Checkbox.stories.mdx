@@ -56,6 +56,16 @@ A default checkbox.
     </Story>
 </Preview>
 
+### No label
+
+A checkbox can be rendered without a label.
+
+<Preview>
+    <Story name="no label">
+        <Checkbox />
+    </Story>
+</Preview>
+
 ### Checked
 
 A checkbox can be checked.
@@ -73,16 +83,6 @@ A checkbox can be indeterminate.
 <Preview>
     <Story name="indeterminate">
         <Checkbox defaultIndeterminate>Milky Way</Checkbox>
-    </Story>
-</Preview>
-
-### No label
-
-A checkbox can be rendered without a label.
-
-<Preview>
-    <Story name="no label">
-        <Checkbox />
     </Story>
 </Preview>
 
@@ -212,20 +212,6 @@ Related checkboxes can be group together.
     </Story>
 </Preview>
 
-### Text
-
-A checkbox group can have a label.
-
-<Preview>
-    <Story name="labeled checkbox group">
-        <CheckboxGroup label="Your favorite galaxies">
-            <Checkbox value="milky-way">Milky Way</Checkbox>
-            <Checkbox value="andromeda">Andromeda</Checkbox>
-            <Checkbox value="medusa">Medusa</Checkbox>
-        </CheckboxGroup>
-    </Story>
-</Preview>
-
 ### Orientation
 
 A checkbox group can change his orientation to `vertical` to render his elements vertically.
@@ -348,21 +334,6 @@ A checkbox group can handle `value` state in controlled mode.
 >
     <RefLogger>
         <CheckboxGroup>
-            <Checkbox value="milky-way">Milky Way</Checkbox>
-            <Checkbox value="andromeda">Andromeda</Checkbox>
-            <Checkbox value="medusa">Medusa</Checkbox>
-        </CheckboxGroup>
-    </RefLogger>
-</Story>
-
-<Story
-    name="labeled checkbox group ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <CheckboxGroup label="Your favorite galaxies">
             <Checkbox value="milky-way">Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
             <Checkbox value="medusa">Medusa</Checkbox>

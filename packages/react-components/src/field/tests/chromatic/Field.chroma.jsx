@@ -1,18 +1,15 @@
+import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput, TextArea, TextInput } from "@react-components/input";
+import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 // TODO:
 // - FieldMessage.chroma.jsx
 // - Label.chroma.jsx
-// - Checkbox
-// - CheckboxGroup
-// - Radio
-// - RadioGroup
-// - Switch
 // - Clean up InputMessage, InputLabel etc...
-// - Jest Tests
+// - Jest Tests (dont valider que input et label share le même id)
 // - Write Field docs (have an example with Formik)
 // - Form component with as="fieldset" ? With a doc example?
 
@@ -105,11 +102,22 @@ stories()
         </Inline>
     )
     .add("fluid", () =>
-        <Field fluid>
-            <Label>Where to?</Label>
-            <TextInput />
-            <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
-        </Field>
+        <Stack>
+            <div>
+                <Field fluid>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                    <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
+                </Field>
+            </div>
+            <div className="w-10">
+                <Field fluid>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                    <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
+                </Field>
+            </div>
+        </Stack>
     )
     .add("required", () =>
         <Field required>
@@ -125,14 +133,9 @@ stories()
                 <TextInput />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
             </Field>
-            <Field readOnly>
-                <Label>Where to?</Label>
-                <TextInput />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
         </Inline>
     )
-    .add("text-input", () =>
+    .add("text input", () =>
         <Inline align="end">
             <Field size="small">
                 <Label>Where to?</Label>
@@ -151,7 +154,7 @@ stories()
             </Field>
         </Inline>
     )
-    .add("number-input", () =>
+    .add("number input", () =>
         <Inline align="end">
             <Field size="small">
                 <Label>Age</Label>
@@ -170,7 +173,7 @@ stories()
             </Field>
         </Inline>
     )
-    .add("text-area", () =>
+    .add("textarea", () =>
         <Inline align="end">
             <Field size="small">
                 <Label>Where to?</Label>
@@ -186,6 +189,44 @@ stories()
                 <Label>Where to?</Label>
                 <TextArea placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+            </Field>
+        </Inline>
+    )
+    .add("checkbox", () =>
+        <Inline align="end">
+            <Field size="small">
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+            <Field size="large">
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+        </Inline>
+    )
+    .add("switch", () =>
+        <Inline align="end">
+            <Field size="small">
+                <Label>Engines</Label>
+                <Switch>Milky Way</Switch>
+                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Engines</Label>
+                <Switch>Milky Way</Switch>
+                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+            </Field>
+            <Field size="large">
+                <Label>Engines</Label>
+                <Switch>Milky Way</Switch>
+                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
             </Field>
         </Inline>
     );

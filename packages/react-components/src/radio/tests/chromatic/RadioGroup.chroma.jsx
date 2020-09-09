@@ -24,7 +24,6 @@ function CustomComponent({
             value={value}
             onClick={handleCheck}
             className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
-            aria-checked={isChecked}
         >
             {children}
         </Tag>
@@ -163,38 +162,52 @@ stories()
             }
         </RadioGroup>
     )
-    .add("label", () =>
-        <Inline align="end" gap={13}>
-            <RadioGroup label="Select a package" size="small">
+    // .add("label", () =>
+    //     <Inline align="end" gap={13}>
+    //         <RadioGroup label="Select a package" size="small">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //         <RadioGroup label="Select a package">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //         <RadioGroup label="Select a package" size="large">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //     </Inline>
+    // )
+    // .add("description", () =>
+    //     <Inline align="end" gap={13}>
+    //         <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package" size="small">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //         <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //         <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package" size="large">
+    //             <Radio value="1">1</Radio>
+    //             <Radio value="2">2</Radio>
+    //             <Radio value="3">3</Radio>
+    //         </RadioGroup>
+    //     </Inline>
+    // )
+    .add("validation", () =>
+        <Inline gap={13}>
+            <RadioGroup validationState="invalid">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
             </RadioGroup>
-            <RadioGroup label="Select a package">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup label="Select a package" size="large">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Inline>
-    )
-    .add("description", () =>
-        <Inline align="end" gap={13}>
-            <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package" size="small">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup description="You can find a detailed description of our flight packages on our website." label="Select a package" size="large">
+            <RadioGroup validationState="valid">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>

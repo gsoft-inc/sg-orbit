@@ -21,17 +21,9 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * Label identifying the input.
-     */
-    label: node,
-    /**
      * Whether a user input is required before form submission.
      */
     required: bool,
-    /**
-     * Additional text to describe the input.
-     */
-    description: string,
     /**
      * Whether the input should display as "valid" or "invalid".
      */

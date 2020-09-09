@@ -1,6 +1,4 @@
-import "./Field.css";
-
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { ClearSlots, SlotProvider } from "../../shared";
 import { ValidationContext } from "./ValidationContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -37,7 +35,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerField({
+export function InnerGroupField({
     id,
     validationState,
     required,
@@ -66,6 +64,8 @@ export function InnerField({
         forwardedRef
     });
 
+    const labelId = `${fieldId}-label`;
+
     return (
         <ElementType
             {...rest}
@@ -81,9 +81,13 @@ export function InnerField({
                         slots={{
                             label: {
                                 ...labelProps,
-                                htmlFor: fieldId
+                                id: labelId,
+                                as: "span"
                             },
-                            input: inputProps,
+                            input: {
+                                ...inputProps,
+                                "aria-labelledby": labelId
+                            },
                             message: messageProps
                         }}
                     >
@@ -95,8 +99,8 @@ export function InnerField({
     );
 }
 
-InnerField.propTypes = propTypes;
+InnerGroupField.propTypes = propTypes;
 
-export const Field = forwardRef((props, ref) => (
-    <InnerField {...props} forwardedRef={ref} />
+export const GroupField = forwardRef((props, ref) => (
+    <InnerGroupField {...props} forwardedRef={ref} />
 ));

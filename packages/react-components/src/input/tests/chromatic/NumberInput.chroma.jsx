@@ -58,19 +58,11 @@ stories()
     .add("fluid", () =>
         <NumberInput fluid placeholder="Age" />
     )
-    .add("invalid", () =>
-        <Stack>
-            <Inline align="end">
-                <NumberInput validationState="invalid" size="small" placeholder="Age" />
-                <NumberInput validationState="invalid" placeholder="Age" />
-                <NumberInput validationState="invalid" size="large" placeholder="Age" />
-            </Inline>
-            <Inline align="end">
-                <NumberInput invalidMessage="Try again!" validationState="invalid" size="small" placeholder="Age" />
-                <NumberInput invalidMessage="Try again!" validationState="invalid" placeholder="Age" />
-                <NumberInput invalidMessage="Try again!" validationState="invalid" size="large" placeholder="Age" />
-            </Inline>
-        </Stack>
+    .add("validation", () =>
+        <Inline>
+            <NumberInput validationState="invalid" placeholder="Age" />
+            <NumberInput validationState="valid" placeholder="Age" />
+        </Inline>
     )
     .add("readonly", () =>
         <NumberInput readOnly placeholder="Age" />

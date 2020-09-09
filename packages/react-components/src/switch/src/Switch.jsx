@@ -1,6 +1,6 @@
 import "./Switch.css";
 
-import { ClearSlots, SlotProvider } from "../../shared";
+import { ClearSlots, SlotProvider, useSlotProps } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -9,6 +9,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
+import { useValidationProps } from "../../field";
 
 const propTypes = {
     /**
@@ -27,6 +28,14 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Whether the checkbox should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
     /**
      * A checkbox can vary in size.
      */
@@ -53,10 +62,13 @@ const propTypes = {
 
 export function InnerSwitch(props) {
     const {
+        id,
         checked,
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange,
         size,
         reverse,
@@ -71,7 +83,7 @@ export function InnerSwitch(props) {
         children,
         forwardedRef,
         ...rest
-    } = props;
+    } = useValidationProps(useSlotProps(props, ["switch", "input"]));
 
     const {
         isChecked,
@@ -79,10 +91,13 @@ export function InnerSwitch(props) {
         inputProps
     } = useCheckbox({
         cssModule: "o-ui-switch",
+        id,
         checked,
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange,
         size,
         reverse,

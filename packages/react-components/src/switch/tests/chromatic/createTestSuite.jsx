@@ -262,6 +262,12 @@ export function createTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("validation", () =>
+            <Inline>
+                <Switch validationState="invalid" element={element}>Engines</Switch>
+                <Switch validationState="valid" active element={element}>Engines</Switch>
+            </Inline>
+        )
         .add("states", () =>
             <Stack>
                 <Inline align="end">

@@ -3,6 +3,7 @@ import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } fr
 export function useInput({
     cssModule: module,
     value,
+    id,
     placeholder,
     required,
     validationState,
@@ -47,6 +48,7 @@ export function useInput({
             )
         },
         inputProps: {
+            id,
             value,
             placeholder,
             onChange,
@@ -55,7 +57,7 @@ export function useInput({
             disabled,
             readOnly,
             "aria-required": required,
-            "aria-invalid": validationState === "invalid",
+            "aria-invalid": validationState === "invalid" ? true : undefined,
             ref: inputRef
         },
         inputRef

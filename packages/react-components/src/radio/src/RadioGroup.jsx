@@ -8,14 +8,16 @@ import {
     useEventCallback,
     useId,
     useMergedRefs,
-    useRovingFocus
+    useRovingFocus,
+    useSlotProps
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
-import { InputLabel, useInputGroup } from "../../input";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { useInputGroup } from "../../input";
 import { useToolbarProps } from "../../toolbar";
+import { useValidationProps } from "../../field";
 
 const ARROW_NAV_KEY_BINDING = {
     "default": {
@@ -40,17 +42,13 @@ const propTypes = {
      */
     defaultValue: oneOfType([string, number]),
     /**
-     * Label identifying the radio group.
-     */
-    label: string,
-    /**
      * Whether a user input is required before form submission.
      */
     required: bool,
     /**
-     * Additional text to describe the radio group.
+     * Whether the group should display as "valid" or "invalid".
      */
-    description: string,
+    validationState: oneOf(["valid", "invalid"]),
     /**
      * Radio group name.
      */
@@ -108,9 +106,8 @@ export function InnerRadioGroup(props) {
     const {
         value,
         defaultValue,
-        label,
         required,
-        description,
+        validationState,
         name,
         onChange,
         autoFocus,
@@ -126,7 +123,7 @@ export function InnerRadioGroup(props) {
         children,
         forwardedRef,
         ...rest
-    } = useToolbarProps(props);
+    } = useToolbarProps(useValidationProps(useSlotProps(props, ["radioGroup", "input"])));
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
@@ -141,20 +138,19 @@ export function InnerRadioGroup(props) {
 
     const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], navigationMode !== "toolbar" ? handleArrowSelect : undefined);
 
-    const { groupProps, itemsProps, labelProps } = useInputGroup({
-        ...rest,
+    const {
+        groupProps,
+        itemProps
+    } = useInputGroup({
         role: "radio-group",
-        labelIdPrefix: "o-ui-radio-group-label",
-        label,
         required,
-        description,
+        validationState,
         orientation,
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        as,
         ref
     });
 
@@ -166,50 +162,34 @@ export function InnerRadioGroup(props) {
         }
     });
 
-    const labelMarkup = labelProps && (
-        <InputLabel {...labelProps} />
-    );
-
     const groupName = useId(name, "radio-group");
 
-    const renderItems = (additionalProps = {}) => {
-        const items = isFunction(children)
-            ? children({ checkedValue })
-            : children;
-
-        return (
-            <Flex
-                {...additionalProps}
-                {...navigationProps}
-                {...itemsProps}
-            >
-                <CheckableContext.Provider
-                    value={{
-                        onCheck: handleCheck,
-                        checkedValue
-                    }}
-                >
-                    {Children.map(items, x => {
-                        return augmentElement(x, {
-                            name: groupName,
-                            size,
-                            reverse,
-                            disabled,
-                            role: "radio"
-                        });
-                    })}
-                </CheckableContext.Provider>
-            </Flex>
-        );
-    };
+    const items = isFunction(children)
+        ? children({ checkedValue })
+        : children;
 
     return (
-        !labelMarkup ? renderItems(groupProps) : (
-            <Flex {...groupProps}>
-                {labelMarkup}
-                {renderItems()}
-            </Flex>
-        )
+        <Flex
+            {...rest}
+            {...navigationProps}
+            {...groupProps}
+            as={as}
+        >
+            <CheckableContext.Provider
+                value={{
+                    onCheck: handleCheck,
+                    checkedValue
+                }}
+            >
+                {Children.map(items, x => {
+                    return augmentElement(x, {
+                        ...itemProps,
+                        name: groupName,
+                        role: "radio"
+                    });
+                })}
+            </CheckableContext.Provider>
+        </Flex>
     );
 }
 

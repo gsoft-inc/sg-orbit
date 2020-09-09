@@ -73,20 +73,6 @@ A radio group can have a selected value.
     </Story>
 </Preview>
 
-### Text
-
-A radio group can have a label.
-
-<Preview>
-    <Story name="label">
-        <RadioGroup label="Your favorite planet">
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
 ### Disabled
 
 A single radio can be disabled.
@@ -340,21 +326,6 @@ A radio group can handle `value` state in controlled mode.
 >
     <RefLogger>
         <RadioGroup>
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </RefLogger>
-</Story>
-
-<Story
-    name="labeled radio group ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <RadioGroup label="Your favorite planet">
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>

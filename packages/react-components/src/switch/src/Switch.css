@@ -73,6 +73,11 @@
     grid-template-areas: "counter icon label switch";
 }
 
+/* INVALID */
+.o-ui-switch-invalid .o-ui-switch-label {
+    color: var(--alert-500);
+}
+
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-switch {

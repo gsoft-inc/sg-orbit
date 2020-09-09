@@ -4,12 +4,15 @@ import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
     cssModule: module,
+    id,
     checked,
     defaultChecked,
     indeterminate,
     defaultIndeterminate,
     autoFocus,
     autoFocusDelay,
+    required,
+    validationState,
     onChange,
     size,
     reverse,
@@ -61,6 +64,7 @@ export function useCheckbox({
                     isChecked && "checked",
                     isIndeterminate && "indeterminate",
                     reverse && "reverse",
+                    validationState && validationState,
                     disabled && "disabled",
                     active && "active",
                     focus && "focus",
@@ -72,6 +76,7 @@ export function useCheckbox({
             ref: wrapperRef
         },
         inputProps: {
+            id,
             as: "input",
             type: "checkbox",
             checked: isChecked,
@@ -79,6 +84,8 @@ export function useCheckbox({
             disabled,
             name,
             tabIndex,
+            "aria-required": required,
+            "aria-invalid": validationState === "invalid" ? true : undefined,
             ref: inputRef
         }
     };

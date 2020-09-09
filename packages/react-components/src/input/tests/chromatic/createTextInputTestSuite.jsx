@@ -165,25 +165,12 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        // .add("message", () =>
-        //     <Stack>
-        //         <Inline align="end">
-        //             <TextInput helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
-        //             <TextInput helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-        //             <TextInput helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
-        //         </Inline>
-        //         <Inline>
-        //             <TextInput helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
-        //             <TextInput helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
-        //         </Inline>
-        //         <div>
-        //             <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-        //         </div>
-        //         <div className="w-10">
-        //             <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-        //         </div>
-        //     </Stack>
-        // )
+        .add("validation", () =>
+            <Inline>
+                <TextInput validationState="invalid" placeholder="Where to?" element={element} />
+                <TextInput validationState="valid" placeholder="Where to?" element={element} />
+            </Inline>
+        )
         .add("states", () =>
             <Stack>
                 <Inline align="end">

@@ -160,6 +160,12 @@ export function createTextAreaTestSuite(element, stories) {
         //         </div>
         //     </Stack>
         // )
+        .add("validation", () =>
+            <Inline>
+                <TextArea validationState="invalid" placeholder="Where to?" element={element} />
+                <TextArea validationState="valid" placeholder="Where to?" element={element} />
+            </Inline>
+        )
         .add("states", () =>
             <Stack>
                 <Inline align="end">

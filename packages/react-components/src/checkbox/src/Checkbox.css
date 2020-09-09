@@ -103,6 +103,11 @@
     grid-template-areas: "counter icon label box";
 }
 
+/* INVALID */
+.o-ui-checkbox-invalid .o-ui-checkbox-label {
+    color: var(--alert-500);
+}
+
 /* STATE | INDETERMINATE | CHECKED | HALF SQUARE */
 .o-ui-checkbox-indeterminate.o-ui-checkbox-checked .o-ui-checkbox-box::before {
     transform: scale(1);

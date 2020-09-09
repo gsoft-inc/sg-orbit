@@ -8,7 +8,7 @@ function Checkbox({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createTestSuite(element, stories) {
+export function createCheckboxTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
@@ -269,6 +269,12 @@ export function createTestSuite(element, stories) {
                     </Checkbox>
                 </Inline>
             </Stack>
+        )
+        .add("validation", () =>
+            <Inline>
+                <Checkbox validationState="invalid" element={element}>Milky Way</Checkbox>
+                <Checkbox validationState="valid" element={element}>Milky Way</Checkbox>
+            </Inline>
         )
         .add("states", () =>
             <Stack>

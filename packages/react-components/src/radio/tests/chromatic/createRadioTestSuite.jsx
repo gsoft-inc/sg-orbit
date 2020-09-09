@@ -8,7 +8,7 @@ function Radio({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createTestSuite(element, stories) {
+export function createRadioTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
@@ -167,6 +167,12 @@ export function createTestSuite(element, stories) {
                     </Radio>
                 </Inline>
             </Stack>
+        )
+        .add("validation", () =>
+            <Inline>
+                <Radio validationState="invalid" value="any" element={element}>Milky Way</Radio>
+                <Radio validationState="valid" value="any" element={element}>Milky Way</Radio>
+            </Inline>
         )
         .add("states", () =>
             <Stack>
