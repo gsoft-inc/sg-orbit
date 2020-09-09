@@ -20,9 +20,9 @@ export function useValidationProps(props) {
     });
 }
 
-// Special use case to ensure we show the right message for each validationState.
+// Special use case to show the right message for each validationState.
 // - When a ValidationContext is not provided all messages should be displayed.
-// - The help message is displayed when a validationState is not provided or is null.
+// - The help message is displayed when validationState is null or undefined.
 export function useMessageValidationContext() {
     const context = useContext(ValidationContext);
 

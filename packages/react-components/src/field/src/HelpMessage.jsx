@@ -29,7 +29,7 @@ export function InnerHelpMessage(props) {
         as = "span",
         children,
         ...rest
-    } = useSlotProps(props);
+    } = useSlotProps(props, "message");
 
     const { isHelp } = useMessageValidationContext();
 
@@ -40,7 +40,7 @@ export function InnerHelpMessage(props) {
     return (
         <FieldMessage
             {...rest}
-            variant="help"
+            variant="neutral"
             as={as}
             ref={forwardedRef}
         >

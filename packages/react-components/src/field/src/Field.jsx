@@ -1,6 +1,6 @@
 import "./Field.css";
 
-import { SlotProvider, cssModule, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
 import { ValidationContext } from "./ValidationContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -15,7 +15,11 @@ const propTypes = {
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
-     * Whether the field take up the width of its container.
+     * Whether or not the field is required.
+     */
+    required: bool,
+    /**
+     * Whether or not the field take up the width of its container.
      */
     fluid: bool,
     /**
@@ -35,6 +39,9 @@ const propTypes = {
 export function InnerField({
     id,
     validationState,
+    required,
+    disabled,
+    readOnly,
     fluid,
     size,
     as: ElementType = "div",
@@ -72,30 +79,34 @@ export function InnerField({
                     validationState
                 }}
             >
-                <SlotProvider
-                    slots={{
-                        label: {
-                            htmlFor: fieldId,
-                            size,
-                            className: "o-ui-field-label"
-                        },
-                        description: {
-                            size,
-                            className: "o-ui-field-description"
-                        },
-                        input: {
-                            id: fieldId,
-                            size,
-                            className: "o-ui-field-input"
-                        },
-                        message: {
-                            size,
-                            className: "o-ui-field-message"
-                        }
-                    }}
-                >
-                    {children}
-                </SlotProvider>
+                <ClearSlots>
+                    <SlotProvider
+                        slots={{
+                            label: {
+                                htmlFor: fieldId,
+                                required,
+                                size,
+                                className: "o-ui-field-label"
+                            },
+                            input: {
+                                id: fieldId,
+                                required,
+                                disabled,
+                                readOnly,
+                                fluid,
+                                size,
+                                className: "o-ui-field-input"
+                            },
+                            message: {
+                                size,
+                                fluid,
+                                className: "o-ui-field-message"
+                            }
+                        }}
+                    >
+                        {children}
+                    </SlotProvider>
+                </ClearSlots>
             </ValidationContext.Provider>
         </ElementType>
     );

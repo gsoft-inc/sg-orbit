@@ -1,6 +1,6 @@
 import "./Radio.css";
 
-import { SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -137,25 +137,27 @@ export function InnerRadio(props) {
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-radio-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-radio-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-radio-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-radio-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-radio-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-radio-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

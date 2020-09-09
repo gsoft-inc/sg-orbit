@@ -8,12 +8,14 @@
     row-gap: var(--scale-alpha);
 }
 
+/* FLUID */
+.o-ui-field-fluid {
+    width: 100%;
+}
+
 /* LABEL */
 .o-ui-field-label {
     grid-area: label;
-    color: var(--marine-200);
-    min-height: var(--scale-echo);
-    white-space: nowrap;
 }
 
 /* INPUT */

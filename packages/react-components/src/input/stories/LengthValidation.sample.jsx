@@ -20,7 +20,7 @@ export function LengthValidation() {
         <TextArea
             validationState={isValid ? "valid" : "invalid"}
             value={value}
-            label={`Why should you go to space? (max ${MAX} characters)`}
+            placeholder={`Why should you go to space? (max ${MAX} characters)`}
             help={`${MAX - value.length} characters left.`}
             onChange={handleChange}
         />

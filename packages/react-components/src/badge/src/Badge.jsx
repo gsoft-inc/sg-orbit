@@ -1,7 +1,7 @@
 import "./Badge.css";
 
 import { Children, forwardRef } from "react";
-import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { textSlot } from "../../text";
 
@@ -65,20 +65,22 @@ export function InnerBadge({
             )}
             ref={forwardedRef}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot(textSlotAdapter({
-                        size
-                    })),
-                    icon: {
-                        size
-                    }
-                }}
-            >
-                <div className="o-ui-badge-anchor">
-                    {badgeContent}
-                </div>
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot(textSlotAdapter({
+                            size
+                        })),
+                        icon: {
+                            size
+                        }
+                    }}
+                >
+                    <div className="o-ui-badge-anchor">
+                        {badgeContent}
+                    </div>
+                </SlotProvider>
+            </ClearSlots>
             {overlappedElement}
         </ElementType>
     );

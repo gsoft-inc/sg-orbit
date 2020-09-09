@@ -61,39 +61,39 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("label", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextArea size="small" label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextArea label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextArea size="large" label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                </Inline>
-                <div>
-                    <TextArea label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                </div>
-                <div>
-                    <TextArea fluid label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element}></TextArea>
-                </div>
-                <div className="w-10">
-                    <TextArea fluid label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element}></TextArea>
-                </div>
-            </Stack>
-        )
-        .add("description", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="small" label="Where to?" element={element} />
-                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="large" label="Where to?" element={element} />
-                </Inline>
-                <div>
-                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
-                </div>
-                <div className="w-10">
-                    <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
-                </div>
-            </Stack>
-        )
+        // .add("label", () =>
+        //     <Stack>
+        //         <Inline align="end">
+        //             <TextArea size="small" label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
+        //             <TextArea label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
+        //             <TextArea size="large" label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element} />
+        //         </Inline>
+        //         <div>
+        //             <TextArea label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} button={<IconButton><CrossIcon /></IconButton>} element={element} />
+        //         </div>
+        //         <div>
+        //             <TextArea fluid label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element}></TextArea>
+        //         </div>
+        //         <div className="w-10">
+        //             <TextArea fluid label="Where to?" button={<IconButton><CrossIcon /></IconButton>} element={element}></TextArea>
+        //         </div>
+        //     </Stack>
+        // )
+        // .add("description", () =>
+        //     <Stack>
+        //         <Inline align="end">
+        //             <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="small" label="Where to?" element={element} />
+        //             <TextArea description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
+        //             <TextArea description="Trips to Andromeda galaxy are available every 2 months." size="large" label="Where to?" element={element} />
+        //         </Inline>
+        //         <div>
+        //             <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
+        //         </div>
+        //         <div className="w-10">
+        //             <TextArea description="Trips to Andromeda galaxy are available every 2 months." fluid label="Where to?" element={element}></TextArea>
+        //         </div>
+        //     </Stack>
+        // )
         .add("value", () =>
             <Stack>
                 <Inline align="end">
@@ -141,25 +141,25 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("message", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextArea helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
-                    <TextArea helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                    <TextArea helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline>
-                    <TextArea helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
-                    <TextArea helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
-                </Inline>
-                <div>
-                    <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                </div>
-                <div className="w-10">
-                    <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                </div>
-            </Stack>
-        )
+        // .add("message", () =>
+        //     <Stack>
+        //         <Inline align="end">
+        //             <TextArea helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
+        //             <TextArea helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
+        //             <TextArea helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
+        //         </Inline>
+        //         <Inline>
+        //             <TextArea helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
+        //             <TextArea helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
+        //         </Inline>
+        //         <div>
+        //             <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
+        //         </div>
+        //         <div className="w-10">
+        //             <TextArea fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
+        //         </div>
+        //     </Stack>
+        // )
         .add("states", () =>
             <Stack>
                 <Inline align="end">

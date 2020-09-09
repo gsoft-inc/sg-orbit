@@ -1,6 +1,6 @@
 import "./Switch.css";
 
-import { SlotProvider } from "../../shared";
+import { ClearSlots, SlotProvider } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -112,25 +112,27 @@ export function InnerSwitch(props) {
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-switch-switch" />
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-switch-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-switch-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-switch-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-switch-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-switch-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-switch-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

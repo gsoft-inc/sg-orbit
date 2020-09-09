@@ -1,4 +1,4 @@
-// Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/Slots.tsx.
+// Initial code have been copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/Slots.tsx.
 // For more info about the slots architecture please read https://github.com/adobe/react-spectrum/blob/main/rfcs/2019-v3-slots.md.
 
 import { SIZE } from "./size";
@@ -8,57 +8,33 @@ import { mergeProps } from "./mergeProps";
 
 export const SlotContext = createContext(null);
 
-// export function useSlotProps(props, defaultSlot) {
-//     const key = props.slot || defaultSlot;
-//     const { [key]: slotProps = {} } = useContext(SlotContext) || {};
+export function useSlotContext(slot) {
+    const context = useContext(SlotContext);
 
-//     return mergeProps(props, slotProps);
-// }
+    if (!isNil(context)) {
+        const slots = Array.isArray(slot) ? slot : [slot];
 
-// export function useSlotContext(slot) {
-//     const context = useContext(SlotContext);
+        const props = slots.reduce((acc, x) => {
+            const slotProps = context[x];
 
-//     if (!isNil(context)) {
-//         const slots = Array.isArray(slot) ? slot : [slot];
+            if (!isNil(slotProps)) {
+                acc.push(slotProps);
+            }
 
-//         return slots.reduce((slotProps, x) => {
+            return acc;
+        }, []);
 
+        return mergeProps(...props);
+    }
 
-//             // slotProps = isNil(slotProps) ?
+    return {};
+}
 
-//             // if (!isNil(slotProps))
+export function useSlotProps(props, defaultSlot) {
+    const slotProps = useSlotContext(defaultSlot);
 
-//             // slotProps = mergeProps()
-//         }, {});
-//     }
-
-//     return {};
-// }
-
-// export function useSlotProps(props, defaultSlot) {
-//     // const slot = !isNil(props.slot)
-//     //     ? [props.slot]
-//     //     : !isNil(defaultSlots)
-//     //         ? Array.isArray(defaultSlots) ? defaultSlots : [defaultSlots]
-//     //         : defaultSlots;
-
-//     const context = useContext(SlotContext);
-
-//     const slotProps = {};
-
-//     if (!isNil(context)) {
-//         const slot = props.slot || defaultSlot;
-//         const slots = Array.isArray(slot) ? slot : [slot];
-
-//         for (let i = 0; i < slots.length; i += 1) {
-
-//         }
-//     }
-
-//     // const { [key]: slotProps = {} } = useContext(SlotContext);
-
-//     return mergeProps(props, slotProps);
-// }
+    return mergeProps(props, slotProps);
+}
 
 export function SlotProvider({ slots, children }) {
     const parentSlots = useContext(SlotContext) || {};

@@ -1,6 +1,6 @@
 import "./Lozenge.css";
 
-import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -56,20 +56,22 @@ export function InnerLozenge({
             )}
             ref={ref}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot(textSlotAdapter({
-                        size,
-                        className: "o-ui-lozenge-text"
-                    })),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-lozenge-icon"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot(textSlotAdapter({
+                            size,
+                            className: "o-ui-lozenge-text"
+                        })),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-lozenge-icon"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

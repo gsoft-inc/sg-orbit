@@ -1,0 +1,5 @@
+.o-ui-field-label {
+    color: var(--marine-200);
+    min-height: var(--scale-echo);
+    white-space: nowrap;
+}

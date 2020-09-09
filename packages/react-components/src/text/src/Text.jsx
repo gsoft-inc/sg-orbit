@@ -1,7 +1,7 @@
 import "./Text.css";
 
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -46,7 +46,17 @@ export function InnerText(props) {
             )}
             ref={forwardedRef}
         >
-            {children}
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        icon: {
+                            size
+                        }
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

@@ -36,7 +36,7 @@ export class CompositeKeyWeakMap {
             node = (node.map || node).get(keys[i]);
 
             if (isUndefined(node)) {
-                return undefined;
+                return node;
             }
         }
 
@@ -48,9 +48,9 @@ export class CompositeKeyWeakMap {
     }
 }
 
-const cache = new CompositeKeyWeakMap();
-
 ///////////////////////////////////////////////////////
+
+const cache = new CompositeKeyWeakMap();
 
 function memoizedMerge(x, y, fct) {
     const key = [x, y];

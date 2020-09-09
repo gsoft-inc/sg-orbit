@@ -1,56 +1,50 @@
-import { SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
+import "./FieldMessage.css";
+
+import { SIZE, cssModule, mergeClasses } from "../../shared";
+import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { textSlot } from "../../text";
 
 const propTypes = {
-    variant: oneOf(["help", "valid", "error"]).isRequired,
+    variant: oneOf(["neutral", "success", "error"]).isRequired,
     size: oneOf(["small", "medium", "large"]),
     as: oneOfType([string, elementType]),
     children: any.isRequired
 };
 
-const textSlotAdapter = createSizeAdapterSlotFactory({
+const ADAPTED_SIZE = {
     [SIZE.small]: SIZE.tiny,
     [SIZE.medium]: SIZE.small,
     [SIZE.large]: SIZE.medium
-});
+};
 
 export const FieldMessage = forwardRef(({
     variant,
+    fluid,
     size,
     className,
-    as: ElementType = "span",
+    as = "span",
     children,
     ...rest
 }, ref) => {
     return (
-        <ElementType
+        <Text
             {...rest}
+            size={ADAPTED_SIZE[size ?? SIZE.medium]}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",
                     variant,
-                    getSizeClass(size)
+                    fluid && "fluid"
                 ),
                 className
             )}
+            as={as}
             aria-live="polite"
             ref={ref}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot(textSlotAdapter({
-                        size
-                    })),
-                    icon: {
-                        size
-                    }
-                }}
-            >
-                {children}
-            </SlotProvider>
-        </ElementType>
+            {children}
+        </Text>
     );
 });
 

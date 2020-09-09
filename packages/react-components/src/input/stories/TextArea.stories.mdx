@@ -44,29 +44,6 @@ A default text input.
     </Story>
 </Preview>
 
-### Label
-
-A text area can be identified by a label.
-
-<Preview>
-    <Story name="label">
-        <Inline>
-            <TextArea label="Why should you go to space?" />
-            <TextArea label="Why should you go to space?" required />
-        </Inline>
-    </Story>
-</Preview>
-
-### Description
-
-A text area can have additional text to further describe the input.
-
-<Preview>
-    <Story name="description">
-        <TextArea label="Why should you go to space?" description="We currently can't afford to send more than 2 austronauts per year. We must choose wisely!" />
-    </Story>
-</Preview>
-
 ### Value
 
 A text area can have a value.
@@ -164,20 +141,6 @@ The example below illustrates how one would validate that a text area doesn't ex
 <FilePreview filePath="/input/stories/LengthValidation">
     <LengthValidation />
 </FilePreview>
-
-### Message
-
-A message can be displayed beneath a text area.
-
-<Preview>
-    <Story name="message">
-        <Inline>
-            <TextArea helpMessage="Why should we choose you over another candidate?" label="Why should you go to space?" placeholder="When I was young..." />
-            <TextArea invalidMessage="Not good enough." validationState="invalid" label="Why should you go to space?" defaultValue="Because it's my dream." />
-            <TextArea validMessage="Welcome aboard!" validationState="valid" label="Why should you go to space?" defaultValue="I possess a master's degree in engineering, biological and physical science. I do have over 1,000 hours of jet aircraft air time and I am in great physical condition." />
-        </Inline>
-    </Story>
-</Preview>
 
 ### Transparent
 

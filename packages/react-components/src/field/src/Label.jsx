@@ -1,8 +1,9 @@
-import { SIZE, mergeClasses } from "../../shared";
+import "./Label.css";
+
+import { SIZE, mergeClasses, useSlotProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useFieldProps } from "./FieldContext";
 
 const propTypes = {
     /**
@@ -44,7 +45,7 @@ export function InnerLabel(props) {
         children,
         forwardedRef,
         ...rest
-    } = useFieldProps(props);
+    } = useSlotProps(props, "label");
 
     const label = required ? `${children} *` : children;
 

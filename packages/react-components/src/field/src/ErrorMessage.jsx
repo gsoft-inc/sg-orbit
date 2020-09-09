@@ -1,7 +1,6 @@
 import { FieldMessage } from "./FieldMessage";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isUndefined } from "lodash";
 import { useMessageValidationContext } from "./ValidationContext";
 import { useSlotProps } from "../../shared";
 
@@ -30,7 +29,7 @@ export function InnerErrorMessage(props) {
         as = "span",
         children,
         ...rest
-    } = useSlotProps(props);
+    } = useSlotProps(props, "message");
 
     const { isError } = useMessageValidationContext();
 

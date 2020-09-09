@@ -29,7 +29,7 @@ export function InnerValidMessage(props) {
         as = "span",
         children,
         ...rest
-    } = useSlotProps(props);
+    } = useSlotProps(props, "message");
 
     const { isValid } = useMessageValidationContext();
 
@@ -40,7 +40,7 @@ export function InnerValidMessage(props) {
     return (
         <FieldMessage
             {...rest}
-            variant="valid"
+            variant="success"
             as={as}
             ref={forwardedRef}
         >

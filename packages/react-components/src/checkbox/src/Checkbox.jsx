@@ -1,6 +1,6 @@
 import "./Checkbox.css";
 
-import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
+import { ClearSlots, SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -138,25 +138,27 @@ export function InnerCheckbox(props) {
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-checkbox-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-checkbox-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-checkbox-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-checkbox-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-checkbox-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-checkbox-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

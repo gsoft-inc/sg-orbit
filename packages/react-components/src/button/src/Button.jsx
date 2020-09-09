@@ -1,6 +1,6 @@
 import "./Button.css";
 
-import { SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -118,20 +118,22 @@ export function InnerButton({
             )}
             ref={buttonRef}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-button-text"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-button-icon"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-button-text"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-button-icon"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }
