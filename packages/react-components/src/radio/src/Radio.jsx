@@ -23,6 +23,24 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
+     * Whether the radio should autoFocus on render.
+     */
+    autoFocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autoFocusDelay: number,
+    /**
+     * Whether the radio should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
+    /**
+     * Called when the radio checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
+    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -30,12 +48,6 @@ const propTypes = {
      * Invert the order of the checkmark box and the label.
      */
     reverse: bool,
-    /**
-     * Called when the radio checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onChange: func,
     /**
      * An HTML element type or a custom React element type to render as.
      */

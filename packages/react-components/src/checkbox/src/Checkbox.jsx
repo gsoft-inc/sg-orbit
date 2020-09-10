@@ -11,10 +11,6 @@ import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useValidationProps } from "../../field";
 
-// TODO:
-// - validation
-// - required attribute
-
 const propTypes = {
     /**
      * A controlled checked state value.

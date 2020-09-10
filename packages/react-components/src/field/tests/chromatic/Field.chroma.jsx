@@ -13,6 +13,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 // - Write Field docs (have an example with Formik)
 // - Form component with as="fieldset" ? With a doc example?
 
+// TODO dans documentation de checkbox, checkbox group, switch, radio et radio group
+// - Documentation validation comme pour input
+
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Field"))
         .segment()
