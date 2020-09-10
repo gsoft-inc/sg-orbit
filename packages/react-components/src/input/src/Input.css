@@ -26,7 +26,7 @@
 /* PLACEHOLDER */
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {
-    color: var(--marine-300);
+    color: var(--marine-200);
 }
 
 .o-ui-input input,
