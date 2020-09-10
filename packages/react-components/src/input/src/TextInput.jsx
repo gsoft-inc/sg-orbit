@@ -156,6 +156,7 @@ export function InnerTextInput(props) {
         <>
             {iconMarkup}
             <input
+                data-testid="text-input"
                 {...rest}
                 {...inputProps}
             />
@@ -165,7 +166,6 @@ export function InnerTextInput(props) {
 
     return (
         <ElementType
-            data-testid="text-input"
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(

@@ -130,6 +130,7 @@ export function InnerCheckboxGroup(props) {
 
     return (
         <Flex
+            data-testid="checkbox-group"
             {...rest}
             {...groupProps}
             as={as}

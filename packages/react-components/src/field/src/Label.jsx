@@ -51,6 +51,7 @@ export function InnerLabel(props) {
 
     return (
         <Text
+            data-testid="field-label"
             {...rest}
             htmlFor={htmlFor ?? fieldId}
             size={ADAPTED_SIZE[size ?? SIZE.medium]}

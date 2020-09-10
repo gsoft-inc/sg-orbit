@@ -11,7 +11,7 @@ export function useField({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const fieldId = useId(id, id ?? "o-ui-field");
+    const fieldId = useId(id, id ? undefined : "o-ui-field");
 
     const { hasLabel, hasMessage } = useHasChildren({
         hasLabel: ".o-ui-field-label",
