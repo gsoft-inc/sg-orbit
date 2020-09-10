@@ -324,15 +324,3 @@
 .o-ui-input-large input {
     min-height: var(--scale-india);
 }
-
-/* LABEL */
-.o-ui-input-has-label {
-    display: inline-flex;
-    flex-direction: column;
-}
-
-/* MESSAGE */
-.o-ui-input-has-message {
-    display: inline-flex;
-    flex-direction: column;
-}

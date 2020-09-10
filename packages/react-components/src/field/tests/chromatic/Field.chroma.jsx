@@ -6,15 +6,11 @@ import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 // TODO:
-// - FieldMessage.chroma.jsx
 // - Label.chroma.jsx
 // - Clean up InputMessage, InputLabel etc...
 // - Jest Tests (dont valider que input et label share le même id)
 // - Write Field docs (have an example with Formik)
 // - Form component with as="fieldset" ? With a doc example?
-
-// TODO dans documentation de checkbox, checkbox group, switch, radio et radio group
-// - Documentation validation comme pour input
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Field"))

@@ -15,7 +15,7 @@ import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
-import { useInputGroup } from "../../input";
+import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 import { useValidationProps } from "../../field";
 
@@ -141,7 +141,7 @@ export function InnerRadioGroup(props) {
     const {
         groupProps,
         itemProps
-    } = useInputGroup({
+    } = useGroupInput({
         role: "radio-group",
         required,
         validationState,

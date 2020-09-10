@@ -22,7 +22,7 @@ const ITEMS_GAP_BY_SIZE = {
     }
 };
 
-export function useInputGroup({
+export function useGroupInput({
     role = "group",
     required,
     validationState,
