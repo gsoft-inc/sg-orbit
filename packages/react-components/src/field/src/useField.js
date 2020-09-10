@@ -18,6 +18,9 @@ export function useField({
         hasMessage: ".o-ui-field-message"
     }, ref);
 
+    const labelId = hasLabel ? `${fieldId}-label` : undefined;
+    const messageId = hasMessage ? `${fieldId}-message` : undefined;
+
     return {
         fieldId,
         fieldProps: {
@@ -34,6 +37,7 @@ export function useField({
             ref
         },
         labelProps: {
+            id: labelId,
             required,
             size,
             className: "o-ui-field-label"
@@ -44,12 +48,16 @@ export function useField({
             disabled,
             fluid,
             size,
-            className: "o-ui-field-input"
+            className: "o-ui-field-input",
+            "aria-labelledby": labelId,
+            "aria-describedby": messageId
         },
         messageProps: {
+            id: messageId,
             size,
             fluid,
-            className: "o-ui-field-message"
+            className: "o-ui-field-message",
+            "aria-live": "polite"
         }
     };
 }

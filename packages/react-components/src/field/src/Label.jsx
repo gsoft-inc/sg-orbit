@@ -34,6 +34,12 @@ const ADAPTED_SIZE = {
     [SIZE.large]: SIZE.medium
 };
 
+function RequiredIndicator() {
+    return (
+        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
+    );
+}
+
 export function InnerLabel(props) {
     const {
         htmlFor,
@@ -46,8 +52,6 @@ export function InnerLabel(props) {
         forwardedRef,
         ...rest
     } = useSlotProps(props, "label");
-
-    const label = required ? `${children} *` : children;
 
     return (
         <Text
@@ -62,7 +66,8 @@ export function InnerLabel(props) {
             as={as}
             ref={forwardedRef}
         >
-            {label}
+            {children}
+            {required && <RequiredIndicator />}
         </Text>
     );
 }

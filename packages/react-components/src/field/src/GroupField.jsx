@@ -49,7 +49,6 @@ export function InnerGroupField({
     ...rest
 }) {
     const {
-        fieldId,
         fieldProps,
         labelProps,
         inputProps,
@@ -63,8 +62,6 @@ export function InnerGroupField({
         className,
         forwardedRef
     });
-
-    const labelId = `${fieldId}-label`;
 
     return (
         <ElementType
@@ -81,13 +78,9 @@ export function InnerGroupField({
                         slots={{
                             label: {
                                 ...labelProps,
-                                id: labelId,
                                 as: "span"
                             },
-                            input: {
-                                ...inputProps,
-                                "aria-labelledby": labelId
-                            },
+                            input: inputProps,
                             message: messageProps
                         }}
                     >

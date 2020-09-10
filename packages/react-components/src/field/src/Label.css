@@ -3,3 +3,8 @@
     min-height: var(--scale-echo);
     white-space: nowrap;
 }
+
+/* REQUIRED */
+.o-ui-field-label-required {
+    margin-left: var(--scale-alpha);
+}
