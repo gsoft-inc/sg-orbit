@@ -4,7 +4,7 @@ import { ClearValidation, useValidationProps } from "../../field";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
-import { useInputGroup } from "../../input";
+import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
@@ -102,8 +102,7 @@ export function InnerCheckboxGroup(props) {
     const {
         groupProps,
         itemProps
-    } = useInputGroup({
-        role: "group",
+    } = useGroupInput({
         required,
         validationState,
         orientation,
