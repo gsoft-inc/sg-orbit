@@ -7,7 +7,7 @@ import { forwardRef } from "react";
 
 const propTypes = {
     /**
-     * Whether or not the label identify a required field.
+     * Whether or not the label show a required state.
      */
     required: bool,
     /**

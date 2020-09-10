@@ -16,7 +16,7 @@ const propTypes = {
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
-     * Whether or not the field is required.
+     * Whether or not the field show a required state.
      */
     required: bool,
     /**
