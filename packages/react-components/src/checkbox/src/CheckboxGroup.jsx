@@ -1,6 +1,5 @@
-import { CheckableContext, ClearSlots, augmentElement, useControllableState, useEventCallback, useSlotProps } from "../../shared";
+import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
-import { ClearValidation, useValidationProps } from "../../field";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -61,6 +60,11 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+const defaultProps = {
+    orientation: "horizontal",
+    as: "div"
+};
+
 function arrayToggleValue(array, value) {
     if (isNil(array)) {
         return [value];
@@ -85,17 +89,16 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         onChange,
-        orientation = "horizontal",
+        orientation,
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        as = "div",
         children,
         forwardedRef,
         ...rest
-    } = useToolbarProps(useValidationProps(useSlotProps(props, ["checkboxGroup", "input"])), { addNavigationMode: false });
+    } = useToolbarProps(props, { addNavigationMode: false });
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
@@ -133,30 +136,26 @@ export function InnerCheckboxGroup(props) {
             data-testid="checkbox-group"
             {...rest}
             {...groupProps}
-            as={as}
         >
-            <ClearValidation>
-                <ClearSlots>
-                    <CheckableContext.Provider
-                        value={{
-                            onCheck: handleCheck,
-                            checkedValue
-                        }}
-                    >
-                        {Children.map(items, x => {
-                            return augmentElement(x, {
-                                ...itemProps,
-                                role: "checkbox"
-                            });
-                        })}
-                    </CheckableContext.Provider>
-                </ClearSlots>
-            </ClearValidation>
+            <CheckableContext.Provider
+                value={{
+                    onCheck: handleCheck,
+                    checkedValue
+                }}
+            >
+                {Children.map(items, x => {
+                    return augmentElement(x, {
+                        ...itemProps,
+                        role: "checkbox"
+                    });
+                })}
+            </CheckableContext.Provider>
         </Flex>
     );
 }
 
 InnerCheckboxGroup.propTypes = propTypes;
+InnerCheckboxGroup.defaultProps = defaultProps;
 
 export const CheckboxGroup = forwardRef((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />

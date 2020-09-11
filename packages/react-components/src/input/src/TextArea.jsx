@@ -1,12 +1,12 @@
 import "./TextArea.css";
 
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useSlotProps } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
-import { useValidationProps } from "../../field";
 
 const propTypes = {
     /**
@@ -89,11 +89,19 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
+const defaultProps = {
+    variant: "outline",
+    type: "text",
+    as: "div"
+};
+
 const pxToInt = value => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
 
 export function InnerTextArea(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         id,
         value,
@@ -103,8 +111,8 @@ export function InnerTextArea(props) {
         required,
         validationState,
         onChange,
-        variant = "outline",
-        type = "text",
+        variant,
+        type,
         autoFocus,
         autoFocusDelay,
         button,
@@ -121,10 +129,10 @@ export function InnerTextArea(props) {
         className,
         style,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as: ElementType,
         forwardedRef,
         ...rest
-    } = useValidationProps(useSlotProps(props, ["textArea", "input"]));
+    } = mergeProps(props, fieldProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
@@ -205,7 +213,8 @@ export function InnerTextArea(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-input",
-                    buttonMarkup && "has-button"
+                    buttonMarkup && "has-button",
+                    isInField && "in-field"
                 ),
                 wrapperClassName
             )}
@@ -216,6 +225,7 @@ export function InnerTextArea(props) {
 }
 
 InnerTextArea.propTypes = propTypes;
+InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />

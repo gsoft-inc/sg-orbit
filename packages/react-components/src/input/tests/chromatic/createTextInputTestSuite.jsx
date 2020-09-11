@@ -61,39 +61,6 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        // .add("label", () =>
-        //     <Stack>
-        //         <Inline align="end">
-        //             <TextInput size="small" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-        //             <TextInput label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-        //             <TextInput size="large" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-        //         </Inline>
-        //         <div>
-        //             <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-        //         </div>
-        //         <div>
-        //             <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
-        //         </div>
-        //         <div className="w-10">
-        //             <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
-        //         </div>
-        //     </Stack>
-        // )
-        // .add("description", () =>
-        //     <Stack>
-        //         <Inline align="end">
-        //             <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="small" element={element} />
-        //             <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-        //             <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="large" element={element} />
-        //         </Inline>
-        //         <div>
-        //             <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-        //         </div>
-        //         <div className="w-10">
-        //             <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-        //         </div>
-        //     </Stack>
-        // )
         .add("value", () =>
             <Stack>
                 <Inline align="end">

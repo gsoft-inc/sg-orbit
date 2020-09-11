@@ -1,6 +1,6 @@
 import "./Checkbox.css";
 
-import { ClearSlots, SlotProvider, useCheckableProps, useEventCallback, useSlotProps } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, useCheckableProps, useEventCallback } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
-import { useValidationProps } from "../../field";
+import { useFieldInput } from "../../field";
 
 const propTypes = {
     /**
@@ -72,7 +72,13 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
+const defaultProps = {
+    as: "label"
+};
+
 export function InnerCheckbox(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         id,
         checked,
@@ -94,15 +100,12 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as: ElementType,
         className,
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(useValidationProps(useSlotProps(props, ["checkbox", "input"])));
-
-    // Unnecessary since the component render an input="checkbox".
-    delete rest["role"];
+    } = mergeProps(useCheckableProps(props), fieldProps);
 
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
@@ -115,6 +118,7 @@ export function InnerCheckbox(props) {
         inputProps
     } = useCheckbox({
         cssModule: "o-ui-checkbox",
+        isInField,
         id,
         checked,
         defaultChecked,
@@ -179,6 +183,7 @@ export function InnerCheckbox(props) {
 }
 
 InnerCheckbox.propTypes = propTypes;
+InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />

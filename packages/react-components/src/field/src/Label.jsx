@@ -1,9 +1,31 @@
 import "./Label.css";
 
-import { SIZE, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { useFieldContext } from "./FieldContext";
+
+export function useFieldLabel(props) {
+    const {
+        isGroupField,
+        inputId,
+        labelId,
+        required,
+        size
+    } = useFieldContext();
+
+    const as = props.as || (isGroupField && "span");
+
+    return {
+        id: labelId,
+        required,
+        size,
+        htmlFor: as === "label" && inputId,
+        className: cssModule("o-ui-field-label", getSizeClass(size)),
+        as
+    };
+}
 
 const propTypes = {
     /**
@@ -19,13 +41,13 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
+};
+
+const defaultProps = {
+    as: "label"
 };
 
 const ADAPTED_SIZE = {
@@ -36,34 +58,31 @@ const ADAPTED_SIZE = {
 
 function RequiredIndicator() {
     return (
-        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
+        <span className="o-ui-field-label-required" focusable="false" aria-hidden="true">*</span>
     );
 }
 
 export function InnerLabel(props) {
+    const fieldProps = useFieldLabel(props);
+
     const {
-        htmlFor,
         required,
         size,
-        as = "label",
         className,
-        fieldId,
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "label");
+    } = mergeProps(props, fieldProps);
 
     return (
         <Text
             data-testid="field-label"
             {...rest}
-            htmlFor={htmlFor ?? fieldId}
             size={ADAPTED_SIZE[size ?? SIZE.medium]}
             className={mergeClasses(
                 "o-ui-field-label",
                 className
             )}
-            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -73,6 +92,7 @@ export function InnerLabel(props) {
 }
 
 InnerLabel.propTypes = propTypes;
+InnerLabel.defaultProps = defaultProps;
 
 export const Label = forwardRef((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />

@@ -1,11 +1,11 @@
 import "./Input.css";
 
-import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useSlotProps } from "../../shared";
+import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
-import { useValidationProps } from "../../field";
 
 const propTypes = {
     /**
@@ -77,14 +77,18 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string
+    as: oneOfType([string, elementType])
+};
+
+const defaultProps = {
+    variant: "outline",
+    type: "text",
+    as: "div"
 };
 
 export function InnerTextInput(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         id,
         value,
@@ -93,8 +97,8 @@ export function InnerTextInput(props) {
         required,
         validationState,
         onChange,
-        variant = "outline",
-        type = "text",
+        variant,
+        type,
         autoFocus,
         autoFocusDelay,
         icon,
@@ -109,10 +113,10 @@ export function InnerTextInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as: ElementType,
         forwardedRef,
         ...rest
-    } = useValidationProps(useSlotProps(props, ["textInput", "input"]));
+    } = mergeProps(props, fieldProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
@@ -171,7 +175,8 @@ export function InnerTextInput(props) {
                 cssModule(
                     "o-ui-input",
                     iconMarkup && "has-icon",
-                    buttonMarkup && "has-button"
+                    buttonMarkup && "has-button",
+                    isInField && "in-field"
                 ),
                 wrapperClassName
             )}
@@ -182,6 +187,7 @@ export function InnerTextInput(props) {
 }
 
 InnerTextInput.propTypes = propTypes;
+InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />

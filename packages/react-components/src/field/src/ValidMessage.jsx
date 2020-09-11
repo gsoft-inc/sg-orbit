@@ -1,8 +1,7 @@
-import { FieldMessage } from "./FieldMessage";
+import { FieldMessage, getValidationProps, useFieldMessage } from "./FieldMessage";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useMessageValidationContext } from "./ValidationContext";
-import { useSlotProps } from "../../shared";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -14,26 +13,26 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
 };
 
+const defaultProps = {
+    as: "div"
+};
+
 export function InnerValidMessage(props) {
+    const { isInField, validationState, ...messageProps } = useFieldMessage();
+    const { isValid } = getValidationProps(validationState);
+
     const {
         forwardedRef,
-        as = "div",
         children,
         ...rest
-    } = useSlotProps(props, "message");
+    } = mergeProps(props, messageProps);
 
-    const { isValid } = useMessageValidationContext();
-
-    if (!isValid) {
+    if (isInField && !isValid) {
         return null;
     }
 
@@ -41,7 +40,6 @@ export function InnerValidMessage(props) {
         <FieldMessage
             {...rest}
             variant="success"
-            as={as}
             ref={forwardedRef}
         >
             {children}
@@ -50,6 +48,7 @@ export function InnerValidMessage(props) {
 }
 
 InnerValidMessage.propTypes = propTypes;
+InnerValidMessage.defaultProps = defaultProps;
 
 export const ValidMessage = forwardRef((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />

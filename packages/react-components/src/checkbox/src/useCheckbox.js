@@ -4,6 +4,7 @@ import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
     cssModule: module,
+    isInField,
     id,
     checked,
     defaultChecked,
@@ -63,6 +64,7 @@ export function useCheckbox({
                     module,
                     isChecked && "checked",
                     isIndeterminate && "indeterminate",
+                    isInField && "in-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",

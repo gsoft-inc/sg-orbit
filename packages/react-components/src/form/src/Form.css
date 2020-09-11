@@ -1,0 +1,3 @@
+.o-ui-form .o-ui-form-field:not(:last-child) {
+    margin-bottom: var(--scale-echo);
+}

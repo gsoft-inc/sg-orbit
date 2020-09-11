@@ -1,5 +1,6 @@
-import { ClearSlots, SlotProvider } from "../../shared";
-import { ValidationContext } from "./ValidationContext";
+import "./Field.css";
+
+import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useField } from "./useField";
@@ -14,7 +15,7 @@ const propTypes = {
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
-     * Whether or not the field is required.
+     * Whether or not the field show a required state.
      */
     required: bool,
     /**
@@ -22,7 +23,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * An field can vary in size.
+     * A field can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
     /**
@@ -35,6 +36,10 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    as: "div"
+};
+
 export function InnerGroupField({
     id,
     validationState,
@@ -42,7 +47,7 @@ export function InnerGroupField({
     fluid,
     size,
     disabled,
-    as: ElementType = "div",
+    as: ElementType,
     className,
     children,
     forwardedRef,
@@ -50,49 +55,43 @@ export function InnerGroupField({
 }) {
     const {
         fieldProps,
-        labelProps,
-        inputProps,
-        messageProps
+        inputId,
+        labelId,
+        messageId
     } = useField({
         id,
-        required,
         fluid,
-        size,
-        disabled,
         className,
         forwardedRef
     });
 
     return (
         <ElementType
+            data-testid="field"
             {...rest}
             {...fieldProps}
         >
-            <ValidationContext.Provider
+            <FieldContext.Provider
                 value={{
+                    isGroup: true,
+                    inputId,
+                    labelId,
+                    messageId,
+                    required,
+                    disabled,
+                    size,
+                    fluid,
                     validationState
                 }}
             >
-                <ClearSlots>
-                    <SlotProvider
-                        slots={{
-                            label: {
-                                ...labelProps,
-                                as: "span"
-                            },
-                            input: inputProps,
-                            message: messageProps
-                        }}
-                    >
-                        {children}
-                    </SlotProvider>
-                </ClearSlots>
-            </ValidationContext.Provider>
+                {children}
+            </FieldContext.Provider>
         </ElementType>
     );
 }
 
 InnerGroupField.propTypes = propTypes;
+InnerGroupField.defaultProps = defaultProps;
 
 export const GroupField = forwardRef((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />

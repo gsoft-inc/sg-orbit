@@ -1,6 +1,6 @@
 import "./Radio.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -8,6 +8,7 @@ import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
+import { useFieldInput } from "../../field";
 
 const propTypes = {
     /**
@@ -58,7 +59,13 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+const defaultProps = {
+    as: "label"
+};
+
 export function InnerRadio(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         value,
         name,
@@ -76,15 +83,12 @@ export function InnerRadio(props) {
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as: ElementType,
         className,
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(props);
-
-    // Since this component render an input="radio" the role is unnecessary.
-    delete rest["role"];
+    } = mergeProps(useCheckableProps(props), fieldProps);
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
@@ -127,6 +131,7 @@ export function InnerRadio(props) {
                 cssModule(
                     "o-ui-radio",
                     isChecked && "checked",
+                    isInField && "in-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",
@@ -178,6 +183,7 @@ export function InnerRadio(props) {
 }
 
 InnerRadio.propTypes = propTypes;
+InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />

@@ -7,7 +7,6 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 
 // TODO:
 // - Write Field docs (have an example with Formik)
-// - Form component with as="fieldset" ? With a doc example?
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Field"))

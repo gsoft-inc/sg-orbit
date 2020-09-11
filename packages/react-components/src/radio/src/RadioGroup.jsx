@@ -17,7 +17,6 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { isFunction, isNil } from "lodash";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
-import { useValidationProps } from "../../field";
 
 const ARROW_NAV_KEY_BINDING = {
     "default": {
@@ -102,6 +101,11 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+const defaultProps = {
+    orientation: "vertical",
+    as: "div"
+};
+
 export function InnerRadioGroup(props) {
     const {
         value,
@@ -112,18 +116,18 @@ export function InnerRadioGroup(props) {
         onChange,
         autoFocus,
         autoFocusDelay,
-        orientation = "vertical",
+        orientation,
         gap,
         wrap,
         size,
         reverse,
         disabled,
         navigationMode,
-        as = "div",
+        as,
         children,
         forwardedRef,
         ...rest
-    } = useToolbarProps(useValidationProps(useSlotProps(props, ["radioGroup", "input"])));
+    } = useToolbarProps(props);
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
@@ -194,6 +198,7 @@ export function InnerRadioGroup(props) {
 }
 
 InnerRadioGroup.propTypes = propTypes;
+InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />

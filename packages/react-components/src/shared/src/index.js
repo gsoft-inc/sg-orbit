@@ -15,6 +15,7 @@ export * from "./cssModule";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createFocusableTreeWalker";
+export * from "./omitProps";
 
 // Hooks
 export * from "./useMergedRefs";

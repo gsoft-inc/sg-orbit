@@ -1,14 +1,14 @@
 import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
-import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback, useSlotProps } from "../../shared";
+import { SIZE, cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
-import { useValidationProps } from "../../field";
 
 const STEPPER_ICON = {
     [SIZE.small]: SIZE.mini,
@@ -94,6 +94,12 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
+const defaultProps = {
+    step: 1,
+    variant: "outline",
+    as: "div"
+};
+
 export function Spinner({
     onIncrement,
     onDecrement,
@@ -161,6 +167,8 @@ function toFixed(value, precision) {
 }
 
 export function InnerNumberInput(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         id,
         value,
@@ -168,13 +176,13 @@ export function InnerNumberInput(props) {
         placeholder,
         min,
         max,
-        step = 1,
+        step,
         clampValue = true,
         required,
         validationState,
         onChange,
         onBlur,
-        variant = "outline",
+        variant,
         autoFocus,
         autoFocusDelay,
         icon,
@@ -188,10 +196,10 @@ export function InnerNumberInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as: ElementType,
         forwardedRef,
         ...rest
-    } = useValidationProps(useSlotProps(props, ["numberInput", "input"]));
+    } = mergeProps(props, fieldProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
@@ -335,7 +343,8 @@ export function InnerNumberInput(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-input",
-                    iconMarkup && "has-icon"
+                    iconMarkup && "has-icon",
+                    isInField && "in-field"
                 ),
                 wrapperClassName
             )}
@@ -346,6 +355,7 @@ export function InnerNumberInput(props) {
 }
 
 InnerNumberInput.propTypes = propTypes;
+InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />

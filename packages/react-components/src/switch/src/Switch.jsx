@@ -1,6 +1,6 @@
 import "./Switch.css";
 
-import { ClearSlots, SlotProvider, useSlotProps } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
-import { useValidationProps } from "../../field";
+import { useFieldInput } from "../../field";
 
 const propTypes = {
     /**
@@ -60,7 +60,13 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
+const defaultProps = {
+    as: "label"
+};
+
 export function InnerSwitch(props) {
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         id,
         checked,
@@ -78,12 +84,12 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as: ElementType,
         className,
         children,
         forwardedRef,
         ...rest
-    } = useValidationProps(useSlotProps(props, ["switch", "input"]));
+    } = mergeProps(props, fieldProps);
 
     const {
         isChecked,
@@ -91,6 +97,7 @@ export function InnerSwitch(props) {
         inputProps
     } = useCheckbox({
         cssModule: "o-ui-switch",
+        isInField,
         id,
         checked,
         defaultChecked,
@@ -153,6 +160,7 @@ export function InnerSwitch(props) {
 }
 
 InnerSwitch.propTypes = propTypes;
+InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
