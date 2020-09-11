@@ -1,0 +1,169 @@
+import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
+import { EmailValidation } from "./EmailValidation.sample";
+import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Inline } from "@react-components/layout";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { NumberInput, TextInput } from "@react-components/input";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Field")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/field/src" />)
+        .build()}
+/>
+
+# Field
+
+A field add a label and a message to an input. They are typically used in forms and dialogs.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Field", component: InnerField },
+        { displayName: "GroupField", component: InnerGroupField },
+        { displayName: "Label", component: InnerLabel },
+        { displayName: "HelpMessage", component: InnerHelpMessage },
+        { displayName: "ErrorMessage", component: InnerErrorMessage },
+        { displayName: "ValidMessage", component: InnerValidMessage }
+    ]}
+/>
+
+## Accessibility
+
+When combined with a [form](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) element, a field commponent follows the [WAI specifications for forms](https://www.w3.org/WAI/tutorials/forms/).
+
+## Slots
+
+A field component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"input"`, `"message"`.
+
+## Usage
+
+### Input
+
+A field can be an input.
+
+<Preview>
+    <Story name="input">
+        <Field>
+            <Label>Space ID</Label>
+            <TextInput placeholder="999-999-999" />
+            <HelpMessage>Your space id is a 9-digit number on the top right corner of your membership card.</HelpMessage>
+        </Field>
+    </Story>
+</Preview>
+
+### Group Input
+
+A field can be a group input.
+
+<Preview>
+    <Story name="group">
+        <Inline align="start" gap={13}>
+            <GroupField>
+                <Label>Your favorite galaxies?</Label>
+                <CheckboxGroup>
+                    <Checkbox value="milky-way">Milky Way</Checkbox>
+                    <Checkbox value="andromeda">Andromeda</Checkbox>
+                    <Checkbox value="medusa">Medusa</Checkbox>
+                </CheckboxGroup>
+                <HelpMessage>You must at least have travelled once to the galaxy.</HelpMessage>
+            </GroupField>
+            <GroupField>
+                <Label>Your favorite galaxies?</Label>
+                <CheckboxGroup orientation="vertical">
+                    <Checkbox value="milky-way">Milky Way</Checkbox>
+                    <Checkbox value="andromeda">Andromeda</Checkbox>
+                    <Checkbox value="medusa">Medusa</Checkbox>
+                </CheckboxGroup>
+                <HelpMessage>You must at least have travelled once to the galaxy.</HelpMessage>
+            </GroupField>
+        </Inline>
+    </Story>
+</Preview>
+
+### Required
+
+A field can show a required state.
+
+<Preview>
+    <Story name="required">
+        <Field required>
+            <Label>Space ID</Label>
+            <TextInput placeholder="999-999-999" />
+            <HelpMessage>Your space id is a 9-digit number on the top right corner of your membership card.</HelpMessage>
+        </Field>
+    </Story>
+</Preview>
+
+### Fluid
+
+A field can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Field fluid>
+            <Label>Space ID</Label>
+            <TextInput placeholder="999-999-999" />
+            <HelpMessage>Your space id is a 9-digit number on the top right corner of your membership card.</HelpMessage>
+        </Field>
+    </Story>
+</Preview>
+
+### Size
+
+A field can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline align="end" gap={8}>
+            <Field size="small">
+                <Label>Age</Label>
+                <NumberInput placeholder="30" />
+                <HelpMessage>How long ago are you born?</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Age</Label>
+                <NumberInput placeholder="30" />
+                <HelpMessage>How long ago are you born?</HelpMessage>
+            </Field>
+            <Field size="large">
+                <Label>Age</Label>
+                <NumberInput placeholder="30" />
+                <HelpMessage>How long ago are you born?</HelpMessage>
+            </Field>
+        </Inline>
+    </Story>
+</Preview>
+
+### Validation
+
+A field can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the field via the `validationState` prop.
+
+When valid or invalid, a field can display a specific message by declaring either a `ValidMessage` or an `ErrorMessage` component.
+
+The example below illustrates how one would validate if the user has entered a valid email and display a message matching the current validation state.
+
+<FilePreview filePath="/field/stories/EmailValidation">
+    <EmailValidation />
+</FilePreview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Field>
+            <TextInput />
+        </Field>
+    </RefLogger>
+</Story>

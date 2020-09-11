@@ -23,12 +23,12 @@ export const FieldMessage = forwardRef(({
     fluid,
     size,
     className,
-    as = "span",
     children,
     ...rest
 }, ref) => {
     return (
         <Text
+            data-testid="field-message"
             {...rest}
             size={ADAPTED_SIZE[size ?? SIZE.medium]}
             className={mergeClasses(
@@ -39,7 +39,6 @@ export const FieldMessage = forwardRef(({
                 ),
                 className
             )}
-            as={as}
             aria-live="polite"
             ref={ref}
         >

@@ -26,7 +26,7 @@ const propTypes = {
 export function InnerHelpMessage(props) {
     const {
         forwardedRef,
-        as = "span",
+        as = "div",
         children,
         ...rest
     } = useSlotProps(props, "message");

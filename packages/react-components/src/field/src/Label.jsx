@@ -7,7 +7,7 @@ import { forwardRef } from "react";
 
 const propTypes = {
     /**
-     * Whether or not the label identify a required field.
+     * Whether or not the label show a required state.
      */
     required: bool,
     /**
@@ -34,6 +34,12 @@ const ADAPTED_SIZE = {
     [SIZE.large]: SIZE.medium
 };
 
+function RequiredIndicator() {
+    return (
+        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
+    );
+}
+
 export function InnerLabel(props) {
     const {
         htmlFor,
@@ -47,10 +53,9 @@ export function InnerLabel(props) {
         ...rest
     } = useSlotProps(props, "label");
 
-    const label = required ? `${children} *` : children;
-
     return (
         <Text
+            data-testid="field-label"
             {...rest}
             htmlFor={htmlFor ?? fieldId}
             size={ADAPTED_SIZE[size ?? SIZE.medium]}
@@ -61,7 +66,8 @@ export function InnerLabel(props) {
             as={as}
             ref={forwardedRef}
         >
-            {label}
+            {children}
+            {required && <RequiredIndicator />}
         </Text>
     );
 }
