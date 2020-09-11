@@ -133,7 +133,7 @@ export function InnerSwitch(props) {
             {...wrapperProps}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-switch-switch" />
+            <span className="o-ui-switch-control" />
             <ClearSlots>
                 <SlotProvider
                     slots={{
