@@ -5,7 +5,7 @@
         "label"
         "input"
         "message";
-    row-gap: var(--scale-alpha);
+    row-gap: 0;
 }
 
 /* FLUID */
@@ -14,8 +14,38 @@
 }
 
 /* LABEL */
-.o-ui-field-label {
+.o-ui-field .o-ui-field-label {
     grid-area: label;
+}
+
+.o-ui-field .o-ui-field-label.o-ui-text-tiny {
+    padding-bottom: var(--scale-alpha);
+}
+
+.o-ui-field .o-ui-field-label.o-ui-text-small {
+    padding-bottom: var(--scale-bravo);
+}
+
+.o-ui-field .o-ui-field-label.o-ui-text-medium {
+    padding-bottom: var(--scale-charlie);
+}
+
+/* RADIO */
+.o-ui-field-input .o-ui-radio {
+    min-height: var(--scale-foxtrot);
+}
+
+/* SWITCH */
+.o-ui-field .o-ui-switch-small {
+    min-height: var(--scale-foxtrot);
+}
+
+.o-ui-field .o-ui-switch-medium {
+    min-height: var(--scale-golf);
+}
+
+.o-ui-field .o-ui-switch-large {
+    min-height: var(--scale-hotel);
 }
 
 /* INPUT */
@@ -23,7 +53,31 @@
     grid-area: input;
 }
 
+.o-ui-field .o-ui-checkbox-small {
+    min-height: var(--scale-echo);
+}
+
+.o-ui-field .o-ui-checkbox-medium {
+    min-height: var(--scale-foxtrot);
+}
+
+.o-ui-field .o-ui-checkbox-large {
+    min-height: var(--scale-golf);
+}
+
 /* MESSAGE */
-.o-ui-field-message {
+.o-ui-field .o-ui-field-message {
     grid-area: message;
+}
+
+.o-ui-field .o-ui-field-message.o-ui-text-tiny {
+    padding-top: var(--scale-alpha);
+}
+
+.o-ui-field .o-ui-field-message.o-ui-text-small {
+    padding-top: var(--scale-bravo);
+}
+
+.o-ui-field .o-ui-field-message.o-ui-text-medium {
+    padding-top: var(--scale-charlie);
 }
