@@ -61,6 +61,8 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-focus {
     box-shadow: var(--o-ui-outline);
     z-index: 2;
+    outline: none;
+
 }
 
 /* SOLID | STATE | ACTIVE */
@@ -148,6 +150,7 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-primary:focus,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-focus {
     background-color: var(--primary-500);
+    outline: none;
 }
 
 /* SOLID | PRIMARY | ACTIVE */
@@ -182,6 +185,7 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-danger:focus,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
     background-color: var(--alert-500);
+    outline: none;
 }
 
 /* SOLID | DANGER | ACTIVE */
@@ -215,6 +219,7 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-focus {
     box-shadow: 0 0 0 1px var(--marine-700) inset, var(--o-ui-outline);
     z-index: 2;
+    outline: none;
 }
 
 /* OUTLINE | ACTIVE */
@@ -466,6 +471,12 @@ a.o-ui-button {
     text-decoration: none;
 }
 
+/* LINK | STATE | FOCUT */
+.o-ui-button.o-ui-button-link:focus,
+.o-ui-button.link.o-ui-button-focus {
+    outline: none;
+}
+
 /* LINK | PRIMARY */
 .o-ui-button-link.o-ui-button-primary {
     color: var(--primary-500);
@@ -500,6 +511,7 @@ a.o-ui-button {
 .o-ui-button-link.o-ui-button-secondary.o-ui-button-focus {
     background-color: var(--cloud-50);
     box-shadow: 0 0 0 2px var(--cloud-50);
+    outline: none;
 }
 
 /* LINK | SECONDARY | STATE | HOVER */
@@ -524,6 +536,7 @@ a.o-ui-button {
 .o-ui-button-link.o-ui-button-danger.o-ui-button-focus {
     background-color: var(--alert-50);
     box-shadow: 0 0 0 2px var(--alert-50);
+    outline: none;
 }
 
 /* LINK | DANGER | STATE | HOVER */
@@ -567,6 +580,7 @@ a.o-ui-button {
 .o-ui-button-ghost.o-ui-button-focus {
     box-shadow: var(--o-ui-outline);
     z-index: 2;
+    outline: none;
 }
 
 /* GHOST | ACTIVE */
