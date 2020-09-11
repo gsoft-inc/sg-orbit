@@ -109,6 +109,22 @@
     color: var(--alert-500);
 }
 
+.o-ui-checkbox-invalid .o-ui-checkbox-box {
+    border-color: var(--alert-500);
+}
+
+.o-ui-checkbox.o-ui-checkbox-invalid:hover .o-ui-checkbox-box {
+    border-color: var(--alert-500);
+}
+
+.o-ui-checkbox-invalid .o-ui-checkbox-box::before {
+    background-color: var(--alert-500);
+}
+
+.o-ui-checkbox-checked.o-ui-checkbox-invalid:hover .o-ui-checkbox-box::before {
+    border-color: var(--alert-500);
+}
+
 /* STATE | INDETERMINATE | CHECKED | HALF SQUARE */
 .o-ui-checkbox-indeterminate.o-ui-checkbox-checked .o-ui-checkbox-box::before {
     transform: scale(1);
