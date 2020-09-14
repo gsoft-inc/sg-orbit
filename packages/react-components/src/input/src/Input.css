@@ -23,6 +23,10 @@
     width: 325px;
 }
 
+.o-ui-input input {
+    -webkit-appearance: none;
+}
+
 /* PLACEHOLDER */
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {

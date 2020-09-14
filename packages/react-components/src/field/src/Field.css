@@ -27,43 +27,13 @@
 }
 
 .o-ui-field .o-ui-field-label-large.o-ui-field-label {
-    padding-bottom: var(--scale-charlie);
+    padding-bottom: var(--scale-bravo);
 }
-
-/* RADIO */
-/* .o-ui-field-input .o-ui-radio {
-    min-height: var(--scale-foxtrot);
-} */
-
-/* SWITCH */
-/* .o-ui-field .o-ui-switch-small {
-    min-height: var(--scale-foxtrot);
-}
-
-.o-ui-field .o-ui-switch-medium {
-    min-height: var(--scale-golf);
-}
-
-.o-ui-field .o-ui-switch-large {
-    min-height: var(--scale-hotel);
-} */
 
 /* INPUT */
 .o-ui-field-input {
     grid-area: input;
 }
-
-/* .o-ui-field .o-ui-checkbox-small {
-    min-height: var(--scale-echo);
-}
-
-.o-ui-field .o-ui-checkbox-medium {
-    min-height: var(--scale-foxtrot);
-}
-
-.o-ui-field .o-ui-checkbox-large {
-    min-height: var(--scale-golf);
-} */
 
 /* MESSAGE */
 .o-ui-field .o-ui-field-message {
@@ -79,5 +49,5 @@
 }
 
 .o-ui-field .o-ui-field-message-large.o-ui-field-message {
-    padding-top: var(--scale-charlie);
+    padding-top: var(--scale-bravo);
 }

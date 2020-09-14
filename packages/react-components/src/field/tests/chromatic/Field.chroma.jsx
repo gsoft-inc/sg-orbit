@@ -2,6 +2,7 @@ import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput, TextArea, TextInput } from "@react-components/input";
+import { Radio } from "@react-components/radio";
 import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -202,6 +203,25 @@ stories()
             <Field size="large">
                 <Label>Select your favorite galaxy</Label>
                 <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+        </Inline>
+    )
+    .add("radio", () =>
+        <Inline align="end">
+            <Field size="small">
+                <Label>Select your favorite galaxy</Label>
+                <Radio>Milky Way</Radio>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Select your favorite galaxy</Label>
+                <Radio>Milky Way</Radio>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+            <Field size="large">
+                <Label>Select your favorite galaxy</Label>
+                <Radio>Milky Way</Radio>
                 <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
             </Field>
         </Inline>

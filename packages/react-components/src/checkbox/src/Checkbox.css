@@ -258,3 +258,16 @@
     height: var(--scale-foxtrot);
     mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
 }
+
+/* IN FIELD */
+.o-ui-checkbox-small.o-ui-checkbox-in-field {
+    min-height: var(--scale-echo);
+}
+
+.o-ui-checkbox-medium.o-ui-checkbox-in-field {
+    min-height: var(--scale-foxtrot);
+}
+
+.o-ui-checkbox-large.o-ui-checkbox-in-field {
+    min-height: var(--scale-golf);
+}

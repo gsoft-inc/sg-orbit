@@ -167,3 +167,17 @@
 .o-ui-switch-large.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
 }
+
+/* IN FIELD */
+/* SWITCH */
+.o-ui-switch-small.o-ui-switch-in-field {
+    min-height: var(--scale-echo);
+}
+
+.o-ui-switch-medium.o-ui-switch-in-field {
+    min-height: var(--scale-foxtrot);
+}
+
+.o-ui-switch-large.o-ui-switch-in-field {
+    min-height: var(--scale-golf);
+}
