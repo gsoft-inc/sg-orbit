@@ -30,10 +30,8 @@ export function useSlotContext(slot) {
     return {};
 }
 
-export function useSlotProps(props, defaultSlot) {
-    const slotProps = useSlotContext(defaultSlot);
-
-    return mergeProps(props, slotProps);
+export function useSlot(slot) {
+    return useSlotContext(slot);
 }
 
 export function SlotProvider({ slots, children }) {

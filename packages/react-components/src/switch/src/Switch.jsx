@@ -1,6 +1,6 @@
 import "./Switch.css";
 
-import { ClearSlots, SlotProvider, mergeProps } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -10,6 +10,7 @@ import { iconSlot } from "../../icons";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInput } from "../../field";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -60,11 +61,9 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerSwitch(props) {
+    const toolbarProps = useToolbar();
+
     const { isInField, ...fieldProps } = useFieldInput();
 
     const {
@@ -84,12 +83,16 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(props, fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps
+    );
 
     const {
         isChecked,
@@ -160,7 +163,6 @@ export function InnerSwitch(props) {
 }
 
 InnerSwitch.propTypes = propTypes;
-InnerSwitch.defaultProps = defaultProps;
 
 export const Switch = forwardRef((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />

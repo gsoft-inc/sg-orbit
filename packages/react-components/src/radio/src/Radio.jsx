@@ -1,6 +1,6 @@
 import "./Radio.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, omitProps, useAutoFocus, useCheckable, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -59,11 +59,9 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerRadio(props) {
+    const checkableProps = useCheckable(props);
+
     const { isInField, ...fieldProps } = useFieldInput();
 
     const {
@@ -83,12 +81,16 @@ export function InnerRadio(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(useCheckableProps(props), fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(checkableProps, ["role"]),
+        fieldProps
+    );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
@@ -183,7 +185,6 @@ export function InnerRadio(props) {
 }
 
 InnerRadio.propTypes = propTypes;
-InnerRadio.defaultProps = defaultProps;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />

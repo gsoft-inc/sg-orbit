@@ -63,12 +63,16 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    orientation: "horizontal"
+};
+
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
     align,
     justify,
-    orientation = "horizontal",
+    orientation,
     gap = 5,
     wrap,
     size,
@@ -102,21 +106,25 @@ export function InnerToolbar({
         >
             <ToolbarContext.Provider
                 value={{
-                    orientation
+                    orientation,
+                    size,
+                    disabled
                 }}
             >
-                {Children.map(children, x => {
+                {children}
+                {/* {Children.map(children, x => {
                     return x && augmentElement(x, {
                         size,
                         disabled
                     });
-                })}
+                })} */}
             </ToolbarContext.Provider>
         </Flex>
     );
 }
 
 InnerToolbar.propTypes = propTypes;
+InnerToolbar.defaultProps = defaultProps;
 
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />

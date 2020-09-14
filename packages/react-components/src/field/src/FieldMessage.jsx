@@ -66,6 +66,7 @@ export const FieldMessage = forwardRef(({
     variant,
     fluid,
     size,
+    as = "div",
     className,
     children,
     ...rest
@@ -83,6 +84,7 @@ export const FieldMessage = forwardRef(({
                 ),
                 className
             )}
+            as={as}
             ref={ref}
         >
             {children}

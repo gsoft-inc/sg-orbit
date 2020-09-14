@@ -1,11 +1,12 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -60,26 +61,39 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButton({
-    variant = "solid",
-    color,
-    shape = "pill",
-    autoFocus,
-    autoFocusDelay,
-    fluid,
-    loading,
-    size,
-    active,
-    focus,
-    hover,
-    disabled,
-    type = "button",
-    as: ElementType = "button",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+const defaultProps = {
+    variant: "solid",
+    shape: "pill",
+    type: "button"
+};
+
+export function InnerButton(props) {
+    const toolbarProps = useToolbar();
+
+    const {
+        variant,
+        color,
+        shape,
+        autoFocus,
+        autoFocusDelay,
+        fluid,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        type,
+        as: ElementType = "button",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"])
+    );
+
     const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
         variant,
         color,
@@ -139,6 +153,7 @@ export function InnerButton({
 }
 
 InnerButton.propTypes = propTypes;
+InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />

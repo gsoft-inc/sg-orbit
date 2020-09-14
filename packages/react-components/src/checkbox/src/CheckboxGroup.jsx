@@ -1,10 +1,10 @@
-import { CheckableContext, augmentElement, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
+import { ClearToolbar, useToolbar } from "../../toolbar";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { useGroupInput } from "../../input";
-import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -60,11 +60,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    orientation: "horizontal",
-    as: "div"
-};
-
 function arrayToggleValue(array, value) {
     if (isNil(array)) {
         return [value];
@@ -83,6 +78,8 @@ function arrayToggleValue(array, value) {
 }
 
 export function InnerCheckboxGroup(props) {
+    const toolbarProps = useToolbar();
+
     const {
         value,
         defaultValue,
@@ -98,17 +95,17 @@ export function InnerCheckboxGroup(props) {
         children,
         forwardedRef,
         ...rest
-    } = useToolbarProps(props, { addNavigationMode: false });
+    } = mergeProps(
+        props,
+        toolbarProps
+    );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
-    const {
-        groupProps,
-        itemProps
-    } = useGroupInput({
+    const { groupProps, itemProps } = useGroupInput({
         required,
         validationState,
-        orientation,
+        orientation: orientation ?? "horizontal",
         gap,
         wrap,
         size,
@@ -137,25 +134,24 @@ export function InnerCheckboxGroup(props) {
             {...rest}
             {...groupProps}
         >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue
-                }}
-            >
-                {Children.map(items, x => {
-                    return augmentElement(x, {
-                        ...itemProps,
+            <ClearToolbar>
+                <CheckableContext.Provider
+                    value={{
+                        onCheck: handleCheck,
+                        checkedValue,
                         role: "checkbox"
-                    });
-                })}
-            </CheckableContext.Provider>
+                    }}
+                >
+                    {Children.map(items, x => {
+                        return augmentElement(x, itemProps);
+                    })}
+                </CheckableContext.Provider>
+            </ClearToolbar>
         </Flex>
     );
 }
 
 InnerCheckboxGroup.propTypes = propTypes;
-InnerCheckboxGroup.defaultProps = defaultProps;
 
 export const CheckboxGroup = forwardRef((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />

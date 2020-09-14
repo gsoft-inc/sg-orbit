@@ -1,6 +1,6 @@
 import "./Counter.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -40,9 +40,15 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    variant: "pill"
+};
+
 export function InnerCounter(props) {
+    const slotProps = useSlot("counter");
+
     const {
-        variant = "pill",
+        variant,
         color,
         highlight,
         reverse,
@@ -52,7 +58,10 @@ export function InnerCounter(props) {
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "counter");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     const content = variant === "divider"
         ? <Text>{children}</Text>
@@ -90,6 +99,7 @@ export function InnerCounter(props) {
 }
 
 InnerCounter.propTypes = propTypes;
+InnerCounter.defaultProps = defaultProps;
 
 export const Counter = forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />

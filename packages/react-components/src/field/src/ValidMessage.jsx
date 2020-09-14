@@ -18,10 +18,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 export function InnerValidMessage(props) {
     const { isInField, validationState, ...messageProps } = useFieldMessage();
     const { isValid } = getValidationProps(validationState);
@@ -48,7 +44,6 @@ export function InnerValidMessage(props) {
 }
 
 InnerValidMessage.propTypes = propTypes;
-InnerValidMessage.defaultProps = defaultProps;
 
 export const ValidMessage = forwardRef((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />

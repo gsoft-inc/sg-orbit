@@ -1,6 +1,6 @@
 import "./Checkbox.css";
 
-import { ClearSlots, SlotProvider, mergeProps, useCheckableProps, useEventCallback } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -10,6 +10,7 @@ import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInput } from "../../field";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -72,11 +73,10 @@ const propTypes = {
     children: oneOfType([any, func])
 };
 
-const defaultProps = {
-    as: "label"
-};
-
 export function InnerCheckbox(props) {
+    const checkableProps = useCheckable(props);
+    const toolbarProps = useToolbar();
+
     const { isInField, ...fieldProps } = useFieldInput();
 
     const {
@@ -100,12 +100,17 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        as: ElementType,
+        as: ElementType = "label",
         className,
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(useCheckableProps(props), fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(checkableProps, ["role"]),
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps
+    );
 
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
@@ -183,7 +188,6 @@ export function InnerCheckbox(props) {
 }
 
 InnerCheckbox.propTypes = propTypes;
-InnerCheckbox.defaultProps = defaultProps;
 
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />

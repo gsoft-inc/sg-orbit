@@ -1,11 +1,12 @@
 import "./Input.css";
 
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
 import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -82,11 +83,12 @@ const propTypes = {
 
 const defaultProps = {
     variant: "outline",
-    type: "text",
-    as: "div"
+    type: "text"
 };
 
 export function InnerTextInput(props) {
+    const toolbarProps = useToolbar();
+
     const { isInField, ...fieldProps } = useFieldInput();
 
     const {
@@ -113,10 +115,14 @@ export function InnerTextInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType,
+        as: ElementType = "div",
         forwardedRef,
         ...rest
-    } = mergeProps(props, fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["isInToolbar", "orientation"]),
+        fieldProps
+    );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 

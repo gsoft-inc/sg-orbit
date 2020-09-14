@@ -1,6 +1,6 @@
 import "./Text.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -24,6 +24,8 @@ const propTypes = {
 };
 
 export function InnerText(props) {
+    const slotProps = useSlot("text");
+
     const {
         size,
         as: ElementType = "span",
@@ -31,7 +33,10 @@ export function InnerText(props) {
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "text");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     return (
         <ElementType

@@ -18,10 +18,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 export function InnerHelpMessage(props) {
     const { isInField, validationState, ...messageProps } = useFieldMessage();
     const { isHelp } = getValidationProps(validationState);
@@ -48,7 +44,6 @@ export function InnerHelpMessage(props) {
 }
 
 InnerHelpMessage.propTypes = propTypes;
-InnerHelpMessage.defaultProps = defaultProps;
 
 export const HelpMessage = forwardRef((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />

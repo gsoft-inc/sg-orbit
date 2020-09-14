@@ -21,7 +21,6 @@ const propTypes = {
 export function InnerButtonGroup({
     size,
     children,
-    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -29,7 +28,6 @@ export function InnerButtonGroup({
         <Inline
             {...rest}
             gap={2}
-            as={as}
             ref={forwardedRef}
         >
             {Children.map(children, x => {

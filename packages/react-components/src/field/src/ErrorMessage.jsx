@@ -18,10 +18,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
-
 export function InnerErrorMessage(props) {
     const { isInField, validationState, ...messageProps } = useFieldMessage();
     const { isError } = getValidationProps(validationState);
@@ -48,7 +44,6 @@ export function InnerErrorMessage(props) {
 }
 
 InnerErrorMessage.propTypes = propTypes;
-InnerErrorMessage.defaultProps = defaultProps;
 
 export const ErrorMessage = forwardRef((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />

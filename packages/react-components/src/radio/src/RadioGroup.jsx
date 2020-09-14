@@ -2,21 +2,21 @@ import {
     CheckableContext,
     KEYS,
     augmentElement,
+    mergeProps,
     useArrowNavigation,
     useAutoFocusFirstTabbableElement,
     useControllableState,
     useEventCallback,
     useId,
     useMergedRefs,
-    useRovingFocus,
-    useSlotProps
+    useRovingFocus
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { useGroupInput } from "../../input";
-import { useToolbarProps } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const ARROW_NAV_KEY_BINDING = {
     "default": {
@@ -101,12 +101,9 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    orientation: "vertical",
-    as: "div"
-};
-
 export function InnerRadioGroup(props) {
+    const { isInToolbar, ...toolbarProps } = useToolbarContext();
+
     const {
         value,
         defaultValue,
@@ -122,12 +119,10 @@ export function InnerRadioGroup(props) {
         size,
         reverse,
         disabled,
-        navigationMode,
-        as,
         children,
         forwardedRef,
         ...rest
-    } = useToolbarProps(props);
+    } = mergeProps(props, toolbarProps);
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
@@ -140,16 +135,14 @@ export function InnerRadioGroup(props) {
         setCheckedValue(element.value);
     });
 
-    const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], navigationMode !== "toolbar" ? handleArrowSelect : undefined);
+    const navigationMode = isInToolbar ? "toolbar" : "default";
+    const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
 
-    const {
-        groupProps,
-        itemProps
-    } = useGroupInput({
+    const { groupProps, itemProps } = useGroupInput({
         role: "radio-group",
         required,
         validationState,
-        orientation,
+        orientation: orientation ?? "vertical",
         gap,
         wrap,
         size,
@@ -177,19 +170,18 @@ export function InnerRadioGroup(props) {
             {...rest}
             {...navigationProps}
             {...groupProps}
-            as={as}
         >
             <CheckableContext.Provider
                 value={{
                     onCheck: handleCheck,
-                    checkedValue
+                    checkedValue,
+                    role: "radio"
                 }}
             >
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,
-                        name: groupName,
-                        role: "radio"
+                        name: groupName
                     });
                 })}
             </CheckableContext.Provider>
@@ -198,7 +190,6 @@ export function InnerRadioGroup(props) {
 }
 
 InnerRadioGroup.propTypes = propTypes;
-InnerRadioGroup.defaultProps = defaultProps;
 
 export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />

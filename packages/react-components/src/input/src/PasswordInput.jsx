@@ -93,7 +93,6 @@ const propTypes = {
 
 export function InnerPasswordInput({
     variant = "outline",
-    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -116,7 +115,6 @@ export function InnerPasswordInput({
                     {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>
             }
-            as={as}
             ref={forwardedRef}
         />
     );

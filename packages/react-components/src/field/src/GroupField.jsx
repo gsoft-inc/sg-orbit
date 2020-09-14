@@ -1,8 +1,10 @@
 import "./Field.css";
 
+import { ClearToolbar, useToolbar } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeProps, omitProps } from "../../shared";
 import { useField } from "./useField";
 
 const propTypes = {
@@ -36,29 +38,27 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
+export function InnerGroupField(props) {
+    const toolbarProps = useToolbar();
 
-export function InnerGroupField({
-    id,
-    validationState,
-    required,
-    fluid,
-    size,
-    disabled,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
     const {
-        fieldProps,
-        inputId,
-        labelId,
-        messageId
-    } = useField({
+        id,
+        validationState,
+        required,
+        fluid,
+        size,
+        disabled,
+        as: ElementType = "div",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        toolbarProps
+    );
+
+    const { fieldProps, inputId, labelId, messageId } = useField({
         id,
         fluid,
         className,
@@ -71,27 +71,28 @@ export function InnerGroupField({
             {...rest}
             {...fieldProps}
         >
-            <FieldContext.Provider
-                value={{
-                    isGroup: true,
-                    inputId,
-                    labelId,
-                    messageId,
-                    required,
-                    disabled,
-                    size,
-                    fluid,
-                    validationState
-                }}
-            >
-                {children}
-            </FieldContext.Provider>
+            <ClearToolbar>
+                <FieldContext.Provider
+                    value={{
+                        isGroup: true,
+                        inputId,
+                        labelId,
+                        messageId,
+                        required,
+                        disabled,
+                        size,
+                        fluid,
+                        validationState
+                    }}
+                >
+                    {children}
+                </FieldContext.Provider>
+            </ClearToolbar>
         </ElementType>
     );
 }
 
 InnerGroupField.propTypes = propTypes;
-InnerGroupField.defaultProps = defaultProps;
 
 export const GroupField = forwardRef((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />

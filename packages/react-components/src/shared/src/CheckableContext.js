@@ -1,28 +1,32 @@
 import { createContext, useContext } from "react";
-import { isUndefined } from "lodash";
-import { mergeProps } from "./mergeProps";
+import { isNil } from "lodash";
 
 export const CheckableContext = createContext(null);
 
 export function useCheckableContext(value) {
-    const { checkedValue, onCheck } = useContext(CheckableContext) || {};
+    const context = useContext(CheckableContext);
 
-    const isChecked = !isUndefined(checkedValue)
-        ? Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value
-        : undefined;
+    if (!isNil(context)) {
+        const { checkedValue, ...rest } = context;
+
+        return {
+            isCheckable: true,
+            isChecked: Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value,
+            ...rest
+        };
+    }
 
     return {
-        checkedValue,
-        isChecked: isChecked,
-        onCheck
+        isCheckable: false
     };
 }
 
-export function useCheckableProps(props) {
-    const { isChecked, onCheck } = useCheckableContext(props.value);
+export function useCheckable({ value }) {
+    // eslint-disable-next-line no-unused-vars
+    const { isCheckable, isChecked, ...rest } = useCheckableContext(value);
 
-    return mergeProps(props, {
-        checked: isChecked,
-        onCheck
-    });
+    return {
+        ...rest,
+        checked: isChecked
+    };
 }

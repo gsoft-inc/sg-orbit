@@ -1,7 +1,7 @@
 import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
-import { SIZE, cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { SIZE, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
@@ -9,6 +9,7 @@ import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
+import { useToolbar } from "../../toolbar";
 
 const STEPPER_ICON = {
     [SIZE.small]: SIZE.mini,
@@ -96,8 +97,7 @@ const propTypes = {
 
 const defaultProps = {
     step: 1,
-    variant: "outline",
-    as: "div"
+    variant: "outline"
 };
 
 export function Spinner({
@@ -167,6 +167,8 @@ function toFixed(value, precision) {
 }
 
 export function InnerNumberInput(props) {
+    const toolbarProps = useToolbar();
+
     const { isInField, ...fieldProps } = useFieldInput();
 
     const {
@@ -196,10 +198,14 @@ export function InnerNumberInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType,
+        as: ElementType = "div",
         forwardedRef,
         ...rest
-    } = mergeProps(props, fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps
+    );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 

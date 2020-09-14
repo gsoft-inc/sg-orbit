@@ -52,7 +52,6 @@ export function InnerInline({
     children,
     gap = 5,
     wrap,
-    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -63,7 +62,6 @@ export function InnerInline({
             justifyContent={justify}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            as={as}
             ref={forwardedRef}
         >
             {children}

@@ -2,7 +2,7 @@ import { IconButton } from "./IconButton";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
-import { useCheckableProps } from "../../shared";
+import { mergeProps, omitProps, useCheckable } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -59,10 +59,17 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    variant: "solid",
+    shape: "pill"
+};
+
 export function InnerToggleIconButton(props) {
+    const checkableProps = useCheckable(props);
+
     const {
-        variant = "solid",
-        shape = "pill",
+        variant,
+        shape,
         checked,
         defaultChecked,
         value,
@@ -73,7 +80,10 @@ export function InnerToggleIconButton(props) {
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(props);
+    } = mergeProps(
+        props,
+        checkableProps
+    );
 
     const { isChecked, buttonProps } = useToggleButton({
         variant,
@@ -103,6 +113,7 @@ export function InnerToggleIconButton(props) {
 }
 
 InnerToggleIconButton.propTypes = propTypes;
+InnerToggleIconButton.defaultProps = defaultProps;
 
 export const ToggleIconButton = forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />

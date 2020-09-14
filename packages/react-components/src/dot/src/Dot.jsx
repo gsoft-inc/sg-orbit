@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Text } from "../../text";
-import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -25,6 +25,8 @@ const propTypes = {
 };
 
 export function InnerDot(props) {
+    const slotProps = useSlot("dot");
+
     const {
         color,
         size,
@@ -34,7 +36,10 @@ export function InnerDot(props) {
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "dot");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     const labelMarkup = children && (
         <Text size={size}>

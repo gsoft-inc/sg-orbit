@@ -1,6 +1,7 @@
 import { CheckboxGroup } from "@react-components/checkbox";
+import { CustomToolbar } from "./CustomComponent.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerToolbar, Toolbar } from "@react-components/toolbar";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -169,5 +170,13 @@ Toolbar controls can be wrap on multiple lines.
         </Toolbar>
     </RefLogger>
 </Story>
+
+### Custom Components
+
+Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`.
+
+<FilePreview filePath="/toolbar/stories/CustomComponent">
+    <CustomToolbar />
+</FilePreview>
 
 

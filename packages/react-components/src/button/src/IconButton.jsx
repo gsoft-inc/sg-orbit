@@ -1,8 +1,9 @@
-import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, useSlotProps } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -51,11 +52,20 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    variant: "solid",
+    shape: "pill",
+    type: "button"
+};
+
 export function InnerIconButton(props) {
+    const slotProps = useSlot("button");
+    const toolbarProps = useToolbar();
+
     const {
-        variant = "solid",
+        variant,
         color,
-        shape = "pill",
+        shape,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -65,13 +75,17 @@ export function InnerIconButton(props) {
         focus,
         hover,
         disabled,
-        type = "button",
+        type,
         as: ElementType = "button",
         className,
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "button");
+    } = mergeProps(
+        props,
+        slotProps,
+        omitProps(toolbarProps, ["orientation"])
+    );
 
     const buttonProps = useButton({
         cssModule: "o-ui-icon-button",
@@ -115,6 +129,7 @@ export function InnerIconButton(props) {
 }
 
 InnerIconButton.propTypes = propTypes;
+InnerIconButton.defaultProps = defaultProps;
 
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />

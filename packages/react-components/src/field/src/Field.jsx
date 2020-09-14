@@ -1,8 +1,10 @@
 import "./Field.css";
 
+import { ClearToolbar, useToolbar } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeProps, omitProps } from "../../shared";
 import { useField } from "./useField";
 
 const propTypes = {
@@ -36,23 +38,26 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    as: "div"
-};
+export function InnerField(props) {
+    const toolbarProps = useToolbar();
 
-export function InnerField({
-    id,
-    validationState,
-    required,
-    fluid,
-    size,
-    disabled,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+    const {
+        id,
+        validationState,
+        required,
+        fluid,
+        size,
+        disabled,
+        as: ElementType = "div",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        toolbarProps
+    );
+
     const { fieldProps, inputId, labelId, messageId } = useField({
         id,
         fluid,
@@ -66,134 +71,28 @@ export function InnerField({
             {...rest}
             {...fieldProps}
         >
-            <FieldContext.Provider
-                value={{
-                    inputId,
-                    labelId,
-                    messageId,
-                    required,
-                    disabled,
-                    size,
-                    fluid,
-                    validationState
-                }}
-            >
-                {children}
-            </FieldContext.Provider>
+            <ClearToolbar>
+                <FieldContext.Provider
+                    value={{
+                        inputId,
+                        labelId,
+                        messageId,
+                        required,
+                        disabled,
+                        size,
+                        fluid,
+                        validationState
+                    }}
+                >
+                    {children}
+                </FieldContext.Provider>
+            </ClearToolbar>
         </ElementType>
     );
 }
 
 InnerField.propTypes = propTypes;
-InnerField.defaultProps = defaultProps;
 
 export const Field = forwardRef((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
-
-
-// import "./Field.css";
-
-// import { ClearSlots, SlotProvider, useSlotProps } from "../../shared";
-// import { ValidationContext } from "./ValidationContext";
-// import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-// import { forwardRef } from "react";
-// import { useField } from "./useField";
-
-// const propTypes = {
-//     /**
-//      * A field id.
-//      */
-//     id: string,
-//     /**
-//      * Whether the field should display as "valid" or "invalid".
-//      */
-//     validationState: oneOf(["valid", "invalid"]),
-//     /**
-//      * Whether or not the field show a required state.
-//      */
-//     required: bool,
-//     /**
-//      * Whether or not the field take up the width of its container.
-//      */
-//     fluid: bool,
-//     /**
-//      * A field can vary in size.
-//      */
-//     size: oneOf(["small", "medium", "large"]),
-//     /**
-//      * An HTML element type or a custom React element type to render as.
-//      */
-//     as: oneOfType([string, elementType]),
-//     /**
-//      * @ignore
-//      */
-//     children: any.isRequired
-// };
-
-// export function InnerField(props) {
-//     const {
-//         id,
-//         validationState,
-//         required,
-//         fluid,
-//         size,
-//         disabled,
-//         as: ElementType = "div",
-//         className,
-//         children,
-//         forwardedRef,
-//         ...rest
-//     } = useSlotProps(props, "field");
-
-//     const {
-//         fieldId,
-//         fieldProps,
-//         labelProps,
-//         inputProps,
-//         messageProps
-//     } = useField({
-//         id,
-//         required,
-//         fluid,
-//         size,
-//         disabled,
-//         className,
-//         forwardedRef
-//     });
-
-//     return (
-//         <ElementType
-//             data-testid="field"
-//             {...rest}
-//             {...fieldProps}
-//         >
-//             <ValidationContext.Provider
-//                 value={{
-//                     validationState
-//                 }}
-//             >
-//                 <ClearSlots>
-//                     <SlotProvider
-//                         slots={{
-//                             label: {
-//                                 ...labelProps,
-//                                 htmlFor: fieldId
-//                             },
-//                             input: inputProps,
-//                             message: messageProps
-//                         }}
-//                     >
-//                         {children}
-//                     </SlotProvider>
-//                 </ClearSlots>
-//             </ValidationContext.Provider>
-//         </ElementType>
-//     );
-// }
-
-// InnerField.propTypes = propTypes;
-
-// export const Field = forwardRef((props, ref) => (
-//     <InnerField {...props} forwardedRef={ref} />
-// ));

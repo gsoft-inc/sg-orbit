@@ -91,8 +91,7 @@ const propTypes = {
 
 const defaultProps = {
     variant: "outline",
-    type: "text",
-    as: "div"
+    type: "text"
 };
 
 const pxToInt = value => {
@@ -129,7 +128,7 @@ export function InnerTextArea(props) {
         className,
         style,
         wrapperProps: userWrapperProps,
-        as: ElementType,
+        as: ElementType = "div",
         forwardedRef,
         ...rest
     } = mergeProps(props, fieldProps);

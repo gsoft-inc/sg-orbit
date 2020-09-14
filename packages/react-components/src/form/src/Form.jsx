@@ -1,7 +1,7 @@
 import "./Form.css";
 
 import { SlotProvider, mergeClasses } from "../../shared";
-import { bool, oneOf } from "prop-types";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -12,19 +12,28 @@ const propTypes = {
     /**
      * A form can vary in size.
      */
-    size: oneOf(["small", "medium", "large"])
+    size: oneOf(["small", "medium", "large"]),
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * @ignore
+     */
+    children: any.isRequired
 };
 
 export function InnerForm({
     fluid,
     size,
+    as: ElementType = "form",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
     return (
-        <form
+        <ElementType
             {...rest}
             className={mergeClasses(
                 "o-ui-form",
@@ -43,7 +52,7 @@ export function InnerForm({
             >
                 {children}
             </SlotProvider>
-        </form>
+        </ElementType>
     );
 }
 

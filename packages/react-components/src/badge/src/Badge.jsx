@@ -28,6 +28,10 @@ const propTypes = {
     children: any.isRequired
 };
 
+const defaultProps = {
+    variant: "count"
+};
+
 const textSlotAdapter = createSizeAdapterSlotFactory({
     [SIZE.small]: SIZE.tiny,
     [SIZE.medium]: SIZE.small,
@@ -35,7 +39,7 @@ const textSlotAdapter = createSizeAdapterSlotFactory({
 });
 
 export function InnerBadge({
-    variant = "count",
+    variant,
     overlap,
     size,
     as: ElementType = "span",
@@ -87,6 +91,7 @@ export function InnerBadge({
 }
 
 InnerBadge.propTypes = propTypes;
+InnerBadge.defaultProps = defaultProps;
 
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
