@@ -6,6 +6,7 @@ import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
 import { useField } from "./useField";
+import { useFormField } from "../../form";
 
 const propTypes = {
     /**
@@ -39,6 +40,7 @@ const propTypes = {
 };
 
 export function InnerGroupField(props) {
+    const formProps = useFormField();
     const toolbarProps = useToolbar();
 
     const {
@@ -55,6 +57,7 @@ export function InnerGroupField(props) {
         ...rest
     } = mergeProps(
         props,
+        formProps,
         toolbarProps
     );
 
