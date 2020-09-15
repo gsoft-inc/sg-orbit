@@ -92,7 +92,6 @@ export function RegistrationForm() {
                 </Button>
                 <Button
                     loading={formik.isSubmitting}
-                    color="primary"
                     type="submit"
                 >
                     Submit

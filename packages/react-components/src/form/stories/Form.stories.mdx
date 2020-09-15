@@ -41,6 +41,77 @@ When combined with [field](?path=/story/components-field--input) components, a f
 
 In additional to wrapping a form element, a form component provide layout for fields and buttons. **Every input in a form must be wrapped in a field component.**
 
+### Vertical layout
+
+A form can stack fields vertically.
+
+<Preview>
+    <Story name="vertical layout">
+        <Form fluid className="w-25">
+            <Field required>
+                <Label>Username</Label>
+                <TextInput placeholder="john@spacex.com" />
+            </Field>
+            <Field required>
+                <Label>Password</Label>
+                <PasswordInput />
+                <HelpMessage>I bet it's a strong one!</HelpMessage>
+            </Field>
+            <Field>
+                <Checkbox>Remember me</Checkbox>
+            </Field>
+            <Button type="submit">
+                Login
+            </Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Inline layout
+
+Multiple fields can be inlined on the same row.
+
+<Preview>
+    <Story name="inline layout">
+        <Form fluid>
+            <FieldGroup>
+                <Field>
+                    <Label required>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Username</Label>
+                    <TextInput />
+                </Field>
+            </FieldGroup>
+            <FieldGroup>
+                <Field className="w-50">
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </FieldGroup>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Button fluid={false} type="submit">
+                Submit
+            </Button>
+        </Form>
+    </Story>
+</Preview>
+
 ### Fluid
 
 A form fields and buttons can take the witdh of it's container.
@@ -102,81 +173,6 @@ A form fields and buttons can vary in size.
                 <Button>Submit</Button>
             </Form>
         </Inline>
-    </Story>
-</Preview>
-
-### Basic layout
-
-A form can display a single field per row.
-
-<Preview>
-    <Story name="basic layout">
-        <Form fluid className="w-25">
-            <Field required>
-                <Label>Username</Label>
-                <TextInput placeholder="john@spacex.com" />
-            </Field>
-            <Field required>
-                <Label>Password</Label>
-                <PasswordInput />
-                <HelpMessage>I bet it's a strong one!</HelpMessage>
-            </Field>
-            <Field>
-                <Checkbox>Remember me</Checkbox>
-            </Field>
-            <Button color="primary" type="submit">
-                Login
-            </Button>
-        </Form>
-    </Story>
-</Preview>
-
-### Inline fields
-
-Multiple form fields can be inlined on the same row.
-
-<Preview>
-    <Story name="inline fields">
-        <Form fluid>
-            <FieldGroup>
-                <Field>
-                    <Label required>First name</Label>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <Label required>Last name</Label>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <Label required>Username</Label>
-                    <TextInput />
-                </Field>
-            </FieldGroup>
-            <FieldGroup>
-                <Field className="w-50">
-                    <Label>City</Label>
-                    <TextInput />
-                </Field>
-                <Field className="w-25">
-                    <Label>State</Label>
-                    <TextInput />
-                </Field>
-                <Field className="w-25">
-                    <Label>Zip</Label>
-                    <TextInput />
-                </Field>
-            </FieldGroup>
-            <Field>
-                <Checkbox>Agree to terms and conditions</Checkbox>
-            </Field>
-            <Button
-                fluid={false}
-                color="primary"
-                type="submit"
-            >
-                Submit
-            </Button>
-        </Form>
     </Story>
 </Preview>
 
