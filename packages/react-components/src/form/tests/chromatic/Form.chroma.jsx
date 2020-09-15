@@ -1,21 +1,25 @@
-import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
-import { Form } from "@react-components/form";
-import { Inline, Stack } from "@react-components/layout";
-import { Switch } from "@react-components/switch";
+import { Button } from "@react-components/button";
+import { Checkbox } from "@react-components/checkbox";
+import { ErrorMessage, Field, HelpMessage, Label } from "@react-components/field";
+import { Form, Row } from "@react-components/form";
+import { Inline } from "@react-components/layout";
 import { TextArea, TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-function stories() {
+/*
+TODO:
+- I don't think grid is good since as soon as there is an element between the form and the fields it doesn't work.
+- Bottom margins are also a problem since it doesn't work when embedded (like InlineFields).
+*/
+
+function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Form"))
-        .segment()
+        .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
             .build())
         .build();
 }
-
-// With submit button? add a button slot?
-// Inline fields?
 
 stories()
     .add("default", () =>
@@ -30,6 +34,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
+                <Button>Submit</Button>
             </Form>
             <Form>
                 <Field>
@@ -41,6 +46,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
+                <Button>Submit</Button>
             </Form>
             <Form size="large">
                 <Field>
@@ -52,6 +58,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
+                <Button>Submit</Button>
             </Form>
         </Inline>
     )
@@ -66,15 +73,34 @@ stories()
                 <TextArea />
                 <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
             </Field>
+            <Button>Submit</Button>
+        </Form>
+    )
+    .add("disabled", () =>
+        <Form disabled>
+            <Field>
+                <Label>FullName</Label>
+                <TextInput />
+            </Field>
+            <Field>
+                <Label>Where to?</Label>
+                <TextArea />
+                <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+            </Field>
+            <Button>Submit</Button>
         </Form>
     )
     .add("with fieldset", () =>
         <Form>
+            <Field>
+                <Label>FullName</Label>
+                <TextInput />
+            </Field>
             <fieldset>
-                <legend>Registration</legend>
+                <legend>Trip</legend>
                 <Field>
-                    <Label>FullName</Label>
-                    <TextInput />
+                    <Label>Departure date</Label>
+                    <TextInput placeholder="AAAA/MM/DD" />
                 </Field>
                 <Field>
                     <Label>Where to?</Label>
@@ -82,5 +108,168 @@ stories()
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
             </fieldset>
+            <Button>Submit</Button>
+        </Form>
+    );
+
+stories("/inline")
+    .add("default", () =>
+        <Form>
+            <Row>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Row>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Row>
+                <Button variant="link" type="reset">Reset</Button>
+                <Button type="submit">Submit</Button>
+            </Row>
+        </Form>
+    )
+    .add("fluid", () =>
+        <Form fluid>
+            <Row>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Row>
+                <Field className="w-50">
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Row>
+                <Button variant="link" type="reset">Reset</Button>
+                <Button type="submit">Submit</Button>
+            </Row>
+        </Form>
+    )
+    .add("fluid with fix width container", () =>
+        <div style={{ width: "700px" }}>
+            <Form fluid>
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Username</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Row>
+                    <Field className="w-50">
+                        <Label>City</Label>
+                        <TextInput />
+                    </Field>
+                    <Field className="w-25">
+                        <Label>State</Label>
+                        <TextInput />
+                    </Field>
+                    <Field className="w-25">
+                        <Label>Zip</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Field>
+                    <Checkbox>Agree to terms and conditions</Checkbox>
+                </Field>
+                <Row>
+                    <Button variant="link" type="reset">Reset</Button>
+                    <Button type="submit">Submit</Button>
+                </Row>
+            </Form>
+        </div>
+    )
+    .add("messages", () =>
+        <Form>
+            <Row>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                    <HelpMessage>Non helpfull message!</HelpMessage>
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Row>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field validationState="invalid">
+                    <Label>Zip</Label>
+                    <TextInput />
+                    <ErrorMessage>Invalid Zip code!</ErrorMessage>
+                </Field>
+            </Row>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Row>
+                <Button variant="link" type="reset">Reset</Button>
+                <Button type="submit">Submit</Button>
+            </Row>
         </Form>
     );

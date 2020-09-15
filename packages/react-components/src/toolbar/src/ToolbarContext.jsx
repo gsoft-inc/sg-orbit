@@ -25,7 +25,7 @@ export function useToolbar() {
     return rest;
 }
 
-export function ClearToolbar({ children }) {
+export function ClearToolbarContext({ children }) {
     return (
         <ToolbarContext.Provider value={{}}>
             {children}

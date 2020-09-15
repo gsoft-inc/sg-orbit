@@ -89,7 +89,7 @@ export function InnerRadio(props) {
     } = mergeProps(
         props,
         omitProps(checkableProps, ["role"]),
-        fieldProps
+        omitProps(fieldProps, ["fluid"])
     );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);

@@ -1,6 +1,9 @@
+import { Counter } from "@react-components/counter";
+import { Field, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { Tag } from "@react-components/tag";
+import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useCallback } from "react";
@@ -193,16 +196,34 @@ stories()
     )
     .add("reverse", () =>
         <Stack inline>
-            <RadioGroup reverse label="Select a package">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup reverse label="Select a package" description="You can find a detailed description of our flight packages on our website.">
-                <Radio value="1">1</Radio>
-                <Radio value="2">A very long option to read while you wait for the countdown to mars.</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
+            <Field>
+                <Label>Select a package</Label>
+                <RadioGroup reverse>
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
+                </RadioGroup>
+            </Field>
+            <Field>
+                <Label>Select a package</Label>
+                <RadioGroup reverse>
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">A very long option to read while you wait for the countdown to mars.</Radio>
+                    <Radio value="3">3</Radio>
+                </RadioGroup>
+                <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
+            </Field>
+            <Inline>
+                <RadioGroup orientation="horizontal" reverse label="Select a package">
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">
+                        <Text>3</Text>
+                        <Counter variant="divider">60</Counter>
+                    </Radio>
+                </RadioGroup>
+                <div style={{ border: "1px solid #000", width: "100%", height: "50px" }}></div>
+            </Inline>
         </Stack>
     )
     .add("autofocus", () =>

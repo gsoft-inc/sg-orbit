@@ -1,9 +1,6 @@
 import { SIZE } from "../../shared";
 import { isNil } from "lodash";
 
-// TODO:
-// - rename to useGroupInput?
-
 const ITEMS_DIRECTION = {
     "horizontal": "row",
     "vertical": "column"
@@ -39,7 +36,7 @@ export function useGroupInput({
             role,
             inline: reverse,
             direction: ITEMS_DIRECTION[orientation],
-            alignItems: reverse ? "end" : "start",
+            alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
             gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.medium],
             wrap: !isNil(wrap) ? "wrap" : undefined,
             "aria-required": required,

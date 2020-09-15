@@ -14,16 +14,22 @@ export function useFieldInput() {
         disabled
     } = useFieldContext();
 
+    if (isInField) {
+        return {
+            isInField,
+            validationState,
+            id: inputId,
+            required,
+            disabled,
+            fluid,
+            size,
+            className: "o-ui-field-input",
+            "aria-labelledby": !isNil(labelId) ? labelId : undefined,
+            "aria-describedby": !isNil(messageId) ? messageId : undefined
+        };
+    }
+
     return {
-        isInField,
-        validationState,
-        id: inputId,
-        required,
-        disabled,
-        fluid,
-        size,
-        className: "o-ui-field-input",
-        "aria-labelledby": !isNil(labelId) ? labelId : undefined,
-        "aria-describedby": !isNil(messageId) ? messageId : undefined
+        isInField
     };
 }

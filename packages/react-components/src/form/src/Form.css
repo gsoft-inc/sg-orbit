@@ -1,3 +1,9 @@
-.o-ui-form .o-ui-form-field:not(:last-child) {
-    margin-bottom: var(--scale-echo);
+.o-ui-form {
+    /* display: grid;
+    gap: var(--scale-echo);
+    justify-items: start; */
+}
+
+.o-ui-form-fluid {
+    width: 100%;
 }

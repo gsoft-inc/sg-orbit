@@ -1,7 +1,8 @@
 import "./Form.css";
 
-import { SlotProvider, mergeClasses } from "../../shared";
+import { FormContext } from "./FormContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -26,6 +27,7 @@ const propTypes = {
 export function InnerForm({
     fluid,
     size,
+    disabled,
     as: ElementType = "form",
     className,
     children,
@@ -36,22 +38,23 @@ export function InnerForm({
         <ElementType
             {...rest}
             className={mergeClasses(
-                "o-ui-form",
+                cssModule(
+                    "o-ui-form",
+                    fluid && "fluid"
+                ),
                 className
             )}
             ref={forwardedRef}
         >
-            <SlotProvider
-                slots={{
-                    field: {
-                        size,
-                        fluid,
-                        className: "o-ui-form-field"
-                    }
+            <FormContext.Provider
+                value={{
+                    fluid,
+                    size,
+                    disabled
                 }}
             >
                 {children}
-            </SlotProvider>
+            </FormContext.Provider>
         </ElementType>
     );
 }

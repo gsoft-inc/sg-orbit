@@ -3,9 +3,9 @@ import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-function stories() {
+function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("FieldMessage"))
-        .segment()
+        .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
             .build())

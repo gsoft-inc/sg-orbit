@@ -109,7 +109,7 @@ export function InnerCheckbox(props) {
         props,
         omitProps(checkableProps, ["role"]),
         omitProps(toolbarProps, ["orientation"]),
-        fieldProps
+        omitProps(fieldProps, ["fluid"])
     );
 
     const handleCheck = useEventCallback(event => {

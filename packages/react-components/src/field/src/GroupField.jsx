@@ -1,10 +1,10 @@
 import "./Field.css";
 
-import { ClearToolbar, useToolbar } from "../../toolbar";
+import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, omitProps } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useField } from "./useField";
 
 const propTypes = {
@@ -71,7 +71,7 @@ export function InnerGroupField(props) {
             {...rest}
             {...fieldProps}
         >
-            <ClearToolbar>
+            <ClearToolbarContext>
                 <FieldContext.Provider
                     value={{
                         isGroup: true,
@@ -87,7 +87,7 @@ export function InnerGroupField(props) {
                 >
                     {children}
                 </FieldContext.Provider>
-            </ClearToolbar>
+            </ClearToolbarContext>
         </ElementType>
     );
 }

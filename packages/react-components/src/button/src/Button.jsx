@@ -6,6 +6,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
+import { useFormButton } from "../../form";
 import { useToolbar } from "../../toolbar";
 
 const propTypes = {
@@ -68,6 +69,7 @@ const defaultProps = {
 };
 
 export function InnerButton(props) {
+    const formProps = useFormButton();
     const toolbarProps = useToolbar();
 
     const {
@@ -91,6 +93,7 @@ export function InnerButton(props) {
         ...rest
     } = mergeProps(
         props,
+        formProps,
         omitProps(toolbarProps, ["orientation"])
     );
 

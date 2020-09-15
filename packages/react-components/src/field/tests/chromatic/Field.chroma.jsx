@@ -9,9 +9,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 // TODO:
 // - Write Field docs (have an example with Formik)
 
-function stories() {
+function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Field"))
-        .segment()
+        .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
             .build())

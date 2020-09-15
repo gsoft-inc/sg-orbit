@@ -1,11 +1,12 @@
 import "./Field.css";
 
-import { ClearToolbar, useToolbar } from "../../toolbar";
+import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, omitProps } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useField } from "./useField";
+import { useFormField } from "../../form";
 
 const propTypes = {
     /**
@@ -39,6 +40,7 @@ const propTypes = {
 };
 
 export function InnerField(props) {
+    const formProps = useFormField();
     const toolbarProps = useToolbar();
 
     const {
@@ -55,6 +57,7 @@ export function InnerField(props) {
         ...rest
     } = mergeProps(
         props,
+        formProps,
         toolbarProps
     );
 
@@ -71,7 +74,7 @@ export function InnerField(props) {
             {...rest}
             {...fieldProps}
         >
-            <ClearToolbar>
+            <ClearToolbarContext>
                 <FieldContext.Provider
                     value={{
                         inputId,
@@ -86,7 +89,7 @@ export function InnerField(props) {
                 >
                     {children}
                 </FieldContext.Provider>
-            </ClearToolbar>
+            </ClearToolbarContext>
         </ElementType>
     );
 }

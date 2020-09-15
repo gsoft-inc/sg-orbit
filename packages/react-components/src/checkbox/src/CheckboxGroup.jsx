@@ -1,6 +1,6 @@
 import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
-import { ClearToolbar, useToolbar } from "../../toolbar";
+import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
@@ -134,7 +134,7 @@ export function InnerCheckboxGroup(props) {
             {...rest}
             {...groupProps}
         >
-            <ClearToolbar>
+            <ClearToolbarContext>
                 <CheckableContext.Provider
                     value={{
                         onCheck: handleCheck,
@@ -146,7 +146,7 @@ export function InnerCheckboxGroup(props) {
                         return augmentElement(x, itemProps);
                     })}
                 </CheckableContext.Provider>
-            </ClearToolbar>
+            </ClearToolbarContext>
         </Flex>
     );
 }

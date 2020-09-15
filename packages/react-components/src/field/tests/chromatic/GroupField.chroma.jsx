@@ -4,20 +4,9 @@ import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-// TODO:
-// - FieldMessage.chroma.jsx
-// - Label.chroma.jsx
-// - Radio
-// - RadioGroup
-// - Switch
-// - Clean up InputMessage, InputLabel etc...
-// - Jest Tests (dont valider que input et label share le même id)
-// - Write Field docs (have an example with Formik)
-// - Form component with as="fieldset" ? With a doc example?
-
-function stories() {
+function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("GroupField"))
-        .segment()
+        .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
             .build())

@@ -41,10 +41,6 @@ A field add a label and a message to an input. They are typically used in forms 
 
 When combined with a [form](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) element, a field commponent follows the [WAI specifications for forms](https://www.w3.org/WAI/tutorials/forms/).
 
-## Slots
-
-A field component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"input"`, `"message"`.
-
 ## Usage
 
 ### Input
@@ -63,7 +59,7 @@ A field can be an input.
 
 ### Group Input
 
-A field can be a group input.
+When the input is a group, use a `GroupField` instead of a `Field`.
 
 <Preview>
     <Story name="group">
