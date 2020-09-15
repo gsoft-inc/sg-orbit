@@ -1,19 +1,27 @@
 .o-ui-form {
     display: grid;
-    gap: var(--scale-echo);
     justify-items: start;
 }
 
-/* .o-ui-form .o-ui-form-field {
+.o-ui-form .o-ui-form-field {
     margin-bottom: 20px;
-} */
+}
+
+.o-ui-form fieldset {
+    margin-bottom: 20px;
+    padding: 0;
+    border: none;
+}
+
+.o-ui-form fieldset legend {
+    margin-bottom: var(--scale-alpha);
+    font-size: var(--type-scale-6);
+}
+
+.o-ui-form fieldset .o-ui-form-field:last-child {
+    margin-bottom: 0;
+}
 
 .o-ui-form-fluid {
     width: 100%;
-}
-
-/* Move? */
-.o-ui-form > *:not(.o-ui-form-field):not(.o-ui-form-button) {
-    display: grid;
-    gap: inherit;
 }

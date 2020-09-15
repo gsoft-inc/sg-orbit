@@ -32,7 +32,7 @@ export function InnerFieldGroup(props) {
     return (
         <Inline
             {...rest}
-            gap={4}
+            gap={5}
             align="start"
             ref={forwardedRef}
         >
