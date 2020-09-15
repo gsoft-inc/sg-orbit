@@ -120,6 +120,7 @@ export function Spinner({
         <div
             {...rest}
             className="o-ui-number-input-spinner"
+            aria-hidden="true"
         >
             <button
                 onClick={handleIncrement}
