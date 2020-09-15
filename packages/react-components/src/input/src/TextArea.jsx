@@ -1,7 +1,7 @@
 import "./TextArea.css";
 
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
@@ -131,7 +131,10 @@ export function InnerTextArea(props) {
         as: ElementType = "div",
         forwardedRef,
         ...rest
-    } = mergeProps(props, fieldProps);
+    } = mergeProps(
+        props,
+        omitProps(fieldProps, ["isInField"])
+    );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);

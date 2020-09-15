@@ -120,7 +120,7 @@ export function InnerTextInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["isInToolbar", "orientation"]),
-        fieldProps
+        omitProps(fieldProps, ["isInField"])
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

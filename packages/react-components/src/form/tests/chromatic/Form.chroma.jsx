@@ -1,7 +1,7 @@
-import { Button } from "@react-components/button";
-import { ButtonGroup, FieldGroup, Form } from "@react-components/form";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
+import { FieldGroup, Form } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
@@ -143,18 +143,18 @@ stories()
             <GroupField>
                 <Label>Where to?</Label>
                 <RadioGroup>
-                    <Radio>Mars</Radio>
-                    <Radio>Jupiter</Radio>
-                    <Radio>Pluto</Radio>
+                    <Radio value="mars">Mars</Radio>
+                    <Radio value="jupiter">Jupiter</Radio>
+                    <Radio value="pluto">Pluto</Radio>
                 </RadioGroup>
                 <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
             </GroupField>
             <GroupField>
                 <Label>Which package?</Label>
                 <RadioGroup orientation="horizontal">
-                    <Radio>1</Radio>
-                    <Radio>2</Radio>
-                    <Radio>3</Radio>
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
                 </RadioGroup>
             </GroupField>
             <Button>Submit</Button>

@@ -4,9 +4,9 @@
     justify-items: start;
 }
 
-/* .o-ui-form .o-ui-form-field:not(:last-child) {
+.o-ui-form .o-ui-form-field {
     margin-bottom: 20px;
-} */
+}
 
 .o-ui-form-fluid {
     width: 100%;
