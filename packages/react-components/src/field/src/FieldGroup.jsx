@@ -2,10 +2,7 @@ import { Inline } from "../../layout";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
-import { useFormContext } from "./FormContext";
-
-// TODO:
-// - Move to /field
+import { useFormContext } from "../../form";
 
 const propTypes = {
     /**

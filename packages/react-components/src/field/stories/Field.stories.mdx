@@ -43,6 +43,8 @@ When combined with a [form](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 
 ## Usage
 
+A field can be composed with Orbit UI native input components or integrate with custom inputs from your app.
+
 ### Input
 
 A field can be an input.
@@ -114,6 +116,20 @@ A field can take the width of its container.
     </Story>
 </Preview>
 
+### Disabled
+
+A field can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Field disabled>
+            <Label>Space ID</Label>
+            <TextInput placeholder="999-999-999" />
+            <HelpMessage>Your space id is a 9-digit number available the top right corner of your membership card.</HelpMessage>
+        </Field>
+    </Story>
+</Preview>
+
 ### Size
 
 A field can vary in size.
@@ -153,6 +169,8 @@ The example below illustrates how one would validate if the user has entered a v
 </FilePreview>
 
 ### Custom Input
+
+Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInput` hook.
 
 <FilePreview filePath="/field/stories/CustomInput">
     <CustomInputField />

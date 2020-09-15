@@ -11,11 +11,7 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
-    /**
-     * @ignore
-     */
-    children: any.isRequired
+    as: oneOfType([string, elementType])
 };
 
 export function InnerErrorMessage(props) {

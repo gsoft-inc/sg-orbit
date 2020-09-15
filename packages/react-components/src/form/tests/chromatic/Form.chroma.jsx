@@ -1,17 +1,11 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
-import { FieldGroup, Form } from "@react-components/form";
+import { ErrorMessage, Field, FieldGroup, GroupField, HelpMessage, Label } from "@react-components/field";
+import { Form } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-
-/*
-TODO:
-- I don't think grid is good since as soon as there is an element between the form and the fields it doesn't work.
-- Bottom margins are also a problem since it doesn't work when embedded (like InlineFields).
-*/
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Form"))

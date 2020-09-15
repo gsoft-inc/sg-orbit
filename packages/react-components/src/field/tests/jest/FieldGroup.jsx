@@ -1,5 +1,4 @@
-import { Field } from "@react-components/field";
-import { FieldGroup } from "@react-components/form";
+import { Field, FieldGroup } from "@react-components/field";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 

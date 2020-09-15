@@ -6,9 +6,6 @@ import { Radio } from "@react-components/radio";
 import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-// TODO:
-// - Write Field docs (have an example with Formik)
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Field"))
         .segment(segment)

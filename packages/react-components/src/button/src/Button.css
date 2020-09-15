@@ -24,6 +24,7 @@
 .o-ui-button:not(.o-ui-icon-button) {
     display: inline-grid;
     align-items: center;
+    justify-content: center;
     grid-template-columns: max-content auto;
     grid-template-areas: "icon text";
 }
