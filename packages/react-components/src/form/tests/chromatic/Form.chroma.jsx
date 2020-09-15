@@ -1,8 +1,9 @@
 import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { ErrorMessage, Field, HelpMessage, Label } from "@react-components/field";
+import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
+import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -108,6 +109,54 @@ stories()
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
             </fieldset>
+            <Button>Submit</Button>
+        </Form>
+    )
+    .add("with nested div", () =>
+        <Form>
+            <Field>
+                <Label>FullName</Label>
+                <TextInput />
+            </Field>
+            <div>
+                <Field>
+                    <Label>Departure date</Label>
+                    <TextInput placeholder="AAAA/MM/DD" />
+                </Field>
+                <div>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                </div>
+            </div>
+            <Button>Submit</Button>
+        </Form>
+    )
+    .add("with group field", () =>
+        <Form>
+            <Field>
+                <Label>FullName</Label>
+                <TextInput />
+            </Field>
+            <GroupField>
+                <Label>Where to?</Label>
+                <RadioGroup>
+                    <Radio>Mars</Radio>
+                    <Radio>Jupiter</Radio>
+                    <Radio>Pluto</Radio>
+                </RadioGroup>
+                <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+            </GroupField>
+            <GroupField>
+                <Label>Which package?</Label>
+                <RadioGroup orientation="horizontal">
+                    <Radio>1</Radio>
+                    <Radio>2</Radio>
+                    <Radio>3</Radio>
+                </RadioGroup>
+            </GroupField>
             <Button>Submit</Button>
         </Form>
     );

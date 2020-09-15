@@ -4,6 +4,10 @@
     justify-items: start; */
 }
 
+/* .o-ui-form .o-ui-form-field:not(:last-child) {
+    margin-bottom: 20px;
+} */
+
 .o-ui-form-fluid {
     width: 100%;
 }

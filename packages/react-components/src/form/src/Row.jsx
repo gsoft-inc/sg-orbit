@@ -30,6 +30,7 @@ export function InnerRow(props) {
         <Inline
             {...rest}
             gap={4}
+            align="start"
             ref={forwardedRef}
         >
             {children}
