@@ -4,15 +4,16 @@
     justify-items: start;
 }
 
-.o-ui-form .o-ui-form-field {
+/* .o-ui-form .o-ui-form-field {
     margin-bottom: 20px;
-}
+} */
 
 .o-ui-form-fluid {
     width: 100%;
 }
 
 /* Move? */
-.o-ui-form > div:not(.o-ui-field) {
-    display: contents;
+.o-ui-form > *:not(.o-ui-form-field):not(.o-ui-form-button) {
+    display: grid;
+    gap: inherit;
 }
