@@ -222,6 +222,7 @@ export function InnerTextArea(props) {
     );
 }
 
+InnerTextArea.propTypes = propTypes;
 InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (

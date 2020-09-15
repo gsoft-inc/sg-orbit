@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
-import { mergeProps, omitProps, useCheckable } from "../../shared";
+import { mergeProps, useCheckable } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {

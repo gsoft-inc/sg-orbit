@@ -1,4 +1,4 @@
-import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, augmentElement, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { Flex } from "../../layout";

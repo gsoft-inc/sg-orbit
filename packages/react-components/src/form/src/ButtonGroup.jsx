@@ -15,7 +15,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerRow(props) {
+export function InnerButtonGroup(props) {
     const { fluid } = useFormContext();
 
     const {
@@ -30,7 +30,6 @@ export function InnerRow(props) {
         <Inline
             {...rest}
             gap={4}
-            align="start"
             ref={forwardedRef}
         >
             {children}
@@ -38,8 +37,8 @@ export function InnerRow(props) {
     );
 }
 
-InnerRow.propTypes = propTypes;
+InnerButtonGroup.propTypes = propTypes;
 
-export const Row = forwardRef((props, ref) => (
-    <InnerRow {...props} forwardedRef={ref} />
+export const ButtonGroup = forwardRef((props, ref) => (
+    <InnerButtonGroup {...props} forwardedRef={ref} />
 ));

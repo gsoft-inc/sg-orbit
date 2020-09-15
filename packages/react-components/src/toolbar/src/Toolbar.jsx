@@ -1,8 +1,8 @@
-import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
-import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
+import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 
 const ARROW_NAV_KEY_BINDING = {
