@@ -133,7 +133,7 @@ export function InnerRadio(props) {
                 cssModule(
                     "o-ui-radio",
                     isChecked && "checked",
-                    isInField && "in-field",
+                    isInField && "as-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",

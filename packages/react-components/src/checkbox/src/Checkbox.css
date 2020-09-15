@@ -260,14 +260,14 @@
 }
 
 /* IN FIELD */
-.o-ui-checkbox-small.o-ui-checkbox-in-field {
+.o-ui-checkbox-small.o-ui-checkbox-as-field {
     min-height: var(--scale-echo);
 }
 
-.o-ui-checkbox-medium.o-ui-checkbox-in-field {
+.o-ui-checkbox-medium.o-ui-checkbox-as-field {
     min-height: var(--scale-foxtrot);
 }
 
-.o-ui-checkbox-large.o-ui-checkbox-in-field {
+.o-ui-checkbox-large.o-ui-checkbox-as-field {
     min-height: var(--scale-golf);
 }

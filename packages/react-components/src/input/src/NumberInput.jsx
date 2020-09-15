@@ -168,8 +168,7 @@ function toFixed(value, precision) {
 
 export function InnerNumberInput(props) {
     const toolbarProps = useToolbar();
-
-    const { isInField, ...fieldProps } = useFieldInput();
+    const fieldProps = useFieldInput();
 
     const {
         id,
@@ -349,8 +348,7 @@ export function InnerNumberInput(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-input",
-                    iconMarkup && "has-icon",
-                    isInField && "in-field"
+                    iconMarkup && "has-icon"
                 ),
                 wrapperClassName
             )}

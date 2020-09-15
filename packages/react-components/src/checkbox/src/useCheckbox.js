@@ -64,7 +64,7 @@ export function useCheckbox({
                     module,
                     isChecked && "checked",
                     isIndeterminate && "indeterminate",
-                    isInField && "in-field",
+                    isInField && "as-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",

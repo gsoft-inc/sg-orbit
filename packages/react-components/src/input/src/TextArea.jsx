@@ -99,7 +99,7 @@ const pxToInt = value => {
 };
 
 export function InnerTextArea(props) {
-    const { isInField, ...fieldProps } = useFieldInput();
+    const fieldProps = useFieldInput();
 
     const {
         id,
@@ -212,8 +212,7 @@ export function InnerTextArea(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-input",
-                    buttonMarkup && "has-button",
-                    isInField && "in-field"
+                    buttonMarkup && "has-button"
                 ),
                 wrapperClassName
             )}
@@ -223,7 +222,6 @@ export function InnerTextArea(props) {
     );
 }
 
-InnerTextArea.propTypes = propTypes;
 InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (

@@ -88,8 +88,7 @@ const defaultProps = {
 
 export function InnerTextInput(props) {
     const toolbarProps = useToolbar();
-
-    const { isInField, ...fieldProps } = useFieldInput();
+    const fieldProps = useFieldInput();
 
     const {
         id,
@@ -181,8 +180,7 @@ export function InnerTextInput(props) {
                 cssModule(
                     "o-ui-input",
                     iconMarkup && "has-icon",
-                    buttonMarkup && "has-button",
-                    isInField && "in-field"
+                    buttonMarkup && "has-button"
                 ),
                 wrapperClassName
             )}

@@ -170,14 +170,14 @@
 
 /* IN FIELD */
 /* SWITCH */
-.o-ui-switch-small.o-ui-switch-in-field {
+.o-ui-switch-small.o-ui-switch-as-field {
     min-height: var(--scale-echo);
 }
 
-.o-ui-switch-medium.o-ui-switch-in-field {
+.o-ui-switch-medium.o-ui-switch-as-field {
     min-height: var(--scale-foxtrot);
 }
 
-.o-ui-switch-large.o-ui-switch-in-field {
+.o-ui-switch-large.o-ui-switch-as-field {
     min-height: var(--scale-golf);
 }
