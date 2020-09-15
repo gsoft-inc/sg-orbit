@@ -1,7 +1,7 @@
 .o-ui-form {
-    /* display: grid;
+    display: grid;
     gap: var(--scale-echo);
-    justify-items: start; */
+    justify-items: start;
 }
 
 /* .o-ui-form .o-ui-form-field:not(:last-child) {
@@ -10,4 +10,9 @@
 
 .o-ui-form-fluid {
     width: 100%;
+}
+
+/* Move? */
+.o-ui-form > div:not(.o-ui-field) {
+    display: contents;
 }
