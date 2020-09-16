@@ -1,6 +1,14 @@
 /* FIELD */
-.o-ui-form .o-ui-form-field {
-    margin-bottom: 20px;
+.o-ui-form .o-ui-form-field-small {
+    margin-bottom: var(--scale-delta);
+}
+
+.o-ui-form .o-ui-form-field-medium {
+    margin-bottom: var(--scale-echo);
+}
+
+.o-ui-form .o-ui-form-field-large {
+    margin-bottom: var(--scale-foxtrot);
 }
 
 /* FLUID */

@@ -17,6 +17,7 @@ const propTypes = {
 
 export function InnerFieldGroup(props) {
     const { fluid } = useFormContext();
+    console.log(props);
 
     const {
         children,
