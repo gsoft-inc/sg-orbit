@@ -1,3 +1,10 @@
+.o-ui-form {
+    /* Grid display to allow using justify-self on button to align them. */
+    display: grid;
+    justify-items: start;
+    width: max-content;
+}
+
 /* FIELD */
 .o-ui-form .o-ui-form-field-small {
     margin-bottom: var(--scale-delta);

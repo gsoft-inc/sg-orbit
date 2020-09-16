@@ -64,6 +64,7 @@ export function InnerField(props) {
     const { fieldProps, inputId, labelId, messageId } = useField({
         id,
         fluid,
+        size,
         className,
         forwardedRef
     });

@@ -1,8 +1,9 @@
-import { cssModule, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
 
 export function useField({
     id,
     fluid,
+    size,
     className,
     forwardedRef
 }) {
@@ -23,7 +24,8 @@ export function useField({
             className: mergeClasses(
                 cssModule(
                     "o-ui-field",
-                    fluid && "fluid"
+                    fluid && "fluid",
+                    getSizeClass(size)
                 ),
                 className
             ),

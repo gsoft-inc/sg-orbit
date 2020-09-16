@@ -83,7 +83,7 @@ export function RegistrationForm() {
                     Agree to terms and conditions
                 </Checkbox>
             </Field>
-            <ButtonGroup>
+            <ButtonGroup className="self-justify-center">
                 <Button
                     variant="link"
                     onClick={formik.resetForm}

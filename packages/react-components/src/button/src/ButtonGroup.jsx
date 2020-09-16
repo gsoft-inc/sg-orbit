@@ -4,22 +4,6 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement } from "../../shared";
 
 const propTypes = {
-    // /**
-    //  * How the elements are aligned in the container along the main axis.
-    //  */
-    // align: oneOf(["start", "end", "center"]),
-    // /**
-    //  * How the elements are aligned in the container along the cross axis.
-    //  */
-    // justify: oneOf(["start", "end", "center"]),
-    // /**
-    //  * Whether elements are forced onto one line or can wrap onto multiple lines
-    //  */
-    // wrap: bool,
-    // /**
-    //  * Whether the elements take up the width & height of their container.
-    //  */
-    // fluid: bool,
     /**
      * Buttons size.
      */
@@ -44,6 +28,7 @@ export function InnerButtonGroup({
         <Inline
             {...rest}
             gap={2}
+            align="center"
             ref={forwardedRef}
         >
             {Children.map(children, x => {
