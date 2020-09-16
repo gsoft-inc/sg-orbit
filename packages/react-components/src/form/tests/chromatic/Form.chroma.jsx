@@ -161,21 +161,21 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="justify-self-start">Submit</Button>
+                <Button className="self-justify-start">Submit</Button>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="justify-self-center">Submit</Button>
+                <Button className="self-justify-center">Submit</Button>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="justify-self-end">Submit</Button>
+                <Button className="self-justify-end">Submit</Button>
             </Form>
         </Inline>
     )
@@ -186,7 +186,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-start">
+                <ButtonGroup className="self-justify-start">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
@@ -196,7 +196,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-center">
+                <ButtonGroup className="self-justify-center">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
@@ -206,7 +206,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-end">
+                <ButtonGroup className="self-justify-end">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
