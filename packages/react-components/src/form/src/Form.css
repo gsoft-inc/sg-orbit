@@ -1,12 +1,14 @@
-.o-ui-form {
-    display: grid;
-    justify-items: start;
-}
-
+/* FIELD */
 .o-ui-form .o-ui-form-field {
     margin-bottom: 20px;
 }
 
+/* FLUID */
+.o-ui-form-fluid {
+    width: 100%;
+}
+
+/* FIELDSET */
 .o-ui-form fieldset {
     margin-bottom: 20px;
     padding: 0;
@@ -20,8 +22,4 @@
 
 .o-ui-form fieldset .o-ui-form-field:last-child {
     margin-bottom: 0;
-}
-
-.o-ui-form-fluid {
-    width: 100%;
 }
