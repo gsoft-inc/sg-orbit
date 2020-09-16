@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { CustomInputField } from "./CustomInput.sample";
 import { EmailValidation } from "./EmailValidation.sample";
-import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
+import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerFieldGroup, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -33,7 +33,8 @@ A field add a label and a message to an input. They are typically used in forms 
         { displayName: "Label", component: InnerLabel },
         { displayName: "HelpMessage", component: InnerHelpMessage },
         { displayName: "ErrorMessage", component: InnerErrorMessage },
-        { displayName: "ValidMessage", component: InnerValidMessage }
+        { displayName: "ValidMessage", component: InnerValidMessage },
+        { displayName: "FieldGroup", component: InnerFieldGroup }
     ]}
 />
 

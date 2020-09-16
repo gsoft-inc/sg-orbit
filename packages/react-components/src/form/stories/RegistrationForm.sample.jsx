@@ -16,7 +16,7 @@ export function RegistrationForm() {
         validate: values => {
             return Object.keys(values).reduce((acc, x) => {
                 if (!values[x]) {
-                    acc[x] = `Invalid ${x}.`;
+                    acc[x] = `${x} is required.`;
                 }
 
                 return acc;
