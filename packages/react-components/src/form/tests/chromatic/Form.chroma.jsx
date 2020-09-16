@@ -153,6 +153,65 @@ stories()
             </GroupField>
             <Button>Submit</Button>
         </Form>
+    )
+    .add("button alignment", () =>
+        <Inline>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Button className="justify-self-start">Submit</Button>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Button className="justify-self-center">Submit</Button>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Button className="justify-self-end">Submit</Button>
+            </Form>
+        </Inline>
+    )
+    .add("button group alignment", () =>
+        <Inline>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup className="justify-self-start">
+                    <Button variant="link">Reset</Button>
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup className="justify-self-center">
+                    <Button variant="link">Reset</Button>
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup className="justify-self-end">
+                    <Button variant="link">Reset</Button>
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+        </Inline>
     );
 
 stories("/inline")
