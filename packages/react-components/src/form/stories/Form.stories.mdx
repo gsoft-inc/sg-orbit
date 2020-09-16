@@ -114,7 +114,7 @@ Multiple form fields can be inlined on the same row.
 
 ### Fluid
 
-A form fields and buttons can take the witdh of it's container.
+Form fields and buttons can take the witdh of it's container.
 
 <Preview>
     <Story name="fluid">
@@ -130,7 +130,7 @@ A form fields and buttons can take the witdh of it's container.
 
 ### Disabled
 
-A form fields and buttons can be disabled.
+Form fields and buttons can be disabled.
 
 <Preview>
     <Story name="disabled">
@@ -146,7 +146,7 @@ A form fields and buttons can be disabled.
 
 ### Size
 
-A form fields and buttons can vary in size.
+Form fields and buttons can vary in size.
 
 <Preview>
     <Story name="size">
@@ -171,6 +171,36 @@ A form fields and buttons can vary in size.
                     <TextInput />
                 </Field>
                 <Button>Submit</Button>
+            </Form>
+        </Inline>
+    </Story>
+</Preview>
+
+### Button alignment
+
+Form buttons can ben aligned with our custom Tachyons `justify-self` CSS classes `self-justify-center` and `self-justify-end`.
+
+<Preview>
+    <Story name="button alignment">
+        <Inline gap={10}>
+            <Form>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup className="self-justify-center">
+                    <Button variant="link">Reset</Button>
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+                <Button className="self-justify-end">
+                    Submit
+                </Button>
             </Form>
         </Inline>
     </Story>
