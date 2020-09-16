@@ -6,6 +6,7 @@
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
+    width: max-content;
 }
 
 /* SWITCH */

@@ -1,6 +1,7 @@
 .o-ui-field {
     display: grid;
     align-items: center;
+    grid-template-rows: max-content max-content max-content;
     grid-template-areas:
         "label"
         "input"

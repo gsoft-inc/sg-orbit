@@ -279,7 +279,7 @@ export function createCheckboxTestSuite(element, stories) {
         .add("states", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox active size="small" element={element}></Checkbox>
+                    <Checkbox active size="small" element={element}>Milky Way</Checkbox>
                     <Checkbox active element={element}>Milky Way</Checkbox>
                     <Checkbox active size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
