@@ -6,6 +6,14 @@
     display: inline-flex;
 }
 
+.grid {
+    display: grid;
+}
+
+.inline-grid {
+    display: inline-grid;
+}
+
 .flex-auto {
     flex: 1 1 auto;
     min-width: 0;
@@ -202,6 +210,12 @@
     .inline-flex-ns {
         display: inline-flex;
     }
+    .grid-ns {
+        display: grid;
+    }
+    .inline-grid-ns {
+        display: inline-grid;
+    }
     .flex-auto-ns {
         flex: 1 1 auto;
         min-width: 0;
@@ -356,6 +370,12 @@
     .inline-flex-m {
         display: inline-flex;
     }
+    .grid-m {
+        display: grid;
+    }
+    .inline-grid-m {
+        display: inline-grid;
+    }
     .flex-auto-m {
         flex: 1 1 auto;
         min-width: 0;
@@ -509,6 +529,12 @@
     }
     .inline-flex-l {
         display: inline-flex;
+    }
+    .grid-l {
+        display: grid;
+    }
+    .inline-grid-l {
+        display: inline-grid;
     }
     .flex-auto-l {
         flex: 1 1 auto;
