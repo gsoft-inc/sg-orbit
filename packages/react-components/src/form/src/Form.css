@@ -6,8 +6,16 @@
 }
 
 /* FIELD */
-.o-ui-form .o-ui-form-field {
-    margin-bottom: 20px;
+.o-ui-form .o-ui-field-small {
+    margin-bottom: var(--scale-delta);
+}
+
+.o-ui-form .o-ui-field-medium {
+    margin-bottom: var(--scale-echo);
+}
+
+.o-ui-form .o-ui-field-large {
+    margin-bottom: var(--scale-foxtrot);
 }
 
 /* FLUID */
