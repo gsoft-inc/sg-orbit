@@ -7,8 +7,7 @@ export function useFormButton() {
         return {
             size,
             fluid,
-            disabled,
-            className: "o-ui-form-button"
+            disabled
         };
     }
 

@@ -70,4 +70,11 @@ stories()
                 </ButtonGroup>
             </Stack>
         </Inline>
+    )
+    .add("fluid", () =>
+        <ButtonGroup fluid>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+        </ButtonGroup>
     );
