@@ -39,6 +39,10 @@ const propTypes = {
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -52,20 +56,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button"
-};
-
 export function InnerIconButton(props) {
     const slotProps = useSlot("button");
     const toolbarProps = useToolbar();
 
     const {
-        variant,
+        variant = "solid",
         color,
-        shape,
+        shape = "pill",
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -75,7 +73,7 @@ export function InnerIconButton(props) {
         focus,
         hover,
         disabled,
-        type,
+        type = "button",
         as: ElementType = "button",
         className,
         children,
@@ -129,7 +127,6 @@ export function InnerIconButton(props) {
 }
 
 InnerIconButton.propTypes = propTypes;
-InnerIconButton.defaultProps = defaultProps;
 
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />

@@ -95,11 +95,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    step: 1,
-    variant: "outline"
-};
-
 export function Spinner({
     onIncrement,
     onDecrement,
@@ -178,13 +173,13 @@ export function InnerNumberInput(props) {
         placeholder,
         min,
         max,
-        step,
+        step = 1,
         clampValue = true,
         required,
         validationState,
         onChange,
         onBlur,
-        variant,
+        variant = "outline",
         autoFocus,
         autoFocusDelay,
         icon,
@@ -360,7 +355,6 @@ export function InnerNumberInput(props) {
 }
 
 InnerNumberInput.propTypes = propTypes;
-InnerNumberInput.defaultProps = defaultProps;
 
 export const NumberInput = forwardRef((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />

@@ -81,11 +81,6 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const defaultProps = {
-    variant: "outline",
-    type: "text"
-};
-
 export function InnerTextInput(props) {
     const toolbarProps = useToolbar();
     const fieldProps = useFieldInput();
@@ -98,8 +93,8 @@ export function InnerTextInput(props) {
         required,
         validationState,
         onChange,
-        variant,
-        type,
+        variant = "outline",
+        type = "text",
         autoFocus,
         autoFocusDelay,
         icon,
@@ -191,7 +186,6 @@ export function InnerTextInput(props) {
 }
 
 InnerTextInput.propTypes = propTypes;
-InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />

@@ -30,7 +30,7 @@ export function createIconButtonTestSuite(element, stories) {
             <Stack>
                 <Inline align="end">
                     <IconButton color="primary" size="mini" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="tiny" element={element}><AddIcon /></IconButton>
+                    <IconButton color="primary" size="tiny"element={element}><AddIcon /></IconButton>
                     <IconButton color="primary" size="small" element={element}><AddIcon /></IconButton>
                     <IconButton color="primary" element={element}><AddIcon /></IconButton>
                     <IconButton color="primary" size="large" element={element}><AddIcon /></IconButton>

@@ -51,7 +51,11 @@ InnerIcon.propTypes = {
     /**
      * Default slot override.
      */
-    slot: string
+    slot: string,
+    /**
+     * An accessible name describing the purpose of the icon. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired
 };
 
 export const Icon = forwardRef((props, ref) => (
@@ -101,7 +105,11 @@ InnerMultiVariantIcon.propTypes = {
     /**
      * Default slot override.
      */
-    slot: string
+    slot: string,
+    /**
+     * An accessible name describing the purpose of the icon. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (

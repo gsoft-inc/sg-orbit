@@ -40,15 +40,11 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "pill"
-};
-
 export function InnerCounter(props) {
     const slotProps = useSlot("counter");
 
     const {
-        variant,
+        variant = "pill",
         color,
         highlight,
         reverse,
@@ -99,7 +95,6 @@ export function InnerCounter(props) {
 }
 
 InnerCounter.propTypes = propTypes;
-InnerCounter.defaultProps = defaultProps;
 
 export const Counter = forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />

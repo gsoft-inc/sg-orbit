@@ -54,22 +54,21 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
-};
-
-const defaultProps = {
-    variant: "solid",
-    shape: "pill"
 };
 
 export function InnerToggleIconButton(props) {
     const checkableProps = useCheckable(props);
 
     const {
-        variant,
-        shape,
+        variant = "solid",
+        shape = "pill",
         checked,
         defaultChecked,
         value,
@@ -113,7 +112,6 @@ export function InnerToggleIconButton(props) {
 }
 
 InnerToggleIconButton.propTypes = propTypes;
-InnerToggleIconButton.defaultProps = defaultProps;
 
 export const ToggleIconButton = forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />

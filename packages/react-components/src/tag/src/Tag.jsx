@@ -33,12 +33,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid"
-};
-
 export function InnerTag({
-    variant,
+    variant = "solid",
     disabled,
     fluid,
     size,
@@ -123,8 +119,6 @@ export function InnerTag({
 }
 
 InnerTag.propTypes = propTypes;
-InnerTag.defaultProps = defaultProps;
-
 export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
