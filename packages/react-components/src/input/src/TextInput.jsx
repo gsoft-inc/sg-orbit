@@ -115,7 +115,12 @@ export function InnerTextInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["isInToolbar", "orientation"]),
-        omitProps(fieldProps, ["isInField"])
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

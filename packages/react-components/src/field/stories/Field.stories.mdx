@@ -6,6 +6,7 @@ import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } fro
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { NumberInput, TextInput } from "@react-components/input";
+import { Radio, RadioGroup } from "@react-components/radio";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
 
@@ -187,5 +188,59 @@ Any input implementing the `FieldContext` can integrate with a field component. 
         <Field>
             <TextInput />
         </Field>
+    </RefLogger>
+</Story>
+
+<Story
+    name="group ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <GroupField>
+            <Label>Your favorite galaxies?</Label>
+            <CheckboxGroup orientation="vertical">
+                <Checkbox value="milky-way">Milky Way</Checkbox>
+                <Checkbox value="andromeda">Andromeda</Checkbox>
+                <Checkbox value="medusa">Medusa</Checkbox>
+            </CheckboxGroup>
+        </GroupField>
+    </RefLogger>
+</Story>
+
+<Story
+    name="checkbox group with id"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <GroupField id="galaxy">
+            <Label>Your favorite galaxies?</Label>
+            <CheckboxGroup>
+                <Checkbox value="milky-way">Milky Way</Checkbox>
+                <Checkbox value="andromeda">Andromeda</Checkbox>
+                <Checkbox value="medusa">Medusa</Checkbox>
+            </CheckboxGroup>
+        </GroupField>
+    </RefLogger>
+</Story>
+
+<Story
+    name="radio group with id"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <GroupField id="galaxy">
+            <Label>Your favorite galaxies?</Label>
+            <RadioGroup>
+                <Radio value="mars">Mars</Radio>
+                <Radio value="jupiter">Jupiter</Radio>
+                <Radio value="pluto">Pluto</Radio>
+            </RadioGroup>
+        </GroupField>
     </RefLogger>
 </Story>

@@ -163,7 +163,7 @@
 }
 
 /* IN FIELD */
-.o-ui-radio-small.o-ui-radio-as-field {
+/* .o-ui-radio-small.o-ui-radio-as-field {
     min-height: var(--scale-echo);
 }
 
@@ -173,4 +173,4 @@
 
 .o-ui-radio-large.o-ui-radio-as-field {
     min-height: var(--scale-golf);
-}
+} */

@@ -57,7 +57,7 @@ export function SlotProvider({ slots, children }) {
 
 export function ClearSlots({ children }) {
     return (
-        <SlotContext.Provider value={{}}>
+        <SlotContext.Provider value={null}>
             {children}
         </SlotContext.Provider>
     );

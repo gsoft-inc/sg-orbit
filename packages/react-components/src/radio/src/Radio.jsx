@@ -8,7 +8,6 @@ import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
-import { useFieldInput } from "../../field";
 
 const propTypes = {
     /**
@@ -62,8 +61,6 @@ const propTypes = {
 export function InnerRadio(props) {
     const checkableProps = useCheckable(props);
 
-    const { isInField, ...fieldProps } = useFieldInput();
-
     const {
         value,
         name,
@@ -88,8 +85,7 @@ export function InnerRadio(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(checkableProps, ["role"]),
-        omitProps(fieldProps, ["fluid"])
+        omitProps(checkableProps, ["role"])
     );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -133,7 +129,6 @@ export function InnerRadio(props) {
                 cssModule(
                     "o-ui-radio",
                     isChecked && "checked",
-                    isInField && "as-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",

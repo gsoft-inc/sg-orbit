@@ -27,7 +27,7 @@ export function useToolbar() {
 
 export function ClearToolbarContext({ children }) {
     return (
-        <ToolbarContext.Provider value={{}}>
+        <ToolbarContext.Provider value={null}>
             {children}
         </ToolbarContext.Provider>
     );

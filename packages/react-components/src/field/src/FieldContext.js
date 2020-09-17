@@ -20,3 +20,11 @@ export function useFieldContext() {
         isInField: false
     };
 }
+
+export function ClearFieldContext({ children }) {
+    return (
+        <FieldContext.Provider value={null}>
+            {children}
+        </FieldContext.Provider>
+    );
+}

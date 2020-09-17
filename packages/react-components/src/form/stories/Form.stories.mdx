@@ -39,7 +39,7 @@ When combined with [field](?path=/story/components-field--input) components, a f
 
 ## Usage
 
-In additional to wrapping a form element, a form component provide layout for fields and buttons. **For layout to be applied correctly, every inputs must be wrapped in a field component.**
+In additional to wrapping a form element, a form component provide layout for fields and buttons. **To apply the layout correctly, every inputs must be wrapped in a field component.**
 
 ### Vertical layout
 
@@ -178,7 +178,7 @@ Form fields and buttons can vary in size.
 
 ### Button alignment
 
-Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes `self-justify-center` and `self-justify-end`.
+Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes `justify-self-center` and `justify-self-end`.
 
 <Preview>
     <Story name="button alignment">
@@ -188,7 +188,7 @@ Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes 
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="self-justify-center">
+                <ButtonGroup className="justify-self-center">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
@@ -198,7 +198,7 @@ Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes 
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Button className="self-justify-end">
+                <Button className="justify-self-end">
                     Submit
                 </Button>
             </Form>

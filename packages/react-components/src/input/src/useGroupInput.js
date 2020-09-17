@@ -1,4 +1,4 @@
-import { SIZE } from "../../shared";
+import { SIZE, cssModule, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
 const ITEMS_DIRECTION = {
@@ -20,6 +20,7 @@ const ITEMS_GAP_BY_SIZE = {
 };
 
 export function useGroupInput({
+    cssModule: module,
     role = "group",
     required,
     validationState,
@@ -29,6 +30,8 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
+    isInField,
+    className,
     ref
 }) {
     return {
@@ -39,6 +42,13 @@ export function useGroupInput({
             alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
             gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.medium],
             wrap: !isNil(wrap) ? "wrap" : undefined,
+            className: mergeClasses(
+                cssModule(
+                    module,
+                    isInField && "as-field"
+                ),
+                className
+            ),
             "aria-required": required,
             "aria-invalid": validationState === "invalid" ? true : undefined,
             "aria-orientation": orientation,

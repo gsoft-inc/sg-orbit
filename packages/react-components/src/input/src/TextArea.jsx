@@ -128,7 +128,12 @@ export function InnerTextArea(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(fieldProps, ["isInField"])
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

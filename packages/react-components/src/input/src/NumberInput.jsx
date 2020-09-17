@@ -199,7 +199,12 @@ export function InnerNumberInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        omitProps(fieldProps, ["isInField"])
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
