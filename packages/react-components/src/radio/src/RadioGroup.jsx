@@ -1,14 +1,18 @@
+import "./RadioGroup.css";
+
 import {
     CheckableContext,
     KEYS,
     augmentElement,
     mergeProps,
+    omitProps,
     useArrowNavigation,
     useAutoFocusFirstTabbableElement,
     useControllableState,
     useEventCallback,
     useId,
-    useMergedRefs, useRovingFocus
+    useMergedRefs,
+    useRovingFocus
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
@@ -127,7 +131,7 @@ export function InnerRadioGroup(props) {
     } = mergeProps(
         props,
         toolbarProps,
-        fieldProps
+        omitProps(fieldProps, ["fluid"])
     );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);

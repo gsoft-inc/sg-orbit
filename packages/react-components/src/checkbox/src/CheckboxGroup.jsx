@@ -1,4 +1,6 @@
-import { CheckableContext, augmentElement, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import "./CheckboxGroup.css";
+
+import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbar } from "../../toolbar";
@@ -78,13 +80,6 @@ function arrayToggleValue(array, value) {
     return [...array, value];
 }
 
-// TODO:
-// - Need to grab the FieldContext inputId, apply it to it's root element
-// - Clear the FieldContext
-// - Provide a new one without the inputId
-
-// DO THE SAME FOR RADIO-GROUP
-
 export function InnerCheckboxGroup(props) {
     const toolbarProps = useToolbar();
 
@@ -109,7 +104,7 @@ export function InnerCheckboxGroup(props) {
     } = mergeProps(
         props,
         toolbarProps,
-        fieldProps
+        omitProps(fieldProps, ["fluid"])
     );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);

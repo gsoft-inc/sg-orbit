@@ -161,16 +161,3 @@
 .o-ui-radio-reverse {
     grid-template-areas: "counter icon label button";
 }
-
-/* IN FIELD */
-/* .o-ui-radio-small.o-ui-radio-as-field {
-    min-height: var(--scale-echo);
-}
-
-.o-ui-radio-medium.o-ui-radio-as-field {
-    min-height: var(--scale-foxtrot);
-}
-
-.o-ui-radio-large.o-ui-radio-as-field {
-    min-height: var(--scale-golf);
-} */

@@ -204,25 +204,6 @@ stories()
             </Field>
         </Inline>
     )
-    .add("radio", () =>
-        <Inline align="end">
-            <Field size="small">
-                <Label>Select your favorite galaxy</Label>
-                <Radio>Milky Way</Radio>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Select your favorite galaxy</Label>
-                <Radio>Milky Way</Radio>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field size="large">
-                <Label>Select your favorite galaxy</Label>
-                <Radio>Milky Way</Radio>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-        </Inline>
-    )
     .add("switch", () =>
         <Inline align="end">
             <Field size="small">
