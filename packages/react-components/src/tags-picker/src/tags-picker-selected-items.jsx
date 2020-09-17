@@ -19,7 +19,7 @@ function defaultItemRenderer(item, { disabled, size, onRemove }) {
         <Tag
             variant="outline"
             size={size}
-            button={!disabled ? <IconButton onClick={onRemove}><CrossIcon /></IconButton> : undefined}
+            button={!disabled ? <IconButton onClick={onRemove} aria-label="Clear value"><CrossIcon /></IconButton> : undefined}
             data-testid={`tags-picker-selected-item-${item.value}`}
         >
             {item.text}

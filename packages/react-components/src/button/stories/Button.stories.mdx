@@ -218,16 +218,16 @@ Or look like a link:
 
 ## Icon button
 
-A button content can be a single icon.
+A button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Preview>
     <Story name="icon button">
         <Inline align="end">
-            <IconButton shape="circular" size="mini"><AddIcon /></IconButton>
-            <IconButton shape="circular" size="tiny"><AddIcon /></IconButton>
-            <IconButton shape="circular" size="small"><AddIcon /></IconButton>
-            <IconButton shape="circular"><AddIcon /></IconButton>
-            <IconButton shape="circular" size="large"><AddIcon /></IconButton>
+            <IconButton shape="circular" size="mini" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" size="tiny" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" size="small" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" size="large" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
     </Story>
 </Preview>
@@ -266,11 +266,11 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
 
 ### Toggle Icon Button
 
-A toggle button content can be a single icon.
+A toggle button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Preview>
     <Story name="toggle icon button">
-        <ToggleIconButton variant="outline" shape="circular">
+        <ToggleIconButton variant="outline" shape="circular" aria-label="Activate">
             <CheckIcon />
         </ToggleIconButton>
     </Story>
@@ -282,7 +282,7 @@ A toggle button can update is content with a render props based on the state val
 
 <Preview>
     <Story name="toggle icon render props">
-        <ToggleButton>
+        <ToggleButton aria-label="Activate">
             {
                 ({ isChecked }) => {
                     return isChecked ? "On" : "Off"

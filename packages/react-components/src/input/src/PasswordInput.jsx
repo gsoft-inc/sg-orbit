@@ -111,6 +111,8 @@ export function InnerPasswordInput({
                 <IconButton
                     variant="ghost"
                     onClick={handleClick}
+                    title="Toggle password visibility"
+                    aria-label="Toggle password visibility"
                 >
                     {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>

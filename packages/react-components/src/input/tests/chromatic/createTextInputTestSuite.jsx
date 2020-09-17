@@ -114,21 +114,21 @@ export function createTextInputTestSuite(element, stories) {
         .add("button", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="small" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="large" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="small" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <Inline>
-                    <TextInput disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput readOnly button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput disabled button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput readOnly button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
-                    <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput loading button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

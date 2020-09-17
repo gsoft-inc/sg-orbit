@@ -168,7 +168,7 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 <IconGallery>
     {renderItem("Add", createMultiVariant(<AddIcon />), [createVariant("24x24", <AddIcon24 />, "icon-add-24.svg"), createVariant("32x32", <AddIcon32 />, "icon-add-32.svg")])}
     {renderItem("Arrow", createMultiVariant(<ArrowIcon />), [createVariant("24x24", <ArrowIcon24 />, "icon-arrow-24.svg"), createVariant("32x32", <ArrowIcon32 />, "icon-arrow-32.svg")])}
-    {renderItem("Calendar", createMultiVariant(<CalendarIcon aria-label="Calendar" />), [createVariant("24x24", <CalendarIcon24 aria-label="Calendar" />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 aria-label="Calendar" />, "icon-calendar-32.svg")])}
+    {renderItem("Calendar", createMultiVariant(<CalendarIcon />), [createVariant("24x24", <CalendarIcon24 />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
     {renderItem("Carret", createMultiVariant(<CarretIcon />), [createVariant("24x24", <CarretIcon24 />, "icon-carret-24.svg"), createVariant("32x32", <CarretIcon32 />, "icon-carret-32.svg")])}
     {renderItem("Check", createMultiVariant(<CheckIcon />), [createVariant("24x24", <CheckIcon24 />, "icon-check-24.svg"), createVariant("32x32", <CheckIcon32 />, "icon-check-32.svg")])}
     {renderItem("Check Circle", createMultiVariant(<CheckCircleIcon />), [createVariant("24x24", <CheckCircleIcon24 />, "icon-check-circle-24.svg"), createVariant("32x32", <CheckCircleIcon32 />, "icon-check-circle-32.svg")])}
@@ -257,13 +257,13 @@ To alter the dimensions of an icon, you can specify any of the following sizes: 
 <Preview>
     <CheckeredBackground>
         <div className="flex items-end items-space-between">
-            <CalendarIcon size="tiny" aria-label="Calendar" />
-            <CalendarIcon size="small" aria-label="Calendar" />
-            <CalendarIcon aria-label="Calendar" />
-            <CalendarIcon size="large" aria-label="Calendar" />
-            <CalendarIcon size="big" aria-label="Calendar" />
-            <CalendarIcon size="huge" aria-label="Calendar" />
-            <CalendarIcon size="massive" aria-label="Calendar" />
+            <CalendarIcon size="tiny" />
+            <CalendarIcon size="small" />
+            <CalendarIcon />
+            <CalendarIcon size="large" />
+            <CalendarIcon size="big" />
+            <CalendarIcon size="huge" />
+            <CalendarIcon size="massive" />
         </div>
     </CheckeredBackground>
 </Preview>
@@ -350,10 +350,6 @@ You can set the color of a CSS background icon by setting an [Orbit UI color var
     fill: var(--marine-900);
 }
 ```
-
-## Accessibility
-
-To provide an accessible name, all icon elements should have an `aria-label` attribute describing the **purpose** of the icon in it's **current context**. For more information see [WCGA techniques](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 ## Custom icons
 

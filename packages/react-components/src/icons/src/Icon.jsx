@@ -15,6 +15,7 @@ export function InnerIcon(props) {
         disabled,
         className,
         forwardedRef,
+        "aria-label": ariaLabel,
         ...rest
     } = mergeProps(
         props,
@@ -33,7 +34,8 @@ export function InnerIcon(props) {
                 className
             )}
             focusable="false"
-            aria-hidden="true"
+            aria-hidden={ariaLabel ? undefined : "true"}
+            aria-label={ariaLabel}
             ref={forwardedRef}
         />
     );
@@ -51,11 +53,7 @@ InnerIcon.propTypes = {
     /**
      * Default slot override.
      */
-    slot: string,
-    /**
-     * An accessible name describing the purpose of the icon. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
-    "aria-label": string.isRequired
+    slot: string
 };
 
 export const Icon = forwardRef((props, ref) => (
@@ -105,11 +103,7 @@ InnerMultiVariantIcon.propTypes = {
     /**
      * Default slot override.
      */
-    slot: string,
-    /**
-     * An accessible name describing the purpose of the icon. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
-    "aria-label": string.isRequired
+    slot: string
 };
 
 export const MultiVariantIcon = forwardRef((props, ref) => (
