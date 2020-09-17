@@ -74,7 +74,9 @@ export function InnerIconButton(props) {
         hover,
         disabled,
         type = "button",
+        title,
         as: ElementType = "button",
+        "aria-label": ariaLabel,
         className,
         children,
         forwardedRef,
@@ -109,6 +111,8 @@ export function InnerIconButton(props) {
             data-testid="icon-button"
             {...rest}
             {...buttonProps}
+            title={title ?? ariaLabel}
+            aria-label={ariaLabel}
         >
             <ClearSlots>
                 <SlotProvider
