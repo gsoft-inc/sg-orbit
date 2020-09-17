@@ -2,7 +2,6 @@ import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput, TextArea, TextInput } from "@react-components/input";
-import { Radio } from "@react-components/radio";
 import { Switch } from "@react-components/switch";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
