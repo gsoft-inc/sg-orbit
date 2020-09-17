@@ -1,8 +1,8 @@
 import { Children, forwardRef } from "react";
-import { ClearFormContext, useFormContext } from "../../form";
 import { Inline } from "../../layout";
 import { SIZE, augmentElement, mergeProps, omitProps } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { useFormContext } from "../../form";
 
 const GAP_BY_SIZE = {
     [SIZE.small]: 3,
@@ -61,6 +61,7 @@ export function InnerFieldGroup(props) {
     );
 }
 
+InnerFieldGroup.propTypes = propTypes;
 
 export const FieldGroup = forwardRef((props, ref) => (
     <InnerFieldGroup {...props} forwardedRef={ref} />
