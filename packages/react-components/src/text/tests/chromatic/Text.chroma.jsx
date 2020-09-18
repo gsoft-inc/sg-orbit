@@ -1,4 +1,4 @@
-import { Inline, Stack } from "@react-components/layout";
+import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
