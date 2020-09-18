@@ -1,4 +1,5 @@
 import { CheckeredBackground } from "@blocks";
+import { Inline } from "@react-components/layout";
 import { LearnUsageLink } from "./learn-usage-link";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
@@ -26,13 +27,15 @@ function UsageSection({ componentType }) {
 function PreviewSection({ icon }) {
     return (
         <CheckeredBackground>
-            {cloneElement(icon, { size: "tiny" })}
-            {cloneElement(icon, { size: "small" })}
-            {cloneElement(icon, { size: "medium" })}
-            {cloneElement(icon, { size: "large" })}
-            {cloneElement(icon, { size: "big" })}
-            {cloneElement(icon, { size: "huge" })}
-            {cloneElement(icon, { size: "massive" })}
+            <Inline align="end" gap={2}>
+                {cloneElement(icon, { size: "xs" })}
+                {cloneElement(icon, { size: "sm" })}
+                {cloneElement(icon, { size: "md" })}
+                {cloneElement(icon, { size: "lg" })}
+                {cloneElement(icon, { size: "xl" })}
+                {cloneElement(icon, { size: "2xl" })}
+                {cloneElement(icon, { size: "3xl" })}
+            </Inline>
         </CheckeredBackground>
     );
 }
