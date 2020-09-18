@@ -27,7 +27,7 @@ export function RegistrationForm() {
                 console.log(JSON.stringify(values, null, 2));
                 actions.setSubmitting(false);
                 actions.resetForm();
-            }, 1000);
+            }, 10000);
         }
     });
 

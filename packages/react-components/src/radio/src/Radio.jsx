@@ -150,7 +150,7 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
-                aria-invalid={validationState === "invalid" ? true : undefined}
+                aria-invalid={validationState === "invalid"}
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>

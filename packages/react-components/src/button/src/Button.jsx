@@ -73,7 +73,7 @@ export function InnerButton(props) {
         autoFocus,
         autoFocusDelay,
         fluid,
-        loading,
+        loading = false,
         size,
         active,
         focus,
@@ -134,7 +134,8 @@ export function InnerButton(props) {
                     slots={{
                         text: textSlot({
                             size,
-                            className: "o-ui-button-text"
+                            className: "o-ui-button-text",
+                            "aria-hidden": loading
                         }),
                         icon: iconSlot({
                             size,

@@ -41,6 +41,8 @@ export function useButton({
         ),
         disabled,
         type,
+        "aria-live": "polite",
+        "aria-busy": loading,
         ref: buttonRef
     };
 }

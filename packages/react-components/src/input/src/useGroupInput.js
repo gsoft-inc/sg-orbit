@@ -50,7 +50,7 @@ export function useGroupInput({
                 className
             ),
             "aria-required": required,
-            "aria-invalid": validationState === "invalid" ? true : undefined,
+            "aria-invalid": validationState === "invalid",
             "aria-orientation": orientation,
             "aria-disabled": disabled,
             ref

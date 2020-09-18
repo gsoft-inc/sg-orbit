@@ -3,6 +3,7 @@ import "./Icon.css";
 import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
 
@@ -34,7 +35,7 @@ export function InnerIcon(props) {
                 className
             )}
             focusable="false"
-            aria-hidden={ariaLabel ? undefined : "true"}
+            aria-hidden={isNil(ariaLabel)}
             aria-label={ariaLabel}
             ref={forwardedRef}
         />

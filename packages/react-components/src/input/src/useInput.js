@@ -57,7 +57,7 @@ export function useInput({
             disabled,
             readOnly,
             "aria-required": required,
-            "aria-invalid": validationState === "invalid" ? true : undefined,
+            "aria-invalid": validationState === "invalid",
             ref: inputRef
         },
         inputRef
