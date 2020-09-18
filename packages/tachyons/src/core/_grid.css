@@ -1,0 +1,67 @@
+.grid {
+    display: grid;
+}
+
+.inline-grid {
+    display: inline-grid;
+}
+
+.justify-self-start {
+    justify-self: start;
+}
+
+.justify-self-end {
+    justify-self: end;
+}
+
+.justify-self-center {
+    justify-self: center;
+}
+
+.justify-grid-start {
+    justify-content: start;
+}
+
+.justify-grid-end {
+    justify-content: end;
+}
+
+.items-grid-start {
+    align-items: start;
+}
+
+.items-grid-end {
+    align-items: end;
+}
+
+.content-grid-start {
+    align-content: start;
+}
+
+.content-grid-end {
+    align-content: end;
+}
+
+.align-self-start {
+    align-self: start;
+}
+
+.align-self-end {
+    align-self: end;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.auto-flow-row {
+    grid-auto-flow: row;
+}
+
+.auto-flow-column {
+    grid-auto-flow: column;
+}
+
+.auto-flow-dense {
+    grid-auto-flow: dense;
+}
