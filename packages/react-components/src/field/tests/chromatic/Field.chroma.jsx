@@ -17,20 +17,20 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <TextInput placeholder="Where to?" />
             </Field>
             <Field>
                 <TextInput placeholder="Where to?" />
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <TextInput placeholder="Where to?" />
             </Field>
         </Inline>
     )
     .add("label", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Where to?</Label>
                 <TextInput />
             </Field>
@@ -38,7 +38,7 @@ stories()
                 <Label>Where to?</Label>
                 <TextInput />
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Where to?</Label>
                 <TextInput />
             </Field>
@@ -47,7 +47,7 @@ stories()
     .add("message", () =>
         <Stack gap={10}>
             <Inline align="end">
-                <Field size="small">
+                <Field size="sm">
                     <TextInput placeholder="Where to?" />
                     <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
                 </Field>
@@ -55,7 +55,7 @@ stories()
                     <TextInput placeholder="Where to?" />
                     <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
                 </Field>
-                <Field size="large">
+                <Field size="lg">
                     <TextInput placeholder="Where to?" />
                     <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
                 </Field>
@@ -129,7 +129,7 @@ stories()
     )
     .add("text input", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Where to?</Label>
                 <TextInput placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -139,7 +139,7 @@ stories()
                 <TextInput placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Where to?</Label>
                 <TextInput placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -148,7 +148,7 @@ stories()
     )
     .add("number input", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Age</Label>
                 <NumberInput placeholder="Ex. 89" />
                 <HelpMessage>How long ago are you born?</HelpMessage>
@@ -158,7 +158,7 @@ stories()
                 <NumberInput placeholder="Ex. 89" />
                 <HelpMessage>How long ago are you born?</HelpMessage>
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Age</Label>
                 <NumberInput placeholder="Ex. 89" />
                 <HelpMessage>How long ago are you born?</HelpMessage>
@@ -167,7 +167,7 @@ stories()
     )
     .add("textarea", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Where to?</Label>
                 <TextArea placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -177,7 +177,7 @@ stories()
                 <TextArea placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Where to?</Label>
                 <TextArea placeholder="Ex. Mars" />
                 <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -186,7 +186,7 @@ stories()
     )
     .add("checkbox", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Select your favorite galaxy</Label>
                 <Checkbox>Milky Way</Checkbox>
                 <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
@@ -196,7 +196,7 @@ stories()
                 <Checkbox>Milky Way</Checkbox>
                 <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Select your favorite galaxy</Label>
                 <Checkbox>Milky Way</Checkbox>
                 <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
@@ -205,7 +205,7 @@ stories()
     )
     .add("switch", () =>
         <Inline align="end">
-            <Field size="small">
+            <Field size="sm">
                 <Label>Engines</Label>
                 <Switch>Milky Way</Switch>
                 <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
@@ -215,7 +215,7 @@ stories()
                 <Switch>Milky Way</Switch>
                 <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
             </Field>
-            <Field size="large">
+            <Field size="lg">
                 <Label>Engines</Label>
                 <Switch>Milky Way</Switch>
                 <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>

@@ -46,7 +46,7 @@ stories()
     .add("icon", () =>
         <div className="flex flex-column">
             <Message icon>
-                <GroupIcon size="massive" />
+                <GroupIcon size="3xl" />
                 <Message.Content>
                     <Message.Header>Just one second</Message.Header>
                     <p>We are fetching that content for you.</p>
@@ -57,7 +57,7 @@ stories()
                     <Message.Header>Just one second</Message.Header>
                     <p>We are fetching that content for you.</p>
                 </Message.Content>
-                <GroupIcon size="massive" />
+                <GroupIcon size="3xl" />
             </Message>
         </div>
     )
@@ -93,7 +93,7 @@ stories()
     )
     .add("size", () =>
         <div className="flex flex-column">
-            <Message size="small" className="mb5">
+            <Message size="sm" className="mb5">
                 <p>This group external shares won’t be reviewed until you entrust its group owners.</p>
             </Message>
             <Message>

@@ -17,9 +17,9 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
                 <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -34,9 +34,9 @@ stories()
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
                 <ToggleIconButton checked variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -51,9 +51,9 @@ stories()
     .add("rounded outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
                 <ToggleIconButton checked variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>

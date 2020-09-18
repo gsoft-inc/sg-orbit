@@ -16,8 +16,8 @@ const ITEM_SHAPE = {
 };
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
-const DEFAULT_SIZE = "medium";
+const SIZES = ["sm", "md", "lg"];
+const DEFAULT_SIZE = "md";
 
 const GROUP_ERROR_MESSAGE = "TagsPicker - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 

@@ -19,7 +19,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end" gap={13}>
-            <Form size="small">
+            <Form size="sm">
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
@@ -43,7 +43,7 @@ stories()
                 </Field>
                 <Button>Submit</Button>
             </Form>
-            <Form size="large">
+            <Form size="lg">
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />

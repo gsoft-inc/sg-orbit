@@ -12,7 +12,7 @@ const ITEM_SHAPE = {
 };
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 function defaultItemRenderer(item, { disabled, size, onRemove }) {
     return (
@@ -32,7 +32,7 @@ class TagsPickerSelectedItem extends PureComponent {
         item: shape(ITEM_SHAPE).isRequired,
         itemRenderer: func,
         onRemove: func.isRequired,
-        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
+        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
         className: string
     };
 

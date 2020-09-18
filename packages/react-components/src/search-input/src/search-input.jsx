@@ -10,7 +10,7 @@ const RESULT_SHAPE = {
 };
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 export function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));

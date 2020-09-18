@@ -33,7 +33,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
     /**
      * The button type.
      */
@@ -137,15 +137,15 @@ export const IconButton = forwardRef((props, ref) => (
 ));
 
 export const embedIconButton = createEmbeddableAdapter({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 });
 
 export const iconButtonSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 });
 
 

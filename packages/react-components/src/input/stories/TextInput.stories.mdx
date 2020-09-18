@@ -1,4 +1,4 @@
-import { CrossIcon, EmailIcon } from "@react-components/icons";
+import { CrossIcon, EditIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconButton } from "@react-components/button";
@@ -61,7 +61,7 @@ A text input can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <TextInput icon={<EmailIcon />} placeholder="Where to?" />
+        <TextInput icon={<EditIcon />} placeholder="Where to?" />
     </Story>
 </Preview>
 
@@ -84,9 +84,9 @@ A text input can vary in size.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <TextInput size="small" placeholder="Where to?" />
+            <TextInput size="sm" placeholder="Where to?" />
             <TextInput placeholder="Where to?" />
-            <TextInput size="large" placeholder="Where to?" />
+            <TextInput size="lg" placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>

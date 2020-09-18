@@ -13,12 +13,12 @@ export function createTestSuite(element, stories) {
         .add("labeled", () =>
             <Stack>
                 <Inline align="end">
-                    <Switch size="small" element={element}>Engines</Switch>
+                    <Switch size="sm" element={element}>Engines</Switch>
                     <Switch element={element}>Engines</Switch>
-                    <Switch size="large" element={element}>Engines</Switch>
+                    <Switch size="lg" element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
@@ -26,7 +26,7 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
@@ -36,7 +36,7 @@ export function createTestSuite(element, stories) {
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
@@ -44,13 +44,13 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
@@ -58,7 +58,7 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
@@ -68,7 +68,7 @@ export function createTestSuite(element, stories) {
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
@@ -76,13 +76,13 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
@@ -92,14 +92,14 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
@@ -109,7 +109,7 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
@@ -120,56 +120,56 @@ export function createTestSuite(element, stories) {
         .add("no label", () =>
             <Stack>
                 <Inline align="end">
-                    <Switch size="small" element={element} />
+                    <Switch size="sm" element={element} />
                     <Switch element={element} />
-                    <Switch size="large" element={element} />
+                    <Switch size="lg" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <EmailIcon />
                     </Switch>
                     <Switch element={element}>
                         <EmailIcon />
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <EmailIcon />
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                     <Switch element={element}>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch element={element}>
                         <Counter variant="divider">60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
@@ -177,13 +177,13 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch size="small" element={element}>
+                    <Switch size="sm" element={element}>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
@@ -191,7 +191,7 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
-                    <Switch size="large" element={element}>
+                    <Switch size="lg" element={element}>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
@@ -271,29 +271,29 @@ export function createTestSuite(element, stories) {
         .add("states", () =>
             <Stack>
                 <Inline align="end">
-                    <Switch active size="small" element={element}>Engines</Switch>
+                    <Switch active size="sm" element={element}>Engines</Switch>
                     <Switch active element={element}>Engines</Switch>
-                    <Switch active size="large" element={element}>Engines</Switch>
+                    <Switch active size="lg" element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch focus size="small" element={element}>Engines</Switch>
+                    <Switch focus size="sm" element={element}>Engines</Switch>
                     <Switch focus element={element}>Engines</Switch>
-                    <Switch focus size="large" element={element}>Engines</Switch>
+                    <Switch focus size="lg" element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch hover size="small" element={element}>Engines</Switch>
+                    <Switch hover size="sm" element={element}>Engines</Switch>
                     <Switch hover element={element}>Engines</Switch>
-                    <Switch hover size="large" element={element}>Engines</Switch>
+                    <Switch hover size="lg" element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch focus hover size="small" element={element}>Engines</Switch>
+                    <Switch focus hover size="sm" element={element}>Engines</Switch>
                     <Switch focus hover element={element}>Engines</Switch>
-                    <Switch focus hover size="large" element={element}>Engines</Switch>
+                    <Switch focus hover size="lg" element={element}>Engines</Switch>
                 </Inline>
                 <Inline align="end">
-                    <Switch disabled size="small" element={element}>Engines</Switch>
+                    <Switch disabled size="sm" element={element}>Engines</Switch>
                     <Switch disabled element={element}>Engines</Switch>
-                    <Switch disabled size="large" element={element}>Engines</Switch>
+                    <Switch disabled size="lg" element={element}>Engines</Switch>
                 </Inline>
             </Stack>
         )

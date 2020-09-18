@@ -10,7 +10,7 @@ import { momentObj as momentType } from "react-moment-proptypes";
 import moment from "moment";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 export const SINGLE_DATE_PICKER_PROP_TYPES = {
     /**

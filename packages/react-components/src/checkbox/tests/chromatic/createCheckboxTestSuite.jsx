@@ -13,12 +13,12 @@ export function createCheckboxTestSuite(element, stories) {
         .add("labeled", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox element={element}>Milky Way</Checkbox>
-                    <Checkbox size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
@@ -26,13 +26,13 @@ export function createCheckboxTestSuite(element, stories) {
                         <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
@@ -44,7 +44,7 @@ export function createCheckboxTestSuite(element, stories) {
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
@@ -52,7 +52,7 @@ export function createCheckboxTestSuite(element, stories) {
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
@@ -60,13 +60,13 @@ export function createCheckboxTestSuite(element, stories) {
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -74,13 +74,13 @@ export function createCheckboxTestSuite(element, stories) {
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
@@ -90,14 +90,14 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
@@ -107,7 +107,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
@@ -118,18 +118,18 @@ export function createCheckboxTestSuite(element, stories) {
         .add("no label", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox size="small" element={element} />
+                    <Checkbox size="sm" element={element} />
                     <Checkbox element={element} />
-                    <Checkbox size="large" element={element} />
+                    <Checkbox size="lg" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox element={element}>
                         <EmailIcon />
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox disabled element={element}>
@@ -137,7 +137,7 @@ export function createCheckboxTestSuite(element, stories) {
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -147,20 +147,20 @@ export function createCheckboxTestSuite(element, stories) {
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox disabled element={element}>
@@ -168,18 +168,18 @@ export function createCheckboxTestSuite(element, stories) {
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
@@ -187,13 +187,13 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox size="small" element={element}>
+                    <Checkbox size="sm" element={element}>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -201,7 +201,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
-                    <Checkbox size="large" element={element}>
+                    <Checkbox size="lg" element={element}>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -279,29 +279,29 @@ export function createCheckboxTestSuite(element, stories) {
         .add("states", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox active size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox active size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox active element={element}>Milky Way</Checkbox>
-                    <Checkbox active size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox active size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox focus size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox focus size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox focus element={element}>Milky Way</Checkbox>
-                    <Checkbox focus size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox focus size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox hover size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox hover size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox hover element={element}>Milky Way</Checkbox>
-                    <Checkbox hover size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox hover size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox focus hover size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox focus hover size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox focus hover element={element}>Milky Way</Checkbox>
-                    <Checkbox focus hover size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox focus hover size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline align="end">
-                    <Checkbox disabled size="small" element={element}>Milky Way</Checkbox>
+                    <Checkbox disabled size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox disabled element={element}>Milky Way</Checkbox>
-                    <Checkbox disabled size="large" element={element}>Milky Way</Checkbox>
+                    <Checkbox disabled size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
             </Stack>
         )

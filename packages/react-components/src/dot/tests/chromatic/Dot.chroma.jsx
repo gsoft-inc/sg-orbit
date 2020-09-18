@@ -15,16 +15,16 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end">
-            <Dot size="small"></Dot>
+            <Dot size="sm"></Dot>
             <Dot></Dot>
-            <Dot size="large"></Dot>
+            <Dot size="lg"></Dot>
         </Inline>
     )
     .add("label", () =>
         <Inline align="end">
-            <Dot size="small">Habitable</Dot>
+            <Dot size="sm">Habitable</Dot>
             <Dot>Habitable</Dot>
-            <Dot size="large">Habitable</Dot>
+            <Dot size="lg">Habitable</Dot>
         </Inline>
     )
     .add("color", () =>

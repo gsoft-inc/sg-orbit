@@ -8,7 +8,7 @@ const propTypes = {
     /**
      * A text can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

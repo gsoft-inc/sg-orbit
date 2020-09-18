@@ -27,7 +27,7 @@ const propTypes = {
     /**
      * A dropdown can vary in size.
      */
-    size: oneOf(["small", "large"]),
+    size: oneOf(["sm", "lg"]),
     /**
      * A dropdown menu can open upward.
      */

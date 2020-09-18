@@ -57,9 +57,9 @@ export function createTestSuite(select, stories) {
         .add("size", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <Select element={select} size="small" wrapperClassName="mr5" />
-                    <Select element={select} size="small" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} size="small" open />
+                    <Select element={select} size="sm" wrapperClassName="mr5" />
+                    <Select element={select} size="sm" defaultValue="Female" wrapperClassName="mr5" />
+                    <Select element={select} size="sm" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <Select element={select} wrapperClassName="mr5" />
@@ -67,9 +67,9 @@ export function createTestSuite(select, stories) {
                     <Select element={select} open />
                 </div>
                 <div className="flex">
-                    <Select element={select} size="large" wrapperClassName="mr5" />
-                    <Select element={select} size="large" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} size="large" open />
+                    <Select element={select} size="lg" wrapperClassName="mr5" />
+                    <Select element={select} size="lg" defaultValue="Female" wrapperClassName="mr5" />
+                    <Select element={select} size="lg" open />
                 </div>
             </div>
         )
@@ -106,9 +106,9 @@ export function createTestSuite(select, stories) {
         .add("clearable", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <Select element={select} clearable defaultValue="Female" size="small" wrapperClassName="mr5" />
+                    <Select element={select} clearable defaultValue="Female" size="sm" wrapperClassName="mr5" />
                     <Select element={select} clearable defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} clearable defaultValue="Female" size="large" wrapperClassName="mr5" />
+                    <Select element={select} clearable defaultValue="Female" size="lg" wrapperClassName="mr5" />
                 </div>
                 <div className="flex">
                     <Select element={select} clearable defaultValue="Female" open />
@@ -124,9 +124,9 @@ export function createTestSuite(select, stories) {
         .add("loading", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <Select element={select} loading size="small" wrapperClassName="mr5" />
-                    <Select element={select} loading size="small" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} loading size="small" open />
+                    <Select element={select} loading size="sm" wrapperClassName="mr5" />
+                    <Select element={select} loading size="sm" defaultValue="Female" wrapperClassName="mr5" />
+                    <Select element={select} loading size="sm" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <Select element={select} loading wrapperClassName="mr5" />
@@ -134,9 +134,9 @@ export function createTestSuite(select, stories) {
                     <Select element={select} loading open />
                 </div>
                 <div className="flex">
-                    <Select element={select} loading size="large" wrapperClassName="mr5" />
-                    <Select element={select} loading size="large" defaultValue="Female" wrapperClassName="mr5" />
-                    <Select element={select} loading size="large" open />
+                    <Select element={select} loading size="lg" wrapperClassName="mr5" />
+                    <Select element={select} loading size="lg" defaultValue="Female" wrapperClassName="mr5" />
+                    <Select element={select} loading size="lg" open />
                 </div>
             </div>
         )
@@ -148,9 +148,9 @@ export function createTestSuite(select, stories) {
         .add("icon", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <Select element={select} icon={<MagnifierIcon />} size="small" wrapperClassName="mr5" />
-                    <Select element={select} icon={<MagnifierIcon />} size="small" defaultValue="Male" wrapperClassName="mr5" />
-                    <Select element={select} icon={<MagnifierIcon />} size="small" open />
+                    <Select element={select} icon={<MagnifierIcon />} size="sm" wrapperClassName="mr5" />
+                    <Select element={select} icon={<MagnifierIcon />} size="sm" defaultValue="Male" wrapperClassName="mr5" />
+                    <Select element={select} icon={<MagnifierIcon />} size="sm" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <Select element={select} icon={<MagnifierIcon />} wrapperClassName="mr5" />
@@ -158,9 +158,9 @@ export function createTestSuite(select, stories) {
                     <Select element={select} icon={<MagnifierIcon />} open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <Select element={select} icon={<MagnifierIcon />} size="large" wrapperClassName="mr5" />
-                    <Select element={select} icon={<MagnifierIcon />} size="large" defaultValue="Male" wrapperClassName="mr5" />
-                    <Select element={select} icon={<MagnifierIcon />} size="large" open />
+                    <Select element={select} icon={<MagnifierIcon />} size="lg" wrapperClassName="mr5" />
+                    <Select element={select} icon={<MagnifierIcon />} size="lg" defaultValue="Male" wrapperClassName="mr5" />
+                    <Select element={select} icon={<MagnifierIcon />} size="lg" open />
                 </div>
                 <div className="flex">
                     <Select element={select} icon={<MagnifierIcon />} disabled />
@@ -189,9 +189,9 @@ export function createTestSuite(select, stories) {
         .add("item avatar", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <AvatarSelect element={select} size="small" wrapperClassName="mr5" />
-                    <AvatarSelect element={select} size="small" defaultValue="Female" wrapperClassName="mr5" />
-                    <AvatarSelect element={select} size="small" open />
+                    <AvatarSelect element={select} size="sm" wrapperClassName="mr5" />
+                    <AvatarSelect element={select} size="sm" defaultValue="Female" wrapperClassName="mr5" />
+                    <AvatarSelect element={select} size="sm" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <AvatarSelect element={select} wrapperClassName="mr5" />
@@ -199,19 +199,19 @@ export function createTestSuite(select, stories) {
                     <AvatarSelect element={select} open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <AvatarSelect element={select} size="large" wrapperClassName="mr5" />
-                    <AvatarSelect element={select} size="large" defaultValue="Female" wrapperClassName="mr5" />
-                    <AvatarSelect element={select} size="large" open />
+                    <AvatarSelect element={select} size="lg" wrapperClassName="mr5" />
+                    <AvatarSelect element={select} size="lg" defaultValue="Female" wrapperClassName="mr5" />
+                    <AvatarSelect element={select} size="lg" open />
                 </div>
             </div>
         )
         .add("item icons", () =>
             <div className="flex flex-column">
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <IconsSelect element={select} size="small" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="small" defaultValue="Female" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="small" defaultValue="Female" iconsPosition="right" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="small" open />
+                    <IconsSelect element={select} size="sm" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="sm" defaultValue="Female" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="sm" defaultValue="Female" iconsPosition="right" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="sm" open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
                     <IconsSelect element={select} wrapperClassName="mr5" />
@@ -220,10 +220,10 @@ export function createTestSuite(select, stories) {
                     <IconsSelect element={select} open />
                 </div>
                 <div className="flex" style={{ marginBottom: "150px" }}>
-                    <IconsSelect element={select} size="large" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="large" defaultValue="Female" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="large" defaultValue="Female" iconsPosition="right" wrapperClassName="mr5" />
-                    <IconsSelect element={select} size="large" open />
+                    <IconsSelect element={select} size="lg" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="lg" defaultValue="Female" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="lg" defaultValue="Female" iconsPosition="right" wrapperClassName="mr5" />
+                    <IconsSelect element={select} size="lg" open />
                 </div>
             </div>
         );

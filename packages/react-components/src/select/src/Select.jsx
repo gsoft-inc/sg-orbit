@@ -48,7 +48,7 @@ const propTypes = {
     /**
      * A select can vary in size.
      */
-    size: oneOf(["small", "large"]),
+    size: oneOf(["sm", "lg"]),
     /**
      * Whether the dropdown should autoFocus on render.
      */
@@ -90,9 +90,9 @@ function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value 
 }
 
 const MULTIPLE_VALUES_LABEL_SIZE = {
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 };
 
 function useMultipleValuesLabelRenderer({ size }) {
@@ -113,7 +113,7 @@ function useMultipleValuesLabelRenderer({ size }) {
             <Label
                 {...rest}
                 content={content}
-                size={MULTIPLE_VALUES_LABEL_SIZE[size || SIZE.medium]}
+                size={MULTIPLE_VALUES_LABEL_SIZE[size || SIZE.md]}
                 className={mergeClasses(
                     !isNil(avatar) && "with-avatar",
                     !isNil(icons) && iconsPosition === "left" && "with-icons-left",

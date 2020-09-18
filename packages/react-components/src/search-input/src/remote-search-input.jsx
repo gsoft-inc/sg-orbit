@@ -7,7 +7,7 @@ import { defer } from "./defer";
 import { httpGet } from "./httpClient";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 function defaultResultsFetcher(event, url, data, options) {
     return new Promise((resolve, reject) => {

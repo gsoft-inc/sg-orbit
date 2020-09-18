@@ -24,15 +24,15 @@ createButtonTestSuite(<Button variant="ghost" />, stories("/ghost"));
 stories("/link")
     .add("default", () =>
         <Inline align="end">
-            <Button variant="link" size="small">Button</Button>
+            <Button variant="link" size="sm">Button</Button>
             <Button variant="link">Button</Button>
-            <Button variant="link" size="large">Button</Button>
+            <Button variant="link" size="lg">Button</Button>
         </Inline>
     )
     .add("icon", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" size="small">
+                <Button variant="link" size="sm">
                     <SignoutIcon />
                     <Text>Button</Text>
                 </Button>
@@ -40,7 +40,7 @@ stories("/link")
                     <SignoutIcon />
                     <Text>Button</Text>
                 </Button>
-                <Button variant="link" size="large">
+                <Button variant="link" size="lg">
                     <SignoutIcon />
                     <Text>Button</Text>
                 </Button>
@@ -50,56 +50,56 @@ stories("/link")
     .add("primary", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" color="primary" size="small">Button</Button>
+                <Button variant="link" color="primary" size="sm">Button</Button>
                 <Button variant="link" color="primary">Button</Button>
-                <Button variant="link" color="primary" size="large">Button</Button>
+                <Button variant="link" color="primary" size="lg">Button</Button>
             </Inline>
         </Stack>
     )
     .add("secondary", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" color="secondary" size="small">Button</Button>
+                <Button variant="link" color="secondary" size="sm">Button</Button>
                 <Button variant="link" color="secondary">Button</Button>
-                <Button variant="link" color="secondary" size="large">Button</Button>
+                <Button variant="link" color="secondary" size="lg">Button</Button>
             </Inline>
         </Stack>
     )
     .add("danger", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" color="danger" size="small">Button</Button>
+                <Button variant="link" color="danger" size="sm">Button</Button>
                 <Button variant="link" color="danger">Button</Button>
-                <Button variant="link" color="danger" size="large">Button</Button>
+                <Button variant="link" color="danger" size="lg">Button</Button>
             </Inline>
         </Stack>
     )
     .add("states", () =>
         <Stack>
             <Inline align="end">
-                <Button variant="link" active size="small">Button</Button>
+                <Button variant="link" active size="sm">Button</Button>
                 <Button variant="link" active>Button</Button>
-                <Button variant="link" active size="large">Button</Button>
+                <Button variant="link" active size="lg">Button</Button>
             </Inline>
             <Inline align="end">
-                <Button variant="link" focus size="small">Button</Button>
+                <Button variant="link" focus size="sm">Button</Button>
                 <Button variant="link" focus>Button</Button>
-                <Button variant="link" focus size="large">Button</Button>
+                <Button variant="link" focus size="lg">Button</Button>
             </Inline>
             <Inline align="end">
-                <Button variant="link" hover size="small">Button</Button>
+                <Button variant="link" hover size="sm">Button</Button>
                 <Button variant="link" hover>Button</Button>
-                <Button variant="link" hover size="large">Button</Button>
+                <Button variant="link" hover size="lg">Button</Button>
             </Inline>
             <Inline align="end">
-                <Button variant="link" focus hover size="small">Button</Button>
+                <Button variant="link" focus hover size="sm">Button</Button>
                 <Button variant="link" focus hover>Button</Button>
-                <Button variant="link" focus hover size="large">Button</Button>
+                <Button variant="link" focus hover size="lg">Button</Button>
             </Inline>
             <Inline align="end">
-                <Button variant="link" disabled size="small">Button</Button>
+                <Button variant="link" disabled size="sm">Button</Button>
                 <Button variant="link" disabled>Button</Button>
-                <Button variant="link" disabled size="large">Button</Button>
+                <Button variant="link" disabled size="lg">Button</Button>
             </Inline>
         </Stack>
     )

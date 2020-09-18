@@ -1,45 +1,45 @@
 /* SIZES */
-.o-ui-icon-micro {
+.o-ui-icon-3xs {
     width: var(--scale-bravo);
     height: var(--scale-bravo);
 }
 
-.o-ui-icon-mini {
+.o-ui-icon-2xs {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
 }
 
-.o-ui-icon-tiny {
+.o-ui-icon-xs {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-icon-small {
+.o-ui-icon-sm {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui-icon-medium {
+.o-ui-icon-md {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
-.o-ui-icon-large {
+.o-ui-icon-lg {
     width: var(--scale-golf);
     height: var(--scale-golf);
 }
 
-.o-ui-icon-big {
+.o-ui-icon-xl {
     width: var(--scale-hotel);
     height: var(--scale-hotel);
 }
 
-.o-ui-icon-huge {
+.o-ui-icon-2xl {
     width: var(--scale-india);
     height: var(--scale-india);
 }
 
-.o-ui-icon-massive {
+.o-ui-icon-3xl {
     width: var(--scale-juliett);
     height: var(--scale-juliett);
 }

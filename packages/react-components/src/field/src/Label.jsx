@@ -38,7 +38,7 @@ const propTypes = {
     /**
      * A label can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -50,9 +50,9 @@ const propTypes = {
 };
 
 const ADAPTED_SIZE = {
-    [SIZE.small]: SIZE.tiny,
-    [SIZE.medium]: SIZE.small,
-    [SIZE.large]: SIZE.medium
+    [SIZE.sm]: SIZE.xs,
+    [SIZE.md]: SIZE.sm,
+    [SIZE.lg]: SIZE.md
 };
 
 function RequiredIndicator() {
@@ -78,7 +78,7 @@ export function InnerLabel(props) {
         <Text
             data-testid="field-label"
             {...rest}
-            size={ADAPTED_SIZE[size ?? SIZE.medium]}
+            size={ADAPTED_SIZE[size ?? SIZE.md]}
             className={mergeClasses(
                 "o-ui-field-label",
                 className

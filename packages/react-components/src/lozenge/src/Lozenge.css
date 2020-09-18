@@ -13,12 +13,12 @@
 }
 
 /* SIZE */
-.o-ui-lozenge-small {
+.o-ui-lozenge-sm {
     min-height: var(--scale-delta);
     line-height: var(--scale-delta);
 }
 
-.o-ui-lozenge-large {
+.o-ui-lozenge-lg {
     min-height: var(--scale-foxtrot);
     line-height: var(--scale-foxtrot);
 }

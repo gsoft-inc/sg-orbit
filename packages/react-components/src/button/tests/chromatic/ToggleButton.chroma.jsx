@@ -18,9 +18,9 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small">Cutoff</ToggleButton>
+                <ToggleButton size="sm">Cutoff</ToggleButton>
                 <ToggleButton>Cutoff</ToggleButton>
-                <ToggleButton size="large">Cutoff</ToggleButton>
+                <ToggleButton size="lg">Cutoff</ToggleButton>
             </Inline>
             <Inline align="end">
                 <ToggleButton checked>Cutoff</ToggleButton>
@@ -41,9 +41,9 @@ stories()
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton size="sm" variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="circular">Aa</ToggleButton>
-                <ToggleButton size="large" variant="outline" shape="circular">Aa</ToggleButton>
+                <ToggleButton size="lg" variant="outline" shape="circular">Aa</ToggleButton>
             </Inline>
             <Inline align="end">
                 <ToggleButton checked variant="outline" shape="circular">Aa</ToggleButton>
@@ -58,9 +58,9 @@ stories()
     .add("rounded outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleButton size="small" variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton size="sm" variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="rounded">Aa</ToggleButton>
-                <ToggleButton size="large" variant="outline" shape="rounded">Aa</ToggleButton>
+                <ToggleButton size="lg" variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
             <Inline align="end">
                 <ToggleButton checked variant="outline" shape="rounded">Aa</ToggleButton>

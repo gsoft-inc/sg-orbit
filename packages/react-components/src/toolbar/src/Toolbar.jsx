@@ -44,7 +44,7 @@ const propTypes = {
     /**
      * Element size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Whether the toolbar take up the width of its container.
      */

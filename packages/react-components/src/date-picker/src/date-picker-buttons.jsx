@@ -59,7 +59,7 @@ export class DatePickerButtons extends PureComponent {
                 onClick={this.handleClear}
                 variant="outline"
                 shape="rounded"
-                size="small"
+                size="sm"
                 disabled={!canClear}
                 tabIndex={canClear ? "0" : "-1"}
                 data-testid="date-picker-calendar-clear-button"
@@ -79,7 +79,7 @@ export class DatePickerButtons extends PureComponent {
                 shape="rounded"
                 color={canApply ? "primary" : null}
                 disabled={!canApply}
-                size="small"
+                size="sm"
                 className="ml-auto"
                 tabIndex={canApply ? "0" : "-1"}
                 data-testid="date-picker-calendar-apply-button"

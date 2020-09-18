@@ -15,7 +15,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <FieldGroup size="small">
+            <FieldGroup size="sm">
                 <Field>
                     <TextInput />
                 </Field>
@@ -37,7 +37,7 @@ stories()
                     <TextInput />
                 </Field>
             </FieldGroup>
-            <FieldGroup size="large">
+            <FieldGroup size="lg">
                 <Field>
                     <TextInput />
                 </Field>

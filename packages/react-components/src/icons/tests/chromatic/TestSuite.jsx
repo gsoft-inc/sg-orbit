@@ -6,46 +6,46 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
         <div className="flex flex-column">
             <If condition={!isNil(Icon24)}>
                 <Inline align="end">
-                    <Icon24 size="micro" />
-                    <Icon24 size="mini" />
-                    <Icon24 size="tiny" />
-                    <Icon24 size="small" />
+                    <Icon24 size="3xs" />
+                    <Icon24 size="2xs" />
+                    <Icon24 size="xs" />
+                    <Icon24 size="sm" />
                     <Icon24 />
-                    <Icon24 size="large" />
-                    <Icon24 size="big" />
-                    <Icon24 size="huge" />
-                    <Icon24 size="massive" />
-                    <Icon24 size="massive" className="fill-sunray-900" />
-                    <Icon24 size="massive" style={{ fill: "var(--sunray-900)" }} />
+                    <Icon24 size="lg" />
+                    <Icon24 size="xl" />
+                    <Icon24 size="2xl" />
+                    <Icon24 size="3xl" />
+                    <Icon24 size="3xl" className="fill-sunray-900" />
+                    <Icon24 size="3xl" style={{ fill: "var(--sunray-900)" }} />
                 </Inline>
             </If>
             <If condition={!isNil(Icon32)}>
                 <Inline align="end">
-                    <Icon32 size="micro" />
-                    <Icon32 size="mini" />
-                    <Icon32 size="tiny" />
-                    <Icon32 size="small" />
+                    <Icon32 size="3xs" />
+                    <Icon32 size="2xs" />
+                    <Icon32 size="xs" />
+                    <Icon32 size="sm" />
                     <Icon32 />
-                    <Icon32 size="large" />
-                    <Icon32 size="big" />
-                    <Icon32 size="huge" />
-                    <Icon32 size="massive" />
-                    <Icon32 size="massive" className="fill-sunray-900" />
-                    <Icon32 size="massive" style={{ fill: "var(--sunray-900)" }} />
+                    <Icon32 size="lg" />
+                    <Icon32 size="xl" />
+                    <Icon32 size="2xl" />
+                    <Icon32 size="3xl" />
+                    <Icon32 size="3xl" className="fill-sunray-900" />
+                    <Icon32 size="3xl" style={{ fill: "var(--sunray-900)" }} />
                 </Inline>
             </If>
             <Inline align="end">
-                <MultiIcon size="micro" />
-                <MultiIcon size="mini" />
-                <MultiIcon size="tiny" />
-                <MultiIcon size="small" />
+                <MultiIcon size="3xs" />
+                <MultiIcon size="2xs" />
+                <MultiIcon size="xs" />
+                <MultiIcon size="sm" />
                 <MultiIcon />
-                <MultiIcon size="large" />
-                <MultiIcon size="big" />
-                <MultiIcon size="huge" />
-                <MultiIcon size="massive" />
-                <MultiIcon size="massive" className="fill-sunray-900" />
-                <MultiIcon size="massive" style={{ fill: "var(--sunray-900)" }} />
+                <MultiIcon size="lg" />
+                <MultiIcon size="xl" />
+                <MultiIcon size="2xl" />
+                <MultiIcon size="3xl" />
+                <MultiIcon size="3xl" className="fill-sunray-900" />
+                <MultiIcon size="3xl" style={{ fill: "var(--sunray-900)" }} />
             </Inline>
         </div>
     );

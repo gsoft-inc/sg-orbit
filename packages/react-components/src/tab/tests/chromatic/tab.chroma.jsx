@@ -60,7 +60,7 @@ stories()
                              menuItem: (
                                  <Menu.Item key="messages" className="with-label">
                                      Messages
-                                     <Label naked highlight className="bg-primary-500" size="mini">
+                                     <Label naked highlight className="bg-primary-500" size="2xs">
                                         NEW
                                      </Label>
                                  </Menu.Item>
@@ -81,7 +81,7 @@ stories()
                              menuItem: (
                                  <Menu.Item key="messages" className="with-label">
                                      Messages
-                                     <Label naked highlight className="bg-primary-500" size="mini">
+                                     <Label naked highlight className="bg-primary-500" size="2xs">
                                         NEW
                                      </Label>
                                  </Menu.Item>

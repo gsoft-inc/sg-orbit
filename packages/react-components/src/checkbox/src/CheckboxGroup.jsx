@@ -48,7 +48,7 @@ const propTypes = {
     /**
      * Children size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order of the checkbox and the label of all children.
      */

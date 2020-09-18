@@ -127,7 +127,7 @@ export class InnerDatePickerCalendar extends PureComponent {
     renderNavPrev() {
         return (
             <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
-                <ChevronIcon size="large" className="rotate-180 fill-marine-900" />
+                <ChevronIcon size="lg" className="rotate-180 fill-marine-900" />
             </div>
         );
     }
@@ -135,7 +135,7 @@ export class InnerDatePickerCalendar extends PureComponent {
     renderNavNext() {
         return (
             <div tabIndex="0" className="flex" data-role={NAVIGATION_ROLE}>
-                <ChevronIcon size="large" className="fill-marine-900" />
+                <ChevronIcon size="lg" className="fill-marine-900" />
             </div>
         );
     }

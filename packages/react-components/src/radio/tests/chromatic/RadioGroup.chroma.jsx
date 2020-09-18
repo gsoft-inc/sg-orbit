@@ -47,7 +47,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end" gap={13}>
-            <RadioGroup size="small">
+            <RadioGroup size="sm">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
@@ -57,7 +57,7 @@ stories()
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
             </RadioGroup>
-            <RadioGroup size="large">
+            <RadioGroup size="lg">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
@@ -101,7 +101,7 @@ stories()
     )
     .add("horizontal", () =>
         <Stack>
-            <RadioGroup size="small" orientation="horizontal">
+            <RadioGroup size="sm" orientation="horizontal">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
@@ -111,7 +111,7 @@ stories()
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>
             </RadioGroup>
-            <RadioGroup size="large" orientation="horizontal">
+            <RadioGroup size="lg" orientation="horizontal">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>

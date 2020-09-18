@@ -58,7 +58,7 @@ stories()
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      {createTagsPicker({
-                         size: "small",
+                         size: "sm",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>
@@ -69,7 +69,7 @@ stories()
                  </div>
                  <div className="flex">
                      {createTagsPicker({
-                         size: "large",
+                         size: "lg",
                          defaultValues: [GROUP_NAME_CHANGED_VALUE, GROUP_RESTORED_VALUE]
                      })}
                  </div>

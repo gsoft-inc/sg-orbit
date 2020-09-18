@@ -38,7 +38,7 @@ stories()
         <div className="flex flex-column">
             <div style={{ marginBottom: "150px" }}>
                 <SimpleSelect
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -49,7 +49,7 @@ stories()
             </div>
             <div>
                 <SimpleSelect
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -60,7 +60,7 @@ stories()
             <div style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, active: true }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -73,7 +73,7 @@ stories()
             <div>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, active: true }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -84,7 +84,7 @@ stories()
             <div style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, selected: true }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -97,7 +97,7 @@ stories()
             <div>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, selected: true }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -108,7 +108,7 @@ stories()
             <div style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, disabled: true }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -121,7 +121,7 @@ stories()
             <div>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, disabled: true }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -132,7 +132,7 @@ stories()
             <div style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!" }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -145,7 +145,7 @@ stories()
             <div>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!" }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -156,13 +156,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon /> }]}
-                    size="small"
+                    size="sm"
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -180,13 +180,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon /> }]}
-                    size="large"
+                    size="lg"
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />] }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -203,21 +203,21 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon />, iconsPosition: "right" }]}
-                    size="small"
+                    size="sm"
                     fluid
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
-                    size="small"
+                    size="sm"
                     fluid
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
-                    size="small"
+                    size="sm"
                     fluid
                     open
                 />
@@ -244,21 +244,21 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: <CalendarIcon />, iconsPosition: "right" }]}
-                    size="large"
+                    size="lg"
                     fluid
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
-                    size="large"
+                    size="lg"
                     fluid
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[MALE_ITEM, { ...FEMALE_ITEM, description: "To infinite and beyond!", icons: [<CalendarIcon />, <CalendarIcon />, <CalendarIcon />], iconsPosition: "right" }]}
-                    size="large"
+                    size="lg"
                     fluid
                     open
                 />
@@ -276,13 +276,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[{ ...MALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }, { ...FEMALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }]}
-                    size="small"
+                    size="sm"
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> }]}
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -300,13 +300,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <SimpleSelect
                     options={[{ ...MALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/men/14.jpg", alt: "Male" } }, { ...FEMALE_ITEM, avatar: { src: "https://randomuser.me/api/portraits/women/14.jpg", alt: "Female" } }]}
-                    size="large"
+                    size="lg"
                     open
                     wrapperClassName="mr5"
                 />
                 <SimpleSelect
                     options={[{ ...MALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="Male" /> }, { ...FEMALE_ITEM, avatar: <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Female" /> }]}
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>

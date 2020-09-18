@@ -34,19 +34,19 @@
 }
 
 /* COUNT | SIZES */
-.o-ui-badge-count.o-ui-badge-small .o-ui-badge-anchor {
+.o-ui-badge-count.o-ui-badge-sm .o-ui-badge-anchor {
     min-height: 1rem;
     min-width: 1rem;
     padding: 0 0.375rem;
 }
 
-.o-ui-badge-count.o-ui-badge-medium .o-ui-badge-anchor {
+.o-ui-badge-count.o-ui-badge-md .o-ui-badge-anchor {
     min-height: 1.25rem;
     min-width: 1.25rem;
     padding: 0 0.4rem;
 }
 
-.o-ui-badge-count.o-ui-badge-large .o-ui-badge-anchor {
+.o-ui-badge-count.o-ui-badge-lg .o-ui-badge-anchor {
     min-height: 1.5rem;
     min-width: 1.5rem;
     padding: 0 0.5rem;
@@ -59,19 +59,19 @@
 }
 
 /* DOT | SIZES */
-.o-ui-badge-dot.o-ui-badge-small .o-ui-badge-anchor {
+.o-ui-badge-dot.o-ui-badge-sm .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-5);
 }
 
-.o-ui-badge-dot.o-ui-badge-medium .o-ui-badge-anchor {
+.o-ui-badge-dot.o-ui-badge-md .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-4);
 }
 
-.o-ui-badge-dot.o-ui-badge-large .o-ui-badge-anchor {
+.o-ui-badge-dot.o-ui-badge-lg .o-ui-badge-anchor {
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: 1.75rem;

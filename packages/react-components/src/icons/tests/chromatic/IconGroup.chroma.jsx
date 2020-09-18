@@ -23,9 +23,9 @@ stories()
     )
     .add("size", () =>
         <Stack>
-            <Icons size="small" />
+            <Icons size="sm" />
             <Icons />
-            <Icons size="large" />
+            <Icons size="lg" />
         </Stack>
 
     );

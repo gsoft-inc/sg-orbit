@@ -86,7 +86,7 @@ const propTypes = {
     /**
      * Children size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order of the button and the label of all children.
      */

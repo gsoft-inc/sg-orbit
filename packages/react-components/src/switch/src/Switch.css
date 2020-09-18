@@ -113,72 +113,72 @@
 
 /* SIZING */
 /* SMALL */
-.o-ui-switch-small .o-ui-switch-control {
+.o-ui-switch-sm .o-ui-switch-control {
     width: var(--scale-golf);
     height: var(--scale-delta);
 }
 
-/* .o-ui-switch-small .o-ui-switch-label {
+/* .o-ui-switch-sm .o-ui-switch-label {
     font-size: var(--type-scale-8);
 } */
 
-.o-ui-switch-small .o-ui-switch-control::before {
+.o-ui-switch-sm .o-ui-switch-control::before {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
 }
 
-.o-ui-switch-small.o-ui-switch-checked .o-ui-switch-control::before {
+.o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
-.o-ui-switch-medium .o-ui-switch-control {
+.o-ui-switch-md .o-ui-switch-control {
     width: var(--scale-hotel);
     height: var(--scale-echo);
 }
 
-/* .o-ui-switch-medium .o-ui-switch-label {
+/* .o-ui-switch-md .o-ui-switch-label {
     font-size: var(--type-scale-7);
 } */
 
-.o-ui-switch-medium .o-ui-switch-control::before {
+.o-ui-switch-md .o-ui-switch-control::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-switch-medium.o-ui-switch-checked .o-ui-switch-control::before {
+.o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
 
 /* LARGE */
-.o-ui-switch-large .o-ui-switch-control {
+.o-ui-switch-lg .o-ui-switch-control {
     width: var(--scale-india);
     height: var(--scale-foxtrot);
 }
 
-/* .o-ui-switch-large .o-ui-switch-label {
+/* .o-ui-switch-lg .o-ui-switch-label {
     font-size: var(--type-scale-6);
 } */
 
-.o-ui-switch-large .o-ui-switch-control::before {
+.o-ui-switch-lg .o-ui-switch-control::before {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui-switch-large.o-ui-switch-checked .o-ui-switch-control::before {
+.o-ui-switch-lg.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
 }
 
 /* IN FIELD */
 /* SWITCH */
-.o-ui-switch-small.o-ui-switch-as-field {
+.o-ui-switch-sm.o-ui-switch-as-field {
     min-height: var(--scale-echo);
 }
 
-.o-ui-switch-medium.o-ui-switch-as-field {
+.o-ui-switch-md.o-ui-switch-as-field {
     min-height: var(--scale-foxtrot);
 }
 
-.o-ui-switch-large.o-ui-switch-as-field {
+.o-ui-switch-lg.o-ui-switch-as-field {
     min-height: var(--scale-golf);
 }

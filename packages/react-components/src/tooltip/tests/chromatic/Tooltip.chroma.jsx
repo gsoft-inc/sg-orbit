@@ -123,19 +123,19 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
                     <SimpleTooltip
-                        size="mini"
+                        size="2xs"
                         open
                     />
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <SimpleTooltip
-                        size="tiny"
+                        size="xs"
                         open
                     />
                 </div>
                 <div>
                     <SimpleTooltip
-                        size="small"
+                        size="sm"
                         open
                     />
                 </div>
@@ -143,13 +143,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
                     <SimpleTooltip
-                        size="large"
+                        size="lg"
                         open
                     />
                 </div>
                 <div>
                     <SimpleTooltip
-                        size="huge"
+                        size="2xl"
                         open
                     />
                 </div>
@@ -192,13 +192,13 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button size="tiny">Add</Button>}
+                        trigger={<Button size="xs">Add</Button>}
                         open
                     />
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button size="small">Add</Button>}
+                        trigger={<Button size="sm">Add</Button>}
                         open
                     />
 
@@ -211,7 +211,7 @@ stories()
                 </div>
                 <div style={{ marginRight: "200px" }}>
                     <TriggerLessTooltip
-                        trigger={<Button size="large">Add</Button>}
+                        trigger={<Button size="lg">Add</Button>}
                         open
                     />
                 </div>
