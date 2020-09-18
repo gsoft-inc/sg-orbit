@@ -61,39 +61,6 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("label", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextInput size="small" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextInput label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                    <TextInput size="large" label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                </Inline>
-                <div>
-                    <TextInput label={<span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>} icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element} />
-                </div>
-                <div>
-                    <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
-                </div>
-                <div className="w-10">
-                    <TextInput fluid label="Where to?" icon={<MagnifierIcon />} button={<IconButton><CrossIcon /></IconButton>} element={element}></TextInput>
-                </div>
-            </Stack>
-        )
-        .add("description", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="small" element={element} />
-                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-                    <TextInput description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" size="large" element={element} />
-                </Inline>
-                <div>
-                    <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-                </div>
-                <div className="w-10">
-                    <TextInput fluid description="Trips to Andromeda galaxy are available every 2 months." label="Where to?" element={element} />
-                </div>
-            </Stack>
-        )
         .add("value", () =>
             <Stack>
                 <Inline align="end">
@@ -147,42 +114,29 @@ export function createTextInputTestSuite(element, stories) {
         .add("button", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="small" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="large" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="small" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="large" button={<IconButton><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="small" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="large" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <Inline>
-                    <TextInput disabled button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput readOnly button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput disabled button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput readOnly button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
-                    <TextInput loading button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput loading button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )
-        .add("message", () =>
-            <Stack>
-                <Inline align="end">
-                    <TextInput helpMessage="Enter your final destination." size="small" placeholder="Where to?" element={element} />
-                    <TextInput helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                    <TextInput helpMessage="Enter your final destination." size="large" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline>
-                    <TextInput helpMessage="Enter your final destination." validMessage="Thank you!" validationState="valid" placeholder="Where to?" element={element} />
-                    <TextInput helpMessage="Enter your final destination." invalidMessage="This is not a valid destination." validationState="invalid" placeholder="Where to?" element={element} />
-                </Inline>
-                <div>
-                    <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                </div>
-                <div className="w-10">
-                    <TextInput fluid helpMessage="Enter your final destination." placeholder="Where to?" element={element} />
-                </div>
-            </Stack>
+        .add("validation", () =>
+            <Inline>
+                <TextInput validationState="invalid" placeholder="Where to?" element={element} />
+                <TextInput validationState="valid" placeholder="Where to?" element={element} />
+            </Inline>
         )
         .add("states", () =>
             <Stack>

@@ -1,11 +1,13 @@
 import "./Button.css";
 
-import { SlotProvider, cssModule, mergeClasses, useHasChild } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
+import { useFormButton } from "../../form";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -60,26 +62,35 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButton({
-    variant = "solid",
-    color,
-    shape = "pill",
-    autoFocus,
-    autoFocusDelay,
-    fluid,
-    loading,
-    size,
-    active,
-    focus,
-    hover,
-    disabled,
-    type = "button",
-    as: ElementType = "button",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerButton(props) {
+    const formProps = useFormButton();
+    const toolbarProps = useToolbar();
+
+    const {
+        variant = "solid",
+        color,
+        shape = "pill",
+        autoFocus,
+        autoFocusDelay,
+        fluid,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        disabled,
+        type = "button",
+        as: ElementType = "button",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        formProps,
+        omitProps(toolbarProps, ["orientation"])
+    );
+
     const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
         variant,
         color,
@@ -118,20 +129,22 @@ export function InnerButton({
             )}
             ref={buttonRef}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-button-text"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-button-icon"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-button-text"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-button-icon"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

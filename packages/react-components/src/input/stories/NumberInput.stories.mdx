@@ -43,29 +43,6 @@ A default number input.
     </Story>
 </Preview>
 
-### Label
-
-A number input can be identified by a label.
-
-<Preview>
-    <Story name="label">
-        <Inline>
-            <NumberInput label="Age" />
-            <NumberInput label="Age" required />
-        </Inline>
-    </Story>
-</Preview>
-
-### Description
-
-A number input can have additional text to further describe the input.
-
-<Preview>
-    <Story name="description">
-        <NumberInput label="Age" description="We collect this information for anonymous statistical analysis." />
-    </Story>
-</Preview>
-
 ### Value
 
 A number input can have a value.
@@ -153,30 +130,6 @@ A number input can take the width of its container.
     </Story>
 </Preview>
 
-### Validation
-
-A number input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the number input via the `validationState` prop.
-
-The example below illustrates how one would validate a required age value.
-
-<FilePreview filePath="/input/stories/RequiredAgeValidation">
-    <RequiredAgeValidation />
-</FilePreview>
-
-### Message
-
-A message can be displayed beneath a number input.
-
-<Preview>
-    <Story name="message">
-        <Inline>
-            <NumberInput helpMessage="How long ago are you born?" label="Age" fluid />
-            <NumberInput invalidMessage="Are you a cyborg?" validationState="invalid" label="Age" defaultValue={200} fluid />
-            <NumberInput validMessage="Accepted!" validationState="valid" label="Age" defaultValue={35} fluid />
-        </Inline>
-    </Story>
-</Preview>
-
 ### Transparent
 
 A number input can be transparent.
@@ -186,6 +139,16 @@ A number input can be transparent.
         <NumberInput variant="transparent" placeholder="Age" />
     </Story>
 </Preview>
+
+### Validation
+
+A number input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate a required age value.
+
+<FilePreview filePath="/input/stories/RequiredAgeValidation">
+    <RequiredAgeValidation />
+</FilePreview>
 
 <Story
     name="ref"

@@ -1,7 +1,7 @@
 import "./Checkbox.css";
 
-import { Label, textSlot } from "../../text";
-import { SlotProvider, useCheckableProps, useEventCallback } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -9,6 +9,8 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
+import { useFieldInput } from "../../field";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -40,6 +42,14 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Whether the checkbox should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
+    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -64,7 +74,13 @@ const propTypes = {
 };
 
 export function InnerCheckbox(props) {
+    const checkableProps = useCheckable(props);
+    const toolbarProps = useToolbar();
+
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
+        id,
         checked,
         defaultChecked,
         indeterminate,
@@ -72,6 +88,8 @@ export function InnerCheckbox(props) {
         value,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange,
         onCheck,
         size,
@@ -87,10 +105,12 @@ export function InnerCheckbox(props) {
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(props);
-
-    // Unnecessary since the component render an input="checkbox".
-    delete rest["role"];
+    } = mergeProps(
+        props,
+        omitProps(checkableProps, ["role"]),
+        omitProps(toolbarProps, ["orientation"]),
+        omitProps(fieldProps, ["fluid"])
+    );
 
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
@@ -103,12 +123,16 @@ export function InnerCheckbox(props) {
         inputProps
     } = useCheckbox({
         cssModule: "o-ui-checkbox",
+        isInField,
+        id,
         checked,
         defaultChecked,
         indeterminate,
         defaultIndeterminate,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange: !isNil(onCheck) ? handleCheck : onChange,
         size,
         reverse,
@@ -127,7 +151,7 @@ export function InnerCheckbox(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     return (
@@ -138,25 +162,27 @@ export function InnerCheckbox(props) {
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />
-            <SlotProvider
-                slots={{
-                    label: textSlot({
-                        size,
-                        className: "o-ui-checkbox-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-checkbox-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-checkbox-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-checkbox-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-checkbox-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-checkbox-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

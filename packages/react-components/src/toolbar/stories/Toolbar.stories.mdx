@@ -1,6 +1,7 @@
 import { CheckboxGroup } from "@react-components/checkbox";
+import { CustomToolbar } from "./CustomComponent.sample";
+import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { InnerToolbar, Toolbar } from "@react-components/toolbar";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -33,7 +34,7 @@ A toolbar is a container for grouping a set of controls, such as buttons, menubu
 
 ## Accessibility
 
-This component follow WAI-ARIA [design pattern for toolbar](https://www.w3.org/TR/wai-aria-practices-1.1/#toolbar).
+This component follow [WAI design pattern for toolbar](https://www.w3.org/TR/wai-aria-practices-1.1/#toolbar).
 
 ## Usage
 
@@ -82,44 +83,6 @@ Or all the controls.
 <Preview>
     <Story name="disabled toolbar">
         <Toolbar disabled align="center">
-            <TextInput placeholder="Destination" />
-            <RadioGroup>
-                <Radio value="roscosmos">Roscosmos</Radio>
-                <Radio value="nasa">NASA</Radio>
-            </RadioGroup>
-            <CheckboxGroup>
-                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
-                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
-            </CheckboxGroup>
-        </Toolbar>
-    </Story>
-</Preview>
-
-### Readonly
-
-A toolbar control can be readonly.
-
-<Preview>
-    <Story name="readonly control">
-        <Toolbar align="center">
-            <TextInput placeholder="Destination" />
-            <RadioGroup readOnly>
-                <Radio value="roscosmos">Roscosmos</Radio>
-                <Radio value="nasa">NASA</Radio>
-            </RadioGroup>
-            <CheckboxGroup>
-                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
-                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
-            </CheckboxGroup>
-        </Toolbar>
-    </Story>
-</Preview>
-
-Or all the controls.
-
-<Preview>
-    <Story name="readonly group">
-        <Toolbar readOnly align="center">
             <TextInput placeholder="Destination" />
             <RadioGroup>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -207,5 +170,13 @@ Toolbar controls can be wrap on multiple lines.
         </Toolbar>
     </RefLogger>
 </Story>
+
+### Custom Components
+
+Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`. This is usually done by using the `useToolbar` hook.
+
+<FilePreview filePath="/toolbar/stories/CustomComponent">
+    <CustomToolbar />
+</FilePreview>
 
 

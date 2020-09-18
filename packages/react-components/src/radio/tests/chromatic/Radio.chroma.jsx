@@ -1,7 +1,7 @@
 import { Inline } from "@react-components/layout";
 import { Radio } from "@react-components/radio";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createTestSuite } from "./createTestSuite";
+import { createRadioTestSuite } from "./createRadioTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Radio"))
@@ -13,9 +13,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Radio />, stories("/unchecked"));
+createRadioTestSuite(<Radio />, stories("/unchecked"));
 
-createTestSuite(<Radio defaultChecked />, stories("/checked"));
+createRadioTestSuite(<Radio defaultChecked />, stories("/checked"));
 
 stories()
     .add("render props", () =>

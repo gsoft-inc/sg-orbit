@@ -4,14 +4,14 @@ import { Tag } from "@react-components/tag";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useCallback } from "react";
-import { useCheckableContext } from "@react-components/shared";
+import { useCheckable } from "@react-components/shared";
 
 function CustomComponent({
     value,
     children,
     ...rest
 }) {
-    const { isChecked, onCheck } = useCheckableContext(value);
+    const { checked: isChecked, onCheck, ...checkableProps } = useCheckable(value);
 
     const handleCheck = useCallback(event => {
         onCheck(event, value);
@@ -20,6 +20,7 @@ function CustomComponent({
     return (
         <Tag
             {...rest}
+            {...checkableProps}
             as="button"
             onClick={handleCheck}
             className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
@@ -160,38 +161,14 @@ stories()
             }
         </CheckboxGroup>
     )
-    .add("label", () =>
-        <Inline align="end" gap={13}>
-            <CheckboxGroup label="Select your packages" size="small">
+    .add("validation", () =>
+        <Inline gap={13}>
+            <CheckboxGroup validationState="invalid">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup label="Select your packages">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup label="Select your packages" size="large">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-        </Inline>
-    )
-    .add("description", () =>
-        <Inline align="end" gap={13}>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="small">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup description="You can find a detailed description of our flight packages on our website." label="Select your packages" size="large">
+            <CheckboxGroup validationState="valid">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>

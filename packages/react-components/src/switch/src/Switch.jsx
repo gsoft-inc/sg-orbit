@@ -1,7 +1,7 @@
 import "./Switch.css";
 
-import { Label, textSlot } from "../../text";
-import { SlotProvider } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -9,6 +9,8 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
+import { useFieldInput } from "../../field";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -27,6 +29,14 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Whether the checkbox should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
     /**
      * A checkbox can vary in size.
      */
@@ -52,11 +62,18 @@ const propTypes = {
 };
 
 export function InnerSwitch(props) {
+    const toolbarProps = useToolbar();
+
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
+        id,
         checked,
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange,
         size,
         reverse,
@@ -71,7 +88,11 @@ export function InnerSwitch(props) {
         children,
         forwardedRef,
         ...rest
-    } = props;
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps
+    );
 
     const {
         isChecked,
@@ -79,10 +100,14 @@ export function InnerSwitch(props) {
         inputProps
     } = useCheckbox({
         cssModule: "o-ui-switch",
+        isInField,
+        id,
         checked,
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        required,
+        validationState,
         onChange,
         size,
         reverse,
@@ -101,7 +126,7 @@ export function InnerSwitch(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     return (
@@ -111,26 +136,28 @@ export function InnerSwitch(props) {
             {...wrapperProps}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-switch-switch" />
-            <SlotProvider
-                slots={{
-                    label: textSlot({
-                        size,
-                        className: "o-ui-switch-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-switch-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-switch-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <span className="o-ui-switch-control" />
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-switch-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-switch-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-switch-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

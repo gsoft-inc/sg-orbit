@@ -1,11 +1,10 @@
 import "./TextArea.css";
 
-import { InputLabel } from "./InputLabel";
-import { InputMessage } from "./InputMessage";
-import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useChainedEventCallback, useControllableState } from "../../shared";
-import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
+import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
 
@@ -27,29 +26,9 @@ const propTypes = {
      */
     resize: oneOf(["vertical", "none"]),
     /**
-     * Label identifying the input.
-     */
-    label: node,
-    /**
      * Whether a user input is required before form submission.
      */
     required: bool,
-    /**
-     * Additional text to describe the input.
-     */
-    description: string,
-    /**
-     * Help message displayed beneath the input when `validateState` is undefined.
-     */
-    helpMessage: node,
-    /**
-     * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
-     */
-    invalidMessage: node,
-    /**
-     * Valid message displayed beneath the input when `validateState` is `"valid"`.
-     */
-    validMessage: node,
     /**
      * Whether the input should display as "valid" or "invalid".
      */
@@ -114,62 +93,66 @@ const pxToInt = value => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
 
-export function InnerTextArea({
-    id,
-    value,
-    defaultValue,
-    placeholder,
-    resize,
-    label,
-    required,
-    description,
-    helpMessage,
-    invalidMessage,
-    validMessage,
-    validationState,
-    onChange,
-    variant = "outline",
-    type = "text",
-    autoFocus,
-    autoFocusDelay,
-    button,
-    disabled,
-    readOnly,
-    fluid,
-    loading,
-    rows: rowsProp,
-    maxRows,
-    size,
-    active,
-    focus,
-    hover,
-    className,
-    style,
-    wrapperProps: userWrapperProps,
-    as: ElementType = "div",
-    forwardedRef,
-    ...rest
-}) {
+export function InnerTextArea(props) {
+    const fieldProps = useFieldInput();
+
+    const {
+        id,
+        value,
+        defaultValue,
+        placeholder,
+        resize,
+        required,
+        validationState,
+        onChange,
+        variant = "outline",
+        type = "text",
+        autoFocus,
+        autoFocusDelay,
+        button,
+        disabled,
+        readOnly,
+        fluid,
+        loading,
+        rows: rowsProp,
+        maxRows,
+        size,
+        active,
+        focus,
+        hover,
+        className,
+        style,
+        wrapperProps: userWrapperProps,
+        as: ElementType = "div",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
+    );
+
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
-
-    const inputRef = useRef();
 
     const handleChange = useChainedEventCallback(onChange, event => {
         setValue(event.target.value);
     });
 
-    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+    const {
+        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        inputProps,
+        inputRef
+    } = useInput({
         cssModule: "o-ui-text-area",
         id,
         value: inputValue,
         placeholder,
-        label,
         required,
-        description,
-        helpMessage,
-        invalidMessage,
-        validMessage,
         validationState,
         onChange: handleChange,
         variant,
@@ -186,7 +169,6 @@ export function InnerTextArea({
         hover,
         className,
         wrapperProps: userWrapperProps,
-        inputRef,
         forwardedRef
     });
 
@@ -209,14 +191,6 @@ export function InnerTextArea({
         adjustRows();
     }, [adjustRows, inputValue]);
 
-    const labelMarkup = labelProps && (
-        <InputLabel {...labelProps} />
-    );
-
-    const messageMarkup = messageProps && (
-        <InputMessage {...messageProps} />
-    );
-
     const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
 
     const content = (
@@ -231,7 +205,6 @@ export function InnerTextArea({
                 }}
             />
             {buttonMarkup}
-            {messageMarkup}
         </>
     );
 
@@ -247,14 +220,7 @@ export function InnerTextArea({
                 wrapperClassName
             )}
         >
-            {!labelMarkup ? content : (
-                <>
-                    {labelMarkup}
-                    <div className="o-ui-labeled-input">
-                        {content}
-                    </div>
-                </>
-            )}
+            {content}
         </ElementType>
     );
 }

@@ -18,7 +18,6 @@ export function EmailValidation() {
         <TextInput
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Enter your email"
-            label="Email"
             value={value}
             onChange={handleChange}
         />

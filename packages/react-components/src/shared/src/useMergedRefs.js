@@ -16,11 +16,11 @@ export function mergeRefs(...refs) {
         // Resulting callback function can be used has a ref.
         mergedRef.current = current;
 
-        refs.forEach(ref => {
-            if (!isNil(ref)) {
+        refs
+            .filter(Boolean)
+            .forEach(ref => {
                 assignRef(ref, current);
-            }
-        });
+            });
     };
 
     return mergedRef;

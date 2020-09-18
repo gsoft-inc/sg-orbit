@@ -1,5 +1,5 @@
 import { Children, cloneElement, forwardRef } from "react";
-import { ClearSlots, useSlotProps } from "../../shared";
+import { ClearSlots, mergeProps, useSlot } from "../../shared";
 import { Inline } from "../../layout";
 import { any, elementType, oneOfType, string } from "prop-types";
 
@@ -19,6 +19,8 @@ const propTypes = {
 };
 
 export function InnerIconGroup(props) {
+    const slotProps = useSlot("icon");
+
     const {
         size,
         disabled,
@@ -26,7 +28,10 @@ export function InnerIconGroup(props) {
         as = "span",
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "icon");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     return (
         <Inline

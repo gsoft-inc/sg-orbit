@@ -1,20 +1,26 @@
 import "./Icon.css";
 
-import { SIZE, cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
+import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 
 const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
 
 export function InnerIcon(props) {
+    const slotProps = useSlot("icon");
+
     const {
         type: ComponentType,
         size,
         disabled,
         className,
         forwardedRef,
+        "aria-label": ariaLabel,
         ...rest
-    } = useSlotProps(props, "icon");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     return (
         <ComponentType
@@ -28,7 +34,8 @@ export function InnerIcon(props) {
                 className
             )}
             focusable="false"
-            aria-hidden="true"
+            aria-hidden={ariaLabel ? undefined : "true"}
+            aria-label={ariaLabel}
             ref={forwardedRef}
         />
     );

@@ -1,4 +1,4 @@
-import { CrossIcon, WarningIcon } from "@react-components/icons";
+import { CrossIcon, EmailIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconButton } from "@react-components/button";
@@ -45,29 +45,6 @@ A default text input.
     </Story>
 </Preview>
 
-### Label
-
-A text input can be identified by a label.
-
-<Preview>
-    <Story name="label">
-        <Inline>
-            <TextInput label="Where to?" />
-            <TextInput label="Where to?" required />
-        </Inline>
-    </Story>
-</Preview>
-
-### Description
-
-A text input can have additional text to further describe the input.
-
-<Preview>
-    <Story name="description">
-        <TextInput label="Where to?" description="Trips to Andromeda galaxy are available every 2 months." />
-    </Story>
-</Preview>
-
 ### Value
 
 A text input can have a value.
@@ -84,7 +61,7 @@ A text input can contain an [icon](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <TextInput icon={<WarningIcon />} placeholder="Where to?" />
+        <TextInput icon={<EmailIcon />} placeholder="Where to?" />
     </Story>
 </Preview>
 
@@ -95,7 +72,7 @@ A text input can contain a [button](?path=/docs/components-button--default-story
 <Preview>
     <Story name="button">
         <Inline>
-            <TextInput button={<IconButton><CrossIcon /></IconButton>} placeholder="Where to?" />
+            <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" />
         </Inline>
     </Story>
 </Preview>
@@ -156,27 +133,13 @@ A text input can take the width of its container.
 
 ### Validation
 
-A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either "valid" or "invalid" to the text input via the `validationState` prop.
+A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
 
 The example below illustrates how one would validate if the user has entered a valid email.
 
 <FilePreview filePath="/input/stories/EmailValidation">
     <EmailValidation />
 </FilePreview>
-
-### Message
-
-A message can be displayed beneath a text input.
-
-<Preview>
-    <Story name="message">
-        <Inline>
-            <TextInput helpMessage="Your space id is a 9-digit number on the top right corner of your membership card." label="Space ID" placeholder="999-999-999" />
-            <TextInput invalidMessage="Invalid space id." validationState="invalid" label="Space ID" defaultValue="ABC-DEF-HIJ" />
-            <TextInput validMessage="Have a safe flight!" validationState="valid" label="Space ID" defaultValue="123-456-789" />
-        </Inline>
-    </Story>
-</Preview>
 
 ### Transparent
 

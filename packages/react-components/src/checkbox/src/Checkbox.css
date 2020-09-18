@@ -1,11 +1,12 @@
 .o-ui-checkbox {
     display: inline-grid;
     align-items: center;
-    grid-template-columns: max-content auto max-content max-content;
+    grid-template-columns: max-content max-content max-content max-content;
     grid-template-areas: "box label icon counter";
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
+    width: max-content;
 }
 
 /* BOX */
@@ -66,6 +67,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    display: inline;
 }
 
 /* CONTENT | LABEL | REVERSE */
@@ -101,6 +103,27 @@
 /* REVERSE */
 .o-ui-checkbox-reverse {
     grid-template-areas: "counter icon label box";
+}
+
+/* INVALID */
+.o-ui-checkbox-invalid .o-ui-checkbox-label {
+    color: var(--alert-500);
+}
+
+.o-ui-checkbox-invalid .o-ui-checkbox-box {
+    border-color: var(--alert-500);
+}
+
+.o-ui-checkbox.o-ui-checkbox-invalid:hover .o-ui-checkbox-box {
+    border-color: var(--alert-500);
+}
+
+.o-ui-checkbox-invalid .o-ui-checkbox-box::before {
+    background-color: var(--alert-500);
+}
+
+.o-ui-checkbox-checked.o-ui-checkbox-invalid:hover .o-ui-checkbox-box::before {
+    border-color: var(--alert-500);
 }
 
 /* STATE | INDETERMINATE | CHECKED | HALF SQUARE */
@@ -235,4 +258,10 @@
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
     mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
+}
+
+/* IN FIELD */
+.o-ui-checkbox-as-field {
+    margin-top: var(--scale-alpha);
+    margin-bottom: var(--scale-alpha);
 }

@@ -1,3 +1,9 @@
+.o-ui-text {
+    display: inline-flex;
+    align-items: center;
+    white-space: pre-wrap;
+}
+
 .o-ui-text-mini {
     font-size: var(--type-scale-9);
 }

@@ -1,0 +1,10 @@
+.o-ui-field-label {
+    color: var(--marine-900);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+/* REQUIRED */
+.o-ui-field-label-required {
+    margin-left: var(--scale-alpha);
+}

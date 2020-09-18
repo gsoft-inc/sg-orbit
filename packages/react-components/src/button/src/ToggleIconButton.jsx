@@ -2,7 +2,7 @@ import { IconButton } from "./IconButton";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isFunction } from "lodash";
-import { useCheckableProps } from "../../shared";
+import { mergeProps, useCheckable } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -50,9 +50,17 @@ const propTypes = {
      */
     size: oneOf(["small", "medium", "large"]),
     /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
     /**
      * @ignore
      */
@@ -60,6 +68,8 @@ const propTypes = {
 };
 
 export function InnerToggleIconButton(props) {
+    const checkableProps = useCheckable(props);
+
     const {
         variant = "solid",
         shape = "pill",
@@ -73,7 +83,10 @@ export function InnerToggleIconButton(props) {
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(props);
+    } = mergeProps(
+        props,
+        checkableProps
+    );
 
     const { isChecked, buttonProps } = useToggleButton({
         variant,

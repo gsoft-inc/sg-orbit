@@ -58,33 +58,11 @@ stories()
     .add("fluid", () =>
         <NumberInput fluid placeholder="Age" />
     )
-    .add("label", () =>
-        <Inline align="end">
-            <NumberInput label="Age" size="small" />
-            <NumberInput label="Age" />
-            <NumberInput label="Age" size="large" />
+    .add("validation", () =>
+        <Inline>
+            <NumberInput validationState="invalid" placeholder="Age" />
+            <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
-    )
-    .add("description", () =>
-        <Inline align="end">
-            <NumberInput description="How many years ago are you born?" label="Age" size="small" />
-            <NumberInput description="How many years ago are you born?" label="Age" />
-            <NumberInput description="How many years ago are you born?" label="Age" size="large" />
-        </Inline>
-    )
-    .add("invalid", () =>
-        <Stack>
-            <Inline align="end">
-                <NumberInput validationState="invalid" size="small" placeholder="Age" />
-                <NumberInput validationState="invalid" placeholder="Age" />
-                <NumberInput validationState="invalid" size="large" placeholder="Age" />
-            </Inline>
-            <Inline align="end">
-                <NumberInput invalidMessage="Try again!" validationState="invalid" size="small" placeholder="Age" />
-                <NumberInput invalidMessage="Try again!" validationState="invalid" placeholder="Age" />
-                <NumberInput invalidMessage="Try again!" validationState="invalid" size="large" placeholder="Age" />
-            </Inline>
-        </Stack>
     )
     .add("readonly", () =>
         <NumberInput readOnly placeholder="Age" />

@@ -1,14 +1,14 @@
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Label } from "@react-components/text";
+import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Checkbox({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createTestSuite(element, stories) {
+export function createCheckboxTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
@@ -19,33 +19,33 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -53,62 +53,62 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="small" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox size="large" element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -215,7 +215,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <Inline>
                     <Checkbox reverse element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -228,14 +228,14 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Checkbox reverse element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
@@ -244,7 +244,7 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Checkbox reverse element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -257,7 +257,7 @@ export function createTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
-                        <Label>Milky Way</Label>
+                        <Text>Milky Way</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -270,10 +270,16 @@ export function createTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("validation", () =>
+            <Inline>
+                <Checkbox validationState="invalid" element={element}>Milky Way</Checkbox>
+                <Checkbox validationState="valid" element={element}>Milky Way</Checkbox>
+            </Inline>
+        )
         .add("states", () =>
             <Stack>
                 <Inline align="end">
-                    <Checkbox active size="small" element={element}></Checkbox>
+                    <Checkbox active size="small" element={element}>Milky Way</Checkbox>
                     <Checkbox active element={element}>Milky Way</Checkbox>
                     <Checkbox active size="large" element={element}>Milky Way</Checkbox>
                 </Inline>
@@ -306,7 +312,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="flex items-end mw5">
                     <Checkbox element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -314,13 +320,13 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="flex items-end mw5">
                     <Checkbox element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                 </div>
                 <div className="flex items-end mw5">
                     <Checkbox element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Checkbox>
                 </div>

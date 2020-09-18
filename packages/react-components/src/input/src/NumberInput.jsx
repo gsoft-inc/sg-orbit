@@ -1,15 +1,15 @@
 import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
-import { InputLabel } from "./InputLabel";
-import { InputMessage } from "./InputMessage";
-import { SIZE, cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
-import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useRef } from "react";
+import { SIZE, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
+import { useToolbar } from "../../toolbar";
 
 const STEPPER_ICON = {
     [SIZE.small]: SIZE.mini,
@@ -31,18 +31,6 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * Label identifying the input.
-     */
-    label: node,
-    /**
-     * Whether a user input is required before form submission.
-     */
-    required: bool,
-    /**
-     * Additional text to describe the input.
-     */
-    description: string,
-    /**
      * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     min: number,
@@ -58,18 +46,6 @@ const propTypes = {
      * Clamps the input value between min & max boundaries.
      */
     clampValue: bool,
-    /**
-     * Help message displayed beneath the input when `validateState` is undefined.
-     */
-    helpMessage: node,
-    /**
-     * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
-     */
-    invalidMessage: node,
-    /**
-     * Valid message displayed beneath the input when `validateState` is `"valid"`.
-     */
-    validMessage: node,
     /**
      * Whether the input should display as "valid" or "invalid".
      */
@@ -139,6 +115,7 @@ export function Spinner({
         <div
             {...rest}
             className="o-ui-number-input-spinner"
+            aria-hidden="true"
         >
             <button
                 onClick={handleIncrement}
@@ -185,45 +162,52 @@ function toFixed(value, precision) {
     return parseFloat(value.toFixed(precision));
 }
 
-export function InnerNumberInput({
-    id,
-    value,
-    defaultValue,
-    placeholder,
-    min,
-    max,
-    step = 1,
-    clampValue = true,
-    label,
-    required,
-    description,
-    helpMessage,
-    invalidMessage,
-    validMessage,
-    validationState,
-    onChange,
-    onBlur,
-    variant = "outline",
-    autoFocus,
-    autoFocusDelay,
-    icon,
-    disabled,
-    readOnly,
-    fluid,
-    loading,
-    size,
-    active,
-    focus,
-    hover,
-    className,
-    wrapperProps: userWrapperProps,
-    as: ElementType = "div",
-    forwardedRef,
-    ...rest
-}) {
-    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
+export function InnerNumberInput(props) {
+    const toolbarProps = useToolbar();
+    const fieldProps = useFieldInput();
 
-    const inputRef = useRef();
+    const {
+        id,
+        value,
+        defaultValue,
+        placeholder,
+        min,
+        max,
+        step = 1,
+        clampValue = true,
+        required,
+        validationState,
+        onChange,
+        onBlur,
+        variant = "outline",
+        autoFocus,
+        autoFocusDelay,
+        icon,
+        disabled,
+        readOnly,
+        fluid,
+        loading,
+        size,
+        active,
+        focus,
+        hover,
+        className,
+        wrapperProps: userWrapperProps,
+        as: ElementType = "div",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
+    );
+
+    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
     const updateValue = (event, newValue) => {
         setValue(newValue);
@@ -308,17 +292,16 @@ export function InnerNumberInput({
         inputRef.current.focus();
     });
 
-    const { wrapperProps: { className: wrapperClassName, ...wrapperProps }, inputProps, labelProps, messageProps } = useInput({
+    const {
+        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        inputProps,
+        inputRef
+    } = useInput({
         cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
-        label,
         required,
-        description,
-        helpMessage,
-        invalidMessage,
-        validMessage,
         validationState: !isInRange ? "invalid" : validationState,
         onChange: handleChange,
         variant,
@@ -335,17 +318,8 @@ export function InnerNumberInput({
         hover,
         className,
         userWrapperProps,
-        inputRef,
         forwardedRef
     });
-
-    const labelMarkup = labelProps && (
-        <InputLabel {...labelProps} />
-    );
-
-    const messageMarkup = messageProps && (
-        <InputMessage {...messageProps} />
-    );
 
     const iconMarkup = useInputIcon(icon, { size, disabled });
 
@@ -365,7 +339,6 @@ export function InnerNumberInput({
                 disabled={readOnly || disabled}
                 aria-hidden={loading}
             />
-            {messageMarkup}
         </>
     );
 
@@ -381,14 +354,7 @@ export function InnerNumberInput({
                 wrapperClassName
             )}
         >
-            {!labelMarkup ? content : (
-                <>
-                    {labelMarkup}
-                    <div className="o-ui-labeled-input">
-                        {content}
-                    </div>
-                </>
-            )}
+            {content}
         </ElementType>
     );
 }

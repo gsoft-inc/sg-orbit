@@ -52,7 +52,6 @@ export function InnerStack({
     gap = 5,
     wrap,
     children,
-    as = "div",
     forwardedRef,
     ...rest
 }) {
@@ -64,7 +63,6 @@ export function InnerStack({
             justifyContent={justify}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            as={as}
             ref={forwardedRef}
         >
             {children}

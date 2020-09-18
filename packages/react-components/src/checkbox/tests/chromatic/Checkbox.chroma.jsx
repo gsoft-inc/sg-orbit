@@ -1,7 +1,7 @@
 import { Checkbox } from "@react-components/checkbox";
 import { Inline } from "@react-components/layout";
+import { createCheckboxTestSuite } from "./createCheckboxTestSuite";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Checkbox"))
@@ -13,11 +13,11 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Checkbox />, stories("/unchecked"));
+createCheckboxTestSuite(<Checkbox />, stories("/unchecked"));
 
-createTestSuite(<Checkbox defaultChecked />, stories("/checked"));
+createCheckboxTestSuite(<Checkbox defaultChecked />, stories("/checked"));
 
-createTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
+createCheckboxTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
 
 stories()
     .add("render props", () =>

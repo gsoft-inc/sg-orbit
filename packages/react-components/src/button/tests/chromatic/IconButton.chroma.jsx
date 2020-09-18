@@ -23,16 +23,16 @@ createIconButtonTestSuite(<IconButton variant="ghost" />, stories("/ghost"));
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButton className="bg-red"><AddIcon /></IconButton>
-            <IconButton style={{ backgroundColor: "red" }}><AddIcon /></IconButton>
+            <IconButton className="bg-red" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton style={{ backgroundColor: "red" }} aria-label="Add"><AddIcon /></IconButton>
         </Inline>
     )
     .add("autofocus", () =>
-        <IconButton autoFocus><AddIcon /></IconButton>
+        <IconButton autoFocus aria-label="Add"><AddIcon /></IconButton>
     )
     .add("when disabled do not autofocus", () =>
-        <IconButton disabled autoFocus><AddIcon /></IconButton>
+        <IconButton disabled autoFocus aria-label="Add"><AddIcon /></IconButton>
     )
     .add("autofocus with delay", () =>
-        <IconButton autoFocus autoFocusDelay={50}><AddIcon /></IconButton>
+        <IconButton autoFocus autoFocusDelay={50} aria-label="Add"><AddIcon /></IconButton>
     );

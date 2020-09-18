@@ -1,20 +1,34 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
-import { mergeProps } from "../../shared";
 
 export const ToolbarContext = createContext(null);
 
 export function useToolbarContext() {
-    return useContext(ToolbarContext) ?? {};
-}
-
-export function useToolbarProps(props, { addNavigationMode = true } = {}) {
     const context = useContext(ToolbarContext);
 
-    return mergeProps(props, {
-        orientation: !isNil(context) ? context.orientation : undefined,
-        navigationMode: addNavigationMode ?
-            !isNil(context) ? "toolbar" : "default"
-            : undefined
-    });
+    if (!isNil(context)) {
+        return {
+            isInToolbar: true,
+            ...context
+        };
+    }
+
+    return {
+        isInToolbar: false
+    };
+}
+
+export function useToolbar() {
+    // eslint-disable-next-line no-unused-vars
+    const { isInToolbar, ...rest } = useToolbarContext();
+
+    return rest;
+}
+
+export function ClearToolbarContext({ children }) {
+    return (
+        <ToolbarContext.Provider value={null}>
+            {children}
+        </ToolbarContext.Provider>
+    );
 }

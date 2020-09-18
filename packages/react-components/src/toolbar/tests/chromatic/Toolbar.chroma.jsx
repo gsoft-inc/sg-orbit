@@ -1,4 +1,5 @@
 import { CheckboxGroup } from "@react-components/checkbox";
+import { Field, Label } from "@react-components/field";
 import { NotificationIcon } from "@react-components/icons";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { Stack } from "@react-components/layout";
@@ -84,23 +85,6 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
-    .add("readonly element", () =>
-        <Toolbar align="center">
-            <CheckboxGroup>
-                <ToggleButton value="1">1</ToggleButton>
-                <ToggleButton value="2">2</ToggleButton>
-                <ToggleButton value="3">3</ToggleButton>
-            </CheckboxGroup>
-            <ToggleIconButton shape="circular">
-                <NotificationIcon />
-            </ToggleIconButton>
-            <RadioGroup readOnly>
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Toolbar>
-    )
     .add("disabled element", () =>
         <Toolbar autoFocus align="center">
             <CheckboxGroup disabled>
@@ -135,21 +119,6 @@ stories()
     )
     .add("disabled", () =>
         <Toolbar disabled align="center">
-            <CheckboxGroup>
-                <ToggleButton value="1">1</ToggleButton>
-                <ToggleButton value="2">2</ToggleButton>
-                <ToggleButton value="3">3</ToggleButton>
-            </CheckboxGroup>
-            <ToggleButton fluid>Turn On</ToggleButton>
-            <RadioGroup>
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Toolbar>
-    )
-    .add("readonly", () =>
-        <Toolbar readOnly autoFocus align="center">
             <CheckboxGroup>
                 <ToggleButton value="1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>
@@ -277,14 +246,20 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
-    .add("labeled groups", () =>
-        <Toolbar align="center">
-            <CheckboxGroup>
-                <ToggleButton value="1">1</ToggleButton>
-                <ToggleButton value="2">2</ToggleButton>
-                <ToggleButton value="3">3</ToggleButton>
-            </CheckboxGroup>
-            <TextInput label="Search" />
+    .add("fields", () =>
+        <Toolbar align="end">
+            <Field>
+                <Label>Package</Label>
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+            </Field>
+            <Field>
+                <Label>Search</Label>
+                <TextInput />
+            </Field>
             <ToggleButton>
                 {
                     ({ isChecked }) => {
@@ -292,15 +267,5 @@ stories()
                     }
                 }
             </ToggleButton>
-            <RadioGroup>
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup>
-                <ToggleButton value="1">1</ToggleButton>
-                <ToggleButton value="2">2</ToggleButton>
-                <ToggleButton value="3">3</ToggleButton>
-            </RadioGroup>
         </Toolbar>
     );

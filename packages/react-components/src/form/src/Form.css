@@ -1,0 +1,40 @@
+.o-ui-form {
+    /* Grid display to allow using justify-self on button to align them. */
+    display: grid;
+    justify-items: start;
+    width: max-content;
+}
+
+/* FIELD */
+.o-ui-form .o-ui-field-small {
+    margin-bottom: var(--scale-delta);
+}
+
+.o-ui-form .o-ui-field-medium {
+    margin-bottom: var(--scale-echo);
+}
+
+.o-ui-form .o-ui-field-large {
+    margin-bottom: var(--scale-foxtrot);
+}
+
+/* FLUID */
+.o-ui-form-fluid {
+    width: 100%;
+}
+
+/* FIELDSET */
+.o-ui-form fieldset {
+    margin-bottom: 20px;
+    padding: 0;
+    border: none;
+}
+
+.o-ui-form fieldset legend {
+    margin-bottom: var(--scale-alpha);
+    font-size: var(--type-scale-6);
+}
+
+.o-ui-form fieldset .o-ui-form-field:last-child {
+    margin-bottom: 0;
+}

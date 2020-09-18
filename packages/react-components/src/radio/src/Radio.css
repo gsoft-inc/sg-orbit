@@ -1,9 +1,12 @@
 .o-ui-radio {
     display: inline-grid;
     align-items: center;
-    grid-template-columns: max-content auto max-content max-content;
+    grid-template-columns: max-content max-content max-content max-content;
     grid-template-areas: "button label icon counter";
     cursor: pointer;
+    line-height: 1;
+    max-width: 100%;
+    width: max-content;
 }
 
 /* BUTTON */
@@ -91,9 +94,38 @@
     height: var(--scale-foxtrot);
 }
 
+/* VALIDATION */
+.o-ui-radio-invalid .o-ui-radio-label {
+    color: var(--alert-500);
+}
+
+.o-ui-radio-invalid .o-ui-radio-button {
+    border-color: var(--alert-200);
+}
+
+.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
+    border-color: var(--alert-200);
+}
+
+.o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
+    background-color: var(--alert-500);
+}
+
 /* STATE | CHECKED */
 .o-ui-radio-checked .o-ui-radio-button::before {
     transform: scale(0.5) translate(-2px, -2px);
+}
+
+.o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
+    border-color: var(--alert-500);
+}
+
+.o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
+    border-color: var(--alert-500);
+}
+
+.o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
+    background-color: var(--alert-500);
 }
 
 /* STATE | FOCUS */

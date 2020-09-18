@@ -1,7 +1,7 @@
 import "./Radio.css";
 
-import { Label, textSlot } from "../../text";
-import { SlotProvider, cssModule, getSizeClass, mergeClasses, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, omitProps, useAutoFocus, useCheckable, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -23,6 +23,24 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
+     * Whether the radio should autoFocus on render.
+     */
+    autoFocus: bool,
+    /**
+     * Delay before trying to autofocus.
+     */
+    autoFocusDelay: number,
+    /**
+     * Whether the radio should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
+    /**
+     * Called when the radio checked state change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onChange: func,
+    /**
      * A checkbox can vary in size.
      */
     size: oneOf(["small", "medium", "large"]),
@@ -30,12 +48,6 @@ const propTypes = {
      * Invert the order of the checkmark box and the label.
      */
     reverse: bool,
-    /**
-     * Called when the radio checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onChange: func,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -47,6 +59,8 @@ const propTypes = {
 };
 
 export function InnerRadio(props) {
+    const checkableProps = useCheckable(props);
+
     const {
         value,
         name,
@@ -54,6 +68,7 @@ export function InnerRadio(props) {
         defaultChecked,
         autoFocus,
         autoFocusDelay,
+        validationState,
         onChange,
         onCheck,
         size,
@@ -68,10 +83,10 @@ export function InnerRadio(props) {
         children,
         forwardedRef,
         ...rest
-    } = useCheckableProps(props);
-
-    // Since this component render an input="radio" the role is unnecessary.
-    delete rest["role"];
+    } = mergeProps(
+        props,
+        omitProps(checkableProps, ["role"])
+    );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
@@ -91,7 +106,7 @@ export function InnerRadio(props) {
         : children;
 
     if (typeof content === "string") {
-        content = <Label>{content}</Label>;
+        content = <Text>{content}</Text>;
     }
 
     const handleChange = useEventCallback(event => {
@@ -115,6 +130,7 @@ export function InnerRadio(props) {
                     "o-ui-radio",
                     isChecked && "checked",
                     reverse && "reverse",
+                    validationState && validationState,
                     disabled && "disabled",
                     active && "active",
                     focus && "focus",
@@ -134,28 +150,31 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
+                aria-invalid={validationState === "invalid" ? true : undefined}
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>
-            <SlotProvider
-                slots={{
-                    label: textSlot({
-                        size,
-                        className: "o-ui-radio-label"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-radio-icon"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        reverse,
-                        className: "o-ui-radio-counter"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-radio-label"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-radio-icon"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            reverse,
+                            className: "o-ui-radio-counter"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

@@ -1,7 +1,7 @@
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Label } from "@react-components/text";
+import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 
 function Switch({ element, ...rest }) {
@@ -19,98 +19,98 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
                     <Switch disabled element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                     </Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup><EmailIcon /><EmailIcon /><EmailIcon /></IconGroup>
                     </Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch disabled element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline align="end">
                     <Switch size="small" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch size="large" element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Switch>
@@ -205,7 +205,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <Inline>
                     <Switch reverse element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -218,14 +218,14 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Switch reverse element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch reverse element={element}>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch reverse element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                     <Switch reverse element={element}>
@@ -234,7 +234,7 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Switch reverse element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -247,7 +247,7 @@ export function createTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Switch>
                     <Switch reverse element={element}>
-                        <Label>Engines</Label>
+                        <Text>Engines</Text>
                         <IconGroup>
                             <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconGroup>
@@ -261,6 +261,12 @@ export function createTestSuite(element, stories) {
                     </Switch>
                 </Inline>
             </Stack>
+        )
+        .add("validation", () =>
+            <Inline>
+                <Switch validationState="invalid" element={element}>Engines</Switch>
+                <Switch validationState="valid" active element={element}>Engines</Switch>
+            </Inline>
         )
         .add("states", () =>
             <Stack>
@@ -298,7 +304,7 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="mw5">
                     <Switch element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconGroup>
                             <EmailIcon /><EmailIcon />
                         </IconGroup>
@@ -306,13 +312,13 @@ export function createTestSuite(element, stories) {
                 </div>
                 <div className="mw5">
                     <Switch element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter variant="divider">60</Counter>
                     </Switch>
                 </div>
                 <div className="mw5">
                     <Switch element={element}>
-                        <Label>PA-99-N2 event and possible exoplanet in galaxy</Label>
+                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Switch>
                 </div>

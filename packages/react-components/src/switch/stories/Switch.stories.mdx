@@ -1,12 +1,13 @@
+import { CheckedValidation } from "./CheckedValidation.sample";
 import { ControlledSwitch } from "./ControlledSwitch.sample";
 import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
-import { Label } from "@react-components/text";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -34,7 +35,7 @@ A switch offers an on or off choice to a user.
 
 ## Accessibility
 
-This component follow WAI-ARIA [design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+This component follow [WAI design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
 ## Slots
 
@@ -44,10 +45,10 @@ A switch component support the following [slots](?path=/docs/getting-started-slo
 
 ### Label
 
-A switch can have a label.
+A default switch.
 
 <Preview>
-    <Story name="label">
+    <Story name="default">
         <Switch>Engines</Switch>
     </Story>
 </Preview>
@@ -91,11 +92,11 @@ A switch can have [icons](?path=/docs/materials-icons--page) after his text.
     <Story name="icon">
         <Inline>
             <Switch>
-                <Label>Pressurization</Label>
+                <Text>Pressurization</Text>
                 <LightbulbIcon />
             </Switch>
             <Switch>
-                <Label>Engines</Label>
+                <Text>Engines</Text>
                 <IconGroup>
                     <LightbulbIcon /><LightbulbIcon />
                 </IconGroup>
@@ -112,11 +113,11 @@ A switch can have a [counter](?path=/docs/components-counter--default-story) aft
     <Story name="counter">
         <Inline>
             <Switch>
-                <Label>Pressurization</Label>
+                <Text>Pressurization</Text>
                 <Counter>6</Counter>
             </Switch>
             <Switch>
-                <Label>Engines</Label>
+                <Text>Engines</Text>
                 <Counter variant="divider">6</Counter>
             </Switch>
         </Inline>
@@ -145,11 +146,21 @@ A checkbox checkmark can be to the left or to the right of his label.
     <Story name="reverse">
         <Switch reverse>
             <InfoIcon />
-            <Label>Engines</Label>
+            <Text>Engines</Text>
             <Counter variant="divider">6</Counter>
         </Switch>
     </Story>
 </Preview>
+
+### Validation
+
+A switch can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if the user has checked the switch.
+
+<FilePreview filePath="/switch/stories/CheckedValidation">
+    <CheckedValidation />
+</FilePreview>
 
 ### Render Props
 

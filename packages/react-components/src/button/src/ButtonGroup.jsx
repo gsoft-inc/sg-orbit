@@ -1,13 +1,18 @@
 import { Children, forwardRef } from "react";
 import { Inline } from "@react-components/layout";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement } from "../../shared";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, mergeProps, omitProps } from "../../shared";
+import { useFormContext } from "../../form";
 
 const propTypes = {
     /**
      * Buttons size.
      */
     size: oneOf(["small", "medium", "large"]),
+    /**
+     * Whether or not the field take up the width of its container.
+     */
+    fluid: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -18,23 +23,32 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButtonGroup({
-    size,
-    children,
-    as = "div",
-    forwardedRef,
-    ...rest
-}) {
+export function InnerButtonGroup(props) {
+    const { isInForm, ...formProps } = useFormContext();
+
+    const {
+        size,
+        fluid,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        omitProps(formProps, ["disabled"])
+    );
+
     return (
         <Inline
             {...rest}
-            gap={2}
-            as={as}
+            fluid={fluid}
+            gap={isInForm ? 4 : 2}
+            align="center"
             ref={forwardedRef}
         >
             {Children.map(children, x => {
                 return augmentElement(x, {
-                    size
+                    size,
+                    fluid
                 });
             })}
         </Inline>

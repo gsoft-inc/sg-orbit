@@ -1,6 +1,6 @@
 import "./Tag.css";
 
-import { SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -80,44 +80,45 @@ export function InnerTag({
             disabled={disabled}
             ref={ref}
         >
-            <SlotProvider
-                slots={{
-                    text: textSlot({
-                        size,
-                        className: "o-ui-tag-text"
-                    }),
-                    icon: iconSlot({
-                        size,
-                        className: "o-ui-tag-icon"
-                    }),
-                    dot: dotSlot({
-                        size,
-                        disabled,
-                        className: "o-ui-tag-dot"
-                    }),
-                    counter: counterSlot({
-                        size,
-                        disabled,
-                        highlight: true,
-                        className: "o-ui-tag-counter"
-                    }),
-                    button: iconButtonSlot({
-                        size,
-                        variant: "ghost",
-                        color: "secondary",
-                        shape: "circular",
-                        className: "o-ui-tag-button"
-                    })
-                }}
-            >
-                {content}
-            </SlotProvider>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size,
+                            className: "o-ui-tag-text"
+                        }),
+                        icon: iconSlot({
+                            size,
+                            className: "o-ui-tag-icon"
+                        }),
+                        dot: dotSlot({
+                            size,
+                            disabled,
+                            className: "o-ui-tag-dot"
+                        }),
+                        counter: counterSlot({
+                            size,
+                            disabled,
+                            highlight: true,
+                            className: "o-ui-tag-counter"
+                        }),
+                        button: iconButtonSlot({
+                            size,
+                            variant: "ghost",
+                            color: "secondary",
+                            shape: "circular",
+                            className: "o-ui-tag-button"
+                        })
+                    }}
+                >
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }
 
 InnerTag.propTypes = propTypes;
-
 export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

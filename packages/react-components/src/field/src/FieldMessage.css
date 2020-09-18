@@ -1,0 +1,24 @@
+.o-ui-field-message {
+    max-width: 50ch;
+    line-height: 1;
+}
+
+/* FLUID */
+.o-ui-field-message-fluid {
+    max-width: 100%;
+}
+
+/* NEUTRAL */
+.o-ui-field-message-neutral {
+    color: var(--marine-200);
+}
+
+/* VALID */
+.o-ui-field-message-success {
+    color: var(--success-500);
+}
+
+/* INVALID */
+.o-ui-field-message-error {
+    color: var(--alert-400);
+}

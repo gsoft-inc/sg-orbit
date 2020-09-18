@@ -1,7 +1,7 @@
 import "./Text.css";
 
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses, useSlotProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -14,12 +14,18 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
 };
 
 export function InnerText(props) {
+    const slotProps = useSlot("text");
+
     const {
         size,
         as: ElementType = "span",
@@ -27,7 +33,10 @@ export function InnerText(props) {
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "text");
+    } = mergeProps(
+        props,
+        slotProps
+    );
 
     return (
         <ElementType
@@ -42,7 +51,17 @@ export function InnerText(props) {
             )}
             ref={forwardedRef}
         >
-            {children}
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        icon: {
+                            size
+                        }
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

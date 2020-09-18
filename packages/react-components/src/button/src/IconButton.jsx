@@ -1,8 +1,9 @@
-import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, useSlotProps } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
+import { useToolbar } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -38,6 +39,10 @@ const propTypes = {
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -52,6 +57,9 @@ const propTypes = {
 };
 
 export function InnerIconButton(props) {
+    const slotProps = useSlot("button");
+    const toolbarProps = useToolbar();
+
     const {
         variant = "solid",
         color,
@@ -66,12 +74,18 @@ export function InnerIconButton(props) {
         hover,
         disabled,
         type = "button",
+        title,
         as: ElementType = "button",
+        "aria-label": ariaLabel,
         className,
         children,
         forwardedRef,
         ...rest
-    } = useSlotProps(props, "button");
+    } = mergeProps(
+        props,
+        slotProps,
+        omitProps(toolbarProps, ["orientation"])
+    );
 
     const buttonProps = useButton({
         cssModule: "o-ui-icon-button",
@@ -97,6 +111,8 @@ export function InnerIconButton(props) {
             data-testid="icon-button"
             {...rest}
             {...buttonProps}
+            title={title ?? ariaLabel}
+            aria-label={ariaLabel}
         >
             <ClearSlots>
                 <SlotProvider

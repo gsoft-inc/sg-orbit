@@ -142,19 +142,19 @@ export function createTestSuite(element, stories) {
                 <Inline align="end">
                     <Tag size="small" element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
                     <Tag element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
                     <Tag size="large" element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
@@ -162,7 +162,7 @@ export function createTestSuite(element, stories) {
                 <Inline>
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
@@ -170,7 +170,7 @@ export function createTestSuite(element, stories) {
                 <Inline className="w-10">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>

@@ -1,8 +1,8 @@
-import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
-import { KEYS, augmentElement, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
+import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 
 const ARROW_NAV_KEY_BINDING = {
@@ -54,10 +54,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * Whether the toolbar elements are read only.
-     */
-    readOnly: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -77,7 +73,6 @@ export function InnerToolbar({
     wrap,
     size,
     disabled,
-    readOnly,
     as = "div",
     children,
     forwardedRef,
@@ -107,16 +102,18 @@ export function InnerToolbar({
         >
             <ToolbarContext.Provider
                 value={{
-                    orientation
+                    orientation,
+                    size,
+                    disabled
                 }}
             >
-                {Children.map(children, x => {
+                {children}
+                {/* {Children.map(children, x => {
                     return x && augmentElement(x, {
                         size,
-                        disabled,
-                        readOnly
+                        disabled
                     });
-                })}
+                })} */}
             </ToolbarContext.Provider>
         </Flex>
     );
