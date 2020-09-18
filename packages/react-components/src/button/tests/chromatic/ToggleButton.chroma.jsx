@@ -1,5 +1,6 @@
 import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
+import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

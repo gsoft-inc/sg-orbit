@@ -48,7 +48,7 @@ export function createIconButtonTestSuite(element, stories) {
             <Stack>
                 <Inline align="end">
                     <IconButton color="secondary" size="mini" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="secondary" size="tiny" aria-label="Add" lement={element}><AddIcon /></IconButton>
+                    <IconButton color="secondary" size="tiny" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton color="secondary" size="small" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton color="secondary" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton color="secondary" size="large" aria-label="Add" element={element}><AddIcon /></IconButton>
