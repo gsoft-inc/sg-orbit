@@ -83,17 +83,17 @@
 }
 
 /* SPINNER | SMALL */
-.o-ui-input-small .o-ui-number-input-spinner {
+.o-ui-input-sm .o-ui-number-input-spinner {
     min-height: calc(var(--scale-golf) - 2px);
 }
 
 /* SPINNER | MEDIUM */
-.o-ui-input-medium .o-ui-number-input-spinner {
+.o-ui-input-md .o-ui-number-input-spinner {
     min-height: calc(var(--scale-hotel) - 2px);
 }
 
 /* SPINNER | LARGE */
-.o-ui-input-large .o-ui-number-input-spinner {
+.o-ui-input-lg .o-ui-number-input-spinner {
     min-height: calc(var(--scale-india) - 2px);
 }
 

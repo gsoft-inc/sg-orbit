@@ -12,9 +12,9 @@ import { useMemo } from "react";
 import { useToolbar } from "../../toolbar";
 
 const STEPPER_ICON = {
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 };
 
 const propTypes = {
@@ -84,7 +84,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -125,7 +125,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size={STEPPER_ICON[size || SIZE.medium]} />
+                <CarretIcon size={STEPPER_ICON[size || SIZE.md]} />
             </button>
             <button
                 onClick={handleDecrement}
@@ -136,7 +136,7 @@ export function Spinner({
                 onFocus={onFocus}
             >
                 <CarretIcon
-                    size={STEPPER_ICON[size || SIZE.medium]}
+                    size={STEPPER_ICON[size || SIZE.md]}
                     className="o-ui-rotate-180"
                 />
             </button>

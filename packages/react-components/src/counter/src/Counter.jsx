@@ -25,7 +25,7 @@ const propTypes = {
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Default slot override.
      */

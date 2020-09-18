@@ -34,7 +34,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         autoFocus: bool,
         autoFocusDelay: number,
         fluid: bool,
-        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
+        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
         input: oneOfType([element, elementType]),
         active: bool,
         focus: bool,
@@ -49,7 +49,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         autoFocusDelay: 50,
-        size: SIZE.medium,
+        size: SIZE.md,
         input: <TextInput />
     };
 

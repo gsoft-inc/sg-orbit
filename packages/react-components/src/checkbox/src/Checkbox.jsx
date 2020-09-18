@@ -52,7 +52,7 @@ const propTypes = {
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order the checkmark box and the label.
      */

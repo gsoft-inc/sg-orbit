@@ -15,13 +15,13 @@ function stories(segment) {
 stories()
     .add("size", () =>
         <Inline align="end">
-            <HelpMessage size="small">
+            <HelpMessage size="sm">
                 <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
             </HelpMessage>
             <HelpMessage>
                 <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
             </HelpMessage>
-            <HelpMessage size="large">
+            <HelpMessage size="lg">
                 <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
             </HelpMessage>
         </Inline>

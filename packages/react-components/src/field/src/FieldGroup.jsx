@@ -5,16 +5,16 @@ import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { useFormContext } from "../../form";
 
 const GAP_BY_SIZE = {
-    [SIZE.small]: 3,
-    [SIZE.medium]: 4,
-    [SIZE.large]: 5
+    [SIZE.sm]: 3,
+    [SIZE.md]: 4,
+    [SIZE.lg]: 5
 };
 
 const propTypes = {
     /**
      * Fields size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Whether or not the field take up the width of its container.
      */
@@ -47,7 +47,7 @@ export function InnerFieldGroup(props) {
         <Inline
             {...rest}
             fluid={fluid}
-            gap={GAP_BY_SIZE[size || SIZE.medium]}
+            gap={GAP_BY_SIZE[size || SIZE.md]}
             align="start"
             ref={forwardedRef}
         >

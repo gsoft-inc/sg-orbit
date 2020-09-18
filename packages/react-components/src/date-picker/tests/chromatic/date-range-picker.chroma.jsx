@@ -72,11 +72,11 @@ stories()
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      {createDateRangePicker({
-                         size: "small",
+                         size: "sm",
                          className: "mr5"
                      })}
                      {createDateRangePicker({
-                         size: "small",
+                         size: "sm",
                          defaultStartDate: moment(DEFAULT_DATE),
                          defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
                      })}
@@ -92,11 +92,11 @@ stories()
                  </div>
                  <div className="flex">
                      {createDateRangePicker({
-                         size: "large",
+                         size: "lg",
                          className: "mr5"
                      })}
                      {createDateRangePicker({
-                         size: "large",
+                         size: "lg",
                          defaultStartDate: moment(DEFAULT_DATE),
                          defaultEndDate: moment(DEFAULT_DATE).add(3, "days")
                      })}

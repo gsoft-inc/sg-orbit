@@ -129,9 +129,9 @@ stories()
         <Inline gap="300px">
             <Stack gap="200px">
                 <Inline>
-                    <BasicDropdown size="small" />
+                    <BasicDropdown size="sm" />
                     <BasicDropdown
-                        size="small"
+                        size="sm"
                         open
                     />
                 </Inline>
@@ -140,9 +140,9 @@ stories()
                     <BasicDropdown open />
                 </Inline>
                 <Inline>
-                    <BasicDropdown size="large" />
+                    <BasicDropdown size="lg" />
                     <BasicDropdown
-                        size="large"
+                        size="lg"
                         open
                     />
                 </Inline>
@@ -166,11 +166,11 @@ stories()
             <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
-                    size="small"
+                    size="sm"
                 />
                 <BasicDropdown
                     icon={<FileIcon />}
-                    size="small"
+                    size="sm"
                     open
                 />
             </Inline>
@@ -186,11 +186,11 @@ stories()
             <Inline>
                 <BasicDropdown
                     icon={<FileIcon />}
-                    size="large"
+                    size="lg"
                 />
                 <BasicDropdown
                     icon={<FileIcon />}
-                    size="large"
+                    size="lg"
                     open
                 />
             </Inline>
@@ -201,28 +201,28 @@ stories()
             <Inline gap="200px">
                 <CircularButtonDropdown />
                 <CircularButtonDropdown
-                    size="small"
+                    size="sm"
                     open
                 />
                 <CircularButtonDropdown
                     open
                 />
                 <CircularButtonDropdown
-                    size="large"
+                    size="lg"
                     open
                 />
             </Inline>
             <Inline gap="200px">
                 <BasicButtonDropdown />
                 <BasicButtonDropdown
-                    size="small"
+                    size="sm"
                     open
                 />
                 <BasicButtonDropdown
                     open
                 />
                 <BasicButtonDropdown
-                    size="large"
+                    size="lg"
                     open
                 />
             </Inline>
@@ -268,7 +268,7 @@ stories()
         <Inline gap="200px" style={{ marginTop: "150px" }}>
             <BasicDropdown
                 upward
-                size="small"
+                size="sm"
                 open
             />
             <BasicDropdown
@@ -277,7 +277,7 @@ stories()
             />
             <BasicDropdown
                 upward
-                size="large"
+                size="lg"
                 open
             />
         </Inline>
@@ -287,7 +287,7 @@ stories()
             <Stack gap="200px">
                 <BasicDropdown
                     direction="left"
-                    size="small"
+                    size="sm"
                     open
                 />
                 <BasicDropdown
@@ -296,14 +296,14 @@ stories()
                 />
                 <BasicDropdown
                     direction="left"
-                    size="large"
+                    size="lg"
                     open
                 />
             </Stack>
             <Stack gap="200px">
                 <BasicDropdown
                     direction="right"
-                    size="small"
+                    size="sm"
                     open
                 />
                 <BasicDropdown
@@ -312,7 +312,7 @@ stories()
                 />
                 <BasicDropdown
                     direction="right"
-                    size="large"
+                    size="lg"
                     open
                 />
             </Stack>
@@ -326,20 +326,20 @@ stories()
         <Inline gap={12}>
             <Stack gap="200px" className="w-50">
                 <BasicDropdown
-                    size="small"
+                    size="sm"
                     fluid
                 />
                 <BasicDropdown
                     fluid
                 />
                 <BasicDropdown
-                    size="large"
+                    size="lg"
                     fluid
                 />
             </Stack>
             <Stack gap="200px" className="w-50">
                 <BasicDropdown
-                    size="small"
+                    size="sm"
                     fluid
                     open
                 />
@@ -348,7 +348,7 @@ stories()
                     open
                 />
                 <BasicDropdown
-                    size="large"
+                    size="lg"
                     fluid
                     open
                 />
@@ -360,7 +360,7 @@ stories()
             <Inline gap="200px">
                 <BasicDropdown
                     open
-                    size="small"
+                    size="sm"
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -369,7 +369,7 @@ stories()
                 </BasicDropdown>
                 <BasicDropdown
                     open
-                    size="small"
+                    size="sm"
                 >
                     <Dropdown.Title icon={<LightbulbIcon />}>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -396,7 +396,7 @@ stories()
             <Inline gap="200px">
                 <BasicDropdown
                     open
-                    size="large"
+                    size="lg"
                 >
                     <Dropdown.Title>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -405,7 +405,7 @@ stories()
                 </BasicDropdown>
                 <BasicDropdown
                     open
-                    size="large"
+                    size="lg"
                 >
                     <Dropdown.Title icon={<LightbulbIcon />}>Quick Actions</Dropdown.Title>
                     <Dropdown.Item>New</Dropdown.Item>
@@ -419,7 +419,7 @@ stories()
         <Inline gap="200px">
             <BasicDropdown
                 open
-                size="small"
+                size="sm"
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -438,7 +438,7 @@ stories()
             </BasicDropdown>
             <BasicDropdown
                 open
-                size="large"
+                size="lg"
             >
                 <Dropdown.Item>New</Dropdown.Item>
                 <Dropdown.Item>Open...</Dropdown.Item>
@@ -489,7 +489,7 @@ stories()
     .add("item description", () =>
         <Inline gap="200px">
             <BasicDropdown
-                size="small"
+                size="sm"
                 open
             >
                 <Dropdown.Item>New</Dropdown.Item>
@@ -504,7 +504,7 @@ stories()
                 <Dropdown.Item description="To infinite and beyond!">Save as...</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
-                size="large"
+                size="lg"
                 open
             >
                 <Dropdown.Item>New</Dropdown.Item>
@@ -516,7 +516,7 @@ stories()
     .add("item icon", () =>
         <Inline gap="200px">
             <BasicDropdown
-                size="small"
+                size="sm"
                 open
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
@@ -531,7 +531,7 @@ stories()
                 <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
-                size="large"
+                size="lg"
                 open
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
@@ -550,7 +550,7 @@ stories()
     .add("item button", () =>
         <Inline gap="200px">
             <BasicDropdown
-                size="small"
+                size="sm"
                 open
             >
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
@@ -563,7 +563,7 @@ stories()
                 <Dropdown.ButtonItem onClick={noop}>Save as...</Dropdown.ButtonItem>
             </BasicDropdown>
             <BasicDropdown
-                size="large"
+                size="lg"
                 open
             >
                 <Dropdown.ButtonItem onClick={noop}>New</Dropdown.ButtonItem>
@@ -576,7 +576,7 @@ stories()
         <Stack gap="200px">
             <Inline gap="200px">
                 <BasicDropdown
-                    size="small"
+                    size="sm"
                     open
                 >
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>
@@ -589,7 +589,7 @@ stories()
                     <Dropdown.LinkItem href="/internal-link">Save as...</Dropdown.LinkItem>
                 </BasicDropdown>
                 <BasicDropdown
-                    size="large"
+                    size="lg"
                     open
                 >
                     <Dropdown.LinkItem href="/internal-link">New</Dropdown.LinkItem>

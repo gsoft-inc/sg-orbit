@@ -24,7 +24,7 @@ export function createEmbeddableAdapter(sizeAdapter) {
     return (element, props = {}) => {
         const newProps = {
             ...props,
-            size: sizeAdapter[props.size || SIZE.medium]
+            size: sizeAdapter[props.size || SIZE.md]
         };
 
         return augmentElement(element, newProps);

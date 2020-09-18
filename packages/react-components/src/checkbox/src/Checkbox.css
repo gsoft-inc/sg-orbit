@@ -223,18 +223,18 @@
 /* SIZING */
 /* SIZING | SMALL */
 /* SIZING | SMALL | LABEL */
-.o-ui-checkbox-small .o-ui-checkbox-box {
+.o-ui-checkbox-sm .o-ui-checkbox-box {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-checkbox-small .o-ui-checkbox-box:before {
+.o-ui-checkbox-sm .o-ui-checkbox-box:before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
 /* SIZING | SMALL | BOX | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-small .o-ui-checkbox-box:after {
+.o-ui-checkbox-checked.o-ui-checkbox-sm .o-ui-checkbox-box:after {
     width: var(--scale-delta);
     height: var(--scale-delta);
     mask-size: var(--scale-delta) var(--scale-delta);
@@ -242,19 +242,19 @@
 
 /* SIZING | LARGE */
 /* SIZING | LARGE | LABEL */
-.o-ui-checkbox-large .o-ui-checkbox-box:before {
+.o-ui-checkbox-lg .o-ui-checkbox-box:before {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
 /* SIZING | LARGE | LABEL | */
-.o-ui-checkbox-large .o-ui-checkbox-box {
+.o-ui-checkbox-lg .o-ui-checkbox-box {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
 /* SIZING | LARGE | BOX | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-large .o-ui-checkbox-box:after {
+.o-ui-checkbox-checked.o-ui-checkbox-lg .o-ui-checkbox-box:after {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
     mask-size: var(--scale-foxtrot) var(--scale-foxtrot);

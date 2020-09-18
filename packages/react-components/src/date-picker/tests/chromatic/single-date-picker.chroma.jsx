@@ -62,11 +62,11 @@ stories()
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      {createSingleDatePicker({
-                         size: "small",
+                         size: "sm",
                          className: "mr5"
                      })}
                      {createSingleDatePicker({
-                         size: "small",
+                         size: "sm",
                          defaultDate: moment(DEFAULT_DATE)
                      })}
                  </div>
@@ -80,11 +80,11 @@ stories()
                  </div>
                  <div className="flex">
                      {createSingleDatePicker({
-                         size: "large",
+                         size: "lg",
                          className: "mr5"
                      })}
                      {createSingleDatePicker({
-                         size: "large",
+                         size: "lg",
                          defaultDate: moment(DEFAULT_DATE)
                      })}
                  </div>

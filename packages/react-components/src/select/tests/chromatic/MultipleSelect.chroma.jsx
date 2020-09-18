@@ -87,16 +87,16 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 <MultipleSelect
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
-                    size="small"
+                    size="sm"
                     defaultValue={["Female", "Male"]}
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -114,16 +114,16 @@ stories()
             </div>
             <div className="flex">
                 <MultipleSelect
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
-                    size="large"
+                    size="lg"
                     defaultValue={["Female", "Male"]}
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -207,18 +207,18 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <MultipleSelect
                     loading
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     loading
                     defaultValue={["Female"]}
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     loading
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -240,18 +240,18 @@ stories()
             <div className="flex">
                 <MultipleSelect
                     loading
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     loading
                     defaultValue={["Female"]}
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     loading
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -262,24 +262,24 @@ stories()
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
                     defaultValue={["Male"]}
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="small"
+                    size="sm"
                     open
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="small"
+                    size="sm"
                     search
                 />
             </div>
@@ -306,24 +306,24 @@ stories()
             <div className="flex">
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
                     defaultValue={["Male"]}
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="large"
+                    size="lg"
                     open
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     icon={<MagnifierIcon />}
-                    size="large"
+                    size="lg"
                     search
                 />
             </div>
@@ -334,18 +334,18 @@ stories()
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 <MultipleSelect
                     search
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     search
-                    size="small"
+                    size="sm"
                     defaultValue={["Female", "Male"]}
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     search
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -367,18 +367,18 @@ stories()
             <div className="flex" style={{ "marginBottom": "150px" }}>
                 <MultipleSelect
                     search
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     search
-                    size="large"
+                    size="lg"
                     defaultValue={["Female", "Male"]}
                     wrapperClassName="mr5"
                 />
                 <MultipleSelect
                     search
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -416,16 +416,16 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <AvatarMultipleSelect
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    size="small"
+                    size="sm"
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    size="small"
+                    size="sm"
                     open
                 />
             </div>
@@ -443,16 +443,16 @@ stories()
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <AvatarMultipleSelect
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    size="large"
+                    size="lg"
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <AvatarMultipleSelect
-                    size="large"
+                    size="lg"
                     open
                 />
             </div>
@@ -462,22 +462,22 @@ stories()
         <div className="flex flex-column">
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <IconsMultipleSelect
-                    size="small"
+                    size="sm"
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="small"
+                    size="sm"
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="small"
+                    size="sm"
                     defaultValue={["Female"]}
                     iconsPosition="right"
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="small"
+                    size="sm"
                     open
                     wrapperClassName="mr5"
                 />
@@ -502,22 +502,22 @@ stories()
             </div>
             <div className="flex" style={{ marginBottom: "150px" }}>
                 <IconsMultipleSelect
-                    size="large"
+                    size="lg"
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="large"
+                    size="lg"
                     defaultValue={["Female"]}
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="large"
+                    size="lg"
                     defaultValue={["Female"]}
                     iconsPosition="right"
                     wrapperClassName="mr5"
                 />
                 <IconsMultipleSelect
-                    size="large"
+                    size="lg"
                     open
                     wrapperClassName="mr5"
                 />

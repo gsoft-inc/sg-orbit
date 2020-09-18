@@ -41,7 +41,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * The button type.
      */
@@ -73,7 +73,7 @@ export function InnerButton(props) {
         autoFocus,
         autoFocusDelay,
         fluid,
-        loading = false,
+        loading,
         size,
         active,
         focus,

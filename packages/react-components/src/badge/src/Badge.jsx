@@ -17,7 +17,7 @@ const propTypes = {
     /**
      * A badge can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -29,9 +29,9 @@ const propTypes = {
 };
 
 const textSlotAdapter = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.tiny,
-    [SIZE.medium]: SIZE.small,
-    [SIZE.large]: SIZE.medium
+    [SIZE.sm]: SIZE.xs,
+    [SIZE.md]: SIZE.sm,
+    [SIZE.lg]: SIZE.md
 });
 
 export function InnerBadge({

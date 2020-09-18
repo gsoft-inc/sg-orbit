@@ -3,7 +3,7 @@ import { PureComponent, createRef } from "react";
 import { func, oneOf, string } from "prop-types";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 export class TagsPickerClearButton extends PureComponent {
     static propTypes = {

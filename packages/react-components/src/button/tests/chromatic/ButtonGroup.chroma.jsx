@@ -16,7 +16,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <ButtonGroup size="small">
+            <ButtonGroup size="sm">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
@@ -26,7 +26,7 @@ stories()
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
             </ButtonGroup>
-            <ButtonGroup size="large">
+            <ButtonGroup size="lg">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
@@ -36,7 +36,7 @@ stories()
     .add("icon button", () =>
         <Inline>
             <Stack>
-                <ButtonGroup size="small">
+                <ButtonGroup size="sm">
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
@@ -46,14 +46,14 @@ stories()
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                 </ButtonGroup>
-                <ButtonGroup size="large">
+                <ButtonGroup size="lg">
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
-                <ButtonGroup size="small">
+                <ButtonGroup size="sm">
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
@@ -63,7 +63,7 @@ stories()
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                 </ButtonGroup>
-                <ButtonGroup size="large">
+                <ButtonGroup size="lg">
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>

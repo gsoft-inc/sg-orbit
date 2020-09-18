@@ -64,32 +64,32 @@
     margin-right: var(--scale-bravo);
 }
 
-.o-ui-radio-small .o-ui-radio-button {
+.o-ui-radio-sm .o-ui-radio-button {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-radio-small .o-ui-radio-button::before {
+.o-ui-radio-sm .o-ui-radio-button::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
 }
 
-.o-ui-radio-medium .o-ui-radio-button {
+.o-ui-radio-md .o-ui-radio-button {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui-radio-medium .o-ui-radio-button::before {
+.o-ui-radio-md .o-ui-radio-button::before {
     width: var(--scale-echo);
     height: var(--scale-echo);
 }
 
-.o-ui-radio-large .o-ui-radio-button {
+.o-ui-radio-lg .o-ui-radio-button {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }
 
-.o-ui-radio-large .o-ui-radio-button::before {
+.o-ui-radio-lg .o-ui-radio-button::before {
     width: var(--scale-foxtrot);
     height: var(--scale-foxtrot);
 }

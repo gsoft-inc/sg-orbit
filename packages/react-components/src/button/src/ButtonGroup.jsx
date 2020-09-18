@@ -8,7 +8,7 @@ const propTypes = {
     /**
      * Buttons size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Whether or not the field take up the width of its container.
      */

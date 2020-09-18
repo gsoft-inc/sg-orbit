@@ -5,7 +5,7 @@ import { isNil } from "lodash";
 import { momentObj as momentType } from "react-moment-proptypes";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 export class InnerSingleDatePickerInput extends PureComponent {
     static propTypes = {

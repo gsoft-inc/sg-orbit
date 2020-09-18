@@ -84,18 +84,18 @@ stories()
              <div className="flex flex-column">
                  <div className="flex" style={{ marginBottom: "150px" }}>
                      { createSearchInputController({
-                         size: "small",
+                         size: "sm",
                          results: DEFAULT_RESULTS.slice(0, 2),
                          className: "mr5"
                      })}
                      { createSearchInputController({
-                         size: "small",
+                         size: "sm",
                          defaultValue: LAURIE_VALUE,
                          results: DEFAULT_RESULTS.slice(0, 2),
                          className: "mr5"
                      })}
                      { createSearchInputController({
-                         size: "small",
+                         size: "sm",
                          results: DEFAULT_RESULTS.slice(0, 2),
                          open: true
                      })}
@@ -117,19 +117,19 @@ stories()
                  </div>
                  <div className="flex">
                      { createSearchInputController({
-                         size: "large",
+                         size: "lg",
                          defaultValue: LAURIE_VALUE,
                          results: DEFAULT_RESULTS.slice(0, 2),
                          className: "mr5"
                      })}
                      { createSearchInputController({
                          results: DEFAULT_RESULTS.slice(0, 2),
-                         size: "large",
+                         size: "lg",
                          className: "mr5"
                      })}
                      { createSearchInputController({
                          results: DEFAULT_RESULTS.slice(0, 2),
-                         size: "large",
+                         size: "lg",
                          open: true
                      })}
                  </div>
@@ -142,7 +142,7 @@ stories("/loading/closed")
             {createSearchInputController({
                 value: LAURIE_VALUE,
                 loading: true,
-                size: "small",
+                size: "sm",
                 className: "mr5"
             })}
             {createSearchInputController({
@@ -153,7 +153,7 @@ stories("/loading/closed")
             {createSearchInputController({
                 value: LAURIE_VALUE,
                 loading: true,
-                size: "large"
+                size: "lg"
             })}
         </div>
     )
@@ -161,7 +161,7 @@ stories("/loading/closed")
         <div className="flex">
             {createSearchInputController({
                 loading: true,
-                size: "small",
+                size: "sm",
                 className: "mr5"
             })}
             {createSearchInputController({
@@ -170,7 +170,7 @@ stories("/loading/closed")
             })}
             {createSearchInputController({
                 loading: true,
-                size: "large"
+                size: "lg"
             })}
         </div>
     );
@@ -182,7 +182,7 @@ stories("/loading/opened")
                 open: true,
                 value: LAURIE_VALUE,
                 loading: true,
-                size: "small",
+                size: "sm",
                 className: "mr5"
             })}
             {createSearchInputController({
@@ -195,7 +195,7 @@ stories("/loading/opened")
                 open: true,
                 value: LAURIE_VALUE,
                 loading: true,
-                size: "large"
+                size: "lg"
             })}
         </div>
     )
@@ -204,7 +204,7 @@ stories("/loading/opened")
             {createSearchInputController({
                 open: true,
                 loading: true,
-                size: "small",
+                size: "sm",
                 className: "mr5"
             })}
             {createSearchInputController({
@@ -215,7 +215,7 @@ stories("/loading/opened")
             {createSearchInputController({
                 open: true,
                 loading: true,
-                size: "large"
+                size: "lg"
             })}
         </div>
     );

@@ -1,6 +1,7 @@
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { CheckeredBackground, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Icon, InnerIcon, InnerIconGroup, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import Imports from "./Imports.mdx";
@@ -86,15 +87,15 @@ An icon can vary in size.
 <Preview>
     <Story name="size">
         <CheckeredBackground>
-            <div className="flex items-end items-space-between">
-                <Icon type={AzureIcon32} size="tiny" />
-                <Icon type={AzureIcon32} size="small" />
+            <Inline align="end">
+                <Icon type={AzureIcon32} size="xs" />
+                <Icon type={AzureIcon32} size="sm" />
                 <Icon type={AzureIcon32} />
-                <Icon type={AzureIcon32} size="large" />
-                <Icon type={AzureIcon32} size="big" />
-                <Icon type={AzureIcon32} size="huge" />
-                <Icon type={AzureIcon32} size="massive" />
-            </div>
+                <Icon type={AzureIcon32} size="lg" />
+                <Icon type={AzureIcon32} size="xl" />
+                <Icon type={AzureIcon32} size="2xl" />
+                <Icon type={AzureIcon32} size="3xl" />
+            </Inline>
         </CheckeredBackground>
     </Story>
 </Preview>
@@ -106,11 +107,11 @@ An icon color can be altered by specifying a fill value with [Tachyons fill clas
 <Preview>
     <Story name="color">
         <CheckeredBackground>
-            <div className="flex items-end items-space-between">
-                <Icon type={AzureIcon32} size="huge" className="fill-primary-100" />
-                <Icon type={AzureIcon32} size="huge" className="fill-primary-500" />
-                <Icon type={AzureIcon32} size="huge" className="fill-primary-900" />
-            </div>
+            <Inline align="end">
+                <Icon type={AzureIcon32} size="2xl" className="fill-primary-100" />
+                <Icon type={AzureIcon32} size="2xl" className="fill-primary-500" />
+                <Icon type={AzureIcon32} size="2xl" className="fill-primary-900" />
+            </Inline>
         </CheckeredBackground>
     </Story>
 </Preview>
@@ -120,11 +121,11 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
 <Preview>
     <Story name="dynamic-color">
         <CheckeredBackground>
-            <div className="flex items-end items-space-between">
-                <Icon type={AzureIcon32} size="huge" style={{ fill: "var(--primary-100)" }} />
-                <Icon type={AzureIcon32} size="huge" style={{ fill: "var(--primary-500)" }} />
-                <Icon type={AzureIcon32} size="huge" style={{ fill: "var(--primary-900)" }} />
-            </div>
+            <Inline align="end">
+                <Icon type={AzureIcon32} size="2xl" style={{ fill: "var(--primary-100)" }} />
+                <Icon type={AzureIcon32} size="2xl" style={{ fill: "var(--primary-500)" }} />
+                <Icon type={AzureIcon32} size="2xl" style={{ fill: "var(--primary-900)" }} />
+            </Inline>
         </CheckeredBackground>
     </Story>
 </Preview>
@@ -140,15 +141,15 @@ A multi variants icon support the same props as `<Icon />`.
 <Preview>
     <Story name="multi-variants size">
         <CheckeredBackground>
-            <div className="flex items-end items-space-between">
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="tiny" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="small" />
+            <Inline align="end">
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="xs" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="sm" />
                 <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="large" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="big" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="huge" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="massive" />
-            </div>
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="xl" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xl" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="3xl" />
+            </Inline>
         </CheckeredBackground>
     </Story>
 </Preview>
@@ -158,11 +159,11 @@ A multi variants icon support the same props as `<Icon />`.
 <Preview>
     <Story name="multi-variants color">
         <CheckeredBackground>
-            <div className="flex items-end items-space-between">
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="huge" className="fill-primary-100" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="huge" className="fill-primary-500" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="huge" className="fill-primary-900" />
-            </div>
+            <Inline align="end">
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xl" className="fill-primary-100" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xl" className="fill-primary-500" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xl" className="fill-primary-900" />
+            </Inline>
         </CheckeredBackground>
     </Story>
 </Preview>

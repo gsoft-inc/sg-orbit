@@ -1,27 +1,17 @@
 export const SIZE = {
-    micro: "micro",
-    mini: "mini",
-    tiny: "tiny",
-    small: "small",
-    medium: "medium",
-    large: "large",
-    big: "big",
-    huge: "huge",
-    massive: "massive"
-};
-
-export const SIZE_CLASS = {
-    [SIZE.micro]: "micro",
-    [SIZE.mini]: "mini",
-    [SIZE.tiny]: "tiny",
-    [SIZE.small]: "small",
-    [SIZE.medium]: "medium",
-    [SIZE.large]: "large",
-    [SIZE.big]: "big",
-    [SIZE.huge]: "huge",
-    [SIZE.massive]: "massive"
+    _3xs: "3xs",
+    _2xs: "2xs",
+    xs: "xs",
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+    xl: "xl",
+    _2xl: "2xl",
+    _3xl: "3xl",
+    _4xl: "4xl",
+    _5xl: "5xl"
 };
 
 export function getSizeClass(size) {
-    return SIZE_CLASS[size || SIZE.medium];
+    return size || SIZE.md;
 }
