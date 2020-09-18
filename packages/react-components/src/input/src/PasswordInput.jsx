@@ -80,7 +80,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -111,6 +111,8 @@ export function InnerPasswordInput({
                 <IconButton
                     variant="ghost"
                     onClick={handleClick}
+                    title="Toggle password visibility"
+                    aria-label="Toggle password visibility"
                 >
                     {isHidden ? <EyeIcon /> : <PrivacyIcon />}
                 </IconButton>

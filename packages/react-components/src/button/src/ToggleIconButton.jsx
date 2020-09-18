@@ -48,28 +48,31 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
+    /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
     /**
      * @ignore
      */
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill"
-};
-
 export function InnerToggleIconButton(props) {
     const checkableProps = useCheckable(props);
 
     const {
-        variant,
-        shape,
+        variant = "solid",
+        shape = "pill",
         checked,
         defaultChecked,
         value,
@@ -113,7 +116,6 @@ export function InnerToggleIconButton(props) {
 }
 
 InnerToggleIconButton.propTypes = propTypes;
-InnerToggleIconButton.defaultProps = defaultProps;
 
 export const ToggleIconButton = forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />

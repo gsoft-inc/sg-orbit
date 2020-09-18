@@ -70,7 +70,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -79,11 +79,6 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType])
-};
-
-const defaultProps = {
-    variant: "outline",
-    type: "text"
 };
 
 export function InnerTextInput(props) {
@@ -98,8 +93,8 @@ export function InnerTextInput(props) {
         required,
         validationState,
         onChange,
-        variant,
-        type,
+        variant = "outline",
+        type = "text",
         autoFocus,
         autoFocusDelay,
         icon,
@@ -120,7 +115,12 @@ export function InnerTextInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["isInToolbar", "orientation"]),
-        omitProps(fieldProps, ["isInField"])
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
@@ -191,7 +191,6 @@ export function InnerTextInput(props) {
 }
 
 InnerTextInput.propTypes = propTypes;
-InnerTextInput.defaultProps = defaultProps;
 
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />

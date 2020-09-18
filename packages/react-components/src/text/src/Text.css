@@ -4,34 +4,38 @@
     white-space: pre-wrap;
 }
 
-.o-ui-text-mini {
+.o-ui-text-xs {
     font-size: var(--type-scale-9);
 }
 
-.o-ui-text-tiny {
-    font-size: var(--type-scale-9);
-}
-
-.o-ui-text-small {
+.o-ui-text-sm {
     font-size: var(--type-scale-8);
 }
 
-.o-ui-text-medium {
+.o-ui-text-md {
     font-size: var(--type-scale-7);
 }
 
-.o-ui-text-large {
+.o-ui-text-lg {
     font-size: var(--type-scale-6);
 }
 
-.o-ui-text-big {
+.o-ui-text-xl {
     font-size: var(--type-scale-5);
 }
 
-.o-ui-text-huge {
+.o-ui-text-2xl {
     font-size: var(--type-scale-4);
 }
 
-.o-ui-text-massive {
+.o-ui-text-3xl {
     font-size: var(--type-scale-3);
+}
+
+.o-ui-text-4xl {
+    font-size: var(--type-scale-2);
+}
+
+.o-ui-text-5xl {
+    font-size: var(--type-scale-1);
 }

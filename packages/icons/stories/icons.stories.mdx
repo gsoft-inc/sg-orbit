@@ -232,7 +232,7 @@ Multi-variants components will decide for you which variant of an icon to render
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon />;
+    return <CalendarIcon aria-label="Calendar" />;
 }
 ```
 
@@ -244,7 +244,7 @@ Variants components let you decide at import time which variant of an icon to us
 import { CalendarIcon24 } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon24 />;
+    return <CalendarIcon24 aria-label="Calendar" />;
 }
 ```
 
@@ -314,7 +314,7 @@ To set the color of an icon component, you can add [Tachyons fill classes](?path
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon className="fill-marine-900" />
+    return <CalendarIcon className="fill-marine-900" aria-label="Calendar" />
 }
 ```
 
@@ -324,7 +324,7 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon style={{ fill: "var(--marine-900)" }} />;
+    return <CalendarIcon style={{ fill: "var(--marine-900)" }} aria-label="Calendar" />;
 }
 ```
 

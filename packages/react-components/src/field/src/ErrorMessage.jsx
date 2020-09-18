@@ -1,5 +1,5 @@
 import { FieldMessage, getValidationProps, useFieldMessage } from "./FieldMessage";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
@@ -7,7 +7,7 @@ const propTypes = {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

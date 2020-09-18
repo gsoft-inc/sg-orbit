@@ -74,6 +74,15 @@ test("when an id is provided, the label for attribute and the input id are match
 });
 
 test("when the id is auto generated, the input aria-labelledby attribute match the label id", async () => {
+    const { getByTestId } = render(<LabelledInputField />);
+
+    const input = await waitFor(() => getByTestId("text-input"));
+    const label = await waitFor(() => getByTestId("field-label"));
+
+    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+});
+
+test("when the id is auto generated, the group input aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledGroupInputField />);
 
     const input = await waitFor(() => getByTestId("checkbox-group"));
@@ -83,6 +92,15 @@ test("when the id is auto generated, the input aria-labelledby attribute match t
 });
 
 test("when an id is provided, the input aria-labelledby attribute match the label id", async () => {
+    const { getByTestId } = render(<LabelledInputField id="foo" />);
+
+    const input = await waitFor(() => getByTestId("text-input"));
+    const label = await waitFor(() => getByTestId("field-label"));
+
+    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+});
+
+test("when an id is provided, the group input aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledGroupInputField id="foo" />);
 
     const input = await waitFor(() => getByTestId("checkbox-group"));

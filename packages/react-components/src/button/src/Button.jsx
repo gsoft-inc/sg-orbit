@@ -41,7 +41,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * The button type.
      */
@@ -62,20 +62,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button"
-};
-
 export function InnerButton(props) {
     const formProps = useFormButton();
     const toolbarProps = useToolbar();
 
     const {
-        variant,
+        variant = "solid",
         color,
-        shape,
+        shape = "pill",
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -85,7 +79,7 @@ export function InnerButton(props) {
         focus,
         hover,
         disabled,
-        type,
+        type = "button",
         as: ElementType = "button",
         className,
         children,
@@ -140,7 +134,8 @@ export function InnerButton(props) {
                     slots={{
                         text: textSlot({
                             size,
-                            className: "o-ui-button-text"
+                            className: "o-ui-button-text",
+                            "aria-hidden": loading
                         }),
                         icon: iconSlot({
                             size,
@@ -156,7 +151,6 @@ export function InnerButton(props) {
 }
 
 InnerButton.propTypes = propTypes;
-InnerButton.defaultProps = defaultProps;
 
 export const Button = forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />

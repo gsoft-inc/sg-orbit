@@ -1,8 +1,11 @@
+import "./RadioGroup.css";
+
 import {
     CheckableContext,
     KEYS,
     augmentElement,
     mergeProps,
+    omitProps,
     useArrowNavigation,
     useAutoFocusFirstTabbableElement,
     useControllableState,
@@ -15,6 +18,7 @@ import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
+import { useFieldInput } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarContext } from "../../toolbar";
 
@@ -82,7 +86,7 @@ const propTypes = {
     /**
      * Children size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order of the button and the label of all children.
      */
@@ -103,6 +107,7 @@ const propTypes = {
 
 export function InnerRadioGroup(props) {
     const { isInToolbar, ...toolbarProps } = useToolbarContext();
+    const { isInField, ...fieldProps } = useFieldInput();
 
     const {
         value,
@@ -119,10 +124,15 @@ export function InnerRadioGroup(props) {
         size,
         reverse,
         disabled,
+        className,
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(props, toolbarProps);
+    } = mergeProps(
+        props,
+        toolbarProps,
+        omitProps(fieldProps, ["fluid"])
+    );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
@@ -139,6 +149,7 @@ export function InnerRadioGroup(props) {
     const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
+        cssModule: "o-ui-radio-group",
         role: "radio-group",
         required,
         validationState,
@@ -148,6 +159,8 @@ export function InnerRadioGroup(props) {
         size,
         reverse,
         disabled,
+        isInField,
+        className,
         ref
     });
 

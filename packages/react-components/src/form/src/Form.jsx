@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * A form can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

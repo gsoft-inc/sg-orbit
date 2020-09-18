@@ -1,5 +1,8 @@
-import { CheckableContext, augmentElement, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import "./CheckboxGroup.css";
+
+import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
+import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { Flex } from "../../layout";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -45,7 +48,7 @@ const propTypes = {
     /**
      * Children size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order of the checkbox and the label of all children.
      */
@@ -80,6 +83,8 @@ function arrayToggleValue(array, value) {
 export function InnerCheckboxGroup(props) {
     const toolbarProps = useToolbar();
 
+    const { isInField, ...fieldProps } = useFieldInput();
+
     const {
         value,
         defaultValue,
@@ -92,17 +97,20 @@ export function InnerCheckboxGroup(props) {
         size,
         reverse,
         disabled,
+        className,
         children,
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        toolbarProps
+        toolbarProps,
+        omitProps(fieldProps, ["fluid"])
     );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
     const { groupProps, itemProps } = useGroupInput({
+        cssModule: "o-ui-checkbox-group",
         required,
         validationState,
         orientation: orientation ?? "horizontal",
@@ -111,6 +119,8 @@ export function InnerCheckboxGroup(props) {
         size,
         reverse,
         disabled,
+        isInField,
+        className,
         ref: forwardedRef
     });
 
@@ -135,17 +145,19 @@ export function InnerCheckboxGroup(props) {
             {...groupProps}
         >
             <ClearToolbarContext>
-                <CheckableContext.Provider
-                    value={{
-                        onCheck: handleCheck,
-                        checkedValue,
-                        role: "checkbox"
-                    }}
-                >
-                    {Children.map(items, x => {
-                        return augmentElement(x, itemProps);
-                    })}
-                </CheckableContext.Provider>
+                <ClearFieldContext>
+                    <CheckableContext.Provider
+                        value={{
+                            onCheck: handleCheck,
+                            checkedValue,
+                            role: "checkbox"
+                        }}
+                    >
+                        {Children.map(items, x => {
+                            return augmentElement(x, itemProps);
+                        })}
+                    </CheckableContext.Provider>
+                </ClearFieldContext>
             </ClearToolbarContext>
         </Flex>
     );

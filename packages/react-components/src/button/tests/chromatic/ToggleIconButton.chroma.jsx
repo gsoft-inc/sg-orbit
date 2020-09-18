@@ -17,68 +17,68 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
-                <ToggleIconButton checked><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton active><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton hover><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus hover><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton disabled><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
         </Stack>
     )
     .add("circular outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
-                <ToggleIconButton checked variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton active variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton hover variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus hover variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton disabled variant="outline" shape="circular"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton checked variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
         </Stack>
     )
     .add("rounded outline", () =>
         <Stack>
             <Inline align="end">
-                <ToggleIconButton size="small" variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="large" variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="sm" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton size="lg" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline align="end">
-                <ToggleIconButton checked variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton active variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton hover variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton focus hover variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton disabled variant="outline" shape="rounded"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton checked variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton active variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton hover variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton focus hover variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton disabled variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
         </Stack>
     )
     .add("checked", () =>
         <Inline>
-            <ToggleIconButton checked><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton defaultChecked><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton defaultChecked aria-label="Activate"><CheckIcon /></ToggleIconButton>
         </Inline>
     )
     .add("render props", () =>
         <Inline>
-            <ToggleIconButton>
+            <ToggleIconButton aria-label="Activate">
                 {
                     () => <CheckIcon />
                 }
             </ToggleIconButton>
-            <ToggleIconButton defaultChecked>
+            <ToggleIconButton defaultChecked aria-label="Activate">
                 {
                     ({ isChecked }) => isChecked ? <CheckIcon /> : <CrossIcon />
                 }
@@ -87,8 +87,8 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <ToggleIconButton className="bg-red"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton style={{ backgroundColor: "red" }}><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton className="bg-red" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton style={{ backgroundColor: "red" }} aria-label="Activate"><CheckIcon /></ToggleIconButton>
         </Inline>
     );
 

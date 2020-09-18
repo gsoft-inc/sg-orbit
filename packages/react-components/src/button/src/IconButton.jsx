@@ -33,11 +33,15 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["mini", "tiny", "small", "medium", "large"]),
+    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
     /**
      * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
+    /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -52,20 +56,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill",
-    type: "button"
-};
-
 export function InnerIconButton(props) {
     const slotProps = useSlot("button");
     const toolbarProps = useToolbar();
 
     const {
-        variant,
+        variant = "solid",
         color,
-        shape,
+        shape = "pill",
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -75,8 +73,10 @@ export function InnerIconButton(props) {
         focus,
         hover,
         disabled,
-        type,
+        type = "button",
+        title,
         as: ElementType = "button",
+        "aria-label": ariaLabel,
         className,
         children,
         forwardedRef,
@@ -111,6 +111,8 @@ export function InnerIconButton(props) {
             data-testid="icon-button"
             {...rest}
             {...buttonProps}
+            title={title ?? ariaLabel}
+            aria-label={ariaLabel}
         >
             <ClearSlots>
                 <SlotProvider
@@ -129,22 +131,21 @@ export function InnerIconButton(props) {
 }
 
 InnerIconButton.propTypes = propTypes;
-InnerIconButton.defaultProps = defaultProps;
 
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 ));
 
 export const embedIconButton = createEmbeddableAdapter({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 });
 
 export const iconButtonSlot = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.mini,
-    [SIZE.medium]: SIZE.tiny,
-    [SIZE.large]: SIZE.small
+    [SIZE.sm]: SIZE._2xs,
+    [SIZE.md]: SIZE.xs,
+    [SIZE.lg]: SIZE.sm
 });
 
 

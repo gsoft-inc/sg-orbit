@@ -45,7 +45,7 @@ const propTypes = {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -57,9 +57,9 @@ const propTypes = {
 };
 
 const ADAPTED_SIZE = {
-    [SIZE.small]: SIZE.tiny,
-    [SIZE.medium]: SIZE.small,
-    [SIZE.large]: SIZE.medium
+    [SIZE.sm]: SIZE.xs,
+    [SIZE.md]: SIZE.sm,
+    [SIZE.lg]: SIZE.md
 };
 
 export const FieldMessage = forwardRef(({
@@ -75,7 +75,7 @@ export const FieldMessage = forwardRef(({
         <Text
             data-testid="field-message"
             {...rest}
-            size={ADAPTED_SIZE[size ?? SIZE.medium]}
+            size={ADAPTED_SIZE[size ?? SIZE.md]}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",

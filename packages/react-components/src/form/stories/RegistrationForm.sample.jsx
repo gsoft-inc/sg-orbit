@@ -27,7 +27,7 @@ export function RegistrationForm() {
                 console.log(JSON.stringify(values, null, 2));
                 actions.setSubmitting(false);
                 actions.resetForm();
-            }, 1000);
+            }, 10000);
         }
     });
 
@@ -83,7 +83,7 @@ export function RegistrationForm() {
                     Agree to terms and conditions
                 </Checkbox>
             </Field>
-            <ButtonGroup className="self-justify-center">
+            <ButtonGroup className="justify-self-end">
                 <Button
                     variant="link"
                     onClick={formik.resetForm}

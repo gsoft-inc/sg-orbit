@@ -2,9 +2,9 @@
 
 :root {
     --o-ui-resize: vertical;
-    --o-ui-textarea-padding-small: var(--scale-bravo);
-    --o-ui-textarea-padding-medium: var(--scale-charlie);
-    --o-ui-textarea-padding-large: var(--scale-delta);
+    --o-ui-textarea-padding-sm: var(--scale-bravo);
+    --o-ui-textarea-padding-md: var(--scale-charlie);
+    --o-ui-textarea-padding-lg: var(--scale-delta);
 }
 
 .o-ui-text-area textarea {
@@ -15,20 +15,20 @@
 
 /* SIZES */
 /* SIZES | SMALL */
-.o-ui-text-area.o-ui-input-small textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-small);
+.o-ui-text-area.o-ui-input-sm textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-sm);
     min-height: 60px;
 }
 
 /* SIZES | MEDIUM */
-.o-ui-text-area.o-ui-input-medium textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-medium);
+.o-ui-text-area.o-ui-input-md textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-md);
     min-height: 80px;
 }
 
 /* SIZES | LARGE */
-.o-ui-text-area.o-ui-input-large textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-large);
+.o-ui-text-area.o-ui-input-lg textarea {
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding-lg);
     line-height: 1.3333333;
     min-height: 100px;
 }

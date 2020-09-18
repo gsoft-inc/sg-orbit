@@ -44,7 +44,7 @@ const propTypes = {
     /**
      * Element size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Whether the toolbar take up the width of its container.
      */
@@ -63,16 +63,12 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    orientation: "horizontal"
-};
-
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
     align,
     justify,
-    orientation,
+    orientation = "horizontal",
     gap = 5,
     wrap,
     size,
@@ -124,7 +120,6 @@ export function InnerToolbar({
 }
 
 InnerToolbar.propTypes = propTypes;
-InnerToolbar.defaultProps = defaultProps;
 
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />

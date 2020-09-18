@@ -86,6 +86,7 @@ export function useCheckbox({
             disabled,
             name,
             tabIndex,
+            "aria-checked": isIndeterminate ? "mixed" : isChecked,
             "aria-required": required,
             "aria-invalid": validationState === "invalid" ? true : undefined,
             ref: inputRef

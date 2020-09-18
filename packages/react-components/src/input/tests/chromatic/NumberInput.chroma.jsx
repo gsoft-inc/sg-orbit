@@ -17,9 +17,9 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <NumberInput size="small" placeholder="Age" />
+                <NumberInput size="sm" placeholder="Age" />
                 <NumberInput placeholder="Age" />
-                <NumberInput size="large" placeholder="Age" />
+                <NumberInput size="lg" placeholder="Age" />
             </Inline>
             <div>
                 <NumberInput disabled placeholder="Age" />
@@ -46,9 +46,9 @@ stories()
     .add("icon", () =>
         <Stack>
             <Inline align="end">
-                <NumberInput icon={<EditIcon />} size="small" placeholder="Age" />
+                <NumberInput icon={<EditIcon />} size="sm" placeholder="Age" />
                 <NumberInput icon={<EditIcon />} placeholder="Age" />
-                <NumberInput icon={<EditIcon />} size="large" placeholder="Age" />
+                <NumberInput icon={<EditIcon />} size="lg" placeholder="Age" />
             </Inline>
             <div>
                 <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
@@ -69,16 +69,16 @@ stories()
     )
     .add("loading", () =>
         <Inline align="end">
-            <NumberInput loading size="small" placeholder="Age" />
+            <NumberInput loading size="sm" placeholder="Age" />
             <NumberInput loading placeholder="Age" />
-            <NumberInput loading size="large" placeholder="Age" />
+            <NumberInput loading size="lg" placeholder="Age" />
         </Inline>
     )
     .add("transparent", () =>
         <Inline align="end">
-            <NumberInput variant="transparent" size="small" placeholder="Age" />
+            <NumberInput variant="transparent" size="sm" placeholder="Age" />
             <NumberInput variant="transparent" placeholder="Age" />
-            <NumberInput variant="transparent" size="large" placeholder="Age" />
+            <NumberInput variant="transparent" size="lg" placeholder="Age" />
         </Inline>
     )
     .add("autofocus", () =>

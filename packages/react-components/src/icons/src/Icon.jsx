@@ -3,8 +3,11 @@ import "./Icon.css";
 import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 
-const SIZES = ["micro", "mini", "tiny", "small", "medium", "large", "big", "huge", "massive"];
+// const SIZES = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"];
+
+const SIZES = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"];
 
 export function InnerIcon(props) {
     const slotProps = useSlot("icon");
@@ -15,6 +18,7 @@ export function InnerIcon(props) {
         disabled,
         className,
         forwardedRef,
+        "aria-label": ariaLabel,
         ...rest
     } = mergeProps(
         props,
@@ -33,7 +37,8 @@ export function InnerIcon(props) {
                 className
             )}
             focusable="false"
-            aria-hidden="true"
+            aria-hidden={isNil(ariaLabel)}
+            aria-label={ariaLabel}
             ref={forwardedRef}
         />
     );
@@ -71,7 +76,7 @@ function createIconFactory(type) {
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component32;
 
-    if (size === SIZE.tiny || size === SIZE.small || size === SIZE.medium) {
+    if (size === SIZE.xs || size === SIZE.sm || size === SIZE.md) {
         type = Component24;
     }
 

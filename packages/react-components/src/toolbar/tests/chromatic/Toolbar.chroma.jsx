@@ -21,7 +21,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Toolbar size="small" align="center">
+            <Toolbar size="sm" align="center">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -51,7 +51,7 @@ stories()
                     <Radio value="3">3</Radio>
                 </RadioGroup>
             </Toolbar>
-            <Toolbar size="large" align="center">
+            <Toolbar size="lg" align="center">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

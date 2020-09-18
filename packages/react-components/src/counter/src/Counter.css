@@ -10,21 +10,21 @@
 }
 
 /* PILL | SIZES */
-.o-ui-counter-pill.o-ui-counter-small {
+.o-ui-counter-pill.o-ui-counter-sm {
     min-height: 1rem;
     min-width: 1rem;
     font-size: var(--type-scale-9);
     padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
 }
 
-.o-ui-counter-pill.o-ui-counter-medium {
+.o-ui-counter-pill.o-ui-counter-md {
     min-height: 1.25rem;
     min-width: 1.25rem;
     font-size: var(--type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
-.o-ui-counter-pill.o-ui-counter-large {
+.o-ui-counter-pill.o-ui-counter-lg {
     min-height: 1.5rem;
     min-width: 1.5rem;
     font-size: var(--type-scale-7);

@@ -48,7 +48,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -59,17 +59,12 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const defaultProps = {
-    variant: "solid",
-    shape: "pill"
-};
-
 export function InnerToggleButton(props) {
     const checkableProps = useCheckable(props);
 
     const {
-        variant,
-        shape,
+        variant = "solid",
+        shape = "pill",
         checked,
         defaultChecked,
         value,
@@ -115,7 +110,6 @@ export function InnerToggleButton(props) {
 }
 
 InnerToggleButton.propTypes = propTypes;
-InnerToggleButton.defaultProps = defaultProps;
 
 export const ToggleButton = forwardRef((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />

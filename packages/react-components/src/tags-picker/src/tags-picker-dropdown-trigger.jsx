@@ -6,7 +6,7 @@ import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
 
 // Sizes constants are duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise it will not render properly in the docs.
-const SIZES = ["small", "medium", "large"];
+const SIZES = ["sm", "md", "lg"];
 
 export class TagsPickerDropdownTrigger extends PureComponent {
     static propTypes = {

@@ -22,7 +22,7 @@ const propTypes = {
     /**
      * A tag can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -33,12 +33,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "solid"
-};
-
 export function InnerTag({
-    variant,
+    variant = "solid",
     disabled,
     fluid,
     size,
@@ -123,8 +119,6 @@ export function InnerTag({
 }
 
 InnerTag.propTypes = propTypes;
-InnerTag.defaultProps = defaultProps;
-
 export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

@@ -15,9 +15,9 @@ export function createTestSuite(element, stories) {
         .add("default", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="small" element={element}>Falcon 9</Tag>
+                    <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
-                    <Tag size="large" element={element}>Falcon 9</Tag>
+                    <Tag size="lg" element={element}>Falcon 9</Tag>
                 </Inline>
                 <Inline>
                     <Tag fluid element={element}>Falcon 9</Tag>
@@ -30,7 +30,7 @@ export function createTestSuite(element, stories) {
         .add("icon", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="small" element={element}>
+                    <Tag size="sm" element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
@@ -38,13 +38,13 @@ export function createTestSuite(element, stories) {
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
-                    <Tag size="large" element={element}>
+                    <Tag size="lg" element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
                 <Inline align="end">
-                    <Tag size="small" element={element}>
+                    <Tag size="sm" element={element}>
                         <IconGroup>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
                         </IconGroup>
@@ -56,7 +56,7 @@ export function createTestSuite(element, stories) {
                         </IconGroup>
                         <Text>Falcon 9</Text>
                     </Tag>
-                    <Tag size="large" element={element}>
+                    <Tag size="lg" element={element}>
                         <IconGroup>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
                         </IconGroup>
@@ -80,7 +80,7 @@ export function createTestSuite(element, stories) {
         .add("dot", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="small" element={element}>
+                    <Tag size="sm" element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
@@ -88,7 +88,7 @@ export function createTestSuite(element, stories) {
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
-                    <Tag size="large" element={element}>
+                    <Tag size="lg" element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
@@ -110,7 +110,7 @@ export function createTestSuite(element, stories) {
         .add("counter", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="small" element={element}>
+                    <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
                     </Tag>
@@ -118,7 +118,7 @@ export function createTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
                     </Tag>
-                    <Tag size="large" element={element}>
+                    <Tag size="lg" element={element}>
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
                     </Tag>
@@ -140,21 +140,21 @@ export function createTestSuite(element, stories) {
         .add("button", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="small" element={element}>
+                    <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
                     <Tag element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
-                    <Tag size="large" element={element}>
+                    <Tag size="lg" element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
@@ -162,7 +162,7 @@ export function createTestSuite(element, stories) {
                 <Inline>
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>
@@ -170,7 +170,7 @@ export function createTestSuite(element, stories) {
                 <Inline className="w-10">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
-                        <IconButton>
+                        <IconButton aria-label="Clear value">
                             <CrossIcon />
                         </IconButton>
                     </Tag>

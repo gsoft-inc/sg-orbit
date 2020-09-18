@@ -17,7 +17,7 @@ const propTypes = {
     /**
      * A badge can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -28,18 +28,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-const defaultProps = {
-    variant: "count"
-};
-
 const textSlotAdapter = createSizeAdapterSlotFactory({
-    [SIZE.small]: SIZE.tiny,
-    [SIZE.medium]: SIZE.small,
-    [SIZE.large]: SIZE.medium
+    [SIZE.sm]: SIZE.xs,
+    [SIZE.md]: SIZE.sm,
+    [SIZE.lg]: SIZE.md
 });
 
 export function InnerBadge({
-    variant,
+    variant = "count",
     overlap,
     size,
     as: ElementType = "span",
@@ -91,7 +87,6 @@ export function InnerBadge({
 }
 
 InnerBadge.propTypes = propTypes;
-InnerBadge.defaultProps = defaultProps;
 
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />

@@ -19,7 +19,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline align="end" gap={13}>
-            <Form size="small">
+            <Form size="sm">
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
@@ -43,7 +43,7 @@ stories()
                 </Field>
                 <Button>Submit</Button>
             </Form>
-            <Form size="large">
+            <Form size="lg">
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
@@ -161,21 +161,21 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="self-justify-start">Submit</Button>
+                <Button className="justify-self-start">Submit</Button>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="self-justify-center">Submit</Button>
+                <Button className="justify-self-center">Submit</Button>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="self-justify-end">Submit</Button>
+                <Button className="justify-self-end">Submit</Button>
             </Form>
         </Inline>
     )
@@ -186,7 +186,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="self-justify-start">
+                <ButtonGroup className="justify-self-start">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
@@ -196,7 +196,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="self-justify-center">
+                <ButtonGroup className="justify-self-center">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
@@ -206,7 +206,7 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="self-justify-end">
+                <ButtonGroup className="justify-self-end">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>

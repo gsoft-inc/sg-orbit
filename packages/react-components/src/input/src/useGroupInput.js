@@ -1,4 +1,4 @@
-import { SIZE } from "../../shared";
+import { SIZE, cssModule, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
 
 const ITEMS_DIRECTION = {
@@ -8,18 +8,19 @@ const ITEMS_DIRECTION = {
 
 const ITEMS_GAP_BY_SIZE = {
     "horizontal": {
-        [SIZE.small]: 4,
-        [SIZE.medium]: 5,
-        [SIZE.large]: 6
+        [SIZE.sm]: 4,
+        [SIZE.md]: 5,
+        [SIZE.lg]: 6
     },
     "vertical": {
-        [SIZE.small]: 2,
-        [SIZE.medium]: 3,
-        [SIZE.large]: 4
+        [SIZE.sm]: 2,
+        [SIZE.md]: 3,
+        [SIZE.lg]: 4
     }
 };
 
 export function useGroupInput({
+    cssModule: module,
     role = "group",
     required,
     validationState,
@@ -29,6 +30,8 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
+    isInField,
+    className,
     ref
 }) {
     return {
@@ -37,10 +40,17 @@ export function useGroupInput({
             inline: reverse,
             direction: ITEMS_DIRECTION[orientation],
             alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
-            gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.medium],
+            gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.md],
             wrap: !isNil(wrap) ? "wrap" : undefined,
+            className: mergeClasses(
+                cssModule(
+                    module,
+                    isInField && "as-field"
+                ),
+                className
+            ),
             "aria-required": required,
-            "aria-invalid": validationState === "invalid" ? true : undefined,
+            "aria-invalid": validationState === "invalid",
             "aria-orientation": orientation,
             "aria-disabled": disabled,
             ref

@@ -37,7 +37,7 @@ stories()
         </Inline>
     )
     .add("checkbox group", () =>
-        <Inline>
+        <Inline gap={13} align="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <CheckboxGroup>
@@ -47,13 +47,31 @@ stories()
                 </CheckboxGroup>
                 <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
             </GroupField>
+            <GroupField>
+                <Label>Select your packages</Label>
+                <CheckboxGroup orientation="vertical">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+                <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
+            </GroupField>
         </Inline>
     )
     .add("radio group", () =>
-        <Inline>
+        <Inline gap={13} align="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <RadioGroup>
+                    <Radio value="1">1</Radio>
+                    <Radio value="2">2</Radio>
+                    <Radio value="3">3</Radio>
+                </RadioGroup>
+                <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
+            </GroupField>
+            <GroupField>
+                <Label>Select your packages</Label>
+                <RadioGroup orientation="horizontal">
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>
                     <Radio value="3">3</Radio>

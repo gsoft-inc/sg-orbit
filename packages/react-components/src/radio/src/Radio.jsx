@@ -8,7 +8,6 @@ import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { iconSlot } from "../../icons";
 import { isFunction, isNil } from "lodash";
-import { useFieldInput } from "../../field";
 
 const propTypes = {
     /**
@@ -44,7 +43,7 @@ const propTypes = {
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Invert the order of the checkmark box and the label.
      */
@@ -61,8 +60,6 @@ const propTypes = {
 
 export function InnerRadio(props) {
     const checkableProps = useCheckable(props);
-
-    const { isInField, ...fieldProps } = useFieldInput();
 
     const {
         value,
@@ -88,8 +85,7 @@ export function InnerRadio(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(checkableProps, ["role"]),
-        omitProps(fieldProps, ["fluid"])
+        omitProps(checkableProps, ["role"])
     );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -133,7 +129,6 @@ export function InnerRadio(props) {
                 cssModule(
                     "o-ui-radio",
                     isChecked && "checked",
-                    isInField && "as-field",
                     reverse && "reverse",
                     validationState && validationState,
                     disabled && "disabled",
@@ -155,7 +150,7 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
-                aria-invalid={validationState === "invalid" ? true : undefined}
+                aria-invalid={validationState === "invalid"}
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>

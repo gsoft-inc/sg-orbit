@@ -78,7 +78,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["small", "medium", "large"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -87,11 +87,6 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType])
-};
-
-const defaultProps = {
-    variant: "outline",
-    type: "text"
 };
 
 const pxToInt = value => {
@@ -110,8 +105,8 @@ export function InnerTextArea(props) {
         required,
         validationState,
         onChange,
-        variant,
-        type,
+        variant = "outline",
+        type = "text",
         autoFocus,
         autoFocusDelay,
         button,
@@ -133,7 +128,12 @@ export function InnerTextArea(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(fieldProps, ["isInField"])
+        {
+            ...omitProps(fieldProps, ["className", "isInField"]),
+            wrapperProps: {
+                className: fieldProps.className
+            }
+        }
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
@@ -226,7 +226,6 @@ export function InnerTextArea(props) {
 }
 
 InnerTextArea.propTypes = propTypes;
-InnerTextArea.defaultProps = defaultProps;
 
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />

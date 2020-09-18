@@ -1,4 +1,4 @@
-import { CheckCircleIcon, CheckIcon, CrossIcon, IconGroup } from "@react-components/icons";
+import { CheckCircleIcon, CrossIcon, IconGroup } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { IconButton } from "@react-components/button";
@@ -59,7 +59,7 @@ A tag can contain a [button](?path=/docs/components-button--default-story).
     <Story name="button">
         <Tag>
             <Text>Falcon 9</Text>
-            <IconButton>
+            <IconButton aria-label="Clear value">
                 <CrossIcon />
             </IconButton>
         </Tag>
@@ -120,9 +120,9 @@ A tag can vary in size.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <Tag size="small">Falcon 9</Tag>
+            <Tag size="sm">Falcon 9</Tag>
             <Tag>Falcon 9</Tag>
-            <Tag size="large">Falcon 9</Tag>
+            <Tag size="lg">Falcon 9</Tag>
         </Inline>
     </Story>
 </Preview>

@@ -44,7 +44,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <CheckboxGroup size="small">
+            <CheckboxGroup size="sm">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
@@ -54,7 +54,7 @@ stories()
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup size="large">
+            <CheckboxGroup size="lg">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
@@ -96,7 +96,7 @@ stories()
     )
     .add("vertical", () =>
         <Inline align="end" gap={13}>
-            <CheckboxGroup size="small" orientation="vertical">
+            <CheckboxGroup size="sm" orientation="vertical">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
@@ -106,7 +106,7 @@ stories()
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup size="large" orientation="vertical">
+            <CheckboxGroup size="lg" orientation="vertical">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>

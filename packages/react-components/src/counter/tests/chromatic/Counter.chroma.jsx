@@ -16,9 +16,9 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline align="end">
-                <Counter size="small">15</Counter>
+                <Counter size="sm">15</Counter>
                 <Counter>15</Counter>
-                <Counter size="large">15</Counter>
+                <Counter size="lg">15</Counter>
             </Inline>
             <Inline>
                 <Counter>2</Counter>

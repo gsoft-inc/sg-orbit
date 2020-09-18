@@ -21,7 +21,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         active: bool,
         focus: bool,
         hover: bool,
-        size: oneOf([SIZE.small, SIZE.medium, SIZE.large]),
+        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
         className: string,
         forwardedRef: oneOfType([object, func])
     };
@@ -29,7 +29,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        size: SIZE.medium
+        size: SIZE.md
     };
 
     isPlaceholder() {

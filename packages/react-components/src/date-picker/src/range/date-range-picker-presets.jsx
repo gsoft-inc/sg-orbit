@@ -47,7 +47,7 @@ class Preset extends PureComponent {
                     <Otherwise>
                         <Button
                             variant="link"
-                            size="small"
+                            size="sm"
                             onClick={this.handleClick}
                             className={classes}
                             data-testid={`date-range-picker-presets-${preset.text}`}
@@ -149,7 +149,7 @@ export class DateRangePickerPresets extends PureComponent {
             return (
                 <div className={classes}>
                     <div className="self-center mb6">
-                        <Icon type={PresetsCalendarIcon} size="big" className="fill-marine-900" />
+                        <Icon type={PresetsCalendarIcon} size="xl" className="fill-marine-900" />
                     </div>
                     <ul className="values">
                         {this.renderPresets()}
