@@ -59,4 +59,10 @@ stories()
                 <InfoIcon /> Thank you!, here's your <a href="https://www.sharegate.com" target="_blank" rel="noreferrer">receipt</a>.
             </ValidMessage>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <ValidMessage className="bg-red">Thank you!</ValidMessage>
+            <ValidMessage style={{ background: "red" }}>Thank you!</ValidMessage>
+        </Inline>
     );

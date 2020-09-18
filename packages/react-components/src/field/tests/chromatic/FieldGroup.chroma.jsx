@@ -1,5 +1,5 @@
 import { Field, FieldGroup } from "@react-components/field";
-import { Stack } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -62,4 +62,18 @@ stories()
                 <TextInput />
             </Field>
         </FieldGroup>
+    )
+    .add("styling", () =>
+        <Inline>
+            <FieldGroup className="border-red">
+                <Field>
+                    <TextInput />
+                </Field>
+            </FieldGroup>
+            <FieldGroup style={{ border: "1px solid red" }}>
+                <Field>
+                    <TextInput />
+                </Field>
+            </FieldGroup>
+        </Inline>
     );

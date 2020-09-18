@@ -1,4 +1,4 @@
-import "./Paragraph.css";
+import "./Heading.css";
 
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, getSizeClass, mergeClasses } from "../../shared";
@@ -8,31 +8,29 @@ const propTypes = {
     /**
      * A paragraph can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
+    size: oneOf(["xs", "sm", "md", "lg", "xl"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as: oneOfType([string, elementType]).isRequired,
     /**
      * @ignore
      */
     children: any.isRequired
 };
 
-export function InnerParagraph({
+export function InnerHeading({
     size,
-    as: ElementType = "p",
+    as: ElementType,
     className,
     children,
-    forwardedRef,
-    ...rest
+    forwardedRef
 }) {
     return (
         <ElementType
-            {...rest}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-p",
+                    "o-ui-heading",
                     getSizeClass(size)
                 ),
                 className
@@ -44,9 +42,8 @@ export function InnerParagraph({
     );
 }
 
-InnerParagraph.propTypes = propTypes;
+InnerHeading.propTypes = propTypes;
 
-export const Paragraph = forwardRef((props, ref) => (
-    <InnerParagraph {...props} forwardedRef={ref} />
+export const Heading = forwardRef((props, ref) => (
+    <InnerHeading {...props} forwardedRef={ref} />
 ));
-

@@ -1,0 +1,73 @@
+import { Heading, InnerHeading } from "@react-components/text";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/layout";
+import Imports from "./HeadingImports.mdx";
+
+<Meta
+    title={createComponentSection("Heading")}
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
+        .build()}
+/>
+
+# Heading
+
+Heading is used to create various levels of typographic hierarchies.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Heading", component: InnerHeading }
+    ]}
+/>
+
+## Usage
+
+You can alter the size of the heading text by specying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/materials-typography--page#headlines).
+
+### As headers
+
+When using an header, you must specify the element type to render it as. We do recommended using native header elements `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`.
+
+<Preview>
+    <Story name="as headers">
+        <Stack>
+            <Heading as="h1" size="xl">Migrate, adapt, and control the cloud.</Heading>
+            <Heading as="h2" size="lg">Migrate, adapt, and control the cloud.</Heading>
+            <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
+            <Heading as="h4" size="sm">Migrate, adapt, and control the cloud.</Heading>
+            <Heading as="h5" size="xs">Migrate, adapt, and control the cloud.</Heading>
+        </Stack>
+    </Story>
+</Preview>
+
+### As any element type
+
+However, you can render the heading as any element type.
+
+<Preview>
+    <Story name="as div">
+        <Stack>
+            <Heading as="div">Migrate, adapt, and control the cloud.</Heading>
+            <Heading as="div" size="sm">Migrate, adapt, and control the cloud.</Heading>
+        </Stack>
+    </Story>
+</Preview>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
+    </RefLogger>
+</Story>

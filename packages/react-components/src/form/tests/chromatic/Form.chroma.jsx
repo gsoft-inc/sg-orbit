@@ -212,6 +212,20 @@ stories()
                 </ButtonGroup>
             </Form>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Form className="border-red">
+                <Field>
+                    <TextInput />
+                </Field>
+            </Form>
+            <Form style={{ border: "1px solid red" }}>
+                <Field>
+                    <TextInput />
+                </Field>
+            </Form>
+        </Inline>
     );
 
 stories("/inline")

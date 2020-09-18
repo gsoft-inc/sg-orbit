@@ -14,14 +14,20 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Text size="xs">Migrate, adapt, and control the cloud.</Text>
-            <Text size="sm">Migrate, adapt, and control the cloud.</Text>
-            <Text size="md">Migrate, adapt, and control the cloud.</Text>
-            <Text size="lg">Migrate, adapt, and control the cloud.</Text>
-            <Text size="xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="2xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="3xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="4xl">Migrate, adapt, and control the cloud.</Text>
             <Text size="5xl">Migrate, adapt, and control the cloud.</Text>
+            <Text size="4xl">Migrate, adapt, and control the cloud.</Text>
+            <Text size="3xl">Migrate, adapt, and control the cloud.</Text>
+            <Text size="2xl">Migrate, adapt, and control the cloud.</Text>
+            <Text size="xl">Migrate, adapt, and control the cloud.</Text>
+            <Text size="lg">Migrate, adapt, and control the cloud.</Text>
+            <Text>Migrate, adapt, and control the cloud.</Text>
+            <Text size="sm">Migrate, adapt, and control the cloud.</Text>
+            <Text size="xs">Migrate, adapt, and control the cloud.</Text>
+        </Stack>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Text className="bg-red">Migrate, adapt, and control the cloud.</Text>
+            <Text style={{ backgroundColor: "red" }}>Migrate, adapt, and control the cloud.</Text>
         </Stack>
     );
