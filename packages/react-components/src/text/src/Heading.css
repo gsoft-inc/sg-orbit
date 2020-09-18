@@ -1,0 +1,29 @@
+.o-ui-heading-xs {
+    font-size: var(	--type-scale-5);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+.o-ui-heading-sm {
+    font-size: var(	--type-scale-4);
+    line-height: 1.33333;
+    font-weight: 500;
+}
+
+.o-ui-heading-md {
+    font-size: var(	--type-scale-3);
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+.o-ui-heading-lg {
+    font-size: var(	--type-scale-2);
+    line-height: 1;
+    font-weight: 500;
+}
+
+.o-ui-heading-xl {
+    font-size: var(	--type-scale-1);
+    line-height: 1;
+    font-weight: 500;
+}

@@ -5,7 +5,7 @@ import { element, func } from "prop-types";
 
 function renderIcon(icon) {
     return cloneElement(icon, {
-        size: "large"
+        size: "lg"
     });
 }
 

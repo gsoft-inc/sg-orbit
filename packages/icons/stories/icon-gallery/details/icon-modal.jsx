@@ -20,7 +20,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
             <Modal.Header>
                 <div className="flex items-center">
                     <span className="flex-grow-1 marine-900">{iconDisplayName}</span>
-                    <IconButton variant="ghost" color="secondary" circular size="small" onClick={onClose}>
+                    <IconButton variant="ghost" color="secondary" shape="circular" size="sm" onClick={onClose} aria-label="Close modal">
                         <CrossIcon />
                     </IconButton>
                 </div>

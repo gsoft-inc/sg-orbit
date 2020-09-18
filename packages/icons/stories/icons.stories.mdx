@@ -139,6 +139,7 @@ import {
 } from "@react-components/icons";
 import { CheckeredBackground, ExternalLink } from "@blocks";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./icon-gallery";
+import { Inline } from "@react-components/layout";
 import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
 import { createMaterialSection, paramsBuilder } from "@utils";
@@ -252,19 +253,19 @@ function render() {
 
 By default an icon component render as a `medium` sized icon.
 
-To alter the dimensions of an icon, you can specify any of the following sizes: `"tiny"`, `"small"`, `"large"`, `"big"`, `"huge"` and `"massive"`.
+To alter the dimensions of an icon, you can specify any of the following sizes: `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"2xl"` and `"3xl"`.
 
 <Preview>
     <CheckeredBackground>
-        <div className="flex items-end items-space-between">
-            <CalendarIcon size="tiny" />
-            <CalendarIcon size="small" />
+        <Inline align="end" gap={2}>
+            <CalendarIcon size="xs" />
+            <CalendarIcon size="sm" />
             <CalendarIcon />
-            <CalendarIcon size="large" />
-            <CalendarIcon size="big" />
-            <CalendarIcon size="huge" />
-            <CalendarIcon size="massive" />
-        </div>
+            <CalendarIcon size="lg" />
+            <CalendarIcon size="xl" />
+            <CalendarIcon size="2xl" />
+            <CalendarIcon size="3xl" />
+        </Inline>
     </CheckeredBackground>
 </Preview>
 

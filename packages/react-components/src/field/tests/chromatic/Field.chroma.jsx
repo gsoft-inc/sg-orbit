@@ -221,4 +221,14 @@ stories()
                 <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
             </Field>
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Field className="border-red">
+                <TextInput />
+            </Field>
+            <Field style={{ border: "1px solid red" }}>
+                <TextInput />
+            </Field>
+        </Inline>
     );
