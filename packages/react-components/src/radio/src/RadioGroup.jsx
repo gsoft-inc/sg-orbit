@@ -16,6 +16,7 @@ import {
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Flex } from "../../layout";
+import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { useFieldInput } from "../../field";
@@ -179,7 +180,7 @@ export function InnerRadioGroup(props) {
         : children;
 
     return (
-        <Flex
+        <Group
             {...rest}
             {...navigationProps}
             {...groupProps}
@@ -198,7 +199,7 @@ export function InnerRadioGroup(props) {
                     });
                 })}
             </CheckableContext.Provider>
-        </Flex>
+        </Group>
     );
 }
 

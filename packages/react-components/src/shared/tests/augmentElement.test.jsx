@@ -13,7 +13,6 @@ describe("augmentElement", () => {
 });
 
 describe("createOrAugmentElement", () => {
-
     test("can create an element from a type", () => {
         const element = createOrAugmentElement(TextInput);
 

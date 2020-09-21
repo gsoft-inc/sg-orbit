@@ -39,6 +39,8 @@ export function InnerIconGroup(props) {
             gap={1}
             as={as}
             ref={forwardedRef}
+            focusable="false"
+            aria-hidden="true"
         >
             <ClearSlots>
                 {Children.map(children, x => {

@@ -74,7 +74,7 @@ Multiple form fields can be inlined on the same row.
 <Preview>
     <Story name="inline layout">
         <Form fluid>
-            <FieldGroup>
+            <Row>
                 <Field>
                     <Label required>First name</Label>
                     <TextInput />
@@ -87,8 +87,8 @@ Multiple form fields can be inlined on the same row.
                     <Label required>Username</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field className="w-50">
                     <Label>City</Label>
                     <TextInput />
@@ -101,7 +101,7 @@ Multiple form fields can be inlined on the same row.
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>

@@ -1,10 +1,14 @@
 import { Children, forwardRef } from "react";
-import { Inline } from "@react-components/layout";
+import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, omitProps } from "../../shared";
+import { augmentElement, mergeProps } from "../../shared";
 import { useFormContext } from "../../form";
 
 const propTypes = {
+    /**
+     * Orientation of the children.
+     */
+    orientation: oneOf(["horizontal", "vertical"]),
     /**
      * Buttons size.
      */
@@ -29,29 +33,31 @@ export function InnerButtonGroup(props) {
     const {
         size,
         fluid,
+        disabled,
         children,
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        omitProps(formProps, ["disabled"])
+        formProps
     );
 
     return (
-        <Inline
+        <Group
             {...rest}
             fluid={fluid}
             gap={isInForm ? 4 : 2}
-            align="center"
+            alignItems="center"
             ref={forwardedRef}
         >
             {Children.map(children, x => {
                 return augmentElement(x, {
                     size,
-                    fluid
+                    fluid,
+                    disabled
                 });
             })}
-        </Inline>
+        </Group>
     );
 }
 

@@ -4,7 +4,7 @@ import { CheckableContext, augmentElement, mergeProps, omitProps, useControllabl
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbar } from "../../toolbar";
-import { Flex } from "../../layout";
+import { Group } from "../../group";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isFunction, isNil } from "lodash";
 import { useGroupInput } from "../../input";
@@ -139,7 +139,7 @@ export function InnerCheckboxGroup(props) {
         : children;
 
     return (
-        <Flex
+        <Group
             data-testid="checkbox-group"
             {...rest}
             {...groupProps}
@@ -159,7 +159,7 @@ export function InnerCheckboxGroup(props) {
                     </CheckableContext.Provider>
                 </ClearFieldContext>
             </ClearToolbarContext>
-        </Flex>
+        </Group>
     );
 }
 

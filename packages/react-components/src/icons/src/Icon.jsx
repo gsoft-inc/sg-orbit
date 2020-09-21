@@ -5,8 +5,6 @@ import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-// const SIZES = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"];
-
 const SIZES = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"];
 
 export function InnerIcon(props) {
