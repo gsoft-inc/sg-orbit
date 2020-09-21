@@ -17,7 +17,7 @@ import Installation from "../../installation.mdx";
 
 Grid helps achieve powerful horizontal or vertical layouts without JavaScript. Before using these utilities, you should be familiar with CSS3 Grid specifications. If you are not, check out this [CSS-Tricks guide](https://css-tricks.com/snippets/css/complete-guide-grid/).
 
-A few grid utilities have been added to Tachyons for common use cases that we kept writing specific selectors for.
+Grid utilities have been added to Tachyons for common use cases that we kept writing specific selectors for.
 
 ## Installation
 
@@ -83,33 +83,22 @@ A few grid utilities have been added to Tachyons for common use cases that we ke
             )
         },
         {
-            name: "align-self-start",
+            name: "self-grid-start",
             description: <Fragment>The align-self CSS property overrides a grid or flex items align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis. View align-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">MDN</ExternalLink> for more info.</Fragment>,
             example: (
                 <div className="grid bg-sunray-100 ba b--sunray-200" style={{ "grid-template-columns": "1fr 1fr" }}>
-                    <div className="align-self-start pa2 ba b--sunray-200 f6 w11">item</div>
+                    <div className="self-grid-start pa2 ba b--sunray-200 f6 w11">item</div>
                     <div className="pa2 ba b--sunray-200 h11 f6">item</div>
                     <div className="pa2 ba b--sunray-200 h11 f6">grid item</div>
                 </div>
             )
         },
         {
-            name: "align-self-center",
+            name: "self-grid-end",
             description: <Fragment>The align-self CSS property overrides a grid or flex items align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis. View align-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">MDN</ExternalLink> for more info.</Fragment>,
             example: (
                 <div className="grid bg-sunray-100 ba b--sunray-200" style={{ "grid-template-columns": "1fr 1fr" }}>
-                    <div className="align-self-center pa2 ba b--sunray-200 f6 w11">item</div>
-                    <div className="pa2 ba b--sunray-200 h11 f6">item</div>
-                    <div className="pa2 ba b--sunray-200 h11 f6">grid item</div>
-                </div>
-            )
-        },
-        {
-            name: "align-self-end",
-            description: <Fragment>The align-self CSS property overrides a grid or flex items align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis. View align-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">MDN</ExternalLink> for more info.</Fragment>,
-            example: (
-                <div className="grid bg-sunray-100 ba b--sunray-200" style={{ "grid-template-columns": "1fr 1fr" }}>
-                    <div className="align-self-end pa2 ba b--sunray-200 f6 w11">item</div>
+                    <div className="self-grid-end pa2 ba b--sunray-200 f6 w11">item</div>
                     <div className="pa2 ba b--sunray-200 h11 f6">item</div>
                     <div className="pa2 ba b--sunray-200 h11 f6">grid item</div>
                 </div>
