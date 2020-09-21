@@ -232,10 +232,10 @@ a.o-ui-button {
 }
 
 /* OUTLINE | ACTIVE | FOCUS */
-.outline.o-ui-button-focus:active,
-.outline.o-ui-button-focus.o-ui-button-active,
-.outline:focus:active,
-.outline:focus.o-ui-button-active {
+.o-ui-button-outline.o-ui-button-focus:active,
+.o-ui-button-outline.o-ui-button-focus.o-ui-button-active,
+.o-ui-button-outline:focus:active,
+.o-ui-button-outline:focus.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--marine-500) inset, var(--o-ui-outline);
 }
 
@@ -256,8 +256,8 @@ a.o-ui-button {
 }
 
 /* OUTLINE | PRIMARY | HOVER */
-.outline.primary:hover,
-.outline.o-ui-button-primary.o-ui-button-hover {
+.o-ui-button-outline.primary:hover,
+.o-ui-button-outline.o-ui-button-primary.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--primary-700) inset;
     color: var(--primary-700);
 }
@@ -270,8 +270,8 @@ a.o-ui-button {
 }
 
 /* OUTLINE | PRIMARY | ACTIVE */
-.outline.o-ui-button-primary:active,
-.outline.o-ui-button-primary.o-ui-button-active {
+.o-ui-button-outline.o-ui-button-primary:active,
+.o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--primary-500) inset;
     color: var(--white);
     background-color: var(--primary-500);
@@ -284,8 +284,8 @@ a.o-ui-button {
 }
 
 /* OUTLINE | SECONDARY | HOVER */
-.outline.o-ui-button-secondary:hover,
-.outline.o-ui-button-secondary.o-ui-button-hover {
+.o-ui-button-outline.o-ui-button-secondary:hover,
+.o-ui-button-outline.o-ui-button-secondary.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--cloud-500) inset;
 }
 
