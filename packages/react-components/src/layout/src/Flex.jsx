@@ -210,7 +210,7 @@ export function InnerFlex({
                 "alignContent": alignContent,
                 "alignItems": alignItems,
                 "justifyContent": justifyContent,
-                "flexWrap": wrap,
+                "flexWrap": !isNil(wrap) ? "wrap" : undefined,
                 "--o-ui-gap": gap && (isString(gap) ? gap : `var(${SPACING[(gap) - 1]})`)
             }}
             ref={ref}

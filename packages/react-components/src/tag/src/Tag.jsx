@@ -1,6 +1,6 @@
 import "./Tag.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
@@ -55,9 +55,7 @@ export function InnerTag({
         hasButton: ".o-ui-tag-button"
     }, ref);
 
-    const content = typeof children === "string"
-        ? <Text>{children}</Text>
-        : children;
+    const content = useTextContent(Text, children);
 
     return (
         <ElementType

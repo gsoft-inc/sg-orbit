@@ -37,42 +37,56 @@ stories()
         <Inline>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup size="lg">
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup size="lg">
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
         </Inline>
     )
     .add("fluid", () =>
         <ButtonGroup fluid>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+        </ButtonGroup>
+    )
+    .add("disabled", () =>
+        <ButtonGroup disabled>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+            <Button>Cutoff</Button>
+        </ButtonGroup>
+    )
+    .add("vertical", () =>
+        <ButtonGroup orientation="vertical">
             <Button>Cutoff</Button>
             <Button>Cutoff</Button>
             <Button>Cutoff</Button>

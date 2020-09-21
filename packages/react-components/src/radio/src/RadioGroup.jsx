@@ -12,12 +12,13 @@ import {
     useEventCallback,
     useId,
     useMergedRefs,
+    useRenderProps,
     useRovingFocus
 } from "../../shared";
 import { Children, forwardRef } from "react";
-import { Flex } from "../../layout";
+import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isFunction, isNil } from "lodash";
+import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarContext } from "../../toolbar";
@@ -174,12 +175,10 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = isFunction(children)
-        ? children({ checkedValue })
-        : children;
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
-        <Flex
+        <Group
             {...rest}
             {...navigationProps}
             {...groupProps}
@@ -198,7 +197,7 @@ export function InnerRadioGroup(props) {
                     });
                 })}
             </CheckableContext.Provider>
-        </Flex>
+        </Group>
     );
 }
 

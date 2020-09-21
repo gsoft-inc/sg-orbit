@@ -1,10 +1,11 @@
-import { Field, FieldGroup } from "@react-components/field";
+import { Field } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
+import { Row } from "@react-components/form";
 import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("FieldGroup"))
+    return storiesOfBuilder(module, createChromaticSection("Row"))
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
@@ -15,7 +16,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <FieldGroup size="sm">
+            <Row size="sm">
                 <Field>
                     <TextInput />
                 </Field>
@@ -25,8 +26,8 @@ stories()
                 <Field>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field>
                     <TextInput />
                 </Field>
@@ -36,8 +37,8 @@ stories()
                 <Field>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup size="lg">
+            </Row>
+            <Row size="lg">
                 <Field>
                     <TextInput />
                 </Field>
@@ -47,11 +48,11 @@ stories()
                 <Field>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
         </Stack>
     )
     .add("fluid", () =>
-        <FieldGroup fluid>
+        <Row fluid>
             <Field>
                 <TextInput />
             </Field>
@@ -61,19 +62,19 @@ stories()
             <Field>
                 <TextInput />
             </Field>
-        </FieldGroup>
+        </Row>
     )
     .add("styling", () =>
         <Inline>
-            <FieldGroup className="border-red">
+            <Row className="border-red">
                 <Field>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup style={{ border: "1px solid red" }}>
+            </Row>
+            <Row style={{ border: "1px solid red" }}>
                 <Field>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
         </Inline>
     );

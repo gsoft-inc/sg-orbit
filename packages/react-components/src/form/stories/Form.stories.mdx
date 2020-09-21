@@ -1,8 +1,8 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { Field, FieldGroup, HelpMessage, Label } from "@react-components/field";
+import { Field, HelpMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Form, InnerForm } from "@react-components/form";
+import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
@@ -29,7 +29,8 @@ Forms are commonly used to provide user interaction in web applications.
 
 <Props
     componentsDefinitions={[
-        { displayName: "Form", component: InnerForm }
+        { displayName: "Form", component: InnerForm },
+        { displayName: "Row", component: InnerRow }
     ]}
 />
 
@@ -74,7 +75,7 @@ Multiple form fields can be inlined on the same row.
 <Preview>
     <Story name="inline layout">
         <Form fluid>
-            <FieldGroup>
+            <Row>
                 <Field>
                     <Label required>First name</Label>
                     <TextInput />
@@ -87,8 +88,8 @@ Multiple form fields can be inlined on the same row.
                     <Label required>Username</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field className="w-50">
                     <Label>City</Label>
                     <TextInput />
@@ -101,7 +102,7 @@ Multiple form fields can be inlined on the same row.
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
