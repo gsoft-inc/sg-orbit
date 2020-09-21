@@ -46,10 +46,6 @@
     margin-top: 0;
 }
 
-.o-ui-p-xs:last-child,
-.o-ui-p-sm:last-child,
-.o-ui-p-md:last-child,
-.o-ui-p-lg:last-child,
-.o-ui-p-xl:last-child {
+.o-ui-p:last-child {
     margin-bottom: 0;
 }

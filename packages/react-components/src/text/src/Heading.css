@@ -46,11 +46,6 @@
     margin-bottom: calc(var(--type-scale-1) * .25);
 }
 
-.o-ui-heading-2xs:last-child,
-.o-ui-heading-xs:last-child,
-.o-ui-heading-sm:last-child,
-.o-ui-heading-md:last-child,
-.o-ui-heading-lg:last-child,
-.o-ui-heading-xl:last-child {
+.o-ui-heading:last-child {
     margin-bottom: 0;
 }
