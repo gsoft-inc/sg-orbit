@@ -1,17 +1,18 @@
-import { Field, FieldGroup } from "@react-components/field";
+import { Field } from "@react-components/field";
+import { Row } from "@react-components/form";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const Fields = forwardRef((props, ref) => {
     return (
-        <FieldGroup
+        <Row
             {...props}
             ref={ref}
         >
             <Field>
                 <input type="text" />
             </Field>
-        </FieldGroup>
+        </Row>
     );
 });
 

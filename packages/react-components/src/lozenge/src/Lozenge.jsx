@@ -1,6 +1,6 @@
 import "./Lozenge.css";
 
-import { ClearSlots, SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs } from "../../shared";
+import { ClearSlots, SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -39,9 +39,7 @@ export function InnerLozenge({
 
     const hasIcon = useHasChild(".o-ui-lozenge-icon", ref);
 
-    const content = typeof children === "string"
-        ? <Text>{children}</Text>
-        : children;
+    const content = useTextContent(Text, children);
 
     return (
         <ElementType

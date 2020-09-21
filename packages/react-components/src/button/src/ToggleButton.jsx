@@ -1,8 +1,7 @@
 import { Button } from "./Button";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isFunction } from "lodash";
-import { mergeProps, useCheckable } from "../../shared";
+import { mergeProps, useCheckable, useRenderProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -94,9 +93,7 @@ export function InnerToggleButton(props) {
         forwardedRef
     });
 
-    const content = isFunction(children)
-        ? children({ isChecked }, props)
-        : children;
+    const content = useRenderProps({ isChecked }, props, children);
 
     return (
         <ElementType

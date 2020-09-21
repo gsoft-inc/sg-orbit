@@ -2,7 +2,7 @@ import { Children, forwardRef } from "react";
 import { Inline } from "../../layout";
 import { SIZE, augmentElement, mergeProps, omitProps } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { useFormContext } from "../../form";
+import { useFormContext } from "..";
 
 const GAP_BY_SIZE = {
     [SIZE.sm]: 3,
@@ -16,7 +16,7 @@ const propTypes = {
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Whether or not the field take up the width of its container.
+     * Whether or not the fields take up the width of its container.
      */
     fluid: bool,
     /**
@@ -29,7 +29,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerFieldGroup(props) {
+export function InnerRow(props) {
     const formProps = useFormContext();
 
     const {
@@ -61,8 +61,8 @@ export function InnerFieldGroup(props) {
     );
 }
 
-InnerFieldGroup.propTypes = propTypes;
+InnerRow.propTypes = propTypes;
 
-export const FieldGroup = forwardRef((props, ref) => (
-    <InnerFieldGroup {...props} forwardedRef={ref} />
+export const Row = forwardRef((props, ref) => (
+    <InnerRow {...props} forwardedRef={ref} />
 ));

@@ -1,7 +1,7 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { ErrorMessage, Field, FieldGroup, GroupField, HelpMessage, Label } from "@react-components/field";
-import { Form } from "@react-components/form";
+import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
+import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
@@ -231,7 +231,7 @@ stories()
 stories("/inline")
     .add("default", () =>
         <Form>
-            <FieldGroup>
+            <Row>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -244,8 +244,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field>
                     <Label>City</Label>
                     <TextInput />
@@ -258,7 +258,7 @@ stories("/inline")
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -270,7 +270,7 @@ stories("/inline")
     )
     .add("fluid", () =>
         <Form fluid>
-            <FieldGroup>
+            <Row>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -283,8 +283,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field className="w-50">
                     <Label>City</Label>
                     <TextInput />
@@ -297,7 +297,7 @@ stories("/inline")
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
+            </Row>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -310,7 +310,7 @@ stories("/inline")
     .add("fluid with fix width container", () =>
         <div style={{ width: "700px" }}>
             <Form fluid>
-                <FieldGroup>
+                <Row>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -323,8 +323,8 @@ stories("/inline")
                         <Label>Username</Label>
                         <TextInput />
                     </Field>
-                </FieldGroup>
-                <FieldGroup>
+                </Row>
+                <Row>
                     <Field className="w-50">
                         <Label>City</Label>
                         <TextInput />
@@ -337,7 +337,7 @@ stories("/inline")
                         <Label>Zip</Label>
                         <TextInput />
                     </Field>
-                </FieldGroup>
+                </Row>
                 <Field>
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
@@ -350,7 +350,7 @@ stories("/inline")
     )
     .add("messages", () =>
         <Form>
-            <FieldGroup>
+            <Row>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -364,8 +364,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </FieldGroup>
-            <FieldGroup>
+            </Row>
+            <Row>
                 <Field>
                     <Label>City</Label>
                     <TextInput />
@@ -379,7 +379,7 @@ stories("/inline")
                     <TextInput />
                     <ErrorMessage>Invalid Zip code!</ErrorMessage>
                 </Field>
-            </FieldGroup>
+            </Row>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>

@@ -1,13 +1,28 @@
 import "./Radio.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, omitProps, useAutoFocus, useCheckable, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import {
+    ClearSlots,
+    SlotProvider,
+    cssModule,
+    getSizeClass,
+    mergeClasses,
+    mergeProps,
+    omitProps,
+    useAutoFocus,
+    useCheckable,
+    useControllableState,
+    useEventCallback,
+    useForwardInputApi,
+    useRenderProps,
+    useTextContent
+} from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { iconSlot } from "../../icons";
-import { isFunction, isNil } from "lodash";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
@@ -101,13 +116,7 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    let content = isFunction(children)
-        ? children({ isChecked }, props)
-        : children;
-
-    if (typeof content === "string") {
-        content = <Text>{content}</Text>;
-    }
+    const content = useTextContent(Text, useRenderProps({ isChecked }, props, children));
 
     const handleChange = useEventCallback(event => {
         setIsChecked(!isChecked);

@@ -1,13 +1,12 @@
 import "./Switch.css";
 
-import { ClearSlots, SlotProvider, mergeProps, omitProps } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps, useRenderProps, useTextContent } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
-import { isFunction } from "lodash";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInput } from "../../field";
 import { useToolbar } from "../../toolbar";
@@ -121,13 +120,7 @@ export function InnerSwitch(props) {
         forwardedRef
     });
 
-    let content = isFunction(children)
-        ? children({ isChecked }, props)
-        : children;
-
-    if (typeof content === "string") {
-        content = <Text>{content}</Text>;
-    }
+    const content = useTextContent(Text, useRenderProps({ isChecked }, props, children));
 
     return (
         <ElementType

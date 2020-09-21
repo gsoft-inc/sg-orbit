@@ -1,12 +1,12 @@
 import "./CheckboxGroup.css";
 
-import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbar } from "../../toolbar";
 import { Group } from "../../group";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isFunction, isNil } from "lodash";
+import { isNil } from "lodash";
 import { useGroupInput } from "../../input";
 
 const propTypes = {
@@ -134,9 +134,7 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const items = isFunction(children)
-        ? children({ checkedValue })
-        : children;
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
         <Group
