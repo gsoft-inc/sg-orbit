@@ -96,7 +96,6 @@
 .o-ui-input-invalid input,
 .o-ui-input-invalid textarea {
     --o-ui-border-color: var(--alert-500);
-    color: var(--alert-500);
 }
 
 .o-ui-input-fluid input,
@@ -231,6 +230,11 @@
 .o-ui-input-focus textarea {
     outline: none;
     box-shadow: var(--o-ui-outline);
+}
+
+/* STATES | FOCUS | INVALID */
+.o-ui-input.o-ui-input-invalid input:focus {
+    box-shadow: var(--o-ui-outline-error);
 }
 
 /* STATES | DISABLED */
