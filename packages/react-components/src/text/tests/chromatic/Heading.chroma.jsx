@@ -1,5 +1,5 @@
 import { Heading } from "@react-components/text";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -22,7 +22,7 @@ stories()
         </div>
     )
     .add("as header element", () =>
-        <div>
+        <Stack>
             <Inline align="end">
                 <Heading as="h1">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h2">Migrate, adapt, and<br />control the cloud.</Heading>
@@ -33,5 +33,5 @@ stories()
                 <Heading as="h5">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h6">Migrate, adapt, and<br />control the cloud.</Heading>
             </Inline>
-        </div>
+        </Stack>
     );
