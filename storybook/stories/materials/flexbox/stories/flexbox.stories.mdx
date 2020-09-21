@@ -2,7 +2,7 @@ import { ExternalLink, TachyonsFile } from "@blocks";
 import { Fragment } from "react";
 import { MaterialsLayout } from "../../materials-layout";
 import { Meta } from "@storybook/addon-docs/blocks";
-import { UtilitiesTable } from "./utilities-table";
+import { UtilitiesTable } from "../../shared/utilities-table";
 import { createMaterialSection, paramsBuilder } from "@utils";
 import Installation from "../../installation.mdx";
 
@@ -25,7 +25,7 @@ You will find most of the documentation for flexbox utilities on [Tachyons websi
 
 ## Utilities
 
-A few layout utilities have been added to Tachyons for common use cases that we kept writing specific selectors for.
+A few flexbox utilities have been added to Tachyons for common use cases that we kept writing specific selectors for.
 
 <UtilitiesTable
     utilities={[
@@ -85,43 +85,6 @@ A few layout utilities have been added to Tachyons for common use cases that we 
             example: (
                 <div className="flex bg-sunray-100 ba b--sunray-200">
                     <div className="flex-basis-auto pa2 ba b--sunray-200 f6">flex item</div>
-                </div>
-            )
-        },
-        {
-            name: "grid",
-            description: <Fragment>The grid CSS property is a shorthand property that sets all of the explicit and implicit grid properties in a single declaration. <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">MDN</ExternalLink> for more info.</Fragment>,
-            example: (
-                <div className="grid bg-sunray-100 ba b--sunray-200">
-                    <div className="pa2 ba b--sunray-200 f6">grid item</div>
-                    <div className="pa2 ba b--sunray-200 f6">grid item</div>
-                </div>
-            )
-        },
-        {
-            name: "justify-self-start",
-            description: <Fragment>Use to justify an element toward the start edge of the alignment container in the appropriate axis. View justify-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">MDN</ExternalLink> for more info.</Fragment>,
-            example: (
-                <div className="grid bg-sunray-100 ba b--sunray-200">
-                    <div className="justify-self-start pa2 ba b--sunray-200 f6">grid item</div>
-                </div>
-            )
-        },
-        {
-            name: "justify-self-center",
-            description: <Fragment>Use to justify an element toward the center edge of the alignment container in the appropriate axis. View justify-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">MDN</ExternalLink> for more info.</Fragment>,
-            example: (
-                <div className="grid bg-sunray-100 ba b--sunray-200">
-                    <div className="justify-self-center pa2 ba b--sunray-200 f6">grid item</div>
-                </div>
-            )
-        },
-        {
-            name: "justify-self-end",
-            description: <Fragment>Use to justify an element toward the end edge of the alignment container in the appropriate axis. View justify-self article on <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">MDN</ExternalLink> for more info.</Fragment>,
-            example: (
-                <div className="grid bg-sunray-100 ba b--sunray-200">
-                    <div className="justify-self-end pa2 ba b--sunray-200 f6">grid item</div>
                 </div>
             )
         }

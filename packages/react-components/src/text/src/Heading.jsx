@@ -8,7 +8,7 @@ const propTypes = {
     /**
      * A paragraph can vary in size.
      */
-    size: oneOf(["xs", "sm", "md", "lg", "xl"]),
+    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
