@@ -20,16 +20,16 @@ createIconLinkTestSuite(<IconLink as="button" />, stories("/button"));
 stories()
     .add("styling", () =>
         <Inline>
-            <IconLink className="bg-red" href="#"><AddIcon /></IconLink>
-            <IconLink style={{ backgroundColor: "red" }} href="#"><AddIcon /></IconLink>
+            <IconLink className="bg-red" href="#" aria-label="Add"><AddIcon /></IconLink>
+            <IconLink style={{ backgroundColor: "red" }} href="#" aria-label="Add"><AddIcon /></IconLink>
         </Inline>
     )
     .add("autofocus", () =>
-        <IconLink autoFocus href="#"><AddIcon /></IconLink>
+        <IconLink autoFocus href="#" aria-label="Add"><AddIcon /></IconLink>
     )
     .add("when disabled do not autofocus", () =>
-        <IconLink disabled autoFocus href="#"><AddIcon /></IconLink>
+        <IconLink disabled autoFocus href="#" aria-label="Add"><AddIcon /></IconLink>
     )
     .add("autofocus with delay", () =>
-        <IconLink autoFocus autoFocusDelay={50} href="#"><AddIcon /></IconLink>
+        <IconLink autoFocus autoFocusDelay={50} href="#" aria-label="Add"><AddIcon /></IconLink>
     );
