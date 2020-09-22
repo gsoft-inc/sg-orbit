@@ -1,9 +1,10 @@
-import { Button, ButtonGroup } from "@react-components/button";
+import { Actions, Form, InnerActions, InnerForm, InnerRow, Row } from "@react-components/form";
+import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
+import { Link } from "@react-components/link";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -30,7 +31,8 @@ Forms are commonly used to provide user interaction in web applications.
 <Props
     componentsDefinitions={[
         { displayName: "Form", component: InnerForm },
-        { displayName: "Row", component: InnerRow }
+        { displayName: "Row", component: InnerRow },
+        { displayName: "Actions", component: InnerActions }
     ]}
 />
 
@@ -179,7 +181,7 @@ Form fields and buttons can vary in size.
 
 ### Button alignment
 
-Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes `justify-self-center` and `justify-self-end`.
+Form buttons can be aligned horizontally.
 
 <Preview>
     <Story name="button alignment">
@@ -189,19 +191,21 @@ Form buttons can be aligned with our custom Tachyons `justify-self` CSS classes 
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-center">
+                <Actions align="center">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
-                </ButtonGroup>
+                </Actions>
             </Form>
             <Form>
                 <Field>
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Button className="justify-self-end">
+                <Actions align="end">
+                    <Button className="justify-self-end">
                     Submit
-                </Button>
+                    </Button>
+                </Actions>
             </Form>
         </Inline>
     </Story>

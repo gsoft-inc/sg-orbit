@@ -2,7 +2,6 @@ import { InnerParagraph, Paragraph } from "@react-components/text";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
-import { div } from "@react-components/layout";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -30,12 +29,13 @@ A paragraph is used to render blocks of text.
 
 ## Usage
 
+### Size
+
 You can alter the size of the paragraph by specying a `size`. The available size match Orbit UI [body typography](?path=/docs/materials-typography--page#body).
 
 <Preview>
     <Story name="default">
         <div>
-            <Paragraph size="xl">We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war.</Paragraph>
             <Paragraph size="lg">We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war.</Paragraph>
             <Paragraph>We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war.</Paragraph>
             <Paragraph size="sm">We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war.</Paragraph>
@@ -49,7 +49,7 @@ You can alter the size of the paragraph by specying a `size`. The available size
 By default, a paragraph will render as a `<p>` element. However, you can render it as any element type.
 
 <Preview>
-    <Story name="as div">
+    <Story name="div">
         <Paragraph as="div">We set sail on this new sea because there is new knowledge to be gained, and new rights to be won, and they must be won and used for the progress of all people. For space science, like nuclear science and all technology, has no conscience of its own. Whether it will become a force for good or ill depends on man, and only if the United States occupies a position of pre-eminence can we help decide whether this new ocean will be a sea of peace or a new terrifying theater of war.</Paragraph>
     </Story>
 </Preview>

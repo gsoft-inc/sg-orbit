@@ -1,10 +1,11 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, useTextContent } from "../../shared";
 import { EditIcon, iconSlot } from "../../icons";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -29,6 +30,10 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
+     * Whether the link take up the width of its container.
+     */
+    fluid: bool,
+    /**
      * A link can vary in size.
      */
     size: oneOf(["sm", "md", "lg"]),
@@ -42,30 +47,39 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerLink({
-    color,
-    external,
-    autoFocus,
-    autoFocusDelay,
-    size,
-    active,
-    focus,
-    hover,
-    visited,
-    target,
-    rel,
-    as: ElementType = "a",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerLink(props) {
+    const formProps = useFormButton();
+
+    const {
+        color,
+        external,
+        autoFocus,
+        autoFocusDelay,
+        fluid,
+        size,
+        active,
+        focus,
+        hover,
+        visited,
+        target,
+        rel,
+        as: ElementType = "a",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        formProps
+    );
+
     const linkProps = useLink({
         cssModule: "o-ui-link",
         color,
         external,
         autoFocus,
         autoFocusDelay,
+        fluid,
         size,
         active,
         focus,

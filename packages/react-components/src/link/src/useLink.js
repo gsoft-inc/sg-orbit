@@ -6,6 +6,7 @@ export function useLink({
     external,
     autoFocus,
     autoFocusDelay,
+    fluid,
     size,
     active,
     focus,
@@ -27,6 +28,7 @@ export function useLink({
             cssModule(
                 module,
                 color,
+                fluid && "fluid",
                 active && "active",
                 focus && "focus",
                 hover && "hover",
