@@ -45,7 +45,3 @@
     margin-top: 0;
     margin-bottom: calc(var(--type-scale-1) * .25);
 }
-
-.o-ui-heading:last-child {
-    margin-bottom: 0;
-}
