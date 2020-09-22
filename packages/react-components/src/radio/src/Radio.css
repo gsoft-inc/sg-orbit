@@ -134,6 +134,12 @@
     box-shadow: var(--o-ui-outline);
 }
 
+/* STATE | INVALID | FOCUS */
+.o-ui-radio.o-ui-radio-invalid input[type="radio"]:focus + .o-ui-radio-button,
+.o-ui-radio-focus.o-ui-radio-invalid .o-ui-radio-button {
+    box-shadow: var(--o-ui-outline-error);
+}
+
 /* STATE | HOVER */
 .o-ui-radio:hover .o-ui-radio-button,
 .o-ui-radio-hover .o-ui-radio-button {

@@ -189,7 +189,7 @@
 
 /* BUTTON | SMALL  */
 .o-ui-input-has-button.o-ui-input-sm input,
-.o-ui-input-has-button.o-ui-input-sm textarea {
+.o-ui-input-has-button.o-ui-input-sm.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-sm-with-button);
 }
 
@@ -199,7 +199,7 @@
 
 /* BUTTON | MEDIUM */
 .o-ui-input-has-button.o-ui-input-md input,
-.o-ui-input-has-button.o-ui-input-md textarea {
+.o-ui-input-has-button.o-ui-input-md.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-md-with-button);
 }
 
@@ -209,7 +209,7 @@
 
 /* BUTTON | LARGE  */
 .o-ui-input-has-button.o-ui-input-lg input,
-.o-ui-input-has-button.o-ui-input-lg textarea {
+.o-ui-input-has-button.o-ui-input-lg.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-lg-with-button);
 }
 
@@ -233,7 +233,10 @@
 }
 
 /* STATES | FOCUS | INVALID */
-.o-ui-input.o-ui-input-invalid input:focus {
+.o-ui-input.o-ui-input-invalid input:focus,
+.o-ui-input-focus.o-ui-input-invalid input,
+.o-ui-input.o-ui-input-invalid textarea:focus,
+.o-ui-input-focus.o-ui-input-invalid textarea {
     box-shadow: var(--o-ui-outline-error);
 }
 

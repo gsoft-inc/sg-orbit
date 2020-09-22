@@ -64,6 +64,7 @@
     grid-area: label;
     margin-left: var(--scale-bravo);
     /* font-size: var(--type-scale-7); */
+    line-height: 1.14;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -167,7 +168,13 @@
 /* STATE | FOCUS */
 .o-ui-checkbox input[type="checkbox"]:focus + .o-ui-checkbox-box,
 .o-ui-checkbox-focus .o-ui-checkbox-box {
-    box-shadow: 0 0 0 2px var(--primary-100);
+    box-shadow: var(--o-ui-outline);
+}
+
+/* STATE | INVALID | FOCUS */
+.o-ui-checkbox.o-ui-checkbox-invalid input[type="checkbox"]:focus + .o-ui-checkbox-box,
+.o-ui-checkbox-invalid.o-ui-checkbox-focus .o-ui-checkbox-box {
+    box-shadow: var(--o-ui-outline-error);
 }
 
 /* STATE | HOVER */

@@ -47,6 +47,7 @@ a.o-ui-button {
 .o-ui-button-solid:hover,
 .o-ui-button-solid.o-ui-button-hover {
     background-color: var(--marine-700);
+    color: var(--white);
 }
 
 /* SOLID | STATE | DISABLED | HOVER */
@@ -63,7 +64,12 @@ a.o-ui-button {
     box-shadow: var(--o-ui-outline);
     z-index: 2;
     outline: none;
+}
 
+/* SOLID | STATE | DANGER | FOCUS */
+.o-ui-button-solid.o-ui-button-danger:focus,
+.o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
+    box-shadow: var(--o-ui-outline-error);
 }
 
 /* SOLID | STATE | ACTIVE */
@@ -317,7 +323,7 @@ a.o-ui-button {
 /* OUTLINE | DANGER | FOCUS */
 .o-ui-button-outline.o-ui-button-danger:focus,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-outline);
+    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-outline-error);
     z-index: 2;
 }
 
@@ -582,6 +588,12 @@ a.o-ui-button {
     box-shadow: var(--o-ui-outline);
     z-index: 2;
     outline: none;
+}
+
+/* GHOST | DANGER | FOCUS */
+.o-ui-button-ghost.o-ui-button-danger:focus,
+.o-ui-button-ghost.o-ui-button-danger.o-ui-button-focus {
+    box-shadow: var(--o-ui-outline-error);
 }
 
 /* GHOST | ACTIVE */
