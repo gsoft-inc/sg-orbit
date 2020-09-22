@@ -25,4 +25,5 @@ export * from "./counter";
 export * from "./field";
 export * from "./form";
 export * from "./group";
+export * from "./link";
 export * from "./shared";

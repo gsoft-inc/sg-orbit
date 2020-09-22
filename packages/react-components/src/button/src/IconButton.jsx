@@ -1,5 +1,5 @@
 import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
@@ -38,6 +38,12 @@ const propTypes = {
      * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
+    /**
+     * Called when the button is click.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onClick: func,
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

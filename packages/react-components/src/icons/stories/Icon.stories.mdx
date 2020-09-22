@@ -188,7 +188,9 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Icon type={AzureIcon32} /></RefLogger>
+    <RefLogger>
+        <Icon type={AzureIcon32} />
+    </RefLogger>
 </Story>
 
 <Story
@@ -197,7 +199,9 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger><Icon type={AzureIcon32} /></RefLogger>
+    <RefLogger>
+        <Icon type={AzureIcon32} />
+    </RefLogger>
 </Story>
 
 export const HocAzureIcon32 = Icon.create(AzureIcon32);
