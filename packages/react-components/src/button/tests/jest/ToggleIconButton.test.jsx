@@ -10,7 +10,9 @@ test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any"><AddIcon /></ToggleIconButton>
+        <ToggleIconButton onChange={handler} value="any" aria-label="Add">
+            <AddIcon />
+        </ToggleIconButton>
     );
 
     act(() => {
@@ -24,7 +26,9 @@ test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any"><AddIcon /></ToggleIconButton>
+        <ToggleIconButton onChange={handler} value="any" aria-label="Add">
+            <AddIcon />
+        </ToggleIconButton>
     );
 
     act(() => {
@@ -44,7 +48,9 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <ToggleIconButton ref={ref} value="any"><AddIcon /></ToggleIconButton>
+        <ToggleIconButton ref={ref} value="any" aria-label="Add">
+            <AddIcon />
+        </ToggleIconButton>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -62,6 +68,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
             value="any"
+            aria-label="Add"
         >
             <AddIcon />
         </ToggleIconButton>
@@ -77,7 +84,9 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <ToggleIconButton ref={handler} value="any"><AddIcon /></ToggleIconButton>
+        <ToggleIconButton ref={handler} value="any" aria-label="Add">
+            <AddIcon />
+        </ToggleIconButton>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

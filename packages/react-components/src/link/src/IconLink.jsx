@@ -84,6 +84,7 @@ export function InnerIconLink({
 
     return (
         <ElementType
+            data-testid="icon-link"
             {...rest}
             {...linkProps}
             title={title ?? ariaLabel}
