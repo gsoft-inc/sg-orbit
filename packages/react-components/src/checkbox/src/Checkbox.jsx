@@ -1,13 +1,13 @@
 import "./Checkbox.css";
 
-import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback, useRenderProps, useTextContent } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { counterSlot } from "../../counter";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
-import { isFunction, isNil } from "lodash";
+import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInput } from "../../field";
 import { useToolbar } from "../../toolbar";
@@ -146,13 +146,7 @@ export function InnerCheckbox(props) {
         forwardedRef
     });
 
-    let content = isFunction(children)
-        ? children({ isChecked, isIndeterminate }, props)
-        : children;
-
-    if (typeof content === "string") {
-        content = <Text>{content}</Text>;
-    }
+    const content = useTextContent(Text, useRenderProps({ isChecked, isIndeterminate }, props, children));
 
     return (
         <ElementType

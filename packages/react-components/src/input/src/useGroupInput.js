@@ -1,10 +1,4 @@
 import { SIZE, cssModule, mergeClasses } from "../../shared";
-import { isNil } from "lodash";
-
-const ITEMS_DIRECTION = {
-    "horizontal": "row",
-    "vertical": "column"
-};
 
 const ITEMS_GAP_BY_SIZE = {
     "horizontal": {
@@ -20,8 +14,8 @@ const ITEMS_GAP_BY_SIZE = {
 };
 
 export function useGroupInput({
+    role,
     cssModule: module,
-    role = "group",
     required,
     validationState,
     orientation,
@@ -36,12 +30,11 @@ export function useGroupInput({
 }) {
     return {
         groupProps: {
-            role,
             inline: reverse,
-            direction: ITEMS_DIRECTION[orientation],
+            orientation,
             alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
             gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.md],
-            wrap: !isNil(wrap) ? "wrap" : undefined,
+            wrap,
             className: mergeClasses(
                 cssModule(
                     module,
@@ -49,6 +42,7 @@ export function useGroupInput({
                 ),
                 className
             ),
+            role,
             "aria-required": required,
             "aria-invalid": validationState === "invalid",
             "aria-orientation": orientation,

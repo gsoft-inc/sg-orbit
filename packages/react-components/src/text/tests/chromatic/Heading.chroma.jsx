@@ -13,13 +13,13 @@ function stories(segment) {
 
 stories()
     .add("size", () =>
-        <Stack>
+        <div>
             <Heading as="div" size="xl">Migrate, adapt, and<br />control the cloud.</Heading>
             <Heading as="div" size="lg">Migrate, adapt, and<br />control the cloud.</Heading>
             <Heading as="div">Migrate, adapt, and<br />control the cloud.</Heading>
             <Heading as="div" size="sm">Migrate, adapt, and<br />control the cloud.</Heading>
             <Heading as="div" size="xs">Migrate, adapt, and<br />control the cloud.</Heading>
-        </Stack>
+        </div>
     )
     .add("as header element", () =>
         <Stack>

@@ -1,6 +1,6 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useTextContent } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -111,9 +111,7 @@ export function InnerButton(props) {
 
     const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
 
-    const content = typeof children === "string"
-        ? <Text>{children}</Text>
-        : children;
+    const content = useTextContent(Text, children);
 
     return (
         <ElementType

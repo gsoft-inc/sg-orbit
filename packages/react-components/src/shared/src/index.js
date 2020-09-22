@@ -30,6 +30,8 @@ export * from "./useId";
 export * from "./useArrowNavigation";
 export * from "./useRovingFocus";
 export * from "./useHasChild";
+export * from "./useTextContent";
+export * from "./useRenderProps";
 
 // Contexts
 export * from "./CheckableContext";
