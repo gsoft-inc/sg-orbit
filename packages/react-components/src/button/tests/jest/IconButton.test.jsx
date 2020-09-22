@@ -9,7 +9,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <IconButton ref={ref}>
+        <IconButton ref={ref} aria-label="Add">
             <AddIcon />
         </IconButton>
     );
@@ -28,6 +28,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Add"
         >
             <AddIcon />
         </IconButton>
@@ -43,7 +44,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <IconButton ref={handler}>
+        <IconButton ref={handler} aria-label="Add">
             <AddIcon />
         </IconButton>
     );
@@ -61,6 +62,7 @@ test("can focus the button with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Add"
         >
             <AddIcon />
         </IconButton>

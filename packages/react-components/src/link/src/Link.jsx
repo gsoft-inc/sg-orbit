@@ -90,6 +90,7 @@ export function InnerLink({
 
     return (
         <ElementType
+            data-testid="link"
             {...rest}
             {...linkProps}
         >
