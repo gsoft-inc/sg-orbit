@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost", "link"]),
+    variant: oneOf(["solid", "outline", "ghost"]),
     /**
      * The color accent.
      */
@@ -78,7 +78,6 @@ export function InnerButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type = "button",
         as: ElementType = "button",
         className,
@@ -103,7 +102,6 @@ export function InnerButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type,
         className,
         forwardedRef

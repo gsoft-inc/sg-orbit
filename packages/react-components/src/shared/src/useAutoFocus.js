@@ -6,7 +6,7 @@ function useAbstractAutoFocus(targetRef, isActive, onFocus, { delay = 0 } = {}) 
     useEffect(() => {
         let timeoutId;
 
-        if (isActive && !targetRef.current.disabled) {
+        if (isActive && !targetRef.current.hasAttribute("disabled")) {
             timeoutId = setTimeout(() => {
                 onFocus();
             }, delay);

@@ -1,46 +1,40 @@
 import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
-export function useButton({
+export function useLink({
     cssModule: module,
-    variant,
     color,
-    shape,
+    external,
     autoFocus,
     autoFocusDelay,
-    fluid,
-    loading,
     size,
     active,
     focus,
     hover,
-    type,
+    visited,
+    target,
+    rel,
     className,
     forwardedRef
 }) {
-    const buttonRef = useMergedRefs(forwardedRef);
+    const linkRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(buttonRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(linkRef, autoFocus, { delay: autoFocusDelay });
 
     return {
+        target: target ?? external ? "_blank" : undefined,
+        rel: rel ?? external ? "noopener noreferrer" : undefined,
         className: mergeClasses(
-            module,
             cssModule(
-                "o-ui-button",
-                variant,
-                color && color,
-                shape && shape,
-                fluid && "fluid",
-                loading && "loading",
+                module,
+                color,
                 active && "active",
                 focus && "focus",
                 hover && "hover",
+                visited && "visited",
                 getSizeClass(size)
             ),
             className
         ),
-        type,
-        "aria-live": "polite",
-        "aria-busy": loading,
-        ref: buttonRef
+        ref: linkRef
     };
 }

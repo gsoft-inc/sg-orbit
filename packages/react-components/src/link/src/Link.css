@@ -1,0 +1,16 @@
+.o-ui-link:not(.o-ui-icon-link) {
+    display: inline-grid;
+    align-items: center;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "text icon";
+}
+
+/* TEXT */
+.o-ui-link-text {
+    grid-area: text;
+}
+
+/* ICON */
+.o-ui-link-icon {
+    grid-area: icon;
+}

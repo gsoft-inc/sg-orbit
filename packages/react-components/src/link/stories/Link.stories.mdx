@@ -1,0 +1,52 @@
+import { Inline } from "@react-components/layout";
+import { InnerLink, Link } from "@react-components/link";
+import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Link")}
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/link/src" />)
+        .build()}
+/>
+
+# Link
+
+Use a link to navigate between pages, link to files, anchors or even for email addresses.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />}/>
+
+## Props
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Link", component: InnerLink }
+    ]}
+/>
+
+## Accessibility
+
+Follow [WAI-ARIA design pattern for link](https://www.w3.org/TR/wai-aria-practices/#link).
+
+## Slots
+
+Support `"text"` and `"icon"` [slots](?path=/docs/getting-started-slots--page).
+
+## Usage
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Link href="#">Flight details</Link>
+    </RefLogger>
+</Story>

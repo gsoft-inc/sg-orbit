@@ -1,10 +1,9 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider, useTextContent } from "../../shared";
-import { EditIcon, iconSlot } from "../../icons";
-import { Text, textSlot } from "../../text";
+import { ClearSlots, SlotProvider } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -33,6 +32,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string.isRequired,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -42,7 +45,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerLink({
+export function InnerIconLink({
     color,
     external,
     autoFocus,
@@ -54,14 +57,16 @@ export function InnerLink({
     visited,
     target,
     rel,
+    title,
     as: ElementType = "a",
+    "aria-label": ariaLabel,
     className,
     children,
     forwardedRef,
     ...rest
 }) {
     const linkProps = useLink({
-        cssModule: "o-ui-link",
+        cssModule: "o-ui-icon-link",
         color,
         external,
         autoFocus,
@@ -77,44 +82,31 @@ export function InnerLink({
         forwardedRef
     });
 
-    let content = useTextContent(Text, children);
-
-    if (external) {
-        content = (
-            <>
-                {content}
-                <EditIcon />
-            </>
-        );
-    }
-
     return (
         <ElementType
             {...rest}
             {...linkProps}
+            title={title ?? ariaLabel}
+            aria-label={ariaLabel}
         >
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
-                            size,
-                            className: "o-ui-link-text"
-                        }),
                         icon: iconSlot({
                             size,
                             className: "o-ui-link-icon"
                         })
                     }}
                 >
-                    {content}
+                    {children}
                 </SlotProvider>
             </ClearSlots>
         </ElementType>
     );
 }
 
-InnerLink.propTypes = propTypes;
+InnerIconLink.propTypes = propTypes;
 
-export const Link = forwardRef((props, ref) => (
-    <InnerLink {...props} forwardedRef={ref} />
+export const IconLink = forwardRef((props, ref) => (
+    <InnerIconLink {...props} forwardedRef={ref} />
 ));

@@ -78,7 +78,6 @@ export function InnerIconButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type = "button",
         title,
         as: ElementType = "button",
@@ -106,7 +105,6 @@ export function InnerIconButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type,
         className,
         forwardedRef
