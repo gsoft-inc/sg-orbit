@@ -18,7 +18,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconGroup(props) {
+export function InnerIconList(props) {
     const slotProps = useSlot("icon");
 
     const {
@@ -53,8 +53,8 @@ export function InnerIconGroup(props) {
     );
 }
 
-InnerIconGroup.propTypes = propTypes;
+InnerIconList.propTypes = propTypes;
 
-export const IconGroup = forwardRef((props, ref) => (
-    <InnerIconGroup {...props} forwardedRef={ref} />
+export const IconList = forwardRef((props, ref) => (
+    <InnerIconList {...props} forwardedRef={ref} />
 ));

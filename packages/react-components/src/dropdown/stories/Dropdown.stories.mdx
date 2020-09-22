@@ -14,7 +14,7 @@ import {
     InnerDropdownTrigger
 } from "@react-components/dropdown";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { FolderIcon, HelpIcon, IconGroup, InfoIcon, SignoutIcon, VerticalDotsIcon, WarningIcon } from "@react-components/icons";
+import { FolderIcon, HelpIcon, IconList, InfoIcon, SignoutIcon, VerticalDotsIcon, WarningIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -374,7 +374,7 @@ A tag can contain left or right [icons](?path=/docs/materials-icons--page).
             <Dropdown.Menu>
                 <Dropdown.ButtonItem onClick={logClicked}>Launch...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem onClick={logClicked}>Eject...</Dropdown.ButtonItem>
-                <Dropdown.ButtonItem iconLeft={<IconGroup><WarningIcon /><InfoIcon /></IconGroup>} onClick={logClicked}>Land...</Dropdown.ButtonItem>
+                <Dropdown.ButtonItem iconLeft={<IconList><WarningIcon /><InfoIcon /></IconList>} onClick={logClicked}>Land...</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem iconLeft={<HelpIcon />} onClick={logClicked}>Help</Dropdown.ButtonItem>
                 <Dropdown.ButtonItem iconRight={<SignoutIcon />} onClick={logClicked}>Exit</Dropdown.ButtonItem>
             </Dropdown.Menu>

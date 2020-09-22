@@ -2,7 +2,7 @@ import { CheckedValidation } from "./CheckedValidation.sample";
 import { ControlledSwitch } from "./ControlledSwitch.sample";
 import { Counter } from "@react-components/counter";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { IconGroup, InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { IconList, InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -35,11 +35,11 @@ A switch offers an on or off choice to a user.
 
 ## Accessibility
 
-This component follow [WAI design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+Follow [WAI-ARIA design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
 
 ## Slots
 
-A switch component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
+Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -97,9 +97,9 @@ A switch can have [icons](?path=/docs/materials-icons--page) after his text.
             </Switch>
             <Switch>
                 <Text>Engines</Text>
-                <IconGroup>
+                <IconList>
                     <LightbulbIcon /><LightbulbIcon />
-                </IconGroup>
+                </IconList>
             </Switch>
         </Inline>
     </Story>

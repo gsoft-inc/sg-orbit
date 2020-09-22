@@ -1,19 +1,19 @@
-import { EditIcon, IconGroup } from "@react-components/icons";
+import { EditIcon, IconList } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
 import { createChromaticSection, storiesOfBuilder } from "@utils";
 
 function stories() {
-    return storiesOfBuilder(module, createChromaticSection("IconGroup"))
+    return storiesOfBuilder(module, createChromaticSection("IconList"))
         .build();
 }
 
 function Icons(props) {
     return (
-        <IconGroup {...props}>
+        <IconList {...props}>
             <EditIcon />
             <EditIcon />
             <EditIcon />
-        </IconGroup>
+        </IconList>
     );
 }
 

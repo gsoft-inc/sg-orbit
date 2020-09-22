@@ -1,4 +1,4 @@
-import { CheckCircleIcon, IconGroup } from "@react-components/icons";
+import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -33,7 +33,7 @@ Lozenges are used to highlight an item's status for quick recognition or to give
 
 ## Slots
 
-A lozenge component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`.
+Support `"text"` and `"icon"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -58,9 +58,9 @@ A lozenge can contain an [icon](?path=/docs/materials-icons--page).
             <Text>New</Text>
         </Lozenge>
         <Lozenge>
-            <IconGroup>
+            <IconList>
                 <CheckCircleIcon /><CheckCircleIcon />
-            </IconGroup>
+            </IconList>
             <Text>New</Text>
         </Lozenge>
     </Story>

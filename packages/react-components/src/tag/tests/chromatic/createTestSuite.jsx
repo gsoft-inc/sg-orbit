@@ -1,4 +1,4 @@
-import { CheckCircleIcon, CrossIcon, IconGroup } from "@react-components/icons";
+import { CheckCircleIcon, CrossIcon, IconList } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { IconButton } from "@react-components/button";
@@ -45,21 +45,21 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Tag size="sm" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag element={element}>
-                        <IconGroup>
+                        <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag size="lg" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>

@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
+import { AddIcon, CheckIcon, IconList, LightbulbIcon } from "@react-components/icons";
 import {
     Button,
     ButtonGroup,
@@ -49,11 +49,11 @@ A Button indicates a possible user action.
 
 ## Accessibility
 
-This component follow [WAI design pattern for button](https://www.w3.org/TR/wai-aria-practices-1.1/#button).
+Follow [WAI-ARIA design pattern for button](https://www.w3.org/TR/wai-aria-practices-1.1/#button).
 
 ## Slots
 
-A button component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`.
+Support `"text"` and `"icon"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -79,9 +79,9 @@ A button can contain [icons](?path=/docs/materials-icons--page).
                 <Text>Cutoff</Text>
             </Button>
             <Button>
-                <IconGroup>
+                <IconList>
                     <LightbulbIcon /><LightbulbIcon />
-                </IconGroup>
+                </IconList>
                 <Text>Cutoff</Text>
             </Button>
         </Inline>

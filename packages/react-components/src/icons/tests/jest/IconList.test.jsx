@@ -1,16 +1,16 @@
-import { CheckIcon, IconGroup } from "@react-components/icons";
+import { CheckIcon, IconList } from "@react-components/icons";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const Icons = forwardRef((props, ref) => {
     return (
-        <IconGroup
+        <IconList
             {...props}
             ref={ref}
         >
             <CheckIcon />
             <CheckIcon />
-        </IconGroup>
+        </IconList>
     );
 });
 

@@ -2,7 +2,7 @@ import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
 import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { IconGroup, LightbulbIcon } from "@react-components/icons";
+import { IconList, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -38,11 +38,11 @@ A radio group is a set of checkable buttons, known as radio buttons, where no mo
 
 ## Accessibility
 
-This component follow [WAI design pattern for radio group](https://www.w3.org/TR/wai-aria-practices-1.1/#radiobutton).
+Follow [WAI-ARIA design pattern for radio group](https://www.w3.org/TR/wai-aria-practices-1.1/#radiobutton).
 
 ## Slots
 
-A radio component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
+Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -113,9 +113,9 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
             </Radio>
             <Radio value="jupiter">
                 <Text>Jupiter</Text>
-                <IconGroup>
+                <IconList>
                     <LightbulbIcon /><LightbulbIcon />
-                </IconGroup>
+                </IconList>
             </Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>

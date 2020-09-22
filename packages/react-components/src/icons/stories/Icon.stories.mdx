@@ -1,6 +1,6 @@
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { CheckeredBackground, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Icon, InnerIcon, InnerIconGroup, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
+import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -30,7 +30,7 @@ If you are looking for Orbit UI official icons, please have a look at the [icons
     componentsDefinitions={[
         { displayName: "Icon", component: InnerIcon },
         { displayName: "MultiVariantIcon", component: InnerMultiVariantIcon },
-        { displayName: "IconGroup", component: InnerIconGroup }
+        { displayName: "IconList", component: InnerIconList }
     ]}
 />
 
@@ -165,6 +165,20 @@ A multi variants icon support the same props as `<Icon />`.
                 <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xl" className="fill-primary-900" />
             </Inline>
         </CheckeredBackground>
+    </Story>
+</Preview>
+
+## Icon List
+
+To inline multiple icons in a component, wrap your icons in an icon list component.
+
+<Preview>
+    <Story name="icon list">
+        <IconList>
+            <Icon type={AzureIcon32} />
+            <Icon type={FilterIcon32} />
+            <Icon type={AzureIcon32} />
+        </IconList>
     </Story>
 </Preview>
 
