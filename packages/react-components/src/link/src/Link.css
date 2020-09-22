@@ -13,4 +13,145 @@
 /* ICON */
 .o-ui-link-icon {
     grid-area: icon;
+    fill: var(--marine-900)
 }
+
+/* Link */
+.o-ui-link {
+    border: none;
+    background-color: var(--transparent);
+    color: var(--marine-900);
+    padding: 0;
+}
+
+/* STATE | HOVER */
+.o-ui-link:hover,
+.o-ui-link-hover {
+    color: var(--marine-700);
+}
+
+.o-ui-link:hover .o-ui-link-text,
+.o-ui-link-hover .o-ui-link-text {
+    text-decoration: underline;
+}
+
+.o-ui-link:hover .o-ui-link-icon,
+.o-ui-link-hover .o-ui-link-icon {
+    fill: var(--marine-700)
+}
+
+/* STATE | FOCUS */
+.o-ui-link:focus,
+.o-ui-link-focus {
+    background-color: var(--marine-50);
+    border-radius: var(--scale-alpha);
+    box-shadow: 0 0 0 2px var(--marine-50);
+    outline: none;
+}
+
+/* STATE | ACTIVE */
+.o-ui-link:active,
+.o-ui-link-active {
+    color: var(--marine-900);
+}
+
+.o-ui-link:active .o-ui-link-icon,
+.o-ui-link-active .o-ui-link-icon {
+    fill: var(--marine-900)
+}
+
+/* STATE | ACTIVE | FOCUS */
+.o-ui-link:active.o-ui-link:focus,
+.o-ui-link-active.o-ui-link-focus,
+.o-ui-link-active.o-ui-link:focus,
+.o-ui-link:active.o-ui-link-focus {
+    background-color: var(--transparent);
+    box-shadow: none;
+}
+
+/* STATE | DISABLED */
+.o-ui-link[disabled] {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
+}
+
+/* PRIMARY */
+.o-ui-link.o-ui-link-primary {
+    color: var(--primary-500);
+}
+
+/* PRIMARY | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-primary,
+.o-ui-link-hover.o-ui-link-primary {
+    color: var(--primary-700);
+}
+
+/* PRIMARY | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-primary,
+.o-ui-link-focus.o-ui-link-primary {
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
+}
+
+/* LINK | PRIMARY | STATE | FOCUS */
+/* .o-ui-button-link.o-ui-button-primary:focus,
+.o-ui-button-link.o-ui-button-primary.o-ui-button-focus {
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
+} */
+
+/* LINK | PRIMARY | STATE | ACTIVE */
+/* .o-ui-button-link.o-ui-button-primary:active,
+.link.o-ui-button-primary.o-ui-button-active {
+    color: var(--primary-900);
+} */
+
+/* LINK | SECONDARY */
+/* .o-ui-button-link.o-ui-button-secondary {
+    color: var(--cloud-500);
+} */
+
+/* LINK | SECONDARY | STATE | FOCUS */
+/* .o-ui-button-link.o-ui-button-secondary:focus,
+.o-ui-button-link.o-ui-button-secondary.o-ui-button-focus {
+    background-color: var(--cloud-50);
+    box-shadow: 0 0 0 2px var(--cloud-50);
+    outline: none;
+} */
+
+/* LINK | SECONDARY | STATE | HOVER */
+/* .o-ui-button-link.o-ui-button-secondary:hover,
+.o-ui-button-link.o-ui-button-secondary.o-ui-button-hover {
+    color: var(--cloud-700);
+} */
+
+/* LINK | SECONDARY | STATE | ACTIVE */
+/* .o-ui-button-link.o-ui-button-secondary:active,
+.o-ui-button-link.o-ui-button-secondary.o-ui-button-active {
+    color: var(--cloud-900);
+} */
+
+/* LINK | DANGER */
+/* .o-ui-button-link.o-ui-button-danger {
+    color: var(--alert-500);
+} */
+
+/* LINK | DANGER | STATE | FOCUS */
+/* .o-ui-button-link.o-ui-button-danger:focus,
+.o-ui-button-link.o-ui-button-danger.o-ui-button-focus {
+    background-color: var(--alert-50);
+    box-shadow: 0 0 0 2px var(--alert-50);
+    outline: none;
+} */
+
+/* LINK | DANGER | STATE | HOVER */
+/* .o-ui-button-link.o-ui-button-danger:hover,
+.o-ui-button-link.o-ui-button-danger.o-ui-button-hover {
+    color: var(--alert-700);
+} */
+
+/* LINK | DANGER | STATE | ACTIVE */
+/* .o-ui-button-link.o-ui-button-danger:active,
+.o-ui-button-link.o-ui-button-danger.o-ui-button-active {
+    color: var(--alert-900);
+} */
