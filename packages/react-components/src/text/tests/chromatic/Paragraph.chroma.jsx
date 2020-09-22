@@ -1,3 +1,4 @@
+import { Link } from "@react-components/link";
 import { Paragraph } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -30,6 +31,9 @@ stories()
             <Paragraph as="div" size="xs">If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
             <Paragraph as="div" size="2xs">If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
         </div>
+    )
+    .add("with link", () =>
+        <Paragraph>If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</Paragraph>
     )
     .add("styling", () =>
         <div>

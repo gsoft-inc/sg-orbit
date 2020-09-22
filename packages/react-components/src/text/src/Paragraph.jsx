@@ -1,8 +1,9 @@
 import "./Paragraph.css";
 
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
+import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
@@ -39,7 +40,17 @@ export function InnerParagraph({
             )}
             ref={forwardedRef}
         >
-            {children}
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        link: linkSlot({
+                            size: "inherit"
+                        })
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

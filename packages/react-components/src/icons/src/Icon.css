@@ -44,6 +44,11 @@
     height: var(--scale-juliett);
 }
 
+.o-ui-icon-inherit {
+    width: 1em;
+    height: 1em;
+}
+
 /* DISABLED */
 .o-ui-icon-disabled {
     opacity: var(--o-ui-disabled-opacity);

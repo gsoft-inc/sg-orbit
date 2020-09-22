@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider, mergeProps, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
 import { EditIcon, iconSlot } from "../../icons";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
@@ -36,7 +36,7 @@ const propTypes = {
     /**
      * A link can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md", "lg", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -48,6 +48,7 @@ const propTypes = {
 };
 
 export function InnerLink(props) {
+    const slotProps = useSlot("link");
     const formProps = useFormButton();
 
     const {
@@ -70,6 +71,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
+        slotProps,
         formProps
     );
 
@@ -133,3 +135,5 @@ InnerLink.propTypes = propTypes;
 export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
+
+export const linkSlot = props => props;

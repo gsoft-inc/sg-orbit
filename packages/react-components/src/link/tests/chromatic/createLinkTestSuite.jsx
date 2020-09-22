@@ -16,6 +16,9 @@ export function createLinkTestSuite(element, stories) {
                     <Link href="#" element={element}>Flight details</Link>
                     <Link size="lg" href="#" element={element}>Flight details</Link>
                 </Inline>
+                <div className="f5">
+                    <Link size="inherit" href="#" element={element}>Flight details</Link>
+                </div>
                 <div>
                     <Link fluid href="#" element={element}>Flight details</Link>
                 </div>
