@@ -3,6 +3,7 @@ import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } fr
 export function useLink({
     cssModule: module,
     color,
+    underline,
     external,
     autoFocus,
     autoFocusDelay,
@@ -29,6 +30,7 @@ export function useLink({
             cssModule(
                 "o-ui-link",
                 color,
+                underline,
                 fluid && "fluid",
                 active && "active",
                 focus && "focus",

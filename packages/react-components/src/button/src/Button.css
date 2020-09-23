@@ -18,7 +18,6 @@
     cursor: pointer;
     outline: none;
     font-weight: 400;
-    transition: all .12s ease-in;
 }
 
 .o-ui-button:not(.o-ui-icon-button) {
@@ -81,7 +80,7 @@ a.o-ui-button {
 }
 
 /* SOLID | ICON */
-.o-ui-button-solid .icon {
+.o-ui-button-solid .o-ui-button-icon {
     fill: var(--white);
 }
 

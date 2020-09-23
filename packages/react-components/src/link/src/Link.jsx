@@ -18,6 +18,10 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary", "danger"]),
     /**
+     * he underline style.
+     */
+    underline: oneOf(["solid", "dotted"]),
+    /**
      * Whether or not this is an external link.
      */
     external: bool,
@@ -53,6 +57,7 @@ export function InnerLink(props) {
 
     const {
         color,
+        underline,
         external,
         autoFocus,
         autoFocusDelay,
@@ -77,6 +82,7 @@ export function InnerLink(props) {
 
     const linkProps = useLink({
         color,
+        underline,
         external,
         autoFocus,
         autoFocusDelay,
@@ -98,7 +104,7 @@ export function InnerLink(props) {
         content = (
             <>
                 {content}
-                <ArrowIcon className="rotate-315" />
+                <ArrowIcon className="o-ui-rotate-315" />
             </>
         );
     }

@@ -44,6 +44,7 @@ export function InnerParagraph({
                 <SlotProvider
                     slots={{
                         link: linkSlot({
+                            underline: "dotted",
                             size: "inherit"
                         })
                     }}
