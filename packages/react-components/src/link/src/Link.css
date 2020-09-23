@@ -1,10 +1,14 @@
-.o-ui-link:not(.o-ui-icon-link) {
+.o-ui-link {
     display: inline-grid;
     line-height: 1;
     align-items: center;
     justify-content: center;
     grid-template-columns: max-content max-content;
     grid-template-areas: "text icon";
+    border: none;
+    background-color: var(--transparent);
+    color: var(--marine-900);
+    padding: 0;
 }
 
 /* TEXT */
@@ -23,15 +27,6 @@
 /* TEXT > ICON */
 .o-ui-link-text + .o-ui-link-icon {
     margin-left: 0.125rem;
-}
-
-
-/* Link */
-.o-ui-link {
-    border: none;
-    background-color: var(--transparent);
-    color: var(--marine-900);
-    padding: 0;
 }
 
 /* STATE | HOVER */
@@ -193,17 +188,7 @@ button[disabled].o-ui-link-hover {
     width: 100%;
 }
 
-/* ICON LINK */
-.o-ui-icon-link {
-    line-height: 1;
-    outline: none;
-    display: inline-grid;
-}
-
-/* ICON LINK | FOCUS */
-.o-ui-icon-link-focus,
-.o-ui-icon-link:focus {
-    background-color: var(--marine-50);
-    border-radius: var(--scale-alpha);
-    box-shadow: 0 0 0 2px var(--marine-50);
+/* INHERIT */
+.o-ui-link-inherit {
+    color: inherit;
 }
