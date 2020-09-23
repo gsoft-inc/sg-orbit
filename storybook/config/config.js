@@ -8,7 +8,7 @@ import { customStorybookTheme } from "./theme";
 import { includeChromatic, includeStories, isChromatic, isDocs, printEnvironment } from "../shared/env";
 
 import "@orbit-ui/css-normalize";
-import "@orbit-ui/semantic-ui-theme";
+// import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons/dist/apricot.css";
 import "@orbit-ui/tachyons/dist/desktop.css";
 import "@orbit-ui/tachyons/dist/overcast.css";

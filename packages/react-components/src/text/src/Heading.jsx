@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 
 const propTypes = {
     /**
-     * A paragraph can vary in size.
+     * A heading can vary in size.
      */
     size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
     /**
