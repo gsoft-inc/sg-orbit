@@ -1,14 +1,15 @@
 import "./Paragraph.css";
 
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
+import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
      * A paragraph can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
+    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -39,7 +40,18 @@ export function InnerParagraph({
             )}
             ref={forwardedRef}
         >
-            {children}
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        link: linkSlot({
+                            underline: "dotted",
+                            size: "inherit"
+                        })
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
         </ElementType>
     );
 }

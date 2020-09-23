@@ -1,6 +1,6 @@
 import { CalendarIcon, CrossIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { KEYS, SIZE, isNilOrEmpty } from "../../shared";
+import { KEYS, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
 import { TextInput } from "../../input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -21,7 +21,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
         active: bool,
         focus: bool,
         hover: bool,
-        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
+        size: oneOf(["sm", "md", "lg"]),
         className: string,
         forwardedRef: oneOfType([object, func])
     };
@@ -29,7 +29,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     static defaultProps = {
         allowClear: true,
         placeholder: "Pick a date",
-        size: SIZE.md
+        size: "md"
     };
 
     isPlaceholder() {

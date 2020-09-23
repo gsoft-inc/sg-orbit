@@ -1,0 +1,200 @@
+.o-ui-link {
+    display: inline-grid;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "text icon";
+    border: none;
+    background-color: var(--transparent);
+    color: var(--marine-900);
+    padding: 0;
+}
+
+/* TEXT */
+.o-ui-link-text {
+    grid-area: text;
+    border-bottom: 1px solid;
+    border-bottom-color: transparent;
+}
+
+/* ICON */
+.o-ui-link-icon {
+    grid-area: icon;
+    fill: currentColor;
+}
+
+/* TEXT > ICON */
+.o-ui-link-text + .o-ui-link-icon {
+    margin-left: 0.125rem;
+}
+
+/* DOTTED */
+.o-ui-link-dotted .o-ui-link-text {
+    border-bottom-style: dotted;
+    border-bottom-color: inherit;
+}
+
+/* STATE | HOVER */
+.o-ui-link:hover,
+.o-ui-link-hover {
+    color: var(--marine-700);
+}
+
+.o-ui-link:hover .o-ui-link-text,
+.o-ui-link-hover .o-ui-link-text {
+    border-bottom: 1px solid;
+    border-bottom-color: inherit;
+}
+
+/* STATE | FOCUS */
+.o-ui-link:focus,
+.o-ui-link-focus {
+    background-color: var(--marine-50);
+    border-radius: var(--scale-alpha);
+    box-shadow: 0 0 0 2px var(--marine-50);
+    outline: none;
+}
+
+/* STATE | FOCUS | TEXT */
+.o-ui-link:focus .o-ui-link-text,
+.o-ui-link-focus .o-ui-link-text {
+    border-bottom: 1px solid;
+    border-bottom-color: inherit;
+}
+
+/* STATE | ACTIVE */
+.o-ui-link:active,
+.o-ui-link-active {
+    color: var(--marine-900);
+}
+
+/* STATE | ACTIVE | FOCUS */
+.o-ui-link:active.o-ui-link:focus,
+.o-ui-link-active.o-ui-link-focus,
+.o-ui-link-active.o-ui-link:focus,
+.o-ui-link:active.o-ui-link-focus {
+    background-color: var(--transparent);
+    box-shadow: none;
+}
+
+/* STATE | ACTIVE | FOCUS | TEXT */
+.o-ui-link:active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link-active.o-ui-link-focus .o-ui-link-text,
+.o-ui-link-active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link:active.o-ui-link-focus .o-ui-link-text {
+    border-bottom: 1px solid var(--marine-700);
+}
+
+/* STATE | DISABLED */
+.o-ui-link[disabled] {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
+}
+
+/* STATE | DISABLED | HOVER */
+.o-ui-link[disabled]:hover .o-ui-link-text,
+.o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
+    text-decoration: none;
+}
+
+/* STATE | DISABLED | FOCUS */
+.o-ui-link[disabled]:focus,
+.o-ui-link[disabled].o-ui-link-focus {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* PRIMARY */
+.o-ui-link.o-ui-link-primary {
+    color: var(--primary-500);
+}
+
+/* PRIMARY | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-primary,
+.o-ui-link-hover.o-ui-link-primary {
+    color: var(--primary-700);
+}
+
+/* PRIMARY | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-primary,
+.o-ui-link-focus.o-ui-link-primary {
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
+}
+
+/* PRIMARY | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-primary,
+.o-ui-link-active.o-ui-link-primary {
+    color: var(--primary-900);
+}
+
+/* DANGER */
+.o-ui-link.o-ui-link-danger {
+    color: var(--alert-500);
+}
+
+/* DANGER | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-danger,
+.o-ui-link-hover.o-ui-link-danger {
+    color: var(--alert-700);
+}
+
+/* DANGER | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-danger,
+.o-ui-link-focus.o-ui-link-danger {
+    background-color: var(--alert-50);
+    box-shadow: 0 0 0 2px var(--alert-50);
+}
+
+/* DANGER | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-danger,
+.o-ui-link-active.o-ui-link-danger {
+    color: var(--alert-900);
+}
+
+/* SECONDARY */
+.o-ui-link.o-ui-link-secondary {
+    color: var(--cloud-500);
+}
+
+/* SECONDARY | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-secondary,
+.o-ui-link-hover.o-ui-link-secondary {
+    color: var(--cloud-700);
+}
+
+/* SECONDARY | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-secondary,
+.o-ui-link-focus.o-ui-link-secondary {
+    background-color: var(--cloud-50);
+    box-shadow: 0 0 0 2px var(--cloud-50);
+}
+
+/* SECONDARY | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-secondary,
+.o-ui-link-active.o-ui-link-secondary {
+    color: var(--cloud-900);
+}
+
+/* AS BUTTON */
+button.o-ui-link:hover,
+button.o-ui-link-hover {
+    cursor: pointer;
+}
+
+/* STATE | DISABLED | HOVER */
+button[disabled].o-ui-link:hover,
+button[disabled].o-ui-link-hover {
+    cursor: not-allowed;
+}
+
+/* FLUID */
+.o-ui-link-fluid {
+    width: 100%;
+}
+
+/* INHERIT */
+.o-ui-link-inherit {
+    color: inherit;
+}

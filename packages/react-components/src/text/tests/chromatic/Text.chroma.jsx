@@ -25,6 +25,11 @@ stories()
             <Text size="xs">Migrate, adapt, and control the cloud.</Text>
         </Stack>
     )
+    .add("inherit", () =>
+        <div className="f1">
+            <Text size="inherit">Migrate, adapt, and control the cloud.</Text>
+        </div>
+    )
     .add("styling", () =>
         <Stack>
             <Text className="bg-red">Migrate, adapt, and control the cloud.</Text>

@@ -1,8 +1,8 @@
 // Initial code have been copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/Slots.tsx.
 // For more info about the slots architecture please read https://github.com/adobe/react-spectrum/blob/main/rfcs/2019-v3-slots.md.
 
-import { SIZE } from "./size";
 import { createContext, useContext } from "react";
+import { getSize } from "./size";
 import { isNil } from "lodash";
 import { mergeProps } from "./mergeProps";
 
@@ -67,7 +67,7 @@ export function createSizeAdapterSlotFactory(sizeAdapter) {
     return ({ size, ...rest }) => {
         return {
             ...rest,
-            size: sizeAdapter[size || SIZE.md]
+            size: sizeAdapter[getSize(size)]
         };
     };
 }

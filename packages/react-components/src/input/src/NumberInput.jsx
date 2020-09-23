@@ -1,8 +1,8 @@
 import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
-import { SIZE, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSize, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
@@ -12,9 +12,9 @@ import { useMemo } from "react";
 import { useToolbar } from "../../toolbar";
 
 const STEPPER_ICON = {
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 };
 
 const propTypes = {
@@ -125,7 +125,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size={STEPPER_ICON[size || SIZE.md]} />
+                <CarretIcon size={STEPPER_ICON[getSize(size)]} />
             </button>
             <button
                 onClick={handleDecrement}
@@ -136,7 +136,7 @@ export function Spinner({
                 onFocus={onFocus}
             >
                 <CarretIcon
-                    size={STEPPER_ICON[size || SIZE.md]}
+                    size={STEPPER_ICON[getSize(size)]}
                     className="o-ui-rotate-180"
                 />
             </button>
@@ -200,6 +200,7 @@ export function InnerNumberInput(props) {
         props,
         omitProps(toolbarProps, ["orientation"]),
         {
+            // The className goes on the wrapper, not the input itself.
             ...omitProps(fieldProps, ["className", "isInField"]),
             wrapperProps: {
                 className: fieldProps.className

@@ -1,15 +1,15 @@
-import { SIZE, cssModule, mergeClasses } from "../../shared";
+import { cssModule, getSize, mergeClasses } from "../../shared";
 
 const ITEMS_GAP_BY_SIZE = {
     "horizontal": {
-        [SIZE.sm]: 4,
-        [SIZE.md]: 5,
-        [SIZE.lg]: 6
+        "sm": 4,
+        "md": 5,
+        "lg": 6
     },
     "vertical": {
-        [SIZE.sm]: 2,
-        [SIZE.md]: 3,
-        [SIZE.lg]: 4
+        "sm": 2,
+        "md": 3,
+        "lg": 4
     }
 };
 
@@ -33,7 +33,7 @@ export function useGroupInput({
             inline: reverse,
             orientation,
             alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
-            gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][size ?? SIZE.md],
+            gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][getSize(size)],
             wrap,
             className: mergeClasses(
                 cssModule(

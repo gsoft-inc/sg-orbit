@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { KEYS, SIZE, SemanticRef, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
+import { KEYS, SemanticRef, getSize, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
 import { SelectContext } from "./SelectContext";
@@ -90,9 +90,9 @@ function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value 
 }
 
 const MULTIPLE_VALUES_LABEL_SIZE = {
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 };
 
 function useMultipleValuesLabelRenderer({ size }) {
@@ -113,7 +113,7 @@ function useMultipleValuesLabelRenderer({ size }) {
             <Label
                 {...rest}
                 content={content}
-                size={MULTIPLE_VALUES_LABEL_SIZE[size || SIZE.md]}
+                size={MULTIPLE_VALUES_LABEL_SIZE[getSize(size)]}
                 className={mergeClasses(
                     !isNil(avatar) && "with-avatar",
                     !isNil(icons) && iconsPosition === "left" && "with-icons-left",

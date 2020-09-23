@@ -1,5 +1,5 @@
-import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
@@ -39,6 +39,12 @@ const propTypes = {
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
+     * Called when the button is click.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onClick: func,
+    /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string.isRequired,
@@ -72,7 +78,6 @@ export function InnerIconButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type = "button",
         title,
         as: ElementType = "button",
@@ -100,7 +105,6 @@ export function InnerIconButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type,
         className,
         forwardedRef
@@ -137,15 +141,15 @@ export const IconButton = forwardRef((props, ref) => (
 ));
 
 export const embedIconButton = createEmbeddableAdapter({
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 });
 
 export const iconButtonSlot = createSizeAdapterSlotFactory({
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 });
 
 

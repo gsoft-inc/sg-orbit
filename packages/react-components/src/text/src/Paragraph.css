@@ -1,4 +1,4 @@
-.o-ui-p-2xs {
+.o-ui-p-xs {
     font-size: var(--type-scale-9);
     line-height: 1;
     font-weight: 400;
@@ -6,7 +6,7 @@
     margin-top: 0;
 }
 
-.o-ui-p-xs {
+.o-ui-p-sm {
     font-size: var(--type-scale-8);
     line-height: 1.4285714286;
     font-weight: 400;
@@ -14,7 +14,7 @@
     margin-top: 0;
 }
 
-.o-ui-p-sm {
+.o-ui-p-md {
     font-size: var(--type-scale-7);
     line-height: 1.25;
     font-weight: 400;
@@ -22,7 +22,7 @@
     margin-top: 0;
 }
 
-.o-ui-p-md {
+.o-ui-p-lg {
     font-size: var(--type-scale-6);
     line-height: 1.33333;
     font-weight: 400;
@@ -30,7 +30,7 @@
     margin-top: 0;
 }
 
-.o-ui-p-lg {
+.o-ui-p-xl {
     font-size: var(--type-scale-5);
     line-height: 1.2;
     font-weight: 400;
@@ -38,7 +38,7 @@
     margin-top: 0;
 }
 
-.o-ui-p-xl {
+.o-ui-p-2xl {
     font-size: var(--type-scale-4);
     line-height: 1.33333;
     font-weight: 400;

@@ -1,7 +1,7 @@
 .o-ui-switch {
     display: inline-grid;
     align-items: center;
-    grid-template-columns: max-content auto max-content max-content;
+    grid-template-columns: max-content max-content max-content max-content;
     grid-template-areas: "switch label icon counter";
     cursor: pointer;
     line-height: 1;

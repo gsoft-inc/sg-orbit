@@ -18,6 +18,16 @@ export function useToolbarContext() {
     };
 }
 
+// export function useToolbarContext() {
+//     const context = useContext(ToolbarContext);
+
+//     if (!isNil(context)) {
+//         return [context, true];
+//     }
+
+//     return [{}, false];
+// }
+
 export function useToolbar() {
     // eslint-disable-next-line no-unused-vars
     const { isInToolbar, ...rest } = useToolbarContext();

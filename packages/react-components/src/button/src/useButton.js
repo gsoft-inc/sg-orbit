@@ -13,7 +13,6 @@ export function useButton({
     active,
     focus,
     hover,
-    disabled,
     type,
     className,
     forwardedRef
@@ -39,7 +38,6 @@ export function useButton({
             ),
             className
         ),
-        disabled,
         type,
         "aria-live": "polite",
         "aria-busy": loading,
