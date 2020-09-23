@@ -66,11 +66,6 @@ export function createIconLinkTestSuite(element, stories) {
                     <IconLink focus hover size="lg" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 </Inline>
                 <Inline align="end">
-                    <IconLink visited size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                    <IconLink visited aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                    <IconLink visited size="lg" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                </Inline>
-                <Inline align="end">
                     <IconLink disabled size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                     <IconLink disabled aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                     <IconLink disabled size="lg" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>

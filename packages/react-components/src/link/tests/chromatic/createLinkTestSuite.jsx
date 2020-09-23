@@ -44,6 +44,10 @@ export function createLinkTestSuite(element, stories) {
                 <Link color="primary" size="sm" href="#" element={element}>Flight details</Link>
                 <Link color="primary" href="#" element={element}>Flight details</Link>
                 <Link color="primary" size="lg" href="#" element={element}>Flight details</Link>
+                <Link color="primary" href="#" element={element}>
+                    <Text>Flight details</Text>
+                    <ArrowIcon />
+                </Link>
             </Inline>
         )
         .add("secondary", () =>
@@ -51,6 +55,10 @@ export function createLinkTestSuite(element, stories) {
                 <Link color="secondary" size="sm" href="#" element={element}>Flight details</Link>
                 <Link color="secondary" href="#" element={element}>Flight details</Link>
                 <Link color="secondary" size="lg" href="#" element={element}>Flight details</Link>
+                <Link color="secondary" href="#" element={element}>
+                    <Text>Flight details</Text>
+                    <ArrowIcon />
+                </Link>
             </Inline>
         )
         .add("danger", () =>
@@ -58,6 +66,10 @@ export function createLinkTestSuite(element, stories) {
                 <Link color="danger" size="sm" href="#" element={element}>Flight details</Link>
                 <Link color="danger" href="#" element={element}>Flight details</Link>
                 <Link color="danger" size="lg" href="#" element={element}>Flight details</Link>
+                <Link color="danger" href="#" element={element}>
+                    <Text>Flight details</Text>
+                    <ArrowIcon />
+                </Link>
             </Inline>
         )
         .add("states", () =>

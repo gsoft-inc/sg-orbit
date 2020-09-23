@@ -13,7 +13,8 @@
 /* ICON */
 .o-ui-link-icon {
     grid-area: icon;
-    fill: var(--marine-900)
+    fill: currentColor;
+    margin-left: 0.125rem;
 }
 
 /* Link */
@@ -35,11 +36,6 @@
     text-decoration: underline;
 }
 
-.o-ui-link:hover .o-ui-link-icon,
-.o-ui-link-hover .o-ui-link-icon {
-    fill: var(--marine-700)
-}
-
 /* STATE | FOCUS */
 .o-ui-link:focus,
 .o-ui-link-focus {
@@ -55,11 +51,6 @@
     color: var(--marine-900);
 }
 
-.o-ui-link:active .o-ui-link-icon,
-.o-ui-link-active .o-ui-link-icon {
-    fill: var(--marine-900)
-}
-
 /* STATE | ACTIVE | FOCUS */
 .o-ui-link:active.o-ui-link:focus,
 .o-ui-link-active.o-ui-link-focus,
@@ -73,6 +64,19 @@
 .o-ui-link[disabled] {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
+}
+
+/* STATE | DISABLED | HOVER */
+.o-ui-link[disabled]:hover .o-ui-link-text,
+.o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
+    text-decoration: none;
+}
+
+/* STATE | DISABLED | FOCUS */
+.o-ui-link[disabled]:focus,
+.o-ui-link[disabled].o-ui-link-focus {
+    background-color: transparent;
+    box-shadow: none;
 }
 
 /* PRIMARY */
@@ -93,65 +97,68 @@
     box-shadow: 0 0 0 2px var(--primary-50);
 }
 
-/* LINK | PRIMARY | STATE | FOCUS */
-/* .o-ui-button-link.o-ui-button-primary:focus,
-.o-ui-button-link.o-ui-button-primary.o-ui-button-focus {
-    background-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-50);
-} */
-
-/* LINK | PRIMARY | STATE | ACTIVE */
-/* .o-ui-button-link.o-ui-button-primary:active,
-.link.o-ui-button-primary.o-ui-button-active {
+/* PRIMARY | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-primary,
+.o-ui-link-active.o-ui-link-primary {
     color: var(--primary-900);
-} */
+}
 
-/* LINK | SECONDARY */
-/* .o-ui-button-link.o-ui-button-secondary {
-    color: var(--cloud-500);
-} */
-
-/* LINK | SECONDARY | STATE | FOCUS */
-/* .o-ui-button-link.o-ui-button-secondary:focus,
-.o-ui-button-link.o-ui-button-secondary.o-ui-button-focus {
-    background-color: var(--cloud-50);
-    box-shadow: 0 0 0 2px var(--cloud-50);
-    outline: none;
-} */
-
-/* LINK | SECONDARY | STATE | HOVER */
-/* .o-ui-button-link.o-ui-button-secondary:hover,
-.o-ui-button-link.o-ui-button-secondary.o-ui-button-hover {
-    color: var(--cloud-700);
-} */
-
-/* LINK | SECONDARY | STATE | ACTIVE */
-/* .o-ui-button-link.o-ui-button-secondary:active,
-.o-ui-button-link.o-ui-button-secondary.o-ui-button-active {
-    color: var(--cloud-900);
-} */
-
-/* LINK | DANGER */
-/* .o-ui-button-link.o-ui-button-danger {
+/* DANGER */
+.o-ui-link.o-ui-link-danger {
     color: var(--alert-500);
-} */
+}
 
-/* LINK | DANGER | STATE | FOCUS */
-/* .o-ui-button-link.o-ui-button-danger:focus,
-.o-ui-button-link.o-ui-button-danger.o-ui-button-focus {
+/* DANGER | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-danger,
+.o-ui-link-hover.o-ui-link-danger {
+    color: var(--alert-700);
+}
+
+/* DANGER | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-danger,
+.o-ui-link-focus.o-ui-link-danger {
     background-color: var(--alert-50);
     box-shadow: 0 0 0 2px var(--alert-50);
-    outline: none;
-} */
+}
 
-/* LINK | DANGER | STATE | HOVER */
-/* .o-ui-button-link.o-ui-button-danger:hover,
-.o-ui-button-link.o-ui-button-danger.o-ui-button-hover {
-    color: var(--alert-700);
-} */
-
-/* LINK | DANGER | STATE | ACTIVE */
-/* .o-ui-button-link.o-ui-button-danger:active,
-.o-ui-button-link.o-ui-button-danger.o-ui-button-active {
+/* DANGER | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-danger,
+.o-ui-link-active.o-ui-link-danger {
     color: var(--alert-900);
-} */
+}
+
+/* SECONDARY */
+.o-ui-link.o-ui-link-secondary {
+    color: var(--cloud-500);
+}
+
+/* SECONDARY | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-secondary,
+.o-ui-link-hover.o-ui-link-secondary {
+    color: var(--cloud-700);
+}
+
+/* SECONDARY | STATE | FOCUS */
+.o-ui-link:focus.o-ui-link-secondary,
+.o-ui-link-focus.o-ui-link-secondary {
+    background-color: var(--cloud-50);
+    box-shadow: 0 0 0 2px var(--cloud-50);
+}
+
+/* SECONDARY | STATE | ACTIVE */
+.o-ui-link:active.o-ui-link-secondary,
+.o-ui-link-active.o-ui-link-secondary {
+    color: var(--cloud-900);
+}
+
+/* AS BUTTON */
+button.o-ui-link:hover,
+button.o-ui-link-hover {
+    cursor: pointer;
+}
+
+/* STATE | DISABLED | HOVER */
+button[disabled].o-ui-link:hover,
+button[disabled].o-ui-link-hover {
+    cursor: not-allowed;
+}
