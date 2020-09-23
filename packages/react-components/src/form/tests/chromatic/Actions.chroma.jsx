@@ -2,7 +2,6 @@ import { Actions } from "@react-components/form";
 import { Button } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { Link } from "@react-components/link";
-import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
