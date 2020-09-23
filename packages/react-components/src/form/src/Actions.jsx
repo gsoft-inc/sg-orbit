@@ -1,7 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Inline } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, omitProps } from "../../shared";
+import { augmentElement, mergeProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
 /*

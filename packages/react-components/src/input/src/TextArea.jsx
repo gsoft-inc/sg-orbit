@@ -1,7 +1,7 @@
 import "./TextArea.css";
 
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldWrappedInput } from "./useFieldWrappedInput";
