@@ -1,6 +1,6 @@
 import { Children, cloneElement } from "react";
-import { SIZE, createSizeAdapterSlotFactory } from "../../shared";
 import { any, string } from "prop-types";
+import { createSizeAdapterSlotFactory, getSize } from "../../shared";
 
 const EMBED_SIZE = {
     "2xs": "2xs",
@@ -20,7 +20,7 @@ export function EmbeddedIcon({ size, children, ...rest }) {
     const icon = Children.only(children);
 
     return cloneElement(icon, {
-        size: EMBED_SIZE[size || SIZE.md],
+        size: EMBED_SIZE[getSize(size)],
         ...rest
     });
 }

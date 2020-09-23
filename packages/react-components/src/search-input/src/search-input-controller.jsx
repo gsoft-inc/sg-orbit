@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, SIZE, createOrAugmentElement, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, KEYS, createOrAugmentElement, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CrossIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
@@ -34,7 +34,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         autoFocus: bool,
         autoFocusDelay: number,
         fluid: bool,
-        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
+        size: oneOf(["sm", "md", "lg"]),
         input: oneOfType([element, elementType]),
         active: bool,
         focus: bool,
@@ -49,7 +49,7 @@ export class SearchInputController extends AutoControlledPureComponent {
         placeholder: "Search",
         debounceDelay: 200,
         autoFocusDelay: 50,
-        size: SIZE.md,
+        size: "md",
         input: <TextInput />
     };
 

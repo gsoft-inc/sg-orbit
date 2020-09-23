@@ -1,8 +1,8 @@
 import "./FieldMessage.css";
 
-import { SIZE, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 import { useFieldContext } from "./FieldContext";
 
@@ -57,9 +57,9 @@ const propTypes = {
 };
 
 const ADAPTED_SIZE = {
-    [SIZE.sm]: SIZE.xs,
-    [SIZE.md]: SIZE.sm,
-    [SIZE.lg]: SIZE.md
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
 };
 
 export const FieldMessage = forwardRef(({
@@ -75,7 +75,7 @@ export const FieldMessage = forwardRef(({
         <Text
             data-testid="field-message"
             {...rest}
-            size={ADAPTED_SIZE[size ?? SIZE.md]}
+            size={ADAPTED_SIZE[getSize(size)]}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",
