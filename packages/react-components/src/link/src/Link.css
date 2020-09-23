@@ -14,8 +14,8 @@
 /* TEXT */
 .o-ui-link-text {
     grid-area: text;
-    border-bottom: 1px dotted;
-    border-bottom-color: inherit;
+    border-bottom: 1px solid;
+    border-bottom-color: transparent;
 }
 
 /* ICON */
@@ -27,6 +27,12 @@
 /* TEXT > ICON */
 .o-ui-link-text + .o-ui-link-icon {
     margin-left: 0.125rem;
+}
+
+/* DOTTED */
+.o-ui-link-dotted .o-ui-link-text {
+    border-bottom-style: dotted;
+    border-bottom-color: inherit;
 }
 
 /* STATE | HOVER */
@@ -77,7 +83,7 @@
 .o-ui-link-active.o-ui-link-focus .o-ui-link-text,
 .o-ui-link-active.o-ui-link:focus .o-ui-link-text,
 .o-ui-link:active.o-ui-link-focus .o-ui-link-text {
-    border-bottom: 1px dotted var(--marine-700);
+    border-bottom: 1px solid var(--marine-700);
 }
 
 /* STATE | DISABLED */
