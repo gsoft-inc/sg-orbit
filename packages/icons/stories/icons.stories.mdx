@@ -251,20 +251,18 @@ function render() {
 
 #### Sizes
 
-By default an icon component render as a `medium` sized icon.
+By default an icon component render as an `md` sized icon.
 
-To alter the dimensions of an icon, you can specify any of the following sizes: `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"2xl"` and `"3xl"`.
+To alter the dimensions of an icon, you can specify any of the following sizes: `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"inherit"`.
 
 <Preview>
     <CheckeredBackground>
         <Inline align="end" gap={2}>
+            <CalendarIcon size="2xs" />
             <CalendarIcon size="xs" />
             <CalendarIcon size="sm" />
             <CalendarIcon />
             <CalendarIcon size="lg" />
-            <CalendarIcon size="xl" />
-            <CalendarIcon size="2xl" />
-            <CalendarIcon size="3xl" />
         </Inline>
     </CheckeredBackground>
 </Preview>

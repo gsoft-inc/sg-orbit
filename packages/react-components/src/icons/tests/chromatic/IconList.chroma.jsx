@@ -23,6 +23,8 @@ stories()
     )
     .add("size", () =>
         <Stack>
+            <Icons size="2xs" />
+            <Icons size="xs" />
             <Icons size="sm" />
             <Icons />
             <Icons size="lg" />
