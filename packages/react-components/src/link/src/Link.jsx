@@ -104,7 +104,7 @@ export function InnerLink(props) {
         content = (
             <>
                 {content}
-                <ArrowIcon className="o-ui-rotate-315" />
+                <ArrowIcon />
             </>
         );
     }

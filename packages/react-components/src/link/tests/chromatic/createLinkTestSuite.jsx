@@ -65,36 +65,62 @@ export function createLinkTestSuite(element, stories) {
             </Inline>
         )
         .add("primary", () =>
-            <Inline align="end">
-                <Link color="primary" size="sm" href="#" element={element}>Flight details</Link>
-                <Link color="primary" href="#" element={element}>Flight details</Link>
-                <Link color="primary" size="lg" href="#" element={element}>Flight details</Link>
-                <Link color="primary" href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
-            </Inline>
+            <Stack>
+                <Inline align="end">
+                    <Link color="primary" size="sm" href="#" element={element}>Flight details</Link>
+                    <Link color="primary" href="#" element={element}>Flight details</Link>
+                    <Link color="primary" size="lg" href="#" element={element}>Flight details</Link>
+                </Inline>
+                <div>
+                    <Link color="primary" href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </div>
+            </Stack>
         )
         .add("secondary", () =>
-            <Inline align="end">
-                <Link color="secondary" size="sm" href="#" element={element}>Flight details</Link>
-                <Link color="secondary" href="#" element={element}>Flight details</Link>
-                <Link color="secondary" size="lg" href="#" element={element}>Flight details</Link>
-                <Link color="secondary" href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
-            </Inline>
+            <Stack>
+                <Inline align="end">
+                    <Link color="secondary" size="sm" href="#" element={element}>Flight details</Link>
+                    <Link color="secondary" href="#" element={element}>Flight details</Link>
+                    <Link color="secondary" size="lg" href="#" element={element}>Flight details</Link>
+                </Inline>
+                <div>
+                    <Link color="secondary" href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </div>
+            </Stack>
         )
         .add("danger", () =>
+            <Stack>
+                <Inline align="end">
+                    <Link color="danger" size="sm" href="#" element={element}>Flight details</Link>
+                    <Link color="danger" href="#" element={element}>Flight details</Link>
+                    <Link color="danger" size="lg" href="#" element={element}>Flight details</Link>
+                </Inline>
+                <div>
+                    <Link color="danger" href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </div>
+            </Stack>
+        )
+        .add("solid", () =>
             <Inline align="end">
-                <Link color="danger" size="sm" href="#" element={element}>Flight details</Link>
-                <Link color="danger" href="#" element={element}>Flight details</Link>
-                <Link color="danger" size="lg" href="#" element={element}>Flight details</Link>
-                <Link color="danger" href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
+                <Link underline="solid" size="sm" href="#" element={element}>Flight details</Link>
+                <Link underline="solid" href="#" element={element}>Flight details</Link>
+                <Link underline="solid" size="lg" href="#" element={element}>Flight details</Link>
+            </Inline>
+        )
+        .add("dotted", () =>
+            <Inline align="end">
+                <Link underline="dotted" size="sm" href="#" element={element}>Flight details</Link>
+                <Link underline="dotted" href="#" element={element}>Flight details</Link>
+                <Link underline="dotted" size="lg" href="#" element={element}>Flight details</Link>
             </Inline>
         )
         .add("states", () =>
