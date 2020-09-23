@@ -1,9 +1,9 @@
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { isNil } from "lodash";
 
 export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
     return (
-        <div className="flex flex-column">
+        <Stack>
             <If condition={!isNil(Icon24)}>
                 <Inline align="end">
                     <Icon24 size="3xs" />
@@ -47,6 +47,9 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon size="3xl" className="fill-sunray-900" />
                 <MultiIcon size="3xl" style={{ fill: "var(--sunray-900)" }} />
             </Inline>
-        </div>
+            <div className="f1">
+                <MultiIcon size="inherit" />
+            </div>
+        </Stack>
     );
 }

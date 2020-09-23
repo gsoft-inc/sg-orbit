@@ -1,6 +1,7 @@
 .o-ui-link:not(.o-ui-icon-link) {
     display: inline-grid;
     align-items: center;
+    justify-content: center;
     grid-template-columns: max-content max-content;
     grid-template-areas: "text icon";
 }
@@ -161,4 +162,9 @@ button.o-ui-link-hover {
 button[disabled].o-ui-link:hover,
 button[disabled].o-ui-link-hover {
     cursor: not-allowed;
+}
+
+/* FLUID */
+.o-ui-link-fluid {
+    width: 100%;
 }

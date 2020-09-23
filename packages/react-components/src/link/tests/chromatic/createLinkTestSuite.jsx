@@ -10,27 +10,52 @@ function Link({ element, ...rest }) {
 export function createLinkTestSuite(element, stories) {
     stories
         .add("default", () =>
-            <Inline align="end">
-                <Link size="sm" href="#" element={element}>Flight details</Link>
-                <Link href="#" element={element}>Flight details</Link>
-                <Link size="lg" href="#" element={element}>Flight details</Link>
-            </Inline>
+            <Stack>
+                <Inline align="end">
+                    <Link size="sm" href="#" element={element}>Flight details</Link>
+                    <Link href="#" element={element}>Flight details</Link>
+                    <Link size="lg" href="#" element={element}>Flight details</Link>
+                </Inline>
+                <div className="f5">
+                    <Link size="inherit" href="#" element={element}>Flight details</Link>
+                </div>
+                <div>
+                    <Link fluid href="#" element={element}>Flight details</Link>
+                </div>
+                <div className="w-10">
+                    <Link fluid href="#" element={element}>Flight details</Link>
+                </div>
+            </Stack>
         )
         .add("icon", () =>
-            <Inline align="end">
-                <Link size="sm" href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
-                <Link href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
-                <Link size="lg" href="#" element={element}>
-                    <Text>Flight details</Text>
-                    <ArrowIcon />
-                </Link>
-            </Inline>
+            <Stack>
+                <Inline align="end">
+                    <Link size="sm" href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                    <Link href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                    <Link size="lg" href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </Inline>
+                <div>
+                    <Link fluid href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </div>
+                <div className="w-10">
+                    <Link fluid href="#" element={element}>
+                        <Text>Flight details</Text>
+                        <ArrowIcon />
+                    </Link>
+                </div>
+            </Stack>
         )
         .add("external", () =>
             <Inline align="end">

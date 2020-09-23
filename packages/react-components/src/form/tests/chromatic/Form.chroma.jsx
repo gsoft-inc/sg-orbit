@@ -1,8 +1,9 @@
-import { Button, ButtonGroup } from "@react-components/button";
+import { Actions, Form, Row } from "@react-components/form";
+import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
-import { Form, Row } from "@react-components/form";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
+import { Link } from "@react-components/link";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -18,8 +19,88 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end" gap={13}>
-            <Form size="sm">
+        <Stack>
+            <Inline align="end" gap={13}>
+                <Form size="sm">
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Button>Submit</Button>
+                </Form>
+                <Form>
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Button>Submit</Button>
+                </Form>
+                <Form size="lg">
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Button>Submit</Button>
+                </Form>
+            </Inline>
+            <Inline align="end" gap={13}>
+                <Form size="sm">
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Link as="button">Submit</Link>
+                </Form>
+                <Form>
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Link as="button">Submit</Link>
+                </Form>
+                <Form size="lg">
+                    <Field>
+                        <Label>FullName</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Where to?</Label>
+                        <TextArea />
+                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                    </Field>
+                    <Link as="button">Submit</Link>
+                </Form>
+            </Inline>
+        </Stack>
+    )
+    .add("fluid", () =>
+        <Inline gap={13}>
+            <Form fluid>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
@@ -31,7 +112,7 @@ stories()
                 </Field>
                 <Button>Submit</Button>
             </Form>
-            <Form>
+            <Form fluid>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
@@ -41,49 +122,37 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Button>Submit</Button>
-            </Form>
-            <Form size="lg">
-                <Field>
-                    <Label>FullName</Label>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <Label>Where to?</Label>
-                    <TextArea />
-                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                </Field>
-                <Button>Submit</Button>
+                <Link as="button">Submit</Link>
             </Form>
         </Inline>
     )
-    .add("fluid", () =>
-        <Form fluid>
-            <Field>
-                <Label>FullName</Label>
-                <TextInput />
-            </Field>
-            <Field>
-                <Label>Where to?</Label>
-                <TextArea />
-                <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-            </Field>
-            <Button>Submit</Button>
-        </Form>
-    )
     .add("disabled", () =>
-        <Form disabled>
-            <Field>
-                <Label>FullName</Label>
-                <TextInput />
-            </Field>
-            <Field>
-                <Label>Where to?</Label>
-                <TextArea />
-                <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-            </Field>
-            <Button>Submit</Button>
-        </Form>
+        <Inline gap={13}>
+            <Form disabled>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextArea />
+                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                </Field>
+                <Button>Submit</Button>
+            </Form>
+            <Form disabled>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextArea />
+                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                </Field>
+                <Link as="button">Submit</Link>
+            </Form>
+        </Inline>
     )
     .add("with fieldset", () =>
         <Form>
@@ -161,55 +230,30 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Button className="justify-self-start">Submit</Button>
-            </Form>
-            <Form>
-                <Field>
-                    <Label>FullName</Label>
-                    <TextInput />
-                </Field>
-                <Button className="justify-self-center">Submit</Button>
-            </Form>
-            <Form>
-                <Field>
-                    <Label>FullName</Label>
-                    <TextInput />
-                </Field>
-                <Button className="justify-self-end">Submit</Button>
-            </Form>
-        </Inline>
-    )
-    .add("button group alignment", () =>
-        <Inline>
-            <Form>
-                <Field>
-                    <Label>FullName</Label>
-                    <TextInput />
-                </Field>
-                <ButtonGroup className="justify-self-start">
+                <Actions align="start">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
-                </ButtonGroup>
+                </Actions>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-center">
+                <Actions align="center">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
-                </ButtonGroup>
+                </Actions>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <ButtonGroup className="justify-self-end">
+                <Actions align="end">
                     <Button variant="link">Reset</Button>
                     <Button>Submit</Button>
-                </ButtonGroup>
+                </Actions>
             </Form>
         </Inline>
     )
@@ -262,10 +306,10 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <ButtonGroup>
-                <Button variant="link" type="reset">Reset</Button>
+            <Actions>
+                <Link as="button" type="reset">Reset</Link>
                 <Button type="submit">Submit</Button>
-            </ButtonGroup>
+            </Actions>
         </Form>
     )
     .add("fluid", () =>
@@ -301,10 +345,10 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <ButtonGroup>
-                <Button variant="link" type="reset">Reset</Button>
+            <Actions>
+                <Link as="button" type="reset">Reset</Link>
                 <Button type="submit">Submit</Button>
-            </ButtonGroup>
+            </Actions>
         </Form>
     )
     .add("fluid with fix width container", () =>
@@ -341,10 +385,10 @@ stories("/inline")
                 <Field>
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
-                <ButtonGroup>
-                    <Button variant="link" type="reset">Reset</Button>
+                <Actions>
+                    <Link as="button" type="reset">Reset</Link>
                     <Button type="submit">Submit</Button>
-                </ButtonGroup>
+                </Actions>
             </Form>
         </div>
     )
@@ -383,9 +427,9 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <ButtonGroup>
-                <Button variant="link" type="reset">Reset</Button>
+            <Actions>
+                <Link as="button" type="reset">Reset</Link>
                 <Button type="submit">Submit</Button>
-            </ButtonGroup>
+            </Actions>
         </Form>
     );
