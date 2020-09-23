@@ -1,7 +1,7 @@
 import "./Link.css";
 
+import { ArrowIcon, iconSlot } from "../../icons";
 import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
-import { EditIcon, iconSlot } from "../../icons";
 import { Text, textSlot } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -99,7 +99,7 @@ export function InnerLink(props) {
         content = (
             <>
                 {content}
-                <EditIcon />
+                <ArrowIcon className="rotate-315" />
             </>
         );
     }
