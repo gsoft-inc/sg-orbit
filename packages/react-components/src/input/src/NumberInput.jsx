@@ -200,6 +200,7 @@ export function InnerNumberInput(props) {
         props,
         omitProps(toolbarProps, ["orientation"]),
         {
+            // The className goes on the wrapper, not the input itself.
             ...omitProps(fieldProps, ["className", "isInField"]),
             wrapperProps: {
                 className: fieldProps.className
