@@ -4,6 +4,7 @@ import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { RouterLink } from "./RouterLink";
 import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
@@ -105,11 +106,21 @@ A link can use a different color accent.
 
 ### Button
 
-A link can be rendered as a button.
+A link can be rendered as a button:
 
 <Preview>
     <Story name="button">
         <Link as="button">Flight details</Link>
+    </Story>
+</Preview>
+
+Or as any other component like a [React Router Link](https://reactrouter.com/web/api/Link):
+
+<Preview>
+    <Story name="react router link">
+        <Link as={RouterLink} to="/flight-details">
+            Flight details
+        </Link>
     </Story>
 </Preview>
 

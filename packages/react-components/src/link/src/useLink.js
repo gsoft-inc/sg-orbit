@@ -25,8 +25,9 @@ export function useLink({
         target: target ?? external ? "_blank" : undefined,
         rel: rel ?? external ? "noopener noreferrer" : undefined,
         className: mergeClasses(
+            module,
             cssModule(
-                module,
+                "o-ui-link",
                 color,
                 fluid && "fluid",
                 active && "active",

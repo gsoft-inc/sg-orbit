@@ -1,9 +1,9 @@
 import { CrossIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { PureComponent } from "react";
-import { SIZE, mergeClasses } from "../../shared";
 import { Tag } from "../../tag";
 import { arrayOf, func, oneOf, shape, string } from "prop-types";
+import { mergeClasses } from "../../shared";
 
 // Duplicated here until https://github.com/reactjs/react-docgen/pull/352 is merged. Otherwise the props will not render properly in the docs.
 const ITEM_SHAPE = {
@@ -32,7 +32,7 @@ class TagsPickerSelectedItem extends PureComponent {
         item: shape(ITEM_SHAPE).isRequired,
         itemRenderer: func,
         onRemove: func.isRequired,
-        size: oneOf([SIZE.sm, SIZE.md, SIZE.lg]),
+        size: oneOf(["sm", "md", "lg"]),
         className: string
     };
 

@@ -1,9 +1,4 @@
 /* SIZES */
-.o-ui-icon-3xs {
-    width: var(--scale-bravo);
-    height: var(--scale-bravo);
-}
-
 .o-ui-icon-2xs {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
@@ -27,21 +22,6 @@
 .o-ui-icon-lg {
     width: var(--scale-golf);
     height: var(--scale-golf);
-}
-
-.o-ui-icon-xl {
-    width: var(--scale-hotel);
-    height: var(--scale-hotel);
-}
-
-.o-ui-icon-2xl {
-    width: var(--scale-india);
-    height: var(--scale-india);
-}
-
-.o-ui-icon-3xl {
-    width: var(--scale-juliett);
-    height: var(--scale-juliett);
 }
 
 .o-ui-icon-inherit {

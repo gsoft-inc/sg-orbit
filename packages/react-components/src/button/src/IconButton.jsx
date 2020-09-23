@@ -1,4 +1,4 @@
-import { ClearSlots, SIZE, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
+import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
@@ -141,15 +141,15 @@ export const IconButton = forwardRef((props, ref) => (
 ));
 
 export const embedIconButton = createEmbeddableAdapter({
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 });
 
 export const iconButtonSlot = createSizeAdapterSlotFactory({
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 });
 
 

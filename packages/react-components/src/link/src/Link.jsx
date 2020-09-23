@@ -76,7 +76,6 @@ export function InnerLink(props) {
     );
 
     const linkProps = useLink({
-        cssModule: "o-ui-link",
         color,
         external,
         autoFocus,
