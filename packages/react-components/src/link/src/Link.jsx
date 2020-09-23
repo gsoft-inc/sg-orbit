@@ -18,7 +18,7 @@ const propTypes = {
      */
     color: oneOf(["primary", "secondary", "danger"]),
     /**
-     * he underline style.
+     * The underline style.
      */
     underline: oneOf(["solid", "dotted"]),
     /**
@@ -52,8 +52,7 @@ const propTypes = {
 };
 
 export function InnerLink(props) {
-    const slotProps = useSlot("link");
-    const formProps = useFormButton();
+    const [formProps] = useFormButton();
 
     const {
         color,
@@ -76,7 +75,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps,
+        useSlot("link"),
         formProps
     );
 
@@ -141,4 +140,10 @@ export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
 
-export const linkSlot = props => props;
+export const linkSlot = props => {
+    return {
+        underline: "dotted",
+        size: "inherit",
+        ...props
+    };
+};

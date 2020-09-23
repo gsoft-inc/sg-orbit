@@ -29,7 +29,7 @@ const propTypes = {
 };
 
 export function InnerActions(props) {
-    const formsProps = useFormContext();
+    const [formsProps] = useFormContext();
 
     const {
         align,
@@ -41,7 +41,7 @@ export function InnerActions(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(formsProps, ["isInForm"])
+        formsProps
     );
 
     return (

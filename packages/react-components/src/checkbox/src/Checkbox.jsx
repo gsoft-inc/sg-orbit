@@ -10,7 +10,7 @@ import { iconSlot } from "../../icons";
 import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInput } from "../../field";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -74,10 +74,9 @@ const propTypes = {
 };
 
 export function InnerCheckbox(props) {
-    const checkableProps = useCheckable(props);
-    const toolbarProps = useToolbar();
-
-    const { isInField, ...fieldProps } = useFieldInput();
+    const [checkableProps] = useCheckable(props);
+    const [fieldProps, isInField] = useFieldInput();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         id,

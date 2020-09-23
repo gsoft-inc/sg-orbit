@@ -4,12 +4,12 @@ import { forwardRef } from "react";
 export const RouterLink = forwardRef(({
     to,
     children,
-    ...passthroughProps
+    ...rest
 }, ref) => {
     return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-            {...passthroughProps}
+            {...rest}
             href={to}
             ref={ref}
         >

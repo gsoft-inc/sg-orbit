@@ -3,10 +3,10 @@ import "./Input.css";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
-import { useFieldInput } from "../../field";
+import { useFieldWrappedInput } from "./useFieldWrappedInput";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -82,8 +82,8 @@ const propTypes = {
 };
 
 export function InnerTextInput(props) {
-    const toolbarProps = useToolbar();
-    const fieldProps = useFieldInput();
+    const [toolbarProps] = useToolbarContext();
+    const [fieldProps] = useFieldWrappedInput();
 
     const {
         id,
@@ -115,13 +115,7 @@ export function InnerTextInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["isInToolbar", "orientation"]),
-        {
-            // The className goes on the wrapper, not the input itself.
-            ...omitProps(fieldProps, ["className", "isInField"]),
-            wrapperProps: {
-                className: fieldProps.className
-            }
-        }
+        fieldProps
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

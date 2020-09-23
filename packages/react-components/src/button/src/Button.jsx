@@ -7,7 +7,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -63,8 +63,8 @@ const propTypes = {
 };
 
 export function InnerButton(props) {
-    const formProps = useFormButton();
-    const toolbarProps = useToolbar();
+    const [formProps] = useFormButton();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         variant = "solid",

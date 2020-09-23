@@ -4,7 +4,7 @@ import { bool, element, elementType, func, number, object, oneOf, oneOfType, str
 import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
-import { useFieldInput } from "../../field";
+import { useFieldWrappedInput } from "./useFieldWrappedInput";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
 
@@ -94,7 +94,7 @@ const pxToInt = value => {
 };
 
 export function InnerTextArea(props) {
-    const fieldProps = useFieldInput();
+    const [fieldProps] = useFieldWrappedInput();
 
     const {
         id,
@@ -128,13 +128,7 @@ export function InnerTextArea(props) {
         ...rest
     } = mergeProps(
         props,
-        {
-            // The className goes on the wrapper, not the input itself.
-            ...omitProps(fieldProps, ["className", "isInField"]),
-            wrapperProps: {
-                className: fieldProps.className
-            }
-        }
+        fieldProps
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

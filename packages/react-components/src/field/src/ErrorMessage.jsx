@@ -15,7 +15,8 @@ const propTypes = {
 };
 
 export function InnerErrorMessage(props) {
-    const { isInField, validationState, ...messageProps } = useFieldMessage();
+    const [{ validationState, ...messageProps }, isInField] = useFieldMessage();
+
     const { isError } = getValidationProps(validationState);
 
     const {

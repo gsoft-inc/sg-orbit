@@ -7,32 +7,10 @@ export function useToolbarContext() {
     const context = useContext(ToolbarContext);
 
     if (!isNil(context)) {
-        return {
-            isInToolbar: true,
-            ...context
-        };
+        return [context, true];
     }
 
-    return {
-        isInToolbar: false
-    };
-}
-
-// export function useToolbarContext() {
-//     const context = useContext(ToolbarContext);
-
-//     if (!isNil(context)) {
-//         return [context, true];
-//     }
-
-//     return [{}, false];
-// }
-
-export function useToolbar() {
-    // eslint-disable-next-line no-unused-vars
-    const { isInToolbar, ...rest } = useToolbarContext();
-
-    return rest;
+    return [{}, false];
 }
 
 export function ClearToolbarContext({ children }) {

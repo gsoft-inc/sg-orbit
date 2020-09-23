@@ -3,6 +3,7 @@ import "./Text.css";
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
@@ -24,8 +25,6 @@ const propTypes = {
 };
 
 export function InnerText(props) {
-    const slotProps = useSlot("text");
-
     const {
         size,
         as: ElementType = "span",
@@ -35,7 +34,7 @@ export function InnerText(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("text")
     );
 
     return (
@@ -56,7 +55,8 @@ export function InnerText(props) {
                     slots={{
                         icon: {
                             size
-                        }
+                        },
+                        link: linkSlot()
                     }}
                 >
                     {children}

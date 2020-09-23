@@ -144,11 +144,9 @@ All components should leverage React hooks.
 
 #### Styling
 
-Use Tachyons classes as much as possible.
+An Orbit UI component shouldn't use Tachyons classes.
 
-When you can't use Tachyons, define a custom CSS stylesheet and import it in your component.
-
-Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
+All styling should be done with native CSS. Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
 
 #### Controlled & Auto-controlled
 
@@ -156,62 +154,11 @@ A component should always be develop to offer a [controlled](https://reactjs.org
 
 A *controlled* component gives a lot of flexibility to the consumer and is well fit for a lot of use cases but also involve additional code. We believe a component should be flexible but also painless to use. That's why a component should also offer an *auto-controlled* mode for basic use cases who don't requires controlling the props.
 
-For more information, view the [auto-controlled-state](/components/shared/src/auto-controlled-state) directory. _NOTE: since we switched to functional components, this might not apply anymore. We haven't yet developed an alternative for functional components._
-
-#### Composable
-
-Components should be composable and configurable. Sub-components should be exposed from the root component.
-
-Prefer exporting `DateRangePicker.Input` to `DateRangePickerInput`:
-
-```jsx
-// definition
-function DateRangePicker() {
-    ...
-}
-
-DateRangePicker.Input;
-
-// usage
-import { DateRangePicker } from "@orbit-ui/react-components";
-
-<DateRangePicker.Input />
-```
-
-#### Derived state
-
-If you need to compute a derived state, prefer using `getDerivedStateFromProps` to `componentDidUpdate`.
-
-_NOTE: since we switched to functional components, this might not apply anymore._
-
-#### Event handlers exposed by the component
-
-An event handler prop exposed by a component should always:
-
-- Provide the original Synthetic Event as the first argument.
-- Provide the components props as the last argument.
-
-```jsx
-function MyComponent({ onChange }) {
-    function handleChange(event) {
-        onChange(event, this.props);
-    }
-
-    return (
-        <input ... onChange={this.handleChange} />
-    );
-}
-```
-
 #### Never stop event propagation
 
 A component shouldn't stop the propagation of an event. Instead, other parts of the code should determine whether or not it should handle the event.
 
 For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
-
-#### Ref
-
-A component `ref` should always be attached to the top most DOM element. A `ref` should never be attached to a React component.
 
 #### Spread props
 
@@ -226,10 +173,6 @@ function MyComponent({ className, children ...rest }) {
     );
 }
 ```
-
-#### Shared code
-
-When possible, a component should rely on [react-components-shared](/components/shared) as much as possible.
 
 ### Developer experience
 
@@ -250,23 +193,12 @@ Ex:
 
 #### Boolean props
 
-A boolean prop should be prefix with `is`.
-
-The reason behind this is that the Semantic UI React components library use this naming convention and we want a consistent experience between the components.
+A boolean prop shouldn't be prefix with `is`.
 
 Ex:
 
 - Prefer `open` to `isOpen`
 - Prefer `disabled` to `isDisabled`
-
-#### Render function props
-
-A function prop that is meant to render React component should be suffixed with `renderer`.
-
-Ex:
-
-- `itemRenderer`
-- `valueRenderer`
 
 #### Prefer simpler props name
 
@@ -284,51 +216,9 @@ Ex:
 - `defaultStartDate`
 - `defaultValues`
 
-### UX
-
-#### States
-
-A component should have a default state
-
-A component should have a tab / focus state
-
-A component should have an hover state
-
-A component should have a disabled state
-
-A component should have an error state
-
-Input components should have a readonly state
-
-#### Behaviors
-
-If the component is an input, the value should be clearable with a clear button.
-
-When a component can be open:
-
-- it should close on blur
-- the trigger should be focused when the component close
-
 #### Accessibility
 
-A non disabled component should always be accessible with tabs
-
-A disabled component shouldn't be accessible with tabs
-
-When a component offer multiple values, those values should be navigable with arrows and / or tabs.
-
-The following keys should be standard for a component that can open:
-
-- space, enter: open the component
-- esc: close the component
-
-The following keys should be standard for a button:
-
-- enter: same as click
-
-The following keys should be standard for an input:
-
-- esc: clear the value
+All components should follow [WAI-ARIA practices](https://www.w3.org/TR/wai-aria-practices/).
 
 ## Babel
 

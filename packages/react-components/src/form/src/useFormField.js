@@ -1,16 +1,12 @@
 import { useFormContext } from "./FormContext";
 
 export function useFormField() {
-    const { isInForm, size, fluid, disabled } = useFormContext();
+    const [formProps, isInForm] = useFormContext();
 
-    if (isInForm) {
-        return {
-            size,
-            fluid,
-            disabled,
-            className: "o-ui-form-field"
-        };
-    }
+    const props = isInForm && {
+        ...formProps,
+        className: "o-ui-form-field"
+    };
 
-    return {};
+    return [props || {}, isInForm];
 }

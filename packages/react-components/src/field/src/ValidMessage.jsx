@@ -19,7 +19,8 @@ const propTypes = {
 };
 
 export function InnerValidMessage(props) {
-    const { isInField, validationState, ...messageProps } = useFieldMessage();
+    const [{ validationState, ...messageProps }, isInField] = useFieldMessage();
+
     const { isValid } = getValidationProps(validationState);
 
     const {
