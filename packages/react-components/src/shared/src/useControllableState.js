@@ -1,14 +1,11 @@
-import { IS_PRODUCTION } from "./env";
 import { isFunction, isUndefined } from "lodash";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function validatePrerequisites(controlledValue, initialValue) {
-    if (!IS_PRODUCTION) {
-        if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
-            throw new Error(
-                "useControllableState - A controllable state value can either have a controlled value or an initial value, but not both."
-            );
-        }
+    if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
+        throw new Error(
+            "useControllableState - A controllable state value can either have a controlled value or an initial value, but not both."
+        );
     }
 }
 

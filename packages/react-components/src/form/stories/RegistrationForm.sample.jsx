@@ -2,6 +2,7 @@ import { Actions, Form } from "@react-components/form";
 import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, Label } from "@react-components/field";
+import { Link } from "@react-components/link";
 import { TextInput } from "@react-components/input";
 import { useFormik } from "formik";
 
@@ -84,12 +85,12 @@ export function RegistrationForm() {
                 </Checkbox>
             </Field>
             <Actions align="end">
-                <Button
-                    variant="link"
+                <Link
+                    as="button"
                     onClick={formik.resetForm}
                 >
                     Reset
-                </Button>
+                </Link>
                 <Button
                     loading={formik.isSubmitting}
                     type="submit"

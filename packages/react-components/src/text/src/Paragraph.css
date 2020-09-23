@@ -30,6 +30,22 @@
     margin-top: 0;
 }
 
+.o-ui-p-xl {
+    font-size: var(--type-scale-5);
+    line-height: 1.2;
+    font-weight: 400;
+    margin-bottom: calc(var(--type-scale-5) * .75);
+    margin-top: 0;
+}
+
+.o-ui-p-2xl {
+    font-size: var(--type-scale-4);
+    line-height: 1.33333;
+    font-weight: 400;
+    margin-bottom: calc(var(--type-scale-4) * .75);
+    margin-top: 0;
+}
+
 .o-ui-p:last-child {
     margin-bottom: 0;
 }

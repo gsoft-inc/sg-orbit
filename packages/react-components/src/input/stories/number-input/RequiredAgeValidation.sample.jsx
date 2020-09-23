@@ -1,5 +1,5 @@
-import { Button } from "@react-components/button";
 import { Inline } from "@react-components/layout";
+import { Link } from "@react-components/link";
 import { NumberInput } from "@react-components/input";
 import { useCallback, useMemo, useState } from "react";
 
@@ -29,12 +29,12 @@ export function RequiredAgeValidation() {
                 placeholder="Age"
                 onChange={handleChange}
             />
-            <Button
-                variant="link"
+            <Link
+                as="button"
                 onClick={handleClick}
             >
                 clear
-            </Button>
+            </Link>
         </Inline>
     );
 }
