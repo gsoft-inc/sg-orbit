@@ -98,7 +98,7 @@ export function InnerLink(props) {
         content = (
             <>
                 {content}
-                <ArrowIcon className="rotate-315" />
+                <ArrowIcon />
             </>
         );
     }
