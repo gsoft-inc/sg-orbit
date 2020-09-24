@@ -35,6 +35,12 @@
     border-bottom-color: inherit;
 }
 
+/* SOLID */
+.o-ui-link-solid .o-ui-link-text {
+    border-bottom-style: solid;
+    border-bottom-color: inherit;
+}
+
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {

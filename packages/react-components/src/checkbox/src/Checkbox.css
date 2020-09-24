@@ -98,7 +98,7 @@
 /* CONTENT | COUNTER | REVERSE */
 .o-ui-checkbox-reverse .o-ui-checkbox-counter {
     margin-left: 0;
-    margin-right: var(--scale-alpha);
+    margin-right: var(--scale-bravo);
 }
 
 /* REVERSE */
