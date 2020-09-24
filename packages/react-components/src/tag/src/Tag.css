@@ -90,7 +90,7 @@ a.o-ui-tag-solid:focus,
 button.o-ui-tag-solid.o-ui-tag-focus,
 a.o-ui-tag-solid.o-ui-tag-focus {
     outline: none;
-    box-shadow: var(--o-ui-outline);
+    box-shadow: var(--o-ui-focus-ring);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED */
@@ -158,7 +158,7 @@ button.o-ui-tag-outline.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-focus {
     outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-outline);
+    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-focus-ring);
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */

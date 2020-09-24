@@ -32,3 +32,8 @@
     line-height: 1.3333333;
     min-height: 100px;
 }
+
+/* TRANSPARENT */
+.o-ui-text-area.o-ui-input-transparent textarea {
+    padding: 0;
+}
