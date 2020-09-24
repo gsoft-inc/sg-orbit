@@ -92,7 +92,7 @@
 
 .o-ui.calendar .CalendarDay__default:focus {
     outline: none !important;
-    box-shadow: inset var(--o-ui-outline) !important;
+    box-shadow: inset var(--o-ui-focus-ring) !important;
 }
 
 .o-ui.calendar .DayPickerNavigation_button > div {
@@ -101,7 +101,7 @@
 
 .o-ui.calendar .DayPickerNavigation_button > div:focus {
     outline: none !important;
-    box-shadow: var(--o-ui-outline:) !important;
+    box-shadow: var(--o-ui-focus-ring) !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar:hover,
