@@ -1,6 +1,7 @@
 import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field";
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
+import { Link } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -16,13 +17,13 @@ stories()
     .add("size", () =>
         <Inline align="end">
             <HelpMessage size="sm">
-                <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
+                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
             <HelpMessage>
-                <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
+                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
             <HelpMessage size="lg">
-                <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
+                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
         </Inline>
     )
@@ -40,7 +41,7 @@ stories()
         <Inline >
             <HelpMessage>Enter your final destination.</HelpMessage>
             <HelpMessage>
-                <HelpIcon /> Enter your final destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
+                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
         </Inline>
     )
@@ -48,7 +49,7 @@ stories()
         <Inline>
             <ErrorMessage>This is not a valid destination.</ErrorMessage>
             <ErrorMessage>
-                <WarningIcon /> This is not a valid destination. Here's a <a href="https://www.google.com/sky" target="_blank" rel="noreferrer">space map</a>.
+                <WarningIcon /> This is not a valid destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </ErrorMessage>
         </Inline>
     )
@@ -56,7 +57,7 @@ stories()
         <Inline>
             <ValidMessage>Thank you!</ValidMessage>
             <ValidMessage>
-                <InfoIcon /> Thank you!, here's your <a href="https://www.sharegate.com" target="_blank" rel="noreferrer">receipt</a>.
+                <InfoIcon /> Thank you!, here's your <Link href="https://www.sharegate.com" external>receipt</Link>.
             </ValidMessage>
         </Inline>
     )

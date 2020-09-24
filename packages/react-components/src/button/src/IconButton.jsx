@@ -3,7 +3,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -63,8 +63,7 @@ const propTypes = {
 };
 
 export function InnerIconButton(props) {
-    const slotProps = useSlot("button");
-    const toolbarProps = useToolbar();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         variant = "solid",
@@ -88,7 +87,7 @@ export function InnerIconButton(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps,
+        useSlot("button"),
         omitProps(toolbarProps, ["orientation"])
     );
 

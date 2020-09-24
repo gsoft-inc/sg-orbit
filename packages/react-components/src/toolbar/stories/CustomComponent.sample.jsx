@@ -1,14 +1,14 @@
 import { Radio, RadioGroup } from "@react-components/radio";
-import { Toolbar, useToolbar } from "@react-components/toolbar";
+import { Toolbar, useToolbarContext } from "@react-components/toolbar";
 import { omitProps } from "@react-components/shared";
 
 function CustomComponent(props) {
-    const toolbarProps = omitProps(useToolbar(), ["orientation"]);
+    const [toolbarProps] = useToolbarContext();
 
     return (
         <input
             {...props}
-            {...toolbarProps}
+            {...omitProps(toolbarProps, ["orientation"])}
             type="text"
         />
     );

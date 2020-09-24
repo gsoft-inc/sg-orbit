@@ -9,16 +9,15 @@ export function useFieldContext() {
     if (!isNil(context)) {
         const { isGroup = false, ...rest } = context;
 
-        return {
-            isInField: true,
+        const props = {
             isGroupField: isGroup,
             ...rest
         };
+
+        return [props, true];
     }
 
-    return {
-        isInField: false
-    };
+    return [{}, false];
 }
 
 export function ClearFieldContext({ children }) {

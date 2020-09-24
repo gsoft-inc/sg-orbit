@@ -8,13 +8,7 @@ import { isNil } from "lodash";
 import { useFieldContext } from "./FieldContext";
 
 export function useFieldLabel({ as: asProp }) {
-    const {
-        isGroupField,
-        inputId,
-        labelId,
-        required,
-        size
-    } = useFieldContext();
+    const [{ isGroupField, inputId, labelId, required, size }] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroupField ? "span" : "label"

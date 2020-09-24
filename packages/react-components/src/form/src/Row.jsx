@@ -30,7 +30,7 @@ const propTypes = {
 };
 
 export function InnerRow(props) {
-    const formProps = useFormContext();
+    const [formProps] = useFormContext();
 
     const {
         size,
@@ -40,7 +40,7 @@ export function InnerRow(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(formProps, ["isInForm", "disabled"])
+        omitProps(formProps, ["disabled"])
     );
 
     return (

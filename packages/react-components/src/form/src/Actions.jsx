@@ -1,7 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Inline } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, omitProps } from "../../shared";
+import { augmentElement, mergeProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
 /*
@@ -29,7 +29,7 @@ const propTypes = {
 };
 
 export function InnerActions(props) {
-    const formsProps = useFormContext();
+    const [formsProps] = useFormContext();
 
     const {
         align,
@@ -41,7 +41,7 @@ export function InnerActions(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(formsProps, ["isInForm"])
+        formsProps
     );
 
     return (

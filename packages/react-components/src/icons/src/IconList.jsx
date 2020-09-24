@@ -19,8 +19,6 @@ const propTypes = {
 };
 
 export function InnerIconList(props) {
-    const slotProps = useSlot("icon");
-
     const {
         size,
         disabled,
@@ -30,7 +28,7 @@ export function InnerIconList(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("icon")
     );
 
     return (

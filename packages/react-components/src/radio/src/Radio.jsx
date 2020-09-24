@@ -13,8 +13,7 @@ import {
     useControllableState,
     useEventCallback,
     useForwardInputApi,
-    useRenderProps,
-    useTextContent
+    useRenderProps, useTextContent
 } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -74,7 +73,7 @@ const propTypes = {
 };
 
 export function InnerRadio(props) {
-    const checkableProps = useCheckable(props);
+    const [checkableProps] = useCheckable(props);
 
     const {
         value,

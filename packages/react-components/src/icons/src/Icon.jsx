@@ -8,8 +8,6 @@ import { isNil } from "lodash";
 const SIZES = ["2xs", "xs", "sm", "md", "lg", "inherit"];
 
 export function InnerIcon(props) {
-    const slotProps = useSlot("icon");
-
     const {
         type: ComponentType,
         size,
@@ -20,7 +18,7 @@ export function InnerIcon(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("icon")
     );
 
     return (

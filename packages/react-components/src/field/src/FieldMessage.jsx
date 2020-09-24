@@ -7,16 +7,9 @@ import { forwardRef } from "react";
 import { useFieldContext } from "./FieldContext";
 
 export function useFieldMessage() {
-    const {
-        isInField,
-        messageId,
-        size,
-        fluid,
-        validationState
-    } = useFieldContext();
+    const [{ messageId, size, fluid, validationState }, isInField] = useFieldContext();
 
-    return {
-        isInField,
+    const props = {
         id: messageId,
         size,
         fluid,
@@ -24,6 +17,8 @@ export function useFieldMessage() {
         className: cssModule("o-ui-field-message", getSizeClass(size)),
         "aria-live": "polite"
     };
+
+    return [props, isInField];
 }
 
 export function getValidationProps(validationState) {

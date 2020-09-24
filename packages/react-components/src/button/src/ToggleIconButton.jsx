@@ -67,7 +67,7 @@ const propTypes = {
 };
 
 export function InnerToggleIconButton(props) {
-    const checkableProps = useCheckable(props);
+    const [checkableProps] = useCheckable(props);
 
     const {
         variant = "solid",

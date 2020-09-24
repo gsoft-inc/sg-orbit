@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInput } from "../../field";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -61,9 +61,8 @@ const propTypes = {
 };
 
 export function InnerSwitch(props) {
-    const toolbarProps = useToolbar();
-
-    const { isInField, ...fieldProps } = useFieldInput();
+    const [toolbarProps] = useToolbarContext();
+    const [fieldProps, isInField] = useFieldInput();
 
     const {
         id,

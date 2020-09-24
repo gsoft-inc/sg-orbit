@@ -253,7 +253,7 @@ yarn deploy-docs
 
 ## Commands
 
-Here's an exhaustive list of all the commands you might need to use. The following commands must be executed in a terminal opened at the root of the workspace.
+All commands are available in the [package.json](package.json) file. Here's a list of the commands you might need to use frequently. The following commands must be executed in a terminal opened at the root of the workspace.
 
 ### bootstrap
 
@@ -265,22 +265,6 @@ As an example, the *semantic-ui-theme* package must be **build once** before it 
 
 ```bash
 yarn bootstrap
-```
-
-### bootstrap:pkg
-
-Same as *bootstrap* but only for the packages.
-
-```bash
-yarn bootstrap:pkg
-```
-
-### bootstrap:sb
-
-Same as *bootstrap* but only for Storybook.
-
-```bash
-yarn bootstrap:sb
 ```
 
 ### start
@@ -299,14 +283,6 @@ Start Storybook.
 yarn start-sb
 ```
 
-### start-docs
-
-Start the Storybook docs.
-
-```bash
-yarn start-docs
-```
-
 ### build
 
 Build all the packages and Storybook for production.
@@ -314,62 +290,6 @@ Build all the packages and Storybook for production.
 ```bash
 yarn build
 ```
-
-### build:pkg
-
-Same as *build* but only for the packages.
-
-```bash
-yarn build:pkg
-```
-
-### build:sb
-
-Same as *build* but only for Storybook.
-
-```bash
-yarn build:sb
-```
-
-### build:docs
-
-Same as *build* but only for the Storybook docs.
-
-```bash
-yarn build:website
-```
-
-### build-theme
-
-Same as *build* but only for the SUI theme.
-
-```bash
-yarn build-theme
-```
-
-### serve-sb
-
-Serve Storybook optimized for production.
-
-```bash
-yarn serve-sb
-```
-
-### serve-docs
-
-Serve docs optimized for production.
-
-```bash
-yarn serve-docs
-```
-
-### release-pkg
-
-View the section [Release the packages](#release-the-packages).
-
-### release-pkg-next
-
-Same as *release-pkg* but with the *next* [dist-tag](https://docs.npmjs.com/cli/dist-tag).
 
 ### reset
 
@@ -413,22 +333,12 @@ Execute all the linters.
 yarn lint
 ```
 
-### test
+### jest
 
-Execute all the interaction tests.
-
-```bash
-yarn test
-```
-
-### chromatic
-
-Launch the automated visual tests on Chromatic QA. For more information on the automated visual tests, read the [Testing](#testing) section.
-
-Before running make sure you built the packages with the `build:pkg` command.
+Execute all the Jest tests.
 
 ```bash
-yarn chromatic
+yarn jest
 ```
 
 ## Testing

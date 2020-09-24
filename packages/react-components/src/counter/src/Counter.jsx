@@ -41,8 +41,6 @@ const propTypes = {
 };
 
 export function InnerCounter(props) {
-    const slotProps = useSlot("counter");
-
     const {
         variant = "pill",
         color,
@@ -56,7 +54,7 @@ export function InnerCounter(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("counter")
     );
 
     const content = variant === "divider"

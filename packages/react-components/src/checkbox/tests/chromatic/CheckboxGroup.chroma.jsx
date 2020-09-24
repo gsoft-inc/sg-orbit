@@ -11,7 +11,7 @@ function CustomComponent({
     children,
     ...rest
 }) {
-    const { checked: isChecked, onCheck, ...checkableProps } = useCheckable(value);
+    const [{ checked: isChecked, onCheck, ...checkableProps }] = useCheckable({ value });
 
     const handleCheck = useCallback(event => {
         onCheck(event, value);

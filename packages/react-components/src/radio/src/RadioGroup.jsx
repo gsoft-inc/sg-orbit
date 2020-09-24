@@ -107,8 +107,8 @@ const propTypes = {
 };
 
 export function InnerRadioGroup(props) {
-    const { isInToolbar, ...toolbarProps } = useToolbarContext();
-    const { isInField, ...fieldProps } = useFieldInput();
+    const [toolbarProps, isInToolbar] = useToolbarContext();
+    const [fieldProps, isInField] = useFieldInput();
 
     const {
         value,
