@@ -1,15 +1,18 @@
 import "./FieldMessage.css";
 
-import { Text } from "../../text";
+import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
+import { Text, paragraphSlot, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
+import { iconSlot } from "../../icons";
+import { linkSlot } from "../../link";
+import { listSlot } from "../../list";
 import { useFieldContext } from "./FieldContext";
 
 export function useFieldMessage() {
     const [{ messageId, size, fluid, validationState }, isInField] = useFieldContext();
 
-    const props = {
+    const props = isInField && {
         id: messageId,
         size,
         fluid,
@@ -18,7 +21,7 @@ export function useFieldMessage() {
         "aria-live": "polite"
     };
 
-    return [props, isInField];
+    return [props || {}, isInField];
 }
 
 export function getValidationProps(validationState) {
@@ -75,14 +78,37 @@ export const FieldMessage = forwardRef(({
                 cssModule(
                     "o-ui-field-message",
                     variant,
-                    fluid && "fluid"
+                    fluid && "fluid",
+                    getSizeClass(size)
                 ),
                 className
             )}
             as={as}
             ref={ref}
         >
-            {children}
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size: "inherit"
+                        }),
+                        p: paragraphSlot({
+                            size: "inherit"
+                        }),
+                        list: listSlot({
+                            size: "inherit"
+                        }),
+                        icon: iconSlot({
+                            size
+                        }),
+                        link: linkSlot({
+                            size: "inherit"
+                        })
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
         </Text>
     );
 });

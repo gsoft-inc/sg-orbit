@@ -231,7 +231,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="start">
-                    <Button variant="link">Reset</Button>
+                    <Link as="button">Reset</Link>
                     <Button>Submit</Button>
                 </Actions>
             </Form>
@@ -241,7 +241,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="center">
-                    <Button variant="link">Reset</Button>
+                    <Link as="button">Reset</Link>
                     <Button>Submit</Button>
                 </Actions>
             </Form>
@@ -251,7 +251,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="end">
-                    <Button variant="link">Reset</Button>
+                    <Link as="button">Reset</Link>
                     <Button>Submit</Button>
                 </Actions>
             </Form>

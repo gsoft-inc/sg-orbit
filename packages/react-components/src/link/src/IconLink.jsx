@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
@@ -40,31 +40,40 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
 };
 
-export function InnerIconLink({
-    color,
-    external,
-    autoFocus,
-    autoFocusDelay,
-    size,
-    active,
-    focus,
-    hover,
-    visited,
-    target,
-    rel,
-    title,
-    as: ElementType = "a",
-    "aria-label": ariaLabel,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerIconLink(props) {
+    const {
+        color,
+        external,
+        autoFocus,
+        autoFocusDelay,
+        size,
+        active,
+        focus,
+        hover,
+        visited,
+        target,
+        rel,
+        title,
+        as: ElementType = "a",
+        "aria-label": ariaLabel,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        useSlot("link")
+    );
+
     const linkProps = useLink({
         cssModule: "o-ui-icon-link",
         color,

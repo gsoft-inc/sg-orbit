@@ -8,13 +8,13 @@ import { isNil } from "lodash";
 import { useFieldContext } from "./FieldContext";
 
 export function useFieldLabel({ as: asProp }) {
-    const [{ isGroupField, inputId, labelId, required, size }] = useFieldContext();
+    const [{ isGroupField, inputId, labelId, required, size }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroupField ? "span" : "label"
         : asProp;
 
-    return {
+    const props = isInField && {
         id: labelId,
         required,
         size,
@@ -22,6 +22,8 @@ export function useFieldLabel({ as: asProp }) {
         className: cssModule("o-ui-field-label", getSizeClass(size)),
         as
     };
+
+    return [props || {}, isInField];
 }
 
 const propTypes = {
@@ -56,7 +58,7 @@ function RequiredIndicator() {
 }
 
 export function InnerLabel(props) {
-    const fieldProps = useFieldLabel(props);
+    const [fieldProps] = useFieldLabel(props);
 
     const {
         required,
@@ -74,7 +76,10 @@ export function InnerLabel(props) {
             {...rest}
             size={ADAPTED_SIZE[getSize(size)]}
             className={mergeClasses(
-                "o-ui-field-label",
+                cssModule(
+                    "o-ui-field-label",
+                    getSizeClass(size)
+                ),
                 className
             )}
             as={as}

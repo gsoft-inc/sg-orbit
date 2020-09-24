@@ -1,3 +1,7 @@
+.o-ui-icon {
+    fill: currentColor;
+}
+
 /* SIZES */
 .o-ui-icon-2xs {
     width: var(--scale-charlie);

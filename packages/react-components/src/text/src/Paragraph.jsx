@@ -1,6 +1,6 @@
 import "./Paragraph.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { linkSlot } from "../../link";
@@ -15,19 +15,28 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
 };
 
-export function InnerParagraph({
-    size,
-    as: ElementType = "p",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerParagraph(props) {
+    const {
+        size,
+        as: ElementType = "p",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        useSlot("p")
+    );
+
     return (
         <ElementType
             {...rest}
@@ -58,4 +67,6 @@ InnerParagraph.propTypes = propTypes;
 export const Paragraph = forwardRef((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
+
+export const paragraphSlot = props => props;
 

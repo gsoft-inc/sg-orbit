@@ -2,6 +2,8 @@ import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Link } from "@react-components/link";
+import { ListItem, UnorderedList } from "@react-components/list";
+import { Paragraph } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -13,53 +15,140 @@ function stories(segment) {
         .build();
 }
 
+function Align({ children }) {
+    return (
+        <Inline align="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
+            {children}
+        </Inline>
+    );
+}
+
 stories()
-    .add("size", () =>
+    .add("default", () =>
         <Inline align="end">
             <HelpMessage size="sm">
-                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
             <HelpMessage>
-                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
             <HelpMessage size="lg">
-                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
             </HelpMessage>
         </Inline>
     )
-    .add("multilines", () =>
+    .add("icon", () =>
+        <Inline align="end">
+            <HelpMessage size="sm">
+                <Align>
+                    <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                </Align>
+            </HelpMessage>
+            <HelpMessage>
+                <Align>
+                    <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                </Align>
+            </HelpMessage>
+            <HelpMessage size="lg">
+                <Align>
+                    <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                </Align>
+            </HelpMessage>
+        </Inline>
+    )
+    .add("paragraph", () =>
+        <Inline align="end">
+            <HelpMessage size="sm">
+                <Paragraph>
+                    If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.
+                </Paragraph>
+            </HelpMessage>
+            <HelpMessage>
+                <Paragraph>
+                    If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.
+                </Paragraph>
+            </HelpMessage>
+            <HelpMessage size="lg">
+                <Paragraph>
+                    If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.
+                </Paragraph>
+            </HelpMessage>
+        </Inline>
+    )
+    .add("list", () =>
+        <Inline align="end">
+            <HelpMessage size="sm">
+                <UnorderedList>
+                    <ListItem>Celestial</ListItem>
+                    <ListItem>Dark matter</ListItem>
+                    <ListItem>Eclipse</ListItem>
+                </UnorderedList>
+            </HelpMessage>
+            <HelpMessage>
+                <UnorderedList>
+                    <ListItem>Celestial</ListItem>
+                    <ListItem>Dark matter</ListItem>
+                    <ListItem>Eclipse</ListItem>
+                </UnorderedList>
+            </HelpMessage>
+            <HelpMessage size="lg">
+                <UnorderedList>
+                    <ListItem>Celestial</ListItem>
+                    <ListItem>Dark matter</ListItem>
+                    <ListItem>Eclipse</ListItem>
+                </UnorderedList>
+            </HelpMessage>
+        </Inline>
+    )
+    .add("wrappers", () =>
         <HelpMessage>
-            Enter your final destination. Enter your final destination. Enter your final destination. Enter your final destination. Enter your final destination.
+            <div>
+                <div>
+                    Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+                </div>
+            </div>
+        </HelpMessage>
+    )
+    .add("complex", () =>
+        <HelpMessage>
+            <Align>
+                <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
+            </Align>
+            <Paragraph>
+                If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.
+            </Paragraph>
+            <UnorderedList>
+                <ListItem>Celestial</ListItem>
+                <ListItem>Dark matter</ListItem>
+                <ListItem>Eclipse</ListItem>
+            </UnorderedList>
         </HelpMessage>
     )
     .add("fluid", () =>
         <HelpMessage fluid>
-            Enter your final destination. Enter your final destination. Enter your final destination. Enter your final destination. Enter your final destination.
+            If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.
         </HelpMessage>
     )
     .add("help", () =>
-        <Inline >
-            <HelpMessage>Enter your final destination.</HelpMessage>
-            <HelpMessage>
+        <HelpMessage>
+            <Align>
                 <HelpIcon /> Enter your final destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
-            </HelpMessage>
-        </Inline>
+            </Align>
+        </HelpMessage>
     )
     .add("error", () =>
-        <Inline>
-            <ErrorMessage>This is not a valid destination.</ErrorMessage>
-            <ErrorMessage>
+        <ErrorMessage>
+            <Align>
                 <WarningIcon /> This is not a valid destination. Here's a <Link href="https://www.google.com/sky" external>space map</Link>.
-            </ErrorMessage>
-        </Inline>
+            </Align>
+        </ErrorMessage>
     )
     .add("valid", () =>
-        <Inline>
-            <ValidMessage>Thank you!</ValidMessage>
-            <ValidMessage>
-                <InfoIcon /> Thank you!, here's your <Link href="https://www.sharegate.com" external>receipt</Link>.
-            </ValidMessage>
-        </Inline>
+        <ValidMessage>
+            <Align>
+                <InfoIcon /> Thank you! Here's your <Link href="https://www.sharegate.com" external>receipt</Link>.
+            </Align>
+        </ValidMessage>
     )
     .add("styling", () =>
         <Inline>

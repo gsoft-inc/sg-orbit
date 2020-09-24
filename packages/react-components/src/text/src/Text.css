@@ -1,9 +1,10 @@
-.o-ui-text {
+/* .o-ui-text {
     display: inline-flex;
     align-items: center;
     white-space: pre-wrap;
-}
+} */
 
+/* SIZE */
 .o-ui-text-xs {
     font-size: var(--type-scale-9);
 }

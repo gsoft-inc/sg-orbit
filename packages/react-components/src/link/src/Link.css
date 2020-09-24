@@ -21,7 +21,6 @@
 /* ICON */
 .o-ui-link-icon {
     grid-area: icon;
-    fill: currentColor;
 }
 
 /* TEXT > ICON */
