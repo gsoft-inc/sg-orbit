@@ -1,6 +1,6 @@
 import "./Field.css";
 
-import { ClearToolbarContext, useToolbar } from "../../toolbar";
+import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -40,8 +40,8 @@ const propTypes = {
 };
 
 export function InnerField(props) {
-    const formProps = useFormField();
-    const toolbarProps = useToolbar();
+    const [formProps] = useFormField();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         id,

@@ -12,3 +12,7 @@
 .o-ui-rotate-180 {
     transform: rotate(180deg);
 }
+
+.o-ui-rotate-315 {
+    transform: rotate(315deg);
+}

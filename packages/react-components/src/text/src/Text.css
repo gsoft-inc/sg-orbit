@@ -39,3 +39,7 @@
 .o-ui-text-5xl {
     font-size: var(--type-scale-1);
 }
+
+.o-ui-text-inherit {
+    font-size: 1em;
+}

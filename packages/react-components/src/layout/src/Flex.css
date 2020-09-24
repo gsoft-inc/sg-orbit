@@ -28,8 +28,11 @@
 }
 
 /* FLEX | FLUID */
-.o-ui-flex-fluid {
+.o-ui-flex-fluid.o-ui-flex-row {
     width: 100%;
+}
+
+.o-ui-flex-fluid.o-ui-flex-column {
     height: 100%;
 }
 

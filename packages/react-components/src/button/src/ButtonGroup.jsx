@@ -1,8 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps } from "../../shared";
-import { useFormContext } from "../../form";
+import { augmentElement } from "../../shared";
 
 const propTypes = {
     /**
@@ -27,26 +26,19 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButtonGroup(props) {
-    const { isInForm, ...formProps } = useFormContext();
-
-    const {
-        size,
-        fluid,
-        disabled,
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        formProps
-    );
-
+export function InnerButtonGroup({
+    size,
+    fluid,
+    disabled,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <Group
             {...rest}
             fluid={fluid}
-            gap={isInForm ? 4 : 2}
+            gap={2}
             alignItems="center"
             ref={forwardedRef}
         >

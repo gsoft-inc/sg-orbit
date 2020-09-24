@@ -1,7 +1,7 @@
 import { Icon, MultiVariantIcon } from "./Icon";
 
 export * from "./Icon";
-export * from "./IconGroup";
+export * from "./IconList";
 export * from "./EmbeddedIcon";
 
 function createOrbitIcon(source) {

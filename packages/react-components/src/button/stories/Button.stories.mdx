@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, IconGroup, LightbulbIcon } from "@react-components/icons";
+import { AddIcon, CheckIcon, IconList, LightbulbIcon } from "@react-components/icons";
 import {
     Button,
     ButtonGroup,
@@ -49,11 +49,11 @@ A Button indicates a possible user action.
 
 ## Accessibility
 
-This component follow [WAI design pattern for button](https://www.w3.org/TR/wai-aria-practices-1.1/#button).
+Follow [WAI-ARIA design pattern for button](https://www.w3.org/TR/wai-aria-practices/#button).
 
 ## Slots
 
-A button component support the following [slots](?path=/docs/getting-started-slots--page): `"text"`, `"icon"`.
+Support `"text"` and `"icon"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -73,18 +73,10 @@ A button can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Button>
-                <LightbulbIcon />
-                <Text>Cutoff</Text>
-            </Button>
-            <Button>
-                <IconGroup>
-                    <LightbulbIcon /><LightbulbIcon />
-                </IconGroup>
-                <Text>Cutoff</Text>
-            </Button>
-        </Inline>
+        <Button>
+            <LightbulbIcon />
+            <Text>Cutoff</Text>
+        </Button>
     </Story>
 </Preview>
 
@@ -195,24 +187,11 @@ A ghost button is similar to a standard button, taking the same space as a stand
 
 ### Link
 
-A button can be rendered as a link:
+A button can be rendered as a link.
 
 <Preview>
     <Story name="as anchor">
         <Button as="a" href="https://sharegate.com" target="_blank">Cutoff</Button>
-    </Story>
-</Preview>
-
-Or look like a link:
-
-<Preview>
-    <Story name="link">
-        <Inline>
-            <Button variant="link">Default</Button>
-            <Button variant="link" color="primary">Primary</Button>
-            <Button variant="link" color="secondary">Secondary</Button>
-            <Button variant="link" color="danger">Danger</Button>
-        </Inline>
     </Story>
 </Preview>
 

@@ -25,8 +25,6 @@ const propTypes = {
 };
 
 export function InnerDot(props) {
-    const slotProps = useSlot("dot");
-
     const {
         color,
         size,
@@ -38,7 +36,7 @@ export function InnerDot(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("dot")
     );
 
     const labelMarkup = children && (

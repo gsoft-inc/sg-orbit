@@ -1,7 +1,8 @@
-import { Button, ButtonGroup } from "@react-components/button";
+import { Actions, Form } from "@react-components/form";
+import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, Label } from "@react-components/field";
-import { Form } from "@react-components/form";
+import { Link } from "@react-components/link";
 import { TextInput } from "@react-components/input";
 import { useFormik } from "formik";
 
@@ -83,20 +84,20 @@ export function RegistrationForm() {
                     Agree to terms and conditions
                 </Checkbox>
             </Field>
-            <ButtonGroup className="justify-self-end">
-                <Button
-                    variant="link"
+            <Actions align="end">
+                <Link
+                    as="button"
                     onClick={formik.resetForm}
                 >
                     Reset
-                </Button>
+                </Link>
                 <Button
                     loading={formik.isSubmitting}
                     type="submit"
                 >
                     Submit
                 </Button>
-            </ButtonGroup>
+            </Actions>
         </Form>
     );
 }

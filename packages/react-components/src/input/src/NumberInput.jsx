@@ -1,20 +1,20 @@
 import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
-import { SIZE, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSize, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
-import { useFieldInput } from "../../field";
+import { useFieldWrappedInput } from "./useFieldWrappedInput";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
-const STEPPER_ICON = {
-    [SIZE.sm]: SIZE._2xs,
-    [SIZE.md]: SIZE.xs,
-    [SIZE.lg]: SIZE.sm
+const STEPPER_ICON_SIZE = {
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 };
 
 const propTypes = {
@@ -125,7 +125,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size={STEPPER_ICON[size || SIZE.md]} />
+                <CarretIcon size={STEPPER_ICON_SIZE[getSize(size)]} />
             </button>
             <button
                 onClick={handleDecrement}
@@ -136,7 +136,7 @@ export function Spinner({
                 onFocus={onFocus}
             >
                 <CarretIcon
-                    size={STEPPER_ICON[size || SIZE.md]}
+                    size={STEPPER_ICON_SIZE[getSize(size)]}
                     className="o-ui-rotate-180"
                 />
             </button>
@@ -163,8 +163,8 @@ function toFixed(value, precision) {
 }
 
 export function InnerNumberInput(props) {
-    const toolbarProps = useToolbar();
-    const fieldProps = useFieldInput();
+    const [toolbarProps] = useToolbarContext();
+    const [fieldProps] = useFieldWrappedInput();
 
     const {
         id,
@@ -199,12 +199,7 @@ export function InnerNumberInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        {
-            ...omitProps(fieldProps, ["className", "isInField"]),
-            wrapperProps: {
-                className: fieldProps.className
-            }
-        }
+        fieldProps
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
@@ -317,7 +312,7 @@ export function InnerNumberInput(props) {
         focus,
         hover,
         className,
-        userWrapperProps,
+        wrapperProps: userWrapperProps,
         forwardedRef
     });
 

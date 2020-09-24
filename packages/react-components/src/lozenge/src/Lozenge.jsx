@@ -1,6 +1,6 @@
 import "./Lozenge.css";
 
-import { ClearSlots, SIZE, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
 import { Text, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -22,9 +22,9 @@ const propTypes = {
 };
 
 const textSlotAdapter = createSizeAdapterSlotFactory({
-    [SIZE.sm]: SIZE.xs,
-    [SIZE.md]: SIZE.sm,
-    [SIZE.lg]: SIZE.md
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
 });
 
 export function InnerLozenge({

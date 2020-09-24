@@ -1,4 +1,4 @@
-import { IconGroup, SignoutIcon } from "@react-components/icons";
+import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
@@ -50,21 +50,21 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Button size="sm" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Button</Text>
                     </Button>
                     <Button element={element}>
-                        <IconGroup>
+                        <IconList>
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Button</Text>
                     </Button>
                     <Button size="lg" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
-                        </IconGroup>
+                        </IconList>
                         <Text>Button</Text>
                     </Button>
                 </Inline>

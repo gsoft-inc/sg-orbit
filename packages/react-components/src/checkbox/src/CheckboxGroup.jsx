@@ -3,7 +3,7 @@ import "./CheckboxGroup.css";
 import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
-import { ClearToolbarContext, useToolbar } from "../../toolbar";
+import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { Group } from "../../group";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -81,9 +81,8 @@ function arrayToggleValue(array, value) {
 }
 
 export function InnerCheckboxGroup(props) {
-    const toolbarProps = useToolbar();
-
-    const { isInField, ...fieldProps } = useFieldInput();
+    const [fieldProps, isInField] = useFieldInput();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         value,

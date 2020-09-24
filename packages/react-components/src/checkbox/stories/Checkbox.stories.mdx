@@ -6,7 +6,7 @@ import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
 import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { HelpIcon, IconGroup, InfoIcon } from "@react-components/icons";
+import { HelpIcon, IconList, InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -40,11 +40,11 @@ A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
 
 ## Accessibility
 
-This component follow [WAI design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox).
+Follow [WAI-ARIA design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices/#checkbox).
 
 ## Slots
 
-A checkbox component support the following [slots](?path=/docs/getting-started-slots--page): `"label"`, `"icon"`, `"counter"`.
+Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -111,9 +111,9 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
             </Checkbox>
             <Checkbox>
                 <Text>Andromeda</Text>
-                <IconGroup>
+                <IconList>
                     <InfoIcon /><HelpIcon />
-                </IconGroup>
+                </IconList>
             </Checkbox>
         </Inline>
     </Story>

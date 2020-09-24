@@ -9,24 +9,24 @@ export function useCheckableContext(value) {
     if (!isNil(context)) {
         const { checkedValue, ...rest } = context;
 
-        return {
-            isCheckable: true,
+        const props = {
             isChecked: Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value,
             ...rest
         };
+
+        return [props, true];
     }
 
-    return {
-        isCheckable: false
-    };
+    return [{}, false];
 }
 
 export function useCheckable({ value }) {
-    // eslint-disable-next-line no-unused-vars
-    const { isCheckable, isChecked, ...rest } = useCheckableContext(value);
+    const [{ isChecked, ...rest }, isCheckable] = useCheckableContext(value);
 
-    return {
+    const props = {
         ...rest,
         checked: isChecked
     };
+
+    return [props, isCheckable];
 }

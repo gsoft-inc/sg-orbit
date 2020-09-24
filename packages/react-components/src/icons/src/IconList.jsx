@@ -18,9 +18,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconGroup(props) {
-    const slotProps = useSlot("icon");
-
+export function InnerIconList(props) {
     const {
         size,
         disabled,
@@ -30,7 +28,7 @@ export function InnerIconGroup(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("icon")
     );
 
     return (
@@ -53,8 +51,8 @@ export function InnerIconGroup(props) {
     );
 }
 
-InnerIconGroup.propTypes = propTypes;
+InnerIconList.propTypes = propTypes;
 
-export const IconGroup = forwardRef((props, ref) => (
-    <InnerIconGroup {...props} forwardedRef={ref} />
+export const IconList = forwardRef((props, ref) => (
+    <InnerIconList {...props} forwardedRef={ref} />
 ));

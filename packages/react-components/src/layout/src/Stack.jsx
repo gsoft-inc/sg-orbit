@@ -13,11 +13,25 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * How the elements are aligned in the container along the main axis.
+     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     */
+    alignContent: oneOf(["start", "end", "center"]),
+    /**
+     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     */
+    alignItems: oneOf(["start", "end", "center"]),
+    /**
+     * Shortcut for alignItems.
+     * @ignore
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * How the elements are aligned in the container along the cross axis.
+     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent: oneOf(["start", "end", "center"]),
+    /**
+     * Shortcut for justifyContent
+     * @ignore
      */
     justify: oneOf(["start", "end", "center"]),
     /**
@@ -47,7 +61,10 @@ const propTypes = {
 };
 
 export function InnerStack({
+    alignContent,
+    alignItems,
     align,
+    justifyContent,
     justify,
     gap = 5,
     wrap,
@@ -59,8 +76,9 @@ export function InnerStack({
         <Flex
             {...rest}
             direction="column"
-            alignItems={align}
-            justifyContent={justify}
+            alignContent={alignContent}
+            alignItems={alignItems ?? align}
+            justifyContent={justifyContent ?? justify}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}

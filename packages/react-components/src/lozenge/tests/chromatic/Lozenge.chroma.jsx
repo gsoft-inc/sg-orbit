@@ -1,4 +1,4 @@
-import { CheckCircleIcon, IconGroup } from "@react-components/icons";
+import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/text";
@@ -36,9 +36,9 @@ stories()
             </Inline>
             <div>
                 <Lozenge>
-                    <IconGroup>
+                    <IconList>
                         <CheckCircleIcon /><CheckCircleIcon />
-                    </IconGroup>
+                    </IconList>
                     <Text>New</Text>
                 </Lozenge>
             </div>

@@ -1,5 +1,5 @@
 import { Counter } from "@react-components/counter";
-import { EmailIcon, IconGroup, InfoIcon, WarningIcon } from "@react-components/icons";
+import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
@@ -34,21 +34,21 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline align="end">
                     <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                     <Checkbox element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                     <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
@@ -138,19 +138,19 @@ export function createCheckboxTestSuite(element, stories) {
                 </Inline>
                 <Inline align="end">
                     <Checkbox size="sm" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                     <Checkbox size="lg" element={element}>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                 </Inline>
                 <Inline align="end">
@@ -216,14 +216,14 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline>
                     <Checkbox reverse element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                     <Checkbox reverse element={element}>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                 </Inline>
                 <Inline>
@@ -245,26 +245,26 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline>
                     <Checkbox reverse element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconGroup>
+                        </IconList>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconGroup>
+                        </IconList>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
                         <Text>Milky Way</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconGroup>
+                        </IconList>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox reverse element={element}>
-                        <IconGroup><EmailIcon /><InfoIcon /><WarningIcon /></IconGroup>
+                        <IconList><EmailIcon /><InfoIcon /><WarningIcon /></IconList>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                 </Inline>
@@ -313,9 +313,9 @@ export function createCheckboxTestSuite(element, stories) {
                 <div className="flex items-end mw5">
                     <Checkbox element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
-                        <IconGroup>
+                        <IconList>
                             <EmailIcon /><EmailIcon />
-                        </IconGroup>
+                        </IconList>
                     </Checkbox>
                 </div>
                 <div className="flex items-end mw5">

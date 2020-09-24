@@ -1,13 +1,13 @@
 import { Children, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { SIZE, augmentElement, mergeProps, omitProps } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, getSize, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "..";
 
 const GAP_BY_SIZE = {
-    [SIZE.sm]: 3,
-    [SIZE.md]: 4,
-    [SIZE.lg]: 5
+    "sm": 3,
+    "md": 4,
+    "lg": 5
 };
 
 const propTypes = {
@@ -30,7 +30,7 @@ const propTypes = {
 };
 
 export function InnerRow(props) {
-    const formProps = useFormContext();
+    const [formProps] = useFormContext();
 
     const {
         size,
@@ -40,14 +40,14 @@ export function InnerRow(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(formProps, ["isInForm", "disabled"])
+        omitProps(formProps, ["disabled"])
     );
 
     return (
         <Inline
             {...rest}
             fluid={fluid}
-            gap={GAP_BY_SIZE[size || SIZE.md]}
+            gap={GAP_BY_SIZE[getSize(size)]}
             align="start"
             ref={forwardedRef}
         >

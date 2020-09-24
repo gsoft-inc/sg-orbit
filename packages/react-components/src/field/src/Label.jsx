@@ -1,20 +1,14 @@
 import "./Label.css";
 
-import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSize, getSizeClass, mergeClasses, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldContext } from "./FieldContext";
 
 export function useFieldLabel({ as: asProp }) {
-    const {
-        isGroupField,
-        inputId,
-        labelId,
-        required,
-        size
-    } = useFieldContext();
+    const [{ isGroupField, inputId, labelId, required, size }] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroupField ? "span" : "label"
@@ -50,9 +44,9 @@ const propTypes = {
 };
 
 const ADAPTED_SIZE = {
-    [SIZE.sm]: SIZE.xs,
-    [SIZE.md]: SIZE.sm,
-    [SIZE.lg]: SIZE.md
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
 };
 
 function RequiredIndicator() {
@@ -78,7 +72,7 @@ export function InnerLabel(props) {
         <Text
             data-testid="field-label"
             {...rest}
-            size={ADAPTED_SIZE[size ?? SIZE.md]}
+            size={ADAPTED_SIZE[getSize(size)]}
             className={mergeClasses(
                 "o-ui-field-label",
                 className

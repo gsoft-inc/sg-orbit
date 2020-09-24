@@ -1,15 +1,13 @@
 import "./Icon.css";
 
-import { SIZE, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-const SIZES = ["3xs", "2xs", "xs", "sm", "md", "lg", "xl", "2xl", "3xl"];
+const SIZES = ["2xs", "xs", "sm", "md", "lg", "inherit"];
 
 export function InnerIcon(props) {
-    const slotProps = useSlot("icon");
-
     const {
         type: ComponentType,
         size,
@@ -20,7 +18,7 @@ export function InnerIcon(props) {
         ...rest
     } = mergeProps(
         props,
-        slotProps
+        useSlot("icon")
     );
 
     return (
@@ -72,10 +70,10 @@ function createIconFactory(type) {
 /******/
 
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
-    let type = Component32;
+    let type = Component24;
 
-    if (size === SIZE.xs || size === SIZE.sm || size === SIZE.md) {
-        type = Component24;
+    if (size === "lg") {
+        type = Component32;
     }
 
     return (

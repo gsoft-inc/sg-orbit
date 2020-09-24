@@ -1,6 +1,6 @@
 import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
-import { EditIcon, FileIcon, IconGroup, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
+import { EditIcon, FileIcon, IconList, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useContext } from "react";
@@ -520,30 +520,30 @@ stories()
                 open
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown open>
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown
                 size="lg"
                 open
             >
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Open...</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />}>Save as...</Dropdown.Item>
-                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Rename</Dropdown.Item>
             </BasicDropdown>
             <BasicDropdown open>
                 <Dropdown.Item iconLeft={<EditIcon />}>New</Dropdown.Item>
-                <Dropdown.Item iconLeft={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>} disabled>Open...</Dropdown.Item>
+                <Dropdown.Item iconLeft={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>} disabled>Open...</Dropdown.Item>
                 <Dropdown.Item iconRight={<EditIcon />} disabled>Save as...</Dropdown.Item>
-                <Dropdown.Item iconRight={<IconGroup><EditIcon /><EditIcon /><EditIcon /></IconGroup>}>Rename</Dropdown.Item>
+                <Dropdown.Item iconRight={<IconList><EditIcon /><EditIcon /><EditIcon /></IconList>}>Rename</Dropdown.Item>
             </BasicDropdown>
         </Inline>
     )

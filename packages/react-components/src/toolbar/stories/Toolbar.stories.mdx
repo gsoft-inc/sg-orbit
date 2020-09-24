@@ -34,7 +34,7 @@ A toolbar is a container for grouping a set of controls, such as buttons, menubu
 
 ## Accessibility
 
-This component follow [WAI design pattern for toolbar](https://www.w3.org/TR/wai-aria-practices-1.1/#toolbar).
+Follow [WAI-ARIA design pattern for toolbar](https://www.w3.org/TR/wai-aria-practices/#toolbar).
 
 ## Usage
 
@@ -173,7 +173,7 @@ Toolbar controls can be wrap on multiple lines.
 
 ### Custom Components
 
-Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`. This is usually done by using the `useToolbar` hook.
+Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarContext` hook.
 
 <FilePreview filePath="/toolbar/stories/CustomComponent">
     <CustomToolbar />

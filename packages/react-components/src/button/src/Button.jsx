@@ -7,13 +7,13 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
-import { useToolbar } from "../../toolbar";
+import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost", "link"]),
+    variant: oneOf(["solid", "outline", "ghost"]),
     /**
      * The color accent.
      */
@@ -63,8 +63,8 @@ const propTypes = {
 };
 
 export function InnerButton(props) {
-    const formProps = useFormButton();
-    const toolbarProps = useToolbar();
+    const [formProps] = useFormButton();
+    const [toolbarProps] = useToolbarContext();
 
     const {
         variant = "solid",
@@ -78,7 +78,6 @@ export function InnerButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type = "button",
         as: ElementType = "button",
         className,
@@ -103,7 +102,6 @@ export function InnerButton(props) {
         active,
         focus,
         hover,
-        disabled,
         type,
         className,
         forwardedRef
