@@ -67,7 +67,7 @@
 /* COUNTER | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-counter {
     margin-left: 0;
-    margin-right: var(--scale-alpha);
+    margin-right: var(--scale-bravo);
 }
 
 /* REVERSE */
