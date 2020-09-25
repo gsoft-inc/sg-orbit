@@ -30,7 +30,7 @@ const List = forwardRef((props, ref) => {
         ...rest
     } = mergeProps(
         props,
-        useSlot("list")
+        useSlot(props, "list")
     );
 
     return (

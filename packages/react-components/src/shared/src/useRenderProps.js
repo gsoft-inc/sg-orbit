@@ -1,7 +1,7 @@
 import { isFunction } from "lodash";
 
-export function useRenderProps(state, props, children) {
+export function useRenderProps(context, props, children) {
     return isFunction(children)
-        ? children(state, props)
+        ? children(context, props)
         : children;
 }

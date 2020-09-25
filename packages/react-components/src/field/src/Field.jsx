@@ -69,6 +69,19 @@ export function InnerField(props) {
         forwardedRef
     });
 
+    const fieldContext = {
+        inputId,
+        labelId,
+        messageId,
+        required,
+        disabled,
+        size,
+        fluid,
+        validationState
+    };
+
+    // const content =
+
     return (
         <ElementType
             data-testid="field"
@@ -76,18 +89,7 @@ export function InnerField(props) {
             {...fieldProps}
         >
             <ClearToolbarContext>
-                <FieldContext.Provider
-                    value={{
-                        inputId,
-                        labelId,
-                        messageId,
-                        required,
-                        disabled,
-                        size,
-                        fluid,
-                        validationState
-                    }}
-                >
+                <FieldContext.Provider value={fieldContext}>
                     {children}
                 </FieldContext.Provider>
             </ClearToolbarContext>

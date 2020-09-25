@@ -1,5 +1,6 @@
 import "./Paragraph.css";
 
+import { BodyText } from "./BodyText";
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -27,18 +28,18 @@ const propTypes = {
 export function InnerParagraph(props) {
     const {
         size,
-        as: ElementType = "p",
+        as = "p",
         className,
         children,
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        useSlot("p")
+        useSlot(props, "p")
     );
 
     return (
-        <ElementType
+        <BodyText
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -47,6 +48,7 @@ export function InnerParagraph(props) {
                 ),
                 className
             )}
+            as={as}
             ref={forwardedRef}
         >
             <ClearSlots>
@@ -58,7 +60,7 @@ export function InnerParagraph(props) {
                     {children}
                 </SlotProvider>
             </ClearSlots>
-        </ElementType>
+        </BodyText>
     );
 }
 

@@ -105,8 +105,8 @@ export function InnerCheckbox(props) {
         forwardedRef,
         ...rest
     } = mergeProps(
-        props,
-        omitProps(checkableProps, ["role"]),
+        omitProps(props, ["role"]),
+        checkableProps,
         omitProps(toolbarProps, ["orientation"]),
         omitProps(fieldProps, ["fluid"])
     );

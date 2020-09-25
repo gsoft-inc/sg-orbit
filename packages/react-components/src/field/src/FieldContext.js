@@ -1,6 +1,11 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
+// TODO:
+// - getInputProps
+// - getMessageProps
+// - getLabelProps
+
 export const FieldContext = createContext(null);
 
 export function useFieldContext() {

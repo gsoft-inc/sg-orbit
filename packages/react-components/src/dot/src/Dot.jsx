@@ -36,7 +36,7 @@ export function InnerDot(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("dot")
+        useSlot(props, "dot")
     );
 
     const labelMarkup = children && (

@@ -79,7 +79,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("link"),
+        useSlot(props, "link"),
         formProps
     );
 

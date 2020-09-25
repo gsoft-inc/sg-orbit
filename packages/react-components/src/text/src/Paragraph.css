@@ -8,44 +8,28 @@
 }
 
 /* SIZE */
-.o-ui-p-xs {
-    font-size: var(--type-scale-9);
-    line-height: 1;
-}
-
 .o-ui-p-sm {
-    font-size: var(--type-scale-8);
-    line-height: 1.4285714286;
     margin-bottom: calc(var(--type-scale-8) * .75);
 }
 
 .o-ui-p-md {
-    font-size: var(--type-scale-7);
-    line-height: 1.25;
     margin-bottom: calc(var(--type-scale-7) * .75);
 }
 
 .o-ui-p-lg {
-    font-size: var(--type-scale-6);
-    line-height: 1.33333;
     margin-bottom: calc(var(--type-scale-6) * .75);
 }
 
 .o-ui-p-xl {
-    font-size: var(--type-scale-5);
-    line-height: 1.2;
     margin-bottom: calc(var(--type-scale-5) * .75);
 }
 
 .o-ui-p-2xl {
-    font-size: var(--type-scale-4);
-    line-height: 1.33333;
     margin-bottom: calc(var(--type-scale-4) * .75);
 }
 
 .o-ui-p-inherit {
-    font-size: 1em;
-    /* TBD */
-    line-height: 1.2;
+    font-size: inherit;
+    line-height: inherit;
     margin-bottom: .75em;
 }

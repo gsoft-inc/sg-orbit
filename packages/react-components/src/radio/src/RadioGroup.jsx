@@ -175,7 +175,12 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = useRenderProps({ checkedValue }, props, children);
+    const checkableProps = {
+        onCheck: handleCheck,
+        checkedValue
+    };
+
+    const items = useRenderProps(checkableProps, props, children);
 
     return (
         <Group
@@ -183,16 +188,11 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue,
-                    role: "radio"
-                }}
-            >
+            <CheckableContext.Provider value={checkableProps}>
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,
+                        role: "radio",
                         name: groupName
                     });
                 })}

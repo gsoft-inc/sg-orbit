@@ -254,10 +254,10 @@ Or even use a render props for items:
                 ({ checkedValue }) =>
                     ["Mars", "Jupiter", "Pluto"].map(x =>
                         <Radio
-                            className={ checkedValue === x ? "primary-500" : undefined }
+                            className={checkedValue === x && "primary-500"}
                             value={x}
                         >
-                            {checkedValue === x ? "Select" : x}
+                            {checkedValue === x ? "Selected" : x}
                         </Radio>
                     )
             }

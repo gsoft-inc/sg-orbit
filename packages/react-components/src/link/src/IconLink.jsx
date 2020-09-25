@@ -71,7 +71,7 @@ export function InnerIconLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("link")
+        useSlot(props, "link")
     );
 
     const linkProps = useLink({
