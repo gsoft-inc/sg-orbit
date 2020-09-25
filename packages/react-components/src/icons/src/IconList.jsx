@@ -28,7 +28,7 @@ export function InnerIconList(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("icon")
+        useSlot(props, "icon")
     );
 
     return (

@@ -127,6 +127,23 @@ stories()
             </Field>
         </Inline>
     )
+    .add("render props", () =>
+        <Field>
+            {
+                ({ labelClassName, inputClassName, messageClassName }) => (
+                    <>
+                        <label className={labelClassName}>
+                            Where to?
+                        </label>
+                        <input className={inputClassName} />
+                        <div className={messageClassName}>
+                            Must be a planet in earth solar system.
+                        </div>
+                    </>
+                )
+            }
+        </Field>
+    )
     .add("text input", () =>
         <Inline align="end">
             <Field size="sm">

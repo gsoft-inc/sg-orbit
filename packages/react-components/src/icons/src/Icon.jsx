@@ -18,7 +18,7 @@ export function InnerIcon(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("icon")
+        useSlot(props, "icon")
     );
 
     return (

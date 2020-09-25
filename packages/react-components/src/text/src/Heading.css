@@ -1,47 +1,41 @@
+.o-ui-heading {
+    margin-top: 0;
+    font-weight: 500;
+}
+
+/* SIZE */
 .o-ui-heading-2xs {
     font-size: var(--type-scale-6);
     line-height: 1.2;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-6) * .25);
 }
 
 .o-ui-heading-xs {
     font-size: var(--type-scale-5);
     line-height: 1.2;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-5) * .25);
 }
 
 .o-ui-heading-sm {
     font-size: var(--type-scale-4);
     line-height: 1.33333;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-4) * .25);
 }
 
 .o-ui-heading-md {
     font-size: var(--type-scale-3);
     line-height: 1.25;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-3) * .25);
 }
 
 .o-ui-heading-lg {
     font-size: var(--type-scale-2);
     line-height: 1;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-2) * .25);
 }
 
 .o-ui-heading-xl {
     font-size: var(--type-scale-1);
     line-height: 1;
-    font-weight: 500;
-    margin-top: 0;
     margin-bottom: calc(var(--type-scale-1) * .25);
 }

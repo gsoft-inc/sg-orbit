@@ -769,11 +769,6 @@ a.o-ui-button {
     padding-left: calc(var(--o-ui-button-padding-lg) / var(--o-ui-button-padding-ratio-factor));
 }
 
-/* CONTENT | ICON | COLOUR */
-.o-ui-button-has-icon .o-ui-icon {
-    fill: currentColor;
-}
-
 /* CONTENT | ICON | ROUNDED */
 .o-ui-button-has-icon.o-ui-button-rounded {
     padding-left: 0;
@@ -792,5 +787,4 @@ a.o-ui-button {
 
 .o-ui-icon-button .o-ui-button-icon {
     margin-right: 0;
-    fill: currentColor;
 }

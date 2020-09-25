@@ -40,7 +40,7 @@ const propTypes = {
     /**
      * The space between elements.
      */
-    gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
      * Whether elements are forced onto one line or can wrap onto multiple lines
      */
@@ -133,7 +133,12 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const items = useRenderProps({ checkedValue }, props, children);
+    const checkableContext = {
+        onCheck: handleCheck,
+        checkedValue
+    };
+
+    const items = useRenderProps(checkableContext, props, children);
 
     return (
         <Group
@@ -143,15 +148,12 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbarContext>
                 <ClearFieldContext>
-                    <CheckableContext.Provider
-                        value={{
-                            onCheck: handleCheck,
-                            checkedValue,
-                            role: "checkbox"
-                        }}
-                    >
+                    <CheckableContext.Provider value={checkableContext}>
                         {Children.map(items, x => {
-                            return augmentElement(x, itemProps);
+                            return augmentElement(x, {
+                                ...itemProps,
+                                role: "checkbox"
+                            });
                         })}
                     </CheckableContext.Provider>
                 </ClearFieldContext>

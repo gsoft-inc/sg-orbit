@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
-import { useFieldInput } from "../../field";
+import { useFieldContext } from "../../field";
 import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
@@ -75,7 +75,7 @@ const propTypes = {
 
 export function InnerCheckbox(props) {
     const [checkableProps] = useCheckable(props);
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps, isInField] = useFieldContext();
     const [toolbarProps] = useToolbarContext();
 
     const {
@@ -105,8 +105,8 @@ export function InnerCheckbox(props) {
         forwardedRef,
         ...rest
     } = mergeProps(
-        props,
-        omitProps(checkableProps, ["role"]),
+        omitProps(props, ["role"]),
+        checkableProps,
         omitProps(toolbarProps, ["orientation"]),
         omitProps(fieldProps, ["fluid"])
     );

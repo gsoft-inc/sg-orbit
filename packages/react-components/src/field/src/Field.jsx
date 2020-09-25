@@ -4,7 +4,7 @@ import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { mergeProps, useRenderProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
@@ -61,13 +61,18 @@ export function InnerField(props) {
         toolbarProps
     );
 
-    const { fieldProps, inputId, labelId, messageId } = useField({
+    const { fieldProps, fieldContext } = useField({
         id,
+        validationState,
+        required,
         fluid,
         size,
+        disabled,
         className,
         forwardedRef
     });
+
+    const content = useRenderProps(fieldContext, props, children);
 
     return (
         <ElementType
@@ -76,19 +81,8 @@ export function InnerField(props) {
             {...fieldProps}
         >
             <ClearToolbarContext>
-                <FieldContext.Provider
-                    value={{
-                        inputId,
-                        labelId,
-                        messageId,
-                        required,
-                        disabled,
-                        size,
-                        fluid,
-                        validationState
-                    }}
-                >
-                    {children}
+                <FieldContext.Provider value={fieldContext}>
+                    {content}
                 </FieldContext.Provider>
             </ClearToolbarContext>
         </ElementType>

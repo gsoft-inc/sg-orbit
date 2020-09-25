@@ -30,8 +30,8 @@ export function useSlotContext(slot) {
     return {};
 }
 
-export function useSlot(slot) {
-    return useSlotContext(slot);
+export function useSlot({ slot }, defaultSlot) {
+    return useSlotContext(slot ?? defaultSlot);
 }
 
 export function SlotProvider({ slots, children }) {

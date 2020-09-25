@@ -5,4 +5,3 @@ export * from "./HelpMessage";
 export * from "./ErrorMessage";
 export * from "./ValidMessage";
 export * from "./FieldContext";
-export * from "./useFieldInput";

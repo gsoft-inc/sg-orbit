@@ -1,6 +1,6 @@
-import "./Text.css";
+import "./BodyText.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { linkSlot } from "../../link";
@@ -9,41 +9,31 @@ const propTypes = {
     /**
      * A text can vary in size.
      */
-    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "inherit"]),
+    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
     children: any.isRequired
 };
 
-export function InnerText(props) {
-    const {
-        size,
-        as: ElementType = "span",
-        className,
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        useSlot(props, "text")
-    );
-
+export function InnerBodyText({
+    size,
+    as: ElementType = "span",
+    className,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <ElementType
-            data-testid="text"
             {...rest}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-text",
+                    "o-ui-body-text",
                     getSizeClass(size)
                 ),
                 className
@@ -63,10 +53,9 @@ export function InnerText(props) {
     );
 }
 
-InnerText.propTypes = propTypes;
+InnerBodyText.propTypes = propTypes;
 
-export const Text = forwardRef((props, ref) => (
-    <InnerText {...props} forwardedRef={ref} />
+export const BodyText = forwardRef((props, ref) => (
+    <InnerBodyText {...props} forwardedRef={ref} />
 ));
 
-export const textSlot = props => props;

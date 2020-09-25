@@ -98,8 +98,8 @@ export function InnerRadio(props) {
         forwardedRef,
         ...rest
     } = mergeProps(
-        props,
-        omitProps(checkableProps, ["role"])
+        omitProps(props, ["role"]),
+        checkableProps
     );
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -115,8 +115,6 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    const content = useTextContent(Text, useRenderProps({ isChecked }, props, children));
-
     const handleChange = useEventCallback(event => {
         setIsChecked(!isChecked);
 
@@ -128,6 +126,8 @@ export function InnerRadio(props) {
     const handleCheck = useEventCallback(event => {
         onCheck(event, value);
     });
+
+    const content = useTextContent(Text, useRenderProps({ isChecked }, props, children));
 
     return (
         <ElementType

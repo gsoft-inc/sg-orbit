@@ -87,7 +87,7 @@ export function InnerIconButton(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("button"),
+        useSlot(props, "button"),
         omitProps(toolbarProps, ["orientation"])
     );
 

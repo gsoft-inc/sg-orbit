@@ -3,11 +3,13 @@ import { CustomInputField } from "./CustomInput.sample";
 import { EmailValidation } from "./EmailValidation.sample";
 import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Fragment } from "react";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { NumberInput, TextInput } from "@react-components/input";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { getSizeClass } from "@react-components/shared";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -169,6 +171,28 @@ The example below illustrates how one would validate if the user has entered a v
     <EmailValidation />
 </FilePreview>
 
+### Render Props
+
+A field context is also available through a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Field>
+            {
+                ({ labelId, inputId, size, labelClassName }) => (
+                    <Fragment>
+                        <label id={labelId} htmlFor={inputId} className={`${labelClassName} ${labelClassName}-${getSizeClass(size)}`}>
+                            Space ID
+                        </label>
+                        <TextInput />
+                        <HelpMessage>Your space id is a 9-digit number available the top right corner of your membership card.</HelpMessage>
+                    </Fragment>
+                )
+            }
+        </Field>
+    </Story>
+</Preview>
+
 ### Custom Input
 
 Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInput` hook.
@@ -209,7 +233,7 @@ Any input implementing the `FieldContext` can integrate with a field component. 
 </Story>
 
 <Story
-    name="checkbox group with id"
+    name="checkbox group with id ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
@@ -227,7 +251,7 @@ Any input implementing the `FieldContext` can integrate with a field component. 
 </Story>
 
 <Story
-    name="radio group with id"
+    name="radio group with id ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}

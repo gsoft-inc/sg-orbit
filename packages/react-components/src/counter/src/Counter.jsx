@@ -54,7 +54,7 @@ export function InnerCounter(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot("counter")
+        useSlot(props, "counter")
     );
 
     const content = variant === "divider"

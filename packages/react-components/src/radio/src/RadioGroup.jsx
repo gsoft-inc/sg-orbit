@@ -79,7 +79,7 @@ const propTypes = {
     /**
      * The space between elements.
      */
-    gap: oneOfType([oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
      * Whether elements are forced onto one line or can wrap onto multiple lines
      */
@@ -175,7 +175,12 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = useRenderProps({ checkedValue }, props, children);
+    const checkableProps = {
+        onCheck: handleCheck,
+        checkedValue
+    };
+
+    const items = useRenderProps(checkableProps, props, children);
 
     return (
         <Group
@@ -183,16 +188,11 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue,
-                    role: "radio"
-                }}
-            >
+            <CheckableContext.Provider value={checkableProps}>
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,
+                        role: "radio",
                         name: groupName
                     });
                 })}

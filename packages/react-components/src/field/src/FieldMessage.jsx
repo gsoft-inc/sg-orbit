@@ -1,25 +1,12 @@
 import "./FieldMessage.css";
 
-import { Text } from "../../text";
+import { BodyText, paragraphSlot, textSlot } from "../../text";
+import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
-import { useFieldContext } from "./FieldContext";
-
-export function useFieldMessage() {
-    const [{ messageId, size, fluid, validationState }, isInField] = useFieldContext();
-
-    const props = {
-        id: messageId,
-        size,
-        fluid,
-        validationState,
-        className: cssModule("o-ui-field-message", getSizeClass(size)),
-        "aria-live": "polite"
-    };
-
-    return [props, isInField];
-}
+import { iconSlot } from "../../icons";
+import { linkSlot } from "../../link";
+import { listSlot } from "../../list";
 
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";
@@ -67,7 +54,7 @@ export const FieldMessage = forwardRef(({
     ...rest
 }, ref) => {
     return (
-        <Text
+        <BodyText
             data-testid="field-message"
             {...rest}
             size={ADAPTED_SIZE[getSize(size)]}
@@ -75,15 +62,38 @@ export const FieldMessage = forwardRef(({
                 cssModule(
                     "o-ui-field-message",
                     variant,
-                    fluid && "fluid"
+                    fluid && "fluid",
+                    getSizeClass(size)
                 ),
                 className
             )}
             as={as}
             ref={ref}
         >
-            {children}
-        </Text>
+            <ClearSlots>
+                <SlotProvider
+                    slots={{
+                        text: textSlot({
+                            size: "inherit"
+                        }),
+                        p: paragraphSlot({
+                            size: "inherit"
+                        }),
+                        list: listSlot({
+                            size: "inherit"
+                        }),
+                        icon: iconSlot({
+                            size
+                        }),
+                        link: linkSlot({
+                            size: "inherit"
+                        })
+                    }}
+                >
+                    {children}
+                </SlotProvider>
+            </ClearSlots>
+        </BodyText>
     );
 });
 
