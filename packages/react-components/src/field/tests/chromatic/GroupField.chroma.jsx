@@ -36,6 +36,30 @@ stories()
             </GroupField>
         </Inline>
     )
+    .add("render props", () =>
+        <GroupField>
+            {
+                ({ labelClassName, inputClassName, messageClassName }) => (
+                    <>
+                        <label className={labelClassName}>
+                            Where to?
+                        </label>
+                        <div className={inputClassName}>
+                            <input type="radio" id="1" name="gender" value="1" />
+                            <label htmlFor="1">1</label><br />
+                            <input type="radio" id="2" name="gender" value="2" />
+                            <label htmlFor="2">2</label><br />
+                            <input type="radio" id="3" name="gender" value="3" />
+                            <label htmlFor="3">3</label>
+                        </div>
+                        <div className={messageClassName}>
+                            Must be a planet in earth solar system.
+                        </div>
+                    </>
+                )
+            }
+        </GroupField>
+    )
     .add("checkbox group", () =>
         <Inline gap={13} align="end">
             <GroupField>

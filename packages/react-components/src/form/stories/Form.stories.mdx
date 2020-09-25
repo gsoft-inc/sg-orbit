@@ -215,6 +215,28 @@ The form state and validation could be managed by an external library like [Form
     <RegistrationForm />
 </FilePreview>
 
+### Render Props
+
+A form context is also available through a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Form>
+            {
+                ({ size }) => (
+                    <div>
+                        <Field size={size}>
+                            <Label>Where to?</Label>
+                            <TextInput />
+                        </Field>
+                        <Button size={size}>Submit</Button>
+                    </div>
+                )
+            }
+        </Form>
+    </Story>
+</Preview>
+
 <Story
     name="ref"
     parameters={paramsBuilder()
@@ -229,3 +251,4 @@ The form state and validation could be managed by an external library like [Form
         </Form>
     </RefLogger>
 </Story>
+

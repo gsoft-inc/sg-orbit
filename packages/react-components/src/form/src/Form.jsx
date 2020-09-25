@@ -2,7 +2,7 @@ import "./Form.css";
 
 import { FormContext } from "./FormContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
+import { cssModule, mergeClasses, useRenderProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -24,16 +24,26 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerForm({
-    fluid,
-    size,
-    disabled,
-    as: ElementType = "form",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerForm(props) {
+    const {
+        fluid,
+        size,
+        disabled,
+        as: ElementType = "form",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
+
+    const formContext = {
+        fluid,
+        size,
+        disabled
+    };
+
+    const content = useRenderProps(formContext, props, children);
+
     return (
         <ElementType
             {...rest}
@@ -46,14 +56,8 @@ export function InnerForm({
             )}
             ref={forwardedRef}
         >
-            <FormContext.Provider
-                value={{
-                    fluid,
-                    size,
-                    disabled
-                }}
-            >
-                {children}
+            <FormContext.Provider value={formContext}>
+                {content}
             </FormContext.Provider>
         </ElementType>
     );
