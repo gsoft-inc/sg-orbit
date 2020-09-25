@@ -3,7 +3,7 @@
     line-height: 1;
     align-items: center;
     justify-content: center;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: auto max-content;
     grid-template-areas: "text icon";
     border: none;
     background-color: var(--transparent);
@@ -28,13 +28,13 @@
     margin-left: 0.125rem;
 }
 
-/* DOTTED */
+/* UNDERLINE | DOTTED */
 .o-ui-link-dotted .o-ui-link-text {
     border-bottom-style: dotted;
     border-bottom-color: inherit;
 }
 
-/* SOLID */
+/* UNDERLINE | SOLID */
 .o-ui-link-solid .o-ui-link-text {
     border-bottom-style: solid;
     border-bottom-color: inherit;
@@ -111,7 +111,7 @@
 }
 
 /* PRIMARY */
-.o-ui-link.o-ui-link-primary {
+.o-ui-link-primary {
     color: var(--primary-500);
 }
 
@@ -135,7 +135,7 @@
 }
 
 /* DANGER */
-.o-ui-link.o-ui-link-danger {
+.o-ui-link-danger {
     color: var(--alert-500);
 }
 
@@ -159,7 +159,7 @@
 }
 
 /* SECONDARY */
-.o-ui-link.o-ui-link-secondary {
+.o-ui-link-secondary {
     color: var(--cloud-500);
 }
 

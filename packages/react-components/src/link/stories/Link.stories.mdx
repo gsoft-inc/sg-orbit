@@ -1,5 +1,5 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
-import { IconLink, InnerIconLink, InnerLink, Link } from "@react-components/link";
+import { IconLink, InnerIconLink, InnerTextLink, TextLink } from "@react-components/link";
 import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -28,7 +28,7 @@ Use a link to navigate between pages, link to files, anchors or even for email a
 
 <Props
     componentsDefinitions={[
-        { displayName: "Link", component: InnerLink },
+        { displayName: "TextLink", component: InnerTextLink },
         { displayName: "IconLink", component: InnerIconLink }
     ]}
 />
@@ -49,7 +49,7 @@ A default link.
 
 <Preview>
     <Story name="default">
-        <Link href="#">Flight details</Link>
+        <TextLink href="#">Flight details</TextLink>
     </Story>
 </Preview>
 
@@ -59,10 +59,10 @@ A link can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Link href="#">
+        <TextLink href="#">
             <Text>Flight details</Text>
             <WarningIcon />
-        </Link>
+        </TextLink>
     </Story>
 </Preview>
 
@@ -72,7 +72,7 @@ A link can indicate that his destination is an external resources. An external l
 
 <Preview>
     <Story name="external">
-        <Link external href="#">Flight details</Link>
+        <TextLink external href="#">Flight details</TextLink>
     </Story>
 </Preview>
 
@@ -83,9 +83,9 @@ A link can vary in size.
 <Preview>
     <Story name="size">
         <Inline align="end">
-            <Link size="sm" href="#">Flight details</Link>
-            <Link href="#">Flight details</Link>
-            <Link size="lg" href="#">Flight details</Link>
+            <TextLink size="sm" href="#">Flight details</TextLink>
+            <TextLink href="#">Flight details</TextLink>
+            <TextLink size="lg" href="#">Flight details</TextLink>
         </Inline>
     </Story>
 </Preview>
@@ -97,9 +97,9 @@ A link can use a different color accent.
 <Preview>
     <Story name="color">
         <Inline>
-            <Link color="primary" href="#">Primary</Link>
-            <Link color="secondary" href="#">Secondary</Link>
-            <Link color="danger" href="#">Danger</Link>
+            <TextLink color="primary" href="#">Primary</TextLink>
+            <TextLink color="secondary" href="#">Secondary</TextLink>
+            <TextLink color="danger" href="#">Danger</TextLink>
         </Inline>
     </Story>
 </Preview>
@@ -110,7 +110,7 @@ A link can be rendered as a button:
 
 <Preview>
     <Story name="button">
-        <Link as="button">Flight details</Link>
+        <TextLink as="button">Flight details</TextLink>
     </Story>
 </Preview>
 
@@ -118,9 +118,9 @@ Or as any other component like a [React Router Link](https://reactrouter.com/web
 
 <Preview>
     <Story name="react router link">
-        <Link as={RouterLink} to="/flight-details">
+        <TextLink as={RouterLink} to="/flight-details">
             Flight details
-        </Link>
+        </TextLink>
     </Story>
 </Preview>
 
@@ -139,12 +139,25 @@ A link content can be a single icon. An accessible name must be provided through
 </Preview>
 
 <Story
-    name="ref"
+    name="text link ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
 >
     <RefLogger>
-        <Link href="#">Flight details</Link>
+        <TextLink href="#">Flight details</TextLink>
+    </RefLogger>
+</Story>
+
+<Story
+    name="icon link ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <IconLink href="#" aria-label="Add">
+            <AddIcon />
+        </IconLink>
     </RefLogger>
 </Story>
