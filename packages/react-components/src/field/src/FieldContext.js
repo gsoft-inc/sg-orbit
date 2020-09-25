@@ -8,11 +8,11 @@ export function useFieldContext() {
     const context = useContext(FieldContext);
 
     if (!isNil(context)) {
-        const { isGroup = false, ...rest } = context;
+        const { isGroup: isGroupField = false, ...rest } = context;
 
         const props = {
             ...rest,
-            isGroup
+            isGroupField
         };
 
         return [props, true];
