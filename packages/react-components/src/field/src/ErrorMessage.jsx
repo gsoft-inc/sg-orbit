@@ -1,7 +1,8 @@
-import { FieldMessage, getValidationProps, useFieldMessage } from "./FieldMessage";
+import { FieldMessage, getValidationProps } from "./FieldMessage";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
+import { useFieldMessage } from "./FieldContext";
 
 const propTypes = {
     /**

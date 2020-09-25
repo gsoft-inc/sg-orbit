@@ -61,24 +61,16 @@ export function InnerField(props) {
         toolbarProps
     );
 
-    const { fieldProps, inputId, labelId, messageId } = useField({
+    const { fieldProps, fieldContext } = useField({
         id,
+        validationState,
+        required,
         fluid,
         size,
+        disabled,
         className,
         forwardedRef
     });
-
-    const fieldContext = {
-        inputId,
-        labelId,
-        messageId,
-        required,
-        disabled,
-        size,
-        fluid,
-        validationState
-    };
 
     const content = useRenderProps(fieldContext, props, children);
 

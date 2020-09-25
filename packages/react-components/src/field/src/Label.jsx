@@ -4,27 +4,7 @@ import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, getSize, getSizeClass, mergeClasses, mergeProps } from "../../shared";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
-import { useFieldContext } from "./FieldContext";
-
-export function useFieldLabel({ as: asProp }) {
-    const [{ isGroupField, inputId, labelId, required, size }, isInField] = useFieldContext();
-
-    const as = isNil(asProp)
-        ? isGroupField ? "span" : "label"
-        : asProp;
-
-    const props = isInField && {
-        id: labelId,
-        required,
-        size,
-        htmlFor: as === "label" ? inputId : undefined,
-        className: cssModule("o-ui-field-label", getSizeClass(size)),
-        as
-    };
-
-    return [props || {}, isInField];
-}
+import { useFieldLabel } from "./FieldContext";
 
 const propTypes = {
     /**
@@ -68,7 +48,10 @@ export function InnerLabel(props) {
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(props, fieldProps);
+    } = mergeProps(
+        props,
+        fieldProps
+    );
 
     return (
         <Text

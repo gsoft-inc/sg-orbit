@@ -7,22 +7,6 @@ import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
 import { linkSlot } from "../../link";
 import { listSlot } from "../../list";
-import { useFieldContext } from "./FieldContext";
-
-export function useFieldMessage() {
-    const [{ messageId, size, fluid, validationState }, isInField] = useFieldContext();
-
-    const props = isInField && {
-        id: messageId,
-        size,
-        fluid,
-        validationState,
-        className: cssModule("o-ui-field-message", getSizeClass(size)),
-        "aria-live": "polite"
-    };
-
-    return [props || {}, isInField];
-}
 
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";

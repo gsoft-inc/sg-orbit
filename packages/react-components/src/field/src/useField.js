@@ -2,8 +2,11 @@ import { cssModule, getSizeClass, mergeClasses, useHasChildren, useId, useMerged
 
 export function useField({
     id,
+    validationState,
+    required,
     fluid,
     size,
+    disabled,
     className,
     forwardedRef
 }) {
@@ -32,8 +35,18 @@ export function useField({
             role: "group",
             ref
         },
-        inputId,
-        labelId,
-        messageId
+        fieldContext: {
+            inputId,
+            labelId,
+            messageId,
+            required,
+            disabled,
+            size,
+            fluid,
+            validationState,
+            labelClassName: "o-ui-field-label",
+            inputClassName: "o-ui-field-input",
+            messageClassName: "o-ui-field-message"
+        }
     };
 }
