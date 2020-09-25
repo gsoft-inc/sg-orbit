@@ -169,6 +169,10 @@ The example below illustrates how one would validate if the user has entered a v
     <EmailValidation />
 </FilePreview>
 
+### Render Props
+
+A field can
+
 ### Custom Input
 
 Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInput` hook.
@@ -209,7 +213,7 @@ Any input implementing the `FieldContext` can integrate with a field component. 
 </Story>
 
 <Story
-    name="checkbox group with id"
+    name="checkbox group with id ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
@@ -227,7 +231,7 @@ Any input implementing the `FieldContext` can integrate with a field component. 
 </Story>
 
 <Story
-    name="radio group with id"
+    name="radio group with id ref"
     parameters={paramsBuilder()
         .excludeFromDocs()
         .build()}
