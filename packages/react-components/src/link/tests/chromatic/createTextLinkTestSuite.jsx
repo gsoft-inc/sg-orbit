@@ -60,14 +60,27 @@ export function createTextLinkTestSuite(element, stories) {
                         <ArrowIcon />
                     </TextLink>
                 </div>
+                <div style={{ width: "400px" }}>
+                    <TextLink href="#" element={element}>
+                        <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
+                        <ArrowIcon />
+                    </TextLink>
+                </div>
             </Stack>
         )
         .add("external", () =>
-            <Inline align="end">
-                <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
-                <TextLink external href="#" element={element}>Flight details</TextLink>
-                <TextLink external size="lg" href="#" element={element}>Flight details</TextLink>
-            </Inline>
+            <Stack>
+                <Inline align="end">
+                    <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
+                    <TextLink external href="#" element={element}>Flight details</TextLink>
+                    <TextLink external size="lg" href="#" element={element}>Flight details</TextLink>
+                </Inline>
+                <div style={{ width: "400px" }}>
+                    <TextLink external href="#" element={element}>
+                        NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
+                    </TextLink>
+                </div>
+            </Stack>
         )
         .add("primary", () =>
             <Stack>

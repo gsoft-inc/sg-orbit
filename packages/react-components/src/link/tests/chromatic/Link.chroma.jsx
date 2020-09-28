@@ -14,15 +14,18 @@ function stories(segment) {
         .build();
 }
 
+function LaunchImage() {
+    return (
+        <img width="325" height="216" src={Launch} alt="Launch" />
+    );
+}
+
 function Card() {
     return (
         <div>
             <Heading as="h2" size="lg">
-                SpaceX delays launch of South Korean military satellite to perform rocket checks
+                SpaceX delays launch of South Korean military satellite
             </Heading>
-            <Paragraph>
-                <img src={Launch} alt="Launch" />
-            </Paragraph>
             <Paragraph>
                 SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
             </Paragraph>
@@ -30,7 +33,7 @@ function Card() {
     );
 }
 
-createLinkTestSuite(<Link><img src={Launch} alt="Launch" /></Link>, stories("/image"));
+createLinkTestSuite(<Link><LaunchImage /></Link>, stories("/image"));
 
 createLinkTestSuite(<Link><Card /></Link>, stories("/card"));
 
@@ -38,26 +41,26 @@ stories()
     .add("styling", () =>
         <Inline>
             <Link className="border-red" href="#">
-                <img src={Launch} alt="Launch" />
+                <LaunchImage />
             </Link>
             <Link style={{ border: "1px solid red" }} href="#">
-                <img src={Launch} alt="Launch" />
+                <LaunchImage />
             </Link>
         </Inline>
     )
     .add("autofocus", () =>
         <Link autoFocus href="#">
-            <img src={Launch} alt="Launch" />
+            <LaunchImage />
         </Link>
     )
     .add("when disabled do not autofocus", () =>
         <Link disabled autoFocus href="#">
-            <img src={Launch} alt="Launch" />
+            <LaunchImage />
         </Link>
     )
     .add("autofocus with delay", () =>
         <Link autoFocus autoFocusDelay={50} href="#">
-            <img src={Launch} alt="Launch" />
+            <LaunchImage />
         </Link>
     );
 
