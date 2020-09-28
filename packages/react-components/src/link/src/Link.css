@@ -53,6 +53,12 @@
     text-decoration-color: currentColor;
 }
 
+/* STATE | HOVER | DISABLED */
+.o-ui-link[disabled]:hover,
+.o-ui-link-hover[disabled] {
+    color: var(--marine-900);
+}
+
 /* STATE | FOCUS | TEXT */
 .o-ui-link:focus .o-ui-link-text,
 .o-ui-link-focus .o-ui-link-text {
@@ -201,7 +207,8 @@ button[disabled].o-ui-link-hover {
 }
 
 /* LINK | FOCUS */
-.o-ui-link:focus {
+.o-ui-link:focus,
+.o-ui-link-focus {
     outline: none;
     border-radius: var(--scale-alpha);
     box-shadow: var(--o-ui-focus-ring);

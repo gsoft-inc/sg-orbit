@@ -65,14 +65,6 @@ a.o-ui-button {
     outline: none;
 }
 
-/* SOLID | STATE | DANGER | FOCUS */
-.o-ui-button-solid.o-ui-button-danger:focus,
-.o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: var(--o-ui-focus-ring-error);
-    background-color: var(--alert-500);
-    outline: none;
-}
-
 /* SOLID | STATE | ACTIVE */
 .o-ui-button-solid:active,
 .o-ui-button-solid.o-ui-button-active {
@@ -314,13 +306,6 @@ a.o-ui-button {
     box-shadow: 0 0 0 1px var(--alert-700) inset;
 }
 
-/* OUTLINE | DANGER | FOCUS */
-.o-ui-button-outline.o-ui-button-danger:focus,
-.o-ui-button-outline.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-focus-ring-error);
-    z-index: 2;
-}
-
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
@@ -434,12 +419,6 @@ a.o-ui-button {
     box-shadow: var(--o-ui-focus-ring);
     z-index: 2;
     outline: none;
-}
-
-/* GHOST | DANGER | FOCUS */
-.o-ui-button-ghost.o-ui-button-danger:focus,
-.o-ui-button-ghost.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: var(--o-ui-focus-ring-error);
 }
 
 /* GHOST | ACTIVE */
