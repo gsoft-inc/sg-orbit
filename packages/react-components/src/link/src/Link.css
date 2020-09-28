@@ -80,7 +80,8 @@
 
 /* TEXT | STATES */
 /* TEXT | STATE | FOCUS */
-.o-ui-text-link:focus {
+.o-ui-text-link:focus,
+.o-ui-link-focus.o-ui-text-link {
     outline: none;
     border-radius: var(--scale-alpha);
     background-color: var(--primary-50);
