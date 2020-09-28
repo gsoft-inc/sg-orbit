@@ -1,0 +1,116 @@
+import { Card } from "./Card";
+import { Heading, Paragraph } from "@react-components/text";
+import { InnerLink, Link } from "@react-components/link";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+import { RouterLink } from "../RouterLink";
+import LaunchImage from "./assets/launch.jpg";
+
+<Meta
+    title="Links|Link"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/link/src" />)
+        .build()}
+/>
+
+# Link
+
+Links allow a user to navigate between pages, scroll to a have page section, access files, or even to handle email addresses.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import TextLink from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>slots</dt>
+        <dd>text - icon</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#link">https://www.w3.org/TR/wai-aria-practices/#link</a></dd>
+    </div>
+</dl>
+
+## Content
+
+A link accept any elements as children. Unlike a [text link](?path=/docs/links-textlink) or an [icon link](?path=/docs/links-iconlink), a link component will have a more appearance.
+
+### Image
+
+A link content can be an image element.
+
+<Preview withSource="open">
+    <Story name="image">
+        <Link href="#">
+            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+        </Link>
+    </Story>
+</Preview>
+
+### Card
+
+A link content could be a card component or any other content.
+
+<Preview withSource="open">
+    <Story name="card">
+        <Link href="#">
+            <Card>
+                <Heading as="h2" size="sm">SpaceX delays launch</Heading>
+                <Paragraph>
+                    <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+                </Paragraph>
+                <Paragraph>
+                    SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
+                </Paragraph>
+                <Paragraph>
+                    The California-based rocket builder planned to launch South Korea's first military satellite, called Anasis 2, from Space Launch Complex 40 at Cape Canaveral Air Force Station in Florida on Tuesday evening (July 14).
+                    The Falcon 9 was scheduled to take off during a 4-hour window that opened at 5 p.m. EDT (2100 GMT).
+                </Paragraph>
+            </Card>
+        </Link>
+    </Story>
+</Preview>
+
+### Button
+
+A link can be rendered as a button.
+
+<Preview withSource="open">
+    <Story name="button">
+        <Link as="button" aria-label="Add">
+            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+        </Link>
+    </Story>
+</Preview>
+
+### React Router
+
+A link can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any custom component.
+
+<Preview withSource="open">
+    <Story name="react router link">
+        <Link as={RouterLink} to="/flight-details">
+            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+        </Link>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={InnerLink} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Link href="#">
+            <img src={LaunchImage} alt="SpaceX launch" />
+        </Link>
+    </RefLogger>
+</Story>

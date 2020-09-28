@@ -1,18 +1,13 @@
-/* ALL LINKS */
 .o-ui-link {
-    display: inline-grid;
+    display: inline-block;
     line-height: 1;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: auto max-content;
-    grid-template-areas: "text icon";
     border: none;
     background-color: var(--transparent);
     color: var(--marine-900);
     padding: 0;
 }
 
-/* ALL LINKS | STATES */
+/* STATES */
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {
@@ -67,6 +62,14 @@
 }
 
 /* TEXT */
+.o-ui-text-link {
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto max-content;
+    grid-template-areas: "text icon";
+}
+
 .o-ui-link-text {
     grid-area: text;
     border-bottom: 1px solid;
@@ -131,7 +134,7 @@
 }
 
 /* ICON LINK */
-.o-ui-link-icon {
+.o-ui-text-link .o-ui-link-icon {
     grid-area: icon;
 }
 

@@ -41,6 +41,7 @@ export function InnerParagraph(props) {
     return (
         <BodyText
             {...rest}
+            size={size}
             className={mergeClasses(
                 cssModule(
                     "o-ui-p",

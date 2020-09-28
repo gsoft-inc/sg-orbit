@@ -16,7 +16,7 @@ function stories(segment) {
 
 function LaunchImage() {
     return (
-        <img width="325" height="216" src={Launch} alt="Launch" />
+        <img width="325" height="216" src={Launch} alt="SpaceX Launch" />
     );
 }
 

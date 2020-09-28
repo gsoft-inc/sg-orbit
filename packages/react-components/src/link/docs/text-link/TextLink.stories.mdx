@@ -1,0 +1,127 @@
+import { Inline } from "@react-components/layout";
+import { InnerTextLink, TextLink } from "@react-components/link";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+import { RouterLink } from "../RouterLink";
+import { Text } from "@react-components/text";
+import { WarningIcon } from "@react-components/icons";
+
+<Meta
+    title="Links|TextLink"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/link/src" />)
+        .build()}
+/>
+
+# TextLink
+
+Links allow a user to navigate between pages, scroll to a have page section, access files, or even to handle email addresses.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import TextLink from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>slots</dt>
+        <dd>text - icon</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#link">https://www.w3.org/TR/wai-aria-practices/#link</a></dd>
+    </div>
+</dl>
+
+## Content
+
+A text link must have a label and can optionnaly accept an icon. Text only link accept a string as children. An icon can also be added as children, with a sibling text element for the label.
+
+### Icon
+
+A text link can contain [icons](?path=/docs/materials-icons--page).
+
+<Preview withSource="open">
+    <Story name="icon">
+        <TextLink href="#">
+            <Text>Flight details</Text>
+            <WarningIcon />
+        </TextLink>
+    </Story>
+</Preview>
+
+### External
+
+A text link can indicate that his destination is an external resources. An external link will render with `target="_blank"` and `rel="noopener noreferrer"` attributes. These attributes values can be overrided by specifying a `target` or `rel` prop.
+
+<Preview withSource="open">
+    <Story name="external">
+        <TextLink external href="#">Flight details</TextLink>
+    </Story>
+</Preview>
+
+### Button
+
+A text link can be rendered as a button.
+
+<Preview withSource="open">
+    <Story name="button">
+        <TextLink as="button">Flight details</TextLink>
+    </Story>
+</Preview>
+
+### React Router
+
+A text link can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any custom component.
+
+<Preview withSource="open">
+    <Story name="react router link">
+        <TextLink as={RouterLink} to="/flight-details">
+            Flight details
+        </TextLink>
+    </Story>
+</Preview>
+
+## States
+
+### Disabled
+
+A text link can look disabled.
+
+<Preview withSource="open">
+    <Story name="disabled">
+        <TextLink disabled href="#">Flight details</TextLink>
+    </Story>
+</Preview>
+
+## Variants
+
+### Color
+
+A text link can use a different color accent.
+
+<Preview withSource="open">
+    <Story name="color">
+        <Inline>
+            <TextLink color="primary" href="#">Primary</TextLink>
+            <TextLink color="secondary" href="#">Secondary</TextLink>
+            <TextLink color="danger" href="#">Danger</TextLink>
+        </Inline>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={InnerTextLink} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <TextLink href="#">Flight details</TextLink>
+    </RefLogger>
+</Story>

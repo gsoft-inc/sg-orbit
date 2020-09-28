@@ -70,7 +70,8 @@ if (includeStories) {
         require.context("../stories/getting-started", true, /.stories.mdx$/),
         require.context("../stories/materials", true, /.stories.mdx$/),
         require.context("../../packages/icons/stories", true, /.stories.mdx$/),
-        require.context("../../packages/react-components/src", true, /.stories.mdx$/)
+        require.context("../../packages/react-components/src", true, /.stories.mdx$/),
+        require.context("../../packages/react-components/src", true, /.docs.mdx$/)
     ];
 }
 
