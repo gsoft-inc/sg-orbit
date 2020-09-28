@@ -1,6 +1,6 @@
 import { BodyText } from "@react-components/text";
-import { Link } from "@react-components/link";
 import { Stack } from "@react-components/layout";
+import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -25,12 +25,12 @@ stories()
     )
     .add("with link", () =>
         <Stack>
-            <BodyText size="2xl">If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
-            <BodyText size="xl">If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
-            <BodyText size="lg">If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
-            <BodyText>If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
-            <BodyText size="sm">If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
-            <BodyText size="xs">If two pieces of the same type of <Link href="#">metal touch</Link> in space they <Link href="https://www.sharegate.com" external>will permanently</Link> bond.</BodyText>
+            <BodyText size="2xl">If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
+            <BodyText size="xl">If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
+            <BodyText size="lg">If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
+            <BodyText>If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
+            <BodyText size="sm">If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
+            <BodyText size="xs">If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.</BodyText>
         </Stack>
     )
     .add("styling", () =>

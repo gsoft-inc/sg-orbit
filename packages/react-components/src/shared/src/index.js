@@ -16,6 +16,7 @@ export * from "./resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./createFocusableTreeWalker";
 export * from "./omitProps";
+export * from "./arrayify";
 
 // Hooks
 export * from "./useMergedRefs";

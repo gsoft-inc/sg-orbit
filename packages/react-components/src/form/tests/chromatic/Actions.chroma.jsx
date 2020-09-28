@@ -1,7 +1,7 @@
 import { Actions } from "@react-components/form";
 import { Button } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
-import { Link } from "@react-components/link";
+import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -32,15 +32,15 @@ stories()
             </Inline>
             <Inline align="end" gap={13}>
                 <Actions size="sm">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions>
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions size="lg">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Inline>
@@ -64,15 +64,15 @@ stories()
             </Inline>
             <Inline align="end" gap={13}>
                 <Actions fluid size="sm">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions fluid>
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions fluid size="lg">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Inline>
@@ -96,15 +96,15 @@ stories()
             </Inline>
             <Inline align="end" gap={13}>
                 <Actions disabled size="sm">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions disabled>
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
                 <Actions disabled size="lg">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Inline>
@@ -112,19 +112,19 @@ stories()
     )
     .add("align start", () =>
         <Actions align="start">
-            <Link as="button">Reset</Link>
+            <TextLink as="button">Reset</TextLink>
             <Button>Submit</Button>
         </Actions>
     )
     .add("align end", () =>
         <Actions align="end">
-            <Link as="button">Reset</Link>
+            <TextLink as="button">Reset</TextLink>
             <Button>Submit</Button>
         </Actions>
     )
     .add("align center", () =>
         <Actions align="center">
-            <Link as="button">Reset</Link>
+            <TextLink as="button">Reset</TextLink>
             <Button>Submit</Button>
         </Actions>
     );

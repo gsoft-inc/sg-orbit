@@ -1,71 +1,31 @@
 .o-ui-link {
-    display: inline-grid;
+    display: inline-block;
     line-height: 1;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: max-content max-content;
-    grid-template-areas: "text icon";
     border: none;
     background-color: var(--transparent);
     color: var(--marine-900);
     padding: 0;
 }
 
-/* TEXT */
-.o-ui-link-text {
-    grid-area: text;
-    border-bottom: 1px solid;
-    border-bottom-color: transparent;
-}
-
-/* ICON */
-.o-ui-link-icon {
-    grid-area: icon;
-}
-
-/* TEXT > ICON */
-.o-ui-link-text + .o-ui-link-icon {
-    margin-left: 0.125rem;
-}
-
-/* DOTTED */
-.o-ui-link-dotted .o-ui-link-text {
-    border-bottom-style: dotted;
-    border-bottom-color: inherit;
-}
-
-/* SOLID */
-.o-ui-link-solid .o-ui-link-text {
-    border-bottom-style: solid;
-    border-bottom-color: inherit;
-}
-
+/* STATES */
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {
     color: var(--marine-700);
 }
 
-.o-ui-link:hover .o-ui-link-text,
-.o-ui-link-hover .o-ui-link-text {
-    border-bottom: 1px solid;
-    border-bottom-color: inherit;
+/* STATE | HOVER | DISABLED */
+.o-ui-link[disabled]:hover,
+.o-ui-link-hover[disabled] {
+    color: var(--marine-900);
 }
 
 /* STATE | FOCUS */
 .o-ui-link:focus,
 .o-ui-link-focus {
-    background-color: var(--marine-50);
-    border-radius: var(--scale-alpha);
-    box-shadow: 0 0 0 2px var(--marine-50);
     outline: none;
-}
-
-/* STATE | FOCUS | TEXT */
-.o-ui-link:focus .o-ui-link-text,
-.o-ui-link-focus .o-ui-link-text {
-    border-bottom: 1px solid;
-    border-bottom-color: inherit;
+    border-radius: var(--scale-alpha);
+    box-shadow: var(--o-ui-focus-ring);
 }
 
 /* STATE | ACTIVE */
@@ -83,24 +43,15 @@
     box-shadow: none;
 }
 
-/* STATE | ACTIVE | FOCUS | TEXT */
-.o-ui-link:active.o-ui-link:focus .o-ui-link-text,
-.o-ui-link-active.o-ui-link-focus .o-ui-link-text,
-.o-ui-link-active.o-ui-link:focus .o-ui-link-text,
-.o-ui-link:active.o-ui-link-focus .o-ui-link-text {
-    border-bottom: 1px solid var(--marine-700);
-}
-
 /* STATE | DISABLED */
 .o-ui-link[disabled] {
     opacity: var(--o-ui-disabled-opacity);
-    cursor: not-allowed;
 }
 
 /* STATE | DISABLED | HOVER */
-.o-ui-link[disabled]:hover .o-ui-link-text,
-.o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
-    text-decoration: none;
+.o-ui-link[disabled]:hover,
+.o-ui-link[disabled].o-ui-link-hover {
+    cursor: not-allowed;
 }
 
 /* STATE | DISABLED | FOCUS */
@@ -110,8 +61,94 @@
     box-shadow: none;
 }
 
+/* TEXT */
+.o-ui-text-link {
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto max-content;
+    grid-template-areas: "text icon";
+}
+
+.o-ui-link-text {
+    grid-area: text;
+    border-bottom: 1px solid;
+    border-bottom-color: transparent;
+}
+
+/* TEXT | ICON AFTER TEXT */
+.o-ui-link-text + .o-ui-link-icon {
+    margin-left: 0.125rem;
+}
+
+/* TEXT | STATES */
+/* TEXT | STATE | FOCUS */
+.o-ui-text-link:focus,
+.o-ui-link-focus.o-ui-text-link {
+    outline: none;
+    border-radius: var(--scale-alpha);
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
+}
+
+/* TEXT | STATE | HOVER */
+.o-ui-link:hover .o-ui-link-text,
+.o-ui-link-hover .o-ui-link-text {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+}
+
+/* TEXT | STATE | FOCUS */
+.o-ui-link:focus .o-ui-link-text,
+.o-ui-link-focus .o-ui-link-text {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+/* TEXT | STATE | DISABLED | HOVER */
+.o-ui-link[disabled]:hover .o-ui-link-text,
+.o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
+    text-decoration: none;
+}
+
+/* TEXT | STATE | ACTIVE | FOCUS */
+.o-ui-link:active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link-active.o-ui-link-focus .o-ui-link-text,
+.o-ui-link-active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link:active.o-ui-link-focus .o-ui-link-text {
+    text-decoration: underline;
+}
+
+/* TEXT | VARIATIONS */
+/* TEXT | VARIATIONS | UNDERLINE | DOTTED */
+.o-ui-link-dotted .o-ui-link-text {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: currentColor;
+}
+
+/* TEXT | VARIATIONS | UNDERLINE | SOLID */
+.o-ui-link-solid .o-ui-link-text {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+/* ICON LINK */
+.o-ui-text-link .o-ui-link-icon {
+    grid-area: icon;
+}
+
+/* ICON LINK | STATES */
+.o-ui-icon-link:focus {
+    outline: none;
+    border-radius: var(--scale-alpha);
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
+}
+
+/* VARIATIONS */
 /* PRIMARY */
-.o-ui-link.o-ui-link-primary {
+.o-ui-link-primary {
     color: var(--primary-500);
 }
 
@@ -135,7 +172,7 @@
 }
 
 /* DANGER */
-.o-ui-link.o-ui-link-danger {
+.o-ui-link-danger {
     color: var(--alert-500);
 }
 
@@ -159,7 +196,7 @@
 }
 
 /* SECONDARY */
-.o-ui-link.o-ui-link-secondary {
+.o-ui-link-secondary {
     color: var(--cloud-500);
 }
 
@@ -183,15 +220,14 @@
 }
 
 /* AS BUTTON */
+button.o-ui-link {
+    text-align: left;
+}
+
+/* AS BUTTON | HOVER */
 button.o-ui-link:hover,
 button.o-ui-link-hover {
     cursor: pointer;
-}
-
-/* STATE | DISABLED | HOVER */
-button[disabled].o-ui-link:hover,
-button[disabled].o-ui-link-hover {
-    cursor: not-allowed;
 }
 
 /* FLUID */

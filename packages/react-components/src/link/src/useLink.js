@@ -2,6 +2,7 @@ import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } fr
 
 export function useLink({
     cssModule: module,
+    omitSize,
     color,
     underline,
     external,
@@ -36,7 +37,7 @@ export function useLink({
                 focus && "focus",
                 hover && "hover",
                 visited && "visited",
-                getSizeClass(size)
+                !omitSize && getSizeClass(size)
             ),
             className
         ),

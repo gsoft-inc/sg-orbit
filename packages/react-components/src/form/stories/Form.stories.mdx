@@ -4,11 +4,11 @@ import { Checkbox } from "@react-components/checkbox";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
-import { Link } from "@react-components/link";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
 import { RegistrationForm } from "./RegistrationForm.sample";
+import { TextLink } from "@react-components/link";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -190,7 +190,7 @@ Form buttons can be aligned horizontally.
                     <TextInput />
                 </Field>
                 <Actions align="center">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Form>

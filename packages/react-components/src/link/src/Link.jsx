@@ -1,11 +1,8 @@
 import "./Link.css";
 
-import { ArrowIcon, iconSlot } from "../../icons";
-import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useFormButton } from "../../form";
+import { mergeProps, useSlot } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -13,14 +10,6 @@ const propTypes = {
      * The URL that the link points to.
      */
     href: string,
-    /**
-     * The color accent.
-     */
-    color: oneOf(["primary", "secondary", "danger"]),
-    /**
-     * The underline style.
-     */
-    underline: oneOf(["solid", "dotted"]),
     /**
      * Whether or not this is an external link.
      */
@@ -33,14 +22,6 @@ const propTypes = {
      * Delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * Whether the link take up the width of its container.
-     */
-    fluid: bool,
-    /**
-     * A link can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -56,20 +37,13 @@ const propTypes = {
 };
 
 export function InnerLink(props) {
-    const [formProps] = useFormButton();
-
     const {
-        color,
-        underline,
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
-        size,
         active,
         focus,
         hover,
-        visited,
         target,
         rel,
         as: ElementType = "a",
@@ -79,38 +53,22 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link"),
-        formProps
+        useSlot(props, "link")
     );
 
     const linkProps = useLink({
-        color,
-        underline,
+        omitSize: true,
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
-        size,
         active,
         focus,
         hover,
-        visited,
         target,
         rel,
         className,
         forwardedRef
     });
-
-    let content = useTextContent(Text, children);
-
-    if (external) {
-        content = (
-            <>
-                {content}
-                <ArrowIcon />
-            </>
-        );
-    }
 
     return (
         <ElementType
@@ -118,22 +76,7 @@ export function InnerLink(props) {
             {...rest}
             {...linkProps}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        text: textSlot({
-                            size,
-                            className: "o-ui-link-text"
-                        }),
-                        icon: iconSlot({
-                            size,
-                            className: "o-ui-link-icon"
-                        })
-                    }}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            {children}
         </ElementType>
     );
 }
@@ -143,11 +86,3 @@ InnerLink.propTypes = propTypes;
 export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
-
-export const linkSlot = props => {
-    return {
-        underline: "dotted",
-        size: "inherit",
-        ...props
-    };
-};

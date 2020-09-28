@@ -3,9 +3,9 @@ import { Button } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
-import { Link } from "@react-components/link";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
+import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -69,7 +69,7 @@ stories()
                         <TextArea />
                         <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                     </Field>
-                    <Link as="button">Submit</Link>
+                    <TextLink as="button">Submit</TextLink>
                 </Form>
                 <Form>
                     <Field>
@@ -81,7 +81,7 @@ stories()
                         <TextArea />
                         <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                     </Field>
-                    <Link as="button">Submit</Link>
+                    <TextLink as="button">Submit</TextLink>
                 </Form>
                 <Form size="lg">
                     <Field>
@@ -93,7 +93,7 @@ stories()
                         <TextArea />
                         <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                     </Field>
-                    <Link as="button">Submit</Link>
+                    <TextLink as="button">Submit</TextLink>
                 </Form>
             </Inline>
         </Stack>
@@ -122,7 +122,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Link as="button">Submit</Link>
+                <TextLink as="button">Submit</TextLink>
             </Form>
         </Inline>
     )
@@ -150,7 +150,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Link as="button">Submit</Link>
+                <TextLink as="button">Submit</TextLink>
             </Form>
         </Inline>
     )
@@ -231,7 +231,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="start">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Form>
@@ -241,7 +241,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="center">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Form>
@@ -251,7 +251,7 @@ stories()
                     <TextInput />
                 </Field>
                 <Actions align="end">
-                    <Link as="button">Reset</Link>
+                    <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
                 </Actions>
             </Form>
@@ -307,7 +307,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <Actions>
-                <Link as="button" type="reset">Reset</Link>
+                <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
             </Actions>
         </Form>
@@ -346,7 +346,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <Actions>
-                <Link as="button" type="reset">Reset</Link>
+                <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
             </Actions>
         </Form>
@@ -386,7 +386,7 @@ stories("/inline")
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
                 <Actions>
-                    <Link as="button" type="reset">Reset</Link>
+                    <TextLink as="button" type="reset">Reset</TextLink>
                     <Button type="submit">Submit</Button>
                 </Actions>
             </Form>
@@ -428,7 +428,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <Actions>
-                <Link as="button" type="reset">Reset</Link>
+                <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
             </Actions>
         </Form>

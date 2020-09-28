@@ -24,7 +24,7 @@
     display: inline-grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: max-content max-content;
+    grid-template-columns: max-content auto;
     grid-template-areas: "icon text";
 }
 
@@ -63,12 +63,6 @@ a.o-ui-button {
     box-shadow: var(--o-ui-focus-ring);
     z-index: 2;
     outline: none;
-}
-
-/* SOLID | STATE | DANGER | FOCUS */
-.o-ui-button-solid.o-ui-button-danger:focus,
-.o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: var(--o-ui-focus-ring-error);
 }
 
 /* SOLID | STATE | ACTIVE */
@@ -185,13 +179,6 @@ a.o-ui-button {
 .o-ui-button-solid.danger:hover,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-hover {
     background-color: var(--alert-700);
-}
-
-/* SOLID | DANGER | FOCUS */
-.o-ui-button-solid.o-ui-button-danger:focus,
-.o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
-    background-color: var(--alert-500);
-    outline: none;
 }
 
 /* SOLID | DANGER | ACTIVE */
@@ -319,13 +306,6 @@ a.o-ui-button {
     box-shadow: 0 0 0 1px var(--alert-700) inset;
 }
 
-/* OUTLINE | DANGER | FOCUS */
-.o-ui-button-outline.o-ui-button-danger:focus,
-.o-ui-button-outline.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-focus-ring-error);
-    z-index: 2;
-}
-
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
@@ -439,12 +419,6 @@ a.o-ui-button {
     box-shadow: var(--o-ui-focus-ring);
     z-index: 2;
     outline: none;
-}
-
-/* GHOST | DANGER | FOCUS */
-.o-ui-button-ghost.o-ui-button-danger:focus,
-.o-ui-button-ghost.o-ui-button-danger.o-ui-button-focus {
-    box-shadow: var(--o-ui-focus-ring-error);
 }
 
 /* GHOST | ACTIVE */
