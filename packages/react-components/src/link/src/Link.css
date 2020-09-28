@@ -30,14 +30,15 @@
 
 /* UNDERLINE | DOTTED */
 .o-ui-link-dotted .o-ui-link-text {
-    border-bottom-style: dotted;
-    border-bottom-color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: currentColor;
 }
 
 /* UNDERLINE | SOLID */
 .o-ui-link-solid .o-ui-link-text {
-    border-bottom-style: solid;
-    border-bottom-color: inherit;
+    text-decoration: underline;
+    text-decoration-style: solid;
 }
 
 /* STATE | HOVER */
@@ -48,24 +49,15 @@
 
 .o-ui-link:hover .o-ui-link-text,
 .o-ui-link-hover .o-ui-link-text {
-    border-bottom: 1px solid;
-    border-bottom-color: inherit;
-}
-
-/* STATE | FOCUS */
-.o-ui-link:focus,
-.o-ui-link-focus {
-    background-color: var(--marine-50);
-    border-radius: var(--scale-alpha);
-    box-shadow: 0 0 0 2px var(--marine-50);
-    outline: none;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
 /* STATE | FOCUS | TEXT */
 .o-ui-link:focus .o-ui-link-text,
 .o-ui-link-focus .o-ui-link-text {
-    border-bottom: 1px solid;
-    border-bottom-color: inherit;
+    text-decoration: underline;
+    text-decoration-style: solid;
 }
 
 /* STATE | ACTIVE */
@@ -88,7 +80,7 @@
 .o-ui-link-active.o-ui-link-focus .o-ui-link-text,
 .o-ui-link-active.o-ui-link:focus .o-ui-link-text,
 .o-ui-link:active.o-ui-link-focus .o-ui-link-text {
-    border-bottom: 1px solid var(--marine-700);
+    text-decoration: underline;
 }
 
 /* STATE | DISABLED */
@@ -183,6 +175,10 @@
 }
 
 /* AS BUTTON */
+button.o-ui-link {
+    text-align: left;
+}
+
 button.o-ui-link:hover,
 button.o-ui-link-hover {
     cursor: pointer;
@@ -202,4 +198,20 @@ button[disabled].o-ui-link-hover {
 /* INHERIT */
 .o-ui-link-inherit {
     color: inherit;
+}
+
+/* LINK | FOCUS */
+.o-ui-link:focus {
+    outline: none;
+    border-radius: var(--scale-alpha);
+    box-shadow: var(--o-ui-focus-ring);
+}
+
+/* TEXT + ICON LINK | FOCUS */
+.o-ui-text-link:focus,
+.o-ui-icon-link:focus {
+    outline: none;
+    border-radius: var(--scale-alpha);
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
 }

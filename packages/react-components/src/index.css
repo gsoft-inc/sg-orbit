@@ -1,6 +1,6 @@
 :root {
-    --o-ui-focus-ring: 0 0 0 2px var(--primary-200);
-    --o-ui-focus-ring-error: 0 0 0 2px var(--alert-50);
+    --o-ui-focus-ring: 0 0 0 2px var(--white), 0 0 0 4px var(--primary-500);
+    --o-ui-focus-ring-error: 0 0 0 2px var(--white), 0 0 0 4px var(--alert-500);
     --o-ui-disabled-opacity: 0.4;
 }
 

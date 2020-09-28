@@ -69,6 +69,8 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-danger:focus,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
     box-shadow: var(--o-ui-focus-ring-error);
+    background-color: var(--alert-500);
+    outline: none;
 }
 
 /* SOLID | STATE | ACTIVE */
@@ -185,13 +187,6 @@ a.o-ui-button {
 .o-ui-button-solid.danger:hover,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-hover {
     background-color: var(--alert-700);
-}
-
-/* SOLID | DANGER | FOCUS */
-.o-ui-button-solid.o-ui-button-danger:focus,
-.o-ui-button-solid.o-ui-button-danger.o-ui-button-focus {
-    background-color: var(--alert-500);
-    outline: none;
 }
 
 /* SOLID | DANGER | ACTIVE */
