@@ -1,7 +1,7 @@
 import "./FieldMessage.css";
 
-import { BodyText, paragraphSlot, textSlot } from "../../text";
 import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
+import { Text, paragraphSlot, textSlot } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { iconSlot } from "../../icons";
@@ -54,7 +54,7 @@ export const FieldMessage = forwardRef(({
     ...rest
 }, ref) => {
     return (
-        <BodyText
+        <Text
             data-testid="field-message"
             {...rest}
             size={ADAPTED_SIZE[getSize(size)]}
@@ -93,7 +93,7 @@ export const FieldMessage = forwardRef(({
                     {children}
                 </SlotProvider>
             </ClearSlots>
-        </BodyText>
+        </Text>
     );
 });
 

@@ -33,7 +33,6 @@
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
-    line-height: 1.15;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
