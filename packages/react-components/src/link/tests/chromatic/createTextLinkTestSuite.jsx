@@ -8,7 +8,7 @@ function TextLink({ element, ...rest }) {
 }
 
 export function createTextLinkTestSuite(element, stories) {
-    stories
+    return stories
         .add("default", () =>
             <Stack>
                 <Inline align="end">

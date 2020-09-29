@@ -1,5 +1,7 @@
 import { Card } from "./Card";
 import { Heading, Paragraph } from "@react-components/text";
+import { Image } from "@react-components/image";
+import { Inline } from "@react-components/layout";
 import { InnerLink, Link } from "@react-components/link";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
 import { ReactComponentsLayout } from "@blocks";
@@ -41,7 +43,7 @@ A link content can be an image element.
 <Preview withSource="open">
     <Story name="image">
         <Link href="#">
-            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+            <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
         </Link>
     </Story>
 </Preview>
@@ -52,11 +54,11 @@ A link content could be a card component or any other content.
 
 <Preview withSource="open">
     <Story name="card">
-        <Link className="w-40" href="#">
+        <Link className="w-30" href="#">
             <Card>
                 <Heading as="h2" size="sm">SpaceX delays launch</Heading>
                 <Paragraph>
-                    <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+                    <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
                 </Paragraph>
                 <Paragraph>
                     SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
@@ -77,7 +79,7 @@ A link can be rendered as a button.
 <Preview withSource="open">
     <Story name="button">
         <Link as="button" aria-label="Add">
-            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+            <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
         </Link>
     </Story>
 </Preview>
@@ -89,8 +91,30 @@ A link can be rendered as a [React Router Link](https://reactrouter.com/web/api/
 <Preview withSource="open">
     <Story name="react router link">
         <Link as={RouterLink} to="/flight-details">
-            <img src={LaunchImage} alt="SpaceX launch" width="325" height="216" />
+            <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
         </Link>
+    </Story>
+</Preview>
+
+## Variants
+
+### Shape
+
+A link can use a different shape to match it's content shape.
+
+<Preview withSource="open">
+    <Story name="shape">
+        <Inline>
+            <Link shape="rounded" focus href="#">
+                <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+            </Link>
+            <Link shape="circular" focus href="#">
+                <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+            </Link>
+            <Link shape="box" focus href="#">
+                <Image src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+            </Link>
+        </Inline>
     </Story>
 </Preview>
 
@@ -106,7 +130,7 @@ A link can be rendered as a [React Router Link](https://reactrouter.com/web/api/
 >
     <RefLogger>
         <Link href="#">
-            <img src={LaunchImage} alt="SpaceX launch" />
+            <Image src={LaunchImage} alt="SpaceX launch" />
         </Link>
     </RefLogger>
 </Story>

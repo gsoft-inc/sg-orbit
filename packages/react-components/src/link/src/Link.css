@@ -24,7 +24,7 @@
 .o-ui-link:focus,
 .o-ui-link-focus {
     outline: none;
-    border-radius: var(--scale-alpha);
+    /* border-radius: var(--scale-alpha); */
     box-shadow: var(--o-ui-focus-ring);
 }
 
@@ -84,9 +84,9 @@
 /* TEXT | STATES */
 /* TEXT | STATE | FOCUS */
 .o-ui-text-link:focus,
-.o-ui-link-focus.o-ui-text-link {
+.o-ui-text-link.o-ui-link-focus {
     outline: none;
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
     background-color: var(--primary-50);
     box-shadow: 0 0 0 2px var(--primary-50);
 }
@@ -139,9 +139,10 @@
 }
 
 /* ICON LINK | STATES */
-.o-ui-icon-link:focus {
+.o-ui-icon-link:focus,
+.o-ui-icon-link.o-ui-link-focus {
     outline: none;
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
     background-color: var(--primary-50);
     box-shadow: 0 0 0 2px var(--primary-50);
 }
@@ -238,4 +239,19 @@ button.o-ui-link-hover {
 /* INHERIT */
 .o-ui-link-inherit {
     color: inherit;
+}
+
+/* SHAPE | ROUNDED */
+.o-ui-link-rounded {
+    border-radius: var(--o-ui-rounded-border-radius);
+}
+
+/* SHAPE | CIRCULAR */
+.o-ui-link-circular {
+    border-radius: var(--o-ui-circular-border-radius);
+}
+
+/* SHAPE | BOX */
+.o-ui-link-box {
+    border-radius: 0;
 }
