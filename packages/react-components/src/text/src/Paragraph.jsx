@@ -1,7 +1,7 @@
 import "./Paragraph.css";
 
-import { BodyText } from "./BodyText";
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { Text } from "./Text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { linkSlot } from "../../link";
@@ -39,7 +39,7 @@ export function InnerParagraph(props) {
     );
 
     return (
-        <BodyText
+        <Text
             {...rest}
             size={size}
             className={mergeClasses(
@@ -61,7 +61,7 @@ export function InnerParagraph(props) {
                     {children}
                 </SlotProvider>
             </ClearSlots>
-        </BodyText>
+        </Text>
     );
 }
 

@@ -72,8 +72,6 @@
 
 .o-ui-link-text {
     grid-area: text;
-    border-bottom: 1px solid;
-    border-bottom-color: transparent;
 }
 
 /* TEXT | ICON AFTER TEXT */
