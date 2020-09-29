@@ -6,7 +6,7 @@ function Link({ element, ...rest }) {
 }
 
 export function createLinkTestSuite(element, stories) {
-    stories
+    return stories
         .add("default", () =>
             <Link href="#" element={element} />
         )

@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { any, bool, elementType, number, oneOfType, string } from "prop-types";
+import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps, useSlot } from "../../shared";
 import { useLink } from "./useLink";
@@ -14,6 +14,10 @@ const propTypes = {
      * Whether or not this is an external link.
      */
     external: bool,
+    /**
+     * The link shape.
+     */
+    shape: oneOf(["rounded", "circular", "box"]),
     /**
      * Whether the link should autoFocus on render.
      */
@@ -39,6 +43,7 @@ const propTypes = {
 export function InnerLink(props) {
     const {
         external,
+        shape = "rounded",
         autoFocus,
         autoFocusDelay,
         active,
@@ -59,6 +64,7 @@ export function InnerLink(props) {
     const linkProps = useLink({
         omitSize: true,
         external,
+        shape,
         autoFocus,
         autoFocusDelay,
         active,

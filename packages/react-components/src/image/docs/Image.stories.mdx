@@ -1,0 +1,67 @@
+import { Image, InnerImage } from "@react-components/image";
+import { Inline } from "@react-components/layout";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+import LaunchImage from "./assets/launch.jpg";
+
+<Meta
+    title="Content|Image"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/image/src" />)
+        .build()}
+/>
+
+# Image
+
+Use this component to display an image.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Image from @orbit-ui/react-components</dd>
+    </div>
+</dl>
+
+## Content
+
+### Size
+
+An image can adjust it's size by using the `size` prop or native `width` and `height` props.
+
+<Preview withSource="open">
+    <Story name="size">
+        <Image size="200px" src={LaunchImage} alt="SpaceX launch" />
+    </Story>
+</Preview>
+
+## Variants
+
+### Shape
+
+An image can use a different shape.
+
+<Preview withSource="open">
+    <Story name="shape">
+        <Inline>
+            <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+            <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+        </Inline>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={InnerImage} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Image src={LaunchImage} alt="SpaceX launch" />
+    </RefLogger>
+</Story>

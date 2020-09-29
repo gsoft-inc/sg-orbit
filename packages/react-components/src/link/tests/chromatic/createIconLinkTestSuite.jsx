@@ -7,7 +7,7 @@ function IconLink({ element, ...rest }) {
 }
 
 export function createIconLinkTestSuite(element, stories) {
-    stories
+    return stories
         .add("default", () =>
             <Inline align="end">
                 <IconLink size="sm" href="#" aria-label="Add" element={element}><AddIcon /></IconLink>

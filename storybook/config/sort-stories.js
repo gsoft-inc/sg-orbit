@@ -1,4 +1,4 @@
-import { CHROMATIC_ROOT, COMPONENTS_ROOT, GETTING_STARTED_ROOT, LINKS_ROOT, MATERIALS_ROOT } from "@shared/roots";
+import { CHROMATIC_ROOT, COMPONENTS_ROOT, GETTING_STARTED_ROOT, MATERIALS_ROOT } from "@shared/roots";
 import { isNil } from "lodash";
 
 const PARSING_RESULTS_CACHE = {};
@@ -16,12 +16,16 @@ const ROOTS = {
         priority: 2,
         sortByKind: true
     },
-    [LINKS_ROOT.toLocaleLowerCase()]: {
+    "links": {
         priority: 3,
         sortByKind: true
     },
-    [CHROMATIC_ROOT.toLocaleLowerCase()]: {
+    "content": {
         priority: 4,
+        sortByKind: true
+    },
+    [CHROMATIC_ROOT.toLocaleLowerCase()]: {
+        priority: 5,
         sortByKind: false
     }
 };

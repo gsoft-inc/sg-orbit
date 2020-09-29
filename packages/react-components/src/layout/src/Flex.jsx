@@ -206,11 +206,11 @@ export function InnerFlex({
             )}
             style={{
                 ...style,
-                "flexDirection": direction && `${direction}${reverse ? "-reverse" : ""}`,
-                "alignContent": alignContent,
-                "alignItems": alignItems,
-                "justifyContent": justifyContent,
-                "flexWrap": !isNil(wrap) ? "wrap" : undefined,
+                flexDirection: direction && `${direction}${reverse ? "-reverse" : ""}`,
+                alignContent: alignContent,
+                alignItems: alignItems,
+                justifyContent: justifyContent,
+                flexWrap: !isNil(wrap) ? "wrap" : undefined,
                 "--o-ui-gap": gap && (isString(gap) ? gap : `var(${SPACING[(gap) - 1]})`)
             }}
             ref={ref}
