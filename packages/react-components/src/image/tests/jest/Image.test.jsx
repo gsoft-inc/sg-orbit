@@ -8,7 +8,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
+        <Image ref={ref} src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
