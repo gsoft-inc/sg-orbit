@@ -63,8 +63,6 @@
 .o-ui-checkbox-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
-    /* font-size: var(--type-scale-7); */
-    line-height: 1.14;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

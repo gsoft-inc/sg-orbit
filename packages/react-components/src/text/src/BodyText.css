@@ -5,27 +5,27 @@
 
 .o-ui-body-text-sm {
     font-size: var(--type-scale-8);
-    line-height: 1.3333;
+    line-height: 1.142857143;
 }
 
 .o-ui-body-text-md {
     font-size: var(--type-scale-7);
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
 .o-ui-body-text-lg {
     font-size: var(--type-scale-6);
-    line-height: 1.25;
+    line-height: 1.333;
 }
 
 .o-ui-body-text-xl {
     font-size: var(--type-scale-5);
-    line-height: 1.14;
+    line-height: 1.2;
 }
 
 .o-ui-body-text-2xl {
     font-size: var(--type-scale-4);
-    line-height: 1.25;
+    line-height: 1.33333;
 }
 
 .o-ui-body-text-inherit {

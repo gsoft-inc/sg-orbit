@@ -13,7 +13,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
+        <Stack gap="0">
             <Text size="5xl">Migrate, adapt, and control the cloud.</Text>
             <Text size="4xl">Migrate, adapt, and control the cloud.</Text>
             <Text size="3xl">Migrate, adapt, and control the cloud.</Text>
