@@ -1,0 +1,15 @@
+.o-ui-image {
+    display: block;
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+/* SHAPE | ROUNDED */
+.o-ui-image-rounded {
+    border-radius: 5px;
+}
+
+/* SHAPE | CIRCULAR */
+.o-ui-image-circular {
+    border-radius: 50px;
+}

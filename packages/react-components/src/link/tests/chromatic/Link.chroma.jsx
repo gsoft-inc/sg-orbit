@@ -5,6 +5,9 @@ import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils"
 import { createLinkTestSuite } from "./createLinkTestSuite";
 import Launch from "./assets/launch.jpg";
 
+// TODO:
+// - Add a focus test with a circular image.
+
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Link"))
         .segment(segment)

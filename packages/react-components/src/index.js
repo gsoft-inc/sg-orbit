@@ -27,4 +27,5 @@ export * from "./form";
 export * from "./group";
 export * from "./link";
 export * from "./list";
+export * from "./image";
 export * from "./shared";
