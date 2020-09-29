@@ -12,3 +12,12 @@ export function useFieldWrappedInput() {
 
     return [props, isInField];
 }
+
+export function wrappedInputPropsAdapter({ className, ...rest }) {
+    return {
+        ...rest,
+        wrapperProps: {
+            className
+        }
+    };
+}

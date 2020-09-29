@@ -5,11 +5,12 @@ import { bool, element, elementType, func, number, object, oneOf, oneOfType, str
 import { cssModule, getSize, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
-import { useFieldWrappedInput } from "./useFieldWrappedInput";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
 import { useToolbarContext } from "../../toolbar";
+import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const STEPPER_ICON_SIZE = {
     "sm": "2xs",
@@ -164,7 +165,7 @@ function toFixed(value, precision) {
 
 export function InnerNumberInput(props) {
     const [toolbarProps] = useToolbarContext();
-    const [fieldProps] = useFieldWrappedInput();
+    const [fieldProps] = useFieldInput();
 
     const {
         id,
@@ -199,7 +200,7 @@ export function InnerNumberInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        fieldProps
+        wrappedInputPropsAdapter(fieldProps)
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);

@@ -4,9 +4,10 @@ import { bool, element, elementType, func, number, object, oneOf, oneOfType, str
 import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
-import { useFieldWrappedInput } from "./useFieldWrappedInput";
+import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
+import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const propTypes = {
     /**
@@ -94,7 +95,7 @@ const pxToInt = value => {
 };
 
 export function InnerTextArea(props) {
-    const [fieldProps] = useFieldWrappedInput();
+    const [fieldProps] = useFieldInput();
 
     const {
         id,
@@ -128,7 +129,7 @@ export function InnerTextArea(props) {
         ...rest
     } = mergeProps(
         props,
-        fieldProps
+        wrappedInputPropsAdapter(fieldProps)
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
