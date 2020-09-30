@@ -7,6 +7,11 @@
     padding: 0;
 }
 
+/* Set direct child border-radius */
+.o-ui-link > * {
+    border-radius: inherit;
+}
+
 /* STATES */
 /* STATE | HOVER */
 .o-ui-link:hover,
@@ -106,6 +111,12 @@
 /* TEXT | STATE | DISABLED | HOVER */
 .o-ui-link[disabled]:hover .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
+    text-decoration: none;
+}
+
+/* TEXT | STATE | DISABLED | FOCUS */
+.o-ui-link[disabled]:focus .o-ui-link-text,
+.o-ui-link[disabled].o-ui-link-focus .o-ui-link-text {
     text-decoration: none;
 }
 
