@@ -14,7 +14,7 @@
     grid-area: button;
     display: inline-block;
     background-color: var(--white);
-    border-radius: 100%;
+    border-radius: var(--o-ui-circular-border-radius);
     border: 1px solid var(--marine-100);
 }
 
@@ -22,7 +22,7 @@
     content: "";
     display: block;
     background-color: var(--primary-500);
-    border-radius: 100%;
+    border-radius: var(--o-ui-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
 }

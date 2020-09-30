@@ -27,7 +27,7 @@
 .o-ui-badge-count .o-ui-badge-anchor {
     background-color: var(--cloud-100);
     color: var(--marine-900);
-    border-radius: 999px;
+    border-radius: var(--o-ui-pill-border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +55,7 @@
 /* DOT */
 .o-ui-badge-dot .o-ui-badge-anchor {
     background-color: var(--cloud-100);
-    border-radius: 999px;
+    border-radius: var(--o-ui-pill-border-radius);
 }
 
 /* DOT | SIZES */

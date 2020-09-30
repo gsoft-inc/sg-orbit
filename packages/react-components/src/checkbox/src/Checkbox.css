@@ -17,7 +17,7 @@
     width: var(--scale-echo);
     height: var(--scale-echo);
     border: 1px solid var(--marine-100);
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
     transition: all .125s ease-in;
     flex-shrink: 0;
 }
@@ -29,7 +29,7 @@
     background-color: var(--primary-500);
     position: absolute;
     transform: scale(0);
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
     top: -1px;
     left: -1px;
     transition: transform .125s ease-in;

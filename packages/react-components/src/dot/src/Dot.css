@@ -7,7 +7,7 @@
 .o-ui-dot:before {
     content: "";
     display: inline-block;
-    border-radius: 999px;
+    border-radius: var(--o-ui-pill-border-radius);
     background-color: var(--o-ui-dot-color);
 }
 

@@ -1,9 +1,15 @@
 :root {
-    --o-ui-focus-ring: 0 0 0 2px var(--white), 0 0 0 4px var(--primary-500);
     --o-ui-disabled-opacity: 0.4;
     --o-ui-pill-border-radius: 999px;
     --o-ui-rounded-border-radius: var(--scale-alpha);
     --o-ui-circular-border-radius: 100%;
+}
+
+[class^="o-ui-"] {
+    --o-ui-focus-ring-inset-sm: 0 0 0 1px var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-inset-md: 0 0 0 2px var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring: 0 0 0 2px var(--white), 0 0 0 4px var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-color: var(--primary-500);
 }
 
 /* ROTATE */

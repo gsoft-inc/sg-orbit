@@ -4,7 +4,7 @@
     background-color: var(--cloud-100);
     color: var(--marine-900);
     justify-content: center;
-    border-radius: 999px;
+    border-radius: var(--o-ui-pill-border-radius);
     line-height: 1;
     align-items: center;
 }
