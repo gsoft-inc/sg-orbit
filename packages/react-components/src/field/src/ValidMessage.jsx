@@ -37,7 +37,7 @@ export function InnerValidMessage(props) {
     return (
         <FieldMessage
             {...rest}
-            variant="success"
+            tone="success"
             ref={forwardedRef}
         >
             {children}

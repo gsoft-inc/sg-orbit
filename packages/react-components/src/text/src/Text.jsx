@@ -53,7 +53,7 @@ export function InnerText(props) {
                 <SlotProvider
                     slots={{
                         link: {
-                            size: "inherit",
+                            size,
                             underline: "dotted"
                         }
                     }}

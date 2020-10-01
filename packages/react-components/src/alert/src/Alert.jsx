@@ -98,19 +98,21 @@ export function InnerAlert({
                     },
                     content: {
                         id: contentId,
+                        size,
                         className: "o-ui-alert-content",
+                        as: Text,
                         UNSAFE_slots: {
                             heading: headingSlotAdapter({
                                 size
                             }),
                             text: {
-                                size
+                                size: "inherit"
                             },
                             paragraph: {
-                                size
+                                size: "inherit"
                             },
                             list: {
-                                size
+                                size: "inherit"
                             },
                             button: {
                                 size
@@ -118,7 +120,7 @@ export function InnerAlert({
                         }
                     },
                     text: {
-                        size,
+                        size: "inherit",
                         className: "o-ui-alert-content"
                     },
                     button: actionSlotAdapter({

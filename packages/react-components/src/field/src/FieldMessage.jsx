@@ -6,6 +6,12 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
 
+const ADAPTED_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
+};
+
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";
     const isError = validationState === "invalid";
@@ -21,7 +27,7 @@ const propTypes = {
     /**
      * Style to use.
      */
-    variant: oneOf(["neutral", "success", "error"]).isRequired,
+    tone: oneOf(["neutral", "success", "error"]).isRequired,
     /**
      * A message can vary in size.
      */
@@ -36,14 +42,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ADAPTED_SIZE = {
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-};
-
 export const FieldMessage = forwardRef(({
-    variant,
+    tone,
     fluid,
     size,
     as = "div",
@@ -59,7 +59,7 @@ export const FieldMessage = forwardRef(({
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",
-                    variant,
+                    tone,
                     fluid && "fluid",
                     getSizeClass(size)
                 ),
@@ -74,7 +74,7 @@ export const FieldMessage = forwardRef(({
                         text: {
                             size: "inherit"
                         },
-                        p: {
+                        paragraph: {
                             size: "inherit"
                         },
                         list: {

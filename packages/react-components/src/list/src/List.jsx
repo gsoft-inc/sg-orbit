@@ -6,7 +6,7 @@ const propTypes = {
     /**
      * A list can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md", "lg", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

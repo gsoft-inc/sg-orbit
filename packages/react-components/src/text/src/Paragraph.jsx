@@ -34,7 +34,7 @@ export function InnerParagraph(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "p")
+        useSlot(props, "paragraph")
     );
 
     return (
@@ -55,7 +55,7 @@ export function InnerParagraph(props) {
                 <SlotProvider
                     slots={{
                         link: {
-                            size: "inherit",
+                            size,
                             underline: "dotted"
                         }
                     }}

@@ -4,7 +4,7 @@ import { Content } from "@react-components/view";
 import { CrossIcon, FlagIcon } from "@react-components/icons";
 import { Heading, Paragraph, Text } from "@react-components/text";
 import { Inline, Stack } from "@react-components/layout";
-import { List, ListItem } from "semantic-ui-react";
+import { ListItem, UnorderedList } from "@react-components/list";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -16,9 +16,6 @@ function stories(segment) {
             .build())
         .build();
 }
-
-// TODO:
-// - alignment
 
 function CloseButton(props) {
     return (
@@ -164,10 +161,10 @@ stories()
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
-                    <List>
+                    <UnorderedList>
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
-                    </List>
+                    </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
                 <CloseButton />
@@ -177,10 +174,10 @@ stories()
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
-                    <List>
+                    <UnorderedList>
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
-                    </List>
+                    </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
                 <CloseButton />
@@ -190,10 +187,10 @@ stories()
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
-                    <List>
+                    <UnorderedList>
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
-                    </List>
+                    </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
                 <CloseButton />

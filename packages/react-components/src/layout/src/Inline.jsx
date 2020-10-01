@@ -78,7 +78,7 @@ export function InnerInline({
             alignContent={alignContent}
             alignItems={alignItems ?? align}
             justifyContent={justifyContent ?? justify}
-            gap={gap}
+            gap={gap !== 0 ? gap : undefined}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >
