@@ -9,7 +9,7 @@
     grid-template-areas: "dot icon text counter button";
     line-height: 1;
     color: var(--marine-900);
-    border-radius: 999px;
+    border-radius: var(--o-ui-pill-border-radius);
     transition: background-color 0.1s linear;
 }
 

@@ -14,7 +14,7 @@
     grid-area: switch;
     display: inline-block;
     background-color: var(--cloud-200);
-    border-radius: var(--scale-charlie);
+    border-radius: var(--o-ui-pill-border-radius);
     position: relative;
     flex-shrink: 0;
 }
@@ -23,7 +23,7 @@
     content: "";
     display: inline-block;
     background-color: var(--white);
-    border-radius: 100%;
+    border-radius: var(--o-ui-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
     transition: transform .1875s ease-in;

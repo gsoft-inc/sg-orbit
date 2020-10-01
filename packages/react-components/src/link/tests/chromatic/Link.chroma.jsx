@@ -37,12 +37,12 @@ function Card() {
 createLinkTestSuite(<Link><LaunchImage /></Link>, stories("/image"))
     .add("rounded", () =>
         <Link shape="rounded" focus href="#">
-            <Image shape="rounded" width="100" height="100" src={Launch} alt="SpaceX Launch" />
+            <Image width="100" height="100" src={Launch} alt="SpaceX Launch" />
         </Link>
     )
     .add("circular", () =>
         <Link shape="circular" focus href="#">
-            <Image shape="circular" width="100" height="100" src={Launch} alt="SpaceX Launch" />
+            <Image width="100" height="100" src={Launch} alt="SpaceX Launch" />
         </Link>
     )
     .add("box", () =>

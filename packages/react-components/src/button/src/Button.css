@@ -173,6 +173,7 @@ a.o-ui-button {
 /* SOLID | DANGER */
 .o-ui-button-solid.o-ui-button-danger {
     background-color: var(--alert-500);
+    --o-ui-focus-ring-color: var(--alert-500);
 }
 
 /* SOLID | DANGER | HOVER */
@@ -197,7 +198,7 @@ a.o-ui-button {
 
 /* OUTLINE | ROUNDED */
 .o-ui-button-outline.o-ui-button-rounded {
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
 }
 
 /* OUTLINE | HOVER */
@@ -306,6 +307,12 @@ a.o-ui-button {
     box-shadow: 0 0 0 1px var(--alert-700) inset;
 }
 
+/* OUTLINE | DANGER | FOCUS */
+.o-ui-button-outline.o-ui-button-danger:focus,
+.o-ui-button-outline.o-ui-button-danger.o-ui-button-focus {
+    box-shadow: 0 0 0 1px var(--alert-500) inset, var(--o-ui-focus-ring);
+}
+
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
@@ -398,7 +405,7 @@ a.o-ui-button {
 
 /* GHOST ROUNDED */
 .o-ui-button-ghost.o-ui-button-rounded {
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
 }
 
 /* GHOST | HOVER */
@@ -416,7 +423,7 @@ a.o-ui-button {
 /* GHOST | FOCUS */
 .o-ui-button-ghost:focus,
 .o-ui-button-ghost.o-ui-button-focus {
-    box-shadow: var(--o-ui-focus-ring);
+    box-shadow: var(--o-ui-focus-ring-inset-md);
     z-index: 2;
     outline: none;
 }
@@ -498,6 +505,11 @@ a.o-ui-button {
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
     color: var(--alert-500);
+}
+
+/* DANGER */
+.o-ui-button-danger {
+    --o-ui-focus-ring-color: var(--alert-500);
 }
 
 /* FLUID */
@@ -637,7 +649,7 @@ a.o-ui-button {
 
 /* CIRCULAR */
 .o-ui-button-circular {
-    border-radius: 100%;
+    border-radius: var(--o-ui-circular-border-radius);
     padding: var(--scale-alpha);
     min-width: var(--scale-hotel);
     justify-content: center;
@@ -677,7 +689,7 @@ a.o-ui-button {
 /* ROUNDED */
 .o-ui-button-rounded {
     justify-content: center;
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-rounded-border-radius);
 }
 
 /* ROUNDED | SIZES */
