@@ -2,8 +2,8 @@ import "./Link.css";
 
 import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -102,7 +102,7 @@ export function InnerIconLink(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        icon: iconSlot({
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-link-icon"
                         })

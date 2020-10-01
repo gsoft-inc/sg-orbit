@@ -32,7 +32,7 @@ export function useFieldLabel({ as: asProp }) {
         id: labelId,
         required,
         size,
-        htmlFor: as === "label" && inputId,
+        htmlFor: as === "label" ? inputId : undefined,
         className: cssModule(labelClassName, getSizeClass(size)),
         as
     };

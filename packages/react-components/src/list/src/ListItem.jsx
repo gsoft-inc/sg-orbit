@@ -1,5 +1,5 @@
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -43,9 +43,9 @@ export function InnerListItem({
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size
-                        })
+                        }
                     }}
                 >
                     {content}

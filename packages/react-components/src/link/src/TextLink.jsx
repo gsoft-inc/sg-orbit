@@ -1,8 +1,8 @@
 import "./Link.css";
 
-import { ArrowIcon, iconSlot } from "../../icons";
+import { ArrowIcon, embeddedIconSlot } from "../../icons";
 import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useFormButton } from "../../form";
@@ -122,11 +122,11 @@ export function InnerTextLink(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size,
                             className: "o-ui-link-text"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-link-icon"
                         })
@@ -144,11 +144,3 @@ InnerTextLink.propTypes = propTypes;
 export const TextLink = forwardRef((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
-
-export const linkSlot = props => {
-    return {
-        underline: "dotted",
-        size: "inherit",
-        ...props
-    };
-};

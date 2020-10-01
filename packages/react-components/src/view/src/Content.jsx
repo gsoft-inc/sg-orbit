@@ -1,0 +1,53 @@
+import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
+import { Text } from "../../text";
+import { any, elementType, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
+
+const propTypes = {
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
+     * @ignore
+     */
+    children: any.isRequired
+};
+
+export function InnerContent(props) {
+    const {
+        as: ElementType = "section",
+        UNSAFE_slots,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        useSlot(props, "content")
+    );
+
+    const content = useTextContent(Text, children);
+
+    return (
+        <ElementType
+            {...rest}
+            ref={forwardedRef}
+        >
+            <ClearSlots>
+                <SlotProvider slots={UNSAFE_slots}>
+                    {content}
+                </SlotProvider>
+            </ClearSlots>
+        </ElementType>
+    );
+}
+
+InnerContent.propTypes = propTypes;
+
+export const Content = forwardRef((props, ref) => (
+    <InnerContent {...props} forwardedRef={ref} />
+));

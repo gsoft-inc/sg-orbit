@@ -1,7 +1,7 @@
 import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
 
@@ -120,7 +120,7 @@ export function InnerIconButton(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        icon: iconSlot({
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-button-icon"
                         })
@@ -145,10 +145,8 @@ export const embedIconButton = createEmbeddableAdapter({
     "lg": "sm"
 });
 
-export const iconButtonSlot = createSizeAdapterSlotFactory({
+export const embeddedIconButtonSlot = createSizeAdapterSlotFactory({
     "sm": "2xs",
     "md": "xs",
     "lg": "sm"
 });
-
-

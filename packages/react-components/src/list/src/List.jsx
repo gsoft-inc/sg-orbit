@@ -54,7 +54,7 @@ const List = forwardRef((props, ref) => {
     );
 });
 
-/******/
+////////
 
 export function InnerOrderedList({
     as = "ol",
@@ -76,7 +76,7 @@ export const OrderedList = forwardRef((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
-/******/
+////////
 
 export function InnerUnorderedList({
     as = "ul",
@@ -97,5 +97,3 @@ InnerUnorderedList.propTypes = propTypes;
 export const UnorderedList = forwardRef((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
-
-export const listSlot = props => props;

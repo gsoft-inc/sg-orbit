@@ -3,12 +3,9 @@ import "./Tag.css";
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { counterSlot } from "../../counter";
-import { dotSlot } from "../../dot/src";
+import { embeddedIconButtonSlot } from "../../button";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { iconButtonSlot } from "../../button";
-import { iconSlot } from "../../icons";
-import { textSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -81,26 +78,26 @@ export function InnerTag({
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size,
                             className: "o-ui-tag-text"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-tag-icon"
                         }),
-                        dot: dotSlot({
+                        dot: {
                             size,
                             disabled,
                             className: "o-ui-tag-dot"
-                        }),
-                        counter: counterSlot({
+                        },
+                        counter: {
                             size,
                             disabled,
                             highlight: true,
                             className: "o-ui-tag-counter"
-                        }),
-                        button: iconButtonSlot({
+                        },
+                        button: embeddedIconButtonSlot({
                             size,
                             variant: "ghost",
                             color: "secondary",

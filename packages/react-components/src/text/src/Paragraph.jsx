@@ -4,7 +4,6 @@ import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeP
 import { Text } from "./Text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
@@ -55,7 +54,10 @@ export function InnerParagraph(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        link: linkSlot()
+                        link: {
+                            size: "inherit",
+                            underline: "dotted"
+                        }
                     }}
                 >
                     {children}
@@ -70,6 +72,4 @@ InnerParagraph.propTypes = propTypes;
 export const Paragraph = forwardRef((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
-
-export const paragraphSlot = props => props;
 

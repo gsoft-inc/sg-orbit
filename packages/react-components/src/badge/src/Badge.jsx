@@ -3,7 +3,6 @@ import "./Badge.css";
 import { Children, forwardRef } from "react";
 import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { textSlot } from "../../text";
 
 const propTypes = {
     /**
@@ -28,7 +27,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const textSlotAdapter = createSizeAdapterSlotFactory({
+const textSlot = createSizeAdapterSlotFactory({
     "sm": "xs",
     "md": "sm",
     "lg": "md"
@@ -68,9 +67,9 @@ export function InnerBadge({
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot(textSlotAdapter({
+                        text: textSlot({
                             size
-                        })),
+                        }),
                         icon: {
                             size
                         }

@@ -67,7 +67,7 @@ function createIconFactory(type) {
     x.create = createIconFactory;
 });
 
-/******/
+////////
 
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component24;

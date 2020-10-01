@@ -1,7 +1,7 @@
 import "./Counter.css";
 
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -80,9 +80,9 @@ export function InnerCounter(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size
-                        })
+                        }
                     }}
                 >
                     {content}
@@ -97,5 +97,3 @@ InnerCounter.propTypes = propTypes;
 export const Counter = forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 ));
-
-export const counterSlot = props => props;

@@ -1,0 +1,42 @@
+.o-ui-alert {
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    grid-template-areas: "icon content action";
+    align-items: start;
+    padding: 20px;
+    width: 100%;
+}
+
+/* ICON */
+.o-ui-alert-icon {
+    grid-area: icon;
+}
+
+/* CONTENT */
+.o-ui-alert-content {
+    grid-area: content;
+}
+
+/* ACTION */
+.o-ui-alert-action {
+    grid-area: action;
+}
+
+/* TONE | INFO */
+.o-ui-alert-info {
+    background-color: blue;
+}
+
+/* TONE | SUCCESS */
+.o-ui-alert-success {
+    background-color: green;
+}
+
+/* TONE | WARNING */
+.o-ui-alert-warning {
+    background-color: yellow;
+}
+
+.o-ui-alert-critical {
+    background-color: red;
+}

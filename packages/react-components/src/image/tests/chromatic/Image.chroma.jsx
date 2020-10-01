@@ -47,30 +47,30 @@ stories()
             <Image shape="circular" src={Launch} alt="SpaceX launch" />
         </Inline>
     )
-    .add("object-fit", () =>
+    .add("fit", () =>
         <Inline>
             <div style={{ width: "200px", height: "200px" }}>
-                <Image objectFit="fill" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
+                <Image fit="fill" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
             </div>
             <div style={{ width: "200px", height: "200px" }}>
-                <Image objectFit="contain" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
+                <Image fit="contain" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
             </div>
             <div style={{ width: "200px", height: "200px" }}>
-                <Image objectFit="cover" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
+                <Image fit="cover" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
             </div>
             <div style={{ width: "200px", height: "200px" }}>
-                <Image objectFit="scale-down" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
+                <Image fit="scale-down" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
             </div>
             <div style={{ width: "200px", height: "200px" }}>
-                <Image objectFit="none" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
+                <Image fit="none" width="100%" height="100%" src={Launch} alt="SpaceX launch" />
             </div>
         </Inline>
     )
-    .add("object-position", () =>
+    .add("position", () =>
         <Inline>
-            <Image objectPosition="50% 50%" objectFit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="right top" objectFit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="left bottom" objectFit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="250px 150px" objectFit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image position="50% 50%" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image position="right top" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image position="left bottom" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image position="250px 150px" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
         </Inline>
     );

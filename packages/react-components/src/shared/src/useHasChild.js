@@ -4,7 +4,7 @@ import { isNil } from "lodash";
 import { useLayoutEffect, useState } from "react";
 
 export function useHasChild(querySelector, rootRef) {
-    const [result, setResult] = useState({});
+    const [result, setResult] = useState(false);
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
     // eslint-disable-next-line react-hooks/exhaustive-deps

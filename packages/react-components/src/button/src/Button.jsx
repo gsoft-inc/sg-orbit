@@ -1,10 +1,10 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
+import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarContext } from "../../toolbar";
@@ -57,6 +57,10 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Default slot override.
+     */
+    slot: string,
+    /**
      * @ignore
      */
     children: any.isRequired
@@ -86,6 +90,7 @@ export function InnerButton(props) {
         ...rest
     } = mergeProps(
         props,
+        useSlot(props, "button"),
         formProps,
         omitProps(toolbarProps, ["orientation"])
     );
@@ -128,12 +133,12 @@ export function InnerButton(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size,
                             className: "o-ui-button-text",
                             "aria-hidden": loading
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-button-icon"
                         })

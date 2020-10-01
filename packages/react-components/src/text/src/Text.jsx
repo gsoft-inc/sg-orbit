@@ -3,7 +3,6 @@ import "./Text.css";
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
@@ -53,7 +52,10 @@ export function InnerText(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        link: linkSlot()
+                        link: {
+                            size: "inherit",
+                            underline: "dotted"
+                        }
                     }}
                 >
                     {children}
@@ -68,5 +70,3 @@ InnerText.propTypes = propTypes;
 export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 ));
-
-export const textSlot = props => props;

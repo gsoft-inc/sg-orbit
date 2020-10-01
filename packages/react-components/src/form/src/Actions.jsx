@@ -4,10 +4,8 @@ import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
-/*
-Could always take 100% of it's width and align it's children.
-Test by also removing display: grid from the Form.
-*/
+// TODO:
+// - Should be moved out of form to ensure re-usability.
 
 const propTypes = {
     /**

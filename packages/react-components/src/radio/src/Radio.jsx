@@ -15,12 +15,11 @@ import {
     useForwardInputApi,
     useRenderProps, useTextContent
 } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { counterSlot } from "../../counter";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import { iconSlot } from "../../icons";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -165,19 +164,19 @@ export function InnerRadio(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size,
                             className: "o-ui-radio-label"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-radio-icon"
                         }),
-                        counter: counterSlot({
+                        counter: {
                             size,
                             reverse,
                             className: "o-ui-radio-counter"
-                        })
+                        }
                     }}
                 >
                     {content}

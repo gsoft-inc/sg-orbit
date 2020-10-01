@@ -40,63 +40,27 @@ export function RegistrationForm() {
 
     return (
         <Form onSubmit={formik.handleSubmit}>
-            <Field
-                id="firstName"
-                validationState={getValidationState("firstName")}
-            >
+            <Field id="firstName" validationState={getValidationState("firstName")}>
                 <Label required>First name</Label>
-                <TextInput
-                    onChange={formik.handleChange}
-                    value={formik.values.firstName}
-                />
+                <TextInput onChange={formik.handleChange} value={formik.values.firstName} />
                 <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
             </Field>
-            <Field
-                id="lastName"
-                validationState={getValidationState("lastName")}
-            >
+            <Field id="lastName" validationState={getValidationState("lastName")}>
                 <Label required>Last name</Label>
-                <TextInput
-                    onChange={formik.handleChange}
-                    value={formik.values.lastName}
-                />
+                <TextInput onChange={formik.handleChange} value={formik.values.lastName} />
                 <ErrorMessage>{formik.errors.lastName}</ErrorMessage>
             </Field>
-            <Field
-                id="userName"
-                validationState={getValidationState("userName")}
-            >
+            <Field id="userName" validationState={getValidationState("userName")}>
                 <Label required>Username</Label>
-                <TextInput
-                    onChange={formik.handleChange}
-                    value={formik.values.userName}
-                />
+                <TextInput onChange={formik.handleChange} value={formik.values.userName} />
                 <ErrorMessage>{formik.errors.userName}</ErrorMessage>
             </Field>
-            <Field
-                id="agreeTerms"
-                validationState={getValidationState("agreeTerms")}
-            >
-                <Checkbox
-                    onChange={formik.handleChange}
-                    checked={formik.values.agreeTerms}
-                >
-                    Agree to terms and conditions
-                </Checkbox>
+            <Field id="agreeTerms" validationState={getValidationState("agreeTerms")} >
+                <Checkbox onChange={formik.handleChange} checked={formik.values.agreeTerms}>Agree to terms and conditions</Checkbox>
             </Field>
             <Actions align="end">
-                <TextLink
-                    as="button"
-                    onClick={formik.resetForm}
-                >
-                    Reset
-                </TextLink>
-                <Button
-                    loading={formik.isSubmitting}
-                    type="submit"
-                >
-                    Submit
-                </Button>
+                <TextLink as="button" onClick={formik.resetForm}>Reset</TextLink>
+                <Button loading={formik.isSubmitting} type="submit">Submit</Button>
             </Actions>
         </Form>
     );

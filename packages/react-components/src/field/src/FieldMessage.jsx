@@ -1,12 +1,10 @@
 import "./FieldMessage.css";
 
 import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
-import { Text, paragraphSlot, textSlot } from "../../text";
+import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
-import { linkSlot } from "../../link";
-import { listSlot } from "../../list";
 
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";
@@ -73,21 +71,22 @@ export const FieldMessage = forwardRef(({
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        text: textSlot({
+                        text: {
                             size: "inherit"
-                        }),
-                        p: paragraphSlot({
+                        },
+                        p: {
                             size: "inherit"
-                        }),
-                        list: listSlot({
+                        },
+                        list: {
                             size: "inherit"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size
                         }),
-                        link: linkSlot({
-                            size: "inherit"
-                        })
+                        link: {
+                            size: "inherit",
+                            underline: "dotted"
+                        }
                     }}
                 >
                     {children}

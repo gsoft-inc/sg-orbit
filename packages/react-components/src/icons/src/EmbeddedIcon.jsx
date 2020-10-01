@@ -27,4 +27,4 @@ export function EmbeddedIcon({ size, children, ...rest }) {
 
 EmbeddedIcon.propTypes = propTypes;
 
-export const iconSlot = createSizeAdapterSlotFactory(EMBED_SIZE);
+export const embeddedIconSlot = createSizeAdapterSlotFactory(EMBED_SIZE);

@@ -48,7 +48,7 @@ export class CompositeKeyWeakMap {
     }
 }
 
-/******/
+////////
 
 const cache = new CompositeKeyWeakMap();
 
