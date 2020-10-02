@@ -6,7 +6,7 @@
 /* SIZE */
 .o-ui-heading-2xs {
     font-size: var(--type-scale-6);
-    line-height: 1.2;
+    line-height: 1.333333;
     margin-bottom: calc(var(--type-scale-6) * .5);
 }
 
