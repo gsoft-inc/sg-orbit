@@ -52,7 +52,7 @@ const headingSlotAdapter = createSizeAdapterSlotFactory({
 const actionSlotAdapter = createSizeAdapterSlotFactory({
     "sm": "xs",
     "md": "sm",
-    "lg": "md"
+    "lg": "sm"
 });
 
 export function InnerAlert({
@@ -104,7 +104,8 @@ export function InnerAlert({
                         as: Text,
                         UNSAFE_slots: {
                             heading: headingSlotAdapter({
-                                size
+                                size,
+                                className: "o-ui-alert-title"
                             }),
                             text: {
                                 size: "inherit"
