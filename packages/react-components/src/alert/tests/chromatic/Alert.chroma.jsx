@@ -35,14 +35,7 @@ stories()
     .add("text only", () =>
         <Inline gap={13}>
             <Stack>
-                <Alert size="sm">Scheduled launch today at 1PM.</Alert>
                 <Alert>Scheduled launch today at 1PM.</Alert>
-                <Alert size="lg">Scheduled launch today at 1PM.</Alert>
-            </Stack>
-            <Stack>
-                <Alert size="sm">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
-                <Alert>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
-                <Alert size="lg">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Stack>
         </Inline>
     )

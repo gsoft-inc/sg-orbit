@@ -6,21 +6,27 @@
     padding: var(--scale-delta);
     width: 100%;
     border-radius: var(--o-ui-rounded-border-radius);
-    box-shadow: var(--shadow-100);
-    border: 1px solid var(--cloud-100);
 }
 
 /* STATES */
 /* FOCUS */
 .o-ui-alert:focus,
 .o-ui-alert-focus {
-    outline: none;
+    outline: 1px solid red;
 }
 
 /* ICON */
 .o-ui-alert-icon {
     grid-area: icon;
     margin-right: var(--scale-bravo);
+    margin-top: .2rem;
+    position: relative;
+    fill: var(--cloud-500);
+}
+
+/* TITLE */
+.o-ui-alert-title {
+    display: inline-block;
 }
 
 /* SIZE | ACTION */
@@ -39,6 +45,7 @@
 /* CONTENT */
 .o-ui-alert-content {
     grid-area: content;
+    padding: .2rem 0;
 }
 
 /* ACTION */
@@ -50,23 +57,40 @@
 
 /* TONE | INFO */
 .o-ui-alert-info {
-    background-color: var(--cloud-50);
-    border-top: var(--scale-alpha) solid var(--cloud-500);
+    background-color: var(--marine-50);
+    color: var(--marine-500);
+}
+
+.o-ui-alert-info .o-ui-alert-icon {
+    fill: var(--marine-200);
 }
 
 /* TONE | SUCCESS */
 .o-ui-alert-success {
     background-color: var(--success-50);
-    border-top: var(--scale-alpha) solid var(--success-500);
+    color: var(--success-900);
+}
+
+.o-ui-alert-success .o-ui-alert-icon {
+    fill: var(--success-500);
 }
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
     background-color: var(--sunray-50);
-    border-top: var(--scale-alpha) solid var(--sunray-500);
+    color: var(--sunray-900);
 }
 
+.o-ui-alert-warning .o-ui-alert-icon {
+    fill: var(--sunray-500);
+}
+
+/* TONE | CRITICAL */
 .o-ui-alert-critical {
     background-color: var(--alert-50);
-    border-top: var(--scale-alpha) solid var(--alert-500);
+    color: var(--alert-900);
+}
+
+.o-ui-alert-critical .o-ui-alert-icon {
+    fill: var(--alert-500);
 }

@@ -103,7 +103,8 @@ export function InnerAlert({
                         as: Text,
                         UNSAFE_slots: {
                             heading: headingSlotAdapter({
-                                size
+                                size,
+                                className: "o-ui-alert-title"
                             }),
                             text: {
                                 size: "inherit"
