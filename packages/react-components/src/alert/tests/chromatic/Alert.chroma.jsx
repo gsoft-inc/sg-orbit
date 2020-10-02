@@ -2,11 +2,13 @@ import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@re
 import { Button, IconButton } from "@react-components/button";
 import { Content } from "@react-components/view";
 import { CrossIcon, FlagIcon } from "@react-components/icons";
-import { Heading, Paragraph, Text } from "@react-components/text";
+import { Heading, Paragraph } from "@react-components/text";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { useEventCallback } from "@react-components/shared";
+import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Alert"))
@@ -51,29 +53,29 @@ stories()
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                 </Alert>
             </Stack>
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Text>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Text>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Text>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Stack>
         </Inline>
@@ -83,34 +85,34 @@ stories()
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <CloseButton />
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <CloseButton />
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <CloseButton />
                 </Alert>
             </Stack>
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <CloseButton />
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <CloseButton />
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <CloseButton />
                 </Alert>
             </Stack>
@@ -121,34 +123,34 @@ stories()
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <Button>Undo</Button>
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <Button>Undo</Button>
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.</Text>
+                    <Content>Scheduled launch today at 1PM.</Content>
                     <Button>Undo</Button>
                 </Alert>
             </Stack>
             <Stack>
                 <Alert size="sm">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <Button>Undo</Button>
                 </Alert>
                 <Alert>
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <Button>Undo</Button>
                 </Alert>
                 <Alert size="lg">
                     <FlagIcon />
-                    <Text>Scheduled launch today at 1PM.<br />Please be cautious.</Text>
+                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
                     <Button>Undo</Button>
                 </Alert>
             </Stack>
@@ -201,7 +203,7 @@ stories()
         <div style={{ width: "500px" }}>
             <Alert size="sm">
                 <FlagIcon />
-                <Text>Scheduled launch today at 1PM.</Text>
+                <Content>Scheduled launch today at 1PM.</Content>
                 <CloseButton />
             </Alert>
         </div>
@@ -262,4 +264,25 @@ stories()
             <Alert className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
             <Alert style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
         </Stack>
+    )
+    .add(
+        "controlled dimiss",
+        () => {
+            const [show, setShow] = useState(true);
+
+            const handleDismiss = useEventCallback(() => {
+                setShow(x => !x);
+            });
+
+            return (
+                <InfoAlert show={show} onDismiss={handleDismiss}>
+                    <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                </InfoAlert>
+            );
+        },
+        {
+            ...paramsBuilder()
+                .chromaticIgnore()
+                .build()
+        }
     );

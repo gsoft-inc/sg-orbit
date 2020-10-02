@@ -30,4 +30,5 @@ export * from "./list";
 export * from "./image";
 export * from "./alert";
 export * from "./view";
+export * from "./transition";
 export * from "./shared";
