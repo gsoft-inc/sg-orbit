@@ -33,6 +33,7 @@ function PreviewSection({ icon }) {
                 {cloneElement(icon, { size: "sm" })}
                 {cloneElement(icon, { size: "md" })}
                 {cloneElement(icon, { size: "lg" })}
+                {cloneElement(icon, { size: "xl" })}
             </Inline>
         </CheckeredBackground>
     );

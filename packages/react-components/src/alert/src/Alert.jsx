@@ -1,23 +1,32 @@
 import "./Alert.css";
 
-import { CheckIcon, CrossIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CloseButton } from "../../button";
 import { Content } from "../../view";
-import { IconButton } from "../../button";
-import { SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
+import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
-// TODO:
-// - Align: start | center?
-
 const ROLE = {
     info: "status",
     success: "status",
     warning: "critical",
     critical: "critical"
+};
+
+const HEADING_SIZE = {
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
+};
+
+const ACTION_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
 };
 
 const propTypes = {
@@ -42,18 +51,6 @@ const propTypes = {
      */
     children: any.isRequired
 };
-
-const headingSlotAdapter = createSizeAdapterSlotFactory({
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-});
-
-const actionSlotAdapter = createSizeAdapterSlotFactory({
-    "sm": "xs",
-    "md": "sm",
-    "lg": "sm"
-});
 
 export function InnerAlert({
     show = true,
@@ -103,10 +100,10 @@ export function InnerAlert({
                         className: "o-ui-alert-content",
                         as: Text,
                         UNSAFE_slots: {
-                            heading: headingSlotAdapter({
-                                size,
+                            heading: {
+                                size: HEADING_SIZE[getSize(size)],
                                 className: "o-ui-alert-title"
-                            }),
+                            },
                             text: {
                                 size: "inherit"
                             },
@@ -125,10 +122,10 @@ export function InnerAlert({
                             }
                         }
                     },
-                    button: actionSlotAdapter({
-                        size,
+                    button: {
+                        size: ACTION_SIZE[getSize(size)],
                         className: "o-ui-alert-action"
-                    })
+                    }
                 }}
             >
                 {content}
@@ -144,20 +141,6 @@ export const Alert = forwardRef((props, ref) => (
 ));
 
 ////////
-
-function CloseButton(props) {
-    return (
-        <IconButton
-            {...props}
-            variant="ghost"
-            color="secondary"
-            shape="circular"
-            aria-label="Close"
-        >
-            <CrossIcon />
-        </IconButton>
-    );
-}
 
 const variations = [
     { tone: "info", icon: <NotificationIcon /> },

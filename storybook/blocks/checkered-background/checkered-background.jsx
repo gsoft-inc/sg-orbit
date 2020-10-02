@@ -6,6 +6,7 @@ export function CheckeredBackground({ className, children, ...rest }) {
     const classes = mergeClasses(
         styles.preview,
         "pl2",
+        "marine-900",
         className
     );
 
