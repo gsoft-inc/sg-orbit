@@ -52,7 +52,7 @@ const headingSlotAdapter = createSizeAdapterSlotFactory({
 const actionSlotAdapter = createSizeAdapterSlotFactory({
     "sm": "xs",
     "md": "sm",
-    "lg": "md"
+    "lg": "sm"
 });
 
 export function InnerAlert({

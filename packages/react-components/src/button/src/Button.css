@@ -190,7 +190,7 @@ a.o-ui-button {
 /* OUTLINE */
 .o-ui-button-outline {
     border: none;
-    background-color: var(--white);
+    background-color: var(--transparent);
     color: var(--marine-500);
     box-shadow: 0 0 0 1px var(--marine-500) inset;
 }

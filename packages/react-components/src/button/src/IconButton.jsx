@@ -120,10 +120,10 @@ export function InnerIconButton(props) {
             <ClearSlots>
                 <SlotProvider
                     slots={{
-                        icon: embeddedIconSlot({
+                        icon: {
                             size,
                             className: "o-ui-button-icon"
-                        })
+                        }
                     }}
                 >
                     {children}

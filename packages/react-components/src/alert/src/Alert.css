@@ -12,7 +12,7 @@
 /* FOCUS */
 .o-ui-alert:focus,
 .o-ui-alert-focus {
-    outline: 1px solid red;
+    outline: none;
 }
 
 /* ICON */
