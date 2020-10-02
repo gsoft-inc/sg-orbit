@@ -47,6 +47,9 @@ export const Transition = forwardRef(({
         }
     }, [show]);
 
+    const handleAnimationStart = useEventCallback(() => {
+    });
+
     const handleAnimationEnd = useEventCallback(() => {
         setIsVisible(show);
     });
