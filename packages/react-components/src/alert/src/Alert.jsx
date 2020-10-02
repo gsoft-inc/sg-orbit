@@ -5,6 +5,7 @@ import { Content } from "../../view";
 import { IconButton } from "../../button";
 import { SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
 import { Text } from "../../text";
+import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
@@ -58,7 +59,7 @@ export function InnerAlert({
     show = true,
     tone = "info",
     size,
-    as: ElementType = "div",
+    as = "div",
     className,
     role: roleProp,
     children,
@@ -67,16 +68,15 @@ export function InnerAlert({
 }) {
     const content = useTextContent(() => (<Content><Text>{children}</Text></Content>), children);
 
-    const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "status", [tone, roleProp]);
+    const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
     const contentId = useId(null, "o-ui-alert-content");
 
-    if (!show) {
-        return null;
-    }
-
     return (
-        <ElementType
+        <Transition
             {...rest}
+            show={show}
+            enter="o-ui-fade-in"
+            leave="o-ui-fade-out"
             className={mergeClasses(
                 cssModule(
                     "o-ui-alert",
@@ -87,6 +87,7 @@ export function InnerAlert({
             )}
             tabIndex="0"
             role={role}
+            as={as}
             aria-describedby={contentId}
             ref={forwardedRef}
         >
@@ -120,10 +121,6 @@ export function InnerAlert({
                             }
                         }
                     },
-                    text: {
-                        size: "inherit",
-                        className: "o-ui-alert-content"
-                    },
                     button: actionSlotAdapter({
                         size,
                         className: "o-ui-alert-action"
@@ -132,7 +129,7 @@ export function InnerAlert({
             >
                 {content}
             </SlotProvider>
-        </ElementType>
+        </Transition>
     );
 }
 

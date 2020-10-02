@@ -52,6 +52,12 @@ class ParamsBuilder {
         return this;
     }
 
+    chromaticIgnore() {
+        this._chromatic.disable = true;
+
+        return this;
+    }
+
     storyValues(values) {
         if (isPlainObject(values)) {
             this._storyValues = values;

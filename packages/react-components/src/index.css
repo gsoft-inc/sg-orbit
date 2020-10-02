@@ -18,3 +18,30 @@
 .o-ui-rotate-315 {
     transform: rotate(315deg);
 }
+
+/* ANIMATIONS */
+.o-ui-fade-in {
+    animation: o-ui-fade-in-animation 0.3s;
+}
+
+.o-ui-fade-out {
+    animation: o-ui-fade-out-animation 0.3s;
+}
+
+@keyframes o-ui-fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes o-ui-fade-out-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
