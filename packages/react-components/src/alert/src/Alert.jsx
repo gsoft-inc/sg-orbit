@@ -112,6 +112,10 @@ export function InnerAlert({
                             paragraph: {
                                 size: "inherit"
                             },
+                            link: {
+                                size: "inherit",
+                                underline: "dotted"
+                            },
                             list: {
                                 size: "inherit"
                             },
