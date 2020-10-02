@@ -2,6 +2,7 @@ import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
 import {
     Button,
     ButtonGroup,
+    CloseButton,
     IconButton,
     InnerButton,
     InnerButtonGroup,
@@ -281,6 +282,21 @@ A toggle button can handle `checked` state in controlled mode.
     <ControlledToggleButton />
 </FilePreview>
 
+## CloseButton
+
+An icon button adapted to handle close functionnality in feedback and overlay components like [Alert](?path=/docs/feedback-alert).
+
+<Preview>
+    <Story name="close button">
+        <Inline align="end">
+            <CloseButton size="xs" />
+            <CloseButton size="sm" />
+            <CloseButton />
+            <CloseButton size="lg" />
+        </Inline>
+    </Story>
+</Preview>
+
 <Story
     name="ref"
     parameters={paramsBuilder()
@@ -291,3 +307,4 @@ A toggle button can handle `checked` state in controlled mode.
         <Button>Cutoff</Button>
     </RefLogger>
 </Story>
+
