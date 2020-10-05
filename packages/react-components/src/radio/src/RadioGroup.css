@@ -1,5 +1,8 @@
 /* IN FIELD */
-.o-ui-radio-group-as-field {
+.o-ui-radio-group-has-label {
     margin-top: var(--scale-alpha);
+}
+
+.o-ui-radio-group-has-message {
     margin-bottom: var(--scale-alpha);
 }

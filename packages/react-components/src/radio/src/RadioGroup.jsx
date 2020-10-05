@@ -108,7 +108,7 @@ const propTypes = {
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarContext();
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps] = useFieldInput();
 
     const {
         value,
@@ -160,7 +160,6 @@ export function InnerRadioGroup(props) {
         size,
         reverse,
         disabled,
-        isInField,
         className,
         ref
     });
