@@ -11,7 +11,7 @@
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {
-    color: var(--marine-700);
+    color: inherit;
 }
 
 /* STATE | HOVER | DISABLED */
@@ -24,7 +24,6 @@
 .o-ui-link:focus,
 .o-ui-link-focus {
     outline: none;
-    /* border-radius: var(--scale-alpha); */
     box-shadow: var(--o-ui-focus-ring);
 }
 
