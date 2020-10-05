@@ -134,12 +134,7 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const checkableContext = {
-        onCheck: handleCheck,
-        checkedValue
-    };
-
-    const items = useRenderProps(checkableContext, props, children);
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
         <Group
@@ -149,7 +144,12 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbarContext>
                 <ClearFieldContext>
-                    <CheckableContext.Provider value={checkableContext}>
+                    <CheckableContext.Provider
+                        value={{
+                            onCheck: handleCheck,
+                            checkedValue
+                        }}
+                    >
                         {Children.map(items, x => {
                             return augmentElement(x, {
                                 ...itemProps,
