@@ -90,4 +90,6 @@ export function InnerButtonGroup(props) {
 
 InnerButtonGroup.propTypes = propTypes;
 
-
+export const ButtonGroup = forwardRef((props, ref) => (
+    <InnerButtonGroup {...props} forwardedRef={ref} />
+));
