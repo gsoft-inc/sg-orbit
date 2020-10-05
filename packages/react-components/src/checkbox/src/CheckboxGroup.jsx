@@ -113,7 +113,6 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         orientation,
-        // orientation: orientation ?? "horizontal",
         gap,
         wrap,
         size,

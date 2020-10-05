@@ -1,8 +1,8 @@
-import { Actions, Form, InnerActions, InnerForm, InnerRow, Row } from "@react-components/form";
-import { Button } from "@react-components/button";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
@@ -31,8 +31,7 @@ Forms are commonly used to provide user interaction in web applications.
 <Props
     componentsDefinitions={[
         { displayName: "Form", component: InnerForm },
-        { displayName: "Row", component: InnerRow },
-        { displayName: "Actions", component: InnerActions }
+        { displayName: "Row", component: InnerRow }
     ]}
 />
 
@@ -189,19 +188,19 @@ Form buttons can be aligned horizontally.
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Actions align="center">
+                <ButtonGroup align="center">
                     <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
             <Form>
                 <Field>
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Actions align="end">
+                <ButtonGroup align="end">
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
         </Inline>
     </Story>

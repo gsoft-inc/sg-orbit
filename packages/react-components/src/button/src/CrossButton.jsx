@@ -73,20 +73,3 @@ InnerCrossButton.propTypes = propTypes;
 export const CrossButton = forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 ));
-
-////////
-
-export const CloseButton = forwardRef(({
-    children,
-    ...rest
-}, ref) => {
-    return (
-        <CrossButton
-            aria-label="Close"
-            {...rest}
-            ref={ref}
-        >
-            {children}
-        </CrossButton>
-    );
-});

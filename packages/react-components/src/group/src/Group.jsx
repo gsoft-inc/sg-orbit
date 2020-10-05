@@ -3,7 +3,7 @@ import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-const ITEMS_DIRECTION = {
+const DIRECTION = {
     "horizontal": "row",
     "vertical": "column"
 };
@@ -64,17 +64,17 @@ const propTypes = {
 };
 
 export function InnerGroup({
-    children,
     orientation,
     wrap,
     role = "group",
+    children,
     forwardedRef,
     ...rest
 }) {
     return (
         <Flex
             {...rest}
-            direction={ITEMS_DIRECTION[orientation]}
+            direction={DIRECTION[orientation]}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             role={role}
             ref={forwardedRef}

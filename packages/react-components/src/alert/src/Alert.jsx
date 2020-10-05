@@ -1,8 +1,8 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { CloseButton } from "../../button";
 import { Content } from "../../view";
+import { CrossButton } from "../../button";
 import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
@@ -152,7 +152,11 @@ export function InnerAlert({
                 }}
             >
                 {content}
-                {!isNil(onDismiss) && <CloseButton slot="dismiss" onClick={onDismiss} />}
+                {!isNil(onDismiss) && <CrossButton
+                    slot="dismiss"
+                    onClick={onDismiss}
+                    aria-label="Close"
+                />}
             </SlotProvider>
         </Transition>
     );

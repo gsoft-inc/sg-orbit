@@ -1,13 +1,35 @@
 import { Children, forwardRef } from "react";
-import { Group } from "../../group";
+import { Flex } from "../../layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement } from "../../shared";
+import { augmentElement, getSize } from "../../shared";
+
+const DIRECTION = {
+    "horizontal": "row",
+    "vertical": "column"
+};
+
+const GAP = {
+    "horizontal": {
+        "sm": 3,
+        "md": 4,
+        "lg": 5
+    },
+    "vertical": {
+        "sm": 2,
+        "md": 3,
+        "lg": 4
+    }
+};
 
 const propTypes = {
     /**
      * Orientation of the children.
      */
     orientation: oneOf(["horizontal", "vertical"]),
+    /**
+     * The alignment of the buttons within the group.
+     */
+    align: oneOf(["start", "end", "center"]),
     /**
      * Buttons size.
      */
@@ -26,20 +48,36 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButtonGroup({
-    size,
-    fluid,
-    disabled,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+function useFlexAlignment({ orientation, align }) {
+    return {
+        [orientation === "horizontal" ? "justifyContent" : "alignItems"]: align
+    };
+}
+
+export function InnerButtonGroup(props) {
+    const {
+        orientation = "horizontal",
+        align,
+        size,
+        fluid,
+        disabled,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
+
+    const alignProps = useFlexAlignment({
+        orientation,
+        align
+    });
+
     return (
-        <Group
+        <Flex
             {...rest}
+            {...alignProps}
+            direction={DIRECTION[orientation]}
             fluid={fluid}
-            gap={2}
-            alignItems="center"
+            gap={GAP[orientation][getSize(size)]}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
@@ -49,7 +87,7 @@ export function InnerButtonGroup({
                     disabled
                 });
             })}
-        </Group>
+        </Flex>
     );
 }
 

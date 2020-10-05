@@ -155,7 +155,6 @@ export function InnerRadioGroup(props) {
         required,
         validationState,
         orientation,
-        // orientation: orientation ?? "vertical",
         gap,
         wrap,
         size,

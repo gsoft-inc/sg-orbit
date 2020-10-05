@@ -26,6 +26,7 @@
     justify-content: center;
     grid-template-columns: max-content auto;
     grid-template-areas: "icon text";
+    width: max-content;
 }
 
 /* ANCHOR */

@@ -5,6 +5,14 @@ import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-t
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
+// TODO:
+// - GAP SIZE
+
+const DIRECTION = {
+    "horizontal": "row",
+    "vertical": "column"
+};
+
 const ARROW_NAV_KEY_BINDING = {
     previous: [KEYS.left],
     next: [KEYS.right],
@@ -22,17 +30,17 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * How the elements are aligned in the container along the main axis.
+     * Orientation of the elements.
+     */
+    orientation: oneOf(["horizontal", "vertical"]),
+    /**
+     * The alignment of the buttons within the toolbar.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * How the elements are aligned in the container along the cross axis.
+     * TO REMOVE - The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
     justify: oneOf(["start", "end", "center"]),
-    /**
-     * Flex direction to display the elements.
-     */
-    orientation: oneOf(["horizontal", "vertical"]),
     /**
      * The space between elements.
      */
@@ -42,7 +50,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Element size.
+     * Elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -93,7 +101,7 @@ export function InnerToolbar({
             role="toolbar"
             alignItems={align}
             justifyContent={justify}
-            direction={orientation === "vertical" ? "column" : "row"}
+            direction={DIRECTION[orientation]}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             aria-orientation={orientation}
