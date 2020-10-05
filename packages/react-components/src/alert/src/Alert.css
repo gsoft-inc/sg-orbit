@@ -55,6 +55,10 @@
     align-self: start;
 }
 
+.o-ui-alert-action + .o-ui-alert-dismiss {
+    margin-left: var(--scale-bravo);
+}
+
 /* DISMISS */
 .o-ui-alert-dismiss {
     grid-area: dismiss;
@@ -92,10 +96,10 @@
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--alert-50);
-    color: var(--alert-900);
+    background-color: var(--alert-500);
+    color: var(--white);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--alert-500);
+    fill: var(--white);
 }

@@ -1,5 +1,5 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
-import { Button, CloseButton } from "@react-components/button";
+import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
 import { Heading, Paragraph } from "@react-components/text";
 import { InfoIcon } from "@react-components/icons";
