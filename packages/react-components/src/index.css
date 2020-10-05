@@ -21,11 +21,11 @@
 
 /* ANIMATIONS */
 .o-ui-fade-in {
-    animation: o-ui-fade-in-animation 2s;
+    animation: o-ui-fade-in-animation .3s;
 }
 
 .o-ui-fade-out {
-    animation: o-ui-fade-out-animation 2s;
+    animation: o-ui-fade-out-animation .3s;
 }
 
 @keyframes o-ui-fade-in-animation {

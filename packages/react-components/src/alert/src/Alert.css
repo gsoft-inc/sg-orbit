@@ -10,9 +10,13 @@
 
 /* STATES */
 /* FOCUS */
-.o-ui-alert:focus,
-.o-ui-alert-focus {
+.o-ui-alert:focus {
     outline: none;
+}
+
+.o-ui-alert:focus-visible,
+.o-ui-alert:-moz-focusring {
+    outline: 3px solid var(--primary-500);
 }
 
 /* ICON */
@@ -46,6 +50,7 @@
 .o-ui-alert-content {
     grid-area: content;
     padding: .2rem 0;
+    align-self: center;
 }
 
 /* ACTION */

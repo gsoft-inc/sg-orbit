@@ -85,8 +85,8 @@
 .o-ui-text-link.o-ui-link-focus {
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
-    background-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-50);
+    background-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
 }
 
 /* TEXT | STATE | HOVER */
