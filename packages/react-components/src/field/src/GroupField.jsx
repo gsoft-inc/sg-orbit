@@ -72,8 +72,6 @@ export function InnerGroupField(props) {
         forwardedRef
     });
 
-    const content = useRenderProps(fieldContext, props, children);
-
     return (
         <ElementType
             data-testid="field"
@@ -82,7 +80,7 @@ export function InnerGroupField(props) {
         >
             <ClearToolbarContext>
                 <FieldContext.Provider value={{ ...fieldContext, isGroup: true }}>
-                    {content}
+                    {children}
                 </FieldContext.Provider>
             </ClearToolbarContext>
         </ElementType>

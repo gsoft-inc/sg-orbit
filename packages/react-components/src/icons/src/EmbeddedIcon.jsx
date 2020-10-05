@@ -2,12 +2,13 @@ import { Children, cloneElement } from "react";
 import { any, string } from "prop-types";
 import { createSizeAdapterSlotFactory, getSize } from "../../shared";
 
-const EMBED_SIZE = {
+const SIZE = {
     "2xs": "2xs",
     "xs": "2xs",
     "sm": "xs",
     "md": "sm",
     "lg": "md",
+    "xl": "lg",
     "inherit": "inherit"
 };
 
@@ -20,11 +21,11 @@ export function EmbeddedIcon({ size, children, ...rest }) {
     const icon = Children.only(children);
 
     return cloneElement(icon, {
-        size: EMBED_SIZE[getSize(size)],
+        size: SIZE[getSize(size)],
         ...rest
     });
 }
 
 EmbeddedIcon.propTypes = propTypes;
 
-export const embeddedIconSlot = createSizeAdapterSlotFactory(EMBED_SIZE);
+export const embeddedIconSlot = createSizeAdapterSlotFactory(SIZE);

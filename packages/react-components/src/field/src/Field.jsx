@@ -72,8 +72,6 @@ export function InnerField(props) {
         forwardedRef
     });
 
-    const content = useRenderProps(fieldContext, props, children);
-
     return (
         <ElementType
             data-testid="field"
@@ -82,7 +80,7 @@ export function InnerField(props) {
         >
             <ClearToolbarContext>
                 <FieldContext.Provider value={fieldContext}>
-                    {content}
+                    {children}
                 </FieldContext.Provider>
             </ClearToolbarContext>
         </ElementType>

@@ -171,28 +171,6 @@ The example below illustrates how one would validate if the user has entered a v
     <EmailValidation />
 </FilePreview>
 
-### Render Props
-
-A field context is also available through a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Field>
-            {
-                ({ labelId, inputId, size, labelClassName }) => (
-                    <Fragment>
-                        <label id={labelId} htmlFor={inputId} className={`${labelClassName} ${labelClassName}-${getSizeClass(size)}`}>
-                            Space ID
-                        </label>
-                        <TextInput />
-                        <HelpMessage>Your space id is a 9-digit number available the top right corner of your membership card.</HelpMessage>
-                    </Fragment>
-                )
-            }
-        </Field>
-    </Story>
-</Preview>
-
 ### Custom Input
 
 Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInput` hook.

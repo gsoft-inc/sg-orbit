@@ -90,7 +90,7 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         onChange,
-        orientation,
+        orientation = "horizontal",
         gap,
         wrap,
         size,
@@ -112,7 +112,8 @@ export function InnerCheckboxGroup(props) {
         cssModule: "o-ui-checkbox-group",
         required,
         validationState,
-        orientation: orientation ?? "horizontal",
+        orientation,
+        // orientation: orientation ?? "horizontal",
         gap,
         wrap,
         size,
@@ -133,12 +134,7 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const checkableContext = {
-        onCheck: handleCheck,
-        checkedValue
-    };
-
-    const items = useRenderProps(checkableContext, props, children);
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
         <Group
@@ -148,7 +144,12 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbarContext>
                 <ClearFieldContext>
-                    <CheckableContext.Provider value={checkableContext}>
+                    <CheckableContext.Provider
+                        value={{
+                            onCheck: handleCheck,
+                            checkedValue
+                        }}
+                    >
                         {Children.map(items, x => {
                             return augmentElement(x, {
                                 ...itemProps,

@@ -1,8 +1,8 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
-import { Button, IconButton } from "@react-components/button";
+import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
-import { CrossIcon, InfoIcon } from "@react-components/icons";
 import { Heading, Paragraph } from "@react-components/text";
+import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { TextLink } from "@react-components/link";
@@ -19,141 +19,190 @@ function stories(segment) {
         .build();
 }
 
-function CloseButton(props) {
-    return (
-        <IconButton
-            {...props}
-            variant="ghost"
-            color="secondary"
-            shape="circular"
-            aria-label="Close"
-        >
-            <CrossIcon />
-        </IconButton>
-    );
-}
-
 stories()
     .add("text only", () =>
-        <Inline gap={13}>
-            <Stack>
+        <Stack>
+            <Inline align="end">
                 <Alert size="sm">Scheduled launch today at 1PM.</Alert>
+                <Alert size="sm">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+            <Inline align="end">
                 <Alert>Scheduled launch today at 1PM.</Alert>
+                <Alert>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+            <Inline align="end">
                 <Alert size="lg">Scheduled launch today at 1PM.</Alert>
-            </Stack>
-        </Inline>
+                <Alert size="lg">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+        </Stack>
+    )
+    .add("text + dismiss", () =>
+        <Stack>
+            <Inline align="end">
+                <Alert size="sm" onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
+                <Alert size="sm" onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
+                <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert size="lg" onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
+                <Alert size="lg" onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            </Inline>
+        </Stack>
     )
     .add("icon + text", () =>
-        <Inline gap={13}>
-            <Stack>
+        <Stack>
+            <Inline align="end">
                 <Alert size="sm">
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.</Content>
+                </Alert>
+                <Alert size="sm">
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
                 </Alert>
                 <Alert>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
+            </Inline>
+            <Inline align="end">
                 <Alert size="lg">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
-                </Alert>
-            </Stack>
-            <Stack>
-                <Alert size="sm">
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
-                </Alert>
-                <Alert>
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
                 <Alert size="lg">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
-            </Stack>
-        </Inline>
+            </Inline>
+        </Stack>
     )
-    .add("icon + text + close button", () =>
-        <Inline>
-            <Stack>
-                <Alert size="sm">
+    .add("icon + text + dismiss", () =>
+        <Stack>
+            <Inline align="end">
+                <Alert size="sm" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
-                    <CloseButton />
                 </Alert>
-                <Alert>
+                <Alert size="sm" onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
-                    <CloseButton />
                 </Alert>
-                <Alert size="lg">
+                <Alert onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert size="lg" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
-                    <CloseButton />
                 </Alert>
-            </Stack>
-            <Stack>
-                <Alert size="sm">
+                <Alert size="lg" onDismiss={() => {}}>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
-                    <CloseButton />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
-                <Alert>
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
-                    <CloseButton />
-                </Alert>
-                <Alert size="lg">
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
-                    <CloseButton />
-                </Alert>
-            </Stack>
-        </Inline>
+            </Inline>
+        </Stack>
     )
-    .add("icon + text + custom button", () =>
-        <Inline>
-            <Stack>
+    .add("icon + text + action", () =>
+        <Stack>
+            <Inline align="end">
                 <Alert size="sm">
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Button>Undo</Button>
+                </Alert>
+                <Alert size="sm">
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Button>Undo</Button>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
                     <Button>Undo</Button>
                 </Alert>
                 <Alert>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                     <Button>Undo</Button>
                 </Alert>
+            </Inline>
+            <Inline align="end">
                 <Alert size="lg">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
                     <Button>Undo</Button>
                 </Alert>
-            </Stack>
-            <Stack>
-                <Alert size="sm">
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
-                    <Button>Undo</Button>
-                </Alert>
-                <Alert>
-                    <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
-                    <Button>Undo</Button>
-                </Alert>
                 <Alert size="lg">
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br />Please be cautious.</Content>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                     <Button>Undo</Button>
                 </Alert>
-            </Stack>
-        </Inline>
+            </Inline>
+        </Stack>
+    )
+    .add("icon + text + action + dismiss", () =>
+        <Stack>
+            <Inline align="end">
+                <Alert size="sm" onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Button>Undo</Button>
+                </Alert>
+                <Alert size="sm" onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Button>Undo</Button>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Button>Undo</Button>
+                </Alert>
+                <Alert onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Button>Undo</Button>
+                </Alert>
+            </Inline>
+            <Inline align="end">
+                <Alert size="lg" onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.</Content>
+                    <Button>Undo</Button>
+                </Alert>
+                <Alert size="lg" onDismiss={() => {}}>
+                    <InfoIcon />
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Button>Undo</Button>
+                </Alert>
+            </Inline>
+        </Stack>
     )
     .add("rich content", () =>
         <Stack>
-            <Alert size="sm">
+            <Alert size="sm" onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
@@ -164,9 +213,9 @@ stories()
                     </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
-                <CloseButton />
+                <Button>Undo</Button>
             </Alert>
-            <Alert>
+            <Alert onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
@@ -177,9 +226,9 @@ stories()
                     </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
-                <CloseButton />
+                <Button>Undo</Button>
             </Alert>
-            <Alert size="lg">
+            <Alert size="lg" onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
                     <Heading as="span">Scheduled launch</Heading>
@@ -190,27 +239,32 @@ stories()
                     </UnorderedList>
                     <Button>Apply</Button>
                 </Content>
-                <CloseButton />
+                <Button>Undo</Button>
             </Alert>
         </Stack>
     )
     .add("boxed", () =>
         <div style={{ width: "500px" }}>
-            <Alert size="sm">
+            <Alert onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
-                <CloseButton />
             </Alert>
         </div>
     )
     .add("info", () =>
         <Stack>
+            <InfoAlert size="sm" onDismiss={() => {}}>
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
+            </InfoAlert>
             <InfoAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
+            </InfoAlert>
+            <InfoAlert size="lg" onDismiss={() => {}}>
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
             </InfoAlert>
             <InfoAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. Please be cautious.</Paragraph>
+                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
                 <Button>Apply</Button>
             </InfoAlert>
         </Stack>
@@ -218,36 +272,36 @@ stories()
     .add("success", () =>
         <Stack>
             <SuccessAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
             </SuccessAlert>
             <SuccessAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. Please be cautious.</Paragraph>
-                <Button variant="outline">Apply</Button>
+                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
+                <Button>Apply</Button>
             </SuccessAlert>
         </Stack>
     )
     .add("warning", () =>
         <Stack>
             <WarningAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
             </WarningAlert>
             <WarningAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. Please be cautious.</Paragraph>
-                <Button variant="outline">Apply</Button>
+                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
+                <Button>Apply</Button>
             </WarningAlert>
         </Stack>
     )
     .add("critical", () =>
         <Stack>
             <CriticalAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink>
             </CriticalAlert>
             <CriticalAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. Please be cautious.</Paragraph>
-                <Button variant="outline">Apply</Button>
+                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
+                <Button>Apply</Button>
             </CriticalAlert>
         </Stack>
     )
@@ -260,24 +314,19 @@ stories()
             <Alert style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
         </Stack>
     )
-    .add(
-        "controlled dimiss",
-        () => {
-            const [show, setShow] = useState(true);
+    .add("controlled dimiss",
+         () => {
+             const [show, setShow] = useState(true);
 
-            const handleDismiss = useEventCallback(() => {
-                setShow(x => !x);
-            });
+             const handleDismiss = useEventCallback(() => {
+                 setShow(x => !x);
+             });
 
-            return (
-                <InfoAlert show={show} onDismiss={handleDismiss}>
-                    <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
-                </InfoAlert>
-            );
-        },
-        {
-            ...paramsBuilder()
-                .chromaticIgnore()
-                .build()
-        }
+             return (
+                 <InfoAlert show={show} onDismiss={handleDismiss}>
+                     <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                 </InfoAlert>
+             );
+         },
+         paramsBuilder().chromaticIgnore().build()
     );

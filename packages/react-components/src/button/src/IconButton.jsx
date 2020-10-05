@@ -1,6 +1,5 @@
 import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";

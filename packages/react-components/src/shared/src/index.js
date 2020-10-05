@@ -33,6 +33,7 @@ export * from "./useRovingFocus";
 export * from "./useHasChild";
 export * from "./useTextContent";
 export * from "./useRenderProps";
+export * from "./useIsInitialRender";
 
 // Contexts
 export * from "./CheckableContext";

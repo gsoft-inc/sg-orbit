@@ -36,14 +36,6 @@ export function InnerForm(props) {
         ...rest
     } = props;
 
-    const formContext = {
-        fluid,
-        size,
-        disabled
-    };
-
-    const content = useRenderProps(formContext, props, children);
-
     return (
         <ElementType
             {...rest}
@@ -56,8 +48,14 @@ export function InnerForm(props) {
             )}
             ref={forwardedRef}
         >
-            <FormContext.Provider value={formContext}>
-                {content}
+            <FormContext.Provider
+                value={{
+                    fluid,
+                    size,
+                    disabled
+                }}
+            >
+                {children}
             </FormContext.Provider>
         </ElementType>
     );

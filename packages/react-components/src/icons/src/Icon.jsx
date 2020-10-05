@@ -5,7 +5,7 @@ import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-const SIZES = ["2xs", "xs", "sm", "md", "lg", "inherit"];
+const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "inherit"];
 
 export function InnerIcon(props) {
     const {
@@ -72,7 +72,7 @@ function createIconFactory(type) {
 export function InnerMultiVariantIcon({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }) {
     let type = Component24;
 
-    if (size === "lg") {
+    if (size === "lg" || size === "xl") {
         type = Component32;
     }
 

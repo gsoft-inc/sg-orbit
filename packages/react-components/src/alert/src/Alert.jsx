@@ -1,23 +1,38 @@
 import "./Alert.css";
 
-import { CheckIcon, CrossIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CloseButton } from "../../button";
 import { Content } from "../../view";
-import { IconButton } from "../../button";
-import { SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
+import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
-// TODO:
-// - Align: start | center?
-
 const ROLE = {
     info: "status",
     success: "status",
     warning: "critical",
     critical: "critical"
+};
+
+const HEADING_SIZE = {
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
+};
+
+const ACTION_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
+};
+
+const DISMISS_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
 };
 
 const propTypes = {
@@ -29,6 +44,12 @@ const propTypes = {
      * Style to use.
      */
     tone: oneOf(["info", "success", "warning", "critical"]),
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onDismiss: func,
     /**
      * An alert can vary in size.
      */
@@ -43,21 +64,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-const headingSlotAdapter = createSizeAdapterSlotFactory({
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-});
-
-const actionSlotAdapter = createSizeAdapterSlotFactory({
-    "sm": "xs",
-    "md": "sm",
-    "lg": "sm"
-});
-
 export function InnerAlert({
     show = true,
     tone = "info",
+    onDismiss,
     size,
     as = "div",
     className,
@@ -70,6 +80,13 @@ export function InnerAlert({
 
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
     const contentId = useId(null, "o-ui-alert-content");
+
+    const action = {
+        variant: "ghost",
+        shape: "rounded",
+        size: ACTION_SIZE[getSize(size)],
+        className: "o-ui-alert-action"
+    };
 
     return (
         <Transition
@@ -103,31 +120,39 @@ export function InnerAlert({
                         className: "o-ui-alert-content",
                         as: Text,
                         UNSAFE_slots: {
-                            heading: headingSlotAdapter({
-                                size,
+                            heading: {
+                                size: HEADING_SIZE[getSize(size)],
                                 className: "o-ui-alert-title"
-                            }),
+                            },
                             text: {
                                 size: "inherit"
                             },
                             paragraph: {
                                 size: "inherit"
                             },
+                            link: {
+                                size: "inherit",
+                                underline: "dotted"
+                            },
                             list: {
                                 size: "inherit"
                             },
                             button: {
+                                variant: "outline",
                                 size
                             }
                         }
                     },
-                    button: actionSlotAdapter({
-                        size,
-                        className: "o-ui-alert-action"
-                    })
+                    action: action,
+                    button: action,
+                    dismiss: {
+                        size: DISMISS_SIZE[getSize(size)],
+                        className: "o-ui-alert-dismiss"
+                    }
                 }}
             >
                 {content}
+                {!isNil(onDismiss) && <CloseButton slot="dismiss" onClick={onDismiss} />}
             </SlotProvider>
         </Transition>
     );
@@ -140,20 +165,6 @@ export const Alert = forwardRef((props, ref) => (
 ));
 
 ////////
-
-function CloseButton(props) {
-    return (
-        <IconButton
-            {...props}
-            variant="ghost"
-            color="secondary"
-            shape="circular"
-            aria-label="Close"
-        >
-            <CrossIcon />
-        </IconButton>
-    );
-}
 
 const variations = [
     { tone: "info", icon: <NotificationIcon /> },
@@ -169,7 +180,6 @@ const [
     [InnerCriticalAlert, CriticalAlert]
 ] = Object.values(variations).map(({ tone, icon }) => {
     const InnerVariation = ({
-        onDismiss,
         children,
         forwardedRef,
         ...rest
@@ -180,24 +190,15 @@ const [
                 {...rest}
                 ref={forwardedRef}
             >
-                {!isNil(onDismiss) && icon}
+                {icon}
                 <Content>
                     {children}
                 </Content>
-                <CloseButton onClick={onDismiss} />
             </Alert>
         );
     };
 
-    InnerVariation.propTypes = {
-        ...propTypes,
-        /**
-         * Called when the dismiss button is clicked.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @returns {void}
-         */
-        onDismiss: func
-    };
+    InnerVariation.propTypes = propTypes;
 
     const Variation = forwardRef((props, ref) => (
         <InnerVariation {...props} forwardedRef={ref} />
