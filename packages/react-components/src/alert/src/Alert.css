@@ -1,7 +1,7 @@
 .o-ui-alert {
     display: grid;
-    grid-template-columns: max-content auto max-content;
-    grid-template-areas: "icon content action";
+    grid-template-columns: max-content auto max-content max-content;
+    grid-template-areas: "icon content action dismiss";
     align-items: start;
     padding: var(--scale-delta);
     width: 100%;
@@ -53,6 +53,11 @@
     grid-area: action;
     margin-left: var(--scale-bravo);
     align-self: start;
+}
+
+/* DISMISS */
+.o-ui-alert-dismiss {
+    grid-area: dismiss;
 }
 
 /* TONE | INFO */

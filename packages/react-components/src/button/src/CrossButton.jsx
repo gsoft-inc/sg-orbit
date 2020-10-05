@@ -74,7 +74,8 @@ export const CrossButton = forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 ));
 
-// Alias to facilitate communication.
+////////
+
 export const CloseButton = forwardRef(({
     children,
     ...rest

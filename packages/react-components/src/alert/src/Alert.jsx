@@ -29,6 +29,12 @@ const ACTION_SIZE = {
     "lg": "md"
 };
 
+const DISMISS_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
+};
+
 const propTypes = {
     /**
      * A controlled show value.
@@ -38,6 +44,12 @@ const propTypes = {
      * Style to use.
      */
     tone: oneOf(["info", "success", "warning", "critical"]),
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onDismiss: func,
     /**
      * An alert can vary in size.
      */
@@ -55,6 +67,7 @@ const propTypes = {
 export function InnerAlert({
     show = true,
     tone = "info",
+    onDismiss,
     size,
     as = "div",
     className,
@@ -67,6 +80,13 @@ export function InnerAlert({
 
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
     const contentId = useId(null, "o-ui-alert-content");
+
+    const action = {
+        variant: "ghost",
+        shape: "rounded",
+        size: ACTION_SIZE[getSize(size)],
+        className: "o-ui-alert-action"
+    };
 
     return (
         <Transition
@@ -118,17 +138,21 @@ export function InnerAlert({
                                 size: "inherit"
                             },
                             button: {
+                                variant: "outline",
                                 size
                             }
                         }
                     },
-                    button: {
-                        size: ACTION_SIZE[getSize(size)],
-                        className: "o-ui-alert-action"
+                    action: action,
+                    button: action,
+                    dismiss: {
+                        size: DISMISS_SIZE[getSize(size)],
+                        className: "o-ui-alert-dismiss"
                     }
                 }}
             >
                 {content}
+                {!isNil(onDismiss) && <CloseButton slot="dismiss" onClick={onDismiss} />}
             </SlotProvider>
         </Transition>
     );
@@ -156,7 +180,6 @@ const [
     [InnerCriticalAlert, CriticalAlert]
 ] = Object.values(variations).map(({ tone, icon }) => {
     const InnerVariation = ({
-        onDismiss,
         children,
         forwardedRef,
         ...rest
@@ -167,24 +190,15 @@ const [
                 {...rest}
                 ref={forwardedRef}
             >
-                {!isNil(onDismiss) && icon}
+                {icon}
                 <Content>
                     {children}
                 </Content>
-                <CloseButton onClick={onDismiss} />
             </Alert>
         );
     };
 
-    InnerVariation.propTypes = {
-        ...propTypes,
-        /**
-         * Called when the dismiss button is clicked.
-         * @param {SyntheticEvent} event - React's original SyntheticEvent.
-         * @returns {void}
-         */
-        onDismiss: func
-    };
+    InnerVariation.propTypes = propTypes;
 
     const Variation = forwardRef((props, ref) => (
         <InnerVariation {...props} forwardedRef={ref} />
