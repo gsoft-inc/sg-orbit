@@ -1,6 +1,7 @@
 import { cssModule, getSize, mergeClasses } from "../../shared";
+import { useFieldContext } from "../../field";
 
-const ITEMS_GAP_BY_SIZE = {
+const GAP = {
     "horizontal": {
         "sm": 4,
         "md": 5,
@@ -24,21 +25,26 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
-    isInField,
     className,
     ref
 }) {
+    const [{ hasLabel, hasMessage }] = useFieldContext();
+
     return {
         groupProps: {
             inline: reverse,
             orientation,
-            alignItems: orientation === "vertical" ? reverse ? "end" : "start" : undefined,
-            gap: gap ?? ITEMS_GAP_BY_SIZE[orientation][getSize(size)],
+            alignItems: orientation === "vertical"
+                ? reverse ? "end" : "start"
+                : undefined,
+            gap: gap ?? GAP[orientation][getSize(size)],
             wrap,
             className: mergeClasses(
                 cssModule(
                     module,
-                    isInField && "as-field"
+                    hasLabel && "has-label",
+                    hasMessage && "has-message"
+
                 ),
                 className
             ),

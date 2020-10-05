@@ -2,7 +2,7 @@ import "./Form.css";
 
 import { FormContext } from "./FormContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useRenderProps } from "../../shared";
+import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {

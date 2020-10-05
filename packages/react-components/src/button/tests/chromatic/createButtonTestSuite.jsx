@@ -8,7 +8,7 @@ function Button({ element, ...rest }) {
 }
 
 export function createButtonTestSuite(element, stories) {
-    stories
+    return stories
         .add("default", () =>
             <Stack>
                 <Inline align="end">

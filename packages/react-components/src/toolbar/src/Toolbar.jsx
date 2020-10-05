@@ -5,6 +5,11 @@ import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-t
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
+const DIRECTION = {
+    "horizontal": "row",
+    "vertical": "column"
+};
+
 const ARROW_NAV_KEY_BINDING = {
     previous: [KEYS.left],
     next: [KEYS.right],
@@ -22,17 +27,17 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * How the elements are aligned in the container along the main axis.
+     * The orientation of the elements.
+     */
+    orientation: oneOf(["horizontal", "vertical"]),
+    /**
+     * The alignment of the elements within the toolbar. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * How the elements are aligned in the container along the cross axis.
+     * The distribution of space around the elements along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
     justify: oneOf(["start", "end", "center"]),
-    /**
-     * Flex direction to display the elements.
-     */
-    orientation: oneOf(["horizontal", "vertical"]),
     /**
      * The space between elements.
      */
@@ -42,7 +47,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Element size.
+     * Elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -63,12 +68,21 @@ const propTypes = {
     children: any.isRequired
 };
 
+function useFlexAlignment(orientation, align, justify) {
+    return {
+        alignItems: orientation === "horizontal"
+            ? align ?? "center"
+            : align,
+        justifyContent: justify
+    };
+}
+
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
+    orientation = "horizontal",
     align,
     justify,
-    orientation = "horizontal",
     gap = 5,
     wrap,
     size,
@@ -83,22 +97,22 @@ export function InnerToolbar({
     useRovingFocus(ref);
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
+    const alignProps = useFlexAlignment(orientation, align, justify);
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 
     return (
         <Flex
             data-testid="toolbar"
             {...rest}
+            {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            alignItems={align}
-            justifyContent={justify}
-            direction={orientation === "vertical" ? "column" : "row"}
+            direction={DIRECTION[orientation]}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            aria-orientation={orientation}
             as={as}
             ref={ref}
+            aria-orientation={orientation}
         >
             <ToolbarContext.Provider
                 value={{

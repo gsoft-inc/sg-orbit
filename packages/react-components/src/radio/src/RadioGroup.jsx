@@ -73,7 +73,7 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Orientation of the children.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -85,7 +85,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Children size.
+     * The elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -108,7 +108,7 @@ const propTypes = {
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarContext();
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps] = useFieldInput();
 
     const {
         value,
@@ -155,13 +155,11 @@ export function InnerRadioGroup(props) {
         required,
         validationState,
         orientation,
-        // orientation: orientation ?? "vertical",
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        isInField,
         className,
         ref
     });

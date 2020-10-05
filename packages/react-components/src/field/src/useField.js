@@ -44,6 +44,8 @@ export function useField({
             size,
             fluid,
             validationState,
+            hasLabel,
+            hasMessage,
             labelClassName: "o-ui-field-label",
             inputClassName: "o-ui-field-input",
             messageClassName: "o-ui-field-message"

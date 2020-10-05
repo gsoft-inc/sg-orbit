@@ -34,7 +34,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Orientation of the children.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -46,7 +46,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Children size.
+     * The elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -81,7 +81,7 @@ function arrayToggleValue(array, value) {
 }
 
 export function InnerCheckboxGroup(props) {
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps] = useFieldInput();
     const [toolbarProps] = useToolbarContext();
 
     const {
@@ -113,13 +113,11 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         orientation,
-        // orientation: orientation ?? "horizontal",
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        isInField,
         className,
         ref: forwardedRef
     });

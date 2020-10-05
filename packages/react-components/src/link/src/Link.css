@@ -67,6 +67,8 @@
     justify-content: center;
     grid-template-columns: auto max-content;
     grid-template-areas: "text icon";
+    width: max-content;
+    height: max-content;
 }
 
 .o-ui-link-text {
