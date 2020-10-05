@@ -34,7 +34,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Orientation of the children.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -46,7 +46,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Children size.
+     * The elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**

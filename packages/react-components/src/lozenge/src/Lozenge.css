@@ -11,6 +11,7 @@
     min-height: var(--scale-echo);
     line-height: var(--scale-echo);
     width: max-content;
+    height: max-content;
 }
 
 /* SIZE */

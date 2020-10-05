@@ -5,9 +5,6 @@ import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-t
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-// TODO:
-// - GAP SIZE
-
 const DIRECTION = {
     "horizontal": "row",
     "vertical": "column"
@@ -30,15 +27,15 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Orientation of the elements.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The alignment of the buttons within the toolbar.
+     * The alignment of the elements within the toolbar. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * TO REMOVE - The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     * The distribution of space around the elements along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
     justify: oneOf(["start", "end", "center"]),
     /**
@@ -71,12 +68,21 @@ const propTypes = {
     children: any.isRequired
 };
 
+function useFlexAlignment(orientation, align, justify) {
+    return {
+        alignItems: orientation === "horizontal"
+            ? align ?? "center"
+            : align,
+        justifyContent: justify
+    };
+}
+
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
+    orientation = "horizontal",
     align,
     justify,
-    orientation = "horizontal",
     gap = 5,
     wrap,
     size,
@@ -91,22 +97,22 @@ export function InnerToolbar({
     useRovingFocus(ref);
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
+    const alignProps = useFlexAlignment(orientation, align, justify);
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 
     return (
         <Flex
             data-testid="toolbar"
             {...rest}
+            {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            alignItems={align}
-            justifyContent={justify}
             direction={DIRECTION[orientation]}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            aria-orientation={orientation}
             as={as}
             ref={ref}
+            aria-orientation={orientation}
         >
             <ToolbarContext.Provider
                 value={{

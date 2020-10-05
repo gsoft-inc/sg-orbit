@@ -21,6 +21,25 @@ function stories(segment) {
 }
 
 stories()
+    .add("default", () =>
+        <Stack>
+            <ButtonGroup size="sm">
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+            </ButtonGroup>
+            <ButtonGroup size="lg">
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+                <Button>Cutoff</Button>
+            </ButtonGroup>
+        </Stack>
+    )
     .add("icon button", () =>
         <Inline gap={13}>
             <Stack>
@@ -72,41 +91,6 @@ stories()
             <Button>Cutoff</Button>
             <Button>Cutoff</Button>
         </ButtonGroup>
-    );
-// .add("vertical", () =>
-//     <ButtonGroup orientation="vertical">
-//         <Button>Cutoff</Button>
-//         <Button>Cutoff</Button>
-//         <Button>Cutoff</Button>
-//     </ButtonGroup>
-// );
-
-stories("/horizontal")
-    .add("default", () =>
-        <ButtonGroup>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
-        </ButtonGroup>
-    )
-    .add("size", () =>
-        <Stack>
-            <ButtonGroup size="sm">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-            </ButtonGroup>
-            <ButtonGroup>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-            </ButtonGroup>
-            <ButtonGroup size="lg">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-            </ButtonGroup>
-        </Stack>
     )
     .add("alignment", () =>
         <Stack>

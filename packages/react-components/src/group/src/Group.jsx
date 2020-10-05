@@ -10,7 +10,7 @@ const DIRECTION = {
 
 const propTypes = {
     /**
-     * Orientation of the children.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**

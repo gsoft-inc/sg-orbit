@@ -94,25 +94,6 @@ stories()
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
     )
-    .add("vertical", () =>
-        <Inline align="end" gap={13}>
-            <CheckboxGroup size="sm" orientation="vertical">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup orientation="vertical">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup size="lg" orientation="vertical">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-        </Inline>
-    )
     .add("gap", () =>
         <CheckboxGroup gap={13}>
             <Checkbox value="1">1</Checkbox>
@@ -204,4 +185,38 @@ stories()
         </Stack>
     );
 
+stories("/vertical")
+    .add("default", () =>
+        <CheckboxGroup orientation="vertical">
+            <Checkbox value="1">1</Checkbox>
+            <Checkbox value="2">2</Checkbox>
+            <Checkbox value="3">3</Checkbox>
+        </CheckboxGroup>
+    )
+    .add("size", () =>
+        <Inline align="end" gap={13}>
+            <CheckboxGroup size="sm" orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup size="lg" orientation="vertical">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
+        </Inline>
+    )
+    .add("reverse", () =>
+        <CheckboxGroup reverse orientation="vertical">
+            <Checkbox value="1">1</Checkbox>
+            <Checkbox value="2">A very long option to read while you wait for the countdown to mars.</Checkbox>
+            <Checkbox value="3">3</Checkbox>
+        </CheckboxGroup>
+    );
 

@@ -23,7 +23,7 @@ const GAP = {
 
 const propTypes = {
     /**
-     * Orientation of the children.
+     * The orientation of the children.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -31,7 +31,7 @@ const propTypes = {
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * Buttons size.
+     * The buttons size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -48,7 +48,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-function useFlexAlignment({ orientation, align }) {
+function useFlexAlignment(orientation, align) {
     return {
         [orientation === "horizontal" ? "justifyContent" : "alignItems"]: align
     };
@@ -66,10 +66,7 @@ export function InnerButtonGroup(props) {
         ...rest
     } = props;
 
-    const alignProps = useFlexAlignment({
-        orientation,
-        align
-    });
+    const alignProps = useFlexAlignment(orientation, align);
 
     return (
         <Flex
@@ -93,6 +90,4 @@ export function InnerButtonGroup(props) {
 
 InnerButtonGroup.propTypes = propTypes;
 
-export const ButtonGroup = forwardRef((props, ref) => (
-    <InnerButtonGroup {...props} forwardedRef={ref} />
-));
+
