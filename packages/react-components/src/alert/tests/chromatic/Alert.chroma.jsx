@@ -247,7 +247,7 @@ stories()
             <CriticalAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM. Please be cautious.</Paragraph>
-                <Button>Apply</Button>
+                <Button variant="outline">Apply</Button>
             </CriticalAlert>
         </Stack>
     )

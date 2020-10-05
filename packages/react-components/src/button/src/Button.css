@@ -404,7 +404,7 @@ a.o-ui-button {
 /* GHOST | HOVER */
 .o-ui-button-ghost:hover,
 .o-ui-button-ghost.o-ui-button-hover {
-    background-color: var(--cloud-50);
+    background-color: rgba(0, 0, 0, 0.04);
     color: var(--marine-700);
 }
 
