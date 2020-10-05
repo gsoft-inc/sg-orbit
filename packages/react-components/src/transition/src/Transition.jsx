@@ -1,16 +1,6 @@
 import { any, bool, elementType, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect, useRef, useState } from "react";
-import { mergeClasses, useEventCallback } from "../../shared";
-
-function useIsInitialRender() {
-    const initial = useRef(true);
-
-    useEffect(() => {
-        initial.current = false;
-    }, []);
-
-    return initial.current;
-}
+import { forwardRef, useEffect, useState } from "react";
+import { mergeClasses, useEventCallback, useIsInitialRender } from "../../shared";
 
 const propTypes = {
     /**
@@ -20,7 +10,7 @@ const propTypes = {
     /**
      * 	Whether the transition should run on initial mount.
      */
-    appear: bool,
+    animateFirstRender: bool,
     /**
      * CSS classes to add to the transitioning element during the enter phase.
      */
@@ -41,7 +31,7 @@ const propTypes = {
 
 export const Transition = forwardRef(({
     show,
-    appear = false,
+    animateFirstRender = false,
     enter,
     leave,
     as: ElementType = "div",
@@ -59,9 +49,6 @@ export const Transition = forwardRef(({
         }
     }, [show]);
 
-    const handleAnimationStart = useEventCallback(() => {
-    });
-
     const handleAnimationEnd = useEventCallback(() => {
         setIsVisible(show);
     });
@@ -73,11 +60,10 @@ export const Transition = forwardRef(({
     return (
         <ElementType
             {...rest}
-            onAnimationStart={handleAnimationStart}
             onAnimationEnd={handleAnimationEnd}
             className={mergeClasses(
                 show
-                    ? isInitialRender ? appear && enter : enter
+                    ? isInitialRender ? animateFirstRender && enter : enter
                     : leave,
                 className
             )}
