@@ -52,6 +52,8 @@
     align-self: start;
     position: absolute;
     right: 0;
+    /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
+    height: auto !important;
 }
 
 .o-ui-alert-action,

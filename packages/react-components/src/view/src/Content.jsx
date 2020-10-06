@@ -30,8 +30,6 @@ export function InnerContent(props) {
         useSlot(props, "content")
     );
 
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             {...rest}
@@ -39,7 +37,7 @@ export function InnerContent(props) {
         >
             <ClearSlots>
                 <SlotProvider slots={UNSAFE_slots}>
-                    {content}
+                    {children}
                 </SlotProvider>
             </ClearSlots>
         </ElementType>

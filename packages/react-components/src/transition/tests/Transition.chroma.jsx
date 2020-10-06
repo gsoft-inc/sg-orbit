@@ -1,4 +1,4 @@
-import { Link } from "@react-components/link";
+import { TextLink } from "@react-components/link";
 import { Transition } from "@react-components/transition";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useEventCallback } from "@react-components/shared";
@@ -22,9 +22,9 @@ function FadingCollapse() {
 
     return (
         <>
-            <Link as="button" onClick={handleClick}>
+            <TextLink as="button" onClick={handleClick}>
                 {isOpen ? "Hide" : "Show"} content
-            </Link>
+            </TextLink>
             <Transition
                 show={isOpen}
                 enter="o-ui-fade-in"
