@@ -41,8 +41,7 @@
 /* CONTENT */
 .o-ui-alert-content {
     grid-area: content;
-    padding: 0;
-    align-self: center;
+    padding: 0 var(--scale-bravo) 0 0;
 }
 
 /* ACTION */
@@ -50,7 +49,7 @@
     grid-area: action;
     margin-left: var(--scale-bravo);
     align-self: start;
-    position: absolute;
+    position: relative;
     right: 0;
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;

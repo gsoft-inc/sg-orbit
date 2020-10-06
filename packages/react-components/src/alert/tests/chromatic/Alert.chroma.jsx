@@ -182,7 +182,7 @@ stories()
                 </Alert>
                 <Alert onDismiss={() => {}}>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
