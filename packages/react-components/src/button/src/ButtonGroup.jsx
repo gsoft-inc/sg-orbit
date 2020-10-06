@@ -1,12 +1,7 @@
 import { Children, forwardRef } from "react";
-import { Flex } from "../../layout";
+import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, getSize } from "../../shared";
-
-const DIRECTION = {
-    "horizontal": "row",
-    "vertical": "column"
-};
 
 const GAP = {
     "horizontal": {
@@ -23,7 +18,7 @@ const GAP = {
 
 const propTypes = {
     /**
-     * The orientation of the children.
+     * The orientation of the group buttons.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -35,7 +30,7 @@ const propTypes = {
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Whether or not the field take up the width of its container.
+     * Whether or not the group take up the width of its container.
      */
     fluid: bool,
     /**
@@ -50,7 +45,7 @@ const propTypes = {
 
 function useFlexAlignment(orientation, align) {
     return {
-        [orientation === "horizontal" ? "justifyContent" : "alignItems"]: align
+        [orientation === "horizontal" ? "justify" : "align"]: align
     };
 }
 
@@ -69,10 +64,10 @@ export function InnerButtonGroup(props) {
     const alignProps = useFlexAlignment(orientation, align);
 
     return (
-        <Flex
+        <Group
             {...rest}
             {...alignProps}
-            direction={DIRECTION[orientation]}
+            orientation={orientation}
             fluid={fluid}
             gap={GAP[orientation][getSize(size)]}
             ref={forwardedRef}
@@ -84,7 +79,7 @@ export function InnerButtonGroup(props) {
                     disabled
                 });
             })}
-        </Flex>
+        </Group>
     );
 }
 

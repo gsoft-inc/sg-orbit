@@ -7,7 +7,7 @@ import { forwardRef } from "react";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["pill", "divider"]),
     /**

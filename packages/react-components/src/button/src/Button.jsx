@@ -11,13 +11,13 @@ import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The button shape.
      */
@@ -27,7 +27,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**

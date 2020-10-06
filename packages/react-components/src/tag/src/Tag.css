@@ -6,7 +6,7 @@
     display: inline-grid;
     align-items: center;
     grid-template-columns: max-content max-content auto max-content max-content;
-    grid-template-areas: "dot icon text counter button";
+    grid-template-areas: "dot icon text counter remove";
     line-height: 1;
     color: var(--marine-900);
     border-radius: 999px;
@@ -250,23 +250,23 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
     padding-right: calc(var(--o-ui-padding-lg) / 1.5);
 }
 
-/* CONTENT | BUTTON */
-.o-ui-tag-button {
-    grid-area: button;
+/* CONTENT | REMOVE BUTTON */
+.o-ui-tag-remove-button {
+    grid-area: remove;
     margin-left: var(--scale-alpha);
 }
 
-/* CONTENT | BUTTON | SMALL */
-.o-ui-tag-has-button.o-ui-tag-sm {
+/* CONTENT | REMOVE BUTTON | SMALL */
+.o-ui-tag-has-remove-button.o-ui-tag-sm {
     padding-right: calc(var(--o-ui-padding-sm) / 1.5);
 }
 
-/* CONTENT | BUTTON | MEDIUM */
-.o-ui-tag-has-button.o-ui-tag-md {
+/* CONTENT | REMOVE BUTTON | MEDIUM */
+.o-ui-tag-has-remove-button.o-ui-tag-md {
     padding-right: calc(var(--o-ui-padding-md) / 1.5);
 }
 
-/* CONTENT | BUTTON | LARGE */
-.o-ui-tag-has-button.o-ui-tag-lg {
+/* CONTENT | REMOVE BUTTON | LARGE */
+.o-ui-tag-has-remove-button.o-ui-tag-lg {
     padding-right: calc(var(--o-ui-padding-lg) / 1.5);
 }

@@ -1,5 +1,4 @@
-import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
-import { Text } from "../../text";
+import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 

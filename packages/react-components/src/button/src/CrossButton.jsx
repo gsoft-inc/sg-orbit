@@ -8,10 +8,9 @@ import { getSize, mergeProps, useSlot } from "../../shared";
 // - Maybe we can now remove the hack that we did for secondary ghost (it was for Tag)
 
 const SIZE = {
-    "xs": "2xs",
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
 };
 
 const propTypes = {
@@ -20,13 +19,13 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
      * A close button can vary in size.
      */
-    size: oneOf(["xs", "sm", "md", "lg"]),
+    size: oneOf(["sm", "md", "lg"]),
     /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.

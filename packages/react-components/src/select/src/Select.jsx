@@ -54,7 +54,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**

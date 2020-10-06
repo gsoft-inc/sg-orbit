@@ -37,7 +37,7 @@ A tag represent an interactive keyword that help label, organize and categorize 
 
 ## Slots
 
-Support `"text"`, `"icon"`, `"dot"`, `"counter"` and `"button"` [slots](?path=/docs/getting-started-slots--page).
+Support `"text"`, `"icon"`, `"dot"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -48,21 +48,6 @@ A default tag.
 <Preview>
     <Story name="default">
         <Tag>Falcon 9</Tag>
-    </Story>
-</Preview>
-
-### Button
-
-A tag can contain a [button](?path=/docs/components-button--default-story).
-
-<Preview>
-    <Story name="button">
-        <Tag>
-            <Text>Falcon 9</Text>
-            <IconButton aria-label="Clear value">
-                <CrossIcon />
-            </IconButton>
-        </Tag>
     </Story>
 </Preview>
 
@@ -110,6 +95,16 @@ A tag can contain a [counter](?path=/docs/components-counter--default-story).
             <Text>Falcon 9</Text>
             <Counter>6</Counter>
         </Tag>
+    </Story>
+</Preview>
+
+### Removable
+
+A tag can be removable by specifying an `onRemove` handle.
+
+<Preview>
+    <Story name="button">
+        <Tag onRemove={() => {}}>Falcon 9</Tag>
     </Story>
 </Preview>
 

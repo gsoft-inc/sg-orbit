@@ -15,7 +15,7 @@ const GAP = {
 };
 
 export function useGroupInput({
-    role,
+    role = "group",
     cssModule: module,
     required,
     validationState,
@@ -34,7 +34,7 @@ export function useGroupInput({
         groupProps: {
             inline: reverse,
             orientation,
-            alignItems: orientation === "vertical"
+            align: orientation === "vertical"
                 ? reverse ? "end" : "start"
                 : undefined,
             gap: gap ?? GAP[orientation][getSize(size)],

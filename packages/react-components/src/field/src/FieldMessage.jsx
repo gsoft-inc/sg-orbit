@@ -25,7 +25,7 @@ export function getValidationProps(validationState) {
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
     tone: oneOf(["neutral", "success", "error"]).isRequired,
     /**

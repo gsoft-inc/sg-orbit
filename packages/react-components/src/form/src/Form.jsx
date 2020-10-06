@@ -11,7 +11,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * A form can vary in size.
+     * The size of the form elements
      */
     size: oneOf(["sm", "md", "lg"]),
     /**

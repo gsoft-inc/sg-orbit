@@ -2,11 +2,7 @@ import { Flex } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-
-const DIRECTION = {
-    "horizontal": "row",
-    "vertical": "column"
-};
+import { toFlexDirection } from "../../layout";
 
 const propTypes = {
     /**
@@ -22,17 +18,13 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     * The alignment of the elements within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignContent: oneOf(["start", "end", "center"]),
+    align: oneOf(["start", "end", "center"]),
     /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     * The distribution of space around the elements along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    alignItems: oneOf(["start", "end", "center"]),
-    /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent: oneOf(["start", "end", "center"]),
+    justify: oneOf(["start", "end", "center"]),
     /**
      * Space to display between each elements.
      */
@@ -65,8 +57,9 @@ const propTypes = {
 
 export function InnerGroup({
     orientation,
+    align,
+    justify,
     wrap,
-    role = "group",
     children,
     forwardedRef,
     ...rest
@@ -74,9 +67,10 @@ export function InnerGroup({
     return (
         <Flex
             {...rest}
-            direction={DIRECTION[orientation]}
+            direction={toFlexDirection(orientation)}
+            alignItems={align ?? (orientation === "horizontal" ? "center" : undefined)}
+            justifyContent={justify}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            role={role}
             ref={forwardedRef}
         >
             {children}

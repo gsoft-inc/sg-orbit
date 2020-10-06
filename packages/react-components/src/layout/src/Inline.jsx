@@ -24,7 +24,7 @@ const propTypes = {
      * Shortcut for alignItems.
      * @ignore
      */
-    align: oneOf(["start", "end", "center"]),
+    align: any,
     /**
      * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
@@ -33,7 +33,7 @@ const propTypes = {
      * Shortcut for justifyContent
      * @ignore
      */
-    justify: oneOf(["start", "end", "center"]),
+    justify: any,
     /**
      * Space to display between each elements.
      */

@@ -1,17 +1,24 @@
 import "./Tag.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { CrossButton } from "../../button";
 import { Text } from "../../text";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconButtonSlot } from "../../button";
+import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["solid", "outline"]),
+    /**
+     * Called when the remove button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onRemove: func,
     /**
      * Whether the tag take up the width of its container.
      */
@@ -32,6 +39,7 @@ const propTypes = {
 
 export function InnerTag({
     variant = "solid",
+    onRemove,
     disabled,
     fluid,
     size,
@@ -46,11 +54,22 @@ export function InnerTag({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { hasIcon, hasCounter, hasButton } = useHasChildren({
+    const { hasIcon, hasCounter } = useHasChildren({
         hasIcon: ".o-ui-tag-icon",
-        hasCounter: ".o-ui-tag-counter",
-        hasButton: ".o-ui-tag-button"
+        hasCounter: ".o-ui-tag-counter"
     }, ref);
+
+    const removeButton = !isNil(onRemove) && (
+        <CrossButton
+            variant="ghost"
+            color="secondary"
+            shape="circular"
+            onClick={onRemove}
+            size={getSize(size)}
+            className="o-ui-tag-remove-button"
+            aria-label="Remove"
+        />
+    );
 
     const content = useTextContent(Text, children);
 
@@ -63,7 +82,7 @@ export function InnerTag({
                     variant,
                     hasIcon && "has-icon",
                     hasCounter && "has-counter",
-                    hasButton && "has-button",
+                    removeButton && "has-remove-button",
                     fluid && "fluid",
                     active && "active",
                     focus && "focus",
@@ -96,17 +115,11 @@ export function InnerTag({
                             disabled,
                             highlight: true,
                             className: "o-ui-tag-counter"
-                        },
-                        button: embeddedIconButtonSlot({
-                            size,
-                            variant: "ghost",
-                            color: "secondary",
-                            shape: "circular",
-                            className: "o-ui-tag-button"
-                        })
+                        }
                     }}
                 >
                     {content}
+                    {removeButton}
                 </SlotProvider>
             </ClearSlots>
         </ElementType>

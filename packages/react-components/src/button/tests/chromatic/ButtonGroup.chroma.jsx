@@ -4,12 +4,6 @@ import { Inline, Stack } from "@react-components/layout";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
-/*
-NEW TEST:
-- Gap by size (horizontal & vertical)
-- Alignment (horizontal & vertical)
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("ButtonGroup"))
         .segment(segment)
@@ -92,19 +86,19 @@ stories()
             <Button>Cutoff</Button>
         </ButtonGroup>
     )
-    .add("alignment", () =>
+    .add("align", () =>
         <Stack>
             <ButtonGroup align="start">
                 <TextLink as="button">Reset</TextLink>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end">
                 <TextLink as="button">Reset</TextLink>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center">
                 <TextLink as="button">Reset</TextLink>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
         </Stack>
     );
@@ -136,19 +130,19 @@ stories("/vertical")
             </ButtonGroup>
         </Inline>
     )
-    .add("alignment", () =>
+    .add("align", () =>
         <Inline>
             <ButtonGroup align="start" orientation="vertical">
                 <Button>Reset</Button>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end" orientation="vertical">
                 <Button>Reset</Button>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center" orientation="vertical">
                 <Button>Reset</Button>
-                <Button>Submit</Button>
+                <Button>Submit form</Button>
             </ButtonGroup>
         </Inline>
     );

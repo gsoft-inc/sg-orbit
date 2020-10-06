@@ -1,14 +1,9 @@
-import { Flex } from "../../layout";
+import { Flex, toFlexDirection } from "../../layout";
 import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-
-const DIRECTION = {
-    "horizontal": "row",
-    "vertical": "column"
-};
 
 const ARROW_NAV_KEY_BINDING = {
     previous: [KEYS.left],
@@ -23,7 +18,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -39,15 +34,15 @@ const propTypes = {
      */
     justify: oneOf(["start", "end", "center"]),
     /**
-     * The space between elements.
+     * The space between the elements.
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
+     * Whether the elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-     * Elements size.
+     * The size of the elements.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -107,7 +102,7 @@ export function InnerToolbar({
             {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            direction={DIRECTION[orientation]}
+            direction={toFlexDirection(orientation)}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             as={as}

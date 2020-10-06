@@ -233,7 +233,10 @@ stories("/horizontal")
     .add("default", () =>
         <RadioGroup orientation="horizontal">
             <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
+            <Radio value="2">
+                <Text>2</Text>
+                <Counter>60</Counter>
+            </Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )

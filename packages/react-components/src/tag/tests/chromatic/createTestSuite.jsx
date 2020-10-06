@@ -137,54 +137,39 @@ export function createTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("button", () =>
+        .add("remove button", () =>
             <Stack>
                 <Inline align="end">
-                    <Tag size="sm" element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag size="sm" onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
-                    <Tag element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
-                    <Tag size="lg" element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag size="lg" onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
                 <Inline>
-                    <Tag fluid element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag fluid onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
                 <Inline className="w-10">
-                    <Tag fluid element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag fluid onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
             </Stack>
         )
         .add("as link", () =>
             <Inline>
-                <Tag as="a" element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" active element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" focus element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" hover element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" focus hover element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" disabled element={element} href="#a">Falcon 9</Tag>
+                <Tag as="a" element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" active element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" focus element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" hover element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" focus hover element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" disabled element={element} href="#">Falcon 9</Tag>
             </Inline>
         )
         .add("as button", () =>

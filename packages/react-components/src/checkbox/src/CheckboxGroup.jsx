@@ -34,23 +34,23 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * The orientation of the elements.
+     * The orientation of the group elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The space between elements.
+     * The space between the group elements.
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
+     * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-     * The elements size.
+     * The group elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Invert the order of the checkbox and the label of all children.
+     * Invert the order of the checkbox and his label.
      */
     reverse: bool,
     /**

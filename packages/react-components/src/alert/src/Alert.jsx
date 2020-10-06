@@ -29,11 +29,11 @@ const ACTION_SIZE = {
     "lg": "md"
 };
 
-const DISMISS_SIZE = {
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-};
+// const DISMISS_SIZE = {
+//     "sm": "xs",
+//     "md": "sm",
+//     "lg": "md"
+// };
 
 const propTypes = {
     /**
@@ -41,7 +41,7 @@ const propTypes = {
      */
     show: bool,
     /**
-     * Style to use.
+     * The style to use.
      */
     tone: oneOf(["info", "success", "warning", "critical"]),
     /**
@@ -81,12 +81,23 @@ export function InnerAlert({
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
     const contentId = useId(null, "o-ui-alert-content");
 
-    const action = {
+    const actionSlot = {
         variant: "ghost",
-        shape: "rounded",
+        // shape: "rounded",
         size: ACTION_SIZE[getSize(size)],
         className: "o-ui-alert-action"
     };
+
+    const dismissButton = !isNil(onDismiss) && (
+        <CrossButton
+            // Override the default slot to ensure the dismiss button doesn't inherit from the "button" slot props.
+            slot="dismiss"
+            onClick={onDismiss}
+            size={getSize(size)}
+            className="o-ui-alert-dismiss"
+            aria-label="Close"
+        />
+    );
 
     return (
         <Transition
@@ -143,26 +154,17 @@ export function InnerAlert({
                             }
                         }
                     },
-                    action: action,
-                    button: action,
-                    dismiss: {
-                        size: DISMISS_SIZE[getSize(size)],
-                        className: "o-ui-alert-dismiss"
-                    }
+                    action: actionSlot,
+                    button: actionSlot
                 }}
             >
                 {content}
-                {!isNil(onDismiss) && <CrossButton
-                    slot="dismiss"
-                    onClick={onDismiss}
-                    aria-label="Close"
-                />}
+                {dismissButton}
             </SlotProvider>
         </Transition>
     );
 }
 
-InnerAlert.propTypes = propTypes;
 
 export const Alert = forwardRef((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />

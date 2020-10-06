@@ -1,5 +1,5 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
-import { Button, CloseButton } from "@react-components/button";
+import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
 import { Heading, Paragraph } from "@react-components/text";
 import { InfoIcon } from "@react-components/icons";
@@ -61,7 +61,8 @@ stories()
                 </Alert>
                 <Alert size="sm">
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Content>
+                        Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
             <Inline align="end">
@@ -211,7 +212,6 @@ stories()
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
                     </UnorderedList>
-                    <Button>Apply</Button>
                 </Content>
                 <Button>Undo</Button>
             </Alert>
@@ -224,7 +224,6 @@ stories()
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
                     </UnorderedList>
-                    <Button>Apply</Button>
                 </Content>
                 <Button>Undo</Button>
             </Alert>
@@ -237,7 +236,6 @@ stories()
                         <ListItem>Be cautious</ListItem>
                         <ListItem>Close your windows</ListItem>
                     </UnorderedList>
-                    <Button>Apply</Button>
                 </Content>
                 <Button>Undo</Button>
             </Alert>
@@ -265,7 +263,6 @@ stories()
             <InfoAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
-                <Button>Apply</Button>
             </InfoAlert>
         </Stack>
     )
@@ -277,7 +274,6 @@ stories()
             <SuccessAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
-                <Button>Apply</Button>
             </SuccessAlert>
         </Stack>
     )
@@ -289,7 +285,6 @@ stories()
             <WarningAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
-                <Button>Apply</Button>
             </WarningAlert>
         </Stack>
     )
@@ -301,7 +296,6 @@ stories()
             <CriticalAlert onDismiss={() => {}}>
                 <Heading as="span">Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Paragraph>
-                <Button>Apply</Button>
             </CriticalAlert>
         </Stack>
     )
