@@ -5,7 +5,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
     return (
         <Stack>
             <If condition={!isNil(Icon24)}>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Icon24 size="2xs" />
                     <Icon24 size="xs" />
                     <Icon24 size="sm" />
@@ -17,7 +17,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 </Inline>
             </If>
             <If condition={!isNil(Icon32)}>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Icon32 size="2xs" />
                     <Icon32 size="xs" />
                     <Icon32 size="sm" />
@@ -28,7 +28,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon32 size="xl" style={{ fill: "var(--sunray-900)" }} />
                 </Inline>
             </If>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <MultiIcon size="2xs" />
                 <MultiIcon size="xs" />
                 <MultiIcon size="sm" />

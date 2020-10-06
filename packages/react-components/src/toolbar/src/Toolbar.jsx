@@ -1,4 +1,4 @@
-import { Flex, toFlexDirection } from "../../layout";
+import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
 import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
@@ -62,18 +62,6 @@ const propTypes = {
      */
     children: any.isRequired
 };
-
-function useFlexAlignment(orientation, align, verticalAlign) {
-    return orientation === "horizontal"
-        ? {
-            alignItems: verticalAlign,
-            justifyContent: align
-        }
-        : {
-            alignItems: align,
-            justifyContent: verticalAlign
-        };
-}
 
 export function InnerToolbar({
     autoFocus,

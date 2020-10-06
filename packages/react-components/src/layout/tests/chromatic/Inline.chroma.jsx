@@ -33,7 +33,7 @@ stories()
         </Inline>
     )
     .add("align center", () =>
-        <Inline align="center">
+        <Inline verticalAlign="center">
             <div className="bg-primary-500">Alpha</div>
             <div className="bg-primary-500">Bravo</div>
             <div className="bg-primary-500">Charlie</div>

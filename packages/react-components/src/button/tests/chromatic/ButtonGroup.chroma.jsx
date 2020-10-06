@@ -9,7 +9,6 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
-            .chromaticDelay(100)
             .build())
         .build();
 }
@@ -112,7 +111,7 @@ stories("/vertical")
         </ButtonGroup>
     )
     .add("size", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <ButtonGroup orientation="vertical" size="sm">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>

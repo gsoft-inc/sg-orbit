@@ -2,6 +2,7 @@ import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { useFlexAlignment } from "./adapters";
 
 const propTypes = {
     /**
@@ -46,13 +47,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-function useFlexAlignment(align, verticalAlign) {
-    return {
-        alignItems: verticalAlign,
-        justifyContent: align
-    };
-}
-
 export function InnerInline({
     align,
     verticalAlign,
@@ -62,7 +56,7 @@ export function InnerInline({
     forwardedRef,
     ...rest
 }) {
-    const alignProps = useFlexAlignment(align, verticalAlign);
+    const alignProps = useFlexAlignment("horizontal", align, verticalAlign);
 
     return (
         <Flex

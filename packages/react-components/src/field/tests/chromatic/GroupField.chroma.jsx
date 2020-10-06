@@ -15,7 +15,7 @@ function stories(segment) {
 
 stories()
     .add("orientation", () =>
-        <Inline gap={13} align="end">
+        <Inline gap={13} verticalAlign="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <CheckboxGroup>
@@ -37,7 +37,7 @@ stories()
         </Inline>
     )
     .add("checkbox group", () =>
-        <Inline gap={13} align="end">
+        <Inline gap={13} verticalAlign="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <CheckboxGroup>
@@ -59,7 +59,7 @@ stories()
         </Inline>
     )
     .add("radio group", () =>
-        <Inline gap={13} align="end">
+        <Inline gap={13} verticalAlign="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <RadioGroup>

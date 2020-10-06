@@ -12,12 +12,12 @@ export function createRadioTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio value="any" element={element}>Milky Way</Radio>
                     <Radio size="lg" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -35,7 +35,7 @@ export function createRadioTestSuite(element, stories) {
                         <EmailIcon />
                     </Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <IconList>
@@ -55,7 +55,7 @@ export function createRadioTestSuite(element, stories) {
                         </IconList>
                     </Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
@@ -73,7 +73,7 @@ export function createRadioTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
@@ -91,7 +91,7 @@ export function createRadioTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -108,7 +108,7 @@ export function createRadioTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio size="sm" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -176,27 +176,27 @@ export function createRadioTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio active size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio active value="any" element={element}>Milky Way</Radio>
                     <Radio active size="lg" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio focus size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio focus value="any" element={element}>Milky Way</Radio>
                     <Radio focus size="lg" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio hover size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio hover value="any" element={element}>Milky Way</Radio>
                     <Radio hover size="lg" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio focus hover size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio focus hover value="any" element={element}>Milky Way</Radio>
                     <Radio focus hover size="lg" value="any" element={element}>Milky Way</Radio>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Radio disabled size="sm" value="any" element={element}>Milky Way</Radio>
                     <Radio disabled value="any" element={element}>Milky Way</Radio>
                     <Radio disabled size="lg" value="any" element={element}>Milky Way</Radio>

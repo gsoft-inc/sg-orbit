@@ -6,3 +6,15 @@ const DIRECTION = {
 export function toFlexDirection(orientation) {
     return DIRECTION[orientation];
 }
+
+export function useFlexAlignment(orientation, align, verticalAlign) {
+    return orientation === "horizontal"
+        ? {
+            alignItems: verticalAlign,
+            justifyContent: align
+        }
+        : {
+            alignItems: align,
+            justifyContent: verticalAlign
+        };
+}

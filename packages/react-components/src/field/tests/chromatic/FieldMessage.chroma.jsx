@@ -17,7 +17,7 @@ function stories(segment) {
 
 function Align({ children }) {
     return (
-        <Inline align="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
+        <Inline verticalAlign="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
             {children}
         </Inline>
     );
@@ -25,7 +25,7 @@ function Align({ children }) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <HelpMessage size="sm">
                 Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </HelpMessage>
@@ -38,7 +38,7 @@ stories()
         </Inline>
     )
     .add("icon", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <HelpMessage size="sm">
                 <Align>
                     <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
@@ -57,7 +57,7 @@ stories()
         </Inline>
     )
     .add("paragraph", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <HelpMessage size="sm">
                 <Paragraph>
                     If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
@@ -76,7 +76,7 @@ stories()
         </Inline>
     )
     .add("list", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <HelpMessage size="sm">
                 <UnorderedList>
                     <ListItem>Celestial</ListItem>

@@ -11,12 +11,12 @@ export function createTextAreaTestSuite(element, stories) {
     stories
         .add("default", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea size="sm" element={element} />
                     <TextArea element={element} />
                     <TextArea size="lg" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea loading size="sm" element={element} />
                     <TextArea loading element={element} />
                     <TextArea loading size="lg" element={element} />
@@ -37,12 +37,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("placeholder", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea size="sm" placeholder="Where to?" element={element} />
                     <TextArea placeholder="Where to?" element={element} />
                     <TextArea size="lg" placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea loading size="sm" placeholder="Where to?" element={element} />
                     <TextArea loading placeholder="Where to?" element={element} />
                     <TextArea loading size="lg" placeholder="Where to?" element={element} />
@@ -63,12 +63,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("value", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea size="sm" defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea size="lg" defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea loading size="sm" defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea loading defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea loading size="lg" defaultValue="SpaceX will win the race!" element={element} />
@@ -90,12 +90,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("clear button", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea size="sm" onClear={() => {}} placeholder="Where to?" element={element} />
                     <TextArea onClear={() => {}} placeholder="Where to?" element={element} />
                     <TextArea size="lg" onClear={() => {}} placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea size="sm" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea size="lg" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
@@ -116,36 +116,36 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea active size="sm" placeholder="Where to?" element={element} />
                     <TextArea active placeholder="Where to?" element={element} />
                     <TextArea active size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading active placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea focus size="sm" placeholder="Where to?" element={element} />
                     <TextArea focus placeholder="Where to?" element={element} />
                     <TextArea focus size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading focus placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea hover size="sm" placeholder="Where to?" element={element} />
                     <TextArea hover placeholder="Where to?" element={element} />
                     <TextArea hover size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading hover placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea focus hover size="sm" placeholder="Where to?" element={element} />
                     <TextArea focus hover placeholder="Where to?" element={element} />
                     <TextArea focus hover size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading focus hover placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea disabled size="sm" placeholder="Where to?" element={element} />
                     <TextArea disabled placeholder="Where to?" element={element} />
                     <TextArea disabled size="lg" placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextArea readOnly size="sm" placeholder="Where to?" element={element} />
                     <TextArea readOnly placeholder="Where to?" element={element} />
                     <TextArea readOnly size="lg" placeholder="Where to?" element={element} />

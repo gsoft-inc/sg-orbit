@@ -11,7 +11,7 @@ export function createTextLinkTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink href="#" element={element}>Flight details</TextLink>
                     <TextLink size="lg" href="#" element={element}>Flight details</TextLink>
@@ -34,7 +34,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink size="sm" href="#" element={element}>
                         <Text>Flight details</Text>
                         <ArrowIcon />
@@ -70,7 +70,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("external", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink external href="#" element={element}>Flight details</TextLink>
                     <TextLink external size="lg" href="#" element={element}>Flight details</TextLink>
@@ -84,7 +84,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("primary", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink color="primary" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="primary" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="primary" size="lg" href="#" element={element}>Flight details</TextLink>
@@ -99,7 +99,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("secondary", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink color="secondary" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="secondary" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="secondary" size="lg" href="#" element={element}>Flight details</TextLink>
@@ -114,7 +114,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("danger", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink color="danger" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="danger" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="danger" size="lg" href="#" element={element}>Flight details</TextLink>
@@ -128,14 +128,14 @@ export function createTextLinkTestSuite(element, stories) {
             </Stack>
         )
         .add("solid", () =>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <TextLink underline="solid" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="solid" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="solid" size="lg" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("dotted", () =>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <TextLink underline="dotted" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="dotted" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="dotted" size="lg" href="#" element={element}>Flight details</TextLink>
@@ -143,7 +143,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink active size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink active href="#" element={element}>Flight details</TextLink>
                     <TextLink active size="lg" href="#" element={element}>Flight details</TextLink>
@@ -153,7 +153,7 @@ export function createTextLinkTestSuite(element, stories) {
                         </TextLink>
                     </div>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink focus size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink focus href="#" element={element}>Flight details</TextLink>
                     <TextLink focus size="lg" href="#" element={element}>Flight details</TextLink>
@@ -163,7 +163,7 @@ export function createTextLinkTestSuite(element, stories) {
                         </TextLink>
                     </div>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink hover size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink hover href="#" element={element}>Flight details</TextLink>
                     <TextLink hover size="lg" href="#" element={element}>Flight details</TextLink>
@@ -173,7 +173,7 @@ export function createTextLinkTestSuite(element, stories) {
                         </TextLink>
                     </div>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink focus hover size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink focus hover href="#" element={element}>Flight details</TextLink>
                     <TextLink focus hover size="lg" href="#" element={element}>Flight details</TextLink>
@@ -183,12 +183,12 @@ export function createTextLinkTestSuite(element, stories) {
                         </TextLink>
                     </div>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink visited size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink visited href="#" element={element}>Flight details</TextLink>
                     <TextLink visited size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <TextLink disabled size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink disabled href="#" element={element}>Flight details</TextLink>
                     <TextLink disabled size="lg" href="#" element={element}>Flight details</TextLink>

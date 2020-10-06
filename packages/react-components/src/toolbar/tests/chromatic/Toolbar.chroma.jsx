@@ -333,7 +333,7 @@ stories("/vertical")
         </Toolbar>
     )
     .add("size", () =>
-        <Inline align="end" gap={13}>
+        <Inline verticalAlign="end" gap={13}>
             <Toolbar size="sm" orientation="vertical">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>

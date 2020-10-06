@@ -43,12 +43,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-function useFlexAlignment(orientation, align) {
-    return {
-        [orientation === "horizontal" ? "justify" : "align"]: align
-    };
-}
-
 export function InnerButtonGroup(props) {
     const {
         orientation = "horizontal",
@@ -61,13 +55,12 @@ export function InnerButtonGroup(props) {
         ...rest
     } = props;
 
-    const alignProps = useFlexAlignment(orientation, align);
-
     return (
         <Group
             {...rest}
-            {...alignProps}
             orientation={orientation}
+            align={align}
+            verticalAlign={orientation === "horizontal" ? "center" : undefined}
             fluid={fluid}
             gap={GAP[orientation][getSize(size)]}
             ref={forwardedRef}

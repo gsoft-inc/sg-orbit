@@ -194,7 +194,7 @@ stories("/vertical")
         </CheckboxGroup>
     )
     .add("size", () =>
-        <Inline align="end" gap={13}>
+        <Inline verticalAlign="end" gap={13}>
             <CheckboxGroup size="sm" orientation="vertical">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
