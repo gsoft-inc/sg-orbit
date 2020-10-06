@@ -15,7 +15,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Counter size="sm">15</Counter>
                 <Counter>15</Counter>
                 <Counter size="lg">15</Counter>
@@ -37,13 +37,13 @@ stories()
         <div><Counter reverse variant="divider" pad>15</Counter> Planets Visited </div>
     )
     .add("light", () =>
-        <Inline align="center">
+        <Inline verticalAlign="center">
             <Counter color="light">15</Counter>
             <Counter variant="divider" color="light">15</Counter>
         </Inline>
     )
     .add("highlight", () =>
-        <Inline align="center">
+        <Inline verticalAlign="center">
             <Counter highlight>15</Counter>
             <Counter variant="divider" highlight>15</Counter>
         </Inline>

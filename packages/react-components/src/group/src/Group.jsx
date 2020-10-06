@@ -2,7 +2,7 @@ import { Flex } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { toFlexDirection } from "../../layout";
+import { toFlexDirection, useFlexAlignment } from "../../layout";
 
 const propTypes = {
     /**
@@ -18,13 +18,13 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * The alignment of the elements within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     * The horizontal alignment of the elements.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * The distribution of space around the elements along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     * The vertical alignment of the elements.
      */
-    justify: oneOf(["start", "end", "center"]),
+    verticalAlign: oneOf(["start", "end", "center"]),
     /**
      * Space to display between each elements.
      */
@@ -58,18 +58,21 @@ const propTypes = {
 export function InnerGroup({
     orientation,
     align,
-    justify,
+    verticalAlign,
     wrap,
     children,
     forwardedRef,
     ...rest
 }) {
+    const alignProps = useFlexAlignment(orientation, align, verticalAlign);
+
     return (
         <Flex
             {...rest}
+            {...alignProps}
             direction={toFlexDirection(orientation)}
-            alignItems={align ?? (orientation === "horizontal" ? "center" : undefined)}
-            justifyContent={justify}
+            // alignItems={align ?? (orientation === "horizontal" ? "center" : undefined)}
+            // justifyContent={justify}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >

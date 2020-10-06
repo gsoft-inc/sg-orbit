@@ -22,15 +22,15 @@ function stories(segment) {
 stories()
     .add("text only", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm">Scheduled launch today at 1PM.</Alert>
                 <Alert size="sm">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert>Scheduled launch today at 1PM.</Alert>
                 <Alert>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg">Scheduled launch today at 1PM.</Alert>
                 <Alert size="lg">Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
@@ -38,15 +38,15 @@ stories()
     )
     .add("text + dismiss", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm" onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
                 <Alert size="sm" onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
                 <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg" onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
                 <Alert size="lg" onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
             </Inline>
@@ -54,7 +54,7 @@ stories()
     )
     .add("icon + text", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -65,7 +65,7 @@ stories()
                         Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -75,7 +75,7 @@ stories()
                     <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -89,7 +89,7 @@ stories()
     )
     .add("icon + text + dismiss", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -99,7 +99,7 @@ stories()
                     <Content>Scheduled launch today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -109,7 +109,7 @@ stories()
                     <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -123,7 +123,7 @@ stories()
     )
     .add("icon + text + action", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -135,7 +135,7 @@ stories()
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -147,7 +147,7 @@ stories()
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg">
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -163,7 +163,7 @@ stories()
     )
     .add("icon + text + action + dismiss", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="sm" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -175,7 +175,7 @@ stories()
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>
@@ -187,7 +187,7 @@ stories()
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Alert size="lg" onDismiss={() => {}}>
                     <InfoIcon />
                     <Content>Scheduled launch today at 1PM.</Content>

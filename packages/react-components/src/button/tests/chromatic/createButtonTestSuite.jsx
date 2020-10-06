@@ -11,12 +11,12 @@ export function createButtonTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button size="sm" element={element}>Button</Button>
                     <Button element={element}>Button</Button>
                     <Button size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>Button</Button>
                     <Button loading element={element}>Button</Button>
                     <Button loading size="lg" element={element}>Button</Button>
@@ -34,7 +34,7 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
@@ -48,7 +48,7 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <IconList>
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
@@ -68,7 +68,7 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
@@ -98,7 +98,7 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("primary", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button color="primary" size="sm" element={element}>Button</Button>
                     <Button color="primary" element={element}>Button</Button>
                     <Button color="primary" size="lg" element={element}>Button</Button>
@@ -114,12 +114,12 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("secondary", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button color="secondary" size="sm" element={element}>Button</Button>
                     <Button color="secondary" element={element}>Button</Button>
                     <Button color="secondary" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button color="secondary" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
@@ -130,12 +130,12 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("danger", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button color="danger" size="sm" element={element}>Button</Button>
                     <Button color="danger" element={element}>Button</Button>
                     <Button color="danger" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button color="danger" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
@@ -146,12 +146,12 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("circular", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button shape="circular" size="sm" element={element}>Aa</Button>
                     <Button shape="circular" element={element}>Aa</Button>
                     <Button shape="circular" size="lg" element={element}>Aa</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button loading shape="circular" size="sm" element={element}>Aa</Button>
                     <Button loading shape="circular" element={element}>Aa</Button>
                     <Button loading shape="circular" size="lg" element={element}>Aa</Button>
@@ -160,12 +160,12 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("rounded", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button shape="rounded" element={element}>Aa</Button>
                     <Button shape="rounded" size="lg" element={element}>Aa</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button loading shape="rounded" element={element}>Aa</Button>
                     <Button loading shape="rounded" size="lg" element={element}>Aa</Button>
@@ -174,31 +174,31 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button active size="sm" element={element}>Button</Button>
                     <Button active element={element}>Button</Button>
                     <Button active size="lg" element={element}>Button</Button>
                     <Button loading active element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button focus size="sm" element={element}>Button</Button>
                     <Button focus element={element}>Button</Button>
                     <Button focus size="lg" element={element}>Button</Button>
                     <Button loading focus element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button hover size="sm" element={element}>Button</Button>
                     <Button hover element={element}>Button</Button>
                     <Button hover size="lg" element={element}>Button</Button>
                     <Button loading hover element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button focus hover size="sm" element={element}>Button</Button>
                     <Button focus hover element={element}>Button</Button>
                     <Button focus hover size="lg" element={element}>Button</Button>
                     <Button loading focus hover element={element}>Button</Button>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Button disabled size="sm" element={element}>Button</Button>
                     <Button disabled element={element}>Button</Button>
                     <Button disabled size="lg" element={element}>Button</Button>

@@ -14,7 +14,7 @@ export function createTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
                     <Tag size="lg" element={element}>Falcon 9</Tag>
@@ -29,7 +29,7 @@ export function createTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
@@ -43,7 +43,7 @@ export function createTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
@@ -79,7 +79,7 @@ export function createTestSuite(element, stories) {
         )
         .add("dot", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
@@ -109,7 +109,7 @@ export function createTestSuite(element, stories) {
         )
         .add("counter", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
@@ -139,7 +139,7 @@ export function createTestSuite(element, stories) {
         )
         .add("remove button", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" onRemove={() => {}} element={element}>
                         Falcon 9
                     </Tag>

@@ -13,7 +13,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <CrossButton size="xs" />
             <CrossButton size="sm" />
             <CrossButton />

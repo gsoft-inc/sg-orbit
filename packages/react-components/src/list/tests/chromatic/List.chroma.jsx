@@ -9,7 +9,7 @@ function stories() {
 
 stories()
     .add("ordered", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <OrderedList size="sm">
                 <ListItem>Celestial</ListItem>
                 <ListItem>Dark matter</ListItem>
@@ -29,7 +29,7 @@ stories()
 
     )
     .add("unordered", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <UnorderedList size="sm">
                 <ListItem>Celestial</ListItem>
                 <ListItem>Dark matter</ListItem>

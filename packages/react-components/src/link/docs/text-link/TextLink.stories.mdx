@@ -26,7 +26,7 @@ Links allow a user to navigate between pages, scroll to a have page section, acc
     </div>
     <div>
         <dt>slots</dt>
-        <dd>text - icon</dd>
+        <dd>left-icon | text | icon</dd>
     </div>
     <div>
         <dt>wai-aria</dt>
@@ -47,6 +47,19 @@ A text link can contain [icons](?path=/docs/materials-icons--page).
         <TextLink href="#">
             <Text>Flight details</Text>
             <WarningIcon />
+        </TextLink>
+    </Story>
+</Preview>
+
+### Left icon
+
+Non standard left [icons](?path=/docs/materials-icons--page) can be provided to handle special cases. However, think twice before adding left icons, right icons should be your go to.
+
+<Preview withSource="open">
+    <Story name="left icon">
+        <TextLink href="#">
+            <WarningIcon slot="left-icon" />
+            <Text>Flight details</Text>
         </TextLink>
     </Story>
 </Preview>

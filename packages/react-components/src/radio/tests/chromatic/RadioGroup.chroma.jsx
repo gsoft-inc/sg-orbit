@@ -46,7 +46,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end" gap={13}>
+        <Inline verticalAlign="end" gap={13}>
             <RadioGroup size="sm">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>

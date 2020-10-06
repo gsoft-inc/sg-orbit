@@ -21,7 +21,7 @@ export function RequiredAgeValidation() {
     );
 
     return (
-        <Inline align="center">
+        <Inline verticalAlign="center">
             <NumberInput
                 validationState={isValid ? "valid" : "invalid"}
                 value={value}
