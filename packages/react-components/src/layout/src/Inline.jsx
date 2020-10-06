@@ -13,27 +13,13 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     * The horizontal alignment of the elements.
      */
-    alignContent: oneOf(["start", "end", "center"]),
+    align: oneOf(["start", "end", "center"]),
     /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     * The vertical alignment of the elements.
      */
-    alignItems: oneOf(["start", "end", "center"]),
-    /**
-     * Shortcut for alignItems.
-     * @ignore
-     */
-    align: any,
-    /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent: oneOf(["start", "end", "center"]),
-    /**
-     * Shortcut for justifyContent
-     * @ignore
-     */
-    justify: any,
+    verticalAlign: oneOf(["start", "end", "center"]),
     /**
      * Space to display between each elements.
      */
@@ -60,24 +46,28 @@ const propTypes = {
     children: any.isRequired
 };
 
+function useFlexAlignment(align, verticalAlign) {
+    return {
+        alignItems: verticalAlign,
+        justifyContent: align
+    };
+}
+
 export function InnerInline({
-    alignContent,
-    alignItems,
     align,
-    justifyContent,
-    justify,
+    verticalAlign,
     children,
     gap = 5,
     wrap,
     forwardedRef,
     ...rest
 }) {
+    const alignProps = useFlexAlignment(align, verticalAlign);
+
     return (
         <Flex
             {...rest}
-            alignContent={alignContent}
-            alignItems={alignItems ?? align}
-            justifyContent={justifyContent ?? justify}
+            {...alignProps}
             gap={gap !== 0 ? gap : undefined}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}

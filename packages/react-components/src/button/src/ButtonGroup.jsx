@@ -18,15 +18,15 @@ const GAP = {
 
 const propTypes = {
     /**
-     * The orientation of the group buttons.
+     * The orientation of the buttons.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The alignment of the group buttons.
+     * The horizontal alignment of the buttons.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * The group buttons size.
+     * The buttons size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
