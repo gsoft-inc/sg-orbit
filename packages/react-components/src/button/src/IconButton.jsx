@@ -1,5 +1,5 @@
-import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, mergeProps, omitProps, useSlot } from "../../shared";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
@@ -108,6 +108,11 @@ export function InnerIconButton(props) {
         forwardedRef
     });
 
+    const iconMarkup = augmentElement(children, {
+        size,
+        className: "o-ui-button-icon"
+    });
+
     return (
         <ElementType
             data-testid="icon-button"
@@ -116,18 +121,7 @@ export function InnerIconButton(props) {
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        icon: {
-                            size,
-                            className: "o-ui-button-icon"
-                        }
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            {iconMarkup}
         </ElementType>
     );
 }

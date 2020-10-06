@@ -1,8 +1,7 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
+import { augmentElement, mergeProps, useSlot } from "../../shared";
 import { forwardRef } from "react";
 import { useLink } from "./useLink";
 
@@ -91,6 +90,11 @@ export function InnerIconLink(props) {
         forwardedRef
     });
 
+    const iconMarkup = augmentElement(children, {
+        size
+        // className: "o-ui-link-icon"
+    });
+
     return (
         <ElementType
             data-testid="icon-link"
@@ -99,18 +103,7 @@ export function InnerIconLink(props) {
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-link-icon"
-                        })
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            {iconMarkup}
         </ElementType>
     );
 }

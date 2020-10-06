@@ -126,9 +126,13 @@ export function InnerTextLink(props) {
                             size,
                             className: "o-ui-link-text"
                         },
+                        "left-icon": embeddedIconSlot({
+                            size,
+                            className: "o-ui-link-left-icon"
+                        }),
                         icon: embeddedIconSlot({
                             size,
-                            className: "o-ui-link-icon"
+                            className: "o-ui-link-right-icon"
                         })
                     }}
                 >

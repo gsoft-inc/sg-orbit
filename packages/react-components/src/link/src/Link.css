@@ -65,19 +65,14 @@
     display: inline-grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: auto max-content;
-    grid-template-areas: "text icon";
-    width: max-content;
+    grid-template-columns: max-content auto max-content;
+    grid-template-areas: "left-icon text right-icon";
+    /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
 }
 
 .o-ui-link-text {
     grid-area: text;
-}
-
-/* TEXT | ICON AFTER TEXT */
-.o-ui-link-text + .o-ui-link-icon {
-    margin-left: 0.125rem;
 }
 
 /* TEXT | STATES */
@@ -132,18 +127,16 @@
     text-decoration-style: solid;
 }
 
-/* ICON LINK */
-.o-ui-text-link .o-ui-link-icon {
-    grid-area: icon;
+/* LEFT ICON */
+.o-ui-link-left-icon {
+    grid-area: left-icon;
+    margin-right: 0.125rem;
 }
 
-/* ICON LINK | STATES */
-.o-ui-icon-link:focus,
-.o-ui-icon-link.o-ui-link-focus {
-    outline: none;
-    border-radius: var(--o-ui-rounded-border-radius);
-    background-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-50);
+/* RIGHT ICON */
+.o-ui-link-right-icon {
+    grid-area: right-icon;
+    margin-left: 0.125rem;
 }
 
 /* VARIATIONS */
@@ -253,4 +246,13 @@ button.o-ui-link-hover {
 /* SHAPE | BOX */
 .o-ui-link-box {
     border-radius: 0;
+}
+
+/* ICON LINK | STATES */
+.o-ui-icon-link:focus,
+.o-ui-link-focus {
+    outline: none;
+    border-radius: var(--o-ui-rounded-border-radius);
+    background-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-50);
 }
