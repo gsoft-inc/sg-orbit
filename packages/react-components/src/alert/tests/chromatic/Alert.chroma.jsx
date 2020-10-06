@@ -95,7 +95,7 @@ stories()
                 </Alert>
                 <Alert size="sm" onDismiss={() => {}}>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Content>Scheduled launch today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                 </Alert>
             </Inline>
             <Inline align="end">
@@ -182,7 +182,7 @@ stories()
                 </Alert>
                 <Alert onDismiss={() => {}}>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Content>Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. Scheduled launch today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
@@ -194,7 +194,7 @@ stories()
                 </Alert>
                 <Alert size="lg" onDismiss={() => {}}>
                     <InfoIcon />
-                    <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
+                    <Content>Scheduled launch today at 1PM.<TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious.</TextLink></Content>
                     <Button>Undo</Button>
                 </Alert>
             </Inline>
