@@ -137,15 +137,3 @@ InnerIconButton.propTypes = propTypes;
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 ));
-
-export const embedIconButton = createEmbeddableAdapter({
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-});
-
-export const embeddedIconButtonSlot = createSizeAdapterSlotFactory({
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-});

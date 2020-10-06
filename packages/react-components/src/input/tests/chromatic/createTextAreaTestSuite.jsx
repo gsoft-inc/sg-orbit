@@ -88,23 +88,23 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("button", () =>
+        .add("clear button", () =>
             <Stack>
                 <Inline align="end">
-                    <TextArea size="sm" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextArea button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextArea size="lg" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextArea size="sm" onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextArea onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextArea size="lg" onClear={() => {}} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextArea size="sm" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea size="lg" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea size="sm" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea size="lg" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <div>
-                    <TextArea disabled button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextArea disabled onClear={() => {}} placeholder="Where to?" element={element} />
                 </div>
                 <div>
-                    <TextArea loading button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextArea loading onClear={() => {}} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

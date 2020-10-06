@@ -177,7 +177,7 @@
 }
 
 /* BUTTON */
-.o-ui-input-has-button .o-ui-input-button {
+.o-ui-input-clear-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -188,37 +188,37 @@
 }
 
 /* BUTTON | SMALL  */
-.o-ui-input-has-button.o-ui-input-sm input,
-.o-ui-input-has-button.o-ui-input-sm.o-ui-text-area textarea {
+.o-ui-input-has-clear-button.o-ui-input-sm input,
+.o-ui-input-has-clear-button.o-ui-input-sm.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-sm-with-button);
 }
 
-.o-ui-input-sm .o-ui-input-button {
+.o-ui-input-sm .o-ui-input-clear-button {
     right: calc( (var(--o-ui-padding-sm-with-button) - var(--scale-echo)) / 2 );
 }
 
 /* BUTTON | MEDIUM */
-.o-ui-input-has-button.o-ui-input-md input,
-.o-ui-input-has-button.o-ui-input-md.o-ui-text-area textarea {
+.o-ui-input-has-clear-button.o-ui-input-md input,
+.o-ui-input-has-clear-button.o-ui-input-md.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-md-with-button);
 }
 
-.o-ui-input-md .o-ui-input-button {
+.o-ui-input-md .o-ui-input-clear-button {
     right: calc( (var(--o-ui-padding-md-with-button) - var(--scale-echo)) / 2 );
 }
 
 /* BUTTON | LARGE  */
-.o-ui-input-has-button.o-ui-input-lg input,
-.o-ui-input-has-button.o-ui-input-lg.o-ui-text-area textarea {
+.o-ui-input-has-clear-button.o-ui-input-lg input,
+.o-ui-input-has-clear-button.o-ui-input-lg.o-ui-text-area textarea {
     padding-right: var(--o-ui-padding-lg-with-button);
 }
 
-.o-ui-input-lg .o-ui-input-button {
+.o-ui-input-lg .o-ui-input-clear-button {
     right: calc( (var(--o-ui-padding-lg-with-button) - var(--scale-golf)) / 2 );
 }
 
 /* TRANSPARENT | BUTTON */
-.o-ui-input-transparent .o-ui-input-button {
+.o-ui-input-transparent .o-ui-input-clear-button {
     right: 0;
 }
 

@@ -29,12 +29,6 @@ const ACTION_SIZE = {
     "lg": "md"
 };
 
-// const DISMISS_SIZE = {
-//     "sm": "xs",
-//     "md": "sm",
-//     "lg": "md"
-// };
-
 const propTypes = {
     /**
      * A controlled show value.
@@ -83,12 +77,11 @@ export function InnerAlert({
 
     const actionSlot = {
         variant: "ghost",
-        // shape: "rounded",
         size: ACTION_SIZE[getSize(size)],
         className: "o-ui-alert-action"
     };
 
-    const dismissButton = !isNil(onDismiss) && (
+    const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
             // Override the default slot to ensure the dismiss button doesn't inherit from the "button" slot props.
             slot="dismiss"
@@ -159,7 +152,7 @@ export function InnerAlert({
                 }}
             >
                 {content}
-                {dismissButton}
+                {dismissMarkup}
             </SlotProvider>
         </Transition>
     );

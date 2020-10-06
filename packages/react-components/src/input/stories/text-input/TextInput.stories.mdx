@@ -1,7 +1,6 @@
-import { CrossIcon, EditIcon } from "@react-components/icons";
+import { EditIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
@@ -65,15 +64,13 @@ A text input can contain an [icon](?path=/docs/materials-icons--page).
     </Story>
 </Preview>
 
-### Button
+### Clearable
 
-A text input can contain a [button](?path=/docs/components-button--default-story).
+A text input value can be clearable by specifying an `onClear` handler.
 
 <Preview>
-    <Story name="button">
-        <Inline>
-            <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" />
-        </Inline>
+    <Story name="clearable">
+        <TextInput onClear={() => {}} placeholder="Where to?" />
     </Story>
 </Preview>
 

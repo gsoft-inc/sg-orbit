@@ -1,5 +1,5 @@
+import { CrossButton } from "../../button";
 import { EmbeddedIcon } from "../../icons";
-import { embedIconButton } from "../../button";
 
 export function useInputIcon(icon, props) {
     return icon && (
@@ -12,14 +12,17 @@ export function useInputIcon(icon, props) {
     );
 }
 
-export function useInputButton(button, isActive, props) {
-    return button && isActive && embedIconButton(button, {
-        ...props,
-        variant: "ghost",
-        color: "secondary",
-        shape: "circular",
-        className: "o-ui-input-button"
-    });
+export function useInputClearButton(isVisible, props) {
+    return isVisible && (
+        <CrossButton
+            {...props}
+            variant="ghost"
+            color="secondary"
+            shape="circular"
+            className="o-ui-input-clear-button"
+            aria-label="Clear"
+        />
+    );
 }
 
 

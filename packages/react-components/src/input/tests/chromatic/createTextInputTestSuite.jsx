@@ -1,6 +1,5 @@
-import { CrossIcon, MagnifierIcon } from "@react-components/icons";
-import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
+import { MagnifierIcon } from "@react-components/icons";
 import { cloneElement } from "react";
 
 function TextInput({ element, ...rest }) {
@@ -111,24 +110,24 @@ export function createTextInputTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("button", () =>
+        .add("clear button", () =>
             <Stack>
                 <Inline align="end">
-                    <TextInput size="sm" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput size="lg" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput size="sm" onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextInput onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextInput size="lg" onClear={() => {}} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline align="end">
-                    <TextInput size="sm" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="lg" button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="sm" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextInput size="lg" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <Inline>
-                    <TextInput disabled button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
-                    <TextInput readOnly button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput disabled onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextInput readOnly onClear={() => {}} placeholder="Where to?" element={element} />
                 </Inline>
                 <div>
-                    <TextInput loading button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Where to?" element={element} />
+                    <TextInput loading onClear={() => {}} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

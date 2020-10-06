@@ -1,7 +1,6 @@
-import { CheckCircleIcon, CrossIcon, IconList } from "@react-components/icons";
+import { CheckCircleIcon } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
-import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerTag, Tag } from "@react-components/tag";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -57,18 +56,10 @@ A tag can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Tag>
-                <CheckCircleIcon />
-                <Text>Falcon 9</Text>
-            </Tag>
-            <Tag>
-                <IconList>
-                    <CheckCircleIcon /><CheckCircleIcon />
-                </IconList>
-                <Text>Falcon 9</Text>
-            </Tag>
-        </Inline>
+        <Tag>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+        </Tag>
     </Story>
 </Preview>
 
@@ -100,10 +91,10 @@ A tag can contain a [counter](?path=/docs/components-counter--default-story).
 
 ### Removable
 
-A tag can be removable by specifying an `onRemove` handle.
+A tag can be removable by specifying an `onRemove` handler.
 
 <Preview>
-    <Story name="button">
+    <Story name="removable">
         <Tag onRemove={() => {}}>Falcon 9</Tag>
     </Story>
 </Preview>

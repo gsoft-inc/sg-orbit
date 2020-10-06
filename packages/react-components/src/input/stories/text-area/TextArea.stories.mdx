@@ -1,6 +1,4 @@
-import { CrossIcon } from "@react-components/icons";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerTextArea, TextArea } from "@react-components/input";
 import { LengthValidation } from "./LengthValidation.sample";
@@ -54,15 +52,13 @@ A text area can have a value.
     </Story>
 </Preview>
 
-### Button
+### Clearable
 
-A text area can contain a [button](?path=/docs/components-button--default-story).
+A text area value can be clearable by specifying an `onClear` handler.
 
 <Preview>
-    <Story name="button">
-        <Inline>
-            <TextArea button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Why should you go to space?" />
-        </Inline>
+    <Story name="clearable">
+        <TextArea onClear={() => {}} placeholder="Why should you go to space?" />
     </Story>
 </Preview>
 

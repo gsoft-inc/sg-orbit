@@ -59,7 +59,7 @@ export function InnerTag({
         hasCounter: ".o-ui-tag-counter"
     }, ref);
 
-    const removeButton = !isNil(onRemove) && (
+    const removeMarkup = !isNil(onRemove) && (
         <CrossButton
             variant="ghost"
             color="secondary"
@@ -82,7 +82,7 @@ export function InnerTag({
                     variant,
                     hasIcon && "has-icon",
                     hasCounter && "has-counter",
-                    removeButton && "has-remove-button",
+                    removeMarkup && "has-remove-button",
                     fluid && "fluid",
                     active && "active",
                     focus && "focus",
@@ -119,7 +119,7 @@ export function InnerTag({
                     }}
                 >
                     {content}
-                    {removeButton}
+                    {removeMarkup}
                 </SlotProvider>
             </ClearSlots>
         </ElementType>

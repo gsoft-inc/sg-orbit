@@ -6,7 +6,7 @@ import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
-import { useInputButton } from "./useInputContent";
+import { useInputClearButton } from "./useInputContent";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const propTypes = {
@@ -40,6 +40,12 @@ const propTypes = {
      * @returns {void}
      */
     onChange: func,
+    /**
+     * Called when the clear button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onClear: func,
     /**
      * The style to use.
      */
@@ -106,11 +112,11 @@ export function InnerTextArea(props) {
         required,
         validationState,
         onChange,
+        onClear,
         variant = "outline",
         type = "text",
         autoFocus,
         autoFocusDelay,
-        button,
         disabled,
         readOnly,
         fluid,
@@ -187,7 +193,10 @@ export function InnerTextArea(props) {
         adjustRows();
     }, [adjustRows, inputValue]);
 
-    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
+    const clearMarkup = useInputClearButton(!isNil(onClear) && !disabled && !readOnly, {
+        onClick: onClear,
+        size
+    });
 
     const content = (
         <>
@@ -200,7 +209,7 @@ export function InnerTextArea(props) {
                     ...style
                 }}
             />
-            {buttonMarkup}
+            {clearMarkup}
         </>
     );
 
@@ -211,7 +220,7 @@ export function InnerTextArea(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-input",
-                    buttonMarkup && "has-button"
+                    clearMarkup && "has-clear-button"
                 ),
                 wrapperClassName
             )}
