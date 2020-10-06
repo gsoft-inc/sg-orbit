@@ -3,7 +3,7 @@ import "./Alert.css";
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../view";
 import { CrossButton } from "../../button";
-import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useId, useTextContent } from "../../shared";
+import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useId, useMergedRefs, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
@@ -70,16 +70,10 @@ export function InnerAlert({
     forwardedRef,
     ...rest
 }) {
-    const content = useTextContent(() => (<Content><Text>{children}</Text></Content>), children);
+    const ref = useMergedRefs(forwardedRef);
 
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
-    const contentId = useId(null, "o-ui-alert-content");
-
-    const actionSlot = {
-        variant: "ghost",
-        size: ACTION_SIZE[getSize(size)],
-        className: "o-ui-alert-action"
-    };
+    const hasAction = useHasChild(".o-ui-alert-action", ref);
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
@@ -92,6 +86,8 @@ export function InnerAlert({
         />
     );
 
+    const content = useTextContent(() => (<Content><Text>{children}</Text></Content>), children);
+
     return (
         <Transition
             {...rest}
@@ -102,15 +98,14 @@ export function InnerAlert({
                 cssModule(
                     "o-ui-alert",
                     tone,
+                    hasAction && "has-action",
                     getSizeClass(size)
                 ),
                 className
             )}
-            tabIndex="0"
             role={role}
             as={as}
-            aria-describedby={contentId}
-            ref={forwardedRef}
+            ref={ref}
         >
             <SlotProvider
                 slots={{
@@ -119,7 +114,6 @@ export function InnerAlert({
                         className: "o-ui-alert-icon"
                     },
                     content: {
-                        id: contentId,
                         size,
                         className: "o-ui-alert-content",
                         as: Text,
@@ -147,8 +141,11 @@ export function InnerAlert({
                             }
                         }
                     },
-                    action: actionSlot,
-                    button: actionSlot
+                    button: {
+                        variant: "ghost",
+                        size: ACTION_SIZE[getSize(size)],
+                        className: "o-ui-alert-action"
+                    }
                 }}
             >
                 {content}
