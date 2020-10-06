@@ -133,42 +133,8 @@ stories()
         </Toolbar>
     )
     .add("align", () =>
-        <Inline gap={13}>
-            <Toolbar align="start" style={{ height: "100px" }}>
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-            </Toolbar>
-            <Toolbar align="end" style={{ height: "100px" }}>
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-            </Toolbar>
-            <Toolbar align="center" style={{ height: "100px" }}>
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-            </Toolbar>
-        </Inline>
-    )
-    .add("justify", () =>
         <Stack>
-            <Toolbar justify="start">
+            <Toolbar align="start">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -178,7 +144,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar justify="end">
+            <Toolbar align="end">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -188,7 +154,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar justify="center">
+            <Toolbar align="center">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -199,6 +165,40 @@ stories()
                 </ToggleIconButton>
             </Toolbar>
         </Stack>
+    )
+    .add("vertical align", () =>
+        <Inline gap={13}>
+            <Toolbar verticalAlign="start" style={{ height: "100px" }}>
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                    <NotificationIcon />
+                </ToggleIconButton>
+            </Toolbar>
+            <Toolbar verticalAlign="end" style={{ height: "100px" }}>
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                    <NotificationIcon />
+                </ToggleIconButton>
+            </Toolbar>
+            <Toolbar verticalAlign="center" style={{ height: "100px" }}>
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                    <NotificationIcon />
+                </ToggleIconButton>
+            </Toolbar>
+        </Inline>
     )
     .add("wrap", () =>
         <div style={{ width: "170px" }}>
@@ -298,7 +298,7 @@ stories()
         </Toolbar>
     )
     .add("fields + label", () =>
-        <Toolbar align="end">
+        <Toolbar verticalAlign="end">
             <Field>
                 <Label>Package</Label>
                 <CheckboxGroup>
@@ -426,7 +426,7 @@ stories("/vertical")
     )
     .add("justify", () =>
         <Inline gap={13}>
-            <Toolbar justify="start" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar verticalAlign="start" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -435,7 +435,7 @@ stories("/vertical")
                 <TextInput />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar justify="end" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar verticalAlign="end" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -444,7 +444,7 @@ stories("/vertical")
                 <TextInput />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar justify="center" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar verticalAlign="center" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

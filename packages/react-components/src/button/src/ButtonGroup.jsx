@@ -22,11 +22,11 @@ const propTypes = {
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The alignment of the buttons within the group.
+     * The alignment of the group buttons.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * The buttons size.
+     * The group buttons size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**

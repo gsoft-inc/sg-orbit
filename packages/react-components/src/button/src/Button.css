@@ -759,6 +759,8 @@ a.o-ui-button {
 .o-ui-icon-button {
     display: inline-flex;
     align-items: center;
+    width: max-content;
+    height: max-content;
 }
 
 .o-ui-icon-button .o-ui-button-icon {

@@ -26,13 +26,13 @@ const propTypes = {
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The alignment of the elements within the toolbar. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     * The horizontal alignment of the elements.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * The distribution of space around the elements along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     * The vertical alignment of the elements.
      */
-    justify: oneOf(["start", "end", "center"]),
+    verticalAlign: oneOf(["start", "end", "center"]),
     /**
      * The space between the elements.
      */
@@ -63,13 +63,16 @@ const propTypes = {
     children: any.isRequired
 };
 
-function useFlexAlignment(orientation, align, justify) {
-    return {
-        alignItems: orientation === "horizontal"
-            ? align ?? "center"
-            : align,
-        justifyContent: justify
-    };
+function useFlexAlignment(orientation, align, verticalAlign) {
+    return orientation === "horizontal"
+        ? {
+            alignItems: verticalAlign,
+            justifyContent: align
+        }
+        : {
+            alignItems: align,
+            justifyContent: verticalAlign
+        };
 }
 
 export function InnerToolbar({
@@ -77,7 +80,7 @@ export function InnerToolbar({
     autoFocusDelay,
     orientation = "horizontal",
     align,
-    justify,
+    verticalAlign,
     gap = 5,
     wrap,
     size,
@@ -92,7 +95,7 @@ export function InnerToolbar({
     useRovingFocus(ref);
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    const alignProps = useFlexAlignment(orientation, align, justify);
+    const alignProps = useFlexAlignment(orientation, align, verticalAlign);
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 
     return (
