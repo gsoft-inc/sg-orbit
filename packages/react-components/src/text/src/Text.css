@@ -16,7 +16,7 @@
 
 .o-ui-text-lg {
     font-size: var(--type-scale-6);
-    line-height: 1.333;
+    line-height: 1.3333333;
 }
 
 .o-ui-text-xl {
@@ -26,7 +26,7 @@
 
 .o-ui-text-2xl {
     font-size: var(--type-scale-4);
-    line-height: 1.33333;
+    line-height: 1.3333333;
 }
 
 .o-ui-text-3xl {
