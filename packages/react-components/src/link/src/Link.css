@@ -118,6 +118,8 @@
 .o-ui-link-dotted .o-ui-link-text {
     text-decoration: underline;
     text-decoration-style: dotted;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: from-font;
     text-decoration-color: currentColor;
 }
 
