@@ -5,7 +5,7 @@ import { CrossButton } from "../../button";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -96,7 +96,7 @@ export function InnerTag({
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-tag-text"
@@ -116,7 +116,7 @@ export function InnerTag({
                             highlight: true,
                             className: "o-ui-tag-counter"
                         }
-                    }}
+                    }), [size, disabled])}
                 >
                     {content}
                     {removeMarkup}

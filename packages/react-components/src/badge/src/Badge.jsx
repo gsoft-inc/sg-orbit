@@ -1,6 +1,6 @@
 import "./Badge.css";
 
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
@@ -66,14 +66,14 @@ export function InnerBadge({
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: textSlot({
                             size
                         }),
                         icon: {
                             size
                         }
-                    }}
+                    }), [size])}
                 >
                     <div className="o-ui-badge-anchor">
                         {badgeContent}

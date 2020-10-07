@@ -312,14 +312,18 @@ stories()
          () => {
              const [show, setShow] = useState(true);
 
-             const handleDismiss = useEventCallback(() => {
+             const toggleAlert = useEventCallback(() => {
                  setShow(x => !x);
              });
 
              return (
-                 <InfoAlert show={show} onDismiss={handleDismiss}>
-                     <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
-                 </InfoAlert>
+                 <>
+                     <Button onClick={toggleAlert}>Toggle</Button>
+                     <br /><br />
+                     <InfoAlert show={show} onDismiss={toggleAlert}>
+                         <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
+                     </InfoAlert>
+                 </>
              );
          },
          paramsBuilder().chromaticIgnore().build()

@@ -1,4 +1,4 @@
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
+import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -40,17 +40,9 @@ export function InnerListItem({
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        text: {
-                            size
-                        }
-                    }}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider defaults={["text", "icon"]}>
+                {content}
+            </ContentStyleProvider>
         </ElementType>
     );
 }

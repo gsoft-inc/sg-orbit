@@ -1,10 +1,10 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSlot } from "../../icons";
-import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, mergeProps, useContentStyle, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -46,10 +46,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
@@ -79,7 +75,7 @@ export function InnerTextLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link"),
+        useContentStyle("link"),
         formProps
     );
 
@@ -121,7 +117,7 @@ export function InnerTextLink(props) {
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-link-text"
@@ -134,7 +130,7 @@ export function InnerTextLink(props) {
                             size,
                             className: "o-ui-link-right-icon"
                         })
-                    }}
+                    }), [size])}
                 >
                     {content}
                 </SlotProvider>

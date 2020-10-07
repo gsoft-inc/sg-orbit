@@ -1,7 +1,7 @@
 import "./Heading.css";
 
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -29,7 +29,7 @@ export function InnerHeading(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "heading")
+        useContentStyle("heading")
     );
 
     return (

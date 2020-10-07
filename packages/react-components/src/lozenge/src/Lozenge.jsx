@@ -4,7 +4,7 @@ import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getS
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 const propTypes = {
     /**
@@ -56,7 +56,7 @@ export function InnerLozenge({
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: textSlot({
                             size,
                             className: "o-ui-lozenge-text"
@@ -65,7 +65,7 @@ export function InnerLozenge({
                             size,
                             className: "o-ui-lozenge-icon"
                         })
-                    }}
+                    }), [size])}
                 >
                     {content}
                 </SlotProvider>

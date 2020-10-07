@@ -1,7 +1,7 @@
 import "./CheckboxGroup.css";
 
 import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { Group } from "../../group";
@@ -142,12 +142,7 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbarContext>
                 <ClearFieldContext>
-                    <CheckableContext.Provider
-                        value={{
-                            onCheck: handleCheck,
-                            checkedValue
-                        }}
-                    >
+                    <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
                         {Children.map(items, x => {
                             return augmentElement(x, {
                                 ...itemProps,

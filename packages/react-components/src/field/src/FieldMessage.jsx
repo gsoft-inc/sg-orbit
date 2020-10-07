@@ -1,10 +1,10 @@
 import "./FieldMessage.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
+import { ContentStyleProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 const ADAPTED_SIZE = {
     "sm": "xs",
@@ -68,30 +68,17 @@ export const FieldMessage = forwardRef(({
             as={as}
             ref={ref}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        text: {
-                            size: "inherit"
-                        },
-                        paragraph: {
-                            size: "inherit"
-                        },
-                        list: {
-                            size: "inherit"
-                        },
-                        icon: embeddedIconSlot({
-                            size
-                        }),
-                        link: {
-                            size: "inherit",
-                            underline: "dotted"
-                        }
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider
+                defaults="all"
+                styles={useMemo(() => ({
+                    icon: embeddedIconSlot({
+                        size
+                    })
+                }), [size])}
+
+            >
+                {children}
+            </ContentStyleProvider>
         </Text>
     );
 });

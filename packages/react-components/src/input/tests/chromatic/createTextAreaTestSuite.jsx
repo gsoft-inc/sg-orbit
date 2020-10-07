@@ -1,5 +1,3 @@
-import { CrossIcon } from "@react-components/icons";
-import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 

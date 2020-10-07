@@ -5,7 +5,7 @@ import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInput } from "../../field";
@@ -156,7 +156,7 @@ export function InnerCheckbox(props) {
             <span className="o-ui-checkbox-box" />
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-checkbox-label"
@@ -170,7 +170,7 @@ export function InnerCheckbox(props) {
                             reverse,
                             className: "o-ui-checkbox-counter"
                         }
-                    }}
+                    }), [size, reverse])}
                 >
                     {content}
                 </SlotProvider>

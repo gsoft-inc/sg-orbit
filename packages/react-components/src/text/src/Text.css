@@ -46,4 +46,5 @@
 
 .o-ui-text-inherit {
     font-size: inherit;
+    line-height: inherit;
 }

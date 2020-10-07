@@ -12,10 +12,9 @@ import {
     useEventCallback,
     useId,
     useMergedRefs,
-    useRenderProps,
-    useRovingFocus
+    useRenderProps, useRovingFocus
 } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -182,12 +181,7 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableContext.Provider
-                value={{
-                    onCheck: handleCheck,
-                    checkedValue
-                }}
-            >
+            <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,

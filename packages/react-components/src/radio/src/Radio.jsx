@@ -19,7 +19,7 @@ import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -163,7 +163,7 @@ export function InnerRadio(props) {
             <span className="o-ui-radio-button"></span>
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-radio-label"
@@ -177,7 +177,7 @@ export function InnerRadio(props) {
                             reverse,
                             className: "o-ui-radio-counter"
                         }
-                    }}
+                    }), [size, reverse])}
                 >
                     {content}
                 </SlotProvider>

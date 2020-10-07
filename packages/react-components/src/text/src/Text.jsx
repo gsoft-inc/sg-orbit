@@ -1,6 +1,6 @@
 import "./Text.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -33,7 +33,8 @@ export function InnerText(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "text")
+        useSlot(props, "text"),
+        useContentStyle("text")
     );
 
     return (
@@ -49,18 +50,9 @@ export function InnerText(props) {
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        link: {
-                            size,
-                            underline: "dotted"
-                        }
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider defaults="link">
+                {children}
+            </ContentStyleProvider>
         </ElementType>
     );
 }

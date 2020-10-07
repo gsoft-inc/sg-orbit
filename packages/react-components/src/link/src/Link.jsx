@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlot } from "../../shared";
+import { mergeProps, useContentStyle } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -31,10 +31,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
@@ -58,7 +54,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link")
+        useContentStyle("link")
     );
 
     const linkProps = useLink({

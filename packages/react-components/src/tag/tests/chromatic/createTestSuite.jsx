@@ -1,7 +1,6 @@
-import { CheckCircleIcon, CrossIcon, IconList } from "@react-components/icons";
+import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
-import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";

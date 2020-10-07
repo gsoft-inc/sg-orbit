@@ -37,6 +37,5 @@ export * from "./useIsInitialRender";
 
 // Contexts
 export * from "./CheckableContext";
-
-// Features
-export * from "./slots";
+export * from "./SlotContext";
+export * from "./ContentStyleContext";

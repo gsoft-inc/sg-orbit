@@ -2,8 +2,8 @@ import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../view";
+import { ContentStyleProvider, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
 import { CrossButton } from "../../button";
-import { SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useId, useMergedRefs, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
@@ -73,11 +73,12 @@ export function InnerAlert({
     const ref = useMergedRefs(forwardedRef);
 
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
+
     const hasAction = useHasChild(".o-ui-alert-action", ref);
 
+    // Override the default slot to ensure the dismiss button doesn't inherit from the "button" slot props.
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
-            // Override the default slot to ensure the dismiss button doesn't inherit from the "button" slot props.
             slot="dismiss"
             onClick={onDismiss}
             size={getSize(size)}
@@ -108,7 +109,7 @@ export function InnerAlert({
             ref={ref}
         >
             <SlotProvider
-                slots={{
+                slots={useMemo(() => ({
                     icon: {
                         size,
                         className: "o-ui-alert-icon"
@@ -116,41 +117,28 @@ export function InnerAlert({
                     content: {
                         size,
                         className: "o-ui-alert-content",
-                        as: Text,
-                        UNSAFE_slots: {
-                            heading: {
-                                size: HEADING_SIZE[getSize(size)],
-                                className: "o-ui-alert-title"
-                            },
-                            text: {
-                                size: "inherit"
-                            },
-                            paragraph: {
-                                size: "inherit"
-                            },
-                            link: {
-                                size: "inherit",
-                                underline: "dotted"
-                            },
-                            list: {
-                                size: "inherit"
-                            },
-                            button: {
-                                variant: "outline",
-                                size
-                            }
-                        }
+                        as: Text
                     },
                     button: {
                         variant: "ghost",
                         size: ACTION_SIZE[getSize(size)],
                         className: "o-ui-alert-action"
                     }
-                }}
+                }), [size])}
             >
-                {content}
-                {dismissMarkup}
+                <ContentStyleProvider
+                    defaults="all"
+                    styles={useMemo(() => ({
+                        heading: {
+                            size: HEADING_SIZE[getSize(size)],
+                            className: "o-ui-alert-title"
+                        }
+                    }), [size])}
+                >
+                    {content}
+                </ContentStyleProvider>
             </SlotProvider>
+            {dismissMarkup}
         </Transition>
     );
 }

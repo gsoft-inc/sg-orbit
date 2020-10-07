@@ -29,7 +29,6 @@
 }
 
 .o-ui-p-inherit {
-    font-size: inherit;
-    line-height: inherit;
+    font-weight: inherit;
     margin-bottom: .75em;
 }

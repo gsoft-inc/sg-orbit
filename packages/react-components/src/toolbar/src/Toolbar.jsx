@@ -2,7 +2,7 @@ import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
 import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const ARROW_NAV_KEY_BINDING = {
@@ -81,9 +81,11 @@ export function InnerToolbar({
     const ref = useMergedRefs(forwardedRef);
 
     useRovingFocus(ref);
+
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
     const alignProps = useFlexAlignment(orientation, align, verticalAlign);
+
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 
     return (
@@ -100,13 +102,7 @@ export function InnerToolbar({
             ref={ref}
             aria-orientation={orientation}
         >
-            <ToolbarContext.Provider
-                value={{
-                    orientation,
-                    size,
-                    disabled
-                }}
-            >
+            <ToolbarContext.Provider value={useMemo(() => ({ orientation, size, disabled }), [orientation, size, disabled])}>
                 {children}
             </ToolbarContext.Provider>
         </Flex>

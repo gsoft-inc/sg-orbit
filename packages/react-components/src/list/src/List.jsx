@@ -1,6 +1,6 @@
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { augmentElement, cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle } from "../../shared";
 
 const propTypes = {
     /**
@@ -11,10 +11,6 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
@@ -30,7 +26,7 @@ const List = forwardRef((props, ref) => {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "list")
+        useContentStyle("list")
     );
 
     return (

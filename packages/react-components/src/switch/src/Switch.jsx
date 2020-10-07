@@ -5,7 +5,7 @@ import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInput } from "../../field";
 import { useToolbarContext } from "../../toolbar";
@@ -130,7 +130,7 @@ export function InnerSwitch(props) {
             <span className="o-ui-switch-control" />
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-switch-label"
@@ -144,7 +144,7 @@ export function InnerSwitch(props) {
                             reverse,
                             className: "o-ui-switch-counter"
                         }
-                    }}
+                    }), [size, reverse])}
                 >
                     {content}
                 </SlotProvider>

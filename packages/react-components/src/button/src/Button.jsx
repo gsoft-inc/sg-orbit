@@ -4,7 +4,7 @@ import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProp
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarContext } from "../../toolbar";
@@ -17,7 +17,7 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary", "danger", "inherit"]),
+    color: oneOf(["primary", "secondary", "danger"]),
     /**
      * The button shape.
      */
@@ -132,7 +132,7 @@ export function InnerButton(props) {
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
+                    slots={useMemo(() => ({
                         text: {
                             size,
                             className: "o-ui-button-text",
@@ -142,7 +142,7 @@ export function InnerButton(props) {
                             size,
                             className: "o-ui-button-icon"
                         })
-                    }}
+                    }), [size, loading])}
                 >
                     {content}
                 </SlotProvider>

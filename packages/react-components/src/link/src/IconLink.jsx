@@ -1,7 +1,7 @@
 import "./Link.css";
 
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, useSlot } from "../../shared";
+import { augmentElement, mergeProps, useContentStyle } from "../../shared";
 import { forwardRef } from "react";
 import { useLink } from "./useLink";
 
@@ -39,10 +39,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
@@ -70,7 +66,7 @@ export function InnerIconLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link")
+        useContentStyle("link")
     );
 
     const linkProps = useLink({
@@ -92,7 +88,6 @@ export function InnerIconLink(props) {
 
     const iconMarkup = augmentElement(children, {
         size
-        // className: "o-ui-link-icon"
     });
 
     return (

@@ -1,8 +1,8 @@
 import "./Paragraph.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
 import { Text } from "./Text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -14,10 +14,6 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
@@ -34,7 +30,7 @@ export function InnerParagraph(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "paragraph")
+        useContentStyle("p")
     );
 
     return (
@@ -51,18 +47,7 @@ export function InnerParagraph(props) {
             as={as}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        link: {
-                            size,
-                            underline: "dotted"
-                        }
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            {children}
         </Text>
     );
 }

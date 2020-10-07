@@ -3,8 +3,8 @@ import "./Field.css";
 import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps, useRenderProps } from "../../shared";
+import { forwardRef, useMemo } from "react";
+import { mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
@@ -72,6 +72,8 @@ export function InnerGroupField(props) {
         forwardedRef
     });
 
+    const groupFieldContext = useMemo(() => ({ ...fieldContext, isGroup: true }), [fieldContext]);
+
     return (
         <ElementType
             data-testid="field"
@@ -79,7 +81,7 @@ export function InnerGroupField(props) {
             {...fieldProps}
         >
             <ClearToolbarContext>
-                <FieldContext.Provider value={{ ...fieldContext, isGroup: true }}>
+                <FieldContext.Provider value={groupFieldContext}>
                     {children}
                 </FieldContext.Provider>
             </ClearToolbarContext>

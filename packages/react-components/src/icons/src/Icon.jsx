@@ -1,11 +1,11 @@
 import "./Icon.css";
 
-import { cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle, useSlot } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "inherit"];
+const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl"];
 
 export function InnerIcon(props) {
     const {
@@ -18,7 +18,8 @@ export function InnerIcon(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "icon")
+        useSlot(props, "icon"),
+        useContentStyle("icon")
     );
 
     return (

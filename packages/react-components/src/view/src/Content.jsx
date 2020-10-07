@@ -1,4 +1,3 @@
-import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -17,28 +16,18 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerContent(props) {
-    const {
-        as: ElementType = "section",
-        UNSAFE_slots,
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        useSlot(props, "content")
-    );
-
+export function InnerContent({
+    as: ElementType = "div",
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <ElementType
             {...rest}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider slots={UNSAFE_slots}>
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            {children}
         </ElementType>
     );
 }
