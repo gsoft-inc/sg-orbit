@@ -1,4 +1,4 @@
-import { CrossButton } from "../../button";
+import { EmbeddedCrossButton } from "../../button";
 import { EmbeddedIcon } from "../../icons";
 
 export function useInputIcon(icon, props) {
@@ -14,11 +14,8 @@ export function useInputIcon(icon, props) {
 
 export function useInputClearButton(isVisible, props) {
     return isVisible && (
-        <CrossButton
+        <EmbeddedCrossButton
             {...props}
-            variant="ghost"
-            color="secondary"
-            shape="circular"
             className="o-ui-input-clear-button"
             aria-label="Clear"
         />

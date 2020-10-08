@@ -4,15 +4,6 @@ import { bool, elementType, func, number, oneOf, oneOfType, string } from "prop-
 import { forwardRef } from "react";
 import { getSize, mergeProps, useSlot } from "../../shared";
 
-// TODO:
-// - Maybe we can now remove the hack that we did for secondary ghost (it was for Tag)
-
-const SIZE = {
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-};
-
 const propTypes = {
     /**
      * Whether the button should autoFocus on render.
@@ -23,9 +14,9 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * A close button can vary in size.
+     * A cross button can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
     /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -46,23 +37,14 @@ const propTypes = {
     slot: string
 };
 
-export function InnerCrossButton(props) {
-    const {
-        size,
-        ...rest
-    } = mergeProps(
-        props,
-        useSlot(props, "button")
-    );
-
+export function InnerCrossButton({ children, ...rest }) {
     return (
         <IconButton
             {...rest}
             variant="ghost"
             shape="circular"
-            size={SIZE[getSize(size)]}
         >
-            <CrossIcon />
+            {children ?? <CrossIcon />}
         </IconButton>
     );
 }
@@ -71,4 +53,45 @@ InnerCrossButton.propTypes = propTypes;
 
 export const CrossButton = forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
+));
+
+////////
+
+const EMBED_SIZE = {
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
+};
+
+export function InnerEmbeddedCrossButton(props) {
+    const {
+        size,
+        ...rest
+    } = mergeProps(
+        props,
+        useSlot(props, "button")
+    );
+
+    const embedSize = EMBED_SIZE[getSize(size)];
+
+    return (
+        <CrossButton
+            {...rest}
+            size={embedSize}
+        >
+            <CrossIcon size={embedSize} />
+        </CrossButton>
+    );
+}
+
+InnerEmbeddedCrossButton.propTypes = {
+    ...propTypes,
+    /**
+     * A cross button can vary in size.
+     */
+    size: oneOf(["sm", "md", "lg"])
+};
+
+export const EmbeddedCrossButton = forwardRef((props, ref) => (
+    <InnerEmbeddedCrossButton {...props} forwardedRef={ref} />
 ));

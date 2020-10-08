@@ -11,13 +11,13 @@ import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
-     * The style to use.
+     * The button style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * The color accent.
+     * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The button shape.
      */

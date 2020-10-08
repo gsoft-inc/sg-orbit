@@ -1,17 +1,17 @@
+import { ClearSlots, mergeProps, omitProps, useSlot } from "../../shared";
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, omitProps, useSlot } from "../../shared";
 import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
-     * The style to use.
+     * The button style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * The color accent.
+     * The button color accent.
      */
     color: oneOf(["primary", "secondary", "danger"]),
     /**
@@ -109,11 +109,6 @@ export function InnerIconButton(props) {
         forwardedRef
     });
 
-    // const iconMarkup = augmentElement(children, {
-    //     size,
-    //     className: "o-ui-button-icon"
-    // });
-
     return (
         <ElementType
             data-testid="icon-button"
@@ -122,9 +117,11 @@ export function InnerIconButton(props) {
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
-            <EmbeddedIcon size={size} className="o-ui-button-icon">
-                {children}
-            </EmbeddedIcon>
+            <ClearSlots>
+                <EmbeddedIcon size={size} className="o-ui-button-icon">
+                    {children}
+                </EmbeddedIcon>
+            </ClearSlots>
         </ElementType>
     );
 }

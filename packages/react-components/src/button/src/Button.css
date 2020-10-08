@@ -766,6 +766,6 @@ a.o-ui-button {
     height: max-content;
 }
 
-/* .o-ui-icon-button .o-ui-button-icon {
-    margin-right: 0;
-} */
+.o-ui-icon-button .o-ui-button-icon {
+    grid-area: unset;
+}

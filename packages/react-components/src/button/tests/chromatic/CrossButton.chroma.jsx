@@ -1,4 +1,4 @@
-import { CrossButton } from "@react-components/button";
+import { CrossButton, EmbeddedCrossButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -14,9 +14,15 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline verticalAlign="end">
-            <CrossButton size="xs" />
             <CrossButton size="sm" />
             <CrossButton />
             <CrossButton size="lg" />
+        </Inline>
+    )
+    .add("embedded", () =>
+        <Inline verticalAlign="end">
+            <EmbeddedCrossButton size="sm" />
+            <EmbeddedCrossButton />
+            <EmbeddedCrossButton size="lg" />
         </Inline>
     );

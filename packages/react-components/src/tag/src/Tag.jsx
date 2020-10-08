@@ -1,7 +1,7 @@
 import "./Tag.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
-import { CrossButton } from "../../button";
+import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { EmbeddedCrossButton } from "../../button";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
@@ -60,12 +60,8 @@ export function InnerTag({
     }, ref);
 
     const removeMarkup = !isNil(onRemove) && (
-        <CrossButton
-            variant="ghost"
-            color="secondary"
-            shape="circular"
+        <EmbeddedCrossButton
             onClick={onRemove}
-            size={getSize(size)}
             className="o-ui-tag-remove-button"
             aria-label="Remove"
         />
@@ -119,9 +115,9 @@ export function InnerTag({
                     }), [size, disabled])}
                 >
                     {content}
-                    {removeMarkup}
                 </SlotProvider>
             </ClearSlots>
+            {removeMarkup}
         </ElementType>
     );
 }

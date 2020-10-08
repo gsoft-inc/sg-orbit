@@ -37,8 +37,6 @@ export function InnerText(props) {
         useContentStyle("text")
     );
 
-    console.log(size, props);
-
     return (
         <ElementType
             data-testid="text"

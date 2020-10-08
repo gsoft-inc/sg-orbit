@@ -144,6 +144,22 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("inherit", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button color="inherit" size="sm" element={element}>Button</Button>
+                    <Button color="inherit" element={element}>Button</Button>
+                    <Button color="inherit" size="lg" element={element}>Button</Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button color="inherit" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button loading color="inherit" element={element}>Button</Button>
+                </Inline>
+            </Stack>
+        )
         .add("circular", () =>
             <Stack>
                 <Inline verticalAlign="end">

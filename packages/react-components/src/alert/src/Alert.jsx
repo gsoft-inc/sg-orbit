@@ -1,9 +1,9 @@
 import "./Alert.css";
 
-import { CheckIcon, CrossIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../view";
-import { ContentStyleProvider, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
-import { CrossButton, IconButton } from "../../button";
+import { ContentStyleProvider, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { CrossButton } from "../../button";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
@@ -23,7 +23,7 @@ const HEADING_SIZE = {
     "lg": "xs"
 };
 
-const ACTION_SIZE = {
+const BUTTON_SIZE = {
     "sm": "xs",
     "md": "sm",
     "lg": "md"
@@ -83,23 +83,12 @@ export function InnerAlert({
     }, ref);
 
     const dismissMarkup = !isNil(onDismiss) && (
-        <IconButton
-            variant="ghost"
-            shape="circular"
+        <CrossButton
             onClick={onDismiss}
-            size={ACTION_SIZE[getSize(size)]}
+            size={BUTTON_SIZE[getSize(size)]}
             className="o-ui-alert-dismiss"
             aria-label="Dismiss"
-        >
-            <CrossIcon />
-        </IconButton>
-        // <CrossButton
-        //     slot="dismiss"
-        //     onClick={onDismiss}
-        //     size={size}
-        //     className="o-ui-alert-dismiss"
-        //     aria-label="Close"
-        // />
+        />
     );
 
     const content = useTextContent(() => (<Content>{children}</Content>), children);
@@ -140,7 +129,8 @@ export function InnerAlert({
                     },
                     button: {
                         variant: "ghost",
-                        size: ACTION_SIZE[getSize(size)],
+                        color: "inherit",
+                        size: BUTTON_SIZE[getSize(size)],
                         className: "o-ui-alert-action"
                     }
                 }), [size])}
@@ -162,6 +152,7 @@ export function InnerAlert({
     );
 }
 
+InnerAlert.propTypes = propTypes;
 
 export const Alert = forwardRef((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
