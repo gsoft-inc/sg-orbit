@@ -1,7 +1,7 @@
-import { ClearSlots, mergeProps, omitProps, useSlot } from "../../shared";
+import { Children, forwardRef } from "react";
+import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlot } from "../../shared";
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
 
@@ -18,6 +18,10 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
+    /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -69,6 +73,7 @@ export function InnerIconButton(props) {
         variant = "solid",
         color,
         shape = "pill",
+        condensed,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -108,6 +113,12 @@ export function InnerIconButton(props) {
         className,
         forwardedRef
     });
+    const icon = Children.only(children);
+
+    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+        size,
+        className: "o-ui-button-icon"
+    });
 
     return (
         <ElementType
@@ -118,9 +129,7 @@ export function InnerIconButton(props) {
             aria-label={ariaLabel}
         >
             <ClearSlots>
-                <EmbeddedIcon size={size} className="o-ui-button-icon">
-                    {children}
-                </EmbeddedIcon>
+                {iconMarkup}
             </ClearSlots>
         </ElementType>
     );
@@ -131,3 +140,9 @@ InnerIconButton.propTypes = propTypes;
 export const IconButton = forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 ));
+
+export const embedIconButton = createEmbeddableAdapter({
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
+});

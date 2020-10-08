@@ -1,3 +1,4 @@
+import { CrossButton } from "../../../button";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
@@ -86,23 +87,23 @@ export function createTextAreaTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("clear button", () =>
+        .add("button", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <TextArea size="sm" onClear={() => {}} placeholder="Where to?" element={element} />
-                    <TextArea onClear={() => {}} placeholder="Where to?" element={element} />
-                    <TextArea size="lg" onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextArea size="sm" button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                    <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                    <TextArea size="lg" button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <TextArea size="sm" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea size="lg" onClear={() => {}} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea size="sm" button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
+                    <TextArea size="lg" button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
                 </Inline>
                 <div>
-                    <TextArea disabled onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 </div>
                 <div>
-                    <TextArea loading onClear={() => {}} placeholder="Where to?" element={element} />
+                    <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 </div>
             </Stack>
         )

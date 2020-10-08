@@ -2,9 +2,12 @@ import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
 import { bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSize, mergeProps, useSlot } from "../../shared";
 
 const propTypes = {
+    /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -54,48 +57,4 @@ InnerCrossButton.propTypes = propTypes;
 
 export const CrossButton = forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
-));
-
-////////
-
-const EMBED_SIZE = {
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-};
-
-export function InnerEmbeddedCrossButton(props) {
-    const {
-        size,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        useSlot(props, "button")
-    );
-
-    // TODO: If we introduce "condensed" we wouldn't need this anymore.
-    const embedSize = EMBED_SIZE[getSize(size)];
-
-    return (
-        <CrossButton
-            {...rest}
-            size={embedSize}
-            ref={forwardedRef}
-        >
-            <CrossIcon size={embedSize} />
-        </CrossButton>
-    );
-}
-
-InnerEmbeddedCrossButton.propTypes = {
-    ...propTypes,
-    /**
-     * A cross button can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg"])
-};
-
-export const EmbeddedCrossButton = forwardRef((props, ref) => (
-    <InnerEmbeddedCrossButton {...props} forwardedRef={ref} />
 ));

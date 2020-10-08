@@ -1,3 +1,4 @@
+import { CrossButton } from "@react-components/button";
 import { EditIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
@@ -64,13 +65,13 @@ A text input can contain an [icon](?path=/docs/materials-icons--page).
     </Story>
 </Preview>
 
-### Clearable
+### Button
 
-A text input value can be clearable by specifying an `onClear` handler.
+A text input can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
-    <Story name="clearable">
-        <TextInput onClear={() => {}} placeholder="Where to?" />
+    <Story name="button">
+        <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
     </Story>
 </Preview>
 

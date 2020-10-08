@@ -3,10 +3,9 @@ import "./Input.css";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
-import { useInputClearButton, useInputIcon } from "./useInputContent";
+import { useInputButton, useInputIcon } from "./useInputContent";
 import { useToolbarContext } from "../../toolbar";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
@@ -38,12 +37,6 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Called when the clear button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onClear: func,
-    /**
      * The style to use.
      */
     variant: oneOf(["outline", "transparent"]),
@@ -66,7 +59,7 @@ const propTypes = {
     /**
      * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
      */
-    // button: element,
+    button: element,
     /**
      * Whether the input take up the width of its container.
      */
@@ -101,12 +94,12 @@ export function InnerTextInput(props) {
         required,
         validationState,
         onChange,
-        onClear,
         variant = "outline",
         type = "text",
         autoFocus,
         autoFocusDelay,
         icon,
+        button,
         disabled,
         readOnly,
         fluid,
@@ -162,10 +155,7 @@ export function InnerTextInput(props) {
 
     const iconMarkup = useInputIcon(icon, { size, disabled });
 
-    const clearMarkup = useInputClearButton(!isNil(onClear) && !disabled && !readOnly, {
-        onClick: onClear,
-        size
-    });
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
 
     const content = (
         <>
@@ -175,7 +165,7 @@ export function InnerTextInput(props) {
                 {...rest}
                 {...inputProps}
             />
-            {clearMarkup}
+            {buttonMarkup}
         </>
     );
 
@@ -186,7 +176,7 @@ export function InnerTextInput(props) {
                 cssModule(
                     "o-ui-input",
                     iconMarkup && "has-icon",
-                    clearMarkup && "has-clear-button"
+                    buttonMarkup && "has-button"
                 ),
                 wrapperClassName
             )}

@@ -1,3 +1,4 @@
+import { CrossButton } from "@react-components/button";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Inline } from "@react-components/layout";
 import { InnerTextArea, TextArea } from "@react-components/input";
@@ -52,13 +53,15 @@ A text area can have a value.
     </Story>
 </Preview>
 
-### Clearable
+### Button
 
-A text area value can be clearable by specifying an `onClear` handler.
+A text area can contain a [button](?path=/docs/components-button--default-story).
 
 <Preview>
-    <Story name="clearable">
-        <TextArea onClear={() => {}} placeholder="Why should you go to space?" />
+    <Story name="button">
+        <Inline>
+            <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Why should you go to space?" />
+        </Inline>
     </Story>
 </Preview>
 

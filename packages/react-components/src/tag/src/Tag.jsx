@@ -1,7 +1,7 @@
 import "./Tag.css";
 
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
-import { EmbeddedCrossButton } from "../../button";
+import { CrossButton, embedIconButton } from "../../button";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
@@ -10,7 +10,7 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * The style to use.
+     * The tag style to use.
      */
     variant: oneOf(["solid", "outline"]),
     /**
@@ -59,13 +59,13 @@ export function InnerTag({
         hasCounter: ".o-ui-tag-counter"
     }, ref);
 
-    const removeMarkup = !isNil(onRemove) && (
-        <EmbeddedCrossButton
-            onClick={onRemove}
-            className="o-ui-tag-remove-button"
-            aria-label="Remove"
-        />
-    );
+    const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
+        condensed: true,
+        onClick: onRemove,
+        size,
+        className: "o-ui-tag-remove-button",
+        "aria-label": "Remove"
+    });
 
     const content = useTextContent(Text, children);
 

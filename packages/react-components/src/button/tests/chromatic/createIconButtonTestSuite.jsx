@@ -26,6 +26,15 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("condensed", () =>
+            <Inline verticalAlign="end">
+                <IconButton condensed size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                <IconButton condensed size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                <IconButton condensed size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                <IconButton condensed aria-label="Add" element={element}><AddIcon /></IconButton>
+                <IconButton condensed size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
+            </Inline>
+        )
         .add("primary", () =>
             <Stack>
                 <Inline verticalAlign="end">

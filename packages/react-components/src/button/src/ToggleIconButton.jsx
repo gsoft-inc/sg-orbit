@@ -37,6 +37,10 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
+    /**
      * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
