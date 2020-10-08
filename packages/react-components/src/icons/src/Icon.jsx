@@ -5,7 +5,7 @@ import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
-const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl"];
+const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "inherit"];
 
 export function InnerIcon(props) {
     const {

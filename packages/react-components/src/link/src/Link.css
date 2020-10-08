@@ -1,6 +1,6 @@
 .o-ui-link {
     display: inline-block;
-    line-height: 1;
+    /* line-height: 1; */
     border: none;
     background-color: var(--transparent);
     color: var(--marine-900);

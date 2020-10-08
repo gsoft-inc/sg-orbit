@@ -1,3 +1,4 @@
+import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, omitProps, useSlot } from "../../shared";
 import { forwardRef } from "react";
@@ -108,10 +109,10 @@ export function InnerIconButton(props) {
         forwardedRef
     });
 
-    const iconMarkup = augmentElement(children, {
-        size,
-        className: "o-ui-button-icon"
-    });
+    // const iconMarkup = augmentElement(children, {
+    //     size,
+    //     className: "o-ui-button-icon"
+    // });
 
     return (
         <ElementType
@@ -121,7 +122,9 @@ export function InnerIconButton(props) {
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
-            {iconMarkup}
+            <EmbeddedIcon size={size} className="o-ui-button-icon">
+                {children}
+            </EmbeddedIcon>
         </ElementType>
     );
 }

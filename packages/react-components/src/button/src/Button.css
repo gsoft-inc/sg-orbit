@@ -721,7 +721,10 @@ a.o-ui-button {
 /* CONTENT | ICON */
 .o-ui-button-icon {
     grid-area: icon;
-    margin-right: var(--scale-alpha);
+}
+
+.o-ui-button-icon + .o-ui-button-text {
+    margin-left: var(--scale-alpha);
 }
 
 /* CONTENT | ICON | SIZES */
@@ -763,6 +766,6 @@ a.o-ui-button {
     height: max-content;
 }
 
-.o-ui-icon-button .o-ui-button-icon {
+/* .o-ui-icon-button .o-ui-button-icon {
     margin-right: 0;
-}
+} */

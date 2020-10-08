@@ -1,9 +1,9 @@
 import "./Alert.css";
 
-import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckIcon, CrossIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../view";
-import { ContentStyleProvider, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
-import { CrossButton } from "../../button";
+import { ContentStyleProvider, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses, useHasChild, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { CrossButton, IconButton } from "../../button";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
@@ -18,9 +18,9 @@ const ROLE = {
 };
 
 const HEADING_SIZE = {
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
+    "sm": "3xs",
+    "md": "2xs",
+    "lg": "xs"
 };
 
 const ACTION_SIZE = {
@@ -28,6 +28,9 @@ const ACTION_SIZE = {
     "md": "sm",
     "lg": "md"
 };
+
+// TODO
+// - To fix the content as span, use nested grids.
 
 const propTypes = {
     /**
@@ -74,20 +77,32 @@ export function InnerAlert({
 
     const role = useMemo(() => (roleProp ?? ROLE[tone]) ?? "alert", [tone, roleProp]);
 
-    const hasAction = useHasChild(".o-ui-alert-action", ref);
+    const { hasIcon, hasAction } = useHasChildren({
+        hasIcon: ".o-ui-alert-icon",
+        hasCounter: ".o-ui-alert-action"
+    }, ref);
 
-    // Override the default slot to ensure the dismiss button doesn't inherit from the "button" slot props.
     const dismissMarkup = !isNil(onDismiss) && (
-        <CrossButton
-            slot="dismiss"
+        <IconButton
+            variant="ghost"
+            shape="circular"
             onClick={onDismiss}
-            size={getSize(size)}
+            size={ACTION_SIZE[getSize(size)]}
             className="o-ui-alert-dismiss"
-            aria-label="Close"
-        />
+            aria-label="Dismiss"
+        >
+            <CrossIcon />
+        </IconButton>
+        // <CrossButton
+        //     slot="dismiss"
+        //     onClick={onDismiss}
+        //     size={size}
+        //     className="o-ui-alert-dismiss"
+        //     aria-label="Close"
+        // />
     );
 
-    const content = useTextContent(() => (<Content><Text>{children}</Text></Content>), children);
+    const content = useTextContent(() => (<Content>{children}</Content>), children);
 
     return (
         <Transition
@@ -99,7 +114,9 @@ export function InnerAlert({
                 cssModule(
                     "o-ui-alert",
                     tone,
+                    hasIcon && "has-icon",
                     hasAction && "has-action",
+                    dismissMarkup && "has-dismiss",
                     getSizeClass(size)
                 ),
                 className
@@ -115,7 +132,9 @@ export function InnerAlert({
                         className: "o-ui-alert-icon"
                     },
                     content: {
-                        size,
+                        // TEMP hotfix
+                        size: getSize(size),
+                        // size,
                         className: "o-ui-alert-content",
                         as: Text
                     },
