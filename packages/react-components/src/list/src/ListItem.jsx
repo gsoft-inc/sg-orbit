@@ -40,7 +40,13 @@ export function InnerListItem({
             )}
             ref={forwardedRef}
         >
-            <ContentStyleProvider defaults={["text", "icon"]}>
+            <ContentStyleProvider
+                styles={{
+                    text: {
+                        size
+                    }
+                }}
+            >
                 {content}
             </ContentStyleProvider>
         </ElementType>
