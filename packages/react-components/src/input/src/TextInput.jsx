@@ -164,7 +164,8 @@ export function InnerTextInput(props) {
 
     const clearMarkup = useInputClearButton(!isNil(onClear) && !disabled && !readOnly, {
         onClick: onClear,
-        size });
+        size
+    });
 
     const content = (
         <>

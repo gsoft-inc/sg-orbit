@@ -14,9 +14,9 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * A close button can vary in size.
+     * A cross button can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
     /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -84,7 +84,13 @@ export function InnerEmbeddedCrossButton(props) {
     );
 }
 
-InnerEmbeddedCrossButton.propTypes = propTypes;
+InnerEmbeddedCrossButton.propTypes = {
+    ...propTypes,
+    /**
+     * A cross button can vary in size.
+     */
+    size: oneOf(["sm", "md", "lg"])
+};
 
 export const EmbeddedCrossButton = forwardRef((props, ref) => (
     <InnerEmbeddedCrossButton {...props} forwardedRef={ref} />
