@@ -80,6 +80,24 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("inherit", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <IconButton color="inherit" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="inherit" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="inherit" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="inherit" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="inherit" size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconButton loading color="inherit" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="inherit" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="inherit" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="inherit" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="inherit" size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+            </Stack>
+        )
         .add("circular", () =>
             <Stack>
                 <Inline verticalAlign="end">

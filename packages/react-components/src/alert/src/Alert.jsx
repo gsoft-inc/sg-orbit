@@ -89,24 +89,6 @@ export function InnerAlert({
             className="o-ui-alert-dismiss"
             aria-label="Dismiss"
         />
-
-    // <IconButton
-    //     variant="ghost"
-    //     shape="circular"
-    //     onClick={onDismiss}
-    //     size={ACTION_SIZE[getSize(size)]}
-    //     className="o-ui-alert-dismiss"
-    //     aria-label="Dismiss"
-    // >
-    //     <CrossIcon />
-    // </IconButton>
-    // <CrossButton
-    //     slot="dismiss"
-    //     onClick={onDismiss}
-    //     size={size}
-    //     className="o-ui-alert-dismiss"
-    //     aria-label="Close"
-    // />
     );
 
     const content = useTextContent(() => (<Content>{children}</Content>), children);
@@ -147,6 +129,7 @@ export function InnerAlert({
                     },
                     button: {
                         variant: "ghost",
+                        color: "inherit",
                         size: BUTTON_SIZE[getSize(size)],
                         className: "o-ui-alert-action"
                     }
@@ -169,6 +152,7 @@ export function InnerAlert({
     );
 }
 
+InnerAlert.propTypes = propTypes;
 
 export const Alert = forwardRef((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
