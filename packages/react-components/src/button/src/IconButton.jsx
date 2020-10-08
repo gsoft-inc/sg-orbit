@@ -113,6 +113,7 @@ export function InnerIconButton(props) {
         className,
         forwardedRef
     });
+
     const icon = Children.only(children);
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {

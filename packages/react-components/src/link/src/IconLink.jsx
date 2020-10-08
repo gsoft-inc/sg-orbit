@@ -1,8 +1,9 @@
 import "./Link.css";
 
+import { Children, forwardRef } from "react";
+import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, useContentStyle } from "../../shared";
-import { forwardRef } from "react";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -11,9 +12,13 @@ const propTypes = {
      */
     href: string,
     /**
-     * The color accent.
+     * The link color accent.
      */
     color: oneOf(["primary", "secondary", "danger"]),
+    /**
+     * Whether or not the link content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether or not this is an external link.
      */
@@ -47,6 +52,7 @@ const propTypes = {
 export function InnerIconLink(props) {
     const {
         color,
+        condensed,
         external,
         autoFocus,
         autoFocusDelay,
@@ -86,7 +92,9 @@ export function InnerIconLink(props) {
         forwardedRef
     });
 
-    const iconMarkup = augmentElement(children, {
+    const icon = Children.only(children);
+
+    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
         size
     });
 
