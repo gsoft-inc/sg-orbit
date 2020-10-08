@@ -81,11 +81,6 @@ a.o-ui-button {
     background-color: var(--marine-500);
 }
 
-/* SOLID | ICON */
-.o-ui-button-solid .o-ui-button-icon {
-    fill: var(--white);
-}
-
 /* SOLID | SIZES */
 .o-ui-button-solid.o-ui-button-2xs {
     padding: 0 var(--o-ui-button-padding-2xs);
@@ -412,7 +407,7 @@ a.o-ui-button {
 
 /* GHOST | LOADING */
 .o-ui-button-ghost.o-ui-button-loading {
-    background-color: var(--cloud-50);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 /* GHOST | FOCUS */
@@ -768,4 +763,62 @@ a.o-ui-button {
 
 .o-ui-icon-button .o-ui-button-icon {
     grid-area: unset;
+}
+
+/* INHERIT */
+/* GHOST */
+.o-ui-button-inherit.o-ui-button-ghost {
+    color: inherit;
+}
+
+.o-ui-button-loading.o-ui-button-ghost::before {
+    border-color: hsla(0, 0%, 0%, 0.25);
+    border-top-color: currentColor;
+}
+
+/* OUTLINE */
+.o-ui-button-inherit.o-ui-button-outline {
+    color: inherit;
+    box-shadow: 0 0 0 1px currentColor inset;
+}
+
+.o-ui-button:focus.o-ui-button-inherit.o-ui-button-outline,
+.o-ui-button-focus.o-ui-button-inherit.o-ui-button-outline {
+    box-shadow: 0 0 0 1px currentColor inset, var(--o-ui-focus-ring);
+}
+
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-outline,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-outline {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.o-ui-button:active.o-ui-button-inherit.o-ui-button-outline,
+.o-ui-button-active.o-ui-button-inherit.o-ui-button-outline {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.o-ui-button-loading.o-ui-button-outline::before {
+    border-color: rgba(0, 0, 0, 0.25);
+    border-top-color: currentColor;
+}
+
+/* SOLID */
+.o-ui-button-inherit.o-ui-button-solid {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.o-ui-button:active.o-ui-button-inherit.o-ui-button-solid,
+.o-ui-button-active.o-ui-button-inherit.o-ui-button-solid {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.o-ui-button-loading.o-ui-button-solid::before {
+    border-color: rgba(0, 0, 0, 0.25);
+    border-top-color: currentColor;
 }

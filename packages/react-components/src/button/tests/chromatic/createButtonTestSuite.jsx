@@ -146,12 +146,12 @@ export function createButtonTestSuite(element, stories) {
         )
         .add("inherit", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline verticalAlign="end" className="bg-sunray-50 sunray-900">
                     <Button color="inherit" size="sm" element={element}>Button</Button>
                     <Button color="inherit" element={element}>Button</Button>
                     <Button color="inherit" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline verticalAlign="end" className="bg-sunray-50 sunray-900">
                     <Button color="inherit" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
