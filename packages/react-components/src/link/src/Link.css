@@ -250,9 +250,15 @@ button.o-ui-link-hover {
     border-radius: 0;
 }
 
+/* ICON LINK */
+/* we need a .o-ui-icon-link-icon [sic] */
+.o-ui-icon-link .o-ui-icon {
+    display: block;
+}
+
 /* ICON LINK | STATES */
 .o-ui-icon-link:focus,
-.o-ui-link-focus {
+.o-ui-icon-link-focus {
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
     background-color: var(--primary-50);
