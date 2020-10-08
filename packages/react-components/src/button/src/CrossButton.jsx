@@ -37,12 +37,13 @@ const propTypes = {
     slot: string
 };
 
-export function InnerCrossButton({ children, ...rest }) {
+export function InnerCrossButton({ children, forwardedRef, ...rest }) {
     return (
         <IconButton
             {...rest}
             variant="ghost"
             shape="circular"
+            ref={forwardedRef}
         >
             {children ?? <CrossIcon />}
         </IconButton>
@@ -66,18 +67,21 @@ const EMBED_SIZE = {
 export function InnerEmbeddedCrossButton(props) {
     const {
         size,
+        forwardedRef,
         ...rest
     } = mergeProps(
         props,
         useSlot(props, "button")
     );
 
+    // TODO: If we introduce "condensed" we wouldn't need this anymore.
     const embedSize = EMBED_SIZE[getSize(size)];
 
     return (
         <CrossButton
             {...rest}
             size={embedSize}
+            ref={forwardedRef}
         >
             <CrossIcon size={embedSize} />
         </CrossButton>

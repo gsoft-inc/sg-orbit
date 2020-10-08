@@ -29,9 +29,6 @@ const BUTTON_SIZE = {
     "lg": "md"
 };
 
-// TODO
-// - To fix the content as span, use nested grids.
-
 const propTypes = {
     /**
      * A controlled show value.
