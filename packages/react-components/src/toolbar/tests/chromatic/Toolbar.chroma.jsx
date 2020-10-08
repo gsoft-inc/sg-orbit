@@ -424,7 +424,7 @@ stories("/vertical")
             </Toolbar>
         </Inline>
     )
-    .add("justify", () =>
+    .add("vertical align", () =>
         <Inline gap={13}>
             <Toolbar verticalAlign="start" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>

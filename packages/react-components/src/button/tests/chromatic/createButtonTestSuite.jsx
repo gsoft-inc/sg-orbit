@@ -108,6 +108,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                </Inline>
+                <Inline>
+                    <Button active color="primary" element={element}>Button</Button>
+                    <Button focus color="primary" element={element}>Button</Button>
+                    <Button hover color="primary" element={element}>Button</Button>
+                    <Button focus hover color="primary" element={element}>Button</Button>
                     <Button loading color="primary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -119,11 +125,17 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="secondary" element={element}>Button</Button>
                     <Button color="secondary" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline>
                     <Button color="secondary" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                </Inline>
+                <Inline>
+                    <Button active color="secondary" element={element}>Button</Button>
+                    <Button focus color="secondary" element={element}>Button</Button>
+                    <Button hover color="secondary" element={element}>Button</Button>
+                    <Button focus hover color="secondary" element={element}>Button</Button>
                     <Button loading color="secondary" element={element}>Button</Button>
                 </Inline>
             </Stack>
@@ -135,27 +147,39 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" element={element}>Button</Button>
                     <Button color="danger" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline>
                     <Button color="danger" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                </Inline>
+                <Inline>
+                    <Button active color="danger" element={element}>Button</Button>
+                    <Button focus color="danger" element={element}>Button</Button>
+                    <Button hover color="danger" element={element}>Button</Button>
+                    <Button focus hover color="danger" element={element}>Button</Button>
                     <Button loading color="danger" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
         .add("inherit", () =>
-            <Stack>
-                <Inline verticalAlign="end" className="bg-sunray-50 sunray-900">
+            <Stack className="bg-sunray-50 sunray-900">
+                <Inline verticalAlign="end">
                     <Button color="inherit" size="sm" element={element}>Button</Button>
                     <Button color="inherit" element={element}>Button</Button>
                     <Button color="inherit" size="lg" element={element}>Button</Button>
                 </Inline>
-                <Inline verticalAlign="end" className="bg-sunray-50 sunray-900">
+                <Inline>
                     <Button color="inherit" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                </Inline>
+                <Inline>
+                    <Button active color="inherit" element={element}>Button</Button>
+                    <Button focus color="inherit" element={element}>Button</Button>
+                    <Button hover color="inherit" element={element}>Button</Button>
+                    <Button focus hover color="inherit" element={element}>Button</Button>
                     <Button loading color="inherit" element={element}>Button</Button>
                 </Inline>
             </Stack>

@@ -26,8 +26,11 @@
     justify-content: center;
     grid-template-columns: max-content auto;
     grid-template-areas: "icon text";
-    width: max-content;
     height: max-content;
+}
+
+.o-ui-button:not(.o-ui-button-fluid) {
+    width: max-content;
 }
 
 /* ANCHOR */

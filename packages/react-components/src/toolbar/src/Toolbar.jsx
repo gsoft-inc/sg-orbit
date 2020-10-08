@@ -84,7 +84,7 @@ export function InnerToolbar({
 
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    const alignProps = useFlexAlignment(orientation, align, verticalAlign);
+    const alignProps = useFlexAlignment(orientation, align, orientation === "horizontal" ? verticalAlign ?? "center" : verticalAlign);
 
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 

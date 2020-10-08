@@ -71,8 +71,7 @@ export function InnerGroup({
             {...rest}
             {...alignProps}
             direction={toFlexDirection(orientation)}
-            // alignItems={align ?? (orientation === "horizontal" ? "center" : undefined)}
-            // justifyContent={justify}
+
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >

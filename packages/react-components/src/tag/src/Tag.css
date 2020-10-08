@@ -11,8 +11,11 @@
     color: var(--marine-900);
     border-radius: 999px;
     transition: background-color 0.1s linear;
-    width: max-content;
     height: max-content;
+}
+
+.o-ui-tag:not(.o-ui-tag-fluid) {
+    width: max-content;
 }
 
 /* AS BUTTON */
