@@ -17,7 +17,7 @@
     line-height: 1;
     cursor: pointer;
     outline: none;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .o-ui-button:not(.o-ui-icon-button) {
