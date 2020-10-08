@@ -794,7 +794,12 @@ a.o-ui-button {
 
 .o-ui-button:active.o-ui-button-inherit.o-ui-button-outline,
 .o-ui-button-active.o-ui-button-inherit.o-ui-button-outline {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: currentColor;
+}
+
+.o-ui-button:active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text,
+.o-ui-button-active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text {
+    color: var(--white);
 }
 
 .o-ui-button-inherit.o-ui-button-loading.o-ui-button-outline::before {
