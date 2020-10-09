@@ -6,7 +6,6 @@
     padding: var(--scale-charlie);
     width: 100%;
     border-radius: var(--o-ui-rounded-border-radius);
-    /* position: relative; */
 }
 
 /* LAYOUT */
@@ -24,29 +23,15 @@
     fill: var(--cloud-500);
 }
 
-/* .o-ui-alert-has-action.o-ui-alert-sm .o-ui-alert-icon,
-.o-ui-alert-has-dismiss.o-ui-alert-sm .o-ui-alert-icon {
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.o-ui-alert-has-action.o-ui-alert-md .o-ui-alert-icon,
-.o-ui-alert-has-dismiss.o-ui-alert-md .o-ui-alert-icon,
-.o-ui-alert-has-action.o-ui-alert-lg .o-ui-alert-icon,
-.o-ui-alert-has-dismiss.o-ui-alert-lg .o-ui-alert-icon {
-    margin-top: 4px;
-    margin-bottom: 4px;
-} */
-
 .o-ui-alert-sm .o-ui-alert-icon {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: calc(var(--scale-alpha) / 2);
+    margin-bottom: calc(var(--scale-alpha) / 2);
 }
 
 .o-ui-alert-md .o-ui-alert-icon,
 .o-ui-alert-lg .o-ui-alert-icon {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: calc(var(--scale-bravo) / 2);
+    margin-bottom: calc(var(--scale-bravo) / 2);
 }
 
 /* TITLE */
@@ -57,53 +42,36 @@
 /* CONTENT */
 .o-ui-alert-content {
     grid-area: content;
-    /* padding: 0 var(--scale-bravo) 0 0; */
-    /* align-self: center; */
 }
 
 .o-ui-alert-has-icon.o-ui-alert-sm .o-ui-alert-content,
 .o-ui-alert-has-action.o-ui-alert-sm .o-ui-alert-content,
 .o-ui-alert-has-dismiss.o-ui-alert-sm .o-ui-alert-content {
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: calc((var(--scale-bravo) / 2) - 1px);
+    padding-bottom: calc((var(--scale-bravo) / 2) - 1px);
 }
 
 .o-ui-alert-has-icon.o-ui-alert-md .o-ui-alert-content,
 .o-ui-alert-has-action.o-ui-alert-md .o-ui-alert-content,
 .o-ui-alert-has-dismiss.o-ui-alert-md .o-ui-alert-content {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: calc(var(--scale-charlie) / 2);
+    padding-bottom: calc(var(--scale-charlie) / 2);
 }
 
 .o-ui-alert-has-icon.o-ui-alert-lg .o-ui-alert-content,
 .o-ui-alert-has-action.o-ui-alert-lg .o-ui-alert-content,
 .o-ui-alert-has-dismiss.o-ui-alert-lg .o-ui-alert-content {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: calc(var(--scale-delta) / 2);
+    padding-bottom: calc(var(--scale-delta) / 2);
 }
 
 /* ACTION */
 .o-ui-alert-action {
     grid-area: action;
     margin-left: var(--scale-bravo);
-    /* align-self: start;
-    position: relative;
-    right: 0; */
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
 }
-
-/* .o-ui-alert.o-ui-alert-has-action {
-    padding: calc(var(--scale-charlie) - 1px) var(--scale-delta) calc(var(--scale-charlie) - 1px) var(--scale-delta);
-} */
-
-/* .o-ui-alert-has-action .o-ui-alert-content {
-    margin-top: var(--scale-bravo);
-} */
-
-/* .o-ui-alert-has-action .o-ui-alert-icon {
-    margin-top: 6px;
-} */
 
 /* SIZES */
 /* SMALL */
@@ -111,31 +79,15 @@
     margin-left: var(--scale-bravo);
 }
 
-/* .o-ui-alert-sm.o-ui-alert-has-action .o-ui-alert-dismiss {
-    margin-top: 3px;
-} */
-
 /* MEDIUM */
 .o-ui-alert-md .o-ui-alert-action {
     margin-left: var(--scale-charlie);
 }
 
-/* .o-ui-alert-md.o-ui-alert-has-action .o-ui-alert-dismiss {
-    margin-top: var(--scale-alpha);
-} */
-
 /* LARGE */
 .o-ui-alert-lg .o-ui-alert-action {
     margin-left: var(--scale-delta);
 }
-
-/* .o-ui-alert-lg.o-ui-alert-has-action .o-ui-alert-dismiss {
-    margin-top: var(--scale-alpha);
-} */
-
-/* .o-ui-alert-lg.o-ui-alert-has-action .o-ui-alert-icon {
-    margin-top: 4px;
-} */
 
 /* DISMISS */
 .o-ui-alert-dismiss {
