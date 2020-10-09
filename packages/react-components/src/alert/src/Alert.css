@@ -61,8 +61,8 @@
 .o-ui-alert-has-icon.o-ui-alert-lg .o-ui-alert-content,
 .o-ui-alert-has-action.o-ui-alert-lg .o-ui-alert-content,
 .o-ui-alert-has-dismiss.o-ui-alert-lg .o-ui-alert-content {
-    padding-top: calc(var(--scale-delta) / 2);
-    padding-bottom: calc(var(--scale-delta) / 2);
+    padding-top: calc((var(--scale-delta) / 2) - 1px);
+    padding-bottom: calc((var(--scale-delta) / 2) - 1px);
 }
 
 /* ACTION */

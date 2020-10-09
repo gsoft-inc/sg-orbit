@@ -58,6 +58,19 @@ const propTypes = {
     children: any.isRequired
 };
 
+function AlertContent({ size, children, ...rest }) {
+    return (
+        <Text
+            {...rest}
+            // Without getSize, when medium (undefined size), the Text component will take it's size from the ContentStyleProviderContext and render as an "inherit" size.
+            size={getSize(size)}
+            as="div"
+        >
+            {children}
+        </Text>
+    );
+}
+
 export function InnerAlert({
     show = true,
     tone = "info",
@@ -118,11 +131,9 @@ export function InnerAlert({
                         className: "o-ui-alert-icon"
                     },
                     content: {
-                        // TEMP hotfix
-                        size: getSize(size),
-                        // size,
+                        size,
                         className: "o-ui-alert-content",
-                        as: Text
+                        as: AlertContent
                     },
                     button: {
                         variant: "ghost",
