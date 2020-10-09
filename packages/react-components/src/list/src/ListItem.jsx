@@ -1,7 +1,7 @@
 import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 const propTypes = {
     /**
@@ -41,11 +41,11 @@ export function InnerListItem({
             ref={forwardedRef}
         >
             <ContentStyleProvider
-                styles={{
+                styles={useMemo(() => ({
                     text: {
                         size
                     }
-                }}
+                }), [size])}
             >
                 {content}
             </ContentStyleProvider>
