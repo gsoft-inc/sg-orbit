@@ -94,6 +94,7 @@ export function InnerAlert({
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
+            color="inherit"
             onClick={onDismiss}
             size={BUTTON_SIZE[getSize(size)]}
             className="o-ui-alert-dismiss"
@@ -176,46 +177,33 @@ const variations = [
 ];
 
 const [
-    [InnerInfoAlert, InfoAlert],
-    [InnerSuccessAlert, SuccessAlert],
-    [InnerWarningAlert, WarningAlert],
-    [InnerCriticalAlert, CriticalAlert]
+    InfoAlert,
+    SuccessAlert,
+    WarningAlert,
+    CriticalAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
-    const InnerVariation = ({
+    return forwardRef(({
         children,
-        forwardedRef,
         ...rest
-    }) => {
+    }, ref) => {
+        const content = useTextContent(() => (<Content>{children}</Content>), children);
+
         return (
             <Alert
                 tone={tone}
                 {...rest}
-                ref={forwardedRef}
+                ref={ref}
             >
                 {icon}
-                <Content>
-                    {children}
-                </Content>
+                {content}
             </Alert>
         );
-    };
-
-    InnerVariation.propTypes = propTypes;
-
-    const Variation = forwardRef((props, ref) => (
-        <InnerVariation {...props} forwardedRef={ref} />
-    ));
-
-    return [InnerVariation, Variation];
+    });
 });
 
 export {
-    InnerInfoAlert,
     InfoAlert,
-    InnerSuccessAlert,
     SuccessAlert,
-    InnerWarningAlert,
     WarningAlert,
-    InnerCriticalAlert,
     CriticalAlert
 };

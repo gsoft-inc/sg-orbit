@@ -20,8 +20,12 @@ const ROOTS = {
         priority: 3,
         sortByKind: true
     },
-    "content": {
+    "feedback": {
         priority: 4,
+        sortByKind: true
+    },
+    "content": {
+        priority: 5,
         sortByKind: true
     },
     [CHROMATIC_ROOT.toLocaleLowerCase()]: {
