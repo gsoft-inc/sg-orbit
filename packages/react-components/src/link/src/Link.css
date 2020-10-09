@@ -5,6 +5,7 @@
     background-color: var(--transparent);
     color: var(--marine-900);
     padding: 0;
+    position: relative;
 }
 
 /* Set direct child border-radius */
@@ -29,7 +30,26 @@
 .o-ui-link:focus,
 .o-ui-link-focus {
     outline: none;
-    box-shadow: var(--o-ui-focus-ring);
+}
+
+/* STATES | FOCUS | FOCUS RING */
+.o-ui-link:after {
+    opacity: 0;
+    content: "";
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-rounded-border-radius);
+    transition: opacity .2s ease-in;
+}
+
+.o-ui-link:focus:after,
+.o-ui-link-focus:after {
+    opacity: 1;
 }
 
 /* STATE | ACTIVE */
@@ -88,6 +108,11 @@
     border-radius: var(--o-ui-rounded-border-radius);
     background-color: rgba(0, 0, 0, 0.04);
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+}
+
+.o-ui-text-link:focus:after,
+.o-ui-text-link.o-ui-link-focus:after {
+    opacity: 0;
 }
 
 /* TEXT | STATE | HOVER */
@@ -253,6 +278,10 @@ button.o-ui-link-hover {
 
 /* SHAPE | CIRCULAR */
 .o-ui-link-circular {
+    border-radius: var(--o-ui-circular-border-radius);
+}
+
+.o-ui-link.o-ui-link-circular:after {
     border-radius: var(--o-ui-circular-border-radius);
 }
 
