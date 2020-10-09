@@ -717,7 +717,11 @@ a.o-ui-button {
 .o-ui-button-rounded.o-ui-button-sm {
     min-width: var(--scale-golf);
     min-height: var(--scale-golf);
-    padding: 0 var(--scale-alhha);
+    padding: 0 var(--scale-bravo);
+}
+
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
+    padding: 0 var(--scale-alpha);
 }
 
 .o-ui-button-rounded.o-ui-button-md {
