@@ -6,7 +6,7 @@ import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
-import { useInputButton, useInputClearButton } from "./useInputContent";
+import { useInputButton } from "./useInputContent";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const propTypes = {
