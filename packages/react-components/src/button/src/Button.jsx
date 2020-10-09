@@ -1,13 +1,19 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
+import { ClearSlots, SlotProvider, cssModule, getSize, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
+import { EMBEDDED_ICON_SIZE } from "../../icons";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarContext } from "../../toolbar";
+
+const CONDENSED_TEXT_SIZE = {
+    "sm": "md",
+    "md": "lg",
+    "lg": "xl"
+};
 
 const propTypes = {
     /**
@@ -22,6 +28,10 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
+    /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -74,6 +84,7 @@ export function InnerButton(props) {
         variant = "solid",
         color,
         shape = "pill",
+        condensed,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -134,15 +145,15 @@ export function InnerButton(props) {
                 <SlotProvider
                     slots={useMemo(() => ({
                         text: {
-                            size,
+                            size: condensed ? CONDENSED_TEXT_SIZE[getSize(size)] : size,
                             className: "o-ui-button-text",
                             "aria-hidden": loading
                         },
-                        icon: embeddedIconSlot({
-                            size,
+                        icon: {
+                            size: condensed ? size : EMBEDDED_ICON_SIZE[getSize(size)],
                             className: "o-ui-button-icon"
-                        })
-                    }), [size, loading])}
+                        }
+                    }), [size, condensed, loading])}
                 >
                     {content}
                 </SlotProvider>

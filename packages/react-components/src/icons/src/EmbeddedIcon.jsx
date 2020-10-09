@@ -2,7 +2,7 @@ import { Children } from "react";
 import { any, string } from "prop-types";
 import { augmentElement, createSizeAdapterSlotFactory, getSize } from "../../shared";
 
-const SIZE = {
+export const EMBEDDED_ICON_SIZE = {
     "2xs": "2xs",
     "xs": "2xs",
     "sm": "xs",
@@ -21,11 +21,11 @@ export function EmbeddedIcon({ size, children, ...rest }) {
     const icon = Children.only(children);
 
     return augmentElement(icon, {
-        size: SIZE[getSize(size)],
+        size: EMBEDDED_ICON_SIZE[getSize(size)],
         ...rest
     });
 }
 
 EmbeddedIcon.propTypes = propTypes;
 
-export const embeddedIconSlot = createSizeAdapterSlotFactory(SIZE);
+export const embeddedIconSlot = createSizeAdapterSlotFactory(EMBEDDED_ICON_SIZE);

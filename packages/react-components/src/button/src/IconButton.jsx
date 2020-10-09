@@ -1,6 +1,6 @@
 import { Children, forwardRef } from "react";
-import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlot } from "../../shared";
-import { EmbeddedIcon } from "../../icons";
+import { ClearSlots, augmentElement, createEmbeddableAdapter, getSize, mergeProps, omitProps, useSlot } from "../../shared";
+import { EMBEDDED_ICON_SIZE, EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
@@ -116,10 +116,11 @@ export function InnerIconButton(props) {
 
     const icon = Children.only(children);
 
-    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
-        size,
+    const iconMarkup = augmentElement(icon, {
+        size: condensed ? size : EMBEDDED_ICON_SIZE[getSize(size)],
         className: "o-ui-button-icon"
     });
+
 
     return (
         <ElementType
