@@ -25,7 +25,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
@@ -37,11 +37,15 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
+    /**
      * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**

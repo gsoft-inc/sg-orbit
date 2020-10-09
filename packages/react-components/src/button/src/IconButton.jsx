@@ -1,17 +1,17 @@
-import { ClearSlots, SlotProvider, createEmbeddableAdapter, createSizeAdapterSlotFactory, mergeProps, omitProps, useSlot } from "../../shared";
+import { Children, forwardRef } from "react";
+import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlot } from "../../shared";
+import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The button style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * The color accent.
+     * The button color accent.
      */
     color: oneOf(["primary", "secondary", "danger"]),
     /**
@@ -19,11 +19,15 @@ const propTypes = {
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
+    /**
      * Whether the button should autoFocus on render.
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -69,6 +73,7 @@ export function InnerIconButton(props) {
         variant = "solid",
         color,
         shape = "pill",
+        condensed,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -109,6 +114,13 @@ export function InnerIconButton(props) {
         forwardedRef
     });
 
+    const icon = Children.only(children);
+
+    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+        size,
+        className: "o-ui-button-icon"
+    });
+
     return (
         <ElementType
             data-testid="icon-button"
@@ -118,16 +130,7 @@ export function InnerIconButton(props) {
             aria-label={ariaLabel}
         >
             <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        icon: iconSlot({
-                            size,
-                            className: "o-ui-button-icon"
-                        })
-                    }}
-                >
-                    {children}
-                </SlotProvider>
+                {iconMarkup}
             </ClearSlots>
         </ElementType>
     );
@@ -144,11 +147,3 @@ export const embedIconButton = createEmbeddableAdapter({
     "md": "xs",
     "lg": "sm"
 });
-
-export const iconButtonSlot = createSizeAdapterSlotFactory({
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-});
-
-

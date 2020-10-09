@@ -58,7 +58,7 @@ function TextBadge({ children, ...rest }) {
 stories("/count")
     .add("default", () =>
         <Stack gap={8}>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>5</Text>
                 </SquareBadge>
@@ -69,7 +69,7 @@ stories("/count")
                     <Text>5</Text>
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>5+</Text>
                 </SquareBadge>
@@ -80,7 +80,7 @@ stories("/count")
                     <Text>5+</Text>
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>50</Text>
                 </SquareBadge>
@@ -91,7 +91,7 @@ stories("/count")
                     <Text>50</Text>
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>500</Text>
                 </SquareBadge>
@@ -102,7 +102,7 @@ stories("/count")
                     <Text>500</Text>
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>500+</Text>
                 </SquareBadge>
@@ -117,7 +117,7 @@ stories("/count")
     )
     .add("overlap", () =>
         <Stack gap={8}>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge size="sm">
                     <Text>50</Text>
                 </SquareBadge>
@@ -128,7 +128,7 @@ stories("/count")
                     <Text>50</Text>
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <CircleBadge size="sm">
                     <Text>50</Text>
                 </CircleBadge>
@@ -139,7 +139,7 @@ stories("/count")
                     <Text>50</Text>
                 </CircleBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <IconBadge size="sm">
                     <Text>50</Text>
                 </IconBadge>
@@ -165,7 +165,7 @@ stories("/count")
 
 stories("/dot")
     .add("default", () =>
-        <Inline gap={8} align="end">
+        <Inline gap={8} verticalAlign="end">
             <SquareBadge variant="dot" size="sm" />
             <SquareBadge variant="dot" />
             <SquareBadge variant="dot" size="lg" />
@@ -173,22 +173,22 @@ stories("/dot")
     )
     .add("overlap", () =>
         <Stack gap={8}>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge variant="dot" size="sm" />
                 <SquareBadge variant="dot" />
                 <SquareBadge variant="dot" size="lg" />
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <CircleBadge variant="dot" size="sm" />
                 <CircleBadge variant="dot" />
                 <CircleBadge variant="dot" size="lg" />
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <IconBadge variant="dot" size="sm" />
                 <IconBadge variant="dot" />
                 <IconBadge variant="dot" size="lg" />
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <TextBadge variant="dot" size="sm" />
                 <TextBadge variant="dot" />
                 <TextBadge variant="dot" size="lg" />
@@ -204,7 +204,7 @@ stories("/dot")
 
 stories("/icon")
     .add("default", () =>
-        <Inline gap={8} align="end">
+        <Inline gap={8} verticalAlign="end">
             <SquareBadge variant="icon" size="sm">
                 <CheckCircleIcon />
             </SquareBadge>
@@ -218,7 +218,7 @@ stories("/icon")
     )
     .add("overlap", () =>
         <Stack gap={8}>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <SquareBadge variant="icon" size="sm">
                     <CheckCircleIcon />
                 </SquareBadge>
@@ -229,7 +229,7 @@ stories("/icon")
                     <CheckCircleIcon />
                 </SquareBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <CircleBadge variant="icon" size="sm">
                     <CheckCircleIcon />
                 </CircleBadge>
@@ -240,7 +240,7 @@ stories("/icon")
                     <CheckCircleIcon />
                 </CircleBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <IconBadge variant="icon" size="sm">
                     <CheckCircleIcon />
                 </IconBadge>
@@ -251,7 +251,7 @@ stories("/icon")
                     <CheckCircleIcon />
                 </IconBadge>
             </Inline>
-            <Inline gap={8} align="end">
+            <Inline gap={8} verticalAlign="end">
                 <TextBadge variant="icon" size="sm">
                     <CheckCircleIcon />
                 </TextBadge>

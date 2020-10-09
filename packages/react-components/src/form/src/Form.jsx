@@ -2,7 +2,7 @@ import "./Form.css";
 
 import { FormContext } from "./FormContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useRenderProps } from "../../shared";
+import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -11,7 +11,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * A form can vary in size.
+     * The size of the form elements
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -36,14 +36,6 @@ export function InnerForm(props) {
         ...rest
     } = props;
 
-    const formContext = {
-        fluid,
-        size,
-        disabled
-    };
-
-    const content = useRenderProps(formContext, props, children);
-
     return (
         <ElementType
             {...rest}
@@ -56,8 +48,14 @@ export function InnerForm(props) {
             )}
             ref={forwardedRef}
         >
-            <FormContext.Provider value={formContext}>
-                {content}
+            <FormContext.Provider
+                value={{
+                    fluid,
+                    size,
+                    disabled
+                }}
+            >
+                {children}
             </FormContext.Provider>
         </ElementType>
     );

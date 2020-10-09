@@ -1,0 +1,136 @@
+.o-ui-alert {
+    display: grid;
+    grid-template-columns: max-content auto max-content max-content;
+    grid-template-areas: "icon content action dismiss";
+    align-items: start;
+    padding: var(--scale-charlie);
+    width: 100%;
+    border-radius: var(--o-ui-rounded-border-radius);
+}
+
+/* LAYOUT */
+.o-ui-alert-has-icon,
+.o-ui-alert-has-action,
+.o-ui-alert-has-dismiss {
+    padding-top: var(--scale-bravo);
+    padding-bottom: var(--scale-bravo);
+}
+
+/* ICON */
+.o-ui-alert-icon {
+    grid-area: icon;
+    margin-right: var(--scale-bravo);
+    fill: var(--cloud-500);
+}
+
+.o-ui-alert-sm .o-ui-alert-icon {
+    margin-top: calc(var(--scale-alpha) / 2);
+    margin-bottom: calc(var(--scale-alpha) / 2);
+}
+
+.o-ui-alert-md .o-ui-alert-icon,
+.o-ui-alert-lg .o-ui-alert-icon {
+    margin-top: calc(var(--scale-bravo) / 2);
+    margin-bottom: calc(var(--scale-bravo) / 2);
+}
+
+/* TITLE */
+.o-ui-alert-title {
+    display: inline-block;
+}
+
+/* CONTENT */
+.o-ui-alert-content {
+    grid-area: content;
+}
+
+.o-ui-alert-has-icon.o-ui-alert-sm .o-ui-alert-content,
+.o-ui-alert-has-action.o-ui-alert-sm .o-ui-alert-content,
+.o-ui-alert-has-dismiss.o-ui-alert-sm .o-ui-alert-content {
+    padding-top: calc((var(--scale-bravo) / 2) - 1px);
+    padding-bottom: calc((var(--scale-bravo) / 2) - 1px);
+}
+
+.o-ui-alert-has-icon.o-ui-alert-md .o-ui-alert-content,
+.o-ui-alert-has-action.o-ui-alert-md .o-ui-alert-content,
+.o-ui-alert-has-dismiss.o-ui-alert-md .o-ui-alert-content {
+    padding-top: calc(var(--scale-charlie) / 2);
+    padding-bottom: calc(var(--scale-charlie) / 2);
+}
+
+.o-ui-alert-has-icon.o-ui-alert-lg .o-ui-alert-content,
+.o-ui-alert-has-action.o-ui-alert-lg .o-ui-alert-content,
+.o-ui-alert-has-dismiss.o-ui-alert-lg .o-ui-alert-content {
+    padding-top: calc(var(--scale-delta) / 2);
+    padding-bottom: calc(var(--scale-delta) / 2);
+}
+
+/* ACTION */
+.o-ui-alert-action {
+    grid-area: action;
+    margin-left: var(--scale-bravo);
+    /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
+    height: auto !important;
+}
+
+/* SIZES */
+/* SMALL */
+.o-ui-alert-sm .o-ui-alert-action {
+    margin-left: var(--scale-bravo);
+}
+
+/* MEDIUM */
+.o-ui-alert-md .o-ui-alert-action {
+    margin-left: var(--scale-charlie);
+}
+
+/* LARGE */
+.o-ui-alert-lg .o-ui-alert-action {
+    margin-left: var(--scale-delta);
+}
+
+/* DISMISS */
+.o-ui-alert-dismiss {
+    grid-area: dismiss;
+    margin-left: var(--scale-bravo);
+}
+
+/* TONE | INFO */
+.o-ui-alert-info {
+    background-color: var(--marine-50);
+    color: var(--marine-500);
+}
+
+.o-ui-alert-info .o-ui-alert-icon {
+    fill: var(--marine-900);
+}
+
+/* TONE | SUCCESS */
+.o-ui-alert-success {
+    background-color: var(--success-50);
+    color: var(--success-900);
+}
+
+.o-ui-alert-success .o-ui-alert-icon {
+    fill: var(--success-900);
+}
+
+/* TONE | WARNING */
+.o-ui-alert-warning {
+    background-color: var(--sunray-50);
+    color: var(--sunray-900);
+}
+
+.o-ui-alert-warning .o-ui-alert-icon {
+    fill: var(--sunray-900);
+}
+
+/* TONE | CRITICAL */
+.o-ui-alert-critical {
+    background-color: var(--alert-50);
+    color: var(--alert-900);
+}
+
+.o-ui-alert-critical .o-ui-alert-icon {
+    fill: var(--alert-900);
+}

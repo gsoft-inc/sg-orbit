@@ -1,12 +1,11 @@
 import "./Switch.css";
 
 import { ClearSlots, SlotProvider, mergeProps, omitProps, useRenderProps, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { counterSlot } from "../../counter";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
+import { embeddedIconSlot } from "../../icons";
+import { forwardRef, useMemo } from "react";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInput } from "../../field";
 import { useToolbarContext } from "../../toolbar";
@@ -25,7 +24,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -131,21 +130,21 @@ export function InnerSwitch(props) {
             <span className="o-ui-switch-control" />
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot({
+                    slots={useMemo(() => ({
+                        text: {
                             size,
                             className: "o-ui-switch-label"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-switch-icon"
                         }),
-                        counter: counterSlot({
+                        counter: {
                             size,
                             reverse,
                             className: "o-ui-switch-counter"
-                        })
-                    }}
+                        }
+                    }), [size, reverse])}
                 >
                     {content}
                 </SlotProvider>

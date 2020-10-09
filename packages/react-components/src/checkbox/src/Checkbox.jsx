@@ -1,15 +1,14 @@
 import "./Checkbox.css";
 
 import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback, useRenderProps, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { counterSlot } from "../../counter";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
+import { embeddedIconSlot } from "../../icons";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
-import { useFieldContext } from "../../field";
+import { useFieldInput } from "../../field";
 import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
@@ -38,7 +37,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -75,7 +74,7 @@ const propTypes = {
 
 export function InnerCheckbox(props) {
     const [checkableProps] = useCheckable(props);
-    const [fieldProps, isInField] = useFieldContext();
+    const [fieldProps, isInField] = useFieldInput();
     const [toolbarProps] = useToolbarContext();
 
     const {
@@ -157,21 +156,21 @@ export function InnerCheckbox(props) {
             <span className="o-ui-checkbox-box" />
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot({
+                    slots={useMemo(() => ({
+                        text: {
                             size,
                             className: "o-ui-checkbox-label"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-checkbox-icon"
                         }),
-                        counter: counterSlot({
+                        counter: {
                             size,
                             reverse,
                             className: "o-ui-checkbox-counter"
-                        })
-                    }}
+                        }
+                    }), [size, reverse])}
                 >
                     {content}
                 </SlotProvider>

@@ -14,14 +14,14 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Dot size="sm"></Dot>
             <Dot></Dot>
             <Dot size="lg"></Dot>
         </Inline>
     )
     .add("label", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Dot size="sm">Habitable</Dot>
             <Dot>Habitable</Dot>
             <Dot size="lg">Habitable</Dot>

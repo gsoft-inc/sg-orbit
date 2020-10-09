@@ -29,6 +29,11 @@
     height: var(--scale-golf);
 }
 
+.o-ui-icon-xl {
+    width: var(--scale-hotel);
+    height: var(--scale-hotel);
+}
+
 .o-ui-icon-inherit {
     width: 1em;
     height: 1em;

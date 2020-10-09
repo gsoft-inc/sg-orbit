@@ -6,7 +6,7 @@ import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInput } from "../../field";
 import { useInput } from "./useInput";
-import { useInputButton } from "./useInputContent";
+import { useInputButton, useInputClearButton } from "./useInputContent";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const propTypes = {
@@ -41,7 +41,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["outline", "transparent"]),
     /**
@@ -53,7 +53,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**

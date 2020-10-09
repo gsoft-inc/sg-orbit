@@ -48,11 +48,11 @@ export class CompositeKeyWeakMap {
     }
 }
 
-/******/
+////////
 
 const cache = new CompositeKeyWeakMap();
 
-function memoizedMerge(x, y, fct) {
+function memoMerge(x, y, fct) {
     const key = [x, y];
     const value = cache.get(key);
 
@@ -81,9 +81,9 @@ function merge(props, newProps) {
                             ...props[x]
                         };
                     } else if (x === "ref") {
-                        props[x] = memoizedMerge(props[x], newProps[x], mergeRefs);
+                        props[x] = memoMerge(props[x], newProps[x], mergeRefs);
                     } else if (x.startsWith("on") && isFunction(props[x])) {
-                        props[x] = memoizedMerge(props[x], newProps[x], createChainedFunction);
+                        props[x] = memoMerge(props[x], newProps[x], createChainedFunction);
                     }
                 } else {
                     props[x] = newProps[x];

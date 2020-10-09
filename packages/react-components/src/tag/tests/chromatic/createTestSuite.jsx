@@ -1,7 +1,6 @@
-import { CheckCircleIcon, CrossIcon, IconList } from "@react-components/icons";
+import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
-import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
@@ -14,7 +13,7 @@ export function createTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
                     <Tag size="lg" element={element}>Falcon 9</Tag>
@@ -29,7 +28,7 @@ export function createTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
@@ -43,7 +42,7 @@ export function createTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
@@ -79,7 +78,7 @@ export function createTestSuite(element, stories) {
         )
         .add("dot", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
@@ -109,7 +108,7 @@ export function createTestSuite(element, stories) {
         )
         .add("counter", () =>
             <Stack>
-                <Inline align="end">
+                <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
@@ -137,54 +136,39 @@ export function createTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("button", () =>
+        .add("remove button", () =>
             <Stack>
-                <Inline align="end">
-                    <Tag size="sm" element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                <Inline verticalAlign="end">
+                    <Tag size="sm" onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
-                    <Tag element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
-                    <Tag size="lg" element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag size="lg" onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
                 <Inline>
-                    <Tag fluid element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag fluid onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
                 <Inline className="w-10">
-                    <Tag fluid element={element}>
-                        <Text>Falcon 9</Text>
-                        <IconButton aria-label="Clear value">
-                            <CrossIcon />
-                        </IconButton>
+                    <Tag fluid onRemove={() => {}} element={element}>
+                        Falcon 9
                     </Tag>
                 </Inline>
             </Stack>
         )
         .add("as link", () =>
             <Inline>
-                <Tag as="a" element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" active element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" focus element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" hover element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" focus hover element={element} href="#a">Falcon 9</Tag>
-                <Tag as="a" disabled element={element} href="#a">Falcon 9</Tag>
+                <Tag as="a" element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" active element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" focus element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" hover element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" focus hover element={element} href="#">Falcon 9</Tag>
+                <Tag as="a" disabled element={element} href="#">Falcon 9</Tag>
             </Inline>
         )
         .add("as button", () =>

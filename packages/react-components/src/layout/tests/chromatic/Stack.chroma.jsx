@@ -5,7 +5,6 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Stack"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(100)
             .canvasLayout({ width: "80%" })
             .build())
         .build();
@@ -13,38 +12,58 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <div className="h10">
-            <Stack fluid>
-                <div className="bg-primary-500">Alpha</div>
-                <div className="bg-primary-500">Bravo</div>
-                <div className="bg-primary-500">Charlie</div>
-            </Stack>
-        </div>
+        <Stack>
+            <div className="bg-primary-500">Alpha</div>
+            <div className="bg-primary-500">Bravo</div>
+            <div className="bg-primary-500">Charlie</div>
+        </Stack>
+    )
+    .add("align start", () =>
+        <Stack align="start">
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
     )
     .add("align end", () =>
-        <div className="h10">
-            <Stack align="end" justify="end" fluid>
-                <div>Alpha</div>
-                <div>Bravo</div>
-                <div>Charlie</div>
-            </Stack>
-        </div>
+        <Stack align="end">
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
     )
     .add("align center", () =>
-        <div className="h10">
-            <Stack align="center" justify="center" fluid>
-                <div>Alpha</div>
-                <div>Bravo</div>
-                <div>Charlie</div>
-            </Stack>
-        </div>
+        <Stack align="center">
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
+    )
+    .add("vertical align start", () =>
+        <Stack verticalAlign="start" style={{ height: "200px" }}>
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
+    )
+    .add("vertical align end", () =>
+        <Stack verticalAlign="end" style={{ height: "200px" }}>
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
+    )
+    .add("vertical align center", () =>
+        <Stack verticalAlign="center" style={{ height: "200px" }}>
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
     )
     .add("gap", () =>
-        <div className="h10">
-            <Stack gap={10} fluid>
-                <div>Alpha</div>
-                <div>Bravo</div>
-                <div>Charlie</div>
-            </Stack>
-        </div>
+        <Stack gap={10}>
+            <div>Alpha</div>
+            <div>Bravo</div>
+            <div>Charlie</div>
+        </Stack>
     );

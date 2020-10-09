@@ -1,10 +1,10 @@
 import "./Link.css";
 
-import { ArrowIcon, iconSlot } from "../../icons";
-import { ClearSlots, SlotProvider, mergeProps, useSlot, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { ArrowIcon, embeddedIconSlot } from "../../icons";
+import { ClearSlots, SlotProvider, mergeProps, useContentStyle, useTextContent } from "../../shared";
+import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -30,7 +30,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -45,10 +45,6 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
@@ -79,7 +75,7 @@ export function InnerTextLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link"),
+        useContentStyle("link"),
         formProps
     );
 
@@ -121,16 +117,20 @@ export function InnerTextLink(props) {
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot({
+                    slots={useMemo(() => ({
+                        text: {
                             size,
                             className: "o-ui-link-text"
-                        }),
-                        icon: iconSlot({
+                        },
+                        "left-icon": embeddedIconSlot({
                             size,
-                            className: "o-ui-link-icon"
+                            className: "o-ui-link-left-icon"
+                        }),
+                        icon: embeddedIconSlot({
+                            size,
+                            className: "o-ui-link-right-icon"
                         })
-                    }}
+                    }), [size])}
                 >
                     {content}
                 </SlotProvider>
@@ -144,11 +144,3 @@ InnerTextLink.propTypes = propTypes;
 export const TextLink = forwardRef((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
-
-export const linkSlot = props => {
-    return {
-        underline: "dotted",
-        size: "inherit",
-        ...props
-    };
-};

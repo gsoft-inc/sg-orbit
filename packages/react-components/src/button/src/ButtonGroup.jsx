@@ -1,19 +1,36 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement } from "../../shared";
+import { augmentElement, getSize } from "../../shared";
+
+const GAP = {
+    "horizontal": {
+        "sm": 3,
+        "md": 4,
+        "lg": 5
+    },
+    "vertical": {
+        "sm": 2,
+        "md": 3,
+        "lg": 4
+    }
+};
 
 const propTypes = {
     /**
-     * Orientation of the children.
+     * The orientation of the buttons.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * Buttons size.
+     * The horizontal alignment of the buttons.
+     */
+    align: oneOf(["start", "end", "center"]),
+    /**
+     * The buttons size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Whether or not the field take up the width of its container.
+     * Whether or not the group take up the width of its container.
      */
     fluid: bool,
     /**
@@ -26,20 +43,26 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButtonGroup({
-    size,
-    fluid,
-    disabled,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerButtonGroup(props) {
+    const {
+        orientation = "horizontal",
+        align,
+        size,
+        fluid,
+        disabled,
+        children,
+        forwardedRef,
+        ...rest
+    } = props;
+
     return (
         <Group
             {...rest}
+            orientation={orientation}
+            align={align}
+            verticalAlign={orientation === "horizontal" ? "center" : undefined}
             fluid={fluid}
-            gap={2}
-            alignItems="center"
+            gap={GAP[orientation][getSize(size)]}
             ref={forwardedRef}
         >
             {Children.map(children, x => {

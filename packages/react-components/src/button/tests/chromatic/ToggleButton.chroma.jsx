@@ -17,12 +17,12 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton size="sm">Cutoff</ToggleButton>
                 <ToggleButton>Cutoff</ToggleButton>
                 <ToggleButton size="lg">Cutoff</ToggleButton>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton checked>Cutoff</ToggleButton>
                 <ToggleButton active>Cutoff</ToggleButton>
                 <ToggleButton focus>Cutoff</ToggleButton>
@@ -40,12 +40,12 @@ stories()
     )
     .add("circular outline", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton size="sm" variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton size="lg" variant="outline" shape="circular">Aa</ToggleButton>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton checked variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton active variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton focus variant="outline" shape="circular">Aa</ToggleButton>
@@ -57,12 +57,12 @@ stories()
     )
     .add("rounded outline", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton size="sm" variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton size="lg" variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <ToggleButton checked variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton active variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton focus variant="outline" shape="rounded">Aa</ToggleButton>

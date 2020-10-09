@@ -1,9 +1,8 @@
 import "./Text.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { linkSlot } from "../../link";
 
 const propTypes = {
     /**
@@ -34,7 +33,8 @@ export function InnerText(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "text")
+        useSlot(props, "text"),
+        useContentStyle("text")
     );
 
     return (
@@ -50,15 +50,9 @@ export function InnerText(props) {
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        link: linkSlot()
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider defaults="link">
+                {children}
+            </ContentStyleProvider>
         </ElementType>
     );
 }
@@ -68,5 +62,3 @@ InnerText.propTypes = propTypes;
 export const Text = forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 ));
-
-export const textSlot = props => props;

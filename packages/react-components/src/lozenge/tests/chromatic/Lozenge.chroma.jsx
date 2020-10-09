@@ -20,7 +20,7 @@ stories()
     )
     .add("icon", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Lozenge size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
@@ -45,7 +45,7 @@ stories()
         </Stack>
     )
     .add("size", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Lozenge size="sm">New</Lozenge>
             <Lozenge>New</Lozenge>
             <Lozenge size="lg">New</Lozenge>

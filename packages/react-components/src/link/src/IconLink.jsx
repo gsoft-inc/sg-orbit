@@ -1,9 +1,9 @@
 import "./Link.css";
 
-import { ClearSlots, SlotProvider, mergeProps, useSlot } from "../../shared";
+import { Children, forwardRef } from "react";
+import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
+import { augmentElement, mergeProps, useContentStyle } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -12,9 +12,13 @@ const propTypes = {
      */
     href: string,
     /**
-     * The color accent.
+     * The link color accent.
      */
     color: oneOf(["primary", "secondary", "danger"]),
+    /**
+     * Whether or not the link content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether or not this is an external link.
      */
@@ -24,7 +28,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -40,10 +44,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
-     */
-    slot: string,
-    /**
      * @ignore
      */
     children: any.isRequired
@@ -52,6 +52,7 @@ const propTypes = {
 export function InnerIconLink(props) {
     const {
         color,
+        condensed,
         external,
         autoFocus,
         autoFocusDelay,
@@ -71,7 +72,7 @@ export function InnerIconLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link")
+        useContentStyle("link")
     );
 
     const linkProps = useLink({
@@ -91,6 +92,12 @@ export function InnerIconLink(props) {
         forwardedRef
     });
 
+    const icon = Children.only(children);
+
+    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+        size
+    });
+
     return (
         <ElementType
             data-testid="icon-link"
@@ -99,18 +106,7 @@ export function InnerIconLink(props) {
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        icon: iconSlot({
-                            size,
-                            className: "o-ui-link-icon"
-                        })
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            {iconMarkup}
         </ElementType>
     );
 }

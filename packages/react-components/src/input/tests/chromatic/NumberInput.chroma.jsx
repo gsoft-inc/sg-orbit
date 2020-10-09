@@ -16,7 +16,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <NumberInput size="sm" placeholder="Age" />
                 <NumberInput placeholder="Age" />
                 <NumberInput size="lg" placeholder="Age" />
@@ -45,7 +45,7 @@ stories()
     )
     .add("icon", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <NumberInput icon={<EditIcon />} size="sm" placeholder="Age" />
                 <NumberInput icon={<EditIcon />} placeholder="Age" />
                 <NumberInput icon={<EditIcon />} size="lg" placeholder="Age" />
@@ -68,14 +68,14 @@ stories()
         <NumberInput readOnly placeholder="Age" />
     )
     .add("loading", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <NumberInput loading size="sm" placeholder="Age" />
             <NumberInput loading placeholder="Age" />
             <NumberInput loading size="lg" placeholder="Age" />
         </Inline>
     )
     .add("transparent", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <NumberInput variant="transparent" size="sm" placeholder="Age" />
             <NumberInput variant="transparent" placeholder="Age" />
             <NumberInput variant="transparent" size="lg" placeholder="Age" />

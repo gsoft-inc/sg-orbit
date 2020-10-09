@@ -1,12 +1,16 @@
 import "./FieldMessage.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
-import { Text, paragraphSlot, textSlot } from "../../text";
+import { ContentStyleProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
+import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
-import { linkSlot } from "../../link";
-import { listSlot } from "../../list";
+import { embeddedIconSlot } from "../../icons";
+import { forwardRef, useMemo } from "react";
+
+const ADAPTED_SIZE = {
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
+};
 
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";
@@ -21,9 +25,9 @@ export function getValidationProps(validationState) {
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
-    variant: oneOf(["neutral", "success", "error"]).isRequired,
+    tone: oneOf(["neutral", "success", "error"]).isRequired,
     /**
      * A message can vary in size.
      */
@@ -38,14 +42,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ADAPTED_SIZE = {
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-};
-
 export const FieldMessage = forwardRef(({
-    variant,
+    tone,
     fluid,
     size,
     as = "div",
@@ -61,7 +59,7 @@ export const FieldMessage = forwardRef(({
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",
-                    variant,
+                    tone,
                     fluid && "fluid",
                     getSizeClass(size)
                 ),
@@ -70,29 +68,17 @@ export const FieldMessage = forwardRef(({
             as={as}
             ref={ref}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        text: textSlot({
-                            size: "inherit"
-                        }),
-                        p: paragraphSlot({
-                            size: "inherit"
-                        }),
-                        list: listSlot({
-                            size: "inherit"
-                        }),
-                        icon: iconSlot({
-                            size
-                        }),
-                        link: linkSlot({
-                            size: "inherit"
-                        })
-                    }}
-                >
-                    {children}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider
+                defaults="all"
+                styles={useMemo(() => ({
+                    icon: embeddedIconSlot({
+                        size
+                    })
+                }), [size])}
+
+            >
+                {children}
+            </ContentStyleProvider>
         </Text>
     );
 });

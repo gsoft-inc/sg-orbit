@@ -46,7 +46,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end" gap={13}>
+        <Inline verticalAlign="end" gap={13}>
             <RadioGroup size="sm">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
@@ -98,25 +98,6 @@ stories()
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    )
-    .add("horizontal", () =>
-        <Stack>
-            <RadioGroup size="sm" orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup size="lg" orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Stack>
     )
     .add("gap", () =>
         <RadioGroup gap={13}>
@@ -244,6 +225,44 @@ stories()
         <RadioGroup autoFocus autoFocusDelay={50} defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+stories("/horizontal")
+    .add("default", () =>
+        <RadioGroup orientation="horizontal">
+            <Radio value="1">1</Radio>
+            <Radio value="2">
+                <Text>2</Text>
+                <Counter>60</Counter>
+            </Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    )
+    .add("size", () =>
+        <Stack>
+            <RadioGroup size="sm" orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+            <RadioGroup size="lg" orientation="horizontal">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Stack>
+    )
+    .add("reverse", () =>
+        <RadioGroup reverse orientation="horizontal">
+            <Radio value="1">1</Radio>
+            <Radio value="2">A very long option to read while you wait for the countdown to mars.</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     );

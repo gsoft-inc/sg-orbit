@@ -14,14 +14,14 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <PasswordInput size="sm" placeholder="Password" />
             <PasswordInput placeholder="Password" />
             <PasswordInput size="lg" placeholder="Password" />
         </Inline>
     )
     .add("value", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <PasswordInput value="test123!" size="sm" />
             <PasswordInput value="test123!" />
             <PasswordInput value="test123!" size="lg" />

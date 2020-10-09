@@ -33,7 +33,7 @@ export function InnerErrorMessage(props) {
     return (
         <FieldMessage
             {...rest}
-            variant="error"
+            tone="error"
             ref={forwardedRef}
         >
             {children}

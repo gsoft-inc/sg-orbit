@@ -16,8 +16,8 @@ export function useInputButton(button, isActive, props) {
     return button && isActive && embedIconButton(button, {
         ...props,
         variant: "ghost",
-        color: "secondary",
         shape: "circular",
+        condensed: true,
         className: "o-ui-input-button"
     });
 }

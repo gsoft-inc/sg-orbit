@@ -2,15 +2,11 @@ import { Flex } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-
-const ITEMS_DIRECTION = {
-    "horizontal": "row",
-    "vertical": "column"
-};
+import { toFlexDirection, useFlexAlignment } from "../../layout";
 
 const propTypes = {
     /**
-     * Orientation of the children.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
@@ -22,17 +18,13 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     * The horizontal alignment of the elements.
      */
-    alignContent: oneOf(["start", "end", "center"]),
+    align: oneOf(["start", "end", "center"]),
     /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     * The vertical alignment of the elements.
      */
-    alignItems: oneOf(["start", "end", "center"]),
-    /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent: oneOf(["start", "end", "center"]),
+    verticalAlign: oneOf(["start", "end", "center"]),
     /**
      * Space to display between each elements.
      */
@@ -64,19 +56,23 @@ const propTypes = {
 };
 
 export function InnerGroup({
-    children,
     orientation,
+    align,
+    verticalAlign,
     wrap,
-    role = "group",
+    children,
     forwardedRef,
     ...rest
 }) {
+    const alignProps = useFlexAlignment(orientation, align, verticalAlign);
+
     return (
         <Flex
             {...rest}
-            direction={ITEMS_DIRECTION[orientation]}
+            {...alignProps}
+            direction={toFlexDirection(orientation)}
+
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            role={role}
             ref={forwardedRef}
         >
             {children}

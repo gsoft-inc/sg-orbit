@@ -59,7 +59,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["outline", "transparent"]),
     /**
@@ -67,7 +67,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**

@@ -1,23 +1,23 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
+import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { iconSlot } from "../../icons";
+import { embeddedIconSlot } from "../../icons";
+import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarContext } from "../../toolbar";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The button style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * The color accent.
+     * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The button shape.
      */
@@ -27,7 +27,7 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
@@ -56,6 +56,10 @@ const propTypes = {
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
+    /**
+     * Default slot override.
+     */
+    slot: string,
     /**
      * @ignore
      */
@@ -86,6 +90,7 @@ export function InnerButton(props) {
         ...rest
     } = mergeProps(
         props,
+        useSlot(props, "button"),
         formProps,
         omitProps(toolbarProps, ["orientation"])
     );
@@ -127,17 +132,17 @@ export function InnerButton(props) {
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot({
+                    slots={useMemo(() => ({
+                        text: {
                             size,
                             className: "o-ui-button-text",
                             "aria-hidden": loading
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-button-icon"
                         })
-                    }}
+                    }), [size, loading])}
                 >
                     {content}
                 </SlotProvider>

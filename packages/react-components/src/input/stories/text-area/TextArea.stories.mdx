@@ -1,6 +1,5 @@
-import { CrossIcon } from "@react-components/icons";
+import { CrossButton } from "@react-components/button";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerTextArea, TextArea } from "@react-components/input";
 import { LengthValidation } from "./LengthValidation.sample";
@@ -61,7 +60,7 @@ A text area can contain a [button](?path=/docs/components-button--default-story)
 <Preview>
     <Story name="button">
         <Inline>
-            <TextArea button={<IconButton aria-label="Clear value"><CrossIcon /></IconButton>} placeholder="Why should you go to space?" />
+            <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Why should you go to space?" />
         </Inline>
     </Story>
 </Preview>
@@ -84,7 +83,7 @@ A text area can vary in size.
 
 <Preview>
     <Story name="size">
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <TextArea size="sm" placeholder="Why should you go to space?" />
             <TextArea placeholder="Why should you go to space?" />
             <TextArea size="lg" placeholder="Why should you go to space?" />

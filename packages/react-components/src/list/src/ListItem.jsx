@@ -1,13 +1,13 @@
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
-import { Text, textSlot } from "../../text";
+import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
+import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 const propTypes = {
     /**
      * A list item can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md", "lg", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -40,17 +40,15 @@ export function InnerListItem({
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={{
-                        text: textSlot({
-                            size
-                        })
-                    }}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <ContentStyleProvider
+                styles={useMemo(() => ({
+                    text: {
+                        size
+                    }
+                }), [size])}
+            >
+                {content}
+            </ContentStyleProvider>
         </ElementType>
     );
 }

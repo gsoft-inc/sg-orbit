@@ -1,19 +1,6 @@
-import { Actions } from "@react-components/form";
-import { Button } from "@react-components/button";
-import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
-
-const Buttons = forwardRef((props, ref) => {
-    return (
-        <Actions
-            {...props}
-            ref={ref}
-        >
-            <Button>Reset</Button>
-            <Button type="submit">Submit</Button>
-        </Actions>
-    );
-});
+import { CrossButton } from "@react-components/button";
+import { act, render, waitFor } from "@testing-library/react";
+import { createRef } from "react";
 
 // ***** Refs *****
 
@@ -21,20 +8,20 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Buttons ref={ref}></Buttons>
+        <CrossButton ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    expect(ref.current.tagName).toBe("BUTTON");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Buttons
+        <CrossButton
             ref={node => {
                 refNode = node;
             }}
@@ -44,15 +31,35 @@ test("when using a callback ref, ref is a DOM element", async () => {
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    expect(refNode.tagName).toBe("BUTTON");
 });
 
 test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Buttons ref={handler} />
+        <CrossButton ref={handler} />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+// ***** API *****
+
+test("can focus the button with the focus api", async () => {
+    let refNode = null;
+
+    render(
+        <CrossButton
+            ref={node => {
+                refNode = node;
+            }}
+        />
+    );
+
+    act(() => {
+        refNode.focus();
+    });
+
+    await waitFor(() => expect(refNode).toHaveFocus());
 });

@@ -73,6 +73,4 @@ export const Dot = forwardRef((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 ));
 
-export const dotSlot = props => props;
-
 

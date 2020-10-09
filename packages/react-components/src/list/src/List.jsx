@@ -1,20 +1,16 @@
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { augmentElement, cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle } from "../../shared";
 
 const propTypes = {
     /**
      * A list can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md", "lg", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
@@ -30,7 +26,7 @@ const List = forwardRef((props, ref) => {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "list")
+        useContentStyle("list")
     );
 
     return (
@@ -54,7 +50,7 @@ const List = forwardRef((props, ref) => {
     );
 });
 
-/******/
+////////
 
 export function InnerOrderedList({
     as = "ol",
@@ -76,7 +72,7 @@ export const OrderedList = forwardRef((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
-/******/
+////////
 
 export function InnerUnorderedList({
     as = "ul",
@@ -97,5 +93,3 @@ InnerUnorderedList.propTypes = propTypes;
 export const UnorderedList = forwardRef((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
-
-export const listSlot = props => props;

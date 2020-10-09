@@ -24,11 +24,11 @@ const propTypes = {
     /**
      * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
-    objectFit: oneOf(["contain", "cover", "fill", "scale-down", "none"]),
+    fit: oneOf(["contain", "cover", "fill", "scale-down", "none"]),
     /**
      * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
-    objectPosition: string,
+    position: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -40,8 +40,8 @@ export function InnerImage({
     size,
     width,
     height,
-    objectFit,
-    objectPosition,
+    fit,
+    position,
     as: ElementType = "img",
     className,
     style,
@@ -62,8 +62,8 @@ export function InnerImage({
             )}
             style={{
                 ...style,
-                objectFit: objectFit,
-                objectPosition: objectPosition
+                objectFit: fit,
+                objectPosition: position
             }}
             ref={forwardedRef}
         />

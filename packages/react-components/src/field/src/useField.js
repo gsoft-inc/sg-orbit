@@ -1,4 +1,5 @@
 import { cssModule, getSizeClass, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { useMemo } from "react";
 
 export function useField({
     id,
@@ -35,7 +36,7 @@ export function useField({
             role: "group",
             ref
         },
-        fieldContext: {
+        fieldContext: useMemo(() => ({
             inputId,
             labelId,
             messageId,
@@ -44,9 +45,22 @@ export function useField({
             size,
             fluid,
             validationState,
+            hasLabel,
+            hasMessage,
             labelClassName: "o-ui-field-label",
             inputClassName: "o-ui-field-input",
             messageClassName: "o-ui-field-message"
-        }
+        }), [
+            inputId,
+            labelId,
+            messageId,
+            required,
+            disabled,
+            size,
+            fluid,
+            validationState,
+            hasLabel,
+            hasMessage
+        ])
     };
 }

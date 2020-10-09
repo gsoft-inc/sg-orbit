@@ -1,7 +1,7 @@
 import "./CheckboxGroup.css";
 
 import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInput } from "../../field";
 import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
 import { Group } from "../../group";
@@ -34,23 +34,23 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Orientation of the children.
+     * The orientation of the group elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The space between elements.
+     * The space between the group elements.
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
+     * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-     * Children size.
+     * The group elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Invert the order of the checkbox and the label of all children.
+     * Invert the order of the checkbox and his label.
      */
     reverse: bool,
     /**
@@ -81,7 +81,7 @@ function arrayToggleValue(array, value) {
 }
 
 export function InnerCheckboxGroup(props) {
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps] = useFieldInput();
     const [toolbarProps] = useToolbarContext();
 
     const {
@@ -90,7 +90,7 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         onChange,
-        orientation,
+        orientation = "horizontal",
         gap,
         wrap,
         size,
@@ -112,13 +112,12 @@ export function InnerCheckboxGroup(props) {
         cssModule: "o-ui-checkbox-group",
         required,
         validationState,
-        orientation: orientation ?? "horizontal",
+        orientation,
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        isInField,
         className,
         ref: forwardedRef
     });
@@ -133,12 +132,7 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const checkableContext = {
-        onCheck: handleCheck,
-        checkedValue
-    };
-
-    const items = useRenderProps(checkableContext, props, children);
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
         <Group
@@ -148,7 +142,7 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbarContext>
                 <ClearFieldContext>
-                    <CheckableContext.Provider value={checkableContext}>
+                    <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
                         {Children.map(items, x => {
                             return augmentElement(x, {
                                 ...itemProps,

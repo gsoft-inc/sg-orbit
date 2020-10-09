@@ -16,7 +16,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <TextInput placeholder="Where to?" />
             </Field>
@@ -29,7 +29,7 @@ stories()
         </Inline>
     )
     .add("label", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Where to?</Label>
                 <TextInput />
@@ -46,7 +46,7 @@ stories()
     )
     .add("message", () =>
         <Stack gap={10}>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Field size="sm">
                     <TextInput placeholder="Where to?" />
                     <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -127,25 +127,8 @@ stories()
             </Field>
         </Inline>
     )
-    .add("render props", () =>
-        <Field>
-            {
-                ({ labelClassName, inputClassName, messageClassName }) => (
-                    <>
-                        <label className={labelClassName}>
-                            Where to?
-                        </label>
-                        <input className={inputClassName} />
-                        <div className={messageClassName}>
-                            Must be a planet in earth solar system.
-                        </div>
-                    </>
-                )
-            }
-        </Field>
-    )
     .add("text input", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Where to?</Label>
                 <TextInput placeholder="Ex. Mars" />
@@ -164,7 +147,7 @@ stories()
         </Inline>
     )
     .add("number input", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Age</Label>
                 <NumberInput placeholder="Ex. 89" />
@@ -183,7 +166,7 @@ stories()
         </Inline>
     )
     .add("textarea", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Where to?</Label>
                 <TextArea placeholder="Ex. Mars" />
@@ -202,7 +185,7 @@ stories()
         </Inline>
     )
     .add("checkbox", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Select your favorite galaxy</Label>
                 <Checkbox>Milky Way</Checkbox>
@@ -221,7 +204,7 @@ stories()
         </Inline>
     )
     .add("switch", () =>
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Field size="sm">
                 <Label>Engines</Label>
                 <Switch>Milky Way</Switch>

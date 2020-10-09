@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlot } from "../../shared";
+import { mergeProps, useContentStyle } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -23,17 +23,13 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
-    /**
-     * Default slot override.
-     */
-    slot: string,
     /**
      * @ignore
      */
@@ -58,7 +54,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "link")
+        useContentStyle("link")
     );
 
     const linkProps = useLink({

@@ -1,13 +1,12 @@
 import "./Badge.css";
 
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { textSlot } from "../../text";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The style to use.
      */
     variant: oneOf(["count", "dot", "icon"]),
     /**
@@ -28,7 +27,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const textSlotAdapter = createSizeAdapterSlotFactory({
+const textSlot = createSizeAdapterSlotFactory({
     "sm": "xs",
     "md": "sm",
     "lg": "md"
@@ -67,14 +66,14 @@ export function InnerBadge({
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot(textSlotAdapter({
+                    slots={useMemo(() => ({
+                        text: textSlot({
                             size
-                        })),
+                        }),
                         icon: {
                             size
                         }
-                    }}
+                    }), [size])}
                 >
                     <div className="o-ui-badge-anchor">
                         {badgeContent}

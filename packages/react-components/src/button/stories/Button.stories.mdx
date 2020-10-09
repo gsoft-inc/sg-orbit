@@ -5,6 +5,7 @@ import {
     IconButton,
     InnerButton,
     InnerButtonGroup,
+    InnerCrossButton,
     InnerIconButton,
     InnerToggleButton,
     InnerToggleIconButton,
@@ -43,7 +44,8 @@ A Button indicates a possible user action.
         { displayName: "IconButton", component: InnerIconButton },
         { displayName: "ButtonGroup", component: InnerButtonGroup },
         { displayName: "ToggleButton", component: InnerToggleButton },
-        { displayName: "ToggleIconButton", component: InnerToggleIconButton }
+        { displayName: "ToggleIconButton", component: InnerToggleIconButton },
+        { displayName: "CrossButton", component: InnerCrossButton }
     ]}
 />
 
@@ -86,7 +88,7 @@ A button can vary in size.
 
 <Preview>
     <Story name="size">
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <Button size="sm">Cutoff</Button>
             <Button >Cutoff</Button>
             <Button size="lg">Cutoff</Button>
@@ -201,7 +203,7 @@ A button content can be a single icon. An accessible name must be provided throu
 
 <Preview>
     <Story name="icon button">
-        <Inline align="end">
+        <Inline verticalAlign="end">
             <IconButton shape="circular" size="2xs" aria-label="Add"><AddIcon /></IconButton>
             <IconButton shape="circular" size="xs" aria-label="Add"><AddIcon /></IconButton>
             <IconButton shape="circular" size="sm" aria-label="Add"><AddIcon /></IconButton>
@@ -213,16 +215,13 @@ A button content can be a single icon. An accessible name must be provided throu
 
 ## Button Group
 
-Related buttons can be group together.
+Related buttons whose actions are related to each other can be group together. Usefull to handle actions in components like [form](?path=/docs/components-form).
 
 <Preview>
     <Story name="button group">
         <ButtonGroup>
-            <Button variant="outline">None</Button>
-            <Button variant="outline" shape="circular">1</Button>
-            <Button variant="outline" shape="circular">2</Button>
-            <Button variant="outline" shape="circular">3</Button>
-            <Button variant="outline" shape="circular">4+</Button>
+            <Button variant="outline" color="secondary">Reset</Button>
+            <Button color="primary">Submit</Button>
         </ButtonGroup>
     </Story>
 </Preview>
@@ -289,3 +288,4 @@ A toggle button can handle `checked` state in controlled mode.
         <Button>Cutoff</Button>
     </RefLogger>
 </Story>
+

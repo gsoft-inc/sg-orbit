@@ -188,7 +188,7 @@
 }
 
 /* BUTTON */
-.o-ui-input-has-button .o-ui-input-button {
+.o-ui-input-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

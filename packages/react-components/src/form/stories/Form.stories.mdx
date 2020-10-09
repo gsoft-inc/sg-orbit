@@ -1,8 +1,8 @@
-import { Actions, Form, InnerActions, InnerForm, InnerRow, Row } from "@react-components/form";
-import { Button } from "@react-components/button";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
+import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
@@ -31,8 +31,7 @@ Forms are commonly used to provide user interaction in web applications.
 <Props
     componentsDefinitions={[
         { displayName: "Form", component: InnerForm },
-        { displayName: "Row", component: InnerRow },
-        { displayName: "Actions", component: InnerActions }
+        { displayName: "Row", component: InnerRow }
     ]}
 />
 
@@ -151,7 +150,7 @@ Form fields and buttons can vary in size.
 
 <Preview>
     <Story name="size">
-        <Inline align="end" gap={10}>
+        <Inline verticalAlign="end" gap={10}>
             <Form size="sm">
                 <Field>
                     <Label>Where to?</Label>
@@ -189,19 +188,19 @@ Form buttons can be aligned horizontally.
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Actions align="center">
+                <ButtonGroup align="center">
                     <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
             <Form>
                 <Field>
                     <Label>Where to?</Label>
                     <TextInput />
                 </Field>
-                <Actions align="end">
+                <ButtonGroup align="end">
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
         </Inline>
     </Story>
@@ -214,28 +213,6 @@ The form state and validation could be managed by an external library like [Form
 <FilePreview filePath="/form/stories/RegistrationForm">
     <RegistrationForm />
 </FilePreview>
-
-### Render Props
-
-A form context is also available through a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Form>
-            {
-                ({ size }) => (
-                    <div>
-                        <Field size={size}>
-                            <Label>Where to?</Label>
-                            <TextInput />
-                        </Field>
-                        <Button size={size}>Submit</Button>
-                    </div>
-                )
-            }
-        </Form>
-    </Story>
-</Preview>
 
 <Story
     name="ref"

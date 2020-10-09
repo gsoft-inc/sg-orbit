@@ -1,7 +1,7 @@
-import { Actions, Form, Row } from "@react-components/form";
-import { Button } from "@react-components/button";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
+import { Form, Row } from "@react-components/form";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
@@ -20,7 +20,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline align="end" gap={13}>
+            <Inline verticalAlign="end" gap={13}>
                 <Form size="sm">
                     <Field>
                         <Label>FullName</Label>
@@ -58,7 +58,7 @@ stories()
                     <Button>Submit</Button>
                 </Form>
             </Inline>
-            <Inline align="end" gap={13}>
+            <Inline verticalAlign="end" gap={13}>
                 <Form size="sm">
                     <Field>
                         <Label>FullName</Label>
@@ -230,30 +230,30 @@ stories()
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Actions align="start">
+                <ButtonGroup align="start">
                     <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Actions align="center">
+                <ButtonGroup align="center">
                     <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
             <Form>
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />
                 </Field>
-                <Actions align="end">
+                <ButtonGroup align="end">
                     <TextLink as="button">Reset</TextLink>
                     <Button>Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
         </Inline>
     )
@@ -306,10 +306,10 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <Actions>
+            <ButtonGroup>
                 <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
-            </Actions>
+            </ButtonGroup>
         </Form>
     )
     .add("fluid", () =>
@@ -345,10 +345,10 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <Actions>
+            <ButtonGroup>
                 <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
-            </Actions>
+            </ButtonGroup>
         </Form>
     )
     .add("fluid with fix width container", () =>
@@ -385,10 +385,10 @@ stories("/inline")
                 <Field>
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
-                <Actions>
+                <ButtonGroup>
                     <TextLink as="button" type="reset">Reset</TextLink>
                     <Button type="submit">Submit</Button>
-                </Actions>
+                </ButtonGroup>
             </Form>
         </div>
     )
@@ -427,9 +427,9 @@ stories("/inline")
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
-            <Actions>
+            <ButtonGroup>
                 <TextLink as="button" type="reset">Reset</TextLink>
                 <Button type="submit">Submit</Button>
-            </Actions>
+            </ButtonGroup>
         </Form>
     );

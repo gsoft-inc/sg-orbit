@@ -1,20 +1,24 @@
 import "./Tag.css";
 
 import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
+import { CrossButton, embedIconButton } from "../../button";
 import { Text } from "../../text";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { counterSlot } from "../../counter";
-import { dotSlot } from "../../dot/src";
-import { forwardRef } from "react";
-import { iconButtonSlot } from "../../button";
-import { iconSlot } from "../../icons";
-import { textSlot } from "../../text";
+import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
+import { embeddedIconSlot } from "../../icons";
+import { forwardRef, useMemo } from "react";
+import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * Style to use.
+     * The tag style to use.
      */
     variant: oneOf(["solid", "outline"]),
+    /**
+     * Called when the remove button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onRemove: func,
     /**
      * Whether the tag take up the width of its container.
      */
@@ -35,6 +39,7 @@ const propTypes = {
 
 export function InnerTag({
     variant = "solid",
+    onRemove,
     disabled,
     fluid,
     size,
@@ -49,11 +54,18 @@ export function InnerTag({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { hasIcon, hasCounter, hasButton } = useHasChildren({
+    const { hasIcon, hasCounter } = useHasChildren({
         hasIcon: ".o-ui-tag-icon",
-        hasCounter: ".o-ui-tag-counter",
-        hasButton: ".o-ui-tag-button"
+        hasCounter: ".o-ui-tag-counter"
     }, ref);
+
+    const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
+        condensed: true,
+        onClick: onRemove,
+        size,
+        className: "o-ui-tag-remove-button",
+        "aria-label": "Remove"
+    });
 
     const content = useTextContent(Text, children);
 
@@ -66,7 +78,7 @@ export function InnerTag({
                     variant,
                     hasIcon && "has-icon",
                     hasCounter && "has-counter",
-                    hasButton && "has-button",
+                    removeMarkup && "has-remove-button",
                     fluid && "fluid",
                     active && "active",
                     focus && "focus",
@@ -80,38 +92,32 @@ export function InnerTag({
         >
             <ClearSlots>
                 <SlotProvider
-                    slots={{
-                        text: textSlot({
+                    slots={useMemo(() => ({
+                        text: {
                             size,
                             className: "o-ui-tag-text"
-                        }),
-                        icon: iconSlot({
+                        },
+                        icon: embeddedIconSlot({
                             size,
                             className: "o-ui-tag-icon"
                         }),
-                        dot: dotSlot({
+                        dot: {
                             size,
                             disabled,
                             className: "o-ui-tag-dot"
-                        }),
-                        counter: counterSlot({
+                        },
+                        counter: {
                             size,
                             disabled,
                             highlight: true,
                             className: "o-ui-tag-counter"
-                        }),
-                        button: iconButtonSlot({
-                            size,
-                            variant: "ghost",
-                            color: "secondary",
-                            shape: "circular",
-                            className: "o-ui-tag-button"
-                        })
-                    }}
+                        }
+                    }), [size, disabled])}
                 >
                     {content}
                 </SlotProvider>
             </ClearSlots>
+            {removeMarkup}
         </ElementType>
     );
 }

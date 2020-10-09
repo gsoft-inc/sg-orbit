@@ -37,7 +37,7 @@ export function InnerHelpMessage(props) {
     return (
         <FieldMessage
             {...rest}
-            variant="neutral"
+            tone="neutral"
             ref={forwardedRef}
         >
             {children}

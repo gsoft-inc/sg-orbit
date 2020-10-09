@@ -12,10 +12,9 @@ import {
     useEventCallback,
     useId,
     useMergedRefs,
-    useRenderProps,
-    useRovingFocus
+    useRenderProps, useRovingFocus
 } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, forwardRef, useMemo } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -58,7 +57,7 @@ const propTypes = {
      */
     name: string,
     /**
-     * Called when any of the children is checked or unchecked.
+     * Called when any of the group elements is checked or unchecked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string | number} value - The new value.
      * @returns {void}
@@ -69,27 +68,27 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
-     * Orientation of the children.
+     * The orientation of the group elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The space between elements.
+     * The space between the group elements.
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
+     * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-     * Children size.
+     * The group elements size.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
-     * Invert the order of the button and the label of all children.
+     * Invert the order of the radio button and his label.
      */
     reverse: bool,
     /**
@@ -108,7 +107,7 @@ const propTypes = {
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarContext();
-    const [fieldProps, isInField] = useFieldInput();
+    const [fieldProps] = useFieldInput();
 
     const {
         value,
@@ -119,7 +118,7 @@ export function InnerRadioGroup(props) {
         onChange,
         autoFocus,
         autoFocusDelay,
-        orientation,
+        orientation = "vertical",
         gap,
         wrap,
         size,
@@ -154,13 +153,12 @@ export function InnerRadioGroup(props) {
         role: "radio-group",
         required,
         validationState,
-        orientation: orientation ?? "vertical",
+        orientation,
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        isInField,
         className,
         ref
     });
@@ -175,12 +173,7 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const checkableProps = {
-        onCheck: handleCheck,
-        checkedValue
-    };
-
-    const items = useRenderProps(checkableProps, props, children);
+    const items = useRenderProps({ checkedValue }, props, children);
 
     return (
         <Group
@@ -188,7 +181,7 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableContext.Provider value={checkableProps}>
+            <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,

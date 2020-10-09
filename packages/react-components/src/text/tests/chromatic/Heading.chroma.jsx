@@ -23,12 +23,12 @@ stories()
     )
     .add("as header element", () =>
         <Stack>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Heading as="h1">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h2">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h3">Migrate, adapt, and<br />control the cloud.</Heading>
             </Inline>
-            <Inline align="end">
+            <Inline verticalAlign="end">
                 <Heading as="h4">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h5">Migrate, adapt, and<br />control the cloud.</Heading>
                 <Heading as="h6">Migrate, adapt, and<br />control the cloud.</Heading>

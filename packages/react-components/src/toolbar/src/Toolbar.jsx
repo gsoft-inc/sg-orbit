@@ -1,8 +1,8 @@
-import { Flex } from "../../layout";
+import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
 import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const ARROW_NAV_KEY_BINDING = {
@@ -18,31 +18,31 @@ const propTypes = {
      */
     autoFocus: bool,
     /**
-     * Delay before trying to autofocus.
+     * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
     /**
-     * How the elements are aligned in the container along the main axis.
-     */
-    align: oneOf(["start", "end", "center"]),
-    /**
-     * How the elements are aligned in the container along the cross axis.
-     */
-    justify: oneOf(["start", "end", "center"]),
-    /**
-     * Flex direction to display the elements.
+     * The orientation of the elements.
      */
     orientation: oneOf(["horizontal", "vertical"]),
     /**
-     * The space between elements.
+     * The horizontal alignment of the elements.
+     */
+    align: oneOf(["start", "end", "center"]),
+    /**
+     * The vertical alignment of the elements.
+     */
+    verticalAlign: oneOf(["start", "end", "center"]),
+    /**
+     * The space between the elements.
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
+     * Whether the elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
-     * Element size.
+     * The size of the elements.
      */
     size: oneOf(["sm", "md", "lg"]),
     /**
@@ -66,9 +66,9 @@ const propTypes = {
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
-    align,
-    justify,
     orientation = "horizontal",
+    align,
+    verticalAlign,
     gap = 5,
     wrap,
     size,
@@ -81,7 +81,10 @@ export function InnerToolbar({
     const ref = useMergedRefs(forwardedRef);
 
     useRovingFocus(ref);
+
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+
+    const alignProps = useFlexAlignment(orientation, align, orientation === "horizontal" ? verticalAlign ?? "center" : verticalAlign);
 
     const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
 
@@ -89,24 +92,17 @@ export function InnerToolbar({
         <Flex
             data-testid="toolbar"
             {...rest}
+            {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            alignItems={align}
-            justifyContent={justify}
-            direction={orientation === "vertical" ? "column" : "row"}
+            direction={toFlexDirection(orientation)}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
-            aria-orientation={orientation}
             as={as}
             ref={ref}
+            aria-orientation={orientation}
         >
-            <ToolbarContext.Provider
-                value={{
-                    orientation,
-                    size,
-                    disabled
-                }}
-            >
+            <ToolbarContext.Provider value={useMemo(() => ({ orientation, size, disabled }), [orientation, size, disabled])}>
                 {children}
             </ToolbarContext.Provider>
         </Flex>

@@ -2,6 +2,7 @@ import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { useFlexAlignment } from "./adapters";
 
 const propTypes = {
     /**
@@ -13,27 +14,13 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
-     */
-    alignContent: oneOf(["start", "end", "center"]),
-    /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
-     */
-    alignItems: oneOf(["start", "end", "center"]),
-    /**
-     * Shortcut for alignItems.
-     * @ignore
+     * The horizontal alignment of the elements.
      */
     align: oneOf(["start", "end", "center"]),
     /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     * The vertical alignment of the elements.
      */
-    justifyContent: oneOf(["start", "end", "center"]),
-    /**
-     * Shortcut for justifyContent
-     * @ignore
-     */
-    justify: oneOf(["start", "end", "center"]),
+    verticalAlign: oneOf(["start", "end", "center"]),
     /**
      * Space to display between each elements.
      */
@@ -61,25 +48,22 @@ const propTypes = {
 };
 
 export function InnerStack({
-    alignContent,
-    alignItems,
     align,
-    justifyContent,
-    justify,
+    verticalAlign,
     gap = 5,
     wrap,
     children,
     forwardedRef,
     ...rest
 }) {
+    const alignProps = useFlexAlignment("vertical", align, verticalAlign);
+
     return (
         <Flex
             {...rest}
+            {...alignProps}
             direction="column"
-            alignContent={alignContent}
-            alignItems={alignItems ?? align}
-            justifyContent={justifyContent ?? justify}
-            gap={gap}
+            gap={gap !== 0 ? gap : undefined}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >

@@ -1,7 +1,7 @@
 import "./Heading.css";
 
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSizeClass, mergeClasses } from "../../shared";
+import { cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -19,15 +19,22 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerHeading({
-    size,
-    as: ElementType,
-    className,
-    children,
-    forwardedRef
-}) {
+export function InnerHeading(props) {
+    const {
+        size,
+        as: ElementType,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        useContentStyle("heading")
+    );
+
     return (
         <ElementType
+            {...rest}
             className={mergeClasses(
                 cssModule(
                     "o-ui-heading",
