@@ -3,6 +3,12 @@ import { createContext, useContext, useMemo } from "react";
 import { isNil } from "lodash";
 import { mergeProps } from "./mergeProps";
 
+/*
+TODO:
+- rename "defaults" to "withDefaults"
+- withDefaults should accept `true` or an array of string
+*/
+
 const DEFAULTS = {
     text: {
         size: "inherit"

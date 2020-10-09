@@ -205,7 +205,7 @@ stories()
             <Alert size="sm" onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
-                    <Heading as="span">Scheduled launch</Heading>
+                    <Heading>Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
                     <UnorderedList>
                         <ListItem>Be cautious</ListItem>
@@ -217,7 +217,7 @@ stories()
             <Alert onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
-                    <Heading as="span">Scheduled launch</Heading>
+                    <Heading>Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
                     <UnorderedList>
                         <ListItem>Be cautious</ListItem>
@@ -229,7 +229,7 @@ stories()
             <Alert size="lg" onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>
-                    <Heading as="span">Scheduled launch</Heading>
+                    <Heading>Scheduled launch</Heading>
                     <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
                     <UnorderedList>
                         <ListItem>Be cautious</ListItem>
@@ -247,59 +247,6 @@ stories()
                 <Content>Scheduled launch today at 1PM.</Content>
             </Alert>
         </div>
-    )
-    .add("info", () =>
-        <Stack>
-            <InfoAlert size="sm" onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </InfoAlert>
-            <InfoAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </InfoAlert>
-            <InfoAlert size="lg" onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </InfoAlert>
-            <InfoAlert onDismiss={() => {}}>
-                <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-            </InfoAlert>
-        </Stack>
-    )
-    .add("success", () =>
-        <Stack>
-            <SuccessAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </SuccessAlert>
-            <SuccessAlert onDismiss={() => {}}>
-                <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-            </SuccessAlert>
-        </Stack>
-    )
-    .add("warning", () =>
-        <Stack>
-            <WarningAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </WarningAlert>
-            <WarningAlert onDismiss={() => {}}>
-                <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-            </WarningAlert>
-        </Stack>
-    )
-    .add("critical", () =>
-        <Stack>
-            <CriticalAlert onDismiss={() => {}}>
-                Scheduled launch today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </CriticalAlert>
-            <CriticalAlert onDismiss={() => {}}>
-                <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-            </CriticalAlert>
-            <CriticalAlert onDismiss={() => {}}>
-                <Heading as="span">Scheduled launch</Heading>
-                <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-            </CriticalAlert>
-        </Stack>
     )
     .add("variation without dismiss", () =>
         <Stack>
@@ -333,3 +280,48 @@ stories()
          },
          paramsBuilder().chromaticIgnore().build()
     );
+
+[
+    { name: "info", ElementType: InfoAlert },
+    { name: "success", ElementType: SuccessAlert },
+    { name: "warning", ElementType: WarningAlert },
+    { name: "critical", ElementType: CriticalAlert }
+]
+    .forEach(({ name, ElementType }) => {
+        stories()
+            .add(name, () =>
+                <Stack>
+                    <ElementType size="sm" onDismiss={() => {}}>
+                        <Content>
+                            <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
+                        </Content>
+                    </ElementType>
+                    <ElementType onDismiss={() => {}}>
+                        <Content>
+                            <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
+                        </Content>
+                    </ElementType>
+                    <ElementType size="lg" onDismiss={() => {}}>
+                        <Content>
+                            <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
+                        </Content>
+                    </ElementType>
+                    <ElementType onDismiss={() => {}}>
+                        A launch is scheduled today at 1PM.
+                    </ElementType>
+                    <ElementType onDismiss={() => {}}>
+                        <Content>
+                            <Heading>Scheduled launch</Heading>
+                            <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
+                        </Content>
+                    </ElementType>
+                    <ElementType onDismiss={() => {}}>
+                        <Content>
+                            <Heading>Scheduled launch</Heading>
+                            <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
+                        </Content>
+                        <Button>Cancel</Button>
+                    </ElementType>
+                </Stack>
+            );
+    });

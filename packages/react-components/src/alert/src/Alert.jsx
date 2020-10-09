@@ -58,6 +58,19 @@ const propTypes = {
     children: any.isRequired
 };
 
+function AlertContent({ size, children, ...rest }) {
+    return (
+        <Text
+            {...rest}
+            // Without getSize, when medium (undefined size), the Text component will take it's size from the ContentStyleProviderContext and render as an "inherit" size.
+            size={getSize(size)}
+            as="div"
+        >
+            {children}
+        </Text>
+    );
+}
+
 export function InnerAlert({
     show = true,
     tone = "info",
@@ -81,6 +94,7 @@ export function InnerAlert({
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
+            color="inherit"
             onClick={onDismiss}
             size={BUTTON_SIZE[getSize(size)]}
             className="o-ui-alert-dismiss"
@@ -118,11 +132,9 @@ export function InnerAlert({
                         className: "o-ui-alert-icon"
                     },
                     content: {
-                        // TEMP hotfix
-                        size: getSize(size),
-                        // size,
+                        size,
                         className: "o-ui-alert-content",
-                        as: Text
+                        as: AlertContent
                     },
                     button: {
                         variant: "ghost",
@@ -165,46 +177,33 @@ const variations = [
 ];
 
 const [
-    [InnerInfoAlert, InfoAlert],
-    [InnerSuccessAlert, SuccessAlert],
-    [InnerWarningAlert, WarningAlert],
-    [InnerCriticalAlert, CriticalAlert]
+    InfoAlert,
+    SuccessAlert,
+    WarningAlert,
+    CriticalAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
-    const InnerVariation = ({
+    return forwardRef(({
         children,
-        forwardedRef,
         ...rest
-    }) => {
+    }, ref) => {
+        const content = useTextContent(() => (<Content>{children}</Content>), children);
+
         return (
             <Alert
                 tone={tone}
                 {...rest}
-                ref={forwardedRef}
+                ref={ref}
             >
                 {icon}
-                <Content>
-                    {children}
-                </Content>
+                {content}
             </Alert>
         );
-    };
-
-    InnerVariation.propTypes = propTypes;
-
-    const Variation = forwardRef((props, ref) => (
-        <InnerVariation {...props} forwardedRef={ref} />
-    ));
-
-    return [InnerVariation, Variation];
+    });
 });
 
 export {
-    InnerInfoAlert,
     InfoAlert,
-    InnerSuccessAlert,
     SuccessAlert,
-    InnerWarningAlert,
     WarningAlert,
-    InnerCriticalAlert,
     CriticalAlert
 };
