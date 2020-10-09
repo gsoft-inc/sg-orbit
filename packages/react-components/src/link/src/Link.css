@@ -60,6 +60,11 @@
     box-shadow: none;
 }
 
+.o-ui-link[disabled]:focus .o-ui-link-text,
+.o-ui-link[disabled].o-ui-link-focus .o-ui-link-text {
+    text-decoration: none;
+}
+
 /* TEXT */
 .o-ui-text-link {
     display: inline-grid;

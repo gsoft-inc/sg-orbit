@@ -460,7 +460,7 @@ a.o-ui-button {
     font-size: var(--type-scale-8);
 }
 
-.o-ui-button-ghost.pill.o-ui-button-xs {
+.o-ui-button-ghost.o-ui-button-pill.o-ui-button-xs {
     border-radius: calc(var(--o-ui-button-height-xs) / 2);
 }
 
