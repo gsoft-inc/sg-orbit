@@ -145,7 +145,7 @@ export function InnerAlert({
                 }), [size])}
             >
                 <ContentStyleProvider
-                    defaults="all"
+                    withDefaults
                     styles={useMemo(() => ({
                         heading: {
                             size: HEADING_SIZE[getSize(size)],

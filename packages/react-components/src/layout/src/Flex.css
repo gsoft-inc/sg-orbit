@@ -1,5 +1,6 @@
 /* FLEX */
 .o-ui-flex {
+    --o-ui-gap: normal;
     display: flex;
     gap: var(--o-ui-gap);
 }

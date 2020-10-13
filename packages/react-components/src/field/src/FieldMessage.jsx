@@ -69,7 +69,7 @@ export const FieldMessage = forwardRef(({
             ref={ref}
         >
             <ContentStyleProvider
-                defaults="all"
+                withDefaults
                 styles={useMemo(() => ({
                     icon: embeddedIconSlot({
                         size
