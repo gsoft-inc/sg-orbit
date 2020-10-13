@@ -1,4 +1,5 @@
 .o-ui-checkbox {
+    --o-ui-focus-ring-stroke-width: 2px;
     display: inline-grid;
     align-items: center;
     grid-template-columns: max-content max-content max-content max-content;
@@ -35,7 +36,7 @@
     z-index: 1;
     outline: none;
     border: 2px solid var(--transparent);
-    transition: all .2s ease-in;
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 .o-ui-checkbox-box:before {
@@ -244,9 +245,8 @@
 }
 
 .o-ui-checkbox-sm input {
-    width: 22px;
-    height: 22px;
-    left: -3px;
+    width: calc(var(--scale-delta) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
+    height: calc(var(--scale-delta) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
 }
 
 .o-ui-checkbox-sm .o-ui-checkbox-box:before {
@@ -263,8 +263,8 @@
 
 /* SIZING | MEDIUM */
 .o-ui-checkbox-md input {
-    width: 28px;
-    height: 28px;
+    width: calc(var(--scale-echo) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
+    height: calc(var(--scale-echo) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
 }
 
 /* SIZING | LARGE */
@@ -275,8 +275,8 @@
 }
 
 .o-ui-checkbox-lg input {
-    width: 32px;
-    height: 32px;
+    width: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
+    height: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2) * 2);
 }
 
 /* SIZING | LARGE | LABEL | */

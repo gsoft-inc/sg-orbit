@@ -36,15 +36,15 @@
 .o-ui-link:after {
     opacity: 0;
     content: "";
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
+    top: calc(-1 * var(--o-ui-focus-ring-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-offset));
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-rounded-border-radius);
-    transition: opacity .2s ease-in;
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 .o-ui-link:focus:after,
@@ -98,6 +98,7 @@
 
 .o-ui-link-text {
     grid-area: text;
+    text-decoration-thickness: from-font;
 }
 
 /* TEXT | STATES */
