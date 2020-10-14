@@ -2,6 +2,7 @@ import "./Checkbox.css";
 
 import { ClearSlots, SlotProvider, mergeProps, omitProps, useCheckable, useEventCallback, useRenderProps, useTextContent } from "../../shared";
 import { Text } from "../../text";
+import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSlot } from "../../icons";
 import { forwardRef, useMemo } from "react";
@@ -151,7 +152,7 @@ export function InnerCheckbox(props) {
             {...rest}
             {...wrapperProps}
         >
-            <input {...inputProps} />
+            <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />
             <ClearSlots>
                 <SlotProvider

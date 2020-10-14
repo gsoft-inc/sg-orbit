@@ -79,6 +79,7 @@ export function useCheckbox({
         },
         inputProps: {
             id,
+            as: "input",
             type: "checkbox",
             checked: isChecked,
             onChange: handleChange,
