@@ -1,11 +1,11 @@
 import "./Tag.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, useHasChildren, useMergedRefs, useTextContent } from "../../shared";
 import { CrossButton, embedIconButton } from "../../button";
+import { SlotProvider, Wrap, cssModule, mergeClasses, normalizeSize, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useMemo } from "react";
+import { embeddedIconSize } from "../../icons";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -67,8 +67,6 @@ export function InnerTag({
         "aria-label": "Remove"
     });
 
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             {...rest}
@@ -83,46 +81,47 @@ export function InnerTag({
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             disabled={disabled}
             ref={ref}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size,
-                            className: "o-ui-tag-text"
-                        },
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-tag-icon"
-                        }),
-                        dot: {
-                            size,
-                            disabled,
-                            className: "o-ui-tag-dot"
-                        },
-                        counter: {
-                            size,
-                            disabled,
-                            highlight: true,
-                            className: "o-ui-tag-counter"
-                        }
-                    }), [size, disabled])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size,
+                        className: "o-ui-tag-text"
+                    },
+                    icon: {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-tag-icon"
+                    },
+                    dot: {
+                        size,
+                        disabled,
+                        className: "o-ui-tag-dot"
+                    },
+                    counter: {
+                        size,
+                        disabled,
+                        highlight: true,
+                        className: "o-ui-tag-counter"
+                    }
+                }}
+            >
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
+            </SlotProvider>
             {removeMarkup}
         </ElementType>
     );
 }
 
 InnerTag.propTypes = propTypes;
+
 export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

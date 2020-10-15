@@ -2,7 +2,7 @@ import { FieldMessage, getValidationProps } from "./FieldMessage";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
-import { useFieldMessage } from "./FieldContext";
+import { useFieldMessageProps } from "./FieldContext";
 
 const propTypes = {
     /**
@@ -16,7 +16,7 @@ const propTypes = {
 };
 
 export function InnerErrorMessage(props) {
-    const [{ validationState, ...messageProps }, isInField] = useFieldMessage();
+    const [{ validationState, ...messageProps }, isInField] = useFieldMessageProps();
 
     const { isError } = getValidationProps(validationState);
 

@@ -1,8 +1,8 @@
 import { cloneElement } from "react";
-import { getSize } from "./size";
 import { isString } from "lodash";
 import { isValidElementType } from "react-is";
 import { mergeProps } from "./mergeProps";
+import { normalizeSize } from "./normalizeSize";
 
 export function augmentElement(element, newProps) {
     const augmentedProps = mergeProps({ ...element.props, ref: element.ref }, newProps);
@@ -24,7 +24,7 @@ export function createEmbeddableAdapter(sizeAdapter) {
     return (element, { size, ...props } = {}) => {
         const newProps = {
             ...props,
-            size: sizeAdapter[getSize(size)]
+            size: sizeAdapter[normalizeSize(size)]
         };
 
         return augmentElement(element, newProps);

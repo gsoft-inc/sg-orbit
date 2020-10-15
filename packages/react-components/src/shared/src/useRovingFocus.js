@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import { walkAllFocusableElements } from "./createFocusableTreeWalker";
+import { walkFocusableElements } from "./focusableTreeWalker";
 
 export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
     useLayoutEffect(() => {
@@ -9,7 +9,7 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
         const scope = [];
 
         const handleFocus = event => {
-            walkAllFocusableElements(root, x => {
+            walkFocusableElements(root, x => {
                 if (x.tabIndex === 0) {
                     x.tabIndex = -1;
                 }
@@ -38,7 +38,7 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
         };
 
         // Initialize elements.
-        walkAllFocusableElements(root, (element, index) => {
+        walkFocusableElements(root, (element, index) => {
             const initialIndex = isNil(currentKey)
                 ? index === 0 ? 0 : -1
                 : currentKey === element.getAttribute(keyProp) ? 0 : -1;
@@ -51,11 +51,11 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
             mutations.forEach(x => {
                 if (x.type === "childList") {
                     x.addedNodes.forEach(element => {
-                        walkAllFocusableElements(element, y => addElement(y));
+                        walkFocusableElements(element, y => addElement(y));
                     });
 
                     x.removedNodes.forEach(element => {
-                        walkAllFocusableElements(element, y => removeElement(y, true));
+                        walkFocusableElements(element, y => removeElement(y, true));
                     });
                 }
             });

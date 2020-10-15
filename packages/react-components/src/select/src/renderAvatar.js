@@ -1,6 +1,6 @@
 import { Image as SemanticImage } from "semantic-ui-react";
-import { getSize } from "../../shared";
 import { isElement } from "react-is";
+import { normalizeSize } from "../../shared";
 
 const AVATAR_SIZE = {
     "sm": "2xs",
@@ -11,7 +11,7 @@ const AVATAR_SIZE = {
 export function renderAvatar(avatar, size) {
     const props = {
         avatar: true,
-        size: AVATAR_SIZE[getSize(size)]
+        size: AVATAR_SIZE[normalizeSize(size)]
     };
 
     if (isElement(avatar)) {

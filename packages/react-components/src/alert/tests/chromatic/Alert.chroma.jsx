@@ -1,10 +1,11 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
-import { Heading, Paragraph } from "@react-components/text";
+import { Heading } from "@react-components/heading";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
+import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useEventCallback } from "@react-components/shared";

@@ -1,6 +1,6 @@
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlot } from "../../shared";
+import { mergeProps, useSlotProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -18,6 +18,8 @@ const propTypes = {
 };
 
 export function InnerContent(props) {
+    const [slotProps] = useSlotProps(props, "content");
+
     const {
         as: ElementType = "div",
         children,
@@ -25,7 +27,7 @@ export function InnerContent(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "content")
+        slotProps
     );
 
     return (

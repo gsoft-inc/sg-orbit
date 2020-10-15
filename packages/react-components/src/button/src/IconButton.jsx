@@ -1,9 +1,9 @@
 import { Children, forwardRef } from "react";
-import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlot } from "../../shared";
+import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlotProps } from "../../shared";
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { useButton } from "./useButton";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -67,7 +67,8 @@ const propTypes = {
 };
 
 export function InnerIconButton(props) {
-    const [toolbarProps] = useToolbarContext();
+    const [slotProps] = useSlotProps(props, "button");
+    const [toolbarProps] = useToolbarProps();
 
     const {
         variant = "solid",
@@ -92,7 +93,7 @@ export function InnerIconButton(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "button"),
+        slotProps,
         omitProps(toolbarProps, ["orientation"])
     );
 

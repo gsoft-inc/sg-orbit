@@ -3,6 +3,8 @@ import { isNil } from "lodash";
 
 export const ToolbarContext = createContext(null);
 
+export const ToolbarProvider = ToolbarContext.Provider;
+
 export function useToolbarContext() {
     const context = useContext(ToolbarContext);
 
@@ -13,10 +15,14 @@ export function useToolbarContext() {
     return [{}, false];
 }
 
-export function ClearToolbarContext({ children }) {
+export function useToolbarProps() {
+    return useToolbarContext();
+}
+
+export function ClearToolbar({ children }) {
     return (
-        <ToolbarContext.Provider value={null}>
+        <ToolbarProvider value={null}>
             {children}
-        </ToolbarContext.Provider>
+        </ToolbarProvider>
     );
 }

@@ -1,4 +1,4 @@
-import { cssModule, getSizeClass, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useLink({
     cssModule: module,
@@ -39,7 +39,7 @@ export function useLink({
                 focus && "focus",
                 hover && "hover",
                 visited && "visited",
-                !omitSize && getSizeClass(size)
+                !omitSize && normalizeSize(size)
             ),
             className
         ),

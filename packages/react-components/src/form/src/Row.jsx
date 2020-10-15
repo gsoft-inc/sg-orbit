@@ -1,14 +1,8 @@
 import { Children, forwardRef } from "react";
 import { Inline } from "../../layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, getSize, mergeProps, omitProps } from "../../shared";
+import { augmentElement, mergeProps, normalizeSize, omitProps } from "../../shared";
 import { useFormContext } from "..";
-
-const GAP_BY_SIZE = {
-    "sm": 3,
-    "md": 4,
-    "lg": 5
-};
 
 const propTypes = {
     /**
@@ -29,6 +23,12 @@ const propTypes = {
     children: any.isRequired
 };
 
+const GAP_BY_SIZE = {
+    "sm": 3,
+    "md": 4,
+    "lg": 5
+};
+
 export function InnerRow(props) {
     const [formProps] = useFormContext();
 
@@ -47,7 +47,7 @@ export function InnerRow(props) {
         <Inline
             {...rest}
             fluid={fluid}
-            gap={GAP_BY_SIZE[getSize(size)]}
+            gap={GAP_BY_SIZE[normalizeSize(size)]}
             align="start"
             ref={forwardedRef}
         >

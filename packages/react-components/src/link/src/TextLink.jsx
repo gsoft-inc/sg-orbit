@@ -1,10 +1,10 @@
 import "./Link.css";
 
-import { ArrowIcon, embeddedIconSlot } from "../../icons";
-import { ClearSlots, SlotProvider, mergeProps, useContentStyle, useTextContent } from "../../shared";
+import { ArrowIcon, embeddedIconSize } from "../../icons";
+import { SlotProvider, Wrap, mergeProps, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef } from "react";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -52,6 +52,7 @@ const propTypes = {
 };
 
 export function InnerTextLink(props) {
+    const [styleProps] = useStyleProps("link");
     const [formProps] = useFormButton();
 
     const {
@@ -75,7 +76,7 @@ export function InnerTextLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useContentStyle("link"),
+        styleProps,
         formProps
     );
 
@@ -98,16 +99,16 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    let content = useTextContent(Text, children);
-
-    if (external) {
-        content = (
+    const content = external
+        ? (
             <>
-                {content}
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
                 <ArrowIcon />
             </>
-        );
-    }
+        )
+        : children;
 
     return (
         <ElementType
@@ -115,26 +116,24 @@ export function InnerTextLink(props) {
             {...rest}
             {...linkProps}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size,
-                            className: "o-ui-link-text"
-                        },
-                        "left-icon": embeddedIconSlot({
-                            size,
-                            className: "o-ui-link-left-icon"
-                        }),
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-link-right-icon"
-                        })
-                    }), [size])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size,
+                        className: "o-ui-link-text"
+                    },
+                    icon: {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-link-right-icon"
+                    },
+                    "left-icon": {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-link-left-icon"
+                    }
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

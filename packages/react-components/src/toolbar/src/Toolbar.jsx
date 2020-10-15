@@ -1,16 +1,9 @@
 import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
-import { KEYS, useArrowNavigation, useAutoFocusFirstTabbableElement, useMergedRefs, useRovingFocus } from "../../shared";
-import { ToolbarContext } from "./ToolbarContext";
+import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { ToolbarProvider } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
-
-const ARROW_NAV_KEY_BINDING = {
-    previous: [KEYS.left],
-    next: [KEYS.right],
-    first: [KEYS.home],
-    last: [KEYS.end]
-};
 
 const propTypes = {
     /**
@@ -86,7 +79,12 @@ export function InnerToolbar({
 
     const alignProps = useFlexAlignment(orientation, align, orientation === "horizontal" ? verticalAlign ?? "center" : verticalAlign);
 
-    const arrowNavigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING);
+    const arrowNavigationProps = useKeyboardNavigation({
+        previous: orientation === "horizontal" ? [KEYS.left] : [KEYS.left, KEYS.up],
+        next: orientation === "horizontal" ? [KEYS.right] : [KEYS.right, KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    });
 
     return (
         <Flex
@@ -102,9 +100,15 @@ export function InnerToolbar({
             ref={ref}
             aria-orientation={orientation}
         >
-            <ToolbarContext.Provider value={useMemo(() => ({ orientation, size, disabled }), [orientation, size, disabled])}>
+            <ToolbarProvider
+                value={{
+                    orientation,
+                    size,
+                    disabled
+                }}
+            >
                 {children}
-            </ToolbarContext.Provider>
+            </ToolbarProvider>
         </Flex>
     );
 }

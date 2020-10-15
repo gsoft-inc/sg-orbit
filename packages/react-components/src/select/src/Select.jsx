@@ -1,5 +1,5 @@
 import { EmbeddedIcon } from "../../icons";
-import { KEYS, SemanticRef, getSize, getSizeClass, mergeClasses, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
+import { KEYS, SemanticRef, mergeClasses, normalizeSize, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
 import { Label } from "semantic-ui-react";
 import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
 import { SelectContext } from "./SelectContext";
@@ -113,7 +113,7 @@ function useMultipleValuesLabelRenderer({ size }) {
             <Label
                 {...rest}
                 content={content}
-                size={MULTIPLE_VALUES_LABEL_SIZE[getSize(size)]}
+                size={MULTIPLE_VALUES_LABEL_SIZE[normalizeSize(size)]}
                 className={mergeClasses(
                     !isNil(avatar) && "with-avatar",
                     !isNil(icons) && iconsPosition === "left" && "with-icons-left",
@@ -274,7 +274,7 @@ export function InnerSelect(props) {
                             active && "active",
                             focus && "focus",
                             hover && "hover",
-                            getSizeClass(size),
+                            normalizeSize(size),
                             className
                         )}
                         ref={dropdownComponentRef}

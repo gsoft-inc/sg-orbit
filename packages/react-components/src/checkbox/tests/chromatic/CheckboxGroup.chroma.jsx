@@ -4,14 +4,14 @@ import { Tag } from "@react-components/tag";
 import { ToggleButton } from "@react-components/button";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useCallback } from "react";
-import { useCheckable } from "@react-components/shared";
+import { useCheckableProps } from "@react-components/shared";
 
 function CustomComponent({
     value,
     children,
     ...rest
 }) {
-    const [{ checked: isChecked, onCheck, ...checkableProps }] = useCheckable({ value });
+    const [{ checked: isChecked, onCheck, ...checkableProps }] = useCheckableProps({ value });
 
     const handleCheck = useCallback(event => {
         onCheck(event, value);

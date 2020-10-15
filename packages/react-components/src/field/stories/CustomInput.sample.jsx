@@ -1,9 +1,9 @@
-import { ErrorMessage, Field, Label, useFieldInput } from "@react-components/field";
+import { ErrorMessage, Field, Label, useFieldInputProps } from "@react-components/field";
 import { mergeClasses } from "@react-components/shared";
 import { useCallback, useState } from "react";
 
 function CustomInput(props) {
-    const [{ validationState, fieldProps }] = useFieldInput();
+    const [{ validationState, ...fieldProps }] = useFieldInputProps();
 
     return (
         <input

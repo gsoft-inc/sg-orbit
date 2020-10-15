@@ -3,7 +3,7 @@ import "./Link.css";
 import { Children, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, useContentStyle } from "../../shared";
+import { augmentElement, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -50,6 +50,8 @@ const propTypes = {
 };
 
 export function InnerIconLink(props) {
+    const [styleProps] = useStyleProps("link");
+
     const {
         color,
         condensed,
@@ -72,7 +74,7 @@ export function InnerIconLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useContentStyle("link")
+        styleProps
     );
 
     const linkProps = useLink({

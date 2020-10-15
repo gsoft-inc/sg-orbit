@@ -1,5 +1,4 @@
-import { cssModule, getSizeClass, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
-import { useMemo } from "react";
+import { cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
 
 export function useField({
     id,
@@ -29,14 +28,14 @@ export function useField({
                 cssModule(
                     "o-ui-field",
                     fluid && "fluid",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             ),
             role: "group",
             ref
         },
-        fieldContext: useMemo(() => ({
+        fieldContext: {
             inputId,
             labelId,
             messageId,
@@ -50,17 +49,6 @@ export function useField({
             labelClassName: "o-ui-field-label",
             inputClassName: "o-ui-field-input",
             messageClassName: "o-ui-field-message"
-        }), [
-            inputId,
-            labelId,
-            messageId,
-            required,
-            disabled,
-            size,
-            fluid,
-            validationState,
-            hasLabel,
-            hasMessage
-        ])
+        }
     };
 }

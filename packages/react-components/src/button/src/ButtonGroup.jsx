@@ -1,20 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, getSize } from "../../shared";
-
-const GAP = {
-    "horizontal": {
-        "sm": 3,
-        "md": 4,
-        "lg": 5
-    },
-    "vertical": {
-        "sm": 2,
-        "md": 3,
-        "lg": 4
-    }
-};
+import { augmentElement, normalizeSize } from "../../shared";
 
 const propTypes = {
     /**
@@ -43,6 +30,19 @@ const propTypes = {
     children: any.isRequired
 };
 
+const GAP = {
+    "horizontal": {
+        "sm": 3,
+        "md": 4,
+        "lg": 5
+    },
+    "vertical": {
+        "sm": 2,
+        "md": 3,
+        "lg": 4
+    }
+};
+
 export function InnerButtonGroup(props) {
     const {
         orientation = "horizontal",
@@ -62,7 +62,7 @@ export function InnerButtonGroup(props) {
             align={align}
             verticalAlign={orientation === "horizontal" ? "center" : undefined}
             fluid={fluid}
-            gap={GAP[orientation][getSize(size)]}
+            gap={GAP[orientation][normalizeSize(size)]}
             ref={forwardedRef}
         >
             {Children.map(children, x => {

@@ -1,13 +1,13 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
+import { SlotProvider, Wrap, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlotProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useMemo } from "react";
+import { embeddedIconSize } from "../../icons";
+import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -67,8 +67,9 @@ const propTypes = {
 };
 
 export function InnerButton(props) {
+    const [slotProps] = useSlotProps(props, "button");
     const [formProps] = useFormButton();
-    const [toolbarProps] = useToolbarContext();
+    const [toolbarProps] = useToolbarProps();
 
     const {
         variant = "solid",
@@ -90,7 +91,7 @@ export function InnerButton(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "button"),
+        slotProps,
         formProps,
         omitProps(toolbarProps, ["orientation"])
     );
@@ -114,8 +115,6 @@ export function InnerButton(props) {
 
     const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
 
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             data-testid="button"
@@ -130,23 +129,24 @@ export function InnerButton(props) {
             )}
             ref={buttonRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size,
-                            className: "o-ui-button-text",
-                            "aria-hidden": loading
-                        },
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-button-icon"
-                        })
-                    }), [size, loading])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size,
+                        className: "o-ui-button-text",
+                        "aria-hidden": loading
+                    },
+                    icon: {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-button-icon"
+                    }
+                }}
+            >
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
+            </SlotProvider>
+
         </ElementType>
     );
 }
