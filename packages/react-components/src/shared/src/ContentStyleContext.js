@@ -3,12 +3,6 @@ import { createContext, useContext, useMemo } from "react";
 import { isNil } from "lodash";
 import { mergeProps } from "./mergeProps";
 
-/*
-TODO:
-- rename "defaults" to "withDefaults"
-- withDefaults should accept `true` or an array of string
-*/
-
 const DEFAULTS = {
     text: {
         size: "inherit"
@@ -25,6 +19,8 @@ const DEFAULTS = {
     }
 };
 
+const ALL_DEFAULTS = Object.keys(DEFAULTS);
+
 export const ContentStyleContext = createContext(null);
 
 export function useContentStyleContext() {
@@ -39,18 +35,17 @@ export function useContentStyle(key) {
         : {};
 }
 
-export function ContentStyleProvider({ styles: stylesProp, defaults = [], children }) {
+export function ContentStyleProvider({ styles: stylesProp, withDefaults, children }) {
     const parentContext = useContext(ContentStyleContext);
+
+    const defaults = withDefaults
+        ? Array.isArray(withDefaults) ? withDefaults : ALL_DEFAULTS
+        : [];
 
     const value = useMemo(() => {
         const parentStyles = parentContext || {};
 
-        const styles = arrayify(defaults).reduce((acc, x) => {
-            return mergeProps(acc, x === "all"
-                ? DEFAULTS
-                : { [x]: DEFAULTS[x] }
-            );
-        }, stylesProp || {});
+        const styles = defaults.reduce((acc, x) => mergeProps(acc, { [x]: DEFAULTS[x] }), stylesProp || {});
 
         return Object.keys(parentStyles)
             .concat(Object.keys(styles))
@@ -63,7 +58,7 @@ export function ContentStyleProvider({ styles: stylesProp, defaults = [], childr
                 return acc;
             }, styles);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [stylesProp, parentContext, ...arrayify(defaults)]);
+    }, [stylesProp, parentContext, ...defaults]);
 
     return (
         <ContentStyleContext.Provider value={value}>

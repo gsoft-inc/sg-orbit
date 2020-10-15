@@ -1,11 +1,13 @@
 import { Alert, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
+import { ControlledAlert } from "./ControlledAlert.sample";
 import { EmailIcon } from "@react-components/icons";
+import { FilePreview, ReactComponentsLayout } from "@blocks";
 import { Heading, Paragraph } from "@react-components/text";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
 import { RefLogger, paramsBuilder } from "@utils";
+import { TextLink } from "@react-components/link";
 
 <Meta
     title="Feedback|Alert"
@@ -61,7 +63,7 @@ An alert can also accept rich content.
             <EmailIcon />
             <Content>
                 <Heading>booking@spacetravel.com</Heading>
-                <Paragraph>Your email has been sent!</Paragraph>
+                Your email has been sent! Tracking info available <TextLink href="#">here</TextLink>.
             </Content>
         </Alert>
     </Story>
@@ -142,6 +144,14 @@ An alert comes in predefined templates matching the available tones.
         </CriticalAlert>
     </Story>
 </Preview>
+
+### Controlled
+
+An alert can handle `show` state in controlled mode.
+
+<FilePreview filePath="/alert/docs/ControlledAlert">
+    <ControlledAlert />
+</FilePreview>
 
 ## Props
 

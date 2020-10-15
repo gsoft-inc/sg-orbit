@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The button shape.
      */

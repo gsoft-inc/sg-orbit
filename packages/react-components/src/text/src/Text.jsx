@@ -50,7 +50,7 @@ export function InnerText(props) {
             )}
             ref={forwardedRef}
         >
-            <ContentStyleProvider defaults="link">
+            <ContentStyleProvider withDefaults={["link"]}>
                 {children}
             </ContentStyleProvider>
         </ElementType>
