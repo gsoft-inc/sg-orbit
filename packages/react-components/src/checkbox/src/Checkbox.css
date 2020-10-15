@@ -171,16 +171,9 @@
     cursor: not-allowed;
 }
 
-/* STATE | DISABLED | CHECKBOX */
-.o-ui-checkbox-disabled .o-ui-checkbox-box,
-.o-ui-checkbox[disabled] .o-ui-checkbox-box {
-    background-color: var(--cloud-50);
-    box-shadow: 0 0 0 1px var(--cloud-200);
-}
-
 /* STATE | FOCUS */
 .o-ui-checkbox input[type="checkbox"]:focus + .o-ui-checkbox-box::before,
-.o-ui-checkbox-focus + .o-ui-checkbox-box::before {
+.o-ui-checkbox.o-ui-checkbox-focus .o-ui-checkbox-box::before {
     opacity: 1;
 }
 

@@ -328,22 +328,6 @@ a.o-ui-button {
     font-size: var(--type-scale-9);
 }
 
-.o-ui-button-outline.o-ui-button-rounded.o-ui-button-2xs {
-    padding: 0;
-}
-
-.o-ui-button-outline.o-ui-button-rounded.o-ui-button-xs {
-    padding: 0;
-}
-
-.o-ui-button-outline.o-ui-button-sm.o-ui-button-rounded {
-    padding: 0;
-}
-
-.o-ui-button-outline.o-ui-button-lg.o-ui-button-rounded {
-    padding: 0;
-}
-
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
@@ -586,6 +570,10 @@ a.o-ui-button {
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
+.o-ui-button-rounded:after {
+    border-radius: var(--o-ui-rounded-border-radius);
+}
+
 /* ROUNDED | SIZES */
 .o-ui-button-rounded.o-ui-button-2xs {
     padding: 0 var(--scale-alpha);
@@ -656,6 +644,7 @@ a.o-ui-button {
 .o-ui-icon-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     width: max-content;
     height: max-content;
 }
