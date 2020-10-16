@@ -134,10 +134,10 @@
 .o-ui-radio-button:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);

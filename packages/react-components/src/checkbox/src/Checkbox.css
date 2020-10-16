@@ -31,10 +31,10 @@
 .o-ui-checkbox-box:before {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
@@ -72,10 +72,10 @@
 }
 
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:before {
-    top: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
-    left: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
-    right: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
-    bottom: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
+    top: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
+    left: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
+    right: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
+    bottom: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
 }
 
 /* CONTENT | LABEL */

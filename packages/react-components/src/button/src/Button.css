@@ -46,10 +46,10 @@
 .o-ui-button:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
@@ -351,10 +351,10 @@ a.o-ui-button {
 .o-ui-button-ghost:focus:after,
 .o-ui-button-ghost.o-ui-button-focus:after {
     opacity: 1;
-    top: calc(-1 * var(--o-ui-focus-ring-inner-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-inner-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-inner-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-inner-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
 }
 
 /* GHOST | ACTIVE */
