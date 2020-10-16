@@ -99,16 +99,20 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    const content = external
-        ? (
+    let content = (
+        <Wrap as={Text}>
+            {children}
+        </Wrap>
+    );
+
+    if (external) {
+        content = (
             <>
-                <Wrap as={Text}>
-                    {children}
-                </Wrap>
+                {content}
                 <ArrowIcon />
             </>
-        )
-        : children;
+        );
+    }
 
     return (
         <ElementType
