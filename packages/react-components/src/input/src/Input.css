@@ -187,8 +187,8 @@
 }
 
 /* BUTTON */
-.o-ui-input-has-button .o-ui-input-button {
-    position: absolute;
+.o-ui-input-button {
+    position: absolute !important;
     top: 50%;
     transform: translateY(-50%);
     display: flex;

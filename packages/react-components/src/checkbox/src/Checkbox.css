@@ -1,6 +1,6 @@
 .o-ui-checkbox {
     --o-ui-focus-ring-stroke-width: 2px;
-    --o-ui-indeterminate-stroke-width-md: 5px;
+    --o-ui-indeterminate-stroke-width: 5px;
     display: inline-grid;
     align-items: center;
     grid-template-columns: max-content max-content max-content max-content;
@@ -9,6 +9,7 @@
     line-height: 1;
     max-width: 100%;
     width: max-content;
+    height: max-content;
     position: relative;
 }
 
@@ -62,7 +63,7 @@
 
 /* BOX | INDETERMINATE */
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box {
-    border: var(--o-ui-indeterminate-stroke-width-md) solid var(--white);
+    border: var(--o-ui-indeterminate-stroke-width) solid var(--white);
     background-color: var(--primary-500);
 }
 
@@ -71,10 +72,10 @@
 }
 
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:before {
-    top: calc(-1 * (var(--o-ui-indeterminate-stroke-width-md) + var(--o-ui-focus-ring-offset)));
-    left: calc(-1 * (var(--o-ui-indeterminate-stroke-width-md) + var(--o-ui-focus-ring-offset)));
-    right: calc(-1 * (var(--o-ui-indeterminate-stroke-width-md) + var(--o-ui-focus-ring-offset)));
-    bottom: calc(-1 * (var(--o-ui-indeterminate-stroke-width-md) + var(--o-ui-focus-ring-offset)));
+    top: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
+    left: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
+    right: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
+    bottom: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-offset)));
 }
 
 /* CONTENT | LABEL */
