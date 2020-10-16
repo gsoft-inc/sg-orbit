@@ -4,10 +4,10 @@ import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons"
 import { Content } from "../../view";
 import { CrossButton } from "../../button";
 import { SlotProvider, StyleProvider, Wrap, createSizeAdapter, cssModule, mergeClasses, normalizeSize, useHasChildren, useMergedRefs } from "../../shared";
+import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getTextClass } from "../../text";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -56,6 +56,46 @@ const buttonSize = createSizeAdapter({
     "sm": "xs",
     "md": "sm",
     "lg": "md"
+});
+
+const AlertContent = forwardRef(({
+    size,
+    as = "div",
+    children,
+    ...rest
+}, ref) => {
+    return (
+        <Text
+            size={size}
+            as={as}
+            ref={ref}
+            {...rest}
+        >
+            <StyleProvider
+                value={{
+                    text: {
+                        size: "inherit"
+                    },
+                    p: {
+                        size: "inherit"
+                    },
+                    link: {
+                        size: "inherit",
+                        underline: "dotted"
+                    },
+                    list: {
+                        size: "inherit"
+                    },
+                    heading: {
+                        size: headingSize(size),
+                        className: "o-ui-alert-title"
+                    }
+                }}
+            >
+                {children}
+            </StyleProvider>
+        </Text>
+    );
 });
 
 export function InnerAlert({
@@ -117,7 +157,9 @@ export function InnerAlert({
                         className: "o-ui-alert-icon"
                     },
                     content: {
-                        className: mergeClasses("o-ui-alert-content", getTextClass(size))
+                        size,
+                        className: "o-ui-alert-content",
+                        as: AlertContent
                     },
                     button: {
                         variant: "ghost",
@@ -127,31 +169,9 @@ export function InnerAlert({
                     }
                 }}
             >
-                <StyleProvider
-                    value={{
-                        text: {
-                            size: "inherit"
-                        },
-                        p: {
-                            size: "inherit"
-                        },
-                        link: {
-                            size: "inherit",
-                            underline: "dotted"
-                        },
-                        list: {
-                            size: "inherit"
-                        },
-                        heading: {
-                            size: headingSize(size),
-                            className: "o-ui-alert-title"
-                        }
-                    }}
-                >
-                    <Wrap as={Content}>
-                        {children}
-                    </Wrap>
-                </StyleProvider>
+                <Wrap as={Content}>
+                    {children}
+                </Wrap>
             </SlotProvider>
             {dismissMarkup}
         </Transition>

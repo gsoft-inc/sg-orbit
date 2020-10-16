@@ -11,12 +11,10 @@ export function useSlotContext() {
     return useContext(SlotContext);
 }
 
-export function useSlotProps({ slot: slotProp }, defaultSlot) {
+export function useSlotProps(slot) {
     const context = useSlotContext();
 
     if (!isNil(context)) {
-        const slot = slotProp ?? defaultSlot;
-
         const props = !isNil(slot)
             ? context[slot] ?? {}
             : {};

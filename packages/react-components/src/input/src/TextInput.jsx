@@ -115,7 +115,7 @@ export function InnerTextInput(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["isInToolbar", "orientation"]),
+        omitProps(toolbarProps, ["orientation"]),
         wrappedInputPropsAdapter(fieldProps)
     );
 

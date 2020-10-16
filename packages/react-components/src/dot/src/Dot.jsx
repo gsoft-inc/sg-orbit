@@ -24,8 +24,8 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-export function InnerDot(props) {
-    const [slotProps] = useSlotProps(props, "dot");
+export function InnerDot({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "dot");
 
     const {
         color,

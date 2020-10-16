@@ -40,8 +40,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerCounter(props) {
-    const [slotProps] = useSlotProps(props, "counter");
+export function InnerCounter({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "counter");
 
     const {
         variant = "pill",
