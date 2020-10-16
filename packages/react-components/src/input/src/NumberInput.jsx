@@ -2,21 +2,15 @@ import "./NumberInput.css";
 
 import { CarretIcon } from "../../icons";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSize, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
-import { useFieldInput } from "../../field";
+import { useFieldInputProps } from "../../field";
 import { useInput } from "./useInput";
 import { useInputIcon } from "./useInputContent";
 import { useMemo } from "react";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
-
-const STEPPER_ICON_SIZE = {
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-};
 
 const propTypes = {
     /**
@@ -96,6 +90,12 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
+const stepperIconSize = createSizeAdapter({
+    "sm": "2xs",
+    "md": "xs",
+    "lg": "sm"
+});
+
 export function Spinner({
     onIncrement,
     onDecrement,
@@ -126,7 +126,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size={STEPPER_ICON_SIZE[getSize(size)]} />
+                <CarretIcon size={stepperIconSize(size)} />
             </button>
             <button
                 onClick={handleDecrement}
@@ -137,7 +137,7 @@ export function Spinner({
                 onFocus={onFocus}
             >
                 <CarretIcon
-                    size={STEPPER_ICON_SIZE[getSize(size)]}
+                    size={stepperIconSize(size)}
                     className="o-ui-rotate-180"
                 />
             </button>
@@ -164,8 +164,8 @@ function toFixed(value, precision) {
 }
 
 export function InnerNumberInput(props) {
-    const [toolbarProps] = useToolbarContext();
-    const [fieldProps] = useFieldInput();
+    const [toolbarProps] = useToolbarProps();
+    const [fieldProps] = useFieldInputProps();
 
     const {
         id,

@@ -1,7 +1,7 @@
 import "./Badge.css";
 
-import { Children, forwardRef, useMemo } from "react";
-import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses } from "../../shared";
+import { Children, forwardRef } from "react";
+import { SlotProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -27,7 +27,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const textSlot = createSizeAdapterSlotFactory({
+const textSize = createSizeAdapter({
     "sm": "xs",
     "md": "sm",
     "lg": "md"
@@ -58,28 +58,26 @@ export function InnerBadge({
                     "o-ui-badge",
                     variant,
                     overlap && `over-${overlap}`,
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: textSlot({
-                            size
-                        }),
-                        icon: {
-                            size
-                        }
-                    }), [size])}
-                >
-                    <div className="o-ui-badge-anchor">
-                        {badgeContent}
-                    </div>
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size: textSize(size)
+                    },
+                    icon: {
+                        size
+                    }
+                }}
+            >
+                <div className="o-ui-badge-anchor">
+                    {badgeContent}
+                </div>
+            </SlotProvider>
             {overlappedElement}
         </ElementType>
     );

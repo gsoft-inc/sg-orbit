@@ -1,10 +1,12 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
-import { Heading, Paragraph } from "@react-components/text";
+import { Heading } from "@react-components/heading";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
+import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { useEventCallback } from "@react-components/shared";
@@ -15,6 +17,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
+            .chromaticDelay(100)
             .build())
         .build();
 }
@@ -240,7 +243,7 @@ stories()
             </Alert>
         </Stack>
     )
-    .add("boxed", () =>
+    .add("contained", () =>
         <div style={{ width: "500px" }}>
             <Alert>
                 <InfoIcon />
@@ -248,11 +251,12 @@ stories()
             </Alert>
         </div>
     )
-    .add("variation without dismiss", () =>
-        <Stack>
-            <InfoAlert><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</InfoAlert>
-            <InfoAlert>Scheduled launch today at 1PM. Please be cautious.</InfoAlert>
-        </Stack>
+    .add("box as content", () =>
+        <Alert>
+            <InfoIcon />
+            <Box slot="content">Scheduled launch today at 1PM.</Box>
+            <Button>Undo</Button>
+        </Alert>
     )
     .add("styling", () =>
         <Stack>
@@ -307,6 +311,9 @@ stories()
                         </Content>
                     </ElementType>
                     <ElementType onDismiss={() => {}}>
+                        A launch is scheduled today at 1PM.
+                    </ElementType>
+                    <ElementType>
                         A launch is scheduled today at 1PM.
                     </ElementType>
                     <ElementType onDismiss={() => {}}>

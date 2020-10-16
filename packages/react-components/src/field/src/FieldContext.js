@@ -1,8 +1,10 @@
 import { createContext, useContext } from "react";
-import { cssModule, getSizeClass } from "../../shared";
+import { cssModule, normalizeSize } from "../../shared";
 import { isNil } from "lodash";
 
 export const FieldContext = createContext(null);
+
+export const FieldProvider = FieldContext.Provider;
 
 export function useFieldContext() {
     const context = useContext(FieldContext);
@@ -21,7 +23,7 @@ export function useFieldContext() {
     return [{}, false];
 }
 
-export function useFieldLabel({ as: asProp }) {
+export function useFieldLabelProps({ as: asProp }) {
     const [{ isGroupField, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
@@ -33,14 +35,14 @@ export function useFieldLabel({ as: asProp }) {
         required,
         size,
         htmlFor: as === "label" ? inputId : undefined,
-        className: cssModule(labelClassName, getSizeClass(size)),
+        className: cssModule(labelClassName, normalizeSize(size)),
         as
     };
 
     return [props || {}, isInField];
 }
 
-export function useFieldInput() {
+export function useFieldInputProps() {
     const [{
         validationState,
         inputId,
@@ -68,7 +70,7 @@ export function useFieldInput() {
     return [props || {}, isInField];
 }
 
-export function useFieldMessage() {
+export function useFieldMessageProps() {
     const [{
         messageId,
         size,
@@ -82,7 +84,7 @@ export function useFieldMessage() {
         size,
         fluid,
         validationState,
-        className: cssModule(messageClassName, getSizeClass(size)),
+        className: cssModule(messageClassName, normalizeSize(size)),
         "aria-live": "polite"
     };
 
@@ -91,8 +93,8 @@ export function useFieldMessage() {
 
 export function ClearFieldContext({ children }) {
     return (
-        <FieldContext.Provider value={null}>
+        <FieldProvider value={null}>
             {children}
-        </FieldContext.Provider>
+        </FieldProvider>
     );
 }

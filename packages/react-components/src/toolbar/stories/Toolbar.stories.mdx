@@ -44,7 +44,7 @@ A default toolbar.
 
 <Preview>
     <Story name="default">
-        <Toolbar align="center">
+        <Toolbar>
             <TextInput placeholder="Destination" />
             <RadioGroup>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -64,7 +64,7 @@ A toolbar control can be disabled.
 
 <Preview>
     <Story name="disabled control">
-        <Toolbar align="center">
+        <Toolbar>
             <TextInput placeholder="Destination" />
             <RadioGroup disabled>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -82,7 +82,7 @@ Or all the controls.
 
 <Preview>
     <Story name="disabled toolbar">
-        <Toolbar disabled align="center">
+        <Toolbar disabled>
             <TextInput placeholder="Destination" />
             <RadioGroup>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -102,7 +102,7 @@ The gap between a toolbar controls can be configured.
 
 <Preview>
     <Story name="gap">
-        <Toolbar gap={9} align="center">
+        <Toolbar gap={9}>
             <TextInput placeholder="Destination" />
             <RadioGroup>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -122,7 +122,7 @@ A toolbar can change is orientation to `vertical` to render his controls horizon
 
 <Preview>
     <Story name="orientation">
-        <Toolbar orientation="vertical" align="start">
+        <Toolbar orientation="vertical">
             <TextInput placeholder="Destination" />
             <RadioGroup>
                 <Radio value="roscosmos">Roscosmos</Radio>
@@ -143,7 +143,7 @@ Toolbar controls can be wrap on multiple lines.
 <Preview>
     <Story name="wrap">
         <div style={{ width: "700px" }}>
-            <Toolbar wrap align="center">
+            <Toolbar wrap>
                 <TextInput placeholder="Destination" />
                 <RadioGroup>
                     <Radio value="roscosmos">Roscosmos</Radio>
@@ -173,7 +173,7 @@ Toolbar controls can be wrap on multiple lines.
 
 ### Custom Components
 
-Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarContext` hook.
+Any component can be added to a toolbar and behave as an element of the group. However to benefit from features like automatic sizing and state propagation a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarProps` hook.
 
 <FilePreview filePath="/toolbar/stories/CustomComponent">
     <CustomToolbar />

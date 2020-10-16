@@ -8,8 +8,8 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tooltip"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(100)
             .canvasLayout({ width: "80%", paddingTop: "100px" })
+            .chromaticDelay(100)
             .build())
         .build();
 }

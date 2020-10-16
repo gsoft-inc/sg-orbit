@@ -1,9 +1,9 @@
 import "./CheckboxGroup.css";
 
-import { CheckableContext, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
-import { Children, forwardRef, useMemo } from "react";
-import { ClearFieldContext, useFieldInput } from "../../field";
-import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
+import { CheckableProvider, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
+import { Children, forwardRef } from "react";
+import { ClearFieldContext, useFieldInputProps } from "../../field";
+import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -81,8 +81,8 @@ function arrayToggleValue(array, value) {
 }
 
 export function InnerCheckboxGroup(props) {
-    const [fieldProps] = useFieldInput();
-    const [toolbarProps] = useToolbarContext();
+    const [fieldProps] = useFieldInputProps();
+    const [toolbarProps] = useToolbarProps();
 
     const {
         value,
@@ -140,18 +140,23 @@ export function InnerCheckboxGroup(props) {
             {...rest}
             {...groupProps}
         >
-            <ClearToolbarContext>
+            <ClearToolbar>
                 <ClearFieldContext>
-                    <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
+                    <CheckableProvider
+                        value={{
+                            onCheck: handleCheck,
+                            checkedValue
+                        }}
+                    >
                         {Children.map(items, x => {
                             return augmentElement(x, {
                                 ...itemProps,
                                 role: "checkbox"
                             });
                         })}
-                    </CheckableContext.Provider>
+                    </CheckableProvider>
                 </ClearFieldContext>
-            </ClearToolbarContext>
+            </ClearToolbar>
         </Group>
     );
 }

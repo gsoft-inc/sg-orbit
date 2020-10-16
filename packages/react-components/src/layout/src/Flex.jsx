@@ -6,22 +6,6 @@ import { cssModule, mergeClasses, useMergedRefs } from "../../shared";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
-const SPACING = [
-    "--scale-alpha",
-    "--scale-bravo",
-    "--scale-charlie",
-    "--scale-delta",
-    "--scale-echo",
-    "--scale-foxtrot",
-    "--scale-golf",
-    "--scale-hotel",
-    "--scale-india",
-    "--scale-juliett",
-    "--scale-kilo",
-    "--scale-lima",
-    "--scale-mike"
-];
-
 const propTypes = {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
@@ -112,6 +96,22 @@ const propTypes = {
      */
     children: any.isRequired
 };
+
+const SPACING = [
+    "--scale-alpha",
+    "--scale-bravo",
+    "--scale-charlie",
+    "--scale-delta",
+    "--scale-echo",
+    "--scale-foxtrot",
+    "--scale-golf",
+    "--scale-hotel",
+    "--scale-india",
+    "--scale-juliett",
+    "--scale-kilo",
+    "--scale-lima",
+    "--scale-mike"
+];
 
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap) {

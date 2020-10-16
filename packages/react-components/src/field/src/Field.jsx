@@ -1,7 +1,7 @@
 import "./Field.css";
 
-import { ClearToolbarContext, useToolbarContext } from "../../toolbar";
-import { FieldContext } from "./FieldContext";
+import { ClearToolbar, useToolbarProps } from "../../toolbar";
+import { FieldProvider } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
@@ -41,7 +41,7 @@ const propTypes = {
 
 export function InnerField(props) {
     const [formProps] = useFormField();
-    const [toolbarProps] = useToolbarContext();
+    const [toolbarProps] = useToolbarProps();
 
     const {
         id,
@@ -78,11 +78,11 @@ export function InnerField(props) {
             {...rest}
             {...fieldProps}
         >
-            <ClearToolbarContext>
-                <FieldContext.Provider value={fieldContext}>
+            <ClearToolbar>
+                <FieldProvider value={fieldContext}>
                     {children}
-                </FieldContext.Provider>
-            </ClearToolbarContext>
+                </FieldProvider>
+            </ClearToolbar>
         </ElementType>
     );
 }

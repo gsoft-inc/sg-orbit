@@ -3,8 +3,8 @@ import { DropdownTrigger } from "./DropdownTrigger";
 import { EmbeddedIcon } from "../../icons";
 import { any, element, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { getSizeClass, mergeClasses } from "../../shared";
 import { isNil } from "lodash";
+import { mergeClasses, normalizeSize } from "../../shared";
 
 const propTypes = {
     /**
@@ -44,7 +44,7 @@ export function InnerDropdownBasicTrigger({ icon, as: ElementType, forwardedRef,
                             focus && "focus",
                             hover && "hover",
                             iconMarkup && "with-icon",
-                            getSizeClass(size),
+                            normalizeSize(size),
                             className
                         )}
                         ref={ref}

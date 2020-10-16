@@ -2,9 +2,9 @@ import "./Label.css";
 
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, getSize, getSizeClass, mergeClasses, mergeProps } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { forwardRef } from "react";
-import { useFieldLabel } from "./FieldContext";
+import { useFieldLabelProps } from "./FieldContext";
 
 const propTypes = {
     /**
@@ -38,7 +38,7 @@ function RequiredIndicator() {
 }
 
 export function InnerLabel(props) {
-    const [fieldProps] = useFieldLabel(props);
+    const [fieldProps] = useFieldLabelProps(props);
 
     const {
         required,
@@ -57,11 +57,11 @@ export function InnerLabel(props) {
         <Text
             data-testid="field-label"
             {...rest}
-            size={ADAPTED_SIZE[getSize(size)]}
+            size={ADAPTED_SIZE[normalizeSize(size)]}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-label",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}

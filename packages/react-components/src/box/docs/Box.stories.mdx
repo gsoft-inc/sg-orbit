@@ -1,0 +1,37 @@
+import { Box, InnerBox } from "@react-components/box";
+import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+
+<Meta
+    title="Content|Box"
+    parameters={paramsBuilder()
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
+        .build()}
+/>
+
+# Box
+
+A box is a general purpose component that can be used to compose new components or add to [slots](?path=/docs/getting-started-slots--page).
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Box from @orbit-ui/react-components</dd>
+    </div>
+</dl>
+
+## Props
+
+<Props of={InnerBox} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Box>Box</Box>
+    </RefLogger>
+</Story>

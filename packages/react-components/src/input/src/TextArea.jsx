@@ -4,7 +4,7 @@ import { bool, element, elementType, func, number, object, oneOf, oneOfType, str
 import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
-import { useFieldInput } from "../../field";
+import { useFieldInputProps } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton } from "./useInputContent";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
@@ -95,7 +95,7 @@ const pxToInt = value => {
 };
 
 export function InnerTextArea(props) {
-    const [fieldProps] = useFieldInput();
+    const [fieldProps] = useFieldInputProps();
 
     const {
         id,

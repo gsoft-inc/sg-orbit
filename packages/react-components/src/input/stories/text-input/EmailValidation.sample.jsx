@@ -4,10 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 export function EmailValidation() {
     const [value, setValue] = useState("me@spacex.com");
 
-    const isValid = useMemo(
-        () => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value),
-        [value]
-    );
+    const isValid = useMemo(() => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value), [value]);
 
     const handleChange = useCallback(event => {
         setValue(event.target.value);

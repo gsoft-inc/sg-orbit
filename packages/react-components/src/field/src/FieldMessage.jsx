@@ -1,16 +1,10 @@
 import "./FieldMessage.css";
 
-import { ContentStyleProvider, cssModule, getSize, getSizeClass, mergeClasses } from "../../shared";
+import { StyleProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useMemo } from "react";
-
-const ADAPTED_SIZE = {
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-};
+import { embeddedIconSize } from "../../icons";
+import { forwardRef } from "react";
 
 export function getValidationProps(validationState) {
     const isValid = validationState === "valid";
@@ -22,6 +16,12 @@ export function getValidationProps(validationState) {
         isError
     };
 }
+
+const textSize = createSizeAdapter({
+    "sm": "xs",
+    "md": "sm",
+    "lg": "md"
+});
 
 const propTypes = {
     /**
@@ -55,30 +55,41 @@ export const FieldMessage = forwardRef(({
         <Text
             data-testid="field-message"
             {...rest}
-            size={ADAPTED_SIZE[getSize(size)]}
+            size={textSize(size)}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-message",
                     tone,
                     fluid && "fluid",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             as={as}
             ref={ref}
         >
-            <ContentStyleProvider
-                withDefaults
-                styles={useMemo(() => ({
-                    icon: embeddedIconSlot({
-                        size
-                    })
-                }), [size])}
-
+            <StyleProvider
+                value={{
+                    text: {
+                        size: "inherit"
+                    },
+                    p: {
+                        size: "inherit"
+                    },
+                    link: {
+                        size: "inherit",
+                        underline: "dotted"
+                    },
+                    list: {
+                        size: "inherit"
+                    },
+                    icon: {
+                        size: embeddedIconSize(size)
+                    }
+                }}
             >
                 {children}
-            </ContentStyleProvider>
+            </StyleProvider>
         </Text>
     );
 });

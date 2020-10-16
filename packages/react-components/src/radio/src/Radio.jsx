@@ -1,25 +1,25 @@
 import "./Radio.css";
 
 import {
-    ClearSlots,
     SlotProvider,
+    Wrap,
     cssModule,
-    getSizeClass,
     mergeClasses,
     mergeProps,
+    normalizeSize,
     omitProps,
     useAutoFocus,
-    useCheckable,
+    useCheckableProps,
     useControllableState,
     useEventCallback,
     useForwardInputApi,
-    useRenderProps, useTextContent
+    useRenderProps
 } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
+import { embeddedIconSize } from "../../icons";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -72,7 +72,7 @@ const propTypes = {
 };
 
 export function InnerRadio(props) {
-    const [checkableProps] = useCheckable(props);
+    const [checkableProps] = useCheckableProps(props);
 
     const {
         value,
@@ -126,7 +126,7 @@ export function InnerRadio(props) {
         onCheck(event, value);
     });
 
-    const content = useTextContent(Text, useRenderProps({ isChecked }, props, children));
+    const content = useRenderProps({ isChecked }, props, children);
 
     return (
         <ElementType
@@ -142,7 +142,7 @@ export function InnerRadio(props) {
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
@@ -161,27 +161,27 @@ export function InnerRadio(props) {
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size,
-                            className: "o-ui-radio-label"
-                        },
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-radio-icon"
-                        }),
-                        counter: {
-                            size,
-                            reverse,
-                            className: "o-ui-radio-counter"
-                        }
-                    }), [size, reverse])}
-                >
+            <SlotProvider
+                value={{
+                    text: {
+                        size,
+                        className: "o-ui-radio-label"
+                    },
+                    icon: {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-radio-icon"
+                    },
+                    counter: {
+                        size,
+                        reverse,
+                        className: "o-ui-radio-counter"
+                    }
+                }}
+            >
+                <Wrap as={Text}>
                     {content}
-                </SlotProvider>
-            </ClearSlots>
+                </Wrap>
+            </SlotProvider>
         </ElementType>
     );
 }

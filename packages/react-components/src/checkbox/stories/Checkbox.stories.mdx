@@ -104,18 +104,10 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
 
 <Preview>
     <Story name="icon">
-        <Inline>
-            <Checkbox>
-                <Text>Milky Way</Text>
-                <InfoIcon />
-            </Checkbox>
-            <Checkbox>
-                <Text>Andromeda</Text>
-                <IconList>
-                    <InfoIcon /><HelpIcon />
-                </IconList>
-            </Checkbox>
-        </Inline>
+        <Checkbox>
+            <Text>Milky Way</Text>
+            <InfoIcon />
+        </Checkbox>
     </Story>
 </Preview>
 
@@ -270,7 +262,7 @@ In somes cases, you might want a group of toggle buttons to behave like a checkb
 
 ### Custom Components
 
-Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckable` hook.
+Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckableProps` hook.
 
 <FilePreview filePath="/checkbox/stories/CustomGroup">
     <CustomGroup />

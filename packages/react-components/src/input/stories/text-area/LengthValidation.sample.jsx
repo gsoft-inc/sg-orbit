@@ -11,10 +11,7 @@ export function LengthValidation() {
         console.log(event.target.value);
     }, [setValue]);
 
-    const isValid = useMemo(
-        () => value.length <= MAX,
-        [value]
-    );
+    const isValid = useMemo(() => value.length <= MAX,[value]);
 
     return (
         <TextArea

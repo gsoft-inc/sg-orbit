@@ -1,39 +1,25 @@
 import "./RadioGroup.css";
 
 import {
-    CheckableContext,
+    CheckableProvider,
     KEYS,
     augmentElement,
     mergeProps,
     omitProps,
-    useArrowNavigation,
     useAutoFocusFirstTabbableElement,
     useControllableState,
     useEventCallback,
     useId,
-    useMergedRefs,
-    useRenderProps, useRovingFocus
+    useKeyboardNavigation,
+    useMergedRefs, useRenderProps, useRovingFocus
 } from "../../shared";
-import { Children, forwardRef, useMemo } from "react";
+import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
-import { useFieldInput } from "../../field";
+import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
-import { useToolbarContext } from "../../toolbar";
-
-const ARROW_NAV_KEY_BINDING = {
-    "default": {
-        previous: [KEYS.left, KEYS.up],
-        next: [KEYS.right, KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
-    },
-    "toolbar": {
-        previous: [KEYS.up],
-        next: [KEYS.down]
-    }
-};
+import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -105,9 +91,22 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+const NAV_KEY_BINDING = {
+    "default": {
+        previous: [KEYS.left, KEYS.up],
+        next: [KEYS.right, KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    },
+    "toolbar": {
+        previous: [KEYS.up],
+        next: [KEYS.down]
+    }
+};
+
 export function InnerRadioGroup(props) {
-    const [toolbarProps, isInToolbar] = useToolbarContext();
-    const [fieldProps] = useFieldInput();
+    const [toolbarProps, isInToolbar] = useToolbarProps();
+    const [fieldProps] = useFieldInputProps();
 
     const {
         value,
@@ -146,7 +145,7 @@ export function InnerRadioGroup(props) {
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useArrowNavigation(ARROW_NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
+    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
@@ -181,7 +180,12 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableContext.Provider value={useMemo(() => ({ onCheck: handleCheck, checkedValue }), [handleCheck, checkedValue])}>
+            <CheckableProvider
+                value={{
+                    onCheck: handleCheck,
+                    checkedValue
+                }}
+            >
                 {Children.map(items, x => {
                     return augmentElement(x, {
                         ...itemProps,
@@ -189,7 +193,7 @@ export function InnerRadioGroup(props) {
                         name: groupName
                     });
                 })}
-            </CheckableContext.Provider>
+            </CheckableProvider>
         </Group>
     );
 }

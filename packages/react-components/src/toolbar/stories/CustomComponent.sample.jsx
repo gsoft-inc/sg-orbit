@@ -1,9 +1,9 @@
 import { Radio, RadioGroup } from "@react-components/radio";
-import { Toolbar, useToolbarContext } from "@react-components/toolbar";
+import { Toolbar, useToolbarProps } from "@react-components/toolbar";
 import { omitProps } from "@react-components/shared";
 
 function CustomComponent(props) {
-    const [toolbarProps] = useToolbarContext();
+    const [toolbarProps] = useToolbarProps();
 
     return (
         <input

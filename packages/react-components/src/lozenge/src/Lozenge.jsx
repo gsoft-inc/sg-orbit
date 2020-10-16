@@ -1,10 +1,10 @@
 import "./Lozenge.css";
 
-import { ClearSlots, SlotProvider, createSizeAdapterSlotFactory, cssModule, getSizeClass, mergeClasses, useHasChild, useMergedRefs, useTextContent } from "../../shared";
+import { SlotProvider, Wrap, createSizeAdapter, cssModule, mergeClasses, normalizeSize, useHasChild, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSlot } from "../../icons";
-import { forwardRef, useMemo } from "react";
+import { embeddedIconSize } from "../../icons";
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
@@ -21,7 +21,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const textSlot = createSizeAdapterSlotFactory({
+const textSize = createSizeAdapter({
     "sm": "xs",
     "md": "sm",
     "lg": "md"
@@ -39,8 +39,6 @@ export function InnerLozenge({
 
     const hasIcon = useHasChild(".o-ui-lozenge-icon", ref);
 
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             {...rest}
@@ -48,28 +46,28 @@ export function InnerLozenge({
                 cssModule(
                     "o-ui-lozenge",
                     hasIcon && "has-icon",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             ref={ref}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: textSlot({
-                            size,
-                            className: "o-ui-lozenge-text"
-                        }),
-                        icon: embeddedIconSlot({
-                            size,
-                            className: "o-ui-lozenge-icon"
-                        })
-                    }), [size])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size: textSize(size),
+                        className: "o-ui-lozenge-text"
+                    },
+                    icon: {
+                        size: embeddedIconSize(size),
+                        className: "o-ui-lozenge-icon"
+                    }
+                }}
+            >
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
+            </SlotProvider>
         </ElementType>
     );
 }
