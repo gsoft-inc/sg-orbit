@@ -1,4 +1,5 @@
 import { any, elementType, func, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -12,12 +13,26 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function InnerTabPanel() {
-    return null;
-}
+export const TabPanel = forwardRef(({
+    as: ElementType = "div",
+    className,
+    children,
+    ...rest
+}, ref) => {
+    return (
+        <ElementType
+            {...rest}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-tab-panel"
+                ),
+                className
+            )}
+            ref={ref}
+        >
+            {children}
+        </ElementType>
+    );
+});
 
-InnerTabPanel.propTypes = propTypes;
-
-export const TabPanel = forwardRef((props, ref) => (
-    <InnerTabPanel {...props} forwardedRef={ref} />
-));
+TabPanel.propTypes = propTypes;

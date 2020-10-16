@@ -1,4 +1,5 @@
 import { any, elementType, func, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -14,20 +15,39 @@ const propTypes = {
 
 ////////
 
-export function TabPlaceholder() {
+export const TabPlaceholder = forwardRef(() => {
     return null;
-}
+});
 
 TabPlaceholder.propTypes = propTypes;
 
+TabPlaceholder.getCollectionNode = props => {
+    return {
+        type: "tab",
+        props
+    };
+};
+
 ////////
 
-export function InnerTab() {
-    return null;
-}
-
-InnerTab.propTypes = propTypes;
-
-export const Tab = forwardRef((props, ref) => (
-    <InnerTab {...props} forwardedRef={ref} />
-));
+export const Tab = forwardRef(({
+    as: ElementType = "div",
+    className,
+    children,
+    ...rest
+}, ref) => {
+    return (
+        <ElementType
+            {...rest}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-tab"
+                ),
+                className
+            )}
+            ref={ref}
+        >
+            {children}
+        </ElementType>
+    );
+});

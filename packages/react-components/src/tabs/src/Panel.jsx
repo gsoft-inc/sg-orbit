@@ -1,4 +1,5 @@
 import { any, elementType, func, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
@@ -11,8 +12,15 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function Panel() {
+export const Panel = forwardRef(() => {
     return null;
-}
+});
 
 Panel.propTypes = propTypes;
+
+Panel.getCollectionNode = props => {
+    return {
+        type: "panel",
+        props
+    };
+};

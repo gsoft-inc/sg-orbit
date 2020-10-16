@@ -1,5 +1,6 @@
 import { Panel, Tab, Tabs } from "@react-components/tabs";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { isNil } from "lodash";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tabs"))
@@ -30,4 +31,25 @@ stories()
                 bright enough for its reflected light to cast visible shadows,[20] and is on average the third-brightest natural object in the night sky after the Moon and Venus.
             </Panel>
         </Tabs>
-    );
+    )
+    .add("tab ref", () => {
+        return (
+            <Tabs>
+                <Tab
+                    ref={node => {
+                        if (!isNil(node)) {
+                            console.log(node);
+                        }
+                    }}
+                >
+                    Mars
+                </Tab>
+                <Panel>
+                    Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet),
+                    being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet".[17][18] The latter refers
+                    to the effect of the iron oxide prevalent on Mars's surface, which gives it a reddish appearance distinctive among the astronomical bodies visible to the naked eye.
+                    [19] Mars is a terrestrial planet with a thin atmosphere, with surface features reminiscent of the impact craters of the Moon and the valleys, deserts and polar ice caps of Earth.
+                </Panel>
+            </Tabs>
+        );
+    });
