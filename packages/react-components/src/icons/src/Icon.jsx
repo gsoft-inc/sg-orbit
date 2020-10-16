@@ -20,8 +20,8 @@ const propTypes = {
     slot: string
 };
 
-export function InnerIcon(props) {
-    const [slotProps] = useSlotProps(props, "icon");
+export function InnerIcon({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "icon");
     const [styleProps] = useStyleProps("icon");
 
     const {

@@ -1,4 +1,5 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
 import { Heading } from "@react-components/heading";
@@ -16,6 +17,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({ width: "80%" })
+            .chromaticDelay(100)
             .build())
         .build();
 }
@@ -241,7 +243,7 @@ stories()
             </Alert>
         </Stack>
     )
-    .add("boxed", () =>
+    .add("contained", () =>
         <div style={{ width: "500px" }}>
             <Alert>
                 <InfoIcon />
@@ -249,11 +251,12 @@ stories()
             </Alert>
         </div>
     )
-    .add("variation without dismiss", () =>
-        <Stack>
-            <InfoAlert><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</InfoAlert>
-            <InfoAlert>Scheduled launch today at 1PM. Please be cautious.</InfoAlert>
-        </Stack>
+    .add("box as content", () =>
+        <Alert>
+            <InfoIcon />
+            <Box slot="content">Scheduled launch today at 1PM.</Box>
+            <Button>Undo</Button>
+        </Alert>
     )
     .add("styling", () =>
         <Stack>
@@ -308,6 +311,9 @@ stories()
                         </Content>
                     </ElementType>
                     <ElementType onDismiss={() => {}}>
+                        A launch is scheduled today at 1PM.
+                    </ElementType>
+                    <ElementType>
                         A launch is scheduled today at 1PM.
                     </ElementType>
                     <ElementType onDismiss={() => {}}>

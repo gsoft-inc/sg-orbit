@@ -1,5 +1,6 @@
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeProps, useSlotProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -12,12 +13,19 @@ const propTypes = {
     slot: string
 };
 
-export function InnerBox({
-    as: ElementType = "div",
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerBox({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot);
+
+    const {
+        as: ElementType = "div",
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        slotProps
+    );
+
     return (
         <ElementType
             {...rest}

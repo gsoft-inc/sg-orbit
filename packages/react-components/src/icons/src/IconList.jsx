@@ -18,8 +18,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconList(props) {
-    const [slotProps] = useSlotProps(props, "icon");
+export function InnerIconList({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "icon");
 
     const {
         size,

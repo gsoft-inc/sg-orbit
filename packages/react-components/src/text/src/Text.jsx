@@ -29,8 +29,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerText(props) {
-    const [slotProps] = useSlotProps(props, "text");
+export function InnerText({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "text");
     const [styleProps] = useStyleProps("text");
 
     const {

@@ -17,8 +17,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerContent(props) {
-    const [slotProps] = useSlotProps(props, "content");
+export function InnerContent({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "content");
 
     const {
         as: ElementType = "div",

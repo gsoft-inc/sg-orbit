@@ -66,8 +66,8 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconButton(props) {
-    const [slotProps] = useSlotProps(props, "button");
+export function InnerIconButton({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "button");
     const [toolbarProps] = useToolbarProps();
 
     const {
