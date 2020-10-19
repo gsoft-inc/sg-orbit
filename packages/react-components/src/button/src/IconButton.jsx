@@ -72,7 +72,7 @@ export function InnerIconButton(props) {
     const {
         variant = "solid",
         color,
-        shape = "rounded",
+        shape = "circular",
         condensed,
         autoFocus,
         autoFocusDelay,
