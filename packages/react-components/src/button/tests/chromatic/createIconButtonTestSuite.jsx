@@ -112,31 +112,6 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("rounded", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <IconButton shape="rounded" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="rounded" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="rounded" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="rounded" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton shape="rounded" size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton loading shape="rounded" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="rounded" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="rounded" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="rounded" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading shape="rounded" size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton condensed shape="rounded" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton condensed shape="rounded" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton condensed shape="rounded" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton condensed shape="rounded" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton condensed shape="rounded" size="lg" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
         .add("states", () =>
             <Stack>
                 <Inline verticalAlign="end">
