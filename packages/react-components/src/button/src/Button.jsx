@@ -9,6 +9,12 @@ import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
 
+const CONDENSED_TEXT_SIZE = {
+    "sm": "md",
+    "md": "lg",
+    "lg": "xl"
+};
+
 const propTypes = {
     /**
      * The button style to use.
@@ -22,6 +28,10 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
+    /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -75,6 +85,7 @@ export function InnerButton({ slot, ...props }) {
         variant = "solid",
         color,
         shape = "pill",
+        condensed,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -132,12 +143,12 @@ export function InnerButton({ slot, ...props }) {
             <SlotProvider
                 value={{
                     text: {
-                        size,
+                        size: condensed ? CONDENSED_TEXT_SIZE[size] : size,
                         className: "o-ui-button-text",
                         "aria-hidden": loading
                     },
                     icon: {
-                        size: embeddedIconSize(size),
+                        size: condensed ? size : embeddedIconSize(size),
                         className: "o-ui-button-icon"
                     }
                 }}

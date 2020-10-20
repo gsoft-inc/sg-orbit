@@ -17,7 +17,7 @@ const propTypes = {
     /**
      * The button shape.
      */
-    shape: oneOf(["pill", "rounded", "circular"]),
+    shape: oneOf(["rounded", "circular"]),
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -73,7 +73,7 @@ export function InnerIconButton({ slot, ...props }) {
     const {
         variant = "solid",
         color,
-        shape = "pill",
+        shape = "circular",
         condensed,
         autoFocus,
         autoFocusDelay,
