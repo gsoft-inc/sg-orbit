@@ -1,7 +1,7 @@
-import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, useTextContent } from "../../shared";
+import { StyleProvider, Wrap, cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
@@ -26,29 +26,29 @@ export function InnerListItem({
     forwardedRef,
     ...rest
 }) {
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
                 cssModule(
                     "o-ui-list-item",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             ref={forwardedRef}
         >
-            <ContentStyleProvider
-                styles={useMemo(() => ({
+            <StyleProvider
+                value={{
                     text: {
                         size
                     }
-                }), [size])}
+                }}
             >
-                {content}
-            </ContentStyleProvider>
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
+            </StyleProvider>
         </ElementType>
     );
 }

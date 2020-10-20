@@ -34,11 +34,6 @@
     margin-bottom: calc(var(--scale-bravo) / 2);
 }
 
-/* TITLE */
-.o-ui-alert-title {
-    display: inline-block;
-}
-
 /* CONTENT */
 .o-ui-alert-content {
     grid-area: content;

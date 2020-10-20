@@ -1,6 +1,8 @@
-import { Icon, MultiVariantIcon } from "./Icon";
+import { Icon } from "./Icon";
+import { MultiVariantIcon } from "./MultiVariantIcon";
 
 export * from "./Icon";
+export * from "./MultiVariantIcon";
 export * from "./IconList";
 export * from "./EmbeddedIcon";
 

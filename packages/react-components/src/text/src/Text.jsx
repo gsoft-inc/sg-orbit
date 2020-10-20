@@ -1,8 +1,14 @@
 import "./Text.css";
 
-import { ContentStyleProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useContentStyle, useSlot } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeClasses, mergeProps, normalizeSize, useSlotProps, useStyleProps } from "../../shared";
+
+export function getTextClass(size) {
+    return `o-ui-text-${normalizeSize(size)}`;
+}
+
+////////
 
 const propTypes = {
     /**
@@ -23,7 +29,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerText(props) {
+export function InnerText({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "text");
+    const [styleProps] = useStyleProps("text");
+
     const {
         size,
         as: ElementType = "span",
@@ -33,26 +42,18 @@ export function InnerText(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "text"),
-        useContentStyle("text")
+        slotProps,
+        styleProps
     );
 
     return (
         <ElementType
             data-testid="text"
             {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-text",
-                    getSizeClass(size)
-                ),
-                className
-            )}
+            className={mergeClasses(getTextClass(size), className)}
             ref={forwardedRef}
         >
-            <ContentStyleProvider defaults="link">
-                {children}
-            </ContentStyleProvider>
+            {children}
         </ElementType>
     );
 }

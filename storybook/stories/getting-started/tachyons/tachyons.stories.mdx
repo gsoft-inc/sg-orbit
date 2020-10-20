@@ -36,7 +36,7 @@ _Consistency_ makes designers happy!
 
 In Orbit UI, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
-Over the course of development of our products, we added a few utilities that we could benefit from and were missing from Tachyons. Find out how we customized Tachyons in the [customization section](#customization) of this document.
+Over the course of development of our products, we added a few utilities that were missing from Tachyons. Find out how we customized Tachyons in the [customization section](#customization) of this document.
 
 ## Installation
 
@@ -135,10 +135,6 @@ Tachyons box shadows classes have been rewrited to match Orbit UI foundation var
 
 Please refer to the [shadows page](?path=/docs/materials-shadows--page#tachyons) for an exhaustive list of all available classes.
 
-## Installation
-
-Please refer to the [installation page](?path=/docs/getting-started-installation--page) for instructions.
-
 ## Quick start
 
 Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes.
@@ -194,14 +190,14 @@ Here's a few common use cases to get you started.
 
 ### Dynamic styles
 
-By combining Tachyons with a library like [classnames](https://github.com/JedWatson/classnames) you can easily had dynamic styles to an element based on one or more conditions:
+By combining Tachyons with a library like [clsx](https://www.npmjs.com/package/clsx) you can easily had dynamic styles to an element based on one or more conditions:
 
 ```jsx dark
-import cx from "classnames";
+import clsx from "clsx";
 
 function Button({ text, disabled, tall }) {
     return (
-        <div className={cx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
+        <div className={clsx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
             {text}
         </div>
     );
@@ -215,7 +211,7 @@ You can override the default variables used by Tachyons, by overriding the [foun
 
 ## Legacy version
 
-If you support an old browser that doesn't support CSS variables and you dont have a build process to transpile the CSS variables, import the legacy version of Tachyons:
+If you must support an old browser which doesn't implements CSS variables and you cannot use a build step to transpile the CSS variables, import the legacy version of Tachyons:
 
 ```css dark
 @import "~@orbit-ui/tachyons/legacy.css";

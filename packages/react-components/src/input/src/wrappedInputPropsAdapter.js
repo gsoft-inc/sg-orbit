@@ -1,7 +1,7 @@
-import { useFieldInput } from "../../field";
+import { useFieldInputProps } from "../../field";
 
 export function useFieldWrappedInput() {
-    const [{ className, ...fieldProps }, isInField] = useFieldInput();
+    const [{ className, ...fieldProps }, isInField] = useFieldInputProps();
 
     const props = {
         ...fieldProps,

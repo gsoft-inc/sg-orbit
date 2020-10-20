@@ -17,7 +17,7 @@ stories()
     .add("default", () =>
         <Image src={Launch} alt="SpaceX launch" />
     )
-    .add("boxed", () =>
+    .add("contained", () =>
         <div style={{ width: "200px", height: "200px" }}>
             <Image src={Launch} alt="SpaceX launch" />
         </div>

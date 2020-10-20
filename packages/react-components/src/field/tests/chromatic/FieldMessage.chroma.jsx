@@ -2,7 +2,7 @@ import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
-import { Paragraph } from "@react-components/text";
+import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

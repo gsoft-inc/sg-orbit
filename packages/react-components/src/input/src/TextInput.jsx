@@ -3,10 +3,10 @@ import "./Input.css";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
-import { useFieldInput } from "../../field";
+import { useFieldInputProps } from "../../field";
 import { useInput } from "./useInput";
 import { useInputButton, useInputIcon } from "./useInputContent";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 import { wrappedInputPropsAdapter } from "./wrappedInputPropsAdapter";
 
 const propTypes = {
@@ -83,8 +83,8 @@ const propTypes = {
 };
 
 export function InnerTextInput(props) {
-    const [toolbarProps] = useToolbarContext();
-    const [fieldProps] = useFieldInput();
+    const [toolbarProps] = useToolbarProps();
+    const [fieldProps] = useFieldInputProps();
 
     const {
         id,
@@ -115,7 +115,7 @@ export function InnerTextInput(props) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["isInToolbar", "orientation"]),
+        omitProps(toolbarProps, ["orientation"]),
         wrappedInputPropsAdapter(fieldProps)
     );
 

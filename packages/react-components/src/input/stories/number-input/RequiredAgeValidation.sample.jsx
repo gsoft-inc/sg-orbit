@@ -11,14 +11,9 @@ export function RequiredAgeValidation() {
         console.log(newValue);
     }, [setValue]);
 
-    const handleClick = useCallback(() => {
-        setValue("");
-    }, [setValue]);
+    const handleClick = useCallback(() => { setValue(""); }, [setValue]);
 
-    const isValid = useMemo(
-        () => value !== "",
-        [value]
-    );
+    const isValid = useMemo(() => value !== "", [value]);
 
     return (
         <Inline verticalAlign="center">

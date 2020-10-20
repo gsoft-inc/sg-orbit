@@ -1,9 +1,9 @@
 import "./Counter.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSizeClass, mergeClasses, mergeProps, useSlot } from "../../shared";
+import { SlotProvider, cssModule, mergeClasses, mergeProps, normalizeSize, useSlotProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef } from "react";
 
 const propTypes = {
     /**
@@ -40,7 +40,9 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerCounter(props) {
+export function InnerCounter({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "counter");
+
     const {
         variant = "pill",
         color,
@@ -54,7 +56,7 @@ export function InnerCounter(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "counter")
+        slotProps
     );
 
     const content = variant === "divider"
@@ -71,23 +73,21 @@ export function InnerCounter(props) {
                     color && color,
                     highlight && "highlight",
                     reverse && "reverse",
-                    getSizeClass(size)
+                    normalizeSize(size)
                 ),
                 className
             )}
             ref={forwardedRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size
-                        }
-                    }), [size])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size
+                    }
+                }}
+            >
+                {content}
+            </SlotProvider>
         </ElementType>
     );
 }

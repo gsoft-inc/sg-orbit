@@ -1,5 +1,5 @@
 import { DropdownContext } from "./DropdownContext";
-import { KEYS, getSizeClass, mergeClasses, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
+import { KEYS, mergeClasses, normalizeSize, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
 import { Popper } from "../../popper";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
@@ -132,7 +132,7 @@ export function InnerDropdownMenu({ pinned, zIndex, noPortal, scrolling, onSelec
                     "o-ui dropdown-menu",
                     scrolling && "scrolling",
                     fluid && "fluid",
-                    getSizeClass(size),
+                    normalizeSize(size),
                     className
                 )}
                 tabIndex="-1"

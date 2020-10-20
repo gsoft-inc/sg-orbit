@@ -1,13 +1,13 @@
 import "./Button.css";
 
-import { ClearSlots, SlotProvider, cssModule, getSize, mergeClasses, mergeProps, omitProps, useHasChild, useSlot, useTextContent } from "../../shared";
-import { EMBEDDED_ICON_SIZE } from "../../icons";
+import { SlotProvider, Wrap, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlotProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { embeddedIconSize } from "../../icons";
+import { forwardRef } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 
 const CONDENSED_TEXT_SIZE = {
     "sm": "md",
@@ -76,9 +76,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButton(props) {
+export function InnerButton({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "button");
     const [formProps] = useFormButton();
-    const [toolbarProps] = useToolbarContext();
+    const [toolbarProps] = useToolbarProps();
 
     const {
         variant = "solid",
@@ -101,7 +102,7 @@ export function InnerButton(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "button"),
+        slotProps,
         formProps,
         omitProps(toolbarProps, ["orientation"])
     );
@@ -125,8 +126,6 @@ export function InnerButton(props) {
 
     const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
 
-    const content = useTextContent(Text, children);
-
     return (
         <ElementType
             data-testid="button"
@@ -141,23 +140,24 @@ export function InnerButton(props) {
             )}
             ref={buttonRef}
         >
-            <ClearSlots>
-                <SlotProvider
-                    slots={useMemo(() => ({
-                        text: {
-                            size: condensed ? CONDENSED_TEXT_SIZE[getSize(size)] : size,
-                            className: "o-ui-button-text",
-                            "aria-hidden": loading
-                        },
-                        icon: {
-                            size: condensed ? size : EMBEDDED_ICON_SIZE[getSize(size)],
-                            className: "o-ui-button-icon"
-                        }
-                    }), [size, condensed, loading])}
-                >
-                    {content}
-                </SlotProvider>
-            </ClearSlots>
+            <SlotProvider
+                value={{
+                    text: {
+                        size: condensed ? CONDENSED_TEXT_SIZE[size] : size,
+                        className: "o-ui-button-text",
+                        "aria-hidden": loading
+                    },
+                    icon: {
+                        size: condensed ? size : embeddedIconSize(size),
+                        className: "o-ui-button-icon"
+                    }
+                }}
+            >
+                <Wrap as={Text}>
+                    {children}
+                </Wrap>
+            </SlotProvider>
+
         </ElementType>
     );
 }

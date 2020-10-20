@@ -1,9 +1,9 @@
 import { Children, forwardRef } from "react";
-import { ClearSlots, augmentElement, createEmbeddableAdapter, getSize, mergeProps, omitProps, useSlot } from "../../shared";
-import { EMBEDDED_ICON_SIZE } from "../../icons";
+import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlotProps } from "../../shared";
+import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { useButton } from "./useButton";
-import { useToolbarContext } from "../../toolbar";
+import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
@@ -13,7 +13,7 @@ const propTypes = {
     /**
      * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The button shape.
      */
@@ -66,8 +66,9 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconButton(props) {
-    const [toolbarProps] = useToolbarContext();
+export function InnerIconButton({ slot, ...props }) {
+    const [slotProps] = useSlotProps(slot ?? "button");
+    const [toolbarProps] = useToolbarProps();
 
     const {
         variant = "solid",
@@ -92,7 +93,7 @@ export function InnerIconButton(props) {
         ...rest
     } = mergeProps(
         props,
-        useSlot(props, "button"),
+        slotProps,
         omitProps(toolbarProps, ["orientation"])
     );
 
@@ -116,11 +117,10 @@ export function InnerIconButton(props) {
 
     const icon = Children.only(children);
 
-    const iconMarkup = augmentElement(icon, {
-        size: condensed ? size : EMBEDDED_ICON_SIZE[getSize(size)],
+    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+        size,
         className: "o-ui-button-icon"
     });
-
 
     return (
         <ElementType

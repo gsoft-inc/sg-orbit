@@ -1,4 +1,4 @@
-import { TABBABLE_ELEMENT_SELECTOR } from "./createFocusableTreeWalker";
+import { TABBABLE_ELEMENT_SELECTOR } from "./focusableTreeWalker";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect } from "react";
 

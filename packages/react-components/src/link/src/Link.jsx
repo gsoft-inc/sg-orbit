@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useContentStyle } from "../../shared";
+import { mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
 const propTypes = {
@@ -37,6 +37,8 @@ const propTypes = {
 };
 
 export function InnerLink(props) {
+    const [styleProps] = useStyleProps("link");
+
     const {
         external,
         shape = "rounded",
@@ -54,7 +56,7 @@ export function InnerLink(props) {
         ...rest
     } = mergeProps(
         props,
-        useContentStyle("link")
+        styleProps
     );
 
     const linkProps = useLink({

@@ -5,7 +5,6 @@ function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Flex"))
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(100)
             .canvasLayout({ width: "80%" })
             .build())
         .build();
