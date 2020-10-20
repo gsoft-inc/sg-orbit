@@ -351,10 +351,10 @@ a.o-ui-button {
 .o-ui-button-ghost:focus:after,
 .o-ui-button-ghost.o-ui-button-focus:after {
     opacity: 1;
-    top: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-outset-inner-offset));
+    top: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    left: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    right: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    bottom: calc(var(--o-ui-focus-ring-outset-inner-offset));
 }
 
 /* GHOST | ACTIVE */
