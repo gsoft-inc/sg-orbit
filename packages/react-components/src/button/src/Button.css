@@ -576,27 +576,29 @@ a.o-ui-button {
 
 /* ROUNDED | SIZES */
 .o-ui-button-rounded.o-ui-button-2xs {
+    min-width: var(--scale-echo);
     padding: 0 var(--scale-alpha);
 }
 
 .o-ui-button-rounded.o-ui-button-xs {
-    padding: 0 6px;
+    min-width: var(--scale-foxtrot);
+    padding: 0 var(--scale-alpha);
 }
 
 .o-ui-button-rounded.o-ui-button-sm {
-    padding: 0 10px;
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
+    min-width: var(--scale-golf);
     padding: 0 var(--scale-alpha);
 }
 
 .o-ui-button-rounded.o-ui-button-md {
-    padding: 0 var(--scale-delta);
+    min-width: var(--scale-hotel);
+    min-height: var(--scale-hotel);
+    padding: 0 var(--scale-alpha);
 }
 
 .o-ui-button-rounded.o-ui-button-lg {
-    padding: 0 var(--scale-echo);
+    min-width: var(--scale-india);
+    padding: 0 var(--scale-bravo);
 }
 
 /* CONTENT | TEXT */
@@ -651,6 +653,10 @@ a.o-ui-button {
     justify-content: center;
     width: max-content;
     height: max-content;
+}
+
+.o-ui-icon-button.o-ui-button-rounded {
+    padding: 0;
 }
 
 .o-ui-icon-button .o-ui-button-icon {
