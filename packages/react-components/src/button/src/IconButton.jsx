@@ -1,6 +1,6 @@
 import { Children, forwardRef } from "react";
 import { ClearSlots, augmentElement, createEmbeddableAdapter, getSize, mergeProps, omitProps, useSlot } from "../../shared";
-import { EMBEDDED_ICON_SIZE, EmbeddedIcon } from "../../icons";
+import { EMBEDDED_ICON_SIZE } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { useButton } from "./useButton";
 import { useToolbarContext } from "../../toolbar";
