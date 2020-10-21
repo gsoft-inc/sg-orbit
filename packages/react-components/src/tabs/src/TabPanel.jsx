@@ -1,6 +1,7 @@
+import { TabsContext } from "./TabsContext";
 import { any, elementType, func, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
 
 const propTypes = {
     /**
@@ -14,11 +15,15 @@ const propTypes = {
 };
 
 export const TabPanel = forwardRef(({
+    index,
+    tabId,
     as: ElementType = "div",
     className,
     children,
     ...rest
 }, ref) => {
+    const { selectedIndex } = useContext(TabsContext);
+
     return (
         <ElementType
             {...rest}
@@ -28,6 +33,9 @@ export const TabPanel = forwardRef(({
                 ),
                 className
             )}
+            role="tabpanel"
+            hidden={index !== selectedIndex}
+            aria-labelledby={tabId}
             ref={ref}
         >
             {children}

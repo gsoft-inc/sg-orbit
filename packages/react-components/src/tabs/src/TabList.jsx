@@ -1,19 +1,31 @@
 import { TabImpl as Tab } from "./Tab";
+import { cssModule, mergeClasses } from "../../shared";
 
 export function TabList({
-    headers,
+    tabs,
+    orientation,
+    className,
     ...rest
 }) {
     return (
         <div
             {...rest}
-            className="o-ui-tab-list"
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-tab-list",
+                    orientation
+                ),
+                className
+            )}
             role="tablist"
-            aria-orientation="horizontal"
+            aria-orientation={orientation}
         >
-            {headers.map(({ as, props, key, ref }) =>
+            {tabs.map(({ as, props, tabId, panelId, key, ref, tabIndex }) =>
                 <Tab
                     {...props}
+                    id={tabId}
+                    panelId={panelId}
+                    index={tabIndex}
                     as={as}
                     key={key}
                     ref={ref}

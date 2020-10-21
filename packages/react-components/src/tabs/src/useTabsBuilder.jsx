@@ -7,44 +7,56 @@ const slots = {
 };
 
 export class TabsBuilder {
-    build(children) {
-        const headers = [];
+    build(children, rootId) {
+        const tabs = [];
         const panels = [];
 
-        let index = 0;
+        let tabIndex = 0;
+        let nodeIndex = 0;
 
         Children.forEach(children, x => {
             const { header, content } = getSlots(x.props.children, slots);
 
-            headers.push(this.createItem(
+            const tabId = header.props.id ?? `${rootId}-tab-${tabIndex}`;
+            const panelId = content.props.id ?? `${rootId}-panel-${tabIndex}`;
+
+            tabs.push(this.createItem(
                 header,
-                index++
+                tabId,
+                panelId,
+                tabIndex,
+                nodeIndex++
             ));
 
             panels.push(this.createItem(
                 content,
-                index++
+                tabId,
+                panelId,
+                tabIndex,
+                nodeIndex++
             ));
+
+            tabIndex++;
         });
 
-        return [headers, panels];
+        return [tabs, panels];
     }
 
-    createItem({ type, props: { key, ...props }, ref }, index) {
+    createItem({ type, props: { key, ...props }, ref }, tabId, panelId, tabIndex, nodeIndex) {
         return {
             as: type,
             props,
-            key: key ?? `.${index}`,
+            tabId,
+            panelId,
+            key: key ?? `.${nodeIndex}`,
             ref,
-            index
+            tabIndex
         };
     }
 }
 
-export function useTabsBuilder(children) {
+export function useTabsBuilder(children, rootId) {
     const builder = useMemo(() => new TabsBuilder(), []);
 
-    return useMemo(() => {
-        return builder.build(children);
-    }, [builder, children]);
+    return useMemo(() => builder.build(children, rootId), [builder, children, rootId]);
 }

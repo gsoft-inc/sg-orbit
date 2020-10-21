@@ -1,0 +1,25 @@
+/*
+orientation
+*/
+
+.o-ui-tab-list {
+    display: flex;
+    border-bottom: 2px solid lightgray;
+}
+
+.o-ui-tab {
+    background: transparent;
+    padding: var(--scale-bravo);
+    border: transparent;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -2px;
+}
+
+.o-ui-tab[aria-selected="true"] {
+    border-bottom: 2px solid black;
+}
+
+.o-ui-tab-panel {
+    padding: var(--scale-bravo);
+}

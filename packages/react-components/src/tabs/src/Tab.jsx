@@ -1,6 +1,7 @@
+import { TabsContext } from "./TabsContext";
 import { any, elementType, func, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, mergeClasses, useEventCallback, useId } from "../../shared";
+import { forwardRef, useContext } from "react";
 
 const propTypes = {
     /**
@@ -22,20 +23,33 @@ Tab.propTypes = propTypes;
 ////////
 
 export const TabImpl = forwardRef(({
-    as: ElementType = "div",
+    index,
+    panelId,
+    as: ElementType,
     className,
     children,
     ...rest
 }, ref) => {
+    const { selectedIndex, setSelectedIndex } = useContext(TabsContext);
+
+    const handleClick = useEventCallback(() => {
+        setSelectedIndex(index);
+    });
+
     return (
         <ElementType
             {...rest}
+            as="button"
+            onClick={handleClick}
             className={mergeClasses(
                 cssModule(
                     "o-ui-tab"
                 ),
                 className
             )}
+            role="tab"
+            aria-selected={index === selectedIndex}
+            aria-controls={panelId}
             ref={ref}
         >
             {children}

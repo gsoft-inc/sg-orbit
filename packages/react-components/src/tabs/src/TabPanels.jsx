@@ -9,9 +9,12 @@ export function TabPanels({
             {...rest}
             className="o-ui-tab-panels"
         >
-            {panels.map(({ as, props, key, ref }) =>
+            {panels.map(({ as, props, tabId, panelId, key, ref, tabIndex }) =>
                 <TabPanel
                     {...props}
+                    id={panelId}
+                    tabId={tabId}
+                    index={tabIndex}
                     as={as}
                     key={key}
                     ref={ref}
