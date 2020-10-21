@@ -1,12 +1,24 @@
-export function TabList({ children, ...rest }) {
+import { TabImpl as Tab } from "./Tab";
+
+export function TabList({
+    headers,
+    ...rest
+}) {
     return (
         <div
             {...rest}
-            className="o-ui-tabs"
+            className="o-ui-tab-list"
             role="tablist"
             aria-orientation="horizontal"
         >
-            {children}
+            {headers.map(({ as, props, key, ref }) =>
+                <Tab
+                    {...props}
+                    as={as}
+                    key={key}
+                    ref={ref}
+                />
+            )}
         </div>
     );
 }

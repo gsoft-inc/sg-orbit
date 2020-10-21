@@ -1,14 +1,6 @@
-import { TabList } from "./TabList";
-import { TabPanels } from "./TabPanels";
 import { any, elementType, func, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
-import { useTabsBuilder } from "./useTabsBuilder";
-
-/*
-TODO:
-- Tabs should support a render function.
-*/
 
 const propTypes = {
     /**
@@ -21,36 +13,26 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function InnerTabs({
+export const TabPanel = forwardRef(({
     as: ElementType = "div",
     className,
     children,
-    forwardedRef,
     ...rest
-}) {
-    const [headers, panels] = useTabsBuilder(children);
-
+}, ref) => {
     return (
         <ElementType
             {...rest}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-tabs"
+                    "o-ui-tab-panel"
                 ),
                 className
             )}
-            ref={forwardedRef}
+            ref={ref}
         >
-            <TabList headers={headers} />
-            <TabPanels panels={panels} />
+            {children}
         </ElementType>
     );
-}
+});
 
-InnerTabs.propTypes = propTypes;
-
-export const Tabs = forwardRef((props, ref) => (
-    <InnerTabs {...props} forwardedRef={ref} />
-));
-
-
+TabPanel.propTypes = propTypes;

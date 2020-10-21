@@ -224,3 +224,98 @@ export {
     WarningAlert,
     CriticalAlert
 };
+
+// export function InnerAlert({
+//     show = true,
+//     tone = "info",
+//     onDismiss,
+//     size,
+//     as = "div",
+//     className,
+//     role: roleProp,
+//     children,
+//     forwardedRef,
+//     ...rest
+// }) {
+//     const ref = useMergedRefs(forwardedRef);
+
+//     const { icon, content, action } = useSlots(children, useMemo({
+//         icon: {
+//             size,
+//             className: "o-ui-alert-icon"
+//         },
+//         content: {
+//             meta: {
+//                 required: true,
+//                 wrap: Content
+//             },
+//             className: mergeClasses(getTextClass(size), "o-ui-alert-content")
+//         },
+//         button: {
+//             variant: "ghost",
+//             color: "inherit",
+//             size: buttonSize(size),
+//             className: "o-ui-alert-action"
+//         }
+//     }, [size]));
+
+//     const dismissMarkup = !isNil(onDismiss) && (
+//         <CrossButton
+//             color="inherit"
+//             onClick={onDismiss}
+//             size={buttonSize(size)}
+//             className="o-ui-alert-dismiss"
+//             aria-label="Dismiss"
+//         />
+//     );
+
+//     return (
+//         <Transition
+//             {...rest}
+//             show={show}
+//             enter="o-ui-fade-in"
+//             leave="o-ui-fade-out"
+//             className={mergeClasses(
+//                 cssModule(
+//                     "o-ui-alert",
+//                     tone,
+//                     !isNil(icon) && "has-icon",
+//                     !isNil(action) && "has-action",
+//                     dismissMarkup && "has-dismiss",
+//                     normalizeSize(size)
+//                 ),
+//                 className
+//             )}
+//             role={(roleProp ?? ROLE[tone]) ?? "alert"}
+//             as={as}
+//             ref={ref}
+//         >
+//             {icon}
+//             <StyleProvider
+//                 value={{
+//                     text: {
+//                         size: "inherit"
+//                     },
+//                     p: {
+//                         size: "inherit"
+//                     },
+//                     link: {
+//                         size: "inherit",
+//                         underline: "dotted"
+//                     },
+//                     list: {
+//                         size: "inherit"
+//                     },
+//                     heading: {
+//                         size: headingSize(size),
+//                         className: "o-ui-alert-title"
+//                     }
+//                 }}
+//             >
+//                 {content}
+//             </StyleProvider>
+//             {action}
+//             {dismissMarkup}
+//         </Transition>
+//     );
+// }

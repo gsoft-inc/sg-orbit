@@ -1,6 +1,7 @@
 export * from "./Tabs";
-export { TabPlaceholder as Tab } from "./Tab";
-export * from "./Panel";
+export * from "./TabList";
+export * from "./Tab";
+export * from "./TabPanels";
+export * from "./TabPanel";
 export * from "./TabsContext";
-
-export * from "./useCollection";
+export * from "./useTabsBuilder";

@@ -1,6 +1,7 @@
 // Inspired by https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/collections/src/CollectionBuilder.ts
 
 import { Children } from "react";
+import { isFunction } from "lodash";
 
 export class CollectionBuilder {
     build(children) {
@@ -30,6 +31,10 @@ export class CollectionBuilder {
     - an element could be a "div"
     */
     createItem({ element, index }) {
+        if (!isFunction(element.type.getCollectionNode)) {
+            throw new Error(`Unknown element <${name}> in collection.`);
+        }
+
         const node = element.type.getCollectionNode(element.props);
 
         return {

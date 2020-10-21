@@ -13,24 +13,15 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-////////
-
-export const TabPlaceholder = forwardRef(() => {
+export const Tab = forwardRef(() => {
     return null;
 });
 
-TabPlaceholder.propTypes = propTypes;
-
-TabPlaceholder.getCollectionNode = props => {
-    return {
-        type: "tab",
-        props
-    };
-};
+Tab.propTypes = propTypes;
 
 ////////
 
-export const Tab = forwardRef(({
+export const TabImpl = forwardRef(({
     as: ElementType = "div",
     className,
     children,
