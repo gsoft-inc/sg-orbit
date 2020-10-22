@@ -93,7 +93,9 @@ export function InnerTabs(props) {
             id={id}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-tabs"
+                    "o-ui-tabs",
+                    fluid && "fluid",
+                    orientation
                 ),
                 className
             )}
@@ -103,15 +105,14 @@ export function InnerTabs(props) {
                 value={{
                     selectedIndex,
                     onSelect: handleSelect,
-                    isManual: manual
+                    isManual: manual,
+                    orientation
                 }}
             >
                 <TabList
                     tabs={tabs}
                     autoFocus={autoFocus}
                     autoFocusDelay={autoFocusDelay}
-                    fluid={fluid}
-                    orientation={orientation}
                 />
                 <div
                     {...rest}

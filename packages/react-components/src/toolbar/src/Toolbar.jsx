@@ -1,4 +1,4 @@
-import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarProvider } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
@@ -91,6 +91,10 @@ export function InnerToolbar({
     useRovingFocus(ref);
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
+    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
+
+    const directionProps = useFlexDirection(orientation);
+
     const alignProps = useFlexAlignment(
         orientation,
         align,
@@ -99,16 +103,14 @@ export function InnerToolbar({
             : verticalAlign
     );
 
-    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
-
     return (
         <Flex
             data-testid="toolbar"
             {...rest}
+            {...directionProps}
             {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            direction={toFlexDirection(orientation)}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             as={as}

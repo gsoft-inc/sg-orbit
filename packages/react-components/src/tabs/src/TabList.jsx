@@ -23,32 +23,23 @@ export function TabList({
     tabs,
     autoFocus,
     autoFocusDelay,
-    fluid,
-    orientation,
     className,
     ...rest
 }) {
-    const { selectedIndex } = useContext(TabsContext);
+    const { selectedIndex, orientation } = useContext(TabsContext);
 
     const ref = useRef();
 
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
-
     useRovingFocus(ref, selectedIndex.toString(), { keyProp: "data-index" });
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+
+    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
 
     return (
         <Box
             {...rest}
             {...navigationProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tab-list",
-                    fluid && "fluid",
-                    orientation
-                ),
-                className
-            )}
+            className={mergeClasses("o-ui-tab-list", className)}
             role="tablist"
             aria-orientation={orientation}
             ref={ref}
