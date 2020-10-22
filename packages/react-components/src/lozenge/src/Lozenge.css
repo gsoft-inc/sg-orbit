@@ -1,8 +1,6 @@
 .o-ui-lozenge {
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
-    grid-template-columns: max-content auto;
-    grid-template-areas: "icon text";
     background-color: var(--cloud-50);
     color: var(--marine-900);
     text-transform: uppercase;
@@ -25,17 +23,11 @@
     line-height: var(--scale-foxtrot);
 }
 
-/* CONTENT | TEXT */
-.o-ui-lozenge-text {
-    grid-area: text;
-}
-
 /* CONTENT | ICON */
 .o-ui-lozenge-has-icon {
     padding-left: calc(var(--scale-bravo) / 2);
 }
 
 .o-ui-lozenge-icon {
-    grid-area: icon;
     margin-right: 0.125rem;
 }

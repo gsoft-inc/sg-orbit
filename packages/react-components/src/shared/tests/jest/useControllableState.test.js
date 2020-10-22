@@ -242,3 +242,24 @@ test("call onChange when a new value is set for an uncontrolled prop", () => {
     expect(callCount).toBe(2);
     expect(lastState).toBeFalsy();
 });
+
+// ***** isControlled *****
+
+test("isControlled is true when a controlled value is provided ", () => {
+    const { result } = renderHook(() => useControllableState(true));
+
+    expect(result.current[2]).toBeTruthy();
+});
+
+test("isControlled is false when an initial value is provided", () => {
+    const { result } = renderHook(() => useControllableState(undefined, true));
+
+    expect(result.current[2]).toBeFalsy();
+});
+
+test("isControlled is false when no controlled value and no initial value are provided", () => {
+    const { result } = renderHook(() => useControllableState(undefined, undefined));
+
+    expect(result.current[2]).toBeFalsy();
+});
+

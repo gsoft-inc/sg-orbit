@@ -1,5 +1,6 @@
+import { Box } from "../../box/src/Box";
 import { TabsContext } from "./TabsContext";
-import { any, elementType, func, oneOfType, string } from "prop-types";
+import { any, elementType, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef, useContext } from "react";
 
@@ -9,15 +10,14 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * @ignore
      */
-    children: oneOfType([any, func]).isRequired
+    children: any.isRequired
 };
 
 export const TabPanel = forwardRef(({
     index,
     tabId,
-    as: ElementType = "div",
     className,
     children,
     ...rest
@@ -25,7 +25,7 @@ export const TabPanel = forwardRef(({
     const { selectedIndex } = useContext(TabsContext);
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -34,12 +34,13 @@ export const TabPanel = forwardRef(({
                 className
             )}
             role="tabpanel"
+            tabIndex="0"
             hidden={index !== selectedIndex}
             aria-labelledby={tabId}
             ref={ref}
         >
             {children}
-        </ElementType>
+        </Box>
     );
 });
 

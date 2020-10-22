@@ -8,12 +8,20 @@ orientation
 }
 
 .o-ui-tab {
+    display: flex;
+    align-items: center;
     background: transparent;
     padding: var(--scale-bravo);
     border: transparent;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
     margin-bottom: -2px;
+    width: max-content;
+    height: max-content;
+}
+
+.o-ui-tab-list-fluid .o-ui-tab {
+    width: 100%;
 }
 
 .o-ui-tab[aria-selected="true"] {
@@ -22,4 +30,8 @@ orientation
 
 .o-ui-tab-panel {
     padding: var(--scale-bravo);
+}
+
+.o-ui-tab-list-fluid .o-ui-tab-panel {
+    width: 100%;
 }

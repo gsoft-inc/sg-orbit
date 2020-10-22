@@ -82,8 +82,8 @@ const propTypes = {
      */
     disabled: bool,
     /**
-   * An HTML element type or a custom React element type to render as.
-   */
+     * An HTML element type or a custom React element type to render as.
+     */
     as: oneOfType([string, elementType]),
     /**
      * Component children.
@@ -92,13 +92,13 @@ const propTypes = {
 };
 
 const NAV_KEY_BINDING = {
-    "default": {
+    default: {
         previous: [KEYS.left, KEYS.up],
         next: [KEYS.right, KEYS.down],
         first: [KEYS.home],
         last: [KEYS.end]
     },
-    "toolbar": {
+    toolbar: {
         previous: [KEYS.up],
         next: [KEYS.down]
     }
@@ -137,11 +137,16 @@ export function InnerRadioGroup(props) {
 
     const ref = useMergedRefs(forwardedRef);
 
-    useRovingFocus(ref, checkedValue, { keyProp: "value" });
+    useRovingFocus(ref, !isNil(checkedValue) ? checkedValue.toString() : checkedValue, { keyProp: "value" });
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {
-        setCheckedValue(element.value);
+        // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
+        const newValue = element.dataset.type === "number"
+            ? parseInt(element.value)
+            : element.value;
+
+        setCheckedValue(newValue);
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";

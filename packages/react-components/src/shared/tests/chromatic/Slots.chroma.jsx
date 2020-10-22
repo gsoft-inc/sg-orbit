@@ -66,7 +66,7 @@ function SingleSlotCard({ children, ...rest }) {
     );
 }
 
-const Title = slot(forwardRef(({ children, ...rest }, ref) => {
+const Title = slot("title", forwardRef(({ children, ...rest }, ref) => {
     return (
         <Box
             {...rest}
@@ -75,9 +75,9 @@ const Title = slot(forwardRef(({ children, ...rest }, ref) => {
             {children}
         </Box>
     );
-}), "title");
+}));
 
-const Content = slot(forwardRef(({ children, ...rest }, ref) => {
+const Content = slot("content", forwardRef(({ children, ...rest }, ref) => {
     return (
         <Box
             {...rest}
@@ -86,7 +86,7 @@ const Content = slot(forwardRef(({ children, ...rest }, ref) => {
             {children}
         </Box>
     );
-}), "content");
+}));
 
 stories()
     .add("default slot", () =>

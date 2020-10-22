@@ -2,11 +2,19 @@ import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
-export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
+/*
+Roving focus doesn't handle disabled element when using a key. If the calling component roving focus is based on a key, this is the responsability
+of the calling component to ensure that the `currentKey` doesn't match a disabled element.
+*/
+export function useRovingFocus(rootRef, currentKey, { keyProp } = {}) {
     useLayoutEffect(() => {
-        // Copy node to variable to ensure it's the same node on cleanup.
+        // Copy node to variable to ensure it's the same one on cleanup.
         const root = rootRef.current;
         const scope = [];
+
+        // When in autofocus mode, elements tabIndex will be updated everytime a new element is focused.
+        // When in manual mode, elements tabIndex will be updated only when the current key change.
+        const autoFocus = isNil(keyProp);
 
         const handleFocus = event => {
             walkFocusableElements(root, x => {
@@ -22,14 +30,19 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
             scope.push(element);
 
             element.tabIndex = initialIndex;
-            element.addEventListener("focusin", handleFocus, { capture: true });
+
+            if (autoFocus) {
+                element.addEventListener("focusin", handleFocus, { capture: true });
+            }
         };
 
         const removeElement = (element, removeFromScope) => {
             const index = scope.indexOf(element);
 
             if (index !== -1) {
-                element.removeEventListener("focusin", handleFocus, { capture: true });
+                if (autoFocus) {
+                    element.removeEventListener("focusin", handleFocus, { capture: true });
+                }
 
                 if (removeFromScope) {
                     scope.splice(index, 1);
@@ -39,9 +52,9 @@ export function useRovingFocus(rootRef, currentKey, { keyProp = "key" } = {}) {
 
         // Initialize elements.
         walkFocusableElements(root, (element, index) => {
-            const initialIndex = isNil(currentKey)
-                ? index === 0 ? 0 : -1
-                : currentKey === element.getAttribute(keyProp) ? 0 : -1;
+            const initialIndex = !isNil(keyProp) && !isNil(currentKey)
+                ? currentKey === element.getAttribute(keyProp) ? 0 : -1
+                : index === 0 ? 0 : -1;
 
             addElement(element, initialIndex);
         });

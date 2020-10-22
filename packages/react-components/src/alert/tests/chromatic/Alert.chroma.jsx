@@ -9,8 +9,6 @@ import { ListItem, UnorderedList } from "@react-components/list";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { useEventCallback } from "@react-components/shared";
-import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Alert"))
@@ -263,26 +261,6 @@ stories()
             <Alert className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
             <Alert style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
         </Stack>
-    )
-    .add("controlled dimiss",
-         () => {
-             const [show, setShow] = useState(true);
-
-             const toggleAlert = useEventCallback(() => {
-                 setShow(x => !x);
-             });
-
-             return (
-                 <>
-                     <Button onClick={toggleAlert}>Toggle</Button>
-                     <br /><br />
-                     <InfoAlert show={show} onDismiss={toggleAlert}>
-                         <strong>Scheduled launch</strong> today at 1PM. Please be cautious.
-                     </InfoAlert>
-                 </>
-             );
-         },
-         paramsBuilder().chromaticIgnore().build()
     );
 
 [

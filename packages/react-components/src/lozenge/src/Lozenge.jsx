@@ -1,8 +1,9 @@
 import "./Lozenge.css";
 
-import { SlotProvider, Wrap, createSizeAdapter, cssModule, mergeClasses, normalizeSize, useHasChild, useMergedRefs } from "../../shared";
+import { Box } from "../../box/src/Box";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef } from "react";
 
@@ -30,50 +31,52 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     size,
     className,
-    as: ElementType = "span",
+    as = "span",
     children,
     forwardedRef,
     ...rest
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const hasIcon = useHasChild(".o-ui-lozenge-icon", ref);
+    const { icon, text } = useSlots(children, {
+        _: {
+            default: {
+                slot: "text",
+                wrapper: Text
+            }
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-lozenge-icon"
+        },
+        text: {
+            size: textSize(size),
+            className: "o-ui-lozenge-text"
+        }
+    });
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
                     "o-ui-lozenge",
-                    hasIcon && "has-icon",
+                    icon && "has-icon",
                     normalizeSize(size)
                 ),
                 className
             )}
+            as={as}
             ref={ref}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size: textSize(size),
-                        className: "o-ui-lozenge-text"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-lozenge-icon"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {children}
-                </Wrap>
-            </SlotProvider>
-        </ElementType>
+            {icon}
+            {text}
+        </Box>
     );
 }
 
 InnerLozenge.propTypes = propTypes;
 
-export const Lozenge = forwardRef((props, ref) => (
+export const Lozenge = slot("lozenge", forwardRef((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
-));
+)));

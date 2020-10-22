@@ -1,17 +1,15 @@
+import { Box } from "../../box/src/Box";
+import { KEYS, mergeClasses, useEventCallback, useSlots } from "../../shared";
 import { TabsContext } from "./TabsContext";
-import { any, elementType, func, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useEventCallback, useId } from "../../shared";
+import { Text } from "@react-components/text";
+import { any } from "prop-types";
 import { forwardRef, useContext } from "react";
 
 const propTypes = {
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
-    as: oneOfType([string, elementType]),
-    /**
-     * Component children.
-     */
-    children: oneOfType([any, func]).isRequired
+    children: any.isRequired
 };
 
 export const Tab = forwardRef(() => {
@@ -25,34 +23,72 @@ Tab.propTypes = propTypes;
 export const TabImpl = forwardRef(({
     index,
     panelId,
-    as: ElementType,
+    disabled,
     className,
     children,
     ...rest
 }, ref) => {
-    const { selectedIndex, setSelectedIndex } = useContext(TabsContext);
+    const { selectedIndex, isManual, onSelect } = useContext(TabsContext);
 
-    const handleClick = useEventCallback(() => {
-        setSelectedIndex(index);
+    const { icon, text, lozenge } = useSlots(children, {
+        _: {
+            default: {
+                slot: "text",
+                wrapper: Text
+            }
+        },
+        icon: {
+            size: "sm",
+            className: "o-ui-tab-icon"
+        },
+        text: {
+            className: "o-ui-tab-text"
+        },
+        lozenge: {
+            size: "sm",
+            className: "o-ui-tab-lozenge"
+        }
+    });
+
+    const handleClick = useEventCallback(event => {
+        onSelect(event, index);
+    });
+
+    const handleFocus = useEventCallback(event => {
+        onSelect(event, index);
+    });
+
+    const handleKeyDown = useEventCallback(event => {
+        switch(event.keyCode) {
+            case KEYS.enter:
+            case KEYS.space:
+                onSelect(event, index);
+                break;
+        }
     });
 
     return (
-        <ElementType
+        <Box
             {...rest}
             as="button"
             onClick={handleClick}
+            onFocus={!isManual ? handleFocus : undefined}
+            onKeyDown={isManual ? handleKeyDown : undefined}
             className={mergeClasses(
-                cssModule(
-                    "o-ui-tab"
-                ),
+                "o-ui-tab",
                 className
             )}
+            disabled={disabled}
             role="tab"
+            data-index={index}
             aria-selected={index === selectedIndex}
+            aria-disabled={disabled}
             aria-controls={panelId}
             ref={ref}
         >
-            {children}
-        </ElementType>
+            {icon}
+            {text}
+            {lozenge}
+        </Box>
     );
 });

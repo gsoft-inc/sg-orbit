@@ -1,7 +1,7 @@
 import { Children, cloneElement, forwardRef } from "react";
-import { ClearSlots, mergeProps, useSlotProps } from "../../shared";
 import { Inline } from "../../layout";
 import { any, elementType, oneOfType, string } from "prop-types";
+import { slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -18,9 +18,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconList({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "icon");
-
+export function InnerIconList(props) {
     const {
         size,
         disabled,
@@ -28,10 +26,7 @@ export function InnerIconList({ slot, ...props }) {
         as = "span",
         forwardedRef,
         ...rest
-    } = mergeProps(
-        props,
-        slotProps
-    );
+    } = props;
 
     return (
         <Inline
@@ -41,20 +36,18 @@ export function InnerIconList({ slot, ...props }) {
             ref={forwardedRef}
             aria-hidden="true"
         >
-            <ClearSlots>
-                {Children.map(children, x => {
-                    return cloneElement(x, {
-                        size,
-                        disabled
-                    });
-                })}
-            </ClearSlots>
+            {Children.map(children, x => {
+                return cloneElement(x, {
+                    size,
+                    disabled
+                });
+            })}
         </Inline>
     );
 }
 
 InnerIconList.propTypes = propTypes;
 
-export const IconList = forwardRef((props, ref) => (
+export const IconList = slot("icon", forwardRef((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
-));
+)));

@@ -157,6 +157,7 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
+                data-type={typeof(value)}
                 aria-invalid={validationState === "invalid"}
                 ref={inputRef}
             />

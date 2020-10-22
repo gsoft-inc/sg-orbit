@@ -4,7 +4,7 @@ import { isNil, isString, isUndefined } from "lodash";
 
 const SLOT_KEY = "__slot__";
 
-function slotDecorator(ElementType, slotName) {
+function slotDecorator(slotName, ElementType) {
     ElementType[SLOT_KEY] = slotName;
 
     return ElementType;
@@ -72,7 +72,5 @@ export function getSlots(children, { _ = {}, ...slots }) {
 }
 
 export function useSlots(children, slots) {
-    return useMemo(() => {
-        return getSlots(children, slots);
-    }, [children, slots]);
+    return useMemo(() => getSlots(children, slots), [children, slots]);
 }

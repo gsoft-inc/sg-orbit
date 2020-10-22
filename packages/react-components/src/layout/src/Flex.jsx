@@ -80,7 +80,7 @@ const propTypes = {
      */
     wrap: oneOf(["nowrap", "wrap", "wrap-reverse"]),
     /**
-     * Whether the elements take up the width & height of their container.
+     * Whether the elements take up all the space of their container.
      */
     fluid: bool,
     /**

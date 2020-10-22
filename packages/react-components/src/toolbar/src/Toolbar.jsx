@@ -56,6 +56,21 @@ const propTypes = {
     children: any.isRequired
 };
 
+const NAV_KEY_BINDING = {
+    horizontal: {
+        previous: [KEYS.left],
+        next: [KEYS.right],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    },
+    vertical: {
+        previous: [KEYS.up],
+        next: [KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    }
+};
+
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
@@ -74,17 +89,17 @@ export function InnerToolbar({
     const ref = useMergedRefs(forwardedRef);
 
     useRovingFocus(ref);
-
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    const alignProps = useFlexAlignment(orientation, align, orientation === "horizontal" ? verticalAlign ?? "center" : verticalAlign);
+    const alignProps = useFlexAlignment(
+        orientation,
+        align,
+        orientation === "horizontal"
+            ? verticalAlign ?? "center"
+            : verticalAlign
+    );
 
-    const arrowNavigationProps = useKeyboardNavigation({
-        previous: orientation === "horizontal" ? [KEYS.left] : [KEYS.left, KEYS.up],
-        next: orientation === "horizontal" ? [KEYS.right] : [KEYS.right, KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
-    });
+    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
 
     return (
         <Flex

@@ -1,6 +1,7 @@
 import { Icon } from "./Icon";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
+import { slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -40,19 +41,19 @@ export function InnerMultiVariantIcon({ type24: Component24, type32: Component32
 
 InnerMultiVariantIcon.propTypes = propTypes;
 
-export const MultiVariantIcon = forwardRef((props, ref) => (
+export const MultiVariantIcon = slot("icon", forwardRef((props, ref) => (
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
-));
+)));
 
 function createMultiVariantFactory(type24, type32) {
-    return forwardRef((props, ref) =>
+    return slot("icon", forwardRef((props, ref) =>
         <MultiVariantIcon
             {...props}
             type24={type24}
             type32={type32}
             ref={ref}
         />
-    );
+    ));
 }
 
 [InnerMultiVariantIcon, MultiVariantIcon].forEach(x => {

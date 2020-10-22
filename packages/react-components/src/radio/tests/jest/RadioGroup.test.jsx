@@ -58,6 +58,30 @@ test("call onChange when a new radio is selected", async () => {
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), "2");
 });
 
+test("call onChange with a numeric value when the radio value is numeric", async () => {
+    const handler = jest.fn();
+
+    const { getAllByTestId } = render(
+        <RadioGroup
+            onChange={handler}
+        >
+            <Radio value={1}>1</Radio>
+            <Radio value={2}>2</Radio>
+            <Radio value={3}>3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        userEvent.click(getInput(getAllByTestId("radio")[0]));
+    });
+
+    act(() => {
+        userEvent.click(getInput(getAllByTestId("radio")[1]));
+    });
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2);
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
