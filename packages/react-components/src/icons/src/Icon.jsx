@@ -1,6 +1,6 @@
 import "./Icon.css";
 
-import { Box } from "../../box/src/Box";
+import { Box } from "../../box";
 import { cssModule, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
