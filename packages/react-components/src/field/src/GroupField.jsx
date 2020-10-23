@@ -74,7 +74,6 @@ export function InnerGroupField(props) {
 
     return (
         <ElementType
-            data-testid="field"
             {...rest}
             {...fieldProps}
         >

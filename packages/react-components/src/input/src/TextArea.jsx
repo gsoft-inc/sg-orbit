@@ -206,7 +206,6 @@ export function InnerTextArea(props) {
 
     return (
         <ElementType
-            data-testid="text-area"
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(

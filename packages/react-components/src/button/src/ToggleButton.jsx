@@ -97,7 +97,6 @@ export function InnerToggleButton(props) {
 
     return (
         <ElementType
-            data-testid="toggle-button"
             {...rest}
             {...buttonProps}
         >

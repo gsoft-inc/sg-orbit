@@ -136,7 +136,6 @@ export function InnerCheckboxGroup(props) {
 
     return (
         <Group
-            data-testid="checkbox-group"
             {...rest}
             {...groupProps}
         >

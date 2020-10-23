@@ -340,7 +340,6 @@ export function InnerNumberInput(props) {
 
     return (
         <ElementType
-            data-testid="number-input"
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(

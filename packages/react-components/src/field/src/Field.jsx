@@ -74,7 +74,6 @@ export function InnerField(props) {
 
     return (
         <ElementType
-            data-testid="field"
             {...rest}
             {...fieldProps}
         >

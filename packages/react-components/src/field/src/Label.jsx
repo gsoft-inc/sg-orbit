@@ -55,7 +55,6 @@ export function InnerLabel(props) {
 
     return (
         <Text
-            data-testid="field-label"
             {...rest}
             size={ADAPTED_SIZE[normalizeSize(size)]}
             className={mergeClasses(

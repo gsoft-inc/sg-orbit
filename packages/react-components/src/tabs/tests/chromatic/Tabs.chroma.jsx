@@ -14,11 +14,10 @@ MISSING JEST TEST:
     - when tab is disabled tabIndex = -1
     - when manual, focusing a tab doesn't change the active tab
     - when not manual, focusing a tag change the active tab
-    - ref
+    - ref - DONE
     - throw an error when the selectedIndex is controlled and match a disabled tab
     - selected the first non disabled tab when the selectedIndex is uncontrolled (test with defaultIndex and without a defaultIndex)
     - onChange
-    - with string index & number index
     - throw when children is null or undefined
 */
 

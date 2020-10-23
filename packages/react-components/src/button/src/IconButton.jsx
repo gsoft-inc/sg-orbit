@@ -124,7 +124,6 @@ export function InnerIconButton({ slot, ...props }) {
 
     return (
         <ElementType
-            data-testid="icon-button"
             {...rest}
             {...buttonProps}
             title={title ?? ariaLabel}

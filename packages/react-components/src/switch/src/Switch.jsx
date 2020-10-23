@@ -122,7 +122,6 @@ export function InnerSwitch(props) {
 
     return (
         <ElementType
-            data-testid="switch"
             {...rest}
             {...wrapperProps}
         >

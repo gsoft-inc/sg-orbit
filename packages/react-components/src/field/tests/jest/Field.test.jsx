@@ -7,8 +7,8 @@ import { render, waitFor } from "@testing-library/react";
 function LabelledInputField(props) {
     return (
         <Field {...props}>
-            <Label>Where to?</Label>
-            <TextInput />
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
         </Field>
     );
 }
@@ -16,8 +16,8 @@ function LabelledInputField(props) {
 function LabelledGroupInputField(props) {
     return (
         <GroupField {...props}>
-            <Label>Your favorite galaxy?</Label>
-            <CheckboxGroup>
+            <Label data-testid="field-label">Your favorite galaxy?</Label>
+            <CheckboxGroup data-testid="checkbox-group">
                 <Checkbox value="milky-way" >Milky Way</Checkbox>
                 <Checkbox value="andromeda">Andromeda</Checkbox>
                 <Checkbox value="medusa">Medusa</Checkbox>

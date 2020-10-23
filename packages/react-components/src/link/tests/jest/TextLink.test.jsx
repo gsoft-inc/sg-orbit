@@ -5,7 +5,7 @@ import { render, waitFor } from "@testing-library/react";
 // ***** External *****
 
 test("when external, add target=\"_blank\"", async () => {
-    const { getByTestId } = render(<TextLink external href="#">Flight details</TextLink>);
+    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
 
     const link = await waitFor(() => getByTestId("text-link"));
 
@@ -13,7 +13,7 @@ test("when external, add target=\"_blank\"", async () => {
 });
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = render(<TextLink external href="#">Flight details</TextLink>);
+    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
 
     const link = await waitFor(() => getByTestId("text-link"));
 

@@ -105,7 +105,6 @@ export function InnerToolbar({
 
     return (
         <Flex
-            data-testid="toolbar"
             {...rest}
             {...directionProps}
             {...alignProps}
