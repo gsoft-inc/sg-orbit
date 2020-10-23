@@ -4,11 +4,18 @@ import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@utils/user-event";
 
-test("when automatic, focusing a tab change the active tab", async () => {
-    const handler = jest.fn();
+/*
+MISSING JEST TEST:
+    - when tab is disabled tabIndex = -1
+    - throw an error when the selectedIndex is controlled and match a disabled tab
+    - selected the first non disabled tab when the selectedIndex is uncontrolled (test with defaultIndex and without a defaultIndex)
+    - onChange
+    - throw when children is null or undefined
+*/
 
+test("when automatic, focusing a tab change the active tab", async () => {
     const { getByTestId } = render(
-        <Tabs onChange={handler}>
+        <Tabs>
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -21,11 +28,36 @@ test("when automatic, focusing a tab change the active tab", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("tab-2").focus());
+        getByTestId("tab-2").focus();
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
+
+test("when manual, focusing a tab shouldn't change the active tab", async () => {
+    const { getByTestId } = render(
+        <Tabs manual>
+            <Tab>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Tab>
+            <Tab>
+                <Header data-testid="tab-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-2").focus();
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));
+});
+
+// test("when manual, spacebar keypress makes a tab active", async () => {
+
+// });
 
 // ***** API *****
 
