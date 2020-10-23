@@ -1,26 +1,39 @@
 import { Content, Header } from "@react-components/view";
 import { Tab, Tabs } from "@react-components/tabs";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import userEvent from "@utils/user-event";
 
-// test("when automatic, focusing a tab change the active tab", async () => {
-//     const { getByTestId, queryByTestId } = render(
-//         <Tabs>
-//             <Tab>
-//                 <Header>Header 1</Header>
-//                 <Content>Content 1</Content>
-//             </Tab>
-//             <Tab>
-//                 <Header>Header 2</Header>
-//                 <Content>Content 2</Content>
-//             </Tab>
-//         </Tabs>
-//     );
+test("when automatic, focusing a tab change the active tab", async () => {
+    const handler = jest.fn();
 
-//     act(() => {
+    const { getByTestId } = render(
+        <Tabs onChange={handler}>
+            <Tab>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Tab>
+            <Tab>
+                <Header data-testid="tab-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Tab>
+        </Tabs>
+    );
 
-//     });
-// });
+    act(() => {
+        userEvent.click(getByTestId("tab-2").focus());
+    });
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+});
+
+// ***** API *****
+
+/*
+- call onChange when the active tab change (validate new index)
+- don't call onChange when the tab is disabled
+- can focus a tab with the focus api ???
+*/
 
 // ***** Refs *****
 

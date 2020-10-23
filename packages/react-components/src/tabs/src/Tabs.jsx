@@ -94,7 +94,8 @@ export function InnerTabs(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-tabs",
-                    fluid && "fluid"
+                    fluid && "fluid",
+                    orientation
                 ),
                 className
             )}
