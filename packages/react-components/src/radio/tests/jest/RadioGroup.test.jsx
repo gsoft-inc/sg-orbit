@@ -13,9 +13,9 @@ const Group = forwardRef((props, ref) => {
             {...props}
             ref={ref}
         >
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
+            <Radio value="1" data-testid="radio">1</Radio>
+            <Radio value="2" data-testid="radio">2</Radio>
+            <Radio value="3" data-testid="radio">3</Radio>
         </RadioGroup>
     );
 });
@@ -65,9 +65,9 @@ test("call onChange with a numeric value when the radio value is numeric", async
         <RadioGroup
             onChange={handler}
         >
-            <Radio value={1}>1</Radio>
-            <Radio value={2}>2</Radio>
-            <Radio value={3}>3</Radio>
+            <Radio value={1} data-testid="radio">1</Radio>
+            <Radio value={2} data-testid="radio">2</Radio>
+            <Radio value={3} data-testid="radio">3</Radio>
         </RadioGroup>
     );
 

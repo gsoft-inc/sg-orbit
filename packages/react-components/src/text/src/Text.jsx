@@ -46,7 +46,6 @@ export function InnerText(props) {
 
     return (
         <ElementType
-            data-testid="text"
             {...rest}
             className={mergeClasses(getTextClass(size), className)}
             ref={forwardedRef}

@@ -44,8 +44,12 @@ export function TabList({
             aria-orientation={orientation}
             ref={ref}
         >
-            {tabs.map(props =>
-                <Tab {...props} />
+            {tabs.map(({ index, ...tabProps }) =>
+                <Tab
+                    {...tabProps}
+                    index={index}
+                    selected={selectedIndex === index}
+                />
             )}
         </Box>
     );

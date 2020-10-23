@@ -13,7 +13,7 @@ test("call onChange when the switch is turned on", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} />
+        <Switch onChange={handler} data-testid="switch" />
     );
 
     act(() => {
@@ -27,7 +27,7 @@ test("call onChange when the switch is turned off", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} />
+        <Switch onChange={handler} data-testid="switch" />
     );
 
     act(() => {
@@ -45,7 +45,7 @@ test("dont call onChange when the switch is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch disabled onChange={handler} />
+        <Switch disabled onChange={handler} data-testid="switch" />
     );
 
     act(() => {

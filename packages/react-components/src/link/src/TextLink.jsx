@@ -116,7 +116,6 @@ export function InnerTextLink(props) {
 
     return (
         <ElementType
-            data-testid="text-link"
             {...rest}
             {...linkProps}
         >

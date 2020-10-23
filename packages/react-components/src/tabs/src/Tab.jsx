@@ -1,5 +1,5 @@
 import { Box } from "../../box/src/Box";
-import { KEYS, mergeClasses, useEventCallback, useSlots } from "../../shared";
+import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
 import { TabsContext } from "./TabsContext";
 import { Text } from "@react-components/text";
 import { any } from "prop-types";
@@ -23,12 +23,16 @@ Tab.propTypes = propTypes;
 export const TabImpl = forwardRef(({
     index,
     panelId,
+    selected,
     disabled,
+    active,
+    focus,
+    hover,
     className,
     children,
     ...rest
 }, ref) => {
-    const { selectedIndex, isManual, onSelect } = useContext(TabsContext);
+    const { isManual, onSelect } = useContext(TabsContext);
 
     const { icon, text, lozenge } = useSlots(children, {
         _: {
@@ -75,13 +79,18 @@ export const TabImpl = forwardRef(({
             onFocus={!isManual ? handleFocus : undefined}
             onKeyDown={isManual ? handleKeyDown : undefined}
             className={mergeClasses(
-                "o-ui-tab",
+                cssModule(
+                    "o-ui-tab",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover"
+                ),
                 className
             )}
             disabled={disabled}
             role="tab"
             data-index={index}
-            aria-selected={index === selectedIndex}
+            aria-selected={selected}
             aria-disabled={disabled}
             aria-controls={panelId}
             ref={ref}

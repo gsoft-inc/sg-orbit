@@ -130,7 +130,6 @@ export function InnerRadio(props) {
 
     return (
         <ElementType
-            data-testid="radio"
             {...rest}
             className={mergeClasses(
                 cssModule(

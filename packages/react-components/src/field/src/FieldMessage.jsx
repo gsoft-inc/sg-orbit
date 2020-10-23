@@ -53,7 +53,6 @@ export const FieldMessage = forwardRef(({
 }, ref) => {
     return (
         <Text
-            data-testid="field-message"
             {...rest}
             size={textSize(size)}
             className={mergeClasses(

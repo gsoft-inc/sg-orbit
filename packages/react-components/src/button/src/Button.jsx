@@ -117,7 +117,6 @@ export function InnerButton({ slot, ...props }) {
 
     return (
         <ElementType
-            data-testid="button"
             {...rest}
             {...buttonProps}
             className={mergeClasses(

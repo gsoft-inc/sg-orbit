@@ -161,7 +161,6 @@ export function InnerTextInput(props) {
         <>
             {iconMarkup}
             <input
-                data-testid="text-input"
                 {...rest}
                 {...inputProps}
             />

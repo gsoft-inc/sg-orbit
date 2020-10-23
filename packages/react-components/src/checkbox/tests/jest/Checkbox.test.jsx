@@ -13,7 +13,7 @@ test("call onChange when the checkbox is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onChange={handler} />
+        <Checkbox onChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -27,7 +27,7 @@ test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onChange={handler} />
+        <Checkbox onChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -45,7 +45,7 @@ test("call onChange when the checkbox goes from indeterminate to checked", async
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox defaultIndeterminate onChange={handler} />
+        <Checkbox defaultIndeterminate onChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -59,7 +59,7 @@ test("dont call onChange when the checkbox is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox disabled onChange={handler} />
+        <Checkbox disabled onChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -77,6 +77,7 @@ test("can focus the checkbox with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            data-testid="checkbox"
         />
     );
 
@@ -93,7 +94,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Checkbox ref={ref} />
+        <Checkbox ref={ref} data-testid="checkbox" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -110,6 +111,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            data-testid="checkbox"
         />
     );
 
@@ -123,7 +125,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Checkbox ref={handler} />
+        <Checkbox ref={handler} data-testid="checkbox" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

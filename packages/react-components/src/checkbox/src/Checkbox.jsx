@@ -148,7 +148,6 @@ export function InnerCheckbox(props) {
 
     return (
         <ElementType
-            data-testid="checkbox"
             {...rest}
             {...wrapperProps}
         >
