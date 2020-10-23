@@ -1,29 +1,15 @@
-// import { Content, Header } from "@react-components/view";
 import { Box } from "@react-components/box";
+import { Content, Header } from "@react-components/view";
 import { Lozenge } from "@react-components/lozenge";
 import { NotificationIcon } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
 import { Tab, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { forwardRef, useMemo, useState } from "react";
-import { isNil } from "lodash";
+import { forwardRef } from "react";
 import { slot } from "@react-components/shared";
 
 /*
-MISSING CHROMA TEST:
-    - autofocus - DONE
-    - autofocusDelay - DONE
-    - defaultIndex - DONE
-    - vertical - DONE
-    - horizontal - DONE
-    - disabled tab - DONE
-    - tab with a lozenge - DONE
-    - tab with an icon - DONE
-    - with render function - DONE
-    - fluid - DONE
-    - tab overflow - DONE
-
 MISSING JEST TEST:
     - when tab is disabled tabIndex = -1
     - when manual, focusing a tab doesn't change the active tab
@@ -35,27 +21,6 @@ MISSING JEST TEST:
     - with string index & number index
     - throw when children is null or undefined
 */
-
-// TEMP
-const Header = slot("header", forwardRef(({ children, ...rest }, ref) => {
-    return (
-        <Box
-            {...rest}
-            ref={ref}
-        >
-            {children}
-        </Box>
-    );
-}));
-
-// TEMP
-const Content = slot("content", ({ children, ...rest }) => {
-    return (
-        <Box {...rest}>
-            {children}
-        </Box>
-    );
-});
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tabs"))

@@ -1,5 +1,5 @@
 import { Box } from "../../box/src/Box";
-import { KEYS, cssModule, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useRovingFocus } from "../../shared";
+import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useRovingFocus } from "../../shared";
 import { TabImpl as Tab } from "./Tab";
 import { TabsContext } from "./TabsContext";
 import { useContext, useRef } from "react";

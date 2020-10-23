@@ -18,16 +18,14 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconList(props) {
-    const {
-        size,
-        disabled,
-        children,
-        as = "span",
-        forwardedRef,
-        ...rest
-    } = props;
-
+export function InnerIconList({
+    size,
+    disabled,
+    children,
+    as = "span",
+    forwardedRef,
+    ...rest
+}) {
     return (
         <Inline
             {...rest}

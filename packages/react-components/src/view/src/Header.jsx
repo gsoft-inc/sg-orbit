@@ -1,6 +1,6 @@
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlotProps } from "../../shared";
+import { slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -17,19 +17,12 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerHeader({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "header");
-
-    const {
-        as: ElementType = "div",
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        slotProps
-    );
-
+export function InnerHeader({
+    as: ElementType = "div",
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <ElementType
             {...rest}
@@ -42,6 +35,6 @@ export function InnerHeader({ slot, ...props }) {
 
 InnerHeader.propTypes = propTypes;
 
-export const Header = forwardRef((props, ref) => (
+export const Header = slot("header", forwardRef((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
-));
+)));

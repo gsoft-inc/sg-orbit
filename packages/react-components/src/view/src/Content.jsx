@@ -1,6 +1,6 @@
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlotProps } from "../../shared";
+import { slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -17,19 +17,12 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerContent({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "content");
-
-    const {
-        as: ElementType = "div",
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
-        slotProps
-    );
-
+export function InnerContent({
+    as: ElementType = "div",
+    children,
+    forwardedRef,
+    ...rest
+}) {
     return (
         <ElementType
             {...rest}
@@ -42,6 +35,6 @@ export function InnerContent({ slot, ...props }) {
 
 InnerContent.propTypes = propTypes;
 
-export const Content = forwardRef((props, ref) => (
+export const Content = slot("content", forwardRef((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
-));
+)));

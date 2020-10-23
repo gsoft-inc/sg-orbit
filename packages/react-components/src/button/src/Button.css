@@ -18,6 +18,7 @@
     cursor: pointer;
     outline: none;
     font-weight: 500;
+    transition: all .125s ease-in;
 }
 
 .o-ui-button:not(.o-ui-icon-button) {

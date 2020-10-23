@@ -69,7 +69,7 @@ const propTypes = {
     /**
      * Component children.
      */
-    children: oneOfType([any, func]).isRequired
+    children: oneOfType([any, func])
 };
 
 export function InnerCheckbox(props) {
