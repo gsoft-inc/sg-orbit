@@ -47,12 +47,13 @@
 /* STATE | FOCUS */
 .o-ui-tab:focus,
 .o-ui-tab-focus {
-    outline: 2px solid var(--apricot-100);
+    outline: 2px solid var(--o-ui-focus-ring-color);
+    z-index: 2;
 }
 
 .o-ui-tab-panel:focus,
 .o-ui-tab-focus {
-    outline: 2px solid var(--apricot-100);
+    outline: 2px solid var(--o-ui-focus-ring-color);
 }
 
 /* STATE | SELECTED */
