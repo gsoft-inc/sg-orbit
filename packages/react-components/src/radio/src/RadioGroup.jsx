@@ -11,7 +11,9 @@ import {
     useEventCallback,
     useId,
     useKeyboardNavigation,
-    useMergedRefs, useRenderProps, useRovingFocus
+    useKeyedRovingFocus,
+    useMergedRefs,
+    useRenderProps
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
@@ -137,7 +139,7 @@ export function InnerRadioGroup(props) {
 
     const ref = useMergedRefs(forwardedRef);
 
-    useRovingFocus(ref, !isNil(checkedValue) ? checkedValue.toString() : checkedValue, { keyProp: "value" });
+    useKeyedRovingFocus(ref, !isNil(checkedValue) ? checkedValue : checkedValue, { keyProp: "value" });
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {

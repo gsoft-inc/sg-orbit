@@ -1,5 +1,5 @@
 import { Box } from "../../box/src/Box";
-import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useRovingFocus } from "../../shared";
+import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { TabImpl as Tab } from "./Tab";
 import { TabsContext } from "./TabsContext";
 import { useContext, useRef } from "react";
@@ -30,7 +30,7 @@ export function TabList({
 
     const ref = useRef();
 
-    useRovingFocus(ref, selectedIndex.toString(), { keyProp: "data-index" });
+    useKeyedRovingFocus(ref, selectedIndex, { keyProp: "data-index" });
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
     const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
