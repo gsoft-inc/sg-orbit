@@ -7,7 +7,7 @@
 }
 
 .o-ui-tab-list[aria-orientation="horizontal"] {
-    border-bottom: 2px solid var(--marine-50);
+    /* border-bottom: 2px solid var(--marine-50); */
 }
 
 .o-ui-tab-list[aria-orientation="vertical"] {
@@ -28,6 +28,11 @@
     height: max-content;
     cursor: pointer;
     color: var(--marine-900);
+    margin-right: var(--scale-charlie);
+}
+
+.o-ui-tab:last-child {
+    margin-right: v0;
 }
 
 .o-ui-tab-list[aria-orientation="horizontal"] .o-ui-tab {
@@ -58,12 +63,12 @@
 
 /* STATE | SELECTED */
 .o-ui-tab-list[aria-orientation="horizontal"] .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--primary-500);
-    color: var(--primary-500);
+    border-bottom: 2px solid var(--primary-900);
+    color: var(--primary-900);
 }
 
 .o-ui-tab-list[aria-orientation="vertical"] .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--primary-500);
+    border-left: 2px solid var(--primary-900);
 }
 
 /* FLUID */
