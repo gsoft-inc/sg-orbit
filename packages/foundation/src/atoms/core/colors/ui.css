@@ -25,15 +25,15 @@
     --neutral-900: #9FA1A6;
     /* Alert */
     --alert-50: #FFE3E8;
-    --alert-100: #FEB8C6;
-    --alert-200: #FE89A1;
-    --alert-300: #FD597B;
-    --alert-400: #FC365E;
+    --alert-100: #FFB2B7;
+    --alert-200: #FF878E;
+    --alert-300: #FF6A73;
+    --alert-400: #FF4E58;
     --alert-500: #FC1242;
-    --alert-600: #F2143F;
-    --alert-700: #E8153E;
-    --alert-800: #DD173D;
-    --alert-900: #D3183C;
+    --alert-600: #DE0D35;
+    --alert-700: #CE0B31;
+    --alert-800: #BA0527;
+    --alert-900: #9C001E;
     /* Success */
     --success-50: #E4F9ED;
     --success-100: #BBF0D2;
@@ -41,8 +41,8 @@
     --success-300: #61DD97;
     --success-400: #3FD580;
     --success-500: #1DCE6A;
-    --success-600: #1AC962;
-    --success-700: #15C257;
-    --success-800: #11BC4D;
-    --success-900: #0AB03C;
+    --success-600: #3FBB64;
+    --success-700: #2DA852;
+    --success-800: #0A8F32;
+    --success-900: #00641E;
 }
