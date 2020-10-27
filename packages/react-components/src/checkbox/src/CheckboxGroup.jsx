@@ -46,10 +46,6 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * The group elements size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Invert the order of the checkbox and his label.
      */
     reverse: bool,
@@ -93,7 +89,6 @@ export function InnerCheckboxGroup(props) {
         orientation = "horizontal",
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,
@@ -115,7 +110,6 @@ export function InnerCheckboxGroup(props) {
         orientation,
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,

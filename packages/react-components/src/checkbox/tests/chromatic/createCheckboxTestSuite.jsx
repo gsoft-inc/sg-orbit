@@ -15,7 +15,6 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox element={element}>Milky Way</Checkbox>
-                    <Checkbox size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -23,10 +22,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                     </Checkbox>
@@ -44,12 +39,6 @@ export function createCheckboxTestSuite(element, stories) {
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconList>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconList>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -60,10 +49,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter>60</Counter>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -71,10 +56,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -90,11 +71,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter>60</Counter>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -103,11 +79,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
@@ -120,16 +91,12 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element} />
                     <Checkbox element={element} />
-                    <Checkbox size="lg" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox element={element}>
-                        <EmailIcon />
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <EmailIcon />
                     </Checkbox>
                     <Checkbox disabled element={element}>
@@ -147,20 +114,12 @@ export function createCheckboxTestSuite(element, stories) {
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconList>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <IconList>
-                            <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconList>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <Counter>60</Counter>
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                     <Checkbox disabled element={element}>
@@ -174,9 +133,6 @@ export function createCheckboxTestSuite(element, stories) {
                     <Checkbox element={element}>
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <Counter variant="divider">60</Counter>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -187,10 +143,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox size="lg" element={element}>
-                        <EmailIcon />
-                        <Counter>60</Counter>
-                    </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox size="sm" element={element}>
@@ -198,10 +150,6 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
                     <Checkbox element={element}>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Checkbox>
-                    <Checkbox size="lg" element={element}>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Checkbox>
@@ -281,27 +229,22 @@ export function createCheckboxTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Checkbox active size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox active element={element}>Milky Way</Checkbox>
-                    <Checkbox active size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox focus size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox focus element={element}>Milky Way</Checkbox>
-                    <Checkbox focus size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox hover size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox hover element={element}>Milky Way</Checkbox>
-                    <Checkbox hover size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox focus hover size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox focus hover element={element}>Milky Way</Checkbox>
-                    <Checkbox focus hover size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Checkbox disabled size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox disabled element={element}>Milky Way</Checkbox>
-                    <Checkbox disabled size="lg" element={element}>Milky Way</Checkbox>
                 </Inline>
             </Stack>
         )

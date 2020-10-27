@@ -53,11 +53,6 @@ stories()
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-            <CheckboxGroup size="lg">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
         </Stack>
     )
     .add("selection", () =>
@@ -200,11 +195,6 @@ stories("/vertical")
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
             <CheckboxGroup orientation="vertical">
-                <Checkbox value="1">1</Checkbox>
-                <Checkbox value="2">2</Checkbox>
-                <Checkbox value="3">3</Checkbox>
-            </CheckboxGroup>
-            <CheckboxGroup size="lg" orientation="vertical">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
