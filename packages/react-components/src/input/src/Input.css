@@ -12,14 +12,13 @@
     --o-ui-padding-md-loading: var(--scale-golf);
     --o-ui-padding-lg-loading: var(--scale-hotel);
     --o-ui-border-color: var(--cloud-200);
-    --o-ui-border-radius: var(--o-ui-rounded-border-radius);
     --o-ui-background-color: var(--cloud-100);
 }
 
 .o-ui-input {
     display: inline-block;
     position: relative;
-    transition: all .12s ease-in;
+    transition: var(--o-ui-focus-ring-transition);
     width: 325px;
 }
 
@@ -35,7 +34,7 @@
 
 .o-ui-input input,
 .o-ui-input textarea {
-    border-radius: var(--o-ui-border-radius);
+    border-radius: var(--o-ui-rounded-border-radius);
     border: 1px solid var(--o-ui-border-color);
     color: var(--marine-900);
     width: 100%;
@@ -189,7 +188,7 @@
 
 /* BUTTON */
 .o-ui-input-button {
-    position: absolute;
+    position: absolute !important;
     top: 50%;
     transform: translateY(-50%);
     display: flex;

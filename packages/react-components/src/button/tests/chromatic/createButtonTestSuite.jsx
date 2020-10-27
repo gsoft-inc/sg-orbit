@@ -21,6 +21,11 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading element={element}>Button</Button>
                     <Button loading size="lg" element={element}>Button</Button>
                 </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed size="sm" element={element}>Button</Button>
+                    <Button condensed element={element}>Button</Button>
+                    <Button condensed size="lg" element={element}>Button</Button>
+                </Inline>
                 <div>
                     <Button fluid element={element}>Button</Button>
                 </div>
@@ -78,6 +83,20 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                     <Button loading size="lg" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed size="sm" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button condensed element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button condensed size="lg" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
@@ -196,6 +215,11 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading shape="circular" element={element}>Aa</Button>
                     <Button loading shape="circular" size="lg" element={element}>Aa</Button>
                 </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
+                    <Button condensed shape="circular" element={element}>Aa</Button>
+                    <Button condensed shape="circular" size="lg" element={element}>Aa</Button>
+                </Inline>
             </Stack>
         )
         .add("rounded", () =>
@@ -209,6 +233,11 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button loading shape="rounded" element={element}>Aa</Button>
                     <Button loading shape="rounded" size="lg" element={element}>Aa</Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
+                    <Button condensed shape="rounded" element={element}>Aa</Button>
+                    <Button condensed shape="rounded" size="lg" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )

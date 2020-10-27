@@ -3,7 +3,7 @@ import "./Button.css";
 import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
+import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
@@ -23,6 +23,10 @@ const propTypes = {
      * The button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
+    /**
+     * Whether or not the button content should takes additional space.
+     */
+    condensed: bool,
     /**
      * Whether the button should autoFocus on render.
      */
@@ -67,6 +71,12 @@ const propTypes = {
     children: any.isRequired
 };
 
+const condensedTextSize = createSizeAdapter({
+    "sm": "md",
+    "md": "lg",
+    "lg": "xl"
+});
+
 export function InnerButton(props) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
@@ -75,6 +85,7 @@ export function InnerButton(props) {
         variant = "solid",
         color,
         shape = "pill",
+        condensed,
         autoFocus,
         autoFocusDelay,
         fluid,
@@ -120,15 +131,15 @@ export function InnerButton(props) {
             }
         },
         text: {
-            size,
+            size: condensed ? condensedTextSize(size) : size,
             className: "o-ui-button-text",
             "aria-hidden": loading
         },
         icon: {
-            size: embeddedIconSize(size),
+            size: condensed ? size : embeddedIconSize(size),
             className: "o-ui-button-icon"
         }
-    }), [size, loading]));
+    }), [size, condensed, loading]));
 
     return (
         <Box

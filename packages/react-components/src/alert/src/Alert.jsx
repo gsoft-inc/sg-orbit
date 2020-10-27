@@ -100,6 +100,7 @@ export function InnerAlert({
         button: {
             variant: "ghost",
             color: "inherit",
+            condensed: true,
             size: "sm",
             className: "o-ui-alert-action"
         }

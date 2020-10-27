@@ -37,19 +37,19 @@ stories()
         <Inline gap={13}>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup size="lg">
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="circular" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
