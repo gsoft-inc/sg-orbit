@@ -1,7 +1,7 @@
 import { IconButton } from "./IconButton";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useCheckableProps, useRenderProps } from "../../shared";
+import { mergeProps, slot, useCheckableProps, useRenderProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -117,6 +117,6 @@ export function InnerToggleIconButton(props) {
 
 InnerToggleIconButton.propTypes = propTypes;
 
-export const ToggleIconButton = forwardRef((props, ref) => (
+export const ToggleIconButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
-));
+)));

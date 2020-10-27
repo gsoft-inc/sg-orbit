@@ -1,5 +1,5 @@
-import { Box } from "../../box/src/Box";
 import { TabsContext } from "./TabsContext";
+import { Text } from "../../text";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef, useContext } from "react";
@@ -25,7 +25,7 @@ export const TabPanel = forwardRef(({
     const { selectedIndex } = useContext(TabsContext);
 
     return (
-        <Box
+        <Text
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -40,7 +40,7 @@ export const TabPanel = forwardRef(({
             ref={ref}
         >
             {children}
-        </Box>
+        </Text>
     );
 });
 

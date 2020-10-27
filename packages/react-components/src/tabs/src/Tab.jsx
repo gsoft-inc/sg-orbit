@@ -49,6 +49,7 @@ export const TabImpl = forwardRef(({
             className: "o-ui-tab-text"
         },
         lozenge: {
+            color: "primary",
             size: "sm",
             className: "o-ui-tab-lozenge"
         }
@@ -81,6 +82,7 @@ export const TabImpl = forwardRef(({
             className={mergeClasses(
                 cssModule(
                     "o-ui-tab",
+                    icon && "has-icon",
                     active && "active",
                     focus && "focus",
                     hover && "hover"

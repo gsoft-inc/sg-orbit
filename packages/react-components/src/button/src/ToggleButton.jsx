@@ -1,7 +1,8 @@
+import { Box } from "../../box";
 import { Button } from "./Button";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useCheckableProps, useRenderProps } from "../../shared";
+import { mergeProps, slot, useCheckableProps, useRenderProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -71,7 +72,7 @@ export function InnerToggleButton(props) {
         onClick,
         onCheck,
         active,
-        as: ElementType = Button,
+        as = Button,
         children,
         forwardedRef,
         ...rest
@@ -96,19 +97,20 @@ export function InnerToggleButton(props) {
     const content = useRenderProps({ isChecked }, props, children);
 
     return (
-        <ElementType
+        <Box
             {...rest}
             {...buttonProps}
+            as={as}
         >
             {content}
-        </ElementType>
+        </Box>
     );
 }
 
 InnerToggleButton.propTypes = propTypes;
 
-export const ToggleButton = forwardRef((props, ref) => (
+export const ToggleButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
-));
+)));
 
 

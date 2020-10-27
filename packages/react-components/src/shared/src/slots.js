@@ -13,7 +13,7 @@ function slotDecorator(slotName, ElementType) {
 export { slotDecorator as slot };
 
 export function getSlots(children, { _ = {}, ...slots }) {
-    const elements = {};
+    const slotElements = {};
 
     if (!isString(children)) {
         const slotsKeys = Object.keys(slots);
@@ -22,10 +22,8 @@ export function getSlots(children, { _ = {}, ...slots }) {
             if (!isNil(x)) {
                 const slot = (x.props && x.props["slot"]) ?? (x.type && x.type[SLOT_KEY]);
 
-                if (!isNil(slot)) {
-                    if (slotsKeys.includes(slot)) {
-                        elements[slot] = x;
-                    }
+                if (!isNil(slot) && slotsKeys.includes(slot)) {
+                    slotElements[slot] = x;
                 }
             }
         });
@@ -37,7 +35,7 @@ export function getSlots(children, { _ = {}, ...slots }) {
         const unfulfilledSlots = [];
 
         required.forEach(x => {
-            if (isUndefined(elements[x])) {
+            if (isUndefined(slotElements[x])) {
                 unfulfilledSlots.push(x);
 
             }
@@ -49,10 +47,18 @@ export function getSlots(children, { _ = {}, ...slots }) {
     }
 
     if (!isNil(defaultMetadata)) {
-        if (Object.keys(elements).length === 0) {
+        if (Object.keys(slotElements).length === 0) {
             const { slot: defaultSlot, wrapper: Wrapper } = defaultMetadata;
 
-            elements[defaultSlot] = (
+            if (isNil(defaultSlot)) {
+                throw new Error("Slot default metadata requires a `slot` property.");
+            }
+
+            if (isNil(Wrapper)) {
+                throw new Error("Slot default metadata requires a `wrapper` property.");
+            }
+
+            slotElements[defaultSlot] = (
                 <Wrapper>
                     {children}
                 </Wrapper>
@@ -60,15 +66,15 @@ export function getSlots(children, { _ = {}, ...slots }) {
         }
     }
 
-    Object.keys(elements).forEach(x => {
+    Object.keys(slotElements).forEach(x => {
         const slotProps = slots[x];
 
         if (!isNil(slotProps)) {
-            elements[x] = augmentElement(elements[x], slotProps);
+            slotElements[x] = augmentElement(slotElements[x], slotProps);
         }
     });
 
-    return elements;
+    return slotElements;
 }
 
 export function useSlots(children, slots) {

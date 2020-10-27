@@ -1,7 +1,8 @@
+import { Box } from "../../box";
 import { Children, forwardRef } from "react";
-import { ClearSlots, augmentElement, createEmbeddableAdapter, mergeProps, omitProps, useSlotProps } from "../../shared";
 import { EmbeddedIcon } from "../../icons";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, createEmbeddableAdapter, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useToolbarProps } from "../../toolbar";
 
@@ -17,7 +18,7 @@ const propTypes = {
     /**
      * The button shape.
      */
-    shape: oneOf(["pill", "rounded", "circular"]),
+    shape: oneOf(["rounded", "circular"]),
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -66,14 +67,13 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerIconButton({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "button");
+export function InnerIconButton(props) {
     const [toolbarProps] = useToolbarProps();
 
     const {
         variant = "solid",
         color,
-        shape = "pill",
+        shape = "circular",
         condensed,
         autoFocus,
         autoFocusDelay,
@@ -85,7 +85,7 @@ export function InnerIconButton({ slot, ...props }) {
         hover,
         type = "button",
         title,
-        as: ElementType = "button",
+        as = "button",
         "aria-label": ariaLabel,
         className,
         children,
@@ -93,7 +93,6 @@ export function InnerIconButton({ slot, ...props }) {
         ...rest
     } = mergeProps(
         props,
-        slotProps,
         omitProps(toolbarProps, ["orientation"])
     );
 
@@ -123,24 +122,23 @@ export function InnerIconButton({ slot, ...props }) {
     });
 
     return (
-        <ElementType
+        <Box
             {...rest}
             {...buttonProps}
             title={title ?? ariaLabel}
+            as={as}
             aria-label={ariaLabel}
         >
-            <ClearSlots>
-                {iconMarkup}
-            </ClearSlots>
-        </ElementType>
+            {iconMarkup}
+        </Box>
     );
 }
 
 InnerIconButton.propTypes = propTypes;
 
-export const IconButton = forwardRef((props, ref) => (
+export const IconButton = slot("button", forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
-));
+)));
 
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",

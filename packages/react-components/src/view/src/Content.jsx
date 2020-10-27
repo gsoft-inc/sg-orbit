@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { slot } from "../../shared";
@@ -18,18 +19,19 @@ const propTypes = {
 };
 
 export function InnerContent({
-    as: ElementType = "div",
+    as = "div",
     children,
     forwardedRef,
     ...rest
 }) {
     return (
-        <ElementType
+        <Box
             {...rest}
+            as={as}
             ref={forwardedRef}
         >
             {children}
-        </ElementType>
+        </Box>
     );
 }
 
