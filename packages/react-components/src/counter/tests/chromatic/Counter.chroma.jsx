@@ -17,7 +17,6 @@ stories()
             <Inline verticalAlign="end">
                 <Counter size="sm">15</Counter>
                 <Counter>15</Counter>
-                <Counter size="lg">15</Counter>
             </Inline>
             <Inline>
                 <Counter>2</Counter>
