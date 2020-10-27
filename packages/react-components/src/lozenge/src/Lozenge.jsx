@@ -9,6 +9,10 @@ import { forwardRef } from "react";
 
 const propTypes = {
     /**
+     * The badge color accent.
+     */
+    color: oneOf(["primary"]),
+    /**
      * A lozenge can vary in size.
      */
     size: oneOf(["sm", "md", "lg"]),
@@ -29,6 +33,7 @@ const textSize = createSizeAdapter({
 });
 
 export function InnerLozenge({
+    color,
     size,
     className,
     as = "span",
@@ -61,6 +66,7 @@ export function InnerLozenge({
             className={mergeClasses(
                 cssModule(
                     "o-ui-lozenge",
+                    color,
                     icon && "has-icon",
                     normalizeSize(size)
                 ),

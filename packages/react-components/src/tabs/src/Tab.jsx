@@ -49,6 +49,7 @@ export const TabImpl = forwardRef(({
             className: "o-ui-tab-text"
         },
         lozenge: {
+            color: "primary",
             size: "sm",
             className: "o-ui-tab-lozenge"
         }

@@ -31,3 +31,9 @@
 .o-ui-lozenge-icon {
     margin-right: 0.125rem;
 }
+
+/* PRIMARY */
+.o-ui-lozenge-primary {
+    background-color: var(--primary-500);
+    color: var(--white);
+}
