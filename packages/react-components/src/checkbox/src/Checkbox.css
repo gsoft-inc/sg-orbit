@@ -253,25 +253,6 @@
     height: calc(var(--scale-echo) + (var(--o-ui-focus-ring-stroke-width) * 2));
 }
 
-/* SIZING | LARGE */
-.o-ui-checkbox-lg .o-ui-checkbox-box:before {
-    width: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2));
-    height: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2));
-}
-
-/* SIZING | LARGE | LABEL | */
-.o-ui-checkbox-lg .o-ui-checkbox-box {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-}
-
-/* SIZING | LARGE | BOX | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-lg .o-ui-checkbox-box:after {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-    mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
-}
-
 /* IN FIELD */
 .o-ui-checkbox-as-field {
     margin-top: var(--scale-alpha);

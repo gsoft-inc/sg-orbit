@@ -19,10 +19,6 @@
     grid-area: label;
 }
 
-.o-ui-field .o-ui-field-label-sm {
-    padding-bottom: var(--scale-alpha);
-}
-
 .o-ui-field .o-ui-field-label-md {
     padding-bottom: var(--scale-bravo);
 }

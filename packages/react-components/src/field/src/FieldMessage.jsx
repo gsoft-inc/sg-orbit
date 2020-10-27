@@ -6,23 +6,6 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef } from "react";
 
-export function getValidationProps(validationState) {
-    const isValid = validationState === "valid";
-    const isError = validationState === "invalid";
-
-    return {
-        isHelp: !isValid && !isError,
-        isValid,
-        isError
-    };
-}
-
-const textSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-});
-
 const propTypes = {
     /**
      * The style to use.
@@ -41,6 +24,22 @@ const propTypes = {
      */
     children: any.isRequired
 };
+
+export function getValidationProps(validationState) {
+    const isValid = validationState === "valid";
+    const isError = validationState === "invalid";
+
+    return {
+        isHelp: !isValid && !isError,
+        isValid,
+        isError
+    };
+}
+
+const textSize = createSizeAdapter({
+    "md": "sm",
+    "lg": "md"
+});
 
 export const FieldMessage = forwardRef(({
     tone,

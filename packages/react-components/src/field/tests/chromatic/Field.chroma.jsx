@@ -17,9 +17,6 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline verticalAlign="end">
-            <Field size="sm">
-                <TextInput placeholder="Where to?" />
-            </Field>
             <Field>
                 <TextInput placeholder="Where to?" />
             </Field>
@@ -30,10 +27,6 @@ stories()
     )
     .add("label", () =>
         <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Where to?</Label>
-                <TextInput />
-            </Field>
             <Field>
                 <Label>Where to?</Label>
                 <TextInput />
@@ -47,10 +40,6 @@ stories()
     .add("message", () =>
         <Stack gap={10}>
             <Inline verticalAlign="end">
-                <Field size="sm">
-                    <TextInput placeholder="Where to?" />
-                    <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-                </Field>
                 <Field>
                     <TextInput placeholder="Where to?" />
                     <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
@@ -128,99 +117,39 @@ stories()
         </Inline>
     )
     .add("text input", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Where to?</Label>
-                <TextInput placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Where to?</Label>
-                <TextInput placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Where to?</Label>
-                <TextInput placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Where to?</Label>
+            <TextInput placeholder="Ex. Mars" />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
     )
     .add("number input", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Age</Label>
-                <NumberInput placeholder="Ex. 89" />
-                <HelpMessage>How long ago are you born?</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Age</Label>
-                <NumberInput placeholder="Ex. 89" />
-                <HelpMessage>How long ago are you born?</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Age</Label>
-                <NumberInput placeholder="Ex. 89" />
-                <HelpMessage>How long ago are you born?</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Age</Label>
+            <NumberInput placeholder="Ex. 89" />
+            <HelpMessage>How long ago are you born?</HelpMessage>
+        </Field>
     )
     .add("textarea", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Where to?</Label>
-                <TextArea placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Where to?</Label>
-                <TextArea placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Where to?</Label>
-                <TextArea placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Where to?</Label>
+            <TextArea placeholder="Ex. Mars" />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
     )
     .add("checkbox", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Select your favorite galaxy</Label>
+            <Checkbox>Milky Way</Checkbox>
+            <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+        </Field>
     )
     .add("switch", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Engines</Label>
+            <Switch>Milky Way</Switch>
+            <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+        </Field>
     )
     .add("styling", () =>
         <Inline>
