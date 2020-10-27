@@ -85,10 +85,7 @@ export function InnerAlert({
 
     const { icon, content, button } = useSlots(children, useMemo(() => ({
         _: {
-            default: {
-                slot: "content",
-                wrapper: Content
-            }
+            defaultWrapper: Content
         },
         icon: {
             className: "o-ui-alert-icon"

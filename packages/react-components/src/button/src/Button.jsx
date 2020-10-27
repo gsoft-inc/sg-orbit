@@ -125,10 +125,7 @@ export function InnerButton(props) {
 
     const { text, icon } = useSlots(children, useMemo(() => ({
         _: {
-            default: {
-                slot: "text",
-                wrapper: Text
-            }
+            defaultWrapper: Text
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
@@ -166,7 +163,5 @@ InnerButton.propTypes = propTypes;
 export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
-
-
 
 

@@ -16,12 +16,7 @@ function stories(segment) {
 const Card = forwardRef(({ children, ...rest }, ref) => {
     const { title, content } = useSlots(children, useMemo(() => ({
         _: {
-            default: {
-                slot: "content",
-                wrapper: props => (
-                    <Box style={{ backgroundColor: "pink" }} {...props} />
-                )
-            }
+            defaultWrapper: Content
         },
         title: {
             className: "bg-red",
@@ -108,7 +103,7 @@ stories()
             Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
         </Card>
     )
-    .add("wrap mix content", () =>
+    .add("wrap mixed content", () =>
         <Card>
             Early this morning (Oct. 20), SpaceX lit up the three <TextLink href="#">Raptor engines</TextLink> on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
         </Card>

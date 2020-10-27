@@ -29,7 +29,7 @@ export function getSlots(children, { _ = {}, ...slots }) {
         });
     }
 
-    const { required, default: defaultMetadata } = _;
+    const { required, defaultWrapper: Wrapper } = _;
 
     if (!isNil(required)) {
         const unfulfilledSlots = [];
@@ -46,19 +46,15 @@ export function getSlots(children, { _ = {}, ...slots }) {
         }
     }
 
-    if (!isNil(defaultMetadata)) {
-        if (Object.keys(slotElements).length === 0) {
-            const { slot: defaultSlot, wrapper: Wrapper } = defaultMetadata;
+    if (!isNil(Wrapper)) {
+        if (Object.keys(slotElements).length === 0 && !isNil(children)) {
+            const wrapperSlot = Wrapper[SLOT_KEY];
 
-            if (isNil(defaultSlot)) {
-                throw new Error("Slot default metadata requires a `slot` property.");
+            if (isNil(wrapperSlot)) {
+                throw new Error("A default wrapper should have a slot key.");
             }
 
-            if (isNil(Wrapper)) {
-                throw new Error("Slot default metadata requires a `wrapper` property.");
-            }
-
-            slotElements[defaultSlot] = (
+            slotElements[wrapperSlot] = (
                 <Wrapper>
                     {children}
                 </Wrapper>
