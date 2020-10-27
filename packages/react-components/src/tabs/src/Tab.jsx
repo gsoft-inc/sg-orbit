@@ -82,6 +82,7 @@ export const TabImpl = forwardRef(({
             className={mergeClasses(
                 cssModule(
                     "o-ui-tab",
+                    icon && "has-icon",
                     active && "active",
                     focus && "focus",
                     hover && "hover"

@@ -1,10 +1,11 @@
 import "./Button.css";
 
-import { SlotProvider, Wrap, cssModule, mergeClasses, mergeProps, omitProps, useHasChild, useSlotProps } from "../../shared";
+import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
@@ -66,8 +67,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerButton({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "button");
+export function InnerButton(props) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
 
@@ -84,14 +84,13 @@ export function InnerButton({ slot, ...props }) {
         focus,
         hover,
         type = "button",
-        as: ElementType = "button",
+        as = "button",
         className,
         children,
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        slotProps,
         formProps,
         omitProps(toolbarProps, ["orientation"])
     );
@@ -113,48 +112,49 @@ export function InnerButton({ slot, ...props }) {
         forwardedRef
     });
 
-    const hasIcon = useHasChild(".o-ui-button-icon", buttonRef);
+    const { text, icon } = useSlots(children, useMemo(() => ({
+        _: {
+            default: {
+                slot: "text",
+                wrapper: Text
+            }
+        },
+        text: {
+            size,
+            className: "o-ui-button-text",
+            "aria-hidden": loading
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-button-icon"
+        }
+    }), [size, loading]));
 
     return (
-        <ElementType
+        <Box
             {...rest}
             {...buttonProps}
             className={mergeClasses(
                 cssModule(
                     "o-ui-button",
-                    hasIcon && "has-icon"
+                    icon && "has-icon"
                 ),
                 buttonClassName
             )}
+            as={as}
             ref={buttonRef}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-button-text",
-                        "aria-hidden": loading
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-button-icon"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {children}
-                </Wrap>
-            </SlotProvider>
-
-        </ElementType>
+            {icon}
+            {text}
+        </Box>
     );
 }
 
 InnerButton.propTypes = propTypes;
 
-export const Button = forwardRef((props, ref) => (
+export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
-));
+)));
 
 
 
