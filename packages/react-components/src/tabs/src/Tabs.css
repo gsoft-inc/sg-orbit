@@ -21,6 +21,11 @@
     margin-right: 0;
 }
 
+/* WITH ICON */
+.o-ui-tabs .o-ui-tab-has-icon {
+    padding-left: calc(var(--scale-bravo) + 1px);
+}
+
 /* ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical {
     display: flex;
