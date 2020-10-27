@@ -7,6 +7,7 @@ import { TextInput } from "@react-components/input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Toolbar"))
@@ -453,4 +454,15 @@ stories("/vertical")
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
         </Inline>
-    );
+    )
+    .add("test", () => {
+        const [showAdditional, setShowAdditional] = useState(false);
+
+        return (
+            <Toolbar verticalAlign="start" orientation="vertical" style={{ height: "500px" }}>
+                <TextInput />
+                <ToggleButton onClick={() => setShowAdditional(x => !x)}>Activate</ToggleButton>
+                {showAdditional && <ToggleButton>Additional</ToggleButton>}
+            </Toolbar>
+        );
+    });
