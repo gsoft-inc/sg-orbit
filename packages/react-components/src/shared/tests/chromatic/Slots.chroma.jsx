@@ -49,7 +49,7 @@ const Card = forwardRef(({ children, ...rest }, ref) => {
     );
 });
 
-function SingleSlotCard({ children, ...rest }) {
+function NoDefaultAndPassThroughCard({ children, ...rest }) {
     const { content } = useSlots(children, useMemo(() => ({
         content: {
             style: {
@@ -92,9 +92,7 @@ stories()
     .add("default slot", () =>
         <Card>
             <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
-            <Content>
-                Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
-            </Content>
+            <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
         </Card>
     )
     .add("dynamic slot", () =>
@@ -123,8 +121,8 @@ stories()
             </Content>
         </Card>
     )
-    .add("single slot card", () =>
-        <SingleSlotCard>
-            <Box slot="content">Content</Box>
-        </SingleSlotCard>
+    .add("no default card", () =>
+        <NoDefaultAndPassThroughCard>
+            <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+        </NoDefaultAndPassThroughCard>
     );

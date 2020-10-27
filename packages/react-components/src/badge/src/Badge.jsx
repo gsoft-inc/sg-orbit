@@ -1,7 +1,8 @@
 import "./Badge.css";
 
+import { Box } from "../../box";
 import { Children, forwardRef } from "react";
-import { SlotProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
+import { StyleProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -16,7 +17,7 @@ const propTypes = {
     /**
      * A badge can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -29,20 +30,20 @@ const propTypes = {
 
 const textSize = createSizeAdapter({
     "sm": "xs",
-    "md": "sm",
-    "lg": "md"
+    "md": "sm"
 });
 
 export function InnerBadge({
     variant = "count",
     overlap,
     size,
-    as: ElementType = "span",
+    as = "div",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
+    // Not using slots because the overlapped content could also be an icon and thinks get complicated.
     let [badgeContent, overlappedElement] = Children.toArray(children);
 
     if (variant === "dot") {
@@ -51,7 +52,7 @@ export function InnerBadge({
     }
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -62,9 +63,10 @@ export function InnerBadge({
                 ),
                 className
             )}
+            as={as}
             ref={forwardedRef}
         >
-            <SlotProvider
+            <StyleProvider
                 value={{
                     text: {
                         size: textSize(size)
@@ -77,9 +79,9 @@ export function InnerBadge({
                 <div className="o-ui-badge-anchor">
                     {badgeContent}
                 </div>
-            </SlotProvider>
+            </StyleProvider>
             {overlappedElement}
-        </ElementType>
+        </Box>
     );
 }
 
