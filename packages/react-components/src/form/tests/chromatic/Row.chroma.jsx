@@ -15,41 +15,17 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
-            <Row size="sm">
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-            <Row>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-            <Row size="lg">
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-        </Stack>
+        <Row>
+            <Field>
+                <TextInput />
+            </Field>
+            <Field>
+                <TextInput />
+            </Field>
+            <Field>
+                <TextInput />
+            </Field>
+        </Row>
     )
     .add("fluid", () =>
         <Row fluid>

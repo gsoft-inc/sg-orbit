@@ -1,7 +1,8 @@
 import "./Form.css";
 
+import { Box } from "../../box";
 import { FormContext } from "./FormContext";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
 import { forwardRef } from "react";
 
@@ -10,10 +11,6 @@ const propTypes = {
      * Whether or not the form take up the width of its container.
      */
     fluid: bool,
-    /**
-     * The size of the form elements
-     */
-    size: oneOf(["sm", "md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -27,9 +24,8 @@ const propTypes = {
 export function InnerForm(props) {
     const {
         fluid,
-        size,
         disabled,
-        as: ElementType = "form",
+        as = "form",
         className,
         children,
         forwardedRef,
@@ -37,7 +33,7 @@ export function InnerForm(props) {
     } = props;
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -46,18 +42,18 @@ export function InnerForm(props) {
                 ),
                 className
             )}
+            as={as}
             ref={forwardedRef}
         >
             <FormContext.Provider
                 value={{
                     fluid,
-                    size,
                     disabled
                 }}
             >
                 {children}
             </FormContext.Provider>
-        </ElementType>
+        </Box>
     );
 }
 

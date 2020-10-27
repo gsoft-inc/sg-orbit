@@ -19,84 +19,32 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
-            <Inline verticalAlign="end" gap={13}>
-                <Form size="sm">
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <Button>Submit</Button>
-                </Form>
-                <Form>
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <Button>Submit</Button>
-                </Form>
-                <Form size="lg">
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <Button>Submit</Button>
-                </Form>
-            </Inline>
-            <Inline verticalAlign="end" gap={13}>
-                <Form size="sm">
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <TextLink as="button">Submit</TextLink>
-                </Form>
-                <Form>
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <TextLink as="button">Submit</TextLink>
-                </Form>
-                <Form size="lg">
-                    <Field>
-                        <Label>FullName</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Where to?</Label>
-                        <TextArea />
-                        <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                    </Field>
-                    <TextLink as="button">Submit</TextLink>
-                </Form>
-            </Inline>
-        </Stack>
+        <Inline verticalAlign="end" gap={13}>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextArea />
+                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                </Field>
+                <Button>Submit</Button>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>FullName</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextArea />
+                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
+                </Field>
+                <TextLink as="button">Submit</TextLink>
+            </Form>
+        </Inline>
     )
     .add("fluid", () =>
         <Inline gap={13}>
