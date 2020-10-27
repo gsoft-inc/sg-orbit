@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: calc(var(--scale-charlie) - 1px);
+    padding: calc(var(--scale-charlie) + 1px);
+    min-height: var(--scale-india);
     border: transparent;
     transition: all 0.2s;
     width: max-content;
@@ -48,7 +49,7 @@
 
 /*  TAB PANEL | ORIENTATION | VERTICAL */
 .o-ui-tabs.o-ui-tabs-vertical .o-ui-tab-panel{
-    padding: var(--scale-bravo) var(--scale-delta);
+    padding: calc(var(--scale-charlie) + 1px) var(--scale-delta);
 }
 
 /* STATE | FOCUS */

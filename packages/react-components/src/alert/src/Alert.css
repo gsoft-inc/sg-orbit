@@ -1,6 +1,6 @@
 .o-ui-alert {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     padding: var(--scale-charlie);
     width: 100%;
     height: max-content;
