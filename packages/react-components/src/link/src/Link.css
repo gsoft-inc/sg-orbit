@@ -1,6 +1,5 @@
 .o-ui-link {
     display: inline-block;
-    /* line-height: 1; */
     border: none;
     background-color: var(--transparent);
     color: var(--marine-900);
@@ -87,17 +86,14 @@
 
 /* TEXT */
 .o-ui-text-link {
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    grid-template-columns: max-content auto max-content;
-    grid-template-areas: "left-icon text right-icon";
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
 }
 
 .o-ui-link-text {
-    grid-area: text;
     text-decoration-thickness: from-font;
 }
 
@@ -168,13 +164,11 @@
 
 /* LEFT ICON */
 .o-ui-link-left-icon {
-    grid-area: left-icon;
     margin-right: 0.125rem;
 }
 
 /* RIGHT ICON */
 .o-ui-link-right-icon {
-    grid-area: right-icon;
     margin-left: 0.125rem;
 }
 

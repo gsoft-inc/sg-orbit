@@ -1,7 +1,7 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSize } from "../../icons";
-import { SlotProvider, Wrap, mergeProps, useStyleProps } from "../../shared";
+import { SlotProvider, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -99,20 +99,38 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    let content = (
-        <Wrap as={Text}>
-            {children}
-        </Wrap>
-    );
+    const { "left-icon": leftIcon, text, icon } = useSlots(children, {
+        _: {
+            defaultWrapper: Text
+        },
+        "left-icon": {
+            size: embeddedIconSize(size),
+            className: "o-ui-link-left-icon"
+        },
+        text: {
+            size,
+            className: "o-ui-link-text"
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-link-right-icon"
+        }
+    });
 
-    if (external) {
-        content = (
-            <>
-                {content}
-                <ArrowIcon />
-            </>
-        );
-    }
+    // let content = (
+    //     <Wrap as={Text}>
+    //         {children}
+    //     </Wrap>
+    // );
+
+    // if (external) {
+    //     content = (
+    //         <>
+    //             {content}
+    //             <ArrowIcon />
+    //         </>
+    //     );
+    // }
 
     return (
         <ElementType
@@ -135,7 +153,9 @@ export function InnerTextLink(props) {
                     }
                 }}
             >
-                {content}
+                {leftIcon}
+                {text}
+                {external ? <ArrowIcon /> : icon}
             </SlotProvider>
         </ElementType>
     );
