@@ -5,7 +5,7 @@ import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { mergeProps, omitProps, useRenderProps, useSlots } from "../../shared";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
@@ -121,7 +121,7 @@ export function InnerSwitch(props) {
 
     const content = useRenderProps({ isChecked }, props, children);
 
-    const { text, icon, counter } = useSlots(content, {
+    const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -138,7 +138,7 @@ export function InnerSwitch(props) {
             reverse,
             className: "o-ui-switch-counter"
         }
-    });
+    }), [size, reverse]));
 
     return (
         <Box

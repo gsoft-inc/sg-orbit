@@ -1,21 +1,15 @@
 .o-ui-tag {
     --o-ui-padding-sm: var(--scale-delta);
     --o-ui-padding-md: var(--scale-echo);
-    --o-ui-padding-lg: var(--scale-foxtrot);
     border: none;
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
-    grid-template-columns: max-content max-content auto max-content max-content;
-    grid-template-areas: "dot icon text counter remove";
     line-height: 1;
     color: var(--marine-900);
     border-radius: var(--o-ui-pill-border-radius);
     transition: background-color 0.1s linear;
-    height: max-content;
-}
-
-.o-ui-tag:not(.o-ui-tag-fluid) {
     width: max-content;
+    height: max-content;
 }
 
 /* AS BUTTON */
@@ -202,13 +196,11 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 
 /* CONTENT | DOT */
 .o-ui-tag-dot {
-    grid-area: dot;
     margin-right: var(--scale-bravo);
 }
 
 /* CONTENT | ICON */
 .o-ui-tag-icon {
-    grid-area: icon;
     margin-right: var(--scale-alpha);
 }
 
@@ -229,12 +221,11 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 
 /* CONTENT | TEXT */
 .o-ui-tag-text {
-    grid-area: text;
+    flex-grow: 1;
 }
 
 /* CONTENT | COUNTER */
 .o-ui-tag-counter {
-    grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
@@ -255,7 +246,6 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 
 /* CONTENT | REMOVE BUTTON */
 .o-ui-tag-remove-button {
-    grid-area: remove;
     margin-left: var(--scale-alpha);
 }
 

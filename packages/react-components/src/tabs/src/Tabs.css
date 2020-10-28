@@ -5,16 +5,16 @@
     justify-content: center;
     background: transparent;
     padding: calc(var(--scale-charlie) + 1px);
-    min-height: var(--scale-india);
     border: transparent;
     transition: all 0.2s;
     width: max-content;
+    min-width: var(--scale-mike);
     height: max-content;
+    min-height: var(--scale-india);
     cursor: pointer;
     color: var(--marine-500);
     position: relative;
     overflow: hidden;
-    min-width: var(--scale-mike);
 }
 
 .o-ui-tab-list[aria-orientation="horizontal"] .o-ui-tab:last-child {
