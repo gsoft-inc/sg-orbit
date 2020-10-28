@@ -1,25 +1,23 @@
 import "./Radio.css";
 
+import { Box } from "../../box";
+import { Text } from "../../text";
+import { VisuallyHidden } from "../../visually-hidden";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import {
-    SlotProvider,
-    Wrap,
     cssModule,
     mergeClasses,
     mergeProps,
-    normalizeSize,
     omitProps,
     useAutoFocus,
     useCheckableProps,
     useControllableState,
     useEventCallback,
     useForwardInputApi,
-    useRenderProps
+    useRenderProps,
+    useSlots
 } from "../../shared";
-import { Text } from "../../text";
-import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { embeddedIconSize } from "../../icons";
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -54,10 +52,6 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * A checkbox can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Invert the order of the checkmark box and the label.
      */
     reverse: bool,
@@ -84,14 +78,13 @@ export function InnerRadio(props) {
         validationState,
         onChange,
         onCheck,
-        size,
         reverse,
         tabIndex,
         active,
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as = "label",
         className,
         children,
         forwardedRef,
@@ -128,8 +121,25 @@ export function InnerRadio(props) {
 
     const content = useRenderProps({ isChecked }, props, children);
 
+    const { text, icon, counter } = useSlots(content, useMemo(() => ({
+        _: {
+            defaultWrapper: Text
+        },
+        text: {
+            className: "o-ui-radio-label"
+        },
+        icon: {
+            size: "sm",
+            className: "o-ui-radio-icon"
+        },
+        counter: {
+            reverse,
+            className: "o-ui-radio-counter"
+        }
+    }), [reverse]));
+
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -140,11 +150,11 @@ export function InnerRadio(props) {
                     disabled && "disabled",
                     active && "active",
                     focus && "focus",
-                    hover && "hover",
-                    normalizeSize(size)
+                    hover && "hover"
                 ),
                 className
             )}
+            as={as}
             ref={labelRef}
         >
             <VisuallyHidden
@@ -161,28 +171,10 @@ export function InnerRadio(props) {
                 ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-radio-label"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-radio-icon"
-                    },
-                    counter: {
-                        size,
-                        reverse,
-                        className: "o-ui-radio-counter"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {content}
-                </Wrap>
-            </SlotProvider>
-        </ElementType>
+            {text}
+            {icon}
+            {counter}
+        </Box>
     );
 }
 

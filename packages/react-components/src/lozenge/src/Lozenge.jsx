@@ -5,7 +5,7 @@ import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 
 const propTypes = {
     /**
@@ -42,7 +42,7 @@ export function InnerLozenge({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { icon, text } = useSlots(children, {
+    const { icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -54,7 +54,7 @@ export function InnerLozenge({
             size: textSize(size),
             className: "o-ui-lozenge-text"
         }
-    });
+    }), [size]));
 
     return (
         <Box

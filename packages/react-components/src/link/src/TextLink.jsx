@@ -4,7 +4,7 @@ import { ArrowIcon, embeddedIconSize } from "../../icons";
 import { SlotProvider, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -99,7 +99,7 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    const { "left-icon": leftIcon, text, icon } = useSlots(children, {
+    const { "left-icon": leftIcon, text, icon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -115,7 +115,7 @@ export function InnerTextLink(props) {
             size: embeddedIconSize(size),
             className: "o-ui-link-right-icon"
         }
-    });
+    }), [size]));
 
     // let content = (
     //     <Wrap as={Text}>

@@ -72,10 +72,6 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * The group elements size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Invert the order of the radio button and his label.
      */
     reverse: bool,
@@ -122,7 +118,6 @@ export function InnerRadioGroup(props) {
         orientation = "vertical",
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,
@@ -162,7 +157,6 @@ export function InnerRadioGroup(props) {
         orientation,
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,

@@ -3,7 +3,6 @@ import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { IconList, LightbulbIcon } from "@react-components/icons";
-import { Inline } from "@react-components/layout";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -111,12 +110,7 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
                 <Text>Mars</Text>
                 <LightbulbIcon />
             </Radio>
-            <Radio value="jupiter">
-                <Text>Jupiter</Text>
-                <IconList>
-                    <LightbulbIcon /><LightbulbIcon />
-                </IconList>
-            </Radio>
+            <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
@@ -171,32 +165,6 @@ Or the whole group.
                 <Text>Pluto</Text>
                 <Counter variant="divider">6</Counter>
             </Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
-
-### Size
-
-A radio can vary in size.
-
-<Preview>
-    <Story name="size radio">
-        <Inline verticalAlign="end">
-            <Radio size="sm" value="mars">Mars</Radio>
-            <Radio value="mars">Mars</Radio>
-            <Radio size="lg" value="mars">Mars</Radio>
-        </Inline>
-    </Story>
-</Preview>
-
-Or the whole group.
-
-<Preview>
-    <Story name="size group">
-        <RadioGroup size="lg">
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">Jupiter</Radio>
-            <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
 </Preview>
