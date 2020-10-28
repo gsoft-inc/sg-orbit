@@ -1,11 +1,12 @@
 import "./Switch.css";
 
-import { SlotProvider, Wrap, mergeProps, omitProps, useRenderProps } from "../../shared";
+import { Box } from "../../box";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef } from "react";
+import { mergeProps, omitProps, useRenderProps, useSlots } from "../../shared";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -38,7 +39,7 @@ const propTypes = {
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * Invert the order the checkmark box and the label.
      */
@@ -80,7 +81,7 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as = "label",
         className,
         children,
         forwardedRef,
@@ -120,35 +121,37 @@ export function InnerSwitch(props) {
 
     const content = useRenderProps({ isChecked }, props, children);
 
+    const { text, icon, counter } = useSlots(content, {
+        _: {
+            defaultWrapper: Text
+        },
+        text: {
+            size,
+            className: "o-ui-switch-label"
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-switch-icon"
+        },
+        counter: {
+            size,
+            reverse,
+            className: "o-ui-switch-counter"
+        }
+    });
+
     return (
-        <ElementType
+        <Box
             {...rest}
             {...wrapperProps}
+            as={as}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-switch-control" />
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-switch-label"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-switch-icon"
-                    },
-                    counter: {
-                        size,
-                        reverse,
-                        className: "o-ui-switch-counter"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {content}
-                </Wrap>
-            </SlotProvider>
-        </ElementType>
+            {text}
+            {icon}
+            {counter}
+        </Box>
     );
 }
 
