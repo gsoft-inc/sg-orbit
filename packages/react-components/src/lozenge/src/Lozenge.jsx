@@ -15,7 +15,7 @@ const propTypes = {
     /**
      * A lozenge can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -28,8 +28,7 @@ const propTypes = {
 
 const textSize = createSizeAdapter({
     "sm": "xs",
-    "md": "sm",
-    "lg": "md"
+    "md": "sm"
 });
 
 export function InnerLozenge({
@@ -45,10 +44,7 @@ export function InnerLozenge({
 
     const { icon, text } = useSlots(children, {
         _: {
-            default: {
-                slot: "text",
-                wrapper: Text
-            }
+            defaultWrapper: Text
         },
         icon: {
             size: embeddedIconSize(size),
