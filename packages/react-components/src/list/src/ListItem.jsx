@@ -1,4 +1,3 @@
-import { StyleProvider, Wrap, cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -7,7 +6,7 @@ const propTypes = {
     /**
      * A list item can vary in size.
      */
-    size: oneOf(["sm", "md", "lg", "inherit"]),
+    size: oneOf(["inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -20,36 +19,20 @@ const propTypes = {
 
 export function InnerListItem({
     size,
-    as: ElementType = "li",
-    className,
+    as = "li",
     children,
     forwardedRef,
     ...rest
 }) {
     return (
-        <ElementType
+        <Text
             {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-list-item",
-                    normalizeSize(size)
-                ),
-                className
-            )}
+            size={size}
+            as={as}
             ref={forwardedRef}
         >
-            <StyleProvider
-                value={{
-                    text: {
-                        size
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {children}
-                </Wrap>
-            </StyleProvider>
-        </ElementType>
+            {children}
+        </Text>
     );
 }
 

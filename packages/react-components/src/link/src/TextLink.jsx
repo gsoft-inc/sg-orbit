@@ -1,10 +1,10 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSize } from "../../icons";
-import { SlotProvider, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
+import { mergeProps, useSlots, useStyleProps } from "../../shared";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -117,46 +117,14 @@ export function InnerTextLink(props) {
         }
     }), [size]));
 
-    // let content = (
-    //     <Wrap as={Text}>
-    //         {children}
-    //     </Wrap>
-    // );
-
-    // if (external) {
-    //     content = (
-    //         <>
-    //             {content}
-    //             <ArrowIcon />
-    //         </>
-    //     );
-    // }
-
     return (
         <ElementType
             {...rest}
             {...linkProps}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-link-text"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-link-right-icon"
-                    },
-                    "left-icon": {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-link-left-icon"
-                    }
-                }}
-            >
-                {leftIcon}
-                {text}
-                {external ? <ArrowIcon /> : icon}
-            </SlotProvider>
+            {leftIcon}
+            {text}
+            {external ? <ArrowIcon /> : icon}
         </ElementType>
     );
 }
