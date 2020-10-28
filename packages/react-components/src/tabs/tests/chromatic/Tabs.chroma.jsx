@@ -140,56 +140,44 @@ stories()
         </Tabs>
     )
     .add("tab overflow", () =>
-        <Tabs style={{ width: "300px" }}>
-            <Tab>
-                <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
-            </Tab>
-            <Tab>
-                <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
-            </Tab>
-        </Tabs>
-    ).add("tab overflow with lozenge", () =>
-        <Tabs style={{ width: "300px" }}>
-            <Tab>
-                <Header>
-                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                    <Lozenge>New</Lozenge>
-                </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
-            </Tab>
-            <Tab>
-                <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
-            </Tab>
-        </Tabs>
-    ).add("tab overflow with icon", () =>
-        <Tabs style={{ width: "300px" }}>
-            <Tab>
-                <Header>
-                    <NotificationIcon />
-                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
-            </Tab>
-            <Tab>
-                <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
-            </Tab>
-        </Tabs>
+        <Stack>
+            <Tabs style={{ width: "300px" }}>
+                <Tab>
+                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Tab>
+                <Tab>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Tab>
+            </Tabs>
+            <Tabs style={{ width: "300px" }}>
+                <Tab>
+                    <Header>
+                        <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                        <Lozenge>New</Lozenge>
+                    </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Tab>
+                <Tab>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Tab>
+            </Tabs>
+            <Tabs style={{ width: "300px" }}>
+                <Tab>
+                    <Header>
+                        <NotificationIcon />
+                        <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Tab>
+                <Tab>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Tab>
+            </Tabs>
+        </Stack>
     )
     .add("states", () =>
         <Stack>

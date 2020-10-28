@@ -36,10 +36,7 @@ export const TabImpl = forwardRef(({
 
     const { icon, text, lozenge } = useSlots(children, {
         _: {
-            default: {
-                slot: "text",
-                wrapper: Text
-            }
+            defaultWrapper: Text
         },
         icon: {
             size: "sm",

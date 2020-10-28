@@ -168,10 +168,7 @@ const [
     }, ref) => {
         const { content, button } = useSlots(children, useMemo(() => ({
             _: {
-                default: {
-                    slot: "content",
-                    wrapper: Content
-                }
+                defaultWrapper: Content
             },
             content: null,
             button: null
