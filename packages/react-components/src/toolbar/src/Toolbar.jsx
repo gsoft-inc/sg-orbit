@@ -35,10 +35,6 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * The size of the elements.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Whether the toolbar take up the width of its container.
      */
     fluid: bool,
@@ -79,7 +75,6 @@ export function InnerToolbar({
     verticalAlign,
     gap = 5,
     wrap,
-    size,
     disabled,
     as = "div",
     children,
@@ -119,7 +114,6 @@ export function InnerToolbar({
             <ToolbarProvider
                 value={{
                     orientation,
-                    size,
                     disabled
                 }}
             >
