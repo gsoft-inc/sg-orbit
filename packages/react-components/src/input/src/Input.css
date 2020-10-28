@@ -1,14 +1,10 @@
 :root {
-    --o-ui-padding-sm: var(--scale-bravo);
     --o-ui-padding-md: var(--scale-charlie);
     --o-ui-padding-lg: var(--scale-delta);
-    --o-ui-padding-sm-with-icon: var(--scale-foxtrot);
     --o-ui-padding-md-with-icon: var(--scale-golf);
     --o-ui-padding-lg-with-icon: var(--scale-golf);
-    --o-ui-padding-sm-with-button: var(--scale-golf);
     --o-ui-padding-md-with-button: var(--scale-hotel);
     --o-ui-padding-lg-with-button: var(--scale-india);
-    --o-ui-padding-sm-loading: var(--scale-foxtrot);
     --o-ui-padding-md-loading: var(--scale-golf);
     --o-ui-padding-lg-loading: var(--scale-hotel);
     --o-ui-border-color: var(--cloud-200);
@@ -57,8 +53,6 @@
     box-shadow: 0 1px 0 0 var(--neutral-400);
 }
 
-.o-ui-input-transparent.o-ui-input-sm input,
-.o-ui-input-transparent.o-ui-input-sm textarea,
 .o-ui-input-transparent.o-ui-input-md input,
 .o-ui-input-transparent.o-ui-input-md textarea,
 .o-ui-input-transparent.o-ui-input-lg input,
@@ -139,15 +133,6 @@
     z-index: 3;
 }
 
-/* ICON | SMALL */
-.o-ui-input-has-icon.o-ui-input-sm input {
-    padding-left: var(--o-ui-padding-sm-with-icon);
-}
-
-.o-ui-input-sm .o-ui-input-icon {
-    left: calc((var(--o-ui-padding-sm-with-icon) - var(--scale-delta) ) / 2);
-}
-
 /* ICON | MEDIUM */
 .o-ui-input-has-icon.o-ui-input-md input {
     padding-left: var(--o-ui-padding-md-with-icon);
@@ -171,11 +156,6 @@
     left: 0;
 }
 
-/* TRANSPARENT | ICON | SMALL */
-.o-ui-input-has-icon.o-ui-input-transparent.o-ui-input-sm input {
-    padding-left: var(--scale-echo);
-}
-
 /* TRANSPARENT | ICON | MEDIUM */
 .o-ui-input-has-icon.o-ui-input-transparent.o-ui-input-md input {
     padding-left: var(--scale-foxtrot);
@@ -195,16 +175,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-/* BUTTON | SMALL  */
-.o-ui-input-has-button.o-ui-input-sm input,
-.o-ui-input-has-button.o-ui-input-sm.o-ui-text-area textarea {
-    padding-right: var(--o-ui-padding-sm-with-button);
-}
-
-.o-ui-input-sm .o-ui-input-button {
-    right: calc( (var(--o-ui-padding-sm-with-button) - var(--scale-echo)) / 2 );
 }
 
 /* BUTTON | MEDIUM */
@@ -277,17 +247,6 @@
     display: none;
 }
 
-/* SIZES | SMALL | LOADING */
-.o-ui-input-loading.o-ui-input-sm::before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
-    right: calc((var(--o-ui-padding-sm-loading) - var(--scale-delta)) / 2);
-}
-
-.o-ui-input-loading.o-ui-input-sm input {
-    padding-right: var(--o-ui-padding-sm-loading);
-}
-
 /* SIZES | MEDIUM | LOADING */
 .o-ui-input-loading.o-ui-input-md::before {
     width: 1.25rem;
@@ -311,17 +270,6 @@
 }
 
 /* SIZES */
-/* SIZES | SMALL */
-.o-ui-input-sm input,
-.o-ui-input-sm textarea {
-    font-size: var(--type-scale-8);
-    padding: 0 var(--o-ui-padding-sm);
-}
-
-.o-ui-input-sm input {
-    min-height: var(--scale-golf);
-}
-
 /* SIZES | MEDIUM */
 .o-ui-input-md input,
 .o-ui-input-md textarea {
