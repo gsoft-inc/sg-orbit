@@ -128,5 +128,5 @@ export function useControllableState(controlledValue, initialValue, defaultValue
 
     const setUncontrolledState = useSetUncontrolledState(state, setState, isControlled, onChange);
 
-    return [state, setUncontrolledState];
+    return [state, setUncontrolledState, isControlledProp];
 }

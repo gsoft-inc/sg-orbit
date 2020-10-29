@@ -9,7 +9,7 @@ test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleButton onChange={handler} value="any">Cutoff</ToggleButton>
+        <ToggleButton onChange={handler} value="any" data-testid="toggle-button">Cutoff</ToggleButton>
     );
 
     act(() => {
@@ -23,7 +23,7 @@ test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleButton onChange={handler} value="any">Cutoff</ToggleButton>
+        <ToggleButton onChange={handler} value="any" data-testid="toggle-button">Cutoff</ToggleButton>
     );
 
     act(() => {

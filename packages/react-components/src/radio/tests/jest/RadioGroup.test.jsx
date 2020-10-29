@@ -1,23 +1,113 @@
+import { KEYS } from "@react-components/shared";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { act, render, waitFor } from "@testing-library/react";
-import { createRef, forwardRef } from "react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { createRef } from "react";
 import userEvent from "@utils/user-event";
 
 function getInput(element) {
     return element.querySelector("input");
 }
 
-const Group = forwardRef((props, ref) => {
-    return (
-        <RadioGroup
-            {...props}
-            ref={ref}
-        >
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
+// ***** Accessibility *****
+
+test("first radio is tabbable", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
         </RadioGroup>
     );
+
+    expect(getInput(getByTestId("radio-1"))).toHaveAttribute("tabindex", "0");
+    expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "-1");
+});
+
+test("selected radio is tabbable", async () => {
+    const { getByTestId } = render(
+        <RadioGroup defaultValue="2">
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
+});
+
+test("a disabled radio is not tabbable", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio disabled value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+        </RadioGroup>
+    );
+
+    expect(getInput(getByTestId("radio-1"))).not.toHaveAttribute("tabindex");
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
+});
+
+test("right arrow keypress select the next radio", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowRight", keyCode: KEYS.right });
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
+});
+
+test("left arrow keypress select the next radio", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowLeft", keyCode: KEYS.left });
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
+});
+
+test("down arrow keypress select the next radio", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowDown", keyCode: KEYS.down });
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
+});
+
+test("up arrow keypress select the next radio", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowUp", keyCode: KEYS.up });
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
 });
 
 // ***** API *****
@@ -25,37 +115,41 @@ const Group = forwardRef((props, ref) => {
 test("call onChange when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getAllByTestId } = render(
-        <Group
+    const { getByTestId } = render(
+        <RadioGroup
             onChange={handler}
-        />
+        >
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
     );
 
     act(() => {
-        userEvent.click(getInput(getAllByTestId("radio")[0]));
+        userEvent.click(getInput(getByTestId("radio-1")));
     });
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1");
 });
 
-test("call onChange when a new radio is selected", async () => {
+test("call onChange with a numeric value when the radio value is numeric", async () => {
     const handler = jest.fn();
 
-    const { getAllByTestId } = render(
-        <Group
+    const { getByTestId } = render(
+        <RadioGroup
             onChange={handler}
-        />
+        >
+            <Radio value={1} data-testid="radio-1">1</Radio>
+            <Radio value={2}>2</Radio>
+            <Radio value={3}>3</Radio>
+        </RadioGroup>
     );
 
     act(() => {
-        userEvent.click(getInput(getAllByTestId("radio")[0]));
+        userEvent.click(getInput(getByTestId("radio-1")));
     });
 
-    act(() => {
-        userEvent.click(getInput(getAllByTestId("radio")[1]));
-    });
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "2");
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1);
 });
 
 // ***** Refs *****
@@ -64,7 +158,11 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Group ref={ref} />
+        <RadioGroup ref={ref}>
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -78,11 +176,15 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Group
+        <RadioGroup
             ref={node => {
                 refNode = node;
             }}
-        />
+        >
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -96,7 +198,11 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Group ref={handler} />
+        <RadioGroup ref={handler}>
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

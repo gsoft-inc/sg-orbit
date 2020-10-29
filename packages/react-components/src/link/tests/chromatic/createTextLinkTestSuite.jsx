@@ -1,4 +1,4 @@
-import { ArrowIcon } from "@react-components/icons";
+import { ArrowIcon, InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
@@ -72,33 +72,33 @@ export function createTextLinkTestSuite(element, stories) {
             <Stack>
                 <Inline verticalAlign="end">
                     <TextLink size="sm" href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                     <TextLink href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                     <TextLink size="lg" href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                 </Inline>
                 <div>
                     <TextLink fluid href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                 </div>
                 <div className="w-10">
                     <TextLink fluid href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                 </div>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
-                        <ArrowIcon slot="left-icon" />
+                        <InfoIcon slot="left-icon" />
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
                     </TextLink>
                 </div>

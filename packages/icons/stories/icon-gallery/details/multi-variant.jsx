@@ -27,7 +27,7 @@ function UsageSection({ componentType }) {
 function PreviewSection({ icon }) {
     return (
         <CheckeredBackground>
-            <Inline align="end" gap={2}>
+            <Inline verticalAlign="end" gap={2}>
                 {cloneElement(icon, { size: "2xs" })}
                 {cloneElement(icon, { size: "xs" })}
                 {cloneElement(icon, { size: "sm" })}

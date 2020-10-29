@@ -1,10 +1,9 @@
 .o-ui-alert {
-    display: grid;
-    grid-template-columns: max-content auto max-content max-content;
-    grid-template-areas: "icon content action dismiss";
-    align-items: start;
+    display: flex;
+    align-items: flex-start;
     padding: var(--scale-charlie);
     width: 100%;
+    height: max-content;
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
@@ -18,75 +17,31 @@
 
 /* ICON */
 .o-ui-alert-icon {
-    grid-area: icon;
+    margin-top: calc(var(--scale-bravo) / 2);
+    margin-bottom: calc(var(--scale-bravo) / 2);
     margin-right: var(--scale-bravo);
     fill: var(--cloud-500);
 }
 
-.o-ui-alert-sm .o-ui-alert-icon {
-    margin-top: calc(var(--scale-alpha) / 2);
-    margin-bottom: calc(var(--scale-alpha) / 2);
-}
-
-.o-ui-alert-md .o-ui-alert-icon,
-.o-ui-alert-lg .o-ui-alert-icon {
-    margin-top: calc(var(--scale-bravo) / 2);
-    margin-bottom: calc(var(--scale-bravo) / 2);
-}
-
-/* CONTENT */
 .o-ui-alert-content {
-    grid-area: content;
+    flex-grow: 1;
 }
 
-.o-ui-alert-has-icon.o-ui-alert-sm .o-ui-alert-content,
-.o-ui-alert-has-action.o-ui-alert-sm .o-ui-alert-content,
-.o-ui-alert-has-dismiss.o-ui-alert-sm .o-ui-alert-content {
-    padding-top: calc((var(--scale-bravo) / 2) - 1px);
-    padding-bottom: calc((var(--scale-bravo) / 2) - 1px);
-}
-
-.o-ui-alert-has-icon.o-ui-alert-md .o-ui-alert-content,
-.o-ui-alert-has-action.o-ui-alert-md .o-ui-alert-content,
-.o-ui-alert-has-dismiss.o-ui-alert-md .o-ui-alert-content {
+.o-ui-alert-has-icon .o-ui-alert-content,
+.o-ui-alert-has-action .o-ui-alert-content,
+.o-ui-alert-has-dismiss .o-ui-alert-content {
     padding-top: calc(var(--scale-charlie) / 2);
     padding-bottom: calc(var(--scale-charlie) / 2);
 }
-
-.o-ui-alert-has-icon.o-ui-alert-lg .o-ui-alert-content,
-.o-ui-alert-has-action.o-ui-alert-lg .o-ui-alert-content,
-.o-ui-alert-has-dismiss.o-ui-alert-lg .o-ui-alert-content {
-    padding-top: calc((var(--scale-delta) / 2) - 1px);
-    padding-bottom: calc((var(--scale-delta) / 2) - 1px);
-}
-
 /* ACTION */
 .o-ui-alert-action {
-    grid-area: action;
-    margin-left: var(--scale-bravo);
+    margin-left: var(--scale-charlie);
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
 }
 
-/* SIZES */
-/* SMALL */
-.o-ui-alert-sm .o-ui-alert-action {
-    margin-left: var(--scale-bravo);
-}
-
-/* MEDIUM */
-.o-ui-alert-md .o-ui-alert-action {
-    margin-left: var(--scale-charlie);
-}
-
-/* LARGE */
-.o-ui-alert-lg .o-ui-alert-action {
-    margin-left: var(--scale-delta);
-}
-
 /* DISMISS */
 .o-ui-alert-dismiss {
-    grid-area: dismiss;
     margin-left: var(--scale-bravo);
 }
 

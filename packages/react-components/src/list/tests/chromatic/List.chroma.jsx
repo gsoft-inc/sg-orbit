@@ -1,5 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { ListItem, OrderedList, UnorderedList } from "@react-components/list";
+import { Text } from "@react-components/text";
 import { createChromaticSection, storiesOfBuilder } from "@utils";
 
 function stories() {
@@ -9,43 +10,34 @@ function stories() {
 
 stories()
     .add("ordered", () =>
-        <Inline verticalAlign="end">
-            <OrderedList size="sm">
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </OrderedList>
-            <OrderedList>
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </OrderedList>
-            <OrderedList size="lg">
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </OrderedList>
-        </Inline>
-
+        <OrderedList>
+            <ListItem>Celestial</ListItem>
+            <ListItem>Dark matter</ListItem>
+            <ListItem>Eclipse</ListItem>
+        </OrderedList>
     )
     .add("unordered", () =>
-        <Inline verticalAlign="end">
-            <UnorderedList size="sm">
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </UnorderedList>
-            <UnorderedList>
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </UnorderedList>
-            <UnorderedList size="lg">
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </UnorderedList>
-        </Inline>
+        <UnorderedList>
+            <ListItem>Celestial</ListItem>
+            <ListItem>Dark matter</ListItem>
+            <ListItem>Eclipse</ListItem>
+        </UnorderedList>
+    )
+    .add("inherit", () =>
+        <Text size="lg">
+            <Inline>
+                <OrderedList size="inherit">
+                    <ListItem>Celestial</ListItem>
+                    <ListItem>Dark matter</ListItem>
+                    <ListItem>Eclipse</ListItem>
+                </OrderedList>
+                <UnorderedList size="inherit">
+                    <ListItem>Celestial</ListItem>
+                    <ListItem>Dark matter</ListItem>
+                    <ListItem>Eclipse</ListItem>
+                </UnorderedList>
+            </Inline>
+        </Text>
     )
     .add("styling", () =>
         <Inline>

@@ -13,7 +13,7 @@ test("call onChange when the radio is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio value="1" onChange={handler}>1</Radio>
+        <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {
@@ -27,7 +27,7 @@ test("call onChange when the radio is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio value="1" onChange={handler}>1</Radio>
+        <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {
@@ -45,7 +45,7 @@ test("dont call onChange when the radio is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio disabled value="1" onChange={handler}>1</Radio>
+        <Radio disabled value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {

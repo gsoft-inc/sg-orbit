@@ -1,5 +1,5 @@
 import { Field } from "@react-components/field";
-import { Inline, Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { Row } from "@react-components/form";
 import { TextInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -15,41 +15,17 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
-            <Row size="sm">
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-            <Row>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-            <Row size="lg">
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-                <Field>
-                    <TextInput />
-                </Field>
-            </Row>
-        </Stack>
+        <Row>
+            <Field>
+                <TextInput />
+            </Field>
+            <Field>
+                <TextInput />
+            </Field>
+            <Field>
+                <TextInput />
+            </Field>
+        </Row>
     )
     .add("fluid", () =>
         <Row fluid>

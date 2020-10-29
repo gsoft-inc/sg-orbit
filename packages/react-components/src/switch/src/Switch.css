@@ -1,8 +1,6 @@
 .o-ui-switch {
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
-    grid-template-columns: max-content max-content max-content max-content;
-    grid-template-areas: "switch label icon counter";
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
@@ -12,7 +10,6 @@
 
 /* SWITCH */
 .o-ui-switch .o-ui-switch-control {
-    grid-area: switch;
     display: inline-block;
     background-color: var(--cloud-200);
     border-radius: var(--o-ui-pill-border-radius);
@@ -48,7 +45,6 @@
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    grid-area: icon;
     margin-left: var(--scale-alpha);
 }
 
@@ -60,7 +56,6 @@
 
 /* COUNTER */
 .o-ui-switch .o-ui-switch-counter {
-    grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
@@ -72,7 +67,7 @@
 
 /* REVERSE */
 .o-ui-switch-reverse {
-    grid-template-areas: "counter icon label switch";
+    flex-direction: row-reverse;
 }
 
 /* INVALID */
@@ -132,10 +127,6 @@
     height: var(--scale-delta);
 }
 
-/* .o-ui-switch-sm .o-ui-switch-label {
-    font-size: var(--type-scale-8);
-} */
-
 .o-ui-switch-sm .o-ui-switch-control::before {
     width: var(--scale-charlie);
     height: var(--scale-charlie);
@@ -151,10 +142,6 @@
     height: var(--scale-echo);
 }
 
-/* .o-ui-switch-md .o-ui-switch-label {
-    font-size: var(--type-scale-7);
-} */
-
 .o-ui-switch-md .o-ui-switch-control::before {
     width: var(--scale-delta);
     height: var(--scale-delta);
@@ -163,36 +150,3 @@
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
 }
-
-/* LARGE */
-.o-ui-switch-lg .o-ui-switch-control {
-    width: var(--scale-india);
-    height: var(--scale-foxtrot);
-}
-
-/* .o-ui-switch-lg .o-ui-switch-label {
-    font-size: var(--type-scale-6);
-} */
-
-.o-ui-switch-lg .o-ui-switch-control::before {
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-}
-
-.o-ui-switch-lg.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-india) / 2 + 2px), 2px);
-}
-
-/* IN FIELD */
-/* SWITCH */
-/* .o-ui-switch-sm.o-ui-switch-as-field {
-    min-height: var(--scale-echo);
-}
-
-.o-ui-switch-md.o-ui-switch-as-field {
-    min-height: var(--scale-foxtrot);
-}
-
-.o-ui-switch-lg.o-ui-switch-as-field {
-    min-height: var(--scale-golf);
-} */

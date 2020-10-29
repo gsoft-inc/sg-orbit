@@ -30,7 +30,7 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * Whether the elements take up the width & height of their container.
+     * Whether the elements take up the all the space of their container.
      */
     fluid: bool,
     /**

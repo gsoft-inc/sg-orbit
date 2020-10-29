@@ -1,11 +1,12 @@
 import "./Tag.css";
 
+import { Box } from "../../box";
 import { CrossButton, embedIconButton } from "../../button";
-import { SlotProvider, Wrap, cssModule, mergeClasses, normalizeSize, useHasChildren, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -26,7 +27,7 @@ const propTypes = {
     /**
      * A tag can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -46,7 +47,7 @@ export function InnerTag({
     active,
     focus,
     hover,
-    as: ElementType = "div",
+    as = "div",
     className,
     children,
     forwardedRef,
@@ -54,10 +55,30 @@ export function InnerTag({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { hasIcon, hasCounter } = useHasChildren({
-        hasIcon: ".o-ui-tag-icon",
-        hasCounter: ".o-ui-tag-counter"
-    }, ref);
+    const { icon, dot, text, counter } = useSlots(children, useMemo(() => ({
+        _: {
+            defaultWrapper: Text
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-tag-icon"
+        },
+        dot: {
+            size,
+            disabled,
+            className: "o-ui-tag-dot"
+        },
+        text: {
+            size,
+            className: "o-ui-tag-text"
+        },
+        counter: {
+            size,
+            disabled,
+            highlight: true,
+            className: "o-ui-tag-counter"
+        }
+    }), [size, disabled]));
 
     const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
         condensed: true,
@@ -68,14 +89,14 @@ export function InnerTag({
     });
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
                     "o-ui-tag",
                     variant,
-                    hasIcon && "has-icon",
-                    hasCounter && "has-counter",
+                    icon && "has-icon",
+                    counter && "has-counter",
                     removeMarkup && "has-remove-button",
                     fluid && "fluid",
                     active && "active",
@@ -86,37 +107,15 @@ export function InnerTag({
                 className
             )}
             disabled={disabled}
+            as={as}
             ref={ref}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-tag-text"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-tag-icon"
-                    },
-                    dot: {
-                        size,
-                        disabled,
-                        className: "o-ui-tag-dot"
-                    },
-                    counter: {
-                        size,
-                        disabled,
-                        highlight: true,
-                        className: "o-ui-tag-counter"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {children}
-                </Wrap>
-            </SlotProvider>
+            {icon}
+            {dot}
+            {text}
+            {counter}
             {removeMarkup}
-        </ElementType>
+        </Box>
     );
 }
 

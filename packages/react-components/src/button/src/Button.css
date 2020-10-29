@@ -18,21 +18,17 @@
     cursor: pointer;
     outline: none;
     font-weight: 500;
+    transition: all .125s ease-in;
     border: none;
     position: relative;
+    width: max-content;
 }
 
 .o-ui-button:not(.o-ui-icon-button) {
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    grid-template-columns: max-content auto;
-    grid-template-areas: "icon text";
     height: max-content;
-}
-
-.o-ui-button:not(.o-ui-button-fluid) {
-    width: max-content;
 }
 
 /* STATES | FOCUS */
@@ -616,16 +612,6 @@ a.o-ui-button {
     min-width: var(--scale-india);
 }
 
-/* CONTENT | TEXT */
-.o-ui-button-text {
-    grid-area: text;
-}
-
-/* CONTENT | ICON */
-.o-ui-button-icon {
-    grid-area: icon;
-}
-
 .o-ui-button-icon + .o-ui-button-text {
     margin-left: var(--scale-alpha);
 }
@@ -672,10 +658,6 @@ a.o-ui-button {
 
 .o-ui-icon-button.o-ui-button-rounded {
     padding: 0;
-}
-
-.o-ui-icon-button .o-ui-button-icon {
-    grid-area: unset;
 }
 
 /* INHERIT */

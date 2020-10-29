@@ -2,7 +2,7 @@ import "./Label.css";
 
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { createSizeAdapter, cssModule, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { forwardRef } from "react";
 import { useFieldLabelProps } from "./FieldContext";
 
@@ -14,7 +14,7 @@ const propTypes = {
     /**
      * A label can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -25,11 +25,10 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ADAPTED_SIZE = {
-    "sm": "xs",
+const adaptSize = createSizeAdapter({
     "md": "sm",
     "lg": "md"
-};
+});
 
 function RequiredIndicator() {
     return (
@@ -55,9 +54,8 @@ export function InnerLabel(props) {
 
     return (
         <Text
-            data-testid="field-label"
             {...rest}
-            size={ADAPTED_SIZE[normalizeSize(size)]}
+            size={adaptSize(size)}
             className={mergeClasses(
                 cssModule(
                     "o-ui-field-label",

@@ -3,11 +3,11 @@ import "./Alert.css";
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../view";
 import { CrossButton } from "../../button";
-import { SlotProvider, StyleProvider, Wrap, createSizeAdapter, cssModule, mergeClasses, normalizeSize, useHasChildren, useMergedRefs } from "../../shared";
+import { StyleProvider, cssModule, mergeClasses, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -26,10 +26,6 @@ const propTypes = {
      */
     onDismiss: func,
     /**
-     * An alert can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -46,48 +42,24 @@ const ROLE = {
     critical: "alert"
 };
 
-const headingSize = createSizeAdapter({
-    "sm": "3xs",
-    "md": "2xs",
-    "lg": "xs"
-});
-
-const buttonSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm",
-    "lg": "md"
-});
-
 const AlertContent = forwardRef(({
-    size,
     as = "div",
     children,
     ...rest
 }, ref) => {
     return (
         <Text
-            size={size}
             as={as}
             ref={ref}
             {...rest}
         >
             <StyleProvider
                 value={{
-                    text: {
-                        size: "inherit"
-                    },
-                    p: {
-                        size: "inherit"
-                    },
                     link: {
-                        size: "inherit",
                         underline: "dotted"
                     },
-                    list: {
-                        size: "inherit"
-                    },
                     heading: {
-                        size: headingSize(size),
+                        size: "2xs",
                         className: "o-ui-alert-title"
                     }
                 }}
@@ -102,7 +74,6 @@ export function InnerAlert({
     show = true,
     tone = "info",
     onDismiss,
-    size,
     as = "div",
     className,
     role: roleProp,
@@ -112,18 +83,31 @@ export function InnerAlert({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { hasIcon, hasAction } = useHasChildren({
-        hasIcon: ".o-ui-alert-icon",
-        hasCounter: ".o-ui-alert-action"
-    }, ref);
-
-    const role = (roleProp ?? ROLE[tone]) ?? "alert";
+    const { icon, content, button } = useSlots(children, useMemo(() => ({
+        _: {
+            defaultWrapper: Content
+        },
+        icon: {
+            className: "o-ui-alert-icon"
+        },
+        content: {
+            className: "o-ui-alert-content",
+            as: AlertContent
+        },
+        button: {
+            variant: "ghost",
+            color: "inherit",
+            condensed: true,
+            size: "sm",
+            className: "o-ui-alert-action"
+        }
+    }), []));
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
             color="inherit"
             onClick={onDismiss}
-            size={buttonSize(size)}
+            size="sm"
             className="o-ui-alert-dismiss"
             aria-label="Dismiss"
         />
@@ -139,41 +123,19 @@ export function InnerAlert({
                 cssModule(
                     "o-ui-alert",
                     tone,
-                    hasIcon && "has-icon",
-                    hasAction && "has-action",
-                    dismissMarkup && "has-dismiss",
-                    normalizeSize(size)
+                    icon && "has-icon",
+                    button && "has-action",
+                    dismissMarkup && "has-dismiss"
                 ),
                 className
             )}
-            role={role}
+            role={(roleProp ?? ROLE[tone]) ?? "alert"}
             as={as}
             ref={ref}
         >
-            <SlotProvider
-                value={{
-                    icon: {
-                        size,
-                        className: "o-ui-alert-icon"
-                    },
-                    content: {
-                        size,
-                        className: "o-ui-alert-content",
-                        as: AlertContent
-                    },
-                    button: {
-                        variant: "ghost",
-                        color: "inherit",
-                        condensed: true,
-                        size: buttonSize(size),
-                        className: "o-ui-alert-action"
-                    }
-                }}
-            >
-                <Wrap as={Content}>
-                    {children}
-                </Wrap>
-            </SlotProvider>
+            {icon}
+            {content}
+            {button}
             {dismissMarkup}
         </Transition>
     );
@@ -204,6 +166,14 @@ const [
         children,
         ...rest
     }, ref) => {
+        const { content, button } = useSlots(children, useMemo(() => ({
+            _: {
+                defaultWrapper: Content
+            },
+            content: null,
+            button: null
+        }), []));
+
         return (
             <Alert
                 tone={tone}
@@ -211,9 +181,8 @@ const [
                 ref={ref}
             >
                 {icon}
-                <Wrap as={Content}>
-                    {children}
-                </Wrap>
+                {content}
+                {button}
             </Alert>
         );
     });

@@ -6,7 +6,7 @@ import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
 import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { HelpIcon, IconList, InfoIcon } from "@react-components/icons";
+import { InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -139,7 +139,6 @@ A checkbox can vary in size.
         <Inline verticalAlign="end">
             <Checkbox size="sm">Milky Way</Checkbox>
             <Checkbox>Milky Way</Checkbox>
-            <Checkbox size="lg">Milky Way</Checkbox>
         </Inline>
     </Story>
 </Preview>
@@ -208,7 +207,7 @@ Related checkboxes can be group together.
 
 ### Orientation
 
-A checkbox group can change his orientation to `vertical` to render his elements vertically.
+A checkbox group can render his elements vertically.
 
 <Preview>
     <Story name="checkbox group orientation">

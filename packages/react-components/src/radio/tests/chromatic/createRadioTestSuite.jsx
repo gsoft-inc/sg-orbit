@@ -12,21 +12,11 @@ export function createRadioTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>Milky Way</Radio>
+                <div>
                     <Radio value="any" element={element}>Milky Way</Radio>
-                    <Radio size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
+                </div>
                 <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                    </Radio>
                     <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                    </Radio>
-                    <Radio size="lg" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                     </Radio>
@@ -35,36 +25,16 @@ export function createRadioTestSuite(element, stories) {
                         <EmailIcon />
                     </Radio>
                 </Inline>
-                <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconList>
-                    </Radio>
+                <div>
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconList>
                     </Radio>
-                    <Radio size="lg" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconList>
-                    </Radio>
-                </Inline>
+                </div>
                 <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter>60</Counter>
-                    </Radio>
                     <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter>60</Counter>
-                    </Radio>
-                    <Radio size="lg" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
@@ -74,15 +44,7 @@ export function createRadioTestSuite(element, stories) {
                     </Radio>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
                     <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                    <Radio size="lg" value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter variant="divider">60</Counter>
                     </Radio>
@@ -91,40 +53,20 @@ export function createRadioTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Radio>
                 </Inline>
-                <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter>60</Counter>
-                    </Radio>
+                <div>
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Radio>
-                    <Radio size="lg" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter>60</Counter>
-                    </Radio>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Radio size="sm" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
+                </div>
+                <div>
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter variant="divider">60</Counter>
                     </Radio>
-                    <Radio size="lg" value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("reverse", () =>
@@ -176,31 +118,21 @@ export function createRadioTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <Radio active size="sm" value="any" element={element}>Milky Way</Radio>
+                <div>
                     <Radio active value="any" element={element}>Milky Way</Radio>
-                    <Radio active size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Radio focus size="sm" value="any" element={element}>Milky Way</Radio>
+                </div>
+                <div>
                     <Radio focus value="any" element={element}>Milky Way</Radio>
-                    <Radio focus size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Radio hover size="sm" value="any" element={element}>Milky Way</Radio>
+                </div>
+                <div>
                     <Radio hover value="any" element={element}>Milky Way</Radio>
-                    <Radio hover size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Radio focus hover size="sm" value="any" element={element}>Milky Way</Radio>
+                </div>
+                <div>
                     <Radio focus hover value="any" element={element}>Milky Way</Radio>
-                    <Radio focus hover size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Radio disabled size="sm" value="any" element={element}>Milky Way</Radio>
+                </div>
+                <div>
                     <Radio disabled value="any" element={element}>Milky Way</Radio>
-                    <Radio disabled size="lg" value="any" element={element}>Milky Way</Radio>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("overflow", () =>

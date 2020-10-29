@@ -16,7 +16,6 @@ export function createTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
-                    <Tag size="lg" element={element}>Falcon 9</Tag>
                 </Inline>
                 <Inline>
                     <Tag fluid element={element}>Falcon 9</Tag>
@@ -37,10 +36,6 @@ export function createTestSuite(element, stories) {
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
-                    <Tag size="lg" element={element}>
-                        <CheckCircleIcon />
-                        <Text>Falcon 9</Text>
-                    </Tag>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
@@ -50,12 +45,6 @@ export function createTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag element={element}>
-                        <IconList>
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
-                        </IconList>
-                        <Text>Falcon 9</Text>
-                    </Tag>
-                    <Tag size="lg" element={element}>
                         <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
                         </IconList>
@@ -87,10 +76,6 @@ export function createTestSuite(element, stories) {
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
-                    <Tag size="lg" element={element}>
-                        <Dot />
-                        <Text>Falcon 9</Text>
-                    </Tag>
                 </Inline>
                 <Inline>
                     <Tag fluid element={element}>
@@ -117,10 +102,6 @@ export function createTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                         <Counter>60</Counter>
                     </Tag>
-                    <Tag size="lg" element={element}>
-                        <Text>Falcon 9</Text>
-                        <Counter>60</Counter>
-                    </Tag>
                 </Inline>
                 <Inline>
                     <Tag fluid element={element}>
@@ -143,9 +124,6 @@ export function createTestSuite(element, stories) {
                         Falcon 9
                     </Tag>
                     <Tag onRemove={() => {}} element={element}>
-                        Falcon 9
-                    </Tag>
-                    <Tag size="lg" onRemove={() => {}} element={element}>
                         Falcon 9
                     </Tag>
                 </Inline>

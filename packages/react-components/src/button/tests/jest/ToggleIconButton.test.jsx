@@ -10,7 +10,7 @@ test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any" aria-label="Add">
+        <ToggleIconButton onChange={handler} value="any" aria-label="Add" data-testid="toggle-icon-button">
             <AddIcon />
         </ToggleIconButton>
     );
@@ -26,7 +26,7 @@ test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any" aria-label="Add">
+        <ToggleIconButton onChange={handler} value="any" aria-label="Add" data-testid="toggle-icon-button">
             <AddIcon />
         </ToggleIconButton>
     );

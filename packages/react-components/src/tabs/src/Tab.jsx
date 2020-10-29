@@ -1,33 +1,102 @@
-import { any, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { Box } from "../../box/src/Box";
+import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
+import { TabsContext } from "./TabsContext";
+import { Text } from "@react-components/text";
+import { any } from "prop-types";
+import { forwardRef, useContext } from "react";
 
 const propTypes = {
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
-    as: oneOfType([string, elementType]),
-    /**
-     * Component children.
-     */
-    children: oneOfType([any, func]).isRequired
+    children: any.isRequired
 };
 
+export const Tab = forwardRef(() => {
+    return null;
+});
+
+Tab.propTypes = propTypes;
+
 ////////
 
-export function TabPlaceholder() {
-    return null;
-}
+export const TabImpl = forwardRef(({
+    index,
+    panelId,
+    selected,
+    disabled,
+    active,
+    focus,
+    hover,
+    className,
+    children,
+    ...rest
+}, ref) => {
+    const { isManual, onSelect } = useContext(TabsContext);
 
-TabPlaceholder.propTypes = propTypes;
+    const { icon, text, lozenge } = useSlots(children, {
+        _: {
+            defaultWrapper: Text
+        },
+        icon: {
+            size: "sm",
+            className: "o-ui-tab-icon"
+        },
+        text: {
+            className: "o-ui-tab-text"
+        },
+        lozenge: {
+            color: "primary",
+            size: "sm",
+            className: "o-ui-tab-lozenge"
+        }
+    });
 
-////////
+    const handleClick = useEventCallback(event => {
+        onSelect(event, index);
+    });
 
-export function InnerTab() {
-    return null;
-}
+    const handleFocus = useEventCallback(event => {
+        onSelect(event, index);
+    });
 
-InnerTab.propTypes = propTypes;
+    const handleKeyDown = useEventCallback(event => {
+        switch(event.keyCode) {
+            case KEYS.enter:
+            case KEYS.space:
+                onSelect(event, index);
+                break;
+        }
+    });
 
-export const Tab = forwardRef((props, ref) => (
-    <InnerTab {...props} forwardedRef={ref} />
-));
+    return (
+        <Box
+            {...rest}
+            as="button"
+            onClick={handleClick}
+            onFocus={!isManual ? handleFocus : undefined}
+            onKeyDown={isManual ? handleKeyDown : undefined}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-tab",
+                    icon && "has-icon",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover"
+                ),
+                className
+            )}
+            disabled={disabled}
+            role="tab"
+            data-index={index}
+            aria-selected={selected}
+            aria-disabled={disabled}
+            aria-controls={panelId}
+            ref={ref}
+        >
+            {icon}
+            {text}
+            {lozenge}
+        </Box>
+    );
+});

@@ -17,13 +17,31 @@ function muteConsoleErrors(patterns) {
 }
 
 class ErrorBoundary extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            hasError: false
+        };
+    }
+
     componentDidCatch(error) {
         const { onError } = this.props;
 
         onError(error);
     }
 
+    static getDerivedStateFromError() {
+        return {
+            hasError: true
+        };
+    }
+
     render() {
+        if (this.state.hasError) {
+            return null;
+        }
+
         const { children } = this.props;
 
         return children;

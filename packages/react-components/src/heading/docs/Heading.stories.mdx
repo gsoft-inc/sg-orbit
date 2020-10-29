@@ -21,36 +21,25 @@ Heading is used to create various levels of typographic hierarchies.
     </div>
 </dl>
 
-## Usage
+## Element type
 
 When using an header, you should specify the element type to render it as. We do recommended using native header elements `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`.
 
-### Size
+<Preview>
+    <Story name="element type">
+        <Heading as="h1">Migrate, adapt, and control the cloud.</Heading>
+    </Story>
+</Preview>
 
-You can alter the size of the heading by specying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/materials-typography--page#headlines).
+## Changing font size
+
+You can alter the font size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/materials-typography--page#headlines).
 
 <Preview>
     <Story name="headers">
         <div>
-            <Heading as="h1" size="xl">Migrate, adapt, and control the cloud.</Heading>
-            <Heading as="h2" size="lg">Migrate, adapt, and control the cloud.</Heading>
             <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
             <Heading as="h4" size="sm">Migrate, adapt, and control the cloud.</Heading>
-            <Heading as="h5" size="xs">Migrate, adapt, and control the cloud.</Heading>
-            <Heading as="h6" size="2xs">Migrate, adapt, and control the cloud.</Heading>
-        </div>
-    </Story>
-</Preview>
-
-### As any element type
-
-You can render the heading as any element type.
-
-<Preview>
-    <Story name="div">
-        <div>
-            <Heading as="div">Migrate, adapt, and control the cloud.</Heading>
-            <Heading as="div" size="sm">Migrate, adapt, and control the cloud.</Heading>
         </div>
     </Story>
 </Preview>

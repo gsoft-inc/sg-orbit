@@ -16,7 +16,6 @@ stories()
     .add("default", () =>
         <Stack>
             <Inline verticalAlign="end">
-                <NumberInput size="sm" placeholder="Age" />
                 <NumberInput placeholder="Age" />
                 <NumberInput size="lg" placeholder="Age" />
             </Inline>
@@ -45,7 +44,6 @@ stories()
     .add("icon", () =>
         <Stack>
             <Inline verticalAlign="end">
-                <NumberInput icon={<EditIcon />} size="sm" placeholder="Age" />
                 <NumberInput icon={<EditIcon />} placeholder="Age" />
                 <NumberInput icon={<EditIcon />} size="lg" placeholder="Age" />
             </Inline>
@@ -68,14 +66,12 @@ stories()
     )
     .add("loading", () =>
         <Inline verticalAlign="end">
-            <NumberInput loading size="sm" placeholder="Age" />
             <NumberInput loading placeholder="Age" />
             <NumberInput loading size="lg" placeholder="Age" />
         </Inline>
     )
     .add("transparent", () =>
         <Inline verticalAlign="end">
-            <NumberInput variant="transparent" size="sm" placeholder="Age" />
             <NumberInput variant="transparent" placeholder="Age" />
             <NumberInput variant="transparent" size="lg" placeholder="Age" />
         </Inline>

@@ -16,7 +16,7 @@ const ROOTS = {
         priority: 2,
         sortByKind: true
     },
-    "links": {
+    "navigation": {
         priority: 3,
         sortByKind: true
     },

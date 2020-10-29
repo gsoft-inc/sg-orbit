@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { any, bool, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useEffect, useState } from "react";
 import { mergeClasses, useEventCallback, useIsInitialRender } from "../../shared";
@@ -34,7 +35,7 @@ export const Transition = forwardRef(({
     animateFirstRender = false,
     enter,
     leave,
-    as: ElementType = "div",
+    as = "div",
     className,
     children,
     ...rest
@@ -58,7 +59,7 @@ export const Transition = forwardRef(({
     }
 
     return (
-        <ElementType
+        <Box
             {...rest}
             onAnimationEnd={handleAnimationEnd}
             className={mergeClasses(
@@ -67,10 +68,11 @@ export const Transition = forwardRef(({
                     : leave,
                 className
             )}
+            as={as}
             ref={ref}
         >
             {children}
-        </ElementType>
+        </Box>
     );
 });
 

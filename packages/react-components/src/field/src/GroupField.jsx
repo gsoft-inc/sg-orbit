@@ -1,5 +1,6 @@
 import "./Field.css";
 
+import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { FieldProvider } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
@@ -28,7 +29,7 @@ const propTypes = {
     /**
      * A field can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["md", "lg"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -50,7 +51,7 @@ export function InnerGroupField(props) {
         fluid,
         size,
         disabled,
-        as: ElementType = "div",
+        as = "div",
         className,
         children,
         forwardedRef,
@@ -73,10 +74,10 @@ export function InnerGroupField(props) {
     });
 
     return (
-        <ElementType
-            data-testid="field"
+        <Box
             {...rest}
             {...fieldProps}
+            as={as}
         >
             <ClearToolbar>
                 <FieldProvider
@@ -88,7 +89,7 @@ export function InnerGroupField(props) {
                     {children}
                 </FieldProvider>
             </ClearToolbar>
-        </ElementType>
+        </Box>
     );
 }
 

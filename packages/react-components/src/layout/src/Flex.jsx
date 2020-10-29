@@ -1,5 +1,6 @@
 import "./Flex.css";
 
+import { Box } from "../../box/src/Box";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, useMergedRefs } from "../../shared";
@@ -80,7 +81,7 @@ const propTypes = {
      */
     wrap: oneOf(["nowrap", "wrap", "wrap-reverse"]),
     /**
-     * Whether the elements take up the width & height of their container.
+     * Whether the elements take up all the space of their container.
      */
     fluid: bool,
     /**
@@ -166,7 +167,6 @@ export function InnerFlex({
     wrap,
     fluid,
     wrapChildren,
-    as: ElementType = "div",
     noGap,
     className,
     style,
@@ -191,7 +191,7 @@ export function InnerFlex({
     });
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -216,7 +216,7 @@ export function InnerFlex({
             ref={ref}
         >
             {items}
-        </ElementType>
+        </Box>
     );
 }
 
