@@ -1,4 +1,4 @@
-.o-ui-form:not(.o-ui-form-fluid) {
+.o-ui-form {
     width: max-content;
 }
 

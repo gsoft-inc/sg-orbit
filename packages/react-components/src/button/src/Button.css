@@ -21,6 +21,7 @@
     transition: all .125s ease-in;
     border: none;
     position: relative;
+    width: max-content;
 }
 
 .o-ui-button:not(.o-ui-icon-button) {
@@ -28,10 +29,6 @@
     align-items: center;
     justify-content: center;
     height: max-content;
-}
-
-.o-ui-button:not(.o-ui-button-fluid) {
-    width: max-content;
 }
 
 /* STATES | FOCUS */
