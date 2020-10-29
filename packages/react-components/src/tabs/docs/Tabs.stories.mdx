@@ -139,11 +139,34 @@ You can supply tabs content with an array instead of using the granular componen
 
 ### Orientation
 
-A tab can change is orientation to vertical.
+A tabs can change is orientation to vertical.
 
 <Preview>
     <Story name="orientation">
         <Tabs orientation="vertical">
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Fluid
+
+A tabs component can split the width of it's container equally between his tabs.
+
+<Preview>
+    <Story name="fluid">
+        <Tabs fluid>
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -191,7 +214,9 @@ The selected `index` can be handled in controlled mode.
     <ControlledTabs />
 </FilePreview>
 
-## Tabs props
+## Props
+
+### Tabs
 
 <dl>
     <div>
@@ -202,11 +227,11 @@ The selected `index` can be handled in controlled mode.
 
 <Props of={InnerTabs} />
 
-## Tab props
+### Tab
 
-_No specific props._
+_No specific props for this component._
 
-## Header props
+### Header
 
 <dl>
     <div>
@@ -217,7 +242,7 @@ _No specific props._
 
 <Props of={InnerHeader} />
 
-## Content props
+### Content
 
 <Props of={InnerContent} />
 
