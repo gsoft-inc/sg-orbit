@@ -117,18 +117,32 @@ stories()
         </Inline>
     )
     .add("text input", () =>
-        <Field>
-            <Label>Where to?</Label>
-            <TextInput placeholder="Ex. Mars" />
-            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-        </Field>
+        <Inline verticalAlign="end">
+            <Field>
+                <Label>Where to?</Label>
+                <TextInput placeholder="Ex. Mars" />
+                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+            </Field>
+            <Field size="lg">
+                <Label>Where to?</Label>
+                <TextInput placeholder="Ex. Mars" />
+                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+            </Field>
+        </Inline>
     )
     .add("number input", () =>
-        <Field>
-            <Label>Age</Label>
-            <NumberInput placeholder="Ex. 89" />
-            <HelpMessage>How long ago are you born?</HelpMessage>
-        </Field>
+        <Inline verticalAlign="end">
+            <Field>
+                <Label>Age</Label>
+                <NumberInput placeholder="Ex. 89" />
+                <HelpMessage>How long ago are you born?</HelpMessage>
+            </Field>
+            <Field size="lg">
+                <Label>Age</Label>
+                <NumberInput placeholder="Ex. 89" />
+                <HelpMessage>How long ago are you born?</HelpMessage>
+            </Field>
+        </Inline>
     )
     .add("textarea", () =>
         <Field>
@@ -138,18 +152,32 @@ stories()
         </Field>
     )
     .add("checkbox", () =>
-        <Field>
-            <Label>Select your favorite galaxy</Label>
-            <Checkbox>Milky Way</Checkbox>
-            <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-        </Field>
+        <Inline verticalAlign="end">
+            <Field size="sm">
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+            </Field>
+        </Inline>
     )
     .add("switch", () =>
-        <Field>
-            <Label>Engines</Label>
-            <Switch>Milky Way</Switch>
-            <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-        </Field>
+        <Inline verticalAlign="end">
+            <Field size="sm">
+                <Label>Engines</Label>
+                <Switch>Milky Way</Switch>
+                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+            </Field>
+            <Field>
+                <Label>Engines</Label>
+                <Switch>Milky Way</Switch>
+                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+            </Field>
+        </Inline>
     )
     .add("styling", () =>
         <Inline>
