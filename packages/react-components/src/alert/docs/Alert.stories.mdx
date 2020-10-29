@@ -42,9 +42,9 @@ An alert must have textual content and can optionnaly accept an icon, an action 
 
 ### Icon
 
-An alert can have an icon.
+An alert can have an [icon](?path=/docs/materials-icons--page).
 
-<Preview withSource="open">
+<Preview>
     <Story name="icon">
         <Alert>
             <EmailIcon />
@@ -57,7 +57,7 @@ An alert can have an icon.
 
 An alert can also accept rich content.
 
-<Preview withSource="open">
+<Preview>
     <Story name="rich content">
         <Alert>
             <EmailIcon />
@@ -71,9 +71,9 @@ An alert can also accept rich content.
 
 ### Action
 
-An alert can accept an accept button.
+An alert can accept an accept [button](?path=/docs/components-button--default-story).
 
-<Preview withSource="open">
+<Preview>
     <Story name="action">
         <Alert>
             <EmailIcon />
@@ -87,7 +87,7 @@ An alert can accept an accept button.
 
 An alert can be dismissible by specifying an `onDismiss` handler.
 
-<Preview withSource="open">
+<Preview>
     <Story name="dismissible">
         <Alert onDismiss={() => {}}>
             <EmailIcon />
@@ -103,7 +103,9 @@ An alert comes in predefined templates matching the available tones.
 
 ### Info
 
-<Preview withSource="open">
+Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
+
+<Preview>
     <Story name="info">
         <InfoAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
@@ -114,7 +116,9 @@ An alert comes in predefined templates matching the available tones.
 
 ### Success
 
-<Preview withSource="open">
+Use a success alert to inform a user that an action has completed successfuly.
+
+<Preview>
     <Story name="success">
         <SuccessAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
@@ -125,7 +129,9 @@ An alert comes in predefined templates matching the available tones.
 
 ### Warning
 
-<Preview withSource="open">
+Use a warning alert to help a user avoid an issue.
+
+<Preview>
     <Story name="warning">
         <WarningAlert onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
@@ -136,7 +142,9 @@ An alert comes in predefined templates matching the available tones.
 
 ### Critical
 
-<Preview withSource="open">
+Use an error alert to help a user understand a critical issue at the system level.
+
+<Preview>
     <Story name="critical">
         <CriticalAlert onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
@@ -145,7 +153,7 @@ An alert comes in predefined templates matching the available tones.
     </Story>
 </Preview>
 
-### Controlled
+## Controlled
 
 An alert can handle `show` state in controlled mode.
 

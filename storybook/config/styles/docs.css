@@ -176,19 +176,15 @@ details .docblock-source {
     border: 1px dashed var(--cloud-100);
 }
 
-/* Helpers */
-.items-space-between > * {
-    margin-right: var(--scale-alpha) !important;
-}
-
-.items-lot-of-space-between > * {
-    margin-right: var(--scale-delta) !important;
-}
-
-.items-vertical-space-between > * {
-    margin-bottom: var(--scale-delta) !important;
-}
-
-.items-vertical-space-between > *:last-child {
-    margin-bottom: 0 !important;
+kbd {
+    line-height: 1;
+    margin: 0 2px;
+    padding: 3px 5px;
+    white-space: nowrap;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #EEE;
+    color: rgba(51,51,51,0.9);
+    background-color: #F8F8F8;
 }

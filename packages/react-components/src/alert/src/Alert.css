@@ -24,7 +24,7 @@
 }
 
 .o-ui-alert-content {
-    width: 100%;
+    flex-grow: 1;
 }
 
 .o-ui-alert-has-icon .o-ui-alert-content,

@@ -364,29 +364,6 @@ stories()
                 </Content>
             </Tab>
         </Tabs>
-    )
-    // TODO: Move to docs once available.
-    .add("manual", () =>
-        <Tabs manual>
-            <Tab>
-                <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
-            </Tab>
-            <Tab>
-                <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
-            </Tab>
-            <Tab>
-                <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
-            </Tab>
-        </Tabs>
     );
 
 stories("/vertical")

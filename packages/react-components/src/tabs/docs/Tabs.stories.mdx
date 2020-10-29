@@ -1,0 +1,238 @@
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
+import { ControlledTabs } from "./ControlledTabs.sample";
+import { FilePreview, ReactComponentsLayout } from "@blocks";
+import { InnerTabs, Tab, Tabs } from "@react-components/tabs";
+import { Lozenge } from "@react-components/lozenge";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { NotificationIcon } from "@react-components/icons";
+import { RefLogger, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Navigation|Tabs"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tabs/src" />)
+        .build()}
+/>
+
+# Tabs
+
+Tabs are used to organize content by grouping similar information on the same page.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Tabs, Tab, Header, Content from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">https://www.w3.org/TR/wai-aria-practices/#tabpanel</a></dd>
+    </div>
+</dl>
+
+## Content
+
+A tab must have a label and can optionnaly accept an icon and a lozenge. Text only tab accept a string as children. An icon and a lozenge can also be added as children, with a sibling text element for the label.
+
+### Icon
+
+A tab can contain [icons](?path=/docs/materials-icons--page).
+
+<Preview>
+    <Story name="icon">
+        <Tabs>
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>
+                    <NotificationIcon />
+                    <Text>Jupiter</Text>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Lozenge
+
+A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
+
+<Preview>
+    <Story name="lozenge">
+        <Tabs>
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>
+                    <Text>Jupiter</Text>
+                    <Lozenge>New</Lozenge>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+## Manually activated tabs
+
+By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
+
+> The content of a tab should ideally be preloaded. However, if switching to a tab panel causes a network request and possibly a page refresh, there might be some notable latency and this might affect the experience for keyboard and screen reader users.
+
+In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing <kbd>Space</kbd> or <kbd>Enter</kbd>.
+
+<Preview>
+    <Story name="manual">
+        <Tabs manual>
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+## Data tabs
+
+You can supply tabs content with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data">
+        <Tabs>
+            {[
+                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ].map(({ header, content }) =>
+                <Tab key="header">
+                    <Header>{header}</Header>
+                    <Content>{content}</Content>
+                </Tab>
+            )}
+        </Tabs>
+    </Story>
+</Preview>
+
+## Visual options
+
+### Orientation
+
+A tab can change is orientation to vertical.
+
+<Preview>
+    <Story name="orientation">
+        <Tabs orientation="vertical">
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Disabled
+
+A tab can be disabled.
+
+<Preview>
+    <Story name="disabled tab">
+        <Tabs>
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab disabled>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+## Controlled
+
+The selected `index` can be handled in controlled mode.
+
+<FilePreview filePath="/tabs/docs/ControlledTabs">
+    <ControlledTabs />
+</FilePreview>
+
+## Tabs props
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>header | content</dd>
+    </div>
+</dl>
+
+<Props of={InnerTabs} />
+
+## Tab props
+
+_Only support common props and React element props._
+
+## Header props
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>icon | text | lozenge</dd>
+    </div>
+</dl>
+
+<Props of={InnerHeader} />
+
+## Content props
+
+<Props of={InnerContent} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Tabs>
+            <Tab>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Tab>
+        </Tabs>
+    </RefLogger>
+</Story>
