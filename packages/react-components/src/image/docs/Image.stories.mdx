@@ -24,21 +24,9 @@ Use this component to display an image.
     </div>
 </dl>
 
-## Content
-
-### Accessibility
+## Accessibility
 
 An image must have an `alt` attribute.
-
-### Size
-
-An image can adjust it's size by using the `size` prop or native `width` and `height` props.
-
-<Preview withSource="open">
-    <Story name="size">
-        <Image size="200px" src={LaunchImage} alt="SpaceX launch" />
-    </Story>
-</Preview>
 
 ## Variants
 
@@ -46,12 +34,24 @@ An image can adjust it's size by using the `size` prop or native `width` and `he
 
 An image can use a different shape.
 
-<Preview withSource="open">
+<Preview>
     <Story name="shape">
         <Inline>
             <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
             <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
         </Inline>
+    </Story>
+</Preview>
+
+## Visual options
+
+### Size
+
+An image can adjust it's size by using the `size` prop or the native `width` and `height` props.
+
+<Preview>
+    <Story name="size">
+        <Image size="200px" src={LaunchImage} alt="SpaceX launch" />
     </Story>
 </Preview>
 

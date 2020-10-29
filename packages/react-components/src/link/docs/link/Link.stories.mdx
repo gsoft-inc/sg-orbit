@@ -35,13 +35,13 @@ Links allow a user to navigate between pages, scroll to a have page section, acc
 
 ## Content
 
-A link accept any elements as children. Unlike a [text link](?path=/docs/links-textlink) or an [icon link](?path=/docs/links-iconlink), a link component will have a more appearance.
+A link accept any elements as children. Unlike a [text link](?path=/docs/links-textlink) or an [icon link](?path=/docs/links-iconlink), a link component will have a more subtle appearance.
 
 ### Image
 
 A link content can be an image element.
 
-<Preview withSource="open">
+<Preview>
     <Story name="image">
         <Link href="#">
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
@@ -53,7 +53,7 @@ A link content can be an image element.
 
 A link content could be a card component or any other content.
 
-<Preview withSource="open">
+<Preview>
     <Story name="card">
         <Link className="w-30" href="#">
             <Card>
@@ -64,20 +64,18 @@ A link content could be a card component or any other content.
                 <Paragraph>
                     SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
                 </Paragraph>
-                <Paragraph>
-                    The California-based rocket builder planned to launch South Korea's first military satellite, called Anasis 2, from Space Launch Complex 40 at Cape Canaveral Air Force Station in Florida on Tuesday evening (July 14).
-                    The Falcon 9 was scheduled to take off during a 4-hour window that opened at 5 p.m. EDT (2100 GMT).
-                </Paragraph>
             </Card>
         </Link>
     </Story>
 </Preview>
 
+## Rendering
+
 ### Button
 
 A link can be rendered as a button.
 
-<Preview withSource="open">
+<Preview>
     <Story name="button">
         <Link as="button" aria-label="Add">
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
@@ -85,11 +83,11 @@ A link can be rendered as a button.
     </Story>
 </Preview>
 
-### React Router
+### React router
 
-A link can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any custom component.
+To integrate with a routing library like [React Router](https://reactrouter.com) a text link can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any custom component.
 
-<Preview withSource="open">
+<Preview>
     <Story name="react router link">
         <Link as={RouterLink} to="/flight-details">
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
@@ -97,13 +95,13 @@ A link can be rendered as a [React Router Link](https://reactrouter.com/web/api/
     </Story>
 </Preview>
 
-## Variants
+## Visual options
 
 ### Shape
 
 A link can use a different shape to match it's content shape on focus state.
 
-<Preview withSource="open">
+<Preview>
     <Story name="shape">
         <Inline>
             <Link shape="rounded" focus href="#">
