@@ -10,16 +10,12 @@ export function createTextAreaTestSuite(element, stories) {
     stories
         .add("default", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextArea size="sm" element={element} />
+                <div>
                     <TextArea element={element} />
-                    <TextArea size="lg" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea loading size="sm" element={element} />
+                </div>
+                <div>
                     <TextArea loading element={element} />
-                    <TextArea loading size="lg" element={element} />
-                </Inline>
+                </div>
                 <div>
                     <TextArea disabled element={element} />
                 </div>
@@ -36,16 +32,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("placeholder", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextArea size="sm" placeholder="Where to?" element={element} />
+                <div>
                     <TextArea placeholder="Where to?" element={element} />
-                    <TextArea size="lg" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea loading size="sm" placeholder="Where to?" element={element} />
+                </div>
+                <div>
                     <TextArea loading placeholder="Where to?" element={element} />
-                    <TextArea loading size="lg" placeholder="Where to?" element={element} />
-                </Inline>
+                </div>
                 <div>
                     <TextArea disabled placeholder="Where to?" element={element} />
                 </div>
@@ -62,16 +54,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("value", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextArea size="sm" defaultValue="SpaceX will win the race!" element={element} />
+                <div>
                     <TextArea defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea size="lg" defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea loading size="sm" defaultValue="SpaceX will win the race!" element={element} />
+                </div>
+                <div>
                     <TextArea loading defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea loading size="lg" defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
+                </div>
                 <Inline>
                     <TextArea placeholder="Where to?" defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea value="SpaceX will win the race!" element={element} />
@@ -89,16 +77,12 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("button", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextArea size="sm" button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                <div>
                     <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                    <TextArea size="lg" button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea size="sm" button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
+                </div>
+                <div>
                     <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextArea size="lg" button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
+                </div>
                 <div>
                     <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 </div>
@@ -116,39 +100,27 @@ export function createTextAreaTestSuite(element, stories) {
         .add("states", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <TextArea active size="sm" placeholder="Where to?" element={element} />
                     <TextArea active placeholder="Where to?" element={element} />
-                    <TextArea active size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading active placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <TextArea focus size="sm" placeholder="Where to?" element={element} />
                     <TextArea focus placeholder="Where to?" element={element} />
-                    <TextArea focus size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading focus placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <TextArea hover size="sm" placeholder="Where to?" element={element} />
                     <TextArea hover placeholder="Where to?" element={element} />
-                    <TextArea hover size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading hover placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <TextArea focus hover size="sm" placeholder="Where to?" element={element} />
                     <TextArea focus hover placeholder="Where to?" element={element} />
-                    <TextArea focus hover size="lg" placeholder="Where to?" element={element} />
                     <TextArea loading focus hover placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea disabled size="sm" placeholder="Where to?" element={element} />
+                <div>
                     <TextArea disabled placeholder="Where to?" element={element} />
-                    <TextArea disabled size="lg" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextArea readOnly size="sm" placeholder="Where to?" element={element} />
+                </div>
+                <div>
                     <TextArea readOnly placeholder="Where to?" element={element} />
-                    <TextArea readOnly size="lg" placeholder="Where to?" element={element} />
-                </Inline>
+                </div>
             </Stack>
         );
 }

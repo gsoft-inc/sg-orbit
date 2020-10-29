@@ -11,7 +11,9 @@ import {
     useEventCallback,
     useId,
     useKeyboardNavigation,
-    useMergedRefs, useRenderProps, useRovingFocus
+    useKeyedRovingFocus,
+    useMergedRefs,
+    useRenderProps
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
@@ -70,10 +72,6 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * The group elements size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Invert the order of the radio button and his label.
      */
     reverse: bool,
@@ -82,8 +80,8 @@ const propTypes = {
      */
     disabled: bool,
     /**
-   * An HTML element type or a custom React element type to render as.
-   */
+     * An HTML element type or a custom React element type to render as.
+     */
     as: oneOfType([string, elementType]),
     /**
      * Component children.
@@ -92,13 +90,13 @@ const propTypes = {
 };
 
 const NAV_KEY_BINDING = {
-    "default": {
+    default: {
         previous: [KEYS.left, KEYS.up],
         next: [KEYS.right, KEYS.down],
         first: [KEYS.home],
         last: [KEYS.end]
     },
-    "toolbar": {
+    toolbar: {
         previous: [KEYS.up],
         next: [KEYS.down]
     }
@@ -120,7 +118,6 @@ export function InnerRadioGroup(props) {
         orientation = "vertical",
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,
@@ -137,11 +134,16 @@ export function InnerRadioGroup(props) {
 
     const ref = useMergedRefs(forwardedRef);
 
-    useRovingFocus(ref, checkedValue, { keyProp: "value" });
+    useKeyedRovingFocus(ref, !isNil(checkedValue) ? checkedValue : checkedValue, { keyProp: "value" });
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {
-        setCheckedValue(element.value);
+        // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
+        const newValue = element.dataset.type === "number"
+            ? parseInt(element.value)
+            : element.value;
+
+        setCheckedValue(newValue);
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
@@ -155,7 +157,6 @@ export function InnerRadioGroup(props) {
         orientation,
         gap,
         wrap,
-        size,
         reverse,
         disabled,
         className,

@@ -1,5 +1,6 @@
 import "./NumberInput.css";
 
+import { Box } from "../../box";
 import { CarretIcon } from "../../icons";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
@@ -79,7 +80,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -91,7 +92,6 @@ const propTypes = {
 };
 
 const stepperIconSize = createSizeAdapter({
-    "sm": "2xs",
     "md": "xs",
     "lg": "sm"
 });
@@ -194,7 +194,7 @@ export function InnerNumberInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as = "div",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -339,8 +339,7 @@ export function InnerNumberInput(props) {
     );
 
     return (
-        <ElementType
-            data-testid="number-input"
+        <Box
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(
@@ -349,9 +348,10 @@ export function InnerNumberInput(props) {
                 ),
                 wrapperClassName
             )}
+            as={as}
         >
             {content}
-        </ElementType>
+        </Box>
     );
 }
 

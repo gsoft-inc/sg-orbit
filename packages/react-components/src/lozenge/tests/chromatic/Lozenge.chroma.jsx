@@ -15,7 +15,10 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Lozenge>New</Lozenge>
+        <Inline verticalAlign="end">
+            <Lozenge size="sm">New</Lozenge>
+            <Lozenge>New</Lozenge>
+        </Inline>
     )
     .add("icon", () =>
         <Stack>
@@ -25,10 +28,6 @@ stories()
                     <Text>New</Text>
                 </Lozenge>
                 <Lozenge>
-                    <CheckCircleIcon />
-                    <Text>New</Text>
-                </Lozenge>
-                <Lozenge size="lg">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
@@ -43,12 +42,23 @@ stories()
             </div>
         </Stack>
     )
-    .add("size", () =>
-        <Inline verticalAlign="end">
-            <Lozenge size="sm">New</Lozenge>
-            <Lozenge>New</Lozenge>
-            <Lozenge size="lg">New</Lozenge>
-        </Inline>
+    .add("primary", () =>
+        <Stack>
+            <Inline verticalAlign="end">
+                <Lozenge color="primary" size="sm">New</Lozenge>
+                <Lozenge color="primary">New</Lozenge>
+            </Inline>
+            <Inline verticalAlign="end">
+                <Lozenge color="primary" size="sm">
+                    <CheckCircleIcon />
+                    <Text>New</Text>
+                </Lozenge>
+                <Lozenge color="primary">
+                    <CheckCircleIcon />
+                    <Text>New</Text>
+                </Lozenge>
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

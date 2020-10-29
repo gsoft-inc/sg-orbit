@@ -93,8 +93,14 @@ export function createNavigableTreeWalker(root, from, options) {
     };
 }
 
-export function walkFocusableElements(root, onElement, { tabblable } = {}) {
+export function walkFocusableElements(root, onElement, { tabblable, includeRoot = false } = {}) {
     const selector = tabblable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
 
-    root.querySelectorAll(selector).forEach(onElement);
+    if (includeRoot) {
+        if (root.matches(selector)) {
+            onElement(root, 0);
+        }
+    }
+
+    root.querySelectorAll(selector).forEach((x, index) => onElement(x, includeRoot ? index + 1 : index));
 }

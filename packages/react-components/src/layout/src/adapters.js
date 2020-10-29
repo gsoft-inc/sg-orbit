@@ -3,8 +3,10 @@ const DIRECTION = {
     "vertical": "column"
 };
 
-export function toFlexDirection(orientation) {
-    return DIRECTION[orientation];
+export function useFlexDirection(orientation) {
+    return {
+        direction: DIRECTION[orientation]
+    };
 }
 
 export function useFlexAlignment(orientation, align, verticalAlign) {

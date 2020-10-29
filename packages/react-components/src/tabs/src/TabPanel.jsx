@@ -1,5 +1,8 @@
-import { any, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { TabsContext } from "./TabsContext";
+import { Text } from "../../text";
+import { any, elementType, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses } from "../../shared";
+import { forwardRef, useContext } from "react";
 
 const propTypes = {
     /**
@@ -7,17 +10,38 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * @ignore
      */
-    children: oneOfType([any, func]).isRequired
+    children: any.isRequired
 };
 
-export function InnerTabPanel() {
-    return null;
-}
+export const TabPanel = forwardRef(({
+    index,
+    tabId,
+    className,
+    children,
+    ...rest
+}, ref) => {
+    const { selectedIndex } = useContext(TabsContext);
 
-InnerTabPanel.propTypes = propTypes;
+    return (
+        <Text
+            {...rest}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-tab-panel"
+                ),
+                className
+            )}
+            role="tabpanel"
+            tabIndex="0"
+            hidden={index !== selectedIndex}
+            aria-labelledby={tabId}
+            ref={ref}
+        >
+            {children}
+        </Text>
+    );
+});
 
-export const TabPanel = forwardRef((props, ref) => (
-    <InnerTabPanel {...props} forwardedRef={ref} />
-));
+TabPanel.propTypes = propTypes;

@@ -13,9 +13,9 @@ const Group = forwardRef((props, ref) => {
             {...props}
             ref={ref}
         >
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
+            <Checkbox value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
         </CheckboxGroup>
     );
 });

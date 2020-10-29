@@ -18,7 +18,7 @@ export * from "./augmentElement";
 export * from "./focusableTreeWalker";
 export * from "./omitProps";
 export * from "./arrayify";
-export * from "./Wrap";
+export * from "./slots";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -38,5 +38,4 @@ export * from "./useIsInitialRender";
 
 // Contexts
 export * from "./CheckableContext";
-export * from "./SlotContext";
 export * from "./StyleContext";

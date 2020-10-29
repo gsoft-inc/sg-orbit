@@ -24,13 +24,6 @@
     padding: 0 0.625rem 0 0.625rem;
 }
 
-.o-ui-counter-pill.o-ui-counter-lg {
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-    font-size: var(--type-scale-7);
-    padding: 0 var(--scale-charlie) 0 var(--scale-charlie);
-}
-
 /* PILL | COLOR */
 .o-ui-counter-pill.o-ui-counter-light {
     background-color: var(--cloud-50);

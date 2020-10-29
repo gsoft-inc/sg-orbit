@@ -1,4 +1,4 @@
-import { Flex, toFlexDirection, useFlexAlignment } from "../../layout";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarProvider } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
@@ -35,10 +35,6 @@ const propTypes = {
      */
     wrap: bool,
     /**
-     * The size of the elements.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Whether the toolbar take up the width of its container.
      */
     fluid: bool,
@@ -56,6 +52,21 @@ const propTypes = {
     children: any.isRequired
 };
 
+const NAV_KEY_BINDING = {
+    horizontal: {
+        previous: [KEYS.left],
+        next: [KEYS.right],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    },
+    vertical: {
+        previous: [KEYS.up],
+        next: [KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    }
+};
+
 export function InnerToolbar({
     autoFocus,
     autoFocusDelay,
@@ -64,7 +75,6 @@ export function InnerToolbar({
     verticalAlign,
     gap = 5,
     wrap,
-    size,
     disabled,
     as = "div",
     children,
@@ -74,26 +84,27 @@ export function InnerToolbar({
     const ref = useMergedRefs(forwardedRef);
 
     useRovingFocus(ref);
-
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    const alignProps = useFlexAlignment(orientation, align, orientation === "horizontal" ? verticalAlign ?? "center" : verticalAlign);
+    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
 
-    const arrowNavigationProps = useKeyboardNavigation({
-        previous: orientation === "horizontal" ? [KEYS.left] : [KEYS.left, KEYS.up],
-        next: orientation === "horizontal" ? [KEYS.right] : [KEYS.right, KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
-    });
+    const directionProps = useFlexDirection(orientation);
+
+    const alignProps = useFlexAlignment(
+        orientation,
+        align,
+        orientation === "horizontal"
+            ? verticalAlign ?? "center"
+            : verticalAlign
+    );
 
     return (
         <Flex
-            data-testid="toolbar"
             {...rest}
+            {...directionProps}
             {...alignProps}
             {...arrowNavigationProps}
             role="toolbar"
-            direction={toFlexDirection(orientation)}
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             as={as}
@@ -103,7 +114,6 @@ export function InnerToolbar({
             <ToolbarProvider
                 value={{
                     orientation,
-                    size,
                     disabled
                 }}
             >

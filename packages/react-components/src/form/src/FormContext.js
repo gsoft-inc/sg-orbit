@@ -7,10 +7,9 @@ export function useFormContext() {
     const context = useContext(FormContext);
 
     if (!isNil(context)) {
-        const { size, fluid, disabled } = context;
+        const { fluid, disabled } = context;
 
         const props = {
-            size,
             fluid,
             disabled
         };

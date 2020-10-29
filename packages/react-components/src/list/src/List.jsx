@@ -1,12 +1,12 @@
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { augmentElement, cssModule, mergeClasses, mergeProps, useStyleProps } from "../../shared";
 
 const propTypes = {
     /**
      * A list can vary in size.
      */
-    size: oneOf(["sm", "md", "lg", "inherit"]),
+    size: oneOf(["inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -37,7 +37,7 @@ const List = forwardRef((props, ref) => {
             className={mergeClasses(
                 cssModule(
                     "o-ui-list",
-                    normalizeSize(size)
+                    size
                 ),
                 className
             )}

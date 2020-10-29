@@ -1,12 +1,13 @@
 import "./Checkbox.css";
 
-import { SlotProvider, Wrap, mergeProps, omitProps, useCheckableProps, useEventCallback, useRenderProps } from "../../shared";
+import { Box } from "../../box";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
+import { mergeProps, omitProps, useCheckableProps, useEventCallback, useRenderProps, useSlots } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -51,7 +52,7 @@ const propTypes = {
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * Invert the order the checkmark box and the label.
      */
@@ -98,7 +99,7 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        as: ElementType = "label",
+        as = "label",
         className,
         children,
         forwardedRef,
@@ -146,36 +147,37 @@ export function InnerCheckbox(props) {
 
     const content = useRenderProps({ isChecked, isIndeterminate }, props, children);
 
+    const { text, icon, counter } = useSlots(content, useMemo(() => ({
+        _: {
+            defaultWrapper: Text
+        },
+        text: {
+            size,
+            className: "o-ui-checkbox-label"
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-checkbox-icon"
+        },
+        counter: {
+            size,
+            reverse,
+            className: "o-ui-checkbox-counter"
+        }
+    }), [size, reverse]));
+
     return (
-        <ElementType
-            data-testid="checkbox"
+        <Box
             {...rest}
             {...wrapperProps}
+            as={as}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-checkbox-label"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-checkbox-icon"
-                    },
-                    counter: {
-                        size,
-                        reverse,
-                        className: "o-ui-checkbox-counter"
-                    }
-                }}
-            >
-                <Wrap as={Text}>
-                    {content}
-                </Wrap>
-            </SlotProvider>
-        </ElementType>
+            {text}
+            {icon}
+            {counter}
+        </Box>
     );
 }
 

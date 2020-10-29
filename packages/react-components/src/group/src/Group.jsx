@@ -2,7 +2,7 @@ import { Flex } from "@react-components/layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { toFlexDirection, useFlexAlignment } from "../../layout";
+import { useFlexAlignment, useFlexDirection } from "../../layout";
 
 const propTypes = {
     /**
@@ -64,14 +64,14 @@ export function InnerGroup({
     forwardedRef,
     ...rest
 }) {
+    const directionProps = useFlexDirection(orientation);
     const alignProps = useFlexAlignment(orientation, align, verticalAlign);
 
     return (
         <Flex
             {...rest}
+            {...directionProps}
             {...alignProps}
-            direction={toFlexDirection(orientation)}
-
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >

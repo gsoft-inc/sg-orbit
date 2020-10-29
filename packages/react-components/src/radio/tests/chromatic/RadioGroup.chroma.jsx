@@ -45,23 +45,11 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end" gap={13}>
-            <RadioGroup size="sm">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup>
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup size="lg">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Inline>
+        <RadioGroup>
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
     )
     .add("selection", () =>
         <Inline>
@@ -238,25 +226,6 @@ stories("/horizontal")
             </Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    )
-    .add("size", () =>
-        <Stack>
-            <RadioGroup size="sm" orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-            <RadioGroup size="lg" orientation="horizontal">
-                <Radio value="1">1</Radio>
-                <Radio value="2">2</Radio>
-                <Radio value="3">3</Radio>
-            </RadioGroup>
-        </Stack>
     )
     .add("reverse", () =>
         <RadioGroup reverse orientation="horizontal">

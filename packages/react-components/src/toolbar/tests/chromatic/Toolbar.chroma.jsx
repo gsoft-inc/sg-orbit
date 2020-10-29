@@ -19,53 +19,21 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Stack>
-            <Toolbar size="sm">
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-                <RadioGroup>
-                    <Radio value="1">1</Radio>
-                    <Radio value="2">2</Radio>
-                    <Radio value="3">3</Radio>
-                </RadioGroup>
-            </Toolbar>
-            <Toolbar>
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-                <RadioGroup>
-                    <Radio value="1">1</Radio>
-                    <Radio value="2">2</Radio>
-                    <Radio value="3">3</Radio>
-                </RadioGroup>
-            </Toolbar>
-            <Toolbar size="lg">
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
-                    <NotificationIcon />
-                </ToggleIconButton>
-                <RadioGroup>
-                    <Radio value="1">1</Radio>
-                    <Radio value="2">2</Radio>
-                    <Radio value="3">3</Radio>
-                </RadioGroup>
-            </Toolbar>
-        </Stack>
+        <Toolbar>
+            <CheckboxGroup>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <NotificationIcon />
+            </ToggleIconButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Toolbar>
     )
     .add("disabled element", () =>
         <Toolbar autoFocus>
@@ -330,52 +298,6 @@ stories("/vertical")
                 <ToggleButton value="3">3</ToggleButton>
             </RadioGroup>
         </Toolbar>
-    )
-    .add("size", () =>
-        <Inline verticalAlign="end" gap={13}>
-            <Toolbar size="sm" orientation="vertical">
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <TextInput />
-                <ToggleButton>Activate</ToggleButton>
-                <RadioGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </RadioGroup>
-            </Toolbar>
-            <Toolbar orientation="vertical">
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <TextInput />
-                <ToggleButton>Activate</ToggleButton>
-                <RadioGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </RadioGroup>
-            </Toolbar>
-            <Toolbar size="lg" orientation="vertical">
-                <CheckboxGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </CheckboxGroup>
-                <TextInput />
-                <ToggleButton>Activate</ToggleButton>
-                <RadioGroup>
-                    <ToggleButton value="1">1</ToggleButton>
-                    <ToggleButton value="2">2</ToggleButton>
-                    <ToggleButton value="3">3</ToggleButton>
-                </RadioGroup>
-            </Toolbar>
-        </Inline>
     )
     .add("align", () =>
         <Inline gap={13}>

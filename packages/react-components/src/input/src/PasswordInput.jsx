@@ -80,7 +80,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */

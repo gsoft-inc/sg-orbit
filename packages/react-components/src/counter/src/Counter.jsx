@@ -1,8 +1,9 @@
 import "./Counter.css";
 
-import { SlotProvider, cssModule, mergeClasses, mergeProps, normalizeSize, useSlotProps } from "../../shared";
+import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, normalizeSize, slot } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -25,7 +26,7 @@ const propTypes = {
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * Default slot override.
      */
@@ -40,31 +41,26 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerCounter({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "counter");
-
+export function InnerCounter(props) {
     const {
         variant = "pill",
         color,
         highlight,
         reverse,
         size,
-        as: ElementType = "span",
+        as = "span",
         className,
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(
-        props,
-        slotProps
-    );
+    } = props;
 
     const content = variant === "divider"
-        ? <Text>{children}</Text>
+        ? <Text size={size}>{children}</Text>
         : children;
 
     return (
-        <ElementType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -77,23 +73,16 @@ export function InnerCounter({ slot, ...props }) {
                 ),
                 className
             )}
+            as={as}
             ref={forwardedRef}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size
-                    }
-                }}
-            >
-                {content}
-            </SlotProvider>
-        </ElementType>
+            {content}
+        </Box>
     );
 }
 
 InnerCounter.propTypes = propTypes;
 
-export const Counter = forwardRef((props, ref) => (
+export const Counter = slot("counter", forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
-));
+)));

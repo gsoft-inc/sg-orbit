@@ -1,8 +1,6 @@
 .o-ui-radio {
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
-    grid-template-columns: max-content max-content max-content max-content;
-    grid-template-areas: "button label icon counter";
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
@@ -11,27 +9,29 @@
 }
 
 /* BUTTON */
-.o-ui-radio .o-ui-radio-button {
-    grid-area: button;
+.o-ui-radio-button {
     display: inline-block;
     background-color: var(--white);
     border-radius: var(--o-ui-circular-border-radius);
     border: 1px solid var(--marine-100);
     position: relative;
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
-.o-ui-radio .o-ui-radio-button::before {
+.o-ui-radio-button::before {
     content: "";
     display: block;
     background-color: var(--primary-500);
     border-radius: var(--o-ui-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
+    width: var(--scale-echo);
+    height: var(--scale-echo);
 }
 
 /* CONTENT | LABEL */
-.o-ui-radio .o-ui-radio-label {
-    grid-area: label;
+.o-ui-radio-label {
     line-height: 1;
     margin-left: var(--scale-bravo);
 }
@@ -43,8 +43,7 @@
 }
 
 /* CONTENT | ICON */
-.o-ui-radio .o-ui-radio-icon {
-    grid-area: icon;
+.o-ui-radio-icon {
     margin-left: var(--scale-bravo);
 }
 
@@ -55,8 +54,7 @@
 }
 
 /* CONTENT | COUNTER */
-.o-ui-radio .o-ui-radio-counter {
-    grid-area: counter;
+.o-ui-radio-counter {
     margin-left: var(--scale-bravo);
 }
 
@@ -64,36 +62,6 @@
 .o-ui-radio-reverse .o-ui-radio-counter {
     margin-left: 0;
     margin-right: var(--scale-bravo);
-}
-
-.o-ui-radio-sm .o-ui-radio-button {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
-}
-
-.o-ui-radio-sm .o-ui-radio-button::before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
-}
-
-.o-ui-radio-md .o-ui-radio-button {
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-}
-
-.o-ui-radio-md .o-ui-radio-button::before {
-    width: var(--scale-echo);
-    height: var(--scale-echo);
-}
-
-.o-ui-radio-lg .o-ui-radio-button {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-}
-
-.o-ui-radio-lg .o-ui-radio-button::before {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
 }
 
 /* VALIDATION */
@@ -175,5 +143,5 @@
 
 /* REVERSE */
 .o-ui-radio-reverse {
-    grid-template-areas: "counter icon label button";
+    flex-direction: row-reverse;
 }

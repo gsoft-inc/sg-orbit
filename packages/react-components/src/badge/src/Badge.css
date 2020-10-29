@@ -1,6 +1,6 @@
 .o-ui-badge {
-    display: inline-block;
     position: relative;
+    width: max-content;
 }
 
 /* ANCHOR */
@@ -46,12 +46,6 @@
     padding: 0 0.4rem;
 }
 
-.o-ui-badge-count.o-ui-badge-lg .o-ui-badge-anchor {
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-    padding: 0 0.5rem;
-}
-
 /* DOT */
 .o-ui-badge-dot .o-ui-badge-anchor {
     background-color: var(--cloud-100);
@@ -69,12 +63,6 @@
     min-width: 0.5em;
     min-height: 0.5em;
     font-size: var(--type-scale-4);
-}
-
-.o-ui-badge-dot.o-ui-badge-lg .o-ui-badge-anchor {
-    min-width: 0.5em;
-    min-height: 0.5em;
-    font-size: 1.75rem;
 }
 
 /* ICON */

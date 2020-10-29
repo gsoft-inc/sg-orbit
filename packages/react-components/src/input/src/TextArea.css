@@ -2,7 +2,6 @@
 
 :root {
     --o-ui-resize: vertical;
-    --o-ui-textarea-padding-sm: var(--scale-bravo);
     --o-ui-textarea-padding-md: var(--scale-charlie);
     --o-ui-textarea-padding-lg: var(--scale-delta);
 }
@@ -14,12 +13,6 @@
 }
 
 /* SIZES */
-/* SIZES | SMALL */
-.o-ui-text-area.o-ui-input-sm textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-sm);
-    min-height: 60px;
-}
-
 /* SIZES | MEDIUM */
 .o-ui-text-area.o-ui-input-md textarea {
     padding: var(--scale-bravo) var(--o-ui-textarea-padding-md);

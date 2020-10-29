@@ -1,10 +1,8 @@
 .o-ui-checkbox {
     --o-ui-focus-ring-stroke-width: 2px;
     --o-ui-indeterminate-stroke-width: 5px;
-    display: inline-grid;
+    display: inline-flex;
     align-items: center;
-    grid-template-columns: max-content max-content max-content max-content;
-    grid-template-areas: "box label icon counter";
     cursor: pointer;
     line-height: 1;
     max-width: 100%;
@@ -15,7 +13,6 @@
 
 /* BOX */
 .o-ui-checkbox-box {
-    grid-area: box;
     position: relative;
     display: inline-block;
     width: var(--scale-echo);
@@ -80,7 +77,6 @@
 
 /* CONTENT | LABEL */
 .o-ui-checkbox-label {
-    grid-area: label;
     margin-left: var(--scale-bravo);
     overflow: hidden;
     white-space: nowrap;
@@ -96,7 +92,6 @@
 
 /* CONTENT | ICON */
 .o-ui-checkbox-icon {
-    grid-area: icon;
     margin-left: var(--scale-alpha);
 }
 
@@ -108,7 +103,6 @@
 
 /* CONTENT | COUNTER */
 .o-ui-checkbox-counter {
-    grid-area: counter;
     margin-left: var(--scale-bravo);
 }
 
@@ -120,7 +114,7 @@
 
 /* REVERSE */
 .o-ui-checkbox-reverse {
-    grid-template-areas: "counter icon label box";
+    flex-direction: row-reverse;
 }
 
 /* INVALID */
@@ -257,25 +251,6 @@
 .o-ui-checkbox-md .o-ui-checkbox-box:before {
     width: calc(var(--scale-echo) + (var(--o-ui-focus-ring-stroke-width) * 2));
     height: calc(var(--scale-echo) + (var(--o-ui-focus-ring-stroke-width) * 2));
-}
-
-/* SIZING | LARGE */
-.o-ui-checkbox-lg .o-ui-checkbox-box:before {
-    width: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2));
-    height: calc(var(--scale-foxtrot) + (var(--o-ui-focus-ring-stroke-width) * 2));
-}
-
-/* SIZING | LARGE | LABEL | */
-.o-ui-checkbox-lg .o-ui-checkbox-box {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-}
-
-/* SIZING | LARGE | BOX | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-lg .o-ui-checkbox-box:after {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-    mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
 }
 
 /* IN FIELD */

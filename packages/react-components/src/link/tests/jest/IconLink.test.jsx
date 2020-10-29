@@ -7,7 +7,7 @@ import { render, waitFor } from "@testing-library/react";
 
 test("when external, add target=\"_blank\"", async () => {
     const { getByTestId } = render(
-        <IconLink external href="#" aria-label="Add">
+        <IconLink external href="#" aria-label="Add" data-testid="icon-link">
             <AddIcon />
         </IconLink>
     );
@@ -19,7 +19,7 @@ test("when external, add target=\"_blank\"", async () => {
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = render(
-        <IconLink external href="#" aria-label="Add">
+        <IconLink external href="#" aria-label="Add" data-testid="icon-link">
             <AddIcon />
         </IconLink>
     );

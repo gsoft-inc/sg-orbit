@@ -1,18 +1,10 @@
-.o-ui-form:not(.o-ui-form-fluid) {
+.o-ui-form {
     width: max-content;
 }
 
 /* FIELD */
-.o-ui-form .o-ui-field-sm {
-    margin-bottom: var(--scale-delta);
-}
-
-.o-ui-form .o-ui-field-md {
+.o-ui-form .o-ui-field {
     margin-bottom: var(--scale-echo);
-}
-
-.o-ui-form .o-ui-field-lg {
-    margin-bottom: var(--scale-foxtrot);
 }
 
 /* FLUID */

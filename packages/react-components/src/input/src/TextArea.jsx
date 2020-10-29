@@ -1,5 +1,6 @@
 import "./TextArea.css";
 
+import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
@@ -77,10 +78,6 @@ const propTypes = {
      */
     maxRows: number,
     /**
-     * An input can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
-    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,
@@ -117,14 +114,13 @@ export function InnerTextArea(props) {
         loading,
         rows: rowsProp,
         maxRows,
-        size,
         active,
         focus,
         hover,
         className,
         style,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as = "div",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -159,7 +155,6 @@ export function InnerTextArea(props) {
         readOnly,
         fluid,
         loading,
-        size,
         active,
         focus,
         hover,
@@ -187,7 +182,7 @@ export function InnerTextArea(props) {
         adjustRows();
     }, [adjustRows, inputValue]);
 
-    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
     const content = (
         <>
@@ -205,8 +200,7 @@ export function InnerTextArea(props) {
     );
 
     return (
-        <ElementType
-            data-testid="text-area"
+        <Box
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(
@@ -215,9 +209,10 @@ export function InnerTextArea(props) {
                 ),
                 wrapperClassName
             )}
+            as={as}
         >
             {content}
-        </ElementType>
+        </Box>
     );
 }
 

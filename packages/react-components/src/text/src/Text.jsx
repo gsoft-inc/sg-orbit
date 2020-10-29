@@ -1,8 +1,9 @@
 import "./Text.css";
 
+import { Box } from "../../box";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses, mergeProps, normalizeSize, useSlotProps, useStyleProps } from "../../shared";
+import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export function getTextClass(size) {
     return `o-ui-text-${normalizeSize(size)}`;
@@ -29,37 +30,35 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerText({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "text");
+export function InnerText(props) {
     const [styleProps] = useStyleProps("text");
 
     const {
         size,
-        as: ElementType = "span",
+        as = "span",
         className,
         children,
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        slotProps,
         styleProps
     );
 
     return (
-        <ElementType
-            data-testid="text"
+        <Box
             {...rest}
             className={mergeClasses(getTextClass(size), className)}
+            as={as}
             ref={forwardedRef}
         >
             {children}
-        </ElementType>
+        </Box>
     );
 }
 
 InnerText.propTypes = propTypes;
 
-export const Text = forwardRef((props, ref) => (
+export const Text = slot("text", forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
-));
+)));

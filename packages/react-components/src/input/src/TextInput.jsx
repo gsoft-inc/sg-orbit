@@ -1,5 +1,6 @@
 import "./Input.css";
 
+import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { forwardRef } from "react";
@@ -71,7 +72,7 @@ const propTypes = {
     /**
      * An input can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["md", "lg"]),
     /**
      * Additional props to render on the wrapper element.
      */
@@ -110,7 +111,7 @@ export function InnerTextInput(props) {
         hover,
         className,
         wrapperProps: userWrapperProps,
-        as: ElementType = "div",
+        as = "div",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -161,7 +162,6 @@ export function InnerTextInput(props) {
         <>
             {iconMarkup}
             <input
-                data-testid="text-input"
                 {...rest}
                 {...inputProps}
             />
@@ -170,7 +170,7 @@ export function InnerTextInput(props) {
     );
 
     return (
-        <ElementType
+        <Box
             {...wrapperProps}
             className={mergeClasses(
                 cssModule(
@@ -180,9 +180,10 @@ export function InnerTextInput(props) {
                 ),
                 wrapperClassName
             )}
+            as={as}
         >
             {content}
-        </ElementType>
+        </Box>
     );
 }
 

@@ -1,6 +1,7 @@
 import "./Icon.css";
 
-import { cssModule, mergeClasses, mergeProps, normalizeSize, useSlotProps, useStyleProps } from "../../shared";
+import { Box } from "../../box";
+import { cssModule, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -20,12 +21,11 @@ const propTypes = {
     slot: string
 };
 
-export function InnerIcon({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot ?? "icon");
+export function InnerIcon(props) {
     const [styleProps] = useStyleProps("icon");
 
     const {
-        type: ComponentType,
+        type,
         size,
         disabled,
         className,
@@ -34,12 +34,11 @@ export function InnerIcon({ slot, ...props }) {
         ...rest
     } = mergeProps(
         props,
-        slotProps,
         styleProps
     );
 
     return (
-        <ComponentType
+        <Box
             {...rest}
             className={mergeClasses(
                 cssModule(
@@ -50,6 +49,7 @@ export function InnerIcon({ slot, ...props }) {
                 className
             )}
             focusable="false"
+            as={type}
             aria-hidden={isNil(ariaLabel)}
             aria-label={ariaLabel}
             ref={forwardedRef}
@@ -59,18 +59,18 @@ export function InnerIcon({ slot, ...props }) {
 
 InnerIcon.propTypes = propTypes;
 
-export const Icon = forwardRef((props, ref) => (
-    <InnerIcon {...props} forwardedRef={ref} />
+export const Icon = slot("icon", forwardRef((props, ref) => (
+    <InnerIcon {...props} forwardedRef={ref} />)
 ));
 
 function createIconFactory(type) {
-    return forwardRef((props, ref) =>
+    return slot("icon", forwardRef((props, ref) =>
         <Icon
             {...props}
             type={type}
             ref={ref}
         />
-    );
+    ));
 }
 
 [InnerIcon, Icon].forEach(x => {

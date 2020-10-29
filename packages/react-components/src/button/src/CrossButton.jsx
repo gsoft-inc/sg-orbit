@@ -2,6 +2,7 @@ import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
 import { bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -40,7 +41,7 @@ const propTypes = {
     slot: string
 };
 
-export function InnerCrossButton({ children, forwardedRef, ...rest }) {
+export function InnerCrossButton({ forwardedRef, ...rest }) {
     return (
         <IconButton
             {...rest}
@@ -48,13 +49,13 @@ export function InnerCrossButton({ children, forwardedRef, ...rest }) {
             shape="circular"
             ref={forwardedRef}
         >
-            {children ?? <CrossIcon />}
+            <CrossIcon />
         </IconButton>
     );
 }
 
 InnerCrossButton.propTypes = propTypes;
 
-export const CrossButton = forwardRef((props, ref) => (
+export const CrossButton = slot("button", forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
-));
+)));

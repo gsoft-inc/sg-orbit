@@ -1,6 +1,6 @@
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, useSlotProps } from "../../shared";
+import { omitProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -8,23 +8,18 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Default slot override.
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
     slot: string
 };
 
-export function InnerBox({ slot, ...props }) {
-    const [slotProps] = useSlotProps(slot);
-
+export function InnerBox(props) {
     const {
         as: ElementType = "div",
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(
-        props,
-        slotProps
-    );
+    } = omitProps(props, ["slot"]);
 
     return (
         <ElementType

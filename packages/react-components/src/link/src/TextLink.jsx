@@ -1,10 +1,10 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSize } from "../../icons";
-import { SlotProvider, Wrap, mergeProps, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
+import { mergeProps, useSlots, useStyleProps } from "../../shared";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -99,45 +99,32 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    let content = (
-        <Wrap as={Text}>
-            {children}
-        </Wrap>
-    );
-
-    if (external) {
-        content = (
-            <>
-                {content}
-                <ArrowIcon />
-            </>
-        );
-    }
+    const { "left-icon": leftIcon, text, icon } = useSlots(children, useMemo(() => ({
+        _: {
+            defaultWrapper: Text
+        },
+        "left-icon": {
+            size: embeddedIconSize(size),
+            className: "o-ui-link-left-icon"
+        },
+        text: {
+            size,
+            className: "o-ui-link-text"
+        },
+        icon: {
+            size: embeddedIconSize(size),
+            className: "o-ui-link-right-icon"
+        }
+    }), [size]));
 
     return (
         <ElementType
-            data-testid="text-link"
             {...rest}
             {...linkProps}
         >
-            <SlotProvider
-                value={{
-                    text: {
-                        size,
-                        className: "o-ui-link-text"
-                    },
-                    icon: {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-link-right-icon"
-                    },
-                    "left-icon": {
-                        size: embeddedIconSize(size),
-                        className: "o-ui-link-left-icon"
-                    }
-                }}
-            >
-                {content}
-            </SlotProvider>
+            {leftIcon}
+            {text}
+            {external ? <ArrowIcon /> : icon}
         </ElementType>
     );
 }
