@@ -1,47 +1,53 @@
-import { TabsContext } from "./TabsContext";
 import { Text } from "../../text";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
-import { forwardRef, useContext } from "react";
+import { any, bool, elementType, oneOfType, string } from "prop-types";
+import { forwardRef } from "react";
+import { mergeClasses } from "../../shared";
 
 const propTypes = {
+    /**
+     * The id of the tab controlling the tab panel.
+     */
+    tabId: string,
+    /**
+     * Whether or not the tab panel is selected.
+     */
+    selected: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
 
-export const TabPanel = forwardRef(({
-    index,
+export function InnerTabPanel({
     tabId,
+    selected,
+    as = "div",
     className,
     children,
+    forwardedRef,
     ...rest
-}, ref) => {
-    const { selectedIndex } = useContext(TabsContext);
-
+}) {
     return (
         <Text
             {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tab-panel"
-                ),
-                className
-            )}
+            className={mergeClasses("o-ui-tab-panel", className)}
             role="tabpanel"
-            tabIndex="0"
-            hidden={index !== selectedIndex}
+            hidden={!selected}
             aria-labelledby={tabId}
-            ref={ref}
+            as={as}
+            ref={forwardedRef}
         >
             {children}
         </Text>
     );
-});
+}
 
-TabPanel.propTypes = propTypes;
+InnerTabPanel.propTypes = propTypes;
+
+export const TabPanel = forwardRef((props, ref) => (
+    <InnerTabPanel {...props} forwardedRef={ref} />
+));

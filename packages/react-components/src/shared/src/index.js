@@ -19,6 +19,7 @@ export * from "./focusableTreeWalker";
 export * from "./omitProps";
 export * from "./arrayify";
 export * from "./slots";
+export * from "./resolveChildren";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -33,7 +34,6 @@ export * from "./useId";
 export * from "./useKeyboardNavigation";
 export * from "./useRovingFocus";
 export * from "./useHasChild";
-export * from "./useRenderProps";
 export * from "./useIsInitialRender";
 
 // Contexts

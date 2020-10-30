@@ -1,7 +1,7 @@
 import { IconButton } from "./IconButton";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, slot, useCheckableProps, useRenderProps } from "../../shared";
+import { mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -103,7 +103,7 @@ export function InnerToggleIconButton(props) {
         forwardedRef
     });
 
-    const content = useRenderProps({ isChecked }, props, children);
+    const content = resolveChildren(children, { isChecked });
 
     return (
         <ElementType

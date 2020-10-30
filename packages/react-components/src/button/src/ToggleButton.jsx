@@ -2,7 +2,7 @@ import { Box } from "../../box";
 import { Button } from "./Button";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, slot, useCheckableProps, useRenderProps } from "../../shared";
+import { mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const propTypes = {
@@ -94,7 +94,7 @@ export function InnerToggleButton(props) {
         forwardedRef
     });
 
-    const content = useRenderProps({ isChecked }, props, children);
+    const content = resolveChildren(children, { isChecked });
 
     return (
         <Box
