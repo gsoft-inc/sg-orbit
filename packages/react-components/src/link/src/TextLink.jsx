@@ -16,7 +16,7 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The underline style.
      */
