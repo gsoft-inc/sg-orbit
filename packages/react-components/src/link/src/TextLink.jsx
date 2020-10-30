@@ -34,10 +34,6 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether the link take up the width of its container.
-     */
-    fluid: bool,
-    /**
      * A link can vary in size.
      */
     size: oneOf(["sm", "md", "lg", "inherit"]),
@@ -61,7 +57,6 @@ export function InnerTextLink(props) {
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
         size,
         active,
         focus,
@@ -87,7 +82,6 @@ export function InnerTextLink(props) {
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
         size,
         active,
         focus,
