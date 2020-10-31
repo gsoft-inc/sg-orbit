@@ -256,11 +256,6 @@ button.o-ui-link-hover {
     cursor: pointer;
 }
 
-/* FLUID */
-.o-ui-link-fluid {
-    width: 100%;
-}
-
 /* INHERIT */
 .o-ui-link-inherit {
     color: inherit;

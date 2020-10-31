@@ -19,12 +19,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <div className="f5">
                     <TextLink size="inherit" href="#" element={element}>Flight details</TextLink>
                 </div>
-                <div>
-                    <TextLink fluid href="#" element={element}>Flight details</TextLink>
-                </div>
-                <div className="w-10">
-                    <TextLink fluid href="#" element={element}>Flight details</TextLink>
-                </div>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
@@ -48,18 +42,6 @@ export function createTextLinkTestSuite(element, stories) {
                         <ArrowIcon />
                     </TextLink>
                 </Inline>
-                <div>
-                    <TextLink fluid href="#" element={element}>
-                        <Text>Flight details</Text>
-                        <ArrowIcon />
-                    </TextLink>
-                </div>
-                <div className="w-10">
-                    <TextLink fluid href="#" element={element}>
-                        <Text>Flight details</Text>
-                        <ArrowIcon />
-                    </TextLink>
-                </div>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
@@ -84,18 +66,6 @@ export function createTextLinkTestSuite(element, stories) {
                         <Text>Flight details</Text>
                     </TextLink>
                 </Inline>
-                <div>
-                    <TextLink fluid href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
-                        <Text>Flight details</Text>
-                    </TextLink>
-                </div>
-                <div className="w-10">
-                    <TextLink fluid href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
-                        <Text>Flight details</Text>
-                    </TextLink>
-                </div>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
                         <InfoIcon slot="left-icon" />

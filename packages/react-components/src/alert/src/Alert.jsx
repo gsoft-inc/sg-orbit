@@ -56,6 +56,7 @@ const AlertContent = forwardRef(({
             <StyleProvider
                 value={{
                     link: {
+                        color: "inherit",
                         underline: "dotted"
                     },
                     heading: {

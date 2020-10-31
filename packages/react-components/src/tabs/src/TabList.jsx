@@ -1,8 +1,8 @@
-import { Box } from "../../box/src/Box";
+import { Box } from "../../box";
 import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
-import { TabImpl as Tab } from "./Tab";
-import { TabsContext } from "./TabsContext";
-import { useContext, useRef } from "react";
+import { TabElement } from "./TabElement";
+import { useRef } from "react";
+import { useTabsContext } from "./Tabs";
 
 const NAV_KEY_BINDING = {
     horizontal: {
@@ -26,7 +26,7 @@ export function TabList({
     className,
     ...rest
 }) {
-    const { selectedIndex, orientation } = useContext(TabsContext);
+    const { selectedIndex, orientation } = useTabsContext();
 
     const ref = useRef();
 
@@ -44,8 +44,12 @@ export function TabList({
             aria-orientation={orientation}
             ref={ref}
         >
-            {tabs.map(({ index, ...tabProps }) =>
-                <Tab
+            {tabs.map(({
+                index,
+                type: ElementType = TabElement,
+                ...tabProps
+            }) =>
+                <ElementType
                     {...tabProps}
                     index={index}
                     selected={selectedIndex === index}

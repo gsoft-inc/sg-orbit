@@ -1,13 +1,13 @@
 import "./Tabs.css";
 
-import { Box } from "../../box/src/Box";
+import { Box } from "../../box";
 import { TabList } from "./TabList";
-import { TabPanel } from "./TabPanel";
-import { TabsProvider } from "./TabsContext";
+import { TabPanels } from "./TabPanels";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { createContext, forwardRef, useContext } from "react";
 import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useId } from "../../shared";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
+import { useEffect } from "react";
 import { useTabsBuilder } from "./useTabsBuilder";
 
 const propTypes = {
@@ -27,7 +27,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Whether or not keyboard navigation changes focus between tabs but doens't activate it. User will have to press `Enter` to active it.
+     * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
     manual: bool,
     /**
@@ -43,7 +43,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children
      */
     children: any.isRequired
 };
@@ -65,23 +65,28 @@ export function InnerTabs(props) {
         ...rest
     } = props;
 
-    let [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex);
+    const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
-    const [tabs, panels] = useTabsBuilder(children, useId(id, id ? undefined : "o-ui-tabs"));
+    const [tabs, panels] = useTabsBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
 
-    selectedIndex = useMemo(() => {
-        if (isControlledIndex) {
-            if (tabs[selectedIndex ?? 0].disabled) {
-                throw new Error("The active tab index cannot match a disabled tab.");
-            }
-
-            return selectedIndex;
+    // Give an heads up to the consumer if he doesn't manage correctly the selected tab index & the disabled state.
+    if (isControlledIndex) {
+        if (isNil(selectedIndex)) {
+            throw new Error("The selected tab index cannot be null.");
         }
 
-        return isNil(selectedIndex)
-            ? tabs.find(x => !x.disabled).index
-            : selectedIndex;
-    }, [selectedIndex, isControlledIndex, tabs]);
+        if (tabs[selectedIndex].disabled) {
+            throw new Error("The selected tab index cannot match a disabled tab.");
+        }
+    }
+
+    // On autopilot, ensure the initial selected tab is not a disabled one.
+    useEffect(() => {
+        if (tabs[selectedIndex].disabled) {
+            setSelectedIndex(tabs.find(x => !x.disabled).index);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleSelect = useChainedEventCallback(onChange, (event, newIndex) => {
         setSelectedIndex(newIndex);
@@ -114,14 +119,7 @@ export function InnerTabs(props) {
                     autoFocus={autoFocus}
                     autoFocusDelay={autoFocusDelay}
                 />
-                <div
-                    {...rest}
-                    className="o-ui-tab-panels"
-                >
-                    {panels.map(panelProps =>
-                        <TabPanel {...panelProps} />
-                    )}
-                </div>
+                <TabPanels panels={panels} />
             </TabsProvider>
         </Box>
     );
@@ -133,4 +131,12 @@ export const Tabs = forwardRef((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
 
+////////
 
+export const TabsContext = createContext({});
+
+export const TabsProvider = TabsContext.Provider;
+
+export function useTabsContext() {
+    return useContext(TabsContext);
+}

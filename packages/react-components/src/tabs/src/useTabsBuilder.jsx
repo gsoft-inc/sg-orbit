@@ -1,19 +1,17 @@
 import { Children, useMemo } from "react";
-import { getSlots, mergeProps } from "../../shared";
+import { Content, Header } from "../../view";
 import { isNil } from "lodash";
-
-const slots = {
-    header: null,
-    content: null
-};
-
-function makeId({ props: { id } }, type, rootId, tabIndex) {
-    return id ?? `${rootId}-${type}-${tabIndex}`;
-}
+import { mergeProps, resolveChildren } from "../../shared";
 
 export class TabsBuilder {
-    build(children, rootId) {
-        if (isNil(children)) {
+    _rootId;
+
+    constructor(rootId) {
+        this._rootId = rootId;
+    }
+
+    build(elements, selectedIndex) {
+        if (isNil(elements)) {
             throw new Error("A tabs component must have children.");
         }
 
@@ -23,18 +21,25 @@ export class TabsBuilder {
         let tabIndex = 0;
         let nodeIndex = 0;
 
-        Children.forEach(children, tab => {
-            const { header, content } = getSlots(tab.props.children, slots);
+        Children.forEach(elements, tab => {
+            const [header, content] = Children.toArray(resolveChildren(tab.props.children, {
+                isActive: selectedIndex === tabIndex
+            }));
 
-            const tabId = makeId(header, "tab", rootId, tabIndex);
-            const panelId = makeId(content, "panel", rootId, tabIndex);
+            if (isNil(header) || isNil(content)) {
+                throw new Error("A tab item must have an <Header> and a <Content>.");
+            }
+
+            const tabId = this._makeId(header, "tab", tabIndex);
+            const panelId = this._makeId(content, "panel", tabIndex);
 
             tabs.push(
                 mergeProps(header.props, tab.props, {
                     id: tabId,
                     panelId,
                     index: tabIndex,
-                    as: header.type,
+                    // Use a custom type if available otherwise let the Tab component choose his default type.
+                    type: header.type !== Header ? header.type : undefined,
                     key: `.${nodeIndex++}`,
                     ref: header.ref
                 })
@@ -45,7 +50,8 @@ export class TabsBuilder {
                     id: panelId,
                     tabId,
                     index: tabIndex,
-                    as: content.type,
+                    // Use a custom type if available otherwise let the Tab component choose his default type.
+                    type: content.type !== Content ? content.type : undefined,
                     key: `.${nodeIndex++}`,
                     ref: content.ref
                 })
@@ -56,10 +62,14 @@ export class TabsBuilder {
 
         return [tabs, panels];
     }
+
+    _makeId({ props: { id } }, type, tabIndex) {
+        return id ?? `${this._rootId}-${type}-${tabIndex}`;
+    }
 }
 
-export function useTabsBuilder(children, rootId) {
-    const builder = useMemo(() => new TabsBuilder(), []);
+export function useTabsBuilder(tabs, selectedIndex, rootId) {
+    const builder = useMemo(() => new TabsBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(children, rootId), [builder, children, rootId]);
+    return useMemo(() => builder.build(tabs, selectedIndex), [builder, tabs, selectedIndex]);
 }

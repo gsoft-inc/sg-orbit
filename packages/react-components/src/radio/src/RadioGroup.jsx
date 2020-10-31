@@ -6,14 +6,14 @@ import {
     augmentElement,
     mergeProps,
     omitProps,
+    resolveChildren,
     useAutoFocusFirstTabbableElement,
     useControllableState,
     useEventCallback,
     useId,
     useKeyboardNavigation,
     useKeyedRovingFocus,
-    useMergedRefs,
-    useRenderProps
+    useMergedRefs
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
@@ -173,7 +173,7 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = useRenderProps({ checkedValue }, props, children);
+    const items = resolveChildren(children, { checkedValue });
 
     return (
         <Group
