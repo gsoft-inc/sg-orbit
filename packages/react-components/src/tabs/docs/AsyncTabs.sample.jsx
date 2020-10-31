@@ -41,7 +41,7 @@ function AsyncText({ isActive, children, ...rest }) {
 
 export function AsyncTabs() {
     return (
-        <Tabs manual>
+        <Tabs manual aria-label="Planets">
             {[
                 { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
                 { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },

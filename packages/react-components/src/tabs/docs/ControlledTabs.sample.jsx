@@ -10,7 +10,7 @@ export function ControlledTabs() {
     }, [setSelectedIndex]);
 
     return (
-        <Tabs index={selectedIndex} onChange={handleChange}>
+        <Tabs index={selectedIndex} onChange={handleChange} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

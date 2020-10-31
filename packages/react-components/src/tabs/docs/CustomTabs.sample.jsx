@@ -17,7 +17,7 @@ function ActiveHeader({ selected, children, ...rest }) {
 
 export function CustomTabs() {
     return (
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <ActiveHeader>Mars</ActiveHeader>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

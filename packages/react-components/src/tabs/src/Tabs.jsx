@@ -43,6 +43,10 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
+     * Tabs title for screen readers.
+     */
+    "aria-label": string.isRequired,
+    /**
      * React children
      */
     children: any.isRequired
@@ -60,6 +64,7 @@ export function InnerTabs(props) {
         fluid,
         orientation = "horizontal",
         className,
+        "aria-label": ariaLabel,
         children,
         forwardedRef,
         ...rest
@@ -118,6 +123,7 @@ export function InnerTabs(props) {
                     tabs={tabs}
                     autoFocus={autoFocus}
                     autoFocusDelay={autoFocusDelay}
+                    aria-label={ariaLabel}
                 />
                 <TabPanels panels={panels} />
             </TabsProvider>

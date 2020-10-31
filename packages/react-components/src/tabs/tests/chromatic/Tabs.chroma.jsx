@@ -18,7 +18,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>
@@ -46,7 +46,7 @@ stories()
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs fluid>
+        <Tabs fluid aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>
@@ -74,7 +74,7 @@ stories()
         </Tabs>
     )
     .add("default index", () =>
-        <Tabs defaultIndex={1}>
+        <Tabs defaultIndex={1} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -90,7 +90,7 @@ stories()
         </Tabs>
     )
     .add("tab with icon", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>
                     <NotificationIcon />
@@ -105,7 +105,7 @@ stories()
         </Tabs>
     )
     .add("tab with lozenge", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>
                     <Text>Mars</Text>
@@ -125,7 +125,7 @@ stories()
     )
     .add("tab overflow", () =>
         <Stack>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -135,7 +135,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
             </Tabs>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>
                         <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
@@ -148,7 +148,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
             </Tabs>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>
                         <NotificationIcon />
@@ -165,7 +165,7 @@ stories()
     )
     .add("states", () =>
         <Stack>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab selected>
                     <Header>Uranus</Header>
                     <Content>Uranus is the seventh planet from the Sun.</Content>
@@ -191,7 +191,7 @@ stories()
                     <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
                 </Tab>
             </Tabs>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab>
                     <Header>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -208,7 +208,7 @@ stories()
         </Stack>
     )
     .add("disabled tab is not tabbable", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab disabled>
                 <Header>
                     <NotificationIcon />
@@ -223,7 +223,7 @@ stories()
         </Tabs>
     )
     .add("render props", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 {({ isActive }) => (
                     <>
@@ -250,7 +250,7 @@ stories()
     )
     .add("data render", () =>
         <Stack>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 {[1, 2, 3].map(x => (
                     <Tab key={x}>
                         <Header>{`Header ${x}`}</Header>
@@ -258,7 +258,7 @@ stories()
                     </Tab>
                 ))}
             </Tabs>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 {[1, 2, 3].map(x => (
                     <Tab key={x}>
                         {({ isActive }) => (
@@ -310,7 +310,7 @@ stories()
 
         return (
             <Stack>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Tab>
                         <ActiveHeader>Mars</ActiveHeader>
                         <ColoredContent>Mars is the fourth planet from the Sun and the second-smallest planet.</ColoredContent>
@@ -324,7 +324,7 @@ stories()
                         <ColoredContent>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</ColoredContent>
                     </Tab>
                 </Tabs>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Tab>
                         <ColoredHeader>Mars</ColoredHeader>
                         <ColoredContent>Mars is the fourth planet from the Sun and the second-smallest planet.</ColoredContent>
@@ -365,7 +365,7 @@ stories()
         };
 
         return (
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab>
                     <Header as={RedHeader}>Mars</Header>
                     <Content as={BlueContent}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -382,7 +382,7 @@ stories()
         );
     })
     .add("autofocus", () =>
-        <Tabs autoFocus>
+        <Tabs autoFocus aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -398,7 +398,7 @@ stories()
         </Tabs>
     )
     .add("autofocus + default index", () =>
-        <Tabs autoFocus defaultIndex={1}>
+        <Tabs autoFocus defaultIndex={1} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -414,7 +414,7 @@ stories()
         </Tabs>
     )
     .add("autofocus with delay", () =>
-        <Tabs autoFocus autoFocusDelay={50}>
+        <Tabs autoFocus autoFocusDelay={50} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -432,7 +432,7 @@ stories()
 
 stories("/vertical")
     .add("default", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -448,7 +448,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs orientation="vertical" fluid style={{ height: "300px" }}>
+        <Tabs orientation="vertical" fluid style={{ height: "300px" }} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -464,7 +464,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("tab with icon", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>
                     <NotificationIcon />
@@ -479,7 +479,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("tab with lozenge", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>
                     <Text>Mars</Text>
@@ -498,7 +498,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("states", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab selected>
                 <Header>Uranus</Header>
                 <Content>Uranus is the seventh planet from the Sun.</Content>

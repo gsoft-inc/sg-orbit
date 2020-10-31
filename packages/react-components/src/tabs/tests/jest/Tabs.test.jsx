@@ -8,7 +8,7 @@ import { createRef } from "react";
 
 test("first tab is tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -26,7 +26,7 @@ test("first tab is tabbable", async () => {
 
 test("selected tab is tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs defaultIndex={1}>
+        <Tabs defaultIndex={1} aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -44,7 +44,7 @@ test("selected tab is tabbable", async () => {
 
 test("a disabled tab is not tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab disabled data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -63,7 +63,7 @@ test("a disabled tab is not tabbable", async () => {
 
 test("when automatic, focusing a tab change the active tab", async () => {
     const { getByTestId } = render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -84,7 +84,7 @@ test("when automatic, focusing a tab change the active tab", async () => {
 
 test("when manual, focusing a tab shouldn't change the active tab", async () => {
     const { getByTestId } = render(
-        <Tabs manual>
+        <Tabs manual aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -105,7 +105,7 @@ test("when manual, focusing a tab shouldn't change the active tab", async () => 
 
 test("when manual, spacebar keypress makes a tab active", async () => {
     const { getByTestId } = render(
-        <Tabs manual>
+        <Tabs manual aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -126,7 +126,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
 
 test("when manual, enter keypress makes a tab active", async () => {
     const { getByTestId } = render(
-        <Tabs manual>
+        <Tabs manual aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -147,7 +147,7 @@ test("when manual, enter keypress makes a tab active", async () => {
 
 test("when horizontal, right arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -172,7 +172,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
 
 test("when horizontal, left arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -197,7 +197,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
 
 test("when vertical, down arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -222,7 +222,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
 
 test("when vertical, up arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -251,7 +251,7 @@ test("call onChange when the active tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler}>
+        <Tabs onChange={handler} aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -274,7 +274,7 @@ test("dont call onChange when a tab is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler}>
+        <Tabs onChange={handler} aria-label="Planets">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -299,7 +299,7 @@ test("header ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header ref={ref}>Header</Header>
                 <Content>Content</Content>
@@ -317,7 +317,7 @@ test("content ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Header</Header>
                 <Content ref={ref}>Content</Content>
