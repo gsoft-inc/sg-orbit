@@ -1,0 +1,29 @@
+/* ICON BUTTON */
+.o-ui-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+}
+
+/* SIZES | ROUNDED */
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-2xs {
+    min-width: var(--scale-echo);
+}
+
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-xs {
+    min-width: var(--scale-foxtrot);
+}
+
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
+    min-width: var(--scale-golf);
+}
+
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-md {
+    min-width: var(--scale-hotel);
+}
+
+.o-ui-icon-button.o-ui-button-rounded.o-ui-button-lg {
+    min-width: var(--scale-india);
+}
