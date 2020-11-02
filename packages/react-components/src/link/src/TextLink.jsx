@@ -16,7 +16,7 @@ const propTypes = {
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
      * The underline style.
      */
@@ -33,10 +33,6 @@ const propTypes = {
      * The delay before trying to autofocus.
      */
     autoFocusDelay: number,
-    /**
-     * Whether the link take up the width of its container.
-     */
-    fluid: bool,
     /**
      * A link can vary in size.
      */
@@ -61,7 +57,6 @@ export function InnerTextLink(props) {
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
         size,
         active,
         focus,
@@ -87,7 +82,6 @@ export function InnerTextLink(props) {
         external,
         autoFocus,
         autoFocusDelay,
-        fluid,
         size,
         active,
         focus,

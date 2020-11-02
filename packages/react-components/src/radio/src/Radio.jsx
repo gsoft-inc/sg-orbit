@@ -9,12 +9,12 @@ import {
     mergeClasses,
     mergeProps,
     omitProps,
+    resolveChildren,
     useAutoFocus,
     useCheckableProps,
     useControllableState,
     useEventCallback,
     useForwardInputApi,
-    useRenderProps,
     useSlots
 } from "../../shared";
 import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
@@ -119,7 +119,7 @@ export function InnerRadio(props) {
         onCheck(event, value);
     });
 
-    const content = useRenderProps({ isChecked }, props, children);
+    const content = resolveChildren(children, { isChecked });
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {

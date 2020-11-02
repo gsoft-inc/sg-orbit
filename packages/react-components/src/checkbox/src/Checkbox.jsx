@@ -7,7 +7,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
-import { mergeProps, omitProps, useCheckableProps, useEventCallback, useRenderProps, useSlots } from "../../shared";
+import { mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -145,7 +145,7 @@ export function InnerCheckbox(props) {
         forwardedRef
     });
 
-    const content = useRenderProps({ isChecked, isIndeterminate }, props, children);
+    const content = resolveChildren(children, { isChecked, isIndeterminate });
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {

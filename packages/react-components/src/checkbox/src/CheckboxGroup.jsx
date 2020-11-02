@@ -1,6 +1,6 @@
 import "./CheckboxGroup.css";
 
-import { CheckableProvider, augmentElement, mergeProps, omitProps, useControllableState, useEventCallback, useRenderProps } from "../../shared";
+import { CheckableProvider, augmentElement, mergeProps, omitProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
@@ -126,7 +126,7 @@ export function InnerCheckboxGroup(props) {
         }
     });
 
-    const items = useRenderProps({ checkedValue }, props, children);
+    const items = resolveChildren(children, { checkedValue });
 
     return (
         <Group

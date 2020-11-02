@@ -1,5 +1,5 @@
 import { Children, useMemo } from "react";
-import { augmentElement } from "../../shared";
+import { augmentElement, resolveChildren } from "../../shared";
 import { isNil, isString, isUndefined } from "lodash";
 
 const SLOT_KEY = "__slot__";
@@ -14,6 +14,8 @@ export { slotDecorator as slot };
 
 export function getSlots(children, { _ = {}, ...slots }) {
     const slotElements = {};
+
+    children = resolveChildren(children);
 
     if (!isString(children)) {
         const slotsKeys = Object.keys(slots);

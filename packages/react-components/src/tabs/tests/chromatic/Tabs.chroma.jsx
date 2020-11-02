@@ -1,13 +1,11 @@
 import { Box } from "@react-components/box";
+import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/view";
 import { Lozenge } from "@react-components/lozenge";
-import { NotificationIcon } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
-import { Tab, Tabs } from "@react-components/tabs";
+import { Tab, TabElement, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import { forwardRef } from "react";
-import { slot } from "@react-components/shared";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tabs"))
@@ -20,7 +18,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>
@@ -48,7 +46,7 @@ stories()
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs fluid>
+        <Tabs fluid aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>
@@ -76,56 +74,44 @@ stories()
         </Tabs>
     )
     .add("default index", () =>
-        <Tabs defaultIndex={1}>
+        <Tabs defaultIndex={1} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     )
     .add("tab with icon", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>
                     <NotificationIcon />
                     <Text>Mars</Text>
                 </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
         </Tabs>
     )
     .add("tab with lozenge", () =>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>
                     <Text>Mars</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>
@@ -133,15 +119,13 @@ stories()
                     <Text>Jupiter</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
         </Tabs>
     )
     .add("tab overflow", () =>
         <Stack>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -151,7 +135,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
             </Tabs>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>
                         <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
@@ -164,7 +148,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
             </Tabs>
-            <Tabs style={{ width: "300px" }}>
+            <Tabs style={{ width: "300px" }} aria-label="Planets">
                 <Tab>
                     <Header>
                         <NotificationIcon />
@@ -181,265 +165,327 @@ stories()
     )
     .add("states", () =>
         <Stack>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab selected>
                     <Header>Uranus</Header>
-                    <Content>
-                        Uranus is the seventh planet from the Sun.
-                    </Content>
+                    <Content>Uranus is the seventh planet from the Sun.</Content>
                 </Tab>
                 <Tab active>
                     <Header>Mars</Header>
-                    <Content>
-                        Mars is the fourth planet from the Sun and the second-smallest planet.
-                    </Content>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Tab>
                 <Tab focus>
                     <Header>Jupiter</Header>
-                    <Content>
-                        Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                    </Content>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
                 <Tab hover>
                     <Header>Venus</Header>
-                    <Content>
-                        Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                    </Content>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Tab>
                 <Tab focus hover>
                     <Header>Saturn</Header>
-                    <Content>
-                        Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.
-                    </Content>
+                    <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Tab>
                 <Tab disabled>
                     <Header>Neptune</Header>
-                    <Content>
-                        Neptune is the eighth and farthest-known Solar planet from the Sun.
-                    </Content>
+                    <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
                 </Tab>
             </Tabs>
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab>
                     <Header>Mars</Header>
-                    <Content>
-                        Mars is the fourth planet from the Sun and the second-smallest planet.
-                    </Content>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Tab>
                 <Tab disabled>
                     <Header>Jupiter</Header>
-                    <Content>
-                        Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                    </Content>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
                 <Tab>
                     <Header>Venus</Header>
-                    <Content>
-                        Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                    </Content>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Tab>
             </Tabs>
         </Stack>
     )
+    .add("disabled tab is not tabbable", () =>
+        <Tabs aria-label="Planets">
+            <Tab disabled>
+                <Header>
+                    <NotificationIcon />
+                    <Text>Mars</Text>
+                </Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Tab>
+            <Tab>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+        </Tabs>
+    )
+    .add("render props", () =>
+        <Tabs aria-label="Planets">
+            <Tab>
+                {({ isActive }) => (
+                    <>
+                        <Header>
+                            {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                            <Text>Mars</Text>
+                        </Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </>
+                )}
+            </Tab>
+            <Tab>
+                {({ isActive }) => (
+                    <>
+                        <Header>
+                            {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                            <Text>Jupiter</Text>
+                        </Header>
+                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                    </>
+                )}
+            </Tab>
+        </Tabs>
+    )
+    .add("data render", () =>
+        <Stack>
+            <Tabs aria-label="Planets">
+                {[1, 2, 3].map(x => (
+                    <Tab key={x}>
+                        <Header>{`Header ${x}`}</Header>
+                        <Content>{`Content ${x}`}</Content>
+                    </Tab>
+                ))}
+            </Tabs>
+            <Tabs aria-label="Planets">
+                {[1, 2, 3].map(x => (
+                    <Tab key={x}>
+                        {({ isActive }) => (
+                            <>
+                                <Header>
+                                    {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                                    <Text>{`Header ${x}`}</Text>
+                                </Header>
+                                <Content>{`Content ${x}`}</Content>
+                            </>
+                        )}
+                    </Tab>
+                ))}
+            </Tabs>
+        </Stack>
+    )
     .add("custom components", () => {
-        const RedHeader = slot("header", ({ children }) => {
+        const ActiveHeader = ({ selected, children, ...rest }) => {
             return (
-                <Header style={{ backgroundColor: "red" }}>
-                    {children}
-                </Header>
+                <TabElement
+                    {...rest}
+                    selected={selected}
+                >
+                    {selected ? <CheckCircleIcon /> : <CrossIcon />}
+                    <Text>{children}</Text>
+                </TabElement>
             );
-        });
+        };
 
-        const BlueHeader = slot("header", forwardRef(({ children }, ref) => {
+        const ColoredHeader = ({ children, ...rest }) => {
             return (
-                <Header style={{ backgroundColor: "blue" }} ref={ref}>
-                    {children}
-                </Header>
+                <TabElement {...rest} >
+                    <Text style={{ color: "red" }}>{children}</Text>
+                </TabElement>
             );
-        }));
+        };
 
-        const PurpleHeader = ({ children, ...rest }) => {
+        const ColoredContent = ({ selected, children, ...rest }) => {
             return (
-                <Box style={{ backgroundColor: "purple" }} {...rest}>
+                <TabPanel
+                    {...rest}
+                    selected={selected}
+                    style={selected ? { backgroundColor: "red" } : undefined}
+                >
+                    {children}
+                </TabPanel>
+            );
+        };
+
+        return (
+            <Stack>
+                <Tabs aria-label="Planets">
+                    <Tab>
+                        <ActiveHeader>Mars</ActiveHeader>
+                        <ColoredContent>Mars is the fourth planet from the Sun and the second-smallest planet.</ColoredContent>
+                    </Tab>
+                    <Tab>
+                        <ActiveHeader>Jupiter</ActiveHeader>
+                        <ColoredContent>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</ColoredContent>
+                    </Tab>
+                    <Tab>
+                        <ActiveHeader>Venus</ActiveHeader>
+                        <ColoredContent>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</ColoredContent>
+                    </Tab>
+                </Tabs>
+                <Tabs aria-label="Planets">
+                    <Tab>
+                        <ColoredHeader>Mars</ColoredHeader>
+                        <ColoredContent>Mars is the fourth planet from the Sun and the second-smallest planet.</ColoredContent>
+                    </Tab>
+                    <Tab>
+                        <ColoredHeader>Jupiter</ColoredHeader>
+                        <ColoredContent>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</ColoredContent>
+                    </Tab>
+                    <Tab>
+                        <ColoredHeader>Venus</ColoredHeader>
+                        <ColoredContent>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</ColoredContent>
+                    </Tab>
+                </Tabs>
+            </Stack>
+        );
+    })
+    .add("custom as", () => {
+        const RedHeader = ({ children, ...rest }) => {
+            return (
+                <Box
+                    {...rest}
+                    style={{ color: "red" }}
+                >
+                    {children}
+                </Box>
+            );
+        };
+
+        const BlueContent = ({ children, ...rest }) => {
+            return (
+                <Box
+                    {...rest}
+                    style={{ backgroundColor: "blue" }}
+                >
                     {children}
                 </Box>
             );
         };
 
         return (
-            <Tabs>
+            <Tabs aria-label="Planets">
                 <Tab>
-                    <RedHeader>Mars</RedHeader>
-                    <Content>
-                        Mars is the fourth planet from the Sun and the second-smallest planet.
-                    </Content>
+                    <Header as={RedHeader}>Mars</Header>
+                    <Content as={BlueContent}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Tab>
                 <Tab>
-                    <BlueHeader>Jupiter</BlueHeader>
-                    <Content>
-                        Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                    </Content>
+                    <Header as={RedHeader}>Jupiter</Header>
+                    <Content as={BlueContent}>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Tab>
                 <Tab>
-                    <PurpleHeader slot="header">Venus</PurpleHeader>
-                    <Content>
-                        Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                    </Content>
+                    <Header as={RedHeader}>Venus</Header>
+                    <Content as={BlueContent}>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Tab>
             </Tabs>
         );
     })
-    .add("data render", () =>
-        <Tabs>
-            {[1, 2, 3].map(x => (
-                <Tab key={x}>
-                    <Header>{`Header ${x}`}</Header>
-                    <Content>{`Content ${x}`}</Content>
-                </Tab>
-            ))}
-        </Tabs>
-    )
     .add("autofocus", () =>
-        <Tabs autoFocus>
+        <Tabs autoFocus aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     )
     .add("autofocus + default index", () =>
-        <Tabs autoFocus defaultIndex={1}>
+        <Tabs autoFocus defaultIndex={1} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     )
     .add("autofocus with delay", () =>
-        <Tabs autoFocus autoFocusDelay={50}>
+        <Tabs autoFocus autoFocusDelay={50} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     );
 
 stories("/vertical")
     .add("default", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs orientation="vertical" fluid style={{ height: "300px" }}>
+        <Tabs orientation="vertical" fluid style={{ height: "300px" }} aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
     )
     .add("tab with icon", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>
                     <NotificationIcon />
                     <Text>Mars</Text>
                 </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
         </Tabs>
     )
     .add("tab with lozenge", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>
                     <Text>Mars</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>
                 <Header>
@@ -447,49 +493,35 @@ stories("/vertical")
                     <Text>Jupiter</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
         </Tabs>
     )
     .add("states", () =>
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab selected>
                 <Header>Uranus</Header>
-                <Content>
-                    Uranus is the seventh planet from the Sun.
-                </Content>
+                <Content>Uranus is the seventh planet from the Sun.</Content>
             </Tab>
             <Tab active>
                 <Header>Mars</Header>
-                <Content>
-                    Mars is the fourth planet from the Sun and the second-smallest planet.
-                </Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab focus>
                 <Header>Jupiter</Header>
-                <Content>
-                    Jupiter is the fifth planet from the Sun and the largest in the Solar System.
-                </Content>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Tab>
             <Tab hover>
                 <Header>Venus</Header>
-                <Content>
-                    Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
-                </Content>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
             <Tab focus hover>
                 <Header>Saturn</Header>
-                <Content>
-                    Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.
-                </Content>
+                <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
             </Tab>
             <Tab disabled>
                 <Header>Neptune</Header>
-                <Content>
-                    Neptune is the eighth and farthest-known Solar planet from the Sun.
-                </Content>
+                <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
             </Tab>
         </Tabs>
     );

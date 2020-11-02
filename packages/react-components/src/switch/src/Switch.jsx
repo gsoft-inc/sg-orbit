@@ -6,7 +6,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
-import { mergeProps, omitProps, useRenderProps, useSlots } from "../../shared";
+import { mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -119,7 +119,7 @@ export function InnerSwitch(props) {
         forwardedRef
     });
 
-    const content = useRenderProps({ isChecked }, props, children);
+    const content = resolveChildren(children, { isChecked });
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {

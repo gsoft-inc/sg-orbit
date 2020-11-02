@@ -1,10 +1,13 @@
+import { AsyncTabs } from "./AsyncTabs.sample";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
 import { ControlledTabs } from "./ControlledTabs.sample";
+import { CustomTabs } from "./CustomTabs.sample";
 import { FilePreview, ReactComponentsLayout } from "@blocks";
-import { InnerTabs, Tab, Tabs } from "@react-components/tabs";
+import { Fragment } from "react";
+import { InnerTab, InnerTabElement, InnerTabPanel, InnerTabs, Tab, Tabs } from "@react-components/tabs";
+import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { NotificationIcon } from "@react-components/icons";
 import { RefLogger, paramsBuilder } from "@utils";
 import { Text } from "@react-components/text";
 
@@ -31,9 +34,11 @@ Tabs are used to organize content by grouping similar information on the same pa
     </div>
 </dl>
 
-## Content
+## Accessibility
 
-A tab must have a label and can optionnaly accept an icon and a lozenge. Text only tab accept a string as children. An icon and a lozenge can also be added as children, with a sibling text element for the label.
+An accessible title must be provided through aria-label prop. See [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties-20).
+
+## Usage
 
 ### Icon
 
@@ -41,7 +46,7 @@ A tab can contain [icons](?path=/docs/materials-icons--page).
 
 <Preview>
     <Story name="icon">
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -67,7 +72,7 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
 
 <Preview>
     <Story name="lozenge">
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -87,7 +92,67 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
     </Story>
 </Preview>
 
-## Manually activated tabs
+### Render props
+
+A tab can update is content based on the `isActive` value by providing a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Tabs aria-label="Planets">
+            <Tab>
+                {({ isActive }) => (
+                    <Fragment>
+                        <Header>
+                            {isActive ? <LightbulbIcon /> : <NotificationIcon />}
+                            <Text>Mars</Text>
+                        </Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Fragment>
+                )}
+            </Tab>
+            <Tab>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Tab>
+            <Tab>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Tab>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Custom components
+
+The previous render props example could also be achieve by using a custom component by leveraging the fact that an header component receive a `select` prop.
+
+<FilePreview filePath="/tabs/docs/CustomTabs">
+    <CustomTabs />
+</FilePreview>
+
+### Data tabs
+
+You can supply tabs content with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data render">
+        <Tabs aria-label="Planets">
+            {[
+                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ]
+                .map(({ header, content }) =>
+                    <Tab key={header}>
+                        <Header>{header}</Header>
+                        <Content>{content}</Content>
+                    </Tab>
+                )}
+        </Tabs>
+    </Story>
+</Preview>
+
+### Manually activated tabs
 
 By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
 
@@ -97,7 +162,7 @@ In this scenario, you should use a manually activated tab, it moves focus withou
 
 <Preview>
     <Story name="manual">
-        <Tabs manual>
+        <Tabs manual aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -114,28 +179,13 @@ In this scenario, you should use a manually activated tab, it moves focus withou
     </Story>
 </Preview>
 
-## Data tabs
+### Async content
 
-You can supply tabs content with an array instead of using the granular components.
+We do recommend using the render prop function syntax to load async content.
 
-<Preview>
-    <Story name="data">
-        <Tabs>
-            {[
-                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
-                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
-                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
-            ].map(({ header, content }) =>
-                <Tab key="header">
-                    <Header>{header}</Header>
-                    <Content>{content}</Content>
-                </Tab>
-            )}
-        </Tabs>
-    </Story>
-</Preview>
-
-## Visual options
+<FilePreview filePath="/tabs/docs/AsyncTabs">
+    <AsyncTabs />
+</FilePreview>
 
 ### Orientation
 
@@ -143,7 +193,7 @@ A tabs can change is orientation to vertical.
 
 <Preview>
     <Story name="orientation">
-        <Tabs orientation="vertical">
+        <Tabs orientation="vertical" aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -166,7 +216,7 @@ A tabs component can split the width of it's container equally between his tabs.
 
 <Preview>
     <Story name="fluid">
-        <Tabs fluid>
+        <Tabs fluid aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -189,7 +239,7 @@ A tab can be disabled.
 
 <Preview>
     <Story name="disabled tab">
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -206,7 +256,7 @@ A tab can be disabled.
     </Story>
 </Preview>
 
-## Controlled
+### Controlled
 
 The selected `index` can be handled in controlled mode.
 
@@ -218,20 +268,19 @@ The selected `index` can be handled in controlled mode.
 
 ### Tabs
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>header | content</dd>
-    </div>
-</dl>
+Root component for tabs.
 
 <Props of={InnerTabs} />
 
 ### Tab
 
-_No specific props for this component._
+Placeholder component to define a tabs _item_.
+
+<Props of={InnerTab} />
 
 ### Header
+
+Placeholder component to define the _header_ of a tab.
 
 <dl>
     <div>
@@ -244,7 +293,28 @@ _No specific props for this component._
 
 ### Content
 
+Placeholder component to define the _content_ of a tab.
+
 <Props of={InnerContent} />
+
+### TabElement
+
+Underlying tab component.
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>icon | text | lozenge</dd>
+    </div>
+</dl>
+
+<Props of={InnerTabElement} />
+
+### TabPanel
+
+Underlying tab panel component.
+
+<Props of={InnerTabPanel} />
 
 <Story
     name="ref"
@@ -253,7 +323,7 @@ _No specific props for this component._
         .build()}
 >
     <RefLogger>
-        <Tabs>
+        <Tabs aria-label="Planets">
             <Tab>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

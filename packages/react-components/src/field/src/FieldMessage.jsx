@@ -76,6 +76,7 @@ export const FieldMessage = forwardRef(({
                     },
                     link: {
                         size: "inherit",
+                        color: "inherit",
                         underline: "dotted"
                     },
                     list: {

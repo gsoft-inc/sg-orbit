@@ -13,7 +13,7 @@ const propTypes = {
      */
     slot: string,
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };

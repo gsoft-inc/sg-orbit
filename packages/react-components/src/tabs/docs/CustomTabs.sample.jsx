@@ -1,18 +1,25 @@
 import { Content, Header } from "@react-components/view";
-import { Tab, Tabs } from "@react-components/tabs";
-import { useCallback, useState } from "react";
+import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Tab, TabElement, Tabs } from "@react-components/tabs";
+import { Text } from "@react-components/text";
 
-export function ControlledTabs() {
-    const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const handleChange = useCallback((event, index) => {
-        setSelectedIndex(index);
-    }, [setSelectedIndex]);
-
+function ActiveHeader({ selected, children, ...rest }) {
     return (
-        <Tabs index={selectedIndex} onChange={handleChange} aria-label="Planets">
+        <TabElement
+            {...rest}
+            selected={selected}
+        >
+            {selected ? <LightbulbIcon /> : <NotificationIcon />}
+            <Text>{children}</Text>
+        </TabElement>
+    );
+}
+
+export function CustomTabs() {
+    return (
+        <Tabs aria-label="Planets">
             <Tab>
-                <Header>Mars</Header>
+                <ActiveHeader>Mars</ActiveHeader>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Tab>
             <Tab>

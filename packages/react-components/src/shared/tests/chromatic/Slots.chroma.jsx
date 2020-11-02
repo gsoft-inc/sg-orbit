@@ -44,23 +44,6 @@ const Card = forwardRef(({ children, ...rest }, ref) => {
     );
 });
 
-function NoDefaultAndPassThroughCard({ children, ...rest }) {
-    const { content } = useSlots(children, useMemo(() => ({
-        content: {
-            style: {
-                backgroundColor: "blue",
-                color: "white"
-            }
-        }
-    }), []));
-
-    return (
-        <Box {...rest}>
-            {content}
-        </Box>
-    );
-}
-
 const Title = slot("title", forwardRef(({ children, ...rest }, ref) => {
     return (
         <Box
@@ -93,9 +76,7 @@ stories()
     .add("dynamic slot", () =>
         <Card>
             <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
-            <Box slot="content" style={{ backgroundColor: "purple" }}>
-                Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
-            </Box>
+            <Box slot="content" style={{ backgroundColor: "purple" }}>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Box>
         </Card>
     )
     .add("wrap string content", () =>
@@ -111,13 +92,38 @@ stories()
     .add("user props on slotted component", () =>
         <Card>
             <Title className="pa2">SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
-            <Content className="pa2">
-                Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
-            </Content>
+            <Content className="pa2">Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
         </Card>
     )
-    .add("no default card", () =>
-        <NoDefaultAndPassThroughCard>
-            <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
-        </NoDefaultAndPassThroughCard>
+    .add("no default card", () => {
+        const NoDefaultAndPassThroughCard = ({ children, ...rest }) => {
+            const { content } = useSlots(children, useMemo(() => ({
+                content: {
+                    style: {
+                        backgroundColor: "blue",
+                        color: "white"
+                    }
+                }
+            }), []));
+
+            return (
+                <Box {...rest}>
+                    {content}
+                </Box>
+            );
+        };
+
+        return (
+            <NoDefaultAndPassThroughCard>
+                <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+            </NoDefaultAndPassThroughCard>
+        );
+    })
+    .add("support fragment", () =>
+        <Card>
+            <>
+                <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
+                <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+            </>
+        </Card>
     );
