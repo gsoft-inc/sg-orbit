@@ -1,4 +1,3 @@
-import "./Button.css";
 import "./TextButton.css";
 
 import { Box } from "../../box";
@@ -147,7 +146,6 @@ export function InnerButton(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-button",
-                    "with-text",
                     icon && "has-icon"
                 ),
                 buttonClassName

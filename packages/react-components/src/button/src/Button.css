@@ -49,14 +49,6 @@ a.o-ui-button {
 }
 
 /* SIZES */
-.o-ui-button-2xs {
-    min-height: var(--o-ui-button-height-2xs);
-}
-
-.o-ui-button-xs {
-    min-height: var(--o-ui-button-height-xs);
-}
-
 .o-ui-button-sm {
     min-height: var(--o-ui-button-height-sm);
 }
