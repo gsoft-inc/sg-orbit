@@ -87,7 +87,7 @@
 /* TEXT */
 .o-ui-text-link {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
@@ -160,6 +160,12 @@
 .o-ui-link-solid .o-ui-link-text {
     text-decoration: underline;
     text-decoration-style: solid;
+}
+
+/* ICON */
+.o-ui-link-left-icon,
+.o-ui-link-right-icon {
+    flex-shrink: 0;
 }
 
 /* LEFT ICON */

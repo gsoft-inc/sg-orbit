@@ -3,8 +3,8 @@ import "./Link.css";
 import { ArrowIcon, embeddedIconSize } from "../../icons";
 import { Text } from "../../text";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { forwardRef, useMemo } from "react";
-import { mergeProps, useSlots, useStyleProps } from "../../shared";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -113,11 +113,15 @@ export function InnerTextLink(props) {
             size,
             className: "o-ui-link-text"
         },
-        icon: {
-            size: embeddedIconSize(size),
-            className: "o-ui-link-right-icon"
-        }
+        icon: null
     }), [size]));
+
+    const iconElement = external ? <ArrowIcon /> : icon;
+
+    const iconMarkup = iconElement && augmentElement(iconElement, {
+        size: embeddedIconSize(size),
+        className: "o-ui-link-right-icon"
+    });
 
     return (
         <ElementType
@@ -126,7 +130,7 @@ export function InnerTextLink(props) {
         >
             {leftIcon}
             {text}
-            {external ? <ArrowIcon /> : icon}
+            {iconMarkup}
         </ElementType>
     );
 }
