@@ -15,7 +15,7 @@ const propTypes = {
     /**
      * The buttons size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * Whether or not the group take up the width of its container.
      */
@@ -33,13 +33,11 @@ const propTypes = {
 const GAP = {
     "horizontal": {
         "sm": 3,
-        "md": 4,
-        "lg": 5
+        "md": 4
     },
     "vertical": {
         "sm": 2,
-        "md": 3,
-        "lg": 4
+        "md": 3
     }
 };
 

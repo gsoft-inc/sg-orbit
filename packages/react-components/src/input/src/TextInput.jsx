@@ -70,10 +70,6 @@ const propTypes = {
      */
     loading: bool,
     /**
-     * An input can vary in size.
-     */
-    size: oneOf(["md", "lg"]),
-    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,
@@ -105,7 +101,6 @@ export function InnerTextInput(props) {
         readOnly,
         fluid,
         loading,
-        size,
         active,
         focus,
         hover,
@@ -145,7 +140,6 @@ export function InnerTextInput(props) {
         readOnly,
         fluid,
         loading,
-        size,
         active,
         focus,
         hover,
@@ -154,9 +148,9 @@ export function InnerTextInput(props) {
         forwardedRef
     });
 
-    const iconMarkup = useInputIcon(icon, { size, disabled });
+    const iconMarkup = useInputIcon(icon, { disabled });
 
-    const buttonMarkup = useInputButton(button, !disabled && !readOnly, { size });
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
     const content = (
         <>

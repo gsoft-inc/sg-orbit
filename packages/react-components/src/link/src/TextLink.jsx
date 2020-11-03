@@ -10,9 +10,17 @@ import { useLink } from "./useLink";
 
 const propTypes = {
     /**
-     * The URL that the link points to.
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     href: string,
+    /**
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target: string,
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel: string,
     /**
      * The color accent.
      */
@@ -36,7 +44,7 @@ const propTypes = {
     /**
      * A link can vary in size.
      */
-    size: oneOf(["sm", "md", "lg", "inherit"]),
+    size: oneOf(["sm", "md", "inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -52,6 +60,8 @@ export function InnerTextLink(props) {
     const [formProps] = useFormButton();
 
     const {
+        target,
+        rel,
         color,
         underline,
         external,
@@ -62,8 +72,6 @@ export function InnerTextLink(props) {
         focus,
         hover,
         visited,
-        target,
-        rel,
         as: ElementType = "a",
         className,
         children,

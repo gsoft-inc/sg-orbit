@@ -179,7 +179,7 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="start">
-                    <TextLink as="button">Reset</TextLink>
+                    <Button variant="ghost">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
             </Form>
@@ -189,7 +189,7 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="center">
-                    <TextLink as="button">Reset</TextLink>
+                    <Button variant="ghost">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
             </Form>
@@ -199,7 +199,7 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="end">
-                    <TextLink as="button">Reset</TextLink>
+                    <Button variant="ghost">Reset</Button>
                     <Button>Submit</Button>
                 </ButtonGroup>
             </Form>

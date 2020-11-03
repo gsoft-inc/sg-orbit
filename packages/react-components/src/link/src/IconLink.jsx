@@ -8,9 +8,17 @@ import { useLink } from "./useLink";
 
 const propTypes = {
     /**
-     * The URL that the link points to.
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     href: string,
+    /**
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target: string,
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel: string,
     /**
      * The link color accent.
      */
@@ -34,7 +42,7 @@ const propTypes = {
     /**
      * A link can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
@@ -53,6 +61,9 @@ export function InnerIconLink(props) {
     const [styleProps] = useStyleProps("link");
 
     const {
+        target,
+        rel,
+        title,
         color,
         condensed,
         external,
@@ -63,9 +74,6 @@ export function InnerIconLink(props) {
         focus,
         hover,
         visited,
-        target,
-        rel,
-        title,
         as: ElementType = "a",
         "aria-label": ariaLabel,
         className,

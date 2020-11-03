@@ -2,8 +2,8 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { Text } from "../../text";
-import { cssModule, mergeClasses, normalizeSize, slot } from "../../shared";
-import { elementType, oneOf, oneOfType, string } from "prop-types";
+import { cssModule, mergeClasses, slot } from "../../shared";
+import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -11,10 +11,6 @@ const propTypes = {
      * The dot color, e.g "primary-200".
      */
     color: string,
-    /**
-     * A dot can vary in size.
-     */
-    size: oneOf(["sm", "md", "lg"]),
     /**
      * Default slot override.
      */
@@ -28,7 +24,6 @@ const propTypes = {
 export function InnerDot(props) {
     const {
         color,
-        size,
         as = "span",
         className,
         style,
@@ -38,7 +33,7 @@ export function InnerDot(props) {
     } = props;
 
     const labelMarkup = children && (
-        <Text size={size}>
+        <Text>
             {children}
         </Text>
     );
@@ -49,8 +44,7 @@ export function InnerDot(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-dot",
-                    children && "has-label",
-                    normalizeSize(size)
+                    children && "has-label"
                 ),
                 className
             )}

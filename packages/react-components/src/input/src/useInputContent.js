@@ -1,7 +1,7 @@
 import { EmbeddedIcon } from "../../icons";
 import { embedIconButton } from "../../button";
 
-export function useInputIcon(icon, props) {
+export function useInputIcon(icon, props = {}) {
     return icon && (
         <EmbeddedIcon
             {...props}
@@ -12,7 +12,7 @@ export function useInputIcon(icon, props) {
     );
 }
 
-export function useInputButton(button, isActive, props) {
+export function useInputButton(button, isActive, props = {}) {
     return button && isActive && embedIconButton(button, {
         ...props,
         variant: "ghost",

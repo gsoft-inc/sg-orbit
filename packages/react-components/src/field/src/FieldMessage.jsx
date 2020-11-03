@@ -14,7 +14,7 @@ const propTypes = {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -37,8 +37,8 @@ export function getValidationProps(validationState) {
 }
 
 const textSize = createSizeAdapter({
-    "md": "sm",
-    "lg": "md"
+    "sm": "xs",
+    "md": "sm"
 });
 
 export const FieldMessage = forwardRef(({

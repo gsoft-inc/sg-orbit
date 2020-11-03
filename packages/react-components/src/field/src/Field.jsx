@@ -29,7 +29,7 @@ const propTypes = {
     /**
      * A field can vary in size.
      */
-    size: oneOf(["md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */

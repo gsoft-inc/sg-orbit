@@ -19,11 +19,11 @@
     grid-area: label;
 }
 
-.o-ui-field .o-ui-field-label-md {
-    padding-bottom: var(--scale-bravo);
+.o-ui-field .o-ui-field-label-sm {
+    padding-bottom: var(--scale-alpha);
 }
 
-.o-ui-field .o-ui-field-label-lg {
+.o-ui-field .o-ui-field-label-md {
     padding-bottom: var(--scale-bravo);
 }
 
@@ -42,9 +42,5 @@
 }
 
 .o-ui-field .o-ui-field-message-md {
-    padding-top: var(--scale-bravo);
-}
-
-.o-ui-field .o-ui-field-message-lg {
     padding-top: var(--scale-bravo);
 }

@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { Box } from "../../box";
 import { CarretIcon } from "../../icons";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -78,10 +78,6 @@ const propTypes = {
      */
     loading: bool,
     /**
-     * An input can vary in size.
-     */
-    size: oneOf(["md", "lg"]),
-    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,
@@ -91,16 +87,10 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-const stepperIconSize = createSizeAdapter({
-    "md": "xs",
-    "lg": "sm"
-});
-
 export function Spinner({
     onIncrement,
     onDecrement,
     onFocus,
-    size,
     disabled,
     ...rest
 }) {
@@ -126,7 +116,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size={stepperIconSize(size)} />
+                <CarretIcon size="sm" />
             </button>
             <button
                 onClick={handleDecrement}
@@ -137,7 +127,7 @@ export function Spinner({
                 onFocus={onFocus}
             >
                 <CarretIcon
-                    size={stepperIconSize(size)}
+                    size="xs"
                     className="o-ui-rotate-180"
                 />
             </button>
@@ -188,7 +178,6 @@ export function InnerNumberInput(props) {
         readOnly,
         fluid,
         loading,
-        size,
         active,
         focus,
         hover,
@@ -308,7 +297,6 @@ export function InnerNumberInput(props) {
         readOnly,
         fluid,
         loading,
-        size,
         active,
         focus,
         hover,
@@ -317,7 +305,7 @@ export function InnerNumberInput(props) {
         forwardedRef
     });
 
-    const iconMarkup = useInputIcon(icon, { size, disabled });
+    const iconMarkup = useInputIcon(icon, { disabled });
 
     const content = (
         <>
@@ -331,7 +319,6 @@ export function InnerNumberInput(props) {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}
-                size={size}
                 disabled={readOnly || disabled}
                 aria-hidden={loading}
             />

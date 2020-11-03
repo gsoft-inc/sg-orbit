@@ -30,7 +30,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -188,6 +188,35 @@ const [
         );
     });
 });
+
+// Dummy component for documentation purpose.
+export function AlertTemplate({ children }) {
+    return <div>{children}</div>;
+}
+
+AlertTemplate.propTypes = {
+    /**
+     * A controlled show value.
+     */
+    // eslint-disable-next-line react/no-unused-prop-types
+    show: bool,
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    // eslint-disable-next-line react/no-unused-prop-types
+    onDismiss: func,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    // eslint-disable-next-line react/no-unused-prop-types
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: any.isRequired
+};
 
 export {
     InfoAlert,

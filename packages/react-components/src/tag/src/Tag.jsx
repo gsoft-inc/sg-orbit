@@ -64,7 +64,6 @@ export function InnerTag({
             className: "o-ui-tag-icon"
         },
         dot: {
-            size,
             disabled,
             className: "o-ui-tag-dot"
         },

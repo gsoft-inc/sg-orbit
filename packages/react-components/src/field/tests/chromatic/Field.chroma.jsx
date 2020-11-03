@@ -16,39 +16,22 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
-            <Field>
-                <TextInput placeholder="Where to?" />
-            </Field>
-            <Field size="lg">
-                <TextInput placeholder="Where to?" />
-            </Field>
-        </Inline>
+        <Field>
+            <TextInput placeholder="Where to?" />
+        </Field>
     )
     .add("label", () =>
-        <Inline verticalAlign="end">
-            <Field>
-                <Label>Where to?</Label>
-                <TextInput />
-            </Field>
-            <Field size="lg">
-                <Label>Where to?</Label>
-                <TextInput />
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Where to?</Label>
+            <TextInput />
+        </Field>
     )
     .add("message", () =>
         <Stack gap={10}>
-            <Inline verticalAlign="end">
-                <Field>
-                    <TextInput placeholder="Where to?" />
-                    <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-                </Field>
-                <Field size="lg">
-                    <TextInput placeholder="Where to?" />
-                    <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-                </Field>
-            </Inline>
+            <Field>
+                <TextInput placeholder="Where to?" />
+                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+            </Field>
             <div>
                 <Field>
                     <TextInput />
@@ -117,32 +100,18 @@ stories()
         </Inline>
     )
     .add("text input", () =>
-        <Inline verticalAlign="end">
-            <Field>
-                <Label>Where to?</Label>
-                <TextInput placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Where to?</Label>
-                <TextInput placeholder="Ex. Mars" />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Where to?</Label>
+            <TextInput placeholder="Ex. Mars" />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
     )
     .add("number input", () =>
-        <Inline verticalAlign="end">
-            <Field>
-                <Label>Age</Label>
-                <NumberInput placeholder="Ex. 89" />
-                <HelpMessage>How long ago are you born?</HelpMessage>
-            </Field>
-            <Field size="lg">
-                <Label>Age</Label>
-                <NumberInput placeholder="Ex. 89" />
-                <HelpMessage>How long ago are you born?</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Age</Label>
+            <NumberInput placeholder="Ex. 89" />
+            <HelpMessage>How long ago are you born?</HelpMessage>
+        </Field>
     )
     .add("textarea", () =>
         <Field>

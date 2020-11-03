@@ -1,4 +1,4 @@
-import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export function useInput({
     cssModule: module,
@@ -16,7 +16,6 @@ export function useInput({
     readOnly,
     fluid,
     loading,
-    size,
     active,
     focus,
     hover,
@@ -41,8 +40,7 @@ export function useInput({
                     validationState && validationState,
                     active && "active",
                     focus && "focus",
-                    hover && "hover",
-                    normalizeSize(size)
+                    hover && "hover"
                 ),
                 wrapperProps.className
             )

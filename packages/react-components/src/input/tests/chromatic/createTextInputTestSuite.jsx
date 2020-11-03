@@ -11,14 +11,8 @@ export function createTextInputTestSuite(element, stories) {
     stories
         .add("default", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextInput element={element} />
-                    <TextInput size="lg" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput loading element={element} />
-                    <TextInput loading size="lg" element={element} />
-                </Inline>
+                <TextInput element={element} />
+                <TextInput loading element={element} />
                 <div>
                     <TextInput disabled element={element}></TextInput>
                 </div>
@@ -35,14 +29,8 @@ export function createTextInputTestSuite(element, stories) {
         )
         .add("placeholder", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextInput placeholder="Where to?" element={element} />
-                    <TextInput size="lg" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput loading placeholder="Where to?" element={element} />
-                    <TextInput loading size="lg" placeholder="Where to?" element={element} />
-                </Inline>
+                <TextInput placeholder="Where to?" element={element} />
+                <TextInput loading placeholder="Where to?" element={element} />
                 <div>
                     <TextInput disabled placeholder="Where to?" element={element}></TextInput>
                 </div>
@@ -59,14 +47,8 @@ export function createTextInputTestSuite(element, stories) {
         )
         .add("value", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextInput defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="lg" defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput loading defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput loading size="lg" defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
+                <TextInput defaultValue="SpaceX will win the race!" element={element} />
+                <TextInput loading defaultValue="SpaceX will win the race!" element={element} />
                 <Inline>
                     <TextInput placeholder="Where to?" defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput value="SpaceX will win the race!" element={element} />
@@ -84,14 +66,8 @@ export function createTextInputTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextInput icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                    <TextInput size="lg" icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="lg" icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
+                <TextInput icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
+                <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
                 <div>
                     <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </div>
@@ -105,14 +81,8 @@ export function createTextInputTestSuite(element, stories) {
         )
         .add("button", () =>
             <Stack>
-                <Inline verticalAlign="end">
-                    <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                    <TextInput size="lg" button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
-                    <TextInput size="lg" button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
-                </Inline>
+                <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                <TextInput button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
                 <Inline>
                     <TextInput disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                     <TextInput readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
@@ -132,32 +102,22 @@ export function createTextInputTestSuite(element, stories) {
             <Stack>
                 <Inline verticalAlign="end">
                     <TextInput active placeholder="Where to?" element={element} />
-                    <TextInput active size="lg" placeholder="Where to?" element={element} />
                     <TextInput loading active placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
                     <TextInput focus placeholder="Where to?" element={element} />
-                    <TextInput focus size="lg" placeholder="Where to?" element={element} />
                     <TextInput loading focus placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
                     <TextInput hover placeholder="Where to?" element={element} />
-                    <TextInput hover size="lg" placeholder="Where to?" element={element} />
                     <TextInput loading hover placeholder="Where to?" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
                     <TextInput focus hover placeholder="Where to?" element={element} />
-                    <TextInput focus hover size="lg" placeholder="Where to?" element={element} />
                     <TextInput loading focus hover placeholder="Where to?" element={element} />
                 </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput disabled placeholder="Where to?" element={element} />
-                    <TextInput disabled size="lg" placeholder="Where to?" element={element} />
-                </Inline>
-                <Inline verticalAlign="end">
-                    <TextInput readOnly placeholder="Where to?" element={element} />
-                    <TextInput readOnly size="lg" placeholder="Where to?" element={element} />
-                </Inline>
+                <TextInput disabled placeholder="Where to?" element={element} />
+                <TextInput readOnly placeholder="Where to?" element={element} />
             </Stack>
         );
 }

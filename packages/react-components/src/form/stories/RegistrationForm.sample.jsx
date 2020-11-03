@@ -59,7 +59,7 @@ export function RegistrationForm() {
                 <Checkbox onChange={formik.handleChange} checked={formik.values.agreeTerms}>Agree to terms and conditions</Checkbox>
             </Field>
             <ButtonGroup align="end">
-                <TextLink as="button" onClick={formik.resetForm}>Reset</TextLink>
+                <Button variant="ghost" onClick={formik.resetForm}>Reset</Button>
                 <Button loading={formik.isSubmitting} type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
