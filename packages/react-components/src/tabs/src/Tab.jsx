@@ -7,7 +7,7 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * React children
+     * React children.
      */
     children: any.isRequired
 };

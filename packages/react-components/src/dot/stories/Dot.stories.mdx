@@ -1,5 +1,5 @@
 import { Dot, InnerDot } from "@react-components/dot";
-import { Inline, Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -58,20 +58,6 @@ A dot can have a color.
         <Inline>
             <Dot color="success-500">Habitable</Dot>
             <Dot color="alert-500">Uninhabitable</Dot>
-        </Inline>
-    </Story>
-</Preview>
-
-### Size
-
-A dot can vary in size.
-
-<Preview>
-    <Story name="size">
-        <Inline verticalAlign="end">
-            <Dot size="sm">Habitable</Dot>
-            <Dot>Habitable</Dot>
-            <Dot size="lg">Habitable</Dot>
         </Inline>
     </Story>
 </Preview>

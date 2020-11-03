@@ -2,28 +2,15 @@
 
 :root {
     --o-ui-resize: vertical;
-    --o-ui-textarea-padding-md: var(--scale-charlie);
-    --o-ui-textarea-padding-lg: var(--scale-delta);
+    --o-ui-textarea-padding: var(--scale-charlie);
 }
 
 .o-ui-text-area textarea {
     resize: var(--o-ui-resize);
     /* Fixes a bug where Firefox adds one more row than the one specified. */
     overflow-x: hidden;
-}
-
-/* SIZES */
-/* SIZES | MEDIUM */
-.o-ui-text-area.o-ui-input-md textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-md);
+    padding: var(--scale-bravo) var(--o-ui-textarea-padding);
     min-height: 80px;
-}
-
-/* SIZES | LARGE */
-.o-ui-text-area.o-ui-input-lg textarea {
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding-lg);
-    line-height: 1.3333333;
-    min-height: 100px;
 }
 
 /* TRANSPARENT */

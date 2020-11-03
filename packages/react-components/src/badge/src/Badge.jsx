@@ -2,7 +2,7 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, forwardRef } from "react";
-import { StyleProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
+import { StyleProvider, cssModule, mergeClasses } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -15,10 +15,6 @@ const propTypes = {
      */
     overlap: oneOf(["circle", "icon"]),
     /**
-     * A badge can vary in size.
-     */
-    size: oneOf(["sm", "md"]),
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -28,15 +24,9 @@ const propTypes = {
     children: any.isRequired
 };
 
-const textSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm"
-});
-
 export function InnerBadge({
     variant = "count",
     overlap,
-    size,
     as = "div",
     className,
     children,
@@ -58,8 +48,7 @@ export function InnerBadge({
                 cssModule(
                     "o-ui-badge",
                     variant,
-                    overlap && `over-${overlap}`,
-                    normalizeSize(size)
+                    overlap && `over-${overlap}`
                 ),
                 className
             )}
@@ -69,10 +58,7 @@ export function InnerBadge({
             <StyleProvider
                 value={{
                     text: {
-                        size: textSize(size)
-                    },
-                    icon: {
-                        size
+                        size: "sm"
                     }
                 }}
             >

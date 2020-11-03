@@ -1,7 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
-import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -26,11 +25,6 @@ stories()
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
             </ButtonGroup>
-            <ButtonGroup size="lg">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-            </ButtonGroup>
         </Stack>
     )
     .add("icon button", () =>
@@ -46,11 +40,6 @@ stories()
                     <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
                     <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
-                <ButtonGroup size="lg">
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                </ButtonGroup>
             </Stack>
             <Stack>
                 <ButtonGroup size="sm">
@@ -59,11 +48,6 @@ stories()
                     <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                </ButtonGroup>
-                <ButtonGroup size="lg">
                     <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
                     <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
@@ -88,15 +72,15 @@ stories()
     .add("align", () =>
         <Stack>
             <ButtonGroup align="start">
-                <TextLink as="button">Reset</TextLink>
+                <Button variant="ghost">Reset</Button>
                 <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end">
-                <TextLink as="button">Reset</TextLink>
+                <Button variant="ghost">Reset</Button>
                 <Button>Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center">
-                <TextLink as="button">Reset</TextLink>
+                <Button variant="ghost">Reset</Button>
                 <Button>Submit form</Button>
             </ButtonGroup>
         </Stack>
@@ -118,11 +102,6 @@ stories("/vertical")
                 <Button>Cutoff</Button>
             </ButtonGroup>
             <ButtonGroup orientation="vertical">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-            </ButtonGroup>
-            <ButtonGroup orientation="vertical" size="lg">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>

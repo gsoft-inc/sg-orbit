@@ -34,9 +34,7 @@ Links allow a user to navigate between pages, scroll to a have page section, acc
     </div>
 </dl>
 
-## Content
-
-A text link must have a label and can optionnaly accept an icon. Text only link accept a string as children. An icon can also be added as children, with a sibling text element for the label.
+## Usage
 
 ### Icon
 
@@ -74,8 +72,6 @@ A text link can indicate that his destination is an external resources. An exter
     </Story>
 </Preview>
 
-## Rendering
-
 ### Button
 
 A text link can be rendered as a button.
@@ -98,8 +94,6 @@ To integrate with a routing library like [React Router](https://reactrouter.com)
     </Story>
 </Preview>
 
-## Visual options
-
 ### Color
 
 A text link can use a different color accent.
@@ -121,6 +115,19 @@ A text link can look disabled.
 <Preview>
     <Story name="disabled">
         <TextLink disabled href="#">Flight details</TextLink>
+    </Story>
+</Preview>
+
+### Size
+
+A text link can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline verticalAlign="end">
+            <TextLink size="sm" href="#">Flight details</TextLink>
+            <TextLink href="#">Flight details</TextLink>
+        </Inline>
     </Story>
 </Preview>
 

@@ -14,7 +14,7 @@ const propTypes = {
     /**
      * A label can vary in size.
      */
-    size: oneOf(["md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -26,8 +26,8 @@ const propTypes = {
 };
 
 const adaptSize = createSizeAdapter({
-    "md": "sm",
-    "lg": "md"
+    "sm": "xs",
+    "md": "sm"
 });
 
 function RequiredIndicator() {
