@@ -2,8 +2,8 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { Text } from "../../text";
+import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses } from "../../shared";
-import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -14,7 +14,11 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: any
 };
 
 export function InnerDivider({
