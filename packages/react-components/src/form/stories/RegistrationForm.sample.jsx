@@ -3,7 +3,6 @@ import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
 import { TextInput } from "@react-components/input";
-import { TextLink } from "@react-components/link";
 import { useFormik } from "formik";
 
 export function RegistrationForm() {

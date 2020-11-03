@@ -1,4 +1,3 @@
-import { Inline } from "@react-components/layout";
 import { PasswordInput } from "@react-components/input";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 

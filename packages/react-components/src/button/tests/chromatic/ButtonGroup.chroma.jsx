@@ -1,7 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
-import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
