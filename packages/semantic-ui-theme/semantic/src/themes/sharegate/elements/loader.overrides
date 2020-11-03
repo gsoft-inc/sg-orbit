@@ -4,5 +4,4 @@
 
 .ui.loader {
     z-index: 3;
-    background-color: red;
 }

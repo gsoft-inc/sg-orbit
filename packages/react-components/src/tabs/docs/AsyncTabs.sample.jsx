@@ -14,7 +14,7 @@ function AsyncText({ isActive, children, ...rest }) {
         if (isActive) {
             timeoutId = setTimeout(() => {
                 setText(children);
-            }, 20000);
+            }, 2000);
         } else {
             setText(null);
         }
