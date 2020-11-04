@@ -88,4 +88,11 @@ stories("/vertical")
             <Divider orientation="vertical">Since 1978</Divider>
             <Text>Mission post mortem</Text>
         </Box>
+    )
+    .add("align items", () =>
+        <Box className="flex items-center">
+            <Text>Mission goals</Text>
+            <Divider orientation="vertical">Since 1978</Divider>
+            <Text>Mission post mortem</Text>
+        </Box>
     );
