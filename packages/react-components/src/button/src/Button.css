@@ -1,6 +1,4 @@
 :root {
-    --o-ui-button-height-2xs: var(--scale-echo);
-    --o-ui-button-height-xs: var(--scale-foxtrot);
     --o-ui-button-height-sm: var(--scale-golf);
     --o-ui-button-height-md: var(--scale-hotel);
     --o-ui-button-height-lg: var(--scale-india);
