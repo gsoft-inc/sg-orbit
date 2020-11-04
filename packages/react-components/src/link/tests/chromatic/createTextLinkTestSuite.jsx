@@ -14,7 +14,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink href="#" element={element}>Flight details</TextLink>
-                    <TextLink size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <div className="f5">
                     <TextLink size="inherit" href="#" element={element}>Flight details</TextLink>
@@ -34,10 +33,6 @@ export function createTextLinkTestSuite(element, stories) {
                         <ArrowIcon />
                     </TextLink>
                     <TextLink href="#" element={element}>
-                        <Text>Flight details</Text>
-                        <ArrowIcon />
-                    </TextLink>
-                    <TextLink size="lg" href="#" element={element}>
                         <Text>Flight details</Text>
                         <ArrowIcon />
                     </TextLink>
@@ -61,10 +56,6 @@ export function createTextLinkTestSuite(element, stories) {
                         <InfoIcon slot="left-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
-                    <TextLink size="lg" href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
-                        <Text>Flight details</Text>
-                    </TextLink>
                 </Inline>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
@@ -79,7 +70,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink external href="#" element={element}>Flight details</TextLink>
-                    <TextLink external size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <div style={{ width: "400px" }}>
                     <TextLink external href="#" element={element}>
@@ -93,7 +83,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink color="primary" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="primary" href="#" element={element}>Flight details</TextLink>
-                    <TextLink color="primary" size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <div>
                     <TextLink color="primary" href="#" element={element}>
@@ -108,7 +97,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink color="secondary" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="secondary" href="#" element={element}>Flight details</TextLink>
-                    <TextLink color="secondary" size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <div>
                     <TextLink color="secondary" href="#" element={element}>
@@ -123,7 +111,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink color="danger" size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink color="danger" href="#" element={element}>Flight details</TextLink>
-                    <TextLink color="danger" size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <div>
                     <TextLink color="danger" href="#" element={element}>
@@ -137,14 +124,12 @@ export function createTextLinkTestSuite(element, stories) {
             <Inline verticalAlign="end">
                 <TextLink underline="solid" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="solid" href="#" element={element}>Flight details</TextLink>
-                <TextLink underline="solid" size="lg" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("dotted", () =>
             <Inline verticalAlign="end">
                 <TextLink underline="dotted" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="dotted" href="#" element={element}>Flight details</TextLink>
-                <TextLink underline="dotted" size="lg" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("states", () =>
@@ -152,7 +137,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink active size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink active href="#" element={element}>Flight details</TextLink>
-                    <TextLink active size="lg" href="#" element={element}>Flight details</TextLink>
                     <div style={{ width: "400px" }}>
                         <TextLink active href="#" element={element}>
                             NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
@@ -162,7 +146,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink focus size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink focus href="#" element={element}>Flight details</TextLink>
-                    <TextLink focus size="lg" href="#" element={element}>Flight details</TextLink>
                     <div style={{ width: "400px" }}>
                         <TextLink focus href="#" element={element}>
                             NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
@@ -172,7 +155,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink hover size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink hover href="#" element={element}>Flight details</TextLink>
-                    <TextLink hover size="lg" href="#" element={element}>Flight details</TextLink>
                     <div style={{ width: "400px" }}>
                         <TextLink hover href="#" element={element}>
                             NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
@@ -182,7 +164,6 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink focus hover size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink focus hover href="#" element={element}>Flight details</TextLink>
-                    <TextLink focus hover size="lg" href="#" element={element}>Flight details</TextLink>
                     <div style={{ width: "400px" }}>
                         <TextLink focus hover href="#" element={element}>
                             NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
@@ -192,12 +173,10 @@ export function createTextLinkTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <TextLink visited size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink visited href="#" element={element}>Flight details</TextLink>
-                    <TextLink visited size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
                 <Inline verticalAlign="end">
                     <TextLink disabled size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink disabled href="#" element={element}>Flight details</TextLink>
-                    <TextLink disabled size="lg" href="#" element={element}>Flight details</TextLink>
                 </Inline>
             </Stack>
         );

@@ -26,20 +26,13 @@
     width: 150px;
 }
 
-/* INPUT | FOCUS */
-/* .o-ui-number-input input:focus,
-.o-ui-number-input.o-ui-input-focus input,
-.o-ui-number-input:hover input,
-.o-ui-number-input.o-ui-input-hover input {
-    padding-right: calc(var(--o-ui-spinner-width) + var(--scale-alpha));
-} */
-
 /* SPINNER */
 .o-ui-number-input-spinner {
     display: flex;
     visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
+    min-height: calc(var(--scale-hotel) - 2px);
     margin: 1px;
     position: absolute;
     right: 0;
@@ -80,16 +73,6 @@
 
 .o-ui-number-input-spinner .o-ui-icon {
     fill: var(--marine-900);
-}
-
-/* SPINNER | MEDIUM */
-.o-ui-input-md .o-ui-number-input-spinner {
-    min-height: calc(var(--scale-hotel) - 2px);
-}
-
-/* SPINNER | LARGE */
-.o-ui-input-lg .o-ui-number-input-spinner {
-    min-height: calc(var(--scale-india) - 2px);
 }
 
 /* SPINNER | ACTIVE */

@@ -15,10 +15,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline verticalAlign="end">
-                <NumberInput placeholder="Age" />
-                <NumberInput size="lg" placeholder="Age" />
-            </Inline>
+            <NumberInput placeholder="Age" />
             <div>
                 <NumberInput disabled placeholder="Age" />
             </div>
@@ -43,10 +40,7 @@ stories()
     )
     .add("icon", () =>
         <Stack>
-            <Inline verticalAlign="end">
-                <NumberInput icon={<EditIcon />} placeholder="Age" />
-                <NumberInput icon={<EditIcon />} size="lg" placeholder="Age" />
-            </Inline>
+            <NumberInput icon={<EditIcon />} placeholder="Age" />
             <div>
                 <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
             </div>
@@ -65,16 +59,10 @@ stories()
         <NumberInput readOnly placeholder="Age" />
     )
     .add("loading", () =>
-        <Inline verticalAlign="end">
-            <NumberInput loading placeholder="Age" />
-            <NumberInput loading size="lg" placeholder="Age" />
-        </Inline>
+        <NumberInput loading placeholder="Age" />
     )
     .add("transparent", () =>
-        <Inline verticalAlign="end">
-            <NumberInput variant="transparent" placeholder="Age" />
-            <NumberInput variant="transparent" size="lg" placeholder="Age" />
-        </Inline>
+        <NumberInput variant="transparent" placeholder="Age" />
     )
     .add("autofocus", () =>
         <NumberInput autoFocus placeholder="Age" />

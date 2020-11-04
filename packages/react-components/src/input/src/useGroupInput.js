@@ -1,9 +1,15 @@
-import { cssModule, mergeClasses } from "../../shared";
+import { cssModule, mergeClasses, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
 const GAP = {
-    horizontal: 6,
-    vertical: 3
+    horizontal: {
+        "sm": 4,
+        "md": 5
+    },
+    vertical: {
+        "sm": 2,
+        "md": 3
+    }
 };
 
 export function useGroupInput({
@@ -14,6 +20,7 @@ export function useGroupInput({
     orientation,
     gap,
     wrap,
+    size,
     reverse,
     disabled,
     className,
@@ -28,7 +35,7 @@ export function useGroupInput({
             align: orientation === "vertical"
                 ? reverse ? "end" : "start"
                 : undefined,
-            gap: gap ?? GAP[orientation],
+            gap: gap ?? GAP[orientation][normalizeSize(size)],
             wrap,
             className: mergeClasses(
                 cssModule(
@@ -47,6 +54,7 @@ export function useGroupInput({
             ref
         },
         itemProps: {
+            size,
             reverse,
             validationState,
             disabled

@@ -1,4 +1,4 @@
-import { Alert, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/view";
 import { ControlledAlert } from "./ControlledAlert.sample";
@@ -32,9 +32,7 @@ An alert is an element that displays a brief, important message in a way that at
     </div>
 </dl>
 
-## Content
-
-An alert must have textual content and can optionnaly accept an icon, an action and be dismissible. Text only alert accept a string as children. An icon and an action button can also be added as children, with a sibling content element for the textual content.
+## Usage
 
 ### Icon
 
@@ -93,10 +91,6 @@ An alert can be dismissible by specifying an `onDismiss` handler.
     </Story>
 </Preview>
 
-## Templates
-
-An alert comes in predefined templates matching the available tones.
-
 ### Info
 
 Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
@@ -149,7 +143,7 @@ Use an error alert to help a user understand a critical issue at the system leve
     </Story>
 </Preview>
 
-## Controlled
+### Controlled
 
 An alert can handle `show` state in controlled mode.
 
@@ -159,6 +153,10 @@ An alert can handle `show` state in controlled mode.
 
 ## Props
 
+### Alert
+
+Generic Alert component.
+
 <dl>
     <div>
         <dt>slots</dt>
@@ -167,6 +165,58 @@ An alert can handle `show` state in controlled mode.
 </dl>
 
 <Props of={InnerAlert} />
+
+### InfoAlert
+
+Alert component template for _info_ tone.
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>content | button</dd>
+    </div>
+</dl>
+
+<Props of={AlertTemplate} />
+
+### SuccessAlert
+
+Alert component template for _success_ tone.
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>content | button</dd>
+    </div>
+</dl>
+
+<Props of={AlertTemplate} />
+
+### WarningAlert
+
+Alert component template for _warning_ tone.
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>content | button</dd>
+    </div>
+</dl>
+
+<Props of={AlertTemplate} />
+
+### CriticalAlert
+
+Alert component template for _critical_ tone.
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>content | button</dd>
+    </div>
+</dl>
+
+<Props of={AlertTemplate} />
 
 <Story
     name="ref"

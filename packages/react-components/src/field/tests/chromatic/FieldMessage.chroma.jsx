@@ -26,22 +26,22 @@ function Align({ children }) {
 stories()
     .add("default", () =>
         <Inline verticalAlign="end">
-            <HelpMessage>
+            <HelpMessage size="sm">
                 Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </HelpMessage>
-            <HelpMessage size="lg">
+            <HelpMessage>
                 Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </HelpMessage>
         </Inline>
     )
     .add("icon", () =>
         <Inline verticalAlign="end">
-            <HelpMessage>
+            <HelpMessage size="sm">
                 <Align>
                     <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
                 </Align>
             </HelpMessage>
-            <HelpMessage size="lg">
+            <HelpMessage>
                 <Align>
                     <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
                 </Align>
@@ -50,12 +50,12 @@ stories()
     )
     .add("paragraph", () =>
         <Inline verticalAlign="end">
-            <HelpMessage>
+            <HelpMessage size="sm">
                 <Paragraph>
                     If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
                 </Paragraph>
             </HelpMessage>
-            <HelpMessage size="lg">
+            <HelpMessage>
                 <Paragraph>
                     If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
                 </Paragraph>
@@ -64,14 +64,14 @@ stories()
     )
     .add("list", () =>
         <Inline verticalAlign="end">
-            <HelpMessage>
+            <HelpMessage size="sm">
                 <UnorderedList>
                     <ListItem>Celestial</ListItem>
                     <ListItem>Dark matter</ListItem>
                     <ListItem>Eclipse</ListItem>
                 </UnorderedList>
             </HelpMessage>
-            <HelpMessage size="lg">
+            <HelpMessage>
                 <UnorderedList>
                     <ListItem>Celestial</ListItem>
                     <ListItem>Dark matter</ListItem>

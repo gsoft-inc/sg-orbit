@@ -14,24 +14,24 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Inline verticalAlign="end">
+            <Label size="sm">Where to?</Label>
             <Label>Where to?</Label>
-            <Label size="lg">Where to?</Label>
         </Inline>
     )
     .add("complex", () =>
         <Inline verticalAlign="end">
-            <Label>
+            <Label size="sm">
                 <span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>
             </Label>
-            <Label size="lg">
+            <Label>
                 <span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>
             </Label>
         </Inline>
     )
     .add("as span", () =>
         <Inline verticalAlign="end">
+            <Label as="span" size="sm">Where to?</Label>
             <Label as="span">Where to?</Label>
-            <Label as="span" size="lg">Where to?</Label>
         </Inline>
     )
     .add("styling", () =>

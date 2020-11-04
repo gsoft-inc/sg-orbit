@@ -13,18 +13,10 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
-            <Dot size="sm"></Dot>
-            <Dot></Dot>
-            <Dot size="lg"></Dot>
-        </Inline>
+        <Dot></Dot>
     )
     .add("label", () =>
-        <Inline verticalAlign="end">
-            <Dot size="sm">Habitable</Dot>
-            <Dot>Habitable</Dot>
-            <Dot size="lg">Habitable</Dot>
-        </Inline>
+        <Dot>Habitable</Dot>
     )
     .add("color", () =>
         <Stack>

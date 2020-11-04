@@ -2,7 +2,6 @@ import { CrossButton } from "@react-components/button";
 import { EditIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
 import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
-import { Inline } from "@react-components/layout";
 import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/input";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
@@ -72,19 +71,6 @@ A text input can contain a [button](?path=/docs/components-button--default-story
 <Preview>
     <Story name="button">
         <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-    </Story>
-</Preview>
-
-### Size
-
-A text input can vary in size.
-
-<Preview>
-    <Story name="size">
-        <Inline verticalAlign="end">
-            <TextInput placeholder="Where to?" />
-            <TextInput size="lg" placeholder="Where to?" />
-        </Inline>
     </Story>
 </Preview>
 

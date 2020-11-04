@@ -11,6 +11,24 @@
     max-width: 1200px;
 }
 
+.sbdocs.sbdocs-div dt {
+    display: inline-block;
+    color: var(--marine-500);
+    font-weight: 500;
+    font-size: 1rem;
+    font-style: normal;
+    width: 72px;
+    margin: 4px 0;
+}
+
+.sbdocs.sbdocs-div dd {
+    display: inline-block;
+    color: var(--marine-900);
+    font-size: 1rem;
+    font-variant: normal;
+    margin: 0 0 8px;
+}
+
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
