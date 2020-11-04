@@ -3,5 +3,5 @@
 *******************************/
 
 .ui.dimmer {
-    background-color: var(--marine-300);
+    background-color: rgba(86,96,119, 0.8);
 }

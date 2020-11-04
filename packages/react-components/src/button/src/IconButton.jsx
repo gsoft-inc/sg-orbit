@@ -1,3 +1,5 @@
+import "./IconButton.css";
+
 import { Box } from "../../box";
 import { Children, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
