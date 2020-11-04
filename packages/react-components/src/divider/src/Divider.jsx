@@ -30,7 +30,7 @@ export function InnerDivider({
     ...rest
 }) {
     const labelMarkup = children && (
-        <Text>
+        <Text className="o-ui-divider-label">
             {children}
         </Text>
     );

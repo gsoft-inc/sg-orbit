@@ -39,6 +39,9 @@ stories()
     .add("labelled", () =>
         <Divider>Since 1978</Divider>
     )
+    .add("long label", () =>
+        <Divider style={{ height: "500px" }}>Since 1978 there have been more than 10 space exploration missions.</Divider>
+    )
     .add("labelled + surrounded", () =>
         <Box>
             <Text>Apollo 11 - 1969</Text>
@@ -75,7 +78,7 @@ stories("/vertical")
         </Box>
     )
     .add("long label", () =>
-        <Divider orientation="vertical" style={{ height: "500px" }}>Since 1978 there have been more than 10 space exploration missions</Divider>
+        <Divider orientation="vertical" style={{ height: "500px" }}>Since 1978 there have been more than 10 space exploration missions.</Divider>
     )
     .add("labelled + surrounded", () =>
         <Box className="flex" style={{ height: "500px" }}>
