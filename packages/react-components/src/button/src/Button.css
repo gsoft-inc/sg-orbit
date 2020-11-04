@@ -1,17 +1,10 @@
 :root {
-    --o-ui-button-padding-2xs: var(--scale-bravo);
-    --o-ui-button-padding-xs: var(--scale-charlie);
-    --o-ui-button-padding-sm: var(--scale-delta);
-    --o-ui-button-padding-md: var(--scale-echo);
-    --o-ui-button-padding-lg: var(--scale-foxtrot);
-    --o-ui-button-height-2xs: var(--scale-echo);
-    --o-ui-button-height-xs: var(--scale-foxtrot);
     --o-ui-button-height-sm: var(--scale-golf);
     --o-ui-button-height-md: var(--scale-hotel);
     --o-ui-button-height-lg: var(--scale-india);
-    --o-ui-button-padding-ratio-factor: 1.5;
 }
 
+/* SHARED */
 .o-ui-button {
     padding: 0;
     line-height: 1;
@@ -22,13 +15,6 @@
     border: none;
     position: relative;
     width: max-content;
-}
-
-.o-ui-button:not(.o-ui-icon-button) {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: max-content;
 }
 
 /* STATES | FOCUS */
@@ -61,29 +47,16 @@ a.o-ui-button {
 }
 
 /* SIZES */
-.o-ui-button-2xs {
-    min-height: var(--o-ui-button-height-2xs);
-    padding: 0 var(--o-ui-button-padding-2xs);
-}
-
-.o-ui-button-xs {
-    min-height: var(--o-ui-button-height-xs);
-    padding: 0 var(--o-ui-button-padding-xs);
-}
-
 .o-ui-button-sm {
     min-height: var(--o-ui-button-height-sm);
-    padding: 0 var(--o-ui-button-padding-sm);
 }
 
 .o-ui-button-md {
     min-height: var(--o-ui-button-height-md);
-    padding: 0 var(--o-ui-button-padding-md);
 }
 
 .o-ui-button-lg {
     min-height: var(--o-ui-button-height-lg);
-    padding: 0 var(--o-ui-button-padding-lg);
 }
 
 /* SOLID */
@@ -318,12 +291,6 @@ a.o-ui-button {
     fill: var(--white);
 }
 
-/* OUTLINE | SIZES */
-.o-ui-button-outline.o-ui-button-2xs {
-    min-height: var(--o-ui-button-height-2xs);
-    font-size: var(--type-scale-9);
-}
-
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
@@ -530,8 +497,6 @@ a.o-ui-button {
 /* CIRCULAR */
 .o-ui-button-circular {
     border-radius: var(--o-ui-circular-border-radius);
-    padding: var(--scale-alpha);
-    min-width: var(--scale-hotel);
 }
 
 /* CIRCULAR | SIZES */
@@ -552,7 +517,6 @@ a.o-ui-button {
 
 .o-ui-button-circular.o-ui-button-md {
     min-width: var(--scale-hotel);
-    min-height: var(--scale-hotel);
     padding: 0 var(--scale-alpha);
 }
 
@@ -570,94 +534,9 @@ a.o-ui-button {
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
-/* ROUNDED | SIZES */
-.o-ui-button-rounded.o-ui-button-2xs {
-    padding: 0 var(--scale-alpha);
-}
-
-.o-ui-button-rounded.o-ui-button-xs {
-    padding: 0 var(--scale-alpha);
-}
-
-.o-ui-button-rounded.o-ui-button-sm {
-    padding: 0 var(--scale-charlie);
-}
-
-.o-ui-button-rounded.o-ui-button-md {
-    min-height: var(--scale-hotel);
-    padding: 0 var(--scale-delta);
-}
-
-.o-ui-button-rounded.o-ui-button-lg {
-    padding: 0 var(--scale-echo);
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-2xs {
-    min-width: var(--scale-echo);
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-xs {
-    min-width: var(--scale-foxtrot);
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
-    min-width: var(--scale-golf);
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-md {
-    min-width: var(--scale-hotel);
-}
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-lg {
-    min-width: var(--scale-india);
-}
-
+/* CONTENT | ICON | SIZES */
 .o-ui-button-icon + .o-ui-button-text {
     margin-left: var(--scale-alpha);
-}
-
-/* CONTENT | ICON | SIZES */
-.o-ui-button-has-icon.o-ui-button-2xs {
-    padding-left: calc(var(--o-ui-button-padding-2xs) / var(--o-ui-button-padding-ratio-factor));
-}
-
-.o-ui-button-has-icon.o-ui-button-xs {
-    padding-left: calc(var(--o-ui-button-padding-xs) / var(--o-ui-button-padding-ratio-factor));
-}
-
-.o-ui-button-has-icon.o-ui-button-sm {
-    padding-left: calc(var(--o-ui-button-padding-sm) / var(--o-ui-button-padding-ratio-factor));
-}
-
-.o-ui-button-has-icon.o-ui-button-md {
-    padding-left: calc(var(--o-ui-button-padding-md) / var(--o-ui-button-padding-ratio-factor));
-}
-
-.o-ui-button-has-icon.o-ui-button-lg {
-    padding-left: calc(var(--o-ui-button-padding-lg) / var(--o-ui-button-padding-ratio-factor));
-}
-
-/* CONTENT | ICON | ROUNDED */
-.o-ui-button-has-icon.o-ui-button-rounded {
-    padding-left: 0;
-}
-
-/* CONTENT | ICON | LINK */
-.o-ui-button-has-icon.o-ui-button-link {
-    padding-left: 0;
-}
-
-/* ICON BUTTON */
-.o-ui-icon-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: max-content;
-    height: max-content;
-}
-
-.o-ui-icon-button.o-ui-button-rounded {
-    padding: 0;
 }
 
 /* INHERIT */
