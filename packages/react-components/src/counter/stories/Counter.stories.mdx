@@ -1,8 +1,10 @@
+import { Box } from "@react-components/box";
 import { Counter, InnerCounter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
 import { InstallReactComponents, Props, ReactComponentsLayout } from "@blocks";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, createComponentSection, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 import Imports from "./Imports.mdx";
 
 <Meta
@@ -56,13 +58,16 @@ A counter can be rendered as a pill.
 
 ### Divider
 
-A counter can be rendered as a divider. A divider counter is not affected by the size property. The counter will inherit it's size from his parent font-size.
+A counter can be rendered as a divider.
 
 <Preview>
     <Story name="divider">
         <Inline verticalAlign="end">
             <Counter size="sm" variant="divider">100+</Counter>
             <Counter variant="divider">100+</Counter>
+            <Text size="lg">
+                <Counter size="inherit" variant="divider">100+</Counter>
+            </Text>
         </Inline>
     </Story>
 </Preview>
@@ -89,6 +94,23 @@ A counter value can be highlighted.
         <Inline verticalAlign="center">
             <Counter highlight color="light">15</Counter>
             <Counter highlight color="light" variant="divider">100+</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Pushed
+
+A counter can pushed itself away from content.
+
+<Preview>
+    <Story name="pushed">
+        <Inline verticalAlign="center">
+            <Box className="flex">
+                Satellites <Counter pushed color="light">15</Counter>
+            </Box>
+            <Box className="flex">
+                Satellites <Counter pushed color="light" variant="divider">100+</Counter>
+            </Box>
         </Inline>
     </Story>
 </Preview>

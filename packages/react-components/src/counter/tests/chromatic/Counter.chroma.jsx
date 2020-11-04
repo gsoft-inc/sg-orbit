@@ -1,5 +1,7 @@
+import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { Inline, Stack } from "@react-components/layout";
+import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -26,13 +28,42 @@ stories()
     )
     .add("divider", () =>
         <Stack>
-            <Counter variant="divider" pad>15</Counter>
-            <Counter variant="divider" pad>15</Counter>
-            <div>Planets Visited <Counter variant="divider" className="ml2">15</Counter></div>
+            <Counter size="sm" variant="divider">15</Counter>
+            <Counter variant="divider">15</Counter>
+            <Text size="sm" className="flex">
+                <Counter size="inherit" variant="divider">15</Counter>
+            </Text>
+            <Text className="flex">
+                <Counter size="inherit" variant="divider">15</Counter>
+            </Text>
+            <Text size="lg" className="flex">
+                <Counter size="inherit" variant="divider">15</Counter>
+            </Text>
+        </Stack>
+    )
+    .add("pushed", () =>
+        <Stack>
+            <Box className="flex">
+                Planets Visited
+                <Counter pushed>15</Counter>
+            </Box>
+            <Box className="flex">
+                Planets Visited
+                <Counter pushed size="inherit" variant="divider">15</Counter>
+            </Box>
         </Stack>
     )
     .add("reverse", () =>
-        <div><Counter reverse variant="divider" pad>15</Counter> Planets Visited </div>
+        <Stack>
+            <Box className="flex">
+                <Counter reverse pushed>15</Counter>
+                <Text>Planets Visited</Text>
+            </Box>
+            <Box className="flex">
+                <Counter reverse pushed variant="divider">15</Counter>
+                <Text>Planets Visited</Text>
+            </Box>
+        </Stack>
     )
     .add("light", () =>
         <Inline verticalAlign="center">
@@ -41,13 +72,22 @@ stories()
         </Inline>
     )
     .add("highlight", () =>
-        <Inline verticalAlign="center">
-            <Counter highlight>15</Counter>
-            <Counter variant="divider" highlight>15</Counter>
-        </Inline>
+        <Stack>
+            <Inline verticalAlign="center">
+                <Counter highlight>15</Counter>
+                <Counter variant="divider" highlight>15</Counter>
+            </Inline>
+            <Inline verticalAlign="center">
+                <Counter color="light" highlight>15</Counter>
+                <Counter variant="divider" color="light" highlight>15</Counter>
+            </Inline>
+        </Stack>
     )
     .add("disabled", () =>
-        <Counter disabled>15</Counter>
+        <Inline verticalAlign="center">
+            <Counter disabled>15</Counter>
+            <Counter variant="divider" disabled>15</Counter>
+        </Inline>
     )
     .add("styling", () =>
         <Stack>

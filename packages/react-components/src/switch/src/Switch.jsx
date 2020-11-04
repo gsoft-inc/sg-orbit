@@ -136,6 +136,7 @@ export function InnerSwitch(props) {
         counter: {
             size,
             reverse,
+            pushed: true,
             className: "o-ui-switch-counter"
         }
     }), [size, reverse]));

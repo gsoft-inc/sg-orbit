@@ -134,6 +134,7 @@ export function InnerRadio(props) {
         },
         counter: {
             reverse,
+            pushed: true,
             className: "o-ui-radio-counter"
         }
     }), [reverse]));

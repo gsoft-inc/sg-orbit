@@ -28,7 +28,7 @@ A divider to separates and distinguishes sections of content or groups of menuit
 
 ### Horizontal
 
-By default a divider render horizontally and takes the width of it's container.
+By default a divider render horizontally which takes the width of it's container.
 
 <Preview>
     <Story name="horizontal">
@@ -54,11 +54,21 @@ A divider can change his orientation to vertical.
 
 ### Labelled
 
-A divider can have a label.
+A divider can have a label when it's render horizontally:
 
 <Preview>
-    <Story name="labelled">
+    <Story name="labelled horizontally">
         <Divider>Last 30 days</Divider>
+    </Story>
+</Preview>
+
+Or vertically:
+
+<Preview>
+    <Story name="labelled vertically">
+        <Box style={{ height: "150px" }}>
+            <Divider orientation="vertical">Last 30 days</Divider>
+        </Box>
     </Story>
 </Preview>
 

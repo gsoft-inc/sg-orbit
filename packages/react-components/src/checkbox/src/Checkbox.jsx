@@ -162,6 +162,7 @@ export function InnerCheckbox(props) {
         counter: {
             size,
             reverse,
+            pushed: true,
             className: "o-ui-checkbox-counter"
         }
     }), [size, reverse]));

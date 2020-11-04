@@ -101,17 +101,6 @@
     margin-right: var(--scale-alpha);
 }
 
-/* CONTENT | COUNTER */
-.o-ui-checkbox-counter {
-    margin-left: var(--scale-bravo);
-}
-
-/* CONTENT | COUNTER | REVERSE */
-.o-ui-checkbox-reverse .o-ui-checkbox-counter {
-    margin-left: 0;
-    margin-right: var(--scale-bravo);
-}
-
 /* REVERSE */
 .o-ui-checkbox-reverse {
     flex-direction: row-reverse;

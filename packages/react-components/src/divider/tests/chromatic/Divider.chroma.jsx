@@ -75,7 +75,9 @@ stories("/vertical")
         </Box>
     )
     .add("long label", () =>
-        <Divider orientation="vertical" style={{ height: "500px" }}>Since 1978 there have been more than 10 space exploration missions</Divider>
+        <Box style={{ height: "500px" }}>
+            <Divider orientation="vertical">Since 1978 there have been more than 10 space exploration missions</Divider>
+        </Box>
     )
     .add("labelled + surrounded", () =>
         <Box className="flex" style={{ height: "500px" }}>
