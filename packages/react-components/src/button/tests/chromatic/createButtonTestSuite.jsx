@@ -14,17 +14,14 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>Button</Button>
                     <Button element={element}>Button</Button>
-                    <Button size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>Button</Button>
                     <Button loading element={element}>Button</Button>
-                    <Button loading size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button condensed size="sm" element={element}>Button</Button>
                     <Button condensed element={element}>Button</Button>
-                    <Button condensed size="lg" element={element}>Button</Button>
                 </Inline>
                 <div>
                     <Button fluid element={element}>Button</Button>
@@ -48,10 +45,6 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button size="lg" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
@@ -61,12 +54,6 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                     <Button element={element}>
-                        <IconList>
-                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
-                        </IconList>
-                        <Text>Button</Text>
-                    </Button>
-                    <Button size="lg" element={element}>
                         <IconList>
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
                         </IconList>
@@ -82,10 +69,6 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button loading size="lg" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button condensed size="sm" element={element}>
@@ -93,10 +76,6 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                     <Button condensed element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button condensed size="lg" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
@@ -120,7 +99,6 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button color="primary" size="sm" element={element}>Button</Button>
                     <Button color="primary" element={element}>Button</Button>
-                    <Button color="primary" size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline>
                     <Button color="primary" element={element}>
@@ -142,7 +120,6 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button color="secondary" size="sm" element={element}>Button</Button>
                     <Button color="secondary" element={element}>Button</Button>
-                    <Button color="secondary" size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline>
                     <Button color="secondary" element={element}>
@@ -164,7 +141,6 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button color="danger" size="sm" element={element}>Button</Button>
                     <Button color="danger" element={element}>Button</Button>
-                    <Button color="danger" size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline>
                     <Button color="danger" element={element}>
@@ -186,7 +162,6 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button color="inherit" size="sm" element={element}>Button</Button>
                     <Button color="inherit" element={element}>Button</Button>
-                    <Button color="inherit" size="lg" element={element}>Button</Button>
                 </Inline>
                 <Inline>
                     <Button color="inherit" element={element}>
@@ -208,17 +183,14 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button shape="circular" size="sm" element={element}>Aa</Button>
                     <Button shape="circular" element={element}>Aa</Button>
-                    <Button shape="circular" size="lg" element={element}>Aa</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button loading shape="circular" size="sm" element={element}>Aa</Button>
                     <Button loading shape="circular" element={element}>Aa</Button>
-                    <Button loading shape="circular" size="lg" element={element}>Aa</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="circular" element={element}>Aa</Button>
-                    <Button condensed shape="circular" size="lg" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )
@@ -227,17 +199,14 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button shape="rounded" element={element}>Aa</Button>
-                    <Button shape="rounded" size="lg" element={element}>Aa</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button loading shape="rounded" element={element}>Aa</Button>
-                    <Button loading shape="rounded" size="lg" element={element}>Aa</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="rounded" element={element}>Aa</Button>
-                    <Button condensed shape="rounded" size="lg" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )
@@ -246,31 +215,26 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button active size="sm" element={element}>Button</Button>
                     <Button active element={element}>Button</Button>
-                    <Button active size="lg" element={element}>Button</Button>
                     <Button loading active element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button focus size="sm" element={element}>Button</Button>
                     <Button focus element={element}>Button</Button>
-                    <Button focus size="lg" element={element}>Button</Button>
                     <Button loading focus element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button hover size="sm" element={element}>Button</Button>
                     <Button hover element={element}>Button</Button>
-                    <Button hover size="lg" element={element}>Button</Button>
                     <Button loading hover element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button focus hover size="sm" element={element}>Button</Button>
                     <Button focus hover element={element}>Button</Button>
-                    <Button focus hover size="lg" element={element}>Button</Button>
                     <Button loading focus hover element={element}>Button</Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button disabled size="sm" element={element}>Button</Button>
                     <Button disabled element={element}>Button</Button>
-                    <Button disabled size="lg" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )

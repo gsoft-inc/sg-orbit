@@ -46,7 +46,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["sm", "md", "lg"]),
+    size: oneOf(["sm", "md"]),
     /**
      * The button type.
      */
@@ -73,8 +73,7 @@ const propTypes = {
 
 const condensedTextSize = createSizeAdapter({
     "sm": "md",
-    "md": "lg",
-    "lg": "xl"
+    "md": "lg"
 });
 
 export function InnerButton(props) {

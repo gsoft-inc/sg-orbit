@@ -20,7 +20,7 @@ const propTypes = {
     /**
      * A cross button can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
+    size: oneOf(["2xs", "xs", "sm", "md"]),
     /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.

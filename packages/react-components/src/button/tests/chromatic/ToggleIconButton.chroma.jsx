@@ -18,7 +18,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleIconButton size="sm" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="lg" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -35,7 +34,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleIconButton size="sm" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="lg" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleIconButton checked variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -52,7 +50,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleIconButton size="sm" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-                <ToggleIconButton size="lg" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleIconButton checked variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>

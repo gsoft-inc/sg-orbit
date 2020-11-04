@@ -19,7 +19,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleButton size="sm">Cutoff</ToggleButton>
                 <ToggleButton>Cutoff</ToggleButton>
-                <ToggleButton size="lg">Cutoff</ToggleButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleButton checked>Cutoff</ToggleButton>
@@ -42,7 +41,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleButton size="sm" variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="circular">Aa</ToggleButton>
-                <ToggleButton size="lg" variant="outline" shape="circular">Aa</ToggleButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleButton checked variant="outline" shape="circular">Aa</ToggleButton>
@@ -59,7 +57,6 @@ stories()
             <Inline verticalAlign="end">
                 <ToggleButton size="sm" variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="rounded">Aa</ToggleButton>
-                <ToggleButton size="lg" variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
             <Inline verticalAlign="end">
                 <ToggleButton checked variant="outline" shape="rounded">Aa</ToggleButton>

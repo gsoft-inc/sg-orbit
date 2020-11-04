@@ -1,7 +1,6 @@
 :root {
     --o-ui-button-height-sm: var(--scale-golf);
     --o-ui-button-height-md: var(--scale-hotel);
-    --o-ui-button-height-lg: var(--scale-india);
 }
 
 /* SHARED */
@@ -53,10 +52,6 @@ a.o-ui-button {
 
 .o-ui-button-md {
     min-height: var(--o-ui-button-height-md);
-}
-
-.o-ui-button-lg {
-    min-height: var(--o-ui-button-height-lg);
 }
 
 /* SOLID */
@@ -411,11 +406,6 @@ a.o-ui-button {
     height: 1.5rem;
 }
 
-.o-ui-button-loading.o-ui-button-lg:before {
-    width: 1.75rem;
-    height: 1.75rem;
-}
-
 /* SOLID | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-primary:before {
     border: 2px solid var(--primary-800);
@@ -518,11 +508,6 @@ a.o-ui-button {
 .o-ui-button-circular.o-ui-button-md {
     min-width: var(--scale-hotel);
     padding: 0 var(--scale-alpha);
-}
-
-.o-ui-button-circular.o-ui-button-lg {
-    min-width: var(--scale-india);
-    padding: 0 var(--scale-bravo);
 }
 
 /* ROUNDED */
