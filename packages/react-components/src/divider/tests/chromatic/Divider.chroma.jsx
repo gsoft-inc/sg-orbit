@@ -50,7 +50,7 @@ stories()
 stories("/vertical")
     .add("default", () =>
         <Box style={{ height: "500px" }}>
-            <Divider orientation="vertical" style={{ height: "100%" }} />
+            <Divider orientation="vertical" />
         </Box>
     )
     .add("dot", () =>
@@ -71,7 +71,7 @@ stories("/vertical")
     )
     .add("labelled", () =>
         <Box style={{ height: "500px" }}>
-            <Divider orientation="vertical" style={{ height: "100%" }}>Since 1978</Divider>
+            <Divider orientation="vertical">Since 1978</Divider>
         </Box>
     )
     .add("long label", () =>
@@ -80,7 +80,7 @@ stories("/vertical")
     .add("labelled + surrounded", () =>
         <Box className="flex" style={{ height: "500px" }}>
             <Text>Mission goals</Text>
-            <Divider orientation="vertical" style={{ height: "100%" }}>Since 1978</Divider>
+            <Divider orientation="vertical">Since 1978</Divider>
             <Text>Mission post mortem</Text>
         </Box>
     );

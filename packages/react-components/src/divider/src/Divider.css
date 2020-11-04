@@ -33,6 +33,8 @@
 .o-ui-divider[aria-orientation="vertical"] {
     margin: 0 var(--scale-bravo);
     width: max-content;
+    height: auto;
+    min-height: 100%;
 }
 
 .o-ui-divider[aria-orientation="vertical"]:not(.o-ui-divider-has-label) {
