@@ -22,11 +22,11 @@
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::before {
-    margin-right: var(--scale-bravo);
+    margin-right: var(--scale-charlie);
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::after {
-    margin-left: var(--scale-bravo);
+    margin-left: var(--scale-charlie);
 }
 
 /* VERTICAL */
