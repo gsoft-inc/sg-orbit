@@ -5,6 +5,10 @@
     color: var(--marine-500);
 }
 
+.o-ui-divider {
+    align-self: stretch;
+}
+
 /* HORIZONTAL */
 .o-ui-divider[aria-orientation="horizontal"] {
     margin: var(--scale-delta) 0;
