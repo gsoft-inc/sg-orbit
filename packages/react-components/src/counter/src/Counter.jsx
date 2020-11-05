@@ -1,7 +1,6 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
-import { Divider } from "../../divider";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, normalizeSize, slot } from "../../shared";
