@@ -39,7 +39,3 @@
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-md {
     min-width: var(--scale-hotel);
 }
-
-.o-ui-icon-button.o-ui-button-rounded.o-ui-button-lg {
-    min-width: var(--scale-india);
-}

@@ -40,7 +40,7 @@ const propTypes = {
     /**
      * A button can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg"]),
+    size: oneOf(["2xs", "xs", "sm", "md"]),
     /**
      * The button type.
      */
@@ -144,6 +144,5 @@ export const IconButton = slot("button", forwardRef((props, ref) => (
 
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
+    "md": "xs"
 });

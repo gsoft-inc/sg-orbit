@@ -1,0 +1,88 @@
+import { Divider, InnerDivider } from "@react-components/divider";
+import { Dot } from "@react-components/dot";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+import { TextLink } from "@react-components/link";
+
+<Meta
+    title="Content|Divider"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/divider/src" />)
+        .build()}
+/>
+
+# Divider
+
+A divider to separates and distinguishes sections of content or groups of menuitems.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Divider from @orbit-ui/react-components</dd>
+    </div>
+</dl>
+
+## Usage
+
+### Horizontal
+
+By default a divider render horizontally which takes the width of it's container.
+
+<Preview>
+    <Story name="horizontal">
+        <Divider />
+    </Story>
+</Preview>
+
+### Vertical
+
+A divider can change his orientation to vertical.
+
+<Preview>
+    <Story name="vertical">
+        <Box className="flex">
+            <Dot color="success-500">Starlink operational</Dot>
+            <Divider orientation="vertical" />
+            <TextLink href="#">Manage</TextLink>
+            <Divider orientation="vertical" />
+            <TextLink href="#">View logs</TextLink>
+        </Box>
+    </Story>
+</Preview>
+
+### Labelled
+
+A divider can have a label when it's render horizontally:
+
+<Preview>
+    <Story name="labelled horizontally">
+        <Divider>Last 30 days</Divider>
+    </Story>
+</Preview>
+
+Or vertically:
+
+<Preview>
+    <Story name="labelled vertically">
+        <Box style={{ height: "150px" }}>
+            <Divider orientation="vertical">Last 30 days</Divider>
+        </Box>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={InnerDivider} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Divider />
+    </RefLogger>
+</Story>

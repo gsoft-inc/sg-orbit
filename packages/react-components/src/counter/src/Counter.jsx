@@ -16,17 +16,21 @@ const propTypes = {
      */
     color: oneOf(["light"]),
     /**
-     * Whether to add emphasis on the value or not.
+     * Whether or not to add emphasis on the count value.
      */
     highlight: bool,
     /**
-     * Whether to reverse counter elements order or not.
+     * Whether or not to reverse counter elements order.
      */
     reverse: bool,
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size: oneOf(["sm", "md", "inherit"]),
+    /**
+     * Whether or not the counter push itself away from leading sibling element.
+     */
+    pushed: bool,
     /**
      * Default slot override.
      */
@@ -36,7 +40,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -48,6 +52,7 @@ export function InnerCounter(props) {
         highlight,
         reverse,
         size,
+        pushed,
         as = "span",
         className,
         children,
@@ -69,6 +74,7 @@ export function InnerCounter(props) {
                     color && color,
                     highlight && "highlight",
                     reverse && "reverse",
+                    pushed && "pushed",
                     normalizeSize(size)
                 ),
                 className

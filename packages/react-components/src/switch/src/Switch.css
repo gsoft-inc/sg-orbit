@@ -54,17 +54,6 @@
     margin-right: var(--scale-alpha);
 }
 
-/* COUNTER */
-.o-ui-switch .o-ui-switch-counter {
-    margin-left: var(--scale-bravo);
-}
-
-/* COUNTER | REVERSE */
-.o-ui-switch-reverse .o-ui-switch-counter {
-    margin-left: 0;
-    margin-right: var(--scale-bravo);
-}
-
 /* REVERSE */
 .o-ui-switch-reverse {
     flex-direction: row-reverse;

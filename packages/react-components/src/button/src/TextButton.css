@@ -3,10 +3,8 @@
 :root {
     --o-ui-text-button-rounded-padding-sm: var(--scale-delta);
     --o-ui-text-button-rounded-padding-md: var(--scale-echo);
-    --o-ui-text-button-rounded-padding-lg: var(--scale-foxtrot);
     --o-ui-text-button-pill-padding-sm: var(--scale-charlie);
     --o-ui-text-button-pill-padding-md: var(--scale-delta);
-    --o-ui-text-button-pill-padding-lg: var(--scale-echo);
     --o-ui-text-button-pill-padding-ratio-factor: 1.5;
     --o-ui-text-button-rounded-padding-ratio-factor: 2;
 }
@@ -28,10 +26,6 @@
     padding: 0 var(--o-ui-text-button-pill-padding-md);
 }
 
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-lg {
-    padding: 0 var(--o-ui-text-button-pill-padding-lg);
-}
-
 /* ROUNDED | CONTENT | ICON | SIZES */
 .o-ui-text-button.o-ui-button-rounded.o-ui-button-has-icon.o-ui-button-sm {
     padding-left: calc(var(--o-ui-text-button-rounded-padding-sm) / var(--o-ui-text-button-rounded-padding-ratio-factor));
@@ -39,10 +33,6 @@
 
 .o-ui-text-button.o-ui-button-rounded.o-ui-button-has-icon.o-ui-button-md {
     padding-left: calc(var(--o-ui-text-button-rounded-padding-md) / var(--o-ui-text-button-rounded-padding-ratio-factor));
-}
-
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-has-icon.o-ui-button-lg {
-    padding-left: calc(var(--o-ui-text-button-rounded-padding-lg) / var(--o-ui-text-button-rounded-padding-ratio-factor));
 }
 
 /* PILL SIZES */
@@ -54,10 +44,6 @@
     padding: 0 var(--o-ui-text-button-rounded-padding-md);
 }
 
-.o-ui-text-button.o-ui-button-pill.o-ui-button-lg {
-    padding: 0 var(--o-ui-text-button-rounded-padding-lg);
-}
-
 /* PILL | CONTENT | ICON | SIZES */
 .o-ui-text-button.o-ui-button-pill.o-ui-button-has-icon.o-ui-button-sm {
     padding-left: calc(var(--o-ui-text-button-pill-padding-sm) / var(--o-ui-text-button-pill-padding-ratio-factor));
@@ -65,10 +51,6 @@
 
 .o-ui-text-button.o-ui-button-pill.o-ui-button-has-icon.o-ui-button-md {
     padding-left: calc(var(--o-ui-text-button-pill-padding-md) / var(--o-ui-text-button-pill-padding-ratio-factor));
-}
-
-.o-ui-text-button.o-ui-button-pill.o-ui-button-has-icon.o-ui-button-lg {
-    padding-left: calc(var(--o-ui-text-button-pill-padding-lg) / var(--o-ui-text-button-pill-padding-ratio-factor));
 }
 
 /* CONTENT | ICON | LINK */
