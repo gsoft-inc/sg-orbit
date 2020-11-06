@@ -5,6 +5,7 @@ import { Content } from "@react-components/view";
 import { Disclosure, useDisclosureContext } from "@react-components/disclosure";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
+import { TextLink } from "@react-components/link";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -15,16 +16,6 @@ function stories(segment) {
             .build())
         .build();
 }
-
-/*
-Use a button for all the test except the custom trigger.
-
-- default -> DONE
-- open -> DONE
-- custom trigger (open / close use arrow) -> use context -> DONE
-- render props -> button + isOpen
-- textlink as button
-*/
 
 stories()
     .add("default", () =>
@@ -115,4 +106,10 @@ stories()
                 </Disclosure>
             </div>
         </Stack>
+    )
+    .add("text link", () =>
+        <Disclosure>
+            <TextLink as="button">Mars</TextLink>
+            <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+        </Disclosure>
     );
