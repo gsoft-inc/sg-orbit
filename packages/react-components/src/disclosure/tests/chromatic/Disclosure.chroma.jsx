@@ -101,5 +101,18 @@ stories()
                     )}
                 </Disclosure>
             </div>
+            <div>
+                <Disclosure defaultOpen>
+                    {({ isOpen }) => (
+                        <>
+                            <Button>
+                                <Text>Mars</Text>
+                                <ArrowIcon slot="right-icon" className={isOpen ? "rotate-90" : undefined} />
+                            </Button>
+                            <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                        </>
+                    )}
+                </Disclosure>
+            </div>
         </Stack>
     );
