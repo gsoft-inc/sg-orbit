@@ -4,4 +4,5 @@ export * from "./TabList";
 export * from "./TabElement";
 export * from "./TabPanels";
 export * from "./TabPanel";
+export * from "./TabsContext";
 export * from "./useTabsBuilder";

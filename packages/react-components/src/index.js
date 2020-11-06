@@ -34,4 +34,5 @@ export * from "./alert";
 export * from "./view";
 export * from "./transition";
 export * from "./divider";
+export * from "./disclosure";
 export * from "./shared";

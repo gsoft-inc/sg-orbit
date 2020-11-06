@@ -3,7 +3,7 @@ import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../..
 import { Text } from "@react-components/text";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useTabsContext } from "./Tabs";
+import { useTabsContext } from "./TabsContext";
 
 const propTypes = {
     /**
@@ -75,6 +75,8 @@ export function InnerTabElement({
     });
 
     const handleKeyDown = useEventCallback(event => {
+        event.preventDefault();
+
         switch(event.keyCode) {
             case KEYS.enter:
             case KEYS.space:

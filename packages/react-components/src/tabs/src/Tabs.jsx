@@ -3,9 +3,10 @@ import "./Tabs.css";
 import { Box } from "../../box";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
+import { TabsProvider } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { createContext, forwardRef, useContext } from "react";
 import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useId } from "../../shared";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 import { useTabsBuilder } from "./useTabsBuilder";
@@ -136,13 +137,3 @@ InnerTabs.propTypes = propTypes;
 export const Tabs = forwardRef((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
-
-////////
-
-export const TabsContext = createContext({});
-
-export const TabsProvider = TabsContext.Provider;
-
-export function useTabsContext() {
-    return useContext(TabsContext);
-}

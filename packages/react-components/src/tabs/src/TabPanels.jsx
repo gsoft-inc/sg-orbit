@@ -1,5 +1,5 @@
 import { TabPanel } from "./TabPanel";
-import { useTabsContext } from "./Tabs";
+import { useTabsContext } from "./TabsContext";
 
 export function TabPanels({ panels, ...rest }) {
     const { selectedIndex } = useTabsContext();

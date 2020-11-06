@@ -2,7 +2,7 @@ import { Box } from "../../box";
 import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { TabElement } from "./TabElement";
 import { useRef } from "react";
-import { useTabsContext } from "./Tabs";
+import { useTabsContext } from "./TabsContext";
 
 const NAV_KEY_BINDING = {
     horizontal: {
