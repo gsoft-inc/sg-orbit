@@ -94,6 +94,66 @@ export function createButtonTestSuite(element, stories) {
                 </div>
             </Stack>
         )
+        .add("right icon", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <IconList slot="right-icon">
+                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                        </IconList>
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <IconList slot="right-icon">
+                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                        </IconList>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button loading size="sm" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                    <Button loading element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed size="sm" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                    <Button condensed element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                </Inline>
+                <div>
+                    <Button disabled element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                </div>
+                <div>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
+                </div>
+            </Stack>
+        )
         .add("primary", () =>
             <Stack>
                 <Inline verticalAlign="end">
