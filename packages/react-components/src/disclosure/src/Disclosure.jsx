@@ -6,11 +6,6 @@ import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCa
 import { any, bool, func } from "prop-types";
 import { isNil } from "lodash";
 
-/*
-Jest tests:
-- User provided id.
-*/
-
 const propTypes = {
     /**
      * A controlled open value.
@@ -74,7 +69,7 @@ export function InnerDisclosure({
     });
 
     const rootId = useId(id, id ? undefined: "o-ui-disclosure");
-    const contentId = useId(content.props.id, content.props.id ? undefined : `${rootId}-content`);
+    const contentId = `${rootId}-content`;
 
     const triggerMarkup = augmentElement(trigger, {
         onClick: handleClick,
