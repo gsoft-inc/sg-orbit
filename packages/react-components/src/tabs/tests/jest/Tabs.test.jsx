@@ -4,13 +4,119 @@ import { Tab, Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-// TODO: Missing user provided id tests.
+// ***** Ids *****
+
+test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
+    const { getByTestId } = render(
+        <Tabs id="foo" aria-label="Tabs">
+            <Tab>
+                <Header data-testid="header">Header 1</Header>
+                <Content data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("id")).toBe("foo-tab-0");
+    expect(header.getAttribute("aria-controls")).toBe("foo-panel-0");
+    expect(content.getAttribute("id")).toBe("foo-panel-0");
+    expect(content.getAttribute("aria-labelledby")).toBe("foo-tab-0");
+});
+
+test("when an header id is provided, it is assigned to the tab id", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Tab>
+                <Header id="tab-header" data-testid="header">Header 1</Header>
+                <Content data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("id")).toBe("tab-header");
+    expect(content.getAttribute("aria-labelledby")).toBe("tab-header");
+});
+
+test("when a content id is provided, it is assigned to the content id", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Tab>
+                <Header data-testid="header">Header 1</Header>
+                <Content id="tab-content" data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("aria-controls")).toBe("tab-content");
+    expect(content.getAttribute("id")).toBe("tab-content");
+});
+
+test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Tab>
+                <Header data-testid="header">Header 1</Header>
+                <Content data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("id")).toBe("o-ui-tabs-3-tab-0");
+    expect(header.getAttribute("aria-controls")).toBe("o-ui-tabs-3-panel-0");
+    expect(content.getAttribute("id")).toBe("o-ui-tabs-3-panel-0");
+    expect(content.getAttribute("aria-labelledby")).toBe("o-ui-tabs-3-tab-0");
+});
+
+test("when the header id is auto generated, it is assigned to the tab id", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Tab>
+                <Header data-testid="header">Header 1</Header>
+                <Content data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("id")).toBe("o-ui-tabs-4-tab-0");
+    expect(content.getAttribute("aria-labelledby")).toBe("o-ui-tabs-4-tab-0");
+});
+
+test("when the content id is auto generated, it is assigned to the tab id", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Tab>
+                <Header data-testid="header">Header 1</Header>
+                <Content data-testid="content">Content 1</Content>
+            </Tab>
+        </Tabs>
+    );
+
+    const header = await waitFor(() => getByTestId("header"));
+    const content = await waitFor(() => getByTestId("content"));
+
+    expect(header.getAttribute("aria-controls")).toBe("o-ui-tabs-5-panel-0");
+    expect(content.getAttribute("id")).toBe("o-ui-tabs-5-panel-0");
+});
 
 // ***** Accessibility *****
 
 test("first tab is tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -28,7 +134,7 @@ test("first tab is tabbable", async () => {
 
 test("selected tab is tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs defaultIndex={1} aria-label="Planets">
+        <Tabs defaultIndex={1} aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -46,7 +152,7 @@ test("selected tab is tabbable", async () => {
 
 test("a disabled tab is not tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab disabled data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -65,7 +171,7 @@ test("a disabled tab is not tabbable", async () => {
 
 test("when automatic, focusing a tab change the active tab", async () => {
     const { getByTestId } = render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -86,7 +192,7 @@ test("when automatic, focusing a tab change the active tab", async () => {
 
 test("when manual, focusing a tab shouldn't change the active tab", async () => {
     const { getByTestId } = render(
-        <Tabs manual aria-label="Planets">
+        <Tabs manual aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -107,7 +213,7 @@ test("when manual, focusing a tab shouldn't change the active tab", async () => 
 
 test("when manual, spacebar keypress makes a tab active", async () => {
     const { getByTestId } = render(
-        <Tabs manual aria-label="Planets">
+        <Tabs manual aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -128,7 +234,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
 
 test("when manual, enter keypress makes a tab active", async () => {
     const { getByTestId } = render(
-        <Tabs manual aria-label="Planets">
+        <Tabs manual aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -149,7 +255,7 @@ test("when manual, enter keypress makes a tab active", async () => {
 
 test("when horizontal, right arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -174,7 +280,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
 
 test("when horizontal, left arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -199,7 +305,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
 
 test("when vertical, down arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs orientation="vertical" aria-label="Planets">
+        <Tabs orientation="vertical" aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -224,7 +330,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
 
 test("when vertical, up arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
-        <Tabs orientation="vertical" aria-label="Planets">
+        <Tabs orientation="vertical" aria-label="Tabs">
             <Tab data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -253,7 +359,7 @@ test("call onChange when the active tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler} aria-label="Planets">
+        <Tabs onChange={handler} aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -276,7 +382,7 @@ test("dont call onChange when a tab is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler} aria-label="Planets">
+        <Tabs onChange={handler} aria-label="Tabs">
             <Tab>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -301,7 +407,7 @@ test("header ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab>
                 <Header ref={ref}>Header</Header>
                 <Content>Content</Content>
@@ -319,7 +425,7 @@ test("content ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tabs aria-label="Planets">
+        <Tabs aria-label="Tabs">
             <Tab>
                 <Header>Header</Header>
                 <Content ref={ref}>Content</Content>
