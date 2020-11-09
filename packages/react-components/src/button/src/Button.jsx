@@ -149,7 +149,8 @@ export function InnerButton(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-button",
-                    icon && "has-icon"
+                    rightIcon && "has-right-icon",
+                    icon && "has-left-icon"
                 ),
                 buttonClassName
             )}
