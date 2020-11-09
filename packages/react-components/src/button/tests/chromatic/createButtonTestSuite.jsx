@@ -165,6 +165,10 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                    <Button color="primary" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
                 </Inline>
                 <Inline>
                     <Button active color="primary" element={element}>Button</Button>
@@ -186,6 +190,10 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                    <Button color="secondary" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
                 </Inline>
                 <Inline>
                     <Button active color="secondary" element={element}>Button</Button>
@@ -206,6 +214,10 @@ export function createButtonTestSuite(element, stories) {
                     <Button color="danger" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
+                    </Button>
+                    <Button color="danger" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
                     </Button>
                 </Inline>
                 <Inline>
