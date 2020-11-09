@@ -277,15 +277,6 @@ a.o-ui-button {
     background-color: var(--alert-500);
 }
 
-/* OUTLINE | DANGER | ICON */
-.o-ui-button-outline.o-ui-button-danger .o-ui-button-icon {
-    fill: var(--alert-500);
-}
-
-.o-ui-button-outline.o-ui-button-danger.o-ui-button-active .o-ui-button-icon {
-    fill: var(--white);
-}
-
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
@@ -499,11 +490,6 @@ a.o-ui-button {
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
-/* CONTENT | ICON | SIZES */
-.o-ui-button-icon + .o-ui-button-text {
-    margin-left: var(--scale-alpha);
-}
-
 /* INHERIT */
 /* GHOST */
 .o-ui-button-inherit.o-ui-button-ghost {
@@ -547,7 +533,8 @@ a.o-ui-button {
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
     fill: var(--white);
     opacity: .9;
 }
@@ -564,8 +551,10 @@ a.o-ui-button {
 
 .o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
 .o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
     opacity: 1;
 }
 

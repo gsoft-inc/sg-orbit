@@ -228,6 +228,10 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
+                    <Button color="inherit" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="right-icon" />
+                    </Button>
                 </Inline>
                 <Inline>
                     <Button active color="inherit" element={element}>Button</Button>
