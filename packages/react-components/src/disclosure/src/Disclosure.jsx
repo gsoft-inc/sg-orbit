@@ -3,6 +3,7 @@ import "./Disclosure.css";
 import { Children, forwardRef, useCallback } from "react";
 import { DisclosureProvider } from "./DisclosureContext";
 import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
+import { Transition } from "../../transition";
 import { any, bool, func } from "prop-types";
 import { isNil } from "lodash";
 
@@ -91,7 +92,13 @@ export function InnerDisclosure({
             }}
         >
             {triggerMarkup}
-            {contentMarkup}
+            <Transition
+                show={isOpen}
+                enter="o-ui-slide-down"
+                leave="o-ui-slide-up"
+            >
+                {contentMarkup}
+            </Transition>
         </DisclosureProvider>
     );
 }
