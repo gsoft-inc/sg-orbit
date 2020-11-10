@@ -6,10 +6,6 @@ import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCa
 import { any, bool, func } from "prop-types";
 import { isNil } from "lodash";
 
-/*
-- Controlled
-*/
-
 const propTypes = {
     /**
      * A controlled open value.
@@ -62,11 +58,10 @@ export function InnerDisclosure({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        event.preventDefault();
-
         switch(event.keyCode) {
             case KEYS.enter:
             case KEYS.space:
+                event.preventDefault();
                 toggle(event);
                 break;
         }

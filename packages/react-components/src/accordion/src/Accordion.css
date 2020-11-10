@@ -1,0 +1,19 @@
+.o-ui-accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.o-ui-accordion-header {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.o-ui-accordion-title {
+    flex-grow: 1;
+}
+
+.o-ui-accordion-header-icon {
+    flex-shrink: 0;
+}

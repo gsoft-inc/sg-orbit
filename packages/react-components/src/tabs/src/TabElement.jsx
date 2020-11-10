@@ -75,11 +75,10 @@ export function InnerTabElement({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        event.preventDefault();
-
         switch(event.keyCode) {
             case KEYS.enter:
             case KEYS.space:
+                event.preventDefault();
                 onSelect(event, index);
                 break;
         }
