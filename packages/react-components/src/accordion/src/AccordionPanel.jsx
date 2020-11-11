@@ -1,8 +1,17 @@
 import { Box } from "../../box";
+import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeClasses } from "../../shared";
 
 const propTypes = {
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: any.isRequired
 };
 
 export function InnerAccordionPanel({

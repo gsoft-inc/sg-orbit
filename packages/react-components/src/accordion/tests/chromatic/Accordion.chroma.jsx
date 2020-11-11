@@ -101,7 +101,7 @@ stories()
     )
     .add("narrow container", () =>
         <div style={{ width: "75px" }}>
-            <Accordion multiple>
+            <Accordion>
                 <Item>
                     <Header>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
@@ -138,6 +138,22 @@ stories()
             <Item disabled>
                 <Header>Saturn</Header>
                 <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
+            </Item>
+        </Accordion>
+    )
+    .add("as div", () =>
+        <Accordion>
+            <Item>
+                <Header as="div" role="button">Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header as="div" role="button">Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header as="div" role="button">Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
     )

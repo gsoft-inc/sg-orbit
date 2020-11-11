@@ -1,11 +1,24 @@
 import { Box } from "../../box";
 import { ChevronIcon } from "@orbit-ui/react-components";
 import { Text } from "../../text";
+import { any, bool, elementType, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { useAccordionItemContext } from "./AccordionItemContext";
 
 const propTypes = {
+    /**
+     * Whether or not the tab is disabled.
+     */
+    disabled: bool,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: any.isRequired
 };
 
 export function InnerAccordionHeader({
