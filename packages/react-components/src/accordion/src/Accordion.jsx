@@ -1,24 +1,12 @@
 import "./Accordion.css";
 
 import { AccordionItem } from "./AccordionItem";
-import { AccordionProvider } from "./AccordionContext";
 import { Box } from "@react-components/box";
-import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation } from "../../shared";
+import { KEYS, arrayify, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation, useMergedRefs } from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOfType, string } from "prop-types";
-import { forwardRef, useRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useAccordionBuilder } from "./useAccordionBuilder";
-
-/*
-- Do I really need to pass "open" to AccordionHeader? I think it's for custom component but it might not be necessary since he got context.
-  If it's not important, also remove it for Tabs.
-- Maybe this is not event a good idea to support custom AccordionHeader and custom Tab?
-- I don't think we should let someone customize the accordion header (same for Tab).
-- Header should support an icon (with slots)
-
-- Pour custom AccordionHeader or Content, au lieu de passer "index" et "open", avoir un AccordionItemContext. Si ça fonctionne le faire pour Tab aussi.
-  -> Cependant, je ne crois pas que ça va fonctionner.
-*/
 
 const propTypes = {
     /**
@@ -32,7 +20,7 @@ const propTypes = {
     /**
      * Called when an accordion is expanded / collapsed.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number|Number[]} index - The index(es) of the expanded accordion item.
+     * @param {Number[]} index - The index(es) of the expanded accordion item.
      * @returns {void}
      */
     onChange: func,
@@ -81,9 +69,12 @@ export function InnerAccordion({
 }) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
-    const ref = useRef();
+    const ref = useMergedRefs(forwardedRef);
 
-    const items = useAccordionBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-accordion"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const memoSelectedIndex = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
+
+    const items = useAccordionBuilder(children, memoSelectedIndex, useId(id, id ? undefined : "o-ui-accordion"));
 
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
@@ -92,14 +83,14 @@ export function InnerAccordion({
     const handleToggle = useEventCallback((event, toggledIndex) => {
         let newSelectedIndex;
 
-        if (!selectedIndex.includes(toggledIndex)) {
+        if (!memoSelectedIndex.includes(toggledIndex)) {
             if (multiple) {
-                newSelectedIndex = [...selectedIndex, toggledIndex];
+                newSelectedIndex = [...memoSelectedIndex, toggledIndex];
             } else {
                 newSelectedIndex = [toggledIndex];
             }
         } else {
-            newSelectedIndex = selectedIndex.filter(x => x !== toggledIndex);
+            newSelectedIndex = memoSelectedIndex.filter(x => x !== toggledIndex);
         }
 
         setSelectedIndex(newSelectedIndex);
@@ -115,21 +106,17 @@ export function InnerAccordion({
             {...navigationProps}
             className={mergeClasses("o-ui-accordion", className)}
             as={as}
-            ref={forwardedRef}
+            ref={ref}
         >
-            <AccordionProvider
-                value={{
-                    selectedIndex,
-                    onToggle: handleToggle
-                }}
-            >
-                {items.map(({ key, ...itemsProps }) => (
-                    <AccordionItem
-                        {...itemsProps}
-                        key={key}
-                    />
-                ))}
-            </AccordionProvider>
+            {items.map(({ index: itemIndex, key, ...itemProps }) => (
+                <AccordionItem
+                    {...itemProps}
+                    index={itemIndex}
+                    open={memoSelectedIndex.includes(itemIndex)}
+                    onToggle={handleToggle}
+                    key={key}
+                />
+            ))}
         </Box>
     );
 }

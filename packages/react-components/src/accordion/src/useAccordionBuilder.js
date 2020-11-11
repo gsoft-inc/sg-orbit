@@ -40,8 +40,8 @@ export class AccordionBuilder {
                 id: `${this._rootId}-${index}`,
                 index,
                 key: `.${index}`,
-                headerProps,
-                panelProps
+                header: headerProps,
+                panel: panelProps
             };
         });
     }

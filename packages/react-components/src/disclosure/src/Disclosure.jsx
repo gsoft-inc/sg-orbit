@@ -3,7 +3,6 @@ import "./Disclosure.css";
 import { Children, forwardRef, useCallback } from "react";
 import { DisclosureProvider } from "./DisclosureContext";
 import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
-import { Transition } from "../../transition";
 import { any, bool, func } from "prop-types";
 import { isNil } from "lodash";
 
@@ -74,7 +73,6 @@ export function InnerDisclosure({
     const triggerMarkup = augmentElement(trigger, {
         onClick: handleClick,
         onKeyDown: handleKeyDown,
-        role: "button",
         "aria-expanded": isOpen,
         "aria-controls": contentId
     });
@@ -92,13 +90,7 @@ export function InnerDisclosure({
             }}
         >
             {triggerMarkup}
-            <Transition
-                show={isOpen}
-                enter="o-ui-slide-down"
-                leave="o-ui-slide-up"
-            >
-                {contentMarkup}
-            </Transition>
+            {contentMarkup}
         </DisclosureProvider>
     );
 }

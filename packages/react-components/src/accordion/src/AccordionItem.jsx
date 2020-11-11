@@ -1,37 +1,39 @@
 import { AccordionHeader } from "./AccordionHeader";
+import { AccordionItemProvider } from "./AccordionItemContext";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
-import { useAccordionContext } from "./AccordionContext";
-import { useEventCallback } from "../../../dist";
+import { useEventCallback } from "../../shared";
 
 export function AccordionItem({
     index,
-    headerProps,
-    panelProps,
+    header,
+    panel,
+    open,
+    onToggle,
     ...rest
 }) {
-    const { selectedIndex, onToggle } = useAccordionContext();
-
-    const isOpen = selectedIndex.includes(index);
-
     const handleChange = useEventCallback(event => {
         onToggle(event, index);
     });
 
+    const { type: HeaderType = AccordionHeader, ...headerProps } = header;
+    const { type: PanelType = AccordionPanel, ...panelProps } = panel;
+
     return (
-        <Disclosure
-            {...rest}
-            open={isOpen}
-            onChange={handleChange}
+        <AccordionItemProvider
+            value={{
+                index: index,
+                isOpen: open
+            }}
         >
-            <AccordionHeader
-                {...headerProps}
-                open={isOpen}
-            />
-            <AccordionPanel
-                {...panelProps}
-                open={isOpen}
-            />
-        </Disclosure>
+            <Disclosure
+                {...rest}
+                open={open}
+                onChange={handleChange}
+            >
+                <HeaderType {...headerProps} />
+                <PanelType {...panelProps} />
+            </Disclosure>
+        </AccordionItemProvider>
     );
 }

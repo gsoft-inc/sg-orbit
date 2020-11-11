@@ -5,7 +5,7 @@ import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsProvider } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useEventCallback, useId } from "../../shared";
+import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useEffect } from "react";
@@ -92,7 +92,7 @@ export function InnerTabs({
         }
     }
 
-    // On autopilot, ensure the initial selected tab is not a disabled one.
+    // When uncontrolled, ensure the initial selected tab is not a disabled one.
     useEffect(() => {
         if (tabs[selectedIndex].disabled) {
             setSelectedIndex(tabs.find(x => !x.disabled).index);

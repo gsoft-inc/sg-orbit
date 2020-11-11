@@ -1,5 +1,6 @@
-import { Accordion, Item } from "@react-components/accordion";
+import { Accordion, AccordionHeader, Item, useAccordionItemContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
+import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/view";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
@@ -41,8 +42,49 @@ stories()
             </Item>
         </Accordion>
     )
+    .add("icon", () =>
+        <Accordion>
+            <Item>
+                <Header>
+                    <InfoIcon />
+                    <Text>Mars</Text>
+                </Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>
+                    <InfoIcon />
+                    <Text>Jupiter</Text>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>
+                    <InfoIcon />
+                    <Text>Venus</Text>
+                </Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    )
+    .add("default index", () =>
+        <Accordion defaultIndex={1}>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    )
     .add("multiple", () =>
-        <Accordion multiple>
+        <Accordion multiple defaultIndex={[0, 2]}>
             <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
@@ -74,4 +116,175 @@ stories()
                 </Item>
             </Accordion>
         </div>
+    )
+    .add("states", () =>
+        <Accordion>
+            <Item active>
+                <Header>Uranus</Header>
+                <Content>Uranus is the seventh planet from the Sun.</Content>
+            </Item>
+            <Item focus>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item hover>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item focus hover>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+            <Item disabled>
+                <Header>Saturn</Header>
+                <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
+            </Item>
+        </Accordion>
+    )
+    .add("render props", () =>
+        <Accordion defaultIndex={0}>
+            <Item>
+                {({ isOpen }) => (
+                    <>
+                        <Header>
+                            {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
+                            <Text>Mars</Text>
+                        </Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </>
+                )}
+            </Item>
+            <Item>
+                {({ isOpen }) => (
+                    <>
+                        <Header>
+                            {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
+                            <Text>Jupiter</Text>
+                        </Header>
+                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                    </>
+                )}
+            </Item>
+        </Accordion>
+    )
+    .add("data render", () =>
+        <Stack>
+            <Accordion>
+                {[1, 2, 3].map(x => (
+                    <Item key={x}>
+                        <Header>{`Header ${x}`}</Header>
+                        <Content>{`Content ${x}`}</Content>
+                    </Item>
+                ))}
+            </Accordion>
+            <Accordion defaultIndex={1}>
+                {[1, 2, 3].map(x => (
+                    <Item key={x}>
+                        {({ isOpen }) => (
+                            <>
+                                <Header>
+                                    {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
+                                    <Text>{`Header ${x}`}</Text>
+                                </Header>
+                                <Content>{`Content ${x}`}</Content>
+                            </>
+                        )}
+                    </Item>
+                ))}
+            </Accordion>
+        </Stack>
+    )
+    .add("custom component", () => {
+        const ActiveHeader = ({ children, ...rest }) => {
+            const { isOpen } = useAccordionItemContext();
+
+            return (
+                <AccordionHeader
+                    {...rest}
+                    style={{ backgroundColor: isOpen ? "blue" : "red" }}
+                >
+                    {children}
+                </AccordionHeader>
+            );
+        };
+
+        return (
+            <Accordion>
+                <Item>
+                    <ActiveHeader>Mars</ActiveHeader>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        );
+    })
+    .add("custom as", () => {
+        const ActiveHeader = ({ children, ...rest }) => {
+            const { isOpen } = useAccordionItemContext();
+
+            return (
+                <Box
+                    {...rest}
+                    style={{ backgroundColor: isOpen ? "blue" : "red" }}
+                >
+                    {children}
+                </Box>
+            );
+        };
+
+        return (
+            <Accordion defaultIndex={1}>
+                <Item>
+                    <Header as={ActiveHeader}>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as={ActiveHeader}>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        );
+    })
+    .add("autofocus", () =>
+        <Accordion autoFocus>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    )
+    .add("autofocus delay", () =>
+        <Accordion autoFocus autoFocusDelay={50}>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
     );

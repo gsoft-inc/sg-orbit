@@ -1,3 +1,5 @@
 export * from "./Accordion";
-export * from "./AccordionContext";
+export * from "./AccordionHeader";
+export * from "./AccordionPanel";
+export * from "./AccordionItemContext";
 export * from "./Item";

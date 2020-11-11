@@ -1,34 +1,61 @@
 import { Box } from "../../box";
 import { ChevronIcon } from "@orbit-ui/react-components";
 import { Text } from "../../text";
+import { cssModule, mergeClasses, useSlots } from "../../shared";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { useAccordionItemContext } from "./AccordionItemContext";
 
 const propTypes = {
 };
 
 export function InnerAccordionHeader({
-    // index,
-    open,
+    disabled,
+    active,
+    focus,
+    hover,
     as = "button",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
+    const { isOpen } = useAccordionItemContext();
+
+    const { icon, text } = useSlots(children, {
+        _: {
+            defaultWrapper: Text
+        },
+        icon: {
+            className: "o-ui-accordion-icon"
+        },
+        text: {
+            className: "o-ui-accordion-title"
+        }
+    });
+
     return (
         <Box
             {...rest}
-            className={mergeClasses("o-ui-accordion-header", className)}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-accordion-header",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover"
+                ),
+                className
+            )}
+            disabled={disabled}
             type="button"
             as={as}
             ref={forwardedRef}
         >
-            <Text className="o-ui-accordion-title">{children}</Text>
+            {icon}
+            {text}
             <ChevronIcon
                 className={mergeClasses(
-                    open ? "o-ui-rotate-270" : "o-ui-rotate-90",
-                    "o-ui-accordion-header-icon"
+                    isOpen ? "o-ui-rotate-270" : "o-ui-rotate-90",
+                    "o-ui-accordion-arrow"
                 )}
             />
         </Box>

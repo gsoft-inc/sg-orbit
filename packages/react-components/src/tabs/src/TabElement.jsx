@@ -104,7 +104,6 @@ export function InnerTabElement({
             role="tab"
             data-index={index}
             aria-selected={selected}
-            aria-disabled={disabled}
             aria-controls={panelId}
             as={as}
             ref={forwardedRef}
