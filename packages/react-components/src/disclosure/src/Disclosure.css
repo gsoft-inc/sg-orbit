@@ -1,3 +1,4 @@
 .o-ui-disclosure-content {
-    padding: var(--scale-charlie) 0;
+    padding-top: var(--scale-echo);
+    padding-bottom: var(--scale-echo);
 }

@@ -1,6 +1,8 @@
 .o-ui-accordion {
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-200);
+    border-radius: 8px;
 }
 
 /* HEADER */
@@ -8,12 +10,93 @@
     display: flex;
     align-items: center;
     text-align: left;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: var(--scale-echo) var(--scale-echo) var(--scale-echo) var(--scale-foxtrot);
+    border-top: 1px solid var(--cloud-50);
+    transition: background-color .3s ease-in;
 }
 
+.o-ui-accordion-header:first-of-type {
+    border-top: 0;
+    border-top-left-radius: var(--scale-bravo);
+    border-top-right-radius: var(--scale-bravo);
+}
+
+.o-ui-accordion-header:nth-last-child(2),
+.o-ui-accordion-panel:last-child {
+    border-bottom-left-radius: var(--scale-bravo);
+    border-bottom-right-radius: var(--scale-bravo);
+}
+
+/* HAS ICON */
+.o-ui-accordion-header.o-ui-accordion-header-has-icon {
+    padding-left: var(--scale-echo);
+}
+
+/* HEADER | TITLE */
 .o-ui-accordion-title {
     flex-grow: 1;
 }
 
+/* HEADER | TITLE | ICON */
+.o-ui-accordion-icon +  .o-ui-accordion-title {
+    margin-left: var(--scale-alpha);
+}
+
+/* HEADER | ARROW */
 .o-ui-accordion-arrow {
     flex-shrink: 0;
+    transition: transform .3s ease-in;
+}
+
+/* PANEL */
+.o-ui-accordion-panel {
+    padding-left: var(--scale-echo);
+    padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot));
+    background-color: var(--white);
+}
+
+/* STATES */
+/* DISABLED */
+.o-ui-accordion-header[disabled] {
+    cursor: not-allowed;
+}
+
+/* HOVER */
+.o-ui-accordion-header:hover ,
+.o-ui-accordion-header-hover {
+    background-color: var(--cloud-50);
+}
+
+/* HOVER | DISABLED*/
+.o-ui-accordion-header[disabled]:hover {
+    background-color: var(--white);
+}
+
+/* FOCUS */
+.o-ui-accordion-header::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: var(--scale-bravo);
+    right: var(--scale-bravo);
+    bottom: calc(var(--scale-bravo) - 2px);
+    border: 2px transparent solid;
+    border-radius: var(--o-ui-rounded-border-radius);
+    pointer-events: none;
+    height: var(--scale-golf);
+    transform: translateY(-50%);
+}
+
+.o-ui-accordion-header:focus,
+.o-ui-accordion-header-focus {
+    outline: none;
+    position: relative;
+}
+
+.o-ui-accordion-header:focus::before,
+.o-ui-accordion-header-focus::before {
+    border-color: var(--primary-500);
 }
