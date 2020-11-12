@@ -54,7 +54,8 @@ export function InnerAccordionHeader({
                     "o-ui-accordion-header",
                     active && "active",
                     focus && "focus",
-                    hover && "hover"
+                    hover && "hover",
+                    icon && "has-icon"
                 ),
                 className
             )}
@@ -67,7 +68,7 @@ export function InnerAccordionHeader({
             {text}
             <ChevronIcon
                 className={mergeClasses(
-                    isOpen ? "o-ui-rotate-270" : "o-ui-rotate-90",
+                    isOpen ? "o-ui-rotate-270 o-ui-accordion-arrow-up" : "o-ui-rotate-90 o-ui-accordion-arrow-down",
                     "o-ui-accordion-arrow"
                 )}
             />
