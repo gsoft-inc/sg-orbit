@@ -3,6 +3,7 @@
     flex-direction: column;
     box-shadow: var(--shadow-200);
     border-radius: 8px;
+    overflow-anchor: none;
 }
 
 /* HEADER */

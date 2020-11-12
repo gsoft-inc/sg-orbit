@@ -18,8 +18,8 @@ export * from "./augmentElement";
 export * from "./focusableTreeWalker";
 export * from "./omitProps";
 export * from "./arrayify";
-export * from "./slots";
 export * from "./resolveChildren";
+export * from "./match";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -35,7 +35,9 @@ export * from "./useKeyboardNavigation";
 export * from "./useRovingFocus";
 export * from "./useHasChild";
 export * from "./useIsInitialRender";
+export * from "./useDisposables";
 
-// Contexts
-export * from "./CheckableContext";
-export * from "./StyleContext";
+// Features
+export * from "./slots";
+export * from "./checkable";
+export * from "./styles";

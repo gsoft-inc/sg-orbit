@@ -55,31 +55,9 @@
 
 /* ANIMATIONS | SLIDE */
 .o-ui-slide-down {
-    animation: o-ui-slide-down-animation .3s;
+    transition: height 0.3s ease-out;
 }
 
 .o-ui-slide-up {
-    animation: o-ui-slide-up-animation .3s forwards;
-}
-
-@keyframes o-ui-slide-down-animation {
-    0% {
-        transform: translate3d(0, -1rem, 0);
-        opacity: 0;
-    }
-    100% {
-        transform: translateZ(0);
-        opacity: 1;
-    }
-}
-
-@keyframes o-ui-slide-up-animation {
-    0% {
-        transform: translateZ(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate3d(0, -1rem, 0);
-        opacity: 0;
-    }
+    transition: height 0.3s ease-out;
 }

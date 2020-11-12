@@ -1,22 +1,18 @@
-.o-ui-disclosure-content {
-    padding-top: var(--scale-echo);
-    padding-bottom: var(--scale-echo);
-}
-
-.o-ui-disclosure-content-collapsing {
-    position: relative;
+/* SECTION */
+.o-ui-disclosure-content-section-collapsing {
     overflow: hidden;
 }
 
-.o-ui-disclosure-content-collapsed {
+.o-ui-disclosure-content-section-collapsed {
     display: none;
 }
 
-.o-ui-disclosure-content-expanding {
-    height: 0;
+.o-ui-disclosure-content-section-expanding {
     overflow: hidden;
 }
 
-.o-ui-disclosure-content-expanded {
-    height: auto;
+/* CONTENT */
+.o-ui-disclosure-content {
+    padding-top: var(--scale-echo);
+    padding-bottom: var(--scale-echo);
 }

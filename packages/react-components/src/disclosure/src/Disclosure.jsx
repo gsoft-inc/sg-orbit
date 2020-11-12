@@ -2,15 +2,14 @@ import "./Disclosure.css";
 
 import { Children, forwardRef, useCallback, useReducer, useRef } from "react";
 import { DisclosureProvider } from "./DisclosureContext";
-import { KEYS, augmentElement, mergeClasses, resolveChildren, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
+import { KEYS, augmentElement, match, resolveChildren, useControllableState, useDisposables, useEventCallback, useId, useIsInitialRender } from "../../shared";
 import { any, bool, func } from "prop-types";
 import { cssModule } from "../../../dist";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 
-/*
-I don't think the current animation code would work for controlled mode.
-*/
+// TODO: sortir un Collapse component pour l'anim
+// TODO: update dependencies (React, babel / eslint) - don't update storybook
 
 const propTypes = {
     /**
@@ -34,7 +33,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ActionType = {
+const TransitionActionType = {
     slideDown: "SlideDown",
     slideUp: "SlideUp",
     completeTransition: "CompleteTransition"
@@ -51,33 +50,22 @@ const SlidingDirection = {
 };
 
 function slidingReducer(state, action) {
-    if (action === ActionType.completeTransition) {
+    if (action === TransitionActionType.completeTransition) {
         return { transitionState: TransitionState.completed, direction: state.direction };
     }
 
-    // if (state.transitionState === TransitionState.transitioning) {
-    //     return state;
-    // }
-
-    switch (action) {
-        case ActionType.slideDown: {
+    return match(action, {
+        [TransitionActionType.slideDown]() {
             return { transitionState: TransitionState.transitioning, direction: SlidingDirection.down };
-        }
-        case ActionType.slideUp: {
+        },
+        [TransitionActionType.slideUp]() {
             return { transitionState: TransitionState.transitioning, direction: SlidingDirection.up };
         }
-        default: {
-            throw new Error(`Unhandled sliding transition action type: ${action}`);
-        }
-    }
+    });
 }
 
-/*
-TODO:
-- No transition on initial render. -> skip dispatch?
-
-- When it works trying again with the first kindof solution using ".o-ui-slide-down" & ".o-ui-slide-up"
-*/
+// For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
+// and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
 function useSlidingTransition(isOpen, ref) {
     const [{ transitionState, direction }, dispatch] = useReducer(slidingReducer, {
         transitionState: TransitionState.completed,
@@ -85,10 +73,11 @@ function useSlidingTransition(isOpen, ref) {
     });
 
     const isInitialRender = useRef();
+    const disposables = useDisposables();
 
-    const slideDown = useCallback(() => { dispatch(ActionType.slideDown); }, [dispatch]);
-    const slideUp = useCallback(() => { dispatch(ActionType.slideUp); }, [dispatch]);
-    const completeTransition = useCallback(() => { dispatch(ActionType.completeTransition); }, [dispatch]);
+    const slideDown = useCallback(() => { dispatch(TransitionActionType.slideDown); }, [dispatch]);
+    const slideUp = useCallback(() => { dispatch(TransitionActionType.slideUp); }, [dispatch]);
+    const completeTransition = useCallback(() => { dispatch(TransitionActionType.completeTransition); }, [dispatch]);
 
     isInitialRender.current = useIsInitialRender();
 
@@ -103,35 +92,65 @@ function useSlidingTransition(isOpen, ref) {
     }, [isOpen, isInitialRender, slideDown, slideUp]);
 
     useEffect(() => {
-        const requestId = requestAnimationFrame(() => {
-            if (!isNil(ref.current)) {
-                if (transitionState === TransitionState.transitioning && direction === SlidingDirection.down) {
-                    ref.current.style.height = `${ref.current.scrollHeight}px`;
-                } else {
-                    ref.current.style.height = null;
-                }
+        match(transitionState, {
+            [TransitionState.transitioning]() {
+                match(direction, {
+                    [SlidingDirection.down]() {
+                        disposables.nextFrame(() => {
+                            if (!isNil(ref.current)) {
+                                ref.current.style.height = "0";
+                            }
+
+                            disposables.nextFrame(() => {
+                                if (!isNil(ref.current)) {
+                                    ref.current.style.height = `${ref.current.scrollHeight}px`;
+                                }
+                            });
+                        });
+                    },
+                    [SlidingDirection.up]() {
+                        const transition = ref.current.style.transition;
+                        ref.current.style.transition = "";
+
+                        disposables.nextFrame(() => {
+                            if (!isNil(ref.current)) {
+                                ref.current.style.height = `${ref.current.scrollHeight}px`;
+                                ref.current.style.transition = transition;
+                            }
+
+                            disposables.nextFrame(() => {
+                                if (!isNil(ref.current)) {
+                                    ref.current.style.height = "0";
+                                }
+                            });
+                        });
+                    }
+                });
+            },
+            [TransitionState.completed]() {
+                disposables.nextFrame(() => {
+                    if (!isNil(ref.current)) {
+                        ref.current.style.height = null;
+                    }
+                });
             }
         });
+    }, [transitionState, direction, disposables, ref]);
 
-        return () => {
-            if (!isNil(requestId)) {
-                cancelAnimationFrame(requestId);
-            }
-        };
-    }, [transitionState, direction, ref]);
-
-    switch (transitionState) {
-        case TransitionState.transitioning:
+    return match(transitionState, {
+        [TransitionState.transitioning]() {
             return {
                 transitionStyles: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
-                transitionProps: { onAnimationEnd: completeTransition }
+                transitionProps: { onTransitionEnd: completeTransition }
             };
-        case TransitionState.completed:
+        },
+        [TransitionState.completed]() {
             return {
                 transitionStyles: direction === SlidingDirection.down ? "expanded" : "collapsed",
                 transitionProps: {}
             };
-    }
+        }
+    });
 }
 
 export function InnerDisclosure({
@@ -152,6 +171,7 @@ export function InnerDisclosure({
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A disclosure component must have a trigger and a content element.");
     }
+
     const toggle = useCallback(event => {
         setIsOpen(!isOpen);
 
@@ -184,15 +204,13 @@ export function InnerDisclosure({
         "aria-controls": contentId
     });
 
-    const { transitionStyles, transitionProps } = useSlidingTransition(isOpen, contentRef);
-
     const contentMarkup = augmentElement(content, {
-        ...transitionProps,
         id: contentId,
-        className: cssModule("o-ui-disclosure-content", transitionStyles),
-        ref: contentRef,
+        className: "o-ui-disclosure-content",
         "aria-hidden": !isOpen
     });
+
+    const { transitionStyles, transitionProps } = useSlidingTransition(isOpen, contentRef);
 
     return (
         <DisclosureProvider
@@ -201,7 +219,14 @@ export function InnerDisclosure({
             }}
         >
             {triggerMarkup}
-            {contentMarkup}
+            <div
+                {...transitionProps}
+                className={cssModule("o-ui-disclosure-content-section", transitionStyles)}
+                aria-hidden= {!isOpen}
+                ref={contentRef}
+            >
+                {contentMarkup}
+            </div>
         </DisclosureProvider>
     );
 }
