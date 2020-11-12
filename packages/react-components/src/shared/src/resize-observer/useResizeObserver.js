@@ -2,6 +2,7 @@ import { ResizeObserver } from "./resizeObserver";
 import { isFunction, isNil } from "lodash";
 import { useLayoutEffect } from "react";
 
+// TODO: Should work with useEffect.
 export const useResizeObserver = (element, onResize) => {
     useLayoutEffect(() => {
         let observer;

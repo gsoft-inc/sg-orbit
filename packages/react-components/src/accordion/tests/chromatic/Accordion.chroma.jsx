@@ -184,7 +184,7 @@ stories()
         </Accordion>
     )
     .add("data render", () =>
-        <Stack>
+        <Stack gap={13}>
             <Accordion>
                 {[1, 2, 3].map(x => (
                     <Item key={x}>
@@ -225,13 +225,13 @@ stories()
         };
 
         return (
-            <Accordion>
+            <Accordion defaultIndex={1}>
                 <Item>
                     <ActiveHeader>Mars</ActiveHeader>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>Jupiter</Header>
+                    <ActiveHeader>Jupiter</ActiveHeader>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
