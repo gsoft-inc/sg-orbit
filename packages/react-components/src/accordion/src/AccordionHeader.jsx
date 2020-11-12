@@ -42,7 +42,8 @@ export function InnerAccordionHeader({
             className: "o-ui-accordion-icon"
         },
         text: {
-            className: "o-ui-accordion-title"
+            className: "o-ui-accordion-title",
+            size: "xl"
         }
     });
 
