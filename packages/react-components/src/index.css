@@ -54,10 +54,11 @@
 }
 
 /* ANIMATIONS | SLIDE */
+/* Must be a transition on height otheriwse it won't work. */
 .o-ui-slide-down {
-    transition: height 0.3s ease-out;
+    transition: height 0.2s linear;
 }
 
 .o-ui-slide-up {
-    transition: height 0.3s ease-out;
+    transition: height 0.2s linear;
 }

@@ -98,7 +98,7 @@ function useSlidingTransition(isOpen, ref) {
                     [SlidingDirection.down]() {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
-                                ref.current.style.height = "0";
+                                ref.current.style.height = "0px";
                             }
 
                             disposables.nextFrame(() => {
@@ -109,18 +109,14 @@ function useSlidingTransition(isOpen, ref) {
                         });
                     },
                     [SlidingDirection.up]() {
-                        const transition = ref.current.style.transition;
-                        ref.current.style.transition = "";
-
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = `${ref.current.scrollHeight}px`;
-                                ref.current.style.transition = transition;
                             }
 
                             disposables.nextFrame(() => {
                                 if (!isNil(ref.current)) {
-                                    ref.current.style.height = "0";
+                                    ref.current.style.height = "0px";
                                 }
                             });
                         });

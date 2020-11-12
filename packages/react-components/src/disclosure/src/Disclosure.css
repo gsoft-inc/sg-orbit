@@ -9,6 +9,7 @@
 
 .o-ui-disclosure-content-section-expanding {
     overflow: hidden;
+    height: 0;
 }
 
 /* CONTENT */
