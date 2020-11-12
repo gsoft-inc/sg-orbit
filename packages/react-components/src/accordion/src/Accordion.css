@@ -35,9 +35,14 @@
     padding-left: var(--scale-echo);
 }
 
+.o-ui-accordion-icon {
+    fill: var(--marine-900);
+}
+
 /* HEADER | TITLE */
 .o-ui-accordion-title {
     flex-grow: 1;
+    color: var(--marine-900);
 }
 
 /* HEADER | TITLE | ICON */
