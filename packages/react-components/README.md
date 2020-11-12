@@ -113,20 +113,6 @@ For more information about the Storybook automated visual tests workflow, read t
 
 A stories should always import the Component from the `src` directory of the package. This way, it's possible to break through the source code instead of the *compiled* code. You will also benefits from faster reload time with HMR.
 
-### Update the documentation
-
-Add the new package to the [React components packages documentation](../../README.md#react-components). The badges will only be available once the package has been published.
-
-### Include the component in the bundle
-
-The package must be available through the *@orbit-ui/react-components* npm package.
-
-To do so:
-
-1. Add a dependency to the new npm package in the [package.json](/package.json) file of the *react-components* package. The dependency must match the current version of the new package, otherwise Yarn workspace will fail to create the symlink.
-
-2. Add an export to the [index.js](/src/index.js) file of the *react-components* package.
-
 ## Component guidelines
 
 Every Orbit UI custom components must share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
