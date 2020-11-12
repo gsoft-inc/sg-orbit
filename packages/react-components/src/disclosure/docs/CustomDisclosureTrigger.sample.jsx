@@ -12,6 +12,7 @@ export function CustomTrigger({ children, ...rest }) {
         <Box
             {...rest}
             className="flex items-center"
+            role="button"
         >
             {children}
             <ArrowIcon

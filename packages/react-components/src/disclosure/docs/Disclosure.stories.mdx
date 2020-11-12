@@ -25,7 +25,15 @@ The disclosure component is used to create regions of content that can expand/co
         <dt>usage</dt>
         <dd>import Disclosure from @orbit-ui/react-components</dd>
     </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#disclosure">https://www.w3.org/TR/wai-aria-practices/#disclosure</a></dd>
+    </div>
 </dl>
+
+## Accessibility
+
+The disclosure's trigger that shows and hides the content must be a [button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) or have the [role button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
 
 ## Usage
 
@@ -50,13 +58,15 @@ A disclosure component can update is content based on the `isOpen` value by prov
 
 ### Custom trigger
 
-The previous render props example could also be achieve by using a custom component. It's possible by using the `useDisclosureContext`.
+The previous [render props](#render-props) example could also be achieve by using a custom component. It's possible by using the `useDisclosureContext`.
 
 <FilePreview filePath="/disclosure/docs/CustomDisclosureTrigger">
     <CustomDisclosureTrigger />
 </FilePreview>
 
 ### Controlled
+
+A disclosure component can handle `open` state in controlled mode.
 
 <FilePreview filePath="/disclosure/docs/ControlledDisclosure">
     <ControlledDisclosure />

@@ -2,3 +2,21 @@
     padding-top: var(--scale-echo);
     padding-bottom: var(--scale-echo);
 }
+
+.o-ui-disclosure-content-collapsing {
+    position: relative;
+    overflow: hidden;
+}
+
+.o-ui-disclosure-content-collapsed {
+    display: none;
+}
+
+.o-ui-disclosure-content-expanding {
+    height: 0;
+    overflow: hidden;
+}
+
+.o-ui-disclosure-content-expanded {
+    height: auto;
+}
