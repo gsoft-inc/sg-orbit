@@ -69,7 +69,7 @@ export function InnerAccordionHeader({
             {text}
             <ChevronIcon
                 className={mergeClasses(
-                    isOpen ? "o-ui-rotate-270 o-ui-accordion-arrow-up" : "o-ui-rotate-90 o-ui-accordion-arrow-down",
+                    isOpen ? "o-ui-accordion-arrow-down" : "o-ui-accordion-arrow-up",
                     "o-ui-accordion-arrow"
                 )}
             />

@@ -32,7 +32,7 @@
 }
 
 /* HAS ICON */
-.o-ui-accordion-header.o-ui-accordion-header-has-icon {
+.o-ui-accordion-header-has-icon {
     padding-left: var(--scale-echo);
 }
 
@@ -44,6 +44,7 @@
 .o-ui-accordion-title {
     flex-grow: 1;
     color: var(--marine-900);
+    font-weight: 500;
 }
 
 /* HEADER | TITLE | ICON */
@@ -55,6 +56,14 @@
 .o-ui-accordion-arrow {
     flex-shrink: 0;
     transition: transform .3s ease-in;
+}
+
+.o-ui-accordion-arrow-down {
+    transform: rotate(90deg);
+}
+
+.o-ui-accordion-arrow-up {
+    transform: rotate(-90deg);
 }
 
 /* PANEL */
