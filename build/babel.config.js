@@ -23,6 +23,7 @@ module.exports = {
         [
             "@babel/preset-react",
             {
+                // runtime: "automatic",
                 useBuiltIns: true,
                 development: !IS_PRODUCTION
             }

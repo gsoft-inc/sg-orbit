@@ -35,4 +35,5 @@ export * from "./view";
 export * from "./transition";
 export * from "./divider";
 export * from "./disclosure";
+export * from "./accordion";
 export * from "./shared";

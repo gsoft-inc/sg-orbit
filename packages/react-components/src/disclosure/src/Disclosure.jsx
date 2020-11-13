@@ -9,7 +9,7 @@ import { isNil } from "lodash";
 import { useEffect } from "react";
 
 // TODO: sortir un Collapse component pour l'anim
-// TODO: update dependencies (React, babel / eslint) - don't update storybook
+// TODO: bug space
 
 const propTypes = {
     /**
@@ -190,12 +190,20 @@ export function InnerDisclosure({
         }
     });
 
+    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    const handleKeyUp = useEventCallback(event => {
+        if (event.keyCode === KEYS.space) {
+            event.preventDefault();
+        }
+    });
+
     const rootId = useId(id, id ? undefined: "o-ui-disclosure");
     const contentId = `${rootId}-content`;
 
     const triggerMarkup = augmentElement(trigger, {
         onClick: handleClick,
         onKeyDown: handleKeyDown,
+        onKeyUp: handleKeyUp,
         "aria-expanded": isOpen,
         "aria-controls": contentId
     });

@@ -84,12 +84,20 @@ export function InnerTabElement({
         }
     });
 
+    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    const handleKeyUp = useEventCallback(event => {
+        if (event.keyCode === KEYS.space) {
+            event.preventDefault();
+        }
+    });
+
     return (
         <Box
             {...rest}
             onClick={handleClick}
             onFocus={!isManual ? handleFocus : undefined}
             onKeyDown={isManual ? handleKeyDown : undefined}
+            onKeyUp={isManual ? handleKeyUp : undefined}
             className={mergeClasses(
                 cssModule(
                     "o-ui-tab",
