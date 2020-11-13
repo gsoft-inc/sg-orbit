@@ -1,7 +1,8 @@
-import { Accordion, AccordionHeader, Item, useAccordionItemContext } from "@react-components/accordion";
+import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/view";
+import { Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";

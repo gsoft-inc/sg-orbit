@@ -15,7 +15,12 @@ export function ControlledAlert() {
 
     return (
         <Stack>
-            <Button size="sm" color="secondary" onClick={toggleAlert}>{show ? "Hide" : "Show"}</Button>
+            <Button
+                color="secondary"
+                onClick={toggleAlert}
+            >
+                {show ? "Hide" : "Show"}
+            </Button>
             <Alert
                 show={show}
                 onDismiss={toggleAlert}

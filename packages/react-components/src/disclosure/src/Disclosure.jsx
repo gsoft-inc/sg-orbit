@@ -8,9 +8,6 @@ import { cssModule } from "../../../dist";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 
-// TODO: sortir un Collapse component pour l'anim
-// TODO: bug space
-
 const propTypes = {
     /**
      * A controlled open value.
@@ -99,26 +96,26 @@ function useSlidingTransition(isOpen, ref) {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = "0px";
-                            }
 
-                            disposables.nextFrame(() => {
-                                if (!isNil(ref.current)) {
-                                    ref.current.style.height = `${ref.current.scrollHeight}px`;
-                                }
-                            });
+                                disposables.nextFrame(() => {
+                                    if (!isNil(ref.current)) {
+                                        ref.current.style.height = `${ref.current.scrollHeight}px`;
+                                    }
+                                });
+                            }
                         });
                     },
                     [SlidingDirection.up]() {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = `${ref.current.scrollHeight}px`;
-                            }
 
-                            disposables.nextFrame(() => {
-                                if (!isNil(ref.current)) {
-                                    ref.current.style.height = "0px";
-                                }
-                            });
+                                disposables.nextFrame(() => {
+                                    if (!isNil(ref.current)) {
+                                        ref.current.style.height = "0px";
+                                    }
+                                });
+                            }
                         });
                     }
                 });

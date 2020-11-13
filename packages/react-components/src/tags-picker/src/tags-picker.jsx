@@ -21,7 +21,11 @@ const DEFAULT_SIZE = "md";
 
 const GROUP_ERROR_MESSAGE = "TagsPicker - When at least one item has a \"group\" property, all items must have a \"group\" property.";
 
-export function startsWithSearch(event, items, query) {
+// export function startsWithSearch(event, items, query) {
+//     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
+// }
+
+function startsWithSearch(event, items, query) {
     return items.filter(x => x.text.toUpperCase().startsWith(query.toUpperCase()));
 }
 
