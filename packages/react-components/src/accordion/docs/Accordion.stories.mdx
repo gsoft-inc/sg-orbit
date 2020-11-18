@@ -1,0 +1,81 @@
+import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
+import { FilePreview, ReactComponentsLayout } from "@blocks";
+import { Fragment } from "react";
+import { InnerItem, Item } from "@react-components/collection";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+
+<Meta
+    title="Content|Accordion"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/accordion/src" />)
+        .build()}
+/>
+
+# Accordion
+
+Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Accordion from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#accordion">https://www.w3.org/TR/wai-aria-practices/#accordion</a></dd>
+    </div>
+</dl>
+
+## Usage
+
+## Props
+
+### Accordion
+
+<Props of={InnerAccordion} />
+
+### Item
+
+<Props of={InnerItem} />
+
+### Header
+
+<Props of={InnerHeader} />
+
+### Content
+
+<Props of={InnerContent} />
+
+### AccordionHeader
+
+<dl>
+    <div>
+        <dt>slots</dt>
+        <dd>icon | text</dd>
+    </div>
+</dl>
+
+<Props of={InnerAccordionHeader} />
+
+### AccordionPanel
+
+<Props of={InnerAccordionPanel} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Accordion>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+        </Accordion>
+    </RefLogger>
+</Story>

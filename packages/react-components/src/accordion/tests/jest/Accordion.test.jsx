@@ -5,10 +5,6 @@ import { KEYS } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-/*
-Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
-*/
-
 // ***** Accessibility *****
 
 test("down arrow keypress select the next item", async () => {
