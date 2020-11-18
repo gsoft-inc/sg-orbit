@@ -249,9 +249,11 @@ export function useAutoControlledPopper(props) {
     useDocumentListener("keydown", handleDocumentKeyDown, isVisible && !disabled);
 
     const handleDocumentClick = useEventCallback(event => {
-        if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
-            if (hideOnOutsideClick) {
-                hidePopper(event);
+        if (!isNil(triggerElement) && !isNil(popperElement)) {
+            if (!triggerElement.contains(event.target) && !popperElement.contains(event.target)) {
+                if (hideOnOutsideClick) {
+                    hidePopper(event);
+                }
             }
         }
     }, [hideOnOutsideClick, triggerElement, popperElement, hidePopper]);
