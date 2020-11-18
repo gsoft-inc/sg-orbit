@@ -3,6 +3,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
 module.exports = {
     sourceMaps: IS_PRODUCTION ? undefined : "inline",
+    sourceType: "unambiguous",
     presets: [
         !IS_TEST && [
             "@babel/preset-env",
