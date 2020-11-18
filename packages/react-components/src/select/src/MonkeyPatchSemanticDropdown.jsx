@@ -27,7 +27,7 @@ export class MonkeyPatchSemanticDropdown extends SemanticDropdown {
         return (
             <>
                 {renderAvatar(avatar, !inline ? size : undefined)}
-                {text}
+                <span>{text}</span>
             </>
         );
     }
@@ -73,7 +73,7 @@ export class MonkeyPatchSemanticDropdown extends SemanticDropdown {
             return this.renderIconsResult(item);
         }
 
-        return text;
+        return <span>{text}</span>;
     }
 
     // Monkey patch fixes:
