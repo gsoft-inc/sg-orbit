@@ -65,6 +65,11 @@
     cursor: not-allowed;
 }
 
+.o-ui-accordion-header[disabled] .o-ui-accordion-title,
+.o-ui-accordion-header[disabled]  .o-ui-accordion-arrow {
+    opacity: var(--o-ui-disabled-opacity);
+}
+
 /* HOVER */
 .o-ui-accordion-header:hover ,
 .o-ui-accordion-header-hover {
