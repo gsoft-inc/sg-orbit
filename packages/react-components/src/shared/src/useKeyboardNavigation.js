@@ -16,7 +16,7 @@ export function useKeyboardNavigation({ previous = [], next = [], first = [], la
     };
 
     const handleKeyDown = useEventCallback(event => {
-        const navigableTreeWalker = createNavigableTreeWalker(event.currentTarget, event.target);
+        const navigableTreeWalker = createNavigableTreeWalker(event.currentTarget, event.target, { tabblable: true });
         const keyCode = event.keyCode;
 
         if (previous.includes(keyCode)) {

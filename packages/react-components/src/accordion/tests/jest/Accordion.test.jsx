@@ -11,15 +11,15 @@ test("down arrow keypress select the next item", async () => {
     const { getByTestId } = render(
         <Accordion>
             <Item data-testid="item-1">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -40,15 +40,15 @@ test("up arrow keypress select the next item", async () => {
     const { getByTestId } = render(
         <Accordion>
             <Item data-testid="item-1">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -73,15 +73,15 @@ test("when exclusive, call onChange when the expanded tab change", async () => {
     const { getByTestId } = render(
         <Accordion onChange={handler}>
             <Item data-testid="item-1">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -106,15 +106,15 @@ test("when multiple, call onChange when the expanded tabs change", async () => {
     const { getByTestId } = render(
         <Accordion multiple onChange={handler}>
             <Item data-testid="item-1">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -147,7 +147,7 @@ test("accordion ref is a DOM element", async () => {
     render(
         <Accordion ref={ref}>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -165,7 +165,7 @@ test("header ref is a DOM element", async () => {
     render(
         <Accordion>
             <Item>
-                <Header ref={ref}>Header</Header>
+                <Header as="h3" ref={ref}>Header</Header>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -183,7 +183,7 @@ test("content ref is a DOM element", async () => {
     render(
         <Accordion>
             <Item>
-                <Header>Header</Header>
+                <Header as="h3">Header</Header>
                 <Content ref={ref}>Content</Content>
             </Item>
         </Accordion>

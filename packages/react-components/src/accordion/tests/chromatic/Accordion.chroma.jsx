@@ -21,7 +21,7 @@ stories()
         <Stack>
             <Accordion>
                 <Item>
-                    <Header size="sm">Mars</Header>
+                    <Header size="sm" as="h3">Mars</Header>
                     <Content>
                         Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet),
                         being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet".[17][18] The latter refers
@@ -30,7 +30,7 @@ stories()
                     </Content>
                 </Item>
                 <Item>
-                    <Header size="sm">Jupiter</Header>
+                    <Header size="sm" as="h3">Jupiter</Header>
                     <Content>
                         Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half
                         times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky, and has
@@ -39,13 +39,13 @@ stories()
                     </Content>
                 </Item>
                 <Item>
-                    <Header size="sm">Venus</Header>
+                    <Header size="sm" as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
             <Accordion>
                 <Item>
-                    <Header>Mars</Header>
+                    <Header as="h3">Mars</Header>
                     <Content>
                         Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet),
                         being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet".[17][18] The latter refers
@@ -54,7 +54,7 @@ stories()
                     </Content>
                 </Item>
                 <Item>
-                    <Header>Jupiter</Header>
+                    <Header as="h3">Jupiter</Header>
                     <Content>
                         Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass one-thousandth that of the Sun, but two-and-a-half
                         times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky, and has
@@ -63,7 +63,7 @@ stories()
                     </Content>
                 </Item>
                 <Item>
-                    <Header>Venus</Header>
+                    <Header as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
@@ -73,21 +73,21 @@ stories()
         <Stack>
             <Accordion>
                 <Item>
-                    <Header size="sm">
+                    <Header size="sm" as="h3">
                         <InfoIcon />
                         <Text>Mars</Text>
                     </Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header size="sm">
+                    <Header size="sm" as="h3">
                         <InfoIcon />
                         <Text>Jupiter</Text>
                     </Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header size="sm">
+                    <Header size="sm" as="h3">
                         <InfoIcon />
                         <Text>Venus</Text>
                     </Header>
@@ -96,21 +96,21 @@ stories()
             </Accordion>
             <Accordion>
                 <Item>
-                    <Header>
+                    <Header as="h3">
                         <InfoIcon />
                         <Text>Mars</Text>
                     </Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>
+                    <Header as="h3">
                         <InfoIcon />
                         <Text>Jupiter</Text>
                     </Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>
+                    <Header as="h3">
                         <InfoIcon />
                         <Text>Venus</Text>
                     </Header>
@@ -122,15 +122,15 @@ stories()
     .add("default index", () =>
         <Accordion defaultIndex={1}>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
@@ -138,15 +138,15 @@ stories()
     .add("multiple", () =>
         <Accordion multiple defaultIndex={[0, 2]}>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
@@ -155,15 +155,15 @@ stories()
         <div style={{ width: "75px" }}>
             <Accordion>
                 <Item>
-                    <Header>Mars</Header>
+                    <Header as="h3">Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>Jupiter</Header>
+                    <Header as="h3">Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>Venus</Header>
+                    <Header as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
@@ -172,40 +172,24 @@ stories()
     .add("states", () =>
         <Accordion>
             <Item active>
-                <Header>Uranus</Header>
+                <Header as="h3">Uranus</Header>
                 <Content>Uranus is the seventh planet from the Sun.</Content>
             </Item>
             <Item focus>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item hover>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item focus hover>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
             <Item disabled>
-                <Header>Saturn</Header>
+                <Header as="h3">Saturn</Header>
                 <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
-            </Item>
-        </Accordion>
-    )
-    .add("as div", () =>
-        <Accordion>
-            <Item>
-                <Header as="div">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="div">Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="div">Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
     )
@@ -214,7 +198,7 @@ stories()
             <Item>
                 {({ isOpen }) => (
                     <>
-                        <Header>
+                        <Header as="h3">
                             {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
                             <Text>Mars</Text>
                         </Header>
@@ -225,7 +209,7 @@ stories()
             <Item>
                 {({ isOpen }) => (
                     <>
-                        <Header>
+                        <Header as="h3">
                             {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
                             <Text>Jupiter</Text>
                         </Header>
@@ -240,7 +224,7 @@ stories()
             <Accordion>
                 {[1, 2, 3].map(x => (
                     <Item key={x}>
-                        <Header>{`Header ${x}`}</Header>
+                        <Header as="h3">{`Header ${x}`}</Header>
                         <Content>{`Content ${x}`}</Content>
                     </Item>
                 ))}
@@ -250,7 +234,7 @@ stories()
                     <Item key={x}>
                         {({ isOpen }) => (
                             <>
-                                <Header>
+                                <Header as="h3">
                                     {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
                                     <Text>{`Header ${x}`}</Text>
                                 </Header>
@@ -279,15 +263,15 @@ stories()
         return (
             <Accordion defaultIndex={1}>
                 <Item>
-                    <ActiveHeader>Mars</ActiveHeader>
+                    <ActiveHeader as="h3">Mars</ActiveHeader>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <ActiveHeader>Jupiter</ActiveHeader>
+                    <ActiveHeader as="h3">Jupiter</ActiveHeader>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>Venus</Header>
+                    <Header as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
@@ -301,6 +285,7 @@ stories()
                 <Box
                     {...rest}
                     style={{ backgroundColor: isOpen ? "blue" : "red" }}
+                    as="h3"
                 >
                     {children}
                 </Box>
@@ -318,7 +303,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
-                    <Header>Venus</Header>
+                    <Header as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
@@ -327,15 +312,15 @@ stories()
     .add("autofocus", () =>
         <Accordion autoFocus>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
@@ -343,15 +328,15 @@ stories()
     .add("autofocus delay", () =>
         <Accordion autoFocus autoFocusDelay={50}>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>

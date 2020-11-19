@@ -1,14 +1,16 @@
-import { ChevronIcon } from "../../icons";
 import { DisclosureArrow } from "./DisclosureArrow";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
 import { forwardRef } from "react";
-import { useAccordionItemContext } from "./AccordionItemContext";
+import { isNil } from "lodash";
 
 const propTypes = {
-    size: oneOf(["sm"]),
+    /**
+     * An accordion header can vary in size.
+     */
+    size: oneOf(["sm", "md"]),
     /**
      * Whether or not the tab is disabled.
      */
@@ -34,12 +36,16 @@ export function InnerAccordionHeader({
     active,
     focus,
     hover,
-    as = "h3",
+    as,
     className,
     children,
     forwardedRef,
     ...rest
 }) {
+    if (isNil(as)) {
+        throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
+    }
+
     const { icon, text } = useSlots(children, {
         _: {
             defaultWrapper: Text
@@ -56,27 +62,33 @@ export function InnerAccordionHeader({
 
     return (
         <Heading
-            {...rest}
             size={headerSize(size)}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-accordion-header",
-                    normalizeSize(size),
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    icon && "has-icon"
-                ),
-                className
+            className={cssModule(
+                "o-ui-accordion-header",
+                normalizeSize(size)
             )}
-            disabled={disabled}
-            role="button"
             as={as}
             ref={forwardedRef}
         >
-            {icon}
-            {text}
-            <DisclosureArrow />
+            <button
+                {...rest}
+                className={mergeClasses(
+                    cssModule(
+                        "o-ui-accordion-trigger",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover",
+                        icon && "has-icon"
+                    ),
+                    className
+                )}
+                type="button"
+                disabled={disabled}
+            >
+                {icon}
+                {text}
+                <DisclosureArrow disabled={disabled} />
+            </button>
         </Heading>
     );
 }

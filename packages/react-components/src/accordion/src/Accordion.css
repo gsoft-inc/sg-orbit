@@ -4,19 +4,11 @@
     box-shadow: var(--shadow-200);
     border-radius: 8px;
     overflow-anchor: none;
+    width: 100%;
 }
 
 /* HEADER */
 .o-ui-accordion-header {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    background-color: white;
-    cursor: pointer;
-    padding: var(--scale-echo) var(--scale-echo) var(--scale-echo) var(--scale-foxtrot);
-    border-top: 1px solid var(--cloud-50);
-    transition: background-color .3s ease-in;
-    /* An heading component have a defautlt margin-bottom */
     margin-bottom: 0 !important;
 }
 
@@ -32,23 +24,33 @@
     border-bottom-right-radius: var(--scale-bravo);
 }
 
-/* HAS ICON */
-.o-ui-accordion-header-has-icon {
-    padding-left: var(--scale-echo);
-}
-
-.o-ui-accordion-icon {
-    fill: var(--marine-900);
-}
-
-/* HEADER | TITLE */
-.o-ui-accordion-title {
-    flex-grow: 1;
+/* TRIGGER */
+.o-ui-accordion-trigger {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background-color: white;
+    cursor: pointer;
+    padding: var(--scale-echo) var(--scale-echo) var(--scale-echo) var(--scale-foxtrot);
+    border: 0;
+    border-top: 1px solid var(--cloud-50);
+    transition: background-color .3s ease-in;
+    width: 100%;
     color: var(--marine-900);
 }
 
-/* HEADER | TITLE | ICON */
-.o-ui-accordion-icon +  .o-ui-accordion-title {
+/* TRIGGER | ICON */
+.o-ui-accordion-trigger-has-icon {
+    padding-left: var(--scale-echo);
+}
+
+/* TRIGGER | TITLE */
+.o-ui-accordion-title {
+    flex-grow: 1;
+}
+
+/* TRIGGER | TITLE | ICON */
+.o-ui-accordion-icon + .o-ui-accordion-title {
     margin-left: var(--scale-alpha);
 }
 
@@ -61,28 +63,27 @@
 
 /* STATES */
 /* DISABLED */
-.o-ui-accordion-header[disabled] {
+.o-ui-accordion-trigger[disabled] {
     cursor: not-allowed;
 }
 
-.o-ui-accordion-header[disabled] .o-ui-accordion-title,
-.o-ui-accordion-header[disabled]  .o-ui-accordion-arrow {
+.o-ui-accordion-trigger[disabled] .o-ui-accordion-title {
     opacity: var(--o-ui-disabled-opacity);
 }
 
 /* HOVER */
-.o-ui-accordion-header:hover ,
-.o-ui-accordion-header-hover {
+.o-ui-accordion-trigger:hover ,
+.o-ui-accordion-trigger-hover {
     background-color: var(--cloud-50);
 }
 
-/* HOVER | DISABLED*/
-.o-ui-accordion-header[disabled]:hover {
+/* HOVER | DISABLED */
+.o-ui-accordion-trigger[disabled]:hover {
     background-color: var(--white);
 }
 
 /* FOCUS */
-.o-ui-accordion-header::before {
+.o-ui-accordion-trigger::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -96,13 +97,13 @@
     transform: translateY(-50%);
 }
 
-.o-ui-accordion-header:focus,
-.o-ui-accordion-header-focus {
+.o-ui-accordion-trigger:focus,
+.o-ui-accordion-trigger-focus {
     outline: none;
     position: relative;
 }
 
-.o-ui-accordion-header:focus::before,
-.o-ui-accordion-header-focus::before {
+.o-ui-accordion-trigger:focus::before,
+.o-ui-accordion-trigger-focus::before {
     border-color: var(--primary-500);
 }

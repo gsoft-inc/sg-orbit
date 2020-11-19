@@ -4,10 +4,11 @@ import { ControlledAccordion } from "./ControlledAccordion.sample";
 import { CustomAccordion } from "./CustomAccordion.sample";
 import { FilePreview, ReactComponentsLayout } from "@blocks";
 import { Fragment } from "react";
+import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, Item } from "@react-components/collection";
-import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -35,7 +36,7 @@ Accordions are commonly used to reduce the need to scroll when presenting multip
 
 ## Accessibility
 
-- Header
+Each accordion header is wrapped in an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements). That heading element should have a level that is appropriate for the information architecture of the page. This is done by providing an `as` prop to the `<Header>` component.
 
 ## Usage
 
@@ -47,18 +48,24 @@ An accordion item can contain [icons](?path=/docs/materials-icons--page).
     <Story name="icon">
         <Accordion>
             <Item>
-                <Header>
+                <Header as="h3">
                     <NotificationIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">
+                    <InfoIcon />
+                    <Text>Jupiter</Text>
+                </Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">
+                    <HelpIcon />
+                    <Text>Venus</Text>
+                </Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
@@ -73,15 +80,15 @@ An accordion can allow multiple items to be expanded at once.
     <Story name="multiple">
         <Accordion multiple>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
@@ -98,21 +105,32 @@ An accordion item can update is content based on the `isOpen` value by providing
             <Item>
                 {({ isOpen }) => (
                     <Fragment>
-                        <Header>
-                            {isOpen ? <LightbulbIcon /> : <NotificationIcon />}
-                            <Text>Mars</Text>
+                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                            Mars
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Fragment>
                 )}
             </Item>
             <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                {({ isOpen }) => (
+                    <Fragment>
+                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                            Jupiter
+                        </Header>
+                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                    </Fragment>
+                )}
             </Item>
             <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                {({ isOpen }) => (
+                    <Fragment>
+                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                            Venus
+                        </Header>
+                        <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                    </Fragment>
+                )}
             </Item>
         </Accordion>
     </Story>
@@ -140,7 +158,7 @@ You can supply accordion items with an array instead of using the granular compo
             ]
                 .map(({ header, content }) =>
                     <Item key={header}>
-                        <Header>{header}</Header>
+                        <Header as="h3">{header}</Header>
                         <Content>{content}</Content>
                     </Item>
                 )}
@@ -156,18 +174,57 @@ An accordion item can be disabled.
     <Story name="disabled item">
         <Accordion>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Item>
             <Item disabled>
-                <Header>Jupiter</Header>
+                <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <Header>Venus</Header>
+                <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
+    </Story>
+</Preview>
+
+### Size
+
+An accordion header can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Stack>
+            <Accordion>
+                <Item>
+                    <Header size="sm" as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item>
+                    <Header size="sm" as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header size="sm" as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+            <Accordion>
+                <Item>
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        </Stack>
     </Story>
 </Preview>
 
@@ -221,7 +278,7 @@ The selected `index` can be handled in controlled mode.
     <RefLogger>
         <Accordion>
             <Item>
-                <Header>Mars</Header>
+                <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
         </Accordion>

@@ -23,7 +23,7 @@ export function InnerDisclosureArrow({
     const isOpen = open ?? disclosureContext.isOpen;
 
     if (isNil(isOpen)) {
-        throw new Error("The disclosure arrow component must receive a controlled prop 'open' or have a parent DisclosureContext.");
+        throw new Error("The disclosure arrow component must receive a controlled prop \"open\" or have a parent DisclosureContext.");
     }
 
     return (
