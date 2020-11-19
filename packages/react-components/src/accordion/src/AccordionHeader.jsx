@@ -1,12 +1,14 @@
-import { Box } from "../../box";
-import { ChevronIcon } from "@orbit-ui/react-components";
+import { ChevronIcon } from "../../icons";
+import { DisclosureArrow } from "./DisclosureArrow";
+import { Heading } from "../../heading";
 import { Text } from "../../text";
-import { any, bool, elementType, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useSlots } from "../../shared";
+import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
+import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { useAccordionItemContext } from "./AccordionItemContext";
 
 const propTypes = {
+    size: oneOf(["sm"]),
     /**
      * Whether or not the tab is disabled.
      */
@@ -21,38 +23,45 @@ const propTypes = {
     children: any.isRequired
 };
 
+const headerSize = createSizeAdapter({
+    "sm": "xs",
+    "md": "sm"
+});
+
 export function InnerAccordionHeader({
+    size,
     disabled,
     active,
     focus,
     hover,
-    as = "button",
+    as = "h3",
     className,
     children,
     forwardedRef,
     ...rest
 }) {
-    const { isOpen } = useAccordionItemContext();
-
     const { icon, text } = useSlots(children, {
         _: {
             defaultWrapper: Text
         },
         icon: {
-            className: "o-ui-accordion-icon"
+            className: "o-ui-accordion-icon",
+            size
         },
         text: {
             className: "o-ui-accordion-title",
-            size: "xl"
+            size: "inherit"
         }
     });
 
     return (
-        <Box
+        <Heading
             {...rest}
+            size={headerSize(size)}
             className={mergeClasses(
                 cssModule(
                     "o-ui-accordion-header",
+                    normalizeSize(size),
                     active && "active",
                     focus && "focus",
                     hover && "hover",
@@ -61,19 +70,14 @@ export function InnerAccordionHeader({
                 className
             )}
             disabled={disabled}
-            type="button"
+            role="button"
             as={as}
             ref={forwardedRef}
         >
             {icon}
             {text}
-            <ChevronIcon
-                className={mergeClasses(
-                    isOpen ? "o-ui-accordion-arrow-down" : "o-ui-accordion-arrow-up",
-                    "o-ui-accordion-arrow"
-                )}
-            />
-        </Box>
+            <DisclosureArrow />
+        </Heading>
     );
 }
 

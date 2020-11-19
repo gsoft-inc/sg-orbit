@@ -1,7 +1,7 @@
 import "./Accordion.css";
 
 import { AccordionItem } from "./AccordionItem";
-import { Box } from "@react-components/box";
+import { Box } from "../../box";
 import { KEYS, arrayify, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation, useMergedRefs } from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";

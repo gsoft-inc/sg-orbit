@@ -12,11 +12,12 @@
     align-items: center;
     text-align: left;
     background-color: white;
-    border: none;
     cursor: pointer;
     padding: var(--scale-echo) var(--scale-echo) var(--scale-echo) var(--scale-foxtrot);
     border-top: 1px solid var(--cloud-50);
     transition: background-color .3s ease-in;
+    /* An heading component have a defautlt margin-bottom */
+    margin-bottom: 0 !important;
 }
 
 .o-ui-accordion-header:first-of-type {
@@ -44,26 +45,11 @@
 .o-ui-accordion-title {
     flex-grow: 1;
     color: var(--marine-900);
-    font-weight: 500;
 }
 
 /* HEADER | TITLE | ICON */
 .o-ui-accordion-icon +  .o-ui-accordion-title {
     margin-left: var(--scale-alpha);
-}
-
-/* HEADER | ARROW */
-.o-ui-accordion-arrow {
-    flex-shrink: 0;
-    transition: transform .3s ease-in;
-}
-
-.o-ui-accordion-arrow-down {
-    transform: rotate(90deg);
-}
-
-.o-ui-accordion-arrow-up {
-    transform: rotate(-90deg);
 }
 
 /* PANEL */

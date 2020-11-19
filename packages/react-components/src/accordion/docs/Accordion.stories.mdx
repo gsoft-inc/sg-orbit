@@ -1,10 +1,14 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
+import { ControlledAccordion } from "./ControlledAccordion.sample";
+import { CustomAccordion } from "./CustomAccordion.sample";
 import { FilePreview, ReactComponentsLayout } from "@blocks";
 import { Fragment } from "react";
 import { InnerItem, Item } from "@react-components/collection";
+import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
 import { RefLogger, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
 
 <Meta
     title="Content|Accordion"
@@ -29,7 +33,151 @@ Accordions are commonly used to reduce the need to scroll when presenting multip
     </div>
 </dl>
 
+## Accessibility
+
+- Header
+
 ## Usage
+
+### Icon
+
+An accordion item can contain [icons](?path=/docs/materials-icons--page).
+
+<Preview>
+    <Story name="icon">
+        <Accordion>
+            <Item>
+                <Header>
+                    <NotificationIcon />
+                    <Text>Mars</Text>
+                </Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Multiple
+
+An accordion can allow multiple items to be expanded at once.
+
+<Preview>
+    <Story name="multiple">
+        <Accordion multiple>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Render props
+
+An accordion item can update is content based on the `isOpen` value by providing a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Accordion>
+            <Item>
+                {({ isOpen }) => (
+                    <Fragment>
+                        <Header>
+                            {isOpen ? <LightbulbIcon /> : <NotificationIcon />}
+                            <Text>Mars</Text>
+                        </Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Fragment>
+                )}
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Custom components
+
+The previous [render props](#render-props) example could also be achieve with a custom component.
+
+<FilePreview filePath="/accordion/docs/CustomAccordion">
+    <CustomAccordion />
+</FilePreview>
+
+### Data items
+
+You can supply accordion items with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data render">
+        <Accordion aria-label="Planets">
+            {[
+                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ]
+                .map(({ header, content }) =>
+                    <Item key={header}>
+                        <Header>{header}</Header>
+                        <Content>{content}</Content>
+                    </Item>
+                )}
+        </Accordion>
+    </Story>
+</Preview>
+
+### Disabled
+
+An accordion item can be disabled.
+
+<Preview>
+    <Story name="disabled item">
+        <Accordion>
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item disabled>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Controlled
+
+The selected `index` can be handled in controlled mode.
+
+<FilePreview filePath="/accordion/docs/ControlledAccordion">
+    <ControlledAccordion />
+</FilePreview>
 
 ## Props
 
