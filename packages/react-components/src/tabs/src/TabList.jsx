@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
-import { TabElement } from "./TabElement";
+import { Tab } from "./Tab";
 import { useRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
@@ -46,7 +46,7 @@ export function TabList({
         >
             {tabs.map(({
                 index,
-                type: ElementType = TabElement,
+                type: ElementType = Tab,
                 ...tabProps
             }) =>
                 <ElementType

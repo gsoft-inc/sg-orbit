@@ -4,7 +4,9 @@ import { ControlledTabs } from "./ControlledTabs.sample";
 import { CustomTabs } from "./CustomTabs.sample";
 import { FilePreview, ReactComponentsLayout } from "@blocks";
 import { Fragment } from "react";
-import { InnerTab, InnerTabElement, InnerTabPanel, InnerTabs, Tab, Tabs } from "@react-components/tabs";
+import { InnerItem } from "@react-components/collection";
+import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
+import { Item } from "@react-components/collection";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
 import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
@@ -47,21 +49,21 @@ A tab can contain [icons](?path=/docs/materials-icons--page).
 <Preview>
     <Story name="icon">
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>
                     <NotificationIcon />
                     <Text>Jupiter</Text>
                 </Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -73,21 +75,21 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
 <Preview>
     <Story name="lozenge">
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>
                     <Text>Jupiter</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -99,7 +101,7 @@ A tab can update is content based on the `isActive` value by providing a render 
 <Preview>
     <Story name="render props">
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 {({ isActive }) => (
                     <Fragment>
                         <Header>
@@ -109,15 +111,15 @@ A tab can update is content based on the `isActive` value by providing a render 
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Fragment>
                 )}
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -143,10 +145,10 @@ You can supply tabs content with an array instead of using the granular componen
                 { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
             ]
                 .map(({ header, content }) =>
-                    <Tab key={header}>
+                    <Item key={header}>
                         <Header>{header}</Header>
                         <Content>{content}</Content>
-                    </Tab>
+                    </Item>
                 )}
         </Tabs>
     </Story>
@@ -163,18 +165,18 @@ In this scenario, you should use a manually activated tab, it moves focus withou
 <Preview>
     <Story name="manual">
         <Tabs manual aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -194,18 +196,18 @@ A tabs component can render vertically.
 <Preview>
     <Story name="orientation">
         <Tabs orientation="vertical" aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -217,18 +219,18 @@ A tabs component can split the width of it's container equally between his tabs.
 <Preview>
     <Story name="fluid">
         <Tabs fluid aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -240,18 +242,18 @@ A tab can be disabled.
 <Preview>
     <Story name="disabled tab">
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab disabled>
+            </Item>
+            <Item disabled>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </Story>
 </Preview>
@@ -272,11 +274,11 @@ Root component for tabs.
 
 <Props of={InnerTabs} />
 
-### Tab
+### Item
 
 Placeholder component to define a tabs _item_.
 
-<Props of={InnerTab} />
+<Props of={InnerItem} />
 
 ### Header
 
@@ -297,7 +299,7 @@ Placeholder component to define the _content_ of a tab.
 
 <Props of={InnerContent} />
 
-### TabElement
+### Tab
 
 Underlying tab component.
 
@@ -308,7 +310,7 @@ Underlying tab component.
     </div>
 </dl>
 
-<Props of={InnerTabElement} />
+<Props of={InnerTab} />
 
 ### TabPanel
 
@@ -324,10 +326,10 @@ Underlying tab panel component.
 >
     <RefLogger>
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     </RefLogger>
 </Story>
