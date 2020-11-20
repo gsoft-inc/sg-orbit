@@ -1,35 +1,36 @@
 import { Content, Header } from "@react-components/view";
+import { Item } from "@react-components/collection";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { Tab, TabElement, Tabs } from "@react-components/tabs";
+import { Tab, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 
 function ActiveHeader({ selected, children, ...rest }) {
     return (
-        <TabElement
+        <Tab
             {...rest}
             selected={selected}
         >
             {selected ? <LightbulbIcon /> : <NotificationIcon />}
             <Text>{children}</Text>
-        </TabElement>
+        </Tab>
     );
 }
 
 export function CustomTabs() {
     return (
         <Tabs aria-label="Planets">
-            <Tab>
+            <Item>
                 <ActiveHeader>Mars</ActiveHeader>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 }

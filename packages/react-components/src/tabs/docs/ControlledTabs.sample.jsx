@@ -1,5 +1,6 @@
 import { Content, Header } from "@react-components/view";
-import { Tab, Tabs } from "@react-components/tabs";
+import { Item } from "@react-components/collection";
+import { Tabs } from "@react-components/tabs";
 import { useCallback, useState } from "react";
 
 export function ControlledTabs() {
@@ -12,18 +13,18 @@ export function ControlledTabs() {
 
     return (
         <Tabs index={selectedIndex} onChange={handleChange} aria-label="Planets">
-            <Tab>
+            <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 }

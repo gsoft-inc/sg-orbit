@@ -1,6 +1,7 @@
 import { Content, Header } from "@react-components/view";
+import { Item } from "@react-components/collection";
 import { KEYS } from "@react-components/shared";
-import { Tab, Tabs } from "@react-components/tabs";
+import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
@@ -9,10 +10,10 @@ import { createRef } from "react";
 test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = render(
         <Tabs id="foo" aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -28,10 +29,10 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
 test("when an header id is provided, it is assigned to the tab id", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header id="tab-header" data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -45,10 +46,10 @@ test("when an header id is provided, it is assigned to the tab id", async () => 
 test("when a content id is provided, it is assigned to the content id", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content id="tab-content" data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -62,10 +63,10 @@ test("when a content id is provided, it is assigned to the content id", async ()
 test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -81,10 +82,10 @@ test("when the root id is auto generated, it is used to compose the tab and pane
 test("when the header id is auto generated, it is assigned to the tab id", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -98,10 +99,10 @@ test("when the header id is auto generated, it is assigned to the tab id", async
 test("when the content id is auto generated, it is assigned to the tab id", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -117,14 +118,14 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
 test("first tab is tabbable", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -135,14 +136,14 @@ test("first tab is tabbable", async () => {
 test("selected tab is tabbable", async () => {
     const { getByTestId } = render(
         <Tabs defaultIndex={1} aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -153,14 +154,14 @@ test("selected tab is tabbable", async () => {
 test("a disabled tab is not tabbable", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab disabled data-testid="tab-1">
+            <Item disabled data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -172,14 +173,14 @@ test("a disabled tab is not tabbable", async () => {
 test("when automatic, focusing a tab change the active tab", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -193,14 +194,14 @@ test("when automatic, focusing a tab change the active tab", async () => {
 test("when manual, focusing a tab shouldn't change the active tab", async () => {
     const { getByTestId } = render(
         <Tabs manual aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -214,14 +215,14 @@ test("when manual, focusing a tab shouldn't change the active tab", async () => 
 test("when manual, spacebar keypress makes a tab active", async () => {
     const { getByTestId } = render(
         <Tabs manual aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -235,14 +236,14 @@ test("when manual, spacebar keypress makes a tab active", async () => {
 test("when manual, enter keypress makes a tab active", async () => {
     const { getByTestId } = render(
         <Tabs manual aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -256,18 +257,18 @@ test("when manual, enter keypress makes a tab active", async () => {
 test("when horizontal, right arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Header 3</Header>
                 <Content>Content 3</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -281,18 +282,18 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
 test("when horizontal, left arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
         <Tabs aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
-            <Tab data-testid="tab-3">
+            </Item>
+            <Item data-testid="tab-3">
                 <Header>Header 3</Header>
                 <Content>Content 3</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -306,18 +307,18 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
 test("when vertical, down arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
         <Tabs orientation="vertical" aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Header 3</Header>
                 <Content>Content 3</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -331,18 +332,18 @@ test("when vertical, down arrow keypress select the next tab", async () => {
 test("when vertical, up arrow keypress select the next tab", async () => {
     const { getByTestId } = render(
         <Tabs orientation="vertical" aria-label="Tabs">
-            <Tab data-testid="tab-1">
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab>
+            </Item>
+            <Item>
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
-            <Tab data-testid="tab-3">
+            </Item>
+            <Item data-testid="tab-3">
                 <Header>Header 3</Header>
                 <Content>Content 3</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -360,14 +361,14 @@ test("call onChange when the active tab change", async () => {
 
     const { getByTestId } = render(
         <Tabs onChange={handler} aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab data-testid="tab-2">
+            </Item>
+            <Item data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -383,14 +384,14 @@ test("dont call onChange when a tab is disabled", async () => {
 
     const { getByTestId } = render(
         <Tabs onChange={handler} aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
-            </Tab>
-            <Tab disabled data-testid="tab-2">
+            </Item>
+            <Item disabled data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -408,10 +409,10 @@ test("header ref is a DOM element", async () => {
 
     render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header ref={ref}>Header</Header>
                 <Content>Content</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 
@@ -426,10 +427,10 @@ test("content ref is a DOM element", async () => {
 
     render(
         <Tabs aria-label="Tabs">
-            <Tab>
+            <Item>
                 <Header>Header</Header>
                 <Content ref={ref}>Content</Content>
-            </Tab>
+            </Item>
         </Tabs>
     );
 

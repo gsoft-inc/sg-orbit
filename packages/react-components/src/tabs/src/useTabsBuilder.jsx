@@ -27,7 +27,7 @@ export class TabsBuilder {
             }));
 
             if (isNil(header) || isNil(content)) {
-                throw new Error("A tab must have an <Header> and a <Content>.");
+                throw new Error("A tabs item must have an <Header> and a <Content>.");
             }
 
             const tabId = this._makeId(header, "tab", index);
@@ -56,8 +56,6 @@ export class TabsBuilder {
                     ref: content.ref
                 })
             );
-
-            // tabIndex++;
         });
 
         return [tabs, panels];

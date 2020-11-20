@@ -1,7 +1,8 @@
 import { Box } from "@react-components/box";
 import { Content, Header } from "@react-components/view";
 import { Dimmer, Loader } from "semantic-ui-react";
-import { Tab, Tabs } from "@react-components/tabs";
+import { Item } from "@react-components/collection";
+import { Tabs } from "@react-components/tabs";
 import { isNil } from "lodash";
 import { useEffect, useState } from "react";
 
@@ -48,7 +49,7 @@ export function AsyncTabs() {
                 { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
             ]
                 .map(({ header, content }) =>
-                    <Tab key={header}>
+                    <Item key={header}>
                         {({ isActive }) => (
                             <>
                                 <Header>{header}</Header>
@@ -59,7 +60,7 @@ export function AsyncTabs() {
                                 </Content>
                             </>
                         )}
-                    </Tab>
+                    </Item>
                 )}
         </Tabs>
     );
