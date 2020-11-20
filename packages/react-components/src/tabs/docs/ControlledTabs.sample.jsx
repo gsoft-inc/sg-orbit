@@ -7,6 +7,7 @@ export function ControlledTabs() {
 
     const handleChange = useCallback((event, index) => {
         setSelectedIndex(index);
+        console.log(index);
     }, [setSelectedIndex]);
 
     return (

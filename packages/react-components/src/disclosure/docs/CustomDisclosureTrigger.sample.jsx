@@ -1,5 +1,5 @@
-import { ArrowIcon } from "@react-components/icons";
 import { Box } from "@react-components/box";
+import { ChevronIcon } from "@react-components/icons";
 import { Content } from "@react-components/view";
 import { Disclosure } from "@react-components/disclosure";
 import { useDisclosureContext } from "@react-components/disclosure";
@@ -15,7 +15,7 @@ export function CustomTrigger({ children, ...rest }) {
             role="button"
         >
             {children}
-            <ArrowIcon
+            <ChevronIcon
                 className={cx(
                     isOpen ? "rotate-270" : "rotate-90",
                     "ml1"

@@ -1,0 +1,52 @@
+import { Button } from "@react-components/button";
+import { Content } from "@react-components/view";
+import { Disclosure, DisclosureArrow, InnerDisclosureArrow } from "@react-components/disclosure";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Content|DisclosureArrow"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/disclosure/src" />)
+        .build()}
+/>
+
+# DisclosureArrow
+
+A top / bottom pointing arrow to hint that activating the trigger will display additional content.
+
+## Usage
+
+When a disclosure arrow is nested in a component implementing a `DisclosureContext`, the arrow will automatically change direction when the `isOpen` prop change. Otherwise, a disclosure arrow can be controlled with the `open` prop.
+
+### Context
+
+<Preview>
+    <Story name="context">
+        <Disclosure>
+            <Button>
+                <Text>EVE Online</Text>
+                <DisclosureArrow slot="right-icon" />
+            </Button>
+            <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
+        </Disclosure>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={InnerDisclosureArrow} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <DisclosureArrow open />
+    </RefLogger>
+</Story>
