@@ -1,4 +1,4 @@
-import { DisclosureArrow } from "./DisclosureArrow";
+import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
@@ -87,7 +87,10 @@ export function InnerAccordionHeader({
             >
                 {icon}
                 {text}
-                <DisclosureArrow disabled={disabled} />
+                <DisclosureArrow
+                    size={size}
+                    className="o-ui-accordion-arrow"
+                />
             </button>
         </Heading>
     );

@@ -6,7 +6,12 @@ export function useKeyboardNavigation({ previous = [], next = [], first = [], la
     const selectElement = (event, element) => {
         event.preventDefault();
 
+        // element.addEventListener("focusin", event => {
+        //     console.log("************************ FOCUS CALLED");
+        // });
+
         if (isFunction(element.focus)) {
+            // console.log("************************ FOCUS ");
             element.focus();
         }
 
@@ -16,7 +21,7 @@ export function useKeyboardNavigation({ previous = [], next = [], first = [], la
     };
 
     const handleKeyDown = useEventCallback(event => {
-        const navigableTreeWalker = createNavigableTreeWalker(event.currentTarget, event.target, { tabblable: true });
+        const navigableTreeWalker = createNavigableTreeWalker(event.currentTarget, event.target);
         const keyCode = event.keyCode;
 
         if (previous.includes(keyCode)) {

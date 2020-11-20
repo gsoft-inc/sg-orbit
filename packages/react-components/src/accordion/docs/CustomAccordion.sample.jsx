@@ -1,8 +1,6 @@
 import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
-import { Content, Header } from "@react-components/view";
+import { Content } from "@react-components/view";
 import { Item } from "@react-components/collection";
-import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { Text } from "@react-components/text";
 
 function ActiveHeader({ children, ...rest }) {
     const { isOpen } = useAccordionItemContext();

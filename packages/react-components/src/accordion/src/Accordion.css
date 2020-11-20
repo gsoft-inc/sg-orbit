@@ -76,7 +76,7 @@
 }
 
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
-.o-ui-accordion-header[disabled]  .o-ui-accordion-arrow {
+.o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
     opacity: var(--o-ui-disabled-opacity);
 }
 
