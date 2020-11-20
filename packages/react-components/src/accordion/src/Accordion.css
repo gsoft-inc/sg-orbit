@@ -67,7 +67,8 @@
     cursor: not-allowed;
 }
 
-.o-ui-accordion-trigger[disabled] .o-ui-accordion-title {
+.o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
+.o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
     opacity: var(--o-ui-disabled-opacity);
 }
 

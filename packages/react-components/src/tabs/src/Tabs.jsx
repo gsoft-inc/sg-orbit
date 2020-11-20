@@ -101,6 +101,8 @@ export function InnerTabs({
     }, []);
 
     const handleSelect = useEventCallback((event, newIndex) => {
+        console.log("************************ TABS SELECT: ", newIndex);
+
         setSelectedIndex(newIndex);
 
         if (!isNil(onChange)) {

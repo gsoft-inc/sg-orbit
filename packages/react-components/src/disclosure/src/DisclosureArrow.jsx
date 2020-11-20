@@ -1,21 +1,27 @@
 import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
-import { bool } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
+import { bool, oneOf } from "prop-types";
+import { cssModule, mergeClasses, slot } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useDisclosureContext } from "../../disclosure";
 
 const propTypes = {
+    /**
+     * A controlled open value that determined whether or not the arrow is up or down.
+     */
     open: bool,
-    disabled: bool
+    /**
+     * A disclosure arrow can vary in size.
+     */
+    size: oneOf(["sm", "md"])
 };
 
 export function InnerDisclosureArrow({
     open,
-    disabled,
     className,
+    forwardedRef,
     ...rest
 }) {
     const disclosureContext = useDisclosureContext();
@@ -23,7 +29,7 @@ export function InnerDisclosureArrow({
     const isOpen = open ?? disclosureContext.isOpen;
 
     if (isNil(isOpen)) {
-        throw new Error("The disclosure arrow component must receive a controlled prop \"open\" or have a parent DisclosureContext.");
+        throw new Error("The disclosure arrow component must receive a controlled prop \"open\" or have a parent DisclosureProvider.");
     }
 
     return (
@@ -32,17 +38,17 @@ export function InnerDisclosureArrow({
             className={mergeClasses(
                 cssModule(
                     "o-ui-disclosure-arrow",
-                    isOpen ? "down" : "up",
-                    disabled && "disabled"
+                    isOpen ? "down" : "up"
                 ),
                 className
             )}
+            ref={forwardedRef}
         />
     );
 }
 
 InnerDisclosureArrow.propTypes = propTypes;
 
-export const DisclosureArrow = forwardRef((props, ref) => (
+export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
-));
+)));

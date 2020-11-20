@@ -1,8 +1,8 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/view";
+import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
-import { Stack } from "@react-components/layout";
 import { Tab, TabElement, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
@@ -428,6 +428,52 @@ stories()
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Tab>
         </Tabs>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Inline>
+                <Tabs className="border-red">
+                    <Tab>
+                        <Header>Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+                <Tabs style={{ border: "1px solid red" }}>
+                    <Tab>
+                        <Header>Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+            </Inline>
+            <Inline>
+                <Tabs>
+                    <Tab>
+                        <Header className="border-red">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+                <Tabs>
+                    <Tab>
+                        <Header style={{ border: "1px solid red" }}>Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+            </Inline>
+            <Inline>
+                <Tabs>
+                    <Tab>
+                        <Header>Mars</Header>
+                        <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+                <Tabs>
+                    <Tab>
+                        <Header>Mars</Header>
+                        <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Tab>
+                </Tabs>
+            </Inline>
+        </Stack>
     );
 
 stories("/vertical")

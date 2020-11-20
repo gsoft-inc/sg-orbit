@@ -2,8 +2,8 @@ import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-comp
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/view";
+import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
-import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
@@ -340,4 +340,50 @@ stories()
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Inline>
+                <Accordion className="border-red">
+                    <Item>
+                        <Header as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+                <Accordion style={{ border: "1px solid red" }}>
+                    <Item>
+                        <Header as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+            </Inline>
+            <Inline>
+                <Accordion>
+                    <Item>
+                        <Header className="border-red" as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+                <Accordion>
+                    <Item>
+                        <Header style={{ border: "1px solid red" }} as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+            </Inline>
+            <Inline>
+                <Accordion index={0}>
+                    <Item>
+                        <Header as="h3">Mars</Header>
+                        <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+                <Accordion index={0}>
+                    <Item>
+                        <Header as="h3">Mars</Header>
+                        <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                </Accordion>
+            </Inline>
+        </Stack>
     );

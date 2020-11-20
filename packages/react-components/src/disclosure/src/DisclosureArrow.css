@@ -10,7 +10,3 @@
 .o-ui-disclosure-arrow-up {
     transform: rotate(-90deg);
 }
-
-.o-ui-disclosure-arrow-disabled {
-    opacity: var(--o-ui-disabled-opacity);
-}

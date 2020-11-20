@@ -95,7 +95,8 @@ export function InnerTabElement({
         <Box
             {...rest}
             onClick={handleClick}
-            onFocus={!isManual ? handleFocus : undefined}
+            // onFocus={!isManual ? handleFocus : undefined}
+            onFocus={handleFocus}
             onKeyDown={isManual ? handleKeyDown : undefined}
             onKeyUp={isManual ? handleKeyUp : undefined}
             className={mergeClasses(
