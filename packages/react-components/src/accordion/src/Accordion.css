@@ -31,12 +31,20 @@
     text-align: left;
     background-color: white;
     cursor: pointer;
-    padding: var(--scale-echo) var(--scale-echo) var(--scale-echo) var(--scale-foxtrot);
     border: 0;
     border-top: 1px solid var(--cloud-50);
     transition: background-color .3s ease-in;
     width: 100%;
     color: var(--marine-900);
+    line-height: inherit;
+}
+
+.o-ui-accordion-header-sm .o-ui-accordion-trigger {
+    padding: calc(var(--scale-charlie) - 1px) var(--scale-echo) var(--scale-charlie) var(--scale-foxtrot);
+}
+
+.o-ui-accordion-header-md .o-ui-accordion-trigger {
+    padding: calc(var(--scale-delta) - 1px) var(--scale-echo) var(--scale-delta) var(--scale-foxtrot);
 }
 
 /* TRIGGER | ICON */
