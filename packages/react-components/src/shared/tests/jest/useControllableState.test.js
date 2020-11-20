@@ -245,7 +245,7 @@ test("call onChange when a new value is set for an uncontrolled prop", () => {
 
 // ***** isControlled *****
 
-test("isControlled is true when a controlled value is provided ", () => {
+test("isControlled is true when a controlled value is provided", () => {
     const { result } = renderHook(() => useControllableState(true));
 
     expect(result.current[2]).toBeTruthy();
