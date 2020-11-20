@@ -5,6 +5,7 @@ import { Content, Header } from "@react-components/view";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Text } from "@react-components/text";
+import { augmentElement } from "@react-components/shared";
 import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 
 function stories(segment) {
@@ -152,7 +153,7 @@ stories()
         </Accordion>
     )
     .add("narrow container", () =>
-        <div style={{ width: "75px" }}>
+        <div style={{ width: "200px" }}>
             <Accordion>
                 <Item>
                     <Header as="h3">Mars</Header>
@@ -284,10 +285,11 @@ stories()
             return (
                 <Box
                     {...rest}
-                    style={{ backgroundColor: isOpen ? "blue" : "red" }}
                     as="h3"
                 >
-                    {children}
+                    {augmentElement(children, {
+                        style: { backgroundColor: isOpen ? "blue" : "red" }
+                    })}
                 </Box>
             );
         };
