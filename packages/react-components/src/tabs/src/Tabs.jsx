@@ -3,9 +3,10 @@ import "./Tabs.css";
 import { Box } from "../../box";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
+import { TabsProvider } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { createContext, forwardRef, useContext } from "react";
-import { cssModule, mergeClasses, useChainedEventCallback, useControllableState, useId } from "../../shared";
+import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 import { useTabsBuilder } from "./useTabsBuilder";
@@ -31,6 +32,14 @@ const propTypes = {
      */
     manual: bool,
     /**
+     * Whether the first focusable tab should autoFocus on render.
+     */
+    autoFocus: bool,
+    /**
+     * The delay before trying to autofocus.
+     */
+    autoFocusDelay: number,
+    /**
      * Whether the tabs take up the width of the container.
      */
     fluid: bool,
@@ -52,24 +61,22 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerTabs(props) {
-    const {
-        id,
-        index,
-        defaultIndex,
-        onChange,
-        manual,
-        autoFocus,
-        autoFocusDelay,
-        fluid,
-        orientation = "horizontal",
-        className,
-        "aria-label": ariaLabel,
-        children,
-        forwardedRef,
-        ...rest
-    } = props;
-
+export function InnerTabs({
+    id,
+    index,
+    defaultIndex,
+    onChange,
+    manual,
+    autoFocus,
+    autoFocusDelay,
+    fluid,
+    orientation = "horizontal",
+    className,
+    "aria-label": ariaLabel,
+    children,
+    forwardedRef,
+    ...rest
+}) {
     const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
     const [tabs, panels] = useTabsBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
@@ -85,7 +92,7 @@ export function InnerTabs(props) {
         }
     }
 
-    // On autopilot, ensure the initial selected tab is not a disabled one.
+    // When uncontrolled, ensure the initial selected tab is not a disabled one.
     useEffect(() => {
         if (tabs[selectedIndex].disabled) {
             setSelectedIndex(tabs.find(x => !x.disabled).index);
@@ -93,8 +100,12 @@ export function InnerTabs(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleSelect = useChainedEventCallback(onChange, (event, newIndex) => {
+    const handleSelect = useEventCallback((event, newIndex) => {
         setSelectedIndex(newIndex);
+
+        if (!isNil(onChange)) {
+            onChange(event, newIndex);
+        }
     });
 
     return (
@@ -136,13 +147,3 @@ InnerTabs.propTypes = propTypes;
 export const Tabs = forwardRef((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
-
-////////
-
-export const TabsContext = createContext({});
-
-export const TabsProvider = TabsContext.Provider;
-
-export function useTabsContext() {
-    return useContext(TabsContext);
-}

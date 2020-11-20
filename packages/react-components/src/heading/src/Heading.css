@@ -18,7 +18,7 @@
 
 .o-ui-heading-sm {
     font-size: var(--type-scale-4);
-    line-height: 1.33333;
+    line-height: 1.3333333;
     margin-bottom: calc(var(--type-scale-4) * .5);
 }
 

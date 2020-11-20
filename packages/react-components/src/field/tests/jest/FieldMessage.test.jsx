@@ -42,6 +42,7 @@ const Valid = forwardRef((props, ref) => {
     [Error, "error"],
     [Valid, "valid"]
 ].forEach(([Element, id]) => {
+    // eslint-disable-next-line jest/valid-title
     describe(id, () => {
         test("ref is a DOM element", async () => {
             const ref = createRef();

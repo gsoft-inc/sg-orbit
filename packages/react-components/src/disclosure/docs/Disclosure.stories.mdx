@@ -1,0 +1,94 @@
+import { Button } from "@react-components/button";
+import { Content } from "@react-components/view";
+import { ControlledDisclosure } from "./ControlledDisclosure.sample";
+import { CustomDisclosureTrigger } from "./CustomDisclosureTrigger.sample";
+import { Disclosure, DisclosureArrow, InnerDisclosure } from "@react-components/disclosure";
+import { FilePreview, ReactComponentsLayout } from "@blocks";
+import { Fragment } from "react";
+import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
+import { Text } from "@react-components/text";
+import { paramsBuilder } from "@utils";
+
+<Meta
+    title="Content|Disclosure"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/disclosure/src" />)
+        .build()}
+/>
+
+# Disclosure
+
+The disclosure component is used to create regions of content that can expand/collapse with a simple animation. It helps to hide content that's not immediately relevant to the user.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import Disclosure from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#disclosure">https://www.w3.org/TR/wai-aria-practices/#disclosure</a></dd>
+    </div>
+</dl>
+
+## Accessibility
+
+The disclosure's trigger that shows and hides the content must be a [button element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) or have the [role button](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
+
+## Usage
+
+### Render props
+
+A disclosure component can update is content based on the `isOpen` value by providing a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Disclosure>
+            {({ isOpen }) => (
+                <Fragment>
+                    <Button color={isOpen ? "primary" : "secondary"}>
+                        EVE Online
+                    </Button>
+                    <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
+                </Fragment>
+            )}
+        </Disclosure>
+    </Story>
+</Preview>
+
+### Custom trigger
+
+The previous [render props](#render-props) example could also be achieve by using a custom component. It's possible by using the `useDisclosureContext`.
+
+<FilePreview filePath="/disclosure/docs/CustomDisclosureTrigger">
+    <CustomDisclosureTrigger />
+</FilePreview>
+
+### Disclosure arrow
+
+If all you need is a hint that activating the button will display additional content you don't have to implement it yourself as in the 2 previous examples. You could instead use a [disclosure arrow](/) component.
+
+<Preview>
+    <Story name="disclosure arrow">
+        <Disclosure>
+            <Button>
+                <Text>EVE Online</Text>
+                <DisclosureArrow slot="right-icon" />
+            </Button>
+            <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
+        </Disclosure>
+    </Story>
+</Preview>
+
+### Controlled
+
+A disclosure component can handle `open` state in controlled mode.
+
+<FilePreview filePath="/disclosure/docs/ControlledDisclosure">
+    <ControlledDisclosure />
+</FilePreview>
+
+## Props
+
+<Props of={InnerDisclosure} />

@@ -1,0 +1,19 @@
+/* SECTION */
+.o-ui-disclosure-content-section-collapsing {
+    overflow: hidden;
+}
+
+.o-ui-disclosure-content-section-collapsed {
+    display: none;
+}
+
+.o-ui-disclosure-content-section-expanding {
+    overflow: hidden;
+    height: 0;
+}
+
+/* CONTENT */
+.o-ui-disclosure-content {
+    padding-top: var(--scale-echo);
+    padding-bottom: var(--scale-echo);
+}

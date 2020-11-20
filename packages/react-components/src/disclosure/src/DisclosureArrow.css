@@ -1,0 +1,12 @@
+.o-ui-disclosure-arrow {
+    flex-shrink: 0;
+    transition: transform .3s ease-in;
+}
+
+.o-ui-disclosure-arrow-down {
+    transform: rotate(90deg);
+}
+
+.o-ui-disclosure-arrow-up {
+    transform: rotate(-90deg);
+}

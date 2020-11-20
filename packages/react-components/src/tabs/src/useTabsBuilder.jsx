@@ -18,26 +18,26 @@ export class TabsBuilder {
         const tabs = [];
         const panels = [];
 
-        let tabIndex = 0;
+        // let tabIndex = 0;
         let nodeIndex = 0;
 
-        Children.forEach(elements, tab => {
+        Children.forEach(elements, (tab, index) => {
             const [header, content] = Children.toArray(resolveChildren(tab.props.children, {
-                isActive: selectedIndex === tabIndex
+                isActive: selectedIndex === index
             }));
 
             if (isNil(header) || isNil(content)) {
-                throw new Error("A tab item must have an <Header> and a <Content>.");
+                throw new Error("A tabs item must have an <Header> and a <Content>.");
             }
 
-            const tabId = this._makeId(header, "tab", tabIndex);
-            const panelId = this._makeId(content, "panel", tabIndex);
+            const tabId = this._makeId(header, "tab", index);
+            const panelId = this._makeId(content, "panel", index);
 
             tabs.push(
                 mergeProps(header.props, tab.props, {
                     id: tabId,
                     panelId,
-                    index: tabIndex,
+                    index,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: header.type !== Header ? header.type : undefined,
                     key: `.${nodeIndex++}`,
@@ -49,22 +49,20 @@ export class TabsBuilder {
                 mergeProps(content.props, {
                     id: panelId,
                     tabId,
-                    index: tabIndex,
+                    index,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: content.type !== Content ? content.type : undefined,
                     key: `.${nodeIndex++}`,
                     ref: content.ref
                 })
             );
-
-            tabIndex++;
         });
 
         return [tabs, panels];
     }
 
-    _makeId({ props: { id } }, type, tabIndex) {
-        return id ?? `${this._rootId}-${type}-${tabIndex}`;
+    _makeId({ props: { id } }, type, index) {
+        return id ?? `${this._rootId}-${type}-${index}`;
     }
 }
 

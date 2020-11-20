@@ -91,7 +91,7 @@
 }
 
 /* TAB | STATE | DISABLED */
-.o-ui-tab[aria-disabled="true"] {
+.o-ui-tab[disabled] {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
@@ -118,8 +118,8 @@
 }
 
 /* TAB | STATE | HOVER | DISABLED */
-.o-ui-tab[aria-disabled="true"]:hover,
-.o-ui-tab-hover[aria-disabled="true"] {
+.o-ui-tab[disabled]:hover,
+.o-ui-tab-hover[disabled] {
     color: var(--marine-500);
 }
 

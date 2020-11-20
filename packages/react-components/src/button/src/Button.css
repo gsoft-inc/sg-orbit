@@ -277,15 +277,6 @@ a.o-ui-button {
     background-color: var(--alert-500);
 }
 
-/* OUTLINE | DANGER | ICON */
-.o-ui-button-outline.o-ui-button-danger .o-ui-button-icon {
-    fill: var(--alert-500);
-}
-
-.o-ui-button-outline.o-ui-button-danger.o-ui-button-active .o-ui-button-icon {
-    fill: var(--white);
-}
-
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
@@ -386,16 +377,6 @@ a.o-ui-button {
 }
 
 /* LOADING | SIZES */
-.o-ui-button-loading.o-ui-button-2xs:before {
-    width: 0.75rem;
-    height: 0.75rem;
-}
-
-.o-ui-button-loading.o-ui-button-xs:before {
-    width: 0.825rem;
-    height: 0.825rem;
-}
-
 .o-ui-button-loading.o-ui-button-sm:before {
     width: 1.25rem;
     height: 1.25rem;
@@ -490,16 +471,6 @@ a.o-ui-button {
 }
 
 /* CIRCULAR | SIZES */
-.o-ui-button-circular.o-ui-button-2xs {
-    min-width: var(--scale-echo);
-    padding: 0 var(--scale-alpha);
-}
-
-.o-ui-button-circular.o-ui-button-xs {
-    min-width: var(--scale-foxtrot);
-    padding: 0 var(--scale-alpha);
-}
-
 .o-ui-button-circular.o-ui-button-sm {
     min-width: var(--scale-golf);
     padding: 0 var(--scale-alpha);
@@ -517,11 +488,6 @@ a.o-ui-button {
 
 .o-ui-button-rounded:after {
     border-radius: var(--o-ui-rounded-border-radius);
-}
-
-/* CONTENT | ICON | SIZES */
-.o-ui-button-icon + .o-ui-button-text {
-    margin-left: var(--scale-alpha);
 }
 
 /* INHERIT */
@@ -567,7 +533,8 @@ a.o-ui-button {
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
     fill: var(--white);
     opacity: .9;
 }
@@ -584,8 +551,10 @@ a.o-ui-button {
 
 .o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
 .o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
     opacity: 1;
 }
 

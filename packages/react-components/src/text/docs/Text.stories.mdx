@@ -1,0 +1,33 @@
+import { InnerText, Text } from "@react-components/text";
+import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
+import { ReactComponentsLayout } from "@blocks";
+import { RefLogger, paramsBuilder } from "@utils";
+
+<Meta
+    title="Content|Text"
+    parameters={paramsBuilder()
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
+        .build()}
+/>
+
+# Text
+
+A primitive component that can be used to render text matching [Orbit typography](?path=/docs/materials-typography--page#body).
+
+> Only use this component if all other Orbit typographic components don't meet your use case.
+
+## Props
+
+<Props of={InnerText} />
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <Text>If two pieces of the same type of metal touch in space they will permanently bond.</Text>
+    </RefLogger>
+</Story>

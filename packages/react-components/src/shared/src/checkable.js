@@ -1,6 +1,8 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
+// TODO: rename to "checkable.js" ?
+
 export const CheckableContext = createContext();
 
 export const CheckableProvider = CheckableContext.Provider;
