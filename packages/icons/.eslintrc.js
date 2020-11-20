@@ -1,4 +1,6 @@
 module.exports = {
+    // TEMP
+    parser: "@babel/eslint-parser",
     extends: [
         "@sharegate/eslint-config-react",
         "plugin:jsx-control-statements/recommended"
