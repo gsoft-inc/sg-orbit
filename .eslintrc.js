@@ -1,6 +1,4 @@
 module.exports = {
-    // TEMP
-    parser: "@babel/eslint-parser",
     root: true,
     plugins: ["jest"],
     extends: [

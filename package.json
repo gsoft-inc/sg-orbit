@@ -81,7 +81,7 @@
         "@rehooks/local-storage": "2.4.0",
         "@sharegate/browserslist-config-recommended": "1.0.1",
         "@sharegate/eslint-config-lodash": "1.0.2",
-        "@sharegate/eslint-config-react": "1.1.0",
+        "@sharegate/eslint-config-react": "2.0.0",
         "@sharegate/eslint-config-recommended": "1.1.0",
         "@sharegate/eslint-config-sort-imports": "1.0.2",
         "@sharegate/stylelint-config-recommended": "2.0.0",

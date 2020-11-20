@@ -1,8 +1,6 @@
 // TODO: Extract to an MDX config into the sg-eslint packages.
 
 module.exports = {
-    // TEMP
-    parser: "@babel/eslint-parser",
     extends: [
         "@sharegate/eslint-config-react",
         "plugin:jsx-control-statements/recommended"

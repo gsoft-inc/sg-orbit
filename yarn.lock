@@ -3060,10 +3060,10 @@
   dependencies:
     eslint-plugin-lodash "*"
 
-"@sharegate/eslint-config-react@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-react/-/eslint-config-react-1.1.0.tgz#bb9efdfd0f724a348b8603c7dd0fd7cd1924a945"
-  integrity sha512-WJs5qbrapxy0ax9Lo+m6wMFPkdQeiX2EyuEdIzL5fEt9Svy+cF9Y+YkY63KcvZ956/YvPWVd0t1qvaL6H3gFxQ==
+"@sharegate/eslint-config-react@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-react/-/eslint-config-react-2.0.0.tgz#13385abcf82fe50c838742d917235bc9f3f08493"
+  integrity sha512-5KTQcB1cR0Am8bE4UNdLRHuE3uPjvo4Q0BkQyZYKIe0zwjtiO6vE2rNT+pwiR6z0tg2ACj+FLiiHzb+dYxflkQ==
   dependencies:
     eslint-plugin-jsx-a11y "*"
     eslint-plugin-react "*"
