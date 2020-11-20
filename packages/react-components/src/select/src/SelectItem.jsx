@@ -1,5 +1,6 @@
 import { SelectContext } from "./SelectContext";
 import { Dropdown as SemanticDropdown } from "semantic-ui-react";
+import { Tooltip } from "../../tooltip";
 import { arrayOf, element, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
 import { mergeClasses, throwWhenUnsupportedPropIsProvided } from "../../shared";
@@ -38,11 +39,29 @@ const propTypes = {
     /**
      * Icons can appear on the left or right of the item content.
      */
-    iconsPosition: oneOf(["left", "right"])
+    iconsPosition: oneOf(["left", "right"]),
+    /**
+     * Content rendered as tooltip when the item is hovered.
+     */
+    tooltip: string,
+    /**
+     * Position of the tooltip.
+     */
+    tooltipPosition: oneOf([
+        "top center",
+        "top left",
+        "top right",
+        "bottom center",
+        "bottom left",
+        "bottom right",
+        "right center",
+        "left center"
+    ])
 };
 
 const defaultProps = {
-    iconsPosition: "left"
+    iconsPosition: "left",
+    tooltipPosition: "top center"
 };
 
 function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avatar }) {
@@ -52,7 +71,7 @@ function throwWhenMutuallyExclusivePropsAreProvided({ icons, iconsPosition, avat
 }
 
 export function SelectItem(props) {
-    const { text, icons, iconsPosition, avatar, description, className, ...rest } = props;
+    const { text, icons, iconsPosition, avatar, description, tooltip, tooltipPosition, className, ...rest } = props;
     const { size } = useContext(SelectContext);
 
     throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/SelectItem");
@@ -83,7 +102,7 @@ export function SelectItem(props) {
         </>
     );
 
-    return (
+    const item = (
         <SemanticDropdown.Item
             {...rest}
             className={mergeClasses(
@@ -96,6 +115,8 @@ export function SelectItem(props) {
             {content}
         </SemanticDropdown.Item>
     );
+
+    return !isNil(tooltip) ? <Tooltip content={tooltip} trigger={item} position={tooltipPosition} /> : item;
 }
 
 SelectItem.propTypes = propTypes;

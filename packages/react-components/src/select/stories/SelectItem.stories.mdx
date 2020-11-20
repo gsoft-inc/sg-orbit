@@ -103,6 +103,26 @@ A select item can have a description.
     </Story>
 </Preview>
 
+### Tooltip
+
+A slect item can have a tooltip.
+
+<Preview>
+    <Story name="tooltip">
+        <Select
+            placeholder="Astronaut"
+            options={[
+                selectItem("David Saint-Jacques", "David Saint-Jacques", { tooltip: "Thank you!", tooltipPosition: "left center" }),
+                selectItem("Chris Hadfield", "Chris Hadfield", { description: "Commander of the ISS" }),
+                JEREMY_HANSEN_ITEM,
+                JENNI_SIDEY_ITEM,
+                ROBERT_THIRKS_ITEM,
+                selectItem("Julie Payette", "Julie Payette", { description: "29th GGC", tooltip: "The second Canadian woman to have flown in space." })
+            ]}
+        />
+    </Story>
+</Preview>
+
 ### Avatar
 
 A select item can have an avatar.

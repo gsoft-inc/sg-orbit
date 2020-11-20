@@ -227,5 +227,4 @@ export function createTestSuite(select, stories) {
                 </div>
             </div>
         );
-
 }
