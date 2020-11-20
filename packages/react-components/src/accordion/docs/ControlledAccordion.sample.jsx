@@ -8,6 +8,7 @@ export function ControlledAccordion() {
 
     const handleChange = useCallback((event, index) => {
         setOpenedIndexes(index);
+        console.log(index);
     }, [setOpenedIndexes]);
 
     return (

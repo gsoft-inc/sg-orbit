@@ -142,8 +142,6 @@ export function InnerButton(props) {
         }
     }), [size, condensed, loading]));
 
-    console.log(text);
-
     return (
         <Box
             {...rest}

@@ -6,12 +6,7 @@ export function useKeyboardNavigation({ previous = [], next = [], first = [], la
     const selectElement = (event, element) => {
         event.preventDefault();
 
-        // element.addEventListener("focusin", event => {
-        //     console.log("************************ FOCUS CALLED");
-        // });
-
         if (isFunction(element.focus)) {
-            // console.log("************************ FOCUS ");
             element.focus();
         }
 
