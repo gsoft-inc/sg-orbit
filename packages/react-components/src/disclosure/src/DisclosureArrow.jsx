@@ -13,9 +13,9 @@ const propTypes = {
      */
     open: bool,
     /**
-     * A disclosure arrow can vary in size.
+     * An arrow can vary in size.
      */
-    size: oneOf(["sm", "md"])
+    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl", "inherit"])
 };
 
 export function InnerDisclosureArrow({

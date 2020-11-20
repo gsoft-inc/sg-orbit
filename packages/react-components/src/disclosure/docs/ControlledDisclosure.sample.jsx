@@ -1,4 +1,4 @@
-import { ArrowIcon } from "@react-components/icons";
+import { ChevronIcon } from "@react-components/icons";
 import { Content } from "@react-components/view";
 import { Disclosure } from "@react-components/disclosure";
 import { Text } from "@react-components/text";
@@ -21,7 +21,7 @@ export function ControlledDisclosure() {
         >
             <TextLink as="button">
                 <Text>EVE Online</Text>
-                <ArrowIcon className={isOpen ? "rotate-270" : "rotate-90"} />
+                <ChevronIcon className={isOpen ? "rotate-270" : "rotate-90"} />
             </TextLink>
             <Content>
                 Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games.
