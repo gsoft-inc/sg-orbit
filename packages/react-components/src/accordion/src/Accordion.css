@@ -50,7 +50,8 @@
 }
 
 /* TRIGGER | ICON */
-.o-ui-accordion-trigger-has-icon {
+.o-ui-accordion-header-md .o-ui-accordion-trigger-has-icon,
+.o-ui-accordion-header-sm .o-ui-accordion-trigger-has-icon{
     padding-left: var(--scale-echo);
 }
 
