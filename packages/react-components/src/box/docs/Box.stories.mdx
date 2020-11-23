@@ -1,13 +1,11 @@
 import { Box, InnerBox } from "@react-components/box";
 import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
+import { RefLogger } from "@stories/components";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Box"
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Content/Box"
+    id="box"
 />
 
 # Box

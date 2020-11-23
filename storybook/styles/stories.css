@@ -1,0 +1,35 @@
+.bg-red.bg-red.bg-red.bg-red {
+    background: red !important;
+}
+
+.bg-red-inner > * {
+    background: red !important;
+}
+
+.border-red {
+    border: 1px solid red !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.fill-red {
+    fill: red !important;
+}
+
+.bg-blue.bg-blue.bg-blue.bg-blue {
+    background: blue !important;
+}
+
+.bg-blue-inner > * {
+    background: blue !important;
+}
+
+.border-blue {
+    border: 1px solid blue !important;
+}
+
+.fill-blue {
+    fill: blue !important;
+}
