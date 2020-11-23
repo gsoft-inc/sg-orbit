@@ -1,8 +1,8 @@
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
+import { adaptSize, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 
@@ -24,11 +24,6 @@ const propTypes = {
      */
     children: any.isRequired
 };
-
-const headerSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm"
-});
 
 export function InnerAccordionHeader({
     size,
@@ -62,7 +57,10 @@ export function InnerAccordionHeader({
 
     return (
         <Heading
-            size={headerSize(size)}
+            size={adaptSize(size, {
+                "sm": "xs",
+                "md": "sm"
+            })}
             className={cssModule(
                 "o-ui-accordion-header",
                 normalizeSize(size)
