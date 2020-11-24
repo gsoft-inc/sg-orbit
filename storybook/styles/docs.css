@@ -38,6 +38,10 @@
     height: 1.25rem !important;
 }
 
+.docblock-argstable-body td label input[type=radio]:focus {
+    outline-offset: 1px;
+}
+
 .docblock-argstable-body td label span {
     font-size: 1rem !important;
 }
@@ -94,8 +98,9 @@
     position: initial;
 }
 
-.sbdocs.sbdocs-h1 {
-    font-weight: 600;
+.sbdocs.sbdocs-h1,
+.sbdocs .sbdocs-title {
+    font-weight: 500;
 }
 
 .sbdocs.sbdocs-h2 {
@@ -231,4 +236,10 @@
 /* ELEMENTS | STRONG */
 .sbdocs strong {
     font-weight: 600;
+}
+
+/* STORY */
+.docs-story div + div > button {
+    font-weight: 600;
+    font-size: 0.875rem;
 }
