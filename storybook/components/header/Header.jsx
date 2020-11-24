@@ -31,7 +31,7 @@ export function Header({
             </div>
             {aria && (
                 <div>
-                    <dt className="o-ui-sb-header-title">aria</dt>
+                    <dt className="o-ui-sb-header-title">wai-aria</dt>
                     <dd className="o-ui-sb-header-value">
                         <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${aria}`}>{`https://www.w3.org/TR/wai-aria-practices/${aria}`}</ExternalLink>
                     </dd>

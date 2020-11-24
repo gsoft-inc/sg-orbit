@@ -1,4 +1,13 @@
 /* LAYOUT */
+/* .sbdocs,
+.sbdocs.sbdocs-content {
+    font-family: Calibre, Arial, Helvetica, sans-serif !important;
+} */
+
+:root {
+    --sb-font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .sbdocs.sbdocs-wrapper {
     padding: 2rem 2rem 1rem 2rem;
 }
@@ -13,37 +22,30 @@
     margin-bottom: 0;
 }
 
+.docblock-argstable-head,
+.docblock-argstable-body {
+    font-family: var(--sb-font-family) !important;
+}
+
 .docblock-argstable-head tr th {
-    font-family: Calibre, Arial, Helvetica, sans-serif !important;
     font-weight: 500 !important;
     color: var(--marine-900) !important;
-    font-size: 1rem !important;
 }
 
 .docblock-argstable-body td > span {
     font-weight: 500 !important;
-    font-size: 1rem !important;
-}
-
-.docblock-argstable-body td > div > span {
-    font-size: 1rem !important;
 }
 
 .docblock-argstable-body td > label > span {
     font-weight: 500 !important;
 }
 
-.docblock-argstable-body td label input[type=radio] {
-    width: 1.25rem !important;
-    height: 1.25rem !important;
-}
-
-.docblock-argstable-body td label span {
-    font-size: 1rem !important;
+.docblock-argstable-body td label input[type="radio"] {
+    width: 1rem !important;
+    height: 1rem !important;
 }
 
 .docblock-argstable-body td textarea {
-    font-size: .875rem !important;
     height: 2.5rem !important;
 }
 
