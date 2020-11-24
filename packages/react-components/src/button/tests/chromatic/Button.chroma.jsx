@@ -1,14 +1,11 @@
 import { Button } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createButtonTestSuite } from "./createButtonTestSuite";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Button"))
+    return storiesOfBuilder(module, "Chromatic/Button")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

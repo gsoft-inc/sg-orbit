@@ -10,16 +10,15 @@
         "start-sb": "start-storybook -c .",
         "start-sb-no-chroma": "cross-env STORYBOOK_INCLUDE_CHROMATIC=false yarn start-sb",
         "start-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true yarn start-sb",
-        "start-docs": "cross-env STORYBOOK_IS_DOCS=true start-storybook -c . --docs",
+        "start-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true start-storybook -c . --docs",
         "build-sb": "cross-env build-storybook -c . -o dist/sb",
         "build-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true build-storybook -c . -o dist/chromatic",
-        "build-docs": "cross-env STORYBOOK_IS_DOCS=true build-storybook -c . -o dist/docs --docs",
+        "build-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true build-storybook -c . -o dist/docs --docs",
         "serve-sb": "serve dist/sb",
         "serve-sb-for-chroma": "serve dist/chromatic",
         "serve-docs": "serve dist/docs",
         "clean": "rimraf dist",
         "chromatic": "chromatic test -b=build-sb-for-chroma --debug",
         "chromatic-ci": "yarn chromatic --no-interactive"
-    },
-    "devDependencies": {}
+    }
 }

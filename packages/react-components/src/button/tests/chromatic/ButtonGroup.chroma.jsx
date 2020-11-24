@@ -1,14 +1,11 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("ButtonGroup"))
+    return storiesOfBuilder(module, "Chromatic/ButtonGroup")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

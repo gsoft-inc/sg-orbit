@@ -1,9 +1,21 @@
 import { isNil, isNumber } from "lodash";
 
 class ParamsBuilder {
+    _canvasLayout = {}
     _chromatic = {}
     _sortPriority = null;
     _excludeFromDocs = false;
+
+    canvasLayout(config) {
+        if (!isNil(config)) {
+            this._canvasLayout = {
+                ...this._canvasLayout,
+                ...config
+            };
+        }
+
+        return this;
+    }
 
     chromatic(config) {
         if (!isNil(config)) {
@@ -52,6 +64,10 @@ class ParamsBuilder {
 
     build() {
         const params = {};
+
+        if (!isNil(this._canvasLayout)) {
+            params.canvasLayout = this._canvasLayout;
+        }
 
         if (!isNil(this._chromatic)) {
             params.chromatic = this._chromatic;

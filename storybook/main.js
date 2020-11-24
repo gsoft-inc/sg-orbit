@@ -1,10 +1,27 @@
 const { customizeWebpack } = require("./webpack.config");
+const { includeChromatic, includeDocs, printEnvironment } = require("./env");
+
+printEnvironment();
+
+let stories = [];
+
+if (includeDocs) {
+    stories = [
+        ...stories,
+        "../packages/react-components/src/box/docs/**/*.stories.mdx",
+        "../packages/react-components/src/button/docs/**/*.stories.mdx"
+    ];
+}
+
+if (includeChromatic) {
+    stories = [
+        ...stories,
+        "../packages/react-components/src/button/tests/chromatic/**/*.chroma.jsx"
+    ];
+}
 
 module.exports = {
-    stories: [
-        "../packages/react-components/src/box/**/*.stories.mdx",
-        "../packages/react-components/src/button/**/*.stories.mdx"
-    ],
+    stories: stories,
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials"

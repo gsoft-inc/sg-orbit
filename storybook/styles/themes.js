@@ -1,6 +1,6 @@
 import { create } from "@storybook/theming";
 
-export const themes = {
+export const Themes = {
     manager: create({
         base: "light",
         brandTitle: "ShareGate Orbit",

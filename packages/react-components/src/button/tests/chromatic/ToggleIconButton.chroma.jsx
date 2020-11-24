@@ -1,14 +1,11 @@
 import { CheckIcon, CrossIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ToggleIconButton } from "@react-components/button";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("ToggleIconButton"))
+    return storiesOfBuilder(module, "Chromatic/ToggleIconButton")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 
