@@ -1,2 +1,2 @@
-export * from "./InlineGithubLink";
+export * from "./GithubLink";
 export * from "./getGithubUrl";

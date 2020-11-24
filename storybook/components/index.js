@@ -8,3 +8,4 @@ export * from "./link";
 export * from "./table";
 export * from "./tachyons-file";
 export * from "./ref-logger";
+export * from "./header";

@@ -12,7 +12,7 @@ const defaultProps = {
     logo: false
 };
 
-export function InlineGithubLink({ path, logo, children, ...rest }) {
+export function GithubLink({ path, logo, children, ...rest }) {
     if (logo) {
         return (
             <div className="inline-flex items-center">
@@ -25,5 +25,5 @@ export function InlineGithubLink({ path, logo, children, ...rest }) {
     return <ExternalLink href={getGithubUrl(path)} {...rest}>{children}</ExternalLink>;
 }
 
-InlineGithubLink.propTypes = propTypes;
-InlineGithubLink.defaultProps = defaultProps;
+GithubLink.propTypes = propTypes;
+GithubLink.defaultProps = defaultProps;
