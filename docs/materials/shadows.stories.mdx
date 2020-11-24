@@ -1,0 +1,36 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Table, TachyonsFile } from "@stories/components";
+
+<Meta
+    title="Materials/Shadows"
+    id="shadows"
+/>
+
+# Shadows
+
+Shadows are used to make content appear elevated.
+
+## Utilities
+
+All Tachyons shadows utilities have been replaced to match Orbit Design values.
+
+<Table
+    columns={[
+        { title: "Class", headerStyle: { width: "200px" } },
+        { title: "Variable", headerStyle: { width: "225px" } },
+        { title: "", headerStyle: { width: "400px" } }
+    ]}
+    rows={[
+        [{ value: "shadow-100", className: "code f7 o-90" }, { value: "--shadow-100", className: "code f7 o-90" }, <div className="shadow-100 h9 ma3"></div>],
+        [{ value: "shadow-200", className: "code f7 o-90" }, { value: "--shadow-200", className: "code f7 o-90" }, <div className="shadow-200 h9 ma3"></div>],
+        [{ value: "hover-shadow-100", className: "code f7 o-90" }, { value: "--shadow-100", className: "code f7 o-90" }, <div className="hover-shadow-100 ba b--cloud-100 h9 ma3"></div>],
+        [{ value: "hover-shadow-200", className: "code f7 o-90" }, { value: "--shadow-200", className: "code f7 o-90" }, <div className="hover-shadow-200 ba b--cloud-100 h9 ma3"></div>],
+        [{ value: "focus-shadow-100", className: "code f7 o-90" }, { value: "--shadow-100", className: "code f7 o-90" }, <div className="focus-shadow-100 ba b--cloud-100 h9 ma3"></div>],
+        [{ value: "focus-shadow-200", className: "code f7 o-90" }, { value: "--shadow-200", className: "code f7 o-90" }, <div className="focus-shadow-200 ba b--cloud-100 h9 ma3"></div>]
+    ]}
+    rowClassName="bg-white"
+/>
+
+## Tachyons
+
+<TachyonsFile filePath="/shadows.css" />

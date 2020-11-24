@@ -3,14 +3,14 @@ import { string } from "prop-types";
 import { useState } from "react";
 
 const propTypes = {
-    relativeFilePath: string.isRequired
+    filePath: string.isRequired
 };
 
-export function TachyonsFile({ relativeFilePath: relativePath }) {
+export function TachyonsFile({ filePath }) {
     const [content, setContent] = useState();
 
     if (isNil(content)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/tachyons/docs/dist${relativePath}`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/tachyons/docs/dist${filePath}`)
             .then(module => {
                 setContent(module.default);
             });
