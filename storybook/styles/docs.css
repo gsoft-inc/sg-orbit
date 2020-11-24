@@ -1,13 +1,8 @@
-/* LAYOUT */
-/* .sbdocs,
-.sbdocs.sbdocs-content {
-    font-family: Calibre, Arial, Helvetica, sans-serif !important;
-} */
-
 :root {
     --sb-font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* LAYOUT */
 .sbdocs.sbdocs-wrapper {
     padding: 2rem 2rem 1rem 2rem;
 }
@@ -114,7 +109,6 @@
 .sbdocs.sbdocs-h4,
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6 {
-    color: var(--marine-900);
     /* fixing the default position relative on all titles in shared.tsx */
     position: initial;
 }
@@ -231,6 +225,7 @@
     color: rgba(51,51,51,0.9);
     background-color: #F8F8F8;
 }
+
 /* ELEMENTS | LIST */
 .sbdocs.sbdocs-li {
     font-size: 1.125rem !important;

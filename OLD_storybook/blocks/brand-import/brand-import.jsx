@@ -1,4 +1,4 @@
-import { BRANDS, useStorage } from "@shared/brands";
+import { BRANDS, useStorage } from "../../../storybook/components/themed-snippet/node_modules/@shared/brands";
 import { Source } from "@storybook/components";
 import { string } from "prop-types";
 import dedent from "dedent";
