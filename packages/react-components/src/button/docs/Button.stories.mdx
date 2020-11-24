@@ -1,8 +1,8 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, InnerButton } from "@react-components/button";
+import { Header, RefLogger } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
-import { RefLogger } from "@stories/components";
 import { Text } from "@react-components/text";
 import { paramsBuilder } from "@stories/utils";
 
@@ -16,16 +16,11 @@ import { paramsBuilder } from "@stories/utils";
 
 A button indicates a possible user action.
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Button from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#button">https://www.w3.org/TR/wai-aria-practices/#button</a></dd>
-    </div>
-</dl>
+<Header
+    usage="import { Button } from @orbit-ui/react-components"
+    aria="#button"
+    github="/packages/react-components/src/button/src"
+/>
 
 ## Usage
 

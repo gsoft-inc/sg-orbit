@@ -1,8 +1,8 @@
 import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Header, RefLogger } from "@stories/components";
 import { IconButton, InnerIconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
-import { RefLogger } from "@stories/components";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -15,16 +15,10 @@ import { paramsBuilder } from "@stories/utils";
 
 A button with a single icon as content.
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import IconButton from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#button">https://www.w3.org/TR/wai-aria-practices/#button</a></dd>
-    </div>
-</dl>
+<Header
+    usage="import { Button } from @orbit-ui/react-components"
+    github="/packages/react-components/src/button/src"
+/>
 
 ## Accessibility
 

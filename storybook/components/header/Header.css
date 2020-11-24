@@ -1,0 +1,26 @@
+.o-ui-sb-header {
+    margin: var(--scale-foxtrot) 0;
+}
+
+.o-ui-sb-header-title {
+    display: inline-block !important;
+    color: var(--marine-500) !important;
+    font-weight: 500 !important;
+    font-size: var(--type-scale-7) !important;
+    font-style: normal !important;
+    width: var(--scale-mike) !important;
+    height: var(--scale-foxtrot) !important;
+    margin: 0 !important;
+}
+
+.o-ui-sb-header-value {
+    display: inline-block !important;
+    font-size: var(--type-scale-8) !important;
+    font-variant: normal !important;
+    height: var(--scale-foxtrot) !important;
+    margin: 0 !important;
+}
+
+.o-ui-sb-header-value a {
+    font-size: var(--type-scale-7) !important;
+}
