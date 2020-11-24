@@ -1,0 +1,180 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ControlledToggleButton } from "./ControlledToggleButton.sample";
+import { FileCanvas, RefLogger } from "@stories/components";
+import { Inline } from "@react-components/layout";
+import { InnerToggleButton, ToggleButton } from "@react-components/button";
+import { LightbulbIcon } from "@react-components/icons";
+import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Buttons/ToggleButton"
+    id="toggle-button"
+    component={InnerToggleButton}
+    argTypes={{
+        defaultChecked: {
+            control: false
+        }
+    }}
+/>
+
+# ToggleButton
+
+A toggle button offer a similar experience as a checkbox or radio with the appearance of a button.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import ToggleButton from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#button">https://www.w3.org/TR/wai-aria-practices/#button</a></dd>
+    </div>
+</dl>
+
+## Usage
+
+### Playground
+
+Try how the component react to different props and data combinations.
+
+<Canvas withSource="none">
+    <Story name="playground" args={{ children: "Cutoff" }}>
+        {args => <InnerToggleButton {...args} />}
+    </Story>
+</Canvas>
+
+<ArgsTable story="playground" />
+
+### Icon
+
+A toggle button can contain [icons](?path=/docs/materials-icons--page).
+
+<Canvas>
+    <Story name="icon">
+        <ToggleButton>
+            <LightbulbIcon />
+            <Text>Cutoff</Text>
+        </ToggleButton>
+    </Story>
+</Canvas>
+
+### Right icon
+
+*Non standard* right icons can be provided to handle special cases. However, think twice before adding right icons, left icons should be your go to.
+
+<Canvas>
+    <Story name="right icon">
+        <ToggleButton>
+            <Text>Cutoff</Text>
+            <LightbulbIcon slot="right-icon" />
+        </ToggleButton>
+    </Story>
+</Canvas>
+
+### Disabled
+
+A toggle button can be disabled.
+
+<Canvas>
+    <Story name="disabled">
+        <ToggleButton disabled>Cutoff</ToggleButton>
+    </Story>
+</Canvas>
+
+### Loading
+
+A toggle button can show a loading indicator.
+
+<Canvas>
+    <Story name="loading">
+        <ToggleButton loading>Loading</ToggleButton>
+    </Story>
+</Canvas>
+
+### Color
+
+A toggle button can use a different color accent.
+
+<Canvas>
+    <Story name="color">
+        <Inline>
+            <ToggleButton color="primary">Primary</ToggleButton>
+            <ToggleButton color="secondary">Secondary</ToggleButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Shape
+
+A toggle button can use a different shape.
+
+<Canvas>
+    <Story name="shape">
+        <Inline>
+            <ToggleButton shape="pill">Cutoff</ToggleButton>
+            <ToggleButton shape="circular">Aa</ToggleButton>
+            <ToggleButton shape="rounded">Cutoff</ToggleButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Outline
+
+An outline toggle button have a subtle appearance.
+
+<Canvas>
+    <Story name="outline">
+        <ToggleButton variant="outline">Cutoff</ToggleButton>
+    </Story>
+</Canvas>
+
+### Size
+
+A toggle button can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="end">
+            <ToggleButton size="sm">Cutoff</ToggleButton>
+            <ToggleButton>Cutoff</ToggleButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Render Props
+
+A toggle button can update is content based on the `isChecked` value by providing a render prop function.
+
+<Canvas>
+    <Story name="toggle icon render props">
+        <ToggleButton aria-label="Activate">
+            {
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
+                }
+            }
+        </ToggleButton>
+    </Story>
+</Canvas>
+
+### Controlled
+
+A toggle button can handle `checked` state in controlled mode.
+
+<FileCanvas filePath="/button/docs/ControlledToggleButton">
+    <ControlledToggleButton />
+</FileCanvas>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <ToggleButton>Cutoff</ToggleButton>
+    </RefLogger>
+</Story>
+

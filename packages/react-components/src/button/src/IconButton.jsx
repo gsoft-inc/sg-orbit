@@ -10,23 +10,23 @@ import { useToolbarProps } from "../../toolbar";
 
 const propTypes = {
     /**
-     * The button style to use.
+     * The icon button style to use.
      */
     variant: oneOf(["solid", "outline", "ghost"]),
     /**
-     * The button color accent.
+     * The icon button color accent.
      */
     color: oneOf(["primary", "secondary", "danger", "inherit"]),
     /**
-     * The button shape.
+     * The icon button shape.
      */
     shape: oneOf(["rounded", "circular"]),
     /**
-     * Whether or not the button content should takes additional space.
+     * Whether or not the icon button content should takes additional space.
      */
     condensed: bool,
     /**
-     * Whether the button should autoFocus on render.
+     * Whether or not the icon button should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -34,25 +34,29 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * A button can show a loading indicator.
+     * An icon button can show a loading indicator.
      */
     loading: bool,
     /**
-     * A button can vary in size.
+     * An icon button can vary in size.
      */
     size: oneOf(["2xs", "xs", "sm", "md"]),
     /**
-     * The button type.
+     * Whether or not the icon button is disabled.
+     */
+    disabled: bool,
+    /**
+     * The icon button type.
      */
     type: oneOf(["button", "submit", "reset"]),
     /**
-     * Called when the button is click.
+     * Called when the icon button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
     onClick: func,
     /**
-     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     * A label providing an accessible name to the icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string.isRequired,
     /**
@@ -64,7 +68,7 @@ const propTypes = {
      */
     slot: string,
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };

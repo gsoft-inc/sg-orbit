@@ -1,0 +1,84 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { CrossButton, InnerCrossButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
+import { LightbulbIcon } from "@react-components/icons";
+import { RefLogger } from "@stories/components";
+import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Buttons/CrossButton"
+    id="cross-button"
+    component={InnerCrossButton}
+/>
+
+# CrossButton
+
+A specialized button for use cases like clearing a value or closing an overlay.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import CrossButton from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#button">https://www.w3.org/TR/wai-aria-practices/#button</a></dd>
+    </div>
+</dl>
+
+## Usage
+
+### Playground
+
+Try how the component react to different props and data combinations.
+
+<Canvas withSource="none">
+    <Story name="playground">
+        {args => <InnerCrossButton aria-label="Clear" {...args} />}
+    </Story>
+</Canvas>
+
+<ArgsTable story="playground" />
+
+### Disabled
+
+A cross button can be disabled.
+
+<Canvas>
+    <Story name="disabled">
+        <CrossButton disabled aria-label="Clear" />
+    </Story>
+</Canvas>
+
+### Size
+
+A cross button can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <CrossButton size="2xs" aria-label="Clear" />
+            <CrossButton size="xs" aria-label="Clear" />
+            <CrossButton size="sm" aria-label="Clear" />
+            <CrossButton aria-label="Clear" />
+        </Inline>
+    </Story>
+</Canvas>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <CrossButton />
+    </RefLogger>
+</Story>
+
+
+
+
+
+

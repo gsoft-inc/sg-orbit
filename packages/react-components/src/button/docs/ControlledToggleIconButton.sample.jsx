@@ -1,11 +1,12 @@
-import { ToggleButton } from "@react-components/button";
+import { CheckIcon } from "@react-components/icons";
+import { ToggleIconButton } from "@react-components/button";
 import { useState } from "react";
 
-export function ControlledToggleButton() {
+export function ControlledToggleIconButton() {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
-        <ToggleButton
+        <ToggleIconButton
             checked={isChecked}
             value="isActive"
             variant="outline"
@@ -15,7 +16,7 @@ export function ControlledToggleButton() {
                 console.log(!isChecked);
             }}
         >
-            {isChecked ? "On" : "Off"}
-        </ToggleButton>
+            <CheckIcon />
+        </ToggleIconButton>
     );
 }
