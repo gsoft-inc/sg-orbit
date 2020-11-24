@@ -15,7 +15,7 @@ const defaultProps = {
     }
 };
 
-export function FilePreview({ filePath, withSource, children, ...rest }) {
+export function FileCanvas({ filePath, withSource, children, ...rest }) {
     const [source, setSource] = useState();
 
     if (isNil(source)) {
@@ -34,5 +34,5 @@ export function FilePreview({ filePath, withSource, children, ...rest }) {
     );
 }
 
-FilePreview.propTypes = propTypes;
-FilePreview.defaultProps = defaultProps;
+FileCanvas.propTypes = propTypes;
+FileCanvas.defaultProps = defaultProps;

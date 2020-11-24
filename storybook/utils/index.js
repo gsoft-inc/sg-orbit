@@ -1,2 +1,2 @@
-export * from "./params-builder";
-export * from "./stories-of-builder";
+export * from "./paramsBuilder";
+export * from "./storiesOfBuilder";

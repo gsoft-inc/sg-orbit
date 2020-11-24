@@ -1,0 +1,163 @@
+import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { IconButton, InnerIconButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
+import { RefLogger } from "@stories/components";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Buttons/IconButton"
+    id="icon-button"
+    component={InnerIconButton}
+/>
+
+# IconButton
+
+A button with a single icon as content.
+
+<dl>
+    <div>
+        <dt>usage</dt>
+        <dd>import IconButton from @orbit-ui/react-components</dd>
+    </div>
+    <div>
+        <dt>wai-aria</dt>
+        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#button">https://www.w3.org/TR/wai-aria-practices/#button</a></dd>
+    </div>
+</dl>
+
+## Accessibility
+
+An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+## Usage
+
+### Playground
+
+Try how the component react to different props and data combinations.
+
+<Canvas withSource="none">
+    <Story name="playground">
+        {args => (
+            <InnerIconButton {...args} aria-label="Add">
+                <AddIcon />
+            </InnerIconButton>
+        )}
+    </Story>
+</Canvas>
+
+<ArgsTable story="playground" />
+
+### Disabled
+
+An icon button can be disabled.
+
+<Canvas>
+    <Story name="disabled">
+        <IconButton disabled aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </Story>
+</Canvas>
+
+### Loading
+
+An icon button can show a loading indicator.
+
+<Canvas>
+    <Story name="loading">
+        <IconButton loading aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </Story>
+</Canvas>
+
+### Color
+
+An icon button can use a different color accent.
+
+<Canvas>
+    <Story name="color">
+        <Inline>
+            <IconButton color="primary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton color="secondary" aria-label="Add"><LightbulbIcon /></IconButton>
+            <IconButton color="danger" aria-label="Add"><CheckIcon /></IconButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Shape
+
+An icon button can use a different shape.
+
+<Canvas>
+    <Story name="shape">
+        <Inline>
+            <IconButton shape="circular" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="rounded" aria-label="Add"><LightbulbIcon /></IconButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Outline
+
+An outline icon button have a subtle appearance.
+
+<Canvas>
+    <Story name="outline">
+        <IconButton variant="outline" aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </Story>
+</Canvas>
+
+### Ghost
+
+A ghost icon button is similar to a standard button, taking the same space as a standard button but doesn't have an visible background.
+
+<Canvas>
+    <Story name="ghost">
+        <IconButton variant="ghost" aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </Story>
+</Canvas>
+
+### Size
+
+An icon button can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="end">
+            <IconButton size="sm" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton aria-label="Add"><AddIcon /></IconButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Link
+
+An icon button can be rendered as a link.
+
+<Canvas>
+    <Story name="as anchor">
+        <IconButton as="a" href="https://sharegate.com" target="_blank" aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </Story>
+</Canvas>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger>
+        <IconButton aria-label="Add">
+            <AddIcon />
+        </IconButton>
+    </RefLogger>
+</Story>
+
