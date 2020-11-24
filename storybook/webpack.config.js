@@ -19,18 +19,19 @@ function addWebpackAliases(config) {
 
 // Currently required for:
 //   - https://github.com/reworkcss/css
-// function supportPackagesWithDependencyOnNodeFileSystem(config) {
-//     const existingNode = config.node || {};
+function supportPackagesWithDependencyOnNodeFileSystem(config) {
+    const existingNode = config.node || {};
 
-//     config.node = {
-//         ...existingNode,
-//         fs: "empty"
-//     };
-// }
+    config.node = {
+        ...existingNode,
+        fs: "empty"
+    };
+}
 
 module.exports = {
     customizeWebpack: async config => {
         addWebpackAliases(config);
+        supportPackagesWithDependencyOnNodeFileSystem(config);
 
         return config;
     }

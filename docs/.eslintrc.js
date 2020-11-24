@@ -1,7 +1,6 @@
 module.exports = {
     extends: [
-        "@sharegate/eslint-config-react",
-        "plugin:jsx-control-statements/recommended"
+        "@sharegate/eslint-config-react"
     ],
     plugins: ["jsx-control-statements"],
     overrides: [
@@ -19,7 +18,6 @@ module.exports = {
         }
     ],
     rules: {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
-        "jsx-control-statements/jsx-use-if-tag": "off"
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }]
     }
 };

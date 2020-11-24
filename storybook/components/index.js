@@ -9,3 +9,5 @@ export * from "./table";
 export * from "./tachyons-file";
 export * from "./ref-logger";
 export * from "./header";
+export * from "./themed-snippet";
+export * from "./package-installation-snippet";

@@ -19,7 +19,9 @@ export const parameters = {
     },
     docs: {
         theme: Themes.docs,
-        inlineStories: true
+        inlineStories: true,
+        // Disable DocsPage feature.
+        page: null
     }
 };
 

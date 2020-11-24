@@ -1,22 +1,31 @@
 import "./Header.css";
 
-import { ExternalLink, GithubLink } from "@stories/components";
+import { ExternalLink, GithubLink, useThemedSnippet } from "@stories/components";
 import { mergeClasses } from "@react-components/shared";
-import { string } from "prop-types";
+import { oneOfType, shape, string } from "prop-types";
 
 const propTypes = {
-    usage: string.isRequired,
-    aria: string,
-    github: string
+    usage: oneOfType([
+        string,
+        shape({
+            apricot: string.isRequired,
+            overcast: string.isRequired,
+            desktop: string.isRequired
+        })
+    ]).isRequired,
+    ariaPath: string,
+    githubPath: string
 };
 
 export function Header({
     usage,
-    aria,
-    github,
+    ariaPath,
+    githubPath,
     className,
     ...rest
 }) {
+    usage = useThemedSnippet(usage);
+
     return (
         <dl
             {...rest}
@@ -29,19 +38,19 @@ export function Header({
                 <dt className="o-ui-sb-header-title">usage</dt>
                 <dd className="o-ui-sb-header-value"><code>{usage}</code></dd>
             </div>
-            {aria && (
+            {ariaPath && (
                 <div>
                     <dt className="o-ui-sb-header-title">wai-aria</dt>
                     <dd className="o-ui-sb-header-value">
-                        <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${aria}`}>{`https://www.w3.org/TR/wai-aria-practices/${aria}`}</ExternalLink>
+                        <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}>{`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}</ExternalLink>
                     </dd>
                 </div>
             )}
-            {github && (
+            {githubPath && (
                 <div>
                     <dt className="o-ui-sb-header-title">sources</dt>
                     <dd className="o-ui-sb-header-value">
-                        <GithubLink path={github}>Github</GithubLink>
+                        <GithubLink path={githubPath}>Github</GithubLink>
                     </dd>
                 </div>
             )}
