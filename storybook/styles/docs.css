@@ -1,3 +1,8 @@
+:root {
+    /* Use this var only when the element is not affected by the font-family specified in Storybook docs theme */
+    --orbit-font-family: "Calibre, Arial, Helvetica, sans-serif";
+}
+
 /* LAYOUT */
 .sbdocs.sbdocs-wrapper {
     padding: 2rem 2rem 1rem 2rem;
@@ -89,6 +94,13 @@
 
 .docblock-argstable-body a {
     color: var(--primary-500) !important;
+}
+
+.docblock-argstable-body button {
+    color: var(--primary-500) !important;
+    font-family: var(--orbit-font-family) !important;
+    font-size: var(--type-scale-8) !important;
+    padding-left: 2px !important;
 }
 
 /* EMPTY BLOCK */
