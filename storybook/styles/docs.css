@@ -39,10 +39,15 @@
 .docblock-argstable-head button {
     background-color: var(--primary-500) !important;
     /* padding: var(--scale-bravo); */
-    border-color: var(--primary-500) !important;
-    /* position: absolute;
-    right: 20px;
-    top: 4px; */
+    box-shadow: none;
+}
+
+.docblock-argstable-head button:focus {
+    box-shadow: none;
+}
+
+.docblock-argstable-head button:hover {
+    background-color: var(--primary-700) !important;
 }
 
 .docblock-argstable-head button svg path {
