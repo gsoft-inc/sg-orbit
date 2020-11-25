@@ -23,7 +23,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     useWindowListener("keydown", handleDocumentKeyDown, open);
 
     return (
-        <Modal open={open} onClose={onClose} size="small" basic className="bg-white">
+        <Modal open={open} onClose={onClose} size="small" basic className="bg-white sbdocs">
             <Modal.Header>
                 <div className="flex items-center">
                     <span className="flex-grow-1 marine-900">{iconDisplayName}</span>
