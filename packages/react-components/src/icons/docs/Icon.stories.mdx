@@ -77,7 +77,7 @@ An icon can vary in size.
 <Canvas>
     <Story name="size">
         <CheckeredBackground>
-            <Inline verticalAlign="end" gap={2}>
+            <Inline verticalAlign="center" gap={2}>
                 <Icon type={AzureIcon32} size="2xs" />
                 <Icon type={AzureIcon32} size="xs" />
                 <Icon type={AzureIcon32} size="sm" />
@@ -130,7 +130,7 @@ A multi variants icon support the same props as `<Icon />`.
 <Canvas>
     <Story name="multi-variants size">
         <CheckeredBackground>
-            <Inline verticalAlign="end" gap={2}>
+            <Inline verticalAlign="center" gap={2}>
                 <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xs" />
                 <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="xs" />
                 <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="sm" />
@@ -165,7 +165,6 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
         <IconList>
             <Icon type={AzureIcon32} />
             <Icon type={FilterIcon32} />
-            <Icon type={AzureIcon32} />
         </IconList>
     </Story>
 </Canvas>
@@ -173,8 +172,6 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
 ## API
 
 ### Icon
-
-Component for icons without variants.
 
 <ComponentInfo
     usage="import { Icon } from @react-components"
@@ -185,8 +182,6 @@ Component for icons without variants.
 
 ### MultiVariantIcon
 
-Component for multi-variants icons.
-
 <ComponentInfo
     usage="import { MultiVariantIcon } from @react-components"
     compact
@@ -195,8 +190,6 @@ Component for multi-variants icons.
 <ArgsTable of={InnerMultiVariantIcon} />
 
 ### IconList
-
-List component for a group of icons.
 
 <ComponentInfo
     usage="import { IconList } from @react-components"

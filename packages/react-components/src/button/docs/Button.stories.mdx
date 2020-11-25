@@ -1,41 +1,51 @@
+import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Button, InnerButton } from "@react-components/button";
-import { ComponentInfo, RefLogger } from "@stories/components";
+import {
+    Button,
+    ButtonGroup,
+    CrossButton,
+    IconButton,
+    InnerButton,
+    InnerButtonGroup,
+    InnerCrossButton,
+    InnerIconButton,
+    InnerToggleButton,
+    InnerToggleIconButton,
+    ToggleButton,
+    ToggleIconButton
+} from "@react-components/button";
+import { ComponentInfo, FileCanvas } from "@stories/components";
+import { ControlledToggleButton } from "./ControlledToggleButton.sample";
 import { Inline } from "@react-components/layout";
-import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Buttons/Button"
+    title="Components/Button"
     id="button"
-    component={InnerButton}
 />
 
 # Button
 
-A button indicates a possible user action.
+A Button indicates a possible user action.
 
 <ComponentInfo
-    usage="import { Button } from @orbit-ui/react-components"
-    slots={["icon", "text", "right-icon"]}
+    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, CrossButton, ButtonGroup } from \"@orbit-ui/react-components\""}
     ariaPath="#button"
     githubPath="/packages/react-components/src/button/src"
 />
 
 ## Usage
 
-### Playground
+### Default
 
-Try how the component react to different props and data combinations.
+A default button.
 
-<Canvas withSource="none">
-    <Story name="playground" args={{ children: "Cutoff" }}>
-        {args => <InnerButton {...args} />}
+<Canvas>
+    <Story name="default">
+        <Button>Cutoff</Button>
     </Story>
 </Canvas>
-
-<ArgsTable story="playground" />
 
 ### Icon
 
@@ -63,6 +73,19 @@ A button can contain [icons](?path=/docs/materials-icons--page).
     </Story>
 </Canvas>
 
+### Size
+
+A button can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Button size="sm">Cutoff</Button>
+            <Button >Cutoff</Button>
+        </Inline>
+    </Story>
+</Canvas>
+
 ### Disabled
 
 A button can be disabled.
@@ -80,6 +103,19 @@ A button can show a loading indicator.
 <Canvas>
     <Story name="loading">
         <Button loading>Loading</Button>
+    </Story>
+</Canvas>
+
+### Fluid
+
+A button can take the width of its container.
+
+<Canvas>
+    <Story name="fluid">
+        <Button fluid>
+            <LightbulbIcon />
+            <Text>To infinity and beyond</Text>
+        </Button>
     </Story>
 </Canvas>
 
@@ -131,19 +167,6 @@ A ghost button is similar to a standard button, taking the same space as a stand
     </Story>
 </Canvas>
 
-### Size
-
-A button can vary in size.
-
-<Canvas>
-    <Story name="size">
-        <Inline verticalAlign="end">
-            <Button size="sm">Cutoff</Button>
-            <Button>Cutoff</Button>
-        </Inline>
-    </Story>
-</Canvas>
-
 ### Link
 
 A button can be rendered as a link.
@@ -154,14 +177,267 @@ A button can be rendered as a link.
     </Story>
 </Canvas>
 
+## Icon button
+
+A button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Canvas>
+    <Story name="icon button">
+        <Inline verticalAlign="end">
+            <IconButton shape="circular" size="sm" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" aria-label="Add"><AddIcon /></IconButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+## Button Group
+
+Related buttons whose actions are related to each other can be group together. Usefull to handle actions in components like [form](?path=/docs/components-form).
+
+<Canvas>
+    <Story name="button group">
+        <ButtonGroup>
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </ButtonGroup>
+    </Story>
+</Canvas>
+
+### Orientation
+
+A button group can render his buttons vertically.
+
+<Canvas>
+    <Story name="vertical">
+        <InnerButtonGroup orientation="vertical">
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </InnerButtonGroup>
+    </Story>
+</Canvas>
+
+### Alignment
+
+A button group can change the alignment of his buttons.
+
+<Canvas>
+    <Story name="alignment">
+        <InnerButtonGroup align="end">
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </InnerButtonGroup>
+    </Story>
+</Canvas>
+
+## Toggle Button
+
+Offer a similar experience as a checkbox or radio with the appearance of a button.
+
+<Canvas>
+    <Story name="toggle button">
+        <Inline>
+            <ToggleButton variant="outline" color="primary" shape="circular">On</ToggleButton>
+            <ToggleButton variant="outline" color="primary">
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </ToggleButton>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Toggle Icon Button
+
+A toggle button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Canvas>
+    <Story name="toggle icon button">
+        <ToggleIconButton variant="outline" shape="circular" aria-label="Activate">
+            <CheckIcon />
+        </ToggleIconButton>
+    </Story>
+</Canvas>
+
+### Render Props
+
+A toggle button can update is content based on the `isChecked` value by providing a render prop function.
+
+<Canvas>
+    <Story name="toggle icon render props">
+        <ToggleButton aria-label="Activate">
+            {
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
+                }
+            }
+        </ToggleButton>
+    </Story>
+</Canvas>
+
+### Controlled
+
+A toggle button can handle `checked` state in controlled mode.
+
+<FileCanvas filePath="/button/docs/ControlledToggleButton">
+    <ControlledToggleButton />
+</FileCanvas>
+
+## Cross Button
+
+A button with a cross icon to handle use cases like clearing a value or closing overlay components.
+
+<Canvas>
+    <Story name="cross button">
+        <Inline verticalAlign="center">
+            <CrossButton size="2xs" aria-label="Clear" />
+            <CrossButton size="xs" aria-label="Clear" />
+            <CrossButton size="sm" aria-label="Clear" />
+            <CrossButton aria-label="Clear" />
+        </Inline>
+    </Story>
+</Canvas>
+
+## API
+
+### Button
+
+<ComponentInfo
+    usage={"import { Button } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "right-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerButton} />
+
+### IconButton
+
+<ComponentInfo
+    usage={"import { IconButton } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerIconButton} />
+
+### ToggleButton
+
+<ComponentInfo
+    usage={"import { ToggleButton } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "right-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerToggleButton} />
+
+### ToggleIconButton
+
+<ComponentInfo
+    usage={"import { ToggleIconButton } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerToggleIconButton} />
+
+### CrossButton
+
+<ComponentInfo
+    usage={"import { CrossButton } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerCrossButton} />
+
+### ButtonGroup
+
+<ComponentInfo
+    usage={"import { ButtonGroup } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerButtonGroup} />
+
 <Story
-    name="ref"
+    name="playground - button"
+    args={{
+        children: "Cutoff"
+    }}
     parameters={paramsBuilder()
+        .component(InnerButton)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Button>Cutoff</Button>
-    </RefLogger>
+    {args =>
+        <InnerButton {...args} />
+    }
 </Story>
 
+<Story
+    name="playground - icon button"
+    parameters={paramsBuilder()
+        .component(InnerIconButton)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerIconButton {...args}>
+            <AddIcon />
+        </InnerIconButton>
+    }
+</Story>
+
+<Story
+    name="playground - toggle button"
+    args={{
+        children: "Cutoff"
+    }}
+    parameters={paramsBuilder()
+        .component(InnerToggleButton)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerToggleButton {...args} />
+    }
+</Story>
+
+<Story
+    name="playground - toggle icon button"
+    parameters={paramsBuilder()
+        .component(InnerToggleButton)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerToggleIconButton {...args}>
+            <AddIcon />
+        </InnerToggleIconButton>
+    }
+</Story>
+
+<Story
+    name="playground - cross button"
+    parameters={paramsBuilder()
+        .component(InnerToggleButton)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerCrossButton {...args} />
+    }
+</Story>
+
+<Story
+    name="playground - button group"
+    parameters={paramsBuilder()
+        .component(InnerToggleButton)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <ButtonGroup {...args}>
+            <Button variant="outline" color="secondary">Reset</Button>
+            <Button color="primary">Submit</Button>
+        </ButtonGroup>
+    }
+</Story>
