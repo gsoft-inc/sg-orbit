@@ -1,15 +1,12 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Card } from "./Card";
 import { ComponentInfo, RefLogger } from "@stories/components";
-import { Heading } from "@react-components/heading";
 import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink } from "@react-components/link";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
+import { InnerText, Text } from "@react-components/text";
 import { LaunchImage } from "./assets";
-import { Paragraph } from "@react-components/paragraph";
 import { RouterLink } from "./RouterLink";
-import { Text } from "@react-components/text";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -22,43 +19,141 @@ import { paramsBuilder } from "@stories/utils";
 Links allow a user to navigate between pages, scroll to a have page section, access files, or even to handle email addresses.
 
 <ComponentInfo
-    usage="import { Link, TextLink, IconLink, Text } from @orbit-ui/react-components"
+    usage="import { TextLink, IconLink, Link, Text } from @orbit-ui/react-components"
     ariaPath="#link"
     githubPath="/packages/react-components/src/link/src"
 />
 
+## Usage
+
+### Default
+
+A default link.
+
+<Canvas>
+    <Story name="default">
+        <TextLink href="#">Flight details</TextLink>
+    </Story>
+</Canvas>
+
+### Icon
+
+A link can contain text and [icons](#).
+
+<Canvas>
+    <Story name="icon">
+        <TextLink href="#">
+            <Text>Flight details</Text>
+            <WarningIcon />
+        </TextLink>
+    </Story>
+</Canvas>
+
+### Left icon
+
+*Non standard* left [icons](#) can be provided to handle special cases. However, think twice before adding *left icons*, *right icons* should be your go to.
+
+<Canvas>
+    <Story name="left icon">
+        <TextLink href="#">
+            <WarningIcon slot="left-icon" />
+            <Text>Flight details</Text>
+        </TextLink>
+    </Story>
+</Canvas>
+
+### External
+
+A link can indicate that his destination is an external resources. An external link will render with `target="_blank"` and `rel="noopener noreferrer"` attributes. These attributes values can be overrided by specifying a `target` or `rel` prop.
+
+<Canvas>
+    <Story name="external">
+        <TextLink external href="#">Flight details</TextLink>
+    </Story>
+</Canvas>
+
+### Color
+
+A link can use a different color accent.
+
+<Canvas>
+    <Story name="color">
+        <Inline>
+            <TextLink color="primary" href="#">Primary</TextLink>
+            <TextLink color="secondary" href="#">Secondary</TextLink>
+            <TextLink color="danger" href="#">Danger</TextLink>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Disabled
+
+A link can have *disabled* style, it's your responsability to make sure the link doesn't navigate anywhere when activated.
+
+<Canvas>
+    <Story name="disabled">
+        <TextLink disabled href="#">Flight details</TextLink>
+    </Story>
+</Canvas>
+
+### Size
+
+A link can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <TextLink size="sm" href="#">Flight details</TextLink>
+            <TextLink href="#">Flight details</TextLink>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Button
+
+A link can behave like a button.
+
+<Canvas>
+    <Story name="button">
+        <TextLink as="button">Flight details</TextLink>
+    </Story>
+</Canvas>
+
+### React router
+
+To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any other custom component.
+
+<Canvas>
+    <Story name="react router">
+        <TextLink as={RouterLink} to="/flight-details">Flight details</TextLink>
+    </Story>
+</Canvas>
+
+## Icon Link
+
+A link content can be a single icon. When using this variant, an accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Canvas>
+    <Story name="icon link">
+        <Inline verticalAlign="center">
+            <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
+            <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
+        </Inline>
+    </Story>
+</Canvas>
+
 ## Basic Link
 
-A basic link makes any content navigable. It has a more a subtle appareance and should only be noticeable when focused.
+A link can have a more subtle appareance and only be noticeable when focused.
 
 ### Image
 
 A link content can be an image element.
 
 <Canvas>
-    <Story name="image">
+    <Story name="basic link image">
         <Link href="#">
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
-        </Link>
-    </Story>
-</Canvas>
-
-### Card
-
-A link can wrap any content, for example, a card component.
-
-<Canvas>
-    <Story name="card">
-        <Link className="w-30" href="#">
-            <Card>
-                <Heading as="h2" size="sm">SpaceX delays launch</Heading>
-                <Paragraph>
-                    <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
-                </Paragraph>
-                <Paragraph>
-                    SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
-                </Paragraph>
-            </Card>
         </Link>
     </Story>
 </Canvas>
@@ -68,7 +163,7 @@ A link can wrap any content, for example, a card component.
 A link can use a different shape to match his content shape on focus state.
 
 <Canvas>
-    <Story name="shape">
+    <Story name="basic link shape">
         <Inline>
             <Link shape="rounded" focus href="#">
                 <Image src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
@@ -80,114 +175,6 @@ A link can use a different shape to match his content shape on focus state.
                 <Image src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
             </Link>
         </Inline>
-    </Story>
-</Canvas>
-
-## Text Link
-
-A link can adapt his appareance for textual content.
-
-<Canvas>
-    <Story name="text link default">
-        <Inline verticalAlign="center">
-            <TextLink size="sm" href="#">Flight details</TextLink>
-            <TextLink href="#">Flight details</TextLink>
-        </Inline>
-    </Story>
-</Canvas>
-
-### Icon
-
-A text link can contain [icons](#).
-
-<Canvas>
-    <Story name="text link icon">
-        <TextLink href="#">
-            <Text>Flight details</Text>
-            <WarningIcon />
-        </TextLink>
-    </Story>
-</Canvas>
-
-### Left icon
-
-*Non standard* left [icons](#) can be provided to handle special cases. However, think twice before adding left icons, right icons should be your go to.
-
-<Canvas>
-    <Story name="text link left icon">
-        <TextLink href="#">
-            <WarningIcon slot="left-icon" />
-            <Text>Flight details</Text>
-        </TextLink>
-    </Story>
-</Canvas>
-
-### External
-
-A text link can indicate that his destination is an external resources. An external link will render with `target="_blank"` and `rel="noopener noreferrer"` attributes. These attributes values can be overrided by specifying a `target` or `rel` prop.
-
-<Canvas>
-    <Story name="text link external">
-        <TextLink external href="#">Flight details</TextLink>
-    </Story>
-</Canvas>
-
-### Color
-
-A text link can use a different color accent.
-
-<Canvas>
-    <Story name="text link color">
-        <Inline>
-            <TextLink color="primary" href="#">Primary</TextLink>
-            <TextLink color="secondary" href="#">Secondary</TextLink>
-            <TextLink color="danger" href="#">Danger</TextLink>
-        </Inline>
-    </Story>
-</Canvas>
-
-### Disabled
-
-A text link can look disabled.
-
-<Canvas>
-    <Story name="text link disabled">
-        <TextLink disabled href="#">Flight details</TextLink>
-    </Story>
-</Canvas>
-
-## Icon Link
-
-A link content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
-
-<Canvas>
-    <Story name="icon link default">
-        <Inline verticalAlign="center">
-            <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
-            <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
-        </Inline>
-    </Story>
-</Canvas>
-
-## Third-party routing library
-
-To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any other custom component.
-
-<Canvas>
-    <Story name="third-party routing library">
-        <Link as={RouterLink} to="/flight-details">
-            <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
-        </Link>
-    </Story>
-</Canvas>
-
-## Button
-
-An element can look like a link but behave like a button.
-
-<Canvas>
-    <Story name="button">
-        <TextLink as="button">Flight details</TextLink>
     </Story>
 </Canvas>
 
@@ -226,6 +213,17 @@ Link component specialized for icon content.
 />
 
 <ArgsTable of={InnerIconLink} />
+
+### Text
+
+Placeholder component for text.
+
+<ComponentInfo
+    usage="import { Text } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerText} />
 
 <Story
     name="link ref"
