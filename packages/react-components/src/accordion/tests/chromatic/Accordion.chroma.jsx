@@ -6,14 +6,11 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Accordion"))
+    return storiesOfBuilder(module, "Chromatic/Accordion")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

@@ -18,7 +18,8 @@ if (includeDocs) {
 if (includeChromatic) {
     stories = [
         ...stories,
-        "../packages/react-components/src/button/tests/chromatic/**/*.chroma.jsx"
+        "../packages/react-components/src/button/tests/chromatic/**/*.chroma.jsx",
+        "../packages/react-components/src/accordion/tests/chromatic/**/*.chroma.jsx"
     ];
 }
 
