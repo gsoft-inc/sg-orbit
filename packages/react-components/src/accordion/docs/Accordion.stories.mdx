@@ -1,6 +1,6 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, FileCanvas, RefLogger } from "@stories/components";
+import { ComponentInfo, FileCanvas } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
 import { ControlledAccordion } from "./ControlledAccordion.sample";
 import { CustomAccordion } from "./CustomAccordion.sample";
@@ -14,7 +14,6 @@ import { paramsBuilder } from "@stories/utils";
 <Meta
     title="Components/Accordion"
     id="accordion"
-    component={InnerAccordion}
 />
 
 # Accordion
@@ -32,33 +31,6 @@ Accordions are commonly used to reduce the need to scroll when presenting multip
 The accordion header that shows and hides the content must be an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements). That heading element should have a level that is appropriate for the information architecture of the page. You can do this by providing an `as` prop to the `<Header>` component.
 
 ## Usage
-
-### Playground
-
-Try how the component react to different props and data combinations.
-
-<Canvas withSource="none">
-    <Story name="playground">
-        {args => (
-            <InnerAccordion {...args}>
-                <Item>
-                    <Header as="h3">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </InnerAccordion>
-        )}
-    </Story>
-</Canvas>
-
-<ArgsTable story="playground" />
 
 ### Icon
 
@@ -256,7 +228,18 @@ The selected `index` can be handled in controlled mode.
     <ControlledAccordion />
 </FileCanvas>
 
-## Sub-components
+## API
+
+### Accordion
+
+Root accordion component.
+
+<ComponentInfo
+    usage="import { Accordion } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
 
 ### Item
 
@@ -275,6 +258,7 @@ Placeholder component to define the *header* of an accordion.
 
 <ComponentInfo
     usage="import { Header } from @orbit-ui/react-components"
+    slots={["icon", "text"]}
     compact
 />
 
@@ -286,7 +270,6 @@ Placeholder component to define the *content* of an accordion.
 
 <ComponentInfo
     usage="import { Content } from @orbit-ui/react-components"
-    slots={["icon", "text"]}
     compact
 />
 
@@ -316,17 +299,35 @@ Underlying accordion panel component.
 <ArgsTable of={InnerAccordionPanel} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerAccordion)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Accordion>
+    {args =>
+        <InnerAccordion {...args}>
             <Item>
-                <Header as="h3">Mars</Header>
+                <Header as="h3">
+                    <NotificationIcon />
+                    <Text>Mars</Text>
+                </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
-        </Accordion>
-    </RefLogger>
+            <Item>
+                <Header as="h3">
+                    <InfoIcon />
+                    <Text>Jupiter</Text>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header as="h3">
+                    <HelpIcon />
+                    <Text>Venus</Text>
+                </Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </InnerAccordion>
+    }
 </Story>

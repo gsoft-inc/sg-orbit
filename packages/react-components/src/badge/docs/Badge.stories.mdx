@@ -1,36 +1,25 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Badge, InnerBadge } from "@react-components/badge";
 import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Circle } from "./Circle.jsx";
+import { ComponentInfo } from "@stories/components";
 import { Inline } from "@react-components/layout";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
+import { InnerText, Text } from "@react-components/text";
 import { Square } from "./Square.jsx";
-import { Text } from "@react-components/text";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Badge")}
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/badge" />)
-        .build()}
+    title="Components/Badge"
+    id="badge"
 />
 
 # Badge
 
 A badge is a floating component displaying a notification such as a count.
 
-## Installation
-
-<InstallReactComponents imports={<Imports />}/>
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Badge", component: InnerBadge }
-    ]}
+<ComponentInfo
+    usage="import { Badge } from @orbit-ui/react-components"
+    githubPath="/packages/react-components/src/badge/src"
 />
 
 ## Usage
@@ -39,7 +28,7 @@ A badge is a floating component displaying a notification such as a count.
 
 A default badge.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Inline gap={8} verticalAlign="center">
             <Badge>
@@ -60,13 +49,13 @@ A default badge.
             </Badge>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Dot
 
 A badge can be rendered as a dot. A single digit is supported.
 
-<Preview>
+<Canvas>
     <Story name="dot">
         <Inline gap={8} verticalAlign="center">
             <Badge variant="dot" overlap="circle">
@@ -80,26 +69,26 @@ A badge can be rendered as a dot. A single digit is supported.
             </Badge>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
 A badge can be an icon.
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <Badge variant="icon" overlap="circle">
             <CheckCircleIcon />
             <Circle />
         </Badge>
     </Story>
-</Preview>
+</Canvas>
 
 ### Overlap
 
 A badge can overlap over elements with different shape.
 
-<Preview>
+<Canvas>
     <Story name="overlap">
         <Inline gap={13} verticalAlign="center">
             <Inline gap={8}>
@@ -143,18 +132,43 @@ A badge can overlap over elements with different shape.
             </Inline>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
+
+## API
+
+### Badge
+
+Root badge component.
+
+<ComponentInfo
+    usage="import { Badge } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerBadge} />
+
+### Text
+
+Placeholder component to define the *text* of a badge.
+
+<ComponentInfo
+    usage="import { Text } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerText} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerBadge)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Badge>
+    {args =>
+        <InnerBadge {...args}>
             <Text>100</Text>
             <Square />
-        </Badge>
-    </RefLogger>
+        </InnerBadge>
+    }
 </Story>

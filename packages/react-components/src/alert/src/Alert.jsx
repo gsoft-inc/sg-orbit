@@ -75,9 +75,9 @@ export function InnerAlert({
     show = true,
     tone = "info",
     onDismiss,
+    role: roleProp,
     as = "div",
     className,
-    role: roleProp,
     children,
     forwardedRef,
     ...rest

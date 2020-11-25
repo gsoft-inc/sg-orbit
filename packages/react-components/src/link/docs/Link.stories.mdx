@@ -1,6 +1,6 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, RefLogger } from "@stories/components";
+import { ComponentInfo } from "@stories/components";
 import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink } from "@react-components/link";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
@@ -129,9 +129,11 @@ To integrate with a third-party routing library like [React Router](https://reac
     </Story>
 </Canvas>
 
-## Icon Link
+## Icon link
 
-A link content can be a single icon. When using this variant, an accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+A link content can be a single icon.
+
+> When using this variant, an accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Canvas>
     <Story name="icon link">
@@ -142,7 +144,7 @@ A link content can be a single icon. When using this variant, an accessible name
     </Story>
 </Canvas>
 
-## Basic Link
+## Basic link
 
 A link can have a more subtle appareance and only be noticeable when focused.
 
@@ -178,22 +180,11 @@ A link can use a different shape to match his content shape on focus state.
     </Story>
 </Canvas>
 
-## Props
-
-### Link
-
-Link component for generic content.
-
-<ComponentInfo
-    usage="import { Link } from @orbit-ui/react-components"
-    compact
-/>
-
-<ArgsTable of={InnerLink} />
+## API
 
 ### TextLink
 
-Link component specialized for textual content.
+Link component accepting text content.
 
 <ComponentInfo
     usage="import { TextLink } from @orbit-ui/react-components"
@@ -205,7 +196,7 @@ Link component specialized for textual content.
 
 ### IconLink
 
-Link component specialized for icon content.
+Link component accepting a single icon.
 
 <ComponentInfo
     usage="import { IconLink } from @orbit-ui/react-components"
@@ -213,6 +204,17 @@ Link component specialized for icon content.
 />
 
 <ArgsTable of={InnerIconLink} />
+
+### Link
+
+Link component accepting any generic content like an image or a box.
+
+<ComponentInfo
+    usage="import { Link } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerLink} />
 
 ### Text
 
@@ -226,14 +228,40 @@ Placeholder component for text.
 <ArgsTable of={InnerText} />
 
 <Story
-    name="link ref"
+    name="playground - text link"
     parameters={paramsBuilder()
+        .component(InnerTextLink)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Link href="#">
+    {args => (
+        <InnerTextLink href="#" {...args}>Flight details</InnerTextLink>
+    )}
+</Story>
+
+<Story
+    name="playground - icon link"
+    parameters={paramsBuilder()
+        .component(InnerIconLink)
+        .excludeFromDocs()
+        .build()}
+>
+    {args => (
+        <InnerIconLink href="#" {...args} icon-label="Add"><AddIcon /></InnerIconLink>
+    )}
+</Story>
+
+<Story
+    name="playground - link"
+    parameters={paramsBuilder()
+        .component(InnerLink)
+        .excludeFromDocs()
+        .build()
+    }
+>
+    {args => (
+        <InnerLink href="#" {...args}>
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
-        </Link>
-    </RefLogger>
+        </InnerLink>
+    )}
 </Story>

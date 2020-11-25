@@ -5,6 +5,7 @@ class ParamsBuilder {
     _chromatic = {}
     _sortPriority = null;
     _excludeFromDocs = false;
+    _component = null;
 
     canvasLayout(config) {
         if (!isNil(config)) {
@@ -62,6 +63,12 @@ class ParamsBuilder {
         return this;
     }
 
+    component(component) {
+        this._component = component;
+
+        return this;
+    }
+
     build() {
         const params = {};
 
@@ -77,10 +84,8 @@ class ParamsBuilder {
             params.sortPriority = this._sortPriority;
         }
 
-        const options = {};
-
-        if (Object.keys(options).length > 0) {
-            params.options = options;
+        if (!isNil(this._component)) {
+            params.component = this._component;
         }
 
         const docs = {};

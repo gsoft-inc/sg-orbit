@@ -1,40 +1,31 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { AsyncTabs } from "./AsyncTabs.sample";
+import { ComponentInfo, FileCanvas } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
 import { ControlledTabs } from "./ControlledTabs.sample";
 import { CustomTabs } from "./CustomTabs.sample";
-import { FilePreview, ReactComponentsLayout } from "@stories/components";
 import { Fragment } from "react";
-import { InnerItem } from "@react-components/collection";
+import { InnerItem, Item } from "@react-components/collection";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
-import { Item } from "@react-components/collection";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Navigation|Tabs"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tabs/src" />)
-        .build()}
+    title="Components/Tabs"
+    id="tabs"
 />
 
 # Tabs
 
 Tabs are used to organize content by grouping similar information on the same page.
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Tabs, Tab, Header, Content from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">https://www.w3.org/TR/wai-aria-practices/#tabpanel</a></dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { Tabs, Item, Header, Content } from @orbit-ui/react-components"
+    ariaPath="#tabpanel"
+    githubPath="/packages/react-components/src/tabs/src"
+/>
 
 ## Accessibility
 
@@ -46,7 +37,7 @@ An accessible title must be provided through aria-label prop. See [WAI-ARIA](htt
 
 A tab can contain [icons](?path=/docs/materials-icons--page).
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <Tabs aria-label="Planets">
             <Item>
@@ -66,13 +57,13 @@ A tab can contain [icons](?path=/docs/materials-icons--page).
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Lozenge
 
 A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
 
-<Preview>
+<Canvas>
     <Story name="lozenge">
         <Tabs aria-label="Planets">
             <Item>
@@ -92,13 +83,13 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Render props
 
 A tab can update is content based on the `isActive` value by providing a render prop function.
 
-<Preview>
+<Canvas>
     <Story name="render props">
         <Tabs aria-label="Planets">
             <Item>
@@ -122,21 +113,21 @@ A tab can update is content based on the `isActive` value by providing a render 
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Custom components
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
-<FilePreview filePath="/tabs/docs/CustomTabs">
+<FileCanvas filePath="/tabs/docs/CustomTabs">
     <CustomTabs />
-</FilePreview>
+</FileCanvas>
 
 ### Data tabs
 
 You can supply tabs content with an array instead of using the granular components.
 
-<Preview>
+<Canvas>
     <Story name="data render">
         <Tabs aria-label="Planets">
             {[
@@ -152,7 +143,7 @@ You can supply tabs content with an array instead of using the granular componen
                 )}
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Manually activated tabs
 
@@ -162,7 +153,7 @@ By default, tabs are activated automatically. This means when you use the arrow 
 
 In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing <kbd>Space</kbd> or <kbd>Enter</kbd>.
 
-<Preview>
+<Canvas>
     <Story name="manual">
         <Tabs manual aria-label="Planets">
             <Item>
@@ -179,21 +170,21 @@ In this scenario, you should use a manually activated tab, it moves focus withou
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Async content
 
 We recommend using the [render props](#render-props) syntax to load async content.
 
-<FilePreview filePath="/tabs/docs/AsyncTabs">
+<FileCanvas filePath="/tabs/docs/AsyncTabs">
     <AsyncTabs />
-</FilePreview>
+</FileCanvas>
 
 ### Orientation
 
 A tabs component can render vertically.
 
-<Preview>
+<Canvas>
     <Story name="orientation">
         <Tabs orientation="vertical" aria-label="Planets">
             <Item>
@@ -210,13 +201,13 @@ A tabs component can render vertically.
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Fluid
 
 A tabs component can split the width of it's container equally between his tabs.
 
-<Preview>
+<Canvas>
     <Story name="fluid">
         <Tabs fluid aria-label="Planets">
             <Item>
@@ -233,13 +224,13 @@ A tabs component can split the width of it's container equally between his tabs.
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A tab can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled tab">
         <Tabs aria-label="Planets">
             <Item>
@@ -256,80 +247,107 @@ A tab can be disabled.
             </Item>
         </Tabs>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 The selected `index` can be handled in controlled mode.
 
-<FilePreview filePath="/tabs/docs/ControlledTabs">
+<FileCanvas filePath="/tabs/docs/ControlledTabs">
     <ControlledTabs />
-</FilePreview>
+</FileCanvas>
 
-## Props
+## API
 
 ### Tabs
 
-Root component for tabs.
+Root tabs component.
 
-<Props of={InnerTabs} />
+<ComponentInfo
+    usage="import { Tabs } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerTabs} />
 
 ### Item
 
 Placeholder component to define a tabs _item_.
 
-<Props of={InnerItem} />
+<ComponentInfo
+    usage="import { Item } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
 
 ### Header
 
 Placeholder component to define the _header_ of a tab.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | text | lozenge</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { Header } from @orbit-ui/react-components"
+    slots={["icon", "text", "lozenge"]}
+    compact
+/>
 
-<Props of={InnerHeader} />
+<ArgsTable of={InnerHeader} />
 
 ### Content
 
 Placeholder component to define the _content_ of a tab.
 
-<Props of={InnerContent} />
+<ComponentInfo
+    usage="import { Content } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
 
 ### Tab
 
 Underlying tab component.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | text | lozenge</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { Tab } from @orbit-ui/react-components"
+    slots={["icon", "text", "lozenge"]}
+    compact
+/>
 
-<Props of={InnerTab} />
+<ArgsTable of={InnerTab} />
 
 ### TabPanel
 
 Underlying tab panel component.
 
-<Props of={InnerTabPanel} />
+<ComponentInfo
+    usage="import { TabPanel } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerTabPanel} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerTabs)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Tabs aria-label="Planets">
+    {args =>
+        <Tabs aria-label="Planets" {...args}>
             <Item>
                 <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>
-    </RefLogger>
+    }
 </Story>
