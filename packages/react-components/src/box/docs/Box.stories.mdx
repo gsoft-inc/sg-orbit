@@ -1,12 +1,11 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Box, InnerBox } from "@react-components/box";
-import { ComponentInfo, RefLogger } from "@stories/components";
+import { ComponentInfo } from "@stories/components";
+import { InnerBox } from "@react-components/box";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Box"
     id="box"
-    component={InnerBox}
 />
 
 # Box
@@ -19,17 +18,19 @@ A box is a general purpose component that can be used to compose new components 
     githubPath="/packages/react-components/src/box/src"
 />
 
-## Props
+## API
 
 <ArgsTable of={InnerBox} />
 
 <Story
-    name="ref"
+    name="playground"
+    args={{
+        children: "Box"
+    }}
     parameters={paramsBuilder()
+        .component(InnerBox)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Box>Box</Box>
-    </RefLogger>
+    {args => <InnerBox {...args} />}
 </Story>

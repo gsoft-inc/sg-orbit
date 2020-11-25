@@ -1,57 +1,59 @@
 import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
-import { Content } from "@react-components/view";
+import { ComponentInfo, FileCanvas } from "@stories/components";
+import { Content, InnerContent } from "@react-components/view";
 import { ControlledAlert } from "./ControlledAlert.sample";
 import { EmailIcon } from "@react-components/icons";
-import { FilePreview, ReactComponentsLayout } from "@stories/components";
 import { Heading } from "@react-components/heading";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, paramsBuilder } from "@stories/utils";
 import { TextLink } from "@react-components/link";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Feedback|Alert"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/alert/src" />)
-        .build()}
+    title="Components/Alert"
+    id="alert"
 />
 
 # Alert
 
 An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Alert from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#alert">https://www.w3.org/TR/wai-aria-practices/#alert</a></dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { Alert } from @orbit-ui/react-components"
+    ariaPath="#alert"
+    githubPath="/packages/react-components/src/alert/src"
+/>
 
 ## Usage
 
+### Default
+
+A default alert.
+
+<Canvas>
+    <Story name="default">
+        <Alert>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Alert>
+    </Story>
+</Canvas>
+
 ### Icon
 
-An alert can have an [icon](?path=/docs/materials-icons--page).
+An alert can have an [icon](?path=/docs/icon-gallery--page).
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <Alert>
             <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
         </Alert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Rich content
 
 An alert can also accept rich content.
 
-<Preview>
+<Canvas>
     <Story name="rich content">
         <Alert>
             <EmailIcon />
@@ -61,13 +63,13 @@ An alert can also accept rich content.
             </Content>
         </Alert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Action
 
 An alert can accept an accept [button](?path=/docs/components-button--default-story).
 
-<Preview>
+<Canvas>
     <Story name="action">
         <Alert>
             <EmailIcon />
@@ -75,13 +77,13 @@ An alert can accept an accept [button](?path=/docs/components-button--default-st
             <Button>Undo</Button>
         </Alert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Dismissible
 
 An alert can be dismissible by specifying an `onDismiss` handler.
 
-<Preview>
+<Canvas>
     <Story name="dismissible">
         <Alert onDismiss={() => {}}>
             <EmailIcon />
@@ -89,67 +91,67 @@ An alert can be dismissible by specifying an `onDismiss` handler.
             <Button>Undo</Button>
         </Alert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Info
 
 Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
 
-<Preview>
+<Canvas>
     <Story name="info">
         <InfoAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </InfoAlert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Success
 
 Use a success alert to inform a user that an action has completed successfuly.
 
-<Preview>
+<Canvas>
     <Story name="success">
         <SuccessAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </SuccessAlert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Warning
 
 Use a warning alert to help a user avoid an issue.
 
-<Preview>
+<Canvas>
     <Story name="warning">
         <WarningAlert onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
             <Button>Retry</Button>
         </WarningAlert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Critical
 
 Use an error alert to help a user understand a critical issue at the system level.
 
-<Preview>
+<Canvas>
     <Story name="critical">
         <CriticalAlert onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
         </CriticalAlert>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 An alert can handle `show` state in controlled mode.
 
-<FilePreview filePath="/alert/docs/ControlledAlert">
+<FileCanvas filePath="/alert/docs/ControlledAlert">
     <ControlledAlert />
-</FilePreview>
+</FileCanvas>
 
 ## Props
 
@@ -157,74 +159,83 @@ An alert can handle `show` state in controlled mode.
 
 Generic Alert component.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | content | button</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { Alert } from @orbit-ui/react-components"
+    slots={["icon", "content", "button"]}
+    compact
+/>
 
-<Props of={InnerAlert} />
+<ArgsTable of={InnerAlert} />
 
 ### InfoAlert
 
 Alert component template for _info_ tone.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>content | button</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { InfoAlert } from @orbit-ui/react-components"
+    slots={["content", "button"]}
+    compact
+/>
 
-<Props of={AlertTemplate} />
+<ArgsTable of={AlertTemplate} />
 
 ### SuccessAlert
 
 Alert component template for _success_ tone.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>content | button</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { SuccessAlert } from @orbit-ui/react-components"
+    slots={["content", "button"]}
+    compact
+/>
 
-<Props of={AlertTemplate} />
+<ArgsTable of={AlertTemplate} />
 
 ### WarningAlert
 
 Alert component template for _warning_ tone.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>content | button</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { WarningAlert } from @orbit-ui/react-components"
+    slots={["content", "button"]}
+    compact
+/>
 
-<Props of={AlertTemplate} />
+<ArgsTable of={AlertTemplate} />
 
 ### CriticalAlert
 
 Alert component template for _critical_ tone.
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>content | button</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage="import { CriticalAlert } from @orbit-ui/react-components"
+    slots={["content", "button"]}
+    compact
+/>
 
-<Props of={AlertTemplate} />
+<ArgsTable of={AlertTemplate} />
+
+### Content
+
+Placeholder component to define the *content* of an alert.
+
+<ComponentInfo
+    usage="import { Content } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerAlert)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Alert>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Alert>
-    </RefLogger>
+    {args =>
+        <Alert {...args}>
+            Your email to <strong>booking@spacetravel.com</strong> has been sent!
+        </Alert>
+    }
 </Story>

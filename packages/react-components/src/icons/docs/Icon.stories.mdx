@@ -1,38 +1,28 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
-import { CheckeredBackground, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
+import { CheckeredBackground, ComponentInfo } from "@stories/components";
 import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 import IndexFileUsage from "./IndexFileUsage.mdx";
 
 <Meta
-    title={createComponentSection("Icon")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/icons/src" />)
-        .build()}
+    title="Components/Icon"
+    id="icon"
 />
 
 # Icon
 
-An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes. You can use any type of icons (e.g. _svg_, _image_, _ico-font_) with this component but we do recommend using inline `svg` element since they come with [a lot of benefits](https://www.jotform.com/blog/why-you-should-embed-svg-inline-98570).
+An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes.
 
-If you are looking for Orbit UI official icons, please have a look at the [icons page](?path=/docs/materials-icons--page#gallery) in the materials section.
-
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Icon", component: InnerIcon },
-        { displayName: "MultiVariantIcon", component: InnerMultiVariantIcon },
-        { displayName: "IconList", component: InnerIconList }
-    ]}
+<ComponentInfo
+    usage="import { Icon, MultiVariantIcon, IconList } from @react-components"
+    githubPath="/packages/react-components/src/icons/src"
 />
+
+You can use any type of icons (e.g. _svg_, _image_, _ico-font_) with this component but we do recommend using inline `svg` element since they come with [a lot of benefits](https://www.jotform.com/blog/why-you-should-embed-svg-inline-98570).
+
+If you are looking for Orbit UI official icons, please have a look at the [icons page](?path=/docs/icon-gallery#gallery) in the materials section.
 
 ## Accessibility
 
@@ -72,19 +62,19 @@ export const AzureIcon32 = Icon.create(Azure32);
 
 A default icon will render as an `md` sized icon.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <CheckeredBackground>
             <Icon type={AzureIcon32} />
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
 An icon can vary in size.
 
-<Preview>
+<Canvas>
     <Story name="size">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -97,13 +87,13 @@ An icon can vary in size.
             </Inline>
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
 An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
 
-<Preview>
+<Canvas>
     <Story name="color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -113,11 +103,11 @@ An icon color can be altered by specifying a fill value with [Tachyons fill clas
             </Inline>
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
 
-<Preview>
+<Canvas>
     <Story name="dynamic-color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -127,7 +117,7 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
             </Inline>
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 ## Multi-variants
 
@@ -137,7 +127,7 @@ A multi variants icon support the same props as `<Icon />`.
 
 ### Size
 
-<Preview>
+<Canvas>
     <Story name="multi-variants size">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -150,11 +140,11 @@ A multi variants icon support the same props as `<Icon />`.
             </Inline>
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
-<Preview>
+<Canvas>
     <Story name="multi-variants color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -164,13 +154,13 @@ A multi variants icon support the same props as `<Icon />`.
             </Inline>
         </CheckeredBackground>
     </Story>
-</Preview>
+</Canvas>
 
 ## Icon List
 
 To inline multiple icons in a component, wrap your icons in an icon list component.
 
-<Preview>
+<Canvas>
     <Story name="icon list">
         <IconList>
             <Icon type={AzureIcon32} />
@@ -178,52 +168,63 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
             <Icon type={AzureIcon32} />
         </IconList>
     </Story>
-</Preview>
+</Canvas>
+
+## API
+
+### Icon
+
+Component for icons without variants.
+
+<ComponentInfo
+    usage="import { Icon } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerIcon} />
+
+### MultiVariantIcon
+
+Component for multi-variants icons.
+
+<ComponentInfo
+    usage="import { MultiVariantIcon } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerMultiVariantIcon} />
+
+### IconList
+
+List component for a group of icons.
+
+<ComponentInfo
+    usage="import { IconList } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerIconList} />
 
 <Story
-    name="icon ref"
+    name="playground - icon"
     parameters={paramsBuilder()
+        .component(InnerIcon)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Icon type={AzureIcon32} />
-    </RefLogger>
+    {args =>
+        <InnerIcon type={AzureIcon32} {...args} />
+    }
 </Story>
 
 <Story
-    name="multi-variants ref"
+    name="playground - multi-variant icon"
     parameters={paramsBuilder()
+        .component(InnerMultiVariantIcon)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Icon type={AzureIcon32} />
-    </RefLogger>
-</Story>
-
-export const HocAzureIcon32 = Icon.create(AzureIcon32);
-
-<Story
-    name="hoc icon ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <HocAzureIcon32 />
-    </RefLogger>
-</Story>
-
-export const HocFilterIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32);
-
-<Story
-    name="hoc multi-variants ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <HocFilterIcon />
-    </RefLogger>
+    {args =>
+        <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} {...args} />
+    }
 </Story>

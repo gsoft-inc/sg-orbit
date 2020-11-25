@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unused-prop-types */
+
 import { any, bool } from "prop-types";
 import { forwardRef } from "react";
 
@@ -13,7 +15,8 @@ const propTypes = {
 };
 
 export function InnerItem() {
-    return null;
+    // When returning null, react-docgen doesn't ignore the component.
+    return <></>;
 }
 
 InnerItem.propTypes = propTypes;
