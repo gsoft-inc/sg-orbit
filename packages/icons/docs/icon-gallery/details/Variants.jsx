@@ -1,4 +1,4 @@
-import { LearnUsageLink } from "./learn-usage-link";
+import { LearnUsageLink } from "./LearnUsageLink";
 import { Source } from "@storybook/components";
 import { Tab } from "semantic-ui-react";
 import { VARIANT_SHAPE } from "../shapes";

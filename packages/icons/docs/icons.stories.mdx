@@ -140,16 +140,11 @@ import {
 import { CheckeredBackground, ExternalLink } from "@stories/components";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./icon-gallery";
 import { Inline } from "@react-components/layout";
-import { MaterialsLayout } from "@stories/materials/materials-layout";
 import { Meta, Preview } from "@storybook/addon-docs/blocks";
-import { createMaterialSection, paramsBuilder } from "@stories/utils";
-import Installation from "./installation.mdx";
 
 <Meta
-    title={`${createMaterialSection("Icons")}`}
-    parameters={paramsBuilder()
-        .docsLayout(<MaterialsLayout sourcePath="/packages/icons/src" />)
-        .build()}
+    title="Materials/Icons"
+    id="icons"
 />
 
 # Icons
@@ -159,10 +154,6 @@ Orbit Design provide a set of SVG icons built specifically for ShareGate product
 Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
 If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component](?path=/docs/components-icon--default-story) documentation.
-
-## Installation
-
-<Installation />
 
 ## Gallery
 

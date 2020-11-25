@@ -1,6 +1,6 @@
 import { CheckeredBackground } from "@stories/components";
 import { Inline } from "@react-components/layout";
-import { LearnUsageLink } from "./learn-usage-link";
+import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Source } from "@storybook/components";
 import { cloneElement } from "react";

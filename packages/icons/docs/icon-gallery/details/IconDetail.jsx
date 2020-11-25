@@ -1,6 +1,12 @@
-import { MultiVariant } from "./multi-variant";
-import { Variants } from "./variants";
+import { MultiVariant } from "./MultiVariant";
+import { Variants } from "./Variants";
 import { any, string } from "prop-types";
+
+const propTypes = {
+    iconDisplayName: string.isRequired,
+    multiVariant: any.isRequired,
+    variants: any.isRequired
+};
 
 export function IconDetail({ iconDisplayName, multiVariant, variants }) {
     return (
@@ -11,8 +17,4 @@ export function IconDetail({ iconDisplayName, multiVariant, variants }) {
     );
 }
 
-IconDetail.propTypes = {
-    iconDisplayName: string.isRequired,
-    multiVariant: any.isRequired,
-    variants: any.isRequired
-};
+IconDetail.propTypes = propTypes;

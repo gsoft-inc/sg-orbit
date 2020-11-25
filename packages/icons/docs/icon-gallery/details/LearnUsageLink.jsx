@@ -1,4 +1,4 @@
-import { ModalContext } from "./modal-context";
+import { ModalContext } from "./ModalContext";
 import { NAVIGATE_URL } from "@storybook/core-events";
 import { components } from "@storybook/components/html";
 import { useContext } from "react";

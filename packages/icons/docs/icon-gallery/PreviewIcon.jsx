@@ -1,7 +1,12 @@
-import styles from "./preview-icon.module.css";
+import "./PreviewIcon.css";
 
 import { cloneElement } from "react";
 import { element, func } from "prop-types";
+
+const propTypes = {
+    icon: element.isRequired,
+    onShowDetail: func.isRequired
+};
 
 function renderIcon(icon) {
     return cloneElement(icon, {
@@ -19,12 +24,12 @@ export function PreviewIcon({ icon, onShowDetail }) {
     };
 
     return (
-        <div className={styles.previewIcon} onKeyDown={onIconEnterKeyDown} tabIndex={0}>
+        <div className="o-ui-sb-gallery-preview-icon" onKeyDown={onIconEnterKeyDown} tabIndex={0}>
             {renderIcon(icon)}
-            <div className={styles.viewContainer} tabIndex={-1}>
+            <div className="o-ui-sb-gallery-preview-container" tabIndex={-1}>
                 <button
                     onClick={onIconClick}
-                    className={styles.viewButton}
+                    className="o-ui-sb-gallery-view-button"
                     type="button"
                     tabIndex={-1}
                 >
@@ -35,7 +40,4 @@ export function PreviewIcon({ icon, onShowDetail }) {
     );
 }
 
-PreviewIcon.propTypes = {
-    icon: element.isRequired,
-    onShowDetail: func.isRequired
-};
+PreviewIcon.propTypes = propTypes;

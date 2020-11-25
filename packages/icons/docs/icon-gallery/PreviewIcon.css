@@ -1,4 +1,4 @@
-.previewIcon {
+.o-ui-sb-gallery-preview-icon {
     position: relative;
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
     outline: none;
 }
 
-.viewContainer {
+.o-ui-sb-gallery-preview-container {
     position: absolute;
     opacity: 0;
     transition: opacity .15s ease-in;
@@ -22,14 +22,14 @@
     box-sizing: content-box;
 }
 
-.previewIcon:hover .viewContainer,
-.previewIcon:focus .viewContainer,
-.previewIcon:active .viewContainer {
+.o-ui-sb-gallery-preview-icon:hover .o-ui-sb-gallery-preview-container,
+.o-ui-sb-gallery-preview-icon:focus .o-ui-sb-gallery-preview-container,
+.o-ui-sb-gallery-preview-icon:active .o-ui-sb-gallery-preview-container {
     opacity: 1;
     transition: opacity .15s ease-in;
 }
 
-.viewButton {
+.o-ui-sb-gallery-view-button {
     position: absolute;
     color: #FFF;
     font-weight: 500;
@@ -43,6 +43,6 @@
     outline: inherit;
 }
 
-.viewButton::-moz-focus-inner {
+.o-ui-sb-gallery-view-button::-moz-focus-inner {
     border: 0;
 }

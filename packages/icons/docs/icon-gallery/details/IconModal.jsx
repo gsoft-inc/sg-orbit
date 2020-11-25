@@ -1,10 +1,17 @@
 import { CrossIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
-import { IconDetail } from "./icon-detail";
+import { IconDetail } from "./IconDetail";
 import { KEYS, useWindowListener } from "@react-components/shared";
 import { Modal } from "semantic-ui-react";
-import { ModalContext } from "./modal-context";
+import { ModalContext } from "./ModalContext";
 import { bool, func, string } from "prop-types";
+
+const propTypes = {
+    open: bool.isRequired,
+    iconName: string.isRequired,
+    iconDisplayName: string.isRequired,
+    onClose: func.isRequired
+};
 
 export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     const handleDocumentKeyDown = event => {
@@ -34,9 +41,4 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     );
 }
 
-IconModal.propTypes = {
-    open: bool.isRequired,
-    iconName: string.isRequired,
-    iconDisplayName: string.isRequired,
-    onClose: func.isRequired
-};
+IconModal.propTypes = propTypes;
