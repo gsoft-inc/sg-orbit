@@ -12,7 +12,8 @@ if (includeDocs) {
         "../packages/icons/docs/**/*.stories.mdx",
         "../packages/react-components/src/box/docs/**/*.stories.mdx",
         "../packages/react-components/src/button/docs/**/*.stories.mdx",
-        "../packages/react-components/src/accordion/docs/**/*.stories.mdx"
+        "../packages/react-components/src/accordion/docs/**/*.stories.mdx",
+        "../packages/react-components/src/link/docs/Link.stories.mdx"
     ];
 }
 
