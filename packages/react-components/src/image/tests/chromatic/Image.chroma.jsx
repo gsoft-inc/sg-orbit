@@ -1,6 +1,6 @@
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import Launch from "./assets/launch.jpg";
 import Mars from "./assets/mars.png";
 

@@ -114,9 +114,9 @@ function addAliases(config) {
         ...existingAlias,
         "@root": path.resolve(__dirname, "../.."),
         "@decorators": path.resolve(__dirname, "../decorators/"),
-        "@blocks": path.resolve(__dirname, "../blocks/"),
+        "@stories/components": path.resolve(__dirname, "../blocks/"),
         "@shared": path.resolve(__dirname, "../shared/"),
-        "@utils": path.resolve(__dirname, "../utils/"),
+        "@stories/utils": path.resolve(__dirname, "../utils/"),
         "@stories": path.resolve(__dirname, "../stories/"),
         "@react-components": path.resolve(__dirname, "../../packages/react-components/src")
     };

@@ -1,7 +1,7 @@
 import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("NumberInput"))

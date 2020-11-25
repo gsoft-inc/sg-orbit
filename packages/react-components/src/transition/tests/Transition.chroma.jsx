@@ -1,6 +1,6 @@
 import { TextLink } from "@react-components/link";
 import { Transition } from "@react-components/transition";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useEventCallback } from "@react-components/shared";
 import { useState } from "react";
 

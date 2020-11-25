@@ -1,7 +1,7 @@
 import { DEFAULT_RESULTS, LAURIE_VALUE } from "./data";
 import { SearchInputController } from "@react-components/search-input";
 import { TextInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { noop } from "lodash";
 
 function stories(segment) {

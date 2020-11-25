@@ -1,5 +1,5 @@
 import { Color } from "./color";
-import { Table } from "@blocks";
+import { Table } from "@stories/components";
 import { arrayOf, shape, string } from "prop-types";
 
 const propTypes = {

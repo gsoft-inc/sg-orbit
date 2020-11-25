@@ -1,7 +1,7 @@
 import { Inline } from "@react-components/layout";
 import { ListItem, OrderedList, UnorderedList } from "@react-components/list";
 import { Text } from "@react-components/text";
-import { createChromaticSection, storiesOfBuilder } from "@utils";
+import { createChromaticSection, storiesOfBuilder } from "@stories/utils";
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("List"))

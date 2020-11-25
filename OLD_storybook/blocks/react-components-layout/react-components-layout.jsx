@@ -1,4 +1,4 @@
-import { BrandPicker, CornerGithubLink, CornerSemanticLink } from "@blocks";
+import { BrandPicker, CornerGithubLink, CornerSemanticLink } from "@stories/components";
 import { isNil } from "lodash";
 import { string } from "prop-types";
 

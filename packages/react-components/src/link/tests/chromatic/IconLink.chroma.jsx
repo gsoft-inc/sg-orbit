@@ -1,7 +1,7 @@
 import { AddIcon } from "@react-components/icons";
 import { IconLink } from "@react-components/link";
 import { Inline } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createIconLinkTestSuite } from "./createIconLinkTestSuite";
 
 function stories(segment) {

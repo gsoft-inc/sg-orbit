@@ -2,7 +2,7 @@ import { Field } from "@react-components/field";
 import { Inline } from "@react-components/layout";
 import { Row } from "@react-components/form";
 import { TextInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Row"))

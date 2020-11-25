@@ -10,7 +10,8 @@ if (includeDocs) {
         ...stories,
         "../docs/**/*.stories.mdx",
         "../packages/react-components/src/box/docs/**/*.stories.mdx",
-        "../packages/react-components/src/button/docs/**/*.stories.mdx"
+        "../packages/react-components/src/button/docs/**/*.stories.mdx",
+        "../packages/react-components/src/accordion/docs/**/*.stories.mdx"
     ];
 }
 

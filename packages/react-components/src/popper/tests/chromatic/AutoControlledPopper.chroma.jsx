@@ -1,6 +1,6 @@
 import { AutoControlledPopper } from "@react-components/popper";
 import { Button } from "@react-components/button";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { forwardRef } from "react";
 
 function stories(segment) {

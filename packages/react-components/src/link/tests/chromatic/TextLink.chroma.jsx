@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTextLinkTestSuite } from "./createTextLinkTestSuite";
 
 function stories(segment) {

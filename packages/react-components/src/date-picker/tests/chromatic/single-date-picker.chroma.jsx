@@ -1,7 +1,7 @@
 import { AbsoluteRedBox } from "./absolute-red-box";
 import { DEFAULT_DATE } from "./data";
 import { SingleDatePicker } from "@react-components/date-picker";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import {
     getMonthFirstDay,
     getMonthLastDay,

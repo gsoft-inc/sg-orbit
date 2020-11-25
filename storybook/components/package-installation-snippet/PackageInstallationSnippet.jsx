@@ -7,7 +7,7 @@ const propTypes = {
     packageName: string.isRequired
 };
 
-export function PackageInstallationSnippet({ packageName }) {
+export function PackageInstallationSnippet({ packageName, ...rest }) {
     const [dependencies, setDependencies] = useState();
 
     if (isNil(dependencies)) {
@@ -22,7 +22,15 @@ export function PackageInstallationSnippet({ packageName }) {
         return null;
     }
 
-    return <Source language="bash" dark format={false} code={`npm install ${dependencies}`} />;
+    return (
+        <Source
+            {...rest}
+            language="bash"
+            dark
+            format={false}
+            code={`npm install ${dependencies}`}
+        />
+    );
 }
 
 PackageInstallationSnippet.propTypes = propTypes;

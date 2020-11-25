@@ -1,7 +1,7 @@
 import { AbsoluteRedBox } from "./absolute-red-box";
 import { DEFAULT_DATE } from "./data";
 import { InlineSingleDatePicker } from "@react-components/date-picker";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { noop } from "lodash";
 import moment from "moment";
 

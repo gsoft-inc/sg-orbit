@@ -3,7 +3,7 @@ import { Divider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
 import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Divider"))

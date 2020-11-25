@@ -1,7 +1,7 @@
 import { Checkbox } from "@react-components/checkbox";
 import { Inline } from "@react-components/layout";
 import { createCheckboxTestSuite } from "./createCheckboxTestSuite";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Checkbox"))

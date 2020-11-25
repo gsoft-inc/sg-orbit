@@ -1,6 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { TagsPicker, tagsPickerItem } from "@react-components/tags-picker";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { noop } from "lodash";
 
 const GROUP_CREATED_VALUE = "group-created";

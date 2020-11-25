@@ -1,4 +1,4 @@
-import { InlineGithubLink } from "@blocks";
+import { InlineGithubLink } from "@stories/components";
 import { string } from "prop-types";
 
 const propTypes = {

@@ -22,7 +22,14 @@ export function GithubLink({ path, logo, children, ...rest }) {
         );
     }
 
-    return <ExternalLink href={getGithubUrl(path)} {...rest}>{children}</ExternalLink>;
+    return (
+        <ExternalLink
+            {...rest}
+            href={getGithubUrl(path)}
+        >
+            {children}
+        </ExternalLink>
+    );
 }
 
 GithubLink.propTypes = propTypes;

@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { TextInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTextInputTestSuite } from "./createTextInputTestSuite";
 
 function stories(segment) {

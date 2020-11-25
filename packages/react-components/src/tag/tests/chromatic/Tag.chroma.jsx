@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {

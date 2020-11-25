@@ -12,7 +12,7 @@ const defaultProps = {
     language: "jsx"
 };
 
-export function FileSource({ filePath, language }) {
+export function FileSource({ filePath, language, ...rest }) {
     const [source, setSource] = useState();
 
     if (isNil(source)) {
@@ -25,7 +25,13 @@ export function FileSource({ filePath, language }) {
     }
 
     return (
-        <Source language={language} dark format={false} code={source} />
+        <Source
+            {...rest}
+            language={language}
+            dark
+            format={false}
+            code={source}
+        />
     );
 }
 

@@ -2,7 +2,7 @@ import { AddIcon } from "@react-components/icons";
 import { Button } from "@react-components/button";
 import { TextArea, TextInput } from "@react-components/input";
 import { Tooltip } from "@react-components/tooltip";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tooltip"))

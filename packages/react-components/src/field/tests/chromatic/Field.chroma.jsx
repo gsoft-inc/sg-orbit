@@ -3,7 +3,7 @@ import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-co
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput, TextArea, TextInput } from "@react-components/input";
 import { Switch } from "@react-components/switch";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Field"))

@@ -28,7 +28,10 @@ export function FileCanvas({ filePath, withSource, children, ...rest }) {
     }
 
     return (
-        <Preview {...rest} withSource={{ code: source, ...withSource }}>
+        <Preview
+            {...rest}
+            withSource={{ code: source, ...withSource }}
+        >
             {children}
         </Preview>
     );

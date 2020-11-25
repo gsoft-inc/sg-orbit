@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Label } from "@react-components/field";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Label"))

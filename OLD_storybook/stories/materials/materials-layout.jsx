@@ -1,4 +1,4 @@
-import { BrandPicker, CornerGithubLink } from "@blocks";
+import { BrandPicker, CornerGithubLink } from "@stories/components";
 import { string } from "prop-types";
 
 const propTypes = {

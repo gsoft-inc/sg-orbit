@@ -1,9 +1,9 @@
-import { isString } from "lodash";
+import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
 export function useThemedSnippet(snippets) {
     return useMemo(() => {
-        if (isString(snippets)) {
+        if (isNil(snippets) || isString(snippets)) {
             return snippets;
         }
 

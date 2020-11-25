@@ -2,7 +2,7 @@ import styles from "./Popper.chroma.module.css";
 
 import { Button } from "@react-components/button";
 import { Popper } from "@react-components/popper";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { forwardRef, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useControllableState } from "@react-components/shared";

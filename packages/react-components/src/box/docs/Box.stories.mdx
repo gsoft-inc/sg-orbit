@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box, InnerBox } from "@react-components/box";
-import { Header, RefLogger } from "@stories/components";
+import { ComponentInfo, RefLogger } from "@stories/components";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -13,8 +13,9 @@ import { paramsBuilder } from "@stories/utils";
 
 A box is a general purpose component that can be used to compose new components or render a component into a [slot](?path=/docs/getting-started-slots--page).
 
-<Header
-    usage="import { Button } from @orbit-ui/react-components"
+<ComponentInfo
+    package="@orbit-ui/react-components"
+    usage="import { Box } from @orbit-ui/react-components"
     githubPath="/packages/react-components/src/box/src"
 />
 

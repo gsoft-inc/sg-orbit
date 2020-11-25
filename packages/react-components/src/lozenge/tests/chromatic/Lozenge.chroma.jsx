@@ -2,7 +2,7 @@ import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Lozenge"))

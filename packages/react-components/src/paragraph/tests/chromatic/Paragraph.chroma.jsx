@@ -1,6 +1,6 @@
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Paragraph"))

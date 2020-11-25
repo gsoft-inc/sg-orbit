@@ -8,7 +8,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Alert"))

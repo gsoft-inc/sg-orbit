@@ -6,7 +6,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Accordion"))

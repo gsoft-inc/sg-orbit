@@ -1,7 +1,3 @@
-:root {
-    --sb-font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 /* LAYOUT */
 .sbdocs.sbdocs-wrapper {
     padding: 2rem 2rem 1rem 2rem;
@@ -9,6 +5,13 @@
 
 .sbdocs.sbdocs-content {
     max-width: 1200px;
+    font-size: var(--type-scale-6);
+}
+
+/* STORY */
+.docs-story div + div > button {
+    font-weight: 500;
+    font-size: var(--type-scale-8);
 }
 
 /* ARGS TABLE */
@@ -17,9 +20,10 @@
     margin-bottom: 0;
 }
 
+/* ARGS TABLE | HEADER */
 .docblock-argstable-head,
 .docblock-argstable-body {
-    font-family: var(--sb-font-family) !important;
+    font-size: var(--type-scale-7) !important;
 }
 
 .docblock-argstable-head tr th {
@@ -27,16 +31,25 @@
     color: var(--marine-900) !important;
 }
 
+/* ARGS TABLE | HEADER | RESET */
+/* .docblock-argstable-head th:nth-child(4) {
+    position: relative;
+} */
+
 .docblock-argstable-head button {
     background-color: var(--primary-500) !important;
-    padding: var(--scale-bravo);
+    /* padding: var(--scale-bravo); */
     border-color: var(--primary-500) !important;
+    /* position: absolute;
+    right: 20px;
+    top: 4px; */
 }
 
 .docblock-argstable-head button svg path {
     fill: var(--white) !important;
 }
 
+/* ARGS TABLE | BODY  */
 .docblock-argstable-body td > span {
     font-weight: 500 !important;
 }
@@ -55,7 +68,7 @@
 }
 
 .docblock-argstable-body td label span {
-    font-size: 0.875rem !important;
+    font-size: var(--type-scale-8) !important;
 }
 
 .docblock-argstable-body td label input[type="radio"] {
@@ -63,8 +76,10 @@
     height: 1rem !important;
 }
 
+.docblock-argstable-body td input[type="number"],
+.docblock-argstable-body td input[type="text"],
 .docblock-argstable-body td textarea {
-    height: 2.5rem !important;
+    font-size: var(--type-scale-8);
 }
 
 .docblock-argstable-body a {
@@ -139,7 +154,7 @@
 
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
     color: var(--primary-700) !important;
 }
 
@@ -155,7 +170,7 @@
 /* ELEMENTS | TYPOGRAPHY */
 .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-span {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
 }
 
 /* ELEMENTS | TABLE */
@@ -169,11 +184,11 @@
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: var(--type-scale-6);
 }
 
 .sbdocs.sbdocs-table td {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
 }
 
 .sbdocs.sbdocs-table tr td,
@@ -192,7 +207,7 @@
 
 /* ELEMENTS | SUMMARY */
 .sbdocs summary {
-    font-size: 1.125rem;
+    font-size: var(--type-scale-6);
     cursor: pointer;
 }
 
@@ -228,16 +243,10 @@
 
 /* ELEMENTS | LIST */
 .sbdocs.sbdocs-li {
-    font-size: 1.125rem !important;
+    font-size: var(--type-scale-6) !important;
 }
 
 /* ELEMENTS | STRONG */
 .sbdocs strong {
-    font-weight: 600;
-}
-
-/* STORY */
-.docs-story div + div > button {
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: 500;
 }

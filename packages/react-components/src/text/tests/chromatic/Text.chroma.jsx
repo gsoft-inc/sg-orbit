@@ -1,6 +1,6 @@
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Text"))

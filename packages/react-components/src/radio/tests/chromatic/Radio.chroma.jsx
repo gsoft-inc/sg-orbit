@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Radio } from "@react-components/radio";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createRadioTestSuite } from "./createRadioTestSuite";
 
 function stories(segment) {

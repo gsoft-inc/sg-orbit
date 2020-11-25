@@ -1,4 +1,4 @@
-import { ExternalLink } from "@blocks";
+import { ExternalLink } from "@stories/components";
 import { getSemanticUrl } from "./get-semantic-link";
 import { string } from "prop-types";
 

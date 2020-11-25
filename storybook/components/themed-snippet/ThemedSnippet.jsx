@@ -15,7 +15,7 @@ const defaultProps = {
     language: "javascript"
 };
 
-export function ThemedSnippet({ apricot, overcast, desktop, language }) {
+export function ThemedSnippet({ apricot, overcast, desktop, language, ...rest }) {
     // const [currentBrand] = useStorage();
 
     // let code = apricot;
@@ -34,7 +34,13 @@ export function ThemedSnippet({ apricot, overcast, desktop, language }) {
     });
 
     return (
-        <Source language={language} dark format={false} code={dedent(code)} />
+        <Source
+            {...rest}
+            language={language}
+            dark
+            format={false}
+            code={dedent(code)}
+        />
     );
 }
 

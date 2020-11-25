@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { TextArea } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTextAreaTestSuite } from "./createTextAreaTestSuite";
 
 function stories(segment) {

@@ -1,8 +1,8 @@
-import "./Header.css";
+import "./ComponentInfo.css";
 
 import { ExternalLink, GithubLink, useThemedSnippet } from "@stories/components";
-import { mergeClasses } from "@react-components/shared";
-import { oneOfType, shape, string } from "prop-types";
+import { arrayOf, bool, oneOfType, shape, string } from "prop-types";
+import { cssModule, mergeClasses } from "@react-components/shared";
 
 const propTypes = {
     usage: oneOfType([
@@ -12,15 +12,19 @@ const propTypes = {
             overcast: string.isRequired,
             desktop: string.isRequired
         })
-    ]).isRequired,
+    ]),
+    slots: arrayOf(string),
     ariaPath: string,
-    githubPath: string
+    githubPath: string,
+    compact: bool
 };
 
-export function Header({
+export function ComponentInfo({
     usage,
+    slots,
     ariaPath,
     githubPath,
+    compact,
     className,
     ...rest
 }) {
@@ -30,16 +34,27 @@ export function Header({
         <dl
             {...rest}
             className={mergeClasses(
-                "o-ui-sb-header",
+                cssModule(
+                    "o-ui-sb-header",
+                    compact && "compact"
+                ),
                 className
             )}
         >
-            <div>
-                <dt className="o-ui-sb-header-title">usage</dt>
-                <dd className="o-ui-sb-header-value"><code>{usage}</code></dd>
-            </div>
+            {usage && (
+                <div className="o-ui-sb-header-item">
+                    <dt className="o-ui-sb-header-title">usage</dt>
+                    <dd className="o-ui-sb-header-value"><code>{usage}</code></dd>
+                </div>
+            )}
+            {slots && (
+                <div className="o-ui-sb-header-item">
+                    <dt className="o-ui-sb-header-title">slots</dt>
+                    <dd className="o-ui-sb-header-value"><code>{slots.map(x => `"${x}"`).join(", ")}</code></dd>
+                </div>
+            )}
             {ariaPath && (
-                <div>
+                <div className="o-ui-sb-header-item">
                     <dt className="o-ui-sb-header-title">wai-aria</dt>
                     <dd className="o-ui-sb-header-value">
                         <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}>{`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}</ExternalLink>
@@ -47,7 +62,7 @@ export function Header({
                 </div>
             )}
             {githubPath && (
-                <div>
+                <div className="o-ui-sb-header-item">
                     <dt className="o-ui-sb-header-title">sources</dt>
                     <dd className="o-ui-sb-header-value">
                         <GithubLink path={githubPath}>Github</GithubLink>
@@ -58,4 +73,4 @@ export function Header({
     );
 }
 
-Header.propTypes = propTypes;
+ComponentInfo.propTypes = propTypes;

@@ -2,7 +2,7 @@ import { Button, IconButton } from "@react-components/button";
 import { Dropdown, DropdownContext } from "@react-components/dropdown";
 import { EditIcon, FileIcon, IconList, LightbulbIcon, VerticalDotsIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { forwardRef, useContext } from "react";
 import { noop } from "lodash";
 

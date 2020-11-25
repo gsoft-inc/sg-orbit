@@ -3,7 +3,7 @@ import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { Link } from "@react-components/link";
 import { Paragraph } from "@react-components/paragraph";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createLinkTestSuite } from "./createLinkTestSuite";
 import Launch from "./assets/launch.jpg";
 

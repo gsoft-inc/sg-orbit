@@ -5,7 +5,7 @@ import { Radio, RadioGroup } from "@react-components/radio";
 import { Tag } from "@react-components/tag";
 import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useCallback } from "react";
 import { useCheckableProps } from "@react-components/shared";
 

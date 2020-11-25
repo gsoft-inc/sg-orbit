@@ -6,7 +6,7 @@ import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Form"))

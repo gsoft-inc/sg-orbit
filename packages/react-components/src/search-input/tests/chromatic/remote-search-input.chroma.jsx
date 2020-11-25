@@ -1,5 +1,5 @@
 import { CountriesSearchInput } from "./countries-search-input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { noop } from "lodash";
 
 function stories(segment) {

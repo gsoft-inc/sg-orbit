@@ -8,6 +8,6 @@ export * from "./link";
 export * from "./table";
 export * from "./tachyons-file";
 export * from "./ref-logger";
-export * from "./header";
+export * from "./component-info";
 export * from "./themed-snippet";
 export * from "./package-installation-snippet";

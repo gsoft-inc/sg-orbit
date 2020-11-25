@@ -1,4 +1,4 @@
-import { ExternalLink } from "@blocks";
+import { ExternalLink } from "@stories/components";
 import { bool, string } from "prop-types";
 import { getGithubUrl } from "./get-github-url";
 import GithubLogo from "./assets/logo-github-32.png";

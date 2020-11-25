@@ -6,7 +6,7 @@ const propTypes = {
     filePath: string.isRequired
 };
 
-export function TachyonsFile({ filePath }) {
+export function TachyonsFile({ filePath, ...rest }) {
     const [content, setContent] = useState();
 
     if (isNil(content)) {
@@ -19,7 +19,7 @@ export function TachyonsFile({ filePath }) {
     }
 
     return (
-        <pre>
+        <pre {...rest}>
             <code className="f9 o-70">
                 {content}
             </code>

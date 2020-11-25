@@ -1,5 +1,5 @@
+import { ComponentHeader } from "@stories/components";
 import { FoundationFile } from "./FoundationFile";
-import { Header } from "@stories/components";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@stories/utils";
 
@@ -14,17 +14,6 @@ import { paramsBuilder } from "@stories/utils";
 # Foundation
 
 Orbit UI foundation contains the [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) that store the visual design attributes of Orbit Design. We use those variables across Orbit UI instead of hard-coded values in order to maintain a scalable and consistent visual system for UI development.
-
-Once [installed](?path=/docs/getting-started-installation--page), the default values can be [customized to your needs](#override-variables). Please be aware that customization would no longuer benefinits from updates and could break.
-
-<Header
-    usage={{
-        apricot: "@import \"~@orbit-ui/foundation/apricot.css\";",
-        overcast: "@import \"~@orbit-ui/foundation/overcast.css\";",
-        desktop: "@import \"~@orbit-ui/foundation/desktop.css\";"
-    }}
-    githubPath="/packages/foundation/src"
-/>
 
 ## Variables
 
@@ -77,7 +66,7 @@ window.getComputedStyle(document.documentElement).getPropertyValue("--primary-50
 
 ## Override variables
 
-Foundation CSS variables can be overrided by simply redeclaring the variables in a `:root` CSS class:
+Once installed the default values of the CSS foundation can be customized to your needs by simply redeclaring the variables in a `:root` CSS class:
 
 ```css dark
 :root {
@@ -101,3 +90,5 @@ At last resort, you can override a variable in JavaScript. However, we strongly 
 ```javascript dark
 document.body.style.setProperty("--primary-50", "#c63a0c");
 ```
+
+> Please be aware that customization would no longuer benefinits from updates and could break.

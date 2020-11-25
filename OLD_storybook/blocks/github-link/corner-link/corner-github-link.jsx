@@ -1,6 +1,6 @@
 import styles from "./corner-github-link.module.css";
 
-import { ExternalLink } from "@blocks";
+import { ExternalLink } from "@stories/components";
 import { GithubIcon } from "./assets";
 import { getGithubUrl } from "../get-github-url";
 import { string } from "prop-types";

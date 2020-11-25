@@ -135,7 +135,7 @@ import {
     ZipIcon32
 } from "@react-components/icons";
 import { TestSuite } from "./TestSuite";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories() {
     return storiesOfBuilder(module, createChromaticSection("Icons"))

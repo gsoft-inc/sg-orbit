@@ -1,4 +1,4 @@
-import { ExternalLink, Table } from "@blocks";
+import { ExternalLink, Table } from "@stories/components";
 import { arrayOf, element, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 

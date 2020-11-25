@@ -1,4 +1,4 @@
-import { Table } from "@blocks";
+import { Table } from "@stories/components";
 import { arrayOf, element, oneOfType, shape, string } from "prop-types";
 
 const propTypes = {

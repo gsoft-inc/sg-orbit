@@ -1,5 +1,5 @@
 import { Select } from "@react-components/select";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {

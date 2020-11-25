@@ -1,6 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, InnerButton } from "@react-components/button";
-import { Header, RefLogger } from "@stories/components";
+import { ComponentInfo, RefLogger } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
@@ -16,8 +16,9 @@ import { paramsBuilder } from "@stories/utils";
 
 A button indicates a possible user action.
 
-<Header
+<ComponentInfo
     usage="import { Button } from @orbit-ui/react-components"
+    slots={["icon", "text", "right-icon"]}
     ariaPath="#button"
     githubPath="/packages/react-components/src/button/src"
 />

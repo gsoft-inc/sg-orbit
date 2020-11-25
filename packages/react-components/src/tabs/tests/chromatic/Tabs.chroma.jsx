@@ -6,7 +6,7 @@ import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Tabs"))

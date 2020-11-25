@@ -1,6 +1,6 @@
 import { Box } from "@react-components/box";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { forwardRef, useMemo } from "react";
 import { slot, useSlots } from "@react-components/shared";
 

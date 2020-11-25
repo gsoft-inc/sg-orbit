@@ -1,4 +1,4 @@
-import { WarningMessage } from "@blocks";
+import { WarningMessage } from "@stories/components";
 import { bool, string } from "prop-types";
 import Message from "./message.mdx";
 
