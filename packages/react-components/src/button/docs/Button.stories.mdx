@@ -3,11 +3,9 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import {
     Button,
     ButtonGroup,
-    CrossButton,
     IconButton,
     InnerButton,
     InnerButtonGroup,
-    InnerCrossButton,
     InnerIconButton,
     InnerToggleButton,
     InnerToggleIconButton,
@@ -17,7 +15,7 @@ import {
 import { ComponentInfo, FileCanvas } from "@stories/components";
 import { ControlledToggleButton } from "./ControlledToggleButton.sample";
 import { Inline } from "@react-components/layout";
-import { InnerText, Text } from "@react-components/text";
+import { Text } from "@react-components/text";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -30,7 +28,7 @@ import { paramsBuilder } from "@stories/utils";
 A Button indicates a possible user action.
 
 <ComponentInfo
-    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, CrossButton, ButtonGroup, Text } from \"@orbit-ui/react-components\""}
+    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, ButtonGroup } from \"@orbit-ui/react-components\""}
     ariaPath="#button"
     githubPath="/packages/react-components/src/button/src"
 />
@@ -183,7 +181,7 @@ A button content can be a single icon. An accessible name must be provided throu
 
 <Canvas>
     <Story name="icon button">
-        <Inline verticalAlign="end">
+        <Inline verticalAlign="center">
             <IconButton shape="circular" size="sm" aria-label="Add"><AddIcon /></IconButton>
             <IconButton shape="circular" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
@@ -192,7 +190,7 @@ A button content can be a single icon. An accessible name must be provided throu
 
 ## Button Group
 
-Related buttons whose actions are related to each other can be group together. Usefull to handle actions in components like [form](?path=/docs/form--default-story.
+Related buttons whose actions are related to each other can be group together. Usefull to handle actions in components like [form](?path=/docs/form--default-story).
 
 <Canvas>
     <Story name="button group">
@@ -284,21 +282,6 @@ A toggle button can handle `checked` state in controlled mode.
     <ControlledToggleButton />
 </FileCanvas>
 
-## Cross Button
-
-A button with a cross icon to handle use cases like clearing a value or closing overlay components.
-
-<Canvas>
-    <Story name="cross button">
-        <Inline verticalAlign="center">
-            <CrossButton size="2xs" aria-label="Clear" />
-            <CrossButton size="xs" aria-label="Clear" />
-            <CrossButton size="sm" aria-label="Clear" />
-            <CrossButton aria-label="Clear" />
-        </Inline>
-    </Story>
-</Canvas>
-
 ## API
 
 ### Button
@@ -338,15 +321,6 @@ A button with a cross icon to handle use cases like clearing a value or closing 
 />
 
 <ArgsTable of={InnerToggleIconButton} />
-
-### CrossButton
-
-<ComponentInfo
-    usage={"import { CrossButton } from \"@orbit-ui/react-components\""}
-    compact
-/>
-
-<ArgsTable of={InnerCrossButton} />
 
 ### ButtonGroup
 
@@ -412,18 +386,6 @@ A button with a cross icon to handle use cases like clearing a value or closing 
         <InnerToggleIconButton {...args}>
             <AddIcon />
         </InnerToggleIconButton>
-    }
-</Story>
-
-<Story
-    name="playground - cross button"
-    parameters={paramsBuilder()
-        .component(InnerCrossButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerCrossButton {...args} />
     }
 </Story>
 
