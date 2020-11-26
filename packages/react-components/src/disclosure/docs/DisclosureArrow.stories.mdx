@@ -1,30 +1,35 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
+import { ComponentInfo, FileCanvas } from "@stories/components";
 import { Content } from "@react-components/view";
+import { ControlledDisclosureArrow } from "./ControlledDisclosureArrow.sample";
 import { Disclosure, DisclosureArrow, InnerDisclosureArrow } from "@react-components/disclosure";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@stories/components";
-import { RefLogger, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|DisclosureArrow"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/disclosure/src" />)
-        .build()}
+    title="Components/DisclosureArrow"
+    id="disclosure-arrow"
 />
 
 # DisclosureArrow
 
 A top / bottom pointing arrow to hint that activating the trigger will display additional content.
 
+<ComponentInfo
+    usage={"import { DisclosureArrow } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/disclosure/src"
+/>
+
 ## Usage
 
-When a disclosure arrow is nested in a component implementing a `DisclosureContext`, the arrow will automatically change direction when the `isOpen` prop change. Otherwise, a disclosure arrow can be controlled with the `open` prop.
+Otherwise, a disclosure arrow can also be controlled by the `open` prop.
 
-### Context
+### Disclosure context
 
-<Preview>
+When a disclosure arrow is nested in a component implementing a `DisclosureContext`, the arrow will automatically change direction when `isOpen` state change.
+
+<Canvas>
     <Story name="context">
         <Disclosure>
             <Button>
@@ -34,19 +39,35 @@ When a disclosure arrow is nested in a component implementing a `DisclosureConte
             <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
         </Disclosure>
     </Story>
-</Preview>
+</Canvas>
 
-## Props
+### Controlled
 
-<Props of={InnerDisclosureArrow} />
+A disclosure arrow can also handle `open` in controlled mode.
+
+<FileCanvas filePath="/disclosure/docs/ControlledDisclosureArrow">
+    <ControlledDisclosureArrow />
+</FileCanvas>
+
+## API
+
+### DisclosureArrow
+
+<ComponentInfo
+    usage={"import { DisclosureArrow } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerDisclosureArrow} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerDisclosureArrow)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <DisclosureArrow open />
-    </RefLogger>
+    {args =>
+        <InnerDisclosureArrow {...args} />
+    }
 </Story>

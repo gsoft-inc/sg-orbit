@@ -28,10 +28,6 @@ A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
     githubPath="/packages/react-components/src/checkbox/src"
 />
 
-## Slots
-
-Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
-
 ## Usage
 
 ### Default
@@ -86,7 +82,7 @@ A checkbox can be disabled.
 
 ### Icon
 
-A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
+A checkbox can have [icons](?path=/docs/icon-gallery--page) after his label.
 
 <Canvas>
     <Story name="icon">
@@ -99,7 +95,7 @@ A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
 
 ### Counter
 
-A checkbox can have a [counter](?path=/docs/components-counter--default-story) after his label.
+A checkbox can have a [counter](?path=/docs/counter--default-story) after his label.
 
 <Canvas>
     <Story name="counter">
@@ -327,6 +323,7 @@ A checkbox group can handle `value` state in controlled mode.
 <ComponentInfo
     usage={"import { Checkbox } from \"@orbit-ui/react-components\""}
     slots={["label", "icon", "counter"]}
+    compact
 />
 
 <ArgsTable of={InnerCheckbox} />
@@ -335,6 +332,7 @@ A checkbox group can handle `value` state in controlled mode.
 
 <ComponentInfo
     usage={"import { CheckboxGroup } from \"@orbit-ui/react-components\""}
+    compact
 />
 
 <ArgsTable of={InnerCheckboxGroup} />
