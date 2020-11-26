@@ -173,16 +173,17 @@
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h2:first-of-type {
     margin: 1.5rem 0;
-    font-size: var(--type-scale-4);
+    font-size: var(--type-scale-3);
 }
 
 .sbdocs.sbdocs.sbdocs-h3 {
-    margin: 1.5rem 0 .5rem;
-    font-size: var(--type-scale-5);
+    margin: var(--scale-hotel) 0 var(--scale-delta);
+    font-size: var(--type-scale-4);
 }
 
 .sbdocs.sbdocs.sbdocs-h4 {
-    font-size: var(--type-scale-6);
+    font-size: var(--type-scale-5);
+    margin: var(--scale-foxtrot) 0 var(--scale-bravo);
 }
 
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
@@ -211,9 +212,14 @@
     color: var(--primary-700) !important;
 }
 
+/* Linke in P */
 .sbdocs.sbdocs-a:hover,
 .sbdocs.sbdocs-a:focus {
     text-decoration: underline;
+    outline: none;
+    border-radius: var(--o-ui-rounded-border-radius);
+    background-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
 }
 
 .sbdocs .sbdocs-a code {
