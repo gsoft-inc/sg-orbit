@@ -181,6 +181,10 @@
     font-size: var(--type-scale-5);
 }
 
+.sbdocs.sbdocs.sbdocs-h4 {
+    font-size: var(--type-scale-6);
+}
+
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h3 + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h4 + .sbdocs.sbdocs-p {
@@ -198,7 +202,7 @@
 
 .sbdocs.sbdocs-h1 + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-h1 + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p {
-    max-width: 60ch;
+    max-width: 75ch;
 }
 
 /* ELEMENTS | LINK */
