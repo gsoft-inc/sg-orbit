@@ -1,7 +1,7 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, FileCanvas } from "@stories/components";
-import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
+import { Content, Header } from "@react-components/view";
 import { ControlledAccordion } from "./ControlledAccordion.sample";
 import { CustomAccordion } from "./CustomAccordion.sample";
 import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
@@ -20,7 +20,7 @@ import { paramsBuilder } from "@stories/utils";
 Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
 
 <ComponentInfo
-    usage={"import { Accordion, Item, Header, Content } from \"@orbit-ui/react-components\""}
+    usage={"import { Accordion, Item, Header, Content, Text } from \"@orbit-ui/react-components\""}
     ariaPath="#accordion"
     githubPath="/packages/react-components/src/accordion/src"
 />
@@ -239,34 +239,6 @@ The selected `index` can be handled in controlled mode.
 />
 
 <ArgsTable of={InnerItem} />
-
-### Item
-
-<ComponentInfo
-    usage={"import { Item } from \"@orbit-ui/react-components\""}
-    compact
-/>
-
-<ArgsTable of={InnerItem} />
-
-### Header
-
-<ComponentInfo
-    usage={"import { Header } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text"]}
-    compact
-/>
-
-<ArgsTable of={InnerHeader} />
-
-### Content
-
-<ComponentInfo
-    usage={"import { Content } from \"@orbit-ui/react-components\""}
-    compact
-/>
-
-<ArgsTable of={InnerContent} />
 
 ### AccordionHeader
 
