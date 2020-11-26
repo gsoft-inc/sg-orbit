@@ -59,3 +59,9 @@
     width: 0.825rem;
     height: 0.825rem;
 }
+
+/* INHERIT */
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
+    fill: var(--white);
+    opacity: .9;
+}
