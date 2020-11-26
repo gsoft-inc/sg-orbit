@@ -1,121 +1,103 @@
 import { AllCheckedValidation } from "./AllCheckedValidation.sample";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@react-components/checkbox";
 import { CheckedValidation } from "./CheckedValidation.sample";
+import { ComponentInfo, FileCanvas } from "@stories/components";
 import { ControlledCheckbox } from "./ControlledCheckbox.sample";
 import { ControlledCheckboxGroup } from "./ControlledCheckboxGroup.sample";
 import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Checkbox")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/checkbox/src" />)
-        .build()}
+    title="Components/Checkbox"
+    id="checkbox"
 />
 
 # Checkbox
 
 A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
 
-## Installation
-
-<InstallReactComponents imports={<Imports />}/>
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Checkbox", component: InnerCheckbox },
-        { displayName: "CheckboxGroup", component: InnerCheckboxGroup }
-    ]}
+<ComponentInfo
+    usage={"import { Checkbox, CheckboxGroup, Text } from \"@orbit-ui/react-components\""}
+    ariaPath="#checkbox"
+    githubPath="/packages/react-components/src/checkbox/src"
 />
-
-## Accessibility
-
-Follow [WAI-ARIA design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices/#checkbox).
-
-## Slots
-
-Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
-### Label
+### Default
 
 A default checkbox.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Checkbox>Milky Way</Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### No label
 
 A checkbox can be rendered without a label.
 
-<Preview>
+<Canvas>
     <Story name="no label">
         <Checkbox />
     </Story>
-</Preview>
+</Canvas>
 
 ### Checked
 
 A checkbox can be checked.
 
-<Preview>
+<Canvas>
     <Story name="checked">
         <Checkbox defaultChecked>Milky Way</Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Indeterminate
 
 A checkbox can be indeterminate.
 
-<Preview>
+<Canvas>
     <Story name="indeterminate">
         <Checkbox defaultIndeterminate>Milky Way</Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A checkbox can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Checkbox disabled>Milky Way</Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-A checkbox can have [icons](?path=/docs/materials-icons--page) after his label.
+A checkbox can have [icons](?path=/docs/icon-gallery--page) after his label.
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <Checkbox>
             <Text>Milky Way</Text>
             <InfoIcon />
         </Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Counter
 
-A checkbox can have a [counter](?path=/docs/components-counter--default-story) after his label.
+A checkbox can have a [counter](?path=/docs/counter--default-story) after his label.
 
-<Preview>
+<Canvas>
     <Story name="counter">
         <Inline>
             <Checkbox>
@@ -128,26 +110,26 @@ A checkbox can have a [counter](?path=/docs/components-counter--default-story) a
             </Checkbox>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
 A checkbox can vary in size.
 
-<Preview>
+<Canvas>
     <Story name="size">
         <Inline verticalAlign="end">
             <Checkbox size="sm">Milky Way</Checkbox>
             <Checkbox>Milky Way</Checkbox>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Reverse
 
 A checkbox checkmark can be to the left or to the right of his label.
 
-<Preview>
+<Canvas>
     <Story name="reverse">
         <Checkbox reverse>
             <Text>Milky Way</Text>
@@ -155,23 +137,25 @@ A checkbox checkmark can be to the left or to the right of his label.
             <Counter variant="divider">6</Counter>
         </Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
-A checkbox can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+A checkbox can display a validation state to communicate to the user whether the current value is valid or invalid.
+
+Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
 
 The example below illustrates how one would validate if the user has checked the checkbox.
 
-<FilePreview filePath="/checkbox/stories/CheckedValidation">
+<FileCanvas filePath="/checkbox/docs/CheckedValidation">
     <CheckedValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Render Props
 
 A checkbox can update is content based on the `isChecked` value by providing a render prop function.
 
-<Preview>
+<Canvas>
     <Story name="render props">
         <Checkbox>
             {
@@ -181,21 +165,21 @@ A checkbox can update is content based on the `isChecked` value by providing a r
             }
         </Checkbox>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 A checkbox can handle `checked` state in controlled mode.
 
-<FilePreview filePath="/checkbox/stories/ControlledCheckbox">
+<FileCanvas filePath="/checkbox/docs/ControlledCheckbox">
     <ControlledCheckbox />
-</FilePreview>
+</FileCanvas>
 
 ## Checkbox Group
 
 Related checkboxes can be group together.
 
-<Preview>
+<Canvas>
     <Story name="checkbox group">
         <CheckboxGroup>
             <Checkbox value="milky-way">Milky Way</Checkbox>
@@ -203,13 +187,13 @@ Related checkboxes can be group together.
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Orientation
 
 A checkbox group can render his elements vertically.
 
-<Preview>
+<Canvas>
     <Story name="checkbox group orientation">
         <CheckboxGroup orientation="vertical">
             <Checkbox value="milky-way" >Milky Way</Checkbox>
@@ -217,13 +201,13 @@ A checkbox group can render his elements vertically.
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Reverse
 
 A checkbox group elements can be reversed.
 
-<Preview>
+<Canvas>
     <Story name="checkbox group reverse">
         <CheckboxGroup reverse>
             <Checkbox value="milky-way" >Milky Way</Checkbox>
@@ -231,23 +215,25 @@ A checkbox group elements can be reversed.
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
-A checkbox group can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+A checkbox group can display a validation state to communicate to the user whether the current value is valid or invalid.
+
+Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
 
 The example below illustrates how one would validate if the user has checked all the checkbox.
 
-<FilePreview filePath="/checkbox/stories/AllCheckedValidation">
+<FileCanvas filePath="/checkbox/docs/AllCheckedValidation">
     <AllCheckedValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Toggle Buttons
 
 In somes cases, you might want a group of toggle buttons to behave like a checkbox group.
 
-<Preview>
+<Canvas>
     <Story name="toggle buttons">
         <CheckboxGroup gap={2}>
             <ToggleButton value="none" variant="outline">None</ToggleButton>
@@ -257,21 +243,21 @@ In somes cases, you might want a group of toggle buttons to behave like a checkb
             <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
         </CheckboxGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Custom Components
 
 Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckableProps` hook.
 
-<FilePreview filePath="/checkbox/stories/CustomGroup">
+<FileCanvas filePath="/checkbox/docs/CustomGroup">
     <CustomGroup />
-</FilePreview>
+</FileCanvas>
 
 ### Wrapped
 
 Checkable components can be wrap on multiple lines.
 
-<Preview>
+<Canvas>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
             <CheckboxGroup wrap gap={2}>
@@ -286,13 +272,13 @@ Checkable components can be wrap on multiple lines.
             </CheckboxGroup>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 ### Render Props
 
 A checkbox groups can render his items with a render prop function.
 
-<Preview>
+<Canvas>
     <Story name="group render props">
         <CheckboxGroup>
             {
@@ -308,38 +294,61 @@ A checkbox groups can render his items with a render prop function.
             }
         </CheckboxGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 A checkbox group can handle `value` state in controlled mode.
 
-<FilePreview filePath="/checkbox/stories/ControlledCheckboxGroup">
+<FileCanvas filePath="/checkbox/docs/ControlledCheckboxGroup">
     <ControlledCheckboxGroup />
-</FilePreview>
+</FileCanvas>
 
 <Story
-    name="checkbox ref"
+    name="playground - checkbox"
     parameters={paramsBuilder()
+        .component(InnerCheckbox)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Checkbox>Milky Way</Checkbox>
-    </RefLogger>
+    {args =>
+        <InnerCheckbox {...args}>Milky Way</InnerCheckbox>
+    }
 </Story>
 
+## API
+
+### Checkbox
+
+<ComponentInfo
+    usage={"import { Checkbox } from \"@orbit-ui/react-components\""}
+    slots={["label", "icon", "counter"]}
+    compact
+/>
+
+<ArgsTable of={InnerCheckbox} />
+
+### CheckboxGroup
+
+<ComponentInfo
+    usage={"import { CheckboxGroup } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerCheckboxGroup} />
+
 <Story
-    name="checkbox group ref"
+    name="playground - checkbox group"
     parameters={paramsBuilder()
+        .component(InnerCheckboxGroup)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <CheckboxGroup>
-            <Checkbox value="milky-way">Milky Way</Checkbox>
+    {args =>
+        <CheckboxGroup {...args}>
+            <Checkbox value="milky-way" >Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
-    </RefLogger>
+    }
 </Story>

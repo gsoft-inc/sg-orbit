@@ -22,7 +22,7 @@ import { paramsBuilder } from "@stories/utils";
 Tabs are used to organize content by grouping similar information on the same page.
 
 <ComponentInfo
-    usage="import { Tabs, Item, Header, Content } from @orbit-ui/react-components"
+    usage={"import { Tabs, Item, Header, Content } from \"@orbit-ui/react-components\""}
     ariaPath="#tabpanel"
     githubPath="/packages/react-components/src/tabs/src"
 />
@@ -33,9 +33,32 @@ An accessible title must be provided through aria-label prop. See [WAI-ARIA](htt
 
 ## Usage
 
+### Default
+
+A default tabs.
+
+<Canvas>
+    <Story name="default">
+        <Tabs aria-label="Planets">
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Canvas>
+
 ### Icon
 
-A tab can contain [icons](?path=/docs/materials-icons--page).
+A tab can contain [icons](?path=/docs/icon-gallery--page).
 
 <Canvas>
     <Story name="icon">
@@ -94,13 +117,13 @@ A tab can update is content based on the `isActive` value by providing a render 
         <Tabs aria-label="Planets">
             <Item>
                 {({ isActive }) => (
-                    <Fragment>
+                    <>
                         <Header>
                             {isActive ? <LightbulbIcon /> : <NotificationIcon />}
                             <Text>Mars</Text>
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </Fragment>
+                    </>
                 )}
             </Item>
             <Item>
@@ -261,10 +284,8 @@ The selected `index` can be handled in controlled mode.
 
 ### Tabs
 
-Root tabs component.
-
 <ComponentInfo
-    usage="import { Tabs } from @orbit-ui/react-components"
+    usage={"import { Tabs } from \"@orbit-ui/react-components\""}
     compact
 />
 
@@ -272,10 +293,8 @@ Root tabs component.
 
 ### Item
 
-Placeholder component to define a tabs _item_.
-
 <ComponentInfo
-    usage="import { Item } from @orbit-ui/react-components"
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
     compact
 />
 
@@ -283,10 +302,8 @@ Placeholder component to define a tabs _item_.
 
 ### Header
 
-Placeholder component to define the _header_ of a tab.
-
 <ComponentInfo
-    usage="import { Header } from @orbit-ui/react-components"
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
     slots={["icon", "text", "lozenge"]}
     compact
 />
@@ -295,10 +312,8 @@ Placeholder component to define the _header_ of a tab.
 
 ### Content
 
-Placeholder component to define the _content_ of a tab.
-
 <ComponentInfo
-    usage="import { Content } from @orbit-ui/react-components"
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
     compact
 />
 
@@ -306,10 +321,8 @@ Placeholder component to define the _content_ of a tab.
 
 ### Tab
 
-Underlying tab component.
-
 <ComponentInfo
-    usage="import { Tab } from @orbit-ui/react-components"
+    usage={"import { Tab } from \"@orbit-ui/react-components\""}
     slots={["icon", "text", "lozenge"]}
     compact
 />
@@ -318,10 +331,8 @@ Underlying tab component.
 
 ### TabPanel
 
-Underlying tab panel component.
-
 <ComponentInfo
-    usage="import { TabPanel } from @orbit-ui/react-components"
+    usage={"import { TabPanel } from \"@orbit-ui/react-components\""}
     compact
 />
 

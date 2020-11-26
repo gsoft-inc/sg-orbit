@@ -1,34 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box } from "@react-components/box";
+import { ComponentInfo } from "@stories/components";
 import { Counter, InnerCounter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
-import { InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Counter")}
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/counter" />)
-        .build()}
+    title="Components/Counter"
+    id="counter"
 />
 
 # Counter
 
-A counter indicate a running tally. A counter is normally embedded in another component such as a [tag](?path=/docs/components-tag--default-story) or a [checkbox](?path=/docs/components-checkbox--default-story).
+A counter indicate a running tally. A counter is normally embedded in another component such as a [tag](?path=/docs/tag--default-story) or a [checkbox](?path=/docs/checkbox--default-story).
 
-## Installation
-
-<InstallReactComponents imports={<Imports />}/>
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Counter", component: InnerCounter }
-    ]}
+<ComponentInfo
+    usage={"import { Counter } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/counter"
 />
 
 ## Usage
@@ -37,30 +26,30 @@ A counter indicate a running tally. A counter is normally embedded in another co
 
 A default counter.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Counter>15</Counter>
     </Story>
-</Preview>
+</Canvas>
 
 ### Pill
 
 A counter can be rendered as a pill.
 
-<Preview>
+<Canvas>
     <Story name="pill">
         <Inline verticalAlign="end">
             <Counter size="sm">15</Counter>
             <Counter>15</Counter>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Divider
 
 A counter can be rendered as a divider.
 
-<Preview>
+<Canvas>
     <Story name="divider">
         <Inline verticalAlign="end">
             <Counter size="sm" variant="divider">100+</Counter>
@@ -70,39 +59,39 @@ A counter can be rendered as a divider.
             </Text>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Color
 
 A counter can use a different color accent.
 
-<Preview>
+<Canvas>
     <Story name="color">
         <Inline verticalAlign="center">
             <Counter color="light">15</Counter>
             <Counter color="light" variant="divider">100+</Counter>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Highlight
 
 A counter value can be highlighted.
 
-<Preview>
+<Canvas>
     <Story name="highlight">
         <Inline verticalAlign="center">
             <Counter highlight color="light">15</Counter>
             <Counter highlight color="light" variant="divider">100+</Counter>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Pushed
 
 A counter can pushed itself away from content.
 
-<Preview>
+<Canvas>
     <Story name="pushed">
         <Inline verticalAlign="center">
             <Box className="flex">
@@ -113,16 +102,31 @@ A counter can pushed itself away from content.
             </Box>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
+
+## API
+
+### Counter
+
+<ComponentInfo
+    usage={"import { Counter } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerCounter} />
 
 <Story
-    name="ref"
+    name="playground"
+    args={{
+        children: "15"
+    }}
     parameters={paramsBuilder()
+        .component(InnerCounter)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Counter>15</Counter>
-    </RefLogger>
+    {args =>
+        <InnerCounter {...args} />
+    }
 </Story>
 

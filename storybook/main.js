@@ -15,9 +15,12 @@ if (includeDocs) {
         "../packages/react-components/src/accordion/docs/**/*.stories.mdx",
         "../packages/react-components/src/alert/docs/**/*.stories.mdx",
         "../packages/react-components/src/badge/docs/**/*.stories.mdx",
+        "../packages/react-components/src/checkbox/docs/**/*.stories.mdx",
+        "../packages/react-components/src/counter/docs/**/*.stories.mdx",
+        "../packages/react-components/src/disclosure/docs/**/*.stories.mdx",
         "../packages/react-components/src/tabs/docs/**/*.stories.mdx",
         "../packages/react-components/src/icons/docs/**/*.stories.mdx",
-        "../packages/react-components/src/link/docs/Link.stories.mdx"
+        "../packages/react-components/src/link/docs/**/*.stories.mdx"
     ];
 }
 

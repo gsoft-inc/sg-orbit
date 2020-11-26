@@ -12,11 +12,11 @@ import { paramsBuilder } from "@stories/utils";
 
 # Installation
 
-Multiple [npm packages](?path=/docs/getting-started-packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
+Multiple [npm packages](?path=/docs/packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
 
 ## React bundle
 
-For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle. The bundle will install all the [core](?path=/docs/getting-started-packages--page#core) and [React](?path=/docs/getting-started-packages--page#react-components) packages of Orbit UI in 3 easy steps.
+For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle. The bundle will install all the [core](?path=/docs/packages--page#core) and [React](?path=/docs/packages--page#react-components) packages of Orbit UI in 3 easy steps.
 
 #### Install bundle packages
 
@@ -48,13 +48,13 @@ html, body {
 
 ## Custom installation
 
-If your app doesn't use React or you prefer to hand-pick a few [packages](?path=/docs/getting-started-packages--page), this is also possible.
+If your app doesn't use React or you prefer to hand-pick a few [packages](?path=/docs/packages--page), this is also possible.
 
 Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
 
 ### Core packages
 
-Before installing any [React components packages](?path=/docs/getting-started-packages--page#react-components), you must install the [core packages](?path=/docs/getting-started-packages--page#core). You can pick and choose the *core packages* to install but we do recommend installing all of them.
+Before installing any [React components packages](?path=/docs/packages--page#react-components), you must install the [core packages](?path=/docs/packages--page#core). You can pick and choose the *core packages* to install but we do recommend installing all of them.
 
 #### Install all core packages
 
@@ -97,7 +97,7 @@ html, body {
 
 ### React components packages
 
-Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/getting-started-packages--page#react-components).
+Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/packages--page#react-components).
 
 #### Install packages
 
@@ -111,7 +111,7 @@ import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/rea
 
 ## Icons
 
-[Orbit UI icons](?path=/docs/materials-icons--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using [Orbit UI React components](?path=/docs/getting-started-packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+[Orbit UI icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using [Orbit UI React components](?path=/docs/packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```js dark
 {

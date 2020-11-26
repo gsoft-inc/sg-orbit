@@ -4,8 +4,8 @@ import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Circle } from "./Circle.jsx";
 import { ComponentInfo } from "@stories/components";
 import { Inline } from "@react-components/layout";
-import { InnerText, Text } from "@react-components/text";
 import { Square } from "./Square.jsx";
+import { Text } from "@react-components/text";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -18,7 +18,7 @@ import { paramsBuilder } from "@stories/utils";
 A badge is a floating component displaying a notification such as a count.
 
 <ComponentInfo
-    usage="import { Badge } from @orbit-ui/react-components"
+    usage={"import { Badge, Text } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/badge/src"
 />
 
@@ -141,22 +141,11 @@ A badge can overlap over elements with different shape.
 Root badge component.
 
 <ComponentInfo
-    usage="import { Badge } from @orbit-ui/react-components"
+    usage={"import { Badge } from \"@orbit-ui/react-components\""}
     compact
 />
 
 <ArgsTable of={InnerBadge} />
-
-### Text
-
-Placeholder component to define the *text* of a badge.
-
-<ComponentInfo
-    usage="import { Text } from @orbit-ui/react-components"
-    compact
-/>
-
-<ArgsTable of={InnerText} />
 
 <Story
     name="playground"
