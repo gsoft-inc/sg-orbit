@@ -1,0 +1,75 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo } from "@stories/components";
+import { Dot, InnerDot } from "@react-components/dot";
+import { Inline } from "@react-components/layout";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Components/Dot"
+    id="dot"
+/>
+
+# Dot
+
+<ComponentInfo
+    usage={"import { Dot } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/dot/src"
+/>
+
+## Usage
+
+### Default
+
+A default dot.
+
+<Canvas>
+    <Story name="default">
+        <Dot />
+    </Story>
+</Canvas>
+
+### Label
+
+A dot can have a label.
+
+<Canvas>
+    <Story name="label">
+        <Dot>Habitable</Dot>
+    </Story>
+</Canvas>
+
+### Color
+
+A dot can have a color.
+
+<Canvas>
+    <Story name="color">
+        <Inline>
+            <Dot color="success-500">Habitable</Dot>
+            <Dot color="alert-500">Uninhabitable</Dot>
+        </Inline>
+    </Story>
+</Canvas>
+
+## API
+
+### Dot
+
+<ComponentInfo
+    usage={"import { Dot } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerDot} />
+
+<Story
+    name="playground"
+    parameters={paramsBuilder()
+        .component(InnerDot)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerDot {...args} />
+    }
+</Story>

@@ -6,7 +6,8 @@ const P = components.p;
 
 export function Tagline({ children, ...rest }) {
     return (
-        <P className="o-ui-sb-Tagline"
+        <P
+            className="o-ui-sb-tagline"
             {...rest}
         >
             {children}

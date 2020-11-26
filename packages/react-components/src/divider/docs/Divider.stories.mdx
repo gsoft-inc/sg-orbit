@@ -1,46 +1,41 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@stories/components";
-import { RefLogger, paramsBuilder } from "@stories/utils";
 import { TextLink } from "@react-components/link";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Divider"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/divider/src" />)
-        .build()}
+    title="Components/Divider"
+    id="divider"
 />
 
 # Divider
 
-A divider to separates and distinguishes sections of content or groups of menuitems.
+<Tagline>A divider to separates and distinguishes sections of content or groups of menuitems.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Divider from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/divider/src"
+/>
 
 ## Usage
 
-### Horizontal
+### Default
 
 By default a divider render horizontally which takes the width of it's container.
 
-<Preview>
+<Canvas>
     <Story name="horizontal">
         <Divider />
     </Story>
-</Preview>
+</Canvas>
 
 ### Vertical
 
 A divider can change his orientation to vertical.
 
-<Preview>
+<Canvas>
     <Story name="vertical">
         <Box className="flex">
             <Dot color="success-500">Starlink operational</Dot>
@@ -50,39 +45,47 @@ A divider can change his orientation to vertical.
             <TextLink href="#">View logs</TextLink>
         </Box>
     </Story>
-</Preview>
+</Canvas>
 
 ### Labelled
 
 A divider can have a label when it's render horizontally:
 
-<Preview>
+<Canvas>
     <Story name="labelled horizontally">
         <Divider>Last 30 days</Divider>
     </Story>
-</Preview>
+</Canvas>
 
 Or vertically:
 
-<Preview>
+<Canvas>
     <Story name="labelled vertically">
         <Box style={{ height: "150px" }}>
             <Divider orientation="vertical">Last 30 days</Divider>
         </Box>
     </Story>
-</Preview>
+</Canvas>
 
-## Props
+## API
 
-<Props of={InnerDivider} />
+### Divider
+
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerDivider} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerDivider)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Divider />
-    </RefLogger>
+    {args =>
+        <Divider {...args} />
+    }
 </Story>
