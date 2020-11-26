@@ -2,7 +2,7 @@ import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, SuccessAler
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, FileCanvas } from "@stories/components";
-import { Content } from "@react-components/view";
+import { Content, InnerContent } from "@react-components/view";
 import { ControlledAlert } from "./ControlledAlert.sample";
 import { EmailIcon } from "@react-components/icons";
 import { Heading } from "@react-components/heading";
@@ -19,7 +19,7 @@ import { paramsBuilder } from "@stories/utils";
 An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.
 
 <ComponentInfo
-    usage={"import { Alert, Heading, Content } from \"@orbit-ui/react-components\""}
+    usage={"import { Alert, Content } from \"@orbit-ui/react-components\""}
     ariaPath="#alert"
     githubPath="/packages/react-components/src/alert/src"
 />
@@ -157,8 +157,6 @@ An alert can handle `show` state in controlled mode.
 
 ### Alert
 
-Generic Alert component.
-
 <ComponentInfo
     usage={"import { Alert } from \"@orbit-ui/react-components\""}
     slots={["icon", "content", "button"]}
@@ -168,8 +166,6 @@ Generic Alert component.
 <ArgsTable of={InnerAlert} />
 
 ### InfoAlert
-
-Alert component template for _info_ tone.
 
 <ComponentInfo
     usage={"import { InfoAlert } from \"@orbit-ui/react-components\""}
@@ -181,8 +177,6 @@ Alert component template for _info_ tone.
 
 ### SuccessAlert
 
-Alert component template for _success_ tone.
-
 <ComponentInfo
     usage={"import { SuccessAlert } from \"@orbit-ui/react-components\""}
     slots={["content", "button"]}
@@ -192,8 +186,6 @@ Alert component template for _success_ tone.
 <ArgsTable of={AlertTemplate} />
 
 ### WarningAlert
-
-Alert component template for _warning_ tone.
 
 <ComponentInfo
     usage={"import { WarningAlert } from \"@orbit-ui/react-components\""}
@@ -205,8 +197,6 @@ Alert component template for _warning_ tone.
 
 ### CriticalAlert
 
-Alert component template for _critical_ tone.
-
 <ComponentInfo
     usage={"import { CriticalAlert } from \"@orbit-ui/react-components\""}
     slots={["content", "button"]}
@@ -214,6 +204,15 @@ Alert component template for _critical_ tone.
 />
 
 <ArgsTable of={AlertTemplate} />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
 
 <Story
     name="playground"
