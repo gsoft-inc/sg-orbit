@@ -1,4 +1,4 @@
-import { ExternalLink, TachyonsFile } from "@stories/components";
+import { ExternalLink, TachyonsFile, Tagline } from "@stories/components";
 import { Fragment } from "react";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { UtilitiesTable } from "./UtilitiesTable";
@@ -10,11 +10,9 @@ import { UtilitiesTable } from "./UtilitiesTable";
 
 # Flexbox
 
-Flexbox helps achieve powerful horizontal or vertical layouts without JavaScript.
+<Tagline>Flexbox helps achieve powerful horizontal or vertical layouts without JavaScript.</Tagline>
 
-Before using these utilities, you should be familiar with CSS3 Flexible Box specifications. If you are not, check out this [CSS-Tricks guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-
-You will find most of the documentation for flexbox utilities on [Tachyons website](http://tachyons.io/docs/layout/flexbox/).
+Before using these utilities, you should be familiar with CSS3 Flexible Box specifications. If you are not, check out this [CSS-Tricks guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). You will find most of the documentation for flexbox utilities on [Tachyons website](http://tachyons.io/docs/layout/flexbox/).
 
 For an exhaustive list of utilities classes for flexbox **including our customizations**, please refer to the [Tachyons section](#tachyons) below.
 
@@ -26,7 +24,7 @@ A few flexbox utilities have been added to Tachyons for common use cases that we
     utilities={[
         {
             name: "flex-grow-0",
-            description: "Use when you don't want the item to be given additional space during items size calculation.",
+            Tagline: "Use when you don't want the item to be given additional space during items size calculation.",
             example: (
                 <div className="flex bg-sunray-100 ba b--sunray-200">
                     <div className="flex-auto flex-grow-0 pa2 ba b--sunray-200 f6">flex-grow-0 item</div>
@@ -36,7 +34,7 @@ A few flexbox utilities have been added to Tachyons for common use cases that we
         },
         {
             name: "flex-grow-1",
-            description: "Use when you want the item to take as much space as available during items size calculation.",
+            Tagline: "Use when you want the item to take as much space as available during items size calculation.",
             example: (
                 <div className="flex bg-sunray-100 ba b--sunray-200">
                     <div className="flex-grow-1 pa2 ba b--sunray-200 f6">flex-grow-1 item</div>

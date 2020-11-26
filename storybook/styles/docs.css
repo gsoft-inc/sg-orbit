@@ -192,17 +192,7 @@
     margin: 0 0 1rem 0;
 }
 
-/* FIRST P */
-.sbdocs.sbdocs-h1 + .sbdocs.sbdocs-p {
-    font-size: var(--type-scale-5);
-    line-height: 1.2;
-    margin: var(--scale-delta) 0 1rem 0;
-    color: var(--marine-500);
-    max-width: 60ch;
-}
-
-.sbdocs.sbdocs-h1 + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p,
-.sbdocs.sbdocs-h1 + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p + .sbdocs.sbdocs-p {
+.sbdocs.sbdocs-p {
     max-width: 75ch;
 }
 
@@ -212,11 +202,15 @@
     color: var(--primary-700) !important;
 }
 
-/* Linke in P */
 .sbdocs.sbdocs-a:hover,
 .sbdocs.sbdocs-a:focus {
     text-decoration: underline;
     outline: none;
+}
+
+/* ELEMENTS | LINK | IN PARAGRAGH */
+.sbdocs.sbdocs-p .sbdocs-a {
+    font-size: inherit;
 }
 
 .sbdocs.sbdocs-a:focus {

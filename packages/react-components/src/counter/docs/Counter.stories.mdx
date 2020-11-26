@@ -1,6 +1,6 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box } from "@react-components/box";
-import { ComponentInfo } from "@stories/components";
+import { ComponentInfo, Tagline } from "@stories/components";
 import { Counter, InnerCounter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
@@ -13,7 +13,9 @@ import { paramsBuilder } from "@stories/utils";
 
 # Counter
 
-A counter indicate a running tally. A counter is normally embedded in another component such as a [tag](?path=/docs/tag--default-story) or a [checkbox](?path=/docs/checkbox--default-story).
+<Tagline>A counter indicate a running tally.</Tagline>
+
+A counter is normally embedded in another component such as a [tag](?path=/docs/tag--default-story) or a [checkbox](?path=/docs/checkbox--default-story).
 
 <ComponentInfo
     usage={"import { Counter } from \"@orbit-ui/react-components\""}
