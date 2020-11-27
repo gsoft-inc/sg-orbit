@@ -1,7 +1,7 @@
 import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
-import { Content } from "@react-components/view";
+import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";

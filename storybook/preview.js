@@ -13,6 +13,19 @@ import "@orbit-ui/tachyons/dist/apricot.css";
 import "./styles";
 
 export const parameters = {
+    options: {
+        storySort: {
+            method: "alphabetical",
+            order: [
+                "Getting Started",
+                ["Packages", "Installation", "Foundation", "Tachyons", "Slots", "Supported Platforms", "Contributing"],
+                "Materials",
+                ["Borders", "Colors", "Flexbox", "Grid", "Icons", "Shadows", "Spacing", "Typography"],
+                "Components",
+                "Chromatic"
+            ]
+        }
+    },
     // TODO: Maybe remove?
     actions: {
         argTypesRegex: "^on[A-Z].*"

@@ -1,6 +1,6 @@
 import { Alert } from "@react-components/alert";
 import { Button } from "@react-components/button";
-import { Content } from "@react-components/view";
+import { Content } from "@react-components/placeholders";
 import { EmailIcon } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
 import { useCallback, useState } from "react";

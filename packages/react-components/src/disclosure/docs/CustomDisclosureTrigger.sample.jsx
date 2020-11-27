@@ -1,6 +1,6 @@
 import { Box } from "@react-components/box";
 import { ChevronIcon } from "@react-components/icons";
-import { Content } from "@react-components/view";
+import { Content } from "@react-components/placeholders";
 import { Disclosure } from "@react-components/disclosure";
 import { useDisclosureContext } from "@react-components/disclosure";
 import cx from "classnames";

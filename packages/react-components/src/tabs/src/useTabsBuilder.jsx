@@ -1,5 +1,5 @@
 import { Children, useMemo } from "react";
-import { Content, Header } from "../../view";
+import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 

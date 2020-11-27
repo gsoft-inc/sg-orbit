@@ -1,6 +1,6 @@
 import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
-import { Content } from "@react-components/view";
-import { Item } from "@react-components/collection";
+import { Content } from "@react-components/placeholders";
+import { Item } from "@react-components/placeholders";
 
 function ActiveHeader({ children, ...rest }) {
     const { isOpen } = useAccordionItemContext();

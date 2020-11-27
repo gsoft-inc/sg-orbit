@@ -1,0 +1,40 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { Content, InnerContent } from "@react-components/placeholders";
+
+<Meta
+    title="Components/Content"
+    id="content"
+/>
+
+# Content
+
+<Tagline>A placeholder for a content section.</Tagline>
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/placeholders/src"
+/>
+
+## Usage
+
+### Example
+
+A content placeholder component *provides no specific styling by itself, but receives styling from the parent container*. In addition, a content placeholder will be automatically placed within the container's layout according to Orbit UI guidelines.
+
+<Canvas>
+    <Story name="example">
+        <Content>The Earth is the cradle of humanity, but mankind cannot stay in the cradle forever.</Content>
+    </Story>
+</Canvas>
+
+## API
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerContent} />

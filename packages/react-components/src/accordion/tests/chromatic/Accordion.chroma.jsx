@@ -1,9 +1,9 @@
 import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
-import { Content, Header } from "@react-components/view";
+import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/collection";
+import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
 import { storiesOfBuilder } from "@stories/utils";

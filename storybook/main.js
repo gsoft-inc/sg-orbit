@@ -25,7 +25,6 @@ if (includeChromatic) {
 module.exports = {
     stories: stories,
     addons: [
-        "@storybook/addon-links",
         "@storybook/addon-essentials"
     ],
     webpackFinal: customizeWebpack

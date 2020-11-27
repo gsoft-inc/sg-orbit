@@ -1,5 +1,5 @@
 import { ChevronIcon } from "@react-components/icons";
-import { Content } from "@react-components/view";
+import { Content } from "@react-components/placeholders";
 import { Disclosure } from "@react-components/disclosure";
 import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";

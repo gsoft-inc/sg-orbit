@@ -1,8 +1,8 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
-import { Content, Header } from "@react-components/view";
+import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/collection";
+import { Item } from "@react-components/placeholders";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";

@@ -1,7 +1,7 @@
 import { ArrowIcon } from "@react-components/icons";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
-import { Content } from "@react-components/view";
+import { Content } from "@react-components/placeholders";
 import { Disclosure, useDisclosureContext } from "@react-components/disclosure";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";

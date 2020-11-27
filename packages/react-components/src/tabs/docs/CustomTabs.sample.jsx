@@ -1,5 +1,5 @@
-import { Content, Header } from "@react-components/view";
-import { Item } from "@react-components/collection";
+import { Content, Header } from "@react-components/placeholders";
+import { Item } from "@react-components/placeholders";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Tab, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";

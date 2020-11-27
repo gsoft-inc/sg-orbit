@@ -1,7 +1,7 @@
 import { Box } from "@react-components/box";
-import { Content, Header } from "@react-components/view";
+import { Content, Header } from "@react-components/placeholders";
 import { Dimmer, Loader } from "semantic-ui-react";
-import { Item } from "@react-components/collection";
+import { Item } from "@react-components/placeholders";
 import { Tabs } from "@react-components/tabs";
 import { isNil } from "lodash";
 import { useEffect, useState } from "react";

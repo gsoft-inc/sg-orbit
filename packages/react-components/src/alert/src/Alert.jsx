@@ -1,7 +1,7 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { Content } from "../../view";
+import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { StyleProvider, cssModule, mergeClasses, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../text";

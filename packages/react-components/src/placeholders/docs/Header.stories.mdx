@@ -1,0 +1,40 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { Header, InnerHeader } from "@react-components/placeholders";
+
+<Meta
+    title="Components/Header"
+    id="header"
+/>
+
+# Content
+
+<Tagline>A placeholder for an header section.</Tagline>
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/placeholders/src"
+/>
+
+## Usage
+
+### Example
+
+An header placeholder component *provides no specific styling by itself, but receives styling from the parent container*. In addition, an header placeholder will be automatically placed within the container's layout according to Orbit UI guidelines.
+
+<Canvas>
+    <Story name="example">
+        <Header>We are the light that travels into space.</Header>
+    </Story>
+</Canvas>
+
+## API
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} />
