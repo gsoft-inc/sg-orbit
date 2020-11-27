@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Tagline } from "@stories/components";
 import { InnerBox } from "@react-components/box";
 import { paramsBuilder } from "@stories/utils";
@@ -17,7 +17,24 @@ import { paramsBuilder } from "@stories/utils";
     githubPath="/packages/react-components/src/box/src"
 />
 
+## Usage
+
+### Default
+
+A default box.
+
+<Canvas>
+    <Story name="default">
+        <Box>Enjoy space like never before.</Box>
+    </Story>
+</Canvas>
+
 ## API
+
+<ComponentInfo
+    usage={"import { Box } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
 <ArgsTable of={InnerBox} />
 

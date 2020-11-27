@@ -1,45 +1,28 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { CheckedValidation } from "./CheckedValidation.sample";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { ControlledSwitch } from "./ControlledSwitch.sample";
 import { Counter } from "@react-components/counter";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Switch")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/toggle/src" />)
-        .build()}
+    title="Components/Switch"
+    id="switch"
 />
 
 # Switch
 
-A switch offers an on or off choice to a user.
+<Tagline>A switch offers an on or off choice to a user.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Switch", component: InnerSwitch }
-    ]}
+<ComponentInfo
+    usage={"import { Switch } from \"@orbit-ui/react-components\""}
+    ariaPath="#checkbox"
+    githubPath="/packages/react-components/src/switch/src"
 />
-
-## Accessibility
-
-Follow [WAI-ARIA design pattern for checkbox](https://www.w3.org/TR/wai-aria-practices/#checkbox).
-
-## Slots
-
-Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -47,61 +30,61 @@ Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-
 
 A default switch.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Switch>Engines</Switch>
     </Story>
-</Preview>
+</Canvas>
 
 ### Checked
 
 A switch can be checked.
 
-<Preview>
+<Canvas>
     <Story name="checked">
         <Switch defaultChecked>Engines</Switch>
     </Story>
-</Preview>
+</Canvas>
 
 
 ### No label
 
 A switch can be rendered without a label.
 
-<Preview>
+<Canvas>
     <Story name="no label">
         <Switch />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A switch can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Switch disabled>Engines</Switch>
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-A switch can have [icons](?path=/docs/materials-icons--page) after his text.
+A switch can have [icons](?path=/docs/icon-gallery--page) after his text.
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <Switch>
             <Text>Pressurization</Text>
             <LightbulbIcon />
         </Switch>
     </Story>
-</Preview>
+</Canvas>
 
 ### Counter
 
-A switch can have a [counter](?path=/docs/components-counter--default-story) after his text.
+A switch can have a [counter](?path=/docs/counter--default-story) after his text.
 
-<Preview>
+<Canvas>
     <Story name="counter">
         <Inline>
             <Switch>
@@ -114,26 +97,26 @@ A switch can have a [counter](?path=/docs/components-counter--default-story) aft
             </Switch>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
 A switch can vary in size.
 
-<Preview>
+<Canvas>
     <Story name="size">
         <Inline verticalAlign="end">
             <Switch size="sm">Engines</Switch>
             <Switch>Engines</Switch>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Reverse
 
 A checkbox checkmark can be to the left or to the right of his label.
 
-<Preview>
+<Canvas>
     <Story name="reverse">
         <Switch reverse>
             <InfoIcon />
@@ -141,7 +124,7 @@ A checkbox checkmark can be to the left or to the right of his label.
             <Counter variant="divider">6</Counter>
         </Switch>
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
@@ -149,15 +132,15 @@ A switch can display a validation state to communicate to the user whether the c
 
 The example below illustrates how one would validate if the user has checked the switch.
 
-<FilePreview filePath="/switch/stories/CheckedValidation">
+<FileCanvas filePath="/switch/docs/CheckedValidation">
     <CheckedValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Render Props
 
 A switch can update is content based on the `isChecked` value by providing a render prop function.
 
-<Preview>
+<Canvas>
     <Story name="render props">
         <Switch>
             {
@@ -167,24 +150,40 @@ A switch can update is content based on the `isChecked` value by providing a ren
             }
         </Switch>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 A switch can handle `checked` state in controlled mode.
 
-<FilePreview filePath="/switch/stories/ControlledSwitch">
+<FileCanvas filePath="/switch/docs/ControlledSwitch">
     <ControlledSwitch />
-</FilePreview>
+</FileCanvas>
+
+## API
+
+### Switch
+
+<ComponentInfo
+    usage={"import { Switch } from \"@orbit-ui/react-components\""}
+    slots={["label", "icon", "counter"]}
+    compact
+/>
+
+<ArgsTable of={InnerSwitch} />
 
 <Story
-    name="ref"
+    name="playground"
+    args={{
+        children: "Engines"
+    }}
     parameters={paramsBuilder()
+        .component(InnerSwitch)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Switch>Engines</Switch>
-    </RefLogger>
+    {args =>
+        <InnerSwitch {...args}>Engines</InnerSwitch>
+    }
 </Story>
 

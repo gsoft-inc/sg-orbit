@@ -26,11 +26,15 @@ if (includeDocs) {
         "../packages/react-components/src/icons/docs/**/*.stories.mdx",
         "../packages/react-components/src/image/docs/**/*.stories.mdx",
         "../packages/react-components/src/input/docs/**/*.stories.mdx",
+        "../packages/react-components/src/link/docs/**/*.stories.mdx",
         "../packages/react-components/src/lozenge/docs/**/*.stories.mdx",
         "../packages/react-components/src/paragraph/docs/**/*.stories.mdx",
         "../packages/react-components/src/radio/docs/**/*.stories.mdx",
+        "../packages/react-components/src/switch/docs/**/*.stories.mdx",
         "../packages/react-components/src/tabs/docs/**/*.stories.mdx",
-        "../packages/react-components/src/link/docs/**/*.stories.mdx"
+        "../packages/react-components/src/tag/docs/**/*.stories.mdx",
+        "../packages/react-components/src/text/docs/**/*.stories.mdx",
+        "../packages/react-components/src/toolbar/docs/**/*.stories.mdx"
     ];
 }
 

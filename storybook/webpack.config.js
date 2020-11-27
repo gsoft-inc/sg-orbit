@@ -12,11 +12,6 @@ function addWebpackAliases(config) {
     };
 }
 
-// function bundleCustomReactComponents(config) {
-//     // Otherwise webpack babel-loader will only handle files in /storybook.
-//     config.module.rules[0].include.push(path.resolve(__dirname, "..", "packages"));
-// }
-
 // Currently required for:
 //   - https://github.com/reworkcss/css
 function supportPackagesWithDependencyOnNodeFileSystem(config) {

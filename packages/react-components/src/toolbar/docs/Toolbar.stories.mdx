@@ -1,40 +1,27 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { CheckboxGroup } from "@react-components/checkbox";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { CustomToolbar } from "./CustomComponent.sample";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { InnerToolbar, Toolbar } from "@react-components/toolbar";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { TextInput } from "@react-components/input";
 import { ToggleButton } from "@react-components/button";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Toolbar")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/toolbar/src" />)
-        .build()}
+    title="Components/Toolbar"
+    id="toolbar"
 />
 
 # Toolbar
 
-A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.
+<Tagline>A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Toolbar", component: InnerToolbar }
-    ]}
+<ComponentInfo
+    usage={"import { Toolbar } from \"@orbit-ui/react-components\""}
+    ariaPath="#toolbar"
+    githubPath="/packages/react-components/src/toolbar/src"
 />
-
-## Accessibility
-
-Follow [WAI-ARIA design pattern for toolbar](https://www.w3.org/TR/wai-aria-practices/#toolbar).
 
 ## Usage
 
@@ -42,7 +29,7 @@ Follow [WAI-ARIA design pattern for toolbar](https://www.w3.org/TR/wai-aria-prac
 
 A default toolbar.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <Toolbar>
             <TextInput placeholder="Destination" />
@@ -56,13 +43,13 @@ A default toolbar.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A toolbar control can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled control">
         <Toolbar>
             <TextInput placeholder="Destination" />
@@ -76,11 +63,11 @@ A toolbar control can be disabled.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Preview>
+</Canvas>
 
 Or all the controls.
 
-<Preview>
+<Canvas>
     <Story name="disabled toolbar">
         <Toolbar disabled>
             <TextInput placeholder="Destination" />
@@ -94,13 +81,13 @@ Or all the controls.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Preview>
+</Canvas>
 
 ### Gap
 
 The gap between a toolbar controls can be configured.
 
-<Preview>
+<Canvas>
     <Story name="gap">
         <Toolbar gap={9}>
             <TextInput placeholder="Destination" />
@@ -114,13 +101,13 @@ The gap between a toolbar controls can be configured.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Preview>
+</Canvas>
 
 ### Orientation
 
 A toolbar can change his orientation to `vertical` to render his controls horizontally.
 
-<Preview>
+<Canvas>
     <Story name="orientation">
         <Toolbar orientation="vertical">
             <TextInput placeholder="Destination" />
@@ -134,13 +121,13 @@ A toolbar can change his orientation to `vertical` to render his controls horizo
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Preview>
+</Canvas>
 
 ### Wrapped
 
 Toolbar controls can be wrap on multiple lines.
 
-<Preview>
+<Canvas>
     <Story name="wrap">
         <div style={{ width: "700px" }}>
             <Toolbar wrap>
@@ -156,27 +143,47 @@ Toolbar controls can be wrap on multiple lines.
             </Toolbar>
         </div>
     </Story>
-</Preview>
-
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Toolbar>
-            <TextInput placeholder="Destination" />
-        </Toolbar>
-    </RefLogger>
-</Story>
+</Canvas>
 
 ### Custom Components
 
 Any component can be added to a toolbar and behave as an element of the group. However to benefit from state propagation features, a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarProps` hook.
 
-<FilePreview filePath="/toolbar/stories/CustomComponent">
+<FileCanvas filePath="/toolbar/stories/CustomComponent">
     <CustomToolbar />
-</FilePreview>
+</FileCanvas>
+
+## API
+
+### Toolbar
+
+<ComponentInfo
+    usage={"import { Toolbar } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerToolbar} />
+
+<Story
+    name="playground"
+    parameters={paramsBuilder()
+        .component(InnerToolbar)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerToolbar {...args}>
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </InnerToolbar>
+    }
+</Story>
 
 
