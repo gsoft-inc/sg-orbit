@@ -54,6 +54,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md"]),
     /**
+     * Whether or not the checkbox is disabled.
+     */
+    disabled: bool,
+    /**
      * Invert the order the checkmark box and the label.
      */
     reverse: bool,
@@ -68,7 +72,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func])
 };

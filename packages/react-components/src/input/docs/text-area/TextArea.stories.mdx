@@ -1,34 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { CrossButton } from "@react-components/button";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { InnerTextArea, TextArea } from "@react-components/input";
 import { LengthValidation } from "./LengthValidation.sample";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("TextArea")}
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
-        .build()}
+    title="Components/TextArea"
+    id="textarea"
 />
 
 # TextArea
 
-A text area is a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text.
+<Tagline>A text area is a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "TextArea", component: InnerTextArea }
-    ]}
+<ComponentInfo
+    usage={"import { TextArea } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/input/src"
 />
 
 ## Usage
@@ -37,85 +26,85 @@ A text area is a multi-line plain-text editing control, useful when you want to 
 
 A default text input.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <TextArea placeholder="Why should you go to space?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Value
 
 A text area can have a value.
 
-<Preview>
+<Canvas>
     <Story name="value">
         <TextArea defaultValue="To fly high!" placeholder="Why should you go to space?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Button
 
-A text area can contain a [button](?path=/docs/components-button--default-story).
+A text area can contain a [button](?path=/docs/button--default-story).
 
-<Preview>
+<Canvas>
     <Story name="button">
         <Inline>
             <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Why should you go to space?" />
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Max Rows
 
 A text are can be limited to a maximum number of rows.
 
-<Preview>
+<Canvas>
     <Story name="max rows">
         <Inline>
             <TextArea maxRows={5} placeholder="Why should you go to space?" />
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A text area can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <TextArea disabled placeholder="Why should you go to space?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Readonly
 
 A text area can be readonly.
 
-<Preview>
+<Canvas>
     <Story name="readonly">
         <TextArea readOnly defaultValue="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
     </Story>
-</Preview>
+</Canvas>
 
 ### Loading
 
 A text area can show that it is currently loading data.
 
-<Preview>
+<Canvas>
     <Story name="loading">
         <TextArea loading />
     </Story>
-</Preview>
+</Canvas>
 
 ### Fluid
 
 A text area can take the width of its container.
 
-<Preview>
+<Canvas>
     <Story name="fluid">
         <TextArea fluid placeholder="Why should you go to space?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
@@ -123,29 +112,41 @@ A text input can display a validation state to communicate to the user whether t
 
 The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
 
-<FilePreview filePath="/input/stories/text-area/LengthValidation">
+<FileCanvas filePath="/input/docs/text-area/LengthValidation">
     <LengthValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Transparent
 
 A text area can be transparent.
 
-<Preview>
+<Canvas>
     <Story name="transparent">
         <TextArea variant="transparent" placeholder="Why should you go to space?" />
     </Story>
-</Preview>
+</Canvas>
+
+## API
+
+### TextArea
+
+<ComponentInfo
+    usage={"import { TextArea } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTextArea} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerTextArea)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <TextArea />
-    </RefLogger>
+    {args =>
+        <TextArea {...args} />
+    }
 </Story>
 
 

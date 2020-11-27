@@ -1,35 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { CrossButton } from "@react-components/button";
 import { EditIcon } from "@react-components/icons";
 import { EmailValidation } from "./EmailValidation.sample";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/input";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("TextInput")}
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
-        .build()}
+    title="Components/TextInput"
+    id="text-input"
 />
 
 # TextInput
 
-A text input allow a user to enter and edit a text.
+<Tagline>A text input allow a user to enter and edit a text.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "TextInput", component: InnerTextInput },
-        { displayName: "PasswordInput", component: InnerPasswordInput }
-    ]}
+<ComponentInfo
+    usage={"import { TextArea } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/input/src"
 />
 
 ## Usage
@@ -38,81 +26,81 @@ A text input allow a user to enter and edit a text.
 
 A default text input.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <TextInput placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Value
 
 A text input can have a value.
 
-<Preview>
+<Canvas>
     <Story name="value">
         <TextInput defaultValue="Deep space" placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-A text input can contain an [icon](?path=/docs/materials-icons--page).
+A text input can contain an [icon](?path=/docs/icon-gallery--page).
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <TextInput icon={<EditIcon />} placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Button
 
-A text input can contain a [button](?path=/docs/components-button--default-story).
+A text input can contain a [button](?path=/docs/button--default-story).
 
-<Preview>
+<Canvas>
     <Story name="button">
         <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A text input can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <TextInput disabled placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Readonly
 
 A text input can be readonly.
 
-<Preview>
+<Canvas>
     <Story name="readonly">
         <TextInput readOnly defaultValue="Deep space" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Loading
 
 A text input can show that it is currently loading data.
 
-<Preview>
+<Canvas>
     <Story name="loading">
         <TextInput loading />
     </Story>
-</Preview>
+</Canvas>
 
 ### Fluid
 
 A text input can take the width of its container.
 
-<Preview>
+<Canvas>
     <Story name="fluid">
         <TextInput fluid placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
@@ -120,48 +108,70 @@ A text input can display a validation state to communicate to the user whether t
 
 The example below illustrates how one would validate if the user has entered a valid email.
 
-<FilePreview filePath="/input/stories/text-input/EmailValidation">
+<FileCanvas filePath="/input/docs/text-input/EmailValidation">
     <EmailValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Transparent
 
 A text input can be transparent.
 
-<Preview>
+<Canvas>
     <Story name="transparent">
         <TextInput variant="transparent" placeholder="Where to?" />
     </Story>
-</Preview>
+</Canvas>
 
 ## PasswordInput
 
 A specialized text input which show / hide a password.
 
-<Preview>
+<Canvas>
     <Story name="password">
         <PasswordInput />
     </Story>
-</Preview>
+</Canvas>
+
+## API
+
+### TextInput
+
+<ComponentInfo
+    usage={"import { TextInput } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTextInput} />
+
+### PasswordInput
+
+<ComponentInfo
+    usage={"import { PasswordInput } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerPasswordInput} />
 
 <Story
-    name="ref"
+    name="playground - text input"
     parameters={paramsBuilder()
+        .component(InnerTextInput)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <TextInput />
-    </RefLogger>
+    {args =>
+        <TextInput {...args} />
+    }
 </Story>
 
 <Story
-    name="password ref"
+    name="playground - password input"
     parameters={paramsBuilder()
+        .component(InnerPasswordInput)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <PasswordInput />
-    </RefLogger>
+    {args =>
+        <PasswordInput {...args} />
+    }
 </Story>

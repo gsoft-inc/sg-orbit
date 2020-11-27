@@ -1,42 +1,31 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@react-components/field";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
 import { PasswordInput, TextInput } from "@react-components/input";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { RegistrationForm } from "./RegistrationForm.sample";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Form")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/form/src" />)
-        .build()}
+    title="Components/Form"
+    id="form"
 />
 
 # Form
 
-Forms are commonly used to provide user interaction in web applications.
+<Tagline>Forms are commonly used to provide user interaction in web applications.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />}/>
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Form", component: InnerForm },
-        { displayName: "Row", component: InnerRow }
-    ]}
+<ComponentInfo
+    usage={"import { Form, Row } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/form/src"
 />
 
 ## Accessibility
 
-When combined with [field](?path=/story/components-field--input) components, a form component follows the [WAI specifications for forms](https://www.w3.org/WAI/tutorials/forms/).
+When combined with [field](?path=/story/field--input) components, a form component follows the [WAI specifications for forms](https://www.w3.org/WAI/tutorials/forms/).
 
 ## Usage
 
@@ -46,7 +35,7 @@ In additional to wrapping a form element, a form component provide layout for fi
 
 A form can stack fields vertically.
 
-<Preview>
+<Canvas>
     <Story name="vertical layout">
         <Form fluid className="w-25">
             <Field required>
@@ -64,13 +53,13 @@ A form can stack fields vertically.
             <Button type="submit">Login</Button>
         </Form>
     </Story>
-</Preview>
+</Canvas>
 
 ### Inline layout
 
 Multiple form fields can be inlined on the same row.
 
-<Preview>
+<Canvas>
     <Story name="inline layout">
         <Form fluid>
             <Row>
@@ -109,13 +98,13 @@ Multiple form fields can be inlined on the same row.
             </Button>
         </Form>
     </Story>
-</Preview>
+</Canvas>
 
 ### Fluid
 
 Form fields can take the witdh of their container.
 
-<Preview>
+<Canvas>
     <Story name="fluid">
         <Form fluid>
             <Field>
@@ -125,13 +114,13 @@ Form fields can take the witdh of their container.
             <Button>Submit</Button>
         </Form>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 Form fields and buttons can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <Form disabled>
             <Field>
@@ -141,13 +130,13 @@ Form fields and buttons can be disabled.
             <Button>Submit</Button>
         </Form>
     </Story>
-</Preview>
+</Canvas>
 
 ### Button alignment
 
 Form buttons can be aligned horizontally.
 
-<Preview>
+<Canvas>
     <Story name="button alignment">
         <Inline gap={10}>
             <Form>
@@ -171,28 +160,49 @@ Form buttons can be aligned horizontally.
             </Form>
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Formik
 
 The form state and validation could be managed by an external library like [Formik](https://formik.org/).
 
-<FilePreview filePath="/form/stories/RegistrationForm">
+<FileCanvas filePath="/form/docs/RegistrationForm">
     <RegistrationForm />
-</FilePreview>
+</FileCanvas>
+
+## API
+
+### Form
+
+<ComponentInfo
+    usage={"import { Form } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerForm} />
+
+### Row
+
+<ComponentInfo
+    usage={"import { Row } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerRow} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerForm)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Form>
+    {args =>
+        <InnerForm {...args}>
             <Field>
                 <TextInput />
             </Field>
-        </Form>
-    </RefLogger>
+        </InnerForm>
+    }
 </Story>
 

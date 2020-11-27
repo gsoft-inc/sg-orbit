@@ -1,28 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
 import { Image, InnerImage } from "@react-components/image";
 import { Inline } from "@react-components/layout";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@stories/components";
-import { RefLogger, paramsBuilder } from "@stories/utils";
-import LaunchImage from "./assets/launch.jpg";
+import { LaunchImage } from "./assets";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Image"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/image/src" />)
-        .build()}
+    title="Components/Image"
+    id="image"
 />
 
 # Image
 
-Use this component to display an image.
+<Tagline>Use this component to display an image.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Image from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Image } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/image/src"
+/>
 
 ## Accessibility
 
@@ -34,36 +29,39 @@ An image must have an `alt` attribute.
 
 An image can use a different shape.
 
-<Preview>
+<Canvas>
     <Story name="shape">
         <Inline>
             <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
             <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Size
 
 An image can adjust it's size by using the `size` prop or the native `width` and `height` props.
 
-<Preview>
+<Canvas>
     <Story name="size">
         <Image size="200px" src={LaunchImage} alt="SpaceX launch" />
     </Story>
-</Preview>
+</Canvas>
 
-## Props
+## API
 
-<Props of={InnerImage} />
+### Image
+
+<ArgsTable of={InnerImage} />
 
 <Story
     name="ref"
     parameters={paramsBuilder()
+        .component(InnerImage)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Image src={LaunchImage} alt="SpaceX launch" />
-    </RefLogger>
+    {args =>
+        <InnerImage src={LaunchImage} alt="SpaceX launch" {...args} />
+    }
 </Story>

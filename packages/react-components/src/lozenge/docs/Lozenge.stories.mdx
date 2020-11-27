@@ -1,0 +1,97 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { CheckCircleIcon, IconList } from "@react-components/icons";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { Inline } from "@react-components/layout";
+import { InnerLozenge, Lozenge } from "@react-components/lozenge";
+import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Components/Lozenge"
+    id="lozenge"
+/>
+
+# Lozenge
+
+<Tagline>Lozenges are used to highlight an item's status for quick recognition or to give additional fast short information such as highlighting a new item.</Tagline>
+
+<ComponentInfo
+    usage={"import { Lozenge } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/lozenge/src"
+/>
+
+## Usage
+
+### Default
+
+A default lozenge.
+
+<Canvas>
+    <Story name="default">
+        <Lozenge>New</Lozenge>
+    </Story>
+</Canvas>
+
+### Icon
+
+A lozenge can contain an [icon](?path=/docs/icon-gallery--page).
+
+<Canvas>
+    <Story name="icon">
+        <Lozenge>
+            <CheckCircleIcon />
+            <Text>New</Text>
+        </Lozenge>
+    </Story>
+</Canvas>
+
+### Size
+
+A lozenge can vary in size.
+
+<Canvas>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Lozenge size="sm">New</Lozenge>
+            <Lozenge>New</Lozenge>
+        </Inline>
+    </Story>
+</Canvas>
+
+### Color
+
+A lozenge can use a different color accent.
+
+<Canvas>
+    <Story name="color">
+        <Lozenge color="primary">New</Lozenge>
+    </Story>
+</Canvas>
+
+## API
+
+### Lozenge
+
+<ComponentInfo
+    usage={"import { Lozenge } from \"@orbit-ui/react-components\""}
+    slots={["text", "icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerLozenge} />
+
+<Story
+    name="playground"
+    args={{
+        children: "New"
+    }}
+    parameters={paramsBuilder()
+        .component(InnerLozenge)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <Lozenge {...args} />
+    }
+</Story>
+

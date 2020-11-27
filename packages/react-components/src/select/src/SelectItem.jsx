@@ -32,7 +32,7 @@ const propTypes = {
      */
     avatar: oneOfType([element, shape(AVATAR_SHAPE)]),
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) components rendered before or after the text.
+     * [Icon](/?path=/docs/icon--default-story) components rendered before or after the text.
      */
     icons: oneOfType([element, arrayOf(element)]),
     /**

@@ -24,7 +24,7 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * Whether an element is resizable, and if so, in which directions. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/resize).
+     * Whether or not an element is resizable, and if so, in which directions. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/resize).
      */
     resize: oneOf(["vertical", "none"]),
     /**
@@ -32,7 +32,7 @@ const propTypes = {
      */
     required: bool,
     /**
-     * Whether the input should display as "valid" or "invalid".
+     * Whether or not the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -50,7 +50,7 @@ const propTypes = {
      */
     type: oneOf(["text", "password", "search", "url", "tel", "email"]),
     /**
-     * Whether the input should autofocus on render.
+     * Whether or not the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -58,17 +58,21 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
+     * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
     button: element,
     /**
-     * Whether theinput take up the width of its container.
+     * Whether or not the input take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether to render a loader.
+     * Whether or not to render a loader.
      */
     loading: bool,
+    /**
+     * Whether or not the input is disabled.
+     */
+    disabled: bool,
     /**
      * The number of visible text lines.
      */

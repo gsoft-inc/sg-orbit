@@ -1,37 +1,52 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
 import { InnerParagraph, Paragraph } from "@react-components/paragraph";
-import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@stories/components";
-import { RefLogger, paramsBuilder } from "@stories/utils";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Paragraph"
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Components/Paragraph"
+    id="paragraph"
 />
 
 # Paragraph
 
-A paragraph is used to render blocks of text.
+<Tagline>A paragraph is used to render blocks of text.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Paragraph from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Paragraph } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/paragraph/src"
+/>
 
-## Props
+## Usage
 
-<Props of={InnerParagraph} />
+### Changing font size
+
+You can alter the size of the paragraph by specifying a `size` prop. The available size match Orbit UI [typographic body text](?path=/docs/typography--page#body).
+
+<Canvas>
+    <Story name="size">
+        <>
+            <Paragraph>If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
+            <Paragraph size="sm">If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
+        </>
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={InnerParagraph} />
 
 <Story
-    name="ref"
+    name="playground"
+    args={{
+        children: "If two pieces of the same type of metal touch in space they will permanently bond."
+    }}
     parameters={paramsBuilder()
+        .component(InnerParagraph)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Paragraph>If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
-    </RefLogger>
+    {args =>
+        <Paragraph {...args} />
+    }
 </Story>

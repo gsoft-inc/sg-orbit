@@ -1,34 +1,23 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { EditIcon } from "@react-components/icons";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { InnerNumberInput, NumberInput } from "@react-components/input";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { RequiredAgeValidation } from "./RequiredAgeValidation.sample";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("NumberInput")}
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/input/src" />)
-        .build()}
+    title="Components/NumberInput"
+    id="number-input"
 />
 
 # NumberInput
 
-A number input is used to let the user enter a numeric value.
+<Tagline>A number input is used to let the user enter a numeric value.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "NumberInput", component: InnerNumberInput }
-    ]}
+<ComponentInfo
+    usage={"import { NumberInput } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/input/src"
 />
 
 ## Usage
@@ -37,94 +26,94 @@ A number input is used to let the user enter a numeric value.
 
 A default number input.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <NumberInput placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Value
 
 A number input can have a value.
 
-<Preview>
+<Canvas>
     <Story name="value">
         <Inline>
             <NumberInput defaultValue={18} placeholder="Age" />
             <NumberInput defaultValue={155.75} step={0.1} placeholder="Weight" />
         </Inline>
     </Story>
-</Preview>
+</Canvas>
 
 ### Min / Max
 
 A number input value can be forced between min & max boundaries.
 
-<Preview>
+<Canvas>
     <Story name="min / max">
         <NumberInput min={15} max={30} defaultValue={18} placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-A number input can have an [icon](?path=/docs/materials-icons--page).
+A number input can have an [icon](?path=/docs/icon-gallery--page).
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <NumberInput icon={<EditIcon />} placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A number input can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled">
         <NumberInput disabled placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Readonly
 
 A number input can be readonly.
 
-<Preview>
+<Canvas>
     <Story name="readonly">
         <NumberInput readOnly defaultValue={18} />
     </Story>
-</Preview>
+</Canvas>
 
 ### Loading
 
 A number input can show that it is currently loading data.
 
-<Preview>
+<Canvas>
     <Story name="loading">
         <NumberInput loading />
     </Story>
-</Preview>
+</Canvas>
 
 ### Fluid
 
 A number input can take the width of its container.
 
-<Preview>
+<Canvas>
     <Story name="fluid">
         <NumberInput fluid placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Transparent
 
 A number input can be transparent.
 
-<Preview>
+<Canvas>
     <Story name="transparent">
         <NumberInput variant="transparent" placeholder="Age" />
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
@@ -132,17 +121,29 @@ A number input can display a validation state to communicate to the user whether
 
 The example below illustrates how one would validate a required age value.
 
-<FilePreview filePath="/input/stories/number-input/RequiredAgeValidation">
+<FileCanvas filePath="/input/docs/number-input/RequiredAgeValidation">
     <RequiredAgeValidation />
-</FilePreview>
+</FileCanvas>
+
+## API
+
+### NumberInput
+
+<ComponentInfo
+    usage={"import { NumberInput } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerNumberInput} />
 
 <Story
-    name="ref"
+    name="playground"
     parameters={paramsBuilder()
+        .component(InnerNumberInput)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <NumberInput />
-    </RefLogger>
+    {args =>
+        <NumberInput {...args} />
+    }
 </Story>

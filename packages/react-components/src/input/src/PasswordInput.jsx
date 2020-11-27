@@ -24,7 +24,7 @@ const propTypes = {
      */
     label: node,
     /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
@@ -44,7 +44,7 @@ const propTypes = {
      */
     validMessage: node,
     /**
-     * Whether the input should display as "valid" or "invalid".
+     * Whether or not the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -58,7 +58,7 @@ const propTypes = {
      */
     variant: oneOf(["outline", "transparent"]),
     /**
-     * Whether the input should autofocus on render.
+     * Whether or not the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -66,17 +66,21 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
     icon: element,
     /**
-     * Whether theinput take up the width of its container.
+     * Whether or not the input take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether to render a loader.
+     * Whether or not to render a loader.
      */
     loading: bool,
+    /**
+     * Whether or not the input is disabled.
+     */
+    disabled: bool,
     /**
      * Additional props to render on the wrapper element.
      */

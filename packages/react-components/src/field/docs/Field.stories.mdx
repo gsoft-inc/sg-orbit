@@ -129,7 +129,7 @@ A field can vary in size.
 
 <Canvas>
     <Story name="size">
-        <Inline verticalAlign="end" gap={8}>
+        <Inline verticalAlign="center" gap={8}>
             <Field size="sm">
                 <Label>Age</Label>
                 <NumberInput />
@@ -220,11 +220,11 @@ The example below illustrates how one would validate if the user has entered a v
         .build()}
 >
     {args =>
-        <Field {...args}>
+        <InnerField {...args}>
             <Label>Space ID</Label>
             <TextInput />
             <HelpMessage>Your space id is a 9-digit number available at the top right corner of your membership card.</HelpMessage>
-        </Field>
+        </InnerField>
     }
 </Story>
 
@@ -236,7 +236,7 @@ The example below illustrates how one would validate if the user has entered a v
         .build()}
 >
     {args =>
-        <GroupField {...args}>
+        <InnerGroupField {...args}>
             <Label>Your favorite galaxies?</Label>
             <CheckboxGroup orientation="vertical">
                 <Checkbox value="milky-way">Milky Way</Checkbox>
@@ -244,6 +244,6 @@ The example below illustrates how one would validate if the user has entered a v
                 <Checkbox value="medusa">Medusa</Checkbox>
             </CheckboxGroup>
             <HelpMessage>You must at least have travelled once to the galaxy.</HelpMessage>
-        </GroupField>
+        </InnerGroupField>
     }
 </Story>

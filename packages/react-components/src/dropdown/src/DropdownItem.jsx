@@ -23,11 +23,11 @@ const propTypes = {
      */
     description: string,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the text.
      */
     iconLeft: element,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered after the text.
+     * [Icon](/?path=/docs/icon--default-story) component rendered after the text.
      */
     iconRight: element,
     /**

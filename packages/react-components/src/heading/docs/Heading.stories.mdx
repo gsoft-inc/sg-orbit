@@ -1,25 +1,21 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Tagline } from "@stories/components";
 import { Heading, InnerHeading } from "@react-components/heading";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@stories/components";
-import { RefLogger, paramsBuilder } from "@stories/utils";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Heading"
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Components/Heading"
+    id="heading"
 />
 
 # Heading
 
-Heading is used to create various levels of typographic hierarchies.
+<Tagline>Heading is used to create various levels of typographic hierarchies.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Heading from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/heading/src"
+/>
 
 ## Usage
 
@@ -27,36 +23,46 @@ Heading is used to create various levels of typographic hierarchies.
 
 When using an header, you should specify the element type to render it as. We do recommended using native header elements `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`.
 
-<Preview>
+<Canvas>
     <Story name="element type">
         <Heading as="h1">Migrate, adapt, and control the cloud.</Heading>
     </Story>
-</Preview>
+</Canvas>
 
 ### Changing font size
 
-You can alter the font size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/materials-typography--page#headlines).
+You can alter the size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/typography--page#headlines).
 
-<Preview>
-    <Story name="headers">
-        <div>
+<Canvas>
+    <Story name="size">
+        <>
             <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
             <Heading as="h4" size="sm">Migrate, adapt, and control the cloud.</Heading>
-        </div>
+        </>
     </Story>
-</Preview>
+</Canvas>
 
-## Props
+## API
 
-<Props of={InnerHeading} />
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} />
 
 <Story
-    name="ref"
+    name="playground"
+    args={{
+        as: "h3",
+        children: "Migrate, adapt, and control the cloud."
+    }}
     parameters={paramsBuilder()
+        .component(InnerHeading)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
-    </RefLogger>
+    {args => <Heading {...args} />}
 </Story>
