@@ -1,6 +1,6 @@
 @import "~@orbit-ui/fonts";
 @import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation/desktop.css";
+@import "~@orbit-ui/foundation";
 @import "~@orbit-ui/tachyons/desktop.css";
 @import "~@orbit-ui/react-components/dist/index.css";
 

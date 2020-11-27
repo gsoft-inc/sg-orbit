@@ -37,13 +37,8 @@
 }
 
 /* ARGS TABLE | HEADER | RESET */
-/* .docblock-argstable-head th:nth-child(4) {
-    position: relative;
-} */
-
 .docblock-argstable-head button {
     background-color: var(--primary-500) !important;
-    /* padding: var(--scale-bravo); */
     box-shadow: none;
 }
 
