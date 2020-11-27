@@ -37,4 +37,5 @@ export * from "./divider";
 export * from "./disclosure";
 export * from "./accordion";
 export * from "./placeholders";
+export * from "./theme-provider";
 export * from "./shared";

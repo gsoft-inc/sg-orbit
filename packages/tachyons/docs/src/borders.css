@@ -1,24 +1,24 @@
-/* 
- * PRIMARY 
+/*
+ * PRIMARY
  */
 @import "../../src/primary/_border.css";
 
-/* 
- * APRICOT 
+/*
+ * APRICOT
  */
-@import "../../src/products/apricot/_border.css";
-
-/* 
- * DESKTOP
- */
-@import "../../src/products/desktop/_border.css";
+@import "../../src/themes/apricot/_border.css";
 
 /*
- * OVERCAST 
+ * DESKTOP
  */
-@import "../../src/products/overcast/_border.css";
+@import "../../src/themes/desktop/_border.css";
 
-/* 
+/*
+ * OVERCAST
+ */
+@import "../../src/themes/overcast/_border.css";
+
+/*
  * MOONSTONE
  */
 @import "../../src/brand/moonstone/_border.css";

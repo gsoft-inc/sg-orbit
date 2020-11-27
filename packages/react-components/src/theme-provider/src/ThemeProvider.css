@@ -1,0 +1,84 @@
+/* APRICOT */
+/* APRICOT | LIGHT */
+.o-ui-apricot-theme.o-ui-light-color-scheme {
+    --primary-50: var(--apricot-50);
+    --primary-100: var(--apricot-100);
+    --primary-200: var(--apricot-200);
+    --primary-300: var(--apricot-300);
+    --primary-400: var(--apricot-400);
+    --primary-500: var(--apricot-500);
+    --primary-600: var(--apricot-600);
+    --primary-700: var(--apricot-700);
+    --primary-800: var(--apricot-800);
+    --primary-900: var(--apricot-900);
+}
+
+/* APRICOT | DARK */
+.o-ui-apricot-theme.o-ui-dark-color-scheme {
+    --primary-50: black;
+    --primary-100: black;
+    --primary-200: black;
+    --primary-300: black;
+    --primary-400: black;
+    --primary-500: black;
+    --primary-600: black;
+    --primary-700: black;
+    --primary-800: black;
+    --primary-900: black;
+}
+
+/* OVERCAST */
+/* OVERCAST | LIGHT */
+.o-ui-overcast-theme.o-ui-light-color-scheme {
+    --primary-50: var(--overcast-50);
+    --primary-100: var(--overcast-100);
+    --primary-200: var(--overcast-200);
+    --primary-300: var(--overcast-300);
+    --primary-400: var(--overcast-400);
+    --primary-500: var(--overcast-500);
+    --primary-600: var(--overcast-600);
+    --primary-700: var(--overcast-700);
+    --primary-800: var(--overcast-800);
+    --primary-900: var(--overcast-900);
+}
+
+.o-ui-overcast-theme.o-ui-dark-color-scheme {
+    --primary-50: black;
+    --primary-100: black;
+    --primary-200: black;
+    --primary-300: black;
+    --primary-400: black;
+    --primary-500: black;
+    --primary-600: black;
+    --primary-700: black;
+    --primary-800: black;
+    --primary-900: black;
+}
+
+/* DESKTOP */
+/* DESKTOP | LIGHT */
+.o-ui-desktop-theme.o-ui-light-color-scheme {
+    --primary-50: var(--desktop-50);
+    --primary-100: var(--desktop-100);
+    --primary-200: var(--desktop-200);
+    --primary-300: var(--desktop-300);
+    --primary-400: var(--desktop-400);
+    --primary-500: var(--desktop-500);
+    --primary-600: var(--desktop-600);
+    --primary-700: var(--desktop-700);
+    --primary-800: var(--desktop-800);
+    --primary-900: var(--desktop-900);
+}
+
+.o-ui-desktop-theme.o-ui-dark-color-scheme {
+    --primary-50: black;
+    --primary-100: black;
+    --primary-200: black;
+    --primary-300: black;
+    --primary-400: black;
+    --primary-500: black;
+    --primary-600: black;
+    --primary-700: black;
+    --primary-800: black;
+    --primary-900: black;
+}

@@ -8,23 +8,23 @@
 /*
  * APRICOT
  */
-@import "../../src/products/apricot/_background.css";
-@import "../../src/products/apricot/_text.css";
-@import "../../src/products/apricot/_fill.css";
+@import "../../src/themes/apricot/_background.css";
+@import "../../src/themes/apricot/_text.css";
+@import "../../src/themes/apricot/_fill.css";
 
 /*
  * DESKTOP
  */
-@import "../../src/products/desktop/_background.css";
-@import "../../src/products/desktop/_text.css";
-@import "../../src/products/desktop/_fill.css";
+@import "../../src/themes/desktop/_background.css";
+@import "../../src/themes/desktop/_text.css";
+@import "../../src/themes/desktop/_fill.css";
 
 /*
  * OVERCAST
  */
-@import "../../src/products/overcast/_background.css";
-@import "../../src/products/overcast/_text.css";
-@import "../../src/products/overcast/_fill.css";
+@import "../../src/themes/overcast/_background.css";
+@import "../../src/themes/overcast/_text.css";
+@import "../../src/themes/overcast/_fill.css";
 
 /*
  * MOONSTONE
