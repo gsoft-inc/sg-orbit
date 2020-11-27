@@ -28,6 +28,7 @@ if (includeDocs) {
         "../packages/react-components/src/input/docs/**/*.stories.mdx",
         "../packages/react-components/src/lozenge/docs/**/*.stories.mdx",
         "../packages/react-components/src/paragraph/docs/**/*.stories.mdx",
+        "../packages/react-components/src/radio/docs/**/*.stories.mdx",
         "../packages/react-components/src/tabs/docs/**/*.stories.mdx",
         "../packages/react-components/src/link/docs/**/*.stories.mdx"
     ];

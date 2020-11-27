@@ -155,7 +155,7 @@ All official icons **includes their padding** and are generally available in two
 
 Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
-If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component](?path=/docs/components-icon--default-story) documentation.
+If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component](?path=/docs/icon--default-story) documentation.
 
 ## Gallery
 
@@ -210,7 +210,7 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 
 ## Dimensions
 
-The dimensions of an icon should always match Orbit Design [spacing scale](?path=/docs/materials-spacing--page#values) values. To define dimensions, a few options are available depending on whether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
+The dimensions of an icon should always match Orbit Design [spacing scale](?path=/docs/spacing--page#values) values. To define dimensions, a few options are available depending on whether you choose to include an icon as a [React component](#react-components) or as a [static file](#static-files).
 
 ### React components
 
@@ -269,7 +269,7 @@ Icons SVG files are available from the root of `@orbit-ui/icons` package. These 
 
 Orbit Design provide icons with default dimensions, e.g. a `24px` variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/materials-spacing--page#tachyons) (e.g. `w6 h6` for a `24px` variant icon or `w7 h7` for a `32px` variant icon) or CSS and Orbit UI [CSS spacing variables](?path=/docs/materials-spacing--page#values).
+You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/spacing--page#tachyons) (e.g. `w6 h6` for a `24px` variant icon or `w7 h7` for a `32px` variant icon) or CSS and Orbit UI [CSS spacing variables](?path=/docs/materials-spacing--page#values).
 
 #### Image source
 
@@ -295,13 +295,13 @@ function render() {
 
 An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
 
-This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors).
+This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/foundation--page#colors).
 
 >If you apply a fill color to an icon and the color doesn't change, you should validate that the definition of the SVG doesn't contains any <code>fill</code> attribute. If the SVG contains a <code>fill</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.
 
 ### React components
 
-To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop:
+To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop:
 
 ```jsx dark
 import { CalendarIcon } from "@orbit-ui/react-components";
@@ -311,7 +311,7 @@ function render() {
 }
 ```
 
-If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/foundation--page#colors):
 
 ```jsx dark
 import { CalendarIcon } from "@orbit-ui/react-components";
@@ -323,7 +323,7 @@ function render() {
 
 ### Image source
 
-To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/materials-colors--page#colors) to set a dynamic color:
+To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/colors--page#colors) to set a dynamic color:
 
 ```jsx dark
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
@@ -335,7 +335,7 @@ function render() {
 
 ### CSS background
 
-You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors) to the `fill` property of the class:
+You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/foundation--page#colors) to the `fill` property of the class:
 
 ```css dark
 .calendar-24 {
@@ -346,4 +346,4 @@ You can set the color of a CSS background icon by setting an [Orbit UI color var
 
 ## Custom icons
 
-For custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/components-icon--default-story).
+For custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/icon--default-story).

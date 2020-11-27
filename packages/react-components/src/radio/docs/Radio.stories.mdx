@@ -1,47 +1,29 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
 import { ControlledRadioGroup } from "./ControlledRadioGroup.sample";
 import { Counter } from "@react-components/counter";
 import { CustomGroup } from "./CustomGroup.sample";
-import { FilePreview, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
 import { LightbulbIcon } from "@react-components/icons";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
 import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
 import { ValueSelectedValidation } from "./ValueSelectedValidation.sample";
-import Imports from "./Imports.mdx";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title={createComponentSection("Radio")}
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/radio/src" />)
-        .build()}
+    title="Components/RadioGroup"
+    id="radio-group"
 />
 
-# Radio
+# RadioGroup
 
-A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.
+<Tagline>A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.</Tagline>
 
-## Installation
-
-<InstallReactComponents imports={<Imports />} />
-
-## Props
-
-<Props
-    componentsDefinitions={[
-        { displayName: "Radio", component: InnerRadio },
-        { displayName: "RadioGroup", component: InnerRadioGroup }
-    ]}
+<ComponentInfo
+    usage={"import { RadioGroup, Radio } from \"@orbit-ui/react-components\""}
+    ariaPath="#radiobutton"
+    githubPath="/packages/react-components/src/radio/src"
 />
-
-## Accessibility
-
-Follow [WAI-ARIA design pattern for radio group](https://www.w3.org/TR/wai-aria-practices/#radiobutton).
-
-## Slots
-
-Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-slots--page).
 
 ## Usage
 
@@ -49,7 +31,7 @@ Support `"label"`, `"icon"` and `"counter"` [slots](?path=/docs/getting-started-
 
 A default radio group.
 
-<Preview>
+<Canvas>
     <Story name="default">
         <RadioGroup>
             <Radio value="mars">Mars</Radio>
@@ -57,13 +39,13 @@ A default radio group.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Selected value
 
 A radio group can have a selected value.
 
-<Preview>
+<Canvas>
     <Story name="selected">
         <RadioGroup defaultValue="jupiter">
             <Radio value="mars">Mars</Radio>
@@ -71,13 +53,13 @@ A radio group can have a selected value.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Disabled
 
 A single radio can be disabled.
 
-<Preview>
+<Canvas>
     <Story name="disabled radio">
         <RadioGroup>
             <Radio disabled value="mars">Mars</Radio>
@@ -85,11 +67,11 @@ A single radio can be disabled.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 Or the whole group.
 
-<Preview>
+<Canvas>
     <Story name="disabled group">
         <RadioGroup disabled>
             <Radio value="mars">Mars</Radio>
@@ -97,13 +79,13 @@ Or the whole group.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Icon
 
-A radio can have [icons](?path=/docs/materials-icons--page) after his text.
+A radio can have [icons](?path=/docs/icon-gallery--page) after his text.
 
-<Preview>
+<Canvas>
     <Story name="icon">
         <RadioGroup>
             <Radio value="mars">
@@ -114,13 +96,13 @@ A radio can have [icons](?path=/docs/materials-icons--page) after his text.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Counter
 
-A radio can have a [counter](?path=/docs/components-counter--default-story) after his text.
+A radio can have a [counter](?path=/docs/counter--default-story) after his text.
 
-<Preview>
+<Canvas>
     <Story name="counter">
         <RadioGroup>
             <Radio value="mars">
@@ -134,13 +116,13 @@ A radio can have a [counter](?path=/docs/components-counter--default-story) afte
             </Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Reverse
 
 A radio button can be to the left or to the right of his label.
 
-<Preview>
+<Canvas>
     <Story name="reverse radio">
         <Radio reverse value="mars">
             <Text>Mars</Text>
@@ -148,11 +130,11 @@ A radio button can be to the left or to the right of his label.
             <Counter>6</Counter>
         </Radio>
     </Story>
-</Preview>
+</Canvas>
 
 Or the whole group.
 
-<Preview>
+<Canvas>
     <Story name="reverse group">
         <RadioGroup reverse>
             <Radio value="mars">
@@ -167,13 +149,13 @@ Or the whole group.
             </Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Orientation
 
 A radio group can render his elements horizontally.
 
-<Preview>
+<Canvas>
     <Story name="orientation">
         <RadioGroup orientation="horizontal">
             <Radio value="mars">Mars</Radio>
@@ -181,7 +163,7 @@ A radio group can render his elements horizontally.
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Validation
 
@@ -189,15 +171,15 @@ A radio group can display a validation state to communicate to the user whether 
 
 The example below illustrates how one would validate if a specific value of the radio group has been selected.
 
-<FilePreview filePath="/radio/stories/ValueSelectedValidation">
+<FileCanvas filePath="/radio/docs/ValueSelectedValidation">
     <ValueSelectedValidation />
-</FilePreview>
+</FileCanvas>
 
 ### Render Props
 
 A radio can update is content based on the `isChecked` value by providing a render prop function:
 
-<Preview>
+<Canvas>
     <Story name="radio render props">
         <RadioGroup>
             <Radio value="mars">Mars</Radio>
@@ -211,11 +193,11 @@ A radio can update is content based on the `isChecked` value by providing a rend
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 Or even use a render prop function for items:
 
-<Preview>
+<Canvas>
     <Story name="group render props">
         <RadioGroup>
             {
@@ -231,13 +213,13 @@ Or even use a render prop function for items:
             }
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Toggle Buttons
 
 In somes cases, you might want a group of toggle buttons to behave like a radio group.
 
-<Preview>
+<Canvas>
     <Story name="toggle buttons">
         <RadioGroup gap={2} orientation="horizontal">
             <ToggleButton value="none" variant="outline">None</ToggleButton>
@@ -247,21 +229,21 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
             <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
         </RadioGroup>
     </Story>
-</Preview>
+</Canvas>
 
 ### Custom Components
 
 Any component implementing the `CheckableContext` can behave like a radio group. This is usually done by using the `useCheckableProps` hook.
 
-<FilePreview filePath="/radio/stories/CustomGroup">
+<FileCanvas filePath="/radio/docs/CustomGroup">
     <CustomGroup />
-</FilePreview>
+</FileCanvas>
 
 ### Wrapped
 
 Checkable components can be wrap on multiple lines.
 
-<Preview>
+<Canvas>
     <Story name="wrap toggle buttons">
         <div style={{ width: "200px" }}>
             <RadioGroup wrap gap={2} orientation="horizontal">
@@ -276,38 +258,64 @@ Checkable components can be wrap on multiple lines.
             </RadioGroup>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 ### Controlled
 
 A radio group can handle `value` state in controlled mode.
 
-<FilePreview filePath="/radio/stories/ControlledRadioGroup">
+<FileCanvas filePath="/radio/docs/ControlledRadioGroup">
     <ControlledRadioGroup />
-</FilePreview>
+</FileCanvas>
+
+## API
+
+### RadioGroup
+
+<ComponentInfo
+    usage={"import { RadioGroup } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerRadioGroup} />
+
+### Radio
+
+<ComponentInfo
+    usage={"import { Radio } from \"@orbit-ui/react-components\""}
+    slots={["label", "icon", "counter"]}
+    compact
+/>
+
+<ArgsTable of={InnerRadio} />
 
 <Story
-    name="radio ref"
+    name="playground - radio group"
     parameters={paramsBuilder()
+        .component(InnerRadioGroup)
         .excludeFromDocs()
         .build()}
 >
-    <RefLogger>
-        <Radio value="mars">Mars</Radio>
-    </RefLogger>
-</Story>
-
-<Story
-    name="radio group ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <RadioGroup>
+    {args =>
+        <InnerRadioGroup {...args}>
             <Radio value="mars">Mars</Radio>
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </RefLogger>
+        </InnerRadioGroup>
+    }
+</Story>
+
+<Story
+    name="playground - radio"
+    args={{
+        children: "Mars"
+    }}
+    parameters={paramsBuilder()
+        .component(InnerRadio)
+        .excludeFromDocs()
+        .build()}
+>
+    {args =>
+        <InnerRadio value="mars" {...args} />
+    }
 </Story>
