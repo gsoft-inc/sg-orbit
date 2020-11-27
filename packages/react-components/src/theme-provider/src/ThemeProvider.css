@@ -42,6 +42,7 @@
     --primary-900: var(--overcast-900);
 }
 
+/* OVERCAST | DARK */
 .o-ui-overcast-theme.o-ui-dark-color-scheme {
     --primary-50: black;
     --primary-100: black;
@@ -70,6 +71,7 @@
     --primary-900: var(--desktop-900);
 }
 
+/* DESKTOP | DARK */
 .o-ui-desktop-theme.o-ui-dark-color-scheme {
     --primary-50: black;
     --primary-100: black;

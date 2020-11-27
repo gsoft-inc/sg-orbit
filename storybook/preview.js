@@ -1,5 +1,5 @@
 import { Themes } from "./styles/themes";
-import { withCanvasContainer } from "./decorators";
+import { withCanvasContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@orbit-ui/css-normalize";
@@ -37,4 +37,25 @@ export const parameters = {
     }
 };
 
-export const decorators = [withCanvasContainer];
+export const globalTypes = {
+    theme: {
+        name: "Theme",
+        description: "Orbit UI theme for components",
+        defaultValue: "apricot",
+        toolbar: {
+            icon: "photo",
+            items: ["apricot", "overcast", "desktop"]
+        }
+    },
+    colorScheme: {
+        name: "ColorScheme",
+        description: "Orbit UI color scheme for components",
+        defaultValue: "light",
+        toolbar: {
+            icon: "mirror",
+            items: ["light", "dark"]
+        }
+    }
+};
+
+export const decorators = [withThemeProvider, withCanvasContainer];

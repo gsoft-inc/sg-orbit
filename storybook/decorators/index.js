@@ -1,1 +1,2 @@
-export * from "./CanvasContainer";
+export * from "./withCanvasContainer";
+export * from "./withThemeProvider";
