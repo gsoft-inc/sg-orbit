@@ -1,14 +1,11 @@
 import { Inline } from "@react-components/layout";
 import { TextArea } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTextAreaTestSuite } from "./createTextAreaTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("TextArea"))
+    return storiesOfBuilder(module, "Chromatic/TextArea")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

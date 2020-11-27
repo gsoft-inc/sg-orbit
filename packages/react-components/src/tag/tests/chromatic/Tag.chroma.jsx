@@ -1,14 +1,11 @@
 import { Inline } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createTestSuite } from "./createTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Tag"))
+    return storiesOfBuilder(module, "Chromatic/Tag")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

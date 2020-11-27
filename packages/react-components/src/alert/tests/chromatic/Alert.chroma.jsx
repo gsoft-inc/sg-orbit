@@ -8,13 +8,12 @@ import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Alert"))
+    return storiesOfBuilder(module, "Chromatic/Alert")
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
             .chromaticDelay(100)
             .build())
         .build();

@@ -6,14 +6,11 @@ import { Disclosure, useDisclosureContext } from "@react-components/disclosure";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Disclosure"))
+    return storiesOfBuilder(module, "Chromatic/Disclosure")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

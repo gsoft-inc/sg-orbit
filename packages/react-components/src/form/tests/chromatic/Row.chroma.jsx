@@ -2,14 +2,11 @@ import { Field } from "@react-components/field";
 import { Inline } from "@react-components/layout";
 import { Row } from "@react-components/form";
 import { TextInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Row"))
+    return storiesOfBuilder(module, "Chromatic/Row")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

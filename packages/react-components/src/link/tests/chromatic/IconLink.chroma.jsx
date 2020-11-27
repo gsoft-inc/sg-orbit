@@ -1,15 +1,12 @@
 import { AddIcon } from "@react-components/icons";
 import { IconLink } from "@react-components/link";
 import { Inline } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { createIconLinkTestSuite } from "./createIconLinkTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("IconLink"))
+    return storiesOfBuilder(module, "Chromatic/IconLink")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

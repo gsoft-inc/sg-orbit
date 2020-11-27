@@ -2,14 +2,11 @@ import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { GroupField, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("GroupField"))
+    return storiesOfBuilder(module, "Chromatic/GroupField")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 
