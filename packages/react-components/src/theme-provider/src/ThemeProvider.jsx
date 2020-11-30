@@ -10,7 +10,13 @@ TODO:
 */
 
 const propTypes = {
+    /**
+     * The theme to use.
+     */
     theme: oneOf(["apricot", "overcast", "desktop"]).isRequired,
+    /**
+     * The color scheme to use.
+     */
     colorScheme: oneOf(["light", "dark"]).isRequired
 };
 

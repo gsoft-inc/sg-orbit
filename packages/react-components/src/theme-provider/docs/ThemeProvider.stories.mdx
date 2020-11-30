@@ -1,0 +1,59 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { ThemeProvider } from "@react-components/theme-provider";
+
+<Meta
+    title="Components/ThemeProvider"
+    id="theme-provider"
+/>
+
+# Button
+
+<Tagline>Container for Orbit UI applications used to define the theme and color scheme to use.</Tagline>
+
+<ComponentInfo
+    usage={"import { ThemeProvider } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/theme-provider/src"
+/>
+
+## Usage
+
+A Provider must be the root component of your application. All other Orbit UI components rely on the `ThemeProvider` to define the theme and color scheme that they need in order to render.
+
+If you need to access the current theme you can do so, by using the `useTheme` hook.
+
+### Default
+
+A default theme provider.
+
+<Canvas>
+    <Story name="default">
+        <ThemeProvider theme="desktop" colorScheme="light">
+            <Button color="primary">Cutoff</Button>
+        </ThemeProvider>
+    </Story>
+</Canvas>
+
+### Nesting
+
+Theme providers can be nested.
+
+<Canvas>
+    <Story name="nesting">
+        <ThemeProvider theme="desktop" colorScheme="light">
+            <ThemeProvider theme="overcast" colorScheme="light">
+                <Button color="primary">Cutoff</Button>
+            </ThemeProvider>
+        </ThemeProvider>
+    </Story>
+</Canvas>
+
+## API
+
+<ComponentInfo
+    usage={"import { ThemeProvider } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={ThemeProvider} />
