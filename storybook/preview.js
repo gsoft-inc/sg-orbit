@@ -26,19 +26,6 @@ export const parameters = {
             ]
         }
     },
-    backgrounds: {
-        default: "light",
-        values: [
-            {
-                name: "light",
-                value: "#FFFFFF"
-            },
-            {
-                name: "dark",
-                value: DarkBackgroundColor
-            }
-        ]
-    },
     actions: {
         argTypesRegex: "^on[A-Z].*"
     },

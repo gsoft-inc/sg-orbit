@@ -111,10 +111,21 @@ import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/rea
 
 ## Product theme
 
-Once installed, for Orbit UI components to use your product theme, you must declare a `ThemProvider` at the root of your application.
+Once installed, for Orbit UI components to use your product theme, you must declare a `ThemeProvider` at the root of your application.
 
 ```javascript dark
+// index.jsx
 
+import { ThemeProvider } from "@orbit-ui/react-components";
+import { render } from "react-dom";
+import App from "./App";
+
+render(
+    <ThemeProvider theme="apricot" colorScheme="light">
+        <App />
+    </ThemeProvider>,
+    document.getElementById("root")
+);
 ```
 
 ## Icons
