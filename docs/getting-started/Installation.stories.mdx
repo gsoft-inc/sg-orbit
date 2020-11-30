@@ -109,6 +109,14 @@ Once the *core packages* are installed, you can optionally install [React compon
 import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/react-components";
 ```
 
+## Product theme
+
+Once installed, for Orbit UI components to use your product theme, you must declare a `ThemProvider` at the root of your application.
+
+```javascript dark
+
+```
+
 ## Icons
 
 [Orbit UI icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you're using [Orbit UI React components](?path=/docs/packages--page#react-components), you must update your Babel config to use `@svgr/webpack`. The required setup for Orbit UI include using [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).

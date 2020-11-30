@@ -1,5 +1,5 @@
-import { DarkBackgroundColor, withCanvasContainer, withThemeProvider } from "./decorators";
 import { Themes } from "./styles/themes";
+import { withCanvasContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@orbit-ui/css-normalize";
