@@ -2,7 +2,10 @@ import { ThemeProvider } from "@react-components/theme-provider";
 import { isNil } from "lodash";
 import { useEffect } from "react";
 
-export const DarkBackgroundColor = "#2B2F3B";
+const BackgroundColors = {
+    light: "#FFF",
+    dark: "#2B2F3B"
+};
 
 function useStoryContainerMatchingColorScheme(colorScheme, context) {
     useEffect(() => {
@@ -14,7 +17,7 @@ function useStoryContainerMatchingColorScheme(colorScheme, context) {
 
         const css = `
             ${storyContainerId} {
-                background: ${colorScheme === "dark" ? DarkBackgroundColor : "#FFF"} !important;
+                background: ${BackgroundColors[colorScheme]} !important;
                 transition: background-color 0.3s;
             }
         `;
