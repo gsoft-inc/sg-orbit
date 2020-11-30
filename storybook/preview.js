@@ -1,5 +1,5 @@
+import { DarkBackgroundColor, withCanvasContainer, withThemeProvider } from "./decorators";
 import { Themes } from "./styles/themes";
-import { withCanvasContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@orbit-ui/css-normalize";
@@ -25,6 +25,19 @@ export const parameters = {
                 "Chromatic"
             ]
         }
+    },
+    backgrounds: {
+        default: "light",
+        values: [
+            {
+                name: "light",
+                value: "#FFFFFF"
+            },
+            {
+                name: "dark",
+                value: DarkBackgroundColor
+            }
+        ]
     },
     actions: {
         argTypesRegex: "^on[A-Z].*"
