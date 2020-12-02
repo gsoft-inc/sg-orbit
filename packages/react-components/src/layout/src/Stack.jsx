@@ -77,3 +77,5 @@ InnerStack.propTypes = propTypes;
 export const Stack = forwardRef((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
+
+Stack.displayName = "Stack";

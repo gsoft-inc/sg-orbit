@@ -77,3 +77,5 @@ InnerLabel.propTypes = propTypes;
 export const Label = forwardRef((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));
+
+Label.displayName = "Label";

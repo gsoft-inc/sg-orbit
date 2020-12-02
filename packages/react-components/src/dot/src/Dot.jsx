@@ -70,4 +70,4 @@ export const Dot = slot("dot", forwardRef((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
 
-
+Dot.displayName = "Dot";

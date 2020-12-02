@@ -69,3 +69,5 @@ export const Paragraph = forwardRef((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
 
+Paragraph.displayName = "Paragraph";
+

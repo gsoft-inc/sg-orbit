@@ -88,3 +88,5 @@ InnerButtonGroup.propTypes = propTypes;
 export const ButtonGroup = forwardRef((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 ));
+
+ButtonGroup.displayName = "ButtonGroup";

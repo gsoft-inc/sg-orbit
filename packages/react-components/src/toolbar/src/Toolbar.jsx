@@ -128,3 +128,5 @@ InnerToolbar.propTypes = propTypes;
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
+
+Toolbar.displayName = "Toolbar";

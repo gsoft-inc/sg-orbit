@@ -22,3 +22,5 @@ export function TabPanels({ panels, ...rest }) {
         </div>
     );
 }
+
+TabPanels.displayName = "TabPanels";

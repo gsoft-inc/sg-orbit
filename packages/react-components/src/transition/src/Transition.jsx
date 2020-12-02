@@ -77,3 +77,4 @@ export const Transition = forwardRef(({
 });
 
 Transition.propTypes = propTypes;
+Transition.displayName = "Transition";

@@ -63,3 +63,5 @@ InnerCrossButton.propTypes = propTypes;
 export const CrossButton = slot("button", forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
+
+CrossButton.displayName = "CrossButton";

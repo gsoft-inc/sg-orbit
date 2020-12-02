@@ -96,3 +96,5 @@ InnerCounter.propTypes = propTypes;
 export const Counter = slot("counter", forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
+
+Counter.displayName = "Counter";

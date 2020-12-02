@@ -351,3 +351,5 @@ InnerNumberInput.propTypes = propTypes;
 export const NumberInput = forwardRef((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));
+
+NumberInput.displayName = "NumberInput";

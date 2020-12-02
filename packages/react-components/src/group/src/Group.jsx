@@ -85,3 +85,5 @@ InnerGroup.propTypes = propTypes;
 export const Group = forwardRef((props, ref) => (
     <InnerGroup {...props} forwardedRef={ref} />
 ));
+
+Group.displayName = "Group";

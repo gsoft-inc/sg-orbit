@@ -50,3 +50,5 @@ InnerErrorMessage.propTypes = propTypes;
 export const ErrorMessage = forwardRef((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));
+
+ErrorMessage.displayName = "ErrorMessage";

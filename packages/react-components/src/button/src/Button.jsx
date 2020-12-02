@@ -174,4 +174,6 @@ export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
 
+Button.displayName = "Button";
+
 

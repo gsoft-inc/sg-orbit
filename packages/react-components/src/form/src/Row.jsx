@@ -54,3 +54,5 @@ InnerRow.propTypes = propTypes;
 export const Row = forwardRef((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
+
+Row.displayName = "Row";

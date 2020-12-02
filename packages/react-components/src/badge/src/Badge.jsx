@@ -76,3 +76,5 @@ InnerBadge.propTypes = propTypes;
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
+
+Badge.displayName = "Badge";

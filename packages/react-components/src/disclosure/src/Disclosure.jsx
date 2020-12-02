@@ -237,3 +237,5 @@ InnerDisclosure.propTypes = propTypes;
 export const Disclosure = forwardRef((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
 ));
+
+Disclosure.displayName = "Disclosure";

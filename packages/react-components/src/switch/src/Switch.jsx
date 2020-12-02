@@ -162,4 +162,4 @@ export const Switch = forwardRef((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
 
-export const Toggle = Switch;
+Switch.displayName = "Switch";

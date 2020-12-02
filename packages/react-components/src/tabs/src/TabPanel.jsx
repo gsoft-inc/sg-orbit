@@ -51,3 +51,5 @@ InnerTabPanel.propTypes = propTypes;
 export const TabPanel = forwardRef((props, ref) => (
     <InnerTabPanel {...props} forwardedRef={ref} />
 ));
+
+TabPanel.displayName = "TabPanel";

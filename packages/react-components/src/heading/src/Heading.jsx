@@ -56,3 +56,5 @@ InnerHeading.propTypes = propTypes;
 export const Heading = forwardRef((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 ));
+
+Heading.displayName = "Heading";

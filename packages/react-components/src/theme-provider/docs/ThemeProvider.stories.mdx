@@ -49,6 +49,21 @@ Theme providers can be nested.
     </Story>
 </Canvas>
 
+### User system setting
+
+A theme provider can select a color scheme according to the user's operating system setting.
+
+To enable this feature, you must pass the `system` value to `colorScheme` and an additional *fallback* color scheme to `defaultColorScheme` in case the theme provider can't access the user setting.
+
+<Canvas>
+    <Story name="system">
+        <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
+            <Button color="primary">Cutoff</Button>
+        </ThemeProvider>
+    </Story>
+</Canvas>
+
+
 ## API
 
 <ComponentInfo

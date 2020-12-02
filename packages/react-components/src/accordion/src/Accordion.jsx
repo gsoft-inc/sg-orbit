@@ -124,3 +124,5 @@ InnerAccordion.propTypes = propTypes;
 export const Accordion = forwardRef((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
+
+Accordion.displayName = "Accordion";

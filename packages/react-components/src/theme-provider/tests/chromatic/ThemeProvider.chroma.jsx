@@ -1,5 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { ThemeProvider } from "@react-components/theme-provider";
+import { paramsBuilder } from "../../../../../../storybook/utils/paramsBuilder";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -62,4 +63,12 @@ stories()
         <ThemeProvider theme="desktop" colorScheme="dark">
             <PrimaryColors />
         </ThemeProvider>
+    )
+    .add("system color scheme", () =>
+        <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
+            <PrimaryColors />
+        </ThemeProvider>,
+         paramsBuilder()
+             .chromaticIgnore()
+             .build()
     );

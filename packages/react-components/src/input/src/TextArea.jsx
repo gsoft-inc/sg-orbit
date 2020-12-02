@@ -225,3 +225,5 @@ InnerTextArea.propTypes = propTypes;
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
+
+TextArea.displayName = "TextArea";

@@ -125,3 +125,5 @@ export const Tag = forwardRef((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
 
+Tag.displayName = "Tag";
+

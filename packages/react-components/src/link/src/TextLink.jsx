@@ -144,3 +144,5 @@ InnerTextLink.propTypes = propTypes;
 export const TextLink = forwardRef((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
+
+TextLink.displayName = "TextLink";

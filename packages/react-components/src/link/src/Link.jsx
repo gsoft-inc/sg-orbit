@@ -101,3 +101,5 @@ InnerLink.propTypes = propTypes;
 export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
+
+Link.displayName = "Link";

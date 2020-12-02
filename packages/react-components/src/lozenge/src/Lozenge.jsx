@@ -82,3 +82,5 @@ InnerLozenge.propTypes = propTypes;
 export const Lozenge = slot("lozenge", forwardRef((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));
+
+Lozenge.displayName = "Lozenge";

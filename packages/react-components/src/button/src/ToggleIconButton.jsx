@@ -124,3 +124,5 @@ InnerToggleIconButton.propTypes = propTypes;
 export const ToggleIconButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
+
+ToggleIconButton.displayName = "ToggleIconButton";

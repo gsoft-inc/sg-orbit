@@ -76,3 +76,5 @@ InnerInline.propTypes = propTypes;
 export const Inline = forwardRef((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
+
+Inline.displayName = "Inline";

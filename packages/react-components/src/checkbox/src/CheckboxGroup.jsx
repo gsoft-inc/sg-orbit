@@ -170,3 +170,4 @@ export const CheckboxGroup = forwardRef((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
 
+CheckboxGroup.displayName = "CheckboxGroup";

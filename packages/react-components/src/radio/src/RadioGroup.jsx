@@ -205,3 +205,5 @@ export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />
 ));
 
+RadioGroup.displayName = "RadioGroup";
+

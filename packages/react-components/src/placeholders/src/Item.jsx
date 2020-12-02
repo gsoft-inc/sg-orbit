@@ -24,3 +24,5 @@ InnerItem.propTypes = propTypes;
 export const Item = forwardRef((props, ref) => (
     <InnerItem {...props} forwardedRef={ref} />
 ));
+
+Item.displayName = "Item";

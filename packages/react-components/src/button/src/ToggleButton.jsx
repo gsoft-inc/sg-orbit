@@ -117,4 +117,6 @@ export const ToggleButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 )));
 
+ToggleButton.displayName = "ToggleButton";
+
 

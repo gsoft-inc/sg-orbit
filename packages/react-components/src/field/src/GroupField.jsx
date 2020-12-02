@@ -98,3 +98,5 @@ InnerGroupField.propTypes = propTypes;
 export const GroupField = forwardRef((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));
+
+GroupField.displayName = "GroupField";

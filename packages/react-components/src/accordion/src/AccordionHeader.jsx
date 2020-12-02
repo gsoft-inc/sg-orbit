@@ -99,3 +99,5 @@ InnerAccordionHeader.propTypes = propTypes;
 export const AccordionHeader = forwardRef((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));
+
+AccordionHeader.displayName = "AccordionHeader";

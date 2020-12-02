@@ -146,6 +146,8 @@ export const IconButton = slot("button", forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 
+IconButton.displayName = "IconButton";
+
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",
     "md": "xs"

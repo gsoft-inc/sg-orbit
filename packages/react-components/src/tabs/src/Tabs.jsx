@@ -147,3 +147,5 @@ InnerTabs.propTypes = propTypes;
 export const Tabs = forwardRef((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
+
+Tabs.displayName = "Tabs";

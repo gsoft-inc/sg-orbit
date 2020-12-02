@@ -191,3 +191,5 @@ InnerCheckbox.propTypes = propTypes;
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
+
+Checkbox.displayName = "Checkbox";

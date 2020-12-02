@@ -40,3 +40,5 @@ InnerHeader.propTypes = propTypes;
 export const Header = slot("header", forwardRef((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
 )));
+
+Header.displayName = "Header";

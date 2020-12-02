@@ -93,3 +93,5 @@ InnerField.propTypes = propTypes;
 export const Field = forwardRef((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
+
+Field.displayName = "Field";

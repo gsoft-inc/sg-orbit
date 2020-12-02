@@ -40,3 +40,5 @@ export const VisuallyHidden = forwardRef((props, ref) => (
     <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));
 
+VisuallyHidden.displayName = "VisuallyHidden";
+

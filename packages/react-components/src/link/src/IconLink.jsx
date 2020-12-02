@@ -129,3 +129,5 @@ InnerIconLink.propTypes = propTypes;
 export const IconLink = forwardRef((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
+
+IconLink.displayName = "IconLink";

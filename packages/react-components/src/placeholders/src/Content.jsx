@@ -40,3 +40,5 @@ InnerContent.propTypes = propTypes;
 export const Content = slot("content", forwardRef((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
 )));
+
+Content.displayName = "Content";

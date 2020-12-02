@@ -184,3 +184,5 @@ InnerRadio.propTypes = propTypes;
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));
+
+Radio.displayName = "Radio";

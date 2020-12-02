@@ -225,3 +225,5 @@ InnerFlex.propTypes = propTypes;
 export const Flex = forwardRef((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
+
+Flex.displayName = "displayName";

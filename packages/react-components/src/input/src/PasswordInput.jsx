@@ -127,3 +127,5 @@ InnerPasswordInput.propTypes = propTypes;
 export const PasswordInput = forwardRef((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));
+
+PasswordInput.displayName = "PasswordInput";

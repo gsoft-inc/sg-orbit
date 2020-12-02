@@ -148,6 +148,8 @@ export const Alert = forwardRef((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 
+Alert.displayName = "Alert";
+
 ////////
 
 const variations = [
@@ -190,8 +192,9 @@ const [
 });
 
 // Dummy component for documentation purpose.
-export function AlertTemplate({ children }) {
-    return <div>{children}</div>;
+export function AlertTemplate() {
+    // When returning null, react-docgen doesn't ignore the component.
+    return <></>;
 }
 
 AlertTemplate.propTypes = {
@@ -215,8 +218,14 @@ AlertTemplate.propTypes = {
     /**
      * React children.
      */
+    // eslint-disable-next-line react/no-unused-prop-types
     children: any.isRequired
 };
+
+InfoAlert.displayName = "InfoAlert";
+SuccessAlert.displayName = "SuccessAlert";
+WarningAlert.displayName = "WarningAlert";
+CriticalAlert.displayName = "CriticalAlert";
 
 export {
     InfoAlert,

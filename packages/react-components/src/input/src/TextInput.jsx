@@ -190,3 +190,5 @@ InnerTextInput.propTypes = propTypes;
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
+
+TextInput.displayName = "TextInput";
