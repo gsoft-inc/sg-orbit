@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const BackgroundColors = {
     light: "#FFF",
-    dark: "#2B2F3B"
+    dark: "#15171E"
 };
 
 function useStoryContainerMatchingColorScheme(colorScheme, context) {

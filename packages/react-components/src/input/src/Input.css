@@ -11,6 +11,7 @@
     display: inline-block;
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
+    color: var(--marine-900);
     width: 325px;
 }
 
@@ -27,7 +28,7 @@
     border: 1px solid var(--o-ui-border-color);
     color: var(--marine-900);
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
     transition: all .12s ease-in, padding 0s linear;
 }
 

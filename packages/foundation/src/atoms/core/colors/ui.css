@@ -23,6 +23,17 @@
     --neutral-700: #C2C4C9;
     --neutral-800: #B1B3B8;
     --neutral-900: #9FA1A6;
+    /* Neutral Dark */
+    --neutral-dark-50: #FBFCFC;
+    --neutral-dark-100: #F5F6F7;
+    --neutral-dark-200: #EFF0F3;
+    --neutral-dark-300: #E9EAEE;
+    --neutral-dark-400: #E4E6EA;
+    --neutral-dark-500: #E0E2E7;
+    --neutral-dark-600: #D0D3D8;
+    --neutral-dark-700: #C2C4C9;
+    --neutral-dark-800: #B1B3B8;
+    --neutral-dark-900: #9FA1A6;
     /* Alert */
     --alert-50: #FFE3E8;
     --alert-100: #FFB2B7;

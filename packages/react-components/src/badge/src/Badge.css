@@ -1,6 +1,7 @@
 .o-ui-badge {
     position: relative;
     width: max-content;
+    color: var(--marine-900);
 }
 
 /* ANCHOR */

@@ -20,7 +20,7 @@
 }
 
 .o-ui-accordion-header:nth-last-child(2) .o-ui-accordion-trigger[aria-expanded="false"],
-.o-ui-accordion-panel:last-child {
+.o-ui-accordion-panel[aria-hidden="false"] {
     border-bottom-left-radius: var(--scale-bravo);
     border-bottom-right-radius: var(--scale-bravo);
 }
@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: white;
+    background-color: var(--foreground-color-1);
     cursor: pointer;
     border: 0;
     border-top: 1px solid var(--cloud-50);
@@ -67,9 +67,10 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
+    color: var(--marine-900);
     padding-left: var(--scale-echo);
     padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot));
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
 }
 
 /* STATES */
@@ -91,7 +92,7 @@
 
 /* HOVER | DISABLED */
 .o-ui-accordion-trigger[disabled]:hover {
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
 }
 
 /* FOCUS */

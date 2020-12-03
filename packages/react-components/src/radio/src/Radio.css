@@ -34,6 +34,7 @@
 .o-ui-radio-label {
     line-height: 1;
     margin-left: var(--scale-bravo);
+    color: var(--marine-900);
 }
 
 /* CONTENT | LABEL | REVERSE */
@@ -45,6 +46,7 @@
 /* CONTENT | ICON */
 .o-ui-radio-icon {
     margin-left: var(--scale-bravo);
+    fill: var(--marine-900);
 }
 
 /* CONTENT | ICON | REVERSE */
@@ -56,6 +58,7 @@
 /* CONTENT | COUNTER */
 .o-ui-radio-counter {
     margin-left: var(--scale-bravo);
+    color: var(--marine-900);
 }
 
 /* CONTENT | COUNTER | REVERSE */

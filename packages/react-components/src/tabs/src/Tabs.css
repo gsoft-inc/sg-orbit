@@ -167,6 +167,11 @@
     margin-left: var(--scale-bravo);
 }
 
+/* PANEL */
+.o-ui-tab-panel {
+    color: var(--marine-900);
+}
+
 /* PANEL | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-panel {
     padding: var(--scale-delta) var(--scale-bravo);

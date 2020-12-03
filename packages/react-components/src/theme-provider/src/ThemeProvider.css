@@ -20,11 +20,11 @@
     --primary-200: black;
     --primary-300: black;
     --primary-400: black;
-    --primary-500: black;
-    --primary-600: black;
-    --primary-700: black;
-    --primary-800: black;
-    --primary-900: black;
+    --primary-500: var(--apricot-600);
+    --primary-600: var(--apricot-500);
+    --primary-700: var(--apricot-400);
+    --primary-800: var(--apricot-300);
+    --primary-900: var(--apricot-200);
 }
 
 /* OVERCAST */
@@ -49,7 +49,7 @@
     --primary-200: black;
     --primary-300: black;
     --primary-400: black;
-    --primary-500: black;
+    --primary-500: var(--overcast-500);
     --primary-600: black;
     --primary-700: black;
     --primary-800: black;
@@ -78,9 +78,38 @@
     --primary-200: black;
     --primary-300: black;
     --primary-400: black;
-    --primary-500: black;
+    --primary-500: var(--desktop-500);
     --primary-600: black;
     --primary-700: black;
     --primary-800: black;
     --primary-900: black;
+}
+
+.o-ui-light-color-scheme {
+    /* FOUNDATIONS */
+    --background: var(--white);
+    --foreground-color-1: var(--white);
+    --foreground-color-2: var(--primary-300);
+    --static-white: var(--white);
+    --shadow-lightness: 56%;
+    --shadow-opacity: .32;
+    --image-opacity: 1;
+}
+
+/* DARK */
+.o-ui-dark-color-scheme {
+    --static-white: #FFFFFF;
+    /* TACHYONS */
+    --white: #2B2F3C;
+    --marine-900: #FFFFFF;
+    --cloud-50: #21242F;
+    --cloud-100: #525A70;
+    --alert-500: var(--alert-600);
+    --background: #15171E;
+    --foreground-color-1: #2B2F3C;
+    --foreground-color-2: var(--white);
+    /* SHADOWS */
+    --shadow-lightness: 3%;
+    --shadow-opacity: 1;
+    --image-opacity: 0.75;
 }

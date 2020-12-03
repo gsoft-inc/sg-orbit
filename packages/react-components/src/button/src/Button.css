@@ -56,7 +56,7 @@ a.o-ui-button {
 
 /* SOLID */
 .o-ui-button-solid {
-    color: var(--white);
+    color: var(--static-white);
     background-color: var(--marine-500);
 }
 

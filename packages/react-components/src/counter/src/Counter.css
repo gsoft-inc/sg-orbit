@@ -1,3 +1,7 @@
+.o-ui-counter {
+    color: var(--marine-900);
+}
+
 /* PILL */
 .o-ui-counter-pill {
     display: inline-flex;
