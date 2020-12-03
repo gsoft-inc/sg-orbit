@@ -64,7 +64,7 @@ export const DEFAULT_ITEMS_WITH_CATEGORIES = [
     tagsPickerItem("Artemis Program", "artemis", "2010")
 ];
 
-```js dark
+```js
 const DEFAULT_ITEMS = [
     tagsPickerItem("Mercury Program", "mercury"),
     tagsPickerItem("Gemini Program", "gemini"),
@@ -144,7 +144,7 @@ A tag picker can use a custom search handler.
 
 The following example use a custom [fuzzy search algorithm](https://en.wikipedia.org/wiki/Approximate_string_matching) based on the [fuse.js](https://fusejs.io/) library:
 
-```javascript dark
+```javascript
 function fuzzySearch(event, items, query) {
     const options = {
         keys: ["text", "value"]

@@ -222,7 +222,7 @@ Two types of components are available, _multi-variants_ components and _variants
 
 Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
-```jsx dark
+```jsx
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
@@ -234,7 +234,7 @@ function render() {
 
 Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
-```jsx dark
+```jsx
 import { CalendarIcon24 } from "@orbit-ui/react-components";
 
 function render() {
@@ -273,7 +273,7 @@ You can customize an icon dimensions with either [Tachyons dimensions classes](?
 
 #### Image source
 
-```jsx dark
+```jsx
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
@@ -283,7 +283,7 @@ function render() {
 
 #### CSS background
 
-```css dark
+```css
 .calendar-24 {
     background: url("~@orbit-ui/icons/icon-calendar-24.svg");
     width: var(--scale-foxtrot);
@@ -303,7 +303,7 @@ This means that you can alter the color of an icon by specifying a new `fill` va
 
 To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop:
 
-```jsx dark
+```jsx
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
@@ -313,7 +313,7 @@ function render() {
 
 If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/foundation--page#colors):
 
-```jsx dark
+```jsx
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
@@ -325,7 +325,7 @@ function render() {
 
 To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/colors--page#colors) to set a dynamic color:
 
-```jsx dark
+```jsx
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
@@ -337,7 +337,7 @@ function render() {
 
 You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/foundation--page#colors) to the `fill` property of the class:
 
-```css dark
+```css
 .calendar-24 {
     background: url("~@orbit-ui/icons/icon-calendar-24.svg");
     fill: var(--marine-900);

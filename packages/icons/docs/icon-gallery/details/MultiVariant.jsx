@@ -2,14 +2,14 @@ import { CheckeredBackground } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
-import { Source } from "@storybook/components";
+import { Snippet } from "@stories/components";
 import { cloneElement } from "react";
 
 function ImportSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Source language="js" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-components";`} className="mv2" />
+            <Snippet language="javasript" code={`import { ${componentType} } from "@orbit-ui/react-components";`} className="mv2" />
         </>
     );
 }
@@ -18,7 +18,7 @@ function UsageSection({ componentType }) {
     return (
         <>
             <h4 className="marine-900 pa0 ma0 mt4">Usage</h4>
-            <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mv2" />
+            <Snippet language="javascript" code={`<${componentType} />`} className="mv2" />
             <LearnUsageLink />
         </>
     );

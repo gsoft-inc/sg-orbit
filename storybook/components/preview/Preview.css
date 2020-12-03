@@ -1,0 +1,26 @@
+.o-ui-sb-preview {
+    margin: 25px 0 40px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-100);
+}
+
+.o-ui-sb-preview-story {
+    padding: var(--scale-golf) var(--scale-echo);
+}
+
+.o-ui-sb-preview-editor {
+    font-size: 15px;
+}
+
+.o-ui-sb-preview-editor .npm__react-simple-code-editor__textarea,
+.o-ui-sb-preview-editor pre {
+    padding: var(--scale-echo) !important;
+}
+
+.o-ui-sb-preview-error {
+    color: var(--white);
+    background-color: red;
+    font-size: 15px;
+    padding: var(--scale-charlie) var(--scale-echo);
+    margin: 0;
+}

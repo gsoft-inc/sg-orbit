@@ -24,8 +24,8 @@ For a React application, the easiest way to use Orbit UI is by installing the [@
 
 #### Import components
 
-```javascript dark
-import { Button, DateRangePicker, MultiSelect, AddIcon, ... } from "@orbit-ui/react-components";
+```javascript
+import { Button, DateRangePicker, MultiSelect, AddIcon } from "@orbit-ui/react-components";
 ```
 
 #### Import styles
@@ -39,7 +39,7 @@ import { Button, DateRangePicker, MultiSelect, AddIcon, ... } from "@orbit-ui/re
 
 #### Apply font
 
-```css dark
+```css
 html, body {
     font-family: "Calibre", Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -58,7 +58,7 @@ Before installing any [React components packages](?path=/docs/packages--page#rea
 
 #### Install all core packages
 
-```bash dark
+```bash
 npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
 ```
 
@@ -88,7 +88,7 @@ npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/fo
 
 #### Apply font
 
-```css dark
+```css
 html, body {
     font-family: "Calibre", Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -105,15 +105,15 @@ Once the *core packages* are installed, you can optionally install [React compon
 
 #### Import components
 
-```javascript dark
-import { Button, DateRangePicker, MultiSelect, AddIcon ... } from "@orbit-ui/react-components";
+```javascript
+import { Button, DateRangePicker, MultiSelect, AddIcon } from "@orbit-ui/react-components";
 ```
 
 ## Theme provider
 
 Once installed, for Orbit UI components to use your product theme, you must declare a `ThemeProvider` at the root of your application.
 
-```javascript dark
+```jsx
 // index.jsx
 
 import { ThemeProvider } from "@orbit-ui/react-components";
@@ -132,7 +132,7 @@ render(
 
 [Orbit UI icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. To setup `@svgr/webpack` you can use [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-```js dark
+```javascript
 {
     plugins: [
         [

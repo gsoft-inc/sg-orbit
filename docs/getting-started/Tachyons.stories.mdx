@@ -132,7 +132,7 @@ Please refer to the [shadows page](?path=/docs/shadows--page#tachyons) for an ex
 
 Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes.
 
-```jsx dark
+```jsx
 <p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
 ```
 
@@ -142,7 +142,7 @@ Here's a few common use cases to get you started.
 
 #### Align a list of items horizontally
 
-```jsx dark
+```jsx
 <div className="flex">
     <div>To</div>
     <div>the</div>
@@ -152,7 +152,7 @@ Here's a few common use cases to get you started.
 
 #### Add a margin-right between each elements
 
-```jsx dark
+```jsx
 <div className="flex">
     <div className="mr2">To</div>
     <div className="mr2">the</div>
@@ -162,7 +162,7 @@ Here's a few common use cases to get you started.
 
 #### Align a text with an icon
 
-```jsx dark
+```jsx
 <span className="flex items-center">
     Check
     <CheckIcon className="ml1 fill-success-500" />
@@ -171,13 +171,13 @@ Here's a few common use cases to get you started.
 
 #### Add padding on each sides of an element
 
-```jsx dark
+```jsx
 <div className="pa4">Im padded!</div>
 ```
 
 #### Set the background and text color of an element
 
-```jsx dark
+```jsx
 <div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>
 ```
 
@@ -185,7 +185,7 @@ Here's a few common use cases to get you started.
 
 By combining Tachyons with a library like [clsx](https://www.npmjs.com/package/clsx) you can easily had dynamic styles to an element based on one or more conditions:
 
-```jsx dark
+```jsx
 import clsx from "clsx";
 
 function Button({ text, disabled, tall }) {
@@ -206,7 +206,7 @@ You can override the default variables used by Tachyons, by overriding the [foun
 
 If you must support an old browser which doesn't implements CSS variables and you cannot use a build step to transpile the CSS variables, import the legacy version of Tachyons:
 
-```css dark
+```css
 @import "~@orbit-ui/tachyons/legacy.css";
 @import "~@orbit-ui/tachyons/legacy.min.css";
 ```

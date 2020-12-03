@@ -1,4 +1,4 @@
-import { Source } from "@storybook/components";
+import { Snippet } from "@stories/components";
 import { isNil } from "lodash";
 import { string } from "prop-types";
 import { useState } from "react";
@@ -25,11 +25,9 @@ export function FileSource({ filePath, language, ...rest }) {
     }
 
     return (
-        <Source
+        <Snippet
             {...rest}
             language={language}
-            dark
-            format={false}
             code={source}
         />
     );

@@ -1,4 +1,4 @@
-function CanvasContainer({ story: Story, context }) {
+export function withCenteredCanvas(Story, context) {
     const { parameters, viewMode } = context;
     const { canvasLayout } = parameters;
 
@@ -20,8 +20,4 @@ function CanvasContainer({ story: Story, context }) {
             </div>
         </div>
     );
-}
-
-export function withCanvasContainer(Story, context) {
-    return <CanvasContainer story={Story} context={context} />;
 }

@@ -1,8 +1,6 @@
-// import { BRANDS, useStorage } from "@shared/brands";
-import { Source } from "@storybook/components";
+import { Snippet } from "@stories/components";
 import { string } from "prop-types";
 import { useThemedSnippet } from "./useThemedSnippet";
-import dedent from "dedent";
 
 const propTypes = {
     apricot: string.isRequired,
@@ -16,17 +14,6 @@ const defaultProps = {
 };
 
 export function ThemedSnippet({ apricot, overcast, desktop, language, ...rest }) {
-    // const [currentBrand] = useStorage();
-
-    // let code = apricot;
-
-    // if (currentBrand.id === BRANDS.overcast.id) {
-    //     code = overcast;
-    // }
-    // else if (currentBrand.id === BRANDS.desktop.id) {
-    //     code = desktop;
-    // }
-
     const code = useThemedSnippet({
         apricot,
         overcast,
@@ -34,12 +21,10 @@ export function ThemedSnippet({ apricot, overcast, desktop, language, ...rest })
     });
 
     return (
-        <Source
+        <Snippet
             {...rest}
             language={language}
-            dark
-            format={false}
-            code={dedent(code)}
+            code={code}
         />
     );
 }

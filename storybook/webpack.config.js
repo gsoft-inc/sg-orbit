@@ -8,6 +8,7 @@ function addWebpackAliases(config) {
         "@root": path.resolve(__dirname, ".."),
         "@react-components": path.resolve(__dirname, "../packages/react-components/src"),
         "@stories/components": path.resolve(__dirname, "./components/"),
+        "@stories/mdx": path.resolve(__dirname, "./mdx/"),
         "@stories/utils": path.resolve(__dirname, "./utils/")
     };
 }
