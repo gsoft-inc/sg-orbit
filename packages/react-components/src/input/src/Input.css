@@ -1,13 +1,10 @@
-:root {
+.o-ui-input {
     --o-ui-padding: var(--scale-charlie);
     --o-ui-padding-with-icon: var(--scale-golf);
     --o-ui-padding-with-button: var(--scale-hotel);
     --o-ui-padding-loading: var(--scale-golf);
     --o-ui-border-color: var(--cloud-200);
     --o-ui-background-color: var(--cloud-100);
-}
-
-.o-ui-input {
     display: inline-block;
     position: relative;
     transition: var(--o-ui-focus-ring-transition);

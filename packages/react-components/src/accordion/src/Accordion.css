@@ -20,7 +20,7 @@
 }
 
 .o-ui-accordion-header:nth-last-child(2) .o-ui-accordion-trigger[aria-expanded="false"],
-.o-ui-accordion-panel[aria-hidden="false"] {
+.o-ui-accordion-header:nth-last-child(2) + div .o-ui-accordion-panel {
     border-bottom-left-radius: var(--scale-bravo);
     border-bottom-right-radius: var(--scale-bravo);
 }
@@ -34,7 +34,7 @@
     cursor: pointer;
     border: 0;
     border-top: 1px solid var(--cloud-50);
-    transition: background-color .3s ease-in;
+    transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
     color: var(--marine-900);
     line-height: inherit;
