@@ -1,51 +1,52 @@
 import "./Preview.css";
 
-import * as OrbitComponents from "@react-components";
 import { CodeTheme, useFormattedCode } from "@stories/components";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs/blocks";
+import { KnownScope } from "./scopes";
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
+import { bool, object, string } from "prop-types";
 import { defaultDecorateStory } from "@storybook/client-api";
 import { isNil } from "lodash";
 import { storyNameFromExport, toId } from "@storybook/csf";
-import { string } from "prop-types";
-import { useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 const propTypes = {
     filePath: string,
-    language: string
-};
-
-const ReactHooks = {
-    useState,
-    useEffect,
-    useContext,
-    useReducer,
-    useCallback,
-    useMemo,
-    useRef,
-    useImperativeHandle,
-    useLayoutEffect,
-    useDebugValue
+    language: string,
+    scope: object,
+    noInline: bool
 };
 
 function CodeEditor({
     code,
     language = "jsx",
+    scope: additionalScope = {},
+    noInline,
     children,
     ...rest
 }) {
+    const refreshKey = useRef(0);
+
+    // Ensure the editor code is refreshed when the theme or color scheme change.
+    // See https://github.com/FormidableLabs/react-live/issues/28
+    useEffect(() => {
+        refreshKey.current += 1;
+    });
+
     const formattedCoded = useFormattedCode(code, language);
 
     return (
         <div className="o-ui-sb-preview sbdocs sbdocs-preview">
             <LiveProvider
                 code={formattedCoded}
+                key={refreshKey.current}
                 language={language}
                 theme={CodeTheme}
                 scope={{
-                    ...OrbitComponents,
-                    ...ReactHooks
+                    ...KnownScope,
+                    ...additionalScope
                 }}
+                noInline={noInline}
                 {...rest}
             >
                 <div className="o-ui-sb-preview-story docs-story">
@@ -70,7 +71,7 @@ function DecoratedLivePreview() {
         : <LivePreview />;
 }
 
-function FilePreview({ filePath, language = "javascript" }) {
+function FilePreview({ filePath, language = "jsx", scope, noInline }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -86,6 +87,8 @@ function FilePreview({ filePath, language = "javascript" }) {
         <CodeEditor
             code={code}
             language={language}
+            scope={scope}
+            noInline={noInline}
         >
             <DecoratedLivePreview />
         </CodeEditor>
@@ -99,7 +102,7 @@ function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentMeta }) {
     );
 }
 
-function StoryPreview({ language, children }) {
+function StoryPreview({ language, scope, noInline, children }) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
@@ -111,6 +114,8 @@ function StoryPreview({ language, children }) {
         <CodeEditor
             code={code}
             language={language ?? inferredLanguage}
+            scope={scope}
+            noInline={noInline}
         >
             <div id={storyBlockIdFromId(storyId)}>
                 <DecoratedLivePreview />
@@ -119,13 +124,24 @@ function StoryPreview({ language, children }) {
     );
 }
 
-export function Preview({ filePath, language, children }) {
+export function Preview({ filePath, language, scope, noInline, children }) {
     if (!isNil(filePath)) {
-        return <FilePreview filePath={filePath} language={language} />;
+        return (
+            <FilePreview
+                filePath={filePath}
+                language={language}
+                scope={scope}
+                noInline={noInline}
+            />
+        );
     }
 
     return (
-        <StoryPreview language={language}>
+        <StoryPreview
+            language={language}
+            scope={scope}
+            noInline={noInline}
+        >
             {children}
         </StoryPreview>
     );

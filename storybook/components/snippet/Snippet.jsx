@@ -1,6 +1,5 @@
 import "./Snippet.css";
 
-import { ScrollArea } from "@storybook/components";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -26,15 +25,13 @@ export function Snippet({ code, language = "jsx" }) {
             >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={style}>
-                        <ScrollArea horizontal vertical className="o-ui-sb-snippet-scrollbar">
-                            {tokens.map((line, i) => (
-                                <div {...getLineProps({ line, key: i })}>
-                                    {line.map((token, key) => (
-                                        <span {...getTokenProps({ token, key })} />
-                                    ))}
-                                </div>
-                            ))}
-                        </ScrollArea>
+                        {tokens.map((line, i) => (
+                            <div {...getLineProps({ line, key: i })}>
+                                {line.map((token, key) => (
+                                    <span {...getTokenProps({ token, key })} />
+                                ))}
+                            </div>
+                        ))}
                     </pre>
                 )}
             </Highlight>
@@ -43,4 +40,5 @@ export function Snippet({ code, language = "jsx" }) {
 }
 
 Snippet.propTypes = propTypes;
+
 

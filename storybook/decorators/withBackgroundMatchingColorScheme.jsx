@@ -11,12 +11,8 @@ const BackgroundColors = {
 export function withBackgroundMatchingColorScheme(Story, context) {
     const colorScheme = context.globals.colorScheme;
 
-    console.log("Hello! BEFORE");
-
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        console.log("Hello!");
-
         const css = `
             .sb-show-main,
             .docs-story {

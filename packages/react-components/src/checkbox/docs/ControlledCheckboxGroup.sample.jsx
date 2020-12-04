@@ -1,7 +1,4 @@
-import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
-import { useState } from "react";
-
-export function ControlledCheckboxGroup() {
+() => {
     const [value, setValue] = useState([]);
 
     return (
@@ -17,4 +14,4 @@ export function ControlledCheckboxGroup() {
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
     );
-}
+};

@@ -1,11 +1,4 @@
-import { Button, ButtonGroup } from "@react-components/button";
-import { Checkbox } from "@react-components/checkbox";
-import { ErrorMessage, Field, Label } from "@react-components/field";
-import { Form } from "@react-components/form";
-import { TextInput } from "@react-components/input";
-import { useFormik } from "formik";
-
-export function RegistrationForm() {
+() => {
     const formik = useFormik({
         initialValues: {
             firstName: "",
@@ -63,4 +56,4 @@ export function RegistrationForm() {
             </ButtonGroup>
         </Form>
     );
-}
+};

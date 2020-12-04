@@ -1,5 +1,5 @@
 import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import {
     Button,
     ButtonGroup,
@@ -15,7 +15,6 @@ import {
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Button"
@@ -327,76 +326,3 @@ A toggle button can handle `checked` state in controlled mode.
 />
 
 <ArgsTable of={InnerButtonGroup} />
-
-<Story
-    name="playground - button"
-    args={{
-        children: "Cutoff"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerButton {...args} />
-    }
-</Story>
-
-<Story
-    name="playground - icon button"
-    parameters={paramsBuilder()
-        .component(InnerIconButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerIconButton {...args}>
-            <AddIcon />
-        </InnerIconButton>
-    }
-</Story>
-
-<Story
-    name="playground - toggle button"
-    args={{
-        children: "Cutoff"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerToggleButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerToggleButton {...args} />
-    }
-</Story>
-
-<Story
-    name="playground - toggle icon button"
-    parameters={paramsBuilder()
-        .component(InnerToggleIconButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerToggleIconButton {...args}>
-            <AddIcon />
-        </InnerToggleIconButton>
-    }
-</Story>
-
-<Story
-    name="playground - button group"
-    parameters={paramsBuilder()
-        .component(InnerToggleButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <ButtonGroup {...args}>
-            <Button variant="outline" color="secondary">Reset</Button>
-            <Button color="primary">Submit</Button>
-        </ButtonGroup>
-    }
-</Story>

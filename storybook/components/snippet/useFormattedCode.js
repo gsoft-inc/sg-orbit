@@ -21,7 +21,8 @@ export function useFormattedCode(code, language) {
                     plugins: [prettierBabel, prettierPostCss],
                     tabWidth: 4,
                     arrowParens: "avoid",
-                    printWidth: 3000
+                    printWidth: 100,
+                    trailingComma: "none"
                 })
                 .replace(">;", ">")
                 .trim();

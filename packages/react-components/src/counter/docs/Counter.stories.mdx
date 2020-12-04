@@ -1,10 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box } from "@react-components/box";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter, InnerCounter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Counter"
@@ -28,30 +27,30 @@ A counter is normally embedded in another component such as a [tag](?path=/docs/
 
 A default counter.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Counter>15</Counter>
     </Story>
-</Canvas>
+</Preview>
 
 ### Pill
 
 A counter can be rendered as a pill.
 
-<Canvas>
+<Preview>
     <Story name="pill">
         <Inline verticalAlign="center">
             <Counter size="sm">15</Counter>
             <Counter>15</Counter>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Divider
 
 A counter can be rendered as a divider.
 
-<Canvas>
+<Preview>
     <Story name="divider">
         <Inline verticalAlign="end">
             <Counter size="sm" variant="divider">100+</Counter>
@@ -61,39 +60,39 @@ A counter can be rendered as a divider.
             </Text>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Color
 
 A counter can use a different color accent.
 
-<Canvas>
+<Preview>
     <Story name="color">
         <Inline verticalAlign="center">
             <Counter color="light">15</Counter>
             <Counter color="light" variant="divider">100+</Counter>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Highlight
 
 A counter value can be highlighted.
 
-<Canvas>
+<Preview>
     <Story name="highlight">
         <Inline verticalAlign="center">
             <Counter highlight color="light">15</Counter>
             <Counter highlight color="light" variant="divider">100+</Counter>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Pushed
 
 A counter can pushed itself away from content.
 
-<Canvas>
+<Preview>
     <Story name="pushed">
         <Inline verticalAlign="center">
             <Box className="flex">
@@ -104,7 +103,7 @@ A counter can pushed itself away from content.
             </Box>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -116,19 +115,4 @@ A counter can pushed itself away from content.
 />
 
 <ArgsTable of={InnerCounter} />
-
-<Story
-    name="playground"
-    args={{
-        children: "15"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerCounter)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerCounter {...args} />
-    }
-</Story>
 

@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, FileCanvas, Preview, Tagline } from "@stories/components";
 import { EditIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerNumberInput, NumberInput } from "@react-components/input";
@@ -26,94 +26,94 @@ import { paramsBuilder } from "@stories/utils";
 
 A default number input.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <NumberInput placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Value
 
 A number input can have a value.
 
-<Canvas>
+<Preview>
     <Story name="value">
         <Inline>
             <NumberInput defaultValue={18} placeholder="Age" />
             <NumberInput defaultValue={155.75} step={0.1} placeholder="Weight" />
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Min / Max
 
 A number input value can be forced between min & max boundaries.
 
-<Canvas>
+<Preview>
     <Story name="min / max">
         <NumberInput min={15} max={30} defaultValue={18} placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A number input can have an [icon](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <NumberInput icon={<EditIcon />} placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A number input can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <NumberInput disabled placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Readonly
 
 A number input can be readonly.
 
-<Canvas>
+<Preview>
     <Story name="readonly">
         <NumberInput readOnly defaultValue={18} />
     </Story>
-</Canvas>
+</Preview>
 
 ### Loading
 
 A number input can show that it is currently loading data.
 
-<Canvas>
+<Preview>
     <Story name="loading">
         <NumberInput loading />
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A number input can take the width of its container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <NumberInput fluid placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Transparent
 
 A number input can be transparent.
 
-<Canvas>
+<Preview>
     <Story name="transparent">
         <NumberInput variant="transparent" placeholder="Age" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Validation
 
@@ -121,9 +121,7 @@ A number input can display a validation state to communicate to the user whether
 
 The example below illustrates how one would validate a required age value.
 
-<FileCanvas filePath="/input/docs/number-input/RequiredAgeValidation">
-    <RequiredAgeValidation />
-</FileCanvas>
+<Preview filePath="/input/docs/number-input/RequiredAgeValidation" />
 
 ## API
 
@@ -135,15 +133,3 @@ The example below illustrates how one would validate a required age value.
 />
 
 <ArgsTable of={InnerNumberInput} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerNumberInput)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <NumberInput {...args} />
-    }
-</Story>

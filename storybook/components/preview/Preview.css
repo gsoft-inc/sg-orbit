@@ -17,6 +17,10 @@
     padding: var(--scale-echo) !important;
 }
 
+.o-ui-sb-preview-source {
+    overflow-x: scroll;
+}
+
 .o-ui-sb-preview-error {
     color: var(--white);
     background-color: red;

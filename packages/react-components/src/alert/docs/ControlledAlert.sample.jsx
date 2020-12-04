@@ -1,11 +1,4 @@
-import { Alert } from "@react-components/alert";
-import { Button } from "@react-components/button";
-import { Content } from "@react-components/placeholders";
-import { EmailIcon } from "@react-components/icons";
-import { Stack } from "@react-components/layout";
-import { useCallback, useState } from "react";
-
-export function ControlledAlert() {
+() => {
     const [show, setShow] = useState(true);
 
     const toggleAlert = useCallback(() => {
@@ -31,4 +24,4 @@ export function ControlledAlert() {
             </Alert>
         </Stack>
     );
-}
+};

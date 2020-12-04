@@ -1,16 +1,12 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { AsyncTabs } from "./AsyncTabs.sample";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { ControlledTabs } from "./ControlledTabs.sample";
-import { CustomTabs } from "./CustomTabs.sample";
 import { Fragment } from "react";
 import { InnerItem, Item } from "@react-components/placeholders";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Tabs"
@@ -37,7 +33,7 @@ An accessible title must be provided through aria-label prop. See [WAI-ARIA](htt
 
 A default tabs.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Tabs aria-label="Planets">
             <Item>
@@ -54,13 +50,13 @@ A default tabs.
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A tab can contain [icons](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Tabs aria-label="Planets">
             <Item>
@@ -80,13 +76,13 @@ A tab can contain [icons](?path=/docs/icon-gallery--page).
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Lozenge
 
 A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
 
-<Canvas>
+<Preview>
     <Story name="lozenge">
         <Tabs aria-label="Planets">
             <Item>
@@ -106,13 +102,13 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Render props
 
 A tab can update is content based on the `isActive` value by providing a render prop function.
 
-<Canvas>
+<Preview>
     <Story name="render props">
         <Tabs aria-label="Planets">
             <Item>
@@ -136,21 +132,19 @@ A tab can update is content based on the `isActive` value by providing a render 
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom components
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
-<FileCanvas filePath="/tabs/docs/CustomTabs">
-    <CustomTabs />
-</FileCanvas>
+<Preview filePath="/tabs/docs/CustomTabs" noInline />
 
 ### Data tabs
 
 You can supply tabs content with an array instead of using the granular components.
 
-<Canvas>
+<Preview>
     <Story name="data render">
         <Tabs aria-label="Planets">
             {[
@@ -166,7 +160,7 @@ You can supply tabs content with an array instead of using the granular componen
                 )}
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Manually activated tabs
 
@@ -176,7 +170,7 @@ By default, tabs are activated automatically. This means when you use the arrow 
 
 In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing <kbd>Space</kbd> or <kbd>Enter</kbd>.
 
-<Canvas>
+<Preview>
     <Story name="manual">
         <Tabs manual aria-label="Planets">
             <Item>
@@ -193,21 +187,19 @@ In this scenario, you should use a manually activated tab, it moves focus withou
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Async content
 
 We recommend using the [render props](#render-props) syntax to load async content.
 
-<FileCanvas filePath="/tabs/docs/AsyncTabs">
-    <AsyncTabs />
-</FileCanvas>
+<Preview filePath="/tabs/docs/AsyncTabs" noInline />
 
 ### Orientation
 
 A tabs component can render vertically.
 
-<Canvas>
+<Preview>
     <Story name="orientation">
         <Tabs orientation="vertical" aria-label="Planets">
             <Item>
@@ -224,13 +216,13 @@ A tabs component can render vertically.
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A tabs component can split the width of it's container equally between his tabs.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <Tabs fluid aria-label="Planets">
             <Item>
@@ -247,13 +239,13 @@ A tabs component can split the width of it's container equally between his tabs.
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A tab can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled tab">
         <Tabs aria-label="Planets">
             <Item>
@@ -270,15 +262,13 @@ A tab can be disabled.
             </Item>
         </Tabs>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 The selected `index` can be handled in controlled mode.
 
-<FileCanvas filePath="/tabs/docs/ControlledTabs">
-    <ControlledTabs />
-</FileCanvas>
+<Preview filePath="/tabs/docs/ControlledTabs" />
 
 ## API
 
@@ -337,28 +327,3 @@ The selected `index` can be handled in controlled mode.
 />
 
 <ArgsTable of={InnerTabPanel} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerTabs)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <Tabs aria-label="Planets" {...args}>
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    }
-</Story>

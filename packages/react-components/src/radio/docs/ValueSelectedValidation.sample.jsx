@@ -1,7 +1,4 @@
-import { Radio, RadioGroup } from "@react-components/radio";
-import { useState } from "react";
-
-export function ValueSelectedValidation() {
+() => {
     const [value, setValue] = useState(null);
 
     const isValid = value === "pluto";
@@ -20,4 +17,4 @@ export function ValueSelectedValidation() {
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     );
-}
+};

@@ -1,13 +1,12 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink } from "@react-components/link";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { LaunchImage } from "./assets";
 import { RouterLink } from "./RouterLink";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Link"
@@ -30,37 +29,37 @@ import { paramsBuilder } from "@stories/utils";
 
 A default link.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <TextLink href="#">Flight details</TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A link can contain text and [icons](#).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <TextLink href="#">
             <Text>Flight details</Text>
             <WarningIcon />
         </TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### Left icon
 
 *Non standard* left [icons](#) can be provided to handle special cases. However, think twice before adding *left icons*, *right icons* should be your go to.
 
-<Canvas>
+<Preview>
     <Story name="left icon">
         <TextLink href="#">
             <WarningIcon slot="left-icon" />
             <Text>Flight details</Text>
         </TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### External
 
@@ -68,17 +67,17 @@ A link can indicate that his destination is an external resources.
 
 An external link will render with `target="_blank"` and `rel="noopener noreferrer"` attributes. These attributes values can be overrided by specifying a `target` or `rel` prop.
 
-<Canvas>
+<Preview>
     <Story name="external">
         <TextLink external href="#">Flight details</TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### Color
 
 A link can use a different color accent.
 
-<Canvas>
+<Preview>
     <Story name="color">
         <Inline>
             <TextLink color="primary" href="#">Primary</TextLink>
@@ -86,50 +85,50 @@ A link can use a different color accent.
             <TextLink color="danger" href="#">Danger</TextLink>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A link can have *disabled* style, it's your responsability to make sure the link doesn't navigate anywhere when activated.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <TextLink disabled href="#">Flight details</TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A link can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center">
             <TextLink size="sm" href="#">Flight details</TextLink>
             <TextLink href="#">Flight details</TextLink>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Button
 
 A link can behave like a button.
 
-<Canvas>
+<Preview>
     <Story name="button">
         <TextLink as="button">Flight details</TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ### React router
 
 To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any other custom component.
 
-<Canvas>
+<Preview scope={{ RouterLink }}>
     <Story name="react router">
         <TextLink as={RouterLink} to="/flight-details">Flight details</TextLink>
     </Story>
-</Canvas>
+</Preview>
 
 ## Icon Link
 
@@ -137,14 +136,14 @@ A link content can be a single icon.
 
 > When using this variant, an accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
-<Canvas>
+<Preview>
     <Story name="icon link">
         <Inline verticalAlign="center">
             <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
             <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## Basic Link
 
@@ -154,19 +153,19 @@ A link can have a more subtle appareance and only be noticeable when focused.
 
 A link content can be an image element.
 
-<Canvas>
+<Preview scope={{ LaunchImage }}>
     <Story name="basic link image">
         <Link href="#">
             <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
         </Link>
     </Story>
-</Canvas>
+</Preview>
 
 ### Shape
 
 A link can use a different shape to match his content shape on focus state.
 
-<Canvas>
+<Preview scope={{ LaunchImage }}>
     <Story name="basic link shape">
         <Inline>
             <Link shape="rounded" focus href="#">
@@ -180,7 +179,7 @@ A link can use a different shape to match his content shape on focus state.
             </Link>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -211,42 +210,3 @@ A link can use a different shape to match his content shape on focus state.
 />
 
 <ArgsTable of={InnerLink} />
-
-<Story
-    name="playground - text link"
-    parameters={paramsBuilder()
-        .component(InnerTextLink)
-        .excludeFromDocs()
-        .build()}
->
-    {args => (
-        <InnerTextLink href="#" {...args}>Flight details</InnerTextLink>
-    )}
-</Story>
-
-<Story
-    name="playground - icon link"
-    parameters={paramsBuilder()
-        .component(InnerIconLink)
-        .excludeFromDocs()
-        .build()}
->
-    {args => (
-        <InnerIconLink href="#" {...args} icon-label="Add"><AddIcon /></InnerIconLink>
-    )}
-</Story>
-
-<Story
-    name="playground - link"
-    parameters={paramsBuilder()
-        .component(InnerLink)
-        .excludeFromDocs()
-        .build()
-    }
->
-    {args => (
-        <InnerLink href="#" {...args}>
-            <Image src={LaunchImage} alt="SpaceX launch" width="325px" height="216px" />
-        </InnerLink>
-    )}
-</Story>

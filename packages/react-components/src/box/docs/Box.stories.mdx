@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerBox } from "@react-components/box";
 import { paramsBuilder } from "@stories/utils";
 
@@ -23,11 +23,11 @@ import { paramsBuilder } from "@stories/utils";
 
 A default box.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Box>Enjoy space like never before.</Box>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -37,16 +37,3 @@ A default box.
 />
 
 <ArgsTable of={InnerBox} />
-
-<Story
-    name="playground"
-    args={{
-        children: "Box"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerBox)
-        .excludeFromDocs()
-        .build()}
->
-    {args => <InnerBox {...args} />}
-</Story>

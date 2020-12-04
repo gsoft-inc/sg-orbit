@@ -1,7 +1,4 @@
-import { Radio, RadioGroup } from "@react-components/radio";
-import { useState } from "react";
-
-export function ControlledRadioGroup() {
+() => {
     const [value, setValue] = useState(null);
 
     return (
@@ -17,4 +14,4 @@ export function ControlledRadioGroup() {
             <Radio value="pluto">Pluto</Radio>
         </RadioGroup>
     );
-}
+};

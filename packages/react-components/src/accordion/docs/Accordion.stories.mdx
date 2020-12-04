@@ -1,14 +1,11 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { ControlledAccordion } from "./ControlledAccordion.sample";
-import { CustomAccordion } from "./CustomAccordion.sample";
 import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, Item } from "@react-components/placeholders";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Accordion"
@@ -37,7 +34,7 @@ That heading element should have a level that is appropriate for the information
 
 An accordion item can contain [icons](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Accordion>
             <Item>
@@ -63,13 +60,13 @@ An accordion item can contain [icons](?path=/docs/icon-gallery--page).
             </Item>
         </Accordion>
     </Story>
-</Canvas>
+</Preview>
 
 ### Multiple
 
 An accordion can allow multiple items to be expanded at once.
 
-<Canvas>
+<Preview>
     <Story name="multiple">
         <Accordion multiple>
             <Item>
@@ -86,13 +83,13 @@ An accordion can allow multiple items to be expanded at once.
             </Item>
         </Accordion>
     </Story>
-</Canvas>
+</Preview>
 
 ### Render props
 
 An accordion item can update is content based on the `isOpen` value by providing a render prop function.
 
-<Canvas>
+<Preview>
     <Story name="render props">
         <Accordion>
             <Item>
@@ -127,21 +124,19 @@ An accordion item can update is content based on the `isOpen` value by providing
             </Item>
         </Accordion>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom components
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
-<FileCanvas filePath="/accordion/docs/CustomAccordion">
-    <CustomAccordion />
-</FileCanvas>
+<Preview filePath="/accordion/docs/CustomAccordion" noInline />
 
 ### Data items
 
 You can supply accordion items with an array instead of using the granular components.
 
-<Canvas>
+<Preview>
     <Story name="data render">
         <Accordion aria-label="Planets">
             {[
@@ -157,13 +152,13 @@ You can supply accordion items with an array instead of using the granular compo
                 )}
         </Accordion>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 An accordion item can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled item">
         <Accordion>
             <Item>
@@ -180,13 +175,13 @@ An accordion item can be disabled.
             </Item>
         </Accordion>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 An accordion header can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Stack>
             <Accordion>
@@ -219,15 +214,13 @@ An accordion header can vary in size.
             </Accordion>
         </Stack>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 The selected `index` can be handled in controlled mode.
 
-<FileCanvas filePath="/accordion/docs/ControlledAccordion">
-    <ControlledAccordion />
-</FileCanvas>
+<Preview filePath="/accordion/docs/ControlledAccordion" />
 
 ## API
 
@@ -238,7 +231,7 @@ The selected `index` can be handled in controlled mode.
     compact
 />
 
-<ArgsTable of={InnerItem} />
+<ArgsTable of={InnerAccordion} />
 
 ### Item
 
@@ -286,37 +279,3 @@ The selected `index` can be handled in controlled mode.
 />
 
 <ArgsTable of={InnerAccordionPanel} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerAccordion)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerAccordion {...args}>
-            <Item>
-                <Header as="h3">
-                    <NotificationIcon />
-                    <Text>Mars</Text>
-                </Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">
-                    <InfoIcon />
-                    <Text>Jupiter</Text>
-                </Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">
-                    <HelpIcon />
-                    <Text>Venus</Text>
-                </Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </InnerAccordion>
-    }
-</Story>

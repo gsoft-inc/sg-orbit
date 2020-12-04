@@ -1,9 +1,4 @@
-import { Content, Header } from "@react-components/placeholders";
-import { Item } from "@react-components/placeholders";
-import { Tabs } from "@react-components/tabs";
-import { useCallback, useState } from "react";
-
-export function ControlledTabs() {
+() => {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const handleChange = useCallback((event, index) => {
@@ -27,4 +22,4 @@ export function ControlledTabs() {
             </Item>
         </Tabs>
     );
-}
+};

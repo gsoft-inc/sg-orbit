@@ -1,6 +1,6 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { ThemeProvider } from "@react-components/theme-provider";
 
 <Meta
@@ -27,19 +27,19 @@ If you need to access the current theme you can do so, by using the `useTheme` h
 
 A default theme provider.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <ThemeProvider theme="desktop" colorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>
-</Canvas>
+</Preview>
 
 ### Nesting
 
 Theme providers can be nested.
 
-<Canvas>
+<Preview>
     <Story name="nesting">
         <ThemeProvider theme="desktop" colorScheme="light">
             <ThemeProvider theme="overcast" colorScheme="light">
@@ -47,7 +47,7 @@ Theme providers can be nested.
             </ThemeProvider>
         </ThemeProvider>
     </Story>
-</Canvas>
+</Preview>
 
 ### User system setting
 
@@ -55,13 +55,13 @@ A theme provider can select a color scheme according to the user's operating sys
 
 To enable this feature, you must pass the `system` value to `colorScheme` and an additional *fallback* color scheme to `defaultColorScheme` in case the theme provider can't access the user setting.
 
-<Canvas>
+<Preview>
     <Story name="system">
         <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>
-</Canvas>
+</Preview>
 
 
 ## API

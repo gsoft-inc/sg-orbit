@@ -1,9 +1,3 @@
-import { Content, Header } from "@react-components/placeholders";
-import { Item } from "@react-components/placeholders";
-import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { Tab, Tabs } from "@react-components/tabs";
-import { Text } from "@react-components/text";
-
 function ActiveHeader({ selected, children, ...rest }) {
     return (
         <Tab
@@ -16,7 +10,7 @@ function ActiveHeader({ selected, children, ...rest }) {
     );
 }
 
-export function CustomTabs() {
+function CustomTabs() {
     return (
         <Tabs aria-label="Planets">
             <Item>
@@ -34,3 +28,7 @@ export function CustomTabs() {
         </Tabs>
     );
 }
+
+render(
+    <CustomTabs />
+);
