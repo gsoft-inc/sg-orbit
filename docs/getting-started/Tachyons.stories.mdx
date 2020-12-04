@@ -16,7 +16,9 @@ import { paramsBuilder } from "@stories/utils";
 ### Composable
 
 _Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http//getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
-complex and hard to grasp for most full stack developers and should be avoid. Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
+complex and hard to grasp for most full stack developers and should be avoid.
+
+Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
 and therefore the need to adopt a methodology.
 
 One could argue that [CSS modules](https://github.com/css-modules/css-modules) also solve CSS global-mutable-stateful classes problems, which is true, but at the expense of reusability.
@@ -31,21 +33,25 @@ _Consistency_ makes designers happy!
 
 ### Tachyons as a foundation
 
-In Orbit UI, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles. When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
+In Orbit UI, Tachyons classes are the foundation of our utility classes. Tachyons classes forms a range of building blocks that handles most common use cases and help us avoid writing custom styles.
+
+When we need to add some margin or padding, rather than adding a new selector specific to that use case, we can use these utilities. This helps us reduce the number of unique property-value pairs, and helps us keep more consistent styles across our products.
 
 Over the course of development of our products, we added a few utilities that were missing from Tachyons. Find out how we customized Tachyons in the [customization section](#customization) of this document.
 
 ## Customization
 
-Orbit UI provide a custom version of the Tachyons library based on [Orbit UI foundation](?path=/docs/foundation--page) variables. You will find most of the documentation on [Tachyons website](https://tachyons.io/docs). For Orbit UI customization documentation, please refer to the list of customizations below and the _Materials_ pages.
+Orbit UI provide a custom version of the Tachyons library based on [Orbit UI foundation](?path=/docs/foundation--page) variables. You will find most of the documentation on [Tachyons website](https://tachyons.io/docs).
+
+For Orbit UI customization documentation, please refer to the list of customizations below and the _Materials_ pages.
 
 ### Spacing scale
 
-Orbit Design spacing scale have been implemented as Tachyons CSS classes. To do so, Tachyons spacing scale have been increased from _7_ to _13_ values. This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/spacing--page#tachyons) for an exhaustive list of all available classes.
+Orbit Design spacing scale have been implemented as Tachyons CSS classes. To do so, Tachyons spacing scale have been increased from _7_ to _13_ values.
+
+This means that all the paddings and margins variants are available from `0 to 13`. Please refer to the [spacing page](?path=/docs/spacing--page#tachyons) for an exhaustive list of all available classes.
 
 Selectors for `auto` [paddings](?path=/docs/spacing--page#paddings) and [margins](?path=/docs/spacing--page#margins) have been added to Tachyons.
-
-#### Margins
 
 ### Typography
 
@@ -112,21 +118,15 @@ Please refer to the [colors](?path=/docs/mcolors--page#tachyons) and [borders](?
 
 ### Flexbox
 
-A few custom utility classes for flexbox have been added to Tachyons.
-
-Please refer to the [flexbox page](?path=/docs/flexbox--page) for an exhaustive list of all available classes.
+A few custom utility classes for flexbox have been added to Tachyons. Please refer to the [flexbox page](?path=/docs/flexbox--page) for an exhaustive list of all available classes.
 
 ### Grid
 
-A few custom utility classes for grid have been added to Tachyons.
-
-Please refer to the [grid page](?path=/docs/grid--page#tachyons) for an exhaustive list of all available classes.
+A few custom utility classes for grid have been added to Tachyons. Please refer to the [grid page](?path=/docs/grid--page#tachyons) for an exhaustive list of all available classes.
 
 ### Shadows
 
-Tachyons box shadows classes have been rewrited to match Orbit UI foundation variables.
-
-Please refer to the [shadows page](?path=/docs/shadows--page#tachyons) for an exhaustive list of all available classes.
+Tachyons box shadows classes have been rewrited to match Orbit UI foundation variables. Please refer to the [shadows page](?path=/docs/shadows--page#tachyons) for an exhaustive list of all available classes.
 
 ## Quick start
 

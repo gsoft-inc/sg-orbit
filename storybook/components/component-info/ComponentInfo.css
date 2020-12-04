@@ -10,7 +10,6 @@
     display: flex;
     align-items: center;
     min-height: 28px;
-    margin-bottom: var(--scale-delta);
 }
 
 .o-ui-sb-header-title {
