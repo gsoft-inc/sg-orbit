@@ -218,7 +218,7 @@ stories()
         </Accordion>
     )
     .add("data render", () =>
-        <Stack gap={13}>
+        <Stack>
             <Accordion>
                 {[1, 2, 3].map(x => (
                     <Item key={x}>
