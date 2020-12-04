@@ -62,3 +62,5 @@ InnerText.propTypes = propTypes;
 export const Text = slot("text", forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
+
+Text.displayName = "Text";

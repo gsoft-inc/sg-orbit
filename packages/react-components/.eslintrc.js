@@ -26,6 +26,14 @@ module.exports = {
                 "max-len": "off",
                 "react/no-array-index-key": "off"
             }
+        },
+        {
+            files: ["*.sample.jsx"],
+            rules: {
+                "no-unused-expressions": "off",
+                "react/jsx-no-undef": "off",
+                "jsx-control-statements/jsx-jcs-no-undef": "off"
+            }
         }
     ],
     rules: {

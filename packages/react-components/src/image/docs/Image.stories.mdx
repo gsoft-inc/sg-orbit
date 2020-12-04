@@ -1,28 +1,23 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Image, InnerImage } from "@react-components/image";
 import { Inline } from "@react-components/layout";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
-import LaunchImage from "./assets/launch.jpg";
+import { LaunchImage } from "./assets";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Image"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/image/src" />)
-        .build()}
+    title="Components/Image"
+    id="image"
 />
 
 # Image
 
-Use this component to display an image.
+<Tagline>Use this component to display an image.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Image from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Image } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/image/src"
+/>
 
 ## Accessibility
 
@@ -53,17 +48,8 @@ An image can adjust it's size by using the `size` prop or the native `width` and
     </Story>
 </Preview>
 
-## Props
+## API
 
-<Props of={InnerImage} />
+### Image
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Image src={LaunchImage} alt="SpaceX launch" />
-    </RefLogger>
-</Story>
+<ArgsTable of={InnerImage} />

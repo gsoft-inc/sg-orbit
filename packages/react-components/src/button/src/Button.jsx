@@ -28,7 +28,7 @@ const propTypes = {
      */
     condensed: bool,
     /**
-     * Whether the button should autoFocus on render.
+     * Whether or not the button should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -48,6 +48,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md"]),
     /**
+     * Whether or not the button is disabled.
+     */
+    disabled: bool,
+    /**
      * The button type.
      */
     type: oneOf(["button", "submit", "reset"]),
@@ -66,7 +70,7 @@ const propTypes = {
      */
     slot: string,
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -169,5 +173,7 @@ InnerButton.propTypes = propTypes;
 export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
+
+Button.displayName = "Button";
 
 

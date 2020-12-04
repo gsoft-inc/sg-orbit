@@ -14,7 +14,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -54,3 +54,5 @@ InnerRow.propTypes = propTypes;
 export const Row = forwardRef((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
+
+Row.displayName = "Row";

@@ -34,15 +34,11 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -77,3 +73,5 @@ InnerStack.propTypes = propTypes;
 export const Stack = forwardRef((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
+
+Stack.displayName = "Stack";

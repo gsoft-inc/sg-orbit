@@ -20,7 +20,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -77,3 +77,5 @@ InnerLabel.propTypes = propTypes;
 export const Label = forwardRef((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));
+
+Label.displayName = "Label";

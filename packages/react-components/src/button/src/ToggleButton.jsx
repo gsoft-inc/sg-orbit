@@ -15,11 +15,11 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * 	The value to associate with when in a group.
+     * The value to associate with when in a group.
      */
     value: oneOfType([string, number]),
     /**
-     * Called when the button checked state change.
+     * Called when the toggle button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
@@ -28,17 +28,17 @@ const propTypes = {
     /**
      * The style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost"]),
+    variant: oneOf(["solid", "outline"]),
     /**
-     * The color accent.
+     * The toggle button color accent.
      */
     color: oneOf(["primary", "secondary"]),
     /**
-     * The button shape.
+     * The toggle button shape.
      */
     shape: oneOf(["pill", "rounded", "circular"]),
     /**
-     * Whether the button should autoFocus on render.
+     * Whether or not the toggle button should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -46,15 +46,19 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * A button can vary in size.
+     * A toggle button can vary in size.
      */
     size: oneOf(["sm", "md"]),
+    /**
+     * Whether or not the toggle button is disabled.
+     */
+    disabled: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func]).isRequired
 };
@@ -112,5 +116,7 @@ InnerToggleButton.propTypes = propTypes;
 export const ToggleButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 )));
+
+ToggleButton.displayName = "ToggleButton";
 
 

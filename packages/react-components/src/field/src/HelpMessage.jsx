@@ -14,7 +14,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -50,3 +50,5 @@ InnerHelpMessage.propTypes = propTypes;
 export const HelpMessage = forwardRef((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />
 ));
+
+HelpMessage.displayName = "HelpMessage";

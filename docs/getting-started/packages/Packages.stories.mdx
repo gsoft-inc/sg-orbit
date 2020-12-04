@@ -1,0 +1,54 @@
+import { ExternalLink } from "@stories/components";
+import { Fragment } from "react";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { PackagesTable } from "./PackagesTable";
+import { paramsBuilder } from "@stories/utils";
+
+<Meta
+    title="Getting Started/Packages"
+    id="packages"
+    parameters={paramsBuilder()
+        .sortPriority(-6)
+        .build()}
+/>
+
+# Packages
+
+Multiple packages compose Orbit UI. Based on which type of application you're building you'll choose a different composition. For more information view the [installation page](?path=/docs/installation--page).
+
+## Bundles
+
+Bundles are the easiest way to install Orbit UI in your app with a single package.
+
+<PackagesTable
+    packages={[
+        { name: "@orbit-ui/react", description: "A single package bundle to use Orbit UI in a React app.", relativePath: "packages/bundles/react" }
+    ]}
+/>
+
+## Core
+
+The core packages are the backbone of Orbit UI. They include all the Orbit UI bits that are related to styling.
+
+<PackagesTable
+    packages={[
+        { name: "@orbit-ui/css-normalize", description: "Orbit UI custom CSS normalizer for Edge, Chrome, Firefox and Safari.", relativePath: "packages/css-normalize" },
+        { name: "@orbit-ui/fonts", description: "The fonts of Orbit UI.", relativePath: "packages/fonts" },
+        { name: "@orbit-ui/icons", description: "The icons of Orbit UI.", relativePath: "packages/icons" },
+        { name: "@orbit-ui/foundation", description: "A set of CSS variables for Orbit UI colors, spacing and typography.", relativePath: "packages/foundation" },
+        { name: "@orbit-ui/tachyons", description: <>A custom version of the <ExternalLink href="https://github.com/tachyons-css/tachyons">Tachyons library</ExternalLink>.</>, relativePath: "packages/tachyons" }
+    ]}
+/>
+
+## React components
+
+Orbit UI components for React.
+
+<PackagesTable
+    packages={[
+        { name: "@orbit-ui/react-components", description: "Orbit UI React core components.", relativePath: "packages/react-components" }
+    ]}
+/>
+
+
+

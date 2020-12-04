@@ -1,14 +1,11 @@
 import { Checkbox } from "@react-components/checkbox";
 import { Inline } from "@react-components/layout";
 import { createCheckboxTestSuite } from "./createCheckboxTestSuite";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Checkbox"))
+    return storiesOfBuilder(module, "Chromatic/Checkbox")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

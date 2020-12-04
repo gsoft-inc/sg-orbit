@@ -1,6 +1,6 @@
 import { Accordion } from "@react-components/accordion";
-import { Content, Header } from "@react-components/view";
-import { Item } from "@react-components/collection";
+import { Content, Header } from "@react-components/placeholders";
+import { Item } from "@react-components/placeholders";
 import { KEYS } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";

@@ -1,0 +1,199 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
+import { CheckeredBackground, ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { paramsBuilder } from "@stories/utils";
+import IndexFileUsage from "./IndexFileUsage.mdx";
+
+<Meta
+    title="Components/Icon"
+    id="icon"
+/>
+
+# Icon
+
+<Tagline>An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes.</Tagline>
+
+<ComponentInfo
+    usage="import { Icon, MultiVariantIcon, IconList } from @react-components"
+    githubPath="/packages/react-components/src/icons/src"
+/>
+
+You can use any type of icons (e.g. _svg_, _image_, _ico-font_) with this component but we do recommend using inline `svg` element since they come with [a lot of benefits](https://www.jotform.com/blog/why-you-should-embed-svg-inline-98570).
+
+If you are looking for Orbit UI official icons, please have a look at the [icons page](?path=/docs/icon-gallery#gallery) in the materials section.
+
+## Accessibility
+
+When applicable, an accessible name should be provided through `aria-label` to indicate the **purpose** of the icon in it's **current context**. For more information see [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute).
+
+## Usage
+
+To use an icon component you must first import your SVG icon as a React component by using [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/). If you haven't setup `@svgr/webpack` yet, please have a look at the [icon section](?path=/docs/getting-started-installation--page#icons) of the installation page.
+
+To import your SVG icon as a React component:
+
+```jsx
+import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+```
+
+Then you can either wrap your icon with an `<Icon />` or `<MultiVariantIcon />` component:
+
+```jsx
+import { Icon } from "@orbit-ui/react-components";
+import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+
+<Icon type={Azure32} />
+```
+
+Or export your icon as an HOC and render it at a later time:
+
+```jsx
+import { Icon } from "@orbit-ui/react-components";
+import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+
+export const AzureIcon32 = Icon.create(Azure32);
+```
+
+<IndexFileUsage />
+
+### Default
+
+A default icon will render as an `md` sized icon.
+
+<Preview>
+    <Story name="default">
+        <CheckeredBackground>
+            <Icon type={AzureIcon32} />
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+### Size
+
+An icon can vary in size.
+
+<Preview>
+    <Story name="size">
+        <CheckeredBackground>
+            <Inline verticalAlign="center" gap={2}>
+                <Icon type={AzureIcon32} size="2xs" />
+                <Icon type={AzureIcon32} size="xs" />
+                <Icon type={AzureIcon32} size="sm" />
+                <Icon type={AzureIcon32} />
+                <Icon type={AzureIcon32} size="lg" />
+                <Icon type={AzureIcon32} size="xl" />
+            </Inline>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+### Color
+
+An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
+
+<Preview>
+    <Story name="color">
+        <CheckeredBackground>
+            <Inline verticalAlign="end" gap={2}>
+                <Icon type={AzureIcon32} size="lg" className="fill-primary-100" />
+                <Icon type={AzureIcon32} size="lg" className="fill-primary-500" />
+                <Icon type={AzureIcon32} size="lg" className="fill-primary-900" />
+            </Inline>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
+
+<Preview>
+    <Story name="dynamic-color">
+        <CheckeredBackground>
+            <Inline verticalAlign="end" gap={2}>
+                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--primary-100)" }} />
+                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--primary-500)" }} />
+                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--primary-900)" }} />
+            </Inline>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+## Multi-variants
+
+If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi-variants components will decide which variant of an icon to render based on the size you specified.
+
+A multi variants icon support the same props as `<Icon />`.
+
+### Size
+
+<Preview>
+    <Story name="multi-variants size">
+        <CheckeredBackground>
+            <Inline verticalAlign="center" gap={2}>
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="2xs" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="xs" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="sm" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="xl" />
+            </Inline>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+### Color
+
+<Preview>
+    <Story name="multi-variants color">
+        <CheckeredBackground>
+            <Inline verticalAlign="end" gap={2}>
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-100" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-500" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-900" />
+            </Inline>
+        </CheckeredBackground>
+    </Story>
+</Preview>
+
+## Icon List
+
+To inline multiple icons in a component, wrap your icons in an icon list component.
+
+<Preview>
+    <Story name="icon list">
+        <IconList>
+            <Icon type={AzureIcon32} />
+            <Icon type={FilterIcon32} />
+        </IconList>
+    </Story>
+</Preview>
+
+## API
+
+### Icon
+
+<ComponentInfo
+    usage="import { Icon } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerIcon} />
+
+### MultiVariantIcon
+
+<ComponentInfo
+    usage="import { MultiVariantIcon } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerMultiVariantIcon} />
+
+### IconList
+
+<ComponentInfo
+    usage="import { IconList } from @react-components"
+    compact
+/>
+
+<ArgsTable of={InnerIconList} />

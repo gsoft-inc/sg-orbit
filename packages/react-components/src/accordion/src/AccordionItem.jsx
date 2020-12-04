@@ -37,3 +37,5 @@ export function AccordionItem({
         </AccordionItemProvider>
     );
 }
+
+AccordionItem.displayName = "AccordionItem";

@@ -1,32 +1,26 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
 import { TextLink } from "@react-components/link";
 
 <Meta
-    title="Content|Divider"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/divider/src" />)
-        .build()}
+    title="Components/Divider"
+    id="divider"
 />
 
 # Divider
 
-A divider to separates and distinguishes sections of content or groups of menuitems.
+<Tagline>A divider to separates and distinguishes sections of content or groups of menu items.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Divider from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/divider/src"
+/>
 
 ## Usage
 
-### Horizontal
+### Default
 
 By default a divider render horizontally which takes the width of it's container.
 
@@ -72,17 +66,13 @@ Or vertically:
     </Story>
 </Preview>
 
-## Props
+## API
 
-<Props of={InnerDivider} />
+### Divider
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Divider />
-    </RefLogger>
-</Story>
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerDivider} />

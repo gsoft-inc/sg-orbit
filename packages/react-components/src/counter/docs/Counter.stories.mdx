@@ -1,0 +1,118 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter, InnerCounter } from "@react-components/counter";
+import { Inline } from "@react-components/layout";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Components/Counter"
+    id="counter"
+/>
+
+# Counter
+
+<Tagline>A counter indicate a running tally.</Tagline>
+
+A counter is normally embedded in another component such as a [tag](?path=/docs/tag--default-story) or a [checkbox](?path=/docs/checkbox--default-story).
+
+<ComponentInfo
+    usage={"import { Counter } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/counter"
+/>
+
+## Usage
+
+### Default
+
+A default counter.
+
+<Preview>
+    <Story name="default">
+        <Counter>15</Counter>
+    </Story>
+</Preview>
+
+### Pill
+
+A counter can be rendered as a pill.
+
+<Preview>
+    <Story name="pill">
+        <Inline verticalAlign="center">
+            <Counter size="sm">15</Counter>
+            <Counter>15</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Divider
+
+A counter can be rendered as a divider.
+
+<Preview>
+    <Story name="divider">
+        <Inline verticalAlign="end">
+            <Counter size="sm" variant="divider">100+</Counter>
+            <Counter variant="divider">100+</Counter>
+            <Text size="lg">
+                <Counter size="inherit" variant="divider">100+</Counter>
+            </Text>
+        </Inline>
+    </Story>
+</Preview>
+
+### Color
+
+A counter can use a different color accent.
+
+<Preview>
+    <Story name="color">
+        <Inline verticalAlign="center">
+            <Counter color="light">15</Counter>
+            <Counter color="light" variant="divider">100+</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Highlight
+
+A counter value can be highlighted.
+
+<Preview>
+    <Story name="highlight">
+        <Inline verticalAlign="center">
+            <Counter highlight color="light">15</Counter>
+            <Counter highlight color="light" variant="divider">100+</Counter>
+        </Inline>
+    </Story>
+</Preview>
+
+### Pushed
+
+A counter can pushed itself away from content.
+
+<Preview>
+    <Story name="pushed">
+        <Inline verticalAlign="center">
+            <Box className="flex">
+                Satellites <Counter pushed color="light">15</Counter>
+            </Box>
+            <Box className="flex">
+                Satellites <Counter pushed color="light" variant="divider">100+</Counter>
+            </Box>
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+### Counter
+
+<ComponentInfo
+    usage={"import { Counter } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerCounter} />
+

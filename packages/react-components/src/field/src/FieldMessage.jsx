@@ -20,7 +20,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -94,3 +94,4 @@ export const FieldMessage = forwardRef(({
 });
 
 FieldMessage.propTypes = propTypes;
+FieldMessage.displayName = "FieldMessage";

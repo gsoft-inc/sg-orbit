@@ -1,0 +1,240 @@
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout, WarningMessage } from "@stories/components";
+import { InnerSelect, Select, selectItem } from "@react-components/select";
+import { MagnifierIcon } from "@react-components/icons";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/searchable")}
+    parameters={paramsBuilder()
+        .sortPriority(2)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Searchable Select
+
+A select can allow a user to search through a large list of choices.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: InnerSelect },
+        { displayName: "Select.Item", component: InnerSelect.Item }
+    ]}
+/>
+
+## Usage
+
+<WarningMessage>
+    This component have the same feature set as the <a href="?path=/docs/components-select-standard--default-story">standard select</a> component.
+</WarningMessage>
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const GALAXIES = [
+    selectItem("Andromeda", "Andromeda"),
+    selectItem("Antennae", "Antennae"),
+    selectItem("Backward", "Backward"),
+    selectItem("Black Eye", "Black Eye"),
+    selectItem("Butterfly", "Butterfly"),
+    selectItem("Cartwheel", "Cartwheel"),
+    selectItem("Cigar", "Cigar"),
+    selectItem("Circinus", "Circinus"),
+    selectItem("Coma Pinwheel", "Coma Pinwheel"),
+    selectItem("Comet", "Comet"),
+    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
+    selectItem("Eye of Sauron", "Eye of Sauron"),
+    selectItem("Fireworks", "Fireworks"),
+    selectItem("Hockey Stick", "Hockey Stick"),
+    selectItem("Hoag's Object", "Hoag's Object"),
+    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
+    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
+    selectItem("Little Sombrero", "Little Sombrero"),
+    selectItem("Medusa Merger", "Medusa Merger"),
+    selectItem("Mice", "Mice"),
+    selectItem("Milky Way", "Milky Way"),
+    selectItem("Needle", "Needle"),
+    selectItem("Southern Pinwheel", "Southern Pinwheel"),
+    selectItem("Sunflower", "Sunflower"),
+    selectItem("Tadpole", "Tadpole"),
+    selectItem("Whirlpool", "Whirlpool")
+];
+
+```javascript
+const GALAXIES = [
+    selectItem("Andromeda", "Andromeda"),
+    selectItem("Antennae", "Antennae"),
+    selectItem("Backward", "Backward"),
+    selectItem("Black Eye", "Black Eye"),
+    selectItem("Butterfly", "Butterfly"),
+    selectItem("Cartwheel", "Cartwheel"),
+    selectItem("Cigar", "Cigar"),
+    selectItem("Circinus", "Circinus"),
+    selectItem("Coma Pinwheel", "Coma Pinwheel"),
+    selectItem("Comet", "Comet"),
+    selectItem("Cosmos Redshift 7", "Cosmos Redshift 7"),
+    selectItem("Eye of Sauron", "Eye of Sauron"),
+    selectItem("Fireworks", "Fireworks"),
+    selectItem("Hockey Stick", "Hockey Stick"),
+    selectItem("Hoag's Object", "Hoag's Object"),
+    selectItem("Large Magellanic Cloud", "Large Magellanic Cloud"),
+    selectItem("Lindsay-Shapley Ring", "Lindsay-Shapley Ring"),
+    selectItem("Little Sombrero", "Little Sombrero"),
+    selectItem("Medusa Merger", "Medusa Merger"),
+    selectItem("Mice", "Mice"),
+    selectItem("Milky Way", "Milky Way"),
+    selectItem("Needle", "Needle"),
+    selectItem("Southern Pinwheel", "Southern Pinwheel"),
+    selectItem("Sunflower", "Sunflower"),
+    selectItem("Tadpole", "Tadpole"),
+    selectItem("Whirlpool", "Whirlpool")
+];
+```
+
+### Default
+
+A default searchable select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A searchable select can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            search
+            defaultValue="Comet"
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A searchable select can display an [icon](?path=/docs/materials-icons--page) before it's content.
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            icon={<MagnifierIcon />}
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A searchable select can let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            clearable
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A searchable select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            disabled
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A searchable select can take all the space available.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            fluid
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+### Loading
+
+A searchable select can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <Select
+            placeholder="Select a galaxy"
+            search
+            loading
+            options={GALAXIES}
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autoFocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autoFocus search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus search disabled placeholder="Select a galaxy" options={GALAXIES} />
+    </div>
+</Story>
+
+<Story
+    name="autoFocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autoFocus autoFocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
+        <Select autoFocus disabled autoFocusDelay={500} search placeholder="Select a galaxy" options={GALAXIES} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger><Select search options={GALAXIES} /></RefLogger>
+</Story>

@@ -1,0 +1,39 @@
+A search input component requires a set of results to display. Those results can be specified with the `results` property.
+
+To create a result, use the `searchInputResult(id, text, additionalProps?)` function:
+
+```javascript
+const georgeResult = tagsPickerItem("1", "Neil Armstrong");
+```
+
+<details><summary >specify optional data</summary>
+
+An optional data `obj` can be specified to provide additional information to any callbacks e.g. `onValueChange` or `resultRenderer`:
+
+```javascript
+const georgeResult = tagsPickerItem("1", "Neil Armstrong", { backendId: 123 });
+```
+
+Then in any callbacks:
+
+```jsx
+<SearchInput
+    results={[georgeResult]}
+    onValueChange={(event, { id, text, backendId }) => {
+        console.log(backendId);
+    }}
+/>
+```
+
+Or in a custom result renderer:
+
+```jsx
+<SearchInput
+    results={[georgeResult]}
+    resultRenderer={({ id, text, backendId }) => {
+        return <div>{backendId}</div>;
+    }}
+/>
+```
+
+</details>

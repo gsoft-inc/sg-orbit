@@ -1,14 +1,11 @@
 import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("NumberInput"))
+    return storiesOfBuilder(module, "Chromatic/NumberInput")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

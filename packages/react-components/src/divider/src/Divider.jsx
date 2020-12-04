@@ -61,3 +61,5 @@ export const Divider = forwardRef((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));
 
+Divider.displayName = "Divider";
+

@@ -1,48 +1,38 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
-import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
-import { ControlledAccordion } from "./ControlledAccordion.sample";
-import { CustomAccordion } from "./CustomAccordion.sample";
-import { FilePreview, ReactComponentsLayout } from "@blocks";
-import { Fragment } from "react";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
-import { InnerItem, Item } from "@react-components/collection";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, paramsBuilder } from "@utils";
+import { InnerItem, Item } from "@react-components/placeholders";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 
 <Meta
-    title="Content|Accordion"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/accordion/src" />)
-        .build()}
+    title="Components/Accordion"
+    id="accordion"
 />
 
 # Accordion
 
-Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
+<Tagline>Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Accordion from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#accordion">https://www.w3.org/TR/wai-aria-practices/#accordion</a></dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Accordion, Item, Header, Content } from \"@orbit-ui/react-components\""}
+    ariaPath="#accordion"
+    githubPath="/packages/react-components/src/accordion/src"
+/>
 
 ## Accessibility
 
-The accordion header that shows and hides the content must be an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements). That heading element should have a level that is appropriate for the information architecture of the page. You can do this by providing an `as` prop to the `<Header>` component.
+The accordion header that shows and hides the content must be an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
+
+That heading element should have a level that is appropriate for the information architecture of the page. You can do this by providing an `as` prop to the `<Header>` component.
 
 ## Usage
 
 ### Icon
 
-An accordion item can contain [icons](?path=/docs/materials-icons--page).
+An accordion item can contain [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
@@ -104,32 +94,32 @@ An accordion item can update is content based on the `isOpen` value by providing
         <Accordion>
             <Item>
                 {({ isOpen }) => (
-                    <Fragment>
+                    <>
                         <Header className={isOpen ? "primary-600" : undefined} as="h3">
                             Mars
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </Fragment>
+                    </>
                 )}
             </Item>
             <Item>
                 {({ isOpen }) => (
-                    <Fragment>
+                    <>
                         <Header className={isOpen ? "primary-600" : undefined} as="h3">
                             Jupiter
                         </Header>
                         <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                    </Fragment>
+                    </>
                 )}
             </Item>
             <Item>
                 {({ isOpen }) => (
-                    <Fragment>
+                    <>
                         <Header className={isOpen ? "primary-600" : undefined} as="h3">
                             Venus
                         </Header>
                         <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                    </Fragment>
+                    </>
                 )}
             </Item>
         </Accordion>
@@ -140,9 +130,7 @@ An accordion item can update is content based on the `isOpen` value by providing
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
-<FilePreview filePath="/accordion/docs/CustomAccordion">
-    <CustomAccordion />
-</FilePreview>
+<Preview filePath="/accordion/docs/CustomAccordion" noInline />
 
 ### Data items
 
@@ -232,55 +220,62 @@ An accordion header can vary in size.
 
 The selected `index` can be handled in controlled mode.
 
-<FilePreview filePath="/accordion/docs/ControlledAccordion">
-    <ControlledAccordion />
-</FilePreview>
+<Preview filePath="/accordion/docs/ControlledAccordion" />
 
-## Props
+## API
 
 ### Accordion
 
-<Props of={InnerAccordion} />
+<ComponentInfo
+    usage={"import { Accordion } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerAccordion} />
 
 ### Item
 
-<Props of={InnerItem} />
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
 
 ### Header
 
-<Props of={InnerHeader} />
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text"]}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} />
 
 ### Content
 
-<Props of={InnerContent} />
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
 
 ### AccordionHeader
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | text</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { AccordionHeader } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text"]}
+    compact
+/>
 
-<Props of={InnerAccordionHeader} />
+<ArgsTable of={InnerAccordionHeader} />
 
 ### AccordionPanel
 
-<Props of={InnerAccordionPanel} />
+<ComponentInfo
+    usage={"import { AccordionPanel } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Accordion>
-            <Item>
-                <Header as="h3">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-        </Accordion>
-    </RefLogger>
-</Story>
+<ArgsTable of={InnerAccordionPanel} />

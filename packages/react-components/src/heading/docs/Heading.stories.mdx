@@ -1,25 +1,21 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Heading, InnerHeading } from "@react-components/heading";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Heading"
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Components/Heading"
+    id="heading"
 />
 
 # Heading
 
-Heading is used to create various levels of typographic hierarchies.
+<Tagline>Heading is used to create various levels of typographic hierarchies.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Heading from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/heading/src"
+/>
 
 ## Usage
 
@@ -33,30 +29,26 @@ When using an header, you should specify the element type to render it as. We do
     </Story>
 </Preview>
 
-### Changing font size
+### Size
 
-You can alter the font size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/materials-typography--page#headlines).
+You can alter the size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/typography--page#headlines).
 
 <Preview>
-    <Story name="headers">
-        <div>
+    <Story name="size">
+        <>
             <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
             <Heading as="h4" size="sm">Migrate, adapt, and control the cloud.</Heading>
-        </div>
+        </>
     </Story>
 </Preview>
 
-## Props
+## API
 
-<Props of={InnerHeading} />
+### Heading
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
-    </RefLogger>
-</Story>
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} />

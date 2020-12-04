@@ -16,7 +16,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -62,3 +62,5 @@ InnerForm.propTypes = propTypes;
 export const Form = forwardRef((props, ref) => (
     <InnerForm {...props} forwardedRef={ref} />
 ));
+
+Form.displayName = "Form";

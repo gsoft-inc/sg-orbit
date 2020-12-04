@@ -1,0 +1,157 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { CheckCircleIcon } from "@react-components/icons";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@react-components/counter";
+import { Dot } from "@react-components/dot";
+import { Inline } from "@react-components/layout";
+import { InnerTag, Tag } from "@react-components/tag";
+import { Text } from "@react-components/text";
+import { paramsBuilder } from "@stories/utils";
+import CustomColorHover from "./CustomColorHover.mdx";
+
+<Meta
+    title="Components/Tag"
+    id="tag"
+/>
+
+# Tag
+
+<Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
+
+<ComponentInfo
+    usage={"import { Tag } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/tag/src"
+/>
+
+## Usage
+
+### Default
+
+A default tag.
+
+<Preview>
+    <Story name="default">
+        <Tag>Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Icon
+
+A tag can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Tag>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### Dot
+
+A tag can contain a [dot](?path=/docs/dot--default-story).
+
+<Preview>
+    <Story name="dot">
+        <Tag>
+            <Dot color="primary-500" />
+            <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### Counter
+
+A tag can contain a [counter](?path=/docs/counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Tag>
+            <Text>Falcon 9</Text>
+            <Counter>6</Counter>
+        </Tag>
+    </Story>
+</Preview>
+
+### Removable
+
+A tag can be removable by specifying an `onRemove` handler.
+
+<Preview>
+    <Story name="removable">
+        <Tag onRemove={() => {}}>Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Size
+
+A tag can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Tag size="sm">Falcon 9</Tag>
+            <Tag>Falcon 9</Tag>
+        </Inline>
+    </Story>
+</Preview>
+
+### Fluid
+
+A tag can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Tag fluid>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+            <Counter>6</Counter>
+        </Tag>
+    </Story>
+</Preview>
+
+### Outline
+
+A tag can have a subtle appearance.
+
+<Preview>
+    <Story name="outline">
+        <Tag variant="outline">Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Custom colors
+
+Custom colors can be applied to a tag.
+
+<Preview>
+    <Story name="custom-color">
+        <Tag
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--marine-500)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Falcon 9
+        </Tag>
+    </Story>
+</Preview>
+
+<CustomColorHover />
+
+## API
+
+### Tag
+
+<ComponentInfo
+    usage={"import { Tag } from \"@orbit-ui/react-components\""}
+    slots={["text", "icon", "dot", "counter"]}
+    compact
+/>
+
+<ArgsTable of={InnerTag} />
+
+
+

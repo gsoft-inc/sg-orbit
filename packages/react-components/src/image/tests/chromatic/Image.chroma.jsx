@@ -1,15 +1,11 @@
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
-import Launch from "./assets/launch.jpg";
-import Mars from "./assets/mars.png";
+import { Launch, Mars } from "./assets";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Image"))
+    return storiesOfBuilder(module, "Chromatic/Image")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

@@ -1,18 +1,15 @@
 import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
+import { Launch } from "./assets";
 import { Link } from "@react-components/link";
 import { Paragraph } from "@react-components/paragraph";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createLinkTestSuite } from "./createLinkTestSuite";
-import Launch from "./assets/launch.jpg";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Link"))
+    return storiesOfBuilder(module, "Chromatic/Link")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

@@ -1,7 +1,3 @@
-import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
-import { Content } from "@react-components/view";
-import { Item } from "@react-components/collection";
-
 function ActiveHeader({ children, ...rest }) {
     const { isOpen } = useAccordionItemContext();
 
@@ -15,7 +11,7 @@ function ActiveHeader({ children, ...rest }) {
     );
 }
 
-export function CustomAccordion() {
+function CustomAccordion() {
     return (
         <Accordion aria-label="Planets">
             <Item>
@@ -33,3 +29,7 @@ export function CustomAccordion() {
         </Accordion>
     );
 }
+
+render(
+    <CustomAccordion />
+);

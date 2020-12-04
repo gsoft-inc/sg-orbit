@@ -28,6 +28,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md", "inherit"]),
     /**
+     * Whether or not the counter is disabled.
+     */
+    disabled: bool,
+    /**
      * Whether or not the counter push itself away from leading sibling element.
      */
     pushed: bool,
@@ -92,3 +96,5 @@ InnerCounter.propTypes = propTypes;
 export const Counter = slot("counter", forwardRef((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
+
+Counter.displayName = "Counter";

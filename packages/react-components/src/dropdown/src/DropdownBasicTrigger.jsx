@@ -8,7 +8,7 @@ import { mergeClasses, normalizeSize } from "../../shared";
 
 const propTypes = {
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the text.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the text.
      */
     icon: element,
     /**

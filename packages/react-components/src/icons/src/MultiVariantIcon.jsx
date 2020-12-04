@@ -45,6 +45,10 @@ export const MultiVariantIcon = slot("icon", forwardRef((props, ref) => (
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 )));
 
+Icon.displayName = "MultiVariantIcon";
+
+////////
+
 function createMultiVariantFactory(type24, type32) {
     return slot("icon", forwardRef((props, ref) =>
         <MultiVariantIcon

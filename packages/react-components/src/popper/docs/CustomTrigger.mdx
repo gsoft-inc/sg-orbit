@@ -1,0 +1,21 @@
+<details><summary >custom trigger example</summary>
+
+```jsx
+export const Trigger = forwardRef(({ onClick, onKeyDown ...rest }, ref) => {
+    // Optionally use context values.
+    const { isVisible } = useContext(AutoControlledPopperContext);
+
+    return (
+        <button
+            {...rest}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            className={isVisible ? "bg-primary-500" : "bg-secondary-500"}
+            ref={ref}
+        >
+            Toggle
+        </button>
+    );
+});
+```
+</details>

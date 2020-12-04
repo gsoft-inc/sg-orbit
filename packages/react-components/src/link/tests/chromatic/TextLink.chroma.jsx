@@ -1,14 +1,11 @@
 import { Inline } from "@react-components/layout";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTextLinkTestSuite } from "./createTextLinkTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("TextLink"))
+    return storiesOfBuilder(module, "Chromatic/TextLink")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

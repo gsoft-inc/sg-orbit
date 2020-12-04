@@ -1,0 +1,48 @@
+.o-ui-sb-gallery-preview-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.o-ui-sb-gallery-preview-container {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .15s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem;
+    background-color: #0E1C3D;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.o-ui-sb-gallery-preview-icon:hover .o-ui-sb-gallery-preview-container,
+.o-ui-sb-gallery-preview-icon:focus .o-ui-sb-gallery-preview-container,
+.o-ui-sb-gallery-preview-icon:active .o-ui-sb-gallery-preview-container {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
+
+.o-ui-sb-gallery-view-button {
+    position: absolute;
+    color: #FFF;
+    font-weight: 500;
+    font-size: .75rem;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: inherit;
+}
+
+.o-ui-sb-gallery-view-button::-moz-focus-inner {
+    border: 0;
+}

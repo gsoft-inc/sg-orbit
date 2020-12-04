@@ -58,3 +58,5 @@ export function TabList({
         </Box>
     );
 }
+
+TabList.displayName = "TabList";

@@ -44,6 +44,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md"]),
     /**
+     * Whether or not the link is disabled.
+     */
+    disabled: bool,
+    /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string.isRequired,
@@ -52,7 +56,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -125,3 +129,5 @@ InnerIconLink.propTypes = propTypes;
 export const IconLink = forwardRef((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
+
+IconLink.displayName = "IconLink";

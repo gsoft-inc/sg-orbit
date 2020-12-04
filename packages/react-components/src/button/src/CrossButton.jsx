@@ -22,6 +22,10 @@ const propTypes = {
      */
     size: oneOf(["2xs", "xs", "sm", "md"]),
     /**
+     * Whether or not the cross button is disabled.
+     */
+    disabled: bool,
+    /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
@@ -59,3 +63,5 @@ InnerCrossButton.propTypes = propTypes;
 export const CrossButton = slot("button", forwardRef((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
+
+CrossButton.displayName = "CrossButton";

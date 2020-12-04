@@ -1,0 +1,316 @@
+:root {
+    /* Use this var only when the element is not affected by the font-family specified in Storybook docs theme */
+    --orbit-font-family: "Calibre, Arial, Helvetica, sans-serif";
+}
+
+/* LAYOUT */
+.sbdocs.sbdocs-wrapper {
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.sbdocs.sbdocs-content {
+    max-width: 1200px;
+    font-size: var(--type-scale-6);
+}
+
+/* STORY */
+.docs-story div + div > button {
+    font-weight: 500;
+    font-size: var(--type-scale-8);
+}
+
+/* ARGS TABLE */
+.docblock-argstable {
+    min-width: 220px;
+    margin-bottom: 0;
+}
+
+/* ARGS TABLE | HEADER */
+.docblock-argstable-head,
+.docblock-argstable-body {
+    font-size: var(--type-scale-7) !important;
+}
+
+.docblock-argstable-head tr th {
+    font-weight: 500 !important;
+    color: var(--marine-900) !important;
+}
+
+/* ARGS TABLE | HEADER | RESET */
+.docblock-argstable-head button {
+    background-color: var(--primary-500) !important;
+    box-shadow: none;
+}
+
+.docblock-argstable-head button:focus {
+    box-shadow: none;
+}
+
+.docblock-argstable-head button:hover {
+    background-color: var(--primary-700) !important;
+}
+
+.docblock-argstable-head button svg path {
+    fill: var(--white) !important;
+}
+
+/* ARGS TABLE | BODY  */
+.docblock-argstable-body td > span {
+    font-weight: 500 !important;
+}
+
+.docblock-argstable-body td > label > span {
+    font-weight: 500 !important;
+}
+
+.docblock-argstable-body td label input[type=radio] {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+.docblock-argstable-body td label input[type=radio]:focus {
+    outline-offset: 1px;
+}
+
+.docblock-argstable-body td label span {
+    font-size: var(--type-scale-8) !important;
+}
+
+.docblock-argstable-body td label input[type="radio"] {
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+.docblock-argstable-body td input[type="number"],
+.docblock-argstable-body td input[type="text"],
+.docblock-argstable-body td textarea {
+    font-size: var(--type-scale-8);
+}
+
+.docblock-argstable-body a {
+    color: var(--primary-500) !important;
+}
+
+.docblock-argstable-body button {
+    color: var(--primary-500) !important;
+    font-family: var(--orbit-font-family) !important;
+    font-size: var(--type-scale-8) !important;
+    padding-left: 2px !important;
+}
+
+/* EMPTY BLOCK */
+.docblock-emptyblock {
+    color: var(--cloud-500) !important;
+    border: 1px dashed var(--cloud-100) !important;
+}
+
+.docblock-emptyblock a {
+    color: var(--primary-500) !important;
+}
+
+/* SOURCE BLOCK */
+.docblock-source {
+    margin-top: 20px !important;
+    margin-bottom: 35px !important;
+}
+
+.sbdocs.sbdocs-preview,
+.sbdocs.sbdocs-pre {
+    border: none;
+    box-shadow: var(--shadow-100);
+}
+
+.sbdocs.sbdocs-preview,
+.sbdocs.sbdocs-preview > div > div {
+    overflow: visible;
+}
+
+.sbdocs.sbdocs-preview div[scale] {
+    transform: none !important;
+}
+
+/* ELEMENTS | TEXT */
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3,
+.sbdocs.sbdocs-h4,
+.sbdocs.sbdocs-h5,
+.sbdocs.sbdocs-h6,
+.sbdocs.sbdocs-p  {
+    color: var(--marine-900);
+}
+
+/* ELEMENTS | HEADER */
+.sbdocs.sbdocs-h1,
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h3,
+.sbdocs.sbdocs-h4,
+.sbdocs.sbdocs-h5,
+.sbdocs.sbdocs-h6 {
+    /* fixing the default position relative on all titles in shared.tsx */
+    position: initial;
+}
+
+.sbdocs.sbdocs-h1 {
+    font-size: var(--type-scale-1);
+    line-height: 1;
+}
+
+.sbdocs.sbdocs-h1,
+.sbdocs .sbdocs-title {
+    font-weight: 500;
+}
+
+.sbdocs.sbdocs-h2 {
+    border-bottom: 1px solid var(--marine-50);
+}
+
+.sbdocs.sbdocs-h2,
+.sbdocs.sbdocs-h2:first-of-type {
+    margin: 1.5rem 0;
+    font-size: var(--type-scale-3);
+}
+
+.sbdocs.sbdocs.sbdocs-h3 {
+    margin: var(--scale-golf) 0 var(--scale-delta);
+    font-size: var(--type-scale-4);
+}
+
+.sbdocs.sbdocs.sbdocs-h4 {
+    font-size: var(--type-scale-5);
+    margin: var(--scale-foxtrot) 0 var(--scale-bravo);
+}
+
+.sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
+.sbdocs.sbdocs-h3 + .sbdocs.sbdocs-p,
+.sbdocs.sbdocs-h4 + .sbdocs.sbdocs-p {
+    margin: 0 0 1rem 0;
+}
+
+.sbdocs.sbdocs-p {
+    max-width: 75ch;
+}
+
+/* ELEMENTS | LINK */
+.sbdocs.sbdocs-a {
+    font-size: var(--type-scale-6);
+    color: var(--primary-700) !important;
+}
+
+.sbdocs.sbdocs-a:hover,
+.sbdocs.sbdocs-a:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+/* ELEMENTS | LINK | IN PARAGRAGH */
+.sbdocs.sbdocs-p .sbdocs-a {
+    font-size: inherit;
+}
+
+.sbdocs.sbdocs-a:focus {
+    border-radius: var(--o-ui-rounded-border-radius);
+    background-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+}
+
+.sbdocs .sbdocs-a code {
+    color: var(--primary-500);
+}
+
+/* ELEMENTS | TYPOGRAPHY */
+.sbdocs.sbdocs-p,
+.sbdocs.sbdocs-span {
+    font-size: var(--type-scale-6);
+    line-height: 1.2;
+    max-width: 90ch;
+}
+
+/* ELEMENTS | TABLE */
+.sbdocs.sbdocs-table tr {
+    border-top: 1px solid var(--cloud-100);
+}
+
+.sbdocs.sbdocs-table thead tr {
+    border-top: 1px solid var(--cloud-100);
+}
+
+.sbdocs.sbdocs-table tr th {
+    font-weight: 600;
+    font-size: var(--type-scale-6);
+}
+
+.sbdocs.sbdocs-table td {
+    font-size: var(--type-scale-6);
+}
+
+.sbdocs.sbdocs-table tr td,
+.sbdocs.sbdocs-table tr th {
+    border: 1px solid var(--cloud-100);
+}
+
+.sbdocs.sbdocs-table b,
+.sbdocs.sbdocs-table strong {
+    font-weight: 600;
+}
+
+.sbdocs.sbdocs-table .sbdocs.sbdocs-img {
+    max-width: none;
+}
+
+/* ELEMENTS | SUMMARY */
+.sb-show-main summary {
+    font-size: var(--type-scale-6);
+    cursor: pointer;
+    line-height: 1.3333;
+}
+
+.sb-show-main details {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--moonstone-50);
+}
+
+.sb-show-main details + details {
+    margin-top: var(--scale-delta);
+}
+
+.sbdocs details .docblock-source {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 1rem 0 !important;
+}
+
+/* ELEMENTS | KBD */
+.sbdocs kbd {
+    line-height: 1;
+    margin: 0 2px;
+    padding: 3px 5px;
+    white-space: nowrap;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #EEE;
+    color: rgba(51,51,51,0.9);
+    background-color: #F8F8F8;
+}
+
+/* ELEMENTS | LIST */
+.sbdocs.sbdocs-li {
+    font-size: var(--type-scale-6) !important;
+}
+
+/* ELEMENTS | STRONG */
+.sbdocs strong {
+    font-weight: 500;
+}
+
+/* ELEMENTS | LINK ICON */
+.sbdocs.sbdocs-h1 a {
+    margin-left: -36px;
+}
+
+.sbdocs.sbdocs-h1 a svg {
+    width: var(--scale-foxtrot);
+    height: var(--scale-foxtrot);
+}

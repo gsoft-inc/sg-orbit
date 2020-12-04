@@ -1,0 +1,63 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { CrossButton, InnerCrossButton } from "@react-components/button";
+import { Inline } from "@react-components/layout";
+
+<Meta
+    title="Components/CrossButton"
+    id="cross-button"
+/>
+
+# CrossButton
+
+<Tagline>A button with a cross icon to handle use cases like clearing a value or closing overlay components.</Tagline>
+
+<ComponentInfo
+    usage="import { CrossButton } from @orbit-ui/react-components"
+    ariaPath="#button"
+    githubPath="/packages/react-components/src/button/src"
+/>
+
+## Usage
+
+### Default
+
+<Preview>
+    <Story name="default">
+        <CrossButton aria-label="Clear" />
+    </Story>
+</Preview>
+
+### Disabled
+
+<Preview>
+    <Story name="disabled">
+        <CrossButton disabled aria-label="Clear" />
+    </Story>
+</Preview>
+
+### Size
+
+A cross button can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <CrossButton size="2xs" aria-label="Clear" />
+            <CrossButton size="xs" aria-label="Clear" />
+            <CrossButton size="sm" aria-label="Clear" />
+            <CrossButton aria-label="Clear" />
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+### CrossButton
+
+<ComponentInfo
+    usage="import { CrossButton } from @orbit-ui/react-components"
+    compact
+/>
+
+<ArgsTable of={InnerCrossButton} />

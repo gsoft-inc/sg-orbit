@@ -1,0 +1,188 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, ButtonGroup } from "@react-components/button";
+import { Checkbox } from "@react-components/checkbox";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Field, HelpMessage, Label } from "@react-components/field";
+import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
+import { Inline } from "@react-components/layout";
+import { PasswordInput, TextInput } from "@react-components/input";
+
+<Meta
+    title="Components/Form"
+    id="form"
+/>
+
+# Form
+
+<Tagline>Forms are commonly used to provide user interaction in web applications.</Tagline>
+
+<ComponentInfo
+    usage={"import { Form, Row } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/form/src"
+/>
+
+## Accessibility
+
+When combined with [field](?path=/story/field--input) components, a form component follows the [WAI specifications for forms](https://www.w3.org/WAI/tutorials/forms/).
+
+## Usage
+
+In additional to wrapping a form element, a form component provide layout for fields and buttons. **To apply the layout correctly, every inputs must be wrapped in a field component.**
+
+### Vertical layout
+
+A form can stack fields vertically.
+
+<Preview>
+    <Story name="vertical layout">
+        <Form fluid className="w-25">
+            <Field required>
+                <Label>Username</Label>
+                <TextInput placeholder="john@spacex.com" />
+            </Field>
+            <Field required>
+                <Label>Password</Label>
+                <PasswordInput />
+                <HelpMessage>I bet it's a strong one!</HelpMessage>
+            </Field>
+            <Field>
+                <Checkbox>Remember me</Checkbox>
+            </Field>
+            <Button type="submit">Login</Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Inline layout
+
+Multiple form fields can be inlined on the same row.
+
+<Preview>
+    <Story name="inline layout">
+        <Form fluid>
+            <Row>
+                <Field>
+                    <Label required>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Username</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Row>
+                <Field className="w-50">
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field className="w-25">
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Row>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Button type="submit">
+                Submit
+            </Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Fluid
+
+Form fields can take the witdh of their container.
+
+<Preview>
+    <Story name="fluid">
+        <Form fluid>
+            <Field>
+                <Label>Where to?</Label>
+                <TextInput />
+            </Field>
+            <Button>Submit</Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Disabled
+
+Form fields and buttons can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Form disabled>
+            <Field>
+                <Label>Where to?</Label>
+                <TextInput />
+            </Field>
+            <Button>Submit</Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Button alignment
+
+Form buttons can be aligned horizontally.
+
+<Preview>
+    <Story name="button alignment">
+        <Inline gap={10}>
+            <Form>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup align="center">
+                    <Button variant="ghost">Reset</Button>
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+            <Form>
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+                <ButtonGroup align="end">
+                    <Button>Submit</Button>
+                </ButtonGroup>
+            </Form>
+        </Inline>
+    </Story>
+</Preview>
+
+### Formik
+
+The form state and validation could be managed by an external library like [Formik](https://formik.org/).
+
+<Preview filePath="/form/docs/RegistrationForm" />
+
+## API
+
+### Form
+
+<ComponentInfo
+    usage={"import { Form } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerForm} />
+
+### Row
+
+<ComponentInfo
+    usage={"import { Row } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerRow} />
+

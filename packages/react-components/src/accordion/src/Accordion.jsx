@@ -46,13 +46,6 @@ const propTypes = {
     children: any.isRequired
 };
 
-const NAV_KEY_BINDING = {
-    previous: [KEYS.up],
-    next: [KEYS.down],
-    first: [KEYS.home],
-    last: [KEYS.end]
-};
-
 export function InnerAccordion({
     id,
     index,
@@ -78,7 +71,12 @@ export function InnerAccordion({
 
     useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
 
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING);
+    const navigationProps = useKeyboardNavigation({
+        previous: [KEYS.up],
+        next: [KEYS.down],
+        first: [KEYS.home],
+        last: [KEYS.end]
+    });
 
     const handleToggle = useEventCallback((event, toggledIndex) => {
         let newSelectedIndex;
@@ -126,3 +124,5 @@ InnerAccordion.propTypes = propTypes;
 export const Accordion = forwardRef((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
+
+Accordion.displayName = "Accordion";

@@ -1,12 +1,11 @@
 import { DisclosureArrow, DisclosureProvider } from "@react-components/disclosure";
 import { Inline } from "@react-components/layout";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("DisclosureArrow"))
+    return storiesOfBuilder(module, "Chromatic/DisclosureArrow")
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
             .chromaticDelay(100)
             .build())
         .build();

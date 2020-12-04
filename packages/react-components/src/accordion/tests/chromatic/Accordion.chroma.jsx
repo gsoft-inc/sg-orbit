@@ -1,19 +1,16 @@
 import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
-import { Content, Header } from "@react-components/view";
+import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/collection";
+import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Accordion"))
+    return storiesOfBuilder(module, "Chromatic/Accordion")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 
@@ -221,7 +218,7 @@ stories()
         </Accordion>
     )
     .add("data render", () =>
-        <Stack gap={13}>
+        <Stack>
             <Accordion>
                 {[1, 2, 3].map(x => (
                     <Item key={x}>

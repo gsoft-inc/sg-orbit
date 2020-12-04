@@ -1,33 +1,44 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerText, Text } from "@react-components/text";
-import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
+import { Stack } from "@react-components/layout";
 
 <Meta
-    title="Content|Text"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Components/Text"
+    id="text"
 />
 
 # Text
 
-A primitive component that can be used to render text matching [Orbit typography](?path=/docs/materials-typography--page#body).
+<Tagline>A primitive component that can be used to render text matching Orbit typography type scale.</Tagline>
+
+<ComponentInfo
+    usage={"import { Text } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/text/src"
+/>
 
 > Only use this component if all other Orbit typographic components don't meet your use case.
 
-## Props
+## Usage
 
-<Props of={InnerText} />
+### Size
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Text>If two pieces of the same type of metal touch in space they will permanently bond.</Text>
-    </RefLogger>
-</Story>
+You can alter the size of the text by specifying a `size` prop. The available size match Orbit UI typography [type scale](?path=/docs/typography--page#type-scale).
+
+<Preview>
+    <Story name="size">
+        <Stack>
+            <Text>If two pieces of the same type of metal touch in space they will permanently bond.</Text>
+            <Text size="sm">If two pieces of the same type of metal touch in space they will permanently bond.</Text>
+        </Stack>
+    </Story>
+</Preview>
+
+## API
+
+<ComponentInfo
+    usage={"import { Text } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerText} />

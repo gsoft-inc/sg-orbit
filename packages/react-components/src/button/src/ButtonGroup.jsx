@@ -1,7 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, normalizeSize } from "../../shared";
+import { augmentElement, mergeClasses, normalizeSize } from "../../shared";
 
 const propTypes = {
     /**
@@ -17,6 +17,10 @@ const propTypes = {
      */
     size: oneOf(["sm", "md"]),
     /**
+     * Whether or not the buttons are disabled.
+     */
+    disabled: bool,
+    /**
      * Whether or not the group take up the width of its container.
      */
     fluid: bool,
@@ -25,12 +29,12 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
 
-const GAP = {
+const Gap = {
     "horizontal": {
         "sm": 3,
         "md": 4
@@ -48,6 +52,7 @@ export function InnerButtonGroup(props) {
         size,
         fluid,
         disabled,
+        className,
         children,
         forwardedRef,
         ...rest
@@ -60,7 +65,11 @@ export function InnerButtonGroup(props) {
             align={align}
             verticalAlign={orientation === "horizontal" ? "center" : undefined}
             fluid={fluid}
-            gap={GAP[orientation][normalizeSize(size)]}
+            gap={Gap[orientation][normalizeSize(size)]}
+            className={mergeClasses(
+                "o-ui-button-group",
+                className
+            )}
             ref={forwardedRef}
         >
             {Children.map(children, x => {
@@ -79,3 +88,5 @@ InnerButtonGroup.propTypes = propTypes;
 export const ButtonGroup = forwardRef((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 ));
+
+ButtonGroup.displayName = "ButtonGroup";

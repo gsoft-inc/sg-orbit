@@ -1,14 +1,11 @@
 import { Inline } from "@react-components/layout";
 import { Radio } from "@react-components/radio";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createRadioTestSuite } from "./createRadioTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Radio"))
+    return storiesOfBuilder(module, "Chromatic/Radio")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

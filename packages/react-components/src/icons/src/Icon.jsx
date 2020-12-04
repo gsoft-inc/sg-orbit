@@ -63,6 +63,10 @@ export const Icon = slot("icon", forwardRef((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));
 
+Icon.displayName = "Icon";
+
+////////
+
 function createIconFactory(type) {
     return slot("icon", forwardRef((props, ref) =>
         <Icon

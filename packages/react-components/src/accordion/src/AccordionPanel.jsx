@@ -38,3 +38,5 @@ InnerAccordionPanel.propTypes = propTypes;
 export const AccordionPanel = forwardRef((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));
+
+AccordionPanel.displayName = "AccordionPanel";

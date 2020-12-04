@@ -1,37 +1,39 @@
-import { Box, InnerBox } from "@react-components/box";
-import { Meta, Props, Story } from "@storybook/addon-docs/blocks";
-import { ReactComponentsLayout } from "@blocks";
-import { RefLogger, paramsBuilder } from "@utils";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { InnerBox } from "@react-components/box";
+import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Content|Box"
-    parameters={paramsBuilder()
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/text/src" />)
-        .build()}
+    title="Components/Box"
+    id="box"
 />
 
 # Box
 
-A box is a general purpose component that can be used to compose new components or render a component into a [slot](?path=/docs/getting-started-slots--page).
+<Tagline>A box is a general purpose component that can be used to compose new components or render a component into a slot.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Box from @orbit-ui/react-components</dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Box } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/box/src"
+/>
 
-## Props
+## Usage
 
-<Props of={InnerBox} />
+### Default
 
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Box>Box</Box>
-    </RefLogger>
-</Story>
+A default box.
+
+<Preview>
+    <Story name="default">
+        <Box>Enjoy space like never before.</Box>
+    </Story>
+</Preview>
+
+## API
+
+<ComponentInfo
+    usage={"import { Box } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerBox} />

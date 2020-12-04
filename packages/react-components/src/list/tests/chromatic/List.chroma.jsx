@@ -1,10 +1,10 @@
 import { Inline } from "@react-components/layout";
 import { ListItem, OrderedList, UnorderedList } from "@react-components/list";
 import { Text } from "@react-components/text";
-import { createChromaticSection, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories() {
-    return storiesOfBuilder(module, createChromaticSection("List"))
+    return storiesOfBuilder(module, "Chromatic/List")
         .build();
 }
 

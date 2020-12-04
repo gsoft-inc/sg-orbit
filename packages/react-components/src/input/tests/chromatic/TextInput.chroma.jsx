@@ -1,14 +1,11 @@
 import { Inline } from "@react-components/layout";
 import { TextInput } from "@react-components/input";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { createTextInputTestSuite } from "./createTextInputTestSuite";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("TextInput"))
+    return storiesOfBuilder(module, "Chromatic/TextInput")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

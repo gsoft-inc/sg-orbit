@@ -52,3 +52,5 @@ InnerDisclosureArrow.propTypes = propTypes;
 export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));
+
+DisclosureArrow.displayName = "DisclosureArrow";

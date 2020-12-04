@@ -1,0 +1,262 @@
+import { GroupIcon } from "@react-components/icons";
+import { HocWarning, InstallReactComponents, Props, ReactComponentsLayout } from "@stories/components";
+import { InnerSelect, Select, selectItem } from "@react-components/select";
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { RefLogger, createComponentSection, paramsBuilder } from "@stories/utils";
+import Imports from "./Imports.mdx";
+
+<Meta
+    title={createComponentSection("Select/standard")}
+    parameters={paramsBuilder()
+        .sortPriority(1)
+        .canvasLayout({ width: "80%" })
+        .docsLayout(<ReactComponentsLayout semanticPath="/modules/dropdown" />)
+        .build()}
+/>
+
+# Select
+
+A select can be used to choose between choices.
+
+## Installation
+
+<InstallReactComponents imports={<Imports />} />
+
+## Props
+
+<HocWarning componentName="Dropdown" semanticPath="/modules/dropdown" />
+
+<Props
+    componentsDefinitions={[
+        { displayName: "Select", component: InnerSelect },
+        { displayName: "Select.Item", component: InnerSelect.Item }
+    ]}
+/>
+
+## Usage
+
+### Items
+
+A select component only accepts items as plain objects through the `options` property. You can't specify `<Select.Item />` as subcomponents.
+
+To provide a select item as a shorthand object, you can define an object literal having the following format: `{ text, value, ... }`. To avoid redundant keys, use the `selectItem(text, value, additionalProps?)` function.
+
+For a list of all the properties available on a select item and usage examples, please have a look at the [item page](?path=/docs/components-select-item--text).
+
+```jsx
+<Select
+    options={[
+        selectItem("Julie Payette", "Julie Payette", { disabled: true })
+    ]}
+/>
+```
+
+### Constants
+
+The following constants are used in the examples below:
+
+export const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
+];
+
+```javascript
+const ASTRONAUTS = [
+    selectItem("David Saint-Jacques", "David Saint-Jacques"),
+    selectItem("Chris Hadfield", "Chris Hadfield"),
+    selectItem("Jeremy Hansen", "Jeremy Hansen"),
+    selectItem("Jenni Sidey", "Jenni Sidey"),
+    selectItem("Robert Thirks", "Robert Thirks"),
+    selectItem("Julie Payette", "Julie Payette")
+];
+```
+
+### Default
+
+A default select.
+
+<Preview>
+    <Story name="default">
+        <Select
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Selected value
+
+A select can have an initial value.
+
+<Preview>
+    <Story name="selected value">
+        <Select
+            defaultValue="Chris Hadfield"
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Icon
+
+A select can display an [icon](?path=/docs/materials-icons--page) before it's content.
+
+<Preview>
+    <Story name="icon">
+        <Select
+            placeholder="Astronaut"
+            icon={<GroupIcon />}
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Clearable
+
+A clearable select let a user remove is selection.
+
+<Preview>
+    <Story name="clearable">
+        <Select
+            placeholder="Astronaut"
+            clearable
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A select can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select
+            placeholder="Astronaut"
+            disabled
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Fluid
+
+A select can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Select
+            placeholder="Astronaut"
+            fluid
+            value="Jenni Sidey"
+            onChange={console.log("haha")}
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Loading
+
+A select can show that it is currently loading data.
+
+<Preview>
+    <Story name="loading">
+        <Select
+            placeholder="Astronaut"
+            loading
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Size
+
+A select can vary in size.
+
+<Preview>
+    <Story name="size">
+        <div className="flex items-end items-space-between">
+            <Select
+                placeholder="Astronaut"
+                fluid
+                size="sm"
+                options={ASTRONAUTS}
+            />
+            <Select
+                placeholder="Astronaut"
+                fluid
+                options={ASTRONAUTS}
+            />
+            <Select
+                placeholder="Astronaut"
+                fluid
+                size="lg"
+                options={ASTRONAUTS}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Error
+
+A select can show that the data contains errors.
+
+<Preview>
+    <Story name="error">
+        <Select
+            placeholder="Astronaut"
+            error
+            options={ASTRONAUTS}
+        />
+    </Story>
+</Preview>
+
+### Upward
+
+A select can be open it's menu upward.
+
+<Preview>
+    <Story name="upward">
+        <Select
+            placeholder="Astronaut"
+            options={ASTRONAUTS}
+            upward
+        />
+    </Story>
+</Preview>
+
+<Story
+    name="autoFocus"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autoFocus placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus disabled placeholder="Astronaut" options={ASTRONAUTS} />
+    </div>
+</Story>
+
+<Story
+    name="autoFocus delay"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <div className="flex items-space-between">
+        <Select autoFocus autoFocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
+        <Select autoFocus disabled autoFocusDelay={500} placeholder="Astronaut" options={ASTRONAUTS} />
+    </div>
+</Story>
+
+<Story
+    name="ref"
+    parameters={paramsBuilder()
+        .excludeFromDocs()
+        .build()}
+>
+    <RefLogger><Select options={ASTRONAUTS} /></RefLogger>
+</Story>

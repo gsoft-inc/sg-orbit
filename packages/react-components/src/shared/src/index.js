@@ -36,6 +36,7 @@ export * from "./useRovingFocus";
 export * from "./useHasChild";
 export * from "./useIsInitialRender";
 export * from "./useDisposables";
+export * from "./useMediaQuery";
 
 // Features
 export * from "./slots";

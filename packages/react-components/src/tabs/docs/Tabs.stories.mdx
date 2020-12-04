@@ -1,40 +1,27 @@
-import { AsyncTabs } from "./AsyncTabs.sample";
-import { Content, Header, InnerContent, InnerHeader } from "@react-components/view";
-import { ControlledTabs } from "./ControlledTabs.sample";
-import { CustomTabs } from "./CustomTabs.sample";
-import { FilePreview, ReactComponentsLayout } from "@blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Fragment } from "react";
-import { InnerItem } from "@react-components/collection";
+import { InnerItem, Item } from "@react-components/placeholders";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
-import { Item } from "@react-components/collection";
 import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
-import { Meta, Preview, Props, Story } from "@storybook/addon-docs/blocks";
-import { RefLogger, paramsBuilder } from "@utils";
 import { Text } from "@react-components/text";
 
 <Meta
-    title="Navigation|Tabs"
-    parameters={paramsBuilder()
-        .canvasLayout({ width: "80%" })
-        .docsLayout(<ReactComponentsLayout sourcePath="/packages/react-components/src/tabs/src" />)
-        .build()}
+    title="Components/Tabs"
+    id="tabs"
 />
 
 # Tabs
 
-Tabs are used to organize content by grouping similar information on the same page.
+<Tagline>Tabs are used to organize content by grouping similar information on the same page.</Tagline>
 
-<dl>
-    <div>
-        <dt>usage</dt>
-        <dd>import Tabs, Tab, Header, Content from @orbit-ui/react-components</dd>
-    </div>
-    <div>
-        <dt>wai-aria</dt>
-        <dd><a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">https://www.w3.org/TR/wai-aria-practices/#tabpanel</a></dd>
-    </div>
-</dl>
+<ComponentInfo
+    usage={"import { Tabs, Item, Header, Content } from \"@orbit-ui/react-components\""}
+    ariaPath="#tabpanel"
+    githubPath="/packages/react-components/src/tabs/src"
+/>
 
 ## Accessibility
 
@@ -42,9 +29,32 @@ An accessible title must be provided through aria-label prop. See [WAI-ARIA](htt
 
 ## Usage
 
+### Default
+
+A default tabs.
+
+<Preview>
+    <Story name="default">
+        <Tabs aria-label="Planets">
+            <Item>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
 ### Icon
 
-A tab can contain [icons](?path=/docs/materials-icons--page).
+A tab can contain [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
@@ -103,13 +113,13 @@ A tab can update is content based on the `isActive` value by providing a render 
         <Tabs aria-label="Planets">
             <Item>
                 {({ isActive }) => (
-                    <Fragment>
+                    <>
                         <Header>
                             {isActive ? <LightbulbIcon /> : <NotificationIcon />}
                             <Text>Mars</Text>
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </Fragment>
+                    </>
                 )}
             </Item>
             <Item>
@@ -128,9 +138,7 @@ A tab can update is content based on the `isActive` value by providing a render 
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
-<FilePreview filePath="/tabs/docs/CustomTabs">
-    <CustomTabs />
-</FilePreview>
+<Preview filePath="/tabs/docs/CustomTabs" noInline />
 
 ### Data tabs
 
@@ -185,9 +193,7 @@ In this scenario, you should use a manually activated tab, it moves focus withou
 
 We recommend using the [render props](#render-props) syntax to load async content.
 
-<FilePreview filePath="/tabs/docs/AsyncTabs">
-    <AsyncTabs />
-</FilePreview>
+<Preview filePath="/tabs/docs/AsyncTabs" noInline />
 
 ### Orientation
 
@@ -262,74 +268,62 @@ A tab can be disabled.
 
 The selected `index` can be handled in controlled mode.
 
-<FilePreview filePath="/tabs/docs/ControlledTabs">
-    <ControlledTabs />
-</FilePreview>
+<Preview filePath="/tabs/docs/ControlledTabs" />
 
-## Props
+## API
 
 ### Tabs
 
-Root component for tabs.
+<ComponentInfo
+    usage={"import { Tabs } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
-<Props of={InnerTabs} />
+<ArgsTable of={InnerTabs} />
 
 ### Item
 
-Placeholder component to define a tabs _item_.
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
-<Props of={InnerItem} />
+<ArgsTable of={InnerItem} />
 
 ### Header
 
-Placeholder component to define the _header_ of a tab.
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "lozenge"]}
+    compact
+/>
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | text | lozenge</dd>
-    </div>
-</dl>
-
-<Props of={InnerHeader} />
+<ArgsTable of={InnerHeader} />
 
 ### Content
 
-Placeholder component to define the _content_ of a tab.
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
-<Props of={InnerContent} />
+<ArgsTable of={InnerContent} />
 
 ### Tab
 
-Underlying tab component.
+<ComponentInfo
+    usage={"import { Tab } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "lozenge"]}
+    compact
+/>
 
-<dl>
-    <div>
-        <dt>slots</dt>
-        <dd>icon | text | lozenge</dd>
-    </div>
-</dl>
-
-<Props of={InnerTab} />
+<ArgsTable of={InnerTab} />
 
 ### TabPanel
 
-Underlying tab panel component.
+<ComponentInfo
+    usage={"import { TabPanel } from \"@orbit-ui/react-components\""}
+    compact
+/>
 
-<Props of={InnerTabPanel} />
-
-<Story
-    name="ref"
-    parameters={paramsBuilder()
-        .excludeFromDocs()
-        .build()}
->
-    <RefLogger>
-        <Tabs aria-label="Planets">
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-        </Tabs>
-    </RefLogger>
-</Story>
+<ArgsTable of={InnerTabPanel} />

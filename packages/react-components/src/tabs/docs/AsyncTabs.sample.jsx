@@ -1,11 +1,3 @@
-import { Box } from "@react-components/box";
-import { Content, Header } from "@react-components/view";
-import { Dimmer, Loader } from "semantic-ui-react";
-import { Item } from "@react-components/collection";
-import { Tabs } from "@react-components/tabs";
-import { isNil } from "lodash";
-import { useEffect, useState } from "react";
-
 function AsyncText({ isActive, children, ...rest }) {
     const [text, setText] = useState(null);
 
@@ -40,7 +32,7 @@ function AsyncText({ isActive, children, ...rest }) {
     );
 }
 
-export function AsyncTabs() {
+function AsyncTabs() {
     return (
         <Tabs manual aria-label="Planets">
             {[
@@ -65,3 +57,7 @@ export function AsyncTabs() {
         </Tabs>
     );
 }
+
+render(
+    <AsyncTabs />
+);

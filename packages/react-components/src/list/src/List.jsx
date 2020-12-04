@@ -12,7 +12,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -52,6 +52,8 @@ const List = forwardRef((props, ref) => {
     );
 });
 
+List.displayName = "List";
+
 ////////
 
 export function InnerOrderedList({
@@ -74,6 +76,8 @@ export const OrderedList = forwardRef((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
+OrderedList.displayName = "OrderedList";
+
 ////////
 
 export function InnerUnorderedList({
@@ -95,3 +99,5 @@ InnerUnorderedList.propTypes = propTypes;
 export const UnorderedList = forwardRef((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
+
+UnorderedList.displayName = "UnorderedList";

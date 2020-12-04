@@ -47,7 +47,7 @@ A story must:
 Here's an exemple for the date range picker component:
 
 ```jsx
-import { createComponentSection } from "@utils";
+import { createComponentSection } from "@stories/utils";
 
 <Meta title={createComponentSection("Date Picker/range")} />
 ```
@@ -86,7 +86,7 @@ Here's an example:
 ```javascript
 // date-range-picker.chroma.jsx
 
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, createChromaticSection("Date Picker/range))

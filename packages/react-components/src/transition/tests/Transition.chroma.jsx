@@ -1,15 +1,12 @@
 import { TextLink } from "@react-components/link";
 import { Transition } from "@react-components/transition";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 import { useEventCallback } from "@react-components/shared";
 import { useState } from "react";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Transition"))
+    return storiesOfBuilder(module, "Chromatic/Transition")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

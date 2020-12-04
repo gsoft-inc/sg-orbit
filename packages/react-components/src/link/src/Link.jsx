@@ -35,11 +35,15 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
+     * Whether or not the link is disabled.
+     */
+    disabled: bool,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -97,3 +101,5 @@ InnerLink.propTypes = propTypes;
 export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
+
+Link.displayName = "Link";

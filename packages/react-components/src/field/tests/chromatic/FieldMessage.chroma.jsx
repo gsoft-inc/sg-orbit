@@ -4,14 +4,11 @@ import { Inline } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("FieldMessage"))
+    return storiesOfBuilder(module, "Chromatic/FieldMessage")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

@@ -75,3 +75,5 @@ InnerImage.propTypes = propTypes;
 export const Image = forwardRef((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 ));
+
+Image.displayName = "Image";

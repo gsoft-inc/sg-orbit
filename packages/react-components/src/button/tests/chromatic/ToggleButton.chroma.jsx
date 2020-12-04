@@ -2,14 +2,11 @@ import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("ToggleButton"))
+    return storiesOfBuilder(module, "Chromatic/ToggleButton")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

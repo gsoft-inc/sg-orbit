@@ -1,0 +1,328 @@
+import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import {
+    Button,
+    ButtonGroup,
+    IconButton,
+    InnerButton,
+    InnerButtonGroup,
+    InnerIconButton,
+    InnerToggleButton,
+    InnerToggleIconButton,
+    ToggleButton,
+    ToggleIconButton
+} from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@react-components/layout";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Components/Button"
+    id="button"
+/>
+
+# Button
+
+<Tagline>A Button indicates a possible user action.</Tagline>
+
+<ComponentInfo
+    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, ButtonGroup } from \"@orbit-ui/react-components\""}
+    ariaPath="#button"
+    githubPath="/packages/react-components/src/button/src"
+/>
+
+## Usage
+
+### Default
+
+A default button.
+
+<Preview>
+    <Story name="default">
+        <Button>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Icon
+
+A button can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Button>
+            <LightbulbIcon />
+            <Text>Cutoff</Text>
+        </Button>
+    </Story>
+</Preview>
+
+### Right icon
+
+*Non standard* right icons can be provided to handle special cases. However, think twice before adding right icons, left icons should be your go to.
+
+<Preview>
+    <Story name="right icon">
+        <Button>
+            <Text>Cutoff</Text>
+            <LightbulbIcon slot="right-icon" />
+        </Button>
+    </Story>
+</Preview>
+
+### Size
+
+A button can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Button size="sm">Cutoff</Button>
+            <Button >Cutoff</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Disabled
+
+A button can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Button disabled>Cutoff</Button>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <Button loading>Loading</Button>
+    </Story>
+</Preview>
+
+### Fluid
+
+A button can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Button fluid>
+            <LightbulbIcon />
+            <Text>To infinity and beyond</Text>
+        </Button>
+    </Story>
+</Preview>
+
+### Color
+
+A button can use a different color accent.
+
+<Preview>
+    <Story name="color">
+        <Inline>
+            <Button color="primary">Primary</Button>
+            <Button color="secondary">Secondary</Button>
+            <Button color="danger">Danger</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Shape
+
+A button can use a different shape.
+
+<Preview>
+    <Story name="shape">
+        <Inline>
+            <Button shape="pill">Cutoff</Button>
+            <Button shape="circular">Aa</Button>
+            <Button shape="rounded">Cutoff</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Outline
+
+An outline button have a subtle appearance.
+
+<Preview>
+    <Story name="outline">
+        <Button variant="outline">Cutoff</Button>
+    </Story>
+</Preview>
+
+### Ghost
+
+A ghost button is similar to a standard button, taking the same space as a standard button but doesn't have an visible background.
+
+<Preview>
+    <Story name="ghost">
+        <Button variant="ghost">Cutoff</Button>
+    </Story>
+</Preview>
+
+### Link
+
+A button can be rendered as a link.
+
+<Preview>
+    <Story name="as anchor">
+        <Button as="a" href="https://sharegate.com" target="_blank">Cutoff</Button>
+    </Story>
+</Preview>
+
+## Icon button
+
+A button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Preview>
+    <Story name="icon button">
+        <Inline verticalAlign="center">
+            <IconButton shape="circular" size="sm" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton shape="circular" aria-label="Add"><AddIcon /></IconButton>
+        </Inline>
+    </Story>
+</Preview>
+
+## Button Group
+
+Related buttons whose actions are related to each other can be group together. Usefull to handle actions in components like [form](?path=/docs/form--default-story).
+
+<Preview>
+    <Story name="button group">
+        <ButtonGroup>
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </ButtonGroup>
+    </Story>
+</Preview>
+
+### Orientation
+
+A button group can render his items vertically.
+
+<Preview>
+    <Story name="vertical">
+        <InnerButtonGroup orientation="vertical">
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </InnerButtonGroup>
+    </Story>
+</Preview>
+
+### Alignment
+
+A button group can change the alignment of his items.
+
+<Preview>
+    <Story name="alignment">
+        <InnerButtonGroup align="end">
+            <Button variant="outline">No, thanks</Button>
+            <Button variant="outline">Remind me later</Button>
+            <Button>Rate Now</Button>
+        </InnerButtonGroup>
+    </Story>
+</Preview>
+
+## Toggle Button
+
+Offer a similar experience as a checkbox or radio with the appearance of a button.
+
+<Preview>
+    <Story name="toggle button">
+        <Inline>
+            <ToggleButton variant="outline" color="primary" shape="circular">On</ToggleButton>
+            <ToggleButton variant="outline" color="primary">
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </ToggleButton>
+        </Inline>
+    </Story>
+</Preview>
+
+### Toggle Icon Button
+
+A toggle button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Preview>
+    <Story name="toggle icon button">
+        <ToggleIconButton variant="outline" shape="circular" aria-label="Activate">
+            <CheckIcon />
+        </ToggleIconButton>
+    </Story>
+</Preview>
+
+### Render Props
+
+A toggle button can update is content based on the `isChecked` value by providing a render prop function.
+
+<Preview>
+    <Story name="toggle icon render props">
+        <ToggleButton aria-label="Activate">
+            {
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
+                }
+            }
+        </ToggleButton>
+    </Story>
+</Preview>
+
+### Controlled
+
+A toggle button can handle `checked` state in controlled mode.
+
+<Preview filePath="/button/docs/ControlledToggleButton" />
+
+## API
+
+### Button
+
+<ComponentInfo
+    usage={"import { Button } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "right-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerButton} />
+
+### IconButton
+
+<ComponentInfo
+    usage={"import { IconButton } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerIconButton} />
+
+### ToggleButton
+
+<ComponentInfo
+    usage={"import { ToggleButton } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "right-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerToggleButton} />
+
+### ToggleIconButton
+
+<ComponentInfo
+    usage={"import { ToggleIconButton } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerToggleIconButton} />
+
+### ButtonGroup
+
+<ComponentInfo
+    usage={"import { ButtonGroup } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerButtonGroup} />

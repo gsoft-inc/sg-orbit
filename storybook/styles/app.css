@@ -1,0 +1,6 @@
+html,
+body {
+    font-family: "Calibre", Arial, Helvetica, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}

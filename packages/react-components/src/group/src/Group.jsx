@@ -38,10 +38,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
      */
     role: string,
@@ -85,3 +81,5 @@ InnerGroup.propTypes = propTypes;
 export const Group = forwardRef((props, ref) => (
     <InnerGroup {...props} forwardedRef={ref} />
 ));
+
+Group.displayName = "Group";

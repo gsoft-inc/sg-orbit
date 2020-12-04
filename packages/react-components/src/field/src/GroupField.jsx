@@ -35,7 +35,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -98,3 +98,5 @@ InnerGroupField.propTypes = propTypes;
 export const GroupField = forwardRef((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));
+
+GroupField.displayName = "GroupField";

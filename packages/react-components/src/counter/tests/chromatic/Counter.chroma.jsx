@@ -2,14 +2,11 @@ import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Counter"))
+    return storiesOfBuilder(module, "Chromatic/Counter")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

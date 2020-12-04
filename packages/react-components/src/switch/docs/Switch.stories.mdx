@@ -1,0 +1,167 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@react-components/counter";
+import { InfoIcon, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { InnerSwitch, Switch } from "@react-components/switch";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Components/Switch"
+    id="switch"
+/>
+
+# Switch
+
+<Tagline>A switch offers an on or off choice to a user.</Tagline>
+
+<ComponentInfo
+    usage={"import { Switch } from \"@orbit-ui/react-components\""}
+    ariaPath="#checkbox"
+    githubPath="/packages/react-components/src/switch/src"
+/>
+
+## Usage
+
+### Label
+
+A default switch.
+
+<Preview>
+    <Story name="default">
+        <Switch>Engines</Switch>
+    </Story>
+</Preview>
+
+### Checked
+
+A switch can be checked.
+
+<Preview>
+    <Story name="checked">
+        <Switch defaultChecked>Engines</Switch>
+    </Story>
+</Preview>
+
+
+### No label
+
+A switch can be rendered without a label.
+
+<Preview>
+    <Story name="no label">
+        <Switch />
+    </Story>
+</Preview>
+
+### Disabled
+
+A switch can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Switch disabled>Engines</Switch>
+    </Story>
+</Preview>
+
+### Icon
+
+A switch can have [icons](?path=/docs/icon-gallery--page) after his text.
+
+<Preview>
+    <Story name="icon">
+        <Switch>
+            <Text>Pressurization</Text>
+            <LightbulbIcon />
+        </Switch>
+    </Story>
+</Preview>
+
+### Counter
+
+A switch can have a [counter](?path=/docs/counter--default-story) after his text.
+
+<Preview>
+    <Story name="counter">
+        <Inline>
+            <Switch>
+                <Text>Pressurization</Text>
+                <Counter>6</Counter>
+            </Switch>
+            <Switch>
+                <Text>Engines</Text>
+                <Counter variant="divider">6</Counter>
+            </Switch>
+        </Inline>
+    </Story>
+</Preview>
+
+### Size
+
+A switch can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Switch size="sm">Engines</Switch>
+            <Switch>Engines</Switch>
+        </Inline>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Switch reverse>
+            <InfoIcon />
+            <Text>Engines</Text>
+            <Counter variant="divider">6</Counter>
+        </Switch>
+    </Story>
+</Preview>
+
+### Validation
+
+A switch can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if the user has checked the switch.
+
+<Preview filePath="/switch/docs/CheckedValidation" />
+
+### Render Props
+
+A switch can update is content based on the `isChecked` value by providing a render prop function.
+
+<Preview>
+    <Story name="render props">
+        <Switch>
+            {
+                ({ isChecked }) => {
+                    return isChecked ? "On" : "Off"
+                }
+            }
+        </Switch>
+    </Story>
+</Preview>
+
+### Controlled
+
+A switch can handle `checked` state in controlled mode.
+
+<Preview filePath="/switch/docs/ControlledSwitch" />
+
+## API
+
+### Switch
+
+<ComponentInfo
+    usage={"import { Switch } from \"@orbit-ui/react-components\""}
+    slots={["label", "icon", "counter"]}
+    compact
+/>
+
+<ArgsTable of={InnerSwitch} />
+

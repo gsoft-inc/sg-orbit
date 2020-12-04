@@ -2,14 +2,11 @@ import { Badge } from "@react-components/badge";
 import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Badge"))
+    return storiesOfBuilder(module, "Chromatic/Badge")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

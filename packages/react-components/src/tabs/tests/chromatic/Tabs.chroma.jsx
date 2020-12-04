@@ -1,19 +1,16 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
-import { Content, Header } from "@react-components/view";
+import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/collection";
+import { Item } from "@react-components/placeholders";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Tabs"))
+    return storiesOfBuilder(module, "Chromatic/Tabs")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

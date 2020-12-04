@@ -14,7 +14,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -56,3 +56,5 @@ InnerHeading.propTypes = propTypes;
 export const Heading = forwardRef((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 ));
+
+Heading.displayName = "Heading";

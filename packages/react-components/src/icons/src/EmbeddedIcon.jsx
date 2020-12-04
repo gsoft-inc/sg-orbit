@@ -27,3 +27,4 @@ export function EmbeddedIcon({ size, children, ...rest }) {
 }
 
 EmbeddedIcon.propTypes = propTypes;
+EmbeddedIcon.displayName = "EmbeddedIcon";

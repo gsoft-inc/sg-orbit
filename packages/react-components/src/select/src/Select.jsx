@@ -38,7 +38,7 @@ const UNSUPPORTED_PROPS = [
 
 const propTypes = {
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the content.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the content.
      */
     icon: element,
     /**

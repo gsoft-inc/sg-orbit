@@ -24,11 +24,11 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
-     * Whether the input should display as "valid" or "invalid".
+     * Whether or not the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -46,7 +46,7 @@ const propTypes = {
      */
     type: oneOf(["text", "password", "search", "url", "tel", "email"]),
     /**
-     * Whether the input should autofocus on render.
+     * Whether or not the input should autofocus on render.
      */
     autoFocus: bool,
     /**
@@ -54,21 +54,25 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * [Icon](/?path=/docs/components-icon--default-story) component rendered before the value.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
     icon: element,
     /**
-     * [Button](/?path=/docs/components-button--default-story) component rendered after the value.
+     * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
     button: element,
     /**
-     * Whether the input take up the width of its container.
+     * Whether or not the input take up the width of its container.
      */
     fluid: bool,
     /**
-     * Whether to render a loader.
+     * Whether or not to render a loader.
      */
     loading: bool,
+    /**
+     * Whether or not the input is disabled.
+     */
+    disabled: bool,
     /**
      * Additional props to render on the wrapper element.
      */
@@ -186,3 +190,5 @@ InnerTextInput.propTypes = propTypes;
 export const TextInput = forwardRef((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
+
+TextInput.displayName = "TextInput";

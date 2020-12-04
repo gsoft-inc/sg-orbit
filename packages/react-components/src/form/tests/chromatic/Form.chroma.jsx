@@ -6,14 +6,11 @@ import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea, TextInput } from "@react-components/input";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Form"))
+    return storiesOfBuilder(module, "Chromatic/Form")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 

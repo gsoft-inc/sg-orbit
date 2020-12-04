@@ -34,15 +34,11 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -76,3 +72,5 @@ InnerInline.propTypes = propTypes;
 export const Inline = forwardRef((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
+
+Inline.displayName = "Inline";

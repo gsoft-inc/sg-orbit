@@ -14,7 +14,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -50,3 +50,5 @@ InnerValidMessage.propTypes = propTypes;
 export const ValidMessage = forwardRef((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />
 ));
+
+ValidMessage.displayName = "ValidMessage";

@@ -1,9 +1,10 @@
 import { EditIcon, IconList } from "@react-components/icons";
 import { Stack } from "@react-components/layout";
-import { createChromaticSection, storiesOfBuilder } from "@utils";
+import { storiesOfBuilder } from "@stories/utils";
 
-function stories() {
-    return storiesOfBuilder(module, createChromaticSection("IconList"))
+function stories(segment) {
+    return storiesOfBuilder(module, "Chromatic/IconList")
+        .segment(segment)
         .build();
 }
 

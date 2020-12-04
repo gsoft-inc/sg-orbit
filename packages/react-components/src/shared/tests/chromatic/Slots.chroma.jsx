@@ -1,15 +1,12 @@
 import { Box } from "@react-components/box";
 import { TextLink } from "@react-components/link";
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@utils";
 import { forwardRef, useMemo } from "react";
 import { slot, useSlots } from "@react-components/shared";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Slots"))
+    return storiesOfBuilder(module, "Chromatic/Slots")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .canvasLayout({ width: "80%" })
-            .build())
         .build();
 }
 
