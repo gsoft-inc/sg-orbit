@@ -35,36 +35,36 @@ export function ComponentInfo({
             {...rest}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-sb-header",
+                    "o-ui-sb-component-info",
                     compact && "compact"
                 ),
                 className
             )}
         >
             {usage && (
-                <div className="o-ui-sb-header-item">
-                    <dt className="o-ui-sb-header-title">usage</dt>
-                    <dd className="o-ui-sb-header-value"><code>{usage}</code></dd>
+                <div className="o-ui-sb-component-info-item">
+                    <dt className="o-ui-sb-component-info-title">usage</dt>
+                    <dd className="o-ui-sb-component-info-value"><code>{usage}</code></dd>
                 </div>
             )}
             {slots && (
-                <div className="o-ui-sb-header-item">
-                    <dt className="o-ui-sb-header-title">slots</dt>
-                    <dd className="o-ui-sb-header-value"><code>{slots.map(x => `"${x}"`).join(", ")}</code></dd>
+                <div className="o-ui-sb-component-info-item">
+                    <dt className="o-ui-sb-component-info-title">slots</dt>
+                    <dd className="o-ui-sb-component-info-value"><code>{slots.map(x => `"${x}"`).join(", ")}</code></dd>
                 </div>
             )}
             {ariaPath && (
-                <div className="o-ui-sb-header-item">
-                    <dt className="o-ui-sb-header-title">wai-aria</dt>
-                    <dd className="o-ui-sb-header-value">
+                <div className="o-ui-sb-component-info-item">
+                    <dt className="o-ui-sb-component-info-title">wai-aria</dt>
+                    <dd className="o-ui-sb-component-info-value">
                         <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}>{`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}</ExternalLink>
                     </dd>
                 </div>
             )}
             {githubPath && (
-                <div className="o-ui-sb-header-item">
-                    <dt className="o-ui-sb-header-title">sources</dt>
-                    <dd className="o-ui-sb-header-value">
+                <div className="o-ui-sb-component-info-item">
+                    <dt className="o-ui-sb-component-info-title">sources</dt>
+                    <dd className="o-ui-sb-component-info-value">
                         <GithubLink path={githubPath}>Github</GithubLink>
                     </dd>
                 </div>
