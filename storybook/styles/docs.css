@@ -262,6 +262,7 @@
 .sb-show-main summary {
     font-size: var(--type-scale-6);
     cursor: pointer;
+    line-height: 1.3333;
 }
 
 .sb-show-main details {
