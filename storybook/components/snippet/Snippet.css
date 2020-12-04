@@ -1,10 +1,17 @@
 .o-ui-sb-snippet {
     box-shadow: rgba(0,0,0,0.2) 0 2px 5px 0;
     border-radius: 4px;
+    /* position: relative;
+    overflow: hidden; */
 }
 
 .o-ui-sb-snippet pre.prism-code {
-    padding: var(--scale-echo) !important;
+    /* padding: var(--scale-echo) !important; */
     font-size: 15px;
     border-radius: 4px;
+    margin: 0;
+}
+
+.o-ui-sb-snippet-scrollbar {
+    padding: var(--scale-echo);
 }

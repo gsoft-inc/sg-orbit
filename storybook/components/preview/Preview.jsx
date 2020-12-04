@@ -2,9 +2,9 @@ import "./Preview.css";
 
 import * as OrbitComponents from "@react-components";
 import { CodeTheme, useFormattedCode } from "@stories/components";
-import { DocsContext, SourceContext, getSourceProps } from "@storybook/addon-docs/blocks";
+import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs/blocks";
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
-import { arrayify } from "@react-components/shared";
+import { defaultDecorateStory } from "@storybook/client-api";
 import { isNil } from "lodash";
 import { storyNameFromExport, toId } from "@storybook/csf";
 import { string } from "prop-types";
@@ -28,11 +28,16 @@ const ReactHooks = {
     useDebugValue
 };
 
-function Editor({ code, language = "jsx", ...rest }) {
+function CodeEditor({
+    code,
+    language = "jsx",
+    children,
+    ...rest
+}) {
     const formattedCoded = useFormattedCode(code, language);
 
     return (
-        <div className="o-ui-sb-preview sbdocs sbdocs-content">
+        <div className="o-ui-sb-preview sbdocs sbdocs-preview">
             <LiveProvider
                 code={formattedCoded}
                 language={language}
@@ -44,7 +49,7 @@ function Editor({ code, language = "jsx", ...rest }) {
                 {...rest}
             >
                 <div className="o-ui-sb-preview-story docs-story">
-                    <LivePreview />
+                    {children}
                 </div>
                 <div className="o-ui-sb-preview-source">
                     <LiveEditor className="o-ui-sb-preview-editor" />
@@ -53,6 +58,16 @@ function Editor({ code, language = "jsx", ...rest }) {
             </LiveProvider>
         </div>
     );
+}
+
+function DecoratedLivePreview() {
+    const docsContext = useContext(DocsContext);
+
+    const decorators = docsContext.storyStore._globalMetadata.decorators;
+
+    return decorators
+        ? defaultDecorateStory(() => <LivePreview />, decorators)(docsContext)
+        : <LivePreview />;
 }
 
 function FilePreview({ filePath, language = "javascript" }) {
@@ -67,27 +82,41 @@ function FilePreview({ filePath, language = "javascript" }) {
         return null;
     }
 
-    return <Editor code={code} language={language} />;
+    return (
+        <CodeEditor
+            code={code}
+            language={language}
+        >
+            <DecoratedLivePreview />
+        </CodeEditor>
+    );
+}
+
+function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentMeta }) {
+    return toId(
+        mdxComponentMeta.id || mdxComponentMeta.title,
+        storyNameFromExport(mdxStoryNameToKey[storyName])
+    );
 }
 
 function StoryPreview({ language, children }) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
-    const stories = arrayify(children).filter(x => x.props && (x.props.id || x.props.name));
+    const storyId = children.props.id || lookupStoryId(children.props.name, docsContext);
 
-    const { mdxComponentMeta, mdxStoryNameToKey } = docsContext;
+    const { code, language: inferredLanguage } = getSourceProps({ ids: [storyId] }, docsContext, sourceContext);
 
-    const targetIds = stories.map(x =>
-        x.props.id || toId(
-            mdxComponentMeta.id || mdxComponentMeta.title,
-            storyNameFromExport(mdxStoryNameToKey[x.props.name])
-        )
+    return (
+        <CodeEditor
+            code={code}
+            language={language ?? inferredLanguage}
+        >
+            <div id={storyBlockIdFromId(storyId)}>
+                <DecoratedLivePreview />
+            </div>
+        </CodeEditor>
     );
-
-    const { code, language: inferredLanguage } = getSourceProps({ ids: targetIds }, docsContext, sourceContext);
-
-    return <Editor code={code} language={language ?? inferredLanguage} />;
 }
 
 export function Preview({ filePath, language, children }) {
