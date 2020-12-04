@@ -9,7 +9,8 @@
 .o-ui-sb-header-item {
     display: flex;
     align-items: center;
-    height: 28px;
+    min-height: 28px;
+    margin-bottom: var(--scale-delta);
 }
 
 .o-ui-sb-header-title {
@@ -20,6 +21,7 @@
     font-style: normal !important;
     width: var(--scale-mike) !important;
     margin: 0 !important;
+    min-width: 80px;
 }
 
 .o-ui-sb-header-compact .o-ui-sb-header-title {
@@ -27,12 +29,19 @@
 }
 
 .o-ui-sb-header-value {
-    display: inline-block !important;
+    display: flex !important;
     font-size: var(--type-scale-8) !important;
     font-variant: normal !important;
     margin: 0 !important;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .o-ui-sb-header-value a {
     font-size: var(--type-scale-7) !important;
+}
+
+.o-ui-sb-header code {
+    white-space: nowrap;
+    padding: 8px 0;
 }
