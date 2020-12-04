@@ -38,10 +38,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
      */
     role: string,

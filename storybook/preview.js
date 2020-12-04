@@ -27,9 +27,6 @@ export const parameters = {
             ]
         }
     },
-    actions: {
-        argTypesRegex: "^on[A-Z].*"
-    },
     docs: {
         theme: Themes.docs,
         inlineStories: true,

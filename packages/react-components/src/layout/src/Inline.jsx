@@ -34,10 +34,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),

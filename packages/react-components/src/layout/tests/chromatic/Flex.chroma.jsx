@@ -178,26 +178,13 @@ stories()
             }
         </Flex>
     )
-    .add("wrap children", () =>
-        <div className="h10">
-            <Flex wrapChildren gap={1} fluid>
-                <div className="bg-primary-500 h10">Alpha</div>
-                <div className="bg-primary-500">Bravo</div>
-                <div className="bg-primary-500">Charlie</div>
+    .add("fluid", () =>
+        <Flex direction="column" gap={5}>
+            <Flex fluid>
+                <div className="bg-primary-500 w-100">Alpha</div>
             </Flex>
-        </div>
-    )
-    .add("no-gap", () =>
-        <Flex gap={1} direction="column">
-            <Flex gap={1} noGap>
-                <div>Alpha</div>
-                <div>Bravo</div>
-                <div>Charlie</div>
-            </Flex>
-            <Flex gap={1} noGap direction="column">
-                <div>Alpha</div>
-                <div>Bravo</div>
-                <div>Charlie</div>
+            <Flex direction="column" fluid>
+                <div className="bg-primary-500 h12">Alpha</div>
             </Flex>
         </Flex>
     )
