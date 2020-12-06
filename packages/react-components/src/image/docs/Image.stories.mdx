@@ -3,7 +3,6 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Image, InnerImage } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { LaunchImage } from "./assets";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Image"
@@ -29,7 +28,7 @@ An image must have an `alt` attribute.
 
 An image can use a different shape.
 
-<Preview>
+<Preview scope={{ LaunchImage }}>
     <Story name="shape">
         <Inline>
             <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
@@ -42,7 +41,7 @@ An image can use a different shape.
 
 An image can adjust it's size by using the `size` prop or the native `width` and `height` props.
 
-<Preview>
+<Preview scope={{ LaunchImage }}>
     <Story name="size">
         <Image size="200px" src={LaunchImage} alt="SpaceX launch" />
     </Story>

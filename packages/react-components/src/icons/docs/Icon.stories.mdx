@@ -3,7 +3,6 @@ import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
 import { CheckeredBackground, ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { paramsBuilder } from "@stories/utils";
 import IndexFileUsage from "./IndexFileUsage.mdx";
 
 <Meta
@@ -62,7 +61,7 @@ export const AzureIcon32 = Icon.create(Azure32);
 
 A default icon will render as an `md` sized icon.
 
-<Preview>
+<Preview scope={{ AzureIcon32 }}>
     <Story name="default">
         <CheckeredBackground>
             <Icon type={AzureIcon32} />
@@ -74,7 +73,7 @@ A default icon will render as an `md` sized icon.
 
 An icon can vary in size.
 
-<Preview>
+<Preview scope={{ AzureIcon32 }}>
     <Story name="size">
         <CheckeredBackground>
             <Inline verticalAlign="center" gap={2}>
@@ -93,7 +92,7 @@ An icon can vary in size.
 
 An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
 
-<Preview>
+<Preview scope={{ AzureIcon32 }}>
     <Story name="color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -107,7 +106,7 @@ An icon color can be altered by specifying a fill value with [Tachyons fill clas
 
 If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/getting-started-foundation--page#colors):
 
-<Preview>
+<Preview scope={{ AzureIcon32 }}>
     <Story name="dynamic-color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
@@ -160,7 +159,7 @@ A multi variants icon support the same props as `<Icon />`.
 
 To inline multiple icons in a component, wrap your icons in an icon list component.
 
-<Preview>
+<Preview scope={{ AzureIcon32 }}>
     <Story name="icon list">
         <IconList>
             <Icon type={AzureIcon32} />

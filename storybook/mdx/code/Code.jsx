@@ -1,13 +1,12 @@
 import { Snippet } from "@stories/components";
+import { components } from "@storybook/components/html";
+
+const StorybookCode = components.code;
 
 export function Code({ className, children, ...rest }) {
-    console.log(children);
-
     // markdown-to-jsx does not add className to inline code
     if (typeof className !== "string" && (typeof children !== "string" || !children.match(/[\n\r]/g))) {
-        return <span>Hey!</span>;
-
-        // return <Code>{children}</Code>;
+        return <StorybookCode>{children}</StorybookCode>;
     }
 
     const language = className && className.split("-");

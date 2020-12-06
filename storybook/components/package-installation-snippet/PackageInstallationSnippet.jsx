@@ -26,7 +26,7 @@ export function PackageInstallationSnippet({ packageName, ...rest }) {
         <Snippet
             {...rest}
             language="bash"
-            code={`npm install ${dependencies}`}
+            code={`npm install ${dependencies};`}
         />
     );
 }
