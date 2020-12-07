@@ -1,9 +1,10 @@
 import "./ThemeProvider.css";
 
-import { createContext, useContext, useEffect } from "react";
+import { ThemeContext } from "./ThemeContext";
 import { isNil } from "lodash";
 import { mergeClasses, useMediaQuery } from "../../shared";
 import { oneOf, string } from "prop-types";
+import { useCallback, useEffect, useState } from "react";
 
 const ColorScheme = {
     light: "light",
@@ -25,8 +26,6 @@ const propTypes = {
      */
     defaultColorScheme: string
 };
-
-const ThemeContext = createContext({});
 
 export function useColorScheme(colorScheme, defaultColorScheme) {
     const matchesLight = useMediaQuery("(prefers-color-scheme: light)");
@@ -54,13 +53,20 @@ export function useColorScheme(colorScheme, defaultColorScheme) {
 }
 
 export function ThemeProvider({ theme, colorScheme, defaultColorScheme, children }) {
-    colorScheme = useColorScheme(colorScheme, defaultColorScheme);
+    const [remoteColorScheme, setRemoteColorScheme] = useState();
+
+    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
+
+    const setColorScheme = useCallback(newColorScheme => {
+        setRemoteColorScheme(newColorScheme);
+    }, [setRemoteColorScheme]);
 
     return (
         <ThemeContext.Provider
             value={{
                 theme,
-                colorScheme
+                colorScheme,
+                setColorScheme
             }}
         >
             <div
@@ -76,7 +82,3 @@ export function ThemeProvider({ theme, colorScheme, defaultColorScheme, children
 }
 
 ThemeProvider.propTypes = propTypes;
-
-export function useTheme() {
-    return useContext(ThemeContext);
-}

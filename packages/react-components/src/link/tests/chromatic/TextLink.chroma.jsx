@@ -9,7 +9,7 @@ function stories(segment) {
         .build();
 }
 
-createTextLinkTestSuite(<TextLink />, stories("/default"));
+createTextLinkTestSuite(<TextLink />, stories());
 
 createTextLinkTestSuite(<TextLink as="button" />, stories("/button"));
 

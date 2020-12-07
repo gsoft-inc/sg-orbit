@@ -10,7 +10,7 @@ function stories(segment) {
         .build();
 }
 
-createIconLinkTestSuite(<IconLink />, stories("/default"));
+createIconLinkTestSuite(<IconLink />, stories());
 
 createIconLinkTestSuite(<IconLink as="button" />, stories("/button"));
 
