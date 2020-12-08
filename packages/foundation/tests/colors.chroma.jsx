@@ -117,6 +117,16 @@ stories()
                      <div className="pa4 bg-neutral-700" />
                      <div className="pa4 bg-neutral-800" />
                      <div className="pa4 bg-neutral-900" />
+                     <div className="pa4 bg-neutral-dark-50" />
+                     <div className="pa4 bg-neutral-dark-100" />
+                     <div className="pa4 bg-neutral-dark-200" />
+                     <div className="pa4 bg-neutral-dark-300" />
+                     <div className="pa4 bg-neutral-dark-400" />
+                     <div className="pa4 bg-neutral-dark-500" />
+                     <div className="pa4 bg-neutral-dark-600" />
+                     <div className="pa4 bg-neutral-dark-700" />
+                     <div className="pa4 bg-neutral-dark-800" />
+                     <div className="pa4 bg-neutral-dark-900" />
                  </Inline>
              </Stack>
     );

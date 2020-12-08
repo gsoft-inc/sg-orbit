@@ -1,0 +1,119 @@
+.fill-neutral-dark-50 {
+    fill: var(--neutral-dark-50);
+}
+
+.fill-neutral-dark-100 {
+    fill: var(--neutral-dark-100);
+}
+
+.fill-neutral-dark-200 {
+    fill: var(--neutral-dark-200);
+}
+
+.fill-neutral-dark-300 {
+    fill: var(--neutral-dark-300);
+}
+
+.fill-neutral-dark-400 {
+    fill: var(--neutral-dark-400);
+}
+
+.fill-neutral-dark-500 {
+    fill: var(--neutral-dark-500);
+}
+
+.fill-neutral-dark-600 {
+    fill: var(--neutral-dark-600);
+}
+
+.fill-neutral-dark-700 {
+    fill: var(--neutral-dark-700);
+}
+
+.fill-neutral-dark-800 {
+    fill: var(--neutral-dark-800);
+}
+
+.fill-neutral-dark-900 {
+    fill: var(--neutral-dark-900);
+}
+
+.hover-fill-neutral-dark-50:hover {
+    fill: var(--neutral-dark-50);
+}
+
+.hover-fill-neutral-dark-100:hover {
+    fill: var(--neutral-dark-100);
+}
+
+.hover-fill-neutral-dark-200:hover {
+    fill: var(--neutral-dark-200);
+}
+
+.hover-fill-neutral-dark-300:hover {
+    fill: var(--neutral-dark-300);
+}
+
+.hover-fill-neutral-dark-400:hover {
+    fill: var(--neutral-dark-400);
+}
+
+.hover-fill-neutral-dark-500:hover {
+    fill: var(--neutral-dark-500);
+}
+
+.hover-fill-neutral-dark-600:hover {
+    fill: var(--neutral-dark-600);
+}
+
+.hover-fill-neutral-dark-700:hover {
+    fill: var(--neutral-dark-700);
+}
+
+.hover-fill-neutral-dark-800:hover {
+    fill: var(--neutral-dark-800);
+}
+
+.hover-fill-neutral-dark-900:hover {
+    fill: var(--neutral-dark-900);
+}
+
+.focus-fill-neutral-dark-50:focus {
+    fill: var(--neutral-dark-50);
+}
+
+.focus-fill-neutral-dark-100:focus {
+    fill: var(--neutral-dark-100);
+}
+
+.focus-fill-neutral-dark-200:focus {
+    fill: var(--neutral-dark-200);
+}
+
+.focus-fill-neutral-dark-300:focus {
+    fill: var(--neutral-dark-300);
+}
+
+.focus-fill-neutral-dark-400:focus {
+    fill: var(--neutral-dark-400);
+}
+
+.focus-fill-neutral-dark-500:focus {
+    fill: var(--neutral-dark-500);
+}
+
+.focus-fill-neutral-dark-600:focus {
+    fill: var(--neutral-dark-600);
+}
+
+.focus-fill-neutral-dark-700:focus {
+    fill: var(--neutral-dark-700);
+}
+
+.focus-fill-neutral-dark-800:focus {
+    fill: var(--neutral-dark-800);
+}
+
+.focus-fill-neutral-dark-900:focus {
+    fill: var(--neutral-dark-900);
+}

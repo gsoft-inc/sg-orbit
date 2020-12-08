@@ -1,13 +1,13 @@
-:root {
-    /* Colors */
-    --overcast-50: #E4F2FF;
-    --overcast-100: #BCE0FF;
-    --overcast-200: #90CBFF;
-    --overcast-300: #63B6FF;
-    --overcast-400: #41A6FF;
-    --overcast-500: #2096FF;
-    --overcast-600: #1584F1;
-    --overcast-700: #1376D9;
-    --overcast-800: #0A66C1;
-    --overcast-900: #004C98;
+[class^="o-ui-"] {
+    --hue-overcast: 208;
+    --overcast-50: hsl(var(--hue-overcast), 100%, 95%);
+    --overcast-100: hsl(var(--hue-overcast), 100%, 87%);
+    --overcast-200: hsl(var(--hue-overcast), 100%, 78%);
+    --overcast-300: hsl(var(--hue-overcast), 100%, 69%);
+    --overcast-400: hsl(var(--hue-overcast), 100%, 63%);
+    --overcast-500: hsl(var(--hue-overcast), 100%, 56%);
+    --overcast-600: hsl(var(--hue-overcast), 100%, 55%);
+    --overcast-700: hsl(var(--hue-overcast), 100%, 55%);
+    --overcast-800: hsl(var(--hue-overcast), 100%, 54%);
+    --overcast-900: hsl(var(--hue-overcast), 100%, 52%);
 }

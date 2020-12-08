@@ -1,35 +1,38 @@
-:root {
+[class^="o-ui-"] {
     /* Marine */
-    --marine-50: #ECF2FF;
-    --marine-100: #BBC5D7;
-    --marine-200: #97A0B3;
-    --marine-300: #77839B;
-    --marine-400: #5E6C88;
-    --marine-500: #4A5879;
-    --marine-600: #4A5879;
-    --marine-700: #2B3A5E;
-    --marine-800: #1F2F52;
-    --marine-900: #0E1C3D;
+    --hue-marine: 222;
+    --marine-50: hsl(var(--hue-marine), 100%, 96%);
+    --marine-100: hsl(var(--hue-marine), 26%, 79%);
+    --marine-200: hsl(var(--hue-marine), 16%, 65%);
+    --marine-300: hsl(var(--hue-marine), 15%, 54%);
+    --marine-400: hsl(var(--hue-marine), 18%, 45%);
+    --marine-500: hsl(var(--hue-marine), 24%, 38%);
+    --marine-600: hsl(var(--hue-marine), 30%, 32%);
+    --marine-700: hsl(var(--hue-marine), 37%, 27%);
+    --marine-800: hsl(var(--hue-marine), 45%, 22%);
+    --marine-900: hsl(var(--hue-marine), 63%, 15%);
     /* Sunray */
-    --sunray-50: #FFF6E7;
-    --sunray-100: #FEE9C3;
-    --sunray-200: #FEDB9B;
-    --sunray-300: #FDCD72;
-    --sunray-400: #FCC254;
-    --sunray-500: #FCB736;
-    --sunray-600: #FEA339;
-    --sunray-700: #EA8612;
-    --sunray-800: #D66C0B;
-    --sunray-900: #AC5300;
+    --hue-sunray: 38;
+    --sunray-50: hsl(var(--hue-sunray), 100%, 95%);
+    --sunray-100: hsl(var(--hue-sunray), 97%, 85%);
+    --sunray-200: hsl(var(--hue-sunray), 98%, 80%);
+    --sunray-300: hsl(var(--hue-sunray), 97%, 75%);
+    --sunray-400: hsl(var(--hue-sunray), 97%, 70%);
+    --sunray-500: hsl(var(--hue-sunray), 97%, 65%);
+    --sunray-600: hsl(var(--hue-sunray), 97%, 60%);
+    --sunray-700: hsl(var(--hue-sunray), 96%, 55%);
+    --sunray-800: hsl(var(--hue-sunray), 96%, 50%);
+    --sunray-900: hsl(var(--hue-sunray), 96%, 45%);
     /* Moonstone */
-    --moonstone-50: #EFF6F6;
-    --moonstone-100: #D6E9E9;
-    --moonstone-200: #BBDBDA;
-    --moonstone-300: #9FCCCB;
-    --moonstone-400: #8BC1C0;
-    --moonstone-500: #76B6B5;
-    --moonstone-600: #6EAFAE;
-    --moonstone-700: #63A6A5;
-    --moonstone-800: #599E9D;
-    --moonstone-900: #468E8D;
+    --hue-moonstone: 180;
+    --moonstone-50: hsl(var(--hue-moonstone), 28%, 95%);
+    --moonstone-100: hsl(var(--hue-moonstone), 30%, 88%);
+    --moonstone-200: hsl(var(--hue-moonstone), 31%, 80%);
+    --moonstone-300: hsl(var(--hue-moonstone), 31%, 71%);
+    --moonstone-400: hsl(var(--hue-moonstone), 30%, 65%);
+    --moonstone-500: hsl(var(--hue-moonstone), 30%, 59%);
+    --moonstone-600: hsl(var(--hue-moonstone), 29%, 56%);
+    --moonstone-700: hsl(var(--hue-moonstone), 27%, 52%);
+    --moonstone-800: hsl(var(--hue-moonstone), 28%, 48%);
+    --moonstone-900: hsl(var(--hue-moonstone), 34%, 42%);
 }
