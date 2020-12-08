@@ -1,6 +1,6 @@
 import "./Flex.css";
 
-import { Box } from "../../box/src/Box";
+import { Box } from "../../box";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, useMergedRefs } from "../../shared";
