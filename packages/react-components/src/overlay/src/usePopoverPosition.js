@@ -2,8 +2,6 @@ import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-const createPopperModifier = (name, options) => ({ name, options });
-
 export function usePopoverPosition({
     position = "bottom",
     triggerElement,
@@ -11,22 +9,35 @@ export function usePopoverPosition({
     offset,
     allowFlip,
     boundaryElement = document.body,
-    allowUpdatePosition,
+    allowPreventOverflow,
     pinned
 }) {
     const popperModifiers = [];
 
     if (offset) {
-        popperModifiers.push(createPopperModifier("offset", { offset }));
+        popperModifiers.push({
+            name: "offset",
+            options: {
+                offset
+            }
+        });
     }
 
-    if (allowFlip && !pinned) {
-        popperModifiers.push(createPopperModifier("flip", { boundary: boundaryElement }));
-    }
+    popperModifiers.push({
+        name: "flip",
+        enabled: allowFlip && !pinned,
+        options: {
+            boundary: boundaryElement
+        }
+    });
 
-    if (allowUpdatePosition && !pinned) {
-        popperModifiers.push(createPopperModifier("preventOverflow", { boundary: boundaryElement }));
-    }
+    popperModifiers.push({
+        name: "preventOverflow",
+        enabled: allowPreventOverflow && !pinned,
+        options: {
+            boundary: boundaryElement
+        }
+    });
 
     const { styles, attributes, update: updatePopper } = usePopper(triggerElement, overlayElement, {
         placement: position,
@@ -42,7 +53,10 @@ export function usePopoverPosition({
     useResizeObserver(overlayElement, handleOverlayElementResize);
 
     return {
-        overlayStyles: styles.popper,
+        overlayStyles: {
+            ...styles.popper,
+            zIndex: 100000
+        },
         overlayProps: attributes.popper
     };
 }

@@ -16,17 +16,6 @@ SO (again):
 */
 
 /*
-MISSING:
-- focus overlay first focusable element or overlay on show - DONE
-- focus trigger on hide - DONE
-- zindex? default - configurable?
-- what if the popover is in a dialog?
-
-- support function for dialog content and provide a "close" function and of course "isVisible" - DONE
-- offer a PopoverContext with a isVisible and a close function
-*/
-
-/*
 PICKER:
 - must work in a form (submit value with an hidden value) - Will be specific to a select though and not to a Popover.
 - clicking on a field label should focus the select (can't use label for I think)

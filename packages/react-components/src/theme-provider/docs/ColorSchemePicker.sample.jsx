@@ -1,5 +1,5 @@
 function ColorSchemePicker() {
-    const { colorScheme, setColorScheme } = useTheme();
+    const { colorScheme, setColorScheme } = useThemeContext();
 
     return (
         <Inline gap={0}>

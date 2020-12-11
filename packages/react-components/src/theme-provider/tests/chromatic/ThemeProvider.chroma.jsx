@@ -1,5 +1,5 @@
 import { Inline } from "@react-components/layout";
-import { ThemeProvider, useTheme } from "@react-components/theme-provider";
+import { ThemeProvider, useThemeContext } from "@react-components/theme-provider";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useEffect } from "react";
 
@@ -69,7 +69,7 @@ stories()
     )
     .add("set color scheme remotely", () => {
         const SwitchColorScheme = () => {
-            const { setColorScheme } = useTheme();
+            const { setColorScheme } = useThemeContext();
 
             useEffect(() => {
                 setColorScheme("dark");

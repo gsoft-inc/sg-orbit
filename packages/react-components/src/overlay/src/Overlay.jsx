@@ -1,14 +1,12 @@
 import "./Overlay.css";
 
+import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { any, bool, instanceOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
-
-/*
-TODO:
-    - Might need somehow to setup a new ThemeProvider since it's in a portal? Maybe Portal handle this.
-*/
+import { mergeClasses } from "../../shared";
+import { useThemeContext } from "@react-components/theme-provider";
 
 const propTypes = {
     /**
@@ -28,20 +26,30 @@ const propTypes = {
 export function InnerOverlay({
     show,
     containerElement,
+    className,
     children,
     forwardedRef,
     ...rest
 }) {
+    // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
+    const { theme, colorScheme } = useThemeContext();
+
     const content = (
-        <Transition
-            {...rest}
-            show={show}
-            enter="o-ui-fade-in"
-            leave="o-ui-fade-out"
-            ref={forwardedRef}
-        >
-            {children}
-        </Transition>
+        <ThemeProvider theme={theme} colorScheme={colorScheme}>
+            <Transition
+                {...rest}
+                show={show}
+                enter="o-ui-fade-in"
+                leave="o-ui-fade-out"
+                className={mergeClasses(
+                    "o-ui-overlay",
+                    className
+                )}
+                ref={forwardedRef}
+            >
+                {children}
+            </Transition>
+        </ThemeProvider>
     );
 
     return createPortal(content, containerElement || document.body);
