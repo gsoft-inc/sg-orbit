@@ -62,14 +62,18 @@ export function InnerAccordion({
 }) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
-    const ref = useMergedRefs(forwardedRef);
+    const containerRef = useMergedRefs(forwardedRef);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedIndex = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
-    const items = useAccordionBuilder(children, memoSelectedIndex, useId(id, id ? undefined : "o-ui-accordion"));
+    const items = useAccordionBuilder({
+        items: children,
+        selectedIndex: memoSelectedIndex,
+        rootId: useId(id, id ? undefined : "o-ui-accordion")
+    });
 
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const navigationProps = useKeyboardNavigation({
         previous: [KEYS.up],
@@ -104,7 +108,7 @@ export function InnerAccordion({
             {...navigationProps}
             className={mergeClasses("o-ui-accordion", className)}
             as={as}
-            ref={ref}
+            ref={containerRef}
         >
             {items.map(({ index: itemIndex, key, ...itemProps }) => (
                 <AccordionItem

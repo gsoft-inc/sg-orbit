@@ -9,9 +9,9 @@ export function usePopoverPosition({
     triggerElement,
     overlayElement,
     offset,
-    canFlip,
+    allowFlip,
     boundaryElement = document.body,
-    canUpdatePosition,
+    allowUpdatePosition,
     pinned
 }) {
     const popperModifiers = [];
@@ -20,11 +20,11 @@ export function usePopoverPosition({
         popperModifiers.push(createPopperModifier("offset", { offset }));
     }
 
-    if (canFlip && !pinned) {
+    if (allowFlip && !pinned) {
         popperModifiers.push(createPopperModifier("flip", { boundary: boundaryElement }));
     }
 
-    if (canUpdatePosition && !pinned) {
+    if (allowUpdatePosition && !pinned) {
         popperModifiers.push(createPopperModifier("preventOverflow", { boundary: boundaryElement }));
     }
 
@@ -42,7 +42,7 @@ export function usePopoverPosition({
     useResizeObserver(overlayElement, handleOverlayElementResize);
 
     return {
-        popoverPositionStyles: styles.popper,
-        ...attributes
+        overlayStyles: styles.popper,
+        overlayProps: attributes.popper
     };
 }

@@ -1,5 +1,0 @@
-/*
-Hide a given element on hide.
-
-Focus the button when the MenuTrigger hide
-*/

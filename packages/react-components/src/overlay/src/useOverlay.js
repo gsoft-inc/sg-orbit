@@ -11,28 +11,27 @@ export function useOverlay({
     canHideOnBlur,
     overlayRef
 }) {
-    const onKeyDown = event => {
-        if (event.keyCode === KEYS.escape) {
-            event.preventDefault();
+    const hide = event => {
+        if (!isNil(onHide)) {
+            onHide(event);
+        }
+    };
 
-            if (!isNil(onHide)) {
-                onHide(event);
-            }
+    const onKeyDown = event => {
+        if (event.keyCode === KEYS.esc) {
+            event.preventDefault();
+            hide(event);
         }
     };
 
     const onBlurWithin = useEventCallback(event => {
-        if (isNil(canHideOnBlur) || canHideOnBlur(event.relatedTarget )) {
-            if (!isNil(onHide)) {
-                onHide(event);
-            }
+        if (isNil(canHideOnBlur) || canHideOnBlur(event.relatedTarget)) {
+            hide(event);
         }
     });
 
     const onInteractOutside = useEventCallback(event => {
-        if (!isNil(onHide)) {
-            onHide(event);
-        }
+        hide(event);
     });
 
     useInteractOutside({ targetRef: overlayRef, onInteractOutside, isDisabled: !hideOnOutsideClick });
@@ -40,8 +39,10 @@ export function useOverlay({
     const focusWithinProps = useFocusWithin({ onBlurWithin, isDisabled: !hideOnBlur });
 
     return {
-        ...focusWithinProps,
-        onKeyDown: hideOnEscape ? onKeyDown : undefined
-        // tabIndex: "-1"
+        overlayProps: {
+            ...focusWithinProps,
+            onKeyDown: hideOnEscape ? onKeyDown : undefined,
+            tabIndex: "-1"
+        }
     };
 }

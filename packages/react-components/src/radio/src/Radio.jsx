@@ -99,7 +99,7 @@ export function InnerRadio(props) {
     const labelRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus({ targetRef: inputRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 

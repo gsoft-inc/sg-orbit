@@ -2,6 +2,11 @@ import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
+/*
+TODO:
+- should be rewritten to accept an object literal instead of single params
+*/
+
 export function useRovingFocus(rootRef) {
     useLayoutEffect(() => {
         const root = rootRef.current;
@@ -92,7 +97,7 @@ export function useRovingFocus(rootRef) {
 /*
 Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(rootRef, currentKey, { keyProp = "value" } = {}) {
+export function useKeyedRovingFocus({ rootRef, currentKey, keyProp = "value" }) {
     useLayoutEffect(() => {
         const root = rootRef.current;
 

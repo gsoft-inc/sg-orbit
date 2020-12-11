@@ -32,7 +32,7 @@ export function useCheckbox({
     const wrapperRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus({ targetRef: inputRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 

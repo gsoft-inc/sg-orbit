@@ -8,7 +8,7 @@ import { useRef } from "react";
 function RovingFocus({ currentValue, children }) {
     const ref = useRef();
 
-    useKeyedRovingFocus(ref, currentValue);
+    useKeyedRovingFocus({ rootRef: ref, currentKey: currentValue });
 
     return (
         <div ref={ref}>

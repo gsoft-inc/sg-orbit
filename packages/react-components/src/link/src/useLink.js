@@ -21,7 +21,7 @@ export function useLink({
 }) {
     const linkRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(linkRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus({ targetRef: linkRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     return {
         target: target ?? external ? "_blank" : undefined,

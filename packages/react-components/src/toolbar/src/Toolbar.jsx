@@ -52,7 +52,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     horizontal: {
         previous: [KEYS.left],
         next: [KEYS.right],
@@ -81,12 +81,12 @@ export function InnerToolbar({
     forwardedRef,
     ...rest
 }) {
-    const ref = useMergedRefs(forwardedRef);
+    const containerRef = useMergedRefs(forwardedRef);
 
-    useRovingFocus(ref);
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    useRovingFocus(containerRef);
+    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
-    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
+    const arrowNavigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
 
     const directionProps = useFlexDirection(orientation);
 
@@ -108,7 +108,7 @@ export function InnerToolbar({
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             as={as}
-            ref={ref}
+            ref={containerRef}
             aria-orientation={orientation}
         >
             <ToolbarProvider

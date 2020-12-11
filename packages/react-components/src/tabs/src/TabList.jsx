@@ -4,7 +4,7 @@ import { Tab } from "./Tab";
 import { useRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     horizontal: {
         previous: [KEYS.left],
         next: [KEYS.right],
@@ -28,12 +28,12 @@ export function TabList({
 }) {
     const { selectedIndex, orientation } = useTabsContext();
 
-    const ref = useRef();
+    const containerRef = useRef();
 
-    useKeyedRovingFocus(ref, selectedIndex, { keyProp: "data-index" });
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    useKeyedRovingFocus({ rootRef: containerRef, currentKey: selectedIndex, keyProp: "data-index" });
+    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
+    const navigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
 
     return (
         <Box
@@ -42,7 +42,7 @@ export function TabList({
             className={mergeClasses("o-ui-tab-list", className)}
             role="tablist"
             aria-orientation={orientation}
-            ref={ref}
+            ref={containerRef}
         >
             {tabs.map(({
                 index,

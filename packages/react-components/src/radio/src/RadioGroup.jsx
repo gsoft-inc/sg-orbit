@@ -89,7 +89,7 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     default: {
         previous: [KEYS.left, KEYS.up],
         next: [KEYS.right, KEYS.down],
@@ -132,10 +132,10 @@ export function InnerRadioGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const ref = useMergedRefs(forwardedRef);
+    const groupRef = useMergedRefs(forwardedRef);
 
-    useKeyedRovingFocus(ref, !isNil(checkedValue) ? checkedValue : checkedValue, { keyProp: "value" });
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    useKeyedRovingFocus({ rootRef: groupRef, currentKey: !isNil(checkedValue) ? checkedValue : checkedValue, keyProp: "value" });
+    useAutoFocusFirstTabbableElement({ rootRef: groupRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
@@ -147,7 +147,7 @@ export function InnerRadioGroup(props) {
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
+    const navigationProps = useKeyboardNavigation(NavigationKeyBinding[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
@@ -160,7 +160,7 @@ export function InnerRadioGroup(props) {
         reverse,
         disabled,
         className,
-        ref
+        groupRef
     });
 
     const handleCheck = useEventCallback((event, newValue) => {

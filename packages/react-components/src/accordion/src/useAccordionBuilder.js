@@ -47,8 +47,8 @@ export class AccordionBuilder {
     }
 }
 
-export function useAccordionBuilder(accordionItems, selectedIndex, rootId) {
+export function useAccordionBuilder({ items, selectedIndex, rootId }) {
     const builder = useMemo(() => new AccordionBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(accordionItems, selectedIndex), [builder, accordionItems, selectedIndex]);
+    return useMemo(() => builder.build(items, selectedIndex), [builder, items, selectedIndex]);
 }

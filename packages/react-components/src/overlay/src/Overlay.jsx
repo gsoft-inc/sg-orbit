@@ -1,29 +1,33 @@
+import "./Overlay.css";
+
 import { Transition } from "../../transition";
-import { any, bool, func, instanceOf } from "prop-types";
+import { any, bool, instanceOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 
 /*
-	- Open transition
-	- Create portal - in container or body - Always use portal? I think so
+TODO:
     - Might need somehow to setup a new ThemeProvider since it's in a portal? Maybe Portal handle this.
-
-    - Kind of similar to useAutoControlledPopper
 */
 
 const propTypes = {
+    /**
+     * Whether or not to show the overlay element.
+     */
     show: bool,
-    defaultShow: bool,
-    onHide: func,
-    hideOnEscape: bool,
-    hideOnBlur: bool,
-    container: instanceOf(HTMLElement),
+    /**
+     * A DOM element in which the overlay element will be appended via a React portal.
+     */
+    containerElement: instanceOf(HTMLElement),
+    /**
+     * React children.
+     */
     children: any.isRequired
 };
 
 export function InnerOverlay({
     show,
-    container,
+    containerElement,
     children,
     forwardedRef,
     ...rest
@@ -40,7 +44,7 @@ export function InnerOverlay({
         </Transition>
     );
 
-    return createPortal(content, container || document.body);
+    return createPortal(content, containerElement || document.body);
 }
 
 InnerOverlay.propTypes = propTypes;
