@@ -1,11 +1,12 @@
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Popover } from "@react-components/overlay";
+import { PopoverContext } from "../../src";
 import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/input";
-import { augmentElement } from "@react-components/shared";
+import { augmentElement, mergeClasses } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 /*
 CHROMA TEST:
@@ -20,7 +21,8 @@ CHROMA TEST:
 - zIndex - default
 - on top of another content with a zIndex
 - zIndex when in a dialog
-- returning function (and maybe using the isVisible prop)
+- render props (and maybe using the isVisible prop)
+- PopoverContext with isVisible
 - follow theme provider when open
 
 INTERACTION TEST:
@@ -70,6 +72,7 @@ function Boundary({ style, children, ...rest }) {
 }
 
 function RedBox({
+    style,
     children,
     ...rest
 }) {
@@ -85,8 +88,13 @@ function RedBox({
     return (
         <Box
             {...rest}
-            className="pa2 bg-red"
-            style={{ minWidth: "200px", height: "100px" }}
+            className="pa2"
+            style={{
+                backgroundColor: "red",
+                ...style,
+                minWidth: "200px",
+                height: "100px"
+            }}
         >
             {content}
         </Box>
@@ -94,36 +102,48 @@ function RedBox({
 }
 
 stories()
-    .add("default", () => {
+    .add("default", () =>
+        <Boundary>
+            <Popover>
+                <Button fluid>Open</Button>
+                <RedBox />
+            </Popover>
+        </Boundary>
+    )
+    .add("non focusable content", () =>
+        <Boundary>
+            <Popover>
+                <Button fluid>Open</Button>
+                <RedBox>A box without any focusable content. Does it still work?</RedBox>
+            </Popover>
+        </Boundary>
+    )
+    .add("render props", () =>
+        <Boundary>
+            <Popover>
+                {({ isVisible }) => (
+                    <>
+                        <Button color={isVisible ? "secondary" : "primary"} fluid >Open</Button>
+                        <RedBox />
+                    </>
+                )}
+            </Popover>
+        </Boundary>
+    )
+    .add("custom component", () => {
+        const PrimaryBox = () => {
+            const { isVisible } = useContext(PopoverContext);
+
+            return (
+                <RedBox style={isVisible ? { backgroundColor: "var(--primary-500)" } : undefined} />
+            );
+        };
+
         return (
             <Boundary>
                 <Popover>
-                    <Button fluid>Open</Button>
-                    <RedBox />
-                </Popover>
-            </Boundary>
-        );
-    })
-    .add("non focusable content", () => {
-        return (
-            <Boundary>
-                <Popover>
-                    <Button fluid>Open</Button>
-                    <RedBox>A box without any focusable content. Does it still work?</RedBox>
-                </Popover>
-            </Boundary>
-        );
-    })
-    .add("render props", () => {
-        return (
-            <Boundary>
-                <Popover>
-                    {({ isVisible }) => (
-                        <>
-                            <Button color={isVisible ? "secondary" : "primary"} fluid >Open</Button>
-                            <RedBox />
-                        </>
-                    )}
+                    <Button fluid >Open</Button>
+                    <PrimaryBox />
                 </Popover>
             </Boundary>
         );
