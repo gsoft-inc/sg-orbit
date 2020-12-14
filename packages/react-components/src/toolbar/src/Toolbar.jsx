@@ -7,7 +7,7 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * Whether the toolbar should autoFocus the first tabbable element on render.
+     * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
     autoFocus: bool,
     /**
@@ -31,7 +31,7 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether the elements are forced onto one line or can wrap onto multiple lines
+     * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
@@ -39,7 +39,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether the toolbar elements are disabled.
+     * Whether or not the toolbar elements are disabled.
      */
     disabled: bool,
     /**
@@ -47,7 +47,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };

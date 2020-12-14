@@ -32,7 +32,7 @@ const propTypes = {
      */
     manual: bool,
     /**
-     * Whether the first focusable tab should autoFocus on render.
+     * Whether or not the first focusable tab should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -40,7 +40,7 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether the tabs take up the width of the container.
+     * Whether or not the tabs take up the width of the container.
      */
     fluid: bool,
     /**
@@ -56,7 +56,7 @@ const propTypes = {
      */
     "aria-label": string.isRequired,
     /**
-     * React children
+     * React children.
      */
     children: any.isRequired
 };
@@ -71,8 +71,8 @@ export function InnerTabs({
     autoFocusDelay,
     fluid,
     orientation = "horizontal",
-    className,
     "aria-label": ariaLabel,
+    className,
     children,
     forwardedRef,
     ...rest

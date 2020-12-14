@@ -18,7 +18,6 @@ export class TabsBuilder {
         const tabs = [];
         const panels = [];
 
-        // let tabIndex = 0;
         let nodeIndex = 0;
 
         Children.forEach(elements, (tab, index) => {
@@ -40,7 +39,7 @@ export class TabsBuilder {
                     index,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: header.type !== Header ? header.type : undefined,
-                    key: `.${nodeIndex++}`,
+                    key: nodeIndex++,
                     ref: header.ref
                 })
             );
@@ -52,7 +51,7 @@ export class TabsBuilder {
                     index,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: content.type !== Content ? content.type : undefined,
-                    key: `.${nodeIndex++}`,
+                    key: nodeIndex++,
                     ref: content.ref
                 })
             );

@@ -1,0 +1,4 @@
+.o-ui-listbox-item[aria-selected="true"] {
+    background-color: blue;
+    color: white;
+}

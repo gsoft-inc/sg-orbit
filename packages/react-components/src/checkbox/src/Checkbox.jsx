@@ -34,7 +34,7 @@ const propTypes = {
      */
     value: oneOfType([string, number]),
     /**
-     * Whether the checkbox should autoFocus on render.
+     * Whether or not the checkbox should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -42,11 +42,11 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
-     * Whether the checkbox should display as "valid" or "invalid".
+     * Whether or not the checkbox should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**

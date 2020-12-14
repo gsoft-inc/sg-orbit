@@ -34,7 +34,7 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
-     * Whether the radio should autoFocus on render.
+     * Whether or not the radio should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -42,7 +42,7 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether the radio should display as "valid" or "invalid".
+     * Whether or not the radio should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -60,7 +60,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func]).isRequired
 };

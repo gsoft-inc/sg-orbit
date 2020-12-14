@@ -10,7 +10,7 @@ const propTypes = {
      */
     condensed: bool,
     /**
-     * Whether the button should autoFocus on render.
+     * Whether or not the button should autoFocus on render.
      */
     autoFocus: bool,
     /**

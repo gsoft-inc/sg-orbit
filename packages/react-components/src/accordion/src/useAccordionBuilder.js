@@ -10,14 +10,14 @@ export class AccordionBuilder {
         this._rootId = rootId;
     }
 
-    build(items, selectedIndex) {
-        if (isNil(items)) {
+    build(elements, selectedIndexes) {
+        if (isNil(elements)) {
             throw new Error("An accordion component must have children.");
         }
 
-        return Children.map(items, (item, index) => {
+        return Children.map(elements, (item, index) => {
             const [header, content] = Children.toArray(resolveChildren(item.props.children, {
-                isOpen: selectedIndex.includes(index)
+                isOpen: selectedIndexes.includes(index)
             }));
 
             if (isNil(header) || isNil(content)) {
@@ -39,7 +39,7 @@ export class AccordionBuilder {
             return {
                 id: `${this._rootId}-${index}`,
                 index,
-                key: `.${index}`,
+                key: index,
                 header: headerProps,
                 panel: panelProps
             };
@@ -47,8 +47,8 @@ export class AccordionBuilder {
     }
 }
 
-export function useAccordionBuilder({ items, selectedIndex, rootId }) {
+export function useAccordionBuilder({ items, selectedIndexes, rootId }) {
     const builder = useMemo(() => new AccordionBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(items, selectedIndex), [builder, items, selectedIndex]);
+    return useMemo(() => builder.build(items, selectedIndexes), [builder, items, selectedIndexes]);
 }

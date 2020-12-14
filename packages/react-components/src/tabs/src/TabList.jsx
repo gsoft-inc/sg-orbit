@@ -1,3 +1,5 @@
+import "./Tabs.css";
+
 import { Box } from "../../box";
 import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";

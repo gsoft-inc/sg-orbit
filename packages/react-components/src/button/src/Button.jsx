@@ -36,7 +36,7 @@ const propTypes = {
      */
     autoFocusDelay: number,
     /**
-     * Whether the button take up the width of its container.
+     * Whether or not the button take up the width of its container.
      */
     fluid: bool,
     /**

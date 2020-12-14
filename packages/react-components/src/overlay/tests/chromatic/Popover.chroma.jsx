@@ -116,7 +116,7 @@ function AbsoluteBlueBox({
                 height: "25px",
                 position: "absolute",
                 top: "175px",
-                left: "450px",
+                left: "225px",
                 ...style
             }}
         />
@@ -367,8 +367,6 @@ stories()
             <Popover show>
                 <Button>Open</Button>
                 <RedBox>
-                    <Text>The following button should match desktop theme.</Text>
-                    <br />
                     <Button color="primary">Cutoff</Button>
                 </RedBox>
             </Popover>

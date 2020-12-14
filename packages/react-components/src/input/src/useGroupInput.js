@@ -24,7 +24,7 @@ export function useGroupInput({
     reverse,
     disabled,
     className,
-    ref
+    groupRef
 }) {
     const [{ hasLabel, hasMessage }] = useFieldContext();
 
@@ -51,7 +51,7 @@ export function useGroupInput({
             "aria-invalid": validationState === "invalid",
             "aria-orientation": orientation,
             "aria-disabled": disabled,
-            ref
+            ref: groupRef
         },
         itemProps: {
             size,

@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { KEYS, arrayify, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation, useMergedRefs } from "../../shared";
-import { any, arrayOf, bool, elementType, func, number, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useAccordionBuilder } from "./useAccordionBuilder";
@@ -20,16 +20,16 @@ const propTypes = {
     /**
      * Called when an accordion is expanded / collapsed.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number[]} index - The index(es) of the expanded accordion item.
+     * @param {Number[]} selectedIndexes - The indexes of the expanded accordion item.
      * @returns {void}
      */
     onChange: func,
     /**
-     * Whether or not multiple accordion items could be expanded at once.
+     * The type of expand that is allowed.
      */
-    multiple: bool,
+    expandMode: oneOf(["single", "multiple"]),
     /**
-     * Whether the first focusable accordion item should autoFocus on render.
+     * Whether or not the first focusable accordion item should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -51,7 +51,7 @@ export function InnerAccordion({
     index,
     defaultIndex,
     onChange,
-    multiple,
+    expandMode = "single",
     autoFocus,
     autoFocusDelay,
     as = "div",
@@ -65,11 +65,11 @@ export function InnerAccordion({
     const containerRef = useMergedRefs(forwardedRef);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoSelectedIndex = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
+    const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
     const items = useAccordionBuilder({
         items: children,
-        selectedIndex: memoSelectedIndex,
+        selectedIndexes: memoSelectedIndexes,
         rootId: useId(id, id ? undefined : "o-ui-accordion")
     });
 
@@ -83,22 +83,22 @@ export function InnerAccordion({
     });
 
     const handleToggle = useEventCallback((event, toggledIndex) => {
-        let newSelectedIndex;
+        let newSelectedIndexes;
 
-        if (!memoSelectedIndex.includes(toggledIndex)) {
-            if (multiple) {
-                newSelectedIndex = [...memoSelectedIndex, toggledIndex];
+        if (!memoSelectedIndexes.includes(toggledIndex)) {
+            if (expandMode === "multiple") {
+                newSelectedIndexes = [...memoSelectedIndexes, toggledIndex];
             } else {
-                newSelectedIndex = [toggledIndex];
+                newSelectedIndexes = [toggledIndex];
             }
         } else {
-            newSelectedIndex = memoSelectedIndex.filter(x => x !== toggledIndex);
+            newSelectedIndexes = memoSelectedIndexes.filter(x => x !== toggledIndex);
         }
 
-        setSelectedIndex(newSelectedIndex);
+        setSelectedIndex(newSelectedIndexes);
 
         if (!isNil(onChange)) {
-            onChange(event, newSelectedIndex);
+            onChange(event, newSelectedIndexes);
         }
     });
 
@@ -114,7 +114,7 @@ export function InnerAccordion({
                 <AccordionItem
                     {...itemProps}
                     index={itemIndex}
-                    open={memoSelectedIndex.includes(itemIndex)}
+                    open={memoSelectedIndexes.includes(itemIndex)}
                     onToggle={handleToggle}
                     key={key}
                 />

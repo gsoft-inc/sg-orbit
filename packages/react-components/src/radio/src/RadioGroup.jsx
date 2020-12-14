@@ -33,7 +33,7 @@ const propTypes = {
      */
     defaultValue: oneOfType([string, number]),
     /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
@@ -52,7 +52,7 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Whether the radio group should autoFocus on render.
+     * Whether or not the radio group should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -76,7 +76,7 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * Whether the radio group is disabled.
+     * Whether or not the radio group is disabled.
      */
     disabled: bool,
     /**
@@ -84,7 +84,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func]).isRequired
 };
@@ -134,7 +134,8 @@ export function InnerRadioGroup(props) {
 
     const groupRef = useMergedRefs(forwardedRef);
 
-    useKeyedRovingFocus({ rootRef: groupRef, currentKey: !isNil(checkedValue) ? checkedValue : checkedValue, keyProp: "value" });
+    // useKeyedRovingFocus({ rootRef: groupRef, currentKey: !isNil(checkedValue) ? checkedValue : checkedValue, keyProp: "value" });
+    useKeyedRovingFocus({ rootRef: groupRef, currentKey: checkedValue, keyProp: "value" });
     useAutoFocusFirstTabbableElement({ rootRef: groupRef, isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {

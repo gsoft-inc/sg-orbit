@@ -1,3 +1,5 @@
+import "./Tabs.css";
+
 import { Box } from "../../box";
 import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
 import { Text } from "@react-components/text";

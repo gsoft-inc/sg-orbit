@@ -28,9 +28,9 @@ export function InnerIcon(props) {
         type,
         size,
         disabled,
+        "aria-label": ariaLabel,
         className,
         forwardedRef,
-        "aria-label": ariaLabel,
         ...rest
     } = mergeProps(
         props,

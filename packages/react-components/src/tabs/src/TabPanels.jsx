@@ -1,3 +1,5 @@
+import "./Tabs.css";
+
 import { TabPanel } from "./TabPanel";
 import { useTabsContext } from "./TabsContext";
 

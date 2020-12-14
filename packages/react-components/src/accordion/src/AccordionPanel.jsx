@@ -1,3 +1,5 @@
+import "./Accordion.css";
+
 import { Box } from "../../box";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";

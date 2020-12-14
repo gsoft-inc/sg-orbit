@@ -1,3 +1,5 @@
+import "./Tabs.css";
+
 import { Text } from "../../text";
 import { any, bool, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";

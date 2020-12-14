@@ -1,3 +1,5 @@
+import "./Accordion.css";
+
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
@@ -46,12 +48,12 @@ export function InnerAccordionHeader({
             defaultWrapper: Text
         },
         icon: {
-            className: "o-ui-accordion-icon",
-            size
+            size,
+            className: "o-ui-accordion-icon"
         },
         text: {
-            className: "o-ui-accordion-title",
-            size: "inherit"
+            size: "inherit",
+            className: "o-ui-accordion-title"
         }
     });
 

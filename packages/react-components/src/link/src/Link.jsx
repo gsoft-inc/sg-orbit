@@ -27,7 +27,7 @@ const propTypes = {
      */
     shape: oneOf(["rounded", "circular", "box"]),
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
     autoFocus: bool,
     /**

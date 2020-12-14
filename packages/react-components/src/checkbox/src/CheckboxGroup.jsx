@@ -123,7 +123,7 @@ export function InnerCheckboxGroup(props) {
         reverse,
         disabled,
         className,
-        ref: forwardedRef
+        groupRef: forwardedRef
     });
 
     const handleCheck = useEventCallback((event, newValue) => {

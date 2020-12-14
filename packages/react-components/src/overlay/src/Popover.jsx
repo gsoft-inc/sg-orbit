@@ -2,7 +2,7 @@ import { Children, forwardRef, useCallback, useState } from "react";
 import { FocusRestore } from "./FocusRestore";
 import { Overlay } from "./Overlay";
 import { PopoverProvider } from "./PopoverContext";
-import { any, arrayOf, bool, func, instanceOf, number, oneOf } from "prop-types";
+import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
 import { augmentElement, mergeClasses, resolveChildren, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 import { useOverlay } from "./useOverlay";
@@ -100,7 +100,7 @@ const propTypes = {
     /**
      * React children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func]).isRequired
 };
 
 export function InnerPopover({

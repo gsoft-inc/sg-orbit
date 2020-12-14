@@ -32,7 +32,7 @@ const propTypes = {
      */
     external: bool,
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -78,8 +78,8 @@ export function InnerIconLink(props) {
         focus,
         hover,
         visited,
-        as: ElementType = "a",
         "aria-label": ariaLabel,
+        as: ElementType = "a",
         className,
         children,
         forwardedRef,

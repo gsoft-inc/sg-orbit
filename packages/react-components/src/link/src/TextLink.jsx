@@ -34,7 +34,7 @@ const propTypes = {
      */
     external: bool,
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
     autoFocus: bool,
     /**
