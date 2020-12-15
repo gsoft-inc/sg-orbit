@@ -30,11 +30,19 @@ export function usePopoverTrigger({ isVisible, onToggle, type }) {
         }
     });
 
+    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    const handleKeyUp = useEventCallback(event => {
+        if (event.keyCode === KEYS.space) {
+            event.preventDefault();
+        }
+    });
+
     return {
         triggerProps: {
             ...triggerProps,
             onClick: handleClick,
-            onKeyDown: handleKeyDown
+            onKeyDown: handleKeyDown,
+            onKeyUp: handleKeyUp
         },
         overlayProps
     };

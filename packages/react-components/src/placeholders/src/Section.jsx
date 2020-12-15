@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unused-prop-types */
 
-import { any } from "prop-types";
+import { any, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
+    /**
+     * The section name.
+     */
+    title: string.isRequired,
     /**
      * React children.
      */

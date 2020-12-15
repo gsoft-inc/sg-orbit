@@ -12,7 +12,7 @@ export class AccordionBuilder {
 
     build(elements, selectedIndexes) {
         if (isNil(elements)) {
-            throw new Error("An accordion component must have children.");
+            throw new Error("An accordion must have children.");
         }
 
         return Children.map(elements, (item, index) => {

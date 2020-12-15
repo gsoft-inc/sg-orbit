@@ -1,12 +1,7 @@
 import { Children, useMemo } from "react";
-import { Item } from "../../placeholders";
+import { Item, Section } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
-
-/*
-TODO:
-- Handle Section
-*/
 
 export class ListboxBuilder {
     _rootId;
@@ -15,35 +10,85 @@ export class ListboxBuilder {
         this._rootId = rootId;
     }
 
-    build(children, selectedKeys) {
+    _parseSection(section, index) {
+        const { children, ...props } = section.props;
+
         if (isNil(children)) {
-            throw new Error("A listbox component must have children.");
+            throw new Error("A listbox section must have children.");
         }
 
-        const keys = [];
+        const newKeys = [];
 
-        const items = Children.toArray(resolveChildren(children, {
-            selectedKeys
-        }));
+        const that = this;
 
-        return Children.map(items, (item, index) => {
-            const itemKey = item.key.replace(".", "").replace("$", "");
+        const items = Children.map(children, (item, itemIndex) => {
+            // TODO: Not good, would prefer to have some kind of nodeIndex increment for a default itemKey. Instead of `${index}-${itemIndex}`.
+            const { result, newKeys: itemKeys } = that._parseItem(item, `${index}-${itemIndex}`);
 
-            if (keys.includes(itemKey)) {
-                throw new Error(`A listbox item key must be unique. ${itemKey} already exist.`);
-            } else {
-                keys.push(itemKey);
-            }
+            newKeys.push(itemKeys[0]);
 
-            return mergeProps(item.props, {
-                id: `${this._rootId}-${index}`,
+            return result;
+        });
+
+        return {
+            result: mergeProps(props, {
+                id: `${this._rootId}-section-${index}`,
+                index,
+                key: index,
+                type: section.type,
+                ref: section.ref,
+                items
+            }),
+            newKeys
+        };
+    }
+
+    _parseItem(item, index) {
+        const itemKey = !isNil(item.key)
+            ? item.key.replace(".", "").replace("$", "")
+            : index.toString();
+
+        return {
+            result: mergeProps(item.props, {
+                id: `${this._rootId}-item-${index}`,
                 itemKey,
                 index,
                 key: index,
                 // Use a custom type if available otherwise let the ListboxItem component choose his default type.
                 type: item.type !== Item ? item.type : undefined,
                 ref: item.ref
+            }),
+            newKeys: [itemKey]
+        };
+    }
+
+    build(children, selectedKeys) {
+        if (isNil(children)) {
+            throw new Error("A listbox must have children.");
+        }
+
+        const keys = [];
+
+        const elements = resolveChildren(children, {
+            selectedKeys
+        });
+
+        const that = this;
+
+        return Children.map(elements, (element, index) => {
+            const { result, newKeys } = element.type === Section
+                ? that._parseSection(element, index)
+                : that._parseItem(element, index);
+
+            newKeys.forEach(x => {
+                if (keys.includes(x)) {
+                    throw new Error(`A listbox item key must be unique. ${x} already exist.`);
+                } else {
+                    keys.push(x);
+                }
             });
+
+            return result;
         });
     }
 }

@@ -2,6 +2,8 @@ import "./Listbox.css";
 
 import { Box } from "../../box";
 import { ListboxItem } from "./ListboxItem";
+import { ListboxSection } from "./ListboxSection";
+import { Section } from "../../placeholders";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { arrayify, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
 import { forwardRef, useMemo } from "react";
@@ -45,10 +47,6 @@ import { useListboxBuilder } from "./useListboxBuilder";
 ListboxContext?
 */
 
-// const ItemShape = {
-//     id: string
-// };
-
 const propTypes = {
     /**
      * A controlled array holding the currently selected keys.
@@ -61,7 +59,7 @@ const propTypes = {
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number[]} index - The index(es) of the expanded accordion item.
+     * @param {String[]} keys - The selected keys.
      * @returns {void}
      */
     onChange: func,
@@ -111,7 +109,7 @@ export function InnerListbox({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedKeys = useMemo(() => arrayify(selectedKey), [JSON.stringify(selectedKey)]);
 
-    const items = useListboxBuilder({
+    const elements = useListboxBuilder({
         children,
         selectedKeys: memoSelectedKeys,
         rootId: useId(id, id ? undefined : "o-ui-listbox")
@@ -137,6 +135,28 @@ export function InnerListbox({
         }
     });
 
+    const renderSection = ({
+        items,
+        ...sectionProps
+    }) => (
+        <ListboxSection {...sectionProps}>
+            {items.map(x => renderItem(x))}
+        </ListboxSection>
+    );
+
+    const renderItem = ({
+        type: ElementType = ListboxItem,
+        itemKey,
+        ...itemProps
+    }) => (
+        <ElementType
+            {...itemProps}
+            itemKey={itemKey}
+            selected={memoSelectedKeys.includes(itemKey)}
+            onToggle={handleItemToggle}
+        />
+    );
+
     return (
         <Box
             {...rest}
@@ -147,18 +167,11 @@ export function InnerListbox({
             as={as}
             ref={forwardedRef}
         >
-            {items.map(({
-                itemKey,
-                type: ElementType = ListboxItem,
-                ...itemProps
-            }) => (
-                <ElementType
-                    {...itemProps}
-                    itemKey={itemKey}
-                    selected={memoSelectedKeys.includes(itemKey)}
-                    onToggle={handleItemToggle}
-                />
-            ))}
+            {elements.map(({ type, ...elementProps }) => {
+                return type === Section
+                    ? renderSection(elementProps)
+                    : renderItem({ type, ...elementProps });
+            })}
         </Box>
     );
 }

@@ -44,6 +44,7 @@ export function InnerListboxItem({
     onToggle,
     onClick,
     onKeyDown,
+    onKeyUp,
     disabled,
     as = "div",
     className,
@@ -78,8 +79,6 @@ export function InnerListboxItem({
     };
 
     const handleClick = useChainedEventCallback(onClick, event => {
-        console.log("handleClick");
-
         toggleItem(event);
     });
 
@@ -93,12 +92,20 @@ export function InnerListboxItem({
         }
     });
 
+    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    const handleKeyUp = useChainedEventCallback(onKeyUp, event => {
+        if (event.keyCode === KEYS.space) {
+            event.preventDefault();
+        }
+    });
+
     return (
         <Box
             {...rest}
             id={id}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
             className={mergeClasses("o-ui-listbox-item", className)}
             as={as}
             role="option"
