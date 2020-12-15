@@ -2,6 +2,14 @@ import { Item, Section } from "@react-components/placeholders";
 import { Listbox } from "@react-components/listbox";
 import { storiesOfBuilder } from "@stories/utils";
 
+/*
+CHROMATIC:
+    - render props
+    - custom item component
+    - states
+    - multiple / single
+*/
+
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
         .segment(segment)

@@ -1,6 +1,18 @@
+.o-ui-listbox {
+    width: max-content;
+}
+
+.o-ui-listbox-item {
+    padding-right: 75px;
+}
+
 .o-ui-listbox-item[aria-selected="true"] {
     background-color: blue;
     color: white;
+}
+
+.o-ui-listbox-item:focus {
+    color: red;
 }
 
 .o-ui-listbox-section {

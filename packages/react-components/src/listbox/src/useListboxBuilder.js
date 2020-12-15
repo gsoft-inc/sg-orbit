@@ -10,20 +10,20 @@ export class ListboxBuilder {
         this._rootId = rootId;
     }
 
-    _parseSection(section, index) {
+    _parseSection(section, nextIndex) {
         const { children, ...props } = section.props;
 
         if (isNil(children)) {
             throw new Error("A listbox section must have children.");
         }
 
+        const index = nextIndex();
         const newKeys = [];
 
         const that = this;
 
-        const items = Children.map(children, (item, itemIndex) => {
-            // TODO: Not good, would prefer to have some kind of nodeIndex increment for a default itemKey. Instead of `${index}-${itemIndex}`.
-            const { result, newKeys: itemKeys } = that._parseItem(item, `${index}-${itemIndex}`);
+        const items = Children.map(children, item => {
+            const { result, newKeys: itemKeys } = that._parseItem(item, nextIndex);
 
             newKeys.push(itemKeys[0]);
 
@@ -43,7 +43,9 @@ export class ListboxBuilder {
         };
     }
 
-    _parseItem(item, index) {
+    _parseItem(item, nextIndex) {
+        const index = nextIndex();
+
         const itemKey = !isNil(item.key)
             ? item.key.replace(".", "").replace("$", "")
             : index.toString();
@@ -67,18 +69,25 @@ export class ListboxBuilder {
             throw new Error("A listbox must have children.");
         }
 
-        const keys = [];
-
         const elements = resolveChildren(children, {
             selectedKeys
         });
 
+        const keys = [];
         const that = this;
 
-        return Children.map(elements, (element, index) => {
-            const { result, newKeys } = element.type === Section
-                ? that._parseSection(element, index)
-                : that._parseItem(element, index);
+        let nodeIndex = 0;
+
+        const nextIndex = () => {
+            return nodeIndex++;
+        };
+
+        return Children.map(elements, element => {
+            const parser = element.type === Section
+                ? that._parseSection.bind(that)
+                : that._parseItem.bind(that);
+
+            const { result, newKeys } = parser(element, nextIndex);
 
             newKeys.forEach(x => {
                 if (keys.includes(x)) {

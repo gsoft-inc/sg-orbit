@@ -109,6 +109,7 @@ export function InnerListboxItem({
             className={mergeClasses("o-ui-listbox-item", className)}
             as={as}
             role="option"
+            tabIndex="-1"
             aria-selected={selected}
             aria-disabled={disabled}
             aria-labelledby={labelId}
