@@ -226,7 +226,7 @@ export function InnerSelect(props) {
         }
     }, [search, dropdownInnerRef]);
 
-    useAutoFocus({ targetRef: dropdownInnerRef, isDisabled: !autoFocus || disabled, delay: autoFocusDelay ?? 5, onFocus: setFocusWhenSearch });
+    useAutoFocus(dropdownInnerRef, { isDisabled: !autoFocus || disabled, delay: autoFocusDelay ?? 5, onFocus: setFocusWhenSearch });
 
     const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
 

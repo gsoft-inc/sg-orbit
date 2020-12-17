@@ -10,7 +10,7 @@ const propTypes = {
     /**
      * Container element in which the focused element should be.
      */
-    scopeRef: any.isRequired,
+    rootRef: any.isRequired,
     /**
      * React children.
      */
@@ -19,13 +19,13 @@ const propTypes = {
 
 export function FocusRestore({
     restoreFocus = true,
-    scopeRef,
+    rootRef,
     children
 }) {
     // useLayoutEffect instead of useEffect so the active element is saved synchronously instead of asynchronously.
     useLayoutEffect(() => {
         const elementToRestore = document.activeElement;
-        const scopeElement = scopeRef.current;
+        const scopeElement = rootRef.current;
 
         return () => {
             if (restoreFocus && scopeElement?.contains(document.activeElement)) {

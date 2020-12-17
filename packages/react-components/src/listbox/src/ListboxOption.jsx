@@ -1,7 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
+import { KEYS, cssModule, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -9,22 +9,22 @@ import { isNil } from "lodash";
 
 const propTypes = {
     /**
-     * Item unique key.
+     * Option unique key.
      */
     itemKey: string.isRequired,
     /**
-     * Whether or not the item is selected.
-     */
-    selected: bool,
-    /**
-     * Called when the item selected state is toggled.
+     * Called when the option selected state is toggled.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {number} key - The item key.
      * @returns {void}
      */
     onToggle: func,
     /**
-     * Whether or not the item is disabled.
+     * Whether or not the option is selected.
+     */
+    selected: bool,
+    /**
+     * Whether or not the option is disabled.
      */
     disabled: bool,
     /**
@@ -37,15 +37,18 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function InnerListboxItem({
+export function InnerListboxOption({
     id,
     itemKey,
-    selected,
     onToggle,
     onClick,
     onKeyDown,
     onKeyUp,
+    selected,
     disabled,
+    active,
+    focus,
+    hover,
     as = "div",
     className,
     children,
@@ -103,13 +106,22 @@ export function InnerListboxItem({
         <Box
             {...rest}
             id={id}
-            onClick={handleClick}
-            onKeyDown={handleKeyDown}
-            onKeyUp={handleKeyUp}
-            className={mergeClasses("o-ui-listbox-item", className)}
+            onClick={!disabled ? handleClick : undefined}
+            onKeyDown={!disabled ? handleKeyDown : undefined}
+            onKeyUp={!disabled ? handleKeyUp : undefined}
+            className={mergeClasses(
+                cssModule(
+                    "o-ui-listbox-item",
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover"
+                ),
+                className
+            )}
             as={as}
             role="option"
-            tabIndex="-1"
+            tabIndex={!disabled ? "-1" : undefined}
+            data-key={itemKey}
             aria-selected={selected}
             aria-disabled={disabled}
             aria-labelledby={labelId}
@@ -122,10 +134,10 @@ export function InnerListboxItem({
     );
 }
 
-InnerListboxItem.propTypes = propTypes;
+InnerListboxOption.propTypes = propTypes;
 
-export const ListboxItem = forwardRef((props, ref) => (
-    <InnerListboxItem {...props} forwardedRef={ref} />
+export const ListboxOption = forwardRef((props, ref) => (
+    <InnerListboxOption {...props} forwardedRef={ref} />
 ));
 
-ListboxItem.displayName = "ListboxItem";
+ListboxOption.displayName = "ListboxOption";

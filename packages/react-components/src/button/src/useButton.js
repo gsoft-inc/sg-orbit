@@ -19,7 +19,7 @@ export function useButton({
 }) {
     const buttonRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus({ targetRef: buttonRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocus( buttonRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     return {
         className: mergeClasses(

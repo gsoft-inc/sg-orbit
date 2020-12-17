@@ -1,5 +1,9 @@
 // Tree walker code have been copied from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/focus/src/FocusScope.tsx.
 
+/*
+Transform signature to use an object literal.
+*/
+
 import { isNil } from "lodash";
 
 const FOCUSABLE_ELEMENT = [
@@ -22,8 +26,8 @@ export const FOCUSABLE_ELEMENT_SELECTOR = [...FOCUSABLE_ELEMENT, "[tabindex]"].j
 
 export const TABBABLE_ELEMENT_SELECTOR = [...FOCUSABLE_ELEMENT, "[tabindex]:not([tabindex=\"-1\"])"].join(":not([tabindex=\"-1\"]),");
 
-export function createFocusableTreeWalker(root, from, { tabblable } = {}) {
-    const selector = tabblable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
+export function createFocusableTreeWalker(root, from, { tabbable } = {}) {
+    const selector = tabbable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
 
     const walker = document.createTreeWalker(
         root,
@@ -93,8 +97,8 @@ export function createNavigableTreeWalker(root, from, options) {
     };
 }
 
-export function walkFocusableElements(root, onElement, { tabblable, includeRoot = false } = {}) {
-    const selector = tabblable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
+export function walkFocusableElements(root, onElement, { tabbable, includeRoot = false } = {}) {
+    const selector = tabbable ? TABBABLE_ELEMENT_SELECTOR : FOCUSABLE_ELEMENT_SELECTOR;
 
     if (includeRoot) {
         if (root.matches(selector)) {

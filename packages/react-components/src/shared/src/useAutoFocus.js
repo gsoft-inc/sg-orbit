@@ -17,7 +17,7 @@ function useAbstractAutoFocus({ isDisabled, delay = 0, onFocus }) {
     }, [isDisabled, onFocus, delay]);
 }
 
-export function useAutoFocus({ targetRef, isDisabled, delay, onFocus }) {
+export function useAutoFocus(targetRef, { isDisabled, delay, onFocus } = {}) {
     const handleFocus = useCallback(() => {
         if (!isNil(targetRef.current) && !targetRef.current.hasAttribute("disabled")) {
             targetRef.current.focus();
@@ -31,7 +31,12 @@ export function useAutoFocus({ targetRef, isDisabled, delay, onFocus }) {
     useAbstractAutoFocus({ isDisabled, delay, onFocus: handleFocus });
 }
 
-export function useAutoFocusFirstTabbableElement({ rootRef, isDisabled, delay, onFocus, onNotFound }) {
+/*
+TODO:
+    - Should have an conterpart like useAutoFocusFirstFocusableElement.
+    - Should only focus an element is none are already focused.
+*/
+export function useAutoFocusFirstTabbableElement(rootRef, { isDisabled, delay, onFocus, onNotFound } = {}) {
     const handleFocus = useCallback(() => {
         if (!isNil(rootRef.current)) {
             const element = rootRef.current.querySelector(TABBABLE_ELEMENT_SELECTOR);

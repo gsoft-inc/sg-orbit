@@ -53,6 +53,7 @@ function CodeEditor({
                     {children}
                 </div>
                 <div className="o-ui-sb-preview-source">
+                    <span className="o-ui-sb-preview-editable-label">Editable example</span>
                     <LiveEditor className="o-ui-sb-preview-editor" />
                     <LiveError className="o-ui-sb-preview-error" />
                 </div>
@@ -71,7 +72,7 @@ function DecoratedLivePreview() {
         : <LivePreview />;
 }
 
-function FilePreview({ filePath, language = "jsx", scope, noInline }) {
+function FilePreview({ filePath, language, scope, noInline }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -87,6 +88,24 @@ function FilePreview({ filePath, language = "jsx", scope, noInline }) {
         <CodeEditor
             code={code}
             language={language}
+            scope={scope}
+            noInline={noInline}
+        >
+            <DecoratedLivePreview />
+        </CodeEditor>
+    );
+}
+
+function MdxSourcePreview({ mdxSource, language, scope, noInline }) {
+    const docsContext = useContext(DocsContext);
+    const sourceContext = useContext(SourceContext);
+
+    const { code, language: inferredLanguage } = getSourceProps({ code: decodeURI(mdxSource) }, docsContext, sourceContext);
+
+    return (
+        <CodeEditor
+            code={code}
+            language={language ?? inferredLanguage}
             scope={scope}
             noInline={noInline}
         >
@@ -124,11 +143,29 @@ function StoryPreview({ language, scope, noInline, children }) {
     );
 }
 
-export function Preview({ filePath, language, scope, noInline, children }) {
+export function Preview({
+    filePath,
+    language,
+    mdxSource,
+    scope,
+    noInline,
+    children
+}) {
     if (!isNil(filePath)) {
         return (
             <FilePreview
                 filePath={filePath}
+                language={language}
+                scope={scope}
+                noInline={noInline}
+            />
+        );
+    }
+
+    if (!isNil(mdxSource)) {
+        return (
+            <MdxSourcePreview
+                mdxSource={mdxSource}
                 language={language}
                 scope={scope}
                 noInline={noInline}

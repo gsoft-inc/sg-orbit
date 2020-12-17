@@ -34,25 +34,25 @@ export class TabsBuilder {
 
             tabs.push(
                 mergeProps(header.props, tab.props, {
-                    id: tabId,
-                    panelId,
+                    id: tabId, // <- should be in a props object or not event computed here
                     index,
+                    key: nodeIndex++,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: header.type !== Header ? header.type : undefined,
-                    key: nodeIndex++,
-                    ref: header.ref
+                    ref: header.ref,
+                    panelId // <- should be in a props object
                 })
             );
 
             panels.push(
                 mergeProps(content.props, {
-                    id: panelId,
-                    tabId,
+                    id: panelId, // <- should be in a props object or not event computed here
                     index,
+                    key: nodeIndex++,
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: content.type !== Content ? content.type : undefined,
-                    key: nodeIndex++,
-                    ref: content.ref
+                    ref: content.ref,
+                    tabId // <- should be in a props object
                 })
             );
         });

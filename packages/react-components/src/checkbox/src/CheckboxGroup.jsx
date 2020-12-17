@@ -1,6 +1,6 @@
 import "./CheckboxGroup.css";
 
-import { CheckableProvider, augmentElement, mergeProps, omitProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
+import { CheckableContext, augmentElement, mergeProps, omitProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
@@ -145,7 +145,7 @@ export function InnerCheckboxGroup(props) {
         >
             <ClearToolbar>
                 <ClearFieldContext>
-                    <CheckableProvider
+                    <CheckableContext.Provider
                         value={{
                             onCheck: handleCheck,
                             checkedValue
@@ -157,7 +157,7 @@ export function InnerCheckboxGroup(props) {
                                 role: "checkbox"
                             });
                         })}
-                    </CheckableProvider>
+                    </CheckableContext.Provider>
                 </ClearFieldContext>
             </ClearToolbar>
         </Group>

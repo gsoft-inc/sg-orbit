@@ -32,8 +32,8 @@ export function TabList({
 
     const containerRef = useRef();
 
-    useKeyedRovingFocus({ rootRef: containerRef, currentKey: selectedIndex, keyProp: "data-index" });
-    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useKeyedRovingFocus(containerRef, selectedIndex, { keyProp: "data-index" });
+    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const navigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
 

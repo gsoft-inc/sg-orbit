@@ -3,7 +3,7 @@ import { match, useDisposables, useIsInitialRender } from "../../shared";
 import { useCallback, useReducer, useRef } from "react";
 import { useEffect } from "react";
 
-const TransitionActionType = {
+const ActionType = {
     slideDown: "SlideDown",
     slideUp: "SlideUp",
     completeTransition: "CompleteTransition"
@@ -19,25 +19,27 @@ const SlidingDirection = {
     up: "Up"
 };
 
-function slidingReducer(state, action) {
-    if (action === TransitionActionType.completeTransition) {
+function reducer(state, action) {
+    if (action === ActionType.completeTransition) {
         return { transitionState: TransitionState.completed, direction: state.direction };
     }
 
     return match(action, {
-        [TransitionActionType.slideDown]() {
-            return { transitionState: TransitionState.transitioning, direction: SlidingDirection.down };
-        },
-        [TransitionActionType.slideUp]() {
-            return { transitionState: TransitionState.transitioning, direction: SlidingDirection.up };
-        }
+        [ActionType.slideDown]: () => ({
+            transitionState: TransitionState.transitioning,
+            direction: SlidingDirection.down
+        }),
+        [ActionType.slideUp]: () => ({
+            transitionState: TransitionState.transitioning,
+            direction: SlidingDirection.up
+        })
     });
 }
 
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
 export function useSlidingTransition(isOpen, ref) {
-    const [{ transitionState, direction }, dispatch] = useReducer(slidingReducer, {
+    const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
         transitionState: TransitionState.completed,
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up
     });
@@ -45,9 +47,9 @@ export function useSlidingTransition(isOpen, ref) {
     const isInitialRender = useRef();
     const disposables = useDisposables();
 
-    const slideDown = useCallback(() => { dispatch(TransitionActionType.slideDown); }, [dispatch]);
-    const slideUp = useCallback(() => { dispatch(TransitionActionType.slideUp); }, [dispatch]);
-    const completeTransition = useCallback(() => { dispatch(TransitionActionType.completeTransition); }, [dispatch]);
+    const slideDown = useCallback(() => { dispatch(ActionType.slideDown); }, [dispatch]);
+    const slideUp = useCallback(() => { dispatch(ActionType.slideUp); }, [dispatch]);
+    const completeTransition = useCallback(() => { dispatch(ActionType.completeTransition); }, [dispatch]);
 
     isInitialRender.current = useIsInitialRender();
 
@@ -63,9 +65,9 @@ export function useSlidingTransition(isOpen, ref) {
 
     useEffect(() => {
         match(transitionState, {
-            [TransitionState.transitioning]() {
+            [TransitionState.transitioning]: () => {
                 match(direction, {
-                    [SlidingDirection.down]() {
+                    [SlidingDirection.down]: () => {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = "0px";
@@ -78,7 +80,7 @@ export function useSlidingTransition(isOpen, ref) {
                             }
                         });
                     },
-                    [SlidingDirection.up]() {
+                    [SlidingDirection.up]: () => {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = `${ref.current.scrollHeight}px`;
@@ -93,7 +95,7 @@ export function useSlidingTransition(isOpen, ref) {
                     }
                 });
             },
-            [TransitionState.completed]() {
+            [TransitionState.completed]: () => {
                 disposables.nextFrame(() => {
                     if (!isNil(ref.current)) {
                         ref.current.style.height = null;
@@ -104,17 +106,13 @@ export function useSlidingTransition(isOpen, ref) {
     }, [transitionState, direction, disposables, ref]);
 
     return match(transitionState, {
-        [TransitionState.transitioning]() {
-            return {
-                transitionStyles: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
-                transitionProps: { onTransitionEnd: completeTransition }
-            };
-        },
-        [TransitionState.completed]() {
-            return {
-                transitionStyles: direction === SlidingDirection.down ? "expanded" : "collapsed",
-                transitionProps: {}
-            };
-        }
+        [TransitionState.transitioning]: () => ({
+            transitionStyles: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
+            transitionProps: { onTransitionEnd: completeTransition }
+        }),
+        [TransitionState.completed]: () => ({
+            transitionStyles: direction === SlidingDirection.down ? "expanded" : "collapsed",
+            transitionProps: {}
+        })
     });
 }

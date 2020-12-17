@@ -25,7 +25,7 @@ export function useInput({
 }) {
     const inputRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus({ targetRef: inputRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocus(inputRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     return {
         wrapperProps: {

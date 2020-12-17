@@ -2,10 +2,43 @@ import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
-/*
-TODO:
-- should be rewritten to accept an object literal instead of single params
-*/
+// IS IT POSSIBLE TO USE SOMETHING LIKE THIS INSTEAD OF A MutationObserver?
+
+// export function useFocusManager() {
+//     const scopeRef = useRef([]);
+
+//     // const ref = useRef(null);
+
+//     const setRef = useCallback(node => {
+//         if (node) {
+//             let node = startRef.current.nextSibling;
+//             const nodes = [];
+//             while (node && node !== endRef.current) {
+//                 nodes.push(node);
+//                 node = node.nextSibling;
+//             }
+
+//             scopeRef.current = nodes;
+//             // Check if a node is actually passed. Otherwise node would be null.
+//             // You can now do what you need to, addEventListeners, measure, etc.
+//         } else {
+//             scopeRef.current = [];
+//         }
+//     }, []);
+
+//     const focusManager = new FocusManager(scopeRef);
+
+//     return {
+//         focusManager,
+//         ref: setRef
+//     };
+
+//     // return [setRef];
+
+//     // const { focusManager } = useContext(FocusContext);
+
+//     // return focusManager;
+// }
 
 export function useRovingFocus(rootRef) {
     useLayoutEffect(() => {
@@ -67,11 +100,17 @@ export function useRovingFocus(rootRef) {
                 if (x.type === "childList") {
                     x.addedNodes.forEach(element => {
                         // When we don't have a tabbable element, the first focusable elements should be the tabbable element.
-                        walkFocusableElements(element, (y, index) => addElement(y, !hasTabbableElement && index === 0), { includeRoot: true });
+                        walkFocusableElements(
+                            element,
+                            (y, index) => {
+                                addElement(y, !hasTabbableElement && index === 0);
+                            },
+                            { includeRoot: true }
+                        );
                     });
 
                     x.removedNodes.forEach(element => {
-                        walkFocusableElements(element, y => removeElement(y, true), { includeRoot: true });
+                        walkFocusableElements(element, y => { removeElement(y, true); }, { includeRoot: true });
 
                         if (!hasTabbableElement) {
                             // The tabbable element might have been removed, try to set a new tabbable element.
@@ -97,7 +136,7 @@ export function useRovingFocus(rootRef) {
 /*
 Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus({ rootRef, currentKey, keyProp = "value" }) {
+export function useKeyedRovingFocus(rootRef, currentKey, { keyProp = "value" } = {}) {
     useLayoutEffect(() => {
         const root = rootRef.current;
 
@@ -121,7 +160,9 @@ export function useKeyedRovingFocus({ rootRef, currentKey, keyProp = "value" }) 
         };
 
         const initializeElements = () => {
-            walkFocusableElements(root, (element, index) => setTabIndex(element, index));
+            walkFocusableElements(root, (element, index) => {
+                setTabIndex(element, index);
+            });
         };
 
         initializeElements();
@@ -132,15 +173,19 @@ export function useKeyedRovingFocus({ rootRef, currentKey, keyProp = "value" }) 
                 if (x.type === "childList") {
                     x.addedNodes.forEach(element => {
                         // When all the elements are disabled and the key is null, the first of the new element should be tabbable.
-                        walkFocusableElements(element, (y, index) => setTabIndex(y, index), { includeRoot: true });
+                        walkFocusableElements(element, (y, index) => { setTabIndex(y, index); }, { includeRoot: true });
                     });
 
                     x.removedNodes.forEach(element => {
-                        walkFocusableElements(element, y => {
-                            if (y.tabIndex === 0) {
-                                hasTabbableElement = false;
-                            }
-                        }, { includeRoot: true });
+                        walkFocusableElements(
+                            element,
+                            y => {
+                                if (y.tabIndex === 0) {
+                                    hasTabbableElement = false;
+                                }
+                            },
+                            { includeRoot: true }
+                        );
                     });
                 }
             });

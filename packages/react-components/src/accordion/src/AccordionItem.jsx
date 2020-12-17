@@ -1,7 +1,7 @@
 import "./Accordion.css";
 
 import { AccordionHeader } from "./AccordionHeader";
-import { AccordionItemProvider } from "./AccordionItemContext";
+import { AccordionItemContext } from "./AccordionItemContext";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
 import { useEventCallback } from "../../shared";
@@ -22,7 +22,7 @@ export function AccordionItem({
     const { type: PanelType = AccordionPanel, ...panelProps } = panel;
 
     return (
-        <AccordionItemProvider
+        <AccordionItemContext.Provider
             value={{
                 index: index,
                 isOpen: open
@@ -36,7 +36,7 @@ export function AccordionItem({
                 <HeaderType {...headerProps} />
                 <PanelType {...panelProps} />
             </Disclosure>
-        </AccordionItemProvider>
+        </AccordionItemContext.Provider>
     );
 }
 

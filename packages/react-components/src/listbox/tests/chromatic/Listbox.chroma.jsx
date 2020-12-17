@@ -1,14 +1,10 @@
+import { Box } from "@react-components/box";
+import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
-import { Listbox } from "@react-components/listbox";
+import { Listbox, ListboxOption } from "@react-components/listbox";
+import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";
-
-/*
-CHROMATIC:
-    - render props
-    - custom item component
-    - states
-    - multiple / single
-*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
@@ -33,10 +29,6 @@ stories()
             <Item>Earth</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
-            <Item>Mercury</Item>
-            <Item>Neptune</Item>
-            <Item>Saturn</Item>
-            <Item>Uranus</Item>
         </Listbox>
     )
     .add("sections", () =>
@@ -47,24 +39,242 @@ stories()
                 <Item key="saturn">Saturn</Item>
             </Section>
             <Section title="Not Visited">
-                <Item>Jupiter</Item>
-                <Item>Mercury</Item>
-                <Item>Neptune</Item>
-                <Item>Uranus</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
             </Section>
         </Listbox>
     )
     .add("mixed sections and items", () =>
         <Listbox aria-label="Planets">
-            <Item>Earth</Item>
-            <Item>Mars</Item>
-            <Item>Saturn</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
             <Section title="Not Visited">
-                <Item>Jupiter</Item>
-                <Item>Mercury</Item>
-                <Item>Neptune</Item>
-                <Item>Uranus</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
             </Section>
-
         </Listbox>
+    )
+    .add("default selected key", () =>
+        <Inline>
+            <Listbox defaultSelectedKey="mars" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+            <Listbox defaultSelectedKey={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+        </Inline>
+    )
+    .add("item with left icon", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <IconList>
+                    <LightbulbIcon />
+                    <NotificationIcon />
+                </IconList>
+                <Text>Mars</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item with right icon", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <NotificationIcon slot="right-icon" />
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="right-icon">
+                    <LightbulbIcon />
+                    <NotificationIcon />
+                </IconList>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item overflow", () =>
+        <Listbox aria-label="Planets">
+            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+            <Item>Jupiter</Item>
+            <Item>Mars</Item>
+        </Listbox>
+    )
+    .add("states", () =>
+        <Inline>
+            <Listbox selectedKey="earth" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Listbox>
+            <Listbox selectedKey={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Listbox>
+            <Listbox aria-label="Planets">
+                <Item active key="earth">Earth</Item>
+                <Item focus key="jupiter">Jupiter</Item>
+                <Item hover key="mars">Mars</Item>
+                <Item focus hover key="mercury">Mercury</Item>
+                <Item disabled key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+        </Inline>
+    )
+    .add("disabled item is not focusable", () =>
+        <Listbox aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("render props", () =>
+        <Listbox aria-label="Planets">
+            {() =>
+                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                    <Item key={x.toLowerCase()}>{x}</Item>
+                ))
+            }
+        </Listbox>
+    )
+    .add("custom item component", () => {
+        const ActiveOption = ({ selected, children, ...rest }) => {
+            return (
+                <ListboxOption
+                    {...rest}
+                    selected={selected}
+                >
+                    {selected ? <CheckCircleIcon /> : <CrossIcon />}
+                    <Text>{children}</Text>
+                </ListboxOption>
+            );
+        };
+
+        return (
+            <Listbox aria-label="Planets">
+                <ActiveOption key="earth">Earth</ActiveOption>
+                <ActiveOption key="jupiter">Jupiter</ActiveOption>
+                <ActiveOption key="mars">Mars</ActiveOption>
+            </Listbox>
+        );
+    })
+    .add("custom as", () => {
+        const RedOption = ({ children, ...rest }) => {
+            return (
+                <Box
+                    {...rest}
+                    style={{ color: "red" }}
+                >
+                    {children}
+                </Box>
+            );
+        };
+
+        return (
+            <Listbox aria-label="Planets">
+                <Item as={RedOption} key="earth">Earth</Item>
+                <Item as={RedOption} key="jupiter">Jupiter</Item>
+                <Item as={RedOption} key="mars">Mars</Item>
+            </Listbox>
+        );
+    })
+    .add("autofocus", () =>
+        <Listbox autoFocus aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus with sections", () =>
+        <Listbox autoFocus aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Listbox>
+    )
+    .add("autofocus + default selected key", () =>
+        <Listbox autoFocus defaultSelectedKey="jupiter" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus + multiple default selected key", () =>
+        <Listbox autoFocus defaultSelectedKey={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus with delay", () =>
+        <Listbox autoFocus={50} aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Inline>
+                <Listbox className="border-red" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Listbox>
+                <Listbox style={{ border: "1px solid red" }} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Listbox>
+            </Inline>
+            <Inline>
+                <Listbox aria-label="Planets">
+                    <Item className="border-red" key="earth">Earth</Item>
+                    <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Listbox>
+            </Inline>
+        </Stack>
     );

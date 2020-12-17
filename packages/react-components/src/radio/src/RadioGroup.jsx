@@ -1,7 +1,7 @@
 import "./RadioGroup.css";
 
 import {
-    CheckableProvider,
+    CheckableContext,
     KEYS,
     augmentElement,
     mergeProps,
@@ -134,9 +134,8 @@ export function InnerRadioGroup(props) {
 
     const groupRef = useMergedRefs(forwardedRef);
 
-    // useKeyedRovingFocus({ rootRef: groupRef, currentKey: !isNil(checkedValue) ? checkedValue : checkedValue, keyProp: "value" });
-    useKeyedRovingFocus({ rootRef: groupRef, currentKey: checkedValue, keyProp: "value" });
-    useAutoFocusFirstTabbableElement({ rootRef: groupRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useKeyedRovingFocus(groupRef, checkedValue, { keyProp: "value" });
+    useAutoFocusFirstTabbableElement(groupRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
@@ -182,7 +181,7 @@ export function InnerRadioGroup(props) {
             {...navigationProps}
             {...groupProps}
         >
-            <CheckableProvider
+            <CheckableContext.Provider
                 value={{
                     onCheck: handleCheck,
                     checkedValue
@@ -195,7 +194,7 @@ export function InnerRadioGroup(props) {
                         name: groupName
                     });
                 })}
-            </CheckableProvider>
+            </CheckableContext.Provider>
         </Group>
     );
 }

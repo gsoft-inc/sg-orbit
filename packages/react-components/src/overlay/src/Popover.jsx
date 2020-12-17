@@ -1,7 +1,7 @@
 import { Children, forwardRef, useCallback, useState } from "react";
 import { FocusRestore } from "./FocusRestore";
 import { Overlay } from "./Overlay";
-import { PopoverProvider } from "./PopoverContext";
+import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
 import { augmentElement, mergeClasses, resolveChildren, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
@@ -182,7 +182,12 @@ export function InnerPopover({
         pinned
     });
 
-    useAutoFocusFirstTabbableElement({ rootRef: overlayRef, isDisabled: !isVisible, onNotFound: useEventCallback(() => { overlayElement?.focus(); }) });
+    useAutoFocusFirstTabbableElement(overlayRef, {
+        isDisabled: !isVisible,
+        onNotFound: useEventCallback(() => {
+            overlayElement?.focus();
+        })
+    });
 
     const triggerMarkup = augmentElement(trigger, {
         ...triggerProps,
@@ -211,16 +216,16 @@ export function InnerPopover({
             >
                 <FocusRestore
                     restoreFocus={restoreFocus}
-                    scopeRef={overlayRef}
+                    rootRef={overlayRef}
                 >
-                    <PopoverProvider
+                    <PopoverContext.Provider
                         value={{
                             isVisible,
                             hide
                         }}
                     >
                         {content}
-                    </PopoverProvider>
+                    </PopoverContext.Provider>
                 </FocusRestore>
             </Overlay>
         </>

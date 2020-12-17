@@ -99,7 +99,7 @@ export function InnerRadio(props) {
     const labelRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus({ targetRef: inputRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocus(inputRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -179,7 +179,6 @@ export function InnerRadio(props) {
     );
 }
 
-InnerRadio.propTypes = propTypes;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />

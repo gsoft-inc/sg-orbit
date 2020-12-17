@@ -3,7 +3,7 @@ import "./Tabs.css";
 import { Box } from "../../box";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
-import { TabsProvider } from "./TabsContext";
+import { TabsContext } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
 import { forwardRef } from "react";
@@ -122,7 +122,7 @@ export function InnerTabs({
             )}
             ref={forwardedRef}
         >
-            <TabsProvider
+            <TabsContext.Provider
                 value={{
                     selectedIndex,
                     onSelect: handleSelect,
@@ -137,7 +137,7 @@ export function InnerTabs({
                     aria-label={ariaLabel}
                 />
                 <TabPanels panels={panels} />
-            </TabsProvider>
+            </TabsContext.Provider>
         </Box>
     );
 }

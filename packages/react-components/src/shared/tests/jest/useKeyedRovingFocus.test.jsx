@@ -3,12 +3,10 @@ import { render, waitFor } from "@testing-library/react";
 import { useKeyedRovingFocus } from "@react-components/shared";
 import { useRef } from "react";
 
-// FORCE STRING KEY? NORMALIZE?
-
 function RovingFocus({ currentValue, children }) {
     const ref = useRef();
 
-    useKeyedRovingFocus({ rootRef: ref, currentKey: currentValue });
+    useKeyedRovingFocus(ref, currentValue);
 
     return (
         <div ref={ref}>
@@ -26,17 +24,6 @@ function DynamicRovingFocus({ currentValue, renderDynamicElement, children }) {
     );
 }
 
-test("when key is null, the first element is tabbable", async () => {
-    const { getByTestId } = render(
-        <RovingFocus>
-            <Button value="1" data-testid="element-1">1</Button>
-            <Button value="2" data-testid="element-2">2</Button>
-        </RovingFocus>
-    );
-
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
-});
 
 test("when key is null, a disabled element is not tabbable", async () => {
     const { getByTestId } = render(
@@ -129,7 +116,7 @@ test("a dynamically added element should be tabbable when the key is null and al
     await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
 });
 
-test("dynamically removing a non tabblable element keep the current tabbable element", async () => {
+test("dynamically removing a non tabbable element keep the current tabbable element", async () => {
     const { rerender, getByTestId } = render(
         <DynamicRovingFocus currentValue="2" renderDynamicElement>
             <Button value="1" data-testid="element-1">1</Button>

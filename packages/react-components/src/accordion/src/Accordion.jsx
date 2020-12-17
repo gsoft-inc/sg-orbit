@@ -73,7 +73,7 @@ export function InnerAccordion({
         rootId: useId(id, id ? undefined : "o-ui-accordion")
     });
 
-    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const navigationProps = useKeyboardNavigation({
         previous: [KEYS.up],

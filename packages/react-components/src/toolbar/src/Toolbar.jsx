@@ -1,6 +1,6 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
-import { ToolbarProvider } from "./ToolbarContext";
+import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -84,7 +84,7 @@ export function InnerToolbar({
     const containerRef = useMergedRefs(forwardedRef);
 
     useRovingFocus(containerRef);
-    useAutoFocusFirstTabbableElement({ rootRef: containerRef, isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
     const arrowNavigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
 
@@ -111,19 +111,18 @@ export function InnerToolbar({
             ref={containerRef}
             aria-orientation={orientation}
         >
-            <ToolbarProvider
+            <ToolbarContext.Provider
                 value={{
                     orientation,
                     disabled
                 }}
             >
                 {children}
-            </ToolbarProvider>
+            </ToolbarContext.Provider>
         </Flex>
     );
 }
 
-InnerToolbar.propTypes = propTypes;
 
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />

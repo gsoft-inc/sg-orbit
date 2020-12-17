@@ -1,14 +1,14 @@
 import { isNil } from "lodash";
 import { useDocumentListener, useEventCallback } from "../../shared";
 
-export function useInteractOutside({ targetRef, onInteractOutside, isDisabled }) {
+export function useInteractOutside(rootRef, { isDisabled, onInteractOutside } = {}) {
     const handleDocumentClick = useEventCallback(event => {
-        if (!targetRef.current?.contains(event.target)) {
+        if (!rootRef.current?.contains(event.target)) {
             if (!isNil(onInteractOutside)) {
                 onInteractOutside(event);
             }
         }
-    }, [targetRef, onInteractOutside]);
+    }, [rootRef, onInteractOutside]);
 
     useDocumentListener("click", handleDocumentClick, !isDisabled);
 }

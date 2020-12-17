@@ -110,7 +110,7 @@
 
 /* SOURCE BLOCK */
 .docblock-source {
-    margin-top: 20px !important;
+    margin-top: var(--scale-golf) !important;
     margin-bottom: 35px !important;
 }
 
@@ -241,7 +241,7 @@
 }
 
 .sbdocs.sbdocs-table td {
-    font-size: var(--type-scale-6);
+    font-size: var(--type-scale-7);
 }
 
 .sbdocs.sbdocs-table tr td,
@@ -278,12 +278,12 @@
 .sbdocs details .docblock-source {
     box-shadow: none !important;
     border: none !important;
-    margin: 1rem 0 !important;
+    margin: var(--scale-delta) 0 !important;
 }
 
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
-    padding: 0.75rem 1rem 0.75rem 0.75rem;
+    padding: var(--scale-charlie) var(--scale-delta) var(--scale-charlie) var(--scale-charlie);
     background-color: var(--moonstone-50);
 }
 

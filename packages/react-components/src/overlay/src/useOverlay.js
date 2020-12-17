@@ -34,7 +34,7 @@ export function useOverlay({
         hide(event);
     });
 
-    useInteractOutside({ targetRef: overlayRef, onInteractOutside, isDisabled: !hideOnOutsideClick });
+    useInteractOutside(overlayRef, { onInteractOutside, isDisabled: !hideOnOutsideClick });
 
     const focusWithinProps = useFocusWithin({ onBlurWithin, isDisabled: !hideOnBlur });
 

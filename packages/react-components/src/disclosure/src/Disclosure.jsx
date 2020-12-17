@@ -1,7 +1,7 @@
 import "./Disclosure.css";
 
 import { Children, forwardRef, useCallback, useRef } from "react";
-import { DisclosureProvider } from "./DisclosureContext";
+import { DisclosureContext } from "./DisclosureContext";
 import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
 import { any, bool, func } from "prop-types";
 import { cssModule } from "../../../dist";
@@ -98,7 +98,7 @@ export function InnerDisclosure({
     const { transitionStyles, transitionProps } = useSlidingTransition(isOpen, contentRef);
 
     return (
-        <DisclosureProvider
+        <DisclosureContext.Provider
             value={{
                 isOpen
             }}
@@ -112,7 +112,7 @@ export function InnerDisclosure({
             >
                 {contentMarkup}
             </div>
-        </DisclosureProvider>
+        </DisclosureContext.Provider>
     );
 }
 
