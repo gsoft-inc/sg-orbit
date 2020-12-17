@@ -33,7 +33,7 @@ You will find most of the documentation for typography utilities on [Tachyons we
 
 ## Usage
 
-In order to keep consistency and [vertical-rhythm](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*. Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
+In order to keep consistency and [vertical-rhythm](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) headlines, body and label copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*. Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
 
 <Figure url="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/storybook/stories/materials/typography/stories/assets/vertical-rythm-in-action.png" caption="Vertical rythm in action" width="368" height="154"/>
 
@@ -49,11 +49,11 @@ Headlines are the largest text on the screen, reserved for short, important text
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f1", "lh1", "500", <h1 className="f1 fw5 lh1 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
-        ["f2", "lh1", "500", <h1 className="f2 fw5 lh1 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
-        ["f3", "lh3", "500", <h1 className="f3 fw5 lh3 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
-        ["f4", "lh4", "500", <h1 className="f4 fw5 lh4 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
-        ["f5", "lh2", "500", <h1 className="f5 fw5 lh2 pv3">Migrate, adapt, and <br/> control the cloud.</h1>]
+        ["f1", "lh3", "600", <h1 className="f1 fw6 lh3 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f2", "lh2", "600", <h1 className="f2 fw6 lh2 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f3", "lh3", "600", <h1 className="f3 fw6 lh3 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f4", "lh4", "600", <h1 className="f4 fw6 lh4 pv3">Migrate, adapt, and <br/> control the cloud.</h1>],
+        ["f5", "lh2", "600", <h1 className="f5 fw6 lh2 pv3">Migrate, adapt, and <br/> control the cloud.</h1>]
     ]}
 />
 
@@ -74,9 +74,30 @@ Body text is typically used for long-form writing as it works well for small tex
         ["f6", "lh4", "fw4", <p className="f6 lh4 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
         ["f7", "lh3", "fw4", <p className="f7 lh3 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
         ["f8", "lh5", "fw4", <p className="f8 lh5 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f9", "lh1", "fw4", <p className="f9 lh1 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>]
+        ["f9", "lh1", "fw4", <p className="f9 lh4 pv3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>]
     ]}
 />
+
+### Labels
+
+When you add label text to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***.
+
+<Table
+    columns={[
+        { title: "Font Size", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Line Height", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Font Weight", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "", headerStyle: { width: "600px" } }
+    ]}
+    rows={[
+        ["f5", "lh2", "fw5", <span className="f5 lh2 fw5 pv3">Highly confidential</span>],
+        ["f6", "lh4", "fw5", <span className="f6 lh4 fw5 pv3">Highly confidential</span>],
+        ["f7", "lh3", "fw5", <span className="f7 lh3 fw5 pv3">Highly confidential</span>],
+        ["f8", "lh5", "fw5", <span className="f8 lh5 fw5 pv3">Highly confidential</span>],
+        ["f9", "lh4", "fw5", <span className="f9 lh4 fw5 pv3">Highly confidential</span>]
+    ]}
+/>
+
 
 ## Utilities
 
@@ -132,16 +153,17 @@ Weight refers to the relative thickness of a font's stroke. A typeface can come 
     columns={[
         { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Alias", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "", headerStyle: { width: "400px" } }
     ]}
     rows={[
-        ["fw1", "100", <p className="fw1 pv3">Space Flight Program</p>],
-        ["fw3", "300", <p className="fw3 pv3">Space Flight Program</p>],
-        ["fw4", "400", <p className="fw4 pv3">Space Flight Program</p>],
-        ["fw5", "500", <p className="fw5 pv3">Space Flight Program</p>],
-        ["fw6", "600", <p className="fw6 pv3">Space Flight Program</p>],
-        ["fw7", "700", <p className="fw7 pv3">Space Flight Program</p>],
-        ["fw9", "900", <p className="fw9 pv3">Space Flight Program</p>]
+        ["fw1", "100", "Thin", <p className="fw1 pv3">Space Flight Program</p>],
+        ["fw3", "300", "Light", <p className="fw3 pv3">Space Flight Program</p>],
+        ["fw4", "400", "Regular", <p className="fw4 pv3">Space Flight Program</p>],
+        ["fw5", "500", "Medium", <p className="fw5 pv3">Space Flight Program</p>],
+        ["fw6", "600", "Semi-bold", <p className="fw6 pv3">Space Flight Program</p>],
+        ["fw7", "700", "Bold", <p className="fw7 pv3">Space Flight Program</p>],
+        ["fw9", "900", "Black", <p className="fw9 pv3">Space Flight Program</p>]
     ]}
 />
 
