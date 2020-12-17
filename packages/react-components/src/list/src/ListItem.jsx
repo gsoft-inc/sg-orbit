@@ -29,6 +29,7 @@ export function InnerListItem({
             {...rest}
             size={size}
             as={as}
+            className="o-ui-text-color-inherit"
             ref={forwardedRef}
         >
             {children}

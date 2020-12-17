@@ -1,7 +1,7 @@
 .o-ui-accordion {
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-200);
+    box-shadow: var(--shadow-100);
     border-radius: 8px;
     overflow-anchor: none;
     width: 100%;
@@ -33,10 +33,10 @@
     background-color: var(--foreground-color-1);
     cursor: pointer;
     border: 0;
-    border-top: 1px solid var(--cloud-50);
+    border-top: 1px solid var(--secondary-border);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
-    color: var(--marine-900);
+    color: var(--primary-text);
     line-height: inherit;
     font-weight: inherit;
 }
@@ -67,7 +67,7 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--marine-900);
+    color: var(--primary-text);
     padding-left: var(--scale-echo);
     padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot));
     background-color: var(--foreground-color-1);
@@ -87,7 +87,7 @@
 /* HOVER */
 .o-ui-accordion-trigger:hover ,
 .o-ui-accordion-trigger-hover {
-    background-color: var(--cloud-50);
+    background-color: var( --foreground-color-3);
 }
 
 /* HOVER | DISABLED */
@@ -118,5 +118,5 @@
 
 .o-ui-accordion-trigger:focus::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--primary-500);
+    border-color: var(--brand-border);
 }

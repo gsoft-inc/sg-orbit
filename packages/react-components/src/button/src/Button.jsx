@@ -133,16 +133,16 @@ export function InnerButton(props) {
         },
         icon: {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-left-icon"
+            className: "o-ui-button-icon o-ui-button-left-icon"
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
-            className: "o-ui-button-text",
+            className: "o-ui-button-text o-ui-text-color-inherit",
             "aria-hidden": loading
         },
         "right-icon": {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-right-icon"
+            className: "o-ui-button-icon o-ui-button-right-icon"
         }
     }), [size, condensed, loading]));
 
@@ -168,7 +168,6 @@ export function InnerButton(props) {
     );
 }
 
-InnerButton.propTypes = propTypes;
 
 export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />

@@ -3,8 +3,8 @@ import { isNil } from "lodash";
 import { useEffect } from "react";
 
 const BackgroundColors = {
-    light: "#FFF",
-    dark: "#15171E"
+    light: "#FFFFFF",
+    dark: "hsl(226deg, 20%, 15%)"
 };
 
 function useStoryContainerMatchingColorScheme(colorScheme, context) {

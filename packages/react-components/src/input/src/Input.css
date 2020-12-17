@@ -3,12 +3,12 @@
     --o-ui-padding-with-icon: var(--scale-golf);
     --o-ui-padding-with-button: var(--scale-hotel);
     --o-ui-padding-loading: var(--scale-golf);
-    --o-ui-border-color: var(--cloud-200);
-    --o-ui-background-color: var(--cloud-100);
+    --o-ui-border-color: var(--primary-border);
+    --o-ui-background-color: var(--foreground-color-2);
     display: inline-block;
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
-    color: var(--marine-900);
+    color: var(--primary-text);
     width: 325px;
 }
 
@@ -23,16 +23,16 @@
     padding: 0 var(--o-ui-padding);
     border-radius: var(--o-ui-rounded-border-radius);
     border: 1px solid var(--o-ui-border-color);
-    color: var(--marine-900);
-    width: 100%;
+    color: var(--primary-text);
     background-color: var(--foreground-color-1);
     transition: all .12s ease-in, padding 0s linear;
+    width: 100%;
 }
 
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
     background-color: var(--primary-50);
-    color: var(--marine-500);
+    color: var(--secondary-text);
 }
 
 /* PLACEHOLDER */
@@ -169,7 +169,7 @@
 .o-ui-input-focus textarea {
     outline: none;
     box-shadow: var(--o-ui-focus-ring-inset-sm);
-    border-color: var(--primary-500);
+    border-color: var(--brand-border);
 }
 
 /* STATES | DISABLED */
@@ -214,4 +214,11 @@
 
 .o-ui-input-loading.o-ui-input input {
     padding-right: var(--o-ui-padding-loading);
+}
+
+/* DARK MODE */
+.o-ui-dark-color-scheme .o-ui-input input::selection,
+.o-ui-dark-color-scheme .o-ui-input textarea::selection {
+    /* add indirection - I guess selection color makes sense here or in fact primary colors should not be inverted only their inderections */
+    background-color: var(--primary-100);
 }

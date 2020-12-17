@@ -11,7 +11,8 @@
 /* SWITCH */
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
-    background-color: var(--cloud-200);
+    /* was cloud 200 now 300 because too much similar colors */
+    background-color: var(--foreground-color-2);
     border-radius: var(--o-ui-pill-border-radius);
     position: relative;
     flex-shrink: 0;
@@ -20,7 +21,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
     border-radius: var(--o-ui-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
@@ -31,7 +32,7 @@
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
-    color: var(--marine-900);
+    color: var(--primary-text);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -62,7 +63,7 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--alert-500);
+    color: var(--critical-text);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {

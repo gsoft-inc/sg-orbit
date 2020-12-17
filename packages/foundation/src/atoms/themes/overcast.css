@@ -1,13 +1,14 @@
 [class^="o-ui-"] {
     --hue-overcast: 208;
-    --overcast-50: hsl(var(--hue-overcast), 100%, 95%);
-    --overcast-100: hsl(var(--hue-overcast), 100%, 87%);
-    --overcast-200: hsl(var(--hue-overcast), 100%, 78%);
-    --overcast-300: hsl(var(--hue-overcast), 100%, 69%);
-    --overcast-400: hsl(var(--hue-overcast), 100%, 63%);
-    --overcast-500: hsl(var(--hue-overcast), 100%, 56%);
-    --overcast-600: hsl(var(--hue-overcast), 100%, 55%);
-    --overcast-700: hsl(var(--hue-overcast), 100%, 55%);
-    --overcast-800: hsl(var(--hue-overcast), 100%, 54%);
-    --overcast-900: hsl(var(--hue-overcast), 100%, 52%);
+    --opacity-overcast: 208;
+    --overcast-50: hsla(var(--hue-overcast), 100%, 95%, var(--opacity-overcast-50, var(--opacity-overcast)));
+    --overcast-100: hsla(var(--hue-overcast), 100%, 87%, var(--opacity-overcast-100, var(--opacity-overcast)));
+    --overcast-200: hsla(var(--hue-overcast), 100%, 78%, var(--opacity-overcast-200, var(--opacity-overcast)));
+    --overcast-300: hsla(var(--hue-overcast), 100%, 69%, var(--opacity-overcast-300, var(--opacity-overcast)));
+    --overcast-400: hsla(var(--hue-overcast), 100%, 63%, var(--opacity-overcast-400, var(--opacity-overcast)));
+    --overcast-500: hsla(var(--hue-overcast), 100%, 56%, var(--opacity-overcast-500, var(--opacity-overcast)));
+    --overcast-600: hsla(var(--hue-overcast), 100%, 55%, var(--opacity-overcast-600, var(--opacity-overcast)));
+    --overcast-700: hsla(var(--hue-overcast), 100%, 55%, var(--opacity-overcast-700, var(--opacity-overcast)));
+    --overcast-800: hsla(var(--hue-overcast), 100%, 54%, var(--opacity-overcast-800, var(--opacity-overcast)));
+    --overcast-900: hsla(var(--hue-overcast), 100%, 52%, var(--opacity-overcast-900, var(--opacity-overcast)));
 }

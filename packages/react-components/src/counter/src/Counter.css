@@ -1,12 +1,12 @@
 .o-ui-counter {
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* PILL */
 .o-ui-counter-pill {
     display: inline-flex;
-    background-color: var(--cloud-100);
-    color: var(--marine-900);
+    background-color: var(--foreground-color-2);
+    color: var(--primary-text);
     border-radius: var(--o-ui-pill-border-radius);
     line-height: 1;
     align-items: center;
@@ -30,7 +30,7 @@
 
 /* PILL | COLOR */
 .o-ui-counter-pill.o-ui-counter-light {
-    background-color: var(--cloud-50);
+    background-color: var(--foreground-color-3);
 }
 
 /* PILL | HIGHLIGHT */
@@ -41,14 +41,14 @@
 /* DIVIDER */
 .o-ui-counter-divider {
     display: inline-block;
-    border-left: 1px solid var(--cloud-100);
+    border-left: 1px solid var(--primary-border);
     padding-left: var(--scale-bravo);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     border-left: 0;
-    border-right: 1px solid var(--cloud-100);
+    border-right: 1px solid var(--primary-border);
     padding-left: 0;
     padding-right: var(--scale-bravo);
 }

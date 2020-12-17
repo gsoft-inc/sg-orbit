@@ -10,13 +10,13 @@
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--cloud-50);
+    border-bottom: 2px solid var(--secondary-border);
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--cloud-50);
+    border-left: 2px solid var(--secondary-border);
 }
 
 /* TAB */
@@ -33,7 +33,7 @@
     height: max-content;
     min-height: var(--scale-india);
     cursor: pointer;
-    color: var(--marine-500);
+    color: var(--secondary-text);
     position: relative;
     overflow: hidden;
 }
@@ -99,7 +99,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:focus:before,
 .o-ui-tab-focus:before {
-    border-color: var(--primary-500);
+    border-color: var(--brand-border);
 }
 
 .o-ui-tab:focus,
@@ -120,14 +120,14 @@
 /* TAB | STATE | HOVER | DISABLED */
 .o-ui-tab[disabled]:hover,
 .o-ui-tab-hover[disabled] {
-    color: var(--marine-500);
+    color: var(--primary-text);
 }
 
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
     border-bottom: 2px solid var(--marine-500);
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
@@ -169,7 +169,7 @@
 
 /* PANEL */
 .o-ui-tab-panel {
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* PANEL | ORIENTATION | HORIZONTAL */

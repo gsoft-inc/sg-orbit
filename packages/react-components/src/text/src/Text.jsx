@@ -5,8 +5,10 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export function getTextClass(size) {
-    return `o-ui-text-${normalizeSize(size)}`;
+export function getTextClass(size, color) {
+    const colorClass = color ? `o-ui-text-color-${color}`: "";
+
+    return `o-ui-text-${normalizeSize(size)} ${colorClass} `;
 }
 
 ////////
@@ -16,6 +18,10 @@ const propTypes = {
      * A text can vary in size.
      */
     size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "inherit"]),
+    /**
+     * A text can change it's default color.
+     */
+    color: oneOf(["inherit"]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -35,6 +41,7 @@ export function InnerText(props) {
 
     const {
         size,
+        color,
         as = "span",
         className,
         children,
@@ -48,7 +55,7 @@ export function InnerText(props) {
     return (
         <Box
             {...rest}
-            className={mergeClasses(getTextClass(size), className)}
+            className={mergeClasses(getTextClass(size, color), "o-ui-text", className)}
             as={as}
             ref={forwardedRef}
         >

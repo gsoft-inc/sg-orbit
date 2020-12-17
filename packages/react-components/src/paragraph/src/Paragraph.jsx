@@ -44,6 +44,7 @@ export function InnerParagraph(props) {
                     "o-ui-p",
                     normalizeSize(size)
                 ),
+                "o-ui-text-color-inherit",
                 className
             )}
             as={as}

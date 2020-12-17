@@ -1,6 +1,7 @@
 .o-ui-heading {
     margin-top: 0;
     font-weight: 500;
+    color: var(--primary-text);
 }
 
 /* SIZE */
@@ -38,4 +39,8 @@
     font-size: var(--type-scale-1);
     line-height: 1;
     margin-bottom: calc(var(--type-scale-1) * .5);
+}
+
+.o-ui-heading-color-inherit {
+    color: inherit;
 }

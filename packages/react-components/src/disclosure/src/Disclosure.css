@@ -16,5 +16,5 @@
 .o-ui-disclosure-content {
     padding-top: var(--scale-echo);
     padding-bottom: var(--scale-echo);
-    color: var(--marine-900);
+    color: var(--primary-text);
 }

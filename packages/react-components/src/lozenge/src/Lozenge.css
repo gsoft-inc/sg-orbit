@@ -1,8 +1,8 @@
 .o-ui-lozenge {
     display: inline-flex;
     align-items: center;
-    background-color: var(--cloud-50);
-    color: var(--marine-900);
+    background-color: var(--foreground-color-3);
+    color: var(--primary-text);
     text-transform: uppercase;
     padding: 0 var(--scale-bravo);
     border-radius: 4px;

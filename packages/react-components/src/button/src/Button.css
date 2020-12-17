@@ -34,6 +34,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    /* box-shadow: 0 0 0 2px currentColor; */
     border-radius: var(--o-ui-pill-border-radius);
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -57,13 +58,13 @@ a.o-ui-button {
 /* SOLID */
 .o-ui-button-solid {
     color: var(--static-white);
-    background-color: var(--marine-500);
+    background-color: var(--foreground-color-5);
 }
 
 /* SOLID | STATE | HOVER */
 .o-ui-button-solid:not([disabled]):hover,
 .o-ui-button-solid.o-ui-button-hover {
-    background-color: var(--marine-700);
+    background-color: var(--foreground-color-5-hover);
 }
 
 /* SOLID | STATE | DISABLED | HOVER */
@@ -71,7 +72,7 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-disabled:hover,
 .o-ui-button-solid[disabled].o-ui-button-hover,
 .o-ui-button-solid.o-ui-button-disabled.o-ui-button-hover {
-    background-color: var(--marine-500);
+    background-color: var(--foreground-color-5);
 }
 
 /* SOLID | STATE | FOCUS */
@@ -83,7 +84,7 @@ a.o-ui-button {
 /* SOLID | STATE | ACTIVE */
 .o-ui-button-solid:active,
 .o-ui-button-solid.o-ui-button-active {
-    background-color: var(--marine-900);
+    background-color: var(--foreground-color-5-active);
 }
 
 /* SOLID | STATE | DISABLED | ACTIVE */
@@ -91,73 +92,85 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-active[disabled],
 .o-ui-button-solid:active.o-ui-button-disabled,
 .o-ui-button-solid.o-ui-button-active:disabled {
-    background-color: var(--marine-500);
+    background-color: var(--foreground-color-5);
 }
 
 /* SOLID | PRIMARY */
 .o-ui-button-solid.o-ui-button-primary {
-    background-color: var(--primary-500);
+    background-color: var(--foreground-color-brand);
 }
 
 /* SOLID | PRIMARY | HOVER */
 .o-ui-button-solid.o-ui-button-primary:hover,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-hover {
-    background-color: var(--primary-700);
+    background-color: var(--foreground-color-brand-hover);
 }
 
 /* SOLID | PRIMARY | FOCUS */
 .o-ui-button-solid.o-ui-button-primary:focus,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-focus {
-    background-color: var(--primary-500);
+    background-color: var(--foreground-color-brand);
+}
+
+/* SOLID | PRIMARY | HOVER | FOCUS */
+.o-ui-button-solid.o-ui-button-primary:hover:focus,
+.o-ui-button-solid.o-ui-button-primary.o-ui-button-hover.o-ui-button-focus {
+    background-color: var(--foreground-color-brand-hover);
+}
+
+/* SOLID | PRIMARY | ACTIVE | FOCUS */
+.o-ui-button-solid.o-ui-button-primary:active:focus,
+.o-ui-button-solid.o-ui-button-primary.o-ui-button-active.o-ui-button-focus {
+    background-color: var(--foreground-color-brand-active);
 }
 
 /* SOLID | PRIMARY | ACTIVE */
 .o-ui-button-solid.o-ui-button-primary:active,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-active {
-    background-color: var(--primary-900);
+    background-color: var(--foreground-color-brand-active);
 }
 
 /* SOLID | SECONDARY */
 .o-ui-button-solid.o-ui-button-secondary {
-    background-color: var(--cloud-100);
-    color: var(--marine-900);
+    background-color: var(--foreground-color-2);
+    color: var(--primary-text);
 }
 
 /* SOLID | SECONDARY | HOVER */
 .o-ui-button-solid.o-ui-button-secondary:hover,
 .o-ui-button-solid.o-ui-button-secondary.o-ui-button-hover {
-    background-color: var(--cloud-200);
+    background-color: var(--foreground-color-2-hover);
 }
 
 /* SOLID | SECONDARY | ACTIVE */
 .o-ui-button-solid.o-ui-button-secondary:active,
 .o-ui-button-solid.o-ui-button-secondary.o-ui-button-active {
-    background-color: var(--cloud-300);
+    background-color: var(--foreground-color-2-active);
 }
 
 /* SOLID | DANGER */
 .o-ui-button-solid.o-ui-button-danger {
-    background-color: var(--alert-500);
-    --o-ui-focus-ring-color: var(--alert-500);
+    background-color: var(--foreground-color-critical);
+    --o-ui-focus-ring-color: var(--critical-border);
 }
 
 /* SOLID | DANGER | HOVER */
 .o-ui-button-solid.o-ui-button-danger:hover,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-hover {
-    background-color: var(--alert-700);
+    background-color: var(--foreground-color-critical-hover);
 }
 
 /* SOLID | DANGER | ACTIVE */
 .o-ui-button-solid.o-ui-button-danger:active,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-active {
-    background-color: var(--alert-900);
+    background-color: var(--foreground-color-critical-active);
 }
 
 /* OUTLINE */
 .o-ui-button-outline {
     border: none;
     background-color: var(--transparent);
-    color: var(--marine-500);
+    color: var(--secondary-text);
     box-shadow: 0 0 0 1px var(--marine-500) inset;
 }
 
@@ -170,7 +183,13 @@ a.o-ui-button {
 .o-ui-button-outline:hover,
 .o-ui-button-outline.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--marine-700) inset;
-    color: var(--marine-700);
+    color: var(--secondary-text-hover);
+}
+
+/* OUTLINE | HOVER */
+.o-ui-button[disabled].o-ui-button-outline:hover,
+.o-ui-button[disabled].o-ui-button-outline.o-ui-button-hover {
+    color: var(--secondary-text);
 }
 
 /* OUTLINE | FOCUS */
@@ -183,16 +202,8 @@ a.o-ui-button {
 .o-ui-button-outline:active,
 .o-ui-button-outline.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--marine-500) inset;
-    color: var(--white);
-    background-color: var(--marine-500);
-}
-
-/* OUTLINE | ACTIVE | FOCUS */
-.o-ui-button-outline.o-ui-button-focus:active,
-.o-ui-button-outline.o-ui-button-focus.o-ui-button-active,
-.o-ui-button-outline:focus:active,
-.o-ui-button-outline:focus.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--marine-500) inset, var(--o-ui-focus-ring);
+    color: var(--static-white);
+    background-color: var(--foreground-color-5);
 }
 
 /* OUTLINE | ACTIVE | DISABLED */
@@ -201,66 +212,56 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-disabled:active,
 .o-ui-button-outline.o-ui-button-disabled.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--marine-500) inset;
-    color: var(--marine-500);
-    background-color: var(--white);
+    color: var(--secondary-text);
+    background-color: var(--foreground-color-1);
 }
 
 /* OUTLINE | PRIMARY */
 .o-ui-button-outline.o-ui-button-primary {
     box-shadow: 0 0 0 1px var(--primary-500) inset;
-    color: var(--primary-500);
+    color: var(--brand-text);
 }
 
 /* OUTLINE | PRIMARY | HOVER */
 .o-ui-button-outline.o-ui-button-primary:hover,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--primary-700) inset;
-    color: var(--primary-700);
-}
-
-/* OUTLINE | PRIMARY | FOCUS */
-.o-ui-button-outline.o-ui-button-primary:focus,
-.o-ui-button-outline.o-ui-button-primary.o-ui-button-focus {
-    box-shadow: 0 0 0 1px var(--primary-700) inset, var(--o-ui-focus-ring);
+    color: var(--brand-text-hover);
 }
 
 /* OUTLINE | PRIMARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-primary:active,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--primary-500) inset;
-    color: var(--white);
-    background-color: var(--primary-500);
+    color: var(--static-white);
+    background-color: var(--foreground-color-brand);
 }
 
 /* OUTLINE | SECONDARY */
 .o-ui-button-outline.o-ui-button-secondary {
-    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+    box-shadow: 0 0 0 1px var(--foreground-color-2) inset;
     color: var(--cloud-500);
 }
 
 /* OUTLINE | SECONDARY | HOVER */
 .o-ui-button-outline.o-ui-button-secondary:hover,
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--cloud-500) inset;
-}
-
-/* OUTLINE | SECONDARY | FOCUS */
-.o-ui-button-outline.o-ui-button-secondary:focus,
-.o-ui-button-outline.o-ui-button-secondary.o-ui-button-focus {
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 1px var(--foreground-color-2-hover) inset;
 }
 
 /* OUTLINE | SECONDARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-secondary:active,
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--cloud-700) inset;
-    color: var(--white);
+    box-shadow: 0 0 0 1px var(--foreground-color-2-active) inset;
+    background-color: var(--foreground-color-2-active);
+    color: var(--static-white);
 }
 
 /* OUTLINE | DANGER */
 .o-ui-button-outline.o-ui-button-danger {
-    box-shadow: 0 0 0 1px var(--alert-500) inset;
-    color: var(--alert-500);
+    box-shadow: 0 0 0 1px var(--critical-500) inset;
+    color: var(--critical-text);
+    --o-ui-focus-ring-color: var(--critical-500);
 }
 
 /* OUTLINE | DANGER | HOVER */
@@ -272,23 +273,29 @@ a.o-ui-button {
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--alert-500) inset;
-    color: var(--white);
-    background-color: var(--alert-500);
+    box-shadow: 0 0 0 1px var(--critical-500) inset;
+    color: var(--static-white);
+    background-color: var(--critical-500);
 }
 
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
     border: none;
-    color: var(--marine-500);
+    color: var(--secondary-text);
 }
 
 /* GHOST | HOVER */
 .o-ui-button-ghost:hover,
 .o-ui-button-ghost.o-ui-button-hover {
     background-color: rgba(0, 0, 0, 0.04);
-    color: var(--marine-700);
+    color: var(--secondary-text-hover);
+}
+
+/* GHOST | HOVER | DARK MODE */
+.o-ui-dark-color-scheme .o-ui-button-ghost:hover,
+.o-ui-dark-color-scheme .o-ui-button-ghost.o-ui-button-hover {
+    background-color: rgba(256, 256, 256, 0.04);
 }
 
 /* GHOST | LOADING */
@@ -296,20 +303,28 @@ a.o-ui-button {
     background-color: rgba(0, 0, 0, 0.04);
 }
 
+/* GHOST | LOADING | DARK MODE */
+.o-ui-dark-color-scheme .o-ui-button-ghost.o-ui-button-loading {
+    background-color: rgba(256, 256, 256, 0.04);
+}
+
 /* GHOST | FOCUS */
-.o-ui-button-ghost:focus:after,
-.o-ui-button-ghost.o-ui-button-focus:after {
-    opacity: 1;
+.o-ui-button-ghost:after {
     top: calc(var(--o-ui-focus-ring-outset-inner-offset));
     left: calc(var(--o-ui-focus-ring-outset-inner-offset));
     right: calc(var(--o-ui-focus-ring-outset-inner-offset));
     bottom: calc(var(--o-ui-focus-ring-outset-inner-offset));
 }
 
+.o-ui-button-ghost:focus:after,
+.o-ui-button-ghost.o-ui-button-focus:after {
+    opacity: 1;
+}
+
 /* GHOST | ACTIVE */
 .o-ui-button-ghost:active,
 .o-ui-button-ghost.o-ui-button-active {
-    color: var(--marine-900);
+    color: var(--secondary-text-active);
 }
 
 /* GHOST | DISABLED */
@@ -317,12 +332,12 @@ a.o-ui-button {
 .o-ui-button-ghost[disabled].o-ui-button-hover,
 .o-ui-button-ghost.o-ui-button-disabled:hover,
 .o-ui-button-ghost.o-ui-button-disabled.o-ui-button-hover {
-    background-color: var(--white);
+    background-color: transparent;
 }
 
 /* GHOST | PRIMARY */
 .o-ui-button-ghost.o-ui-button-primary {
-    color: var(--primary-500);
+    color: var(--brand-text);
 }
 
 /* GHOST | SECONDARY */
@@ -332,12 +347,19 @@ a.o-ui-button {
 
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
-    color: var(--alert-500);
+    color: var(--critical-text);
+    --o-ui-focus-ring-color: var(--critical-border);
+}
+
+/* GHOST | INHERIT */
+.o-ui-button:focus.o-ui-button-inherit.o-ui-button-ghost,
+.o-ui-button-focus.o-ui-button-inherit.o-ui-button-ghost {
+    --o-ui-focus-ring-color: currentColor;
 }
 
 /* DANGER */
 .o-ui-button-danger {
-    --o-ui-focus-ring-color: var(--alert-500);
+    --o-ui-focus-ring-color: var(--critical-border);
 }
 
 /* FLUID */
@@ -512,6 +534,11 @@ a.o-ui-button {
     background-color: rgba(0, 0, 0, 0.04);
 }
 
+.o-ui-button:focus.o-ui-button-inherit.o-ui-button-outline,
+.o-ui-button-focus.o-ui-button-inherit.o-ui-button-outline {
+    --o-ui-focus-ring-color: currentColor;
+}
+
 .o-ui-button:active.o-ui-button-inherit.o-ui-button-outline,
 .o-ui-button-active.o-ui-button-inherit.o-ui-button-outline {
     background-color: currentColor;
@@ -537,6 +564,11 @@ a.o-ui-button {
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
     fill: var(--white);
     opacity: .9;
+}
+
+.o-ui-button:focus.o-ui-button-inherit.o-ui-button-solid,
+.o-ui-button-focus.o-ui-button-inherit.o-ui-button-solid {
+    --o-ui-focus-ring-color: currentColor;
 }
 
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-text {
@@ -566,4 +598,10 @@ a.o-ui-button {
 .o-ui-button-inherit.o-ui-button-loading.o-ui-button-solid::before {
     border-color: rgba(255, 255, 255, 0.1);
     border-top-color: var(--white);
+}
+
+/* WITH ICON */
+.o-ui-button-icon.o-ui-button-right-icon,
+.o-ui-button-icon.o-ui-button-left-icon {
+    color: inherit;
 }

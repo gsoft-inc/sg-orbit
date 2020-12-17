@@ -4,7 +4,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    color: var(--marine-900);
+    color: var(--primary-text);
     line-height: 1;
     max-width: 100%;
     width: max-content;
@@ -18,8 +18,9 @@
     display: inline-block;
     width: var(--scale-echo);
     height: var(--scale-echo);
-    background-color: var(--foreground-color-1);
-    box-shadow: 0 0 0 1px var(--marine-100);
+    /* background-color: var(--foreground-color-1); */
+    /* @todo checker ce que cetait avant */
+    box-shadow: 0 0 0 1px var(--primary-border);
     border-radius: var(--o-ui-rounded-border-radius);
     transition: all .125s ease-in;
     flex-shrink: 0;
@@ -48,6 +49,7 @@
     left: 50%;
     width: var(--scale-echo);
     height: var(--scale-echo);
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: var(--scale-echo) var(--scale-echo);
     background-color: var(--static-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
@@ -57,12 +59,13 @@
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    transform: translate(-50%, -50%) scale(1) rotate(2deg);
 }
 
 /* BOX | INDETERMINATE */
-.o-ui-checkbox-indeterminate .o-ui-checkbox-box {
-    border: var(--o-ui-indeterminate-stroke-width) solid var(--white);
+.o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
+    transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
+    mask: none;
     background-color: var(--primary-500);
 }
 
@@ -70,17 +73,10 @@
     transition: transform 0.125 ease-in 0.0625s;
 }
 
-.o-ui-checkbox-indeterminate .o-ui-checkbox-box:before {
-    top: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
-    left: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
-    right: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
-    bottom: calc(-1 * (var(--o-ui-indeterminate-stroke-width) + var(--o-ui-focus-ring-outset-outer-offset)));
-}
-
 /* CONTENT | LABEL */
 .o-ui-checkbox-label {
     margin-left: var(--scale-bravo);
-    color: var(--marine-900);
+    color: var(--primary-text);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -111,7 +107,7 @@
 
 /* INVALID */
 .o-ui-checkbox-invalid .o-ui-checkbox-label {
-    color: var(--alert-500);
+    color: var(--critical-text);
 }
 
 .o-ui-checkbox-invalid .o-ui-checkbox-box {
@@ -119,7 +115,7 @@
 }
 
 .o-ui-checkbox-checked.o-ui-checkbox-invalid .o-ui-checkbox-box {
-    background-color: var(--alert-500);
+    background-color: var(--critical-border);
     box-shadow: 0 0 0 1px var(--alert-500);
 }
 
@@ -128,7 +124,7 @@
 }
 
 .o-ui-checkbox-indeterminate.o-ui-checkbox-invalid .o-ui-checkbox-box {
-    background-color: var(--alert-500);
+    background-color: var(--critical-border);
 }
 
 .o-ui-checkbox-invalid .o-ui-checkbox-box::before {
@@ -143,7 +139,7 @@
 
 /* STATE | CHECKED | INDETERMINATE */
 .o-ui-checkbox-checked.o-ui-checkbox-indeterminate .o-ui-checkbox-box {
-    background-color: var(--white);
+    background-color: var(foreground-color-1);
 }
 
 /* STATE | CHECKED | CHECKMARK */
@@ -167,7 +163,8 @@
 /* STATE | HOVER */
 .o-ui-checkbox:hover .o-ui-checkbox-box,
 .o-ui-checkbox-hover .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--marine-300);
+    box-shadow: 0 0 0 1px var(--primary-border-hover);
+    /* box-shadow: 0 0 0 1px var(--marine-300); */
 }
 
 /* STATE | HOVER | CHECKED */

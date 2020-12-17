@@ -2,7 +2,8 @@
     display: inline-block;
     border: none;
     background-color: var(--transparent);
-    color: var(--marine-900);
+    color: var(--primary-text);
+    /* add inherit */
     padding: 0;
     position: relative;
 }
@@ -16,13 +17,13 @@
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {
-    color: inherit;
+    color: var(--primary-text);
 }
 
 /* STATE | HOVER | DISABLED */
 .o-ui-link[disabled]:hover,
 .o-ui-link-hover[disabled] {
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* STATE | FOCUS */
@@ -54,7 +55,7 @@
 /* STATE | ACTIVE */
 .o-ui-link:active,
 .o-ui-link-active {
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* STATE | ACTIVE | FOCUS */
@@ -89,6 +90,7 @@
     display: inline-flex;
     align-items: flex-start;
     justify-content: center;
+    color: var(--primary-text);
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
 }
@@ -180,8 +182,8 @@
 
 /* VARIATIONS */
 /* PRIMARY */
-.o-ui-link-primary {
-    color: var(--primary-500);
+.o-ui-link.o-ui-icon-link.o-ui-link-primary {
+    color: var(--brand-text);
 }
 
 /* PRIMARY | STATE | HOVER */
@@ -193,8 +195,8 @@
 /* PRIMARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
-    background-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-50);
+    background-color: var(--foreground-color-brand-light);
+    box-shadow: 0 0 0 2px var(--foreground-color-brand-light);
 }
 
 /* PRIMARY | STATE | ACTIVE */
@@ -204,8 +206,9 @@
 }
 
 /* DANGER */
-.o-ui-link-danger {
-    color: var(--alert-500);
+.o-ui-link.o-ui-icon-link.o-ui-link-danger {
+    --o-ui-focus-ring-color: var(--alert-500);
+    color: var(--critical-text);
 }
 
 /* DANGER | STATE | HOVER */
@@ -229,6 +232,7 @@
 
 /* SECONDARY */
 .o-ui-link-secondary {
+    /* What it this */
     color: var(--cloud-500);
 }
 
@@ -287,6 +291,10 @@ button.o-ui-link-hover {
 }
 
 /* ICON LINK */
+.o-ui-icon-link.o-ui-icon-link {
+    color: var(--primary-text);
+}
+
 /* we need a .o-ui-icon-link-icon [sic] */
 .o-ui-icon-link .o-ui-icon {
     display: block;
@@ -297,6 +305,6 @@ button.o-ui-link-hover {
 .o-ui-icon-link-focus {
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
-    background-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-50);
+    background-color: var(--foreground-color-brand-light);
+    box-shadow: 0 0 0 2px var(--foreground-color-brand-light);
 }

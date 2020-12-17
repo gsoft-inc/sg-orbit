@@ -11,9 +11,9 @@
 /* BUTTON */
 .o-ui-radio-button {
     display: inline-block;
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
     border-radius: var(--o-ui-circular-border-radius);
-    border: 1px solid var(--marine-100);
+    border: 1px solid var(--primary-border);
     position: relative;
     width: var(--scale-echo);
     height: var(--scale-echo);
@@ -22,7 +22,7 @@
 .o-ui-radio-button::before {
     content: "";
     display: block;
-    background-color: var(--primary-500);
+    background-color: var(--foreground-color-brand);
     border-radius: var(--o-ui-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
@@ -34,7 +34,7 @@
 .o-ui-radio-label {
     line-height: 1;
     margin-left: var(--scale-bravo);
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* CONTENT | LABEL | REVERSE */
@@ -46,7 +46,7 @@
 /* CONTENT | ICON */
 .o-ui-radio-icon {
     margin-left: var(--scale-bravo);
-    fill: var(--marine-900);
+    fill: var(--primary-icon);
 }
 
 /* CONTENT | ICON | REVERSE */
@@ -58,7 +58,7 @@
 /* CONTENT | COUNTER */
 .o-ui-radio-counter {
     margin-left: var(--scale-bravo);
-    color: var(--marine-900);
+    color: var(--primary-text);
 }
 
 /* CONTENT | COUNTER | REVERSE */
@@ -69,7 +69,7 @@
 
 /* VALIDATION */
 .o-ui-radio-invalid .o-ui-radio-label {
-    color: var(--alert-500);
+    color: var(--critical-text);
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
@@ -90,11 +90,11 @@
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--alert-500);
+    border-color: var(--critical-border);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--alert-500);
+    border-color: var(--critical-border);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {

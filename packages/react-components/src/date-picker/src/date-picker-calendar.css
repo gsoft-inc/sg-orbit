@@ -1,6 +1,6 @@
 .o-ui.calendar {
     box-shadow: var(--shadow-200);
-    background-color: var(--white);
+    background-color: var(--foreground-color-1);
     border: 1px solid var(--cloud-100);
     border-radius: var(--scale-alpha);
 }
@@ -11,7 +11,7 @@
 
 .o-ui.calendar .CalendarDay__default {
     border: none !important;
-    background-color: var(--white) !important;
+    background-color: var(--foreground-color-1) !important;
     color: var(--marine-700) !important;
     font-size: 1rem !important;
     transition: box-shadow .15s ease-in;
@@ -22,11 +22,11 @@
 }
 
 .o-ui.calendar .DayPicker__horizontal {
-    background-color: var(--white) !important;
+    background-color: var(--foreground-color-1) !important;
 }
 
 .o-ui.calendar .CalendarMonth {
-    background-color: var(--white) !important;
+    background-color: var(--foreground-color-1) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected {
@@ -35,7 +35,7 @@
 }
 
 .o-ui.calendar .CalendarMonthGrid {
-    background-color: var(--white) !important;
+    background-color: var(--foreground-color-1) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected_span {

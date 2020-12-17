@@ -1,13 +1,14 @@
 [class^="o-ui-"] {
     --hue-apricot: 172;
-    --apricot-50: hsl(var(--hue-apricot), 61%, 94%);
-    --apricot-100: hsl(var(--hue-apricot), 63%, 85%);
-    --apricot-200: hsl(var(--hue-apricot), 63%, 75%);
-    --apricot-300: hsl(var(--hue-apricot), 64%, 65%);
-    --apricot-400: hsl(var(--hue-apricot), 64%, 50%);
-    --apricot-500: hsl(var(--hue-apricot), 65%, 48%);
-    --apricot-600: hsl(var(--hue-apricot), 65%, 46%);
-    --apricot-700: hsl(var(--hue-apricot), 63%, 45%);
-    --apricot-800: hsl(var(--hue-apricot), 64%, 43%);
-    --apricot-900: hsl(var(--hue-apricot), 62%, 41%);
+    --opacity-apricot: 1;
+    --apricot-50: hsla(var(--hue-apricot), 61%, 94%, var(--opacity-apricot-50, var(--opacity-apricot)));
+    --apricot-100: hsla(var(--hue-apricot), 63%, 85%, var(--opacity-apricot-100, var(--opacity-apricot)));
+    --apricot-200: hsla(var(--hue-apricot), 63%, 75%, var(--opacity-apricot-200, var(--opacity-apricot)));
+    --apricot-300: hsla(var(--hue-apricot), 64%, 65%, var(--opacity-apricot-300, var(--opacity-apricot)));
+    --apricot-400: hsla(var(--hue-apricot), 64%, 50%, var(--opacity-apricot-400, var(--opacity-apricot)));
+    --apricot-500: hsla(var(--hue-apricot), 65%, 48%, var(--opacity-apricot-500, var(--opacity-apricot)));
+    --apricot-600: hsla(var(--hue-apricot), 65%, 46%, var(--opacity-apricot-600, var(--opacity-apricot)));
+    --apricot-700: hsla(var(--hue-apricot), 63%, 45%, var(--opacity-apricot-700, var(--opacity-apricot)));
+    --apricot-800: hsla(var(--hue-apricot), 64%, 43%, var(--opacity-apricot-800, var(--opacity-apricot)));
+    --apricot-900: hsla(var(--hue-apricot), 62%, 41%, var(--opacity-apricot-900, var(--opacity-apricot)));
 }

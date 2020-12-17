@@ -50,6 +50,7 @@ const AlertContent = forwardRef(({
     return (
         <Text
             as={as}
+            color="inherit"
             ref={ref}
             {...rest}
         >
@@ -61,6 +62,7 @@ const AlertContent = forwardRef(({
                     },
                     heading: {
                         size: "2xs",
+                        color: "inherit",
                         className: "o-ui-alert-title"
                     }
                 }}
