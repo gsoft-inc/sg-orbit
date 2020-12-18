@@ -13,7 +13,7 @@ export class CollectionBuilder {
         const items = Children.map(children, (item, itemIndex) => that._parseItem(item, 2, itemIndex, nextNodeIndex));
 
         return {
-            key: nodeIndex,
+            key: nodeIndex.toString(),
             index,
             level: 1,
             type: "section",
@@ -31,7 +31,7 @@ export class CollectionBuilder {
         const itemKey = !isNil(item.key) ? item.key.replace(".", "").replace("$", "") : nodeIndex.toString();
 
         return {
-            key: nodeIndex,
+            key: nodeIndex.toString(),
             index,
             level,
             type: "item",

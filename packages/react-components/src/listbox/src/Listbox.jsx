@@ -7,17 +7,17 @@ import { useCollectionBuilder } from "./useCollectionBuilder";
 
 const propTypes = {
     /**
-     * A controlled array holding the currently selected keys.
+     * A controlled array holding the currently selected key(s).
      */
-    selectedKeys: arrayOf(string),
+    selectedKey: oneOfType([string, arrayOf(string)]),
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKeys: arrayOf(string),
+    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {String[]} keys - The selected keys.
+     * @param {String | String[]} key - The selected key(s).
      * @returns {void}
      */
     onChange: func,

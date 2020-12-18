@@ -5,6 +5,7 @@ import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";
+import { useListboxContext } from "../../src/ListboxContext";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
@@ -172,13 +173,16 @@ stories()
         </Listbox>
     )
     .add("custom item component", () => {
-        const ActiveOption = ({ selected, children, ...rest }) => {
+        const ActiveOption = ({ item, children, ...rest }) => {
+            const { selectedKeys } = useListboxContext();
+            const { key } = item;
+
             return (
                 <ListboxOption
                     {...rest}
-                    selected={selected}
+                    item={item}
                 >
-                    {selected ? <CheckCircleIcon /> : <CrossIcon />}
+                    {selectedKeys.includes(key) ? <CheckCircleIcon /> : <CrossIcon />}
                     <Text>{children}</Text>
                 </ListboxOption>
             );

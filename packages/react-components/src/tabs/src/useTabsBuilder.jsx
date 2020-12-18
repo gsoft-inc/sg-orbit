@@ -36,7 +36,7 @@ export class TabsBuilder {
                 mergeProps(header.props, tab.props, {
                     id: tabId, // <- should be in a props object or not event computed here
                     index,
-                    key: nodeIndex++,
+                    key: (nodeIndex++).toString(),
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: header.type !== Header ? header.type : undefined,
                     ref: header.ref,
@@ -48,7 +48,7 @@ export class TabsBuilder {
                 mergeProps(content.props, {
                     id: panelId, // <- should be in a props object or not event computed here
                     index,
-                    key: nodeIndex++,
+                    key: (nodeIndex++).toString(),
                     // Use a custom type if available otherwise let the Tab component choose his default type.
                     type: content.type !== Content ? content.type : undefined,
                     ref: content.ref,

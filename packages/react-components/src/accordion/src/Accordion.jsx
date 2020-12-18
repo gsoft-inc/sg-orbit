@@ -8,6 +8,11 @@ import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useAccordionBuilder } from "./useAccordionBuilder";
 
+export const ExpandMode = {
+    single: "single",
+    multiple: "multiple"
+};
+
 const propTypes = {
     /**
      * The index(es) of the expanded accordion item.
@@ -20,7 +25,7 @@ const propTypes = {
     /**
      * Called when an accordion is expanded / collapsed.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number[]} selectedIndexes - The indexes of the expanded accordion item.
+     * @param {Number | Number[]} selectedIndex - The index(es) of the expanded accordion item.
      * @returns {void}
      */
     onChange: func,
@@ -51,7 +56,7 @@ export function InnerAccordion({
     index,
     defaultIndex,
     onChange,
-    expandMode = "single",
+    expandMode = ExpandMode.single,
     autoFocus,
     autoFocusDelay,
     as = "div",
@@ -83,22 +88,25 @@ export function InnerAccordion({
     });
 
     const handleToggle = useEventCallback((event, toggledIndex) => {
-        let newSelectedIndexes;
+        let newIndexes;
 
         if (!memoSelectedIndexes.includes(toggledIndex)) {
-            if (expandMode === "multiple") {
-                newSelectedIndexes = [...memoSelectedIndexes, toggledIndex];
+            if (expandMode === ExpandMode.multiple) {
+                newIndexes = [...memoSelectedIndexes, toggledIndex];
             } else {
-                newSelectedIndexes = [toggledIndex];
+                newIndexes = [toggledIndex];
             }
         } else {
-            newSelectedIndexes = memoSelectedIndexes.filter(x => x !== toggledIndex);
+            newIndexes = memoSelectedIndexes.filter(x => x !== toggledIndex);
         }
 
-        setSelectedIndex(newSelectedIndexes);
+        setSelectedIndex(newIndexes);
 
         if (!isNil(onChange)) {
-            onChange(event, newSelectedIndexes);
+            onChange(
+                event,
+                expandMode === ExpandMode.single ? newIndexes[0] : newIndexes
+            );
         }
     });
 

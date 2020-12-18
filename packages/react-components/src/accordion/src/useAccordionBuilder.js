@@ -39,7 +39,7 @@ export class AccordionBuilder {
             return {
                 id: `${this._rootId}-${index}`, // <- should be in a props object or not event computed here
                 index,
-                key: index,
+                key: index.toString(),
                 header: headerProps,
                 panel: panelProps
             };

@@ -3,26 +3,15 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { KEYS, cssModule, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { any, bool, elementType, func, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
+import { useListboxContext } from "./ListboxContext";
 
 const propTypes = {
     /**
-     * Option unique key.
+     * Matching collection item.
      */
-    itemKey: string.isRequired,
-    /**
-     * Called when the option selected state is toggled.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {number} key - The item key.
-     * @returns {void}
-     */
-    onToggle: func,
-    /**
-     * Whether or not the option is selected.
-     */
-    selected: bool,
+    item: object.isRequired,
     /**
      * Whether or not the option is disabled.
      */
@@ -38,13 +27,11 @@ const propTypes = {
 };
 
 export function InnerListboxOption({
+    item: { key },
     id,
-    itemKey,
-    onToggle,
     onClick,
     onKeyDown,
     onKeyUp,
-    selected,
     disabled,
     active,
     focus,
@@ -55,6 +42,8 @@ export function InnerListboxOption({
     forwardedRef,
     ...rest
 }) {
+    const { selectedKeys, onSelect } = useListboxContext();
+
     const labelId = `${id}-label`;
 
     const { icon, text, "right-icon": rightIcon } = useSlots(children, {
@@ -63,26 +52,20 @@ export function InnerListboxOption({
         },
         icon: {
             size: "sm",
-            className: "o-ui-listbox-item-left-icon"
+            className: "o-ui-listbox-option-left-icon"
         },
         text: {
             id: labelId,
-            className: "o-ui-listbox-item-label"
+            className: "o-ui-listbox-option-label"
         },
         "right-icon": {
             size: "sm",
-            className: "o-ui-listbox-item-right-icon"
+            className: "o-ui-listbox-option-right-icon"
         }
     });
 
-    const toggleItem = event => {
-        if (!isNil(onToggle)) {
-            onToggle(event, itemKey);
-        }
-    };
-
     const handleClick = useChainedEventCallback(onClick, event => {
-        toggleItem(event);
+        onSelect(event, key);
     });
 
     const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
@@ -90,7 +73,7 @@ export function InnerListboxOption({
             case KEYS.enter:
             case KEYS.space:
                 event.preventDefault();
-                toggleItem(event);
+                onSelect(event, key);
                 break;
         }
     });
@@ -111,7 +94,7 @@ export function InnerListboxOption({
             onKeyUp={!disabled ? handleKeyUp : undefined}
             className={mergeClasses(
                 cssModule(
-                    "o-ui-listbox-item",
+                    "o-ui-listbox-option",
                     active && "active",
                     focus && "focus",
                     hover && "hover"
@@ -121,8 +104,8 @@ export function InnerListboxOption({
             as={as}
             role="option"
             tabIndex={!disabled ? "-1" : undefined}
-            data-key={itemKey}
-            aria-selected={selected}
+            data-o-ui-key={key}
+            aria-selected={!disabled && selectedKeys.includes(key)}
             aria-disabled={disabled}
             aria-labelledby={labelId}
             ref={forwardedRef}

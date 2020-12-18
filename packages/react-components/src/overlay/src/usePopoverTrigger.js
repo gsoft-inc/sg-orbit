@@ -7,8 +7,8 @@ import { useOverlayTrigger } from "./useOverlayTrigger";
 - ** A useMenuTrigger would also be able to define behaviors like focusing the first item on arrow down key or the last item on arrow up key. **
 */
 
-export function usePopoverTrigger({ isVisible, onToggle, type }) {
-    const { triggerProps, overlayProps } = useOverlayTrigger({ isVisible, type });
+export function usePopoverTrigger(type, { isVisible, onToggle }) {
+    const { triggerProps, overlayProps } = useOverlayTrigger(type, { isVisible });
 
     const toggle = event => {
         if (!isNil(onToggle)) {

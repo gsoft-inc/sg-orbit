@@ -169,7 +169,7 @@ export function InnerPopover({
         overlayRef
     });
 
-    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger({ isVisible, onToggle: handleToggle, type: "dialog" });
+    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("dialog", { isVisible, onToggle: handleToggle });
 
     const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition({
         position,

@@ -1,6 +1,6 @@
 import { useId } from "../../shared";
 
-export function useOverlayTrigger({ isVisible, type }) {
+export function useOverlayTrigger(type, { isVisible }) {
     const overlayId = useId();
 
     return {
