@@ -171,7 +171,7 @@ a.o-ui-button {
     border: none;
     background-color: var(--transparent);
     color: var(--secondary-text);
-    box-shadow: 0 0 0 1px var(--marine-500) inset;
+    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
 }
 
 /* OUTLINE | ROUNDED */
@@ -182,7 +182,7 @@ a.o-ui-button {
 /* OUTLINE | HOVER */
 .o-ui-button-outline:hover,
 .o-ui-button-outline.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--marine-700) inset;
+    box-shadow: 0 0 0 1px var(--quaternary-border-hover) inset;
     color: var(--secondary-text-hover);
 }
 
@@ -201,7 +201,7 @@ a.o-ui-button {
 /* OUTLINE | ACTIVE */
 .o-ui-button-outline:active,
 .o-ui-button-outline.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--marine-500) inset;
+    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
     color: var(--static-white);
     background-color: var(--foreground-color-5);
 }
@@ -211,28 +211,28 @@ a.o-ui-button {
 .o-ui-button-outline[disabled].o-ui-button-active,
 .o-ui-button-outline.o-ui-button-disabled:active,
 .o-ui-button-outline.o-ui-button-disabled.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--marine-500) inset;
+    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
     color: var(--secondary-text);
     background-color: var(--foreground-color-1);
 }
 
 /* OUTLINE | PRIMARY */
 .o-ui-button-outline.o-ui-button-primary {
-    box-shadow: 0 0 0 1px var(--primary-500) inset;
+    box-shadow: 0 0 0 1px var(--brand-border) inset;
     color: var(--brand-text);
 }
 
 /* OUTLINE | PRIMARY | HOVER */
 .o-ui-button-outline.o-ui-button-primary:hover,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--primary-700) inset;
+    box-shadow: 0 0 0 1px var(--quaternary-border-hover) inset;
     color: var(--brand-text-hover);
 }
 
 /* OUTLINE | PRIMARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-primary:active,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--primary-500) inset;
+    box-shadow: 0 0 0 1px var(--brand-border) inset;
     color: var(--static-white);
     background-color: var(--foreground-color-brand);
 }
@@ -240,7 +240,7 @@ a.o-ui-button {
 /* OUTLINE | SECONDARY */
 .o-ui-button-outline.o-ui-button-secondary {
     box-shadow: 0 0 0 1px var(--foreground-color-2) inset;
-    color: var(--cloud-500);
+    color: var(--tertiary-text);
 }
 
 /* OUTLINE | SECONDARY | HOVER */
@@ -259,23 +259,23 @@ a.o-ui-button {
 
 /* OUTLINE | DANGER */
 .o-ui-button-outline.o-ui-button-danger {
-    box-shadow: 0 0 0 1px var(--critical-500) inset;
+    box-shadow: 0 0 0 1px var(--critical-border) inset;
     color: var(--critical-text);
-    --o-ui-focus-ring-color: var(--critical-500);
+    --o-ui-focus-ring-color: var(--critical-border);
 }
 
 /* OUTLINE | DANGER | HOVER */
 .o-ui-button-outline.o-ui-button-danger:hover,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--alert-700) inset;
+    box-shadow: 0 0 0 1px var(--critical-border-hover) inset;
 }
 
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--critical-500) inset;
+    box-shadow: 0 0 0 1px var(----critical-border) inset;
     color: var(--static-white);
-    background-color: var(--critical-500);
+    background-color: var(--critical-border);
 }
 
 /* GHOST */
@@ -286,8 +286,8 @@ a.o-ui-button {
 }
 
 /* GHOST | HOVER */
-.o-ui-button-ghost:hover,
-.o-ui-button-ghost.o-ui-button-hover {
+.o-ui-button-ghost:not([disabled]):hover,
+.o-ui-button-ghost:not([disabled]).o-ui-button-hover {
     background-color: rgba(0, 0, 0, 0.04);
     color: var(--secondary-text-hover);
 }
@@ -342,7 +342,7 @@ a.o-ui-button {
 
 /* GHOST | SECONDARY */
 .o-ui-button-ghost.o-ui-button-secondary {
-    color: var(--marine-300);
+    color: var(--quaternary-text);
 }
 
 /* GHOST | DANGER */
@@ -525,6 +525,7 @@ a.o-ui-button {
 
 /* OUTLINE */
 .o-ui-button-inherit.o-ui-button-outline {
+    --o-ui-focus-ring-color: currentColor;
     color: inherit;
     box-shadow: 0 0 0 1px currentColor inset;
 }
@@ -532,11 +533,6 @@ a.o-ui-button {
 .o-ui-button:hover.o-ui-button-inherit.o-ui-button-outline,
 .o-ui-button-hover.o-ui-button-inherit.o-ui-button-outline {
     background-color: rgba(0, 0, 0, 0.04);
-}
-
-.o-ui-button:focus.o-ui-button-inherit.o-ui-button-outline,
-.o-ui-button-focus.o-ui-button-inherit.o-ui-button-outline {
-    --o-ui-focus-ring-color: currentColor;
 }
 
 .o-ui-button:active.o-ui-button-inherit.o-ui-button-outline,

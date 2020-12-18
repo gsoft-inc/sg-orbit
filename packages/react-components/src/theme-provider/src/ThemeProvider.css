@@ -23,6 +23,8 @@
     --secondary-text: var(--marine-500);
     --secondary-text-hover: var(--marine-700);
     --secondary-text-active: var(--marine-900);
+    --tertiary-text: var(--cloud-500);
+    --quaternary-text: var(--marine-300);
     --brand-text: var(--primary-500);
     --brand-text-hover: var(--primary-700);
     --brand-text-active: var(--primary-700);
@@ -32,6 +34,8 @@
     --primary-border-hover: var(--cloud-300);
     --secondary-border: var(--cloud-50);
     --tertiary-border: var(--neutral-300);
+    --quaternary-border: var(--marine-500);
+    --quaternary-border-hover: var(--marine-700);
     --brand-border: var(--primary-500);
     --critical-border: var(--alert-500);
     /* INFO */
@@ -93,7 +97,6 @@
     --foreground-color-critical: var(--alert-700);
     --foreground-color-critical-hover: var(--alert-500);
     --foreground-color-critical-active: var(--alert-400);
-
     /* TEXT */
     --primary-text: var(--static-white);
     --primary-text-hover: var(--static-white);
@@ -112,6 +115,8 @@
     --primary-border-hover: var(--neutral-dark-400);
     --secondary-border: var(--neutral-dark-800);
     --tertiary-border: var(--neutral-dark-400);
+    --quaternary-border: var(--marine-700);
+    --quaternary-border-hover: var(--marine-600);
     --brand-border: var(--primary-700);
     --critical-border: var(--alert-700);
     /* CLOUD */
