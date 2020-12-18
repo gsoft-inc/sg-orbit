@@ -1,7 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { KEYS, arrayify, disposables, mergeClasses, useChainedEventCallback, useControllableState, useId, useMergedRefs, walkFocusableElements } from "../../shared";
+import { KEYS, arrayify, disposables, mergeClasses, useChainedEventCallback, useControllableState, useDisposables, useId, useMergedRefs, walkFocusableElements } from "../../shared";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -17,19 +17,19 @@ import { isNil, isNumber } from "lodash";
 - defaultSelected - DONE
 - onSelectionChange - DONE
 - Section (view TagsPicker section look) -> Should also be supported from dynamic items - DONE
-- Could also support Divider? -> SHould also be supported from dynamic items
+- Could also support Divider? -> SHould also be supported from dynamic items - NO because Menu doesn't Listbox
 - Item should support - DONE
     - Left icons (default) - DONE
     - Right icons with a "right-icon" slot - DONE
-- autoFocus / autoFocusDelay -> could fix autoFocusDelay to be usable without "autoFocus"
-- support arrow selection.
+- autoFocus / autoFocusDelay -> could fix autoFocusDelay to be usable without "autoFocus"  - DONE
+- support arrow selection. - DONE
 - required aria-label (add to docs accessibility section) - MISSING DOC
 - container have role="listbox" 0 DONE
 - item have role="option" - DONE
 - when single selection, selected items have aria-selected=true - DONE
 - when multiple selection, root element have aria-multiselectable=true - DONE
-- support Type-ahead (YES IT SHOULD BE DONE IN THIS COMPONENT)
-- support selection follows focus (default false) - I DON'T THINK WE WANT TO SUPPORT THIS
+- support Type-ahead (YES IT SHOULD BE DONE IN THIS COMPONENT) - DONE
+- support selection follows focus (default false) - NO I DON'T THINK WE WANT TO SUPPORT THIS
 
 
 - how to support an element with a tooltip? how to make it accessible? Since the content of an item is not parsed by screen reader we need something else for the tooltip
@@ -74,22 +74,29 @@ export class FocusManager {
         }
     }
 
-    getActiveElement() {
+    _findActiveElement() {
         const elements = this._scopeRef.current;
 
         if (!isNil(elements)) {
-            return elements.find(x => x === document.activeElement);
-        }
+            const index = elements.findIndex(x => x === document.activeElement);
 
-        return null;
+            return {
+                index,
+                element: elements[index]
+            };
+        }
+    }
+
+    getActiveElement() {
+        return this._findActiveElement?.element ?? null;
     }
 
     getActiveKey() {
-        const activeElement = this.getActiveElement();
+        const activeElement = this._findActiveElement();
 
         if (!isNil(activeElement)) {
             if (isNil(this._keyProp)) {
-                throw new Error("\"getActiveKey\" cannot be called without providing a `keyProp` to the FocusManagwer.");
+                throw new Error("\"getActiveKey\" cannot be called without providing a `keyProp` to the FocusManager.");
             }
 
             return activeElement.getAttribute(this._keyProp);
@@ -118,7 +125,7 @@ export class FocusManager {
         const elements = this._scopeRef.current;
 
         if (!isNil(elements)) {
-            const index = elements.findIndex(x => x === document.activeElement);
+            const index = this._findActiveElement.index;
 
             if (index === -1 || index + 1 > (elements.length - 1)) {
                 this.focusFirst();
@@ -132,7 +139,7 @@ export class FocusManager {
         const elements = this._scopeRef.current;
 
         if (!isNil(elements)) {
-            const index = elements.findIndex(x => x === document.activeElement);
+            const index = this._findActiveElement.index;
 
             if (index === -1 || index - 1 < 0) {
                 this.focusLast();
@@ -147,7 +154,7 @@ export class FocusManager {
 
         if (!isNil(elements)) {
             if (isNil(this._keyProp)) {
-                throw new Error("\"focusKey\" cannot be called without providing a `keyProp` to the FocusManagwer.");
+                throw new Error("\"focusKey\" cannot be called without providing a `keyProp` to the FocusManager.");
             }
 
             this._focus(elements.find(x => x.getAttribute(this._keyProp) === key.toString()));
@@ -165,6 +172,14 @@ export class FocusManager {
             default:
                 this.focusKey(target);
                 break;
+        }
+    }
+
+    search(query) {
+        const elements = this._scopeRef.current;
+
+        if (!isNil(elements)) {
+            this._focus(elements.find(x => x.textContent?.toLowerCase().startsWith(query)));
         }
     }
 }
@@ -188,8 +203,10 @@ export function useFocusManager({ keyProp, tabbable, onNotFound, onFocus }) {
         }
     }, [scopeRef, tabbable]);
 
+    const focusManager = useMemo(() => new FocusManager(scopeRef, { keyProp, onNotFound, onFocus }), [scopeRef, keyProp, onNotFound, onFocus]);
+
     return [
-        useMemo(() => new FocusManager(scopeRef, { keyProp, onNotFound, onFocus }), [scopeRef, keyProp, onNotFound, onFocus]),
+        focusManager,
         setRef
     ];
 }
@@ -345,6 +362,14 @@ export const ListboxBase = forwardRef(({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
+    const containerRef = useMergedRefs(setFocusScope, forwardedRef);
+
+    const select = useCallback((event, keys) => {
+        if (!isNil(onChange)) {
+            onChange(event, selectionMode === SelectionMode.multiple ? keys : keys[0]);
+        }
+    }, [onChange, selectionMode]);
+
     const handleSelect = useCallback((event, key) => {
         let newKeys;
 
@@ -354,27 +379,32 @@ export const ListboxBase = forwardRef(({
             newKeys = selectionManager.replaceSelection(key);
         }
 
-        if (!isNil(onChange)) {
-            onChange(event, selectionMode === SelectionMode.multiple ? newKeys : newKeys[0]);
-        }
-    }, [onChange, selectionManager, selectionMode]);
+        select(event, newKeys);
+    }, [select, selectionManager, selectionMode]);
+
+    const searchQueryRef = useRef("");
+    const searchDisposables = useDisposables();
 
     const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
-        const isMultiple = selectionMode === SelectionMode.multiple;
+        searchDisposables.dispose();
 
         switch (event.keyCode) {
             case KEYS.down:
                 focusManager.focusNext();
 
-                if (isMultiple && event.shiftKey) {
-                    selectionManager.toggleKey(focusManager.getActiveKey());
+                if (selectionMode === SelectionMode.multiple) {
+                    if (event.shiftKey) {
+                        select(selectionManager.toggleKey(focusManager.getActiveKey()));
+                    }
                 }
                 break;
             case KEYS.up:
                 focusManager.focusPrevious();
 
-                if (isMultiple && event.shiftKey) {
-                    selectionManager.toggleKey(focusManager.getActiveKey());
+                if (selectionMode === SelectionMode.multiple) {
+                    if (event.shiftKey) {
+                        select(selectionManager.toggleKey(focusManager.getActiveKey()));
+                    }
                 }
                 break;
             case KEYS.home:
@@ -383,10 +413,21 @@ export const ListboxBase = forwardRef(({
             case KEYS.end:
                 focusManager.focusLast();
                 break;
+            default: {
+                // Allow only alphanumeric keys and spacebar.
+                if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === KEYS.space) {
+                    const query = searchQueryRef.current = searchQueryRef.current + event.key;
+
+                    focusManager.search(query);
+
+                    // Reset search.
+                    searchDisposables.setTimeout(() => {
+                        searchQueryRef.current = "";
+                    }, 350);
+                }
+            }
         }
     });
-
-    const containerRef = useMergedRefs(setFocusScope, forwardedRef);
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");
 

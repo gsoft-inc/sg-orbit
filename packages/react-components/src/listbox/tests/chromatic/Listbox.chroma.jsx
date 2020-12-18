@@ -153,7 +153,7 @@ stories()
         </Inline>
     )
     .add("disabled item is not focusable", () =>
-        <Listbox aria-label="Planets">
+        <Listbox autoFocus aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
