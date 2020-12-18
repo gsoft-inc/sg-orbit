@@ -1,3 +1,8 @@
+/*
+Was thinkink in the beginning about making a Picker but now I do prefer a Select (everybody know what is a Select) and for the HTML version will make
+an HtmlSelect component
+*/
+
 // const nodes = useCollectionBuilder(children);
 
 // const items = useMemo(() =>

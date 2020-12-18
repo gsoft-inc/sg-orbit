@@ -88,11 +88,11 @@ export class FocusManager {
     }
 
     getActiveElement() {
-        return this._findActiveElement?.element ?? null;
+        return this._findActiveElement()?.element ?? null;
     }
 
     getActiveKey() {
-        const activeElement = this._findActiveElement();
+        const activeElement = this._findActiveElement()?.element;
 
         if (!isNil(activeElement)) {
             if (isNil(this._keyProp)) {
@@ -125,7 +125,7 @@ export class FocusManager {
         const elements = this._scopeRef.current;
 
         if (!isNil(elements)) {
-            const index = this._findActiveElement.index;
+            const index = this._findActiveElement().index;
 
             if (index === -1 || index + 1 > (elements.length - 1)) {
                 this.focusFirst();
@@ -139,7 +139,7 @@ export class FocusManager {
         const elements = this._scopeRef.current;
 
         if (!isNil(elements)) {
-            const index = this._findActiveElement.index;
+            const index = this._findActiveElement().index;
 
             if (index === -1 || index - 1 < 0) {
                 this.focusLast();
@@ -239,7 +239,7 @@ export function useAutofocusChild(focusManager, { target = FocusTarget.first, is
     });
 }
 
-export function useSelectionManager({ selectedKey, defaultSelectedKey }) {
+export function useSelectionManager({ selectedKey, defaultSelectedKey, nodes }) {
     const [selection, setSelectedKeys] = useControllableState(selectedKey, defaultSelectedKey, []);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -264,14 +264,44 @@ export function useSelectionManager({ selectedKey, defaultSelectedKey }) {
             return newKeys;
         };
 
-        // extendSelection
+        const extendSelection = toKey => {
+            if (memoSelectedKeys.length > 0) {
+                const lastKey = memoSelectedKeys[memoSelectedKeys.length - 1];
+
+                const newKeys = new Set(memoSelectedKeys);
+
+                let startIndex = nodes.findIndex(x => x.itemKey === lastKey);
+                let endIndex = nodes.findIndex(x => x.itemKey === toKey);
+
+                // Support both directions.
+                if (startIndex > endIndex) {
+                    const tempIndex = startIndex;
+
+                    startIndex = endIndex;
+                    endIndex = tempIndex;
+                }
+
+                for (let i = startIndex; i <= endIndex; i += 1) {
+                    newKeys.add(nodes[i].itemKey);
+                }
+
+                const asArray = Array.from(newKeys);
+
+                setSelectedKeys(asArray);
+
+                return asArray;
+            }
+
+            return memoSelectedKeys;
+        };
 
         return {
             selectedKeys: memoSelectedKeys,
             toggleKey,
-            replaceSelection
+            replaceSelection,
+            extendSelection
         };
-    }, [memoSelectedKeys, setSelectedKeys]);
+    }, [memoSelectedKeys, setSelectedKeys, nodes]);
 }
 
 ///////////////////
@@ -284,7 +314,6 @@ export const SelectionMode = {
 const NodeShape = {
     key: string.isRequired,
     index: number.isRequired,
-    level: number.isRequired,
     type: string.isRequired,
     elementType: elementType,
     ref: any,
@@ -321,7 +350,7 @@ const propTypes = {
      */
     selectionMode: oneOf(["single", "multiple"]),
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether or not the listbox should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
     /**
@@ -351,7 +380,8 @@ export const ListboxBase = forwardRef(({
 }, forwardedRef) => {
     const selectionManager = useSelectionManager({
         selectedKey: controlledKey,
-        defaultSelectedKey: uncontrolledKey
+        defaultSelectedKey: uncontrolledKey,
+        nodes
     });
 
     const [focusManager, setFocusScope] = useFocusManager({ keyProp: "data-o-ui-key" });
@@ -364,7 +394,7 @@ export const ListboxBase = forwardRef(({
 
     const containerRef = useMergedRefs(setFocusScope, forwardedRef);
 
-    const select = useCallback((event, keys) => {
+    const notifyChange = useCallback((event, keys) => {
         if (!isNil(onChange)) {
             onChange(event, selectionMode === SelectionMode.multiple ? keys : keys[0]);
         }
@@ -379,8 +409,8 @@ export const ListboxBase = forwardRef(({
             newKeys = selectionManager.replaceSelection(key);
         }
 
-        select(event, newKeys);
-    }, [select, selectionManager, selectionMode]);
+        notifyChange(event, newKeys);
+    }, [notifyChange, selectionManager, selectionMode]);
 
     const searchQueryRef = useRef("");
     const searchDisposables = useDisposables();
@@ -394,7 +424,8 @@ export const ListboxBase = forwardRef(({
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        select(selectionManager.toggleKey(focusManager.getActiveKey()));
+                        const newKeys = selectionManager.toggleKey(focusManager.getActiveKey());
+                        notifyChange(newKeys);
                     }
                 }
                 break;
@@ -403,7 +434,8 @@ export const ListboxBase = forwardRef(({
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        select(selectionManager.toggleKey(focusManager.getActiveKey()));
+                        const newKeys = selectionManager.toggleKey(focusManager.getActiveKey());
+                        notifyChange(newKeys);
                     }
                 }
                 break;
@@ -413,19 +445,29 @@ export const ListboxBase = forwardRef(({
             case KEYS.end:
                 focusManager.focusLast();
                 break;
-            default: {
-                // Allow only alphanumeric keys and spacebar.
-                if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === KEYS.space) {
+            case KEYS.space:
+                if (selectionMode === SelectionMode.multiple) {
+                    if (event.shiftKey) {
+                        const newKeys = selectionManager.extendSelection(focusManager.getActiveKey());
+                        notifyChange(newKeys);
+                    }
+                }
+            // eslint-disable-next-line no-fallthrough
+            default:
+                // Search accepts only alphanumeric and spacebar keys.
+                if ((event.keyCode >= 48 && event.keyCode <= 57) ||
+                    (event.keyCode >= 65 && event.keyCode <= 90) ||
+                     event.keyCode === KEYS.space)
+                {
                     const query = searchQueryRef.current = searchQueryRef.current + event.key;
 
                     focusManager.search(query);
 
-                    // Reset search.
+                    // Clear search query.
                     searchDisposables.setTimeout(() => {
                         searchQueryRef.current = "";
                     }, 350);
                 }
-            }
         }
     });
 

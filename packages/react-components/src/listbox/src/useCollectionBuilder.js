@@ -10,12 +10,11 @@ export class CollectionBuilder {
         const nodeIndex = nextNodeIndex();
         const that = this;
 
-        const items = Children.map(children, (item, itemIndex) => that._parseItem(item, 2, itemIndex, nextNodeIndex));
+        const items = Children.map(children, (item, itemIndex) => that._parseItem(item, itemIndex, nextNodeIndex));
 
         return {
             key: nodeIndex.toString(),
             index,
-            level: 1,
             type: "section",
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: section.type !== Section ? section.type : undefined,
@@ -25,7 +24,7 @@ export class CollectionBuilder {
         };
     }
 
-    _parseItem(item, level, index, nextNodeIndex) {
+    _parseItem(item, index, nextNodeIndex) {
         const nodeIndex = nextNodeIndex();
 
         const itemKey = !isNil(item.key) ? item.key.replace(".", "").replace("$", "") : nodeIndex.toString();
@@ -33,7 +32,6 @@ export class CollectionBuilder {
         return {
             key: nodeIndex.toString(),
             index,
-            level,
             type: "item",
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: item.type !== Item ? item.type : undefined,
@@ -59,7 +57,7 @@ export class CollectionBuilder {
                 return that._parseSection(element, index, nextNodeIndex);
             }
 
-            return that._parseItem(element, 1, index, nextNodeIndex);
+            return that._parseItem(element, index, nextNodeIndex);
         });
     }
 }
