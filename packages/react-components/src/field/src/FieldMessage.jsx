@@ -69,10 +69,12 @@ export const FieldMessage = forwardRef(({
             <StyleProvider
                 value={{
                     text: {
-                        size: "inherit"
+                        size: "inherit",
+                        color: "inherit"
                     },
                     p: {
-                        size: "inherit"
+                        size: "inherit",
+                        color: "inherit"
                     },
                     link: {
                         size: "inherit",
@@ -80,10 +82,12 @@ export const FieldMessage = forwardRef(({
                         underline: "dotted"
                     },
                     list: {
-                        size: "inherit"
+                        size: "inherit",
+                        color: "inherit"
                     },
                     icon: {
-                        size: embeddedIconSize(size)
+                        size: embeddedIconSize(size),
+                        color: "inherit"
                     }
                 }}
             >

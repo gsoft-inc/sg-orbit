@@ -8,6 +8,7 @@
     --foreground-color-2-active: var(--cloud-500);
     --foreground-color-3: var(--cloud-50);
     --foreground-color-4: var(--neutral-100);
+    --foreground-color-4-active: var(--neutral-500);
     --foreground-color-5: var(--marine-500);
     --foreground-color-5-hover: var(--marine-700);
     --foreground-color-brand: var(--primary-500);
@@ -24,6 +25,8 @@
     --secondary-text-hover: var(--marine-700);
     --secondary-text-active: var(--marine-900);
     --tertiary-text: var(--cloud-500);
+    --tertiary-text-hover: var(--cloud-700);
+    --tertiary-text-hover-active: var(--cloud-900);
     --quaternary-text: var(--marine-300);
     --brand-text: var(--primary-500);
     --brand-text-hover: var(--primary-700);
@@ -32,12 +35,17 @@
     --secondary-icons: var(--marine-500);
     --primary-border: var(--cloud-100);
     --primary-border-hover: var(--cloud-300);
+    --primary-border-active: var(--cloud-500);
     --secondary-border: var(--cloud-50);
-    --tertiary-border: var(--neutral-300);
+    --tertiary-border: var(--neutral-500);
+    --tertiary-border-hover: var(--neutral-700);
+    --tertiary-border-active: var(--neutral-900);
     --quaternary-border: var(--marine-500);
     --quaternary-border-hover: var(--marine-700);
     --brand-border: var(--primary-500);
     --critical-border: var(--alert-500);
+    --critical-border-hover: var(--alert-700);
+    --critical-border-active: var(--alert-900);
     /* INFO */
     --info-50: var(--marine-50);
     --info-100: var(--marine-100);
@@ -69,6 +77,8 @@
     --critical-500: var(--alert-500);
     --critical-900: var(--alert-900);
     --critical-text: var(--alert-500);
+    --critical-text-hover: var(--alert-700);
+    --critical-text-active: var(--alert-900);
     /* STATIC */
     --static-white: var(--white);
     /* SHADOWS */
@@ -104,6 +114,9 @@
     --secondary-text: var(--cloud-300);
     --secondary-text-hover: var(--cloud-100);
     --secondary-text-active: var(--cloud-50);
+    --tertiary-text: var(--cloud-700);
+    --tertiary-text-hover: var(--cloud-600);
+    --tertiary-text-hover-active: var(--cloud-500);
     --brand-text: var(--primary-500);
     --brand-text-hover: var(--primary-400);
     --brand-text-active: var(--primary-400);
@@ -113,12 +126,15 @@
     /* BORDER */
     --primary-border: var(--neutral-dark-600);
     --primary-border-hover: var(--neutral-dark-400);
+    --primary-border-active: var(--neutral-dark-300);
     --secondary-border: var(--neutral-dark-800);
     --tertiary-border: var(--neutral-dark-400);
     --quaternary-border: var(--marine-700);
     --quaternary-border-hover: var(--marine-600);
     --brand-border: var(--primary-700);
     --critical-border: var(--alert-700);
+    --critical-border-hover: var(--alert-600);
+    --critical-border-active: var(--alert-500);
     /* CLOUD */
     /* --cloud-50: red;
     --cloud-100: blue;
@@ -141,6 +157,9 @@
     --critical-500: var(--alert-600);
     --critical-900: var(--alert-50);
     --critical-text: var(--alert-700);
+    --critical-text-hover: var(--alert-600);
+    --critical-text-active: var(--alert-500);
+
     /* STATIC */
     --static-white: #FFFFFF;
     /* SHADOWS */

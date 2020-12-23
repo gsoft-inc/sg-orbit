@@ -67,17 +67,17 @@
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--alert-100);
+    background-color: var(--critical-100);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--alert-500);
+    background-color: var(foreground-color-critical);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--primary-500);
+    background-color: var(--foreground-color-critical);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {

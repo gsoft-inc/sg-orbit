@@ -11,6 +11,10 @@ const propTypes = {
      */
     size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl"]),
     /**
+     * A paragraph can change inherit it's parent color.
+     */
+    color: oneOf(["inherit"]),
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -25,6 +29,7 @@ export function InnerParagraph(props) {
 
     const {
         size,
+        color,
         as = "p",
         className,
         children,
@@ -42,7 +47,8 @@ export function InnerParagraph(props) {
             className={mergeClasses(
                 cssModule(
                     "o-ui-p",
-                    normalizeSize(size)
+                    normalizeSize(size),
+                    color ? `color-${color}`: ""
                 ),
                 "o-ui-text-color-inherit",
                 className

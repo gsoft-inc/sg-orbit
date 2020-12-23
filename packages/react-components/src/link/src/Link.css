@@ -20,6 +20,12 @@
     color: var(--primary-text);
 }
 
+/* INHERIT | STATE | HOVER */
+.o-ui-link-inherit:hover,
+.o-ui-link-inherit-hover {
+    color: inherit;
+}
+
 /* STATE | HOVER | DISABLED */
 .o-ui-link[disabled]:hover,
 .o-ui-link-hover[disabled] {
@@ -168,6 +174,7 @@
 .o-ui-link-left-icon,
 .o-ui-link-right-icon {
     flex-shrink: 0;
+    color: inherit;
 }
 
 /* LEFT ICON */
@@ -182,14 +189,14 @@
 
 /* VARIATIONS */
 /* PRIMARY */
-.o-ui-link.o-ui-icon-link.o-ui-link-primary {
+.o-ui-link.o-ui-link-primary {
     color: var(--brand-text);
 }
 
 /* PRIMARY | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-primary,
 .o-ui-link-hover.o-ui-link-primary {
-    color: var(--primary-700);
+    color: var(--brand-text-hover);
 }
 
 /* PRIMARY | STATE | FOCUS */
@@ -202,44 +209,43 @@
 /* PRIMARY | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-primary,
 .o-ui-link-active.o-ui-link-primary {
-    color: var(--primary-900);
+    color: var(--brand-text-active);
 }
 
 /* DANGER */
-.o-ui-link.o-ui-icon-link.o-ui-link-danger {
-    --o-ui-focus-ring-color: var(--alert-500);
+.o-ui-link.o-ui-link-danger {
+    --o-ui-focus-ring-color: var(--critical-border);
     color: var(--critical-text);
 }
 
 /* DANGER | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-danger,
 .o-ui-link-hover.o-ui-link-danger {
-    color: var(--alert-700);
+    color: var(--critical-text-hover);
 }
 
 /* DANGER | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-danger,
 .o-ui-link-focus.o-ui-link-danger {
-    background-color: var(--alert-50);
-    box-shadow: 0 0 0 2px var(--alert-50);
+    background-color: var(--critical-50);
+    box-shadow: 0 0 0 2px var(--critical-50);
 }
 
 /* DANGER | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-danger,
 .o-ui-link-active.o-ui-link-danger {
-    color: var(--alert-900);
+    color: var(--critical-text-active);
 }
 
 /* SECONDARY */
-.o-ui-link-secondary {
-    /* What it this */
-    color: var(--cloud-500);
+.o-ui-link.o-ui-link-secondary {
+    color: var(--tertiary-text);
 }
 
 /* SECONDARY | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-secondary,
 .o-ui-link-hover.o-ui-link-secondary {
-    color: var(--cloud-700);
+    color: var(--tertiary-text-hover);
 }
 
 /* SECONDARY | STATE | FOCUS */
@@ -252,7 +258,7 @@
 /* SECONDARY | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-secondary,
 .o-ui-link-active.o-ui-link-secondary {
-    color: var(--cloud-900);
+    color: var(--tertiary-text-active);
 }
 
 /* AS BUTTON */
@@ -291,7 +297,7 @@ button.o-ui-link-hover {
 }
 
 /* ICON LINK */
-.o-ui-icon-link.o-ui-icon-link {
+.o-ui-icon-link {
     color: var(--primary-text);
 }
 

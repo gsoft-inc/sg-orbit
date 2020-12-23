@@ -33,3 +33,7 @@
     font-weight: inherit;
     margin-bottom: .75em;
 }
+
+.o-ui-p-color-inherit {
+    color: inherit;
+}

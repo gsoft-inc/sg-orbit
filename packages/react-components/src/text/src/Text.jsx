@@ -19,7 +19,7 @@ const propTypes = {
      */
     size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "inherit"]),
     /**
-     * A text can change it's default color.
+     * A text can inherit it's parent color.
      */
     color: oneOf(["inherit"]),
     /**

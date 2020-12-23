@@ -114,7 +114,8 @@
 /* TAB | STATE | HOVER */
 .o-ui-tab:hover,
 .o-ui-tab-hover {
-    color: var(--marine-900);
+    /* @todo disabled */
+    color: var(--primary-text);
 }
 
 /* TAB | STATE | HOVER | DISABLED */
@@ -151,6 +152,15 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.o-ui-tab .o-ui-tab-text {
+    color: inherit;
+}
+
+.o-ui-tab .o-ui-tab-icon {
+    color: inherit;
+    fill: currentColor;
 }
 
 .o-ui-tab-icon + .o-ui-tab-text {

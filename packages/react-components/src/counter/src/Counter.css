@@ -55,7 +55,7 @@
 
 /* DIVIDER | COLOR | LIGHT */
 .o-ui-counter-divider.o-ui-counter-light {
-    color: var(--cloud-200);
+    color: var(--tertiary-text);
 }
 
 /* DIVIDER | HIGHLIGHT */

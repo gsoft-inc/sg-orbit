@@ -23,7 +23,8 @@
 }
 
 .o-ui-number-input {
-    width: 150px;
+    /* 150px @ 16px */
+    width: 9.365rem;
 }
 
 /* SPINNER */
@@ -116,6 +117,7 @@
 /* SPINNER | TRANSPARENT | HOVER */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
+    /* @todo change color */
     background-color: var(--marine-50);
 }
 
@@ -132,5 +134,6 @@
 /* SPINNER | TRANSPARENT | ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
+    /* @todo change color */
     background-color: var(--neutral-300);
 }

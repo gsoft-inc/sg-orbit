@@ -62,6 +62,11 @@
 
 /* INHERIT */
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
-    fill: var(--white);
+    fill: var(--static-white);
     opacity: .9;
+}
+
+.o-ui-icon-button .o-ui-button-icon {
+    color: inherit;
+    fill: currentColor;
 }

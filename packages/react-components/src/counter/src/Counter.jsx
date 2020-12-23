@@ -65,7 +65,7 @@ export function InnerCounter(props) {
     } = props;
 
     const content = variant === "divider"
-        ? <Text size={size}>{children}</Text>
+        ? <Text size={size} color="inherit">{children}</Text>
         : children;
 
     return (

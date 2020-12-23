@@ -33,7 +33,16 @@
 }
 
 /* PRIMARY */
-.o-ui-lozenge-primary {
-    background-color: var(--primary-500);
-    color: var(--white);
+.o-ui-lozenge.o-ui-lozenge-primary {
+    background-color: var(--foreground-color-brand);
+    color: var(--static-white);
+}
+
+.o-ui-lozenge.o-ui-lozenge-primary .o-ui-lozenge-text {
+    color: var(--static-white);
+}
+
+.o-ui-lozenge.o-ui-lozenge-primary .o-ui-lozenge-icon {
+    fill: currentColor;
+    color: inherit;
 }

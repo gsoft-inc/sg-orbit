@@ -20,7 +20,6 @@
     margin-top: calc(var(--scale-bravo) / 2);
     margin-bottom: calc(var(--scale-bravo) / 2);
     margin-right: var(--scale-bravo);
-    fill: var(--cloud-500);
 }
 
 .o-ui-alert-content {
@@ -86,7 +85,7 @@
 }
 
 /* DARK MODE */
-/* Note add an indirection here - we should not be aware that we are using Sunray and al. */
+/* @todo  Note add an indirection here - we should not be aware that we are using Sunray and al. */
 .o-ui-dark-color-scheme .o-ui-alert-warning {
     background-color: var(--sunray-700);
     --opacity-sunray-700: .4;
@@ -103,6 +102,6 @@
 }
 
 .o-ui-dark-color-scheme .o-ui-alert-success {
-    /* Having to know which color is set up is bad */
+    /* @todo Having to know which color is set up is bad */
     --opacity-green-900: .2;
 }

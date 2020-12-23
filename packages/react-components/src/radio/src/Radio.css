@@ -73,15 +73,15 @@
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--alert-200);
+    border-color: var(--critical-200);
 }
 
 .o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--alert-200);
+    border-color: var(--critical-200);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--alert-500);
+    background-color: var(--foreground-color-critical);
 }
 
 /* STATE | CHECKED */
@@ -98,7 +98,7 @@
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--alert-500);
+    background-color: var(--foreground-color-critical);
 }
 
 /* STATES | FOCUS | FOCUS RING */
@@ -124,12 +124,14 @@
 /* STATE | HOVER */
 .o-ui-radio:hover .o-ui-radio-button,
 .o-ui-radio-hover .o-ui-radio-button {
+    /* @todo validate border value */
     border: 1px solid var(--marine-300);
 }
 
 /* STATE | HOVER | DISABLED */
 .o-ui-radio-disabled:hover .o-ui-radio-button,
 .o-ui-radio-disabled-hover .o-ui-radio-button {
+    /* @todo validate */
     border: 1px solid var(--marine-100);
 }
 

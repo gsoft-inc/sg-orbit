@@ -40,7 +40,17 @@
     height: 1em;
 }
 
+.o-ui-icon-color-inherit {
+    color: inherit;
+}
+
 /* DISABLED */
 .o-ui-icon-disabled {
     opacity: var(--o-ui-disabled-opacity);
+}
+
+/* INHERIT */
+.o-ui-icon-link .o-ui-icon {
+    color: inherit;
+    fill: currentColor;
 }
