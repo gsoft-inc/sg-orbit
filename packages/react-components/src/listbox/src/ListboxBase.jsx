@@ -9,8 +9,8 @@ import {
     useChainedEventCallback,
     useControllableState,
     useDisposables,
-    useDomScope,
     useFocusManager,
+    useFocusableScope,
     useId,
     useMergedRefs
 } from "../../shared";
@@ -192,15 +192,15 @@ export const ListboxBase = forwardRef(({
     className,
     ...rest
 }, forwardedRef) => {
+    const containerRef = useMergedRefs(forwardedRef);
+
     const selectionManager = useSelectionManager({
         selectedKey: controlledKey,
         defaultSelectedKey: uncontrolledKey,
         nodes
     });
 
-    const [domScope, setDomScope] = useDomScope();
-
-    const containerRef = useMergedRefs(setDomScope, forwardedRef);
+    const domScope = useFocusableScope(containerRef);
 
     const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
 

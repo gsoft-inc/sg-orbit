@@ -9,9 +9,9 @@ import {
     useAutoFocusChild,
     useBasicKeyboardNavigation,
     useControllableState,
-    useDomScope,
     useEventCallback,
     useFocusManager,
+    useFocusableScope,
     useId,
     useMergedRefs
 } from "../../shared";
@@ -74,9 +74,7 @@ export function InnerAccordion({
 }) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
-    const [domScope, setDomScope] = useDomScope();
-
-    const containerRef = useMergedRefs(setDomScope, forwardedRef);
+    const containerRef = useMergedRefs(forwardedRef);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
@@ -86,6 +84,8 @@ export function InnerAccordion({
         selectedIndexes: memoSelectedIndexes,
         rootId: useId(id, id ? undefined : "o-ui-accordion")
     });
+
+    const domScope = useFocusableScope(containerRef);
 
     const focusManager = useFocusManager(domScope);
 

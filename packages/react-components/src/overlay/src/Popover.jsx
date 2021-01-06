@@ -8,9 +8,9 @@ import {
     resolveChildren,
     useAutoFocusChild,
     useControllableState,
-    useDomScope,
     useEventCallback,
     useFocusManager,
+    useFocusableScope,
     useMergedRefs
 } from "../../shared";
 import { isNil } from "lodash";
@@ -137,10 +137,7 @@ export function InnerPopover({
     const [overlayElement, setOverlayElement] = useState();
 
     const isVisibleRef = useRef(isVisible);
-
-    const [domScope, setDomScope] = useDomScope();
-
-    const overlayRef = useMergedRefs(setOverlayElement, setDomScope, forwardedRef);
+    const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
     const updateVisibility = useCallback((event, newVisibility) => {
         if (!isNil(onVisibilityChange)) {
@@ -191,6 +188,8 @@ export function InnerPopover({
         allowPreventOverflow,
         pinned
     });
+
+    const domScope = useFocusableScope(overlayRef);
 
     const focusManager = useFocusManager(domScope);
 

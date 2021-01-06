@@ -1,5 +1,5 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { KEYS, useAutoFocusChild, useBasicKeyboardNavigation, useDomScope, useFocusManager, useMergedRefs, useRovingFocus } from "../../shared";
+import { KEYS, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusableScope, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -76,13 +76,13 @@ export function InnerToolbar({
     forwardedRef,
     ...rest
 }) {
-    const [domScope, setDomScope] = useDomScope();
+    const containerRef = useMergedRefs(forwardedRef);
 
-    const containerRef = useMergedRefs(setDomScope, forwardedRef);
+    const domScope = useFocusableScope(containerRef);
 
     const focusManager = useFocusManager(domScope);
 
-    useRovingFocus(containerRef);
+    useRovingFocus(domScope);
 
     useAutoFocusChild(focusManager, {
         isDisabled: !autoFocus,

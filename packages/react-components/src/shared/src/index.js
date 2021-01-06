@@ -15,7 +15,6 @@ export * from "./mergeClasses";
 export * from "./cssModule";
 export * from "./resolvePopperPosition";
 export * from "./augmentElement";
-export * from "./TO_REMOVE_focusableTreeWalker";
 export * from "./omitProps";
 export * from "./arrayify";
 export * from "./resolveChildren";
@@ -23,7 +22,7 @@ export * from "./match";
 
 // Hooks
 export * from "./useMergedRefs";
-export * from "./useDomScope";
+export * from "./useFocusableScope";
 export * from "./useFocusManager";
 export * from "./useAutoFocus";
 export * from "./useRovingFocus";

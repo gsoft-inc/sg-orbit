@@ -18,7 +18,6 @@ export class FocusManager {
     _focusElement(element, { onFocus, onNotFound } = {}) {
         if (!isNil(element)) {
             if (isFunction(element.focus)) {
-                console.log(element);
                 element.focus();
 
                 if (!isNil(onFocus)) {
@@ -49,7 +48,7 @@ export class FocusManager {
     focusNext(currentElement, options) {
         const { elements } = this._scope;
 
-        const index = elements.findIndex(x => x === currentElement);
+        const index = elements.indexOf(currentElement);
 
         if (index === -1 || index + 1 > (elements.length - 1)) {
             return this.focusFirst(options);
@@ -61,13 +60,13 @@ export class FocusManager {
     focusPrevious(currentElement, options) {
         const { elements } = this._scope;
 
-        const index = elements.findIndex(x => x === currentElement);
+        const index = elements.indexOf(currentElement);
 
         if (index === -1 || index - 1 < 0) {
             return this.focusLast(options);
         }
 
-        return this._focusElement(elements[index + 1], options);
+        return this._focusElement(elements[index - 1], options);
     }
 
     focusKey(key, options) {

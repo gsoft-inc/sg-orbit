@@ -1,9 +1,10 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useDomScope, useFocusManager, useKeyedRovingFocus, useMergedRefs } from "../../shared";
+import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusableScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
+import { useRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {
@@ -21,6 +22,8 @@ const NavigationKeyBinding = {
     }
 };
 
+const KeyProp = "data-o-ui-index";
+
 export function TabList({
     tabs,
     autoFocus,
@@ -29,13 +32,13 @@ export function TabList({
 }) {
     const { selectedIndex, orientation } = useTabsContext();
 
-    const [domScope, setDomScope] = useDomScope();
+    const containerRef = useRef();
 
-    const containerRef = useMergedRefs(setDomScope);
+    const domScope = useFocusableScope(containerRef);
 
-    const focusManager = useFocusManager(domScope, { keyProp: "data-o-ui-index" });
+    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
 
-    useKeyedRovingFocus(containerRef, selectedIndex, { keyProp: "data-o-ui-index" });
+    useKeyedRovingFocus(domScope, selectedIndex, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
         target: selectedIndex,

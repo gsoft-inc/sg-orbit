@@ -8,9 +8,9 @@ import {
     resolveChildren,
     useAutoFocusChild,
     useControllableState,
-    useDomScope,
     useEventCallback,
     useFocusManager,
+    useFocusableScope,
     useMergedRefs
 } from "../../shared";
 import { Children, forwardRef } from "react";
@@ -129,9 +129,9 @@ export function InnerCheckboxGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
-    const [domScope, setDomScope] = useDomScope();
+    const groupRef = useMergedRefs(forwardedRef);
 
-    const groupRef = useMergedRefs(setDomScope, forwardedRef);
+    const domScope = useFocusableScope(groupRef);
 
     const focusManager = useFocusManager(domScope);
 

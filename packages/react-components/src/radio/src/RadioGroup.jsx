@@ -10,9 +10,9 @@ import {
     useAutoFocusChild,
     useBasicKeyboardNavigation,
     useControllableState,
-    useDomScope,
     useEventCallback,
     useFocusManager,
+    useFocusableScope,
     useId,
     useKeyedRovingFocus,
     useMergedRefs
@@ -100,6 +100,8 @@ const NavigationKeyBinding = {
     }
 };
 
+const KeyProp = "value";
+
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
@@ -129,13 +131,9 @@ export function InnerRadioGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const [domScope, setDomScope] = useDomScope();
-
-    const groupRef = useMergedRefs(setDomScope, forwardedRef);
+    const groupRef = useMergedRefs(forwardedRef);
 
     const handleArrowSelect = useEventCallback((event, element) => {
-        console.log("handleArrowSelect");
-
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
         const newValue = element.dataset.type === "number"
             ? parseInt(element.value)
@@ -144,9 +142,11 @@ export function InnerRadioGroup(props) {
         setCheckedValue(newValue);
     });
 
-    const focusManager = useFocusManager(domScope, { keyProp: "value" });
+    const domScope = useFocusableScope(groupRef);
 
-    useKeyedRovingFocus(groupRef, checkedValue, { keyProp: "value" });
+    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
+
+    useKeyedRovingFocus(domScope, checkedValue, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
         target: value ?? defaultValue,
@@ -160,7 +160,7 @@ export function InnerRadioGroup(props) {
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radio-group",
-        keyProp: "value",
+        keyProp: KeyProp,
         value,
         defaultValue,
         required,

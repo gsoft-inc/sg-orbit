@@ -1,13 +1,15 @@
 import { Button } from "@react-components/button";
 import { render, waitFor } from "@testing-library/react";
+import { useFocusableScope, useRovingFocus } from "@react-components/shared";
 import { useRef } from "react";
-import { useRovingFocus } from "@react-components/shared";
 import userEvent from "@utils/user-event";
 
 function RovingFocus({ children }) {
     const ref = useRef();
 
-    useRovingFocus(ref);
+    const domScope = useFocusableScope(ref);
+
+    useRovingFocus(domScope);
 
     return (
         <div ref={ref}>
