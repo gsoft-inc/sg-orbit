@@ -4,12 +4,15 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
-import { storiesOfBuilder } from "@stories/utils";
-import { useListboxContext } from "../../src/ListboxContext";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { useListboxContext } from "@react-components/listbox";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -236,6 +239,13 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Section>
+        </Listbox>
+    )
+    .add("do not autofocus a disabled item", () =>
+        <Listbox autoFocus aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus + default selected key", () =>

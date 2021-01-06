@@ -2,11 +2,14 @@ import { AddIcon } from "@react-components/icons";
 import { IconLink } from "@react-components/link";
 import { Inline } from "@react-components/layout";
 import { createIconLinkTestSuite } from "./createIconLinkTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/IconLink")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -28,5 +31,5 @@ stories()
         <IconLink disabled autoFocus href="#" aria-label="Add"><AddIcon /></IconLink>
     )
     .add("autofocus with delay", () =>
-        <IconLink autoFocus autoFocusDelay={50} href="#" aria-label="Add"><AddIcon /></IconLink>
+        <IconLink autoFocus={50} href="#" aria-label="Add"><AddIcon /></IconLink>
     );

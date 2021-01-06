@@ -18,7 +18,7 @@ import {
     useSlots
 } from "../../shared";
 import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 
 const propTypes = {
     /**
@@ -36,11 +36,7 @@ const propTypes = {
     /**
      * Whether or not the radio should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not the radio should display as "valid" or "invalid".
      */
@@ -74,7 +70,6 @@ export function InnerRadio(props) {
         checked,
         defaultChecked,
         autoFocus,
-        autoFocusDelay,
         validationState,
         onChange,
         onCheck,
@@ -99,7 +94,10 @@ export function InnerRadio(props) {
     const labelRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus(inputRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -116,6 +114,8 @@ export function InnerRadio(props) {
     });
 
     const handleCheck = useEventCallback(event => {
+        console.log("handleCheck");
+
         onCheck(event, value);
     });
 
@@ -179,6 +179,7 @@ export function InnerRadio(props) {
     );
 }
 
+InnerRadio.propTypes = propTypes;
 
 export const Radio = forwardRef((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />

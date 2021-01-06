@@ -6,11 +6,14 @@ import { Item } from "@react-components/placeholders";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tabs")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -411,6 +414,22 @@ stories()
             </Item>
         </Tabs>
     )
+    .add("do not autofocus disabled tab", () =>
+        <Tabs autoFocus aria-label="Planets">
+            <Item disabled>
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    )
     .add("autofocus + default index", () =>
         <Tabs autoFocus defaultIndex={1} aria-label="Planets">
             <Item>
@@ -428,7 +447,7 @@ stories()
         </Tabs>
     )
     .add("autofocus with delay", () =>
-        <Tabs autoFocus autoFocusDelay={50} aria-label="Planets">
+        <Tabs autoFocus={50} aria-label="Planets">
             <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -446,13 +465,13 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Tabs className="border-red">
+                <Tabs className="border-red" aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
-                <Tabs style={{ border: "1px solid red" }}>
+                <Tabs style={{ border: "1px solid red" }} aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -460,13 +479,13 @@ stories()
                 </Tabs>
             </Inline>
             <Inline>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Item>
                         <Header className="border-red">Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Item>
                         <Header style={{ border: "1px solid red" }}>Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -474,13 +493,13 @@ stories()
                 </Tabs>
             </Inline>
             <Inline>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
                         <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
-                <Tabs>
+                <Tabs aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
                         <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

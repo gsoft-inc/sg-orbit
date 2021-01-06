@@ -43,11 +43,7 @@ const propTypes = {
     /**
      * Whether or not the toggle icon button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A toggle icon button can vary in size.
      */

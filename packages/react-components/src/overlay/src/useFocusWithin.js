@@ -3,16 +3,16 @@ import { useEventCallback } from "../../shared";
 import { useRef } from "react";
 
 export function useFocusWithin({ onFocusWithin, onBlurWithin, isDisabled }) {
-    const isFocusWithin = useRef();
-    const activeElement = useRef();
+    const isFocusWithinRef = useRef();
+    const activeElementRef = useRef();
 
     const onFocus = useEventCallback(event => {
         if (!isNil(onFocusWithin)) {
             onFocusWithin(event);
         }
 
-        isFocusWithin.current = true;
-        activeElement.current = document.activeElement;
+        isFocusWithinRef.current = true;
+        activeElementRef.current = document.activeElement;
     });
 
     const onBlur = useEventCallback(event => {
@@ -20,15 +20,15 @@ export function useFocusWithin({ onFocusWithin, onBlurWithin, isDisabled }) {
         // loose the focus in favor of the dev tools. Since this is the dev tools who receive the focused, no elements of the popper will be focused on
         // the next tick which will cause the popper to close.
         // To prevent the popper from closing we leverage the fact that opening the dev tools doesn't update document.activeElement.
-        if (activeElement.current !== document.activeElement) {
+        if (activeElementRef.current !== document.activeElement) {
             // We don't want to trigger onBlurWithin and then immediately onFocusWithin again when moving focus inside the element. Only trigger if the currentTarget doesn't
             // include the relatedTarget (where focus is moving).
-            if (isFocusWithin && !event.currentTarget.contains(event.relatedTarget)) {
+            if (isFocusWithinRef.current && !event.currentTarget.contains(event.relatedTarget)) {
                 if (!isNil(onBlurWithin)) {
                     onBlurWithin(event);
                 }
 
-                isFocusWithin.current = false;
+                isFocusWithinRef.current = false;
             }
         }
     });

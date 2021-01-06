@@ -2,10 +2,22 @@ import "./Accordion.css";
 
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
-import { KEYS, arrayify, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation, useMergedRefs } from "../../shared";
+import {
+    KEYS,
+    arrayify,
+    mergeClasses,
+    useAutoFocusChild,
+    useBasicKeyboardNavigation,
+    useControllableState,
+    useDomScope,
+    useEventCallback,
+    useFocusManager,
+    useId,
+    useMergedRefs
+} from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useAccordionBuilder } from "./useAccordionBuilder";
 
 export const ExpandMode = {
@@ -36,11 +48,7 @@ const propTypes = {
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -58,7 +66,6 @@ export function InnerAccordion({
     onChange,
     expandMode = ExpandMode.single,
     autoFocus,
-    autoFocusDelay,
     as = "div",
     className,
     children,
@@ -67,7 +74,9 @@ export function InnerAccordion({
 }) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
-    const containerRef = useMergedRefs(forwardedRef);
+    const [domScope, setDomScope] = useDomScope();
+
+    const containerRef = useMergedRefs(setDomScope, forwardedRef);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
@@ -78,9 +87,14 @@ export function InnerAccordion({
         rootId: useId(id, id ? undefined : "o-ui-accordion")
     });
 
-    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
+    const focusManager = useFocusManager(domScope);
 
-    const navigationProps = useKeyboardNavigation({
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const navigationProps = useBasicKeyboardNavigation(focusManager, {
         previous: [KEYS.up],
         next: [KEYS.down],
         first: [KEYS.home],

@@ -2,9 +2,8 @@ import "./Disclosure.css";
 
 import { Children, forwardRef, useCallback, useRef } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { KEYS, augmentElement, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
+import { KEYS, augmentElement, cssModule, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
 import { any, bool, func } from "prop-types";
-import { cssModule } from "../../../dist";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 

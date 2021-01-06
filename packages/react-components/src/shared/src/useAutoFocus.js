@@ -1,59 +1,48 @@
-import { TABBABLE_ELEMENT_SELECTOR } from "./focusableTreeWalker";
+import { FocusTarget } from "./useFocusManager";
 import { disposables } from "./useDisposables";
 import { isNil } from "lodash";
-import { useCallback, useEffect } from "react";
+import { useChainedEventCallback } from "./useChainedEventCallback";
+import { useEffect } from "react";
+import { useEventCallback } from "./useEventCallback";
 
-function useAbstractAutoFocus({ isDisabled, delay = 0, onFocus }) {
+function useAbstractAutoFocus({ isDisabled, delay, onFocus }) {
     useEffect(() => {
         const d = disposables();
 
         if (!isDisabled) {
-            d.setTimeout(() => { onFocus(); }, delay);
+            if (delay) {
+                d.setTimeout(() => { onFocus(); }, delay);
+            } else {
+                d.nextFrame(() => { onFocus(); });
+            }
         }
 
         return () => {
             d.dispose();
         };
-    }, [isDisabled, onFocus, delay]);
+    }, [isDisabled, delay, onFocus]);
 }
 
 export function useAutoFocus(targetRef, { isDisabled, delay, onFocus } = {}) {
-    const handleFocus = useCallback(() => {
-        if (!isNil(targetRef.current) && !targetRef.current.hasAttribute("disabled")) {
-            targetRef.current.focus();
-
-            if (!isNil(onFocus)) {
-                onFocus();
+    useAbstractAutoFocus({
+        isDisabled,
+        delay,
+        onFocus: useChainedEventCallback(onFocus, () => {
+            if (!isNil(targetRef.current) && !targetRef.current.hasAttribute("disabled")) {
+                targetRef.current.focus();
             }
-        }
-    }, [targetRef, onFocus]);
-
-    useAbstractAutoFocus({ isDisabled, delay, onFocus: handleFocus });
+        })
+    });
 }
 
-/*
-TODO:
-    - Should have an conterpart like useAutoFocusFirstFocusableElement.
-    - Should only focus an element is none are already focused.
-*/
-export function useAutoFocusFirstTabbableElement(rootRef, { isDisabled, delay, onFocus, onNotFound } = {}) {
-    const handleFocus = useCallback(() => {
-        if (!isNil(rootRef.current)) {
-            const element = rootRef.current.querySelector(TABBABLE_ELEMENT_SELECTOR);
-
-            if (!isNil(element)) {
-                element.focus();
-
-                if (!isNil(onFocus)) {
-                    onFocus();
-                }
-            } else {
-                if (!isNil(onNotFound)) {
-                    onNotFound();
-                }
-            }
-        }
-    }, [rootRef, onFocus, onNotFound]);
-
-    useAbstractAutoFocus({ isDisabled, delay, onFocus: handleFocus });
+export function useAutoFocusChild(focusManager, { target = FocusTarget.first, isDisabled, delay, onFocus, onNotFound } = {}) {
+    useAbstractAutoFocus({
+        isDisabled,
+        delay,
+        onFocus: useEventCallback(() => {
+            focusManager.focusTarget(target, { onFocus, onNotFound });
+        })
+    });
 }
+
+

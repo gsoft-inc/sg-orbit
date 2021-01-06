@@ -6,11 +6,14 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Accordion")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -325,7 +328,7 @@ stories()
         </Accordion>
     )
     .add("autofocus delay", () =>
-        <Accordion autoFocus autoFocusDelay={50}>
+        <Accordion autoFocus={50}>
             <Item>
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

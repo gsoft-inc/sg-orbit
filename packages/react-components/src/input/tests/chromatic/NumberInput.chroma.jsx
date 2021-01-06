@@ -1,11 +1,14 @@
 import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/input";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/NumberInput")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -68,5 +71,5 @@ stories()
         <NumberInput autoFocus disabled placeholder="Age" />
     )
     .add("autofocus with delay", () =>
-        <NumberInput autoFocus autoFocusDelay={5} placeholder="Age" />
+        <NumberInput autoFocus={50} placeholder="Age" />
     );

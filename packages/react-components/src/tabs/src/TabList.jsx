@@ -1,9 +1,9 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
+import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useDomScope, useFocusManager, useKeyedRovingFocus, useMergedRefs } from "../../shared";
 import { Tab } from "./Tab";
-import { useRef } from "react";
+import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {
@@ -24,18 +24,26 @@ const NavigationKeyBinding = {
 export function TabList({
     tabs,
     autoFocus,
-    autoFocusDelay,
     className,
     ...rest
 }) {
     const { selectedIndex, orientation } = useTabsContext();
 
-    const containerRef = useRef();
+    const [domScope, setDomScope] = useDomScope();
 
-    useKeyedRovingFocus(containerRef, selectedIndex, { keyProp: "data-index" });
-    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
+    const containerRef = useMergedRefs(setDomScope);
 
-    const navigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
+    const focusManager = useFocusManager(domScope, { keyProp: "data-o-ui-index" });
+
+    useKeyedRovingFocus(containerRef, selectedIndex, { keyProp: "data-o-ui-index" });
+
+    useAutoFocusChild(focusManager, {
+        target: selectedIndex,
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     return (
         <Box
@@ -61,4 +69,4 @@ export function TabList({
     );
 }
 
-TabList.displayName = "TabList";
+

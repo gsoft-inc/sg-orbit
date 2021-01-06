@@ -36,11 +36,7 @@ const propTypes = {
     /**
      * Whether or not the link should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A link can vary in size.
      */
@@ -70,7 +66,6 @@ export function InnerTextLink(props) {
         underline,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,
@@ -93,7 +88,6 @@ export function InnerTextLink(props) {
         underline,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,

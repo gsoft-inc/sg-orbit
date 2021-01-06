@@ -6,11 +6,14 @@ import { Radio, RadioGroup } from "@react-components/radio";
 import { TextInput } from "@react-components/input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Toolbar")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -217,8 +220,25 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
+    .add("do not autofocus a disabled element", () =>
+        <Toolbar autoFocus>
+            <CheckboxGroup disabled>
+                <ToggleButton value="1">1</ToggleButton>
+                <ToggleButton value="2">2</ToggleButton>
+                <ToggleButton value="3">3</ToggleButton>
+            </CheckboxGroup>
+            <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <NotificationIcon />
+            </ToggleIconButton>
+            <RadioGroup>
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Toolbar>
+    )
     .add("autofocus with delay", () =>
-        <Toolbar autoFocus autoFocusDelay={5}>
+        <Toolbar autoFocus={50}>
             <CheckboxGroup>
                 <ToggleButton value="1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>

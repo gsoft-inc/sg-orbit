@@ -1,11 +1,14 @@
 import { Checkbox } from "@react-components/checkbox";
 import { Inline } from "@react-components/layout";
 import { createCheckboxTestSuite } from "./createCheckboxTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Checkbox")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -43,5 +46,5 @@ stories()
         <Checkbox autoFocus disabled>Milky Way</Checkbox>
     )
     .add("autofocus with delay", () =>
-        <Checkbox autoFocus autoFocusDelay={50}>Milky Way</Checkbox>
+        <Checkbox autoFocus={50}>Milky Way</Checkbox>
     );

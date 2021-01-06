@@ -30,11 +30,7 @@ const propTypes = {
     /**
      * Whether or not the button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not the button take up the width of its container.
      */
@@ -90,7 +86,6 @@ export function InnerButton(props) {
         shape = "pill",
         condensed,
         autoFocus,
-        autoFocusDelay,
         fluid,
         loading,
         size,
@@ -115,7 +110,6 @@ export function InnerButton(props) {
         color,
         shape,
         autoFocus,
-        autoFocusDelay,
         fluid,
         loading,
         size,

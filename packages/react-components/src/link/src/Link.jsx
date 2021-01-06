@@ -29,11 +29,7 @@ const propTypes = {
     /**
      * Whether or not the link should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not the link is disabled.
      */
@@ -57,7 +53,6 @@ export function InnerLink(props) {
         external,
         shape = "rounded",
         autoFocus,
-        autoFocusDelay,
         active,
         focus,
         hover,
@@ -76,7 +71,6 @@ export function InnerLink(props) {
         external,
         shape,
         autoFocus,
-        autoFocusDelay,
         active,
         focus,
         hover,

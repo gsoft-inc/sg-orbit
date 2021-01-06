@@ -2,11 +2,14 @@ import { AddIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createIconButtonTestSuite } from "./createIconButtonTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/IconButton")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -30,5 +33,5 @@ stories()
         <IconButton disabled autoFocus aria-label="Add"><AddIcon /></IconButton>
     )
     .add("autofocus with delay", () =>
-        <IconButton autoFocus autoFocusDelay={50} aria-label="Add"><AddIcon /></IconButton>
+        <IconButton autoFocus={50} aria-label="Add"><AddIcon /></IconButton>
     );

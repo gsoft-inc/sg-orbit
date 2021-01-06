@@ -52,11 +52,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -110,7 +106,6 @@ export function InnerTextArea(props) {
         variant = "outline",
         type = "text",
         autoFocus,
-        autoFocusDelay,
         button,
         disabled,
         readOnly,
@@ -154,7 +149,6 @@ export function InnerTextArea(props) {
         variant,
         type,
         autoFocus,
-        autoFocusDelay,
         disabled,
         readOnly,
         fluid,

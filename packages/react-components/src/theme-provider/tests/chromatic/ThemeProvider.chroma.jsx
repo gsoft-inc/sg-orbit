@@ -7,7 +7,7 @@ function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/ThemeProvider")
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(50)
+            .chromaticDelay(100)
             .build())
         .build();
 }

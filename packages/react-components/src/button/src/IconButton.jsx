@@ -28,11 +28,7 @@ const propTypes = {
     /**
      * Whether or not the icon button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * An icon button can show a loading indicator.
      */

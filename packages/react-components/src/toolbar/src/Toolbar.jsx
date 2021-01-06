@@ -1,19 +1,15 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { KEYS, useAutoFocusChild, useBasicKeyboardNavigation, useDomScope, useFocusManager, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 
 const propTypes = {
     /**
      * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * The orientation of the elements.
      */
@@ -69,7 +65,6 @@ const NavigationKeyBinding = {
 
 export function InnerToolbar({
     autoFocus,
-    autoFocusDelay,
     orientation = "horizontal",
     align,
     verticalAlign,
@@ -81,12 +76,20 @@ export function InnerToolbar({
     forwardedRef,
     ...rest
 }) {
-    const containerRef = useMergedRefs(forwardedRef);
+    const [domScope, setDomScope] = useDomScope();
+
+    const containerRef = useMergedRefs(setDomScope, forwardedRef);
+
+    const focusManager = useFocusManager(domScope);
 
     useRovingFocus(containerRef);
-    useAutoFocusFirstTabbableElement(containerRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
 
-    const arrowNavigationProps = useKeyboardNavigation(NavigationKeyBinding[orientation]);
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const arrowNavigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     const directionProps = useFlexDirection(orientation);
 
@@ -123,6 +126,7 @@ export function InnerToolbar({
     );
 }
 
+InnerToolbar.propTypes = propTypes;
 
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />

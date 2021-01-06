@@ -60,11 +60,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */

@@ -1,11 +1,14 @@
 import { Inline } from "@react-components/layout";
 import { TextArea } from "@react-components/input";
 import { createTextAreaTestSuite } from "./createTextAreaTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/TextArea")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -33,7 +36,7 @@ stories()
         <TextArea disabled autoFocus />
     )
     .add("autofocus with delay", () =>
-        <TextArea autoFocus autoFocusDelay={50} />
+        <TextArea autoFocus={50} />
     )
     .add("styling", () =>
         <Inline>

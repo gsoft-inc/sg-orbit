@@ -5,13 +5,16 @@ import { Radio, RadioGroup } from "@react-components/radio";
 import { Tag } from "@react-components/tag";
 import { Text } from "@react-components/text";
 import { ToggleButton } from "@react-components/button";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useCallback } from "react";
 import { useCheckableProps } from "@react-components/shared";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/RadioGroup")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -192,21 +195,35 @@ stories()
         </Stack>
     )
     .add("autofocus", () =>
-        <RadioGroup autoFocus defaultValue="2">
+        <RadioGroup autoFocus>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
     .add("when disabled do not autofocus", () =>
-        <RadioGroup autoFocus disabled defaultValue="2">
+        <RadioGroup autoFocus disabled>
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    )
+    .add("do not autofocus disabled checkbox", () =>
+        <RadioGroup autoFocus>
+            <Radio disabled value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    )
+    .add("autofocus + default value", () =>
+        <RadioGroup autoFocus defaultValue="2">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
     .add("autofocus with delay", () =>
-        <RadioGroup autoFocus autoFocusDelay={50} defaultValue="2">
+        <RadioGroup autoFocus={50}>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>

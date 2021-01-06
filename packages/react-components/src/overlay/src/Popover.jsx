@@ -1,13 +1,23 @@
-import { Children, forwardRef, useCallback, useState } from "react";
-import { FocusRestore } from "./FocusRestore";
+import { Children, forwardRef, useCallback, useRef, useState } from "react";
 import { Overlay } from "./Overlay";
 import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
-import { augmentElement, mergeClasses, resolveChildren, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import {
+    augmentElement,
+    mergeClasses,
+    resolveChildren,
+    useAutoFocusChild,
+    useControllableState,
+    useDomScope,
+    useEventCallback,
+    useFocusManager,
+    useMergedRefs
+} from "../../shared";
 import { isNil } from "lodash";
 import { useOverlay } from "./useOverlay";
 import { usePopoverPosition } from "./usePopoverPosition";
 import { usePopoverTrigger } from "./usePopoverTrigger";
+import { useRestoreFocus } from "./useRestoreFocus";
 
 /*
 SO (again):
@@ -16,7 +26,7 @@ SO (again):
 */
 
 /*
-PICKER:
+Select:
 - must work in a form (submit value with an hidden value) - Will be specific to a select though and not to a Popover.
 - clicking on a field label should focus the select (can't use label for I think)
 - user must be able to set it's id.
@@ -126,33 +136,33 @@ export function InnerPopover({
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
 
-    const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
+    const isVisibleRef = useRef(isVisible);
 
-    const hide = useCallback(event => {
+    const [domScope, setDomScope] = useDomScope();
+
+    const overlayRef = useMergedRefs(setOverlayElement, setDomScope, forwardedRef);
+
+    const updateVisibility = useCallback((event, newVisibility) => {
         if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, false);
+            onVisibilityChange(event, newVisibility);
         }
 
-        setIsVisible(false);
+        setIsVisible(newVisibility);
+        isVisibleRef.current = newVisibility;
     }, [onVisibilityChange, setIsVisible]);
 
-    const [trigger, content] = Children.toArray(resolveChildren(children, {
-        isVisible,
-        hide
-    }));
+    const hide = useCallback(event => {
+        updateVisibility(event, false);
+    }, [updateVisibility]);
+
+    const [trigger, content] = Children.toArray(resolveChildren(children, { isVisible, hide }));
 
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A popover must have exactly 2 children.");
     }
 
     const handleToggle = useEventCallback(event => {
-        const newVisibility = !isVisible;
-
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, newVisibility);
-        }
-
-        setIsVisible(newVisibility);
+        updateVisibility(event, !isVisible);
     });
 
     const handleHide = useEventCallback(event => {
@@ -182,12 +192,11 @@ export function InnerPopover({
         pinned
     });
 
-    useAutoFocusFirstTabbableElement(overlayRef, {
-        isDisabled: !isVisible,
-        onNotFound: useEventCallback(() => {
-            overlayElement?.focus();
-        })
-    });
+    const focusManager = useFocusManager(domScope);
+
+    useRestoreFocus(isVisibleRef, { isDisabled: !restoreFocus || !isVisible });
+
+    useAutoFocusChild(focusManager, { isDisabled: !isVisible, onNotFound: useEventCallback(() => { overlayElement?.focus(); }) });
 
     const triggerMarkup = augmentElement(trigger, {
         ...triggerProps,
@@ -214,19 +223,14 @@ export function InnerPopover({
                 containerElement={containerElement}
                 ref={overlayRef}
             >
-                <FocusRestore
-                    restoreFocus={restoreFocus}
-                    rootRef={overlayRef}
+                <PopoverContext.Provider
+                    value={{
+                        isVisible,
+                        hide
+                    }}
                 >
-                    <PopoverContext.Provider
-                        value={{
-                            isVisible,
-                            hide
-                        }}
-                    >
-                        {content}
-                    </PopoverContext.Provider>
-                </FocusRestore>
+                    {content}
+                </PopoverContext.Provider>
             </Overlay>
         </>
     );

@@ -21,7 +21,7 @@ stories()
         <TextInput disabled autoFocus />
     )
     .add("autofocus with delay", () =>
-        <TextInput autoFocus autoFocusDelay={50} />
+        <TextInput autoFocus={50} />
     )
     .add("styling", () =>
         <Inline>

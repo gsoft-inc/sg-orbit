@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
-import { Text } from "@react-components/text";
+import { Text } from "../../text";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useTabsContext } from "./TabsContext";
@@ -112,7 +112,7 @@ export function InnerTab({
             )}
             disabled={disabled}
             role="tab"
-            data-index={index}
+            data-o-ui-index={index}
             aria-selected={selected}
             aria-controls={panelId}
             as={as}

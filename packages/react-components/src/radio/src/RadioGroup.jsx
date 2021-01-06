@@ -7,18 +7,20 @@ import {
     mergeProps,
     omitProps,
     resolveChildren,
-    useAutoFocusFirstTabbableElement,
+    useAutoFocusChild,
+    useBasicKeyboardNavigation,
     useControllableState,
+    useDomScope,
     useEventCallback,
+    useFocusManager,
     useId,
-    useKeyboardNavigation,
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -54,11 +56,7 @@ const propTypes = {
     /**
      * Whether or not the radio group should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * The orientation of the group elements.
      */
@@ -114,7 +112,6 @@ export function InnerRadioGroup(props) {
         name,
         onChange,
         autoFocus,
-        autoFocusDelay,
         orientation = "vertical",
         gap,
         wrap,
@@ -132,12 +129,13 @@ export function InnerRadioGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const groupRef = useMergedRefs(forwardedRef);
+    const [domScope, setDomScope] = useDomScope();
 
-    useKeyedRovingFocus(groupRef, checkedValue, { keyProp: "value" });
-    useAutoFocusFirstTabbableElement(groupRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
+    const groupRef = useMergedRefs(setDomScope, forwardedRef);
 
     const handleArrowSelect = useEventCallback((event, element) => {
+        console.log("handleArrowSelect");
+
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
         const newValue = element.dataset.type === "number"
             ? parseInt(element.value)
@@ -146,14 +144,28 @@ export function InnerRadioGroup(props) {
         setCheckedValue(newValue);
     });
 
+    const focusManager = useFocusManager(domScope, { keyProp: "value" });
+
+    useKeyedRovingFocus(groupRef, checkedValue, { keyProp: "value" });
+
+    useAutoFocusChild(focusManager, {
+        target: value ?? defaultValue,
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useKeyboardNavigation(NavigationKeyBinding[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
+    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radio-group",
+        keyProp: "value",
+        value,
+        defaultValue,
         required,
         validationState,
+        autoFocus,
         orientation,
         gap,
         wrap,

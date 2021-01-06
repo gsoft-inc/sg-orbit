@@ -17,14 +17,14 @@ export function useOverlay({
         }
     };
 
-    const onKeyDown = event => {
+    const handleKeyDown = event => {
         if (event.keyCode === KEYS.esc) {
             event.preventDefault();
             hide(event);
         }
     };
 
-    const onBlurWithin = useEventCallback(event => {
+    const handleBlurWithin = useEventCallback(event => {
         if (isNil(canHideOnBlur) || canHideOnBlur(event.relatedTarget)) {
             hide(event);
         }
@@ -36,12 +36,15 @@ export function useOverlay({
 
     useInteractOutside(overlayRef, { onInteractOutside, isDisabled: !hideOnOutsideClick });
 
-    const focusWithinProps = useFocusWithin({ onBlurWithin, isDisabled: !hideOnBlur });
+    const focusWithinProps = useFocusWithin({
+        onBlurWithin: handleBlurWithin,
+        isDisabled: !hideOnBlur
+    });
 
     return {
         overlayProps: {
             ...focusWithinProps,
-            onKeyDown: hideOnEscape ? onKeyDown : undefined,
+            onKeyDown: hideOnEscape ? handleKeyDown : undefined,
             tabIndex: "-1"
         }
     };

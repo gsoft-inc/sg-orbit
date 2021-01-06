@@ -1,12 +1,24 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { KEYS, arrayify, disposables, mergeClasses, useChainedEventCallback, useControllableState, useDisposables, useId, useMergedRefs, walkFocusableElements } from "../../shared";
+import {
+    KEYS,
+    arrayify,
+    mergeClasses,
+    useAutoFocusChild,
+    useChainedEventCallback,
+    useControllableState,
+    useDisposables,
+    useDomScope,
+    useFocusManager,
+    useId,
+    useMergedRefs
+} from "../../shared";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
 import { any, array, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import { forwardRef, useCallback, useMemo, useRef } from "react";
 import { isNil, isNumber } from "lodash";
 
 /*
@@ -17,7 +29,7 @@ import { isNil, isNumber } from "lodash";
 - defaultSelected - DONE
 - onSelectionChange - DONE
 - Section (view TagsPicker section look) -> Should also be supported from dynamic items - DONE
-- Could also support Divider? -> SHould also be supported from dynamic items - NO because Menu doesn't Listbox
+- Could also support Divider? -> SHould also be supported from dynamic items - NO because Menu doesn't use Listbox
 - Item should support - DONE
     - Left icons (default) - DONE
     - Right icons with a "right-icon" slot - DONE
@@ -41,203 +53,6 @@ import { isNil, isNumber } from "lodash";
 
 - should we support dynamic loading? not sure because it doesn't seems like it would work with how we want to do Autocomplete? Does an autocomplete use a Listbox? - NOT NOW
 */
-
-export const FocusTarget = {
-    first: "first",
-    last: "last"
-};
-
-export class FocusManager {
-    _scopeRef;
-    _keyProp;
-    _onFocus;
-    _onNotFound;
-
-    constructor(scopeRef, { keyProp, onFocus, onNotFound } = {}) {
-        this._scopeRef = scopeRef;
-        this._keyProp = keyProp;
-        this._onFocus = onFocus;
-        this._onNotFound = onNotFound;
-    }
-
-    _focus(element) {
-        if (!isNil(element)) {
-            element.focus();
-
-            if (!isNil(this._onFocus)) {
-                this._onFocus(element);
-            }
-        } else {
-            if (!isNil(this._onNotFound)) {
-                this._onNotFound();
-            }
-        }
-    }
-
-    _findActiveElement() {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            const index = elements.findIndex(x => x === document.activeElement);
-
-            return {
-                index,
-                element: elements[index]
-            };
-        }
-    }
-
-    getActiveElement() {
-        return this._findActiveElement()?.element ?? null;
-    }
-
-    getActiveKey() {
-        const activeElement = this._findActiveElement()?.element;
-
-        if (!isNil(activeElement)) {
-            if (isNil(this._keyProp)) {
-                throw new Error("\"getActiveKey\" cannot be called without providing a `keyProp` to the FocusManager.");
-            }
-
-            return activeElement.getAttribute(this._keyProp);
-        }
-
-        return null;
-    }
-
-    focusFirst() {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            this._focus(elements[0]);
-        }
-    }
-
-    focusLast() {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            this._focus(elements[elements.length - 1]);
-        }
-    }
-
-    focusNext() {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            const index = this._findActiveElement().index;
-
-            if (index === -1 || index + 1 > (elements.length - 1)) {
-                this.focusFirst();
-            } else {
-                this._focus(elements[index + 1]);
-            }
-        }
-    }
-
-    focusPrevious() {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            const index = this._findActiveElement().index;
-
-            if (index === -1 || index - 1 < 0) {
-                this.focusLast();
-            } else {
-                this._focus(elements[index - 1]);
-            }
-        }
-    }
-
-    focusKey(key) {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            if (isNil(this._keyProp)) {
-                throw new Error("\"focusKey\" cannot be called without providing a `keyProp` to the FocusManager.");
-            }
-
-            this._focus(elements.find(x => x.getAttribute(this._keyProp) === key.toString()));
-        }
-    }
-
-    focusTarget(target) {
-        switch (target) {
-            case FocusTarget.first:
-                this.focusFirst(target);
-                break;
-            case FocusTarget.last:
-                this.focusLast(target);
-                break;
-            default:
-                this.focusKey(target);
-                break;
-        }
-    }
-
-    search(query) {
-        const elements = this._scopeRef.current;
-
-        if (!isNil(elements)) {
-            this._focus(elements.find(x => x.textContent?.toLowerCase().startsWith(query)));
-        }
-    }
-}
-
-export function useFocusManager({ keyProp, tabbable, onNotFound, onFocus }) {
-    const scopeRef = useRef([]);
-
-    const setRef = useCallback(root => {
-        if (root) {
-            const elements = [];
-
-            walkFocusableElements(
-                root,
-                x => { elements.push(x); },
-                { tabbable }
-            );
-
-            scopeRef.current = elements;
-        } else {
-            scopeRef.current = [];
-        }
-    }, [scopeRef, tabbable]);
-
-    const focusManager = useMemo(() => new FocusManager(scopeRef, { keyProp, onNotFound, onFocus }), [scopeRef, keyProp, onNotFound, onFocus]);
-
-    return [
-        focusManager,
-        setRef
-    ];
-}
-
-function useAbstractAutoFocus({ isDisabled, delay = 0, onFocus }) {
-    useEffect(() => {
-        const d = disposables();
-
-        if (!isDisabled) {
-            if (delay) {
-                d.setTimeout(() => { onFocus(); }, delay);
-            } else {
-                onFocus();
-            }
-        }
-
-        return () => {
-            d.dispose();
-        };
-    }, [isDisabled, delay, onFocus]);
-}
-
-export function useAutofocusChild(focusManager, { target = FocusTarget.first, isDisabled, delay } = {}) {
-    useAbstractAutoFocus({
-        isDisabled,
-        delay,
-        onFocus: useCallback(() => {
-            focusManager.focusTarget(target);
-        }, [focusManager, target])
-    });
-}
 
 export function useSelectionManager({ selectedKey, defaultSelectedKey, nodes }) {
     const [selection, setSelectedKeys] = useControllableState(selectedKey, defaultSelectedKey, []);
@@ -275,10 +90,7 @@ export function useSelectionManager({ selectedKey, defaultSelectedKey, nodes }) 
 
                 // Support both directions.
                 if (startIndex > endIndex) {
-                    const tempIndex = startIndex;
-
-                    startIndex = endIndex;
-                    endIndex = tempIndex;
+                    [startIndex, endIndex] = [endIndex, startIndex];
                 }
 
                 for (let i = startIndex; i <= endIndex; i += 1) {
@@ -363,6 +175,8 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
+const KeyProp = "data-o-ui-key";
+
 export const ListboxBase = forwardRef(({
     id,
     nodes,
@@ -384,15 +198,17 @@ export const ListboxBase = forwardRef(({
         nodes
     });
 
-    const [focusManager, setFocusScope] = useFocusManager({ keyProp: "data-o-ui-key" });
+    const [domScope, setDomScope] = useDomScope();
 
-    useAutofocusChild(focusManager, {
+    const containerRef = useMergedRefs(setDomScope, forwardedRef);
+
+    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
+
+    useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusedKey,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
-
-    const containerRef = useMergedRefs(setFocusScope, forwardedRef);
 
     const notifyChange = useCallback((event, keys) => {
         if (!isNil(onChange)) {
@@ -419,26 +235,30 @@ export const ListboxBase = forwardRef(({
         searchDisposables.dispose();
 
         switch (event.keyCode) {
-            case KEYS.down:
-                focusManager.focusNext();
+            case KEYS.down: {
+                const activeElement = focusManager.focusNext(event.target);
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(focusManager.getActiveKey());
+                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+
                         notifyChange(newKeys);
                     }
                 }
                 break;
-            case KEYS.up:
-                focusManager.focusPrevious();
+            }
+            case KEYS.up: {
+                const activeElement = focusManager.focusPrevious(event.target);
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(focusManager.getActiveKey());
+                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+
                         notifyChange(newKeys);
                     }
                 }
                 break;
+            }
             case KEYS.home:
                 focusManager.focusFirst();
                 break;
@@ -449,6 +269,7 @@ export const ListboxBase = forwardRef(({
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.extendSelection(focusManager.getActiveKey());
+
                         notifyChange(newKeys);
                     }
                 }

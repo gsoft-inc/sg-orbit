@@ -8,7 +8,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useTabsBuilder } from "./useTabsBuilder";
 
 const propTypes = {
@@ -34,11 +34,7 @@ const propTypes = {
     /**
      * Whether or not the first focusable tab should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not the tabs take up the width of the container.
      */
@@ -68,7 +64,6 @@ export function InnerTabs({
     onChange,
     manual,
     autoFocus,
-    autoFocusDelay,
     fluid,
     orientation = "horizontal",
     "aria-label": ariaLabel,
@@ -93,7 +88,7 @@ export function InnerTabs({
     }
 
     // When uncontrolled, ensure the initial selected tab is not a disabled one.
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (tabs[selectedIndex].disabled) {
             setSelectedIndex(tabs.find(x => !x.disabled).index);
         }
@@ -133,7 +128,6 @@ export function InnerTabs({
                 <TabList
                     tabs={tabs}
                     autoFocus={autoFocus}
-                    autoFocusDelay={autoFocusDelay}
                     aria-label={ariaLabel}
                 />
                 <TabPanels panels={panels} />

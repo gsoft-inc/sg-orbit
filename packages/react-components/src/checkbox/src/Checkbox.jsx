@@ -36,11 +36,7 @@ const propTypes = {
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -90,7 +86,6 @@ export function InnerCheckbox(props) {
         defaultIndeterminate,
         value,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange,
@@ -133,7 +128,6 @@ export function InnerCheckbox(props) {
         indeterminate,
         defaultIndeterminate,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange: !isNil(onCheck) ? handleCheck : onChange,

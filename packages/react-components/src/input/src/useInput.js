@@ -1,4 +1,5 @@
 import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { isNumber } from "lodash";
 
 export function useInput({
     cssModule: module,
@@ -11,7 +12,6 @@ export function useInput({
     variant,
     type,
     autoFocus,
-    autoFocusDelay,
     disabled,
     readOnly,
     fluid,
@@ -25,7 +25,10 @@ export function useInput({
 }) {
     const inputRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(inputRef, { isDisabled: !autoFocus, delay: autoFocusDelay });
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     return {
         wrapperProps: {

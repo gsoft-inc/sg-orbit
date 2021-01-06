@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import { walkFocusableElements } from "./focusableTreeWalker";
+import { walkFocusableElements } from "./TO_REMOVE_focusableTreeWalker";
 
 // IS IT POSSIBLE TO USE SOMETHING LIKE THIS INSTEAD OF A MutationObserver?
 
