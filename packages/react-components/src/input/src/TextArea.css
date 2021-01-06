@@ -10,7 +10,7 @@
     /* Fixes a bug where Firefox adds one more row than the one specified. */
     overflow-x: hidden;
     padding: var(--scale-bravo) var(--o-ui-textarea-padding);
-    min-height: 80px;
+    min-height: var(--scale-mike);
 }
 
 /* TRANSPARENT */

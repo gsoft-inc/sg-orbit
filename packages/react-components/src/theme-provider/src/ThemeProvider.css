@@ -129,7 +129,7 @@
     --primary-border-active: var(--neutral-dark-300);
     --secondary-border: var(--neutral-dark-800);
     --tertiary-border: var(--neutral-dark-400);
-    --quaternary-border: var(--marine-700);
+    --quaternary-border: var(--marine-400);
     --quaternary-border-hover: var(--marine-600);
     --brand-border: var(--primary-700);
     --critical-border: var(--alert-700);
