@@ -10,7 +10,7 @@ import {
     useControllableState,
     useEventCallback,
     useFocusManager,
-    useFocusableScope,
+    useFocusScope,
     useMergedRefs
 } from "../../shared";
 import { isNil } from "lodash";
@@ -136,8 +136,11 @@ export function InnerPopover({
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
 
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const overlayRef = useMergedRefs(setOverlayElement, setFocusRef, forwardedRef);
+
     const isVisibleRef = useRef(isVisible);
-    const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
     const updateVisibility = useCallback((event, newVisibility) => {
         if (!isNil(onVisibilityChange)) {
@@ -189,11 +192,9 @@ export function InnerPopover({
         pinned
     });
 
-    const domScope = useFocusableScope(overlayRef);
+    const focusManager = useFocusManager(focusScope);
 
-    const focusManager = useFocusManager(domScope);
-
-    useRestoreFocus(isVisibleRef, { isDisabled: !restoreFocus || !isVisible });
+    const restoreFocusProps = useRestoreFocus(isVisibleRef, { isDisabled: !restoreFocus || !isVisible });
 
     useAutoFocusChild(focusManager, { isDisabled: !isVisible, onNotFound: useEventCallback(() => { overlayElement?.focus(); }) });
 
@@ -210,6 +211,7 @@ export function InnerPopover({
                 {...overlayProps}
                 {...overlayPositionProps}
                 {...overlayTriggerProps}
+                {...restoreFocusProps}
                 show={isVisible}
                 className={mergeClasses(
                     "o-ui-popover",

@@ -10,7 +10,7 @@ import {
     useControllableState,
     useDisposables,
     useFocusManager,
-    useFocusableScope,
+    useFocusScope,
     useId,
     useMergedRefs
 } from "../../shared";
@@ -192,7 +192,9 @@ export const ListboxBase = forwardRef(({
     className,
     ...rest
 }, forwardedRef) => {
-    const containerRef = useMergedRefs(forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const selectionManager = useSelectionManager({
         selectedKey: controlledKey,
@@ -200,9 +202,7 @@ export const ListboxBase = forwardRef(({
         nodes
     });
 
-    const domScope = useFocusableScope(containerRef);
-
-    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusedKey,

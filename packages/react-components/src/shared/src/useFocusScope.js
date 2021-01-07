@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 const FocusableElement = [
     "input:not([disabled]):not([type=hidden])",
@@ -50,13 +50,11 @@ class DomScope {
     }
 }
 
-export function useFocusableScope(rootRef) {
+export function useFocusScope() {
     const scopeRef = useRef([]);
     const changeHandlersRef = useRef([]);
 
-    useLayoutEffect(() => {
-        const rootElement = rootRef.current;
-
+    const setRef = useCallback(rootElement => {
         const setElements = elements => {
             changeHandlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
@@ -75,24 +73,26 @@ export function useFocusableScope(rootRef) {
             setElements(scope);
         };
 
-        // Parse initial elements.
-        parseElements();
-
         // Watch for dynamic elements.
         const mutationObserver = new MutationObserver(() => {
             parseElements();
         });
 
-        mutationObserver.observe(rootElement, {
-            subtree: true,
-            childList: true
-        });
+        if (rootElement) {
+            // Parse initial elements.
+            parseElements();
 
-        return () => {
+            mutationObserver.observe(rootElement, {
+                subtree: true,
+                childList: true
+            });
+        } else {
             mutationObserver.disconnect();
             setElements([]);
-        };
-    }, [rootRef]);
+        }
+    }, [scopeRef]);
 
-    return useMemo(() => new DomScope(scopeRef, changeHandlersRef), [scopeRef, changeHandlersRef]);
+    const scope = useMemo(() => new DomScope(scopeRef, changeHandlersRef), [scopeRef, changeHandlersRef]);
+
+    return [scope, setRef];
 }

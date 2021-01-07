@@ -12,7 +12,7 @@ import {
     useControllableState,
     useEventCallback,
     useFocusManager,
-    useFocusableScope,
+    useFocusScope,
     useId,
     useKeyedRovingFocus,
     useMergedRefs
@@ -131,7 +131,9 @@ export function InnerRadioGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const groupRef = useMergedRefs(forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const groupRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
@@ -142,11 +144,9 @@ export function InnerRadioGroup(props) {
         setCheckedValue(newValue);
     });
 
-    const domScope = useFocusableScope(groupRef);
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
-
-    useKeyedRovingFocus(domScope, checkedValue, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
         target: value ?? defaultValue,

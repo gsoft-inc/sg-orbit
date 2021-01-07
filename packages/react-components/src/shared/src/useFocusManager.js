@@ -24,10 +24,10 @@ export class FocusManager {
                     onFocus(element);
                 }
             }
-        }
-
-        if (!isNil(onNotFound)) {
-            onNotFound();
+        } else {
+            if (!isNil(onNotFound)) {
+                onNotFound();
+            }
         }
 
         return element;
@@ -82,9 +82,9 @@ export class FocusManager {
     focusTarget(target, options) {
         switch (target) {
             case FocusTarget.first:
-                return this.focusFirst(target, options);
+                return this.focusFirst(options);
             case FocusTarget.last:
-                return this.focusLast(target, options);
+                return this.focusLast(options);
             default:
                 return this.focusKey(target, options);
         }

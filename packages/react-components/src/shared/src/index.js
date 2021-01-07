@@ -22,7 +22,7 @@ export * from "./match";
 
 // Hooks
 export * from "./useMergedRefs";
-export * from "./useFocusableScope";
+export * from "./useFocusScope";
 export * from "./useFocusManager";
 export * from "./useAutoFocus";
 export * from "./useRovingFocus";

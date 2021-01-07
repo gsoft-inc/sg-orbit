@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusableScope, useKeyedRovingFocus } from "../../shared";
+import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useRef } from "react";
@@ -32,13 +32,13 @@ export function TabList({
 }) {
     const { selectedIndex, orientation } = useTabsContext();
 
-    const containerRef = useRef();
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    const domScope = useFocusableScope(containerRef);
+    const containerRef = useRef(setFocusRef);
 
-    const focusManager = useFocusManager(domScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    useKeyedRovingFocus(domScope, selectedIndex, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectedIndex, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
         target: selectedIndex,
