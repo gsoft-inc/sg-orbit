@@ -1,5 +1,5 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { KEYS, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
+import { KEYS, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -103,10 +103,12 @@ export function InnerToolbar({
 
     return (
         <Flex
-            {...rest}
-            {...directionProps}
-            {...alignProps}
-            {...arrowNavigationProps}
+            {...mergeProps(
+                rest,
+                directionProps,
+                alignProps,
+                arrowNavigationProps
+            )}
             role="toolbar"
             gap={gap}
             wrap={!isNil(wrap) ? "wrap" : undefined}

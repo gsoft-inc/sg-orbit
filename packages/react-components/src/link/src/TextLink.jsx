@@ -123,8 +123,10 @@ export function InnerTextLink(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
+            {...mergeProps(
+                rest,
+                linkProps
+            )}
         >
             {leftIcon}
             {text}

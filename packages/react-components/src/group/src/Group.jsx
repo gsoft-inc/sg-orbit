@@ -2,6 +2,7 @@ import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -64,9 +65,11 @@ export function InnerGroup({
 
     return (
         <Flex
-            {...rest}
-            {...directionProps}
-            {...alignProps}
+            {...mergeProps(
+                rest,
+                directionProps,
+                alignProps
+            )}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}
         >

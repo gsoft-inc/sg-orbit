@@ -125,8 +125,10 @@ export function InnerIconButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
+            {...mergeProps(
+                rest,
+                buttonProps
+            )}
             title={title ?? ariaLabel}
             as={as}
             aria-label={ariaLabel}

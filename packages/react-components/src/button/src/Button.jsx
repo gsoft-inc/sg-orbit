@@ -142,8 +142,10 @@ export function InnerButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
+            {...mergeProps(
+                rest,
+                buttonProps
+            )}
             className={mergeClasses(
                 cssModule(
                     "o-ui-button",

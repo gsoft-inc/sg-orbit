@@ -107,8 +107,10 @@ export function InnerToggleIconButton(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...buttonProps}
+            {...mergeProps(
+                rest,
+                buttonProps
+            )}
         >
             {content}
         </ElementType>

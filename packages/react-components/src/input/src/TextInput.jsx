@@ -154,8 +154,10 @@ export function InnerTextInput(props) {
         <>
             {iconMarkup}
             <input
-                {...rest}
-                {...inputProps}
+                {...mergeProps(
+                    rest,
+                    inputProps
+                )}
             />
             {buttonMarkup}
         </>

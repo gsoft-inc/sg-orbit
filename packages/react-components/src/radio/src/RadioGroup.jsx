@@ -189,9 +189,11 @@ export function InnerRadioGroup(props) {
 
     return (
         <Group
-            {...rest}
-            {...navigationProps}
-            {...groupProps}
+            {...mergeProps(
+                rest,
+                navigationProps,
+                groupProps
+            )}
         >
             <CheckableContext.Provider
                 value={{

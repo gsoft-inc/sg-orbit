@@ -2,6 +2,7 @@ import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 const propTypes = {
@@ -56,8 +57,10 @@ export function InnerInline({
 
     return (
         <Flex
-            {...rest}
-            {...alignProps}
+            {...mergeProps(
+                rest,
+                alignProps
+            )}
             gap={gap !== 0 ? gap : undefined}
             wrap={!isNil(wrap) ? "wrap" : undefined}
             ref={forwardedRef}

@@ -167,8 +167,10 @@ export function InnerCheckbox(props) {
 
     return (
         <Box
-            {...rest}
-            {...wrapperProps}
+            {...mergeProps(
+                rest,
+                wrapperProps
+            )}
             as={as}
         >
             <VisuallyHidden {...inputProps} />

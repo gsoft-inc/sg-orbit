@@ -98,8 +98,10 @@ export function InnerToggleButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
+            {...mergeProps(
+                rest,
+                buttonProps
+            )}
             as={as}
         >
             {content}

@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
+import { KEYS, mergeClasses, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useRef } from "react";
@@ -50,8 +50,10 @@ export function TabList({
 
     return (
         <Box
-            {...rest}
-            {...navigationProps}
+            {...mergeProps(
+                rest,
+                navigationProps
+            )}
             className={mergeClasses("o-ui-tab-list", className)}
             role="tablist"
             aria-orientation={orientation}

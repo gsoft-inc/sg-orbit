@@ -185,8 +185,10 @@ export function InnerTextArea(props) {
     const content = (
         <>
             <textarea
-                {...rest}
-                {...inputProps}
+                {...mergeProps(
+                    rest,
+                    inputProps
+                )}
                 rows={rows}
                 style={{
                     "--o-ui-resize": resize,

@@ -137,8 +137,10 @@ export function InnerSwitch(props) {
 
     return (
         <Box
-            {...rest}
-            {...wrapperProps}
+            {...mergeProps(
+                rest,
+                wrapperProps
+            )}
             as={as}
         >
             <VisuallyHidden {...inputProps} />

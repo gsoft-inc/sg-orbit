@@ -309,8 +309,10 @@ export function InnerNumberInput(props) {
         <>
             {iconMarkup}
             <input
-                {...rest}
-                {...inputProps}
+                {...mergeProps(
+                    rest,
+                    inputProps
+                )}
                 onBlur={handleBlur}
             />
             <Spinner

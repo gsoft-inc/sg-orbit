@@ -82,8 +82,10 @@ export function InnerLink(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
+            {...mergeProps(
+                rest,
+                linkProps
+            )}
         >
             {children}
         </ElementType>

@@ -168,8 +168,10 @@ export function InnerCheckboxGroup(props) {
 
     return (
         <Group
-            {...rest}
-            {...groupProps}
+            {...mergeProps(
+                rest,
+                groupProps
+            )}
         >
             <ClearToolbar>
                 <ClearFieldContext>

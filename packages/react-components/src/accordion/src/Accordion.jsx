@@ -6,6 +6,7 @@ import {
     KEYS,
     arrayify,
     mergeClasses,
+    mergeProps,
     useAutoFocusChild,
     useBasicKeyboardNavigation,
     useControllableState,
@@ -126,8 +127,10 @@ export function InnerAccordion({
 
     return (
         <Box
-            {...rest}
-            {...navigationProps}
+            {...mergeProps(
+                rest,
+                navigationProps
+            )}
             className={mergeClasses("o-ui-accordion", className)}
             as={as}
             ref={containerRef}

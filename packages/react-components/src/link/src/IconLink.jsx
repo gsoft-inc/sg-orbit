@@ -114,8 +114,10 @@ export function InnerIconLink(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
+            {...mergeProps(
+                rest,
+                linkProps
+            )}
             title={title ?? ariaLabel}
             aria-label={ariaLabel}
         >
