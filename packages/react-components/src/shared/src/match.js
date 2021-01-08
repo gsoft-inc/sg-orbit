@@ -1,9 +1,5 @@
 import { isFunction, isNil } from "lodash";
 
-/*
-TODO: Finally, won't be used much. Consider removing it.
-*/
-
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/match.ts
 export function match(value, lookup, ...args) {
     const handler = lookup[value];

@@ -3,6 +3,7 @@ import "./Popover.css";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Children, forwardRef, useContext, useLayoutEffect, useState } from "react";
+import { Inline } from "../../../layout";
 import { Popover } from "@react-components/overlay";
 import { PopoverContext } from "../../src";
 import { Text } from "@react-components/text";
@@ -24,6 +25,9 @@ INTERACTION TEST:
 - focus trigger on close
 - focus first element on open
 - with and without restoreFocus
+- restore focus on close
+- restore focus on next element when closed with tab
+- restore focus on previous element when closed with shift+tab
 */
 
 function stories(segment) {
@@ -331,6 +335,23 @@ stories()
                 </RedBox>
             </Popover>
         </Boundary>
+    )
+    .add("focusable overlay content 2", () =>
+        <Inline>
+            <Button>Previous</Button>
+            <Popover defaultShow>
+                <Button fluid>Open</Button>
+                <RedBox>
+                    <>
+                        <Text>What's on your mind?</Text>
+                        <br />
+                        <TextInput id="txt-1" />
+                        <TextInput id="txt-2" />
+                    </>
+                </RedBox>
+            </Popover>
+            <Button>Next</Button>
+        </Inline>
     )
     .add("render props", () =>
         <Boundary>

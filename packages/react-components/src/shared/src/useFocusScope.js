@@ -1,26 +1,5 @@
 import { useCallback, useMemo, useRef } from "react";
-
-const FocusableElement = [
-    "input:not([disabled]):not([type=hidden])",
-    "select:not([disabled])",
-    "textarea:not([disabled])",
-    "button:not([disabled])",
-    "a[href]",
-    "area[href]",
-    "summary",
-    "iframe",
-    "object",
-    "embed",
-    "audio[controls]",
-    "video[controls]",
-    "[contenteditable]"
-];
-
-const FocusableElementSelector = [...FocusableElement, "[tabindex]"].join(",");
-
-function walkFocusableElements(root, onElement) {
-    root.querySelectorAll(FocusableElementSelector).forEach((x, index) => onElement(x, index));
-}
+import { walkFocusableElements } from "./focusableTreeWalker";
 
 class DomScope {
     _scopeRef;

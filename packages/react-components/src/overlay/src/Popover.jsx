@@ -5,6 +5,7 @@ import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "
 import {
     augmentElement,
     mergeClasses,
+    mergeProps,
     resolveChildren,
     useAutoFocusChild,
     useControllableState,
@@ -142,7 +143,7 @@ export function InnerPopover({
 
     const isVisibleRef = useRef(isVisible);
 
-    const updateVisibility = useCallback((event, newVisibility) => {
+    const setVisibility = useCallback((event, newVisibility) => {
         if (!isNil(onVisibilityChange)) {
             onVisibilityChange(event, newVisibility);
         }
@@ -152,8 +153,8 @@ export function InnerPopover({
     }, [onVisibilityChange, setIsVisible]);
 
     const hide = useCallback(event => {
-        updateVisibility(event, false);
-    }, [updateVisibility]);
+        setVisibility(event, false);
+    }, [setVisibility]);
 
     const [trigger, content] = Children.toArray(resolveChildren(children, { isVisible, hide }));
 
@@ -162,7 +163,7 @@ export function InnerPopover({
     }
 
     const handleToggle = useEventCallback(event => {
-        updateVisibility(event, !isVisible);
+        setVisibility(event, !isVisible);
     });
 
     const handleHide = useEventCallback(event => {
@@ -194,7 +195,7 @@ export function InnerPopover({
 
     const focusManager = useFocusManager(focusScope);
 
-    const restoreFocusProps = useRestoreFocus(isVisibleRef, { isDisabled: !restoreFocus || !isVisible });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isVisible });
 
     useAutoFocusChild(focusManager, { isDisabled: !isVisible, onNotFound: useEventCallback(() => { overlayElement?.focus(); }) });
 
@@ -207,11 +208,13 @@ export function InnerPopover({
         <>
             {triggerMarkup}
             <Overlay
-                {...rest}
-                {...overlayProps}
-                {...overlayPositionProps}
-                {...overlayTriggerProps}
-                {...restoreFocusProps}
+                {...mergeProps(
+                    rest,
+                    overlayProps,
+                    overlayPositionProps,
+                    overlayTriggerProps,
+                    restoreFocusProps
+                )}
                 show={isVisible}
                 className={mergeClasses(
                     "o-ui-popover",

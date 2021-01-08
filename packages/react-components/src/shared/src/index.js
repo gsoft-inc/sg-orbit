@@ -19,6 +19,7 @@ export * from "./omitProps";
 export * from "./arrayify";
 export * from "./resolveChildren";
 export * from "./match";
+export * from "./focusableTreeWalker";
 
 // Hooks
 export * from "./useMergedRefs";

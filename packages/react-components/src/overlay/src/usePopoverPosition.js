@@ -57,6 +57,6 @@ export function usePopoverPosition({
             ...styles.popper,
             zIndex: 100000
         },
-        overlayProps: attributes.popper
+        overlayProps: attributes.popper || {}
     };
 }

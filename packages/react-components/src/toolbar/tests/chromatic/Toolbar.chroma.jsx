@@ -37,25 +37,6 @@ stories()
             </RadioGroup>
         </Toolbar>
     )
-    .add("dynamic", () => {
-        const [addDynamic, setAddDynamic] = useState(false);
-
-        return (
-            <>
-                <Toolbar>
-                    <CheckboxGroup>
-                        <ToggleButton value="1">1</ToggleButton>
-                        <ToggleButton value="2">2</ToggleButton>
-                        <ToggleButton value="3">3</ToggleButton>
-                    </CheckboxGroup>
-                    {addDynamic && <ToggleIconButton shape="circular" aria-label="Activate notification">
-                        <NotificationIcon />
-                    </ToggleIconButton>}
-                </Toolbar>
-                <Button onClick={() => { setAddDynamic(x => !x); }}>Add dynamic</Button>
-            </>
-        );
-    })
     .add("disabled element", () =>
         <Toolbar autoFocus>
             <CheckboxGroup disabled>
