@@ -137,7 +137,7 @@ stories()
         </Accordion>
     )
     .add("multiple", () =>
-        <Accordion multiple defaultIndex={[0, 2]}>
+        <Accordion expandMode="multiple" defaultIndex={[0, 2]}>
             <Item>
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

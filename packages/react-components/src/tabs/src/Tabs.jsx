@@ -6,9 +6,8 @@ import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
-import { forwardRef } from "react";
+import { forwardRef, useLayoutEffect } from "react";
 import { isNil } from "lodash";
-import { useLayoutEffect } from "react";
 import { useTabsBuilder } from "./useTabsBuilder";
 
 const propTypes = {
@@ -89,8 +88,8 @@ export function InnerTabs({
 
     // When uncontrolled, ensure the initial selected tab is not a disabled one.
     useLayoutEffect(() => {
-        if (tabs[selectedIndex].disabled) {
-            setSelectedIndex(tabs.find(x => !x.disabled).index);
+        if (tabs[selectedIndex]?.props?.disabled) {
+            setSelectedIndex(tabs.find(x => !x.props?.disabled)?.index ?? 0);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

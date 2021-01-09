@@ -114,8 +114,6 @@ export function InnerRadio(props) {
     });
 
     const handleCheck = useEventCallback(event => {
-        console.log("handleCheck");
-
         onCheck(event, value);
     });
 

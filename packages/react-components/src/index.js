@@ -38,4 +38,5 @@ export * from "./disclosure";
 export * from "./accordion";
 export * from "./theme-provider";
 export * from "./overlay";
+export * from "./listbox";
 export * from "./shared";

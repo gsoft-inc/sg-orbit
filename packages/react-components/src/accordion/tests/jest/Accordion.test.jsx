@@ -67,11 +67,11 @@ test("up arrow keypress select the next item", async () => {
 
 // ***** API *****
 
-test("when exclusive, call onChange when the expanded tab change", async () => {
+test("when single, call onChange when the expanded tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Accordion onChange={handler}>
+        <Accordion expandMode="single" onChange={handler}>
             <Item data-testid="item-1">
                 <Header as="h3">Header</Header>
                 <Content>Content</Content>
@@ -91,20 +91,20 @@ test("when exclusive, call onChange when the expanded tab change", async () => {
         fireEvent.click(getByTestId("item-1"));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [0]));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 0));
 
     act(() => {
         fireEvent.click(getByTestId("item-2"));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), [1]));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1));
 });
 
 test("when multiple, call onChange when the expanded tabs change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Accordion multiple onChange={handler}>
+        <Accordion expandMode="multiple" onChange={handler}>
             <Item data-testid="item-1">
                 <Header as="h3">Header</Header>
                 <Content>Content</Content>
