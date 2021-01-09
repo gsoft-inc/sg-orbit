@@ -32,29 +32,27 @@ export class TabsBuilder {
             const tabId = this._makeId(header, "tab", index);
             const panelId = this._makeId(content, "panel", index);
 
-            tabs.push(
-                mergeProps(header.props, tab.props, {
-                    id: tabId, // <- should be in a props object or not event computed here
-                    index,
-                    key: (nodeIndex++).toString(),
-                    // Use a custom type if available otherwise let the Tab component choose his default type.
-                    type: header.type !== Header ? header.type : undefined,
-                    ref: header.ref,
-                    panelId // <- should be in a props object
-                })
-            );
+            tabs.push({
+                id: tabId,
+                key: (nodeIndex++).toString(),
+                index,
+                // Use a custom type if available otherwise let the Tab component choose his default type.
+                elementType: header.type !== Header ? header.type : undefined,
+                ref: header.ref,
+                panelId,
+                props: mergeProps(header.props, tab.props)
+            });
 
-            panels.push(
-                mergeProps(content.props, {
-                    id: panelId, // <- should be in a props object or not event computed here
-                    index,
-                    key: (nodeIndex++).toString(),
-                    // Use a custom type if available otherwise let the Tab component choose his default type.
-                    type: content.type !== Content ? content.type : undefined,
-                    ref: content.ref,
-                    tabId // <- should be in a props object
-                })
-            );
+            panels.push({
+                id: panelId,
+                key: (nodeIndex++).toString(),
+                index,
+                // Use a custom type if available otherwise let the Tab component choose his default type.
+                elementType: content.type !== Content ? content.type : undefined,
+                ref: content.ref,
+                tabId,
+                props: content.props
+            });
         });
 
         return [tabs, panels];

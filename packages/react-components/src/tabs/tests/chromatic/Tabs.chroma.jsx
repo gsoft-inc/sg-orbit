@@ -7,6 +7,7 @@ import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { useTabsContext } from "../../src/TabsContext";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tabs")
@@ -293,13 +294,16 @@ stories()
         </Stack>
     )
     .add("custom components", () => {
-        const ActiveHeader = ({ selected, children, ...rest }) => {
+        const ActiveHeader = ({ tab, children, ...rest }) => {
+            const { selectedIndex } = useTabsContext();
+            const { index } = tab;
+
             return (
                 <Tab
                     {...rest}
-                    selected={selected}
+                    tab={tab}
                 >
-                    {selected ? <CheckCircleIcon /> : <CrossIcon />}
+                    {index === selectedIndex ? <CheckCircleIcon /> : <CrossIcon />}
                     <Text>{children}</Text>
                 </Tab>
             );

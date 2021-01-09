@@ -1,5 +1,6 @@
 import "./Accordion.css";
 
+import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import {
@@ -135,15 +136,31 @@ export function InnerAccordion({
             as={as}
             ref={containerRef}
         >
-            {items.map(({ index: itemIndex, key, ...itemProps }) => (
-                <AccordionItem
-                    {...itemProps}
-                    index={itemIndex}
-                    open={memoSelectedIndexes.includes(itemIndex)}
-                    onToggle={handleToggle}
-                    key={key}
-                />
-            ))}
+            <AccordionContext.Provider
+                value={{
+                    selectedIndexes: memoSelectedIndexes,
+                    onToggle: handleToggle
+                }}
+            >
+                {items.map(({
+                    id: itemId,
+                    key,
+                    index: itemIndex,
+                    header,
+                    panel
+                }) => (
+                    <AccordionItem
+                        item={{
+                            index: itemIndex,
+                            header,
+                            panel
+                        }}
+                        id={itemId}
+                        key={key}
+
+                    />
+                ))}
+            </AccordionContext.Provider>
         </Box>
     );
 }

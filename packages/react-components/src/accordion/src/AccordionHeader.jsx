@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
-import { adaptSize, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
+import { adaptSize, cssModule, mergeClasses, normalizeSize, omitProps, useSlots } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -27,18 +27,20 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerAccordionHeader({
-    size,
-    disabled,
-    active,
-    focus,
-    hover,
-    as,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerAccordionHeader(props) {
+    const {
+        size,
+        disabled,
+        active,
+        focus,
+        hover,
+        as,
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = omitProps(props, ["header"]);
+
     if (isNil(as)) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }

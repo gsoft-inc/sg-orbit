@@ -1,4 +1,4 @@
-import { Accordion, AccordionHeader, useAccordionItemContext } from "@react-components/accordion";
+import { Accordion, AccordionHeader, useAccordionContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/placeholders";
@@ -248,13 +248,15 @@ stories()
         </Stack>
     )
     .add("custom component", () => {
-        const ActiveHeader = ({ children, ...rest }) => {
-            const { isOpen } = useAccordionItemContext();
+        const ActiveHeader = ({ header, children, ...rest }) => {
+            const { selectedIndexes } = useAccordionContext();
+            const { index } = header;
 
             return (
                 <AccordionHeader
                     {...rest}
-                    style={{ backgroundColor: isOpen ? "blue" : "red" }}
+                    header={header}
+                    style={{ backgroundColor: selectedIndexes.includes(index) ? "blue" : "red" }}
                 >
                     {children}
                 </AccordionHeader>
@@ -280,15 +282,13 @@ stories()
     })
     .add("custom as", () => {
         const ActiveHeader = ({ children, ...rest }) => {
-            const { isOpen } = useAccordionItemContext();
-
             return (
                 <Box
                     {...rest}
                     as="h3"
                 >
                     {augmentElement(children, {
-                        style: { backgroundColor: isOpen ? "blue" : "red" }
+                        style: { backgroundColor: "red" }
                     })}
                 </Box>
             );

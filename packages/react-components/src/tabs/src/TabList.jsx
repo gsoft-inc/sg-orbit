@@ -34,8 +34,6 @@ export function TabList({
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useRef(setFocusRef);
-
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
     useKeyedRovingFocus(focusScope, selectedIndex, { keyProp: KeyProp });
@@ -57,17 +55,26 @@ export function TabList({
             className={mergeClasses("o-ui-tab-list", className)}
             role="tablist"
             aria-orientation={orientation}
-            ref={containerRef}
+            ref={setFocusRef}
         >
             {tabs.map(({
+                id,
+                key,
                 index,
-                type: ElementType = Tab,
-                ...tabProps
+                elementType: ElementType = Tab,
+                ref,
+                panelId,
+                props
             }) =>
                 <ElementType
-                    {...tabProps}
-                    index={index}
-                    selected={selectedIndex === index}
+                    {...props}
+                    tab={{
+                        index,
+                        panelId
+                    }}
+                    id={id}
+                    key={key}
+                    ref={ref}
                 />
             )}
         </Box>

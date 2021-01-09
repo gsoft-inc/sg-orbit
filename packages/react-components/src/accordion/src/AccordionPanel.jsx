@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { Box } from "../../box";
 import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { mergeClasses, omitProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -16,13 +16,15 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerAccordionPanel({
-    as = "div",
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerAccordionPanel(props) {
+    const {
+        as = "div",
+        className,
+        children,
+        forwardedRef,
+        ...rest
+    } = omitProps(props, ["panel"]);
+
     return (
         <Box
             {...rest}

@@ -3,19 +3,15 @@ import "./Tabs.css";
 import { Box } from "../../box";
 import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { any, bool, elementType, number, oneOfType, string } from "prop-types";
+import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
 const propTypes = {
     /**
-     * The tab index.
+     * Matching tab item.
      */
-    index: number,
-    /**
-     * The id of the tab panel controlled by the tab.
-     */
-    panelId: string,
+    tab: object.isRequired,
     /**
      * Whether or not the tab is selected.
      */
@@ -35,9 +31,7 @@ const propTypes = {
 };
 
 export function InnerTab({
-    index,
-    panelId,
-    selected,
+    tab: { index, panelId },
     disabled,
     active,
     focus,
@@ -48,7 +42,7 @@ export function InnerTab({
     forwardedRef,
     ...rest
 }) {
-    const { isManual, onSelect } = useTabsContext();
+    const { selectedIndex, onSelect, isManual } = useTabsContext();
 
     const { icon, text, lozenge } = useSlots(children, {
         _: {
@@ -113,7 +107,7 @@ export function InnerTab({
             disabled={disabled}
             role="tab"
             data-o-ui-index={index}
-            aria-selected={selected}
+            aria-selected={index === selectedIndex}
             aria-controls={panelId}
             as={as}
             ref={forwardedRef}

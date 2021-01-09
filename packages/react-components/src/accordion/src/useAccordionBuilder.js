@@ -24,22 +24,24 @@ export class AccordionBuilder {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
             }
 
-            const headerProps = mergeProps(header.props, item.props, { // <- should have a props object
+            const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
-                type: header.type !== Header ? header.type : undefined,
-                ref: header.ref
-            });
+                elementType: header.type !== Header ? header.type : undefined,
+                ref: header.ref,
+                props: mergeProps(header.props, item.props)
+            };
 
-            const panelProps = mergeProps(content.props, { // <- should have a props object
+            const panelProps = {
                 // Use a custom type if available otherwise let the AccordionPanel component choose his default type.
-                type: content.type !== Content ? content.type : undefined,
-                ref: content.ref
-            });
+                elementType: content.type !== Content ? content.type : undefined,
+                ref: content.ref,
+                props: content.props
+            };
 
             return {
-                id: `${this._rootId}-${index}`, // <- should be in a props object or not event computed here
-                index,
+                id: `${this._rootId}-${index}`,
                 key: index.toString(),
+                index,
                 header: headerProps,
                 panel: panelProps
             };
