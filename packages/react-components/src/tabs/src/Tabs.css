@@ -114,14 +114,13 @@
 /* TAB | STATE | HOVER */
 .o-ui-tab:hover,
 .o-ui-tab-hover {
-    /* @todo disabled */
     color: var(--primary-text);
 }
 
 /* TAB | STATE | HOVER | DISABLED */
 .o-ui-tab[disabled]:hover,
 .o-ui-tab-hover[disabled] {
-    color: var(--primary-text);
+    color: var(--secondary-text);
 }
 
 /* TAB | STATE | SELECTED */

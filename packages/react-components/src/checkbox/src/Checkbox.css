@@ -22,8 +22,6 @@
     display: inline-block;
     width: var(--scale-echo);
     height: var(--scale-echo);
-    /* background-color: var(--foreground-color-1); */
-    /* @todo checker ce que cetait avant */
     box-shadow: 0 0 0 1px var(--primary-border);
     border-radius: var(--o-ui-rounded-border-radius);
     transition: all .125s ease-in;

@@ -8,7 +8,8 @@
     --foreground-color-2-active: var(--cloud-500);
     --foreground-color-3: var(--cloud-50);
     --foreground-color-4: var(--neutral-100);
-    --foreground-color-4-active: var(--neutral-500);
+    --foreground-color-4-hover: var(--neutral-300);
+    --foreground-color-4-active: var(--neutral-600);
     --foreground-color-5: var(--marine-500);
     --foreground-color-5-hover: var(--marine-700);
     --foreground-color-brand: var(--primary-500);
@@ -96,7 +97,9 @@
     --foreground-color-2-hover: var(--cloud-900);
     --foreground-color-2-active: var(--cloud-600);
     --foreground-color-3: var(--cloud-900);
-    --foreground-color-4: var(--neutral-dark-100);
+    --foreground-color-4: var(--neutral-dark-800);
+    --foreground-color-4-hover: var(--neutral-dark-300);
+    --foreground-color-4-active: var(--neutral-dark-100);
     --foreground-color-5: var(--marine-600);
     --foreground-color-5-hover: var(--marine-500);
     --foreground-color-5-active: var(--marine-400);

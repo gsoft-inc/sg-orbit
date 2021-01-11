@@ -120,7 +120,7 @@ export function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size="sm" />
+                <CarretIcon size="xs" />
             </button>
             <button
                 onClick={handleDecrement}

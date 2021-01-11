@@ -274,7 +274,7 @@ a.o-ui-button {
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(----critical-border) inset;
+    box-shadow: 0 0 0 1px var(--critical-border) inset;
     color: var(--static-white);
     background-color: var(--critical-border);
 }
@@ -378,7 +378,7 @@ a.o-ui-button {
     left: 50%;
     border-radius: 50px;
     border: 2px solid var(--marine-200);
-    border-top-color: var(--white);
+    border-top-color: var(--static-white);
     animation: o-ui-button-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);
 }
@@ -410,20 +410,24 @@ a.o-ui-button {
 
 /* SOLID | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-primary:before {
-    border: 2px solid var(--primary-800);
-    border-top-color: var(--white);
+    border: 2px solid rgba(256, 256, 256, 0.5);
+    border-top-color: var(--static-white);
 }
 
 /* SOLID | LOADING | SECONDARY */
-.o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
-    border: 2px solid var(--cloud-300);
-    border-top-color: var(--white);
+.o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary {
+    --opacity-cloud-500: 0.5;
 }
 
-/* SOLID | LOADING | DANGER */
+.o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
+    border: 2px solid var(--cloud-500);
+    border-top-color: var(--static-white);
+}
+
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {
-    border: 2px solid var(--alert-300);
-    border-top-color: var(--white);
+    --opacity-alert-500: 0.5;
+    border: 2px solid rgba(256, 256, 256, 0.5);
+    border-top-color: var(--static-white);
 }
 
 /* OUTLINE | LOADING | PRIMARY */
@@ -557,7 +561,7 @@ a.o-ui-button {
 
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
-    fill: var(--white);
+    fill: var(--static-white);
     opacity: .9;
 }
 
@@ -566,7 +570,7 @@ a.o-ui-button {
 }
 
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-text {
-    color: var(--white);
+    color: var(--static-white);
     opacity: .9;
 }
 

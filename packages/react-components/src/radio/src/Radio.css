@@ -124,15 +124,13 @@
 /* STATE | HOVER */
 .o-ui-radio:hover .o-ui-radio-button,
 .o-ui-radio-hover .o-ui-radio-button {
-    /* @todo validate border value */
-    border: 1px solid var(--marine-300);
+    border: 1px solid var(--primary-border-hover);
 }
 
 /* STATE | HOVER | DISABLED */
 .o-ui-radio-disabled:hover .o-ui-radio-button,
 .o-ui-radio-disabled-hover .o-ui-radio-button {
-    /* @todo validate */
-    border: 1px solid var(--marine-100);
+    border: 1px solid var(--primary-border);
 }
 
 /* STATE | DISABLED */
