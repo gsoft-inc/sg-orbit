@@ -1,5 +1,6 @@
+import { Button } from "@react-components/button";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { Inline, Stack } from "../../../layout";
+import { Inline } from "../../../layout";
 import { Item } from "@react-components/placeholders";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
@@ -16,11 +17,15 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Select placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
+        <Inline>
+            <Button>Previous</Button>
+            <Select placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+            <Button>Next</Button>
+        </Inline>
     )
     .add("item with left icon", () =>
         <Select placeholder="Select a planet" aria-label="Planets">
@@ -67,6 +72,13 @@ stories()
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
+        </Select>
+    )
+    .add("selected key", () =>
+        <Select selectedKey="mars" placeholder="Select a planet" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
         </Select>
     )
     .add("autoFocus", () =>

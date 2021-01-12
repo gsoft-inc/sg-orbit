@@ -10,12 +10,12 @@ export class AccordionBuilder {
         this._rootId = rootId;
     }
 
-    build(elements, selectedIndexes) {
-        if (isNil(elements)) {
+    build(nodes, selectedIndexes) {
+        if (isNil(nodes)) {
             throw new Error("An accordion must have children.");
         }
 
-        return Children.map(elements, (item, index) => {
+        return Children.map(nodes, (item, index) => {
             const [header, content] = Children.toArray(resolveChildren(item.props.children, {
                 isOpen: selectedIndexes.includes(index)
             }));

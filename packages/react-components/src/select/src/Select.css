@@ -4,7 +4,7 @@
 }
 
 .o-ui-select-trigger:focus {
-    background-color: blue;
+    border: 1px solid black;
 }
 
 .o-ui-select-menu {

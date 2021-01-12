@@ -1,7 +1,7 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
-import { KEYS, mergeClasses, mergeProps, useAutoFocus, useChainedEventCallback, useControllableState, useEventCallback, useFocusScope, useMergedRefs, useSlots } from "../../shared";
+import { KEYS, mergeClasses, mergeProps, useAutoFocus, useControllableState, useEventCallback, useFocusScope, useMergedRefs, useSlots } from "../../shared";
 import { ListboxBase } from "../../listbox";
 import { Overlay, useOverlay, usePopoverPosition, usePopoverTrigger, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
@@ -30,12 +30,6 @@ an HtmlSelect component
 Should also support:
     - items prop?
     - empty selection?
-*/
-
-/*
-PROBLEMS:
-    - can focus back to the trigger then can't close on blur or esc -> maybe just close when focusing back to the trigger?
-    - restoreFocus doesn't work when selecting a value
 */
 
 const propTypes = {
@@ -126,7 +120,6 @@ export function InnerSelect({
     defaultSelectedKey,
     onChange,
     onVisibilityChange,
-    onKeyDown,
     placeholder,
     align = "start",
     direction = "bottom",
@@ -183,12 +176,17 @@ export function InnerSelect({
         close(event);
     });
 
-    const handleSelectOption = useChainedEventCallback(onChange, (event, newSelectedKey) => {
+    const handleSelectOption = useEventCallback((event, newSelectedKey) => {
+        if (!isNil(onChange)) {
+            onChange(event, newSelectedKey);
+        }
+
         setSelectedKey(newSelectedKey);
         close(event);
     });
 
-    const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
+    // TODO: Instead of doing this, allow to pass a FocusTarget (first | last) to ListboxBase autoFocus prop. What about delay though? Don't care maybe?
+    const handleKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
             case KEYS.down:
                 defaultFocusedKeyRef.current = nodes[0]?.itemKey;
@@ -204,7 +202,7 @@ export function InnerSelect({
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleClose,
-        // Do not hide on blur when the focus is on the trigger.
+        // Do not hide on blur when the focus is on the trigger. It would result in double toggling the menu.
         canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
         hideOnEscape: true,
         hideOnBlur: true,
@@ -279,7 +277,10 @@ export function InnerSelect({
                 )}
             >
                 {value}
-                <ChevronIcon className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"} size="sm" />
+                <ChevronIcon
+                    className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
+                    size="sm"
+                />
             </TriggerType>
             <Overlay
                 {...mergeProps(
@@ -300,7 +301,9 @@ export function InnerSelect({
                     selectedKey={selectedKey}
                     defaultFocusedKey={defaultFocusedKeyRef.current}
                     onChange={handleSelectOption}
-                    autoFocus
+                    /* Must be restricted with the isVisible flag otherwise it will steal the focus from the trigger when selecting
+                       a value because the listbox re-render before the exit animation is done. */
+                    autoFocus={isVisible}
                     aria-label={ariaLabel}
                 />
             </Overlay>

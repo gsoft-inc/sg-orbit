@@ -134,15 +134,12 @@ export function InnerPopover({
 
     const overlayRef = useMergedRefs(setOverlayElement, setFocusRef, forwardedRef);
 
-    const isVisibleRef = useRef(isVisible);
-
     const setVisibility = useCallback((event, newVisibility) => {
         if (!isNil(onVisibilityChange)) {
             onVisibilityChange(event, newVisibility);
         }
 
         setIsVisible(newVisibility);
-        isVisibleRef.current = newVisibility;
     }, [onVisibilityChange, setIsVisible]);
 
     const hide = useCallback(event => {
@@ -166,7 +163,7 @@ export function InnerPopover({
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleHide,
-        // Do not hide on blur when the focus is on the trigger.
+        // Do not hide on blur when the focus is on the trigger. It would result in double toggling the overlay.
         canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
         hideOnEscape,
         hideOnBlur,

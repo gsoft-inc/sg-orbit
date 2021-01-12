@@ -20,8 +20,8 @@ export const FocusableElementSelector = [...FocusableElement, "[tabindex]"].join
 
 export const TabbableElementSelector = [...FocusableElement, "[tabindex]:not([tabindex=\"-1\"])"].join(":not([tabindex=\"-1\"]),");
 
-export function createFocusableTreeWalker(root, { tabblable } = {}) {
-    const selector = tabblable ? TabbableElementSelector : FocusableElementSelector;
+export function createFocusableTreeWalker(root, { tabbable } = {}) {
+    const selector = tabbable ? TabbableElementSelector : FocusableElementSelector;
 
     const walker = document.createTreeWalker(
         root,

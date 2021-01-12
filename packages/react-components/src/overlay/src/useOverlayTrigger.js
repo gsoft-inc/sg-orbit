@@ -1,7 +1,7 @@
 import { useId } from "../../shared";
 
 export function useOverlayTrigger(type, { isVisible }) {
-    const overlayId = useId();
+    const overlayId = useId(null, "o-ui-overlay");
 
     return {
         triggerProps: {

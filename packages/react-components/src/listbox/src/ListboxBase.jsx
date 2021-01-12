@@ -9,6 +9,7 @@ import {
     useAutoFocusChild,
     useChainedEventCallback,
     useDisposables,
+    useEventCallback,
     useFocusManager,
     useFocusScope,
     useId,
@@ -18,7 +19,7 @@ import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
 import { any, array, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useCallback, useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef } from "react";
 import { isNil, isNumber } from "lodash";
 
 /*
@@ -181,7 +182,7 @@ export const ListboxBase = forwardRef(({
 
     const focusTarget = selectionManager.selectedKeys[0] ?? defaultFocusedKey;
 
-    // When autoFocus is specified, if there's a selected key, autofocus the item matching the key.
+    // When autoFocus is specified, if there is a selected key, autofocus the item matching the key.
     useAutoFocusChild(focusManager, {
         target: focusTarget,
         isDisabled: !autoFocus || isNil(focusTarget),
@@ -191,13 +192,13 @@ export const ListboxBase = forwardRef(({
     // Otherwise, autofocus the listbox container element to enable keyboard support.
     useAutoFocus(containerRef, { isDisabled: !autoFocus || !isNil(focusTarget) });
 
-    const notifyChange = useCallback((event, keys) => {
+    const notifyChange = (event, keys) => {
         if (!isNil(onChange)) {
             onChange(event, selectionMode === SelectionMode.multiple ? keys : keys[0]);
         }
-    }, [onChange, selectionMode]);
+    };
 
-    const handleSelect = useCallback((event, key) => {
+    const handleSelect = useEventCallback((event, key) => {
         let newKeys;
 
         if (selectionMode === SelectionMode.multiple) {
@@ -207,7 +208,7 @@ export const ListboxBase = forwardRef(({
         }
 
         notifyChange(event, newKeys);
-    }, [notifyChange, selectionManager, selectionMode]);
+    });
 
     const searchQueryRef = useRef("");
     const searchDisposables = useDisposables();
@@ -339,6 +340,36 @@ export const ListboxBase = forwardRef(({
             </ListboxContext.Provider>
         </Box>
     );
+
+    // return (
+    //     <Box
+    //         {...mergeProps(
+    //             rest,
+    //             {
+    //                 id: rootId,
+    //                 className: "o-ui-listbox",
+    //                 onKeyDown: handleKeyDown,
+    //                 role: "listbox",
+    //                 "aria-label": ariaLabel,
+    //                 "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
+    //                 tabIndex: "-1",
+    //                 as,
+    //                 ref: containerRef
+    //             }
+    //         )}
+    //     >
+    //         <ListboxContext.Provider
+    //             value={{
+    //                 selectedKeys: selectionManager.selectedKeys,
+    //                 onSelect: handleSelect
+    //             }}
+    //         >
+    //             {nodes.map(({ type, ...nodeProps }) =>
+    //                 type === "section" ? renderSection(nodeProps) : renderOption(nodeProps)
+    //             )}
+    //         </ListboxContext.Provider>
+    //     </Box>
+    // );
 });
 
 ListboxBase.propTypes = propTypes;

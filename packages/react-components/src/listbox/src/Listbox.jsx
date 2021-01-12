@@ -59,8 +59,6 @@ export function InnerListbox({
     const nodes = useCollectionBuilder(children);
 
     const handleChange = useChainedEventCallback(onChange, (event, newKey) => {
-        console.log(newKey);
-
         setSelectedKey(newKey);
     });
 

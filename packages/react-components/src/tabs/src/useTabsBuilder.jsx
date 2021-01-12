@@ -10,8 +10,8 @@ export class TabsBuilder {
         this._rootId = rootId;
     }
 
-    build(elements, selectedIndex) {
-        if (isNil(elements)) {
+    build(nodes, selectedIndex) {
+        if (isNil(nodes)) {
             throw new Error("A tabs component must have children.");
         }
 
@@ -20,7 +20,7 @@ export class TabsBuilder {
 
         let nodeIndex = 0;
 
-        Children.forEach(elements, (tab, index) => {
+        Children.forEach(nodes, (tab, index) => {
             const [header, content] = Children.toArray(resolveChildren(tab.props.children, {
                 isActive: selectedIndex === index
             }));

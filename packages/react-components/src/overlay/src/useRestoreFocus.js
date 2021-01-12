@@ -4,11 +4,9 @@ import { KEYS, createFocusableTreeWalker, useEventCallback } from "../../shared"
 import { isNil } from "lodash";
 import { useLayoutEffect, useRef } from "react";
 
+// Restore focus feature doesn't work when clicking outside, this is by design.
 export function useRestoreFocus(scope, { isDisabled } = {}) {
     const elementToRestoreRef = useRef();
-
-    // The dispose code runs after the tabbed out code which always move the focus to the element to restore. This flag is used to prevent this.
-    const hasTabbedRef = useRef(false);
 
     useLayoutEffect(() => {
         elementToRestoreRef.current = document.activeElement;
@@ -46,6 +44,8 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
 
                     event.preventDefault();
 
+                    console.log("SHOULD NOT BE HERE");
+
                     if (!isNil(nextElement)) {
                         nextElement.focus();
                     } else {
@@ -53,8 +53,6 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
                         focusedElement.blur();
                         elementToRestore.focus();
                     }
-
-                    hasTabbedRef.current = true;
                 }
             }
         }
@@ -63,7 +61,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
             return () => {
-                if (!scope.isInScope(document.activeElement) && !hasTabbedRef.current) {
+                if (scope.isInScope(document.activeElement)) {
                     // Don't move this line inside the frame.
                     const elementToRestore = elementToRestoreRef.current;
 
@@ -73,8 +71,6 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
                         }
                     });
                 }
-
-                hasTabbedRef.current = false;
             };
         }
     }, [scope, isDisabled]);

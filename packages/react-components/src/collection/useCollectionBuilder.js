@@ -42,42 +42,6 @@ export class CollectionBuilder {
         };
     }
 
-    // _parseSection({ type, ref, props }, index, nextNodeIndex) {
-    //     const nodeIndex = nextNodeIndex();
-    //     const that = this;
-
-    //     const items = Children.map(children, (item, itemIndex) => that._parseItem(item, itemIndex, nextNodeIndex));
-
-    //     return {
-    //         key: nodeIndex.toString(),
-    //         index,
-    //         type: "section",
-    //         // Use a custom type if available otherwise let the final component choose his type.
-    //         elementType: type !== Section ? type : undefined,
-    //         ref: ref,
-    //         props,
-    //         items
-    //     };
-    // }
-
-    // _parseItem({ key, type, children, ref, ...props }, index, nextNodeIndex) {
-    //     const nodeIndex = nextNodeIndex();
-
-    //     const itemKey = !isNil(key) ? key.replace(".", "").replace("$", "") : nodeIndex.toString();
-
-    //     return {
-    //         key: nodeIndex.toString(),
-    //         index,
-    //         type: "item",
-    //         // Use a custom type if available otherwise let the final component choose his type.
-    //         elementType: type !== Item ? type : undefined,
-    //         ref: ref,
-    //         itemKey,
-    //         content: children,
-    //         props
-    //     };
-    // }
-
     build(children, renderProps) {
         const nodes = resolveChildren(children, renderProps);
 

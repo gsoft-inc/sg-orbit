@@ -8,7 +8,7 @@ export function useInteractOutside(rootRef, { isDisabled, onInteractOutside } = 
                 onInteractOutside(event);
             }
         }
-    }, [rootRef, onInteractOutside]);
+    });
 
     useDocumentListener("click", handleDocumentClick, !isDisabled);
 }
