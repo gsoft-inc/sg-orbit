@@ -1,6 +1,7 @@
 import { Item } from "@react-components/placeholders";
-import { ListboxBase, useCollectionBuilder } from "@react-components/listbox";
+import { ListboxBase } from "@react-components/listbox";
 import { storiesOfBuilder } from "@stories/utils";
+import { useCollectionBuilder } from "@react-components/collection";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/ListboxBase")

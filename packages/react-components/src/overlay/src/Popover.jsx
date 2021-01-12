@@ -7,6 +7,7 @@ import {
     mergeClasses,
     mergeProps,
     resolveChildren,
+    useAutoFocus,
     useAutoFocusChild,
     useControllableState,
     useEventCallback,
@@ -14,7 +15,7 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useOverlay } from "./useOverlay";
 import { usePopoverPosition } from "./usePopoverPosition";
 import { usePopoverTrigger } from "./usePopoverTrigger";
@@ -24,19 +25,6 @@ import { useRestoreFocus } from "./useRestoreFocus";
 SO (again):
 - It will be offered has a basic Popover.
 - Orbit components will not use this but will rater use all the hooks.
-*/
-
-/*
-Select:
-- must work in a form (submit value with an hidden value) - Will be specific to a select though and not to a Popover.
-- clicking on a field label should focus the select (can't use label for I think)
-- user must be able to set it's id.
-- might have to support .focus() (also check if TextInput, NumberInput, PasswordInput still support .focus() ?)
-
-- don't forget to handle a state OBJECT. Maybe use a reducer.
-
-https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/select/src/useSelect.ts
-https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/select/src/HiddenSelect.tsx
 */
 
 const propTypes = {
@@ -69,9 +57,9 @@ const propTypes = {
         "left-end"
     ]),
     /**
-     * Called when the overlay is hidden.
+     * Called when the popover visibility change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} isVisible - Indicate if the overlay is visible.
+     * @param {boolean} isVisible - Indicate if the popover is visible.
      * @returns {void}
      */
     onVisibilityChange: func,
@@ -88,6 +76,10 @@ const propTypes = {
      * Whether or not the overlay should hide on blur.
      */
     hideOnBlur: bool,
+    /**
+     * Whether or not to autofocus on show.
+     */
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not to restore the focus after the overlay is hidden.
      */
@@ -122,6 +114,7 @@ export function InnerPopover({
     offset,
     hideOnEscape = true,
     hideOnBlur = true,
+    autoFocus,
     restoreFocus = true,
     pinned,
     allowFlip = true,
@@ -162,7 +155,7 @@ export function InnerPopover({
         throw new Error("A popover must have exactly 2 children.");
     }
 
-    const handleToggle = useEventCallback(event => {
+    const handleTriggerToggle = useEventCallback(event => {
         setVisibility(event, !isVisible);
     });
 
@@ -180,12 +173,10 @@ export function InnerPopover({
         overlayRef
     });
 
-    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("dialog", { isVisible, onToggle: handleToggle });
+    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("dialog", { isVisible, onToggle: handleTriggerToggle });
 
-    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition({
+    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition(triggerElement, overlayElement, {
         position,
-        triggerElement,
-        overlayElement,
         offset,
         allowFlip,
         boundaryElement: containerElement,
@@ -197,7 +188,20 @@ export function InnerPopover({
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isVisible });
 
-    useAutoFocusChild(focusManager, { isDisabled: !isVisible, onNotFound: useEventCallback(() => { overlayElement?.focus(); }) });
+    // When autoFocus is specified, try to focus the first focusable child element.
+    useAutoFocusChild(
+        focusManager,
+        {
+            isDisabled: !autoFocus || !isVisible,
+            delay: isNumber(autoFocus) ? autoFocus : undefined,
+            onNotFound: useEventCallback(() => {
+                // Ensure closing on blur and on esc key are working.
+                overlayElement?.focus();
+            })
+        });
+
+    // Otherwise, make sure to at least focus the overlay element to ensure closing on blur and on esc key are working.
+    useAutoFocus(overlayRef, { isDisabled: autoFocus || !isVisible });
 
     const triggerMarkup = augmentElement(trigger, {
         ...triggerProps,

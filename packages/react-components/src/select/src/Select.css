@@ -1,0 +1,12 @@
+.o-ui-select-trigger {
+    display: flex;
+    align-items: center;
+}
+
+.o-ui-select-trigger:focus {
+    background-color: blue;
+}
+
+.o-ui-select-menu {
+    border: 1px solid black;
+}

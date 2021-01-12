@@ -64,7 +64,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
         if (!isDisabled) {
             return () => {
                 if (!scope.isInScope(document.activeElement) && !hasTabbedRef.current) {
-                    // Don't move inside the frame.
+                    // Don't move this line inside the frame.
                     const elementToRestore = elementToRestoreRef.current;
 
                     requestAnimationFrame(() => {

@@ -3,4 +3,3 @@ export * from "./ListboxBase";
 export * from "./ListboxSection";
 export * from "./ListboxOption";
 export * from "./ListboxContext";
-export * from "./useCollectionBuilder";

@@ -3,8 +3,9 @@ import { isNil } from "lodash";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 
 /*
-- Might become something else more specialized like a useMenuTrigger
-- ** A useMenuTrigger would also be able to define behaviors like focusing the first item on arrow down key or the last item on arrow up key. **
+- Might want to add a more specialized one like useSelectTrigger if there are common feature between a Select and a ComboBox like an Autocomplete
+- For example, a select should open and select the first or last value when using up or down arrows on a close select
+- Hardcode type to listbox
 */
 
 export function usePopoverTrigger(type, { isVisible, onToggle }) {

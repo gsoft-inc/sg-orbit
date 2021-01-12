@@ -78,6 +78,10 @@ const propTypes = {
      */
     disabled: bool,
     /**
+     * Whether or not the input is readonly.
+     */
+    readOnly: bool,
+    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,

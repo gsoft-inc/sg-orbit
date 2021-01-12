@@ -269,6 +269,24 @@ stories()
             <Item key="mars">Mars</Item>
         </Listbox>
     )
+    .add("scrolling", () =>
+        <Listbox aria-label="Planets">
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Listbox>
+    )
     .add("styling", () =>
         <Stack>
             <Inline>

@@ -4,10 +4,10 @@ import { Box } from "../../box";
 import {
     KEYS,
     arrayify,
-    mergeClasses,
+    mergeProps,
+    useAutoFocus,
     useAutoFocusChild,
     useChainedEventCallback,
-    useControllableState,
     useDisposables,
     useFocusManager,
     useFocusScope,
@@ -54,36 +54,25 @@ import { isNil, isNumber } from "lodash";
 - should we support dynamic loading? not sure because it doesn't seems like it would work with how we want to do Autocomplete? Does an autocomplete use a Listbox? - NOT NOW
 */
 
-export function useSelectionManager({ selectedKey, defaultSelectedKey, nodes }) {
-    const [selection, setSelectedKeys] = useControllableState(selectedKey, defaultSelectedKey, []);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoSelectedKeys = useMemo(() => arrayify(selection), [JSON.stringify(selection)]);
-
+export function useSelectionManager({ selectedKey, nodes }) {
     return useMemo(() => {
+        const selectedKeys = arrayify(selectedKey);
+
+        // console.log(selectedKeys);
+
         const toggleKey = key => {
-            const newKeys = memoSelectedKeys.includes(key)
-                ? memoSelectedKeys.filter(x => x !== key)
-                : [...memoSelectedKeys, key];
-
-            setSelectedKeys(newKeys);
-
-            return newKeys;
+            return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         };
 
         const replaceSelection = key => {
-            const newKeys = [key];
-
-            setSelectedKeys(newKeys);
-
-            return newKeys;
+            return [key];
         };
 
         const extendSelection = toKey => {
-            if (memoSelectedKeys.length > 0) {
-                const lastKey = memoSelectedKeys[memoSelectedKeys.length - 1];
+            if (selectedKeys.length > 0) {
+                const lastKey = selectedKeys[selectedKeys.length - 1];
 
-                const newKeys = new Set(memoSelectedKeys);
+                const newKeys = new Set(selectedKeys);
 
                 let startIndex = nodes.findIndex(x => x.itemKey === lastKey);
                 let endIndex = nodes.findIndex(x => x.itemKey === toKey);
@@ -97,23 +86,19 @@ export function useSelectionManager({ selectedKey, defaultSelectedKey, nodes }) 
                     newKeys.add(nodes[i].itemKey);
                 }
 
-                const asArray = Array.from(newKeys);
-
-                setSelectedKeys(asArray);
-
-                return asArray;
+                return Array.from(newKeys);
             }
 
-            return memoSelectedKeys;
+            return selectedKeys;
         };
 
         return {
-            selectedKeys: memoSelectedKeys,
+            selectedKeys: selectedKeys,
             toggleKey,
             replaceSelection,
             extendSelection
         };
-    }, [memoSelectedKeys, setSelectedKeys, nodes]);
+    }, [selectedKey, nodes]);
 }
 
 ///////////////////
@@ -142,10 +127,6 @@ const propTypes = {
      * A controlled array holding the currently selected key(s).
      */
     selectedKey: oneOfType([string, arrayOf(string)]),
-    /**
-     * The initial value of `selectedKey` when uncontrolled.
-     */
-    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
     /**
      * The initial focused key.
      */
@@ -180,8 +161,7 @@ const KeyProp = "data-o-ui-key";
 export const ListboxBase = forwardRef(({
     id,
     nodes,
-    selectedKey: controlledKey,
-    defaultSelectedKey: uncontrolledKey,
+    selectedKey,
     defaultFocusedKey,
     onChange,
     onKeyDown,
@@ -189,26 +169,27 @@ export const ListboxBase = forwardRef(({
     autoFocus,
     "aria-label": ariaLabel,
     as,
-    className,
     ...rest
 }, forwardedRef) => {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const selectionManager = useSelectionManager({
-        selectedKey: controlledKey,
-        defaultSelectedKey: uncontrolledKey,
-        nodes
-    });
+    const selectionManager = useSelectionManager({ selectedKey, nodes });
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
+    const focusTarget = selectionManager.selectedKeys[0] ?? defaultFocusedKey;
+
+    // When autoFocus is specified, if there's a selected key, autofocus the item matching the key.
     useAutoFocusChild(focusManager, {
-        target: selectionManager.selectedKeys[0] ?? defaultFocusedKey,
-        isDisabled: !autoFocus,
+        target: focusTarget,
+        isDisabled: !autoFocus || isNil(focusTarget),
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
+
+    // Otherwise, autofocus the listbox container element to enable keyboard support.
+    useAutoFocus(containerRef, { isDisabled: !autoFocus || !isNil(focusTarget) });
 
     const notifyChange = useCallback((event, keys) => {
         if (!isNil(onChange)) {
@@ -242,7 +223,7 @@ export const ListboxBase = forwardRef(({
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
 
-                        notifyChange(newKeys);
+                        notifyChange(event, newKeys);
                     }
                 }
                 break;
@@ -254,7 +235,7 @@ export const ListboxBase = forwardRef(({
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
 
-                        notifyChange(newKeys);
+                        notifyChange(event, newKeys);
                     }
                 }
                 break;
@@ -268,9 +249,9 @@ export const ListboxBase = forwardRef(({
             case KEYS.space:
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.extendSelection(focusManager.getActiveKey());
+                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(KeyProp));
 
-                        notifyChange(newKeys);
+                        notifyChange(event, newKeys);
                     }
                 }
             // eslint-disable-next-line no-fallthrough
@@ -315,6 +296,7 @@ export const ListboxBase = forwardRef(({
         elementType: ElementType = ListboxOption,
         ref,
         itemKey,
+        content,
         props
     }) => (
         <ElementType
@@ -323,20 +305,27 @@ export const ListboxBase = forwardRef(({
             key={key}
             ref={ref}
             item={{ key: itemKey }}
-        />
+        >
+            {content}
+        </ElementType>
     );
 
     return (
         <Box
-            {...rest}
-            id={rootId}
-            className={mergeClasses("o-ui-listbox", className)}
-            onKeyDown={handleKeyDown}
-            role="listbox"
-            aria-label={ariaLabel}
-            aria-multiselectable={selectionMode === SelectionMode.multiple ? true : undefined}
-            as={as}
-            ref={containerRef}
+            {...mergeProps(
+                rest,
+                {
+                    id: rootId,
+                    className: "o-ui-listbox",
+                    onKeyDown: handleKeyDown,
+                    role: "listbox",
+                    "aria-label": ariaLabel,
+                    "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
+                    tabIndex: "-1",
+                    as,
+                    ref: containerRef
+                }
+            )}
         >
             <ListboxContext.Provider
                 value={{

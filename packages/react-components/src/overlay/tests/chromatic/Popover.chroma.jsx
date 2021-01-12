@@ -324,7 +324,7 @@ stories()
     )
     .add("focusable overlay content", () =>
         <Boundary>
-            <Popover defaultShow>
+            <Popover defaultShow autoFocus>
                 <Button fluid>Open</Button>
                 <RedBox>
                     <>
@@ -335,23 +335,6 @@ stories()
                 </RedBox>
             </Popover>
         </Boundary>
-    )
-    .add("focusable overlay content 2", () =>
-        <Inline>
-            <Button>Previous</Button>
-            <Popover defaultShow>
-                <Button fluid>Open</Button>
-                <RedBox>
-                    <>
-                        <Text>What's on your mind?</Text>
-                        <br />
-                        <TextInput id="txt-1" />
-                        <TextInput id="txt-2" />
-                    </>
-                </RedBox>
-            </Popover>
-            <Button>Next</Button>
-        </Inline>
     )
     .add("render props", () =>
         <Boundary>

@@ -2,19 +2,17 @@ import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-export function usePopoverPosition({
+export function usePopoverPosition(triggerElement, overlayElement, {
     position = "bottom",
-    triggerElement,
-    overlayElement,
     offset,
-    allowFlip,
-    boundaryElement = document.body,
-    allowPreventOverflow,
-    pinned
+    allowFlip = false,
+    allowPreventOverflow = false,
+    pinned = false,
+    boundaryElement = document.body
 }) {
     const popperModifiers = [];
 
-    if (offset) {
+    if (!isNil(offset)) {
         popperModifiers.push({
             name: "offset",
             options: {

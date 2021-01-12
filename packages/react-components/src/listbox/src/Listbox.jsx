@@ -3,7 +3,8 @@ import "./Listbox.css";
 import { ListboxBase, SelectionMode } from "./ListboxBase";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useCollectionBuilder } from "./useCollectionBuilder";
+import { useChainedEventCallback, useControllableState } from "../../shared";
+import { useCollectionBuilder } from "../../collection";
 
 const propTypes = {
     /**
@@ -26,7 +27,7 @@ const propTypes = {
      */
     selectionMode: oneOf(["single", "multiple"]),
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether or not the listbox should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
     /**
@@ -44,18 +45,31 @@ const propTypes = {
 };
 
 export function InnerListbox({
+    selectedKey: controlledKey,
+    defaultSelectedKey,
+    onChange,
     selectionMode = SelectionMode.single,
     as = "div",
     children,
     forwardedRef,
     ...rest
 }) {
+    const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, []);
+
     const nodes = useCollectionBuilder(children);
+
+    const handleChange = useChainedEventCallback(onChange, (event, newKey) => {
+        console.log(newKey);
+
+        setSelectedKey(newKey);
+    });
 
     return (
         <ListboxBase
             {...rest}
             nodes={nodes}
+            selectedKey={selectedKey}
+            onChange={handleChange}
             selectionMode={selectionMode}
             as={as}
             ref={forwardedRef}
