@@ -47,7 +47,14 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Select variant="outline" />, stories("/outline"));
+createTestSuite(<Select variant="outline" />, stories("/outline"))
+    .add("without placeholder", () =>
+        <Select aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
 
 createTestSuite(<Select variant="transparent" />, stories("/transparent"));
 

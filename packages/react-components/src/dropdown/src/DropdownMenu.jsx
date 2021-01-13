@@ -1,6 +1,6 @@
 import { DropdownContext } from "./DropdownContext";
 import { KEYS, mergeClasses, normalizeSize, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
-import { Popper } from "../../popper";
+import { Popper } from "../../OLD_popper";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
 import { isFunction, isNil } from "lodash";

@@ -13,7 +13,7 @@ import { DropdownTrigger } from "./DropdownTrigger";
 import { KEYS, mergeClasses, useChainedEventCallback, useEventCallback, useMergedRefs } from "../../shared";
 import { any, bool, func, oneOf } from "prop-types";
 import { forwardRef, useRef } from "react";
-import { useAutoControlledPopper } from "../../popper";
+import { useAutoControlledPopper } from "../../OLD_popper";
 
 const propTypes = {
     /**

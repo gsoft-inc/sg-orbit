@@ -18,13 +18,6 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("without placeholder", () =>
-            <Select aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        )
         .add("open with items only", () =>
             <Select defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
