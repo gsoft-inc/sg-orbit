@@ -12,6 +12,7 @@
     --foreground-color-4-active: var(--neutral-600);
     --foreground-color-5: var(--marine-500);
     --foreground-color-5-hover: var(--marine-700);
+    --foreground-color-5-active: var(--marine-900);
     --foreground-color-brand: var(--primary-500);
     --foreground-color-brand-hover: var(--primary-700);
     --foreground-color-brand-active: var(--primary-900);

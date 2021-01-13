@@ -421,7 +421,7 @@ a.o-ui-button {
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
     border: 2px solid var(--cloud-500);
-    border-top-color: var(--static-white);
+    border-top-color: var(--primary-text);
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {

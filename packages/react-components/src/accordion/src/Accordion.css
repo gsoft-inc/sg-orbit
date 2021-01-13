@@ -104,6 +104,7 @@
     right: var(--scale-bravo);
     bottom: calc(var(--scale-bravo) - 2px);
     border: 2px transparent solid;
+    transition: var(--o-ui-focus-ring-transition);
     border-radius: var(--o-ui-rounded-border-radius);
     pointer-events: none;
     height: var(--scale-golf);
