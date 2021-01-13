@@ -3,7 +3,7 @@ import "./VisuallyHidden.css";
 import { Box } from "../../box";
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses, mergeProps } from "../../shared";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**

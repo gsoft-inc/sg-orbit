@@ -1,4 +1,3 @@
-import { Button } from "@react-components/button";
 import { CheckboxGroup } from "@react-components/checkbox";
 import { Field, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
@@ -8,7 +7,6 @@ import { TextInput } from "@react-components/input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Toolbar")

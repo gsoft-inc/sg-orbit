@@ -4,7 +4,6 @@ import { Box } from "../../box";
 import { KEYS, mergeClasses, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
-import { useRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {

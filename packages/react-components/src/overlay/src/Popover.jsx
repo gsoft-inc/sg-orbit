@@ -1,4 +1,4 @@
-import { Children, forwardRef, useCallback, useRef, useState } from "react";
+import { Children, forwardRef, useCallback, useState } from "react";
 import { Overlay } from "./Overlay";
 import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
