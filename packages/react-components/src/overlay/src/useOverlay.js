@@ -1,4 +1,4 @@
-import { KEYS, useEventCallback } from "../../shared";
+import { Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
@@ -18,7 +18,7 @@ export function useOverlay({
     };
 
     const handleKeyDown = event => {
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             event.preventDefault();
             hide(event);
         }

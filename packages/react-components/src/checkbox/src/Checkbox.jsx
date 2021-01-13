@@ -99,7 +99,6 @@ export function InnerCheckbox(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -139,7 +138,6 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        className,
         forwardedRef
     });
 
@@ -169,9 +167,11 @@ export function InnerCheckbox(props) {
         <Box
             {...mergeProps(
                 rest,
-                wrapperProps
+                wrapperProps,
+                {
+                    as
+                }
             )}
-            as={as}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />

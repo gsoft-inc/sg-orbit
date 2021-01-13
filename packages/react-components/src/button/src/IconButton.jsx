@@ -89,7 +89,6 @@ export function InnerIconButton(props) {
         title,
         "aria-label": ariaLabel,
         as = "button",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -112,7 +111,6 @@ export function InnerIconButton(props) {
         focus,
         hover,
         type,
-        className,
         forwardedRef
     });
 
@@ -127,11 +125,13 @@ export function InnerIconButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps
+                buttonProps,
+                {
+                    title: title ?? ariaLabel,
+                    as,
+                    "aria-label": ariaLabel
+                }
             )}
-            title={title ?? ariaLabel}
-            as={as}
-            aria-label={ariaLabel}
         >
             {iconMarkup}
         </Box>

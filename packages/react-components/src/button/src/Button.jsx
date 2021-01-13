@@ -3,7 +3,7 @@ import "./TextButton.css";
 import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
+import { createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
@@ -94,7 +94,6 @@ export function InnerButton(props) {
         hover,
         type = "button",
         as = "button",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -104,7 +103,7 @@ export function InnerButton(props) {
         omitProps(toolbarProps, ["orientation"])
     );
 
-    const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
+    const { ref: buttonRef, ...buttonProps } = useButton({
         cssModule: "o-ui-text-button",
         variant,
         color,
@@ -117,7 +116,6 @@ export function InnerButton(props) {
         focus,
         hover,
         type,
-        className,
         forwardedRef
     });
 
@@ -144,18 +142,17 @@ export function InnerButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps
+                buttonProps,
+                {
+                    className: cssModule(
+                        "o-ui-button",
+                        rightIcon && "has-right-icon",
+                        icon && "has-left-icon"
+                    ),
+                    as,
+                    ref: buttonRef
+                }
             )}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-button",
-                    rightIcon && "has-right-icon",
-                    icon && "has-left-icon"
-                ),
-                buttonClassName
-            )}
-            as={as}
-            ref={buttonRef}
         >
             {icon}
             {text}

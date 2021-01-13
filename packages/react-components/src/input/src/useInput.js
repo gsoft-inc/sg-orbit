@@ -19,8 +19,6 @@ export function useInput({
     active,
     focus,
     hover,
-    className,
-    wrapperProps = {},
     forwardedRef
 }) {
     const inputRef = useMergedRefs(forwardedRef);
@@ -32,7 +30,6 @@ export function useInput({
 
     return {
         wrapperProps: {
-            ...wrapperProps,
             className: mergeClasses(
                 module,
                 cssModule(
@@ -44,8 +41,7 @@ export function useInput({
                     active && "active",
                     focus && "focus",
                     hover && "hover"
-                ),
-                wrapperProps.className
+                )
             )
         },
         inputProps: {
@@ -53,7 +49,6 @@ export function useInput({
             value,
             placeholder,
             onChange,
-            className,
             type,
             disabled,
             readOnly,

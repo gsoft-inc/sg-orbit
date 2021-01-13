@@ -1,4 +1,4 @@
-import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { cssModule, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil, isNumber } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
@@ -22,7 +22,6 @@ export function useCheckbox({
     focus,
     hover,
     disabled,
-    className,
     forwardedRef
 }) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -61,21 +60,18 @@ export function useCheckbox({
         isChecked,
         isIndeterminate,
         wrapperProps: {
-            className: mergeClasses(
-                cssModule(
-                    module,
-                    isChecked && "checked",
-                    isIndeterminate && "indeterminate",
-                    isInField && "as-field",
-                    reverse && "reverse",
-                    validationState && validationState,
-                    disabled && "disabled",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    normalizeSize(size)
-                ),
-                className
+            className: cssModule(
+                module,
+                isChecked && "checked",
+                isIndeterminate && "indeterminate",
+                isInField && "as-field",
+                reverse && "reverse",
+                validationState && validationState,
+                disabled && "disabled",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                normalizeSize(size)
             ),
             ref: wrapperRef
         },

@@ -1,5 +1,5 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { KEYS, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -50,16 +50,16 @@ const propTypes = {
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [KEYS.left],
-        next: [KEYS.right],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left],
+        next: [Keys.right],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     vertical: {
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     }
 };
 

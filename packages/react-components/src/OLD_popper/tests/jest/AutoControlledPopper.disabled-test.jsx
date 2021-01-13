@@ -1,6 +1,6 @@
 // import { AutoControlledPopper } from "@react-components/popper";
 // import { Button } from "@react-components/button";
-// import { KEYS } from "@react-components/shared";
+// import { Keys } from "@react-components/shared";
 // import { act, fireEvent, render, waitFor } from "@testing-library/react";
 // import { createRef, forwardRef } from "react";
 // import userEvent from "@utils/user-event";
@@ -92,7 +92,7 @@
 
 // test("show the popper on trigger custom keys keydown", async () => {
 //     const { getByTestId } = render(
-//         <ButtonPopper showOnKeys={[KEYS.down]} />
+//         <ButtonPopper showOnKeys={[Keys.down]} />
 //     );
 
 //     act(() => {

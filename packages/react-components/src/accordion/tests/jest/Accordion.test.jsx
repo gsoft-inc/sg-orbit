@@ -1,7 +1,7 @@
 import { Accordion } from "@react-components/accordion";
 import { Content, Header } from "@react-components/placeholders";
 import { Item } from "@react-components/placeholders";
-import { KEYS } from "@react-components/shared";
+import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
@@ -30,7 +30,7 @@ test("down arrow keypress select the next item", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("item-1"), { key: "ArrowDown", keyCode: KEYS.down });
+        fireEvent.keyDown(getByTestId("item-1"), { key: "ArrowDown", keyCode: Keys.down });
     });
 
     await waitFor(() => expect(getByTestId("item-2")).toHaveFocus());
@@ -59,7 +59,7 @@ test("up arrow keypress select the next item", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("item-2"), { key: "ArrowUp", keyCode: KEYS.up });
+        fireEvent.keyDown(getByTestId("item-2"), { key: "ArrowUp", keyCode: Keys.up });
     });
 
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());

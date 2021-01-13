@@ -1,4 +1,4 @@
-import { KEYS, useControllableState, useDocumentListener, useEventCallback } from "../../shared";
+import { Keys, useControllableState, useDocumentListener, useEventCallback } from "../../shared";
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect, useRef } from "react";
 
@@ -186,13 +186,13 @@ export function useAutoControlledPopper(props) {
             const key = event.keyCode;
 
             switch (key) {
-                case KEYS.space:
+                case Keys.space:
                     if (toggleOnSpacebar) {
                         event.preventDefault();
                         togglePopper(event);
                     }
                     break;
-                case KEYS.enter:
+                case Keys.enter:
                     if (toggleOnEnter) {
                         event.preventDefault();
                         togglePopper(event);
@@ -211,7 +211,7 @@ export function useAutoControlledPopper(props) {
     });
 
     const handleDocumentKeyDown = useEventCallback(event => {
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             if (hideOnEscape) {
                 hidePopper(event);
 

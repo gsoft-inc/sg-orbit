@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { Box } from "../../box";
 import { CarretIcon } from "../../icons";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -173,7 +173,6 @@ export function InnerNumberInput(props) {
         required,
         validationState,
         onChange,
-        onBlur,
         variant = "outline",
         autoFocus,
         icon,
@@ -184,7 +183,6 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        className,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -262,7 +260,7 @@ export function InnerNumberInput(props) {
         updateValue(event, newValue);
     });
 
-    const handleBlur = useChainedEventCallback(onBlur, event => {
+    const handleBlur = useEventCallback(event => {
         if (clampValue) {
             clamp(event);
         }
@@ -281,7 +279,7 @@ export function InnerNumberInput(props) {
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps,
         inputRef
     } = useInput({
@@ -302,8 +300,6 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -315,9 +311,11 @@ export function InnerNumberInput(props) {
             <input
                 {...mergeProps(
                     rest,
-                    inputProps
+                    inputProps,
+                    {
+                        onBlur: handleBlur
+                    }
                 )}
-                onBlur={handleBlur}
             />
             <Spinner
                 onIncrement={handleIncrement}
@@ -331,15 +329,17 @@ export function InnerNumberInput(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    iconMarkup && "has-icon"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        iconMarkup && "has-icon"
+                    ),
+                    as
+                }
             )}
-            as={as}
         >
             {content}
         </Box>

@@ -1,4 +1,4 @@
-import { KEYS } from "@react-components/shared";
+import { Keys } from "@react-components/shared";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -56,7 +56,7 @@ test("right arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowRight", keyCode: KEYS.right });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowRight", keyCode: Keys.right });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
@@ -72,7 +72,7 @@ test("left arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowLeft", keyCode: KEYS.left });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowLeft", keyCode: Keys.left });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
@@ -88,7 +88,7 @@ test("down arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowDown", keyCode: KEYS.down });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowDown", keyCode: Keys.down });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
@@ -104,7 +104,7 @@ test("up arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowUp", keyCode: KEYS.up });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowUp", keyCode: Keys.up });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());

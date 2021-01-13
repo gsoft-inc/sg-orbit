@@ -107,11 +107,11 @@ export function useSlidingTransition(isOpen, ref) {
 
     return match(transitionState, {
         [TransitionState.transitioning]: () => ({
-            transitionStyles: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
+            transitionClasses: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
             transitionProps: { onTransitionEnd: completeTransition }
         }),
         [TransitionState.completed]: () => ({
-            transitionStyles: direction === SlidingDirection.down ? "expanded" : "collapsed",
+            transitionClasses: direction === SlidingDirection.down ? "expanded" : "collapsed",
             transitionProps: {}
         })
     });

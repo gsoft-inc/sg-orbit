@@ -69,7 +69,6 @@ export function InnerToggleButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         onCheck,
         active,
         as = Button,
@@ -88,7 +87,6 @@ export function InnerToggleButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         onCheck,
         active,
         forwardedRef
@@ -100,9 +98,11 @@ export function InnerToggleButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps
+                buttonProps,
+                {
+                    as
+                }
             )}
-            as={as}
         >
             {content}
         </Box>

@@ -1,8 +1,8 @@
 import "./Disclosure.css";
 
-import { Children, forwardRef, useCallback, useRef } from "react";
+import { Children, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { KEYS, augmentElement, cssModule, resolveChildren, useControllableState, useEventCallback, useId } from "../../shared";
+import { Keys, augmentElement, cssModule, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { any, bool, func } from "prop-types";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
@@ -34,11 +34,13 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onChange,
-    children
+    children,
+    forwardedRef,
+    ...rest
 }) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
-    const contentRef = useRef();
+    const contentRef = useMergedRefs(forwardedRef);
 
     const [trigger, content] = Children.toArray(resolveChildren(children, {
         isOpen
@@ -62,8 +64,8 @@ export function InnerDisclosure({
 
     const handleKeyDown = useEventCallback(event => {
         switch(event.keyCode) {
-            case KEYS.enter:
-            case KEYS.space:
+            case Keys.enter:
+            case Keys.space:
                 event.preventDefault();
                 toggle(event);
                 break;
@@ -72,7 +74,7 @@ export function InnerDisclosure({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === KEYS.space) {
+        if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
     });
@@ -94,7 +96,7 @@ export function InnerDisclosure({
         "aria-hidden": !isOpen
     });
 
-    const { transitionStyles, transitionProps } = useSlidingTransition(isOpen, contentRef);
+    const { transitionClasses, transitionProps } = useSlidingTransition(isOpen, contentRef);
 
     return (
         <DisclosureContext.Provider
@@ -104,10 +106,15 @@ export function InnerDisclosure({
         >
             {triggerMarkup}
             <div
-                {...transitionProps}
-                className={cssModule("o-ui-disclosure-content-section", transitionStyles)}
-                aria-hidden= {!isOpen}
-                ref={contentRef}
+                {...mergeProps(
+                    rest,
+                    transitionProps,
+                    {
+                        className: cssModule("o-ui-disclosure-content-section", transitionClasses),
+                        "aria-hidden": !isOpen,
+                        ref: contentRef
+                    }
+                )}
             >
                 {contentMarkup}
             </div>

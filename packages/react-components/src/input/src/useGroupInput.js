@@ -1,4 +1,4 @@
-import { cssModule, mergeClasses, normalizeSize } from "../../shared";
+import { cssModule, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
 const Gap = {
@@ -23,7 +23,6 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
-    className,
     groupRef
 }) {
     const [{ hasLabel, hasMessage }] = useFieldContext();
@@ -37,14 +36,11 @@ export function useGroupInput({
                 : undefined,
             gap: gap ?? Gap[orientation][normalizeSize(size)],
             wrap,
-            className: mergeClasses(
-                cssModule(
-                    module,
-                    hasLabel && "has-label",
-                    hasMessage && "has-message"
+            className: cssModule(
+                module,
+                hasLabel && "has-label",
+                hasMessage && "has-message"
 
-                ),
-                className
             ),
             role,
             "aria-required": required,

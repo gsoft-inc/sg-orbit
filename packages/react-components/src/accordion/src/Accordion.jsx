@@ -4,9 +4,8 @@ import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import {
-    KEYS,
+    Keys,
     arrayify,
-    mergeClasses,
     mergeProps,
     useAutoFocusChild,
     useBasicKeyboardNavigation,
@@ -69,7 +68,6 @@ export function InnerAccordion({
     expandMode = ExpandMode.single,
     autoFocus,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -97,10 +95,10 @@ export function InnerAccordion({
     });
 
     const navigationProps = useBasicKeyboardNavigation(focusManager, {
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     });
 
     const handleToggle = useEventCallback((event, toggledIndex) => {
@@ -130,11 +128,13 @@ export function InnerAccordion({
         <Box
             {...mergeProps(
                 rest,
-                navigationProps
+                navigationProps,
+                {
+                    className: "o-ui-accordion",
+                    as,
+                    ref: containerRef
+                }
             )}
-            className={mergeClasses("o-ui-accordion", className)}
-            as={as}
-            ref={containerRef}
         >
             <AccordionContext.Provider
                 value={{

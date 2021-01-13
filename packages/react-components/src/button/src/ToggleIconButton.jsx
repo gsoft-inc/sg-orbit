@@ -80,7 +80,6 @@ export function InnerToggleIconButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         active,
         as: ElementType = IconButton,
         children,
@@ -98,7 +97,6 @@ export function InnerToggleIconButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         active,
         forwardedRef
     });

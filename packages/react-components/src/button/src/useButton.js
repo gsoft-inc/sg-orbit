@@ -14,7 +14,6 @@ export function useButton({
     focus,
     hover,
     type,
-    className,
     forwardedRef
 }) {
     const buttonRef = useMergedRefs(forwardedRef);
@@ -38,8 +37,7 @@ export function useButton({
                 focus && "focus",
                 hover && "hover",
                 normalizeSize(size)
-            ),
-            className
+            )
         ),
         type,
         "aria-live": "polite",

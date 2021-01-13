@@ -77,9 +77,11 @@ export function InnerField(props) {
         <Box
             {...mergeProps(
                 rest,
-                fieldProps
+                fieldProps,
+                {
+                    as
+                }
             )}
-            as={as}
         >
             <ClearToolbar>
                 <FieldContext.Provider value={fieldContext}>

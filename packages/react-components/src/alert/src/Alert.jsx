@@ -35,7 +35,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ROLE = {
+const Role = {
     info: "status",
     success: "status",
     warning: "alert",
@@ -130,7 +130,7 @@ export function InnerAlert({
                 ),
                 className
             )}
-            role={(roleProp ?? ROLE[tone]) ?? "alert"}
+            role={(roleProp ?? Role[tone]) ?? "alert"}
             as={as}
             ref={ref}
         >

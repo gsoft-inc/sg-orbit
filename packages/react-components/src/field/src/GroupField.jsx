@@ -77,9 +77,11 @@ export function InnerGroupField(props) {
         <Box
             {...mergeProps(
                 rest,
-                fieldProps
+                fieldProps,
+                {
+                    as
+                }
             )}
-            as={as}
         >
             <ClearToolbar>
                 <FieldContext.Provider

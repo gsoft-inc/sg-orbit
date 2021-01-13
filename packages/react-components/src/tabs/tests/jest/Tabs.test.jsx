@@ -1,6 +1,6 @@
 import { Content, Header } from "@react-components/placeholders";
 import { Item } from "@react-components/placeholders";
-import { KEYS } from "@react-components/shared";
+import { Keys } from "@react-components/shared";
 import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -227,7 +227,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: "Space", keyCode: KEYS.space });
+        fireEvent.keyDown(getByTestId("tab-2"), { key: "Space", keyCode: Keys.space });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -248,7 +248,7 @@ test("when manual, enter keypress makes a tab active", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: "Enter", keyCode: KEYS.enter });
+        fireEvent.keyDown(getByTestId("tab-2"), { key: "Enter", keyCode: Keys.enter });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -273,7 +273,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowRight", keyCode: KEYS.right });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowRight", keyCode: Keys.right });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -298,7 +298,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowLeft", keyCode: KEYS.left });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowLeft", keyCode: Keys.left });
     });
 
     await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
@@ -323,7 +323,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowDown", keyCode: KEYS.down });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowDown", keyCode: Keys.down });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -348,7 +348,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowUp", keyCode: KEYS.up });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowUp", keyCode: Keys.up });
     });
 
     await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));

@@ -117,7 +117,6 @@ export function InnerCheckboxGroup(props) {
         size,
         reverse,
         disabled,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -150,7 +149,6 @@ export function InnerCheckboxGroup(props) {
         size,
         reverse,
         disabled,
-        className,
         groupRef
     });
 

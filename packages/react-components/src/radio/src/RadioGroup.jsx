@@ -2,7 +2,7 @@ import "./RadioGroup.css";
 
 import {
     CheckableContext,
-    KEYS,
+    Keys,
     augmentElement,
     mergeProps,
     omitProps,
@@ -89,14 +89,14 @@ const propTypes = {
 
 const NavigationKeyBinding = {
     default: {
-        previous: [KEYS.left, KEYS.up],
-        next: [KEYS.right, KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left, Keys.up],
+        next: [Keys.right, Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     toolbar: {
-        previous: [KEYS.up],
-        next: [KEYS.down]
+        previous: [Keys.up],
+        next: [Keys.down]
     }
 };
 
@@ -119,7 +119,6 @@ export function InnerRadioGroup(props) {
         wrap,
         reverse,
         disabled,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -171,7 +170,6 @@ export function InnerRadioGroup(props) {
         wrap,
         reverse,
         disabled,
-        className,
         groupRef
     });
 

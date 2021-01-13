@@ -1,23 +1,23 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, mergeClasses, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
+import { Keys, mergeClasses, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [KEYS.left],
-        next: [KEYS.right],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left],
+        next: [Keys.right],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     vertical: {
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     }
 };
 

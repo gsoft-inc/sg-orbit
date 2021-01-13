@@ -1,6 +1,6 @@
 import { CalendarIcon, CrossIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { KEYS, isNilOrEmpty } from "../../shared";
+import { Keys, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
 import { TextInput } from "../../input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
@@ -41,7 +41,7 @@ export class InnerDatePickerTextboxInput extends PureComponent {
     handleKeyDown = event => {
         const { onKeyDown, onClear, open } = this.props;
 
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             if (!open) {
                 onClear(event);
             }

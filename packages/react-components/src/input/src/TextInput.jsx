@@ -2,7 +2,7 @@ import "./Input.css";
 
 import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput } from "./useInput";
@@ -94,7 +94,6 @@ export function InnerTextInput(props) {
         placeholder,
         required,
         validationState,
-        onChange,
         variant = "outline",
         type = "text",
         autoFocus,
@@ -107,7 +106,6 @@ export function InnerTextInput(props) {
         active,
         focus,
         hover,
-        className,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -120,12 +118,12 @@ export function InnerTextInput(props) {
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
-    const handleChange = useChainedEventCallback(onChange, event => {
+    const handleChange = useEventCallback(event => {
         setValue(event.target.value);
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps
     } = useInput({
         cssModule: "o-ui-text-input",
@@ -145,8 +143,6 @@ export function InnerTextInput(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -169,16 +165,18 @@ export function InnerTextInput(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    iconMarkup && "has-icon",
-                    buttonMarkup && "has-button"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        iconMarkup && "has-icon",
+                        buttonMarkup && "has-button"
+                    ),
+                    as
+                }
             )}
-            as={as}
         >
             {content}
         </Box>

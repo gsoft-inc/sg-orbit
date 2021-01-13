@@ -2,7 +2,7 @@ import "./TextArea.css";
 
 import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -106,7 +106,6 @@ export function InnerTextArea(props) {
         resize,
         required,
         validationState,
-        onChange,
         variant = "outline",
         type = "text",
         autoFocus,
@@ -120,8 +119,6 @@ export function InnerTextArea(props) {
         active,
         focus,
         hover,
-        className,
-        style,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -134,12 +131,12 @@ export function InnerTextArea(props) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
-    const handleChange = useChainedEventCallback(onChange, event => {
+    const handleChange = useEventCallback(event => {
         setValue(event.target.value);
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps,
         inputRef
     } = useInput({
@@ -160,8 +157,6 @@ export function InnerTextArea(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -191,13 +186,14 @@ export function InnerTextArea(props) {
             <textarea
                 {...mergeProps(
                     rest,
-                    inputProps
+                    inputProps,
+                    {
+                        rows,
+                        style: {
+                            "--o-ui-resize": resize
+                        }
+                    }
                 )}
-                rows={rows}
-                style={{
-                    "--o-ui-resize": resize,
-                    ...style
-                }}
             />
             {buttonMarkup}
         </>
@@ -205,15 +201,18 @@ export function InnerTextArea(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    buttonMarkup && "has-button"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        buttonMarkup && "has-button"
+                    ),
+                    as
+                }
+
             )}
-            as={as}
         >
             {content}
         </Box>

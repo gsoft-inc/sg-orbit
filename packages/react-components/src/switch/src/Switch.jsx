@@ -77,7 +77,6 @@ export function InnerSwitch(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -109,7 +108,6 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        className,
         forwardedRef
     });
 
@@ -139,9 +137,11 @@ export function InnerSwitch(props) {
         <Box
             {...mergeProps(
                 rest,
-                wrapperProps
+                wrapperProps,
+                {
+                    as
+                }
             )}
-            as={as}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-switch-control" />

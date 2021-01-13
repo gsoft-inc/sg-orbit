@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -72,8 +72,8 @@ export function InnerTab({
 
     const handleKeyDown = useEventCallback(event => {
         switch(event.keyCode) {
-            case KEYS.enter:
-            case KEYS.space:
+            case Keys.enter:
+            case Keys.space:
                 event.preventDefault();
                 onSelect(event, index);
                 break;
@@ -82,7 +82,7 @@ export function InnerTab({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === KEYS.space) {
+        if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
     });

@@ -1,7 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { KEYS, cssModule, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -70,8 +70,8 @@ export function InnerListboxOption({
 
     const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
         switch(event.keyCode) {
-            case KEYS.enter:
-            case KEYS.space:
+            case Keys.enter:
+            case Keys.space:
                 event.preventDefault();
                 onSelect(event, key);
                 break;
@@ -80,7 +80,7 @@ export function InnerListboxOption({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useChainedEventCallback(onKeyUp, event => {
-        if (event.keyCode === KEYS.space) {
+        if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
     });

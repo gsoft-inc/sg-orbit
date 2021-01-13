@@ -1,5 +1,5 @@
 import { DropdownContext } from "./DropdownContext";
-import { KEYS, mergeClasses, normalizeSize, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
+import { Keys, mergeClasses, normalizeSize, resolvePopperPosition, useDocumentListener, useEventCallback, useMergedRefs } from "../../shared";
 import { Popper } from "../../OLD_popper";
 import { any, bool, elementType, number, oneOfType, string } from "prop-types";
 import { forwardRef, useContext, useEffect, useMemo, useState } from "react";
@@ -82,13 +82,13 @@ function useKeyboardNavigation(menuElement, isOpen, onSelectItem) {
 
     const handleDocumentKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
-            case KEYS.enter:
+            case Keys.enter:
                 handleDocumentEnter(event);
                 break;
-            case KEYS.up:
+            case Keys.up:
                 handleDocumentUpArrow(event);
                 break;
-            case KEYS.down:
+            case Keys.down:
                 handleDocumentDownArrow(event);
                 break;
         }

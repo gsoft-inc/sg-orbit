@@ -2,7 +2,7 @@ import "./Listbox.css";
 
 import { Box } from "../../box";
 import {
-    KEYS,
+    Keys,
     arrayify,
     mergeProps,
     useAutoFocus,
@@ -213,7 +213,7 @@ export const ListboxBase = forwardRef(({
         searchDisposables.dispose();
 
         switch (event.keyCode) {
-            case KEYS.down: {
+            case Keys.down: {
                 const activeElement = focusManager.focusNext(event.target);
 
                 if (selectionMode === SelectionMode.multiple) {
@@ -225,7 +225,7 @@ export const ListboxBase = forwardRef(({
                 }
                 break;
             }
-            case KEYS.up: {
+            case Keys.up: {
                 const activeElement = focusManager.focusPrevious(event.target);
 
                 if (selectionMode === SelectionMode.multiple) {
@@ -237,13 +237,13 @@ export const ListboxBase = forwardRef(({
                 }
                 break;
             }
-            case KEYS.home:
+            case Keys.home:
                 focusManager.focusFirst();
                 break;
-            case KEYS.end:
+            case Keys.end:
                 focusManager.focusLast();
                 break;
-            case KEYS.space:
+            case Keys.space:
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(KeyProp));
@@ -256,7 +256,7 @@ export const ListboxBase = forwardRef(({
                 // Search accepts only alphanumeric and spacebar keys.
                 if ((event.keyCode >= 48 && event.keyCode <= 57) ||
                     (event.keyCode >= 65 && event.keyCode <= 90) ||
-                     event.keyCode === KEYS.space)
+                     event.keyCode === Keys.space)
                 {
                     const query = searchQueryRef.current = searchQueryRef.current + event.key;
 

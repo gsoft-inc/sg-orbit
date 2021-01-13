@@ -3,7 +3,7 @@ import "./Select.css";
 import { ChevronIcon } from "../../icons";
 import {
     FocusTarget,
-    KEYS,
+    Keys,
     cssModule,
     mergeProps,
     useAutoFocus,
@@ -186,10 +186,10 @@ export function InnerSelect(props) {
 
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
-            case KEYS.down:
+            case Keys.down:
                 setVisibility(event, true, FocusTarget.first);
                 break;
-            case KEYS.up:
+            case Keys.up:
                 setVisibility(event, true, FocusTarget.last);
                 break;
         }
