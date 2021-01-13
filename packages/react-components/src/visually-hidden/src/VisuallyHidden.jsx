@@ -3,7 +3,7 @@ import "./VisuallyHidden.css";
 import { Box } from "../../box";
 import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { mergeClasses, mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -14,20 +14,20 @@ const propTypes = {
 
 export function InnerVisuallyHidden({
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
 }) {
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                "o-ui visually-hidden",
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-visually-hidden",
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            as={as}
-            ref={forwardedRef}
         >
             {children}
         </Box>

@@ -129,10 +129,6 @@ const propTypes = {
      */
     selectedKey: oneOfType([string, arrayOf(string)]),
     /**
-     * The initial focused key.
-     */
-    defaultFocusedKey: string,
-    /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String | String[]} key - The selected key(s).
@@ -148,9 +144,9 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
-     * A label providing an accessible name to the listbox. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     * Controlled autofocus target.
      */
-    "aria-label": string.isRequired,
+    autoFocusTarget: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -163,11 +159,11 @@ export const ListboxBase = forwardRef(({
     id,
     nodes,
     selectedKey,
-    defaultFocusedKey,
     onChange,
     onKeyDown,
     selectionMode,
     autoFocus,
+    autoFocusTarget,
     "aria-label": ariaLabel,
     as,
     ...rest
@@ -180,7 +176,7 @@ export const ListboxBase = forwardRef(({
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const focusTarget = selectionManager.selectedKeys[0] ?? defaultFocusedKey;
+    const focusTarget = selectionManager.selectedKeys[0] ?? autoFocusTarget;
 
     // When autoFocus is specified, if there is a selected key, autofocus the item matching the key.
     useAutoFocusChild(focusManager, {
@@ -340,36 +336,6 @@ export const ListboxBase = forwardRef(({
             </ListboxContext.Provider>
         </Box>
     );
-
-    // return (
-    //     <Box
-    //         {...mergeProps(
-    //             rest,
-    //             {
-    //                 id: rootId,
-    //                 className: "o-ui-listbox",
-    //                 onKeyDown: handleKeyDown,
-    //                 role: "listbox",
-    //                 "aria-label": ariaLabel,
-    //                 "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
-    //                 tabIndex: "-1",
-    //                 as,
-    //                 ref: containerRef
-    //             }
-    //         )}
-    //     >
-    //         <ListboxContext.Provider
-    //             value={{
-    //                 selectedKeys: selectionManager.selectedKeys,
-    //                 onSelect: handleSelect
-    //             }}
-    //         >
-    //             {nodes.map(({ type, ...nodeProps }) =>
-    //                 type === "section" ? renderSection(nodeProps) : renderOption(nodeProps)
-    //             )}
-    //         </ListboxContext.Provider>
-    //     </Box>
-    // );
 });
 
 ListboxBase.propTypes = propTypes;

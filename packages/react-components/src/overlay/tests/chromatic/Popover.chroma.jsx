@@ -20,9 +20,8 @@ INTERACTION TEST:
 - open on space
 - open on enter? TO VALIDATE with specs
 - open on custom keys (like open on arrow down)
-- close on ESC
+- close on esc
 - close on blur
-- focus trigger on close
 - focus first element on open
 - with and without restoreFocus
 - restore focus on close

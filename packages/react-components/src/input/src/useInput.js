@@ -38,9 +38,9 @@ export function useInput({
                 cssModule(
                     "o-ui-input",
                     variant,
+                    validationState,
                     fluid && "fluid",
                     loading && "loading",
-                    validationState && validationState,
                     active && "active",
                     focus && "focus",
                     hover && "hover"

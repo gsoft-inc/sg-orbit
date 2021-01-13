@@ -1,7 +1,19 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
-import { KEYS, mergeClasses, mergeProps, useAutoFocus, useControllableState, useEventCallback, useFocusScope, useMergedRefs, useSlots } from "../../shared";
+import {
+    FocusTarget,
+    KEYS,
+    cssModule,
+    mergeProps,
+    useAutoFocus,
+    useControllableState,
+    useEventCallback,
+    useFocusScope,
+    useMergedRefs,
+    useSlots
+} from "../../shared";
+import { HiddenSelect } from "./HiddenSelect";
 import { ListboxBase } from "../../listbox";
 import { Overlay, useOverlay, usePopoverPosition, usePopoverTrigger, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
@@ -9,28 +21,7 @@ import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string
 import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useCollectionBuilder } from "../../collection";
-
-/*
-Select:
-- must work in a form (submit value with an hidden value) - Will be specific to a select though and not to a Popover.
-- clicking on a field label should focus the select (can't use label for this I think) - not sure how it will integrate with Field, have a jest test.
-- user must be able to set it's id.
-- might have to support .focus() (also check if TextInput, NumberInput, PasswordInput still support .focus() ?)
-
-https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/select/src/useSelect.ts
-https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/select/src/HiddenSelect.tsx
-*/
-
-/*
-Was thinkink in the beginning about making a Picker but now I do prefer a Select (everybody know what is a Select) and for the HTML version will make
-an HtmlSelect component
-*/
-
-/*
-Should also support:
-    - items prop?
-    - empty selection?
-*/
+import { useFieldInputProps } from "../../field";
 
 const propTypes = {
     /**
@@ -54,6 +45,14 @@ const propTypes = {
      */
     placeholder: string,
     /**
+     * Whether or not a user input is required before form submission.
+     */
+    required: bool,
+    /**
+     * Whether or not the select should display as "valid" or "invalid".
+     */
+    validationState: oneOf(["valid", "invalid"]),
+    /**
      * Called when the select value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} selectedKey - The new selected key.
@@ -67,6 +66,10 @@ const propTypes = {
      * @returns {void}
      */
     onVisibilityChange: func,
+    /**
+     * The style to use.
+     */
+    variant: oneOf(["outline", "inline", "transparent"]),
     /**
      * The horizontal alignment of the select menu relative to the input target.
      */
@@ -100,10 +103,6 @@ const propTypes = {
      */
     allowPreventOverflow: bool,
     /**
-     * A label providing an accessible name to the select. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
-    "aria-label": string.isRequired,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -113,34 +112,44 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function InnerSelect({
-    open,
-    defaultOpen,
-    selectedKey: controlledKey,
-    defaultSelectedKey,
-    onChange,
-    onVisibilityChange,
-    placeholder,
-    align = "start",
-    direction = "bottom",
-    autoFocus,
-    fluid,
-    disabled,
-    readOnly,
-    allowFlip,
-    allowPreventOverflow,
-    "aria-label": ariaLabel,
-    active,
-    focus,
-    hover,
-    as: TriggerType = "button",
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerSelect(props) {
+    const [fieldProps] = useFieldInputProps();
+
+    const {
+        open,
+        defaultOpen,
+        selectedKey: controlledKey,
+        defaultSelectedKey,
+        placeholder,
+        required,
+        validationState,
+        onChange,
+        onVisibilityChange,
+        variant = "outline",
+        align = "start",
+        direction = "bottom",
+        autoFocus,
+        fluid,
+        name,
+        disabled,
+        readOnly,
+        allowFlip,
+        allowPreventOverflow,
+        active,
+        focus,
+        hover,
+        "aria-label": ariaLabel,
+        as: TriggerType = "button",
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        fieldProps
+    );
+
     const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
-
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
 
@@ -149,54 +158,55 @@ export function InnerSelect({
     const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
     const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
 
-    const defaultFocusedKeyRef = useRef(null);
+    const autoFocusTargetRef = useRef(null);
 
-    const setVisibility = useCallback((event, newVisibility) => {
+    const setSelection = (event, newKey) => {
+        if (!isNil(onChange)) {
+            onChange(event, newKey);
+        }
+
+        setSelectedKey(newKey);
+    };
+
+    const setVisibility = useCallback((event, newVisibility, focusTarget = null) => {
         if (!isNil(onVisibilityChange)) {
             onVisibilityChange(event, newVisibility);
         }
 
+        autoFocusTargetRef.current = focusTarget;
         setIsVisible(newVisibility);
     }, [onVisibilityChange, setIsVisible]);
 
     const close = useCallback(event => {
         setVisibility(event, false);
-        defaultFocusedKeyRef.current = null;
     }, [setVisibility]);
 
     const renderProps = useMemo(() => ({ isOpen: isVisible, close }), [isVisible, close]);
 
     const nodes = useCollectionBuilder(children, renderProps);
 
-    const handleTriggerToggle = useEventCallback(event => {
-        setVisibility(event, !isVisible);
+    const handleTriggerToggle = useEventCallback((event, focusTarget) => {
+        setVisibility(event, !isVisible, focusTarget);
+    });
+
+    const handleTriggerKeyDown = useEventCallback(event => {
+        switch (event.keyCode) {
+            case KEYS.down:
+                setVisibility(event, true, FocusTarget.first);
+                break;
+            case KEYS.up:
+                setVisibility(event, true, FocusTarget.last);
+                break;
+        }
+    });
+
+    const handleSelectOption = useEventCallback((event, newKey) => {
+        setSelection(event, newKey);
+        close(event);
     });
 
     const handleClose = useEventCallback(event => {
         close(event);
-    });
-
-    const handleSelectOption = useEventCallback((event, newSelectedKey) => {
-        if (!isNil(onChange)) {
-            onChange(event, newSelectedKey);
-        }
-
-        setSelectedKey(newSelectedKey);
-        close(event);
-    });
-
-    // TODO: Instead of doing this, allow to pass a FocusTarget (first | last) to ListboxBase autoFocus prop. What about delay though? Don't care maybe?
-    const handleKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case KEYS.down:
-                defaultFocusedKeyRef.current = nodes[0]?.itemKey;
-                setVisibility(event, true);
-                break;
-            case KEYS.up:
-                defaultFocusedKeyRef.current = nodes[nodes.length - 1]?.itemKey;
-                setVisibility(event, true);
-                break;
-        }
     });
 
     const { overlayProps } = useOverlay({
@@ -244,7 +254,7 @@ export function InnerSelect({
         }
     });
 
-    const value = !isNil(selectedNode) ? (
+    const valueMarkup = !isNil(selectedNode) ? (
         <div className="o-ui-select-value">
             {selectedIcon}
             {selectedText}
@@ -256,14 +266,23 @@ export function InnerSelect({
 
     return (
         <>
+            <HiddenSelect
+                name={name}
+                selectedKey={selectedKey}
+                required={required}
+                validationState={validationState}
+                disabled={disabled}
+            />
             <TriggerType
                 {...mergeProps(
                     rest,
                     triggerProps,
                     {
-                        onKeyDown: !isVisible ? handleKeyDown : undefined,
-                        className: mergeClasses(
+                        onKeyDown: !isVisible ? handleTriggerKeyDown : undefined,
+                        className: cssModule(
                             "o-ui-select-trigger",
+                            variant,
+                            validationState,
                             fluid && "fluid",
                             active && "active",
                             focus && "focus",
@@ -271,12 +290,13 @@ export function InnerSelect({
                             readOnly && "readonly"
                         ),
                         disabled,
+                        "aria-label": !fieldProps["aria-labelledby"] ? ariaLabel : undefined,
                         "aria-readonly": readOnly,
                         ref: triggerRef
                     }
                 )}
             >
-                {value}
+                {valueMarkup}
                 <ChevronIcon
                     className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
                     size="sm"
@@ -299,12 +319,14 @@ export function InnerSelect({
                 <ListboxBase
                     nodes={nodes}
                     selectedKey={selectedKey}
-                    defaultFocusedKey={defaultFocusedKeyRef.current}
                     onChange={handleSelectOption}
-                    /* Must be restricted with the isVisible flag otherwise it will steal the focus from the trigger when selecting
+                    /* Must be conditional to isVisible otherwise it will steal the focus from the trigger when selecting
                        a value because the listbox re-render before the exit animation is done. */
                     autoFocus={isVisible}
-                    aria-label={ariaLabel}
+                    autoFocusTarget={autoFocusTargetRef.current}
+                    aria-label={!fieldProps["aria-labelledby"] ? ariaLabel : undefined}
+                    aria-labelledby={fieldProps["aria-labelledby"]}
+                    aria-describedby={fieldProps["aria-describedby"]}
                 />
             </Overlay>
         </>

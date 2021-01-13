@@ -1,4 +1,4 @@
-import { KEYS, useEventCallback } from "../../shared";
+import { FocusTarget, KEYS, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 
@@ -11,9 +11,9 @@ import { useOverlayTrigger } from "./useOverlayTrigger";
 export function usePopoverTrigger(type, { isVisible, onToggle }) {
     const { triggerProps, overlayProps } = useOverlayTrigger(type, { isVisible });
 
-    const toggle = event => {
+    const toggle = (event, focusTarget) => {
         if (!isNil(onToggle)) {
-            onToggle(event);
+            onToggle(event, focusTarget);
         }
     };
 
@@ -26,7 +26,7 @@ export function usePopoverTrigger(type, { isVisible, onToggle }) {
             case KEYS.enter:
             case KEYS.space:
                 event.preventDefault();
-                toggle(event);
+                toggle(event, FocusTarget.first);
                 break;
         }
     });
