@@ -1,9 +1,8 @@
-import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
 import { Paragraph } from "@react-components/paragraph";
 import { Select } from "@react-components/select";
-import { Text } from "@react-components/text";
+import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 /*
@@ -48,89 +47,34 @@ function stories(segment) {
         .build();
 }
 
+createTestSuite(<Select variant="outline" />, stories("/outline"));
+
+createTestSuite(<Select variant="transparent" />, stories("/transparent"));
+
+createTestSuite(<Select variant="inline" />, stories("/inline"))
+    .add("in a block", () => {
+        function InlineSelect() {
+            return (
+                <Select variant="inline" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+            );
+        }
+
+        return (
+            <Stack>
+                <Paragraph size="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+                <Paragraph size="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+                <Paragraph size="xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+                <Paragraph size="2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+            </Stack>
+        );
+    });
+
 stories()
-    .add("default", () =>
-        <Select placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
-    )
-    .add("item with left icon", () =>
-        <Select placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">
-                <NotificationIcon />
-                <Text>Earth</Text>
-            </Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">
-                <IconList>
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
-                <Text>Mars</Text>
-            </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Select>
-    )
-    .add("item with right icon", () =>
-        <Select placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">
-                <Text>Earth</Text>
-                <NotificationIcon slot="right-icon" />
-            </Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">
-                <Text>Mars</Text>
-                <IconList slot="right-icon">
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
-            </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Select>
-    )
-    .add("item overflow", () =>
-        <Select placeholder="Select a planet" aria-label="Planets">
-            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-            <Item>Jupiter</Item>
-            <Item>Mars</Item>
-        </Select>
-    )
-    .add("selected key", () =>
-        <Select selectedKey="mars" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
-    )
-    .add("autofocus", () =>
-        <Select autoFocus placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
-    )
-    .add("validation", () =>
-        <Inline>
-            <Select validationState="invalid" placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-            <Select validationState="valid" placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        </Inline>
-    )
     .add("with name", () =>
         <Select name="planet" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
@@ -151,39 +95,4 @@ stories()
                 <Item key="mars">Mars</Item>
             </Select>
         </Inline>
-    )
-    .add("inline", () =>
-        <Select variant="inline" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
-    )
-    .add("inline - in a block", () => {
-        function InlineSelect() {
-            return (
-                <Select variant="inline" placeholder="Select a planet" aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            );
-        }
-
-        return (
-            <Stack>
-                <Paragraph size="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-            </Stack>
-        );
-    })
-    .add("transparent", () =>
-        <Select variant="transparent" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
     );

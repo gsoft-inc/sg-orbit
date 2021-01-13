@@ -3,7 +3,6 @@ import "./Popover.css";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Children, forwardRef, useContext, useLayoutEffect, useState } from "react";
-import { Inline } from "../../../layout";
 import { Popover } from "@react-components/overlay";
 import { PopoverContext } from "../../src";
 import { Text } from "@react-components/text";

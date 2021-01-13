@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+.o-ui-select-trigger-fluid {
+    width: 100%;
+}
+
 .o-ui-select-trigger-outline,
 .o-ui-select-trigger-transparent {
     display: flex;
@@ -25,8 +29,15 @@
     border: 1px solid red;
 }
 
+.o-ui-select-trigger-focus,
 .o-ui-select-trigger:focus:not(:hover) {
     border: 3px solid blue !important;
+}
+
+.o-ui-select-value,
+.o-ui-select-placeholder {
+    flex-grow: 1;
+    text-align: left;
 }
 
 .o-ui-select-menu {

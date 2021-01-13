@@ -63,7 +63,7 @@ stories()
             </Section>
         </Listbox>
     )
-    .add("default selected key", () =>
+    .add("selected key", () =>
         <Inline>
             <Listbox defaultSelectedKey="mars" aria-label="Planets">
                 <Item key="earth">Earth</Item>
@@ -248,14 +248,14 @@ stories()
             <Item key="mars">Mars</Item>
         </Listbox>
     )
-    .add("autofocus + default selected key", () =>
+    .add("autofocus + selected key", () =>
         <Listbox autoFocus defaultSelectedKey="jupiter" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
-    .add("autofocus + multiple default selected key", () =>
+    .add("autofocus + multiple selected key", () =>
         <Listbox autoFocus defaultSelectedKey={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>

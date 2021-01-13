@@ -91,10 +91,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * Whether or not the select is readonly.
-     */
-    readOnly: bool,
-    /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
     allowFlip: bool,
@@ -129,10 +125,9 @@ export function InnerSelect(props) {
         align = "start",
         direction = "bottom",
         autoFocus,
-        fluid,
         name,
+        fluid,
         disabled,
-        readOnly,
         allowFlip,
         allowPreventOverflow,
         active,
@@ -212,7 +207,7 @@ export function InnerSelect(props) {
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleClose,
-        // Do not hide on blur when the focus is on the trigger. It would result in double toggling the menu.
+        // Without this condition, closing the menu with a mouse click will double toggled the menu.
         canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
         hideOnEscape: true,
         hideOnBlur: true,
@@ -246,7 +241,7 @@ export function InnerSelect(props) {
             className: "o-ui-select-value-left-icon"
         },
         text: {
-            className: "o-ui-select-value-label"
+            className: "o-ui-select-value"
         },
         "right-icon": {
             size: "sm",
@@ -286,12 +281,10 @@ export function InnerSelect(props) {
                             fluid && "fluid",
                             active && "active",
                             focus && "focus",
-                            hover && "hover",
-                            readOnly && "readonly"
+                            hover && "hover"
                         ),
                         disabled,
                         "aria-label": !fieldProps["aria-labelledby"] ? ariaLabel : undefined,
-                        "aria-readonly": readOnly,
                         ref: triggerRef
                     }
                 )}
