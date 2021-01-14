@@ -1,10 +1,12 @@
-function ActiveHeader({ children, ...rest }) {
-    const { isOpen } = useAccordionItemContext();
+function ActiveHeader({ header, children, ...rest }) {
+    const { selectedIndexes } = useAccordionContext();
+    const { index } = header;
 
     return (
         <AccordionHeader
             {...rest}
-            className={isOpen ? "primary-600" : undefined}
+            header={header}
+            className={selectedIndexes.includes(index) ? "primary-600" : undefined}
         >
             {children}
         </AccordionHeader>

@@ -1,40 +1,58 @@
+import "./Accordion.css";
+
 import { AccordionHeader } from "./AccordionHeader";
-import { AccordionItemProvider } from "./AccordionItemContext";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
-import { useEventCallback } from "../../shared";
+import { mergeProps, useEventCallback } from "../../shared";
+import { useAccordionContext } from "./AccordionContext";
 
 export function AccordionItem({
-    index,
-    header,
-    panel,
-    open,
-    onToggle,
+    item: { index, header, panel },
     ...rest
 }) {
+    const { selectedIndexes, onToggle } = useAccordionContext();
+
     const handleChange = useEventCallback(event => {
         onToggle(event, index);
     });
 
-    const { type: HeaderType = AccordionHeader, ...headerProps } = header;
-    const { type: PanelType = AccordionPanel, ...panelProps } = panel;
+    const {
+        elementType: HeaderType = AccordionHeader,
+        ref: headerRef,
+        props: headerProps
+    } = header;
+
+    const {
+        elementType: PanelType = AccordionPanel,
+        ref: panelRef,
+        props: panelProps
+    } = panel;
 
     return (
-        <AccordionItemProvider
-            value={{
-                index: index,
-                isOpen: open
-            }}
+        <Disclosure
+            {...mergeProps(
+                rest,
+                {
+                    open: selectedIndexes.includes(index),
+                    onChange: handleChange
+                }
+            )}
         >
-            <Disclosure
-                {...rest}
-                open={open}
-                onChange={handleChange}
-            >
-                <HeaderType {...headerProps} />
-                <PanelType {...panelProps} />
-            </Disclosure>
-        </AccordionItemProvider>
+            <HeaderType
+                {...headerProps}
+                header={{
+                    index
+                }}
+                ref={headerRef}
+            />
+            <PanelType
+                {...panelProps}
+                panel={{
+                    index
+                }}
+                ref={panelRef}
+            />
+        </Disclosure>
     );
 }
 

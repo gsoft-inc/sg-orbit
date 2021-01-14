@@ -10,13 +10,9 @@ const propTypes = {
      */
     condensed: bool,
     /**
-     * Whether the button should autoFocus on render.
+     * Whether or not the button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A cross button can vary in size.
      */

@@ -1,6 +1,7 @@
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -26,10 +27,14 @@ export function InnerListItem({
 }) {
     return (
         <Text
-            {...rest}
-            size={size}
-            as={as}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    size,
+                    as,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Text>

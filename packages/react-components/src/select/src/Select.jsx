@@ -1,297 +1,328 @@
-import { EmbeddedIcon } from "../../icons";
-import { KEYS, SemanticRef, mergeClasses, normalizeSize, throwWhenUnsupportedPropIsProvided, useAutoFocus, useDocumentListener, useEventCallback } from "../../shared";
-import { Label } from "semantic-ui-react";
-import { MonkeyPatchSemanticDropdown } from "./MonkeyPatchSemanticDropdown";
-import { SelectContext } from "./SelectContext";
-import { SelectItem } from "./SelectItem";
-import { any, arrayOf, bool, element, number, object, oneOf, string } from "prop-types";
-import { forwardRef, useCallback, useRef, useState } from "react";
-import { isArray, isNil } from "lodash";
-import { renderAvatar } from "./renderAvatar";
-import { renderIcons } from "./renderIcons";
+import "./Select.css";
 
-const UNSUPPORTED_PROPS = [
-    "additionLabel",
-    "additionPosition",
-    "allowAdditions",
-    "basic",
-    "button",
-    "closeOnBlur",
-    "closeOnChange",
-    "closeOnEscape",
-    "compact",
-    "deburr",
-    "direction",
-    "floating",
-    "header",
-    "labeled",
-    "item",
-    "openOnFocus",
-    "pointing",
-    "selection",
-    "selectOnBlur",
-    "selectOnNavigation",
-    "simple",
-    "trigger",
-    "wrapSelection"
-];
+import { ChevronIcon } from "../../icons";
+import {
+    FocusTarget,
+    Keys,
+    cssModule,
+    mergeProps,
+    useAutoFocus,
+    useControllableState,
+    useEventCallback,
+    useFocusScope,
+    useMergedRefs,
+    useSlots
+} from "../../shared";
+import { HiddenSelect } from "./HiddenSelect";
+import { ListboxBase } from "../../listbox";
+import { Overlay, useOverlay, usePopoverPosition, usePopoverTrigger, useRestoreFocus } from "../../overlay";
+import { Text } from "../../text";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import { isNil, isNumber } from "lodash";
+import { useCollectionBuilder } from "../../collection";
+import { useFieldInputProps } from "../../field";
 
 const propTypes = {
     /**
-     * [Icon](/?path=/docs/icon--default-story) component rendered before the content.
+     * Whether or not to open the select element.
      */
-    icon: element,
+    open: bool,
     /**
-     * An array of items object shorthands.
+     * The initial value of show when in auto controlled mode.
      */
-    options: arrayOf(any).isRequired,
+    defaultOpen: bool,
     /**
-     * A select can vary in size.
+     * A controlled array holding the currently selected key(s).
      */
-    size: oneOf(["sm", "lg"]),
+    selectedKey: oneOfType([string, arrayOf(string)]),
     /**
-     * Whether the dropdown should autoFocus on render.
+     * The initial value of `selectedKey` when uncontrolled.
      */
-    autoFocus: bool,
+    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
     /**
-     * The delay before trying to autofocus.
+     * Temporary text that occupies the select trigger when no value is selected.
      */
-    autoFocusDelay: number,
+    placeholder: string,
     /**
-     * A transparent select has no background.
+     * Whether or not a user input is required before form submission.
      */
-    transparent: bool,
+    required: bool,
     /**
-     * Additional CSS classes to render on the wrapper element.
+     * Whether or not the select should display as "valid" or "invalid".
      */
-    wrapperClassName: string,
+    validationState: oneOf(["valid", "invalid"]),
     /**
-     * Additional style to render on the wrapper element.
+     * Called when the select value change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {boolean} selectedKey - The new selected key.
+     * @returns {void}
      */
-    wrapperStyle: object
+    onChange: func,
+    /**
+     * Called when the select visibility change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {boolean} isVisible - Indicate if the select is visible.
+     * @returns {void}
+     */
+    onVisibilityChange: func,
+    /**
+     * The style to use.
+     */
+    variant: oneOf(["outline", "inline", "transparent"]),
+    /**
+     * The horizontal alignment of the select menu relative to the input target.
+     */
+    align: oneOf(["start", "end"]),
+    /**
+     * The direction the select menu will open relative to the input.
+     */
+    direction: oneOf(["bottom", "top"]),
+    /**
+     * Whether or not the select should autofocus on render.
+     */
+    autoFocus: oneOfType([bool, number]),
+    /**
+     * Whether or not the select take up the width of its container.
+     */
+    fluid: bool,
+    /**
+     * Whether or not the select is disabled.
+     */
+    disabled: bool,
+    /**
+     * Whether or not the select menu can flip when it will overflow it's boundary area.
+     */
+    allowFlip: bool,
+    /**
+     * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
+     */
+    allowPreventOverflow: bool,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: oneOfType([any, func]).isRequired
 };
-
-function throwWhenMutuallyExclusivePropsAreProvided({ inline, size }) {
-    if (inline && !isNil(size)) {
-        throw new Error("@orbit-ui/react-components/Select you cannot specify a size for an inline select.");
-    }
-}
-
-function throwWhenMultipleAndValuesIsNotAnArray({ multiple, defaultValue, value }) {
-    if (multiple) {
-        if (!isNil(value) && !isArray(value)) {
-            throw new Error("@orbit-ui/react-components/Select value must be an array when multiple is true.");
-        }
-
-        if (!isNil(defaultValue) && !isArray(defaultValue)) {
-            throw new Error("@orbit-ui/react-components/Select defaultValue must be an array when multiple is true.");
-        }
-    }
-}
-
-const MULTIPLE_VALUES_LABEL_SIZE = {
-    "sm": "2xs",
-    "md": "xs",
-    "lg": "sm"
-};
-
-function useMultipleValuesLabelRenderer({ size }) {
-    return ({ text, avatar, icons, iconsPosition }, index, { className, ...rest }) => {
-        const avatarMarkup = !isNil(avatar) && renderAvatar(avatar);
-
-        const iconsMarkup = !isNil(icons) && renderIcons(icons, size);
-
-        const content = (
-            <>
-                {iconsPosition === "left" && iconsMarkup}{avatarMarkup}
-                {text}
-                {iconsPosition === "right" && iconsMarkup}
-            </>
-        );
-
-        return (
-            <Label
-                {...rest}
-                content={content}
-                size={MULTIPLE_VALUES_LABEL_SIZE[normalizeSize(size)]}
-                className={mergeClasses(
-                    !isNil(avatar) && "with-avatar",
-                    !isNil(icons) && iconsPosition === "left" && "with-icons-left",
-                    !isNil(icons) && iconsPosition === "right" && "with-icons-right",
-                    className
-                )}
-            />
-        );
-    };
-}
 
 export function InnerSelect(props) {
+    const [fieldProps] = useFieldInputProps();
+
     const {
-        icon,
-        options,
-        search,
-        inline,
-        transparent,
-        size,
+        open,
+        defaultOpen,
+        selectedKey: controlledKey,
+        defaultSelectedKey,
+        placeholder,
+        required,
+        validationState,
+        onChange,
+        onVisibilityChange,
+        variant = "outline",
+        align = "start",
+        direction = "bottom",
         autoFocus,
-        autoFocusDelay,
+        name,
         fluid,
         disabled,
-        onOpen,
-        onClose,
-        onFocus,
-        onBlur,
-        onChange,
+        allowFlip,
+        allowPreventOverflow,
         active,
         focus,
         hover,
-        className,
-        wrapperClassName,
-        wrapperStyle,
+        "aria-label": ariaLabel,
+        as: TriggerType = "button",
+        children,
         forwardedRef,
         ...rest
-    } = props;
-    throwWhenUnsupportedPropIsProvided(props, UNSUPPORTED_PROPS, "@orbit-ui/react-components/Select");
-    throwWhenMutuallyExclusivePropsAreProvided(props);
-    throwWhenMultipleAndValuesIsNotAnArray(props);
+    } = mergeProps(
+        props,
+        fieldProps
+    );
 
-    const [isOpen, setIsOpen] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
+    const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
+    const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
+    const [triggerElement, setTriggerElement] = useState();
+    const [overlayElement, setOverlayElement] = useState();
 
-    const hasValueChangeRef = useRef(false);
-    const dropdownInnerRef = useRef();
-    const dropdownComponentRef = useRef();
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    // A select doesn't support children.
-    // eslint-disable-next-line react/destructuring-assignment
-    delete props["children"];
+    const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
+    const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
 
-    const handleOpen = useEventCallback((...args) => {
-        setIsOpen(true);
+    const autoFocusTargetRef = useRef(null);
 
-        if (!isNil(onOpen)) {
-            onOpen(...args);
-        }
-    });
-
-    const handleClose = useEventCallback((...args) => {
-        setIsOpen(false);
-
-        if (!isNil(onClose)) {
-            onClose(...args);
-        }
-    });
-
-    const handleFocus = useEventCallback((...args) => {
-        setIsFocus(true);
-
-        if (!isNil(onFocus)) {
-            onFocus(...args);
-        }
-    });
-
-    const handleBlur = useEventCallback((...args) => {
-        setIsFocus(false);
-
-        if (!isNil(onBlur)) {
-            onBlur(...args);
-        }
-    });
-
-    const handleChange = useEventCallback((...args) => {
-        hasValueChangeRef.current = true;
-
+    const setSelection = (event, newKey) => {
         if (!isNil(onChange)) {
-            onChange(...args);
+            onChange(event, newKey);
+        }
+
+        setSelectedKey(newKey);
+    };
+
+    const setVisibility = useCallback((event, newVisibility, focusTarget = null) => {
+        if (!isNil(onVisibilityChange)) {
+            onVisibilityChange(event, newVisibility);
+        }
+
+        autoFocusTargetRef.current = focusTarget;
+        setIsVisible(newVisibility);
+    }, [onVisibilityChange, setIsVisible]);
+
+    const close = useCallback(event => {
+        setVisibility(event, false);
+    }, [setVisibility]);
+
+    const renderProps = useMemo(() => ({ isOpen: isVisible, close }), [isVisible, close]);
+
+    const nodes = useCollectionBuilder(children, renderProps);
+
+    const handleTriggerToggle = useEventCallback((event, focusTarget) => {
+        setVisibility(event, !isVisible, focusTarget);
+    });
+
+    const handleTriggerKeyDown = useEventCallback(event => {
+        switch (event.keyCode) {
+            case Keys.down:
+                setVisibility(event, true, FocusTarget.first);
+                break;
+            case Keys.up:
+                setVisibility(event, true, FocusTarget.last);
+                break;
         }
     });
 
-    const handleDocumentKeyDown = useEventCallback(event => {
-        if (event.keyCode === KEYS.enter) {
-            if (!hasValueChangeRef.current) {
-                dropdownComponentRef.current.open(event);
-            }
+    const handleSelectOption = useEventCallback((event, newKey) => {
+        setSelection(event, newKey);
+        close(event);
+    });
 
-            hasValueChangeRef.current = false;
+    const handleClose = useEventCallback(event => {
+        close(event);
+    });
+
+    const { overlayProps } = useOverlay({
+        isVisible,
+        onHide: handleClose,
+        // Without this condition, closing the menu with a mouse click will double toggled the menu.
+        canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
+        hideOnEscape: true,
+        hideOnBlur: true,
+        overlayRef
+    });
+
+    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("listbox", { isVisible, onToggle: handleTriggerToggle });
+
+    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition(triggerElement, overlayElement, {
+        position: `${direction}-${align}`,
+        offset: [0, 4],
+        allowFlip,
+        allowPreventOverflow
+    });
+
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isVisible });
+
+    useAutoFocus(triggerRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const selectedNode = nodes.find(x => x.itemKey === selectedKey);
+
+    const { icon: selectedIcon, text: selectedText, "right-icon": selectedRightIcon } = useSlots(selectedNode?.content, {
+        _: {
+            defaultWrapper: Text
+        },
+        icon: {
+            size: "sm",
+            className: "o-ui-select-value-left-icon"
+        },
+        text: {
+            className: "o-ui-select-value"
+        },
+        "right-icon": {
+            size: "sm",
+            className: "o-ui-select-value-right-icon"
         }
     });
 
-    useDocumentListener("keydown", handleDocumentKeyDown, !isOpen && isFocus);
-
-    const setFocusWhenSearch = useCallback(() => {
-        if (!isNil(dropdownInnerRef.current)) {
-            if (search) {
-                dropdownInnerRef.current.querySelector("input.search").focus();
-            }
-        }
-    }, [search, dropdownInnerRef]);
-
-    useAutoFocus(dropdownInnerRef, autoFocus && !disabled, {
-        delay: autoFocusDelay ?? 5,
-        onFocus: setFocusWhenSearch
-    });
-
-    const renderMultipleValuesLabel = useMultipleValuesLabelRenderer({ size });
+    const valueMarkup = !isNil(selectedNode) ? (
+        <div className="o-ui-select-value">
+            {selectedIcon}
+            {selectedText}
+            {selectedRightIcon}
+        </div>
+    ) : (
+        <span className="o-ui-select-placeholder">{placeholder}</span>
+    );
 
     return (
-        <div
-            className={mergeClasses(
-                fluid ? "w-100" : "dib",
-                // fixes the weird case where a parent element will be too high when it's children containes an empty inline-block element
-                inline ? "v-middle" : "v-top",
-                "relative outline-0",
-                wrapperClassName
-            )}
-            style={wrapperStyle}
-            tabIndex="-1"
-            ref={forwardedRef}
-            data-testid="select-wrapper"
-        >
-            <SelectContext.Provider value={{ size }}>
-                <SemanticRef innerRef={dropdownInnerRef}>
-                    <MonkeyPatchSemanticDropdown
-                        data-testid="select"
-                        {...rest}
-                        options={options}
-                        selectOnBlur={false}
-                        selectOnNavigation={false}
-                        openOnFocus={false}
-                        selection={!inline}
-                        inline={inline}
-                        search={search}
-                        size={size}
-                        fluid={fluid}
-                        disabled={disabled}
-                        renderLabel={renderMultipleValuesLabel}
-                        onOpen={handleOpen}
-                        onClose={handleClose}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        className={mergeClasses(
-                            !isNil(icon) && "with-icon",
-                            transparent && "transparent",
+        <>
+            <HiddenSelect
+                name={name}
+                selectedKey={selectedKey}
+                required={required}
+                validationState={validationState}
+                disabled={disabled}
+            />
+            <TriggerType
+                {...mergeProps(
+                    rest,
+                    triggerProps,
+                    {
+                        onKeyDown: !isVisible ? handleTriggerKeyDown : undefined,
+                        className: cssModule(
+                            "o-ui-select-trigger",
+                            variant,
+                            validationState,
+                            fluid && "fluid",
                             active && "active",
                             focus && "focus",
-                            hover && "hover",
-                            normalizeSize(size),
-                            className
-                        )}
-                        ref={dropdownComponentRef}
-                    />
-                </SemanticRef>
-            </SelectContext.Provider>
-            <If condition={!isNil(icon)}>
-                <div
-                    className={mergeClasses(
-                        "ui dropdown-icon flex items-center",
-                        inline && "inline"
-                    )}
-                >
-                    <EmbeddedIcon size={size}>{icon}</EmbeddedIcon>
-                </div>
-            </If>
-        </div>
+                            hover && "hover"
+                        ),
+                        disabled,
+                        "aria-label": !fieldProps["aria-labelledby"] ? ariaLabel : undefined,
+                        ref: triggerRef
+                    }
+                )}
+            >
+                {valueMarkup}
+                <ChevronIcon
+                    className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
+                    size="sm"
+                />
+            </TriggerType>
+            <Overlay
+                {...mergeProps(
+                    overlayProps,
+                    overlayPositionProps,
+                    overlayTriggerProps,
+                    restoreFocusProps,
+                    {
+                        show: isVisible,
+                        className: "o-ui-select-menu",
+                        style: overlayStyles,
+                        ref: overlayRef
+                    }
+                )}
+            >
+                <ListboxBase
+                    nodes={nodes}
+                    selectedKey={selectedKey}
+                    onChange={handleSelectOption}
+                    /* Must be conditional to isVisible otherwise it will steal the focus from the trigger when selecting
+                       a value because the listbox re-render before the exit animation is done. */
+                    autoFocus={isVisible}
+                    autoFocusTarget={autoFocusTargetRef.current}
+                    aria-label={!fieldProps["aria-labelledby"] ? ariaLabel : undefined}
+                    aria-labelledby={fieldProps["aria-labelledby"]}
+                    aria-describedby={fieldProps["aria-describedby"]}
+                />
+            </Overlay>
+        </>
     );
 }
 
@@ -301,7 +332,4 @@ export const Select = forwardRef((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));
 
-// Divider, Header, Menu and SearchInput are not supported.
-[InnerSelect, Select].forEach(x => {
-    x.Item = SelectItem;
-});
+Select.displayName = "Select";

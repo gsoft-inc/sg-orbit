@@ -1,8 +1,10 @@
+import { isChromatic } from "../env";
+
 export function withCenteredCanvas(Story, context) {
     const { parameters, viewMode } = context;
     const { canvasLayout } = parameters;
 
-    if (viewMode !== "story") {
+    if (viewMode !== "story" && !isChromatic) {
         return <Story />;
     }
 

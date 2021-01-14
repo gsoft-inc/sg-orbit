@@ -1,12 +1,30 @@
 import "./Accordion.css";
 
+import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
-import { KEYS, arrayify, mergeClasses, useAutoFocusFirstTabbableElement, useControllableState, useEventCallback, useId, useKeyboardNavigation, useMergedRefs } from "../../shared";
-import { any, arrayOf, bool, elementType, func, number, oneOfType, string } from "prop-types";
+import {
+    Keys,
+    arrayify,
+    mergeProps,
+    useAutoFocusChild,
+    useBasicKeyboardNavigation,
+    useControllableState,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useId,
+    useMergedRefs
+} from "../../shared";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useAccordionBuilder } from "./useAccordionBuilder";
+
+export const ExpandMode = {
+    single: "single",
+    multiple: "multiple"
+};
 
 const propTypes = {
     /**
@@ -20,22 +38,18 @@ const propTypes = {
     /**
      * Called when an accordion is expanded / collapsed.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number[]} index - The index(es) of the expanded accordion item.
+     * @param {Number | Number[]} selectedIndex - The index(es) of the expanded accordion item.
      * @returns {void}
      */
     onChange: func,
     /**
-     * Whether or not multiple accordion items could be expanded at once.
+     * The type of expand that is allowed.
      */
-    multiple: bool,
+    expandMode: oneOf(["single", "multiple"]),
     /**
-     * Whether the first focusable accordion item should autoFocus on render.
+     * Whether or not the first focusable accordion item should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -51,70 +65,102 @@ export function InnerAccordion({
     index,
     defaultIndex,
     onChange,
-    multiple,
+    expandMode = ExpandMode.single,
     autoFocus,
-    autoFocusDelay,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
 }) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
-    const ref = useMergedRefs(forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoSelectedIndex = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
+    const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
-    const items = useAccordionBuilder(children, memoSelectedIndex, useId(id, id ? undefined : "o-ui-accordion"));
+    const items = useAccordionBuilder({
+        items: children,
+        selectedIndexes: memoSelectedIndexes,
+        rootId: useId(id, id ? undefined : "o-ui-accordion")
+    });
 
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    const focusManager = useFocusManager(focusScope);
 
-    const navigationProps = useKeyboardNavigation({
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const navigationProps = useBasicKeyboardNavigation(focusManager, {
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     });
 
     const handleToggle = useEventCallback((event, toggledIndex) => {
-        let newSelectedIndex;
+        let newIndexes;
 
-        if (!memoSelectedIndex.includes(toggledIndex)) {
-            if (multiple) {
-                newSelectedIndex = [...memoSelectedIndex, toggledIndex];
+        if (!memoSelectedIndexes.includes(toggledIndex)) {
+            if (expandMode === ExpandMode.multiple) {
+                newIndexes = [...memoSelectedIndexes, toggledIndex];
             } else {
-                newSelectedIndex = [toggledIndex];
+                newIndexes = [toggledIndex];
             }
         } else {
-            newSelectedIndex = memoSelectedIndex.filter(x => x !== toggledIndex);
+            newIndexes = memoSelectedIndexes.filter(x => x !== toggledIndex);
         }
 
-        setSelectedIndex(newSelectedIndex);
+        setSelectedIndex(newIndexes);
 
         if (!isNil(onChange)) {
-            onChange(event, newSelectedIndex);
+            onChange(
+                event,
+                expandMode === ExpandMode.single ? newIndexes[0] : newIndexes
+            );
         }
     });
 
     return (
         <Box
-            {...rest}
-            {...navigationProps}
-            className={mergeClasses("o-ui-accordion", className)}
-            as={as}
-            ref={ref}
+            {...mergeProps(
+                rest,
+                navigationProps,
+                {
+                    className: "o-ui-accordion",
+                    as,
+                    ref: containerRef
+                }
+            )}
         >
-            {items.map(({ index: itemIndex, key, ...itemProps }) => (
-                <AccordionItem
-                    {...itemProps}
-                    index={itemIndex}
-                    open={memoSelectedIndex.includes(itemIndex)}
-                    onToggle={handleToggle}
-                    key={key}
-                />
-            ))}
+            <AccordionContext.Provider
+                value={{
+                    selectedIndexes: memoSelectedIndexes,
+                    onToggle: handleToggle
+                }}
+            >
+                {items.map(({
+                    id: itemId,
+                    key,
+                    index: itemIndex,
+                    header,
+                    panel
+                }) => (
+                    <AccordionItem
+                        item={{
+                            index: itemIndex,
+                            header,
+                            panel
+                        }}
+                        id={itemId}
+                        key={key}
+
+                    />
+                ))}
+            </AccordionContext.Provider>
         </Box>
     );
 }

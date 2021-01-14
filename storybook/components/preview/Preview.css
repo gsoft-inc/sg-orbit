@@ -1,13 +1,35 @@
+/* PREVIEW */
 .o-ui-sb-preview {
-    margin: 25px 0 40px;
+    margin: var(--scale-golf) 0 var(--scale-hotel);
     border-radius: 4px;
     box-shadow: var(--shadow-100);
 }
 
+/* STORY */
 .o-ui-sb-preview-story {
     padding: var(--scale-golf) var(--scale-echo);
 }
 
+/* SOURCE */
+.o-ui-sb-preview-source {
+    position: relative;
+}
+
+/* SOURCE | EDITABLE LABEL */
+.o-ui-sb-preview-editable-label {
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--white);
+    z-index: 1;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+/* SOURCE | EDITOR */
 .o-ui-sb-preview-editor {
     font-size: 15px;
 }
@@ -17,6 +39,7 @@
     padding: var(--scale-echo) !important;
 }
 
+/* SOURCE | ERROR */
 .o-ui-sb-preview-error {
     background-color: var(--alert-50);
     color: var(--alert-900);

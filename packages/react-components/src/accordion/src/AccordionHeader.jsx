@@ -1,7 +1,9 @@
+import "./Accordion.css";
+
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
-import { adaptSize, cssModule, mergeClasses, normalizeSize, useSlots } from "../../shared";
+import { adaptSize, cssModule, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -25,18 +27,19 @@ const propTypes = {
     children: any.isRequired
 };
 
-export function InnerAccordionHeader({
-    size,
-    disabled,
-    active,
-    focus,
-    hover,
-    as,
-    className,
-    children,
-    forwardedRef,
-    ...rest
-}) {
+export function InnerAccordionHeader(props) {
+    const {
+        size,
+        disabled,
+        active,
+        focus,
+        hover,
+        as,
+        children,
+        forwardedRef,
+        ...rest
+    } = omitProps(props, ["header"]);
+
     if (isNil(as)) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }
@@ -46,12 +49,12 @@ export function InnerAccordionHeader({
             defaultWrapper: Text
         },
         icon: {
-            className: "o-ui-accordion-icon",
-            size
+            size,
+            className: "o-ui-accordion-icon"
         },
         text: {
-            className: "o-ui-accordion-title",
-            size: "inherit"
+            size: "inherit",
+            className: "o-ui-accordion-title"
         }
     });
 
@@ -69,19 +72,20 @@ export function InnerAccordionHeader({
             ref={forwardedRef}
         >
             <button
-                {...rest}
-                className={mergeClasses(
-                    cssModule(
-                        "o-ui-accordion-trigger",
-                        active && "active",
-                        focus && "focus",
-                        hover && "hover",
-                        icon && "has-icon"
-                    ),
-                    className
+                {...mergeProps(
+                    rest,
+                    {
+                        className: cssModule(
+                            "o-ui-accordion-trigger",
+                            active && "active",
+                            focus && "focus",
+                            hover && "hover",
+                            icon && "has-icon"
+                        ),
+                        disabled
+                    }
                 )}
                 type="button"
-                disabled={disabled}
             >
                 {icon}
                 {text}

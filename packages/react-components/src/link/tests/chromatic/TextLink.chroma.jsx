@@ -1,15 +1,18 @@
 import { Inline } from "@react-components/layout";
 import { TextLink } from "@react-components/link";
 import { createTextLinkTestSuite } from "./createTextLinkTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/TextLink")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
-createTextLinkTestSuite(<TextLink />, stories("/default"));
+createTextLinkTestSuite(<TextLink />, stories());
 
 createTextLinkTestSuite(<TextLink as="button" />, stories("/button"));
 
@@ -27,5 +30,5 @@ stories()
         <TextLink disabled autoFocus href="#">Flight details</TextLink>
     )
     .add("autofocus with delay", () =>
-        <TextLink autoFocus autoFocusDelay={50} href="#">Flight details</TextLink>
+        <TextLink autoFocus={50} href="#">Flight details</TextLink>
     );

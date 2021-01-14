@@ -10,18 +10,17 @@ export class TabsBuilder {
         this._rootId = rootId;
     }
 
-    build(elements, selectedIndex) {
-        if (isNil(elements)) {
+    build(nodes, selectedIndex) {
+        if (isNil(nodes)) {
             throw new Error("A tabs component must have children.");
         }
 
         const tabs = [];
         const panels = [];
 
-        // let tabIndex = 0;
         let nodeIndex = 0;
 
-        Children.forEach(elements, (tab, index) => {
+        Children.forEach(nodes, (tab, index) => {
             const [header, content] = Children.toArray(resolveChildren(tab.props.children, {
                 isActive: selectedIndex === index
             }));
@@ -33,29 +32,27 @@ export class TabsBuilder {
             const tabId = this._makeId(header, "tab", index);
             const panelId = this._makeId(content, "panel", index);
 
-            tabs.push(
-                mergeProps(header.props, tab.props, {
-                    id: tabId,
-                    panelId,
-                    index,
-                    // Use a custom type if available otherwise let the Tab component choose his default type.
-                    type: header.type !== Header ? header.type : undefined,
-                    key: `.${nodeIndex++}`,
-                    ref: header.ref
-                })
-            );
+            tabs.push({
+                id: tabId,
+                key: (nodeIndex++).toString(),
+                index,
+                // Use a custom type if available otherwise let the Tab component choose his default type.
+                elementType: header.type !== Header ? header.type : undefined,
+                ref: header.ref,
+                panelId,
+                props: mergeProps(header.props, tab.props)
+            });
 
-            panels.push(
-                mergeProps(content.props, {
-                    id: panelId,
-                    tabId,
-                    index,
-                    // Use a custom type if available otherwise let the Tab component choose his default type.
-                    type: content.type !== Content ? content.type : undefined,
-                    key: `.${nodeIndex++}`,
-                    ref: content.ref
-                })
-            );
+            panels.push({
+                id: panelId,
+                key: (nodeIndex++).toString(),
+                index,
+                // Use a custom type if available otherwise let the Tab component choose his default type.
+                elementType: content.type !== Content ? content.type : undefined,
+                ref: content.ref,
+                tabId,
+                props: content.props
+            });
         });
 
         return [tabs, panels];

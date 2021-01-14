@@ -4,8 +4,6 @@ import { isNil } from "lodash";
 
 export const FieldContext = createContext(null);
 
-export const FieldProvider = FieldContext.Provider;
-
 export function useFieldContext() {
     const context = useContext(FieldContext);
 
@@ -93,8 +91,8 @@ export function useFieldMessageProps() {
 
 export function ClearFieldContext({ children }) {
     return (
-        <FieldProvider value={null}>
+        <FieldContext.Provider value={null}>
             {children}
-        </FieldProvider>
+        </FieldContext.Provider>
     );
 }

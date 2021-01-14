@@ -1,0 +1,45 @@
+.o-ui-select-trigger {
+    outline: none;
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.o-ui-select-trigger-fluid {
+    width: 100%;
+}
+
+.o-ui-select-trigger-outline,
+.o-ui-select-trigger-transparent {
+    display: flex;
+    align-items: center;
+}
+
+.o-ui-select-trigger-inline {
+    display: inline-flex;
+    align-items: center;
+}
+
+.o-ui-select-trigger-outline {
+    border: 1px solid black;
+}
+
+.o-ui-select-trigger-invalid {
+    border: 1px solid red;
+}
+
+.o-ui-select-trigger-focus,
+.o-ui-select-trigger:focus:not(:hover) {
+    border: 3px solid blue !important;
+}
+
+.o-ui-select-value,
+.o-ui-select-placeholder {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.o-ui-select-menu {
+    border: 1px solid black;
+}

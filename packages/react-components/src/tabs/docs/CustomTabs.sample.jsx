@@ -1,10 +1,13 @@
-function ActiveHeader({ selected, children, ...rest }) {
+function ActiveHeader({ tab, children, ...rest }) {
+    const { selectedIndex } = useTabsContext();
+    const { index } = tab;
+
     return (
         <Tab
             {...rest}
-            selected={selected}
+            tab={tab}
         >
-            {selected ? <LightbulbIcon /> : <NotificationIcon />}
+            {index === selectedIndex ? <LightbulbIcon /> : <NotificationIcon />}
             <Text>{children}</Text>
         </Tab>
     );

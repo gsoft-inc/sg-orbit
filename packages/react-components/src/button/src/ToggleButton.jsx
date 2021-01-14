@@ -40,11 +40,7 @@ const propTypes = {
     /**
      * Whether or not the toggle button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A toggle button can vary in size.
      */
@@ -73,7 +69,6 @@ export function InnerToggleButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         onCheck,
         active,
         as = Button,
@@ -92,7 +87,6 @@ export function InnerToggleButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         onCheck,
         active,
         forwardedRef
@@ -102,9 +96,13 @@ export function InnerToggleButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
-            as={as}
+            {...mergeProps(
+                rest,
+                buttonProps,
+                {
+                    as
+                }
+            )}
         >
             {content}
         </Box>

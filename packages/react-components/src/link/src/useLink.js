@@ -1,4 +1,5 @@
 import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { isNumber } from "lodash";
 
 export function useLink({
     cssModule: module,
@@ -8,7 +9,6 @@ export function useLink({
     shape,
     external,
     autoFocus,
-    autoFocusDelay,
     size,
     active,
     focus,
@@ -16,12 +16,14 @@ export function useLink({
     visited,
     target,
     rel,
-    className,
     forwardedRef
 }) {
     const linkRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(linkRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(linkRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     return {
         target: target ?? external ? "_blank" : undefined,
@@ -38,8 +40,7 @@ export function useLink({
                 hover && "hover",
                 visited && "visited",
                 !omitSize && normalizeSize(size)
-            ),
-            className
+            )
         ),
         ref: linkRef
     };

@@ -1,6 +1,6 @@
 import "./Image.css";
 
-import { cssModule, mergeClasses } from "../../shared";
+import { cssModule, mergeProps } from "../../shared";
 import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 
@@ -43,29 +43,27 @@ export function InnerImage({
     fit,
     position,
     as: ElementType = "img",
-    className,
-    style,
     forwardedRef,
     ...rest
 }) {
     return (
         <ElementType
-            {...rest}
-            width={width ?? size}
-            height={height ?? size}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-image",
-                    shape
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    width: width ?? size,
+                    height: height ?? size,
+                    className: cssModule(
+                        "o-ui-image",
+                        shape
+                    ),
+                    style: {
+                        objectFit: fit,
+                        objectPosition: position
+                    },
+                    ref: forwardedRef
+                }
             )}
-            style={{
-                ...style,
-                objectFit: fit,
-                objectPosition: position
-            }}
-            ref={forwardedRef}
         />
     );
 }

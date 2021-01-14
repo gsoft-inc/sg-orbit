@@ -1,153 +1,92 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import { walkFocusableElements } from "./focusableTreeWalker";
 
-export function useRovingFocus(rootRef) {
+export function useRovingFocus(scope) {
     useLayoutEffect(() => {
-        const root = rootRef.current;
-        const scope = [];
-
-        let hasTabbableElement = false;
-
         const handleFocus = event => {
-            walkFocusableElements(root, x => {
+            scope.elements.forEach(x => {
                 if (x.tabIndex === 0) {
                     x.tabIndex = -1;
                 }
             });
 
             event.target.tabIndex = 0;
-            hasTabbableElement = true;
         };
 
-        const addElement = (element, isTabbable) => {
-            scope.push(element);
-
+        const registerElement = (element, isTabbable) => {
             element.tabIndex = isTabbable ? 0 : -1;
-
-            if (isTabbable) {
-                hasTabbableElement = true;
-            }
 
             element.addEventListener("focusin", handleFocus, { capture: true });
         };
 
-        const removeElement = (element, removeFromScope) => {
-            const index = scope.indexOf(element);
-
-            if (index !== -1) {
-                if (element.tabIndex === 0) {
-                    hasTabbableElement = false;
-                }
-
-                element.removeEventListener("focusin", handleFocus, { capture: true });
-
-                if (removeFromScope) {
-                    scope.splice(index, 1);
-                }
-            }
+        const disposeElement = element => {
+            element.removeEventListener("focusin", handleFocus, { capture: true });
         };
 
         const initializeElements = () => {
-            walkFocusableElements(root, (element, index) => {
-                addElement(element, index === 0);
+            scope.elements.forEach((x, index) => {
+                registerElement(x, index === 0);
             });
         };
 
         initializeElements();
 
-        // Watch for dynamic elements.
-        const mutationObserver = new MutationObserver(mutations => {
-            mutations.forEach(x => {
-                if (x.type === "childList") {
-                    x.addedNodes.forEach(element => {
-                        // When we don't have a tabbable element, the first focusable elements should be the tabbable element.
-                        walkFocusableElements(element, (y, index) => addElement(y, !hasTabbableElement && index === 0), { includeRoot: true });
-                    });
+        const onChange = (newElements, oldElements) => {
+            oldElements.forEach(disposeElement);
 
-                    x.removedNodes.forEach(element => {
-                        walkFocusableElements(element, y => removeElement(y, true), { includeRoot: true });
+            const tabbableIndex = newElements.findIndex(x => x.tabIndex === 0);
 
-                        if (!hasTabbableElement) {
-                            // The tabbable element might have been removed, try to set a new tabbable element.
-                            initializeElements();
-                        }
-                    });
-                }
+            newElements.forEach((x, index) => {
+                // When we don't have a tabbable element, the first focusable elements should be the tabbable element.
+                registerElement(x, (tabbableIndex === -1 && index === 0) || tabbableIndex === index);
             });
-        });
+        };
 
-        mutationObserver.observe(root, {
-            subtree: true,
-            childList: true
-        });
+        scope.registerChangeHandler(onChange);
 
         return () => {
-            scope.forEach(removeElement);
-            mutationObserver.disconnect();
+            scope.elements.forEach(disposeElement);
+            scope.removeChangeHandler(onChange);
         };
-    }, [rootRef]);
+    }, [scope]);
 }
 
 /*
-Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
+IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(rootRef, currentKey, { keyProp = "value" } = {}) {
+export function useKeyedRovingFocus(scope, currentKey, { keyProp = "value" } = {}) {
     useLayoutEffect(() => {
-        const root = rootRef.current;
-
-        let hasTabbableElement = false;
-
-        const setTabIndex = (element, position) => {
-            let isTabbable;
-
+        const setTabIndexes = elements => {
             if (!isNil(currentKey)) {
-                isTabbable = element.getAttribute(keyProp) === currentKey.toString();
+                const tabbableIndex = !isNil(currentKey)
+                    ? elements.findIndex(x => x.getAttribute(keyProp) === currentKey.toString())
+                    : -1;
+
+                elements.forEach((x, index) => {
+                    x.tabIndex = tabbableIndex === index ? 0 : -1;
+                });
             } else {
-                // When the key is null and we don't have a tabbable element, the first focusable elements should be the tabbable element.
-                isTabbable = !hasTabbableElement && position === 0;
-            }
-
-            element.tabIndex = isTabbable ? 0 : -1;
-
-            if (isTabbable) {
-                hasTabbableElement = true;
+                // When we don't have a tabbable element, the first focusable elements should be the tabbable element.
+                elements.forEach((x, index) => {
+                    x.tabIndex = index === 0 ? 0 : -1;
+                });
             }
         };
 
         const initializeElements = () => {
-            walkFocusableElements(root, (element, index) => setTabIndex(element, index));
+            setTabIndexes(scope.elements);
         };
 
         initializeElements();
 
-        // Watch for dynamic elements.
-        const mutationObserver = new MutationObserver(mutations => {
-            mutations.forEach(x => {
-                if (x.type === "childList") {
-                    x.addedNodes.forEach(element => {
-                        // When all the elements are disabled and the key is null, the first of the new element should be tabbable.
-                        walkFocusableElements(element, (y, index) => setTabIndex(y, index), { includeRoot: true });
-                    });
+        const onChange = newElements => {
+            setTabIndexes(newElements);
+        };
 
-                    x.removedNodes.forEach(element => {
-                        walkFocusableElements(element, y => {
-                            if (y.tabIndex === 0) {
-                                hasTabbableElement = false;
-                            }
-                        }, { includeRoot: true });
-                    });
-                }
-            });
-        });
-
-        mutationObserver.observe(root, {
-            subtree: true,
-            childList: true
-        });
+        scope.registerChangeHandler(onChange);
 
         return () => {
-            mutationObserver.disconnect();
+            scope.removeChangeHandler(onChange);
         };
-    }, [rootRef, currentKey, keyProp]);
+    }, [scope, currentKey, keyProp]);
 }

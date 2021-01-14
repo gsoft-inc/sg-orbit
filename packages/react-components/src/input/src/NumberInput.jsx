@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { Box } from "../../box";
 import { CarretIcon } from "../../icons";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -60,11 +60,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
@@ -81,6 +77,10 @@ const propTypes = {
      * Whether or not the input is disabled.
      */
     disabled: bool,
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly: bool,
     /**
      * Additional props to render on the wrapper element.
      */
@@ -108,9 +108,13 @@ export function Spinner({
 
     return (
         <div
-            {...rest}
-            className="o-ui-number-input-spinner"
-            aria-hidden="true"
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-number-input-spinner",
+                    "aria-hidden": true
+                }
+            )}
         >
             <button
                 onClick={handleIncrement}
@@ -173,10 +177,8 @@ export function InnerNumberInput(props) {
         required,
         validationState,
         onChange,
-        onBlur,
         variant = "outline",
         autoFocus,
-        autoFocusDelay,
         icon,
         disabled,
         readOnly,
@@ -185,7 +187,6 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        className,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -263,7 +264,7 @@ export function InnerNumberInput(props) {
         updateValue(event, newValue);
     });
 
-    const handleBlur = useChainedEventCallback(onBlur, event => {
+    const handleBlur = useEventCallback(event => {
         if (clampValue) {
             clamp(event);
         }
@@ -282,7 +283,7 @@ export function InnerNumberInput(props) {
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps,
         inputRef
     } = useInput({
@@ -296,7 +297,6 @@ export function InnerNumberInput(props) {
         variant,
         type: "number",
         autoFocus,
-        autoFocusDelay,
         disabled,
         readOnly,
         fluid,
@@ -304,8 +304,6 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -315,9 +313,13 @@ export function InnerNumberInput(props) {
         <>
             {iconMarkup}
             <input
-                {...rest}
-                {...inputProps}
-                onBlur={handleBlur}
+                {...mergeProps(
+                    rest,
+                    inputProps,
+                    {
+                        onBlur: handleBlur
+                    }
+                )}
             />
             <Spinner
                 onIncrement={handleIncrement}
@@ -331,15 +333,17 @@ export function InnerNumberInput(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    iconMarkup && "has-icon"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        iconMarkup && "has-icon"
+                    ),
+                    as
+                }
             )}
-            as={as}
         >
             {content}
         </Box>

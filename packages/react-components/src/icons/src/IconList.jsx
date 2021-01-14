@@ -31,8 +31,8 @@ export function InnerIconList({
             {...rest}
             gap={1}
             as={as}
-            ref={forwardedRef}
             aria-hidden="true"
+            ref={forwardedRef}
         >
             {Children.map(children, x => {
                 return cloneElement(x, {

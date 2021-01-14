@@ -1,5 +1,5 @@
 import { ChevronIcon32 } from "../../../icons";
-import { KEYS, mergeClasses } from "../../../shared";
+import { Keys, mergeClasses } from "../../../shared";
 import { PureComponent, forwardRef } from "react";
 import { bool, func, string } from "prop-types";
 import { isNil } from "lodash";
@@ -58,7 +58,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     handleKeyDown = event => {
         const { onKeyDown, onClear, open } = this.props;
 
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             if (!open) {
                 onClear(event, this.props);
             }

@@ -1,12 +1,24 @@
 import "./CheckboxGroup.css";
 
-import { CheckableProvider, augmentElement, mergeProps, omitProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
+import {
+    CheckableContext,
+    augmentElement,
+    mergeProps,
+    omitProps,
+    resolveChildren,
+    useAutoFocusChild,
+    useControllableState,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useMergedRefs
+} from "../../shared";
 import { Children, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useGroupInput } from "../../input";
 
 const propTypes = {
@@ -33,6 +45,10 @@ const propTypes = {
      * @returns {void}
      */
     onChange: func,
+    /**
+     * Whether or not the first checkbox of the group should autoFocus on render.
+     */
+    autoFocus: oneOfType([bool, number]),
     /**
      * The orientation of the group elements.
      */
@@ -94,13 +110,13 @@ export function InnerCheckboxGroup(props) {
         required,
         validationState,
         onChange,
+        autoFocus,
         orientation = "horizontal",
         gap,
         wrap,
         size,
         reverse,
         disabled,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -112,6 +128,17 @@ export function InnerCheckboxGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const groupRef = useMergedRefs(setFocusRef, forwardedRef);
+
+    const focusManager = useFocusManager(focusScope);
+
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-checkbox-group",
         required,
@@ -122,8 +149,7 @@ export function InnerCheckboxGroup(props) {
         size,
         reverse,
         disabled,
-        className,
-        ref: forwardedRef
+        groupRef
     });
 
     const handleCheck = useEventCallback((event, newValue) => {
@@ -140,12 +166,14 @@ export function InnerCheckboxGroup(props) {
 
     return (
         <Group
-            {...rest}
-            {...groupProps}
+            {...mergeProps(
+                rest,
+                groupProps
+            )}
         >
             <ClearToolbar>
                 <ClearFieldContext>
-                    <CheckableProvider
+                    <CheckableContext.Provider
                         value={{
                             onCheck: handleCheck,
                             checkedValue
@@ -157,7 +185,7 @@ export function InnerCheckboxGroup(props) {
                                 role: "checkbox"
                             });
                         })}
-                    </CheckableProvider>
+                    </CheckableContext.Provider>
                 </ClearFieldContext>
             </ClearToolbar>
         </Group>

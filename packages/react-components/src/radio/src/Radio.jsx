@@ -6,11 +6,11 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import {
     cssModule,
-    mergeClasses,
     mergeProps,
     omitProps,
     resolveChildren,
     useAutoFocus,
+    useChainedEventCallback,
     useCheckableProps,
     useControllableState,
     useEventCallback,
@@ -18,7 +18,7 @@ import {
     useSlots
 } from "../../shared";
 import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 
 const propTypes = {
     /**
@@ -34,15 +34,11 @@ const propTypes = {
      */
     value: oneOfType([string, number]).isRequired,
     /**
-     * Whether the radio should autoFocus on render.
+     * Whether or not the radio should autoFocus on render.
      */
-    autoFocus: bool,
+    autoFocus: oneOfType([bool, number]),
     /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
-    /**
-     * Whether the radio should display as "valid" or "invalid".
+     * Whether or not the radio should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -60,7 +56,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func]).isRequired
 };
@@ -74,7 +70,6 @@ export function InnerRadio(props) {
         checked,
         defaultChecked,
         autoFocus,
-        autoFocusDelay,
         validationState,
         onChange,
         onCheck,
@@ -85,7 +80,6 @@ export function InnerRadio(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -99,7 +93,10 @@ export function InnerRadio(props) {
     const labelRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -107,12 +104,8 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useChainedEventCallback(onChange, () => {
         setIsChecked(!isChecked);
-
-        if (!isNil(onChange)) {
-            onChange(event);
-        }
     });
 
     const handleCheck = useEventCallback(event => {
@@ -141,22 +134,23 @@ export function InnerRadio(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-radio",
-                    isChecked && "checked",
-                    reverse && "reverse",
-                    validationState && validationState,
-                    disabled && "disabled",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-radio",
+                        isChecked && "checked",
+                        reverse && "reverse",
+                        validationState && validationState,
+                        disabled && "disabled",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover"
+                    ),
+                    as,
+                    ref: labelRef
+                }
             )}
-            as={as}
-            ref={labelRef}
         >
             <VisuallyHidden
                 as="input"

@@ -10,36 +10,38 @@ export class AccordionBuilder {
         this._rootId = rootId;
     }
 
-    build(items, selectedIndex) {
-        if (isNil(items)) {
-            throw new Error("An accordion component must have children.");
+    build(nodes, selectedIndexes) {
+        if (isNil(nodes)) {
+            throw new Error("An accordion must have children.");
         }
 
-        return Children.map(items, (item, index) => {
+        return Children.map(nodes, (item, index) => {
             const [header, content] = Children.toArray(resolveChildren(item.props.children, {
-                isOpen: selectedIndex.includes(index)
+                isOpen: selectedIndexes.includes(index)
             }));
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
             }
 
-            const headerProps = mergeProps(header.props, item.props, {
+            const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
-                type: header.type !== Header ? header.type : undefined,
-                ref: header.ref
-            });
+                elementType: header.type !== Header ? header.type : undefined,
+                ref: header.ref,
+                props: mergeProps(header.props, item.props)
+            };
 
-            const panelProps = mergeProps(content.props, {
+            const panelProps = {
                 // Use a custom type if available otherwise let the AccordionPanel component choose his default type.
-                type: content.type !== Content ? content.type : undefined,
-                ref: content.ref
-            });
+                elementType: content.type !== Content ? content.type : undefined,
+                ref: content.ref,
+                props: content.props
+            };
 
             return {
                 id: `${this._rootId}-${index}`,
+                key: index.toString(),
                 index,
-                key: `.${index}`,
                 header: headerProps,
                 panel: panelProps
             };
@@ -47,8 +49,8 @@ export class AccordionBuilder {
     }
 }
 
-export function useAccordionBuilder(accordionItems, selectedIndex, rootId) {
+export function useAccordionBuilder({ items, selectedIndexes, rootId }) {
     const builder = useMemo(() => new AccordionBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(accordionItems, selectedIndex), [builder, accordionItems, selectedIndex]);
+    return useMemo(() => builder.build(items, selectedIndexes), [builder, items, selectedIndexes]);
 }

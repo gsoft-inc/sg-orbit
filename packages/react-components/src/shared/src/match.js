@@ -1,15 +1,11 @@
-import { isFunction } from "lodash";
+import { isFunction, isNil } from "lodash";
 
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/match.ts
-export function match(
-    value,
-    lookup,
-    ...args
-) {
-    if (value in lookup) {
-        const returnValue = lookup[value];
+export function match(value, lookup, ...args) {
+    const handler = lookup[value];
 
-        return isFunction(returnValue) ? returnValue(...args) : returnValue;
+    if (!isNil(handler)) {
+        return isFunction(handler) ? handler(...args) : handler;
     }
 
     const error = new Error(

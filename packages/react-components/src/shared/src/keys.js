@@ -1,4 +1,4 @@
-export const KEYS = {
+export const Keys = {
     backspace: 8,
     tab: 9,
     enter: 13,

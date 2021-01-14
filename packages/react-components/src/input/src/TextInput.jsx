@@ -2,7 +2,7 @@ import "./Input.css";
 
 import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput } from "./useInput";
@@ -48,11 +48,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
@@ -74,6 +70,10 @@ const propTypes = {
      */
     disabled: bool,
     /**
+     * Whether or not the input is readonly.
+     */
+    readOnly: bool,
+    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,
@@ -94,11 +94,9 @@ export function InnerTextInput(props) {
         placeholder,
         required,
         validationState,
-        onChange,
         variant = "outline",
         type = "text",
         autoFocus,
-        autoFocusDelay,
         icon,
         button,
         disabled,
@@ -108,7 +106,6 @@ export function InnerTextInput(props) {
         active,
         focus,
         hover,
-        className,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -121,12 +118,12 @@ export function InnerTextInput(props) {
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
-    const handleChange = useChainedEventCallback(onChange, event => {
+    const handleChange = useEventCallback(event => {
         setValue(event.target.value);
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps
     } = useInput({
         cssModule: "o-ui-text-input",
@@ -139,7 +136,6 @@ export function InnerTextInput(props) {
         variant,
         type,
         autoFocus,
-        autoFocusDelay,
         disabled,
         readOnly,
         fluid,
@@ -147,8 +143,6 @@ export function InnerTextInput(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -160,8 +154,10 @@ export function InnerTextInput(props) {
         <>
             {iconMarkup}
             <input
-                {...rest}
-                {...inputProps}
+                {...mergeProps(
+                    rest,
+                    inputProps
+                )}
             />
             {buttonMarkup}
         </>
@@ -169,16 +165,18 @@ export function InnerTextInput(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    iconMarkup && "has-icon",
-                    buttonMarkup && "has-button"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        iconMarkup && "has-icon",
+                        buttonMarkup && "has-button"
+                    ),
+                    as
+                }
             )}
-            as={as}
         >
             {content}
         </Box>

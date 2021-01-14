@@ -186,11 +186,11 @@ Here's a few common use cases to get you started.
 By combining Tachyons with a library like [clsx](https://www.npmjs.com/package/clsx) you can easily had dynamic styles to an element based on one or more conditions:
 
 ```jsx
-import clsx from "clsx";
+import cx from "classnames";
 
 function Button({ text, disabled, tall }) {
     return (
-        <div className={clsx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
+        <div className={cx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
             {text}
         </div>
     );
@@ -207,6 +207,6 @@ You can override the default variables used by Tachyons, by overriding the [foun
 If you must support an old browser which doesn't implements CSS variables and you cannot use a build step to transpile the CSS variables, import the legacy version of Tachyons:
 
 ```css
-@import "~@orbit-ui/tachyons/legacy.css";
+@import "~@orbit-ui/tachyons";
 @import "~@orbit-ui/tachyons/legacy.min.css";
 ```

@@ -17,7 +17,7 @@ import { Text } from "@react-components/text";
 <Tagline>Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.</Tagline>
 
 <ComponentInfo
-    usage={"import { Accordion, Item, Header, Content } from \"@orbit-ui/react-components\""}
+    usage={"import { Accordion, Item, Header, Content, CheckableContext, useCheckableProps } from \"@orbit-ui/react-components\""}
     ariaPath="#accordion"
     githubPath="/packages/react-components/src/accordion/src"
 />
@@ -68,7 +68,7 @@ An accordion can allow multiple items to be expanded at once.
 
 <Preview>
     <Story name="multiple">
-        <Accordion multiple>
+        <Accordion expandMode="multiple">
             <Item>
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

@@ -2,6 +2,7 @@ import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 const propTypes = {
@@ -56,12 +57,16 @@ export function InnerStack({
 
     return (
         <Flex
-            {...rest}
-            {...alignProps}
-            direction="column"
-            gap={gap !== 0 ? gap : undefined}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                alignProps,
+                {
+                    direction: "column",
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Flex>

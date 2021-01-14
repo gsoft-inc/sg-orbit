@@ -1,11 +1,14 @@
 import { Button } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createButtonTestSuite } from "./createButtonTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Button")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -29,7 +32,7 @@ stories()
         <Button disabled autoFocus>Button</Button>
     )
     .add("autofocus with delay", () =>
-        <Button autoFocus autoFocusDelay={50}>Button</Button>
+        <Button autoFocus={50}>Button</Button>
     );
 
 

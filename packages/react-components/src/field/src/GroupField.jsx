@@ -2,7 +2,7 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { FieldProvider } from "./FieldContext";
+import { FieldContext } from "./FieldContext";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
@@ -75,19 +75,23 @@ export function InnerGroupField(props) {
 
     return (
         <Box
-            {...rest}
-            {...fieldProps}
-            as={as}
+            {...mergeProps(
+                rest,
+                fieldProps,
+                {
+                    as
+                }
+            )}
         >
             <ClearToolbar>
-                <FieldProvider
+                <FieldContext.Provider
                     value={{
                         ...fieldContext,
                         isGroup: true
                     }}
                 >
                     {children}
-                </FieldProvider>
+                </FieldContext.Provider>
             </ClearToolbar>
         </Box>
     );

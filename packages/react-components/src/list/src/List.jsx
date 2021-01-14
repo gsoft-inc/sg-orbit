@@ -1,6 +1,6 @@
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps, useStyleProps } from "../../shared";
+import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -23,7 +23,6 @@ const List = forwardRef((props, ref) => {
     const {
         size,
         as: ElementType,
-        className,
         children,
         ...rest
     } = mergeProps(
@@ -33,15 +32,16 @@ const List = forwardRef((props, ref) => {
 
     return (
         <ElementType
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-list",
-                    size
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-list",
+                        size
+                    ),
+                    ref
+                }
             )}
-            ref={ref}
         >
             {Children.map(children, x => {
                 return x && augmentElement(x, {

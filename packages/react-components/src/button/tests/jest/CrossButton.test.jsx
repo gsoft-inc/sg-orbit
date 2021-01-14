@@ -8,7 +8,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <CrossButton ref={ref} />
+        <CrossButton aria-label="Clear" ref={ref} />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -25,6 +25,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Clear"
         />
     );
 
@@ -38,7 +39,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <CrossButton ref={handler} />
+        <CrossButton ref={handler} aria-label="Clear" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -54,6 +55,7 @@ test("can focus the button with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Clear"
         />
     );
 

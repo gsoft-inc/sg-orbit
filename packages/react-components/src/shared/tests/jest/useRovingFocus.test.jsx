@@ -1,16 +1,15 @@
 import { Button } from "@react-components/button";
 import { render, waitFor } from "@testing-library/react";
-import { useRef } from "react";
-import { useRovingFocus } from "@react-components/shared";
+import { useFocusScope, useRovingFocus } from "@react-components/shared";
 import userEvent from "@utils/user-event";
 
 function RovingFocus({ children }) {
-    const ref = useRef();
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    useRovingFocus(ref);
+    useRovingFocus(focusScope);
 
     return (
-        <div ref={ref}>
+        <div ref={setFocusRef}>
             {children}
         </div>
     );
@@ -118,7 +117,7 @@ test("a dynamically added element should be tabbable when all the existing eleme
     await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
 });
 
-test("dynamically removing a non tabblable element keep the current tabbable element", async () => {
+test("dynamically removing a non tabbable element keep the current tabbable element", async () => {
     const { rerender, getByTestId } = render(
         <DynamicRovingFocus renderDynamicElement>
             <Button data-testid="element-1">1</Button>
@@ -141,7 +140,7 @@ test("dynamically removing a non tabblable element keep the current tabbable ele
     await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
 });
 
-test("dynamically removing a tabbable element set the first non disabled element as tabblable", async () => {
+test("dynamically removing a tabbable element set the first non disabled element as tabbable", async () => {
     const { rerender, getByTestId } = render(
         <DynamicRovingFocus renderDynamicElement>
             <Button data-testid="element-1">1</Button>

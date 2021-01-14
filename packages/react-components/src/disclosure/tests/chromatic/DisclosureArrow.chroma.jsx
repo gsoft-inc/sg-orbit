@@ -1,4 +1,4 @@
-import { DisclosureArrow, DisclosureProvider } from "@react-components/disclosure";
+import { DisclosureArrow, DisclosureContext } from "@react-components/disclosure";
 import { Inline } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -20,12 +20,12 @@ stories()
     )
     .add("context", () =>
         <Inline>
-            <DisclosureProvider value={{ isOpen: false }}>
+            <DisclosureContext.Provider value={{ isOpen: false }}>
                 <DisclosureArrow />
-            </DisclosureProvider>
-            <DisclosureProvider value={{ isOpen: true }}>
+            </DisclosureContext.Provider>
+            <DisclosureContext.Provider value={{ isOpen: true }}>
                 <DisclosureArrow />
-            </DisclosureProvider>
+            </DisclosureContext.Provider>
         </Inline>
     )
     .add("styling", () =>

@@ -3,7 +3,7 @@ import "./TextButton.css";
 import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeClasses, mergeProps, omitProps, slot, useSlots } from "../../shared";
+import { createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
@@ -30,13 +30,9 @@ const propTypes = {
     /**
      * Whether or not the button should autoFocus on render.
      */
-    autoFocus: bool,
+    autoFocus: oneOfType([bool, number]),
     /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
-    /**
-     * Whether the button take up the width of its container.
+     * Whether or not the button take up the width of its container.
      */
     fluid: bool,
     /**
@@ -90,7 +86,6 @@ export function InnerButton(props) {
         shape = "pill",
         condensed,
         autoFocus,
-        autoFocusDelay,
         fluid,
         loading,
         size,
@@ -99,7 +94,6 @@ export function InnerButton(props) {
         hover,
         type = "button",
         as = "button",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -109,13 +103,12 @@ export function InnerButton(props) {
         omitProps(toolbarProps, ["orientation"])
     );
 
-    const { className: buttonClassName, ref: buttonRef, ...buttonProps } = useButton({
+    const { ref: buttonRef, ...buttonProps } = useButton({
         cssModule: "o-ui-text-button",
         variant,
         color,
         shape,
         autoFocus,
-        autoFocusDelay,
         fluid,
         loading,
         size,
@@ -123,7 +116,6 @@ export function InnerButton(props) {
         focus,
         hover,
         type,
-        className,
         forwardedRef
     });
 
@@ -148,18 +140,19 @@ export function InnerButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-button",
-                    rightIcon && "has-right-icon",
-                    icon && "has-left-icon"
-                ),
-                buttonClassName
+            {...mergeProps(
+                rest,
+                buttonProps,
+                {
+                    className: cssModule(
+                        "o-ui-button",
+                        rightIcon && "has-right-icon",
+                        icon && "has-left-icon"
+                    ),
+                    as,
+                    ref: buttonRef
+                }
             )}
-            as={as}
-            ref={buttonRef}
         >
             {icon}
             {text}

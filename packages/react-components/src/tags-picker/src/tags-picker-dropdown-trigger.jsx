@@ -1,6 +1,6 @@
 import { AddIcon } from "../../icons";
 import { Button } from "../../button";
-import { KEYS, mergeClasses } from "../../shared";
+import { Keys, mergeClasses } from "../../shared";
 import { PureComponent, createRef } from "react";
 import { bool, func, oneOf, string } from "prop-types";
 import { isNil } from "lodash";
@@ -105,13 +105,13 @@ export class TagsPickerDropdownTrigger extends PureComponent {
 
         const key = event.keyCode;
 
-        if (key === KEYS.space) {
+        if (key === Keys.space) {
             event.preventDefault();
 
             if (!disabled) {
                 this.toggle(event);
             }
-        } else if (key === KEYS.enter) {
+        } else if (key === Keys.enter) {
             // Since the trigger is a button, when the user press enter on the button, a click event is generated.
             // Therefore, we dont need to onOpen here.
             if (open) {
