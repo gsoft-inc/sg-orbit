@@ -5,8 +5,7 @@
     --o-ui-focus-ring: 0 0 0 2px var(--white), 0 0 0 4px var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-outset-outer-offset: 2px;
     --o-ui-focus-ring-outset-inner-offset: 1px;
-    --o-ui-focus-ring-transition-delay: .2s;
-    --o-ui-focus-ring-transition: all .2s ease-in var(--o-ui-focus-ring-transition-delay);
+    --o-ui-focus-ring-transition: all .2s ease-in;
     --o-ui-focus-ring-color: var(--primary-500);
     --o-ui-disabled-opacity: 0.4;
     --o-ui-pill-border-radius: 999px;

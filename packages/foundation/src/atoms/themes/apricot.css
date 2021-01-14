@@ -1,14 +1,14 @@
 [class^="o-ui-"] {
     --hue-apricot: 172;
     --opacity-apricot: 1;
-    --apricot-50: hsla(var(--hue-apricot), 61%, 94%, var(--opacity-apricot-50, var(--opacity-apricot)));
-    --apricot-100: hsla(var(--hue-apricot), 63%, 85%, var(--opacity-apricot-100, var(--opacity-apricot)));
-    --apricot-200: hsla(var(--hue-apricot), 63%, 75%, var(--opacity-apricot-200, var(--opacity-apricot)));
-    --apricot-300: hsla(var(--hue-apricot), 64%, 65%, var(--opacity-apricot-300, var(--opacity-apricot)));
-    --apricot-400: hsla(var(--hue-apricot), 64%, 50%, var(--opacity-apricot-400, var(--opacity-apricot)));
-    --apricot-500: hsla(var(--hue-apricot), 65%, 48%, var(--opacity-apricot-500, var(--opacity-apricot)));
-    --apricot-600: hsla(var(--hue-apricot), 65%, 46%, var(--opacity-apricot-600, var(--opacity-apricot)));
-    --apricot-700: hsla(var(--hue-apricot), 63%, 45%, var(--opacity-apricot-700, var(--opacity-apricot)));
-    --apricot-800: hsla(var(--hue-apricot), 64%, 43%, var(--opacity-apricot-800, var(--opacity-apricot)));
-    --apricot-900: hsla(var(--hue-apricot), 62%, 41%, var(--opacity-apricot-900, var(--opacity-apricot)));
+    --apricot-50: hsla(174, 61%, 94%, var(--opacity-apricot-50, var(--opacity-apricot)));
+    --apricot-100: hsla(173, 63%, 85%, var(--opacity-apricot-100, var(--opacity-apricot)));
+    --apricot-200: hsla(173, 63%, 75%, var(--opacity-apricot-200, var(--opacity-apricot)));
+    --apricot-300: hsla(173, 64%, 65%, var(--opacity-apricot-300, var(--opacity-apricot)));
+    --apricot-400: hsla(173, 64%, 50%, var(--opacity-apricot-400, var(--opacity-apricot)));
+    --apricot-500: hsla(172, 65%, 48%, var(--opacity-apricot-500, var(--opacity-apricot)));
+    --apricot-600: hsla(173, 65%, 46%, var(--opacity-apricot-600, var(--opacity-apricot)));
+    --apricot-700: hsla(172, 63%, 45%, var(--opacity-apricot-700, var(--opacity-apricot)));
+    --apricot-800: hsla(172, 64%, 43%, var(--opacity-apricot-800, var(--opacity-apricot)));
+    --apricot-900: hsla(172, 62%, 41%, var(--opacity-apricot-900, var(--opacity-apricot)));
 }
