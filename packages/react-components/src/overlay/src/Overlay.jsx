@@ -5,7 +5,7 @@ import { Transition } from "../../transition";
 import { any, bool, instanceOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useThemeContext } from "@react-components/theme-provider";
 
 const propTypes = {
@@ -26,7 +26,6 @@ const propTypes = {
 export function InnerOverlay({
     show,
     containerElement,
-    className,
     children,
     forwardedRef,
     ...rest
@@ -37,15 +36,16 @@ export function InnerOverlay({
     const content = (
         <ThemeProvider theme={theme} colorScheme={colorScheme}>
             <Transition
-                {...rest}
-                show={show}
-                enter="o-ui-fade-in"
-                leave="o-ui-fade-out"
-                className={mergeClasses(
-                    "o-ui-overlay",
-                    className
+                {...mergeProps(
+                    rest,
+                    {
+                        show,
+                        enter: "o-ui-fade-in",
+                        leave: "o-ui-fade-out",
+                        className: "o-ui-overlay",
+                        ref: forwardedRef
+                    }
                 )}
-                ref={forwardedRef}
             >
                 {children}
             </Transition>

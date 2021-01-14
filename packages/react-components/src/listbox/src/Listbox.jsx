@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { ListboxBase, SelectionMode } from "./ListboxBase";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useChainedEventCallback, useControllableState } from "../../shared";
+import { mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useCollectionBuilder } from "../../collection";
 
 const propTypes = {
@@ -47,7 +47,6 @@ const propTypes = {
 export function InnerListbox({
     selectedKey: controlledKey,
     defaultSelectedKey,
-    onChange,
     selectionMode = SelectionMode.single,
     as = "div",
     children,
@@ -58,19 +57,23 @@ export function InnerListbox({
 
     const nodes = useCollectionBuilder(children);
 
-    const handleChange = useChainedEventCallback(onChange, (event, newKey) => {
+    const handleChange = useEventCallback((event, newKey) => {
         setSelectedKey(newKey);
     });
 
     return (
         <ListboxBase
-            {...rest}
-            nodes={nodes}
-            selectedKey={selectedKey}
-            onChange={handleChange}
-            selectionMode={selectionMode}
-            as={as}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    nodes,
+                    selectedKey,
+                    onChange: handleChange,
+                    selectionMode,
+                    as,
+                    ref: forwardedRef
+                }
+            )}
         />
     );
 }

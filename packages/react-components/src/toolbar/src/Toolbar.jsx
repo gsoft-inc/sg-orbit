@@ -107,14 +107,16 @@ export function InnerToolbar({
                 rest,
                 directionProps,
                 alignProps,
-                arrowNavigationProps
+                arrowNavigationProps,
+                {
+                    role: "toolbar",
+                    gap,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    as,
+                    ref: containerRef,
+                    "aria-orientation": orientation
+                }
             )}
-            role="toolbar"
-            gap={gap}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            as={as}
-            ref={containerRef}
-            aria-orientation={orientation}
         >
             <ToolbarContext.Provider
                 value={{

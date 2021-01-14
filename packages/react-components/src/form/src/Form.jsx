@@ -3,7 +3,7 @@ import "./Form.css";
 import { Box } from "../../box";
 import { FormContext } from "./FormContext";
 import { any, bool, elementType, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
+import { cssModule, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -26,7 +26,6 @@ export function InnerForm(props) {
         fluid,
         disabled,
         as = "form",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -34,16 +33,17 @@ export function InnerForm(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-form",
-                    fluid && "fluid"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-form",
+                        fluid && "fluid"
+                    ),
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            as={as}
-            ref={forwardedRef}
         >
             <FormContext.Provider
                 value={{

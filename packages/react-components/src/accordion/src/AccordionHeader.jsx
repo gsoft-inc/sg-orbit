@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
 import { Text } from "../../text";
-import { adaptSize, cssModule, mergeClasses, normalizeSize, omitProps, useSlots } from "../../shared";
+import { adaptSize, cssModule, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -35,7 +35,6 @@ export function InnerAccordionHeader(props) {
         focus,
         hover,
         as,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -73,19 +72,20 @@ export function InnerAccordionHeader(props) {
             ref={forwardedRef}
         >
             <button
-                {...rest}
-                className={mergeClasses(
-                    cssModule(
-                        "o-ui-accordion-trigger",
-                        active && "active",
-                        focus && "focus",
-                        hover && "hover",
-                        icon && "has-icon"
-                    ),
-                    className
+                {...mergeProps(
+                    rest,
+                    {
+                        className: cssModule(
+                            "o-ui-accordion-trigger",
+                            active && "active",
+                            focus && "focus",
+                            hover && "hover",
+                            icon && "has-icon"
+                        ),
+                        disabled
+                    }
                 )}
                 type="button"
-                disabled={disabled}
             >
                 {icon}
                 {text}

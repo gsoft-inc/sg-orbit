@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { CrossButton, embedIconButton } from "../../button";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
@@ -48,7 +48,6 @@ export function InnerTag({
     focus,
     hover,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -90,25 +89,26 @@ export function InnerTag({
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tag",
-                    variant,
-                    icon && "has-icon",
-                    counter && "has-counter",
-                    removeMarkup && "has-remove-button",
-                    fluid && "fluid",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    normalizeSize(size)
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-tag",
+                        variant,
+                        icon && "has-icon",
+                        counter && "has-counter",
+                        removeMarkup && "has-remove-button",
+                        fluid && "fluid",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover",
+                        normalizeSize(size)
+                    ),
+                    disabled,
+                    as,
+                    ref
+                }
             )}
-            disabled={disabled}
-            as={as}
-            ref={ref}
         >
             {icon}
             {dot}

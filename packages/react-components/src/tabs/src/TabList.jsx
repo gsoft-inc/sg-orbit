@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { Keys, mergeClasses, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
@@ -26,7 +26,6 @@ const KeyProp = "data-o-ui-index";
 export function TabList({
     tabs,
     autoFocus,
-    className,
     ...rest
 }) {
     const { selectedIndex, orientation } = useTabsContext();
@@ -49,12 +48,14 @@ export function TabList({
         <Box
             {...mergeProps(
                 rest,
-                navigationProps
+                navigationProps,
+                {
+                    className: "o-ui-tab-list",
+                    role: "tablist",
+                    "aria-orientation": orientation,
+                    ref: setFocusRef
+                }
             )}
-            className={mergeClasses("o-ui-tab-list", className)}
-            role="tablist"
-            aria-orientation={orientation}
-            ref={setFocusRef}
         >
             {tabs.map(({
                 id,

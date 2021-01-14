@@ -44,8 +44,6 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
 
                     event.preventDefault();
 
-                    console.log("SHOULD NOT BE HERE");
-
                     if (!isNil(nextElement)) {
                         nextElement.focus();
                     } else {

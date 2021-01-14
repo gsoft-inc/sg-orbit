@@ -5,7 +5,7 @@ import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useControllableState, useEventCallback, useId } from "../../shared";
+import { cssModule, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { forwardRef, useLayoutEffect } from "react";
 import { isNil } from "lodash";
 import { useTabsBuilder } from "./useTabsBuilder";
@@ -66,7 +66,6 @@ export function InnerTabs({
     fluid,
     orientation = "horizontal",
     "aria-label": ariaLabel,
-    className,
     children,
     forwardedRef,
     ...rest
@@ -104,17 +103,18 @@ export function InnerTabs({
 
     return (
         <Box
-            {...rest}
-            id={id}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tabs",
-                    fluid && "fluid",
-                    orientation
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    id,
+                    className: cssModule(
+                        "o-ui-tabs",
+                        fluid && "fluid",
+                        orientation
+                    ),
+                    ref: forwardedRef
+                }
             )}
-            ref={forwardedRef}
         >
             <TabsContext.Provider
                 value={{

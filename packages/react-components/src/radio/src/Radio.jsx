@@ -6,11 +6,11 @@ import { VisuallyHidden } from "../../visually-hidden";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import {
     cssModule,
-    mergeClasses,
     mergeProps,
     omitProps,
     resolveChildren,
     useAutoFocus,
+    useChainedEventCallback,
     useCheckableProps,
     useControllableState,
     useEventCallback,
@@ -80,7 +80,6 @@ export function InnerRadio(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -105,12 +104,8 @@ export function InnerRadio(props) {
         return forwardInputApi(labelRef);
     });
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useChainedEventCallback(onChange, () => {
         setIsChecked(!isChecked);
-
-        if (!isNil(onChange)) {
-            onChange(event);
-        }
     });
 
     const handleCheck = useEventCallback(event => {
@@ -139,22 +134,23 @@ export function InnerRadio(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-radio",
-                    isChecked && "checked",
-                    reverse && "reverse",
-                    validationState && validationState,
-                    disabled && "disabled",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-radio",
+                        isChecked && "checked",
+                        reverse && "reverse",
+                        validationState && validationState,
+                        disabled && "disabled",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover"
+                    ),
+                    as,
+                    ref: labelRef
+                }
             )}
-            as={as}
-            ref={labelRef}
         >
             <VisuallyHidden
                 as="input"

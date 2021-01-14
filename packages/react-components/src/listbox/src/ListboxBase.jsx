@@ -7,7 +7,6 @@ import {
     mergeProps,
     useAutoFocus,
     useAutoFocusChild,
-    useChainedEventCallback,
     useDisposables,
     useEventCallback,
     useFocusManager,
@@ -22,44 +21,9 @@ import { any, array, arrayOf, bool, elementType, func, number, object, oneOf, on
 import { forwardRef, useMemo, useRef } from "react";
 import { isNil, isNumber } from "lodash";
 
-/*
-- selectionMode: "single" | multiple - DONE
-- dynamic (items) and static rendering - NO
-- when dynamic and an id is present, use it as key - NO
-- selected (selectedKeys?) - DONE
-- defaultSelected - DONE
-- onSelectionChange - DONE
-- Section (view TagsPicker section look) -> Should also be supported from dynamic items - DONE
-- Could also support Divider? -> SHould also be supported from dynamic items - NO because Menu doesn't use Listbox
-- Item should support - DONE
-    - Left icons (default) - DONE
-    - Right icons with a "right-icon" slot - DONE
-- autoFocus / autoFocusDelay -> could fix autoFocusDelay to be usable without "autoFocus"  - DONE
-- support arrow selection. - DONE
-- required aria-label (add to docs accessibility section) - MISSING DOC
-- container have role="listbox" 0 DONE
-- item have role="option" - DONE
-- when single selection, selected items have aria-selected=true - DONE
-- when multiple selection, root element have aria-multiselectable=true - DONE
-- support Type-ahead (YES IT SHOULD BE DONE IN THIS COMPONENT) - DONE
-- support selection follows focus (default false) - NO I DON'T THINK WE WANT TO SUPPORT THIS
-
-
-- how to support an element with a tooltip? how to make it accessible? Since the content of an item is not parsed by screen reader we need something else for the tooltip
-     content? Maybe something like aria-description on the item? Not sure it's supported though
-
-    - really bad pattern for accessibility
-
-- allowEmptySelection? not sure if we want this. We might let the consumer provide an empty items if he wants this? At least have a test for this.
-
-- should we support dynamic loading? not sure because it doesn't seems like it would work with how we want to do Autocomplete? Does an autocomplete use a Listbox? - NOT NOW
-*/
-
 export function useSelectionManager({ selectedKey, nodes }) {
     return useMemo(() => {
         const selectedKeys = arrayify(selectedKey);
-
-        // console.log(selectedKeys);
 
         const toggleKey = key => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
@@ -160,7 +124,6 @@ export const ListboxBase = forwardRef(({
     nodes,
     selectedKey,
     onChange,
-    onKeyDown,
     selectionMode,
     autoFocus,
     autoFocusTarget,
@@ -213,7 +176,7 @@ export const ListboxBase = forwardRef(({
     const searchQueryRef = useRef("");
     const searchDisposables = useDisposables();
 
-    const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
+    const handleKeyDown = useEventCallback(event => {
         searchDisposables.dispose();
 
         switch (event.keyCode) {

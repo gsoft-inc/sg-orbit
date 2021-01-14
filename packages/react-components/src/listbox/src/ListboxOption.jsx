@@ -1,7 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { Keys, cssModule, mergeClasses, useChainedEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -29,15 +29,11 @@ const propTypes = {
 export function InnerListboxOption({
     item: { key },
     id,
-    onClick,
-    onKeyDown,
-    onKeyUp,
     disabled,
     active,
     focus,
     hover,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -64,11 +60,11 @@ export function InnerListboxOption({
         }
     });
 
-    const handleClick = useChainedEventCallback(onClick, event => {
+    const handleClick = useEventCallback(event => {
         onSelect(event, key);
     });
 
-    const handleKeyDown = useChainedEventCallback(onKeyDown, event => {
+    const handleKeyDown = useEventCallback(event => {
         switch(event.keyCode) {
             case Keys.enter:
             case Keys.space:
@@ -79,7 +75,7 @@ export function InnerListboxOption({
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useChainedEventCallback(onKeyUp, event => {
+    const handleKeyUp = useEventCallback(event => {
         if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
@@ -87,28 +83,29 @@ export function InnerListboxOption({
 
     return (
         <Box
-            {...rest}
-            id={id}
-            onClick={!disabled ? handleClick : undefined}
-            onKeyDown={!disabled ? handleKeyDown : undefined}
-            onKeyUp={!disabled ? handleKeyUp : undefined}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-listbox-option",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    id,
+                    onClick: !disabled ? handleClick : undefined,
+                    onKeyDown: !disabled ? handleKeyDown : undefined,
+                    onKeyUp: !disabled ? handleKeyUp : undefined,
+                    className: cssModule(
+                        "o-ui-listbox-option",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover"
+                    ),
+                    as,
+                    role: "option",
+                    tabIndex: !disabled ? "-1" : undefined,
+                    "data-o-ui-key": key,
+                    "aria-selected": !disabled && selectedKeys.includes(key),
+                    "aria-disabled": disabled,
+                    "aria-labelledby": labelId,
+                    ref: forwardedRef
+                }
             )}
-            as={as}
-            role="option"
-            tabIndex={!disabled ? "-1" : undefined}
-            data-o-ui-key={key}
-            aria-selected={!disabled && selectedKeys.includes(key)}
-            aria-disabled={disabled}
-            aria-labelledby={labelId}
-            ref={forwardedRef}
         >
             {icon}
             {text}

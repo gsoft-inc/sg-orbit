@@ -4,7 +4,6 @@ import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
 import {
     augmentElement,
-    mergeClasses,
     mergeProps,
     resolveChildren,
     useAutoFocus,
@@ -120,8 +119,6 @@ export function InnerPopover({
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
-    className,
-    style,
     children,
     forwardedRef,
     ...rest
@@ -214,19 +211,15 @@ export function InnerPopover({
                     overlayProps,
                     overlayPositionProps,
                     overlayTriggerProps,
-                    restoreFocusProps
+                    restoreFocusProps,
+                    {
+                        show: isVisible,
+                        className: "o-ui-popover",
+                        style: overlayStyles,
+                        containerElement,
+                        ref: overlayRef
+                    }
                 )}
-                show={isVisible}
-                className={mergeClasses(
-                    "o-ui-popover",
-                    className
-                )}
-                style={{
-                    ...(style ?? {}),
-                    ...overlayStyles
-                }}
-                containerElement={containerElement}
-                ref={overlayRef}
             >
                 <PopoverContext.Provider
                     value={{

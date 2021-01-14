@@ -108,9 +108,13 @@ export function Spinner({
 
     return (
         <div
-            {...rest}
-            className="o-ui-number-input-spinner"
-            aria-hidden="true"
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-number-input-spinner",
+                    "aria-hidden": true
+                }
+            )}
         >
             <button
                 onClick={handleIncrement}

@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { Keys, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -37,7 +37,6 @@ export function InnerTab({
     focus,
     hover,
     as = "button",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -89,28 +88,29 @@ export function InnerTab({
 
     return (
         <Box
-            {...rest}
-            onClick={handleClick}
-            onFocus={!isManual ? handleFocus : undefined}
-            onKeyDown={isManual ? handleKeyDown : undefined}
-            onKeyUp={isManual ? handleKeyUp : undefined}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tab",
-                    icon && "has-icon",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    onClick: handleClick,
+                    onFocus: !isManual ? handleFocus : undefined,
+                    onKeyDown: isManual ? handleKeyDown : undefined,
+                    onKeyUp: isManual ? handleKeyUp : undefined,
+                    className: cssModule(
+                        "o-ui-tab",
+                        icon && "has-icon",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover"
+                    ),
+                    disabled,
+                    role: "tab",
+                    "data-o-ui-index": index,
+                    "aria-selected": index === selectedIndex,
+                    "aria-controls": panelId,
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            disabled={disabled}
-            role="tab"
-            data-o-ui-index={index}
-            aria-selected={index === selectedIndex}
-            aria-controls={panelId}
-            as={as}
-            ref={forwardedRef}
         >
             {icon}
             {text}

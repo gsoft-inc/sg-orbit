@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { any, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -18,7 +18,6 @@ export function InnerListboxSection({
     id,
     title,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -26,12 +25,16 @@ export function InnerListboxSection({
     return (
         <>
             <Box
-                {...rest}
-                id={id}
-                className={mergeClasses("o-ui-listbox-section", className)}
-                aria-hidden
-                as={as}
-                ref={forwardedRef}
+                {...mergeProps(
+                    rest,
+                    {
+                        id,
+                        className: "o-ui-listbox-section",
+                        "aria-hidden": true,
+                        as,
+                        ref: forwardedRef
+                    }
+                )}
             >
                 {title}
             </Box>

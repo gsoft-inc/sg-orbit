@@ -3,8 +3,8 @@ import "./Accordion.css";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
+import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
-import { useEventCallback } from "../../shared";
 
 export function AccordionItem({
     item: { index, header, panel },
@@ -30,9 +30,13 @@ export function AccordionItem({
 
     return (
         <Disclosure
-            {...rest}
-            open={selectedIndexes.includes(index)}
-            onChange={handleChange}
+            {...mergeProps(
+                rest,
+                {
+                    open: selectedIndexes.includes(index),
+                    onChange: handleChange
+                }
+            )}
         >
             <HeaderType
                 {...headerProps}

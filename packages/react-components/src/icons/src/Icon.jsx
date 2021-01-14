@@ -1,7 +1,7 @@
 import "./Icon.css";
 
 import { Box } from "../../box";
-import { cssModule, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -29,7 +29,6 @@ export function InnerIcon(props) {
         size,
         disabled,
         "aria-label": ariaLabel,
-        className,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -39,20 +38,21 @@ export function InnerIcon(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-icon",
-                    disabled && "disabled",
-                    normalizeSize(size)
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-icon",
+                        disabled && "disabled",
+                        normalizeSize(size)
+                    ),
+                    focusable: false,
+                    as: type,
+                    "aria-hidden": isNil(ariaLabel),
+                    "aria-label": ariaLabel,
+                    ref: forwardedRef
+                }
             )}
-            focusable="false"
-            as={type}
-            aria-hidden={isNil(ariaLabel)}
-            aria-label={ariaLabel}
-            ref={forwardedRef}
         />
     );
 }

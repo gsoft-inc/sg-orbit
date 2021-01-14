@@ -3,7 +3,7 @@ import "./Tabs.css";
 import { Text } from "../../text";
 import { any, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeClasses } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
 const propTypes = {
@@ -24,7 +24,6 @@ const propTypes = {
 export function InnerTabPanel({
     panel: { index, tabId },
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -33,13 +32,17 @@ export function InnerTabPanel({
 
     return (
         <Text
-            {...rest}
-            className={mergeClasses("o-ui-tab-panel", className)}
-            role="tabpanel"
-            hidden={index !== selectedIndex}
-            aria-labelledby={tabId}
-            as={as}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-tab-panel",
+                    role: "tabpanel",
+                    hidden: index !== selectedIndex,
+                    "aria-labelledby": tabId,
+                    as,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Text>
