@@ -16,7 +16,6 @@ export function useLink({
     visited,
     target,
     rel,
-    className,
     forwardedRef
 }) {
     const linkRef = useMergedRefs(forwardedRef);
@@ -41,8 +40,7 @@ export function useLink({
                 hover && "hover",
                 visited && "visited",
                 !omitSize && normalizeSize(size)
-            ),
-            className
+            )
         ),
         ref: linkRef
     };

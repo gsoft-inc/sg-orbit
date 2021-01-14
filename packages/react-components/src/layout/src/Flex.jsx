@@ -1,9 +1,9 @@
 import "./Flex.css";
 
 import { Box } from "../../box";
-import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, useMergedRefs } from "../../shared";
+import { cssModule, mergeProps } from "../../shared";
+import { forwardRef } from "react";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
@@ -98,7 +98,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const SPACING = [
+const Spacing = [
     "--scale-alpha",
     "--scale-bravo",
     "--scale-charlie",
@@ -140,22 +140,6 @@ function useIsGapSupported(noGap) {
     }, [noGap]);
 }
 
-function useShouldWrapForSpacing(isGapSupported, ref) {
-    const [hasNesting, setHasNesting] = useState(false);
-
-    useLayoutEffect(() => {
-        if (!isGapSupported) {
-            if (!isNil(ref.current)) {
-                if (!isNil(ref.current.querySelector(":scope > .o-ui-flex"))) {
-                    setHasNesting(true);
-                }
-            }
-        }
-    }, [isGapSupported, setHasNesting, ref]);
-
-    return hasNesting;
-}
-
 export function InnerFlex({
     direction,
     inline,
@@ -166,54 +150,44 @@ export function InnerFlex({
     gap,
     wrap,
     fluid,
-    wrapChildren,
     noGap,
-    className,
-    style,
     children,
     forwardedRef,
     ...rest
 }) {
-    const ref = useMergedRefs(forwardedRef);
-
     const isGapSupported = useIsGapSupported(noGap);
-    const wrapChildrenForSpacing = useShouldWrapForSpacing(isGapSupported, ref);
 
     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
     alignContent = alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end");
     alignItems = alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end");
     justifyContent = justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end");
 
-    const items = !wrapChildren && !wrapChildrenForSpacing ? children : Children.map(children, x => {
-        return (
-            <div className="o-ui-flex-item">{x}</div>
-        );
-    });
+    const items = children;
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-flex",
-                    direction || "row",
-                    inline && "inline",
-                    reverse && "reverse",
-                    fluid && "fluid",
-                    !isGapSupported && "no-gap"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-flex",
+                        direction || "row",
+                        inline && "inline",
+                        reverse && "reverse",
+                        fluid && "fluid",
+                        !isGapSupported && "no-gap"
+                    ),
+                    style: {
+                        flexDirection: direction && `${direction}${reverse ? "-reverse" : ""}`,
+                        alignContent: alignContent,
+                        alignItems: alignItems,
+                        justifyContent: justifyContent,
+                        flexWrap: !isNil(wrap) ? "wrap" : undefined,
+                        "--o-ui-gap": gap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
+                    },
+                    ref: forwardedRef
+                }
             )}
-            style={{
-                ...style,
-                flexDirection: direction && `${direction}${reverse ? "-reverse" : ""}`,
-                alignContent: alignContent,
-                alignItems: alignItems,
-                justifyContent: justifyContent,
-                flexWrap: !isNil(wrap) ? "wrap" : undefined,
-                "--o-ui-gap": gap && (isString(gap) ? gap : `var(${SPACING[(gap) - 1]})`)
-            }}
-            ref={ref}
         >
             {items}
         </Box>

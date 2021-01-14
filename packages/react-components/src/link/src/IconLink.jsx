@@ -80,7 +80,6 @@ export function InnerIconLink(props) {
         visited,
         "aria-label": ariaLabel,
         as: ElementType = "a",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -102,7 +101,6 @@ export function InnerIconLink(props) {
         visited,
         target,
         rel,
-        className,
         forwardedRef
     });
 
@@ -116,10 +114,12 @@ export function InnerIconLink(props) {
         <ElementType
             {...mergeProps(
                 rest,
-                linkProps
+                linkProps,
+                {
+                    title: title ?? ariaLabel,
+                    "aria-label": ariaLabel
+                }
             )}
-            title={title ?? ariaLabel}
-            aria-label={ariaLabel}
         >
             {iconMarkup}
         </ElementType>

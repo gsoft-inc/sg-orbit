@@ -59,12 +59,14 @@ export function InnerStack({
         <Flex
             {...mergeProps(
                 rest,
-                alignProps
+                alignProps,
+                {
+                    direction: "column",
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
             )}
-            direction="column"
-            gap={gap !== 0 ? gap : undefined}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            ref={forwardedRef}
         >
             {children}
         </Flex>

@@ -36,9 +36,3 @@
 .o-ui-flex-fluid.o-ui-flex-column {
     height: 100%;
 }
-
-/* FLEX | ITEM */
-.o-ui-flex-item {
-    width: 100%;
-    height: 100%;
-}

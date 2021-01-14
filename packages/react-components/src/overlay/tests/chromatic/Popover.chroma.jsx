@@ -366,12 +366,15 @@ stories()
     })
     .add("inherit theme", () =>
         <ThemeProvider theme="desktop" colorScheme="light">
-            <Popover show>
-                <Button>Open</Button>
-                <RedBox>
-                    <Button color="primary">Cutoff</Button>
-                </RedBox>
-            </Popover>
+            <Boundary>
+                <Popover show>
+                    <Button>Open</Button>
+                    <RedBox>
+                        <Button color="primary">Cutoff</Button>
+                    </RedBox>
+                </Popover>
+            </Boundary>
+
         </ThemeProvider>
     )
     .add("className", () =>

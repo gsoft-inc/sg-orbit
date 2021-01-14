@@ -182,7 +182,11 @@ export const ListboxBase = forwardRef(({
     useAutoFocusChild(focusManager, {
         target: focusTarget,
         isDisabled: !autoFocus || isNil(focusTarget),
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        onNotFound: () => {
+            // Enable keyboard navigation.
+            containerRef.current?.focus();
+        }
     });
 
     // Otherwise, autofocus the listbox container element to enable keyboard support.

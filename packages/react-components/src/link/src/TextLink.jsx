@@ -72,7 +72,6 @@ export function InnerTextLink(props) {
         hover,
         visited,
         as: ElementType = "a",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -95,7 +94,6 @@ export function InnerTextLink(props) {
         visited,
         target,
         rel,
-        className,
         forwardedRef
     });
 

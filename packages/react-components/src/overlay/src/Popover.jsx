@@ -192,12 +192,12 @@ export function InnerPopover({
             isDisabled: !autoFocus || !isVisible,
             delay: isNumber(autoFocus) ? autoFocus : undefined,
             onNotFound: useEventCallback(() => {
-                // Ensure closing on blur and on esc key are working.
+                // Focusing on the overlay enable closing on blur and esc key.
                 overlayElement?.focus();
             })
         });
 
-    // Otherwise, make sure to at least focus the overlay element to ensure closing on blur and on esc key are working.
+    // Otherwise, make sure to at least focus the overlay element to enable closing on blur and esc key.
     useAutoFocus(overlayRef, { isDisabled: autoFocus || !isVisible });
 
     const triggerMarkup = augmentElement(trigger, {

@@ -242,7 +242,7 @@ stories()
         </Listbox>
     )
     .add("do not autofocus a disabled item", () =>
-        <Listbox autoFocus aria-label="Planets">
+        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

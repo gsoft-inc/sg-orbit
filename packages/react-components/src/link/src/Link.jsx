@@ -57,7 +57,6 @@ export function InnerLink(props) {
         focus,
         hover,
         as: ElementType = "a",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -76,7 +75,6 @@ export function InnerLink(props) {
         hover,
         target,
         rel,
-        className,
         forwardedRef
     });
 

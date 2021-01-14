@@ -36,7 +36,7 @@ stories()
         </Toolbar>
     )
     .add("disabled element", () =>
-        <Toolbar autoFocus>
+        <Toolbar>
             <CheckboxGroup disabled>
                 <ToggleButton value="1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>

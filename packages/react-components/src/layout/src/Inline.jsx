@@ -59,11 +59,13 @@ export function InnerInline({
         <Flex
             {...mergeProps(
                 rest,
-                alignProps
+                alignProps,
+                {
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
             )}
-            gap={gap !== 0 ? gap : undefined}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            ref={forwardedRef}
         >
             {children}
         </Flex>

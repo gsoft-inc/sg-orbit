@@ -67,7 +67,7 @@ stories()
             <PrimaryColors />
         </ThemeProvider>
     )
-    .add("set color scheme remotely", () => {
+    .add("set color scheme with api", () => {
         const SwitchColorScheme = () => {
             const { setColorScheme } = useThemeContext();
 
