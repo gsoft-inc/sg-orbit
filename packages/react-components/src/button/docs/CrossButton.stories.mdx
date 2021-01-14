@@ -1,8 +1,7 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { CrossButton, InnerCrossButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/CrossButton"
@@ -23,25 +22,25 @@ import { paramsBuilder } from "@stories/utils";
 
 ### Default
 
-<Canvas>
+<Preview>
     <Story name="default">
         <CrossButton aria-label="Clear" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <CrossButton disabled aria-label="Clear" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A cross button can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center">
             <CrossButton size="2xs" aria-label="Clear" />
@@ -50,7 +49,7 @@ A cross button can vary in size.
             <CrossButton aria-label="Clear" />
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -58,18 +57,7 @@ A cross button can vary in size.
 
 <ComponentInfo
     usage="import { CrossButton } from @orbit-ui/react-components"
+    compact
 />
 
 <ArgsTable of={InnerCrossButton} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerCrossButton)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerCrossButton {...args} />
-    }
-</Story>

@@ -1,7 +1,3 @@
-import { ErrorMessage, Field, Label, useFieldInputProps } from "@react-components/field";
-import { mergeClasses } from "@react-components/shared";
-import { useCallback, useState } from "react";
-
 function CustomInput(props) {
     const [{ validationState, ...fieldProps }] = useFieldInputProps();
 
@@ -18,7 +14,7 @@ function CustomInput(props) {
     );
 }
 
-export function CustomInputField() {
+function CustomInputField() {
     const [value, setValue] = useState("");
 
     const isValid = value.length < 2;
@@ -39,3 +35,7 @@ export function CustomInputField() {
         </Field>
     );
 }
+
+render(
+    <CustomInputField />
+);

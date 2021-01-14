@@ -1,12 +1,10 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { CheckboxGroup } from "@react-components/checkbox";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
-import { CustomToolbar } from "./CustomComponent.sample";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerToolbar, Toolbar } from "@react-components/toolbar";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextInput } from "@react-components/input";
 import { ToggleButton } from "@react-components/button";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Toolbar"
@@ -18,7 +16,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.</Tagline>
 
 <ComponentInfo
-    usage={"import { Toolbar } from \"@orbit-ui/react-components\""}
+    usage={"import { Toolbar, ToolbarContext, useToolbarContext, useToolbarProps, ClearToolbar } from \"@orbit-ui/react-components\""}
     ariaPath="#toolbar"
     githubPath="/packages/react-components/src/toolbar/src"
 />
@@ -29,7 +27,7 @@ import { paramsBuilder } from "@stories/utils";
 
 A default toolbar.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Toolbar>
             <TextInput placeholder="Destination" />
@@ -43,13 +41,13 @@ A default toolbar.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A toolbar control can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled control">
         <Toolbar>
             <TextInput placeholder="Destination" />
@@ -63,11 +61,11 @@ A toolbar control can be disabled.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Canvas>
+</Preview>
 
 Or all the controls.
 
-<Canvas>
+<Preview>
     <Story name="disabled toolbar">
         <Toolbar disabled>
             <TextInput placeholder="Destination" />
@@ -81,13 +79,13 @@ Or all the controls.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Canvas>
+</Preview>
 
 ### Gap
 
 The gap between a toolbar controls can be configured.
 
-<Canvas>
+<Preview>
     <Story name="gap">
         <Toolbar gap={9}>
             <TextInput placeholder="Destination" />
@@ -101,13 +99,13 @@ The gap between a toolbar controls can be configured.
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Canvas>
+</Preview>
 
 ### Orientation
 
 A toolbar can change his orientation to `vertical` to render his controls horizontally.
 
-<Canvas>
+<Preview>
     <Story name="orientation">
         <Toolbar orientation="vertical">
             <TextInput placeholder="Destination" />
@@ -121,13 +119,13 @@ A toolbar can change his orientation to `vertical` to render his controls horizo
             </CheckboxGroup>
         </Toolbar>
     </Story>
-</Canvas>
+</Preview>
 
 ### Wrapped
 
 Toolbar controls can be wrap on multiple lines.
 
-<Canvas>
+<Preview>
     <Story name="wrap">
         <div style={{ width: "700px" }}>
             <Toolbar wrap>
@@ -143,15 +141,13 @@ Toolbar controls can be wrap on multiple lines.
             </Toolbar>
         </div>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom Components
 
 Any component can be added to a toolbar and behave as an element of the group. However to benefit from state propagation features, a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarProps` hook.
 
-<FileCanvas filePath="/toolbar/docs/CustomComponent">
-    <CustomToolbar />
-</FileCanvas>
+<Preview filePath="/toolbar/docs/CustomComponent" noInline />
 
 ## API
 
@@ -163,27 +159,5 @@ Any component can be added to a toolbar and behave as an element of the group. H
 />
 
 <ArgsTable of={InnerToolbar} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerToolbar)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerToolbar {...args}>
-            <TextInput placeholder="Destination" />
-            <RadioGroup>
-                <Radio value="roscosmos">Roscosmos</Radio>
-                <Radio value="nasa">NASA</Radio>
-            </RadioGroup>
-            <CheckboxGroup>
-                <ToggleButton variant="outline" value="round-trip">Round trip</ToggleButton>
-                <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
-            </CheckboxGroup>
-        </InnerToolbar>
-    }
-</Story>
 
 

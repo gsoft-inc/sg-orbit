@@ -21,19 +21,15 @@ const propTypes = {
      */
     defaultChecked: bool,
     /**
-     * Whether the checkbox should autoFocus on render.
+     * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: bool,
+    autoFocus: oneOfType([bool, number]),
     /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
-    /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
-     * Whether the checkbox should display as "valid" or "invalid".
+     * Whether or not the checkbox should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -55,7 +51,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func])
 };
@@ -69,7 +65,6 @@ export function InnerSwitch(props) {
         checked,
         defaultChecked,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange,
@@ -82,7 +77,6 @@ export function InnerSwitch(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -103,7 +97,6 @@ export function InnerSwitch(props) {
         checked,
         defaultChecked,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange,
@@ -115,7 +108,6 @@ export function InnerSwitch(props) {
         focus,
         hover,
         disabled,
-        className,
         forwardedRef
     });
 
@@ -143,9 +135,13 @@ export function InnerSwitch(props) {
 
     return (
         <Box
-            {...rest}
-            {...wrapperProps}
-            as={as}
+            {...mergeProps(
+                rest,
+                wrapperProps,
+                {
+                    as
+                }
+            )}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-switch-control" />
@@ -162,4 +158,4 @@ export const Switch = forwardRef((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
 
-export const Toggle = Switch;
+Switch.displayName = "Switch";

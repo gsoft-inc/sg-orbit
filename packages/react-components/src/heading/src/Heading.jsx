@@ -1,7 +1,7 @@
 import "./Heading.css";
 
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -29,9 +29,8 @@ export function InnerHeading(props) {
     const {
         size,
         as: ElementType = "div",
-        className,
-        color,
         children,
+        color,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -41,16 +40,17 @@ export function InnerHeading(props) {
 
     return (
         <ElementType
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-heading",
-                    normalizeSize(size),
-                    color ? "color-inherit" : ""
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-heading",
+                        color ? "color-inherit" : "",
+                        normalizeSize(size)
+                    ),
+                    ref: forwardedRef
+                }
             )}
-            ref={forwardedRef}
         >
             {children}
         </ElementType>
@@ -62,3 +62,5 @@ InnerHeading.propTypes = propTypes;
 export const Heading = forwardRef((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 ));
+
+Heading.displayName = "Heading";

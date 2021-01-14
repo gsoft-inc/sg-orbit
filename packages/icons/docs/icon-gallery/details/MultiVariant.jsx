@@ -1,15 +1,20 @@
+import "./MultiVariant.css";
+
 import { CheckeredBackground } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
-import { Source } from "@storybook/components";
+import { Snippet } from "@stories/components";
 import { cloneElement } from "react";
+import { components } from "@storybook/components/html";
+
+const H4 = components.h4;
 
 function ImportSection({ componentType }) {
     return (
         <>
-            <h4 className="marine-900 pa0 ma0 mt4">Import</h4>
-            <Source language="js" dark format={false} code={`import { ${componentType} } from "@orbit-ui/react-components";`} className="mv2" />
+            <H4>Import</H4>
+            <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} className="mv2" />
         </>
     );
 }
@@ -17,9 +22,9 @@ function ImportSection({ componentType }) {
 function UsageSection({ componentType }) {
     return (
         <>
-            <h4 className="marine-900 pa0 ma0 mt4">Usage</h4>
-            <Source language="jsx" dark format={false} code={`<${componentType} />`} className="mv2" />
-            <LearnUsageLink />
+            <H4>Usage</H4>
+            <Snippet language="jsx" code={`<${componentType} />`} className="mv2" />
+            <LearnUsageLink className="o-ui-sb-gallery-item-multi-variant-usage" />
         </>
     );
 }

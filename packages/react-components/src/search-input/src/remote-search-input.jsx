@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
+import { AutoControlledPureComponent, Keys, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { bool, element, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { cancellablePromise } from "./cancellablePromise";
@@ -120,7 +120,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         resultRenderer: func,
         /**
-         * Whether the query should be cleared when a result is selected.
+         * Whether or not the query should be cleared when a result is selected.
          */
         clearOnSelect: bool,
         /**
@@ -152,7 +152,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         defaultOpen: bool,
         /**
-         * Whether the search input should autoFocus on render.
+         * Whether or not the search input should autoFocus on render.
          */
         autoFocus: bool,
         /**
@@ -164,7 +164,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
          */
         size: oneOf(SIZES),
         /**
-         * Whether the search input take up the width of its container.
+         * Whether or not the search input take up the width of its container.
          */
         fluid: bool,
         /**
@@ -255,7 +255,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         const { onKeyDown } = this.props;
 
         // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" ourself.
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             this.close(event);
         }
 

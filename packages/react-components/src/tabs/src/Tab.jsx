@@ -1,19 +1,17 @@
+import "./Tabs.css";
+
 import { Box } from "../../box";
-import { KEYS, cssModule, mergeClasses, useEventCallback, useSlots } from "../../shared";
-import { Text } from "@react-components/text";
-import { any, bool, elementType, number, oneOfType, string } from "prop-types";
+import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { Text } from "../../text";
+import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { useTabsContext } from "./TabsContext";
 
 const propTypes = {
     /**
-     * The tab index.
+     * Matching tab item.
      */
-    index: number,
-    /**
-     * The id of the tab panel controlled by the tab.
-     */
-    panelId: string,
+    tab: object.isRequired,
     /**
      * Whether or not the tab is selected.
      */
@@ -33,20 +31,17 @@ const propTypes = {
 };
 
 export function InnerTab({
-    index,
-    panelId,
-    selected,
+    tab: { index, panelId },
     disabled,
     active,
     focus,
     hover,
     as = "button",
-    className,
     children,
     forwardedRef,
     ...rest
 }) {
-    const { isManual, onSelect } = useTabsContext();
+    const { selectedIndex, onSelect, isManual } = useTabsContext();
 
     const { icon, text, lozenge } = useSlots(children, {
         _: {
@@ -76,8 +71,8 @@ export function InnerTab({
 
     const handleKeyDown = useEventCallback(event => {
         switch(event.keyCode) {
-            case KEYS.enter:
-            case KEYS.space:
+            case Keys.enter:
+            case Keys.space:
                 event.preventDefault();
                 onSelect(event, index);
                 break;
@@ -86,35 +81,36 @@ export function InnerTab({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === KEYS.space) {
+        if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
     });
 
     return (
         <Box
-            {...rest}
-            onClick={handleClick}
-            onFocus={!isManual ? handleFocus : undefined}
-            onKeyDown={isManual ? handleKeyDown : undefined}
-            onKeyUp={isManual ? handleKeyUp : undefined}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-tab",
-                    icon && "has-icon",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    onClick: handleClick,
+                    onFocus: !isManual ? handleFocus : undefined,
+                    onKeyDown: isManual ? handleKeyDown : undefined,
+                    onKeyUp: isManual ? handleKeyUp : undefined,
+                    className: cssModule(
+                        "o-ui-tab",
+                        icon && "has-icon",
+                        active && "active",
+                        focus && "focus",
+                        hover && "hover"
+                    ),
+                    disabled,
+                    role: "tab",
+                    "data-o-ui-index": index,
+                    "aria-selected": index === selectedIndex,
+                    "aria-controls": panelId,
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            disabled={disabled}
-            role="tab"
-            data-index={index}
-            aria-selected={selected}
-            aria-controls={panelId}
-            as={as}
-            ref={forwardedRef}
         >
             {icon}
             {text}
@@ -128,3 +124,5 @@ InnerTab.propTypes = propTypes;
 export const Tab = forwardRef((props, ref) => (
     <InnerTab {...props} forwardedRef={ref} />
 ));
+
+Tab.displayName = "Tab";

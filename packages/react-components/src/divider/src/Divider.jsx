@@ -3,7 +3,7 @@ import "./Divider.css";
 import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses } from "../../shared";
+import { cssModule, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -24,7 +24,6 @@ const propTypes = {
 export function InnerDivider({
     orientation = "horizontal",
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -37,18 +36,19 @@ export function InnerDivider({
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-divider",
-                    labelMarkup && "has-label"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-divider",
+                        labelMarkup && "has-label"
+                    ),
+                    as,
+                    role: "separator",
+                    "aria-orientation": orientation,
+                    ref: forwardedRef
+                }
             )}
-            as={as}
-            role="separator"
-            aria-orientation={orientation}
-            ref={forwardedRef}
         >
             {labelMarkup}
         </Box>
@@ -60,4 +60,6 @@ InnerDivider.propTypes = propTypes;
 export const Divider = forwardRef((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));
+
+Divider.displayName = "Divider";
 

@@ -1,60 +1,84 @@
+import "./Tabs.css";
+
 import { Box } from "../../box";
-import { KEYS, mergeClasses, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
-import { useRef } from "react";
+import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     horizontal: {
-        previous: [KEYS.left],
-        next: [KEYS.right],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left],
+        next: [Keys.right],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     vertical: {
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     }
 };
+
+const KeyProp = "data-o-ui-index";
 
 export function TabList({
     tabs,
     autoFocus,
-    autoFocusDelay,
-    className,
     ...rest
 }) {
     const { selectedIndex, orientation } = useTabsContext();
 
-    const ref = useRef();
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    useKeyedRovingFocus(ref, selectedIndex, { keyProp: "data-index" });
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
+    useKeyedRovingFocus(focusScope, selectedIndex, { keyProp: KeyProp });
+
+    useAutoFocusChild(focusManager, {
+        target: selectedIndex,
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     return (
         <Box
-            {...rest}
-            {...navigationProps}
-            className={mergeClasses("o-ui-tab-list", className)}
-            role="tablist"
-            aria-orientation={orientation}
-            ref={ref}
+            {...mergeProps(
+                rest,
+                navigationProps,
+                {
+                    className: "o-ui-tab-list",
+                    role: "tablist",
+                    "aria-orientation": orientation,
+                    ref: setFocusRef
+                }
+            )}
         >
             {tabs.map(({
+                id,
+                key,
                 index,
-                type: ElementType = Tab,
-                ...tabProps
+                elementType: ElementType = Tab,
+                ref,
+                panelId,
+                props
             }) =>
                 <ElementType
-                    {...tabProps}
-                    index={index}
-                    selected={selectedIndex === index}
+                    {...props}
+                    tab={{
+                        index,
+                        panelId
+                    }}
+                    id={id}
+                    key={key}
+                    ref={ref}
                 />
             )}
         </Box>
     );
 }
+
+

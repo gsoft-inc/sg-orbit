@@ -1,8 +1,4 @@
-import { ErrorMessage, Field, Label, ValidMessage } from "@react-components/field";
-import { TextInput } from "@react-components/input";
-import { useCallback, useMemo, useState } from "react";
-
-export function EmailValidation() {
+() => {
     const [value, setValue] = useState("");
 
     const validationState = useMemo(() => {
@@ -28,4 +24,4 @@ export function EmailValidation() {
             <ValidMessage>A confirmation email is on it's way!</ValidMessage>
         </Field>
     );
-}
+};

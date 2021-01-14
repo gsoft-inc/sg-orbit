@@ -1,11 +1,4 @@
-import { Box } from "@react-components/box";
-import { ChevronIcon } from "@react-components/icons";
-import { Content } from "@react-components/placeholders";
-import { Disclosure } from "@react-components/disclosure";
-import { useDisclosureContext } from "@react-components/disclosure";
-import cx from "classnames";
-
-export function CustomTrigger({ children, ...rest }) {
+function CustomTrigger({ children, ...rest }) {
     const { isOpen } = useDisclosureContext();
 
     return (
@@ -25,7 +18,7 @@ export function CustomTrigger({ children, ...rest }) {
     );
 }
 
-export function CustomDisclosureTrigger() {
+function CustomDisclosureTrigger() {
     return (
         <Disclosure>
             <CustomTrigger>EVE Online</CustomTrigger>
@@ -37,3 +30,7 @@ export function CustomDisclosureTrigger() {
         </Disclosure>
     );
 }
+
+render(
+    <CustomDisclosureTrigger />
+);

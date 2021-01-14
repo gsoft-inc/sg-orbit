@@ -1,4 +1,4 @@
-import { Source } from "@storybook/components";
+import { Snippet } from "@stories/components";
 import { isNil } from "lodash";
 import { string } from "prop-types";
 import { useState } from "react";
@@ -23,12 +23,10 @@ export function PackageInstallationSnippet({ packageName, ...rest }) {
     }
 
     return (
-        <Source
+        <Snippet
             {...rest}
             language="bash"
-            dark
-            format={false}
-            code={`npm install ${dependencies}`}
+            code={`npm install ${dependencies};`}
         />
     );
 }

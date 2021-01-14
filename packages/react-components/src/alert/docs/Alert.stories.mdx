@@ -1,13 +1,11 @@
 import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
-import { ControlledAlert } from "./ControlledAlert.sample";
 import { EmailIcon } from "@react-components/icons";
 import { Heading } from "@react-components/heading";
 import { TextLink } from "@react-components/link";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Alert"
@@ -15,6 +13,7 @@ import { paramsBuilder } from "@stories/utils";
 />
 
 # Alert
+
 <Tagline>An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.</Tagline>
 
 <ComponentInfo
@@ -29,30 +28,30 @@ import { paramsBuilder } from "@stories/utils";
 
 A default alert.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Alert>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Alert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 An alert can have an [icon](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Alert>
             <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
         </Alert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Rich content
 
 An alert can also accept rich content.
 
-<Canvas>
+<Preview>
     <Story name="rich content">
         <Alert>
             <EmailIcon />
@@ -62,13 +61,13 @@ An alert can also accept rich content.
             </Content>
         </Alert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Action
 
 An alert can accept an accept [button](?path=/docs/button--default-story).
 
-<Canvas>
+<Preview>
     <Story name="action">
         <Alert>
             <EmailIcon />
@@ -76,13 +75,13 @@ An alert can accept an accept [button](?path=/docs/button--default-story).
             <Button>Undo</Button>
         </Alert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Dismissible
 
 An alert can be dismissible by specifying an `onDismiss` handler.
 
-<Canvas>
+<Preview>
     <Story name="dismissible">
         <Alert onDismiss={() => {}}>
             <EmailIcon />
@@ -90,67 +89,65 @@ An alert can be dismissible by specifying an `onDismiss` handler.
             <Button>Undo</Button>
         </Alert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Info
 
 Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
 
-<Canvas>
+<Preview>
     <Story name="info">
         <InfoAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </InfoAlert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Success
 
 Use a success alert to inform a user that an action has completed successfuly.
 
-<Canvas>
+<Preview>
     <Story name="success">
         <SuccessAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </SuccessAlert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Warning
 
 Use a warning alert to help a user avoid an issue.
 
-<Canvas>
+<Preview>
     <Story name="warning">
         <WarningAlert onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
             <Button>Retry</Button>
         </WarningAlert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Critical
 
 Use an error alert to help a user understand a critical issue at the system level.
 
-<Canvas>
+<Preview>
     <Story name="critical">
         <CriticalAlert onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
         </CriticalAlert>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 An alert can handle `show` state in controlled mode.
 
-<FileCanvas filePath="/alert/docs/ControlledAlert">
-    <ControlledAlert />
-</FileCanvas>
+<Preview filePath="/alert/docs/ControlledAlert" />
 
 ## Props
 
@@ -212,17 +209,3 @@ An alert can handle `show` state in controlled mode.
 />
 
 <ArgsTable of={InnerContent} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerAlert)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <Alert {...args}>
-            Your email to <strong>booking@spacetravel.com</strong> has been sent!
-        </Alert>
-    }
-</Story>

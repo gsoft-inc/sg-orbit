@@ -1,5 +1,5 @@
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
@@ -12,11 +12,7 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
-    /**
-     * React children.
-     */
-    children: any.isRequired
+    as: oneOfType([string, elementType])
 };
 
 export function InnerErrorMessage(props) {
@@ -50,3 +46,5 @@ InnerErrorMessage.propTypes = propTypes;
 export const ErrorMessage = forwardRef((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));
+
+ErrorMessage.displayName = "ErrorMessage";

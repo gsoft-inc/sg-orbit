@@ -1,8 +1,3 @@
-import { RadioGroup } from "@react-components/radio";
-import { Tag } from "@react-components/tag";
-import { useCallback } from "react";
-import { useCheckableProps } from "@react-components/shared";
-
 function CustomComponent({
     value,
     children,
@@ -29,7 +24,7 @@ function CustomComponent({
     );
 }
 
-export function CustomGroup() {
+function CustomGroup() {
     return (
         <RadioGroup gap={2} orientation="horizontal">
             <CustomComponent value="mars">Mars</CustomComponent>
@@ -38,3 +33,7 @@ export function CustomGroup() {
         </RadioGroup>
     );
 }
+
+render(
+    <CustomGroup />
+);

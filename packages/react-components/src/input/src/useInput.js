@@ -1,4 +1,5 @@
 import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { isNumber } from "lodash";
 
 export function useInput({
     cssModule: module,
@@ -11,7 +12,6 @@ export function useInput({
     variant,
     type,
     autoFocus,
-    autoFocusDelay,
     disabled,
     readOnly,
     fluid,
@@ -19,30 +19,29 @@ export function useInput({
     active,
     focus,
     hover,
-    className,
-    wrapperProps = {},
     forwardedRef
 }) {
     const inputRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     return {
         wrapperProps: {
-            ...wrapperProps,
             className: mergeClasses(
                 module,
                 cssModule(
                     "o-ui-input",
                     variant,
+                    validationState,
                     fluid && "fluid",
                     loading && "loading",
-                    validationState && validationState,
                     active && "active",
                     focus && "focus",
                     hover && "hover"
-                ),
-                wrapperProps.className
+                )
             )
         },
         inputProps: {
@@ -50,7 +49,6 @@ export function useInput({
             value,
             placeholder,
             onChange,
-            className,
             type,
             disabled,
             readOnly,

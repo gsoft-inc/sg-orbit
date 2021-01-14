@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, DOMEventListener, KEYS, createOrAugmentElement, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
+import { AutoControlledPureComponent, DOMEventListener, Keys, createOrAugmentElement, getAutoControlledStateFromProps, isNilOrEmpty, mergeClasses } from "../../shared";
 import { Button } from "../../button";
 import { CrossIcon, MagnifierIcon } from "../../icons";
 import { RESULT_SHAPE } from "./results";
@@ -186,10 +186,10 @@ export class SearchInputController extends AutoControlledPureComponent {
         const { onKeyDown } = this.props;
 
         switch (event.keyCode) {
-            case KEYS.enter:
+            case Keys.enter:
                 this.handleInputEnter(event);
                 break;
-            case KEYS.esc:
+            case Keys.esc:
                 this.handleInputEscape(event);
                 break;
         }

@@ -60,7 +60,7 @@ A date range picker can offer a predefined set of frequently used ranges by spec
 
 A default set of ranges is available through the `DEFAULT_DATES_PRESETS`:
 
-```js dark
+```js
 const DEFAULT_DATES_PRESETS = [
     preset("Last week", moment().subtract(1, "week"), moment().startOf("day")),
     preset("Last month", moment().subtract(1, "months"), moment().startOf("day")),
@@ -72,7 +72,7 @@ const DEFAULT_DATES_PRESETS = [
 
 If you need to create your own presets, use the `preset(text, startDate, endDate)` function:
 
-```js dark
+```js
 const LAST_WEEK_PRESET = preset("Last week", moment().subtract(1, "week"), moment().startOf("day"));
 ```
 

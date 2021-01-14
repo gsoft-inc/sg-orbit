@@ -1,7 +1,5 @@
 /* Sadly ~ doesn't work here. */
-@import "../../foundation/dist/apricot.css";
-@import "../../foundation/dist/overcast.css";
-@import "../../foundation/dist/desktop.css";
+@import "../../foundation/dist/index.css";
 
 @import "./tachyons.css";
 @import "./themes/apricot/index.css";

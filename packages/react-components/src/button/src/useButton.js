@@ -1,4 +1,5 @@
 import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { isNumber } from "lodash";
 
 export function useButton({
     cssModule: module,
@@ -6,7 +7,6 @@ export function useButton({
     color,
     shape,
     autoFocus,
-    autoFocusDelay,
     fluid,
     loading,
     size,
@@ -14,12 +14,14 @@ export function useButton({
     focus,
     hover,
     type,
-    className,
     forwardedRef
 }) {
     const buttonRef = useMergedRefs(forwardedRef);
 
-    useAutoFocus(buttonRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(buttonRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     return {
         className: mergeClasses(
@@ -35,8 +37,7 @@ export function useButton({
                 focus && "focus",
                 hover && "hover",
                 normalizeSize(size)
-            ),
-            className
+            )
         ),
         type,
         "aria-live": "polite",

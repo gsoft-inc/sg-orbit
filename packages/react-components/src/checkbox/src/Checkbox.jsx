@@ -34,19 +34,15 @@ const propTypes = {
      */
     value: oneOfType([string, number]),
     /**
-     * Whether the checkbox should autoFocus on render.
+     * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: bool,
+    autoFocus: oneOfType([bool, number]),
     /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
-    /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
-     * Whether the checkbox should display as "valid" or "invalid".
+     * Whether or not the checkbox should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
@@ -90,7 +86,6 @@ export function InnerCheckbox(props) {
         defaultIndeterminate,
         value,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange,
@@ -104,7 +99,6 @@ export function InnerCheckbox(props) {
         hover,
         disabled,
         as = "label",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -133,7 +127,6 @@ export function InnerCheckbox(props) {
         indeterminate,
         defaultIndeterminate,
         autoFocus,
-        autoFocusDelay,
         required,
         validationState,
         onChange: !isNil(onCheck) ? handleCheck : onChange,
@@ -145,7 +138,6 @@ export function InnerCheckbox(props) {
         focus,
         hover,
         disabled,
-        className,
         forwardedRef
     });
 
@@ -173,9 +165,13 @@ export function InnerCheckbox(props) {
 
     return (
         <Box
-            {...rest}
-            {...wrapperProps}
-            as={as}
+            {...mergeProps(
+                rest,
+                wrapperProps,
+                {
+                    as
+                }
+            )}
         >
             <VisuallyHidden {...inputProps} />
             <span className="o-ui-checkbox-box" />
@@ -191,3 +187,5 @@ InnerCheckbox.propTypes = propTypes;
 export const Checkbox = forwardRef((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
+
+Checkbox.displayName = "Checkbox";

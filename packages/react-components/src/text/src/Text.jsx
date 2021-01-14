@@ -43,7 +43,6 @@ export function InnerText(props) {
         size,
         color,
         as = "span",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -54,10 +53,14 @@ export function InnerText(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(getTextClass(size, color), "o-ui-text", className)}
-            as={as}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    className: mergeClasses(getTextClass(size, color), "o-ui-text"),
+                    as,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Box>
@@ -69,3 +72,5 @@ InnerText.propTypes = propTypes;
 export const Text = slot("text", forwardRef((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
+
+Text.displayName = "Text";

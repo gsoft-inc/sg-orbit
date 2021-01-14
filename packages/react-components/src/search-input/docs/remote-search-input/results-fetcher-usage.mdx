@@ -2,7 +2,7 @@ A remote search input component requires a results fetcher. It can be specified 
 
 The easiest way to fetch data is by using the `withDefaultResultsFetcher(url, queryParameter?, options?)` function:
 
-```jsx dark
+```jsx
 <RemoteSearchInput
     onFetchResults={withDefaultResultsFetcher("https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5", "namePrefix")}
 />
@@ -12,7 +12,7 @@ The easiest way to fetch data is by using the `withDefaultResultsFetcher(url, qu
 
 A custom results fetcher must returned a `Promise` that resolved to an array of data.
 
-```jsx dark
+```jsx
 function fetchResults(event, query) {
     return new Promise((resolve, reject) => {
         fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries?limit=5&namePrefix=${query}`)

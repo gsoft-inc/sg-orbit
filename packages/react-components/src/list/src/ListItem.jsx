@@ -1,12 +1,17 @@
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
      * A list item can vary in size.
      */
     size: oneOf(["inherit"]),
+    /**
+     * Default classes
+     */
+    className: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -26,11 +31,15 @@ export function InnerListItem({
 }) {
     return (
         <Text
-            {...rest}
-            size={size}
-            as={as}
-            className="o-ui-text-color-inherit"
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    size,
+                    className="o-ui-text-color-inherit",
+                    as,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Text>

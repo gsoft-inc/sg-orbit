@@ -1,10 +1,14 @@
 import { Inline } from "@react-components/layout";
-import { ThemeProvider } from "@react-components/theme-provider";
-import { storiesOfBuilder } from "@stories/utils";
+import { ThemeProvider, useThemeContext } from "@react-components/theme-provider";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { useEffect } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/ThemeProvider")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -62,4 +66,23 @@ stories()
         <ThemeProvider theme="desktop" colorScheme="dark">
             <PrimaryColors />
         </ThemeProvider>
-    );
+    )
+    .add("set color scheme with api", () => {
+        const SwitchColorScheme = () => {
+            const { setColorScheme } = useThemeContext();
+
+            useEffect(() => {
+                setColorScheme("dark");
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            }, []);
+
+            return null;
+        };
+
+        return (
+            <ThemeProvider theme="apricot" colorScheme="light">
+                <SwitchColorScheme />
+                <PrimaryColors />
+            </ThemeProvider>
+        );
+    });

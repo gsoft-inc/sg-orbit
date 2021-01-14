@@ -43,11 +43,7 @@ const propTypes = {
     /**
      * Whether or not the toggle icon button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A toggle icon button can vary in size.
      */
@@ -84,7 +80,6 @@ export function InnerToggleIconButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         active,
         as: ElementType = IconButton,
         children,
@@ -102,7 +97,6 @@ export function InnerToggleIconButton(props) {
         defaultChecked,
         value,
         onChange,
-        onClick,
         active,
         forwardedRef
     });
@@ -111,8 +105,10 @@ export function InnerToggleIconButton(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...buttonProps}
+            {...mergeProps(
+                rest,
+                buttonProps
+            )}
         >
             {content}
         </ElementType>
@@ -124,3 +120,5 @@ InnerToggleIconButton.propTypes = propTypes;
 export const ToggleIconButton = slot("button", forwardRef((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
+
+ToggleIconButton.displayName = "ToggleIconButton";

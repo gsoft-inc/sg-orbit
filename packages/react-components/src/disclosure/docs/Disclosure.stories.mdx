@@ -1,12 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
-import { ControlledDisclosure } from "./ControlledDisclosure.sample";
-import { CustomDisclosureTrigger } from "./CustomDisclosureTrigger.sample";
 import { Disclosure, DisclosureArrow, InnerDisclosure } from "@react-components/disclosure";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Disclosure"
@@ -18,7 +15,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>The disclosure component is used to create regions of content that can expand/collapse with a simple animation.</Tagline>
 
 <ComponentInfo
-    usage={"import { Disclosure, Content } from \"@orbit-ui/react-components\""}
+    usage={"import { Disclosure, Content, DisclosureContext, useDisclosureContext } from \"@orbit-ui/react-components\""}
     ariaPath="#disclosure"
     githubPath="/packages/react-components/src/disclosure/src"
 />
@@ -33,20 +30,20 @@ The disclosure's trigger that shows and hides the content must be a [button elem
 
 A default disclosure using a button.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Disclosure>
             <Button>EVE Online</Button>
             <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
         </Disclosure>
     </Story>
-</Canvas>
+</Preview>
 
 ### Render props
 
 A disclosure component can update is content based on the `isOpen` value by providing a render prop function.
 
-<Canvas>
+<Preview>
     <Story name="render props">
         <Disclosure>
             {({ isOpen }) => (
@@ -59,21 +56,19 @@ A disclosure component can update is content based on the `isOpen` value by prov
             )}
         </Disclosure>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom trigger
 
 The previous [render props](#render-props) example could also be achieve by using a custom component. It's possible by using the `useDisclosureContext`.
 
-<FileCanvas filePath="/disclosure/docs/CustomDisclosureTrigger">
-    <CustomDisclosureTrigger />
-</FileCanvas>
+<Preview filePath="/disclosure/docs/CustomDisclosureTrigger" noInline />
 
 ## Disclosure arrow
 
 For some cases you can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) component to hint that activating the button will display additional content.
 
-<Canvas>
+<Preview>
     <Story name="disclosure arrow">
         <Disclosure>
             <Button>
@@ -83,15 +78,13 @@ For some cases you can use a [disclosure arrow](?path=/docs/disclosure-arrow--co
             <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
         </Disclosure>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 A disclosure component can handle `open` state in controlled mode.
 
-<FileCanvas filePath="/disclosure/docs/ControlledDisclosure">
-    <ControlledDisclosure />
-</FileCanvas>
+<Preview filePath="/disclosure/docs/ControlledDisclosure" />
 
 ## API
 
@@ -112,18 +105,3 @@ A disclosure component can handle `open` state in controlled mode.
 />
 
 <ArgsTable of={InnerContent} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerDisclosure)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerDisclosure {...args}>
-            <Button>EVE Online</Button>
-            <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
-        </InnerDisclosure>
-    }
-</Story>

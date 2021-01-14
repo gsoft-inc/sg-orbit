@@ -1,8 +1,7 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview } from "@stories/components";
 import { Dot, InnerDot } from "@react-components/dot";
 import { Inline } from "@react-components/layout";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Dot"
@@ -22,34 +21,34 @@ import { paramsBuilder } from "@stories/utils";
 
 A default dot.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Dot />
     </Story>
-</Canvas>
+</Preview>
 
 ### Label
 
 A dot can have a label.
 
-<Canvas>
+<Preview>
     <Story name="label">
         <Dot>Habitable</Dot>
     </Story>
-</Canvas>
+</Preview>
 
 ### Color
 
 A dot can have a color.
 
-<Canvas>
+<Preview>
     <Story name="color">
         <Inline>
             <Dot color="success-500">Habitable</Dot>
             <Dot color="alert-500">Uninhabitable</Dot>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -61,15 +60,3 @@ A dot can have a color.
 />
 
 <ArgsTable of={InnerDot} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerDot)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerDot {...args} />
-    }
-</Story>

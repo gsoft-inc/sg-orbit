@@ -1,10 +1,8 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { CrossButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { InnerTextArea, TextArea } from "@react-components/input";
-import { LengthValidation } from "./LengthValidation.sample";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/TextArea"
@@ -26,85 +24,85 @@ import { paramsBuilder } from "@stories/utils";
 
 A default text input.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <TextArea placeholder="Why should you go to space?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Value
 
 A text area can have a value.
 
-<Canvas>
+<Preview>
     <Story name="value">
         <TextArea defaultValue="To fly high!" placeholder="Why should you go to space?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Button
 
 A text area can contain a [button](?path=/docs/button--default-story).
 
-<Canvas>
+<Preview>
     <Story name="button">
         <Inline>
             <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Why should you go to space?" />
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Max Rows
 
 A text are can be limited to a maximum number of rows.
 
-<Canvas>
+<Preview>
     <Story name="max rows">
         <Inline>
             <TextArea maxRows={5} placeholder="Why should you go to space?" />
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A text area can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <TextArea disabled placeholder="Why should you go to space?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Readonly
 
 A text area can be readonly.
 
-<Canvas>
+<Preview>
     <Story name="readonly">
         <TextArea readOnly defaultValue="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
     </Story>
-</Canvas>
+</Preview>
 
 ### Loading
 
 A text area can show that it is currently loading data.
 
-<Canvas>
+<Preview>
     <Story name="loading">
         <TextArea loading />
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A text area can take the width of its container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <TextArea fluid placeholder="Why should you go to space?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Validation
 
@@ -112,19 +110,17 @@ A text input can display a validation state to communicate to the user whether t
 
 The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
 
-<FileCanvas filePath="/input/docs/text-area/LengthValidation">
-    <LengthValidation />
-</FileCanvas>
+<Preview filePath="/input/docs/text-area/LengthValidation" />
 
 ### Transparent
 
 A text area can be transparent.
 
-<Canvas>
+<Preview>
     <Story name="transparent">
         <TextArea variant="transparent" placeholder="Why should you go to space?" />
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -136,17 +132,5 @@ A text area can be transparent.
 />
 
 <ArgsTable of={InnerTextArea} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerTextArea)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <TextArea {...args} />
-    }
-</Story>
 
 

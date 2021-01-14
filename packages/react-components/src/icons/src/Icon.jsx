@@ -1,7 +1,7 @@
 import "./Icon.css";
 
 import { Box } from "../../box";
-import { cssModule, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { elementType, oneOf, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -38,9 +38,8 @@ export function InnerIcon(props) {
         size,
         color,
         disabled,
-        className,
-        forwardedRef,
         "aria-label": ariaLabel,
+        forwardedRef,
         ...rest
     } = mergeProps(
         props,
@@ -49,21 +48,22 @@ export function InnerIcon(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-icon",
-                    disabled && "disabled",
-                    normalizeSize(size),
-                    getIconClass(color)
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-icon",
+                        disabled && "disabled",
+                        normalizeSize(size),
+                        getIconClass(color)
+                    ),
+                    focusable: false,
+                    as: type,
+                    "aria-hidden": isNil(ariaLabel),
+                    "aria-label": ariaLabel,
+                    ref: forwardedRef
+                }
             )}
-            focusable="false"
-            as={type}
-            aria-hidden={isNil(ariaLabel)}
-            aria-label={ariaLabel}
-            ref={forwardedRef}
         />
     );
 }
@@ -73,6 +73,10 @@ InnerIcon.propTypes = propTypes;
 export const Icon = slot("icon", forwardRef((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));
+
+Icon.displayName = "Icon";
+
+////////
 
 function createIconFactory(type) {
     return slot("icon", forwardRef((props, ref) =>

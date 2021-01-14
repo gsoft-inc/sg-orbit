@@ -1,0 +1,30 @@
+.o-ui-chroma-popover-boundary {
+    width: 900px;
+    height: 300px;
+    padding: 0 200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.o-ui-chroma-popover-boundary:not(.o-ui-chroma-popover-boundary-scrollable) {
+    padding-top: 100px;
+}
+
+.o-ui-chroma-popover-boundary-scrollable {
+    overflow: auto;
+    border: 1px solid red;
+}
+
+.o-ui-chroma-popover-boundary-scrollable:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 100px;
+}
+
+.o-ui-chroma-popover-boundary-scrollable:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 600px;
+}

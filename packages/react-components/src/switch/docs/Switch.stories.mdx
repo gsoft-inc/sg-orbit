@@ -1,13 +1,10 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { CheckedValidation } from "./CheckedValidation.sample";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
-import { ControlledSwitch } from "./ControlledSwitch.sample";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { InfoIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerSwitch, Switch } from "@react-components/switch";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Switch"
@@ -30,61 +27,61 @@ import { paramsBuilder } from "@stories/utils";
 
 A default switch.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Switch>Engines</Switch>
     </Story>
-</Canvas>
+</Preview>
 
 ### Checked
 
 A switch can be checked.
 
-<Canvas>
+<Preview>
     <Story name="checked">
         <Switch defaultChecked>Engines</Switch>
     </Story>
-</Canvas>
+</Preview>
 
 
 ### No label
 
 A switch can be rendered without a label.
 
-<Canvas>
+<Preview>
     <Story name="no label">
         <Switch />
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A switch can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <Switch disabled>Engines</Switch>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A switch can have [icons](?path=/docs/icon-gallery--page) after his text.
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Switch>
             <Text>Pressurization</Text>
             <LightbulbIcon />
         </Switch>
     </Story>
-</Canvas>
+</Preview>
 
 ### Counter
 
 A switch can have a [counter](?path=/docs/counter--default-story) after his text.
 
-<Canvas>
+<Preview>
     <Story name="counter">
         <Inline>
             <Switch>
@@ -97,26 +94,26 @@ A switch can have a [counter](?path=/docs/counter--default-story) after his text
             </Switch>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A switch can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center">
             <Switch size="sm">Engines</Switch>
             <Switch>Engines</Switch>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Reverse
 
 A checkbox checkmark can be to the left or to the right of his label.
 
-<Canvas>
+<Preview>
     <Story name="reverse">
         <Switch reverse>
             <InfoIcon />
@@ -124,7 +121,7 @@ A checkbox checkmark can be to the left or to the right of his label.
             <Counter variant="divider">6</Counter>
         </Switch>
     </Story>
-</Canvas>
+</Preview>
 
 ### Validation
 
@@ -132,15 +129,13 @@ A switch can display a validation state to communicate to the user whether the c
 
 The example below illustrates how one would validate if the user has checked the switch.
 
-<FileCanvas filePath="/switch/docs/CheckedValidation">
-    <CheckedValidation />
-</FileCanvas>
+<Preview filePath="/switch/docs/CheckedValidation" />
 
 ### Render Props
 
 A switch can update is content based on the `isChecked` value by providing a render prop function.
 
-<Canvas>
+<Preview>
     <Story name="render props">
         <Switch>
             {
@@ -150,15 +145,13 @@ A switch can update is content based on the `isChecked` value by providing a ren
             }
         </Switch>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 A switch can handle `checked` state in controlled mode.
 
-<FileCanvas filePath="/switch/docs/ControlledSwitch">
-    <ControlledSwitch />
-</FileCanvas>
+<Preview filePath="/switch/docs/ControlledSwitch" />
 
 ## API
 
@@ -171,19 +164,4 @@ A switch can handle `checked` state in controlled mode.
 />
 
 <ArgsTable of={InnerSwitch} />
-
-<Story
-    name="playground"
-    args={{
-        children: "Engines"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerSwitch)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerSwitch {...args}>Engines</InnerSwitch>
-    }
-</Story>
 

@@ -32,7 +32,7 @@ const propTypes = {
      */
     external: bool,
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
     autoFocus: bool,
     /**
@@ -78,9 +78,8 @@ export function InnerIconLink(props) {
         focus,
         hover,
         visited,
-        as: ElementType = "a",
         "aria-label": ariaLabel,
-        className,
+        as: ElementType = "a",
         children,
         forwardedRef,
         ...rest
@@ -102,7 +101,6 @@ export function InnerIconLink(props) {
         visited,
         target,
         rel,
-        className,
         forwardedRef
     });
 
@@ -114,10 +112,14 @@ export function InnerIconLink(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
-            title={title ?? ariaLabel}
-            aria-label={ariaLabel}
+            {...mergeProps(
+                rest,
+                linkProps,
+                {
+                    title: title ?? ariaLabel,
+                    "aria-label": ariaLabel
+                }
+            )}
         >
             {iconMarkup}
         </ElementType>
@@ -129,3 +131,5 @@ InnerIconLink.propTypes = propTypes;
 export const IconLink = forwardRef((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
+
+IconLink.displayName = "IconLink";

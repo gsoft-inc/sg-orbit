@@ -1,9 +1,4 @@
-import { Accordion } from "@react-components/accordion";
-import { Content, Header } from "@react-components/placeholders";
-import { Item } from "@react-components/placeholders";
-import { useCallback, useState } from "react";
-
-export function ControlledAccordion() {
+() => {
     const [openedIndexes, setOpenedIndexes] = useState(null);
 
     const handleChange = useCallback((event, index) => {
@@ -27,4 +22,4 @@ export function ControlledAccordion() {
             </Item>
         </Accordion>
     );
-}
+};

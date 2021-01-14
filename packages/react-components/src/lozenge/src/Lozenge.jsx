@@ -3,7 +3,7 @@ import "./Lozenge.css";
 import { Box } from "../../box/src/Box";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeClasses, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
+import { createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { forwardRef, useMemo } from "react";
 
@@ -34,7 +34,6 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     color,
     size,
-    className,
     as = "span",
     children,
     forwardedRef,
@@ -58,18 +57,19 @@ export function InnerLozenge({
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-lozenge",
-                    color,
-                    icon && "has-icon",
-                    normalizeSize(size)
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-lozenge",
+                        color,
+                        icon && "has-icon",
+                        normalizeSize(size)
+                    ),
+                    as,
+                    ref
+                }
             )}
-            as={as}
-            ref={ref}
         >
             {icon}
             {text}
@@ -82,3 +82,5 @@ InnerLozenge.propTypes = propTypes;
 export const Lozenge = slot("lozenge", forwardRef((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));
+
+Lozenge.displayName = "Lozenge";

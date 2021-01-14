@@ -2,7 +2,7 @@ import "./List.css";
 
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps, useStyleProps } from "../../shared";
+import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -30,7 +30,6 @@ const List = forwardRef((props, ref) => {
         size,
         color,
         as: ElementType,
-        className,
         children,
         ...rest
     } = mergeProps(
@@ -40,16 +39,17 @@ const List = forwardRef((props, ref) => {
 
     return (
         <ElementType
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-list",
-                    size,
-                    color ? `color-${color}`: ""
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-list",
+                        size,
+                        color ? `color-${color}`: ""
+                    ),
+                    ref
+                }
             )}
-            ref={ref}
         >
             {Children.map(children, x => {
                 return x && augmentElement(x, {
@@ -59,6 +59,8 @@ const List = forwardRef((props, ref) => {
         </ElementType>
     );
 });
+
+List.displayName = "List";
 
 ////////
 
@@ -82,6 +84,8 @@ export const OrderedList = forwardRef((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
+OrderedList.displayName = "OrderedList";
+
 ////////
 
 export function InnerUnorderedList({
@@ -103,3 +107,5 @@ InnerUnorderedList.propTypes = propTypes;
 export const UnorderedList = forwardRef((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
+
+UnorderedList.displayName = "UnorderedList";

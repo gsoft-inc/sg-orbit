@@ -1,11 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@react-components/placeholders";
-import { ControlledDisclosureArrow } from "./ControlledDisclosureArrow.sample";
 import { Disclosure, DisclosureArrow, InnerDisclosureArrow } from "@react-components/disclosure";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/DisclosureArrow"
@@ -29,7 +27,7 @@ Otherwise, a disclosure arrow can also be controlled by the `open` prop.
 
 When a disclosure arrow is nested in a component implementing a `DisclosureContext`, the arrow will automatically change direction when `isOpen` state change.
 
-<Canvas>
+<Preview>
     <Story name="context">
         <Disclosure>
             <Button>
@@ -39,15 +37,13 @@ When a disclosure arrow is nested in a component implementing a `DisclosureConte
             <Content>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Content>
         </Disclosure>
     </Story>
-</Canvas>
+</Preview>
 
 ### Controlled
 
 A disclosure arrow can also handle `open` in controlled mode.
 
-<FileCanvas filePath="/disclosure/docs/ControlledDisclosureArrow">
-    <ControlledDisclosureArrow />
-</FileCanvas>
+<Preview filePath="/disclosure/docs/ControlledDisclosureArrow" />
 
 ## API
 
@@ -59,15 +55,3 @@ A disclosure arrow can also handle `open` in controlled mode.
 />
 
 <ArgsTable of={InnerDisclosureArrow} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerDisclosureArrow)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerDisclosureArrow {...args} />
-    }
-</Story>

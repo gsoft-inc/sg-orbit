@@ -1,4 +1,4 @@
-import { DOMEventListener, KEYS, mergeClasses } from "../../shared";
+import { DOMEventListener, Keys, mergeClasses } from "../../shared";
 import { MonkeyPatchDropdown } from "./monkey-patch-dropdown";
 import { PureComponent, cloneElement, createRef } from "react";
 import { Ref } from "semantic-ui-react";
@@ -147,16 +147,16 @@ export class TagsPickerDropdown extends PureComponent {
 
     handleDocumentKeyDown = event => {
         switch (event.keyCode) {
-            case KEYS.esc:
+            case Keys.esc:
                 this.handleDocumentEscape(event);
                 break;
-            case KEYS.enter:
+            case Keys.enter:
                 this.handleDocumentEnter(event);
                 break;
-            case KEYS.up:
+            case Keys.up:
                 this.handleDocumentUp(event);
                 break;
-            case KEYS.down:
+            case Keys.down:
                 this.handleDocumentDown(event);
                 break;
         }

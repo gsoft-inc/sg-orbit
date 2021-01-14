@@ -1,7 +1,7 @@
-import { cssModule, mergeClasses, normalizeSize } from "../../shared";
+import { cssModule, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
-const GAP = {
+const Gap = {
     horizontal: {
         "sm": 4,
         "md": 5
@@ -23,8 +23,7 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
-    className,
-    ref
+    groupRef
 }) {
     const [{ hasLabel, hasMessage }] = useFieldContext();
 
@@ -35,23 +34,20 @@ export function useGroupInput({
             align: orientation === "vertical"
                 ? reverse ? "end" : "start"
                 : undefined,
-            gap: gap ?? GAP[orientation][normalizeSize(size)],
+            gap: gap ?? Gap[orientation][normalizeSize(size)],
             wrap,
-            className: mergeClasses(
-                cssModule(
-                    module,
-                    hasLabel && "has-label",
-                    hasMessage && "has-message"
+            className: cssModule(
+                module,
+                hasLabel && "has-label",
+                hasMessage && "has-message"
 
-                ),
-                className
             ),
             role,
             "aria-required": required,
             "aria-invalid": validationState === "invalid",
             "aria-orientation": orientation,
             "aria-disabled": disabled,
-            ref
+            ref: groupRef
         },
         itemProps: {
             size,

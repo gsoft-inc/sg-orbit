@@ -1,7 +1,9 @@
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
+import { Item } from "@react-components/placeholders";
 import { NumberInput, TextArea, TextInput } from "@react-components/input";
+import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -144,6 +146,17 @@ stories()
                 <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
             </Field>
         </Inline>
+    )
+    .add("select", () =>
+        <Field>
+            <Label>Planet</Label>
+            <Select placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+            <HelpMessage>Must be a planet of the solar system.</HelpMessage>
+        </Field>
     )
     .add("styling", () =>
         <Inline>

@@ -1,12 +1,11 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Badge, InnerBadge } from "@react-components/badge";
 import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Circle } from "./Circle.jsx";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { Square } from "./Square.jsx";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Badge"
@@ -28,7 +27,7 @@ import { paramsBuilder } from "@stories/utils";
 
 A default badge.
 
-<Canvas>
+<Preview scope={{ Square }}>
     <Story name="default">
         <Inline gap={8} verticalAlign="center">
             <Badge>
@@ -49,13 +48,13 @@ A default badge.
             </Badge>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Dot
 
 A badge can be rendered as a dot. A single digit is supported.
 
-<Canvas>
+<Preview scope={{ Circle }}>
     <Story name="dot">
         <Inline gap={8} verticalAlign="center">
             <Badge variant="dot" overlap="circle">
@@ -69,26 +68,26 @@ A badge can be rendered as a dot. A single digit is supported.
             </Badge>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A badge can be an [icon](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview scope={{ Circle }}>
     <Story name="icon">
         <Badge variant="icon" overlap="circle">
             <CheckCircleIcon />
             <Circle />
         </Badge>
     </Story>
-</Canvas>
+</Preview>
 
 ### Overlap
 
 A badge can overlap over elements with different shape.
 
-<Canvas>
+<Preview scope={{ Square, Circle }}>
     <Story name="overlap">
         <Inline gap={13} verticalAlign="center">
             <Inline gap={8}>
@@ -132,7 +131,7 @@ A badge can overlap over elements with different shape.
             </Inline>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -146,18 +145,3 @@ Root badge component.
 />
 
 <ArgsTable of={InnerBadge} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerBadge)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerBadge {...args}>
-            <Text>100</Text>
-            <Square />
-        </InnerBadge>
-    }
-</Story>

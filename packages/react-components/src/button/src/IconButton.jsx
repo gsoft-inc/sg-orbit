@@ -28,11 +28,7 @@ const propTypes = {
     /**
      * Whether or not the icon button should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * An icon button can show a loading indicator.
      */
@@ -91,9 +87,8 @@ export function InnerIconButton(props) {
         hover,
         type = "button",
         title,
-        as = "button",
         "aria-label": ariaLabel,
-        className,
+        as = "button",
         children,
         forwardedRef,
         ...rest
@@ -116,7 +111,6 @@ export function InnerIconButton(props) {
         focus,
         hover,
         type,
-        className,
         forwardedRef
     });
 
@@ -129,11 +123,15 @@ export function InnerIconButton(props) {
 
     return (
         <Box
-            {...rest}
-            {...buttonProps}
-            title={title ?? ariaLabel}
-            as={as}
-            aria-label={ariaLabel}
+            {...mergeProps(
+                rest,
+                buttonProps,
+                {
+                    title: title ?? ariaLabel,
+                    as,
+                    "aria-label": ariaLabel
+                }
+            )}
         >
             {iconMarkup}
         </Box>
@@ -145,6 +143,8 @@ InnerIconButton.propTypes = propTypes;
 export const IconButton = slot("button", forwardRef((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
+
+IconButton.displayName = "IconButton";
 
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",

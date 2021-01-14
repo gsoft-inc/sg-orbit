@@ -1,7 +1,4 @@
-import { Checkbox } from "@react-components/checkbox";
-import { useState } from "react";
-
-export function CheckedValidation() {
+() => {
     const [isChecked, setIsChecked] = useState(false);
 
     const isValid = isChecked;
@@ -18,4 +15,4 @@ export function CheckedValidation() {
             Milky Way
         </Checkbox>
     );
-}
+};

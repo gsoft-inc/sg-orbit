@@ -1,4 +1,4 @@
-import { any, elementType, oneOfType, string } from "prop-types";
+import { elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { omitProps } from "../../shared";
 
@@ -10,11 +10,7 @@ const propTypes = {
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
-    slot: string,
-    /**
-     * React children.
-     */
-    children: any
+    slot: string
 };
 
 export function InnerBox(props) {
@@ -41,5 +37,6 @@ export const Box = forwardRef((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 
+Box.displayName = "Box";
 
 

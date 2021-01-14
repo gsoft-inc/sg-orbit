@@ -5,11 +5,14 @@ import { Launch } from "./assets";
 import { Link } from "@react-components/link";
 import { Paragraph } from "@react-components/paragraph";
 import { createLinkTestSuite } from "./createLinkTestSuite";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Link")
         .segment(segment)
+        .parameters(paramsBuilder()
+            .chromaticDelay(100)
+            .build())
         .build();
 }
 
@@ -73,7 +76,7 @@ stories()
         </Link>
     )
     .add("autofocus with delay", () =>
-        <Link autoFocus autoFocusDelay={50} href="#">
+        <Link autoFocus={50} href="#">
             <LaunchImage />
         </Link>
     );

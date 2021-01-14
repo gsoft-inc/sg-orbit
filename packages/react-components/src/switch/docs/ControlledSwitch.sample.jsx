@@ -1,7 +1,4 @@
-import { Switch } from "@react-components/switch";
-import { useState } from "react";
-
-export function ControlledSwitch() {
+() => {
     const [isChecked, setIsChecked] = useState(false);
 
     console.log(isChecked);
@@ -14,4 +11,4 @@ export function ControlledSwitch() {
             {isChecked ? "On" : "Off"}
         </Switch>
     );
-}
+};

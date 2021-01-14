@@ -1,1 +1,0 @@
-export { ReactComponent as GithubIcon } from "./icon-github.svg";

@@ -10,10 +10,10 @@ import { DropdownLinkItem } from "./DropdownLinkItem";
 import { DropdownMenu } from "./DropdownMenu";
 import { DropdownTitle } from "./DropdownTitle";
 import { DropdownTrigger } from "./DropdownTrigger";
-import { KEYS, mergeClasses, useChainedEventCallback, useEventCallback, useMergedRefs } from "../../shared";
+import { Keys, mergeClasses, useChainedEventCallback, useEventCallback, useMergedRefs } from "../../shared";
 import { any, bool, func, oneOf } from "prop-types";
 import { forwardRef, useRef } from "react";
-import { useAutoControlledPopper } from "../../popper";
+import { useAutoControlledPopper } from "../../OLD_popper";
 
 const propTypes = {
     /**
@@ -94,7 +94,7 @@ export function InnerDropdown(props) {
         wrapperRef,
         onVisibilityChange,
         focusFirstElementOnKeyboardShow: true,
-        showOnKeys: [upward ? KEYS.up : KEYS.down]
+        showOnKeys: [upward ? Keys.up : Keys.down]
     });
 
     const handleSelectItem = useEventCallback(event => {

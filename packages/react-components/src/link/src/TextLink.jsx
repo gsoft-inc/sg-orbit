@@ -34,13 +34,9 @@ const propTypes = {
      */
     external: bool,
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * A link can vary in size.
      */
@@ -70,14 +66,12 @@ export function InnerTextLink(props) {
         underline,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,
         hover,
         visited,
         as: ElementType = "a",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -93,7 +87,6 @@ export function InnerTextLink(props) {
         underline,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,
@@ -101,7 +94,6 @@ export function InnerTextLink(props) {
         visited,
         target,
         rel,
-        className,
         forwardedRef
     });
 
@@ -129,8 +121,10 @@ export function InnerTextLink(props) {
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
+            {...mergeProps(
+                rest,
+                linkProps
+            )}
         >
             {leftIcon}
             {text}
@@ -144,3 +138,5 @@ InnerTextLink.propTypes = propTypes;
 export const TextLink = forwardRef((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
+
+TextLink.displayName = "TextLink";

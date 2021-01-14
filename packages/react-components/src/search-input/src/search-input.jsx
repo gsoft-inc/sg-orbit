@@ -1,4 +1,4 @@
-import { AutoControlledPureComponent, KEYS, getAutoControlledStateFromProps } from "../../shared";
+import { AutoControlledPureComponent, Keys, getAutoControlledStateFromProps } from "../../shared";
 import { SearchInputController } from "./search-input-controller";
 import { arrayOf, bool, element, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { isNil } from "lodash";
@@ -189,7 +189,7 @@ export class SearchInput extends AutoControlledPureComponent {
         const { onKeyDown } = this.props;
 
         // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" ourself.
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             this.close(event);
         }
 

@@ -1,10 +1,4 @@
-import { DisclosureArrow } from "@react-components/disclosure";
-import { Text } from "@react-components/text";
-import { TextLink } from "@react-components/link";
-import { useCallback } from "react";
-import { useState } from "react";
-
-export function ControlledDisclosureArrow() {
+() => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = useCallback(() => {
@@ -18,4 +12,4 @@ export function ControlledDisclosureArrow() {
             <DisclosureArrow open={isOpen} />
         </TextLink>
     );
-}
+};

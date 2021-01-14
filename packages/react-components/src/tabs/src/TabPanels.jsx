@@ -1,24 +1,35 @@
+import "./Tabs.css";
+
 import { TabPanel } from "./TabPanel";
-import { useTabsContext } from "./TabsContext";
 
 export function TabPanels({ panels, ...rest }) {
-    const { selectedIndex } = useTabsContext();
-
     return (
         <div
             {...rest}
             className="o-ui-tab-panels"
         >
             {panels.map(({
+                id,
+                key,
                 index,
-                type: ElementType = TabPanel,
-                ...panelProps
+                elementType: ElementType = TabPanel,
+                ref,
+                tabId,
+                props
             }) =>
                 <ElementType
-                    {...panelProps}
-                    selected={selectedIndex === index}
+                    {...props}
+                    panel={{
+                        index,
+                        tabId
+                    }}
+                    id={id}
+                    key={key}
+                    ref={ref}
                 />
             )}
         </div>
     );
 }
+
+TabPanels.displayName = "TabPanels";

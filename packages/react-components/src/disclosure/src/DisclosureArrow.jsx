@@ -2,7 +2,7 @@ import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
 import { bool, oneOf } from "prop-types";
-import { cssModule, mergeClasses, slot } from "../../shared";
+import { cssModule, mergeProps, slot } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useDisclosureContext } from "../../disclosure";
@@ -20,7 +20,6 @@ const propTypes = {
 
 export function InnerDisclosureArrow({
     open,
-    className,
     forwardedRef,
     ...rest
 }) {
@@ -34,15 +33,16 @@ export function InnerDisclosureArrow({
 
     return (
         <ChevronIcon
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-disclosure-arrow",
-                    isOpen ? "down" : "up"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-disclosure-arrow",
+                        isOpen ? "down" : "up"
+                    ),
+                    ref: forwardedRef
+                }
             )}
-            ref={forwardedRef}
         />
     );
 }
@@ -52,3 +52,5 @@ InnerDisclosureArrow.propTypes = propTypes;
 export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));
+
+DisclosureArrow.displayName = "DisclosureArrow";

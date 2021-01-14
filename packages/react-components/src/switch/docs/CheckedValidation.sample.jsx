@@ -1,7 +1,4 @@
-import { Switch } from "@react-components/switch";
-import { useState } from "react";
-
-export function CheckedValidation() {
+() => {
     const [isChecked, setIsChecked] = useState(false);
 
     const isValid = isChecked;
@@ -18,4 +15,4 @@ export function CheckedValidation() {
             Engines
         </Switch>
     );
-}
+};

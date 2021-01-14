@@ -1,8 +1,3 @@
-import { CheckboxGroup } from "@react-components/checkbox";
-import { Tag } from "@react-components/tag";
-import { useCallback } from "react";
-import { useCheckableProps } from "@react-components/shared";
-
 function CustomComponent({
     value,
     children,
@@ -29,7 +24,7 @@ function CustomComponent({
     );
 }
 
-export function CustomGroup() {
+function CustomGroup() {
     return (
         <CheckboxGroup gap={2}>
             <CustomComponent value="milky-way">Milky Way</CustomComponent>
@@ -38,3 +33,7 @@ export function CustomGroup() {
         </CheckboxGroup>
     );
 }
+
+render(
+    <CustomGroup />
+);

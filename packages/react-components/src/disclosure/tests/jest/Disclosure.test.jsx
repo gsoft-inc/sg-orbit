@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Disclosure } from "@react-components/disclosure";
-import { KEYS } from "@react-components/shared";
+import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 
 // ***** Ids *****
@@ -51,13 +51,13 @@ test("Spacebar keypress toggles content visibility", async () => {
     expect(header.getAttribute("aria-expanded")).toBe("false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: KEYS.space });
+        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: Keys.space });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: KEYS.space });
+        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: Keys.space });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("false");
@@ -76,13 +76,13 @@ test("Enter keypress toggles content visibility", async () => {
     expect(header.getAttribute("aria-expanded")).toBe("false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: KEYS.enter });
+        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: Keys.enter });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: KEYS.enter });
+        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: Keys.enter });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("false");

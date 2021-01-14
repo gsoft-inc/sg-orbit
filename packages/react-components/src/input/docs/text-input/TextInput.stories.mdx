@@ -1,10 +1,8 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { CrossButton } from "@react-components/button";
 import { EditIcon } from "@react-components/icons";
-import { EmailValidation } from "./EmailValidation.sample";
 import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/input";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/TextInput"
@@ -26,81 +24,81 @@ import { paramsBuilder } from "@stories/utils";
 
 A default text input.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <TextInput placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Value
 
 A text input can have a value.
 
-<Canvas>
+<Preview>
     <Story name="value">
         <TextInput defaultValue="Deep space" placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A text input can contain an [icon](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <TextInput icon={<EditIcon />} placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Button
 
 A text input can contain a [button](?path=/docs/button--default-story).
 
-<Canvas>
+<Preview>
     <Story name="button">
         <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A text input can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <TextInput disabled placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Readonly
 
 A text input can be readonly.
 
-<Canvas>
+<Preview>
     <Story name="readonly">
         <TextInput readOnly defaultValue="Deep space" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Loading
 
 A text input can show that it is currently loading data.
 
-<Canvas>
+<Preview>
     <Story name="loading">
         <TextInput loading />
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A text input can take the width of its container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <TextInput fluid placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ### Validation
 
@@ -108,29 +106,27 @@ A text input can display a validation state to communicate to the user whether t
 
 The example below illustrates how one would validate if the user has entered a valid email.
 
-<FileCanvas filePath="/input/docs/text-input/EmailValidation">
-    <EmailValidation />
-</FileCanvas>
+<Preview filePath="/input/docs/text-input/EmailValidation" />
 
 ### Transparent
 
 A text input can be transparent.
 
-<Canvas>
+<Preview>
     <Story name="transparent">
         <TextInput variant="transparent" placeholder="Where to?" />
     </Story>
-</Canvas>
+</Preview>
 
 ## PasswordInput
 
 A specialized text input which show / hide a password.
 
-<Canvas>
+<Preview>
     <Story name="password">
         <PasswordInput />
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -151,27 +147,3 @@ A specialized text input which show / hide a password.
 />
 
 <ArgsTable of={InnerPasswordInput} />
-
-<Story
-    name="playground - text input"
-    parameters={paramsBuilder()
-        .component(InnerTextInput)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <TextInput {...args} />
-    }
-</Story>
-
-<Story
-    name="playground - password input"
-    parameters={paramsBuilder()
-        .component(InnerPasswordInput)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <PasswordInput {...args} />
-    }
-</Story>

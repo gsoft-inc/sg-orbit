@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Heading, InnerHeading } from "@react-components/heading";
 import { paramsBuilder } from "@stories/utils";
 
@@ -23,24 +23,24 @@ import { paramsBuilder } from "@stories/utils";
 
 When using an header, you should specify the element type to render it as. We do recommended using native header elements `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`.
 
-<Canvas>
+<Preview>
     <Story name="element type">
         <Heading as="h1">Migrate, adapt, and control the cloud.</Heading>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 You can alter the size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/typography--page#headlines).
 
-<Canvas>
+<Preview>
     <Story name="size">
         <>
             <Heading as="h3">Migrate, adapt, and control the cloud.</Heading>
             <Heading as="h4" size="sm">Migrate, adapt, and control the cloud.</Heading>
         </>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -52,17 +52,3 @@ You can alter the size of the heading by specifying a `size` prop. The available
 />
 
 <ArgsTable of={InnerHeading} />
-
-<Story
-    name="playground"
-    args={{
-        as: "h3",
-        children: "Migrate, adapt, and control the cloud."
-    }}
-    parameters={paramsBuilder()
-        .component(InnerHeading)
-        .excludeFromDocs()
-        .build()}
->
-    {args => <Heading {...args} />}
-</Story>

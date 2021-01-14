@@ -2,7 +2,7 @@ import "./TextArea.css";
 
 import { Box } from "../../box";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { cssModule, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -52,11 +52,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -73,6 +69,10 @@ const propTypes = {
      * Whether or not the input is disabled.
      */
     disabled: bool,
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly: bool,
     /**
      * The number of visible text lines.
      */
@@ -106,11 +106,9 @@ export function InnerTextArea(props) {
         resize,
         required,
         validationState,
-        onChange,
         variant = "outline",
         type = "text",
         autoFocus,
-        autoFocusDelay,
         button,
         disabled,
         readOnly,
@@ -121,8 +119,6 @@ export function InnerTextArea(props) {
         active,
         focus,
         hover,
-        className,
-        style,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -135,12 +131,12 @@ export function InnerTextArea(props) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
-    const handleChange = useChainedEventCallback(onChange, event => {
+    const handleChange = useEventCallback(event => {
         setValue(event.target.value);
     });
 
     const {
-        wrapperProps: { className: wrapperClassName, ...wrapperProps },
+        wrapperProps,
         inputProps,
         inputRef
     } = useInput({
@@ -154,7 +150,6 @@ export function InnerTextArea(props) {
         variant,
         type,
         autoFocus,
-        autoFocusDelay,
         disabled,
         readOnly,
         fluid,
@@ -162,8 +157,6 @@ export function InnerTextArea(props) {
         active,
         focus,
         hover,
-        className,
-        wrapperProps: userWrapperProps,
         forwardedRef
     });
 
@@ -191,13 +184,16 @@ export function InnerTextArea(props) {
     const content = (
         <>
             <textarea
-                {...rest}
-                {...inputProps}
-                rows={rows}
-                style={{
-                    "--o-ui-resize": resize,
-                    ...style
-                }}
+                {...mergeProps(
+                    rest,
+                    inputProps,
+                    {
+                        rows,
+                        style: {
+                            "--o-ui-resize": resize
+                        }
+                    }
+                )}
             />
             {buttonMarkup}
         </>
@@ -205,15 +201,18 @@ export function InnerTextArea(props) {
 
     return (
         <Box
-            {...wrapperProps}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-input",
-                    buttonMarkup && "has-button"
-                ),
-                wrapperClassName
+            {...mergeProps(
+                userWrapperProps,
+                wrapperProps,
+                {
+                    className: cssModule(
+                        "o-ui-input",
+                        buttonMarkup && "has-button"
+                    ),
+                    as
+                }
+
             )}
-            as={as}
         >
             {content}
         </Box>
@@ -225,3 +224,5 @@ InnerTextArea.propTypes = propTypes;
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
+
+TextArea.displayName = "TextArea";

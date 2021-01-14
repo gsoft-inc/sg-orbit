@@ -1,12 +1,4 @@
-import { ChevronIcon } from "@react-components/icons";
-import { Content } from "@react-components/placeholders";
-import { Disclosure } from "@react-components/disclosure";
-import { Text } from "@react-components/text";
-import { TextLink } from "@react-components/link";
-import { useCallback } from "react";
-import { useState } from "react";
-
-export function ControlledDisclosure() {
+() => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleChange = useCallback((event, newValue) => {
@@ -30,4 +22,4 @@ export function ControlledDisclosure() {
             </Content>
         </Disclosure>
     );
-}
+};

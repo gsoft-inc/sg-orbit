@@ -1,7 +1,7 @@
 import { CrossIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { IconDetail } from "./IconDetail";
-import { KEYS, useWindowListener } from "@react-components/shared";
+import { Keys, useWindowListener } from "@react-components/shared";
 import { Modal } from "semantic-ui-react";
 import { ModalContext } from "./ModalContext";
 import { bool, func, string } from "prop-types";
@@ -15,7 +15,7 @@ const propTypes = {
 
 export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     const handleDocumentKeyDown = event => {
-        if (event.keyCode === KEYS.esc) {
+        if (event.keyCode === Keys.esc) {
             onClose(event);
         }
     };

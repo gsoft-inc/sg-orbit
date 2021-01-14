@@ -3,7 +3,7 @@ import "./Alert.css";
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, cssModule, mergeClasses, useMergedRefs, useSlots } from "../../shared";
+import { StyleProvider, cssModule, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { Transition } from "../../transition";
 import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
@@ -35,7 +35,7 @@ const propTypes = {
     children: any.isRequired
 };
 
-const ROLE = {
+const Role = {
     info: "status",
     success: "status",
     warning: "alert",
@@ -49,10 +49,10 @@ const AlertContent = forwardRef(({
 }, ref) => {
     return (
         <Text
+            {...rest}
             as={as}
             color="inherit"
             ref={ref}
-            {...rest}
         >
             <StyleProvider
                 value={{
@@ -79,7 +79,6 @@ export function InnerAlert({
     onDismiss,
     role: roleProp,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -118,23 +117,24 @@ export function InnerAlert({
 
     return (
         <Transition
-            {...rest}
-            show={show}
-            enter="o-ui-fade-in"
-            leave="o-ui-fade-out"
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-alert",
-                    tone,
-                    icon && "has-icon",
-                    button && "has-action",
-                    dismissMarkup && "has-dismiss"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    show,
+                    enter: "o-ui-fade-in",
+                    leave: "o-ui-fade-out",
+                    className: cssModule(
+                        "o-ui-alert",
+                        tone,
+                        icon && "has-icon",
+                        button && "has-action",
+                        dismissMarkup && "has-dismiss"
+                    ),
+                    role: (roleProp ?? Role[tone]) ?? "alert",
+                    as,
+                    ref
+                }
             )}
-            role={(roleProp ?? ROLE[tone]) ?? "alert"}
-            as={as}
-            ref={ref}
         >
             {icon}
             {content}
@@ -149,6 +149,8 @@ InnerAlert.propTypes = propTypes;
 export const Alert = forwardRef((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
+
+Alert.displayName = "Alert";
 
 ////////
 
@@ -192,8 +194,9 @@ const [
 });
 
 // Dummy component for documentation purpose.
-export function AlertTemplate({ children }) {
-    return <div>{children}</div>;
+export function AlertTemplate() {
+    // When returning null, react-docgen doesn't ignore the component.
+    return <></>;
 }
 
 AlertTemplate.propTypes = {
@@ -217,8 +220,14 @@ AlertTemplate.propTypes = {
     /**
      * React children.
      */
+    // eslint-disable-next-line react/no-unused-prop-types
     children: any.isRequired
 };
+
+InfoAlert.displayName = "InfoAlert";
+SuccessAlert.displayName = "SuccessAlert";
+WarningAlert.displayName = "WarningAlert";
+CriticalAlert.displayName = "CriticalAlert";
 
 export {
     InfoAlert,

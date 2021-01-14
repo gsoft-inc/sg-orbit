@@ -15,6 +15,11 @@ export function disposables() {
             api.requestAnimationFrame(...args);
         },
 
+        setTimeout(...args) {
+            const timer = setTimeout(...args);
+            api.add(() => clearTimeout(timer));
+        },
+
         add(callback) {
             disposables.push(callback);
         },

@@ -34,6 +34,7 @@
         "@reach/auto-id": "0.11.2",
         "prop-types": "*",
         "react-dates": "21.8.0",
+        "react-is": "17.0.1",
         "react-moment-proptypes": "*",
         "react-popper": "2.2.4",
         "semantic-ui-react": "2.0.1"

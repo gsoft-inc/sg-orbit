@@ -1,12 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
-import { CustomInputField } from "./CustomInput.sample";
-import { EmailValidation } from "./EmailValidation.sample";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
 import { Inline } from "@react-components/layout";
 import { NumberInput, TextInput } from "@react-components/input";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Field"
@@ -18,7 +15,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>A field add a label and a message to an input. They are typically used in forms and dialogs.</Tagline>
 
 <ComponentInfo
-    usage={"import { Field, GroupField, Label, HelpMessage, ErrorMessage, ValidMessage } from \"@orbit-ui/react-components\""}
+    usage={"import { Field, GroupField, Label, HelpMessage, ErrorMessage, ValidMessage, FieldContext, useFieldInputProps } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/field/src"
 />
 
@@ -34,7 +31,7 @@ A field can be composed of Orbit UI input components or integrate with custom in
 
 A field can be an Orbit UI input.
 
-<Canvas>
+<Preview>
     <Story name="input">
         <Field>
             <Label>Space ID</Label>
@@ -42,13 +39,13 @@ A field can be an Orbit UI input.
             <HelpMessage>Your space id is a 9-digit number available on the top right corner of your membership card.</HelpMessage>
         </Field>
     </Story>
-</Canvas>
+</Preview>
 
 ### Group Input
 
 When the input is a group, use a `GroupField` instead of a `Field`.
 
-<Canvas>
+<Preview>
     <Story name="group">
         <Inline align="start" gap={13}>
             <GroupField>
@@ -71,21 +68,19 @@ When the input is a group, use a `GroupField` instead of a `Field`.
             </GroupField>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom Input
 
 Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInputProps` hook.
 
-<FileCanvas filePath="/field/docs/CustomInput">
-    <CustomInputField />
-</FileCanvas>
+<Preview filePath="/field/docs/CustomInput" noInline />
 
 ### Required
 
 A field can show a required state.
 
-<Canvas>
+<Preview>
     <Story name="required">
         <Field required>
             <Label>Space ID</Label>
@@ -93,13 +88,13 @@ A field can show a required state.
             <HelpMessage>Your space id is a 9-digit number available at the top right corner of your membership card.</HelpMessage>
         </Field>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 A field can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <Field disabled>
             <Label>Space ID</Label>
@@ -107,13 +102,13 @@ A field can be disabled.
             <HelpMessage>Your space id is a 9-digit number available the top right corner of your membership card.</HelpMessage>
         </Field>
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A field can take the width of its container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <Field fluid>
             <Label>Space ID</Label>
@@ -121,13 +116,13 @@ A field can take the width of its container.
             <HelpMessage>Your space id is a 9-digit number available the top right corner of your membership card.</HelpMessage>
         </Field>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A field can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center" gap={8}>
             <Field size="sm">
@@ -142,7 +137,7 @@ A field can vary in size.
             </Field>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Validation
 
@@ -152,9 +147,7 @@ When valid or invalid, a field can display a specific message by declaring eithe
 
 The example below illustrates how one would validate if the user has entered a valid email and display a message matching the current validation state.
 
-<FileCanvas filePath="/field/docs/EmailValidation">
-    <EmailValidation />
-</FileCanvas>
+<Preview filePath="/field/docs/EmailValidation" />
 
 ## API
 
@@ -211,39 +204,3 @@ The example below illustrates how one would validate if the user has entered a v
 />
 
 <ArgsTable of={InnerValidMessage} />
-
-<Story
-    name="playground - field"
-    parameters={paramsBuilder()
-        .component(InnerField)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerField {...args}>
-            <Label>Space ID</Label>
-            <TextInput />
-            <HelpMessage>Your space id is a 9-digit number available at the top right corner of your membership card.</HelpMessage>
-        </InnerField>
-    }
-</Story>
-
-<Story
-    name="playground - group field"
-    parameters={paramsBuilder()
-        .component(InnerGroupField)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerGroupField {...args}>
-            <Label>Your favorite galaxies?</Label>
-            <CheckboxGroup orientation="vertical">
-                <Checkbox value="milky-way">Milky Way</Checkbox>
-                <Checkbox value="andromeda">Andromeda</Checkbox>
-                <Checkbox value="medusa">Medusa</Checkbox>
-            </CheckboxGroup>
-            <HelpMessage>You must at least have travelled once to the galaxy.</HelpMessage>
-        </InnerGroupField>
-    }
-</Story>

@@ -50,3 +50,5 @@ InnerValidMessage.propTypes = propTypes;
 export const ValidMessage = forwardRef((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />
 ));
+
+ValidMessage.displayName = "ValidMessage";

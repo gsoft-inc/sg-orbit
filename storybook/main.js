@@ -27,7 +27,9 @@ module.exports = {
     addons: [{
         name: "@storybook/addon-essentials",
         options: {
-            backgrounds: false
+            actions: false,
+            backgrounds: false,
+            controls: false
         }
     }],
     webpackFinal: customizeWebpack

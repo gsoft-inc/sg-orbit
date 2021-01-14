@@ -1,6 +1,6 @@
 import "./FieldMessage.css";
 
-import { StyleProvider, createSizeAdapter, cssModule, mergeClasses, normalizeSize } from "../../shared";
+import { StyleProvider, createSizeAdapter, cssModule, mergeProps, normalizeSize } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
@@ -46,25 +46,25 @@ export const FieldMessage = forwardRef(({
     fluid,
     size,
     as = "div",
-    className,
     children,
     ...rest
 }, ref) => {
     return (
         <Text
-            {...rest}
-            size={textSize(size)}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-field-message",
-                    tone,
-                    fluid && "fluid",
-                    normalizeSize(size)
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    size: textSize(size),
+                    className: cssModule(
+                        "o-ui-field-message",
+                        tone,
+                        fluid && "fluid",
+                        normalizeSize(size)
+                    ),
+                    as,
+                    ref
+                }
             )}
-            as={as}
-            ref={ref}
         >
             <StyleProvider
                 value={{
@@ -98,3 +98,4 @@ export const FieldMessage = forwardRef(({
 });
 
 FieldMessage.propTypes = propTypes;
+FieldMessage.displayName = "FieldMessage";

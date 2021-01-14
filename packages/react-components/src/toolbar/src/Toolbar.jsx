@@ -1,19 +1,15 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { KEYS, useAutoFocusFirstTabbableElement, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
-import { ToolbarProvider } from "./ToolbarContext";
+import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
+import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 
 const propTypes = {
     /**
-     * Whether the toolbar should autoFocus the first tabbable element on render.
+     * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * The orientation of the elements.
      */
@@ -31,7 +27,7 @@ const propTypes = {
      */
     gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
     /**
-     * Whether the elements are forced onto one line or can wrap onto multiple lines
+     * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */
     wrap: bool,
     /**
@@ -39,7 +35,7 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether the toolbar elements are disabled.
+     * Whether or not the toolbar elements are disabled.
      */
     disabled: bool,
     /**
@@ -47,29 +43,28 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     horizontal: {
-        previous: [KEYS.left],
-        next: [KEYS.right],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left],
+        next: [Keys.right],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     vertical: {
-        previous: [KEYS.up],
-        next: [KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.up],
+        next: [Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     }
 };
 
 export function InnerToolbar({
     autoFocus,
-    autoFocusDelay,
     orientation = "horizontal",
     align,
     verticalAlign,
@@ -81,12 +76,20 @@ export function InnerToolbar({
     forwardedRef,
     ...rest
 }) {
-    const ref = useMergedRefs(forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    useRovingFocus(ref);
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const arrowNavigationProps = useKeyboardNavigation(NAV_KEY_BINDING[orientation]);
+    const focusManager = useFocusManager(focusScope);
+
+    useRovingFocus(focusScope);
+
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    const arrowNavigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     const directionProps = useFlexDirection(orientation);
 
@@ -100,25 +103,29 @@ export function InnerToolbar({
 
     return (
         <Flex
-            {...rest}
-            {...directionProps}
-            {...alignProps}
-            {...arrowNavigationProps}
-            role="toolbar"
-            gap={gap}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            as={as}
-            ref={ref}
-            aria-orientation={orientation}
+            {...mergeProps(
+                rest,
+                directionProps,
+                alignProps,
+                arrowNavigationProps,
+                {
+                    role: "toolbar",
+                    gap,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    as,
+                    ref: containerRef,
+                    "aria-orientation": orientation
+                }
+            )}
         >
-            <ToolbarProvider
+            <ToolbarContext.Provider
                 value={{
                     orientation,
                     disabled
                 }}
             >
                 {children}
-            </ToolbarProvider>
+            </ToolbarContext.Provider>
         </Flex>
     );
 }
@@ -128,3 +135,5 @@ InnerToolbar.propTypes = propTypes;
 export const Toolbar = forwardRef((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
+
+Toolbar.displayName = "Toolbar";

@@ -2,7 +2,7 @@ A tag picker component requires a set of items to display. Those items can be sp
 
 To create an item, use the `tagsPickerItem(text, value, category?, additionalProps?)` function:
 
-```javascript dark
+```javascript
 const apollo = tagsPickerItem("Apollo Program", "apollo");
 ```
 
@@ -10,7 +10,7 @@ const apollo = tagsPickerItem("Apollo Program", "apollo");
 
 An optional `category` can be specified to group a set of items under a labeled category:
 
-```javascript dark
+```javascript
 const apollo = tagsPickerItem("Apollo Program", "apollo", "1970");
 const skylab = tagsPickerItem("Skylab", "skylab", "1970");
 ```
@@ -20,13 +20,13 @@ const skylab = tagsPickerItem("Skylab", "skylab", "1970");
 
 Additional properties can be specified to provide additional information to any callbacks e.g. `onValuesChange` or `itemRenderer`.
 
-```javascript dark
+```javascript
 const apollo = tagsPickerItem("Apollo Program", "apollo", null, { backendId: 123 });
 ```
 
 Then in any callbacks:
 
-```jsx dark
+```jsx
 <TagsPicker
     items={[groupCreated]}
     onValuesChange={(event, values) => {
@@ -37,7 +37,7 @@ Then in any callbacks:
 
 Or in a custom result renderer:
 
-```jsx dark
+```jsx
 <TagsPicker
     items={[groupCreated]}
     selectedItemsComponent={

@@ -1,4 +1,4 @@
-import { AutoControlledPopper } from "../../popper";
+import { AutoControlledPopper } from "../../OLD_popper";
 import { PureComponent, forwardRef } from "react";
 import { augmentElement, resolvePopperPosition } from "../../shared";
 import { bool, element, func, number, object, oneOf, string } from "prop-types";

@@ -1,8 +1,7 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerText, Text } from "@react-components/text";
 import { Stack } from "@react-components/layout";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Text"
@@ -11,7 +10,7 @@ import { paramsBuilder } from "@stories/utils";
 
 # Text
 
-<Tagline>A primitive component that can be used to render text matching Orbit typography type scale.</Tagline>
+<Tagline>A primitive text component matching Orbit typography type scale.</Tagline>
 
 <ComponentInfo
     usage={"import { Text } from \"@orbit-ui/react-components\""}
@@ -26,14 +25,14 @@ import { paramsBuilder } from "@stories/utils";
 
 You can alter the size of the text by specifying a `size` prop. The available size match Orbit UI typography [type scale](?path=/docs/typography--page#type-scale).
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Stack>
             <Text>If two pieces of the same type of metal touch in space they will permanently bond.</Text>
             <Text size="sm">If two pieces of the same type of metal touch in space they will permanently bond.</Text>
         </Stack>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -43,18 +42,3 @@ You can alter the size of the text by specifying a `size` prop. The available si
 />
 
 <ArgsTable of={InnerText} />
-
-<Story
-    name="playground"
-    args={{
-        children: "If two pieces of the same type of metal touch in space they will permanently bond."
-    }}
-    parameters={paramsBuilder()
-        .component(InnerText)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerText {...args} />
-    }
-</Story>

@@ -1,6 +1,6 @@
 import "./Paragraph.css";
 
-import { StyleProvider, cssModule, mergeClasses, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -29,9 +29,7 @@ export function InnerParagraph(props) {
 
     const {
         size,
-        color,
         as = "p",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -42,19 +40,20 @@ export function InnerParagraph(props) {
 
     return (
         <Text
-            {...rest}
-            size={size}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-p",
-                    normalizeSize(size),
-                    color ? `color-${color}`: ""
-                ),
-                "o-ui-text-color-inherit",
-                className
+            {...mergeProps(
+                rest,
+                {
+                    size,
+                    className: cssModule(
+                        "o-ui-p",
+                        normalizeSize(size),
+                        "o-ui-text-color-inherit"
+                    ),
+                    as,
+                    ref: forwardedRef
+                }
+
             )}
-            as={as}
-            ref={forwardedRef}
         >
             <StyleProvider
                 value={{
@@ -75,4 +74,6 @@ InnerParagraph.propTypes = propTypes;
 export const Paragraph = forwardRef((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
+
+Paragraph.displayName = "Paragraph";
 

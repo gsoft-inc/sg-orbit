@@ -1,7 +1,6 @@
 export * from "./checkered-background";
 export * from "./external-link";
 export * from "./figure";
-export * from "./file-canvas";
 export * from "./file-source";
 export * from "./github-link";
 export * from "./link";
@@ -10,5 +9,7 @@ export * from "./tachyons-file";
 export * from "./tagline";
 export * from "./ref-logger";
 export * from "./component-info";
+export * from "./snippet";
 export * from "./themed-snippet";
 export * from "./package-installation-snippet";
+export * from "./preview";

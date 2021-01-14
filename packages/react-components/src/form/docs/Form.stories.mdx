@@ -1,13 +1,11 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { ComponentInfo, FileCanvas, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { PasswordInput, TextInput } from "@react-components/input";
-import { RegistrationForm } from "./RegistrationForm.sample";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Form"
@@ -19,7 +17,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>Forms are commonly used to provide user interaction in web applications.</Tagline>
 
 <ComponentInfo
-    usage={"import { Form, Row } from \"@orbit-ui/react-components\""}
+    usage={"import { Form, Row, FormContext, useFormField, useFormButton } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/form/src"
 />
 
@@ -35,7 +33,7 @@ In additional to wrapping a form element, a form component provide layout for fi
 
 A form can stack fields vertically.
 
-<Canvas>
+<Preview>
     <Story name="vertical layout">
         <Form fluid className="w-25">
             <Field required>
@@ -53,13 +51,13 @@ A form can stack fields vertically.
             <Button type="submit">Login</Button>
         </Form>
     </Story>
-</Canvas>
+</Preview>
 
 ### Inline layout
 
 Multiple form fields can be inlined on the same row.
 
-<Canvas>
+<Preview>
     <Story name="inline layout">
         <Form fluid>
             <Row>
@@ -98,13 +96,13 @@ Multiple form fields can be inlined on the same row.
             </Button>
         </Form>
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 Form fields can take the witdh of their container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <Form fluid>
             <Field>
@@ -114,13 +112,13 @@ Form fields can take the witdh of their container.
             <Button>Submit</Button>
         </Form>
     </Story>
-</Canvas>
+</Preview>
 
 ### Disabled
 
 Form fields and buttons can be disabled.
 
-<Canvas>
+<Preview>
     <Story name="disabled">
         <Form disabled>
             <Field>
@@ -130,13 +128,13 @@ Form fields and buttons can be disabled.
             <Button>Submit</Button>
         </Form>
     </Story>
-</Canvas>
+</Preview>
 
 ### Button alignment
 
 Form buttons can be aligned horizontally.
 
-<Canvas>
+<Preview>
     <Story name="button alignment">
         <Inline gap={10}>
             <Form>
@@ -160,15 +158,13 @@ Form buttons can be aligned horizontally.
             </Form>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Formik
 
 The form state and validation could be managed by an external library like [Formik](https://formik.org/).
 
-<FileCanvas filePath="/form/docs/RegistrationForm">
-    <RegistrationForm />
-</FileCanvas>
+<Preview filePath="/form/docs/RegistrationForm" />
 
 ## API
 
@@ -189,20 +185,4 @@ The form state and validation could be managed by an external library like [Form
 />
 
 <ArgsTable of={InnerRow} />
-
-<Story
-    name="playground"
-    parameters={paramsBuilder()
-        .component(InnerForm)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerForm {...args}>
-            <Field>
-                <TextInput />
-            </Field>
-        </InnerForm>
-    }
-</Story>
 

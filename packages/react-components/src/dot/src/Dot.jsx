@@ -3,7 +3,7 @@ import "./Dot.css";
 import { Box } from "../../box";
 import { Text } from "../../text";
 import { any, elementType, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, slot } from "../../shared";
+import { cssModule, mergeProps, slot } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -29,8 +29,6 @@ export function InnerDot(props) {
     const {
         color,
         as = "span",
-        className,
-        style,
         children,
         forwardedRef,
         ...rest
@@ -44,20 +42,20 @@ export function InnerDot(props) {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-dot",
-                    children && "has-label"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-dot",
+                        children && "has-label"
+                    ),
+                    style: {
+                        "--o-ui-dot-color": color && `var(--${color})`
+                    },
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            style={{
-                ...style,
-                "--o-ui-dot-color": color && `var(--${color})`
-            }}
-            as={as}
-            ref={forwardedRef}
         >
             {labelMarkup}
         </Box>
@@ -70,4 +68,4 @@ export const Dot = slot("dot", forwardRef((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
 
-
+Dot.displayName = "Dot";

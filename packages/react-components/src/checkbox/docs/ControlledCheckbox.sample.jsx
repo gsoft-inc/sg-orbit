@@ -1,7 +1,4 @@
-import { Checkbox } from "@react-components/checkbox";
-import { useState } from "react";
-
-export function ControlledCheckbox() {
+() => {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
@@ -15,4 +12,4 @@ export function ControlledCheckbox() {
             {isChecked ? "On" : "Off"}
         </Checkbox>
     );
-}
+};

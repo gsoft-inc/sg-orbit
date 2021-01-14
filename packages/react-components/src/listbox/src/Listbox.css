@@ -1,0 +1,29 @@
+:root {
+    --o-ui-listbox-option-height: var(--scale-foxtrot);
+}
+
+.o-ui-listbox {
+    width: max-content;
+    max-height: calc(10 * var(--o-ui-listbox-option-height));
+    overflow-y: auto;
+}
+
+.o-ui-listbox-option {
+    height: var(--o-ui-listbox-option-height);
+    padding-right: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.o-ui-listbox-option[aria-selected="true"] {
+    background-color: blue;
+    color: white;
+}
+
+.o-ui-listbox-option:focus {
+    color: red;
+}
+
+.o-ui-listbox-section {
+    font-weight: 500;
+}

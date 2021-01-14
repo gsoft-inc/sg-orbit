@@ -1,5 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerParagraph, Paragraph } from "@react-components/paragraph";
 import { paramsBuilder } from "@stories/utils";
 
@@ -23,14 +23,14 @@ import { paramsBuilder } from "@stories/utils";
 
 You can alter the size of the paragraph by specifying a `size` prop. The available size match Orbit UI [typographic body text](?path=/docs/typography--page#body).
 
-<Canvas>
+<Preview>
     <Story name="size">
         <>
+            <Paragraph size="lg">If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
             <Paragraph>If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
-            <Paragraph size="sm">If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
         </>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -40,18 +40,3 @@ You can alter the size of the paragraph by specifying a `size` prop. The availab
     usage={"import { Paragraph } from \"@orbit-ui/react-components\""}
     compact
 />
-
-<Story
-    name="playground"
-    args={{
-        children: "If two pieces of the same type of metal touch in space they will permanently bond."
-    }}
-    parameters={paramsBuilder()
-        .component(InnerParagraph)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <Paragraph {...args} />
-    }
-</Story>

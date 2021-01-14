@@ -2,7 +2,7 @@ A search input component requires a set of results to display. Those results can
 
 To create a result, use the `searchInputResult(id, text, additionalProps?)` function:
 
-```javascript dark
+```javascript
 const georgeResult = tagsPickerItem("1", "Neil Armstrong");
 ```
 
@@ -10,13 +10,13 @@ const georgeResult = tagsPickerItem("1", "Neil Armstrong");
 
 An optional data `obj` can be specified to provide additional information to any callbacks e.g. `onValueChange` or `resultRenderer`:
 
-```javascript dark
+```javascript
 const georgeResult = tagsPickerItem("1", "Neil Armstrong", { backendId: 123 });
 ```
 
 Then in any callbacks:
 
-```jsx dark
+```jsx
 <SearchInput
     results={[georgeResult]}
     onValueChange={(event, { id, text, backendId }) => {
@@ -27,7 +27,7 @@ Then in any callbacks:
 
 Or in a custom result renderer:
 
-```jsx dark
+```jsx
 <SearchInput
     results={[georgeResult]}
     resultRenderer={({ id, text, backendId }) => {

@@ -60,11 +60,7 @@ const propTypes = {
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
@@ -81,6 +77,10 @@ const propTypes = {
      * Whether or not the input is disabled.
      */
     disabled: bool,
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly: bool,
     /**
      * Additional props to render on the wrapper element.
      */
@@ -127,3 +127,5 @@ InnerPasswordInput.propTypes = propTypes;
 export const PasswordInput = forwardRef((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));
+
+PasswordInput.displayName = "PasswordInput";

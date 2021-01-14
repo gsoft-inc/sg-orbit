@@ -2,7 +2,7 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, forwardRef } from "react";
-import { StyleProvider, cssModule, mergeClasses } from "../../shared";
+import { StyleProvider, cssModule, mergeProps } from "../../shared";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 
 const propTypes = {
@@ -19,7 +19,7 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * @ignore
+     * React children.
      */
     children: any.isRequired
 };
@@ -28,7 +28,6 @@ export function InnerBadge({
     variant = "count",
     overlap,
     as = "div",
-    className,
     children,
     forwardedRef,
     ...rest
@@ -43,17 +42,18 @@ export function InnerBadge({
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-badge",
-                    variant,
-                    overlap && `over-${overlap}`
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: cssModule(
+                        "o-ui-badge",
+                        variant,
+                        overlap && `over-${overlap}`
+                    ),
+                    as,
+                    ref: forwardedRef
+                }
             )}
-            as={as}
-            ref={forwardedRef}
         >
             <StyleProvider
                 value={{
@@ -76,3 +76,5 @@ InnerBadge.propTypes = propTypes;
 export const Badge = forwardRef((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
+
+Badge.displayName = "Badge";

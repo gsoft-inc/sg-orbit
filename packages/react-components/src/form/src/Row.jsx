@@ -34,11 +34,15 @@ export function InnerRow(props) {
 
     return (
         <Inline
-            {...rest}
-            fluid={fluid}
-            gap={4}
-            align="start"
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    fluid,
+                    gap: 4,
+                    align: "start",
+                    ref: forwardedRef
+                }
+            )}
         >
             {Children.map(children, x => {
                 return augmentElement(x, {
@@ -54,3 +58,5 @@ InnerRow.propTypes = propTypes;
 export const Row = forwardRef((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
+
+Row.displayName = "Row";

@@ -1,10 +1,9 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { CheckCircleIcon } from "@react-components/icons";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Inline } from "@react-components/layout";
 import { InnerLozenge, Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/text";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Lozenge"
@@ -26,47 +25,47 @@ import { paramsBuilder } from "@stories/utils";
 
 A default lozenge.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Lozenge>New</Lozenge>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A lozenge can contain an [icon](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Lozenge>
             <CheckCircleIcon />
             <Text>New</Text>
         </Lozenge>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A lozenge can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center">
             <Lozenge size="sm">New</Lozenge>
             <Lozenge>New</Lozenge>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Color
 
 A lozenge can use a different color accent.
 
-<Canvas>
+<Preview>
     <Story name="color">
         <Lozenge color="primary">New</Lozenge>
     </Story>
-</Canvas>
+</Preview>
 
 ## API
 
@@ -79,19 +78,4 @@ A lozenge can use a different color accent.
 />
 
 <ArgsTable of={InnerLozenge} />
-
-<Story
-    name="playground"
-    args={{
-        children: "New"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerLozenge)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <Lozenge {...args} />
-    }
-</Story>
 

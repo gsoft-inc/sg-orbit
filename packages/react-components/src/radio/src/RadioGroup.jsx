@@ -1,24 +1,26 @@
 import "./RadioGroup.css";
 
 import {
-    CheckableProvider,
-    KEYS,
+    CheckableContext,
+    Keys,
     augmentElement,
     mergeProps,
     omitProps,
     resolveChildren,
-    useAutoFocusFirstTabbableElement,
+    useAutoFocusChild,
+    useBasicKeyboardNavigation,
     useControllableState,
     useEventCallback,
+    useFocusManager,
+    useFocusScope,
     useId,
-    useKeyboardNavigation,
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { isNil } from "lodash";
+import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -33,7 +35,7 @@ const propTypes = {
      */
     defaultValue: oneOfType([string, number]),
     /**
-     * Whether a user input is required before form submission.
+     * Whether or not a user input is required before form submission.
      */
     required: bool,
     /**
@@ -52,13 +54,9 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Whether the radio group should autoFocus on render.
+     * Whether or not the radio group should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * The orientation of the group elements.
      */
@@ -76,7 +74,7 @@ const propTypes = {
      */
     reverse: bool,
     /**
-     * Whether the radio group is disabled.
+     * Whether or not the radio group is disabled.
      */
     disabled: bool,
     /**
@@ -84,23 +82,25 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * Component children.
+     * React children.
      */
     children: oneOfType([any, func]).isRequired
 };
 
-const NAV_KEY_BINDING = {
+const NavigationKeyBinding = {
     default: {
-        previous: [KEYS.left, KEYS.up],
-        next: [KEYS.right, KEYS.down],
-        first: [KEYS.home],
-        last: [KEYS.end]
+        previous: [Keys.left, Keys.up],
+        next: [Keys.right, Keys.down],
+        first: [Keys.home],
+        last: [Keys.end]
     },
     toolbar: {
-        previous: [KEYS.up],
-        next: [KEYS.down]
+        previous: [Keys.up],
+        next: [Keys.down]
     }
 };
+
+const KeyProp = "value";
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
@@ -114,13 +114,11 @@ export function InnerRadioGroup(props) {
         name,
         onChange,
         autoFocus,
-        autoFocusDelay,
         orientation = "vertical",
         gap,
         wrap,
         reverse,
         disabled,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -132,10 +130,9 @@ export function InnerRadioGroup(props) {
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
-    const ref = useMergedRefs(forwardedRef);
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    useKeyedRovingFocus(ref, !isNil(checkedValue) ? checkedValue : checkedValue, { keyProp: "value" });
-    useAutoFocusFirstTabbableElement(ref, autoFocus, { delay: autoFocusDelay });
+    const groupRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
@@ -146,21 +143,34 @@ export function InnerRadioGroup(props) {
         setCheckedValue(newValue);
     });
 
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+
+    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: KeyProp });
+
+    useAutoFocusChild(focusManager, {
+        target: value ?? defaultValue,
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useKeyboardNavigation(NAV_KEY_BINDING[navigationMode], !isInToolbar ? handleArrowSelect : undefined);
+    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radio-group",
+        keyProp: KeyProp,
+        value,
+        defaultValue,
         required,
         validationState,
+        autoFocus,
         orientation,
         gap,
         wrap,
         reverse,
         disabled,
-        className,
-        ref
+        groupRef
     });
 
     const handleCheck = useEventCallback((event, newValue) => {
@@ -177,11 +187,13 @@ export function InnerRadioGroup(props) {
 
     return (
         <Group
-            {...rest}
-            {...navigationProps}
-            {...groupProps}
+            {...mergeProps(
+                rest,
+                navigationProps,
+                groupProps
+            )}
         >
-            <CheckableProvider
+            <CheckableContext.Provider
                 value={{
                     onCheck: handleCheck,
                     checkedValue
@@ -194,7 +206,7 @@ export function InnerRadioGroup(props) {
                         name: groupName
                     });
                 })}
-            </CheckableProvider>
+            </CheckableContext.Provider>
         </Group>
     );
 }
@@ -204,4 +216,6 @@ InnerRadioGroup.propTypes = propTypes;
 export const RadioGroup = forwardRef((props, ref) => (
     <InnerRadioGroup { ...props } forwardedRef={ref} />
 ));
+
+RadioGroup.displayName = "RadioGroup";
 

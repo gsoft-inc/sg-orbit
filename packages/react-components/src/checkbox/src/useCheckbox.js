@@ -1,5 +1,5 @@
-import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
-import { isNil } from "lodash";
+import { cssModule, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
+import { isNil, isNumber } from "lodash";
 import { useImperativeHandle, useLayoutEffect, useRef } from "react";
 
 export function useCheckbox({
@@ -11,7 +11,6 @@ export function useCheckbox({
     indeterminate,
     defaultIndeterminate,
     autoFocus,
-    autoFocusDelay,
     required,
     validationState,
     onChange,
@@ -23,7 +22,6 @@ export function useCheckbox({
     focus,
     hover,
     disabled,
-    className,
     forwardedRef
 }) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -32,7 +30,10 @@ export function useCheckbox({
     const wrapperRef = useRef();
     const inputRef = useRef();
 
-    useAutoFocus(inputRef, autoFocus, { delay: autoFocusDelay });
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     const forwardInputApi = useForwardInputApi(inputRef);
 
@@ -59,21 +60,18 @@ export function useCheckbox({
         isChecked,
         isIndeterminate,
         wrapperProps: {
-            className: mergeClasses(
-                cssModule(
-                    module,
-                    isChecked && "checked",
-                    isIndeterminate && "indeterminate",
-                    isInField && "as-field",
-                    reverse && "reverse",
-                    validationState && validationState,
-                    disabled && "disabled",
-                    active && "active",
-                    focus && "focus",
-                    hover && "hover",
-                    normalizeSize(size)
-                ),
-                className
+            className: cssModule(
+                module,
+                isChecked && "checked",
+                isIndeterminate && "indeterminate",
+                isInField && "as-field",
+                reverse && "reverse",
+                validationState && validationState,
+                disabled && "disabled",
+                active && "active",
+                focus && "focus",
+                hover && "hover",
+                normalizeSize(size)
             ),
             ref: wrapperRef
         },

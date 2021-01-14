@@ -27,13 +27,9 @@ const propTypes = {
      */
     shape: oneOf(["rounded", "circular", "box"]),
     /**
-     * Whether the link should autoFocus on render.
+     * Whether or not the link should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus: oneOfType([bool, number]),
     /**
      * Whether or not the link is disabled.
      */
@@ -57,12 +53,10 @@ export function InnerLink(props) {
         external,
         shape = "rounded",
         autoFocus,
-        autoFocusDelay,
         active,
         focus,
         hover,
         as: ElementType = "a",
-        className,
         children,
         forwardedRef,
         ...rest
@@ -76,20 +70,20 @@ export function InnerLink(props) {
         external,
         shape,
         autoFocus,
-        autoFocusDelay,
         active,
         focus,
         hover,
         target,
         rel,
-        className,
         forwardedRef
     });
 
     return (
         <ElementType
-            {...rest}
-            {...linkProps}
+            {...mergeProps(
+                rest,
+                linkProps
+            )}
         >
             {children}
         </ElementType>
@@ -101,3 +95,5 @@ InnerLink.propTypes = propTypes;
 export const Link = forwardRef((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
+
+Link.displayName = "Link";

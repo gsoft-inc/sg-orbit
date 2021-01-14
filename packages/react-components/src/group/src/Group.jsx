@@ -1,8 +1,8 @@
-import { Flex } from "@react-components/layout";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { useFlexAlignment, useFlexDirection } from "../../layout";
+import { mergeProps } from "../../shared";
 
 const propTypes = {
     /**
@@ -38,10 +38,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
      */
     role: string,
@@ -69,11 +65,15 @@ export function InnerGroup({
 
     return (
         <Flex
-            {...rest}
-            {...directionProps}
-            {...alignProps}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                directionProps,
+                alignProps,
+                {
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Flex>
@@ -85,3 +85,5 @@ InnerGroup.propTypes = propTypes;
 export const Group = forwardRef((props, ref) => (
     <InnerGroup {...props} forwardedRef={ref} />
 ));
+
+Group.displayName = "Group";

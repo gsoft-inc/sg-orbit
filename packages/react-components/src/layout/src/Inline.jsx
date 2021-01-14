@@ -2,6 +2,7 @@ import { Flex } from "./Flex";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
+import { mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 const propTypes = {
@@ -34,10 +35,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -60,11 +57,15 @@ export function InnerInline({
 
     return (
         <Flex
-            {...rest}
-            {...alignProps}
-            gap={gap !== 0 ? gap : undefined}
-            wrap={!isNil(wrap) ? "wrap" : undefined}
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                alignProps,
+                {
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
+            )}
         >
             {children}
         </Flex>
@@ -76,3 +77,5 @@ InnerInline.propTypes = propTypes;
 export const Inline = forwardRef((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
+
+Inline.displayName = "Inline";

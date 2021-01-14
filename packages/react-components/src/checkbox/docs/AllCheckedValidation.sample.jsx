@@ -1,7 +1,4 @@
-import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
-import { useState } from "react";
-
-export function AllCheckedValidation() {
+() => {
     const [value, setValue] = useState([]);
 
     const isValid = ["milky-way", "andromeda", "medusa"].every(x => value.includes(x));
@@ -20,4 +17,4 @@ export function AllCheckedValidation() {
             <Checkbox value="medusa">Medusa</Checkbox>
         </CheckboxGroup>
     );
-}
+};

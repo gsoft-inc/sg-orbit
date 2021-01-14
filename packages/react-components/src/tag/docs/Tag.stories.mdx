@@ -1,6 +1,6 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { CheckCircleIcon } from "@react-components/icons";
-import { ComponentInfo, Tagline } from "@stories/components";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { Inline } from "@react-components/layout";
@@ -16,7 +16,7 @@ import CustomColorHover from "./CustomColorHover.mdx";
 
 # Tag
 
-<Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a [TagsPicker](?path=/story/tagspicker--default-story).</Tagline>
+<Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
 
 <ComponentInfo
     usage={"import { Tag } from \"@orbit-ui/react-components\""}
@@ -29,79 +29,79 @@ import CustomColorHover from "./CustomColorHover.mdx";
 
 A default tag.
 
-<Canvas>
+<Preview>
     <Story name="default">
         <Tag>Falcon 9</Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Icon
 
 A tag can contain [icons](?path=/docs/icon-gallery--page).
 
-<Canvas>
+<Preview>
     <Story name="icon">
         <Tag>
             <CheckCircleIcon />
             <Text>Falcon 9</Text>
         </Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Dot
 
 A tag can contain a [dot](?path=/docs/dot--default-story).
 
-<Canvas>
+<Preview>
     <Story name="dot">
         <Tag>
             <Dot color="primary-500" />
             <Text>Falcon 9</Text>
         </Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Counter
 
 A tag can contain a [counter](?path=/docs/counter--default-story).
 
-<Canvas>
+<Preview>
     <Story name="counter">
         <Tag>
             <Text>Falcon 9</Text>
             <Counter>6</Counter>
         </Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Removable
 
 A tag can be removable by specifying an `onRemove` handler.
 
-<Canvas>
+<Preview>
     <Story name="removable">
         <Tag onRemove={() => {}}>Falcon 9</Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Size
 
 A tag can vary in size.
 
-<Canvas>
+<Preview>
     <Story name="size">
         <Inline verticalAlign="center">
             <Tag size="sm">Falcon 9</Tag>
             <Tag>Falcon 9</Tag>
         </Inline>
     </Story>
-</Canvas>
+</Preview>
 
 ### Fluid
 
 A tag can take the width of its container.
 
-<Canvas>
+<Preview>
     <Story name="fluid">
         <Tag fluid>
             <CheckCircleIcon />
@@ -109,23 +109,23 @@ A tag can take the width of its container.
             <Counter>6</Counter>
         </Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Outline
 
 A tag can have a subtle appearance.
 
-<Canvas>
+<Preview>
     <Story name="outline">
         <Tag variant="outline">Falcon 9</Tag>
     </Story>
-</Canvas>
+</Preview>
 
 ### Custom colors
 
 Custom colors can be applied to a tag.
 
-<Canvas>
+<Preview>
     <Story name="custom-color">
         <Tag
             style={{
@@ -137,7 +137,7 @@ Custom colors can be applied to a tag.
             Falcon 9
         </Tag>
     </Story>
-</Canvas>
+</Preview>
 
 <CustomColorHover />
 
@@ -152,21 +152,6 @@ Custom colors can be applied to a tag.
 />
 
 <ArgsTable of={InnerTag} />
-
-<Story
-    name="playground"
-    args={{
-        children: "Falcon 9"
-    }}
-    parameters={paramsBuilder()
-        .component(InnerTag)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <InnerTag {...args} />
-    }
-</Story>
 
 
 

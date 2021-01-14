@@ -1,7 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeClasses, normalizeSize } from "../../shared";
+import { augmentElement, mergeProps, normalizeSize } from "../../shared";
 
 const propTypes = {
     /**
@@ -52,7 +52,6 @@ export function InnerButtonGroup(props) {
         size,
         fluid,
         disabled,
-        className,
         children,
         forwardedRef,
         ...rest
@@ -60,17 +59,18 @@ export function InnerButtonGroup(props) {
 
     return (
         <Group
-            {...rest}
-            orientation={orientation}
-            align={align}
-            verticalAlign={orientation === "horizontal" ? "center" : undefined}
-            fluid={fluid}
-            gap={Gap[orientation][normalizeSize(size)]}
-            className={mergeClasses(
-                "o-ui-button-group",
-                className
+            {...mergeProps(
+                rest,
+                {
+                    orientation,
+                    align,
+                    verticalAlign: orientation === "horizontal" ? "center" : undefined,
+                    fluid,
+                    gap: Gap[orientation][normalizeSize(size)],
+                    className: "o-ui-button-group",
+                    ref: forwardedRef
+                }
             )}
-            ref={forwardedRef}
         >
             {Children.map(children, x => {
                 return augmentElement(x, {
@@ -88,3 +88,5 @@ InnerButtonGroup.propTypes = propTypes;
 export const ButtonGroup = forwardRef((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 ));
+
+ButtonGroup.displayName = "ButtonGroup";

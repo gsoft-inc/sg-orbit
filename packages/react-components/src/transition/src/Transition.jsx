@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { any, bool, elementType, oneOfType, string } from "prop-types";
 import { forwardRef, useEffect, useState } from "react";
-import { mergeClasses, useEventCallback, useIsInitialRender } from "../../shared";
+import { mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const propTypes = {
     /**
@@ -36,7 +36,6 @@ export const Transition = forwardRef(({
     enter,
     leave,
     as = "div",
-    className,
     children,
     ...rest
 }, ref) => {
@@ -60,16 +59,19 @@ export const Transition = forwardRef(({
 
     return (
         <Box
-            {...rest}
-            onAnimationEnd={handleAnimationEnd}
-            className={mergeClasses(
-                show
-                    ? isInitialRender ? animateFirstRender && enter : enter
-                    : leave,
-                className
+            {...mergeProps(
+                rest,
+                {
+                    onAnimationEnd: handleAnimationEnd,
+                    className: show
+                        ? isInitialRender
+                            ? animateFirstRender && enter
+                            : enter
+                        : leave,
+                    as,
+                    ref
+                }
             )}
-            as={as}
-            ref={ref}
         >
             {children}
         </Box>
@@ -77,3 +79,4 @@ export const Transition = forwardRef(({
 });
 
 Transition.propTypes = propTypes;
+Transition.displayName = "Transition";

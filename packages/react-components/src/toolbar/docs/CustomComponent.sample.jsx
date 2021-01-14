@@ -1,7 +1,3 @@
-import { Radio, RadioGroup } from "@react-components/radio";
-import { Toolbar, useToolbarProps } from "@react-components/toolbar";
-import { omitProps } from "@react-components/shared";
-
 function CustomComponent(props) {
     const [toolbarProps] = useToolbarProps();
 
@@ -14,7 +10,7 @@ function CustomComponent(props) {
     );
 }
 
-export function CustomToolbar() {
+function CustomToolbar() {
     return (
         <Toolbar>
             <CustomComponent />
@@ -26,3 +22,7 @@ export function CustomToolbar() {
         </Toolbar>
     );
 }
+
+render(
+    <CustomToolbar />
+);

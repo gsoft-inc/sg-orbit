@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unused-prop-types */
 
-import { any, bool } from "prop-types";
+import { any, bool, string } from "prop-types";
 import { forwardRef } from "react";
 
 const propTypes = {
+    /**
+     * A unique key to identify the item.
+     */
+    key: string,
     /**
      * Whether or not the item is disabled.
      */
@@ -24,3 +28,5 @@ InnerItem.propTypes = propTypes;
 export const Item = forwardRef((props, ref) => (
     <InnerItem {...props} forwardedRef={ref} />
 ));
+
+Item.displayName = "Item";
