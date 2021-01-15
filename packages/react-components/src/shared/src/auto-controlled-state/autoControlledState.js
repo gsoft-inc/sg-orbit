@@ -1,4 +1,4 @@
-import { IS_PRODUCTION } from "../env";
+import { IS_PRODUCTION } from "../OLD_env";
 import { PureComponent } from "react";
 import { difference, isFunction, isNil, isUndefined } from "lodash";
 

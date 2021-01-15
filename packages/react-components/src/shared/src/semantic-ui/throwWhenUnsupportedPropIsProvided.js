@@ -1,4 +1,4 @@
-import { IS_PRODUCTION } from "../env";
+import { IS_PRODUCTION } from "../OLD_env";
 import { isNil } from "lodash";
 
 export function throwWhenUnsupportedPropIsProvided(props, unsupportedProps, componentName) {

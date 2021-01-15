@@ -1,10 +1,6 @@
 import { isFunction, isUndefined } from "lodash";
-import { useCallback, useEffect, useRef, useState } from "react";
-
-/*
-TODO:
-- Might want to remove the onChange option since it's not used at all.
-*/
+import { useCallback, useRef } from "react";
+import { useRefState } from "./useRefState";
 
 function validatePrerequisites(controlledValue, initialValue) {
     if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
@@ -19,12 +15,6 @@ function ensureControlledStateHaveNotChanged(controlledValue, isControlled) {
         throw new Error("useControllableState - A controllable state value cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
     }
 }
-
-// function notifyStateChanged(newState, isInitialState, handler) {
-//     if (isFunction(handler)) {
-//         handler(newState, isInitialState);
-//     }
-// }
 
 function useComputeInitialState(controlledValue, initialValue, defaultValue) {
     const result = (state, isControlled, isInitialState = false) => ({ state, isControlled, isInitialState });
@@ -72,21 +62,6 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
 }
 
 /**
- * Safely attempt to set state for a prop that might be "controlled" by the consumer.
- * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
- */
-// function useSetUncontrolledState(currentState, setState, isControlled, onChange) {
-//     return useCallback(maybeState => {
-//         if (!isControlled) {
-//             if (maybeState !== currentState) {
-//                 setState(maybeState);
-//                 notifyStateChanged(maybeState, false, onChange);
-//             }
-//         }
-//     }, [currentState, setState, isControlled, onChange]);
-// }
-
-/**
  * This implementation is a port of Semantic UI React "AutoControlledComponent" base component to hooks: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js.
  * The goal is to seemlessly support "controlled" and "uncontrolled" component behaviors by abstracting the complexity in this hook.
  * This is achieved by abstracting the state and updating a state value only when a prop is considered "uncontrolled".
@@ -94,66 +69,66 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
  * @param {Object} controlledValue - The controlled value.
  * @param {Object} initialValue - The initial value.
  * @param {Object} defaultValue - The default value.
- * @param {Function} [onChange] - An optionnal function called when the auto controlled state is updated.
+ * @param {Object} [options] - A set of optionnal options.
  * @returns {[Object, Function]} An array with the first value being the value of the state and the second value being a function to manually update the state value.
  * @example
- * const [controllableValue, setUncontrolledState] = useControllableState(value, initialValue, defaultValue, (newValue, isInitialState) => {
- *      // Optionally compute derived state...
- *      if (isInitialState) {
- *          setSelectedValue(newValue)
- *      }
+ * const [controllableValue, setUncontrolledState] = useControllableState(value, initialValue, defaultValue, {
+ *    onChange: (newValue, isInitialState) => {
+ *       // Optionally compute derived state...
+ *       if (isInitialState) {
+ *           setSelectedValue(newValue)
+ *       }
+ *    }
  * });
  *
  * ...
  *
  * setUncontrolledState("Neil Armstrong");
  */
-export function useControllableState(controlledValue, initialValue, defaultValue, onChange) {
+export function useControllableState(controlledValue, initialValue, defaultValue, { onChange } = {}) {
     validatePrerequisites(controlledValue, initialValue);
 
-    const { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
+    let { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
 
-    const [state, setState] = useState(initialState);
-    const [isControlled] = useState(isControlledProp);
+    const [isControlledRef] = useRefState(isControlledProp);
 
-    const notifyStateChanged = useCallback((newState, isInitial) => {
-        if (isFunction(onChange)) {
-            onChange(newState, isInitial);
-        }
-    }, [onChange]);
+    const transformState = useCallback((newState, context) => {
+        const transformedState = isFunction(onChange)
+            ? onChange(newState, { ...context, isControlled: isControlledRef.current })
+            : undefined;
+
+        return !isUndefined(transformedState)
+            ? transformedState
+            : newState;
+    }, [isControlledRef, onChange]);
 
     if (isInitialState) {
-        // notifyStateChanged(initialState, true, onChange);
-        notifyStateChanged(initialState, true);
+        initialState = transformState(initialState, { isInitial: true });
     }
 
-    useEffect(() => {
-        if (!isInitialState) {
-            const { newState, hasChanged } = computeSubsequentState(controlledValue, state, isControlled);
+    // Using a ref instead of useState because when in controlled mode the consumer must already have is own state management code and
+    // using useState here would cause 2 rerender when the controlled value update.
+    const [stateRef, setState] = useRefState(initialState);
 
-            if (hasChanged) {
-                setState(newState);
-                notifyStateChanged(newState, false);
-            }
+    if (!isInitialState) {
+        const { newState, hasChanged } = computeSubsequentState(controlledValue, stateRef.current, isControlledRef.current);
+
+        if (hasChanged) {
+            setState(transformState(newState, { isInitial: false }));
         }
-    }, [state, isControlled, isInitialState, controlledValue, initialValue, defaultValue, notifyStateChanged]);
-    // }, [state, isControlled, isInitialState, controlledValue, initialValue, defaultValue, onChange]);
-
-    // const setUncontrolledState = useSetUncontrolledState(state, setState, isControlled, onChange);
+    }
 
     /**
      * Safely attempt to set state for a prop that might be "controlled" by the consumer.
      * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
      */
     const setUncontrolledState = useCallback(maybeState => {
-        if (!isControlled) {
-            if (maybeState !== state) {
-                setState(maybeState);
-                notifyStateChanged(maybeState, false);
+        if (!isControlledRef.current) {
+            if (maybeState !== stateRef.current) {
+                setState(transformState(maybeState, { isInitial: false }), true);
             }
         }
-    }, [state, setState, isControlled, notifyStateChanged]);
-    // }, [state, setState, isControlled, onChange]);
+    }, [stateRef, setState, isControlledRef, transformState]);
 
-    return [state, setUncontrolledState, isControlledProp];
+    return [stateRef.current, setUncontrolledState, isControlledProp];
 }

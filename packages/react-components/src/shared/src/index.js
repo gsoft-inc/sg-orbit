@@ -1,7 +1,7 @@
 // Legacy stuff to review
 export * from "./auto-controlled-state";
 export * from "./DomEventListener";
-export * from "./env";
+export * from "./OLD_env";
 export * from "./assertion";
 export * from "./semantic-ui";
 export * from "./resize-observer";
@@ -13,7 +13,7 @@ export * from "./createSizeAdapter";
 export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./cssModule";
-export * from "./resolvePopperPosition";
+export * from "./OLD_resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./omitProps";
 export * from "./arrayify";
@@ -39,6 +39,7 @@ export * from "./useHasChild";
 export * from "./useIsInitialRender";
 export * from "./useDisposables";
 export * from "./useMediaQuery";
+export * from "./useForceRender";
 
 // Features
 export * from "./slots";
