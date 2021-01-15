@@ -35,7 +35,7 @@ export function InnerListItem({
                 rest,
                 {
                     size,
-                    className="o-ui-text-color-inherit",
+                    className:"o-ui-text-color-inherit",
                     as,
                     ref: forwardedRef
                 }
