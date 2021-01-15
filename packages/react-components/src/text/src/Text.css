@@ -1,8 +1,4 @@
 /* SIZE */
-.o-ui-text  {
-    color: var(--primary-text);
-}
-
 .o-ui-text-xs {
     font-size: var(--type-scale-9);
     line-height: 1;
@@ -52,8 +48,4 @@
     font-size: inherit;
     line-height: inherit;
     font-weight: inherit;
-}
-
-.o-ui-text-color-inherit {
-    color: inherit;
 }

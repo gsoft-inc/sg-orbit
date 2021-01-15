@@ -129,7 +129,7 @@ export function InnerButton(props) {
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
-            className: "o-ui-button-text o-ui-text-color-inherit",
+            className: "o-ui-button-text",
             "aria-hidden": loading
         },
         "right-icon": {

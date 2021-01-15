@@ -19,10 +19,6 @@ const propTypes = {
      */
     size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "inherit"]),
     /**
-     * A text can inherit it's parent color.
-     */
-    color: oneOf(["inherit"]),
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -41,7 +37,6 @@ export function InnerText(props) {
 
     const {
         size,
-        color,
         as = "span",
         children,
         forwardedRef,
@@ -56,7 +51,7 @@ export function InnerText(props) {
             {...mergeProps(
                 rest,
                 {
-                    className: mergeClasses(getTextClass(size, color), "o-ui-text"),
+                    className: mergeClasses(getTextClass(size), "o-ui-text"),
                     as,
                     ref: forwardedRef
                 }

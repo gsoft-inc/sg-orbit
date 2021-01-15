@@ -46,8 +46,7 @@ export function InnerParagraph(props) {
                     size,
                     className: cssModule(
                         "o-ui-p",
-                        normalizeSize(size),
-                        "o-ui-text-color-inherit"
+                        normalizeSize(size)
                     ),
                     as,
                     ref: forwardedRef

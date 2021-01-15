@@ -1,6 +1,5 @@
 .o-ui-icon {
     display: block;
-    color: var(--primary-text);
     fill: currentColor;
 }
 
@@ -40,17 +39,7 @@
     height: 1em;
 }
 
-.o-ui-icon-color-inherit {
-    color: inherit;
-}
-
 /* DISABLED */
 .o-ui-icon-disabled {
     opacity: var(--o-ui-disabled-opacity);
-}
-
-/* INHERIT */
-.o-ui-icon-link .o-ui-icon {
-    color: inherit;
-    fill: currentColor;
 }

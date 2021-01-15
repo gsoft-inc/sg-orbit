@@ -40,7 +40,3 @@
     line-height: 1;
     margin-bottom: calc(var(--type-scale-1) * .5);
 }
-
-.o-ui-heading-color-inherit {
-    color: inherit;
-}

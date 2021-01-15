@@ -1,7 +1,3 @@
 .o-ui-list {
     color: var(--primary-text);
 }
-
-.o-ui-list-color-inherit {
-    color: inherit;
-}

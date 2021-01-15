@@ -10,10 +10,6 @@ const propTypes = {
      */
     size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
     /**
-     * A heading can change it's default color.
-     */
-    color: oneOf(["inherit"]),
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -30,7 +26,6 @@ export function InnerHeading(props) {
         size,
         as: ElementType = "div",
         children,
-        color,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -45,7 +40,6 @@ export function InnerHeading(props) {
                 {
                     className: cssModule(
                         "o-ui-heading",
-                        color ? "color-inherit" : "",
                         normalizeSize(size)
                     ),
                     ref: forwardedRef

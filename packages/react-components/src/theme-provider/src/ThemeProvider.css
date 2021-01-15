@@ -1,5 +1,5 @@
 /* LIGHT */
-.o-ui-light-color-scheme * {
+.o-ui-light-color-scheme {
     /* FOUNDATIONS */
     --background: var(--white);
     --foreground-color-1: var(--white);
@@ -106,7 +106,7 @@
 }
 
 /* DARK */
-.o-ui-dark-color-scheme * {
+.o-ui-dark-color-scheme {
     /* FOUNDATIONS */
     --background: hsl(226deg, 20%, 15%);
     --foreground-color-1: #2B2F3C;
@@ -186,6 +186,7 @@
 
 /* APRICOT */
 .o-ui-apricot-theme {
+    color: var(--primary-text);
     --primary-50: var(--apricot-50);
     --primary-100: var(--apricot-100);
     --primary-200: var(--apricot-200);
@@ -199,7 +200,8 @@
 }
 
 /* OVERCAST */
-.o-ui-overcast-theme.o-ui-light-color-scheme {
+.o-ui-overcast-theme {
+    color: var(--primary-text);
     --primary-50: var(--overcast-50);
     --primary-100: var(--overcast-100);
     --primary-200: var(--overcast-200);
@@ -214,6 +216,7 @@
 
 /* DESKTOP */
 .o-ui-desktop-theme {
+    color: var(--primary-text);
     --primary-50: var(--desktop-50);
     --primary-100: var(--desktop-100);
     --primary-200: var(--desktop-200);

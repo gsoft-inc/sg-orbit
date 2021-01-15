@@ -107,7 +107,7 @@ export function InnerTextLink(props) {
         },
         text: {
             size,
-            className: "o-ui-link-text o-ui-text-color-inherit"
+            className: "o-ui-link-text"
         },
         icon: null
     }), [size]));

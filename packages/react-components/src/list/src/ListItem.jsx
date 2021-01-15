@@ -9,10 +9,6 @@ const propTypes = {
      */
     size: oneOf(["inherit"]),
     /**
-     * Default classes
-     */
-    className: string,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -35,7 +31,6 @@ export function InnerListItem({
                 rest,
                 {
                     size,
-                    className:"o-ui-text-color-inherit",
                     as,
                     ref: forwardedRef
                 }
