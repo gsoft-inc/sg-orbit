@@ -134,7 +134,7 @@ export function InnerButton(props) {
         },
         "right-icon": {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-icon o-ui-button-right-icon"
+            className: "o-ui-button-right-icon"
         }
     }), [size, condensed, loading]));
 
@@ -161,11 +161,10 @@ export function InnerButton(props) {
     );
 }
 
+InnerButton.propTypes = propTypes;
 
 export const Button = slot("button", forwardRef((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
 
 Button.displayName = "Button";
-
-
