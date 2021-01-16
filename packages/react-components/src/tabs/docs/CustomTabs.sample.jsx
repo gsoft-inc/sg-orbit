@@ -13,7 +13,7 @@ function ActiveHeader({ tab, children, ...rest }) {
     );
 }
 
-function CustomTabs() {
+render(() => {
     return (
         <Tabs aria-label="Planets">
             <Item>
@@ -30,8 +30,4 @@ function CustomTabs() {
             </Item>
         </Tabs>
     );
-}
-
-render(
-    <CustomTabs />
-);
+});

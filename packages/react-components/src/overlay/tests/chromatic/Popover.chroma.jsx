@@ -2,9 +2,8 @@ import "./Popover.css";
 
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
-import { Children, forwardRef, useContext, useLayoutEffect, useState } from "react";
-import { Popover } from "@react-components/overlay";
-import { PopoverContext } from "../../src";
+import { Children, forwardRef, useLayoutEffect, useState } from "react";
+import { Popover, usePopoverContext } from "@react-components/overlay";
 import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/input";
 import { ThemeProvider } from "@react-components/theme-provider";
@@ -348,7 +347,7 @@ stories()
     )
     .add("custom component", () => {
         const PrimaryBox = () => {
-            const { isVisible } = useContext(PopoverContext);
+            const { isVisible } = usePopoverContext();
 
             return (
                 <RedBox style={isVisible ? { backgroundColor: "var(--primary-500)" } : undefined} />

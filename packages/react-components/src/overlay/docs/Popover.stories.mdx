@@ -1,0 +1,114 @@
+import "./PinnedPopover.css";
+
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@react-components/placeholders";
+import { InnerPopover, Popover } from "@react-components/overlay";
+
+<Meta
+    title="Components/Popover"
+    id="popover"
+/>
+
+# Popover
+
+<Tagline>A Popover can be used to display some content on top of another.</Tagline>
+
+<ComponentInfo
+    usage={"import { Popover } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/overlay/src"
+/>
+
+## Usage
+
+A popover accepts exactly two children: the element which triggers the opening of the popover and the popover content. A trigger can be any component which handles `onClick` and `ref` props.
+
+#### This is not a tooltip
+
+A popover is not meant to be used as a tooltip but rather as a low level component to build something more complex. A tooltip is a specialization of a popper, if you need a component that behave like a tooltip, use the tooltip component instead.
+
+### Default
+
+A default popover using a button trigger.
+
+<Preview>
+    <Story name="default">
+        <Popover>
+            <Button>Toggle</Button>
+            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+        </Popover>
+    </Story>
+</Preview>
+
+### Position
+
+A popover can show at different positions.
+
+<Preview>
+    <Story name="position">
+        <Popover position="right">
+            <Button>Toggle</Button>
+            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+        </Popover>
+    </Story>
+</Preview>
+
+### Offset
+
+A popover can have an horizontal and / or vertical offset.
+
+<Preview>
+    <Story name="offset">
+        <Popover offset={[0, 15]}>
+            <Button>Toggle</Button>
+            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+        </Popover>
+    </Story>
+</Preview>
+
+### Pinned
+
+A popover automatic repositioning features can be disabled. When disabled, the popover will always be placed according to the specified position value. Automatic repositioning features are Popper.js [flip](https://popper.js.org/docs/v2/modifiers/flip/) and [prevent overflow](https://popper.js.org/docs/v2/modifiers/prevent-overflow/) features.
+
+<Preview filePath="/overlay/docs/PinnedPopover" />
+
+### Render props
+
+A popover can update is content based on the `isVisible` value and optionally use the `hide` function by providing a render prop function:
+
+<Preview>
+    <Story name="render props">
+        <Popover>
+            {({ isVisible }) => (
+                <>
+                    <Button color={isVisible ? "secondary" : "primary"}>Toggle</Button>
+                    <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+                </>
+            )}
+        </Popover>
+    </Story>
+</Preview>
+
+### Popover context
+
+The previous render props example could also be achieve by using the `usePopoverContext`.
+
+<Preview filePath="/overlay/docs/PopoverContext" noInline />
+
+### Controlled
+
+<Preview filePath="/overlay/docs/ControlledPopover" />
+
+## API
+
+### Popover
+
+<ComponentInfo
+    usage={"import { Popover } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerPopover} />
+
+

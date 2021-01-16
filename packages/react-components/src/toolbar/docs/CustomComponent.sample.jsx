@@ -10,7 +10,7 @@ function CustomComponent(props) {
     );
 }
 
-function CustomToolbar() {
+render(() => {
     return (
         <Toolbar>
             <CustomComponent />
@@ -21,8 +21,4 @@ function CustomToolbar() {
             </RadioGroup>
         </Toolbar>
     );
-}
-
-render(
-    <CustomToolbar />
-);
+});

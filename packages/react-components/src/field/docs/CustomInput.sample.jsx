@@ -14,7 +14,7 @@ function CustomInput(props) {
     );
 }
 
-function CustomInputField() {
+render(() => {
     const [value, setValue] = useState("");
 
     const isValid = value.length < 2;
@@ -34,8 +34,4 @@ function CustomInputField() {
             <ErrorMessage>Input is too long.</ErrorMessage>
         </Field>
     );
-}
-
-render(
-    <CustomInputField />
-);
+});

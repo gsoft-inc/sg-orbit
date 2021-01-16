@@ -24,7 +24,7 @@ function CustomComponent({
     );
 }
 
-function CustomGroup() {
+render(() => {
     return (
         <CheckboxGroup gap={2}>
             <CustomComponent value="milky-way">Milky Way</CustomComponent>
@@ -32,8 +32,4 @@ function CustomGroup() {
             <CustomComponent value="medusa">Medusa</CustomComponent>
         </CheckboxGroup>
     );
-}
-
-render(
-    <CustomGroup />
-);
+});

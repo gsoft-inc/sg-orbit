@@ -18,7 +18,7 @@ function CustomTrigger({ children, ...rest }) {
     );
 }
 
-function CustomDisclosureTrigger() {
+render(() => {
     return (
         <Disclosure>
             <CustomTrigger>EVE Online</CustomTrigger>
@@ -29,8 +29,4 @@ function CustomDisclosureTrigger() {
             </Content>
         </Disclosure>
     );
-}
-
-render(
-    <CustomDisclosureTrigger />
-);
+});

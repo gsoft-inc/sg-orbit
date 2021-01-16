@@ -1,4 +1,4 @@
-.popperBoundary {
+.pinned-popover-boundary {
     border: 10px solid #F5F5F5;
     border-radius: 4px;
     text-align: center;
@@ -8,14 +8,14 @@
     position: relative;
 }
 
-.popperBoundary:before {
+.pinned-popover-boundary:before {
     content: "";
     display: block;
     width: 1px;
     height: 75px;
 }
 
-.popperBoundary:after {
+.pinned-popover-boundary:after {
     content: "";
     display: block;
     width: 1px;

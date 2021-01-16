@@ -30,6 +30,7 @@ module.exports = {
         {
             files: ["*.sample.jsx"],
             rules: {
+                "no-unused-vars": "off",
                 "no-unused-expressions": "off",
                 "react/jsx-no-undef": "off",
                 "jsx-control-statements/jsx-jcs-no-undef": "off"

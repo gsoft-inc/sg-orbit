@@ -24,7 +24,7 @@ function CustomComponent({
     );
 }
 
-function CustomGroup() {
+render(() => {
     return (
         <RadioGroup gap={2} orientation="horizontal">
             <CustomComponent value="mars">Mars</CustomComponent>
@@ -32,8 +32,4 @@ function CustomGroup() {
             <CustomComponent value="pluton">Pluton</CustomComponent>
         </RadioGroup>
     );
-}
-
-render(
-    <CustomGroup />
-);
+});

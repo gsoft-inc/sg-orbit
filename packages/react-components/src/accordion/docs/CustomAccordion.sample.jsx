@@ -13,7 +13,7 @@ function ActiveHeader({ header, children, ...rest }) {
     );
 }
 
-function CustomAccordion() {
+render(() => {
     return (
         <Accordion aria-label="Planets">
             <Item>
@@ -31,7 +31,4 @@ function CustomAccordion() {
         </Accordion>
     );
 }
-
-render(
-    <CustomAccordion />
 );

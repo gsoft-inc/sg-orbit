@@ -32,7 +32,7 @@ function AsyncText({ isActive, children, ...rest }) {
     );
 }
 
-function AsyncTabs() {
+render(() => {
     return (
         <Tabs manual aria-label="Planets">
             {[
@@ -56,8 +56,4 @@ function AsyncTabs() {
                 )}
         </Tabs>
     );
-}
-
-render(
-    <AsyncTabs />
-);
+});

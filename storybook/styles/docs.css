@@ -10,7 +10,7 @@
 
 .sbdocs.sbdocs-content {
     max-width: 1200px;
-    font-size: var(--type-scale-6);
+    /* font-size: var(--type-scale-6); */
 }
 
 /* STORY */
