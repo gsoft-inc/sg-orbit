@@ -1,5 +1,5 @@
 import { Children, forwardRef, useCallback, useState } from "react";
-import { Overlay } from "./Overlay";
+import { Overlay, useOverlay, useRestoreFocus } from "../../overlay";
 import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
 import {
@@ -15,16 +15,8 @@ import {
     useMergedRefs
 } from "../../shared";
 import { isNil, isNumber } from "lodash";
-import { useOverlay } from "./useOverlay";
 import { usePopoverPosition } from "./usePopoverPosition";
 import { usePopoverTrigger } from "./usePopoverTrigger";
-import { useRestoreFocus } from "./useRestoreFocus";
-
-/*
-SO (again):
-- It will be offered has a basic Popover.
-- Orbit components will not use this but will rater use all the hooks.
-*/
 
 const propTypes = {
     /**

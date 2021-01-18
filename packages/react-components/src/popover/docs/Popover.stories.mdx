@@ -1,10 +1,24 @@
 import "./PinnedPopover.css";
 
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Content } from "@react-components/placeholders";
-import { InnerPopover, Popover } from "@react-components/overlay";
+import { InnerPopover, Popover } from "@react-components/popover";
+
+export function Square({ children }) {
+    return (
+        <Box
+            className="bg-primary-300"
+            style={{
+                width: "75px",
+                height: "75px"
+            }}
+        >
+            {children}
+        </Box>
+    );
+}
 
 <Meta
     title="Components/Popover"
@@ -32,11 +46,11 @@ A popover is not meant to be used as a tooltip but rather as a low level compone
 
 A default popover using a button trigger.
 
-<Preview>
+<Preview scope={{ Square }}>
     <Story name="default">
         <Popover>
             <Button>Toggle</Button>
-            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+            <Square />
         </Popover>
     </Story>
 </Preview>
@@ -45,11 +59,11 @@ A default popover using a button trigger.
 
 A popover can show at different positions.
 
-<Preview>
+<Preview scope={{ Square }}>
     <Story name="position">
         <Popover position="right">
             <Button>Toggle</Button>
-            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+            <Square />
         </Popover>
     </Story>
 </Preview>
@@ -58,11 +72,11 @@ A popover can show at different positions.
 
 A popover can have an horizontal and / or vertical offset.
 
-<Preview>
+<Preview scope={{ Square }}>
     <Story name="offset">
-        <Popover offset={[0, 15]}>
+        <Popover offset={[0, 8]}>
             <Button>Toggle</Button>
-            <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+            <Square />
         </Popover>
     </Story>
 </Preview>
@@ -71,19 +85,19 @@ A popover can have an horizontal and / or vertical offset.
 
 A popover automatic repositioning features can be disabled. When disabled, the popover will always be placed according to the specified position value. Automatic repositioning features are Popper.js [flip](https://popper.js.org/docs/v2/modifiers/flip/) and [prevent overflow](https://popper.js.org/docs/v2/modifiers/prevent-overflow/) features.
 
-<Preview filePath="/overlay/docs/PinnedPopover" />
+<Preview scope={{ Square }} filePath="/popover/docs/PinnedPopover" />
 
 ### Render props
 
 A popover can update is content based on the `isVisible` value and optionally use the `hide` function by providing a render prop function:
 
-<Preview>
+<Preview scope={{ Square }}>
     <Story name="render props">
         <Popover>
             {({ isVisible }) => (
                 <>
                     <Button color={isVisible ? "secondary" : "primary"}>Toggle</Button>
-                    <Content className="bg-white ba b--primary-300 br2 shadow-200 pa3">Two monkeys, Able and Baker, became the <br /> first living creatures to survive a space flight.</Content>
+                    <Square />
                 </>
             )}
         </Popover>
@@ -94,11 +108,11 @@ A popover can update is content based on the `isVisible` value and optionally us
 
 The previous render props example could also be achieve by using the `usePopoverContext`.
 
-<Preview filePath="/overlay/docs/PopoverContext" noInline />
+<Preview scope={{ Square }} filePath="/popover/docs/PopoverContext" noInline />
 
 ### Controlled
 
-<Preview filePath="/overlay/docs/ControlledPopover" />
+<Preview scope={{ Square }} filePath="/popover/docs/ControlledPopover" />
 
 ## API
 

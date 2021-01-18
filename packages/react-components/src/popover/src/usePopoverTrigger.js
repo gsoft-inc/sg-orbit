@@ -1,6 +1,6 @@
 import { FocusTarget, Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { useOverlayTrigger } from "./useOverlayTrigger";
+import { useOverlayTrigger } from "../../overlay";
 
 /*
 - Might want to add a more specialized one like useSelectTrigger if there are common feature between a Select and a ComboBox like an Autocomplete

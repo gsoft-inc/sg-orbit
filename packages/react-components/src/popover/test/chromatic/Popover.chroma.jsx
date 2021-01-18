@@ -3,7 +3,7 @@ import "./Popover.css";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
-import { Popover, usePopoverContext } from "@react-components/overlay";
+import { Popover, usePopoverContext } from "@react-components/popover";
 import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/input";
 import { ThemeProvider } from "@react-components/theme-provider";

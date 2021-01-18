@@ -15,13 +15,14 @@ import {
 } from "../../shared";
 import { HiddenSelect } from "./HiddenSelect";
 import { ListboxBase } from "../../listbox";
-import { Overlay, useOverlay, usePopoverPosition, usePopoverTrigger, useRestoreFocus } from "../../overlay";
+import { Overlay, useOverlay, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useCollectionBuilder } from "../../collection";
 import { useFieldInputProps } from "../../field";
+import { usePopoverPosition, usePopoverTrigger } from "../../popover";
 
 const propTypes = {
     /**
