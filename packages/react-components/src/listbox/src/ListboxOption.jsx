@@ -41,8 +41,9 @@ export function InnerListboxOption({
     const { selectedKeys, onSelect } = useListboxContext();
 
     const labelId = `${id}-label`;
+    const descriptionId = `${id}-description`;
 
-    const { icon, text, "right-icon": rightIcon } = useSlots(children, {
+    const { icon, text, description, "right-icon": rightIcon } = useSlots(children, {
         _: {
             defaultWrapper: Text
         },
@@ -53,6 +54,10 @@ export function InnerListboxOption({
         text: {
             id: labelId,
             className: "o-ui-listbox-option-label"
+        },
+        description: {
+            id: descriptionId,
+            className: "o-ui-listbox-option-description"
         },
         "right-icon": {
             size: "sm",
@@ -103,12 +108,14 @@ export function InnerListboxOption({
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
+                    "aria-describedby": descriptionId,
                     ref: forwardedRef
                 }
             )}
         >
             {icon}
             {text}
+            {description}
             {rightIcon}
         </Box>
     );

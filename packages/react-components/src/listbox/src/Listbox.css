@@ -20,6 +20,14 @@
     color: white;
 }
 
+.o-ui-listbox-option[aria-disabled="true"] {
+    opacity: 0.4;
+}
+
+.o-ui-listbox-option-description {
+    color: var(--cloud-500);
+}
+
 .o-ui-listbox-option:focus {
     color: red;
 }

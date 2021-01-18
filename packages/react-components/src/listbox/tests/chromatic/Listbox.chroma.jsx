@@ -125,6 +125,24 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
+    .add("item with description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+                <NotificationIcon slot="right-icon" />
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
     .add("item overflow", () =>
         <Listbox aria-label="Planets">
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>

@@ -6,7 +6,7 @@ function ActiveHeader({ header, children, ...rest }) {
         <AccordionHeader
             {...rest}
             header={header}
-            className={selectedIndexes.includes(index) ? "primary-600" : undefined}
+            className={cx({ "primary-600": selectedIndexes.includes(index) })}
         >
             {children}
         </AccordionHeader>

@@ -2,8 +2,8 @@ import "./Listbox.css";
 
 import { ListboxBase, SelectionMode } from "./ListboxBase";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { arrayify, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { forwardRef, useMemo } from "react";
 import { useCollectionBuilder } from "../../collection";
 
 const propTypes = {
@@ -12,7 +12,7 @@ const propTypes = {
      */
     selectedKey: oneOfType([string, arrayOf(string)]),
     /**
-     * The initial value of `selectedKeys` when uncontrolled.
+     * The initial value of `selectedKey` when uncontrolled.
      */
     defaultSelectedKey: oneOfType([string, arrayOf(string)]),
     /**
@@ -47,7 +47,7 @@ const propTypes = {
 export function InnerListbox({
     selectedKey: controlledKey,
     defaultSelectedKey,
-    selectionMode = SelectionMode.single,
+    selectionMode = "single",
     as = "div",
     children,
     forwardedRef,
@@ -55,7 +55,15 @@ export function InnerListbox({
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, []);
 
-    const nodes = useCollectionBuilder(children);
+    const renderProps = useMemo(() => ({
+        selectedKey: selectionMode === SelectionMode.single
+            ? selectedKey
+            : arrayify(selectedKey)
+    }), [selectedKey, selectionMode]);
+
+    const nodes = useCollectionBuilder(children, renderProps);
+
+    console.log(nodes);
 
     const handleChange = useEventCallback((event, newKey) => {
         setSelectedKey(newKey);

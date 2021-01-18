@@ -6,6 +6,7 @@ import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, Item } from "@react-components/placeholders";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
+import cx from "clsx";
 
 <Meta
     title="Components/Accordion"
@@ -95,7 +96,7 @@ An accordion item can update is content based on the `isOpen` value by providing
             <Item>
                 {({ isOpen }) => (
                     <>
-                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                        <Header className={cx({ "primary-600": isOpen })} as="h3">
                             Mars
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -105,7 +106,7 @@ An accordion item can update is content based on the `isOpen` value by providing
             <Item>
                 {({ isOpen }) => (
                     <>
-                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                        <Header className={cx({ "primary-600": isOpen })} as="h3">
                             Jupiter
                         </Header>
                         <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
@@ -115,7 +116,7 @@ An accordion item can update is content based on the `isOpen` value by providing
             <Item>
                 {({ isOpen }) => (
                     <>
-                        <Header className={isOpen ? "primary-600" : undefined} as="h3">
+                        <Header className={cx({ "primary-600": isOpen })} as="h3">
                             Venus
                         </Header>
                         <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
