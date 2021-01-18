@@ -24,12 +24,6 @@ const propTypes = {
      */
     slot: string
 };
-
-export function getIconClass(color) {
-    const colorClass = color ? `color-${color}`: "";
-
-    return colorClass;
-}
 export function InnerIcon(props) {
     const [styleProps] = useStyleProps("icon");
 
@@ -55,7 +49,7 @@ export function InnerIcon(props) {
                         "o-ui-icon",
                         disabled && "disabled",
                         normalizeSize(size),
-                        getIconClass(color)
+                        color ? `color-${color}`: ""
                     ),
                     focusable: false,
                     as: type,

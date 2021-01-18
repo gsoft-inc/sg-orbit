@@ -67,7 +67,8 @@
 }
 
 .o-ui-icon-button .o-ui-button-icon,
-.o-ui-button-icon .o-ui-icon {
+.o-ui-icon-button .o-ui-button-icon .o-ui-icon {
+    /* @todo Second rule won't be applied, find a way to move it and check it still works */
     color: inherit;
     fill: currentColor;
 }

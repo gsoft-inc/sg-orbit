@@ -34,7 +34,6 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
-    /* box-shadow: 0 0 0 2px currentColor; */
     border-radius: var(--o-ui-pill-border-radius);
     transition: var(--o-ui-focus-ring-transition);
 }

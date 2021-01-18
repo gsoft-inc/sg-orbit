@@ -185,7 +185,21 @@
 }
 
 /* APRICOT */
-.o-ui-apricot-theme {
+.o-ui-light-color-scheme.o-ui-apricot-theme {
+    color: var(--primary-text);
+    --primary-50: var(--apricot-50);
+    --primary-100: var(--apricot-100);
+    --primary-200: var(--apricot-200);
+    --primary-300: var(--apricot-300);
+    --primary-400: var(--apricot-400);
+    --primary-500: var(--apricot-500);
+    --primary-600: var(--apricot-600);
+    --primary-700: var(--apricot-700);
+    --primary-800: var(--apricot-800);
+    --primary-900: var(--apricot-900);
+}
+
+.o-ui-dark-color-scheme.o-ui-apricot-theme {
     color: var(--primary-text);
     --primary-50: var(--apricot-50);
     --primary-100: var(--apricot-100);
@@ -200,7 +214,21 @@
 }
 
 /* OVERCAST */
-.o-ui-overcast-theme {
+.o-ui-light-color-scheme.o-ui-overcast-theme {
+    color: var(--primary-text);
+    --primary-50: var(--overcast-50);
+    --primary-100: var(--overcast-100);
+    --primary-200: var(--overcast-200);
+    --primary-300: var(--overcast-300);
+    --primary-400: var(--overcast-400);
+    --primary-500: var(--overcast-500);
+    --primary-600: var(--overcast-600);
+    --primary-700: var(--overcast-700);
+    --primary-800: var(--overcast-800);
+    --primary-900: var(--overcast-900);
+}
+
+.o-ui-dark-color-scheme.o-ui-overcast-theme {
     color: var(--primary-text);
     --primary-50: var(--overcast-50);
     --primary-100: var(--overcast-100);
@@ -215,7 +243,21 @@
 }
 
 /* DESKTOP */
-.o-ui-desktop-theme {
+.o-ui-light-color-scheme.o-ui-desktop-theme {
+    color: var(--primary-text);
+    --primary-50: var(--desktop-50);
+    --primary-100: var(--desktop-100);
+    --primary-200: var(--desktop-200);
+    --primary-300: var(--desktop-300);
+    --primary-400: var(--desktop-400);
+    --primary-500: var(--desktop-500);
+    --primary-600: var(--desktop-600);
+    --primary-700: var(--desktop-700);
+    --primary-800: var(--desktop-800);
+    --primary-900: var(--desktop-900);
+}
+
+.o-ui-dark-color-scheme.o-ui-desktop-theme {
     color: var(--primary-text);
     --primary-50: var(--desktop-50);
     --primary-100: var(--desktop-100);

@@ -5,10 +5,8 @@ import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export function getTextClass(size, color) {
-    const colorClass = color ? `o-ui-text-color-${color}`: "";
-
-    return `o-ui-text-${normalizeSize(size)} ${colorClass} `;
+export function getTextClass(size) {
+    return `o-ui-text-${normalizeSize(size)} `;
 }
 
 ////////

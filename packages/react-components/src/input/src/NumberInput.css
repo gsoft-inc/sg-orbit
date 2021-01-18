@@ -30,7 +30,7 @@
 /* SPINNER */
 .o-ui-number-input-spinner {
     display: flex;
-    /* visibility: hidden; */
+    visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
     min-height: calc(var(--scale-hotel) - 2px);
