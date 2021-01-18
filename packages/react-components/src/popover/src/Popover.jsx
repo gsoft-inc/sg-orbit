@@ -152,10 +152,11 @@ export function InnerPopover({
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleHide,
-        // Do not hide on blur when the focus is on the trigger. It would result in double toggling the overlay.
-        canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
         hideOnEscape,
         hideOnBlur,
+        hideOnOutsideClick: !hideOnBlur || !autoFocus,
+        // Do not hide when the focus is on the trigger.
+        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
         overlayRef
     });
 
@@ -174,7 +175,6 @@ export function InnerPopover({
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isVisible });
 
-    // When autoFocus is specified, try to focus the first focusable child element.
     useAutoFocusChild(
         focusManager,
         {
@@ -185,9 +185,6 @@ export function InnerPopover({
                 overlayElement?.focus();
             })
         });
-
-    // Otherwise, make sure to at least focus the overlay element to enable closing on blur and esc key.
-    useAutoFocus(overlayRef, { isDisabled: autoFocus || !isVisible });
 
     const triggerMarkup = augmentElement(trigger, {
         ...triggerProps,

@@ -8,7 +8,7 @@ export function useOverlay({
     hideOnEscape,
     hideOnBlur,
     hideOnOutsideClick,
-    canHideOnBlur,
+    canHide,
     overlayRef
 }) {
     const hide = event => {
@@ -25,13 +25,15 @@ export function useOverlay({
     };
 
     const handleBlurWithin = useEventCallback(event => {
-        if (isNil(canHideOnBlur) || canHideOnBlur(event.relatedTarget)) {
+        if (isNil(canHide) || canHide(event.relatedTarget)) {
             hide(event);
         }
     });
 
     const onInteractOutside = useEventCallback(event => {
-        hide(event);
+        if (isNil(canHide) || canHide(event.target)) {
+            hide(event);
+        }
     });
 
     useInteractOutside(overlayRef, {

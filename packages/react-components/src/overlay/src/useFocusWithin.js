@@ -25,6 +25,8 @@ export function useFocusWithin({ onFocusWithin, onBlurWithin, isDisabled }) {
             // include the relatedTarget (where focus is moving).
             if (isFocusWithinRef.current && !event.currentTarget.contains(event.relatedTarget)) {
                 if (!isNil(onBlurWithin)) {
+                    console.log("useFocusWithin - onBlurWithin");
+
                     onBlurWithin(event);
                 }
 

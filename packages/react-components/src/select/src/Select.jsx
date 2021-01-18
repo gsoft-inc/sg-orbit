@@ -208,10 +208,10 @@ export function InnerSelect(props) {
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleClose,
-        // Without this condition, closing the menu with a mouse click will double toggled the menu.
-        canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
         hideOnEscape: true,
         hideOnBlur: true,
+        // Do not hide when the focus is on the trigger.
+        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
         overlayRef
     });
 
