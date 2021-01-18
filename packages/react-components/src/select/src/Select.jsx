@@ -227,7 +227,7 @@ export function InnerSelect(props) {
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isVisible });
 
     useAutoFocus(triggerRef, {
-        isDisabled: !autoFocus,
+        isDisabled: !autoFocus || isVisible,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
