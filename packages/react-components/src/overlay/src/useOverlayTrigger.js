@@ -1,13 +1,13 @@
 import { useId } from "../../shared";
 
-export function useOverlayTrigger(type, { isVisible }) {
+export function useOverlayTrigger(isOverlayVisible, type) {
     const overlayId = useId(null, "o-ui-overlay");
 
     return {
         triggerProps: {
             "aria-haspopup": type,
-            "aria-expanded": isVisible,
-            "aria-controls": isVisible ? overlayId : null
+            "aria-expanded": isOverlayVisible,
+            "aria-controls": isOverlayVisible ? overlayId : null
         },
         overlayProps: {
             id: overlayId

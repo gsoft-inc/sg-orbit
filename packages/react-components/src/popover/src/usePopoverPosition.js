@@ -51,10 +51,7 @@ export function usePopoverPosition(triggerElement, overlayElement, {
     useResizeObserver(overlayElement, handleOverlayElementResize);
 
     return {
-        overlayStyles: {
-            ...styles.popper,
-            zIndex: 100000
-        },
+        overlayStyles: styles.popper,
         overlayProps: attributes.popper || {}
     };
 }

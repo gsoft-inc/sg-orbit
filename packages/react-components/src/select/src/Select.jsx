@@ -16,14 +16,14 @@ import {
 } from "../../shared";
 import { HiddenSelect } from "./HiddenSelect";
 import { ListboxBase } from "../../listbox";
-import { Overlay, useOverlay, useRestoreFocus } from "../../overlay";
+import { Overlay, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useCollectionBuilder } from "../../collection";
 import { useFieldInputProps } from "../../field";
-import { usePopoverPosition, usePopoverTrigger } from "../../popover";
+import { usePopover } from "../../popover";
 
 const propTypes = {
     /**
@@ -101,6 +101,10 @@ const propTypes = {
      */
     allowPreventOverflow: bool,
     /**
+     * z-index of the overlay element.
+     */
+    zIndex: number,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -132,6 +136,7 @@ export function InnerSelect(props) {
         disabled,
         allowFlip,
         allowPreventOverflow,
+        zIndex,
         active,
         focus,
         hover,
@@ -145,7 +150,7 @@ export function InnerSelect(props) {
         fieldProps
     );
 
-    const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
+    // const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
@@ -158,6 +163,21 @@ export function InnerSelect(props) {
 
     const autoFocusTargetRef = useRef(null);
 
+    const { isVisible, setVisibility: setPopoverVisibility, triggerProps, overlayProps } = usePopover(triggerElement, overlayElement, "listbox", {
+        show: open,
+        defaultShow: defaultOpen,
+        onVisibilityChange,
+        hideOnEscape: true,
+        hideOnBlur: true,
+        // Do not hide when the focus is on the trigger.
+        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
+        position: `${direction}-${align}`,
+        offset: [0, 4],
+        allowFlip,
+        allowPreventOverflow,
+        zIndex
+    });
+
     const setSelection = (event, newKey) => {
         if (!isNil(onChange)) {
             onChange(event, newKey);
@@ -167,21 +187,13 @@ export function InnerSelect(props) {
     };
 
     const setVisibility = useCallback((event, newVisibility, focusTarget = null) => {
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, newVisibility);
-        }
-
+        setPopoverVisibility(event, newVisibility);
         autoFocusTargetRef.current = focusTarget;
-        setIsVisible(newVisibility);
-    }, [onVisibilityChange, setIsVisible]);
+    }, [setPopoverVisibility, autoFocusTargetRef]);
 
     const renderProps = useMemo(() => ({ selectedKey }), [selectedKey]);
 
     const nodes = useCollectionBuilder(children, renderProps);
-
-    const handleTriggerToggle = useEventCallback((event, focusTarget) => {
-        setVisibility(event, !isVisible, focusTarget);
-    });
 
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
@@ -199,33 +211,6 @@ export function InnerSelect(props) {
         setVisibility(event, false);
     });
 
-    const handleClose = useEventCallback(event => {
-        setVisibility(event, false);
-    });
-
-    const handleTriggerElementResize = useEventCallback(entry => {
-        setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`);
-    });
-
-    const { overlayProps } = useOverlay({
-        isVisible,
-        onHide: handleClose,
-        hideOnEscape: true,
-        hideOnBlur: true,
-        // Do not hide when the focus is on the trigger.
-        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
-        overlayRef
-    });
-
-    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("listbox", { isVisible, onToggle: handleTriggerToggle });
-
-    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition(triggerElement, overlayElement, {
-        position: `${direction}-${align}`,
-        offset: [0, 4],
-        allowFlip,
-        allowPreventOverflow
-    });
-
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isVisible });
 
     useAutoFocus(triggerRef, {
@@ -233,7 +218,12 @@ export function InnerSelect(props) {
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    useResizeObserver(triggerElement, handleTriggerElementResize, { box: "border-box" });
+    // Ensure the trigger and menu width stay in sync.
+    useResizeObserver(
+        triggerElement,
+        useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }),
+        { box: "border-box" }
+    );
 
     const selectedNode = nodes.find(x => x.itemKey === selectedKey);
 
@@ -303,15 +293,12 @@ export function InnerSelect(props) {
             <Overlay
                 {...mergeProps(
                     overlayProps,
-                    overlayPositionProps,
-                    overlayTriggerProps,
                     restoreFocusProps,
                     {
                         show: isVisible,
                         className: "o-ui-select-menu",
                         style: {
-                            width: triggerWidth,
-                            ...overlayStyles
+                            width: triggerWidth
                         },
                         ref: overlayRef
                     }

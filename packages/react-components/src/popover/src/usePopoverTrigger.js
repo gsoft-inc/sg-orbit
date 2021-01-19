@@ -2,14 +2,8 @@ import { FocusTarget, Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useOverlayTrigger } from "../../overlay";
 
-/*
-- Might want to add a more specialized one like useSelectTrigger if there are common feature between a Select and a ComboBox like an Autocomplete
-- For example, a select should open and select the first or last value when using up or down arrows on a close select
-- Hardcode type to listbox
-*/
-
-export function usePopoverTrigger(type, { isVisible, onToggle }) {
-    const { triggerProps, overlayProps } = useOverlayTrigger(type, { isVisible });
+export function usePopoverTrigger(isOverlayVisible, type, { onToggle }) {
+    const { triggerProps, overlayProps } = useOverlayTrigger(isOverlayVisible, type);
 
     const toggle = (event, focusTarget) => {
         if (!isNil(onToggle)) {

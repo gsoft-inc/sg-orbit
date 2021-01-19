@@ -4,13 +4,12 @@ import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 import { useRef } from "react";
 
-export function useOverlay({
+export function useOverlay(overlayRef, {
     onHide,
     hideOnEscape,
     hideOnBlur,
     hideOnOutsideClick,
-    canHide,
-    overlayRef
+    canHide
 }) {
     const activeElementRef = useRef();
 

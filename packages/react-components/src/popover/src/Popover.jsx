@@ -1,22 +1,10 @@
 import { Children, forwardRef, useCallback, useState } from "react";
-import { Overlay, useOverlay, useRestoreFocus } from "../../overlay";
+import { Overlay, useRestoreFocus } from "../../overlay";
 import { PopoverContext } from "./PopoverContext";
 import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
-import {
-    augmentElement,
-    mergeProps,
-    resolveChildren,
-    useAutoFocus,
-    useAutoFocusChild,
-    useControllableState,
-    useEventCallback,
-    useFocusManager,
-    useFocusScope,
-    useMergedRefs
-} from "../../shared";
+import { augmentElement, mergeProps, resolveChildren, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
 import { isNil, isNumber } from "lodash";
-import { usePopoverPosition } from "./usePopoverPosition";
-import { usePopoverTrigger } from "./usePopoverTrigger";
+import { usePopover } from "./usePopover";
 
 const propTypes = {
     /**
@@ -92,6 +80,10 @@ const propTypes = {
      */
     containerElement: instanceOf(HTMLElement),
     /**
+     * z-index of the overlay element.
+     */
+    zIndex: number,
+    /**
      * React children.
      */
     children: oneOfType([any, func]).isRequired
@@ -111,11 +103,11 @@ export function InnerPopover({
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
+    zIndex,
     children,
     forwardedRef,
     ...rest
 }) {
-    const [isVisible, setIsVisible] = useControllableState(show, defaultShow, false);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
 
@@ -123,13 +115,23 @@ export function InnerPopover({
 
     const overlayRef = useMergedRefs(setOverlayElement, setFocusRef, forwardedRef);
 
-    const setVisibility = useCallback((event, newVisibility) => {
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, newVisibility);
-        }
-
-        setIsVisible(newVisibility);
-    }, [onVisibilityChange, setIsVisible]);
+    const { isVisible, setVisibility, triggerProps, overlayProps } = usePopover(triggerElement, overlayElement, "dialog", {
+        show,
+        defaultShow,
+        onVisibilityChange,
+        hideOnEscape,
+        hideOnBlur,
+        hideOnOutsideClick: !hideOnBlur || !autoFocus,
+        // Do not hide when the focus is on the trigger.
+        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
+        position,
+        offset,
+        allowFlip,
+        allowPreventOverflow,
+        pinned,
+        boundaryElement: containerElement,
+        zIndex
+    });
 
     const hide = useCallback(event => {
         setVisibility(event, false);
@@ -140,36 +142,6 @@ export function InnerPopover({
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A popover must have exactly 2 children.");
     }
-
-    const handleTriggerToggle = useEventCallback(event => {
-        setVisibility(event, !isVisible);
-    });
-
-    const handleHide = useEventCallback(event => {
-        hide(event);
-    });
-
-    const { overlayProps } = useOverlay({
-        isVisible,
-        onHide: handleHide,
-        hideOnEscape,
-        hideOnBlur,
-        hideOnOutsideClick: !hideOnBlur || !autoFocus,
-        // Do not hide when the focus is on the trigger.
-        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
-        overlayRef
-    });
-
-    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("dialog", { isVisible, onToggle: handleTriggerToggle });
-
-    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition(triggerElement, overlayElement, {
-        position,
-        offset,
-        allowFlip,
-        boundaryElement: containerElement,
-        allowPreventOverflow,
-        pinned
-    });
 
     const focusManager = useFocusManager(focusScope);
 
@@ -198,13 +170,10 @@ export function InnerPopover({
                 {...mergeProps(
                     rest,
                     overlayProps,
-                    overlayPositionProps,
-                    overlayTriggerProps,
                     restoreFocusProps,
                     {
                         show: isVisible,
                         className: "o-ui-popover",
-                        style: overlayStyles,
                         containerElement,
                         ref: overlayRef
                     }

@@ -2,7 +2,7 @@
     const [isPinned, setIsPinned] = useState(true);
     const [boundaryElement, setBoundaryElement] = useState();
 
-    const handleChange = useCallback(() => {
+    const handleChange = useCallback((event, newValue) => {
         setIsPinned(!isPinned);
     }, [isPinned, setIsPinned]);
 
