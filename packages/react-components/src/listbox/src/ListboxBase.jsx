@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import {
     Keys,
     arrayify,
+    cssModule,
     mergeProps,
     useAutoFocus,
     useAutoFocusChild,
@@ -112,6 +113,10 @@ const propTypes = {
      */
     autoFocusTarget: string,
     /**
+     * Whether or not the listbox take up the width of its container.
+     */
+    fluid: bool,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType])
@@ -127,6 +132,7 @@ export const ListboxBase = forwardRef(({
     selectionMode,
     autoFocus,
     autoFocusTarget,
+    fluid,
     "aria-label": ariaLabel,
     as,
     ...rest
@@ -280,7 +286,10 @@ export const ListboxBase = forwardRef(({
                 rest,
                 {
                     id: rootId,
-                    className: "o-ui-listbox",
+                    className: cssModule(
+                        "o-ui-listbox",
+                        fluid && "fluid"
+                    ),
                     onKeyDown: handleKeyDown,
                     role: "listbox",
                     "aria-label": ariaLabel,

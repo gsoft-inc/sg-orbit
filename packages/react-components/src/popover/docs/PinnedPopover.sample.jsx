@@ -2,6 +2,10 @@
     const [isPinned, setIsPinned] = useState(true);
     const [boundaryElement, setBoundaryElement] = useState();
 
+    const handleChange = useCallback(() => {
+        setIsPinned(!isPinned);
+    }, [isPinned, setIsPinned]);
+
     return (
         <>
             <div className="pinned-popover-boundary" ref={setBoundaryElement}>
@@ -18,9 +22,9 @@
             <div className="mt4">
                 <Switch
                     checked={isPinned}
-                    onChange={() => { setIsPinned(!isPinned); }}
+                    onChange={handleChange}
                 >
-                        Pinned
+                    Pinned
                 </Switch>
             </div>
         </>

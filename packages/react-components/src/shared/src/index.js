@@ -4,7 +4,6 @@ export * from "./DomEventListener";
 export * from "./OLD_env";
 export * from "./assertion";
 export * from "./semantic-ui";
-export * from "./resize-observer";
 
 // Utils
 export * from "./keys";
@@ -40,6 +39,7 @@ export * from "./useIsInitialRender";
 export * from "./useDisposables";
 export * from "./useMediaQuery";
 export * from "./useForceRender";
+export * from "./useResizeObserver";
 
 // Features
 export * from "./slots";

@@ -1,12 +1,15 @@
 () => {
     const [isChecked, setIsChecked] = useState(false);
 
-    console.log(isChecked);
+    const handleChange = useCallback(() => {
+        setIsChecked(x => !x);
+        console.log(!isChecked);
+    }, [isChecked, setIsChecked]);
 
     return (
         <Switch
             checked={isChecked}
-            onChange={() => { setIsChecked(x => !x); }}
+            onChange={handleChange}
         >
             {isChecked ? "On" : "Off"}
         </Switch>

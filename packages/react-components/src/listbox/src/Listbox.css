@@ -6,6 +6,11 @@
     width: max-content;
     max-height: calc(10 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
+    background-color: darkkhaki;
+}
+
+.o-ui-listbox-fluid {
+    width: 100%;
 }
 
 .o-ui-listbox-option {

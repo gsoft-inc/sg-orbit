@@ -171,12 +171,12 @@ A listbox item can have a description.
     </Story>
 </Preview>
 
-### Disabled
+### Disabled item
 
 A listbox item can be disabled.
 
 <Preview>
-    <Story name="disabled">
+    <Story name="disabled item">
         <Listbox aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -185,6 +185,38 @@ A listbox item can be disabled.
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Fluid
+
+A listbox can take the width of it's container.
+
+<Preview>
+    <Story name="fluid">
+        <Listbox fluid aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Data items
+
+A listbox items can be provided with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data items">
+        <Listbox aria-label="Planets">
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
         </Listbox>
     </Story>
 </Preview>

@@ -104,6 +104,28 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
     </Story>
 </Preview>
 
+### Data tabs
+
+Tabs can be provided with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data tabs">
+        <Tabs aria-label="Planets">
+            {[
+                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ]
+                .map(({ header, content }) =>
+                    <Item key={header}>
+                        <Header>{header}</Header>
+                        <Content>{content}</Content>
+                    </Item>
+                )}
+        </Tabs>
+    </Story>
+</Preview>
+
 ### Render props
 
 A tab can update is content based on the `isActive` value by providing a render prop function.
@@ -139,28 +161,6 @@ A tab can update is content based on the `isActive` value by providing a render 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
 <Preview filePath="/tabs/docs/CustomTabs" noInline />
-
-### Data tabs
-
-You can supply tabs content with an array instead of using the granular components.
-
-<Preview>
-    <Story name="data render">
-        <Tabs aria-label="Planets">
-            {[
-                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
-                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
-                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
-            ]
-                .map(({ header, content }) =>
-                    <Item key={header}>
-                        <Header>{header}</Header>
-                        <Content>{content}</Content>
-                    </Item>
-                )}
-        </Tabs>
-    </Story>
-</Preview>
 
 ### Manually activated tabs
 

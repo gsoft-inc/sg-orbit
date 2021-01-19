@@ -55,9 +55,23 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
+    )
+    .add("fluid", () =>
+        <Select fluid aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
     );
 
-createTestSuite(<Select variant="transparent" />, stories("/transparent"));
+createTestSuite(<Select variant="transparent" />, stories("/transparent"))
+    .add("fluid", () =>
+        <Select fluid variant="transparent" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
 
 createTestSuite(<Select variant="inline" />, stories("/inline"))
     .add("in a block", () => {

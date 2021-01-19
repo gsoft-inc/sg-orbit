@@ -11,6 +11,7 @@ import {
     useEventCallback,
     useFocusScope,
     useMergedRefs,
+    useResizeObserver,
     useSlots
 } from "../../shared";
 import { HiddenSelect } from "./HiddenSelect";
@@ -148,6 +149,7 @@ export function InnerSelect(props) {
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
+    const [triggerWidth, setTriggerWidth] = useState("0px");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -201,6 +203,10 @@ export function InnerSelect(props) {
         setVisibility(event, false);
     });
 
+    const handleTriggerElementResize = useEventCallback(entry => {
+        setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`);
+    });
+
     const { overlayProps } = useOverlay({
         isVisible,
         onHide: handleClose,
@@ -226,6 +232,8 @@ export function InnerSelect(props) {
         isDisabled: !autoFocus || isVisible,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
+
+    useResizeObserver(triggerElement, handleTriggerElementResize, { box: "border-box" });
 
     const selectedNode = nodes.find(x => x.itemKey === selectedKey);
 
@@ -301,7 +309,10 @@ export function InnerSelect(props) {
                     {
                         show: isVisible,
                         className: "o-ui-select-menu",
-                        style: overlayStyles,
+                        style: {
+                            width: triggerWidth,
+                            ...overlayStyles
+                        },
                         ref: overlayRef
                     }
                 )}
@@ -314,6 +325,7 @@ export function InnerSelect(props) {
                        a value because the listbox re-render before the exit animation is done. */
                     autoFocus={isVisible}
                     autoFocusTarget={autoFocusTargetRef.current}
+                    fluid
                     aria-label={!fieldProps["aria-labelledby"] ? ariaLabel : undefined}
                     aria-labelledby={fieldProps["aria-labelledby"]}
                     aria-describedby={fieldProps["aria-describedby"]}

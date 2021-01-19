@@ -31,6 +31,10 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
+     * Whether or not the listbox take up the width of its container.
+     */
+    fluid: bool,
+    /**
      * A label providing an accessible name to the listbox. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string.isRequired,

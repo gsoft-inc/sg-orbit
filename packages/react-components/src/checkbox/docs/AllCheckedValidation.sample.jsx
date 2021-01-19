@@ -3,14 +3,16 @@
 
     const isValid = ["milky-way", "andromeda", "medusa"].every(x => value.includes(x));
 
+    const handleChange = useCallback((event, newValue) => {
+        setValue(x);
+        console.log(x);
+    }, [setValue]);
+
     return (
         <CheckboxGroup
             validationState={isValid ? "valid" : "invalid"}
             value={value}
-            onChange={(event, x) => {
-                setValue(x);
-                console.log(x);
-            }}
+            onChange={handleChange}
         >
             <Checkbox value="milky-way">Milky Way</Checkbox>
             <Checkbox value="andromeda">Andromeda</Checkbox>

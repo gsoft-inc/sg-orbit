@@ -43,3 +43,7 @@
 .o-ui-select-menu {
     border: 1px solid black;
 }
+
+.o-ui-select-menu-fluid {
+    width: 100%;
+}

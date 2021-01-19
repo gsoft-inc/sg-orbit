@@ -142,12 +142,12 @@ A select item can have a description.
     </Story>
 </Preview>
 
-### Disabled
+### Disabled item
 
 A select item can be disabled.
 
 <Preview>
-    <Story name="disabled">
+    <Story name="disabled item">
         <Select placeholder="Planets" aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -220,6 +220,20 @@ A select position can vary.
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Data items
+
+A select items can be provided with an array instead of using the granular components.
+
+<Preview>
+    <Story name="data items">
+        <Select placeholder="Planets" aria-label="Planets">
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
         </Select>
     </Story>
 </Preview>

@@ -150,6 +150,13 @@ stories()
             <Item>Mars</Item>
         </Listbox>
     )
+    .add("fluid", () =>
+        <Listbox fluid aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Listbox>
+    )
     .add("states", () =>
         <Inline>
             <Listbox selectedKey="earth" aria-label="Planets">

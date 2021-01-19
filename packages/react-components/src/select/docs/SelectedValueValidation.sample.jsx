@@ -1,15 +1,17 @@
 () => {
     const [isValid, setIsValid] = useState(false);
 
+    const handleChange = useCallback((event, newValue) => {
+        setIsValid(newValue === "earth");
+        console.log(newValue);
+    }, [setIsValid]);
+
     return (
         <Select
             defaultSelectedKey="mars"
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
-            onChange={(event, newValue) => {
-                setIsValid(newValue === "earth");
-                console.log(newValue);
-            }}
+            onChange={handleChange}
             aria-label="Planets"
         >
             <Item key="earth">Earth</Item>

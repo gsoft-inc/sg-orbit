@@ -1,14 +1,16 @@
 () => {
     const [selectedKey, setSelectedKey] = useState("earth");
 
+    const handleChange = useCallback((event, newValue) => {
+        setSelectedKey(newValue);
+        console.log(newValue);
+    }, [setSelectedKey]);
+
     return (
         <Listbox
             selectedKey={selectedKey}
             aria-label="Planets"
-            onChange={(event, newValue) => {
-                setSelectedKey(newValue);
-                console.log(newValue);
-            }}
+            onChange={handleChange}
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
