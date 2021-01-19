@@ -1,8 +1,8 @@
 .o-ui-lozenge {
     display: inline-flex;
     align-items: center;
-    background-color: var(--foreground-color-3);
-    color: var(--primary-text);
+    background-color: var(--background-3);
+    color: var(--text-1);
     text-transform: uppercase;
     padding: 0 var(--scale-bravo);
     border-radius: 4px;
@@ -34,7 +34,7 @@
 
 /* PRIMARY */
 .o-ui-lozenge.o-ui-lozenge-primary {
-    background-color: var(--foreground-color-brand);
+    background-color: var(--background-primary);
     color: var(--static-white);
 }
 

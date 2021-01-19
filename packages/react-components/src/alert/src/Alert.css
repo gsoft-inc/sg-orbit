@@ -76,18 +76,18 @@
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--critical-50);
-    color: var(--critical-900);
+    background-color: var(--danger-50);
+    color: var(--danger-900);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--critical-900);
+    fill: var(--danger-900);
 }
 
 /* DARK MODE */
-/* @todo  Note add an indirection here - we should not be aware that we are using Sunray and al. */
+/* @todo  Note add an indirection here - we should not be aware that we are using Sunray and al. - not until colors are under control*/
 .o-ui-dark-color-scheme .o-ui-alert-warning {
-    background-color: var(--sunray-700);
+    background-color: var(--warning-700);
     --opacity-sunray-700: .4;
 }
 

@@ -1,12 +1,12 @@
 .o-ui-counter {
-    color: var(--primary-text);
+    color: var(--text-1);
 }
 
 /* PILL */
 .o-ui-counter-pill {
     display: inline-flex;
-    background-color: var(--foreground-color-2);
-    color: var(--primary-text);
+    background-color: var(--background-2);
+    color: var(--text-1);
     border-radius: var(--o-ui-pill-border-radius);
     line-height: 1;
     align-items: center;
@@ -30,7 +30,7 @@
 
 /* PILL | COLOR */
 .o-ui-counter-pill.o-ui-counter-light {
-    background-color: var(--foreground-color-3);
+    background-color: var(--background-3);
 }
 
 /* PILL | HIGHLIGHT */
@@ -41,21 +41,21 @@
 /* DIVIDER */
 .o-ui-counter-divider {
     display: inline-block;
-    border-left: 1px solid var(--primary-border);
+    border-left: 1px solid var(--border-1);
     padding-left: var(--scale-bravo);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     border-left: 0;
-    border-right: 1px solid var(--primary-border);
+    border-right: 1px solid var(--border-1);
     padding-left: 0;
     padding-right: var(--scale-bravo);
 }
 
 /* DIVIDER | COLOR | LIGHT */
 .o-ui-counter-divider.o-ui-counter-light {
-    color: var(--tertiary-text);
+    color: var(--text-3);
 }
 
 /* DIVIDER | HIGHLIGHT */

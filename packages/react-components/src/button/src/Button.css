@@ -57,13 +57,13 @@ a.o-ui-button {
 /* SOLID */
 .o-ui-button-solid {
     color: var(--static-white);
-    background-color: var(--foreground-color-5);
+    background-color: var(--background-5);
 }
 
 /* SOLID | STATE | HOVER */
 .o-ui-button-solid:not([disabled]):hover,
 .o-ui-button-solid.o-ui-button-hover {
-    background-color: var(--foreground-color-5-hover);
+    background-color: var(--background-5-hover);
 }
 
 /* SOLID | STATE | DISABLED | HOVER */
@@ -71,7 +71,7 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-disabled:hover,
 .o-ui-button-solid[disabled].o-ui-button-hover,
 .o-ui-button-solid.o-ui-button-disabled.o-ui-button-hover {
-    background-color: var(--foreground-color-5);
+    background-color: var(--background-5);
 }
 
 /* SOLID | STATE | FOCUS */
@@ -83,7 +83,7 @@ a.o-ui-button {
 /* SOLID | STATE | ACTIVE */
 .o-ui-button-solid:active,
 .o-ui-button-solid.o-ui-button-active {
-    background-color: var(--foreground-color-5-active);
+    background-color: var(--background-5-active);
 }
 
 /* SOLID | STATE | DISABLED | ACTIVE */
@@ -91,87 +91,87 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-active[disabled],
 .o-ui-button-solid:active.o-ui-button-disabled,
 .o-ui-button-solid.o-ui-button-active:disabled {
-    background-color: var(--foreground-color-5);
+    background-color: var(--background-5);
 }
 
 /* SOLID | PRIMARY */
 .o-ui-button-solid.o-ui-button-primary {
-    background-color: var(--foreground-color-brand);
+    background-color: var(--background-primary);
 }
 
 /* SOLID | PRIMARY | HOVER */
 .o-ui-button-solid.o-ui-button-primary:hover,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-hover {
-    background-color: var(--foreground-color-brand-hover);
+    background-color: var(--background-primary-hover);
 }
 
 /* SOLID | PRIMARY | FOCUS */
 .o-ui-button-solid.o-ui-button-primary:focus,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-focus {
-    background-color: var(--foreground-color-brand);
+    background-color: var(--background-primary);
 }
 
 /* SOLID | PRIMARY | HOVER | FOCUS */
 .o-ui-button-solid.o-ui-button-primary:hover:focus,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-hover.o-ui-button-focus {
-    background-color: var(--foreground-color-brand-hover);
+    background-color: var(--background-primary-hover);
 }
 
 /* SOLID | PRIMARY | ACTIVE | FOCUS */
 .o-ui-button-solid.o-ui-button-primary:active:focus,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-active.o-ui-button-focus {
-    background-color: var(--foreground-color-brand-active);
+    background-color: var(--background-primary-active);
 }
 
 /* SOLID | PRIMARY | ACTIVE */
 .o-ui-button-solid.o-ui-button-primary:active,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-active {
-    background-color: var(--foreground-color-brand-active);
+    background-color: var(--background-primary-active);
 }
 
 /* SOLID | SECONDARY */
 .o-ui-button-solid.o-ui-button-secondary {
-    background-color: var(--foreground-color-2);
-    color: var(--primary-text);
+    background-color: var(--background-2);
+    color: var(--text-1);
 }
 
 /* SOLID | SECONDARY | HOVER */
 .o-ui-button-solid.o-ui-button-secondary:hover,
 .o-ui-button-solid.o-ui-button-secondary.o-ui-button-hover {
-    background-color: var(--foreground-color-2-hover);
+    background-color: var(--background-2-hover);
 }
 
 /* SOLID | SECONDARY | ACTIVE */
 .o-ui-button-solid.o-ui-button-secondary:active,
 .o-ui-button-solid.o-ui-button-secondary.o-ui-button-active {
-    background-color: var(--foreground-color-2-active);
+    background-color: var(--background-2-active);
     color: var(--static-white);
 }
 
 /* SOLID | DANGER */
 .o-ui-button-solid.o-ui-button-danger {
-    background-color: var(--foreground-color-critical);
-    --o-ui-focus-ring-color: var(--critical-border);
+    background-color: var(--background-danger);
+    --o-ui-focus-ring-color: var(--border-danger);
 }
 
 /* SOLID | DANGER | HOVER */
 .o-ui-button-solid.o-ui-button-danger:hover,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-hover {
-    background-color: var(--foreground-color-critical-hover);
+    background-color: var(--background-danger-hover);
 }
 
 /* SOLID | DANGER | ACTIVE */
 .o-ui-button-solid.o-ui-button-danger:active,
 .o-ui-button-solid.o-ui-button-danger.o-ui-button-active {
-    background-color: var(--foreground-color-critical-active);
+    background-color: var(--background-danger-active);
 }
 
 /* OUTLINE */
 .o-ui-button-outline {
     border: none;
     background-color: var(--transparent);
-    color: var(--secondary-text);
-    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
+    color: var(--text-2);
+    box-shadow: 0 0 0 1px var(--border-4) inset;
 }
 
 /* OUTLINE | ROUNDED */
@@ -182,14 +182,14 @@ a.o-ui-button {
 /* OUTLINE | HOVER */
 .o-ui-button-outline:hover,
 .o-ui-button-outline.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--quaternary-border-hover) inset;
-    color: var(--secondary-text-hover);
+    box-shadow: 0 0 0 1px var(--border-4-hover) inset;
+    color: var(--text-2-hover);
 }
 
 /* OUTLINE | HOVER */
 .o-ui-button[disabled].o-ui-button-outline:hover,
 .o-ui-button[disabled].o-ui-button-outline.o-ui-button-hover {
-    color: var(--secondary-text);
+    color: var(--text-2);
 }
 
 /* OUTLINE | FOCUS */
@@ -201,9 +201,9 @@ a.o-ui-button {
 /* OUTLINE | ACTIVE */
 .o-ui-button-outline:active,
 .o-ui-button-outline.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
+    box-shadow: 0 0 0 1px var(--border-4) inset;
     color: var(--static-white);
-    background-color: var(--foreground-color-5);
+    background-color: var(--background-5);
 }
 
 /* OUTLINE | ACTIVE | DISABLED */
@@ -211,78 +211,78 @@ a.o-ui-button {
 .o-ui-button-outline[disabled].o-ui-button-active,
 .o-ui-button-outline.o-ui-button-disabled:active,
 .o-ui-button-outline.o-ui-button-disabled.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--quaternary-border) inset;
-    color: var(--secondary-text);
-    background-color: var(--foreground-color-1);
+    box-shadow: 0 0 0 1px var(--border-4) inset;
+    color: var(--text-2);
+    background-color: var(--background-1);
 }
 
 /* OUTLINE | PRIMARY */
 .o-ui-button-outline.o-ui-button-primary {
-    box-shadow: 0 0 0 1px var(--brand-border) inset;
-    color: var(--brand-text);
+    box-shadow: 0 0 0 1px var(--border-primary) inset;
+    color: var(--text-primary);
 }
 
 /* OUTLINE | PRIMARY | HOVER */
 .o-ui-button-outline.o-ui-button-primary:hover,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--quaternary-border-hover) inset;
-    color: var(--brand-text-hover);
+    box-shadow: 0 0 0 1px var(--border-primary-hover) inset;
+    color: var(--text-primary-hover);
 }
 
 /* OUTLINE | PRIMARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-primary:active,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--brand-border) inset;
+    box-shadow: 0 0 0 1px var(--border-primary) inset;
     color: var(--static-white);
-    background-color: var(--foreground-color-brand);
+    background-color: var(--background-primary);
 }
 
 /* OUTLINE | SECONDARY */
 .o-ui-button-outline.o-ui-button-secondary {
-    box-shadow: 0 0 0 1px var(--tertiary-border) inset;
-    color: var(--tertiary-text);
+    box-shadow: 0 0 0 1px var(--border-3) inset;
+    color: var(--text-3);
 }
 
 /* OUTLINE | SECONDARY | HOVER */
 .o-ui-button-outline.o-ui-button-secondary:hover,
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--tertiary-border-hover) inset;
+    box-shadow: 0 0 0 1px var(--border-3-hover) inset;
 }
 
 /* OUTLINE | SECONDARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-secondary:active,
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--primary-border-active) inset;
-    background-color: var(--foreground-color-2-active);
+    box-shadow: 0 0 0 1px var(--border-1-active) inset;
+    background-color: var(--background-2-active);
     color: var(--static-white);
 }
 
 /* OUTLINE | DANGER */
 .o-ui-button-outline.o-ui-button-danger {
-    box-shadow: 0 0 0 1px var(--critical-border) inset;
-    color: var(--critical-text);
-    --o-ui-focus-ring-color: var(--critical-border);
+    box-shadow: 0 0 0 1px var(--border-danger) inset;
+    color: var(--text-danger);
+    --o-ui-focus-ring-color: var(--border-danger);
 }
 
 /* OUTLINE | DANGER | HOVER */
 .o-ui-button-outline.o-ui-button-danger:hover,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--critical-border-hover) inset;
+    box-shadow: 0 0 0 1px var(--border-danger-hover) inset;
 }
 
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--critical-border) inset;
+    box-shadow: 0 0 0 1px var(--border-danger) inset;
     color: var(--static-white);
-    background-color: var(--critical-border);
+    background-color: var(--border-danger);
 }
 
 /* GHOST */
 .o-ui-button-ghost {
     background-color: transparent;
     border: none;
-    color: var(--secondary-text);
+    color: var(--text-2);
 }
 
 /* GHOST | HOVER */
@@ -323,7 +323,7 @@ a.o-ui-button {
 /* GHOST | ACTIVE */
 .o-ui-button-ghost:active,
 .o-ui-button-ghost.o-ui-button-active {
-    color: var(--secondary-text-active);
+    color: var(--text-2-active);
 }
 
 /* GHOST | DISABLED */
@@ -336,18 +336,18 @@ a.o-ui-button {
 
 /* GHOST | PRIMARY */
 .o-ui-button-ghost.o-ui-button-primary {
-    color: var(--brand-text);
+    color: var(--text-primary);
 }
 
 /* GHOST | SECONDARY */
 .o-ui-button-ghost.o-ui-button-secondary {
-    color: var(--quaternary-text);
+    color: var(--text-4);
 }
 
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
-    color: var(--critical-text);
-    --o-ui-focus-ring-color: var(--critical-border);
+    color: var(--text-danger);
+    --o-ui-focus-ring-color: var(--border-danger);
 }
 
 /* GHOST | INHERIT */
@@ -357,7 +357,7 @@ a.o-ui-button {
 
 /* DANGER */
 .o-ui-button-danger {
-    --o-ui-focus-ring-color: var(--critical-border);
+    --o-ui-focus-ring-color: var(--border-danger);
 }
 
 /* FLUID */
@@ -409,7 +409,7 @@ a.o-ui-button {
 
 /* SOLID | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-primary:before {
-    border: 2px solid rgba(256, 256, 256, 0.5);
+    border: 2px solid var(--loading-spinner-background);
     border-top-color: var(--static-white);
 }
 
@@ -420,12 +420,12 @@ a.o-ui-button {
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
     border: 2px solid var(--cloud-500);
-    border-top-color: var(--primary-text);
+    border-top-color: var(--text-1);
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {
     --opacity-alert-500: 0.5;
-    border: 2px solid rgba(256, 256, 256, 0.5);
+    border: 2px solid var(--loading-spinner-background);
     border-top-color: var(--static-white);
 }
 

@@ -11,9 +11,9 @@
 /* BUTTON */
 .o-ui-radio-button {
     display: inline-block;
-    background-color: var(--foreground-color-1);
+    background-color: var(--background-1);
     border-radius: var(--o-ui-circular-border-radius);
-    border: 1px solid var(--primary-border);
+    border: 1px solid var(--border-1);
     position: relative;
     width: var(--scale-echo);
     height: var(--scale-echo);
@@ -22,7 +22,7 @@
 .o-ui-radio-button::before {
     content: "";
     display: block;
-    background-color: var(--foreground-color-brand);
+    background-color: var(--background-primary);
     border-radius: var(--o-ui-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
@@ -34,7 +34,7 @@
 .o-ui-radio-label {
     line-height: 1;
     margin-left: var(--scale-bravo);
-    color: var(--primary-text);
+    color: var(--text-1);
 }
 
 /* CONTENT | LABEL | REVERSE */
@@ -46,7 +46,7 @@
 /* CONTENT | ICON */
 .o-ui-radio-icon {
     margin-left: var(--scale-bravo);
-    fill: var(--primary-icon);
+    fill: var(--icon-1);
 }
 
 /* CONTENT | ICON | REVERSE */
@@ -58,7 +58,7 @@
 /* CONTENT | COUNTER */
 .o-ui-radio-counter {
     margin-left: var(--scale-bravo);
-    color: var(--primary-text);
+    color: var(--text-1);
 }
 
 /* CONTENT | COUNTER | REVERSE */
@@ -69,19 +69,19 @@
 
 /* VALIDATION */
 .o-ui-radio-invalid .o-ui-radio-label {
-    color: var(--critical-text);
+    color: var(--text-danger);
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--critical-200);
+    border-color: var(--danger-200);
 }
 
 .o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--critical-200);
+    border-color: var(--danger-200);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--foreground-color-critical);
+    background-color: var(--background-danger);
 }
 
 /* STATE | CHECKED */
@@ -90,15 +90,15 @@
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--critical-border);
+    border-color: var(--border-danger);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--critical-border);
+    border-color: var(--border-danger);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--foreground-color-critical);
+    background-color: var(--background-danger);
 }
 
 /* STATES | FOCUS | FOCUS RING */
@@ -124,13 +124,13 @@
 /* STATE | HOVER */
 .o-ui-radio:hover .o-ui-radio-button,
 .o-ui-radio-hover .o-ui-radio-button {
-    border: 1px solid var(--primary-border-hover);
+    border: 1px solid var(--border-1-hover);
 }
 
 /* STATE | HOVER | DISABLED */
 .o-ui-radio-disabled:hover .o-ui-radio-button,
 .o-ui-radio-disabled-hover .o-ui-radio-button {
-    border: 1px solid var(--primary-border);
+    border: 1px solid var(--border-1);
 }
 
 /* STATE | DISABLED */

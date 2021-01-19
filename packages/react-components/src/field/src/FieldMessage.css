@@ -9,7 +9,7 @@
 
 /* NEUTRAL */
 .o-ui-field-message-neutral {
-    color: var(--quaternary-text);
+    color: var(--text-4);
 }
 
 /* VALID */
@@ -19,5 +19,5 @@
 
 /* INVALID */
 .o-ui-field-message-error {
-    color: var(--critical-text);
+    color: var(--text-danger);
 }

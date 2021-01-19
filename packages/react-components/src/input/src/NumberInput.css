@@ -57,7 +57,7 @@
     border-left: 1px solid var(--o-ui-border-color);
     outline: none;
     cursor: pointer;
-    background-color: var(--foreground-color-4);
+    background-color: var(--background-4);
 }
 
 .o-ui-number-input-spinner-increment {
@@ -78,7 +78,7 @@
 }
 
 .o-ui-number-input-spinner .o-ui-icon {
-    fill: var(--primary-icon);
+    fill: var(--icon-1);
 }
 
 /* SPINNER | ACTIVE */
@@ -86,13 +86,13 @@
 .o-ui-number-input-spinner-decrement:active,
 .o-ui-number-input-spinner-increment:hover:active,
 .o-ui-number-input-spinner-decrement:hover:active {
-    background-color: var(--foreground-color-4-active);
+    background-color: var(--background-4-active);
 }
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--foreground-color-4-hover);
+    background-color: var(--background-4-hover);
 }
 
 .o-ui-number-input-spinner-increment:disabled,
@@ -115,13 +115,13 @@
 /* SPINNER | TRANSPARENT | HOVER */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--foreground-color-4-hover);
+    background-color: var(--background-4-hover);
 }
 
 /* SPINNER | TRANSPARENT | HOVER ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active:hover {
-    background-color: var(--foreground-color-4-active);
+    background-color: var(--background-4-active);
 }
 
 .o-ui-input-transparent .o-ui-number-input-spinner-increment {
@@ -131,5 +131,5 @@
 /* SPINNER | TRANSPARENT | ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
-    background-color: var(--foreground-color-4-active);
+    background-color: var(--background-4-active);
 }

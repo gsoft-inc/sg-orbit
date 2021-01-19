@@ -2,55 +2,60 @@
 .o-ui-light-color-scheme {
     /* FOUNDATIONS */
     --background: var(--white);
-    --foreground-color-1: var(--white);
-    --foreground-color-2: var(--cloud-100);
-    --foreground-color-2-hover: var(--cloud-200);
-    --foreground-color-2-active: var(--cloud-500);
-    --foreground-color-3: var(--cloud-50);
-    --foreground-color-4: var(--neutral-100);
-    --foreground-color-4-hover: var(--neutral-300);
-    --foreground-color-4-active: var(--neutral-600);
-    --foreground-color-5: var(--marine-500);
-    --foreground-color-5-hover: var(--marine-700);
-    --foreground-color-5-active: var(--marine-900);
-    --foreground-color-brand: var(--primary-500);
-    --foreground-color-brand-hover: var(--primary-700);
-    --foreground-color-brand-active: var(--primary-900);
-    --foreground-color-brand-light: var(--primary-50);
-    --foreground-color-critical: var(--alert-500);
-    --foreground-color-critical-hover: var(--alert-700);
-    --foreground-color-critical-active: var(--alert-900);
+    --background-1: var(--white);
+    --background-2: var(--cloud-100);
+    --background-2-hover: var(--cloud-200);
+    --background-2-active: var(--cloud-500);
+    --background-3: var(--cloud-50);
+    --background-4: var(--neutral-100);
+    --background-4-hover: var(--neutral-300);
+    --background-4-active: var(--neutral-600);
+    --background-5: var(--marine-500);
+    --background-5-hover: var(--marine-700);
+    --background-5-active: var(--marine-900);
+    --background-primary: var(--primary-500);
+    --background-primary-hover: var(--primary-700);
+    --background-primary-active: var(--primary-900);
+    --background-primary-light: var(--primary-50);
+    --background-danger: var(--alert-500);
+    --background-danger-hover: var(--alert-700);
+    --background-danger-active: var(--alert-900);
     /* TEXT */
-    --primary-text: var(--marine-900);
-    --primary-text-hover: var(--marine-900);
-    --primary-text-active: var(--marine-900);
-    --secondary-text: var(--marine-500);
-    --secondary-text-hover: var(--marine-700);
-    --secondary-text-active: var(--marine-900);
-    --tertiary-text: var(--cloud-500);
-    --tertiary-text-hover: var(--cloud-700);
-    --tertiary-text-hover-active: var(--cloud-900);
-    --quaternary-text: var(--marine-300);
-    --brand-text: var(--primary-500);
-    --brand-text-hover: var(--primary-700);
-    --brand-text-active: var(--primary-700);
+    --text-1: var(--marine-900);
+    --text-1-hover: var(--marine-900);
+    --text-1-active: var(--marine-900);
+    --text-2: var(--marine-500);
+    --text-2-hover: var(--marine-700);
+    --text-2-active: var(--marine-900);
+    --text-3: var(--cloud-500);
+    --text-3-hover: var(--cloud-700);
+    --text-3-hover-active: var(--cloud-900);
+    --text-4: var(--marine-300);
+    --text-primary: var(--primary-500);
+    --text-primary-hover: var(--primary-700);
+    --text-primary-active: var(--primary-700);
+    --text-danger: var(--alert-500);
+    --text-danger-hover: var(--alert-700);
+    --text-danger-active: var(--alert-900);
     /* ICON */
-    --primary-icons: var(--marine-900);
-    --secondary-icons: var(--marine-500);
+    --icon-1: var(--marine-900);
+    --icon-2: var(--marine-500);
     /* BORDER */
-    --primary-border: var(--cloud-100);
-    --primary-border-hover: var(--cloud-300);
-    --primary-border-active: var(--cloud-500);
-    --secondary-border: var(--cloud-50);
-    --tertiary-border: var(--neutral-500);
-    --tertiary-border-hover: var(--neutral-700);
-    --tertiary-border-active: var(--neutral-900);
-    --quaternary-border: var(--marine-500);
-    --quaternary-border-hover: var(--marine-700);
-    --brand-border: var(--primary-500);
-    --critical-border: var(--alert-500);
-    --critical-border-hover: var(--alert-700);
-    --critical-border-active: var(--alert-900);
+    --border-1: var(--cloud-100);
+    --border-1-hover: var(--cloud-300);
+    --border-1-active: var(--cloud-500);
+    --border-2: var(--cloud-50);
+    --border-3: var(--neutral-500);
+    --border-3-hover: var(--neutral-700);
+    --border-3-active: var(--neutral-900);
+    --border-4: var(--marine-500);
+    --border-4-hover: var(--marine-700);
+    --border-primary: var(--primary-500);
+    --border-primary-hover: var(--primary-700);
+    --border-primary-active: var(--primary-900);
+    --border-danger: var(--alert-500);
+    --border-danger-hover: var(--alert-700);
+    --border-danger-active: var(--alert-900);
     /* INFO */
     --info-50: var(--marine-50);
     --info-100: var(--marine-100);
@@ -84,77 +89,83 @@
     --warning-700: var(--sunray-700);
     --warning-800: var(--sunray-800);
     --warning-900: var(--sunray-900);
-    /* CRITICAL */
-    --critical-50: var(--alert-50);
-    --critical-100: var(--alert-100);
-    --critical-200: var(--alert-200);
-    --critical-300: var(--alert-300);
-    --critical-400: var(--alert-400);
-    --critical-500: var(--alert-500);
-    --critical-600: var(--alert-600);
-    --critical-700: var(--alert-700);
-    --critical-800: var(--alert-800);
-    --critical-900: var(--alert-900);
-    --critical-text: var(--alert-500);
-    --critical-text-hover: var(--alert-700);
-    --critical-text-active: var(--alert-900);
+    /* DANGER */
+    --danger-50: var(--alert-50);
+    --danger-100: var(--alert-100);
+    --danger-200: var(--alert-200);
+    --danger-300: var(--alert-300);
+    --danger-400: var(--alert-400);
+    --danger-500: var(--alert-500);
+    --danger-600: var(--alert-600);
+    --danger-700: var(--alert-700);
+    --danger-800: var(--alert-800);
+    --danger-900: var(--alert-900);
     /* STATIC */
     --static-white: var(--white);
     /* SHADOWS */
     --shadow-lightness: 56%;
     --shadow-opacity: .32;
+    /* SPINNER */
+    --loading-spinner-background: rgba(256, 256, 256, 0.5);
 }
 
 /* DARK */
 .o-ui-dark-color-scheme {
     /* FOUNDATIONS */
     --background: hsl(226deg, 20%, 15%);
-    --foreground-color-1: #2B2F3C;
-    --foreground-color-2: var(--cloud-800);
-    --foreground-color-2-hover: var(--cloud-900);
-    --foreground-color-2-active: var(--cloud-600);
-    --foreground-color-3: var(--cloud-900);
-    --foreground-color-4: var(--neutral-dark-800);
-    --foreground-color-4-hover: var(--neutral-dark-300);
-    --foreground-color-4-active: var(--neutral-dark-100);
-    --foreground-color-5: var(--marine-600);
-    --foreground-color-5-hover: var(--marine-500);
-    --foreground-color-5-active: var(--marine-400);
-    --foreground-color-brand: var(--primary-500);
-    --foreground-color-brand-hover: var(--primary-400);
-    --foreground-color-brand-active: var(--primary-300);
-    --foreground-color-brand-light: var(--neutral-dark-800);
-    --foreground-color-critical: var(--alert-700);
-    --foreground-color-critical-hover: var(--alert-500);
-    --foreground-color-critical-active: var(--alert-400);
+    --background-1: #2B2F3C;
+    --background-2: var(--cloud-800);
+    --background-2-hover: var(--cloud-900);
+    --background-2-active: var(--cloud-600);
+    --background-3: var(--cloud-900);
+    --background-4: var(--neutral-dark-800);
+    --background-4-hover: var(--neutral-dark-300);
+    --background-4-active: var(--neutral-dark-100);
+    --background-5: var(--marine-600);
+    --background-5-hover: var(--marine-500);
+    --background-5-active: var(--marine-400);
+    --background-primary: var(--primary-500);
+    --background-primary-hover: var(--primary-400);
+    --background-primary-active: var(--primary-300);
+    --background-primary-light: var(--neutral-dark-800);
+    --background-danger: var(--alert-700);
+    --background-danger-hover: var(--alert-500);
+    --background-danger-active: var(--alert-400);
     /* TEXT */
-    --primary-text: var(--static-white);
-    --primary-text-hover: var(--static-white);
-    --primary-text-active: var(--static-white);
-    --secondary-text: var(--cloud-300);
-    --secondary-text-hover: var(--cloud-100);
-    --secondary-text-active: var(--cloud-50);
-    --tertiary-text: var(--cloud-700);
-    --tertiary-text-hover: var(--cloud-600);
-    --tertiary-text-hover-active: var(--cloud-500);
-    --brand-text: var(--primary-500);
-    --brand-text-hover: var(--primary-400);
-    --brand-text-active: var(--primary-400);
+    --text-1: var(--static-white);
+    --text-1-hover: var(--static-white);
+    --text-1-active: var(--static-white);
+    --text-2: var(--cloud-300);
+    --text-2-hover: var(--cloud-100);
+    --text-2-active: var(--cloud-50);
+    --text-3: var(--cloud-700);
+    --text-3-hover: var(--cloud-600);
+    --text-3-hover-active: var(--cloud-500);
+    /* @todo / check if this color is needed */
+    --text-4: var(--marine-300);
+    --text-primary: var(--primary-500);
+    --text-primary-hover: var(--primary-400);
+    --text-primary-active: var(--primary-400);
+    --text-danger: var(--alert-700);
+    --text-danger-hover: var(--alert-600);
+    --text-danger-active: var(--alert-500);
     /* ICON */
-    --primary-icon: var(--static-white);
-    --secondary-icon: var(--cloud-500);
+    --icon-1: var(--static-white);
+    --icon-2: var(--cloud-500);
     /* BORDER */
-    --primary-border: var(--neutral-dark-600);
-    --primary-border-hover: var(--neutral-dark-400);
-    --primary-border-active: var(--neutral-dark-300);
-    --secondary-border: var(--neutral-dark-800);
-    --tertiary-border: var(--neutral-dark-400);
-    --quaternary-border: var(--marine-400);
-    --quaternary-border-hover: var(--marine-600);
-    --brand-border: var(--primary-700);
-    --critical-border: var(--alert-700);
-    --critical-border-hover: var(--alert-600);
-    --critical-border-active: var(--alert-500);
+    --border-1: var(--neutral-dark-600);
+    --border-1-hover: var(--neutral-dark-400);
+    --border-1-active: var(--neutral-dark-300);
+    --border-2: var(--neutral-dark-800);
+    --border-3: var(--neutral-dark-400);
+    --border-4: var(--marine-400);
+    --border-4-hover: var(--marine-600);
+    --border-primary: var(--primary-700);
+    --border-primary-hover: var(--primary-400);
+    --border-primary-active: var(--primary-300);
+    --border-danger: var(--alert-700);
+    --border-danger-hover: var(--alert-600);
+    --border-danger-active: var(--alert-500);
     /* INFO */
     --info-50: var(--marine-900);
     --info-500: var(--marine-600);
@@ -168,13 +179,10 @@
     --warning-50: var(--sunray-900);
     --warning-500: var(--sunray-600);
     --warning-900: var(--sunray-50);
-    /* CRITICAL */
-    --critical-50: var(--alert-900);
-    --critical-500: var(--alert-600);
-    --critical-900: var(--alert-50);
-    --critical-text: var(--alert-700);
-    --critical-text-hover: var(--alert-600);
-    --critical-text-active: var(--alert-500);
+    /* danger */
+    --danger-50: var(--alert-900);
+    --danger-500: var(--alert-600);
+    --danger-900: var(--alert-50);
     /* STATIC */
     --static-white: #FFFFFF;
     /* SHADOWS */
@@ -186,7 +194,7 @@
 
 /* APRICOT */
 .o-ui-light-color-scheme.o-ui-apricot-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--apricot-50);
     --primary-100: var(--apricot-100);
     --primary-200: var(--apricot-200);
@@ -200,7 +208,7 @@
 }
 
 .o-ui-dark-color-scheme.o-ui-apricot-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--apricot-50);
     --primary-100: var(--apricot-100);
     --primary-200: var(--apricot-200);
@@ -215,7 +223,7 @@
 
 /* OVERCAST */
 .o-ui-light-color-scheme.o-ui-overcast-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--overcast-50);
     --primary-100: var(--overcast-100);
     --primary-200: var(--overcast-200);
@@ -229,7 +237,7 @@
 }
 
 .o-ui-dark-color-scheme.o-ui-overcast-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--overcast-50);
     --primary-100: var(--overcast-100);
     --primary-200: var(--overcast-200);
@@ -244,7 +252,7 @@
 
 /* DESKTOP */
 .o-ui-light-color-scheme.o-ui-desktop-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--desktop-50);
     --primary-100: var(--desktop-100);
     --primary-200: var(--desktop-200);
@@ -258,7 +266,7 @@
 }
 
 .o-ui-dark-color-scheme.o-ui-desktop-theme {
-    color: var(--primary-text);
+    color: var(--text-1);
     --primary-50: var(--desktop-50);
     --primary-100: var(--desktop-100);
     --primary-200: var(--desktop-200);

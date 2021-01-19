@@ -12,7 +12,7 @@
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
     /* was cloud 200 now 300 because too much similar colors */
-    background-color: var(--foreground-color-2);
+    background-color: var(--background-2);
     border-radius: var(--o-ui-pill-border-radius);
     position: relative;
     flex-shrink: 0;
@@ -21,7 +21,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--foreground-color-1);
+    background-color: var(--background-1);
     border-radius: var(--o-ui-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
@@ -32,7 +32,7 @@
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
     margin-left: var(--scale-bravo);
-    color: var(--primary-text);
+    color: var(--text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -63,21 +63,21 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--critical-text);
+    color: var(--text-danger);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--critical-100);
+    background-color: var(--danger-100);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(foreground-color-critical);
+    background-color: var(foreground-danger);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--foreground-color-critical);
+    background-color: var(--background-danger);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {

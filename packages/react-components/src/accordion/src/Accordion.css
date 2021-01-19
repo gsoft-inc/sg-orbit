@@ -30,13 +30,13 @@
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--foreground-color-1);
+    background-color: var(--background-1);
     cursor: pointer;
     border: 0;
-    border-top: 1px solid var(--secondary-border);
+    border-top: 1px solid var(--border-2);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
-    color: var(--primary-text);
+    color: var(--text-1);
     line-height: inherit;
     font-weight: inherit;
 }
@@ -67,10 +67,10 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--primary-text);
+    color: var(--text-1);
     padding-left: var(--scale-echo);
     padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot));
-    background-color: var(--foreground-color-1);
+    background-color: var(--background-1);
 }
 
 /* STATES */
@@ -87,12 +87,12 @@
 /* HOVER */
 .o-ui-accordion-trigger:hover ,
 .o-ui-accordion-trigger-hover {
-    background-color: var( --foreground-color-3);
+    background-color: var( --background-3);
 }
 
 /* HOVER | DISABLED */
 .o-ui-accordion-trigger[disabled]:hover {
-    background-color: var(--foreground-color-1);
+    background-color: var(--background-1);
 }
 
 /* FOCUS */
@@ -118,5 +118,5 @@
 
 .o-ui-accordion-trigger:focus::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--brand-border);
+    border-color: var(--border-primary);
 }

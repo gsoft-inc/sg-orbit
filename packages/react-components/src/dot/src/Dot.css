@@ -1,8 +1,8 @@
 .o-ui-dot {
-    --o-ui-dot-color: var(--foreground-color-2);
+    --o-ui-dot-color: var(--background-2);
     display: inline-flex;
     align-items: center;
-    color: var(--primary-text);
+    color: var(--text-1);
 }
 
 .o-ui-dot:before {
