@@ -173,11 +173,7 @@ export function InnerSelect(props) {
         setIsVisible(newVisibility);
     }, [onVisibilityChange, setIsVisible]);
 
-    const close = useCallback(event => {
-        setVisibility(event, false);
-    }, [setVisibility]);
-
-    const renderProps = useMemo(() => ({ isOpen: isVisible, close }), [isVisible, close]);
+    const renderProps = useMemo(() => ({ selectedKey }), [selectedKey]);
 
     const nodes = useCollectionBuilder(children, renderProps);
 
@@ -198,11 +194,11 @@ export function InnerSelect(props) {
 
     const handleSelectOption = useEventCallback((event, newKey) => {
         setSelection(event, newKey);
-        close(event);
+        setVisibility(event, false);
     });
 
     const handleClose = useEventCallback(event => {
-        close(event);
+        setVisibility(event, false);
     });
 
     const { overlayProps } = useOverlay({

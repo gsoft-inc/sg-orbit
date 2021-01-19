@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { CheckCircleIcon, CrossIcon, HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
@@ -17,7 +17,7 @@ import cx from "clsx";
 <Tagline>A listbox presents a list of options and allows a user to select one or more of them</Tagline>
 
 <ComponentInfo
-    usage={"import { Listbox } from \"@orbit-ui/react-components\""}
+    usage={"import { Listbox, Item, Section } from \"@orbit-ui/react-components\""}
     ariaPath="#listbox"
     githubPath="/packages/react-components/src/listbox/src"
 />
@@ -71,12 +71,12 @@ A listbox support single and multiple selection mode.
     </Story>
 </Preview>
 
-### Sections
+### Section
 
-A listbox can group items by sections.
+A listbox items can be group by sections.
 
 <Preview>
-    <Story name="sections">
+    <Story name="section">
         <Listbox aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
@@ -214,6 +214,8 @@ The previous render props example could also be achieve by using `useListboxCont
 <Preview filePath="/listbox/docs/ListboxContext" noInline />
 
 ### Controlled
+
+The selected key can be handled in controlled mode.
 
 <Preview filePath="/listbox/docs/ControlledListbox" />
 

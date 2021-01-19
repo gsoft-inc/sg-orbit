@@ -1,14 +1,21 @@
 () => {
+    const [isOpen, setIsOpen] = useState(false);
     const [selectedKey, setSelectedKey] = useState("earth");
 
     return (
-        <Listbox
+        <Select
+            open={isOpen}
             selectedKey={selectedKey}
-            aria-label="Planets"
+            placeholder="Planets"
+            onVisibilityChange={(event, newValue) => {
+                setIsOpen(newValue);
+                console.log(newValue);
+            }}
             onChange={(event, newValue) => {
                 setSelectedKey(newValue);
                 console.log(newValue);
             }}
+            aria-label="Planets"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -17,6 +24,6 @@
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
-        </Listbox>
+        </Select>
     );
 };

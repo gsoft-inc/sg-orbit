@@ -1,0 +1,317 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { InnerSelect, Select } from "@react-components/select";
+import { Text } from "@react-components/text";
+import cx from "clsx";
+
+<Meta
+    title="Components/Select"
+    id="select"
+/>
+
+# Select
+
+<Tagline>A select allow users to choose a single option from a collapsible list of options.</Tagline>
+
+<ComponentInfo
+    usage={"import { Select, Item, Section } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/select/src"
+/>
+
+A select is a combination of a [Button](?path=/docs/button--default-story), a [Popover](?path=/docs/popover--default-story) and a [Listbox](?path=/docs/listbox--default-story) to form a collapsible dropdown listbox. You can find a detailed example on [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html).
+
+## Usage
+
+### Default
+
+A default select.
+
+<Preview>
+    <Story name="default">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Section
+
+A select items can be group by sections.
+
+<Preview>
+    <Story name="section">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Select>
+    </Story>
+</Preview>
+
+### Icon
+
+A select item can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Right icon
+
+A select item can contain *non standard* right [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding right icons, left icons should be your go to.
+
+<Preview>
+    <Story name="right icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <IconList slot="right-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <HelpIcon slot="right-icon" />
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="right-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Description
+
+A select item can have a description.
+
+<Preview>
+    <Story name="description">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Disabled
+
+A select item can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item disabled key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Fluid
+
+A select can take the width of it's container.
+
+<Preview>
+    <Story name="fluid">
+        <Select fluid placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Validation
+
+A select can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate that a specific value have been selected.
+
+<Preview filePath="/select/docs/SelectedValueValidation" />
+
+### Form
+
+A select can be part of a form. To submit the value of a select, make sure you specify the `name` property.
+
+<Preview>
+    <Story name="form">
+        <form>
+            <Select name="planet" placeholder="Planets" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Select>
+        </form>
+    </Story>
+</Preview>
+
+### Position
+
+A select position can vary.
+
+<Preview>
+    <Story name="position">
+        <Select align="end" direction="top" placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Render props
+
+A select can render his items based on the `selectedKey` value.
+
+<Preview>
+    <Story name="render props">
+        <Select placeholder="Planets" aria-label="Planets">
+            {({ selectedKey }) =>
+                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                    <Item key={x.toLowerCase()} className={cx({ "primary-600": selectedKey === x.toLowerCase() })}>
+                        {x}
+                    </Item>
+                ))
+            }
+        </Select>
+    </Story>
+</Preview>
+
+### Controlled
+
+The selected key and visibility state can be handled in controlled mode.
+
+<Preview filePath="/select/docs/ControlledSelect" />
+
+### Transparent
+
+A select can be more discrete.
+
+<Preview>
+    <Story name="transparent">
+        <Select variant="transparent" placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Inline
+
+A select can appear inline with other content.
+
+<Preview>
+    <Story name="inline">
+        <Select variant="inline" placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+## API
+
+### Select
+
+<ComponentInfo
+    usage={"import { Select } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSelect} />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    slots={["icon", "text", "description", "right-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
+
+### Section
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSection} />
+
+

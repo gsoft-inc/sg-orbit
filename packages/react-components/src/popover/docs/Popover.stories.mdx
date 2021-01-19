@@ -94,7 +94,7 @@ A popover can update is content based on the `isVisible` value and optionally us
 <Preview scope={{ Square }}>
     <Story name="render props">
         <Popover>
-            {({ isVisible }) => (
+            {({ isVisible, hide }) => (
                 <>
                     <Button color={isVisible ? "secondary" : "primary"}>Toggle</Button>
                     <Square />
@@ -111,6 +111,8 @@ The previous render props example could also be achieve by using `usePopoverCont
 <Preview scope={{ Square }} filePath="/popover/docs/PopoverContext" noInline />
 
 ### Controlled
+
+The visibility state can be handled in controlled mode.
 
 <Preview scope={{ Square }} filePath="/popover/docs/ControlledPopover" />
 
