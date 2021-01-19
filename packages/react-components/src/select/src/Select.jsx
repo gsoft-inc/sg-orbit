@@ -169,8 +169,6 @@ export function InnerSelect(props) {
         onVisibilityChange,
         hideOnEscape: true,
         hideOnBlur: true,
-        // Do not hide when the focus is on the trigger.
-        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
         position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,

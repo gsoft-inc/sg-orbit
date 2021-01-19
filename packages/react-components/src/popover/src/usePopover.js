@@ -12,7 +12,6 @@ export function usePopover(triggerElement, overlayElement, type, {
     hideOnEscape,
     hideOnBlur,
     hideOnOutsideClick,
-    canHide,
     position,
     offset,
     allowFlip,
@@ -41,7 +40,7 @@ export function usePopover(triggerElement, overlayElement, type, {
         hideOnEscape,
         hideOnBlur,
         hideOnOutsideClick,
-        canHide
+        canHide: useCallback(target => target !== triggerElement, [triggerElement])
     });
 
     const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger(isVisible, type, {

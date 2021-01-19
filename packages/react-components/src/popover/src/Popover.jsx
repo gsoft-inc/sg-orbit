@@ -122,8 +122,6 @@ export function InnerPopover({
         hideOnEscape,
         hideOnBlur,
         hideOnOutsideClick: !hideOnBlur || !autoFocus,
-        // Do not hide when the focus is on the trigger.
-        canHide: useCallback(target => target !== triggerElement, [triggerElement]),
         position,
         offset,
         allowFlip,
