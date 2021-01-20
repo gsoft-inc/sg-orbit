@@ -8,17 +8,17 @@
 
 @lineHeightOffset: 0;
 
-@paddingLeft: var(--scale-delta);
-@paddingRight: var(--scale-delta);
-@padding: var(--scale-charlie) var(--scale-echo);
+@paddingLeft: var(--o-ui-scale-delta);
+@paddingRight: var(--o-ui-scale-delta);
+@padding: var(--o-ui-scale-charlie) var(--o-ui-scale-echo);
 
-@relativeSmall: var(--type-scale-8);
-@relativeMedium: var(--type-scale-7);
-@relativeLarge: var(--type-scale-6);
+@relativeSmall: var(--o-ui-type-scale-8);
+@relativeMedium: var(--o-ui-type-scale-7);
+@relativeLarge: var(--o-ui-type-scale-6);
 
 @iconPadding: 4px;
-@iconMargin: var(--scale-hotel);
+@iconMargin: var(--o-ui-scale-hotel);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;
-@placeholderErrorColor: var(--marine-500);
+@placeholderErrorColor: var(--o-ui-marine-500);

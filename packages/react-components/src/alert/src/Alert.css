@@ -1,7 +1,7 @@
 .o-ui-alert {
     display: flex;
     align-items: flex-start;
-    padding: var(--scale-charlie);
+    padding: var(--o-ui-scale-charlie);
     width: 100%;
     height: max-content;
     border-radius: var(--o-ui-rounded-border-radius);
@@ -11,15 +11,15 @@
 .o-ui-alert-has-icon,
 .o-ui-alert-has-action,
 .o-ui-alert-has-dismiss {
-    padding-top: var(--scale-bravo);
-    padding-bottom: var(--scale-bravo);
+    padding-top: var(--o-ui-scale-bravo);
+    padding-bottom: var(--o-ui-scale-bravo);
 }
 
 /* ICON */
 .o-ui-alert-icon {
-    margin-top: calc(var(--scale-bravo) / 2);
-    margin-bottom: calc(var(--scale-bravo) / 2);
-    margin-right: var(--scale-bravo);
+    margin-top: calc(var(--o-ui-scale-bravo) / 2);
+    margin-bottom: calc(var(--o-ui-scale-bravo) / 2);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 .o-ui-alert-content {
@@ -29,79 +29,79 @@
 .o-ui-alert-has-icon .o-ui-alert-content,
 .o-ui-alert-has-action .o-ui-alert-content,
 .o-ui-alert-has-dismiss .o-ui-alert-content {
-    padding-top: calc(var(--scale-charlie) / 2);
-    padding-bottom: calc(var(--scale-charlie) / 2);
+    padding-top: calc(var(--o-ui-scale-charlie) / 2);
+    padding-bottom: calc(var(--o-ui-scale-charlie) / 2);
 }
 /* ACTION */
 .o-ui-alert-action {
-    margin-left: var(--scale-charlie);
+    margin-left: var(--o-ui-scale-charlie);
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
 }
 
 /* DISMISS */
 .o-ui-alert-dismiss {
-    margin-left: var(--scale-bravo);
+    margin-left: var(--o-ui-scale-bravo);
 }
 
 /* TONE | INFO */
 .o-ui-alert-info {
-    background-color: var(--info-50);
-    color: var(--info-500);
+    background-color: var(--o-ui-info-50);
+    color: var(--o-ui-info-500);
 }
 
 .o-ui-alert-info .o-ui-alert-icon {
-    fill: var(--info-900);
+    fill: var(--o-ui-info-900);
 }
 
 /* TONE | SUCCESS */
 .o-ui-alert-success {
-    background-color: var(--success-50);
-    color: var(--success-900);
+    background-color: var(--o-ui-success-50);
+    color: var(--o-ui-success-900);
 }
 
 .o-ui-alert-success .o-ui-alert-icon {
-    fill: var(--success-900);
+    fill: var(--o-ui-success-900);
 }
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
-    background-color: var(--warning-50);
-    color: var(--warning-900);
+    background-color: var(--o-ui-warning-50);
+    color: var(--o-ui-warning-900);
 }
 
 .o-ui-alert-warning .o-ui-alert-icon {
-    fill: var(--warning-900);
+    fill: var(--o-ui-warning-900);
 }
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--danger-50);
-    color: var(--danger-900);
+    background-color: var(--o-ui-danger-50);
+    color: var(--o-ui-danger-900);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--danger-900);
+    fill: var(--o-ui-danger-900);
 }
 
 /* DARK MODE */
 /* @todo  Note add an indirection here - we should not be aware that we are using Sunray and al. - not until colors are under control*/
 .o-ui-dark-color-scheme .o-ui-alert-warning {
-    background-color: var(--warning-700);
-    --opacity-sunray-700: .4;
+    background-color: var(--o-ui-warning-700);
+    --o-ui-opacity-sunray-700: .4;
 }
 
 .o-ui-dark-color-scheme .o-ui-alert-info {
-    --opacity-marine-600: .7;
-    background-color: var(--marine-600);
-    color: var(--marine-100);
+    --o-ui-opacity-marine-600: .7;
+    background-color: var(--o-ui-marine-600);
+    color: var(--o-ui-marine-100);
 }
 
 .o-ui-dark-color-scheme .o-ui-alert-critical {
-    --opacity-alert-900: .4;
+    --o-ui-opacity-alert-900: .4;
 }
 
 .o-ui-dark-color-scheme .o-ui-alert-success {
     /* @todo Having to know which color is set up is bad */
-    --opacity-green-900: .2;
+    --o-ui-opacity-green-900: .2;
 }

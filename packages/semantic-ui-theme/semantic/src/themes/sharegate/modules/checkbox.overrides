@@ -4,8 +4,8 @@
 /* hidden HTML Input should be small */
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 /* border-box is necessary in order for the radio to be centered everywhere */
@@ -50,8 +50,8 @@
 .ui.checkbox input:focus ~ label:before,
 .ui.checkbox.focus input ~ .box:before,
 .ui.checkbox.focus input ~ label:before {
-    box-shadow: 0px 0px 0px 2px var(--primary-100);
-    border: 1px solid var(--marine-100);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-primary-100);
+    border: 1px solid var(--o-ui-marine-100);
 }
 
 /* radio fix */
@@ -65,21 +65,21 @@
 .ui.checkbox.focus input ~ label:hover::before,
 .ui.checkbox.hover input:focus ~ label::before,
 .ui.checkbox.focus.hover input ~ label::before {
-    border: 1px solid var(--marine-300);
+    border: 1px solid var(--o-ui-marine-300);
 }
 
 .ui.checkbox input:checked:focus ~ label:hover::before,
 .ui.checkbox.focus input:checked ~ label:hover::before,
 .ui.checkbox.hover input:checked:focus ~ label::before,
 .ui.checkbox.focus.hover input:checked ~ label::before {
-    border: 1px solid var(--primary-900);
+    border: 1px solid var(--o-ui-primary-900);
 }
 
 .ui.checkbox input:checked ~ label:hover::before,
 .ui.checkbox.radio input:checked ~ label:hover::before,
 .ui.checkbox.hover input:checked ~ label::before,
 .ui.checkbox.hover.radio input:checked ~ label::before {
-    border: 1px solid var(--primary-900);
+    border: 1px solid var(--o-ui-primary-900);
 }
 
 .ui.checkbox input:checked ~ .box:before,
@@ -95,18 +95,18 @@
 .ui.checkbox input:checked:focus ~ label:before,
 .ui.checkbox.focus input:checked ~ .box:before,
 .ui.checkbox.focus input:checked ~ label:before {
-    border-color: var(--brand-border);
+    border-color: var(--o-ui-border-primary);
 }
 
 .ui.indeterminate.checkbox:hover label:before {
-    border-color: var(--marine-300)!important;
+    border-color: var(--o-ui-marine-300)!important;
 }
 
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before,
 .ui.checkbox.focus input:checked ~ .box:before,
 .ui.checkbox.focus input:checked ~ label:before {
-    border-color: var(--brand-border);
+    border-color: var(--o-ui-border-primary);
 }
 
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -118,11 +118,11 @@
     position: absolute;
     top: 50%;
     left: 0px;
-    width: var(--scale-echo);
-    height: var(--scale-echo);
+    width: var(--o-ui-scale-echo);
+    height: var(--o-ui-scale-echo);
     content: '';
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--scale-echo) var(--scale-echo);
+    mask-size: var(--o-ui-scale-echo) var(--o-ui-scale-echo);
     background-color: @white;
     transform: translateY(-50%);
 }
@@ -132,7 +132,7 @@
 .ui.checkbox label:active::before,
 .ui.checkbox.active .box::before,
 .ui.checkbox.active label::before {
-    border-color: var(--primary-900);
+    border-color: var(--o-ui-primary-900);
 }
 
 .ui.checkbox .box:before,
@@ -160,9 +160,9 @@
 
 .ui.checkbox input:checked:disabled ~ .box:before,
 .ui.checkbox input:checked:disabled ~ label:before {
-    background: var(--cloud-100);
-    border-color: var(--cloud-100);
-    background-size: var(--scale-foxtrot) var(--scale-foxtrot);
+    background: var(--o-ui-cloud-100);
+    border-color: var(--o-ui-cloud-100);
+    background-size: var(--o-ui-scale-foxtrot) var(--o-ui-scale-foxtrot);
 }
 
 /* Indeterminate */
@@ -179,8 +179,8 @@
 
 .ui.checkbox.indeterminate input:disabled ~ .box:before,
 .ui.checkbox.indeterminate input:disabled ~ label:before {
-    background: var(--cloud-50);
-    border: 1px solid var(--cloud-100);
+    background: var(--o-ui-cloud-50);
+    border: 1px solid var(--o-ui-cloud-100);
 }
 
 .ui.checkbox.indeterminate:not(.radio):not(.toggle) {
@@ -214,8 +214,8 @@
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after {
-    width: var(--scale-bravo);
-    height: var(--scale-bravo);
+    width: var(--o-ui-scale-bravo);
+    height: var(--o-ui-scale-bravo);
     top: 50%;
     left: 4px;
 }
@@ -228,8 +228,8 @@
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
     top: 50%;
     left: 6px;
 }
@@ -262,7 +262,7 @@
 .ui.checkbox input:not([type=radio]):indeterminate:focus ~ label:hover:before,
 .ui.checkbox.focus input:not([type=radio]):indeterminate ~ .box:hover:before,
 .ui.checkbox.focus input:not([type=radio]):indeterminate ~ label:hover:before {
-    border-color: var(--marine-700)!important;
+    border-color: var(--o-ui-marine-700)!important;
 }
 
 /* Toggle
@@ -275,12 +275,12 @@
 
 .ui.toggle.checkbox .box:before,
 .ui.toggle.checkbox label:before {
-    border: 1px solid var(--cloud-200);
+    border: 1px solid var(--o-ui-cloud-200);
 }
 
 .ui.toggle.checkbox:hover .box:before,
 .ui.toggle.checkbox:hover label:before {
-    border: 1px solid var(--cloud-200);
+    border: 1px solid var(--o-ui-cloud-200);
 }
 
 /* toggle Focus */
@@ -288,14 +288,14 @@
 .ui.toggle.checkbox input:focus:hover ~ label:before,
 .ui.toggle.checkbox.focus.hover input ~ .box:before,
 .ui.toggle.checkbox.focus.hover input ~ label:before {
-    border: 1px solid var(--cloud-500);
+    border: 1px solid var(--o-ui-cloud-500);
 }
 
 .ui.toggle.checkbox input:focus ~ .box:before,
 .ui.toggle.checkbox input:focus ~ label:before,
 .ui.toggle.checkbox.focus input ~ .box:before,
 .ui.toggle.checkbox.focus input ~ label:before {
-    border: 1px solid var(--cloud-200);
+    border: 1px solid var(--o-ui-cloud-200);
 }
 
 /* toggle Focus Checked */
@@ -303,14 +303,14 @@
 .ui.toggle.checkbox input:checked:focus ~ label:before,
 .ui.toggle.checkbox.focus input:checked ~ .box:before,
 .ui.toggle.checkbox.focus input:checked ~ label:before {
-    border: 1px solid var(--primary-900);
+    border: 1px solid var(--o-ui-primary-900);
 }
 
 .ui.toggle.checkbox input:checked:focus ~ .box::before,
 .ui.toggle.checkbox input:checked:focus ~ label::before,
 .ui.toggle.checkbox.focus input:checked ~ .box::before,
 .ui.toggle.checkbox.focus input:checked ~ label::before {
-    border: 1px solid var(--primary-500);
+    border: 1px solid var(--o-ui-primary-500);
 }
 
 /* SIZE | Tiny */
@@ -318,8 +318,8 @@
 .ui.toggle.tiny.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .ui.toggle.checkbox.tiny input:checked ~ .box::after,
@@ -329,7 +329,7 @@
 
 .ui.toggle.tiny.checkbox .box:before,
 .ui.toggle.tiny.checkbox label:before {
-    width: var(--scale-golf);
+    width: var(--o-ui-scale-golf);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -344,8 +344,8 @@
 .ui.toggle.small.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .ui.toggle.checkbox input:checked ~ .box::after,
@@ -365,7 +365,7 @@
 
 .ui.toggle.small.checkbox .box:before,
 .ui.toggle.small.checkbox label:before {
-    width: var(--scale-golf);
+    width: var(--o-ui-scale-golf);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -384,13 +384,13 @@
 .ui.toggle.large.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--scale-echo);
-    height: var(--scale-echo);
+    width: var(--o-ui-scale-echo);
+    height: var(--o-ui-scale-echo);
 }
 
 .ui.toggle.large.checkbox .box:before,
 .ui.toggle.large.checkbox label:before {
-    width: var(--scale-india);
+    width: var(--o-ui-scale-india);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -421,7 +421,7 @@
 .ui.toggle.disabled label:checked::before,
 .ui.toggle.disabled.checkbox input:focus ~ label:before,
 .ui.toggle.disabled.checkbox.focus input ~ label:before {
-    background: var(--cloud-50);
+    background: var(--o-ui-cloud-50);
     border: none!important;
 }
 
@@ -449,7 +449,7 @@
 .ui.fitted.checkbox.with-badge .box,
 .ui.fitted.checkbox.with-icon label,
 .ui.fitted.checkbox.with-icon .box {
-    padding-left: calc(var(--scale-foxtrot) + var(--scale-alpha))!important;
+    padding-left: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-alpha))!important;
 }
 
 .ui.fitted.toggle.checkbox.with-badge label,
@@ -463,22 +463,22 @@
 /* Making sure the checkbox have the height they deserve */
 .ui.checkbox.large,
 .ui.checkbox.large > label {
-    min-height: var(--scale-foxtrot);
+    min-height: var(--o-ui-scale-foxtrot);
 }
 
 .ui.checkbox.small,
 .ui.checkbox.small > label {
-    min-height: var(--scale-delta);
+    min-height: var(--o-ui-scale-delta);
 }
 
 .ui.checkbox.radio label {
     padding-left: 1.625rem!important;
-    min-height: var(--scale-echo);
+    min-height: var(--o-ui-scale-echo);
 }
 
 .ui.checkbox label {
-    padding-left: calc(var(--scale-foxtrot) + var(--scale-alpha));
-    font-size: var(--type-scale-7);
+    padding-left: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-alpha));
+    font-size: var(--o-ui-type-scale-7);
 }
 
 .ui.checkbox label span.label {
@@ -497,37 +497,37 @@
 }
 
 .ui.checkbox.small label {
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 .ui.checkbox.large label {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
 }
 
 /* Large */
 .ui.checkbox.toggle.large label {
-    font-size: var(--type-scale-5);
+    font-size: var(--o-ui-type-scale-5);
 }
 
 .ui.checkbox .box:hover::before,
 .ui.checkbox label:hover::before,
 .ui.checkbox .box.hover::before,
 .ui.checkbox label.hover::before {
-    border: 1px solid var(--marine-300);
+    border: 1px solid var(--o-ui-marine-300);
 }
 
 .ui.checkbox.radio.checked .box:hover::before,
 .ui.checkbox.radio.checked label:hover::before,
 .ui.checkbox.radio.checked.hover .box::before,
 .ui.checkbox.radio.checked.hover label::before {
-    border: 1px solid var(--primary-500);
+    border: 1px solid var(--o-ui-primary-500);
 }
 
 .ui.checkbox.radio .box:hover::before,
 .ui.checkbox.radio label:hover::before,
 .ui.checkbox.radio.hover .box::before,
 .ui.checkbox.radio.hover label::before {
-    border: 1px solid var(--marine-300);
+    border: 1px solid var(--o-ui-marine-300);
 }
 
 .ui.slider.checkbox .box:after,
@@ -559,8 +559,8 @@
 .ui.disabled.checkbox .box:after,
 .ui.disabled.checkbox label::before,
 .ui.checkbox input[disabled] ~ label::before {
-    background-color: var(--cloud-50);
-    border: 1px solid var(--cloud-200);
+    background-color: var(--o-ui-cloud-50);
+    border: 1px solid var(--o-ui-cloud-200);
     color: @cloud200;
 }
 
@@ -570,8 +570,8 @@
 
 .ui.disabled.radio.checkbox .box:after,
 .ui.disabled.radio.checkbox label::before {
-    background-color: var(--cloud-50);
-    border: 1px solid var(--cloud-200);
+    background-color: var(--o-ui-cloud-50);
+    border: 1px solid var(--o-ui-cloud-200);
 }
 
 .ui.toggle.checkbox::before {
@@ -581,13 +581,13 @@
     position: absolute;
     transform: translate3d(0.125rem, -50%, 0);
     top: 50%;
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
     z-index: 10;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--scale-delta) var(--scale-delta);
+    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
 }
 
 /* SIZE | Small */
@@ -604,8 +604,8 @@
 
 /* SIZE | Large */
 .ui.toggle.large.checkbox::before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
     top: 50%;
     transform: translate3d(0.25rem, -50%, 0);
 }
@@ -643,21 +643,21 @@
 
 .ui.checkbox label > .icon {
     flex-shrink: 0;
-    flex-basis: var(--scale-echo);
+    flex-basis: var(--o-ui-scale-echo);
 }
 
 .ui.checkbox.with-icon .label {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* Small */
 .ui.checkbox.small label > .icon {
-    flex-basis: var(--scale-delta);
+    flex-basis: var(--o-ui-scale-delta);
 }
 
 /* Large */
 .ui.checkbox.large label > .icon {
-    flex-basis: var(--scale-foxtrot);
+    flex-basis: var(--o-ui-scale-foxtrot);
 }
 
 /* State | Read Only */
@@ -673,33 +673,33 @@
 .ui.checkbox.read-only input:hover ~ label:before,
 .ui.checkbox.read-only.hover input ~ .box:before,
 .ui.checkbox.read-only.hover input ~ label:before {
-    border: 1px solid var(--marine-100);
+    border: 1px solid var(--o-ui-marine-100);
 }
 
 .ui.checkbox.read-only input:checked:hover ~ .box:before,
 .ui.checkbox.read-only input:checked:hover ~ label:before
 .ui.checkbox.read-only.hover input:checked ~ .box:before,
 .ui.checkbox.read-only.hover input:checked ~ label:before {
-    border: 1px solid var(--primary-900);
+    border: 1px solid var(--o-ui-primary-900);
 }
 
 .ui.checkbox.read-only input:checked:focus ~ .box:before,
 .ui.checkbox.read-only input:checked:focus ~ label:before,
 .ui.checkbox.read-only.focus input:checked ~ .box:before,
 .ui.checkbox.read-only.focus input:checked ~ label:before {
-    border: 1px solid var(--primary-500);
+    border: 1px solid var(--o-ui-primary-500);
 }
 
 /* LAYOUT | SIZE | Tiny | Checkbox */
 .ui.checkbox.tiny .box,
 .ui.checkbox.tiny label {
-    padding-left: var(--scale-echo)!important;
+    padding-left: var(--o-ui-scale-echo)!important;
 }
 
 .ui.checkbox.tiny .box:before,
 .ui.checkbox.tiny label:before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -708,9 +708,9 @@
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
-    mask-size: var(--scale-delta) var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
+    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */
@@ -720,14 +720,14 @@
 .ui.checkbox.small.fitted.with-icon label,
 .ui.checkbox.small.fitted.with-badge .box,
 .ui.checkbox.small.fitted.with-badge label {
-    padding-left: var(--scale-foxtrot)!important;
-    min-height: var(--scale-delta);
+    padding-left: var(--o-ui-scale-foxtrot)!important;
+    min-height: var(--o-ui-scale-delta);
 }
 
 .ui.checkbox.small .box:before,
 .ui.checkbox.small label:before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -736,9 +736,9 @@
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
-    mask-size: var(--scale-delta) var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
+    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
 }
 
 /* LAYOUT | SIZE | Large | Checkbox */
@@ -749,13 +749,13 @@
 .ui.checkbox.large.fitted.with-badge .box,
 .ui.checkbox.large.fitted.with-badge label {
     padding-left: 2rem!important;
-    min-height: var(--scale-foxtrot);
+    min-height: var(--o-ui-scale-foxtrot);
 }
 
 .ui.checkbox.large .box:before,
 .ui.checkbox.large label:before {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }
 
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -764,23 +764,23 @@
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
-    mask-size: var(--scale-foxtrot) var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
+    mask-size: var(--o-ui-scale-foxtrot) var(--o-ui-scale-foxtrot);
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.radio.checkbox.small .box:after,
 .ui.radio.checkbox.small label:after {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.radio.checkbox.large .box:after,
 .ui.radio.checkbox.large label:after {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }
 
 /* Additions */
@@ -790,12 +790,12 @@
 
 .ui.checkbox.fitted.indeterminate.large,
 .ui.checkbox.fitted.indeterminate.large label {
-    min-height: var(--scale-foxtrot);
+    min-height: var(--o-ui-scale-foxtrot);
 }
 
 /* IN CHECKBOX */
 .ui.checkbox.with-badge .badge {
-    margin-left: var(--scale-bravo);
+    margin-left: var(--o-ui-scale-bravo);
 }
 
 /* FITTED TOGGLE */

@@ -10,13 +10,13 @@
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--border-2);
+    border-bottom: 2px solid var(--o-ui-border-2);
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--border-2);
+    border-left: 2px solid var(--o-ui-border-2);
 }
 
 /* TAB */
@@ -25,15 +25,15 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: calc(var(--scale-charlie) + 1px);
+    padding: calc(var(--o-ui-scale-charlie) + 1px);
     border: transparent;
     transition: all 0.2s;
     width: max-content;
-    min-width: var(--scale-mike);
+    min-width: var(--o-ui-scale-mike);
     height: max-content;
-    min-height: var(--scale-india);
+    min-height: var(--o-ui-scale-india);
     cursor: pointer;
-    color: var(--text-2);
+    color: var(--o-ui-text-2);
     position: relative;
     overflow: hidden;
 }
@@ -44,7 +44,7 @@
 
 /* TAB | WITH ICON */
 .o-ui-tab-has-icon {
-    padding-left: calc(var(--scale-bravo) + 1px);
+    padding-left: calc(var(--o-ui-scale-bravo) + 1px);
 }
 
 /* TAB | STATE | FOCUS */
@@ -53,11 +53,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(var(--scale-bravo) - 2px);
+    bottom: calc(var(--o-ui-scale-bravo) - 2px);
     border: 2px transparent solid;
     border-radius: var(--o-ui-rounded-border-radius);
     pointer-events: none;
-    height: calc(var(--scale-echo) + var(--scale-alpha));
+    height: calc(var(--o-ui-scale-echo) + var(--o-ui-scale-alpha));
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
@@ -67,7 +67,7 @@
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    margin-right: var(--scale-charlie);
+    margin-right: var(--o-ui-scale-charlie);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
 }
@@ -79,7 +79,7 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    margin-bottom: var(--scale-charlie);
+    margin-bottom: var(--o-ui-scale-charlie);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
@@ -99,7 +99,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:focus:before,
 .o-ui-tab-focus:before {
-    border-color: var(--border-primary);
+    border-color: var(--o-ui-border-primary);
 }
 
 .o-ui-tab:focus,
@@ -114,25 +114,25 @@
 /* TAB | STATE | HOVER */
 .o-ui-tab:hover,
 .o-ui-tab-hover {
-    color: var(--text-1);
+    color: var(--o-ui-text-1);
 }
 
 /* TAB | STATE | HOVER | DISABLED */
 .o-ui-tab[disabled]:hover,
 .o-ui-tab-hover[disabled] {
-    color: var(--text-2);
+    color: var(--o-ui-text-2);
 }
 
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--border-4);
-    color: var(--text-1);
+    border-bottom: 2px solid var(--o-ui-border-4);
+    color: var(--o-ui-text-1);
 }
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--border-4);
+    border-left: 2px solid var(--o-ui-border-4);
 }
 
 /* TAB | FLUID */
@@ -163,7 +163,7 @@
 }
 
 .o-ui-tab-icon + .o-ui-tab-text {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* TAB | ICON */
@@ -173,22 +173,22 @@
 
 /* TAB | LOZENGE */
 .o-ui-tab-text + .o-ui-tab-lozenge {
-    margin-left: var(--scale-bravo);
+    margin-left: var(--o-ui-scale-bravo);
 }
 
 /* PANEL */
 .o-ui-tab-panel {
-    color: var(--text-1);
+    color: var(--o-ui-text-1);
 }
 
 /* PANEL | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-panel {
-    padding: var(--scale-delta) var(--scale-bravo);
+    padding: var(--o-ui-scale-delta) var(--o-ui-scale-bravo);
 }
 
 /*  PANEL | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-panel {
-    padding: calc(var(--scale-charlie) + 1px) var(--scale-delta);
+    padding: calc(var(--o-ui-scale-charlie) + 1px) var(--o-ui-scale-delta);
 }
 
 /* PANEL | FLUID */

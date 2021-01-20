@@ -2,15 +2,15 @@
 
 :root {
     --o-ui-resize: vertical;
-    --o-ui-textarea-padding: var(--scale-charlie);
+    --o-ui-textarea-padding: var(--o-ui-scale-charlie);
 }
 
 .o-ui-text-area textarea {
     resize: var(--o-ui-resize);
     /* Fixes a bug where Firefox adds one more row than the one specified. */
     overflow-x: hidden;
-    padding: var(--scale-bravo) var(--o-ui-textarea-padding);
-    min-height: var(--scale-mike);
+    padding: var(--o-ui-scale-bravo) var(--o-ui-textarea-padding);
+    min-height: var(--o-ui-scale-mike);
 }
 
 /* TRANSPARENT */

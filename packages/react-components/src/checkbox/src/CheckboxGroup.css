@@ -1,8 +1,8 @@
 /* IN FIELD */
 .o-ui-checkbox-group-has-label {
-    margin-top: var(--scale-alpha);
+    margin-top: var(--o-ui-scale-alpha);
 }
 
 .o-ui-checkbox-group-has-message {
-    margin-bottom: var(--scale-alpha);
+    margin-bottom: var(--o-ui-scale-alpha);
 }

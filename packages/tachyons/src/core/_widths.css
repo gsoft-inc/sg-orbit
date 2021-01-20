@@ -1,53 +1,53 @@
 .w1 {
-    width: var(--scale-alpha);
+    width: var(--o-ui-scale-alpha);
 }
 
 .w2 {
-    width: var(--scale-bravo);
+    width: var(--o-ui-scale-bravo);
 }
 
 .w3 {
-    width: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
 }
 
 .w4 {
-    width: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
 }
 
 .w5 {
-    width: var(--scale-echo);
+    width: var(--o-ui-scale-echo);
 }
 
 .w6 {
-    width: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
 }
 
 .w7 {
-    width: var(--scale-golf);
+    width: var(--o-ui-scale-golf);
 }
 
 .w8 {
-    width: var(--scale-hotel);
+    width: var(--o-ui-scale-hotel);
 }
 
 .w9 {
-    width: var(--scale-india);
+    width: var(--o-ui-scale-india);
 }
 
 .w10 {
-    width: var(--scale-juliett);
+    width: var(--o-ui-scale-juliett);
 }
 
 .w11 {
-    width: var(--scale-kilo);
+    width: var(--o-ui-scale-kilo);
 }
 
 .w12 {
-    width: var(--scale-lima);
+    width: var(--o-ui-scale-lima);
 }
 
 .w13 {
-    width: var(--scale-mike);
+    width: var(--o-ui-scale-mike);
 }
 
 .w-10 {
@@ -120,43 +120,43 @@
 
 @media (--breakpoint-not-small) {
     .w1-ns {
-        width: var(--scale-alpha);
+        width: var(--o-ui-scale-alpha);
     }
     .w2-ns {
-        width: var(--scale-bravo);
+        width: var(--o-ui-scale-bravo);
     }
     .w3-ns {
-        width: var(--scale-charlie);
+        width: var(--o-ui-scale-charlie);
     }
     .w4-ns {
-        width: var(--scale-delta);
+        width: var(--o-ui-scale-delta);
     }
     .w5-ns {
-        width: var(--scale-echo);
+        width: var(--o-ui-scale-echo);
     }
     .w6-ns {
-        width: var(--scale-foxtrot);
+        width: var(--o-ui-scale-foxtrot);
     }
     .w7-ns {
-        width: var(--scale-golf);
+        width: var(--o-ui-scale-golf);
     }
     .w8-ns {
-        width: var(--scale-hotel);
+        width: var(--o-ui-scale-hotel);
     }
     .w9-ns {
-        width: var(--scale-india);
+        width: var(--o-ui-scale-india);
     }
     .w10-ns {
-        width: var(--scale-juliett);
+        width: var(--o-ui-scale-juliett);
     }
     .w11-ns {
-        width: var(--scale-kilo);
+        width: var(--o-ui-scale-kilo);
     }
     .w12-ns {
-        width: var(--scale-lima);
+        width: var(--o-ui-scale-lima);
     }
     .w13-ns {
-        width: var(--scale-mike);
+        width: var(--o-ui-scale-mike);
     }
     .w-10-ns {
         width: 10%;
@@ -213,43 +213,43 @@
 
 @media (--breakpoint-medium) {
     .w1-m {
-        width: var(--scale-alpha);
+        width: var(--o-ui-scale-alpha);
     }
     .w2-m {
-        width: var(--scale-bravo);
+        width: var(--o-ui-scale-bravo);
     }
     .w3-m {
-        width: var(--scale-charlie);
+        width: var(--o-ui-scale-charlie);
     }
     .w4-m {
-        width: var(--scale-delta);
+        width: var(--o-ui-scale-delta);
     }
     .w5-m {
-        width: var(--scale-echo);
+        width: var(--o-ui-scale-echo);
     }
     .w6-m {
-        width: var(--scale-foxtrot);
+        width: var(--o-ui-scale-foxtrot);
     }
     .w7-m {
-        width: var(--scale-golf);
+        width: var(--o-ui-scale-golf);
     }
     .w8-m {
-        width: var(--scale-hotel);
+        width: var(--o-ui-scale-hotel);
     }
     .w9-m {
-        width: var(--scale-india);
+        width: var(--o-ui-scale-india);
     }
     .w10-m {
-        width: var(--scale-juliett);
+        width: var(--o-ui-scale-juliett);
     }
     .w11-m {
-        width: var(--scale-kilo);
+        width: var(--o-ui-scale-kilo);
     }
     .w12-m {
-        width: var(--scale-lima);
+        width: var(--o-ui-scale-lima);
     }
     .w13-m {
-        width: var(--scale-mike);
+        width: var(--o-ui-scale-mike);
     }
     .w-10-m {
         width: 10%;
@@ -306,43 +306,43 @@
 
 @media (--breakpoint-large) {
     .w1-l {
-        width: var(--scale-alpha);
+        width: var(--o-ui-scale-alpha);
     }
     .w2-l {
-        width: var(--scale-bravo);
+        width: var(--o-ui-scale-bravo);
     }
     .w3-l {
-        width: var(--scale-charlie);
+        width: var(--o-ui-scale-charlie);
     }
     .w4-l {
-        width: var(--scale-delta);
+        width: var(--o-ui-scale-delta);
     }
     .w5-l {
-        width: var(--scale-echo);
+        width: var(--o-ui-scale-echo);
     }
     .w6-l {
-        width: var(--scale-foxtrot);
+        width: var(--o-ui-scale-foxtrot);
     }
     .w7-l {
-        width: var(--scale-golf);
+        width: var(--o-ui-scale-golf);
     }
     .w8-l {
-        width: var(--scale-hotel);
+        width: var(--o-ui-scale-hotel);
     }
     .w9-l {
-        width: var(--scale-india);
+        width: var(--o-ui-scale-india);
     }
     .w10-l {
-        width: var(--scale-juliett);
+        width: var(--o-ui-scale-juliett);
     }
     .w11-l {
-        width: var(--scale-kilo);
+        width: var(--o-ui-scale-kilo);
     }
     .w12-l {
-        width: var(--scale-lima);
+        width: var(--o-ui-scale-lima);
     }
     .w13-l {
-        width: var(--scale-mike);
+        width: var(--o-ui-scale-mike);
     }
     .w-10-l {
         width: 10%;

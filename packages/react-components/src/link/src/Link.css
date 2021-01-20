@@ -1,7 +1,7 @@
 .o-ui-link {
     display: inline-block;
     border: none;
-    background-color: var(--transparent);
+    background-color: var(--o-ui-transparent);
     padding: 0;
     position: relative;
 }
@@ -15,7 +15,7 @@
 /* STATE | HOVER */
 .o-ui-link:hover,
 .o-ui-link-hover {
-    color: var(--primary-text);
+    color: var(--o-ui-primary-text);
 }
 
 /* INHERIT | STATE | HOVER */
@@ -27,7 +27,7 @@
 /* STATE | HOVER | DISABLED */
 .o-ui-link[disabled]:hover,
 .o-ui-link-hover[disabled] {
-    color: var(--primary-text);
+    color: var(--o-ui-primary-text);
 }
 
 /* STATE | FOCUS */
@@ -59,7 +59,7 @@
 /* STATE | ACTIVE */
 .o-ui-link:active,
 .o-ui-link-active {
-    color: var(--primary-text);
+    color: var(--o-ui-primary-text);
 }
 
 /* STATE | ACTIVE | FOCUS */
@@ -67,7 +67,7 @@
 .o-ui-link-active.o-ui-link-focus,
 .o-ui-link-active.o-ui-link:focus,
 .o-ui-link:active.o-ui-link-focus {
-    background-color: var(--transparent);
+    background-color: var(--o-ui-transparent);
     box-shadow: none;
 }
 
@@ -94,7 +94,7 @@
     display: inline-flex;
     align-items: flex-start;
     justify-content: center;
-    color: var(--primary-text);
+    color: var(--o-ui-primary-text);
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
 }
@@ -188,75 +188,75 @@
 /* VARIATIONS */
 /* PRIMARY */
 .o-ui-link-primary {
-    color: var(--text-primary);
+    color: var(--o-ui-text-primary);
 }
 
 /* PRIMARY | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-primary,
 .o-ui-link-hover.o-ui-link-primary {
-    color: var(--text-primary-hover);
+    color: var(--o-ui-text-primary-hover);
 }
 
 /* PRIMARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
-    background-color: var(--background-primary-focus);
-    box-shadow: 0 0 0 2px var(--background-primary-focus);
+    background-color: var(--o-ui-background-primary-focus);
+    box-shadow: 0 0 0 2px var(--o-ui-background-primary-focus);
 }
 
 /* PRIMARY | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-primary,
 .o-ui-link-active.o-ui-link-primary {
-    color: var(--text-primary-active);
+    color: var(--o-ui-text-primary-active);
 }
 
 /* DANGER */
 .o-ui-link-danger {
-    --o-ui-focus-ring-color: var(--border-danger);
-    color: var(--text-danger);
+    --o-ui-focus-ring-color: var(--o-ui-border-danger);
+    color: var(--o-ui-text-danger);
 }
 
 /* DANGER | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-danger,
 .o-ui-link-hover.o-ui-link-danger {
-    color: var(--text-danger-hover);
+    color: var(--o-ui-text-danger-hover);
 }
 
 /* DANGER | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-danger,
 .o-ui-link-focus.o-ui-link-danger {
-    background-color: var(--danger-50);
-    box-shadow: 0 0 0 2px var(--danger-50);
+    background-color: var(--o-ui-danger-50);
+    box-shadow: 0 0 0 2px var(--o-ui-danger-50);
 }
 
 /* DANGER | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-danger,
 .o-ui-link-active.o-ui-link-danger {
-    color: var(--text-danger-active);
+    color: var(--o-ui-text-danger-active);
 }
 
 /* SECONDARY */
 .o-ui-link-secondary {
-    color: var(--text-3);
+    color: var(--o-ui-text-3);
 }
 
 /* SECONDARY | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-secondary,
 .o-ui-link-hover.o-ui-link-secondary {
-    color: var(--text-3-hover);
+    color: var(--o-ui-text-3-hover);
 }
 
 /* SECONDARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-secondary,
 .o-ui-link-focus.o-ui-link-secondary {
-    background-color: var(--cloud-50);
-    box-shadow: 0 0 0 2px var(--cloud-50);
+    background-color: var(--o-ui-cloud-50);
+    box-shadow: 0 0 0 2px var(--o-ui-cloud-50);
 }
 
 /* SECONDARY | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-secondary,
 .o-ui-link-active.o-ui-link-secondary {
-    color: var(--text-3-active);
+    color: var(--o-ui-text-3-active);
 }
 
 /* AS BUTTON */
@@ -296,7 +296,7 @@ button.o-ui-link-hover {
 
 /* ICON LINK */
 .o-ui-icon-link {
-    color: var(--primary-text);
+    color: var(--o-ui-primary-text);
 }
 
 /* we need a .o-ui-icon-link-icon [sic] */
@@ -309,6 +309,6 @@ button.o-ui-link-hover {
 .o-ui-icon-link-focus {
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
-    background-color: var(--background-primary-light);
-    box-shadow: 0 0 0 2px var(--background-primary-light);
+    background-color: var(--o-ui-background-primary-light);
+    box-shadow: 0 0 0 2px var(--o-ui-background-primary-light);
 }

@@ -12,7 +12,7 @@
 
 /* Checkbox */
 @checkboxBackground: @white;
-@checkboxBorder: 1px solid var(--marine-100);
+@checkboxBorder: 1px solid var(--o-ui-marine-100);
 @checkboxBorderRadius: @3px;
 @checkboxTransition:
     border @defaultDuration @defaultEasing,
@@ -118,7 +118,7 @@
     0 0 0 0 @borderColor inset
 ;
 
-@toggleLaneBackground: var(--cloud-200);
+@toggleLaneBackground: var(--o-ui-cloud-200);
 /* cloud-dark */
 @toggleLaneHeight: 1.25rem;
 @toggleLaneBoxShadow: none;
@@ -131,7 +131,7 @@
 @toggleLabelOffset: 0;
 
 
-@toggleFocusColor: var(--cloud-200);
+@toggleFocusColor: var(--o-ui-cloud-200);
 @toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;

@@ -3,55 +3,55 @@
 }
 
 .pa1 {
-    padding: var(--scale-alpha);
+    padding: var(--o-ui-scale-alpha);
 }
 
 .pa2 {
-    padding: var(--scale-bravo);
+    padding: var(--o-ui-scale-bravo);
 }
 
 .pa3 {
-    padding: var(--scale-charlie);
+    padding: var(--o-ui-scale-charlie);
 }
 
 .pa4 {
-    padding: var(--scale-delta);
+    padding: var(--o-ui-scale-delta);
 }
 
 .pa5 {
-    padding: var(--scale-echo);
+    padding: var(--o-ui-scale-echo);
 }
 
 .pa6 {
-    padding: var(--scale-foxtrot);
+    padding: var(--o-ui-scale-foxtrot);
 }
 
 .pa7 {
-    padding: var(--scale-golf);
+    padding: var(--o-ui-scale-golf);
 }
 
 .pa8 {
-    padding: var(--scale-hotel);
+    padding: var(--o-ui-scale-hotel);
 }
 
 .pa9 {
-    padding: var(--scale-india);
+    padding: var(--o-ui-scale-india);
 }
 
 .pa10 {
-    padding: var(--scale-juliett);
+    padding: var(--o-ui-scale-juliett);
 }
 
 .pa11 {
-    padding: var(--scale-kilo);
+    padding: var(--o-ui-scale-kilo);
 }
 
 .pa12 {
-    padding: var(--scale-lima);
+    padding: var(--o-ui-scale-lima);
 }
 
 .pa13 {
-    padding: var(--scale-mike);
+    padding: var(--o-ui-scale-mike);
 }
 
 .pa-auto {
@@ -63,55 +63,55 @@
 }
 
 .pl1 {
-    padding-left: var(--scale-alpha);
+    padding-left: var(--o-ui-scale-alpha);
 }
 
 .pl2 {
-    padding-left: var(--scale-bravo);
+    padding-left: var(--o-ui-scale-bravo);
 }
 
 .pl3 {
-    padding-left: var(--scale-charlie);
+    padding-left: var(--o-ui-scale-charlie);
 }
 
 .pl4 {
-    padding-left: var(--scale-delta);
+    padding-left: var(--o-ui-scale-delta);
 }
 
 .pl5 {
-    padding-left: var(--scale-echo);
+    padding-left: var(--o-ui-scale-echo);
 }
 
 .pl6 {
-    padding-left: var(--scale-foxtrot);
+    padding-left: var(--o-ui-scale-foxtrot);
 }
 
 .pl7 {
-    padding-left: var(--scale-golf);
+    padding-left: var(--o-ui-scale-golf);
 }
 
 .pl8 {
-    padding-left: var(--scale-hotel);
+    padding-left: var(--o-ui-scale-hotel);
 }
 
 .pl9 {
-    padding-left: var(--scale-india);
+    padding-left: var(--o-ui-scale-india);
 }
 
 .pl10 {
-    padding-left: var(--scale-juliett);
+    padding-left: var(--o-ui-scale-juliett);
 }
 
 .pl11 {
-    padding-left: var(--scale-kilo);
+    padding-left: var(--o-ui-scale-kilo);
 }
 
 .pl12 {
-    padding-left: var(--scale-lima);
+    padding-left: var(--o-ui-scale-lima);
 }
 
 .pl13 {
-    padding-left: var(--scale-mike);
+    padding-left: var(--o-ui-scale-mike);
 }
 
 .pl-auto {
@@ -123,55 +123,55 @@
 }
 
 .pr1 {
-    padding-right: var(--scale-alpha);
+    padding-right: var(--o-ui-scale-alpha);
 }
 
 .pr2 {
-    padding-right: var(--scale-bravo);
+    padding-right: var(--o-ui-scale-bravo);
 }
 
 .pr3 {
-    padding-right: var(--scale-charlie);
+    padding-right: var(--o-ui-scale-charlie);
 }
 
 .pr4 {
-    padding-right: var(--scale-delta);
+    padding-right: var(--o-ui-scale-delta);
 }
 
 .pr5 {
-    padding-right: var(--scale-echo);
+    padding-right: var(--o-ui-scale-echo);
 }
 
 .pr6 {
-    padding-right: var(--scale-foxtrot);
+    padding-right: var(--o-ui-scale-foxtrot);
 }
 
 .pr7 {
-    padding-right: var(--scale-golf);
+    padding-right: var(--o-ui-scale-golf);
 }
 
 .pr8 {
-    padding-right: var(--scale-hotel);
+    padding-right: var(--o-ui-scale-hotel);
 }
 
 .pr9 {
-    padding-right: var(--scale-india);
+    padding-right: var(--o-ui-scale-india);
 }
 
 .pr10 {
-    padding-right: var(--scale-juliett);
+    padding-right: var(--o-ui-scale-juliett);
 }
 
 .pr11 {
-    padding-right: var(--scale-kilo);
+    padding-right: var(--o-ui-scale-kilo);
 }
 
 .pr12 {
-    padding-right: var(--scale-lima);
+    padding-right: var(--o-ui-scale-lima);
 }
 
 .pr13 {
-    padding-right: var(--scale-mike);
+    padding-right: var(--o-ui-scale-mike);
 }
 
 .pr-auto {
@@ -183,55 +183,55 @@
 }
 
 .pb1 {
-    padding-bottom: var(--scale-alpha);
+    padding-bottom: var(--o-ui-scale-alpha);
 }
 
 .pb2 {
-    padding-bottom: var(--scale-bravo);
+    padding-bottom: var(--o-ui-scale-bravo);
 }
 
 .pb3 {
-    padding-bottom: var(--scale-charlie);
+    padding-bottom: var(--o-ui-scale-charlie);
 }
 
 .pb4 {
-    padding-bottom: var(--scale-delta);
+    padding-bottom: var(--o-ui-scale-delta);
 }
 
 .pb5 {
-    padding-bottom: var(--scale-echo);
+    padding-bottom: var(--o-ui-scale-echo);
 }
 
 .pb6 {
-    padding-bottom: var(--scale-foxtrot);
+    padding-bottom: var(--o-ui-scale-foxtrot);
 }
 
 .pb7 {
-    padding-bottom: var(--scale-golf);
+    padding-bottom: var(--o-ui-scale-golf);
 }
 
 .pb8 {
-    padding-bottom: var(--scale-hotel);
+    padding-bottom: var(--o-ui-scale-hotel);
 }
 
 .pb9 {
-    padding-bottom: var(--scale-india);
+    padding-bottom: var(--o-ui-scale-india);
 }
 
 .pb10 {
-    padding-bottom: var(--scale-juliett);
+    padding-bottom: var(--o-ui-scale-juliett);
 }
 
 .pb11 {
-    padding-bottom: var(--scale-kilo);
+    padding-bottom: var(--o-ui-scale-kilo);
 }
 
 .pb12 {
-    padding-bottom: var(--scale-lima);
+    padding-bottom: var(--o-ui-scale-lima);
 }
 
 .pb13 {
-    padding-bottom: var(--scale-mike);
+    padding-bottom: var(--o-ui-scale-mike);
 }
 
 .pb-auto {
@@ -243,55 +243,55 @@
 }
 
 .pt1 {
-    padding-top: var(--scale-alpha);
+    padding-top: var(--o-ui-scale-alpha);
 }
 
 .pt2 {
-    padding-top: var(--scale-bravo);
+    padding-top: var(--o-ui-scale-bravo);
 }
 
 .pt3 {
-    padding-top: var(--scale-charlie);
+    padding-top: var(--o-ui-scale-charlie);
 }
 
 .pt4 {
-    padding-top: var(--scale-delta);
+    padding-top: var(--o-ui-scale-delta);
 }
 
 .pt5 {
-    padding-top: var(--scale-echo);
+    padding-top: var(--o-ui-scale-echo);
 }
 
 .pt6 {
-    padding-top: var(--scale-foxtrot);
+    padding-top: var(--o-ui-scale-foxtrot);
 }
 
 .pt7 {
-    padding-top: var(--scale-golf);
+    padding-top: var(--o-ui-scale-golf);
 }
 
 .pt8 {
-    padding-top: var(--scale-hotel);
+    padding-top: var(--o-ui-scale-hotel);
 }
 
 .pt9 {
-    padding-top: var(--scale-india);
+    padding-top: var(--o-ui-scale-india);
 }
 
 .pt10 {
-    padding-top: var(--scale-juliett);
+    padding-top: var(--o-ui-scale-juliett);
 }
 
 .pt11 {
-    padding-top: var(--scale-kilo);
+    padding-top: var(--o-ui-scale-kilo);
 }
 
 .pt12 {
-    padding-top: var(--scale-lima);
+    padding-top: var(--o-ui-scale-lima);
 }
 
 .pt13 {
-    padding-top: var(--scale-mike);
+    padding-top: var(--o-ui-scale-mike);
 }
 
 .pt-auto {
@@ -304,68 +304,68 @@
 }
 
 .pv1 {
-    padding-top: var(--scale-alpha);
-    padding-bottom: var(--scale-alpha);
+    padding-top: var(--o-ui-scale-alpha);
+    padding-bottom: var(--o-ui-scale-alpha);
 }
 
 .pv2 {
-    padding-top: var(--scale-bravo);
-    padding-bottom: var(--scale-bravo);
+    padding-top: var(--o-ui-scale-bravo);
+    padding-bottom: var(--o-ui-scale-bravo);
 }
 
 .pv3 {
-    padding-top: var(--scale-charlie);
-    padding-bottom: var(--scale-charlie);
+    padding-top: var(--o-ui-scale-charlie);
+    padding-bottom: var(--o-ui-scale-charlie);
 }
 
 .pv4 {
-    padding-top: var(--scale-delta);
-    padding-bottom: var(--scale-delta);
+    padding-top: var(--o-ui-scale-delta);
+    padding-bottom: var(--o-ui-scale-delta);
 }
 
 .pv5 {
-    padding-top: var(--scale-echo);
-    padding-bottom: var(--scale-echo);
+    padding-top: var(--o-ui-scale-echo);
+    padding-bottom: var(--o-ui-scale-echo);
 }
 
 .pv6 {
-    padding-top: var(--scale-foxtrot);
-    padding-bottom: var(--scale-foxtrot);
+    padding-top: var(--o-ui-scale-foxtrot);
+    padding-bottom: var(--o-ui-scale-foxtrot);
 }
 
 .pv7 {
-    padding-top: var(--scale-golf);
-    padding-bottom: var(--scale-golf);
+    padding-top: var(--o-ui-scale-golf);
+    padding-bottom: var(--o-ui-scale-golf);
 }
 
 .pv8 {
-    padding-top: var(--scale-hotel);
-    padding-bottom: var(--scale-hotel);
+    padding-top: var(--o-ui-scale-hotel);
+    padding-bottom: var(--o-ui-scale-hotel);
 }
 
 .pv9 {
-    padding-top: var(--scale-india);
-    padding-bottom: var(--scale-india);
+    padding-top: var(--o-ui-scale-india);
+    padding-bottom: var(--o-ui-scale-india);
 }
 
 .pv10 {
-    padding-top: var(--scale-juliett);
-    padding-bottom: var(--scale-juliett);
+    padding-top: var(--o-ui-scale-juliett);
+    padding-bottom: var(--o-ui-scale-juliett);
 }
 
 .pv11 {
-    padding-top: var(--scale-kilo);
-    padding-bottom: var(--scale-kilo);
+    padding-top: var(--o-ui-scale-kilo);
+    padding-bottom: var(--o-ui-scale-kilo);
 }
 
 .pv12 {
-    padding-top: var(--scale-lima);
-    padding-bottom: var(--scale-lima);
+    padding-top: var(--o-ui-scale-lima);
+    padding-bottom: var(--o-ui-scale-lima);
 }
 
 .pv13 {
-    padding-top: var(--scale-mike);
-    padding-bottom: var(--scale-mike);
+    padding-top: var(--o-ui-scale-mike);
+    padding-bottom: var(--o-ui-scale-mike);
 }
 
 .pv-auto {
@@ -379,68 +379,68 @@
 }
 
 .ph1 {
-    padding-left: var(--scale-alpha);
-    padding-right: var(--scale-alpha);
+    padding-left: var(--o-ui-scale-alpha);
+    padding-right: var(--o-ui-scale-alpha);
 }
 
 .ph2 {
-    padding-left: var(--scale-bravo);
-    padding-right: var(--scale-bravo);
+    padding-left: var(--o-ui-scale-bravo);
+    padding-right: var(--o-ui-scale-bravo);
 }
 
 .ph3 {
-    padding-left: var(--scale-charlie);
-    padding-right: var(--scale-charlie);
+    padding-left: var(--o-ui-scale-charlie);
+    padding-right: var(--o-ui-scale-charlie);
 }
 
 .ph4 {
-    padding-left: var(--scale-delta);
-    padding-right: var(--scale-delta);
+    padding-left: var(--o-ui-scale-delta);
+    padding-right: var(--o-ui-scale-delta);
 }
 
 .ph5 {
-    padding-left: var(--scale-echo);
-    padding-right: var(--scale-echo);
+    padding-left: var(--o-ui-scale-echo);
+    padding-right: var(--o-ui-scale-echo);
 }
 
 .ph6 {
-    padding-left: var(--scale-foxtrot);
-    padding-right: var(--scale-foxtrot);
+    padding-left: var(--o-ui-scale-foxtrot);
+    padding-right: var(--o-ui-scale-foxtrot);
 }
 
 .ph7 {
-    padding-left: var(--scale-golf);
-    padding-right: var(--scale-golf);
+    padding-left: var(--o-ui-scale-golf);
+    padding-right: var(--o-ui-scale-golf);
 }
 
 .ph8 {
-    padding-left: var(--scale-hotel);
-    padding-right: var(--scale-hotel);
+    padding-left: var(--o-ui-scale-hotel);
+    padding-right: var(--o-ui-scale-hotel);
 }
 
 .ph9 {
-    padding-left: var(--scale-india);
-    padding-right: var(--scale-india);
+    padding-left: var(--o-ui-scale-india);
+    padding-right: var(--o-ui-scale-india);
 }
 
 .ph10 {
-    padding-left: var(--scale-juliett);
-    padding-right: var(--scale-juliett);
+    padding-left: var(--o-ui-scale-juliett);
+    padding-right: var(--o-ui-scale-juliett);
 }
 
 .ph11 {
-    padding-left: var(--scale-kilo);
-    padding-right: var(--scale-kilo);
+    padding-left: var(--o-ui-scale-kilo);
+    padding-right: var(--o-ui-scale-kilo);
 }
 
 .ph12 {
-    padding-left: var(--scale-lima);
-    padding-right: var(--scale-lima);
+    padding-left: var(--o-ui-scale-lima);
+    padding-right: var(--o-ui-scale-lima);
 }
 
 .ph13 {
-    padding-left: var(--scale-mike);
-    padding-right: var(--scale-mike);
+    padding-left: var(--o-ui-scale-mike);
+    padding-right: var(--o-ui-scale-mike);
 }
 
 .ph-auto {
@@ -453,43 +453,43 @@
         padding: 0;
     }
     .pa1-ns {
-        padding: var(--scale-alpha);
+        padding: var(--o-ui-scale-alpha);
     }
     .pa2-ns {
-        padding: var(--scale-bravo);
+        padding: var(--o-ui-scale-bravo);
     }
     .pa3-ns {
-        padding: var(--scale-charlie);
+        padding: var(--o-ui-scale-charlie);
     }
     .pa4-ns {
-        padding: var(--scale-delta);
+        padding: var(--o-ui-scale-delta);
     }
     .pa5-ns {
-        padding: var(--scale-echo);
+        padding: var(--o-ui-scale-echo);
     }
     .pa6-ns {
-        padding: var(--scale-foxtrot);
+        padding: var(--o-ui-scale-foxtrot);
     }
     .pa7-ns {
-        padding: var(--scale-golf);
+        padding: var(--o-ui-scale-golf);
     }
     .pa8-ns {
-        padding: var(--scale-hotel);
+        padding: var(--o-ui-scale-hotel);
     }
     .pa9-ns {
-        padding: var(--scale-india);
+        padding: var(--o-ui-scale-india);
     }
     .pa10-ns {
-        padding: var(--scale-juliett);
+        padding: var(--o-ui-scale-juliett);
     }
     .pa11-ns {
-        padding: var(--scale-kilo);
+        padding: var(--o-ui-scale-kilo);
     }
     .pa12-ns {
-        padding: var(--scale-lima);
+        padding: var(--o-ui-scale-lima);
     }
     .pa13-ns {
-        padding: var(--scale-mike);
+        padding: var(--o-ui-scale-mike);
     }
     .pa-auto-ns {
         padding: auto;
@@ -498,43 +498,43 @@
         padding-left: 0;
     }
     .pl1-ns {
-        padding-left: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
     }
     .pl2-ns {
-        padding-left: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
     }
     .pl3-ns {
-        padding-left: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
     }
     .pl4-ns {
-        padding-left: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
     }
     .pl5-ns {
-        padding-left: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
     }
     .pl6-ns {
-        padding-left: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
     }
     .pl7-ns {
-        padding-left: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
     }
     .pl8-ns {
-        padding-left: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
     }
     .pl9-ns {
-        padding-left: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
     }
     .pl10-ns {
-        padding-left: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
     }
     .pl11-ns {
-        padding-left: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
     }
     .pl12-ns {
-        padding-left: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
     }
     .pl13-ns {
-        padding-left: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
     }
     .pl-auto-ns {
         padding-left: auto;
@@ -543,43 +543,43 @@
         padding-right: 0;
     }
     .pr1-ns {
-        padding-right: var(--scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .pr2-ns {
-        padding-right: var(--scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .pr3-ns {
-        padding-right: var(--scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .pr4-ns {
-        padding-right: var(--scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .pr5-ns {
-        padding-right: var(--scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .pr6-ns {
-        padding-right: var(--scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .pr7-ns {
-        padding-right: var(--scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .pr8-ns {
-        padding-right: var(--scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .pr9-ns {
-        padding-right: var(--scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .pr10-ns {
-        padding-right: var(--scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .pr11-ns {
-        padding-right: var(--scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .pr12-ns {
-        padding-right: var(--scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .pr13-ns {
-        padding-right: var(--scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .pr-auto-ns {
         padding-right: auto;
@@ -588,43 +588,43 @@
         padding-bottom: 0;
     }
     .pb1-ns {
-        padding-bottom: var(--scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pb2-ns {
-        padding-bottom: var(--scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pb3-ns {
-        padding-bottom: var(--scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pb4-ns {
-        padding-bottom: var(--scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pb5-ns {
-        padding-bottom: var(--scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pb6-ns {
-        padding-bottom: var(--scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pb7-ns {
-        padding-bottom: var(--scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pb8-ns {
-        padding-bottom: var(--scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pb9-ns {
-        padding-bottom: var(--scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pb10-ns {
-        padding-bottom: var(--scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pb11-ns {
-        padding-bottom: var(--scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pb12-ns {
-        padding-bottom: var(--scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pb13-ns {
-        padding-bottom: var(--scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pb-auto-ns {
         padding-bottom: auto;
@@ -633,43 +633,43 @@
         padding-top: 0;
     }
     .pt1-ns {
-        padding-top: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
     }
     .pt2-ns {
-        padding-top: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
     }
     .pt3-ns {
-        padding-top: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
     }
     .pt4-ns {
-        padding-top: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
     }
     .pt5-ns {
-        padding-top: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
     }
     .pt6-ns {
-        padding-top: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
     }
     .pt7-ns {
-        padding-top: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
     }
     .pt8-ns {
-        padding-top: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
     }
     .pt9-ns {
-        padding-top: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
     }
     .pt10-ns {
-        padding-top: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
     }
     .pt11-ns {
-        padding-top: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
     }
     .pt12-ns {
-        padding-top: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
     }
     .pt13-ns {
-        padding-top: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
     }
     .pt-auto-ns {
         padding-top: auto;
@@ -679,56 +679,56 @@
         padding-bottom: 0;
     }
     .pv1-ns {
-        padding-top: var(--scale-alpha);
-        padding-bottom: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pv2-ns {
-        padding-top: var(--scale-bravo);
-        padding-bottom: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pv3-ns {
-        padding-top: var(--scale-charlie);
-        padding-bottom: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pv4-ns {
-        padding-top: var(--scale-delta);
-        padding-bottom: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pv5-ns {
-        padding-top: var(--scale-echo);
-        padding-bottom: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pv6-ns {
-        padding-top: var(--scale-foxtrot);
-        padding-bottom: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pv7-ns {
-        padding-top: var(--scale-golf);
-        padding-bottom: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pv8-ns {
-        padding-top: var(--scale-hotel);
-        padding-bottom: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pv9ns {
-        padding-top: var(--scale-india);
-        padding-bottom: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pv10-ns {
-        padding-top: var(--scale-juliett);
-        padding-bottom: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pv11-ns {
-        padding-top: var(--scale-kilo);
-        padding-bottom: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pv12-ns {
-        padding-top: var(--scale-lima);
-        padding-bottom: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pv13-ns {
-        padding-top: var(--scale-mike);
-        padding-bottom: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pv-auto-ns {
         padding-top: auto;
@@ -739,56 +739,56 @@
         padding-right: 0;
     }
     .ph1-ns {
-        padding-left: var(--scale-alpha);
-        padding-right: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .ph2-ns {
-        padding-left: var(--scale-bravo);
-        padding-right: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .ph3-ns {
-        padding-left: var(--scale-charlie);
-        padding-right: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .ph4-ns {
-        padding-left: var(--scale-delta);
-        padding-right: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .ph5-ns {
-        padding-left: var(--scale-echo);
-        padding-right: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .ph6-ns {
-        padding-left: var(--scale-foxtrot);
-        padding-right: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .ph7-ns {
-        padding-left: var(--scale-golf);
-        padding-right: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .ph8-ns {
-        padding-left: var(--scale-hotel);
-        padding-right: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .ph9-ns {
-        padding-left: var(--scale-india);
-        padding-right: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .ph10-ns {
-        padding-left: var(--scale-juliett);
-        padding-right: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .ph11-ns {
-        padding-left: var(--scale-kilo);
-        padding-right: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .ph12-ns {
-        padding-left: var(--scale-lima);
-        padding-right: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .ph13-ns {
-        padding-left: var(--scale-mike);
-        padding-right: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .ph-auto-ns {
         padding-left: auto;
@@ -801,43 +801,43 @@
         padding: 0;
     }
     .pa1-m {
-        padding: var(--scale-alpha);
+        padding: var(--o-ui-scale-alpha);
     }
     .pa2-m {
-        padding: var(--scale-bravo);
+        padding: var(--o-ui-scale-bravo);
     }
     .pa3-m {
-        padding: var(--scale-charlie);
+        padding: var(--o-ui-scale-charlie);
     }
     .pa4-m {
-        padding: var(--scale-delta);
+        padding: var(--o-ui-scale-delta);
     }
     .pa5-m {
-        padding: var(--scale-echo);
+        padding: var(--o-ui-scale-echo);
     }
     .pa6-m {
-        padding: var(--scale-foxtrot);
+        padding: var(--o-ui-scale-foxtrot);
     }
     .pa7-m {
-        padding: var(--scale-golf);
+        padding: var(--o-ui-scale-golf);
     }
     .pa8-m {
-        padding: var(--scale-hotel);
+        padding: var(--o-ui-scale-hotel);
     }
     .pa9-m {
-        padding: var(--scale-india);
+        padding: var(--o-ui-scale-india);
     }
     .pa10-m {
-        padding: var(--scale-juliett);
+        padding: var(--o-ui-scale-juliett);
     }
     .pa11-m {
-        padding: var(--scale-kilo);
+        padding: var(--o-ui-scale-kilo);
     }
     .pa12-m {
-        padding: var(--scale-lima);
+        padding: var(--o-ui-scale-lima);
     }
     .pa13-m {
-        padding: var(--scale-mike);
+        padding: var(--o-ui-scale-mike);
     }
     .pa-auto-m {
         padding: auto;
@@ -846,43 +846,43 @@
         padding-left: 0;
     }
     .pl1-m {
-        padding-left: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
     }
     .pl2-m {
-        padding-left: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
     }
     .pl3-m {
-        padding-left: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
     }
     .pl4-m {
-        padding-left: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
     }
     .pl5-m {
-        padding-left: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
     }
     .pl6-m {
-        padding-left: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
     }
     .pl7-m {
-        padding-left: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
     }
     .pl8-m {
-        padding-left: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
     }
     .pl9-m {
-        padding-left: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
     }
     .pl10-m {
-        padding-left: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
     }
     .pl11-m {
-        padding-left: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
     }
     .pl12-m {
-        padding-left: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
     }
     .pl13-m {
-        padding-left: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
     }
     .pl-auto-m {
         padding-left: auto;
@@ -891,43 +891,43 @@
         padding-right: 0;
     }
     .pr1-m {
-        padding-right: var(--scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .pr2-m {
-        padding-right: var(--scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .pr3-m {
-        padding-right: var(--scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .pr4-m {
-        padding-right: var(--scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .pr5-m {
-        padding-right: var(--scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .pr6-m {
-        padding-right: var(--scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .pr7-m {
-        padding-right: var(--scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .pr8-m {
-        padding-right: var(--scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .pr9-m {
-        padding-right: var(--scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .pr10-m {
-        padding-right: var(--scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .pr11-m {
-        padding-right: var(--scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .pr12-m {
-        padding-right: var(--scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .pr13-m {
-        padding-right: var(--scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .pr-auto-m {
         padding-right: auto;
@@ -936,43 +936,43 @@
         padding-bottom: 0;
     }
     .pb1-m {
-        padding-bottom: var(--scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pb2-m {
-        padding-bottom: var(--scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pb3-m {
-        padding-bottom: var(--scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pb4-m {
-        padding-bottom: var(--scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pb5-m {
-        padding-bottom: var(--scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pb6-m {
-        padding-bottom: var(--scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pb7-m {
-        padding-bottom: var(--scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pb8-m {
-        padding-bottom: var(--scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pb9-m {
-        padding-bottom: var(--scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pb10-m {
-        padding-bottom: var(--scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pb11-m {
-        padding-bottom: var(--scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pb12-m {
-        padding-bottom: var(--scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pb13-m {
-        padding-bottom: var(--scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pb-auto-m {
         padding-bottom: auto;
@@ -981,43 +981,43 @@
         padding-top: 0;
     }
     .pt1-m {
-        padding-top: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
     }
     .pt2-m {
-        padding-top: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
     }
     .pt3-m {
-        padding-top: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
     }
     .pt4-m {
-        padding-top: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
     }
     .pt5-m {
-        padding-top: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
     }
     .pt6-m {
-        padding-top: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
     }
     .pt7-m {
-        padding-top: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
     }
     .pt8-m {
-        padding-top: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
     }
     .pt9-m {
-        padding-top: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
     }
     .pt10-m {
-        padding-top: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
     }
     .pt11-m {
-        padding-top: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
     }
     .pt12-m {
-        padding-top: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
     }
     .pt13-m {
-        padding-top: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
     }
     .pt-auto-m {
         padding-bottom: auto;
@@ -1027,56 +1027,56 @@
         padding-bottom: 0;
     }
     .pv1-m {
-        padding-top: var(--scale-alpha);
-        padding-bottom: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pv2-m {
-        padding-top: var(--scale-bravo);
-        padding-bottom: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pv3-m {
-        padding-top: var(--scale-charlie);
-        padding-bottom: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pv4-m {
-        padding-top: var(--scale-delta);
-        padding-bottom: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pv5-m {
-        padding-top: var(--scale-echo);
-        padding-bottom: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pv6-m {
-        padding-top: var(--scale-foxtrot);
-        padding-bottom: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pv7-m {
-        padding-top: var(--scale-golf);
-        padding-bottom: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pv8-m {
-        padding-top: var(--scale-hotel);
-        padding-bottom: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pv9ns {
-        padding-top: var(--scale-india);
-        padding-bottom: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pv10-m {
-        padding-top: var(--scale-juliett);
-        padding-bottom: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pv11-m {
-        padding-top: var(--scale-kilo);
-        padding-bottom: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pv12-m {
-        padding-top: var(--scale-lima);
-        padding-bottom: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pv13-m {
-        padding-top: var(--scale-mike);
-        padding-bottom: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pv-auto-m {
         padding-top: auto;
@@ -1087,56 +1087,56 @@
         padding-right: 0;
     }
     .ph1-m {
-        padding-left: var(--scale-alpha);
-        padding-right: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .ph2-m {
-        padding-left: var(--scale-bravo);
-        padding-right: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .ph3-m {
-        padding-left: var(--scale-charlie);
-        padding-right: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .ph4-m {
-        padding-left: var(--scale-delta);
-        padding-right: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .ph5-m {
-        padding-left: var(--scale-echo);
-        padding-right: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .ph6-m {
-        padding-left: var(--scale-foxtrot);
-        padding-right: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .ph7-m {
-        padding-left: var(--scale-golf);
-        padding-right: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .ph8-m {
-        padding-left: var(--scale-hotel);
-        padding-right: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .ph9-m {
-        padding-left: var(--scale-india);
-        padding-right: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .ph10-m {
-        padding-left: var(--scale-juliett);
-        padding-right: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .ph11-m {
-        padding-left: var(--scale-kilo);
-        padding-right: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .ph12-m {
-        padding-left: var(--scale-lima);
-        padding-right: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .ph13-m {
-        padding-left: var(--scale-mike);
-        padding-right: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .ph-auto-m {
         padding-left: auto;
@@ -1149,43 +1149,43 @@
         padding: 0;
     }
     .pa1-l {
-        padding: var(--scale-alpha);
+        padding: var(--o-ui-scale-alpha);
     }
     .pa2-l {
-        padding: var(--scale-bravo);
+        padding: var(--o-ui-scale-bravo);
     }
     .pa3-l {
-        padding: var(--scale-charlie);
+        padding: var(--o-ui-scale-charlie);
     }
     .pa4-l {
-        padding: var(--scale-delta);
+        padding: var(--o-ui-scale-delta);
     }
     .pa5-l {
-        padding: var(--scale-echo);
+        padding: var(--o-ui-scale-echo);
     }
     .pa6-l {
-        padding: var(--scale-foxtrot);
+        padding: var(--o-ui-scale-foxtrot);
     }
     .pa7-l {
-        padding: var(--scale-golf);
+        padding: var(--o-ui-scale-golf);
     }
     .pa8-l {
-        padding: var(--scale-hotel);
+        padding: var(--o-ui-scale-hotel);
     }
     .pa9-l {
-        padding: var(--scale-india);
+        padding: var(--o-ui-scale-india);
     }
     .pa10-l {
-        padding: var(--scale-juliett);
+        padding: var(--o-ui-scale-juliett);
     }
     .pa11-l {
-        padding: var(--scale-kilo);
+        padding: var(--o-ui-scale-kilo);
     }
     .pa12-l {
-        padding: var(--scale-lima);
+        padding: var(--o-ui-scale-lima);
     }
     .pa13-l {
-        padding: var(--scale-mike);
+        padding: var(--o-ui-scale-mike);
     }
     .pa-auto-l {
         padding: auto;
@@ -1194,43 +1194,43 @@
         padding-left: 0;
     }
     .pl1-l {
-        padding-left: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
     }
     .pl2-l {
-        padding-left: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
     }
     .pl3-l {
-        padding-left: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
     }
     .pl4-l {
-        padding-left: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
     }
     .pl5-l {
-        padding-left: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
     }
     .pl6-l {
-        padding-left: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
     }
     .pl7-l {
-        padding-left: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
     }
     .pl8-l {
-        padding-left: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
     }
     .pl9-l {
-        padding-left: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
     }
     .pl10-l {
-        padding-left: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
     }
     .pl11-l {
-        padding-left: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
     }
     .pl12-l {
-        padding-left: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
     }
     .pl13-l {
-        padding-left: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
     }
     .pl-auto-l {
         padding-left: auto;
@@ -1239,43 +1239,43 @@
         padding-right: 0;
     }
     .pr1-l {
-        padding-right: var(--scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .pr2-l {
-        padding-right: var(--scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .pr3-l {
-        padding-right: var(--scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .pr4-l {
-        padding-right: var(--scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .pr5-l {
-        padding-right: var(--scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .pr6-l {
-        padding-right: var(--scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .pr7-l {
-        padding-right: var(--scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .pr8-l {
-        padding-right: var(--scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .pr9-l {
-        padding-right: var(--scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .pr10-l {
-        padding-right: var(--scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .pr11-l {
-        padding-right: var(--scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .pr12-l {
-        padding-right: var(--scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .pr13-l {
-        padding-right: var(--scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .pr-auto-l {
         padding-right: auto;
@@ -1284,43 +1284,43 @@
         padding-bottom: 0;
     }
     .pb1-l {
-        padding-bottom: var(--scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pb2-l {
-        padding-bottom: var(--scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pb3-l {
-        padding-bottom: var(--scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pb4-l {
-        padding-bottom: var(--scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pb5-l {
-        padding-bottom: var(--scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pb6-l {
-        padding-bottom: var(--scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pb7-l {
-        padding-bottom: var(--scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pb8-l {
-        padding-bottom: var(--scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pb9-l {
-        padding-bottom: var(--scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pb10-l {
-        padding-bottom: var(--scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pb11-l {
-        padding-bottom: var(--scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pb12-l {
-        padding-bottom: var(--scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pb13-l {
-        padding-bottom: var(--scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pb-auto-l {
         padding-bottom: auto;
@@ -1329,43 +1329,43 @@
         padding-top: 0;
     }
     .pt1-l {
-        padding-top: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
     }
     .pt2-l {
-        padding-top: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
     }
     .pt3-l {
-        padding-top: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
     }
     .pt4-l {
-        padding-top: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
     }
     .pt5-l {
-        padding-top: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
     }
     .pt6-l {
-        padding-top: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
     }
     .pt7-l {
-        padding-top: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
     }
     .pt8-l {
-        padding-top: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
     }
     .pt9-l {
-        padding-top: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
     }
     .pt10-l {
-        padding-top: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
     }
     .pt11-l {
-        padding-top: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
     }
     .pt12-l {
-        padding-top: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
     }
     .pt13-l {
-        padding-top: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
     }
     .pt-auto-l {
         padding-top: auto;
@@ -1375,56 +1375,56 @@
         padding-bottom: 0;
     }
     .pv1-l {
-        padding-top: var(--scale-alpha);
-        padding-bottom: var(--scale-alpha);
+        padding-top: var(--o-ui-scale-alpha);
+        padding-bottom: var(--o-ui-scale-alpha);
     }
     .pv2-l {
-        padding-top: var(--scale-bravo);
-        padding-bottom: var(--scale-bravo);
+        padding-top: var(--o-ui-scale-bravo);
+        padding-bottom: var(--o-ui-scale-bravo);
     }
     .pv3-l {
-        padding-top: var(--scale-charlie);
-        padding-bottom: var(--scale-charlie);
+        padding-top: var(--o-ui-scale-charlie);
+        padding-bottom: var(--o-ui-scale-charlie);
     }
     .pv4-l {
-        padding-top: var(--scale-delta);
-        padding-bottom: var(--scale-delta);
+        padding-top: var(--o-ui-scale-delta);
+        padding-bottom: var(--o-ui-scale-delta);
     }
     .pv5-l {
-        padding-top: var(--scale-echo);
-        padding-bottom: var(--scale-echo);
+        padding-top: var(--o-ui-scale-echo);
+        padding-bottom: var(--o-ui-scale-echo);
     }
     .pv6-l {
-        padding-top: var(--scale-foxtrot);
-        padding-bottom: var(--scale-foxtrot);
+        padding-top: var(--o-ui-scale-foxtrot);
+        padding-bottom: var(--o-ui-scale-foxtrot);
     }
     .pv7-l {
-        padding-top: var(--scale-golf);
-        padding-bottom: var(--scale-golf);
+        padding-top: var(--o-ui-scale-golf);
+        padding-bottom: var(--o-ui-scale-golf);
     }
     .pv8-l {
-        padding-top: var(--scale-hotel);
-        padding-bottom: var(--scale-hotel);
+        padding-top: var(--o-ui-scale-hotel);
+        padding-bottom: var(--o-ui-scale-hotel);
     }
     .pv9ns {
-        padding-top: var(--scale-india);
-        padding-bottom: var(--scale-india);
+        padding-top: var(--o-ui-scale-india);
+        padding-bottom: var(--o-ui-scale-india);
     }
     .pv10-l {
-        padding-top: var(--scale-juliett);
-        padding-bottom: var(--scale-juliett);
+        padding-top: var(--o-ui-scale-juliett);
+        padding-bottom: var(--o-ui-scale-juliett);
     }
     .pv11-l {
-        padding-top: var(--scale-kilo);
-        padding-bottom: var(--scale-kilo);
+        padding-top: var(--o-ui-scale-kilo);
+        padding-bottom: var(--o-ui-scale-kilo);
     }
     .pv12-l {
-        padding-top: var(--scale-lima);
-        padding-bottom: var(--scale-lima);
+        padding-top: var(--o-ui-scale-lima);
+        padding-bottom: var(--o-ui-scale-lima);
     }
     .pv13-l {
-        padding-top: var(--scale-mike);
-        padding-bottom: var(--scale-mike);
+        padding-top: var(--o-ui-scale-mike);
+        padding-bottom: var(--o-ui-scale-mike);
     }
     .pv-auto-l {
         padding-top: auto;
@@ -1435,56 +1435,56 @@
         padding-right: 0;
     }
     .ph1-l {
-        padding-left: var(--scale-alpha);
-        padding-right: var(--scale-alpha);
+        padding-left: var(--o-ui-scale-alpha);
+        padding-right: var(--o-ui-scale-alpha);
     }
     .ph2-l {
-        padding-left: var(--scale-bravo);
-        padding-right: var(--scale-bravo);
+        padding-left: var(--o-ui-scale-bravo);
+        padding-right: var(--o-ui-scale-bravo);
     }
     .ph3-l {
-        padding-left: var(--scale-charlie);
-        padding-right: var(--scale-charlie);
+        padding-left: var(--o-ui-scale-charlie);
+        padding-right: var(--o-ui-scale-charlie);
     }
     .ph4-l {
-        padding-left: var(--scale-delta);
-        padding-right: var(--scale-delta);
+        padding-left: var(--o-ui-scale-delta);
+        padding-right: var(--o-ui-scale-delta);
     }
     .ph5-l {
-        padding-left: var(--scale-echo);
-        padding-right: var(--scale-echo);
+        padding-left: var(--o-ui-scale-echo);
+        padding-right: var(--o-ui-scale-echo);
     }
     .ph6-l {
-        padding-left: var(--scale-foxtrot);
-        padding-right: var(--scale-foxtrot);
+        padding-left: var(--o-ui-scale-foxtrot);
+        padding-right: var(--o-ui-scale-foxtrot);
     }
     .ph7-l {
-        padding-left: var(--scale-golf);
-        padding-right: var(--scale-golf);
+        padding-left: var(--o-ui-scale-golf);
+        padding-right: var(--o-ui-scale-golf);
     }
     .ph8-l {
-        padding-left: var(--scale-hotel);
-        padding-right: var(--scale-hotel);
+        padding-left: var(--o-ui-scale-hotel);
+        padding-right: var(--o-ui-scale-hotel);
     }
     .ph9-l {
-        padding-left: var(--scale-india);
-        padding-right: var(--scale-india);
+        padding-left: var(--o-ui-scale-india);
+        padding-right: var(--o-ui-scale-india);
     }
     .ph10-l {
-        padding-left: var(--scale-juliett);
-        padding-right: var(--scale-juliett);
+        padding-left: var(--o-ui-scale-juliett);
+        padding-right: var(--o-ui-scale-juliett);
     }
     .ph11-l {
-        padding-left: var(--scale-kilo);
-        padding-right: var(--scale-kilo);
+        padding-left: var(--o-ui-scale-kilo);
+        padding-right: var(--o-ui-scale-kilo);
     }
     .ph12-l {
-        padding-left: var(--scale-lima);
-        padding-right: var(--scale-lima);
+        padding-left: var(--o-ui-scale-lima);
+        padding-right: var(--o-ui-scale-lima);
     }
     .ph13-l {
-        padding-left: var(--scale-mike);
-        padding-right: var(--scale-mike);
+        padding-left: var(--o-ui-scale-mike);
+        padding-right: var(--o-ui-scale-mike);
     }
     .ph-auto-l {
         padding-left: auto;

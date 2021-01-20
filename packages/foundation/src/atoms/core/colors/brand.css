@@ -1,4 +1,4 @@
-[class^="o-ui-"] {
+html * {
     /* Marine */
     --o-ui-opacity-marine: 1;
     --o-ui-marine-50: hsla(222, 100%, 96%, var(--o-ui-opacity-marine-50, var(--o-ui-opacity-marine)));

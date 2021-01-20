@@ -142,14 +142,14 @@
 
 /* Search icon */
 i.icon.search {
-    background-color: var(--marine-500);
+    background-color: var(--o-ui-marine-500);
     mask: url(~@orbit-ui/icons/dist/icon-magnifier-32.svg) center center no-repeat!important;
     mask-size: contain;
 }
 
 /* Delete icon */
 i.icon.delete {
-    background-color: var(--marine-500);
+    background-color: var(--o-ui-marine-500);
     mask: url(~@orbit-ui/icons/dist/icon-cross-24.svg) center center no-repeat!important;
     mask-size: contain;
 }
@@ -158,7 +158,7 @@ i.icon.delete {
 i.icon.close {
     width: 1.5rem;
     height: 1.5rem;;
-    background-color: var(--marine-500);
+    background-color: var(--o-ui-marine-500);
     mask: url(~@orbit-ui/icons/dist/icon-cross-24.svg) center center no-repeat!important;
     mask-size: 20px 20px!important;
 }
@@ -170,7 +170,7 @@ i.icon.close {
 }
 
 .ui.disabled i.icon {
-    background-color: var(--marine-100);
+    background-color: var(--o-ui-marine-100);
 }
 
 .ui.loading.loading.input > i.icon:after {

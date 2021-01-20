@@ -1,7 +1,7 @@
 .o-ui-p {
     font-weight: 400;
     margin-top: 0;
-    color: var(--text-1);
+    color: var(--o-ui-text-1);
 }
 
 .o-ui-p:last-child {
@@ -10,23 +10,23 @@
 
 /* SIZE */
 .o-ui-p-sm {
-    margin-bottom: calc(var(--type-scale-8) * .75);
+    margin-bottom: calc(var(--o-ui-type-scale-8) * .75);
 }
 
 .o-ui-p-md {
-    margin-bottom: calc(var(--type-scale-7) * .75);
+    margin-bottom: calc(var(--o-ui-type-scale-7) * .75);
 }
 
 .o-ui-p-lg {
-    margin-bottom: calc(var(--type-scale-6) * .75);
+    margin-bottom: calc(var(--o-ui-type-scale-6) * .75);
 }
 
 .o-ui-p-xl {
-    margin-bottom: calc(var(--type-scale-5) * .75);
+    margin-bottom: calc(var(--o-ui-type-scale-5) * .75);
 }
 
 .o-ui-p-2xl {
-    margin-bottom: calc(var(--type-scale-4) * .75);
+    margin-bottom: calc(var(--o-ui-type-scale-4) * .75);
 }
 
 .o-ui-p-inherit {

@@ -5,33 +5,33 @@
 
 /* SIZES */
 .o-ui-icon-2xs {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .o-ui-icon-xs {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .o-ui-icon-sm {
-    width: var(--scale-echo);
-    height: var(--scale-echo);
+    width: var(--o-ui-scale-echo);
+    height: var(--o-ui-scale-echo);
 }
 
 .o-ui-icon-md {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }
 
 .o-ui-icon-lg {
-    width: var(--scale-golf);
-    height: var(--scale-golf);
+    width: var(--o-ui-scale-golf);
+    height: var(--o-ui-scale-golf);
 }
 
 .o-ui-icon-xl {
-    width: var(--scale-hotel);
-    height: var(--scale-hotel);
+    width: var(--o-ui-scale-hotel);
+    height: var(--o-ui-scale-hotel);
 }
 
 .o-ui-icon-inherit {

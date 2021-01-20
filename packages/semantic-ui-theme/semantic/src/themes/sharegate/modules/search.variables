@@ -20,7 +20,7 @@
 @resultDivider: 0;
 @resultsBorder: 0;
 @resultHoverBackground: @cloud50;
-@resultsBackground: var(--white);
+@resultsBackground: var(--o-ui-white);
 
 /* Result Image */
 

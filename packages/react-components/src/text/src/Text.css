@@ -1,46 +1,46 @@
 /* SIZE */
 .o-ui-text-xs {
-    font-size: var(--type-scale-9);
+    font-size: var(--o-ui-type-scale-9);
     line-height: 1;
 }
 
 .o-ui-text-sm {
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
     line-height: 1.142857143;
 }
 
 .o-ui-text-md {
-    font-size: var(--type-scale-7);
+    font-size: var(--o-ui-type-scale-7);
     line-height: 1.25;
 }
 
 .o-ui-text-lg {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
     line-height: 1.3333333;
 }
 
 .o-ui-text-xl {
-    font-size: var(--type-scale-5);
+    font-size: var(--o-ui-type-scale-5);
     line-height: 1.2;
 }
 
 .o-ui-text-2xl {
-    font-size: var(--type-scale-4);
+    font-size: var(--o-ui-type-scale-4);
     line-height: 1.3333333;
 }
 
 .o-ui-text-3xl {
-    font-size: var(--type-scale-3);
+    font-size: var(--o-ui-type-scale-3);
     line-height: 1.25;
 }
 
 .o-ui-text-4xl {
-    font-size: var(--type-scale-2);
+    font-size: var(--o-ui-type-scale-2);
     line-height: 1;
 }
 
 .o-ui-text-5xl {
-    font-size: var(--type-scale-1);
+    font-size: var(--o-ui-type-scale-1);
     line-height: 1;
 }
 

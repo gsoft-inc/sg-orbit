@@ -12,7 +12,7 @@
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
     /* was cloud 200 now 300 because too much similar colors */
-    background-color: var(--background-2);
+    background-color: var(--o-ui-background-2);
     border-radius: var(--o-ui-pill-border-radius);
     position: relative;
     flex-shrink: 0;
@@ -21,7 +21,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--background-1);
+    background-color: var(--o-ui-background-1);
     border-radius: var(--o-ui-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
@@ -31,8 +31,8 @@
 /* LABEL */
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
-    margin-left: var(--scale-bravo);
-    color: var(--text-1);
+    margin-left: var(--o-ui-scale-bravo);
+    color: var(--o-ui-text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -42,18 +42,18 @@
 /* LABEL | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-label {
     margin-left: 0;
-    margin-right: var(--scale-bravo);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* ICON | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* REVERSE */
@@ -63,11 +63,11 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--text-danger);
+    color: var(--o-ui-text-danger);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--danger-100);
+    background-color: var(--o-ui-danger-100);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
@@ -77,11 +77,11 @@
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--background-danger);
+    background-color: var(--o-ui-background-danger);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
@@ -114,30 +114,30 @@
 /* SIZING */
 /* SMALL */
 .o-ui-switch-sm .o-ui-switch-control {
-    width: var(--scale-golf);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-golf);
+    height: var(--o-ui-scale-delta);
 }
 
 .o-ui-switch-sm .o-ui-switch-control::before {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-golf) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
 .o-ui-switch-md .o-ui-switch-control {
-    width: var(--scale-hotel);
-    height: var(--scale-echo);
+    width: var(--o-ui-scale-hotel);
+    height: var(--o-ui-scale-echo);
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
 }

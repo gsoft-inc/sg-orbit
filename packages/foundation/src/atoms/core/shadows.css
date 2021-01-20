@@ -1,4 +1,4 @@
-[class^="o-ui-"] {
-    --shadow-100: 0 4px 12px 0 hsla(223, 13%, var(--shadow-lightness), var(--shadow-opacity));
-    --shadow-200: 0 8px 24px 0 hsla(223, 13%, var(--shadow-lightness), var(--shadow-opacity));
+html * {
+    --o-ui-shadow-100: 0 4px 12px 0 hsla(223, 13%, var(--o-ui-shadow-lightness), var(--o-ui-shadow-opacity));
+    --o-ui-shadow-200: 0 8px 24px 0 hsla(223, 13%, var(--o-ui-shadow-lightness), var(--o-ui-shadow-opacity));
 }

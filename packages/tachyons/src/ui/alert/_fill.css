@@ -1,119 +1,119 @@
 .fill-alert-50 {
-    fill: var(--alert-50);
+    fill: var(--o-ui-alert-50);
 }
 
 .fill-alert-100 {
-    fill: var(--alert-100);
+    fill: var(--o-ui-alert-100);
 }
 
 .fill-alert-200 {
-    fill: var(--alert-200);
+    fill: var(--o-ui-alert-200);
 }
 
 .fill-alert-300 {
-    fill: var(--alert-300);
+    fill: var(--o-ui-alert-300);
 }
 
 .fill-alert-400 {
-    fill: var(--alert-400);
+    fill: var(--o-ui-alert-400);
 }
 
 .fill-alert-500 {
-    fill: var(--alert-500);
+    fill: var(--o-ui-alert-500);
 }
 
 .fill-alert-600 {
-    fill: var(--alert-600);
+    fill: var(--o-ui-alert-600);
 }
 
 .fill-alert-700 {
-    fill: var(--alert-700);
+    fill: var(--o-ui-alert-700);
 }
 
 .fill-alert-800 {
-    fill: var(--alert-800);
+    fill: var(--o-ui-alert-800);
 }
 
 .fill-alert-900 {
-    fill: var(--alert-900);
+    fill: var(--o-ui-alert-900);
 }
 
 .hover-fill-alert-50:hover {
-    fill: var(--alert-50);
+    fill: var(--o-ui-alert-50);
 }
 
 .hover-fill-alert-100:hover {
-    fill: var(--alert-100);
+    fill: var(--o-ui-alert-100);
 }
 
 .hover-fill-alert-200:hover {
-    fill: var(--alert-200);
+    fill: var(--o-ui-alert-200);
 }
 
 .hover-fill-alert-300:hover {
-    fill: var(--alert-300);
+    fill: var(--o-ui-alert-300);
 }
 
 .hover-fill-alert-400:hover {
-    fill: var(--alert-400);
+    fill: var(--o-ui-alert-400);
 }
 
 .hover-fill-alert-500:hover {
-    fill: var(--alert-500);
+    fill: var(--o-ui-alert-500);
 }
 
 .hover-fill-alert-600:hover {
-    fill: var(--alert-600);
+    fill: var(--o-ui-alert-600);
 }
 
 .hover-fill-alert-700:hover {
-    fill: var(--alert-700);
+    fill: var(--o-ui-alert-700);
 }
 
 .hover-fill-alert-800:hover {
-    fill: var(--alert-800);
+    fill: var(--o-ui-alert-800);
 }
 
 .hover-fill-alert-900:hover {
-    fill: var(--alert-900);
+    fill: var(--o-ui-alert-900);
 }
 
 .focus-fill-alert-50:focus {
-    fill: var(--alert-50);
+    fill: var(--o-ui-alert-50);
 }
 
 .focus-fill-alert-100:focus {
-    fill: var(--alert-100);
+    fill: var(--o-ui-alert-100);
 }
 
 .focus-fill-alert-200:focus {
-    fill: var(--alert-200);
+    fill: var(--o-ui-alert-200);
 }
 
 .focus-fill-alert-300:focus {
-    fill: var(--alert-300);
+    fill: var(--o-ui-alert-300);
 }
 
 .focus-fill-alert-400:focus {
-    fill: var(--alert-400);
+    fill: var(--o-ui-alert-400);
 }
 
 .focus-fill-alert-500:focus {
-    fill: var(--alert-500);
+    fill: var(--o-ui-alert-500);
 }
 
 .focus-fill-alert-600:focus {
-    fill: var(--alert-600);
+    fill: var(--o-ui-alert-600);
 }
 
 .focus-fill-alert-700:focus {
-    fill: var(--alert-700);
+    fill: var(--o-ui-alert-700);
 }
 
 .focus-fill-alert-800:focus {
-    fill: var(--alert-800);
+    fill: var(--o-ui-alert-800);
 }
 
 .focus-fill-alert-900:focus {
-    fill: var(--alert-900);
+    fill: var(--o-ui-alert-900);
 }

@@ -189,7 +189,7 @@
     --o-ui-shadow-lightness: 3%;
     --o-ui-shadow-opacity: 1;
     /* FOCUS */
-    --o-ui-o-ui-focus-ring-color: var(--o-ui-primary-800);
+    --o-ui-focus-ring-color: var(--o-ui-primary-800);
 }
 
 /* APRICOT */

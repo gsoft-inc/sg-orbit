@@ -49,18 +49,18 @@
     border-color: @textAreaFocusBorderColor;
     border-radius: @textAreaFocusBorderRadius;
     background: @textAreaFocusBackground;
-    box-shadow: 0 0 0 2px var(--primary-100);
+    box-shadow: 0 0 0 2px var(--o-ui-primary-100);
     -webkit-appearance: none;
 }
 
 .ui.textarea:active,
 .ui.textarea.active {
-    border-color: var(--marine-900);
+    border-color: var(--o-ui-marine-900);
 }
 
 .ui.textarea.error:active,
 .ui.textarea.error.active {
-    border: 1px solid var(--alert-900);
+    border: 1px solid var(--o-ui-alert-900);
 }
 
 .ui.form .fields.error .field .textarea
@@ -96,7 +96,7 @@
 }
 
 .ui.textarea.error {
-    border-color: var(--alert-500);
+    border-color: var(--o-ui-alert-500);
 }
 
 /* SKIN | Transparent */
@@ -117,7 +117,7 @@
 
 /* LAYOUT | Sizes */
 .ui.textarea {
-    padding: var(--scale-delta) var(--scale-echo);
+    padding: var(--o-ui-scale-delta) var(--o-ui-scale-echo);
     line-height: @lh1;
     /* Firefox fix to make sure it respects number of rows */
     overflow-x:hidden;
@@ -125,11 +125,11 @@
 
 .ui.textarea.small {
     font-size: var(	--type-scale-8);
-    padding: var(--scale-bravo) var(--scale-delta);
+    padding: var(--o-ui-scale-bravo) var(--o-ui-scale-delta);
 }
 
 .ui.textarea.large {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
     line-height: @lh4;
-    padding: var(--scale-echo) var(--scale-foxtrot);
+    padding: var(--o-ui-scale-echo) var(--o-ui-scale-foxtrot);
 }

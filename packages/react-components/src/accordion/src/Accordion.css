@@ -81,13 +81,13 @@
 
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
-    opacity: var(--o-ui-o-ui-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* HOVER */
 .o-ui-accordion-trigger:hover ,
 .o-ui-accordion-trigger-hover {
-    background-color: var( --background-3);
+    background-color: var( --o-ui-background-3);
 }
 
 /* HOVER | DISABLED */
@@ -104,7 +104,7 @@
     right: var(--o-ui-scale-bravo);
     bottom: calc(var(--o-ui-scale-bravo) - 2px);
     border: 2px transparent solid;
-    border-radius: var(--o-ui-o-ui-rounded-border-radius);
+    border-radius: var(--o-ui-rounded-border-radius);
     pointer-events: none;
     height: var(--o-ui-scale-golf);
     transform: translateY(-50%);

@@ -1,119 +1,119 @@
-.b--alert-50 {
-    border-color: var(--alert-50);
+.b--o-ui-alert-50 {
+    border-color: var(--o-ui-alert-50);
 }
 
-.b--alert-100 {
-    border-color: var(--alert-100);
+.b--o-ui-alert-100 {
+    border-color: var(--o-ui-alert-100);
 }
 
-.b--alert-200 {
-    border-color: var(--alert-200);
+.b--o-ui-alert-200 {
+    border-color: var(--o-ui-alert-200);
 }
 
-.b--alert-300 {
-    border-color: var(--alert-300);
+.b--o-ui-alert-300 {
+    border-color: var(--o-ui-alert-300);
 }
 
-.b--alert-400 {
-    border-color: var(--alert-400);
+.b--o-ui-alert-400 {
+    border-color: var(--o-ui-alert-400);
 }
 
-.b--alert-500 {
-    border-color: var(--alert-500);
+.b--o-ui-alert-500 {
+    border-color: var(--o-ui-alert-500);
 }
 
-.b--alert-600 {
-    border-color: var(--alert-600);
+.b--o-ui-alert-600 {
+    border-color: var(--o-ui-alert-600);
 }
 
-.b--alert-700 {
-    border-color: var(--alert-700);
+.b--o-ui-alert-700 {
+    border-color: var(--o-ui-alert-700);
 }
 
-.b--alert-800 {
-    border-color: var(--alert-800);
+.b--o-ui-alert-800 {
+    border-color: var(--o-ui-alert-800);
 }
 
-.b--alert-900 {
-    border-color: var(--alert-900);
+.b--o-ui-alert-900 {
+    border-color: var(--o-ui-alert-900);
 }
 
-.hover-b--alert-50:hover {
-    border-color: var(--alert-50);
+.hover-b--o-ui-alert-50:hover {
+    border-color: var(--o-ui-alert-50);
 }
 
-.hover-b--alert-100:hover {
-    border-color: var(--alert-100);
+.hover-b--o-ui-alert-100:hover {
+    border-color: var(--o-ui-alert-100);
 }
 
-.hover-b--alert-200:hover {
-    border-color: var(--alert-200);
+.hover-b--o-ui-alert-200:hover {
+    border-color: var(--o-ui-alert-200);
 }
 
-.hover-b--alert-300:hover {
-    border-color: var(--alert-300);
+.hover-b--o-ui-alert-300:hover {
+    border-color: var(--o-ui-alert-300);
 }
 
-.hover-b--alert-400:hover {
-    border-color: var(--alert-400);
+.hover-b--o-ui-alert-400:hover {
+    border-color: var(--o-ui-alert-400);
 }
 
-.hover-b--alert-500:hover {
-    border-color: var(--alert-500);
+.hover-b--o-ui-alert-500:hover {
+    border-color: var(--o-ui-alert-500);
 }
 
-.hover-b--alert-600:hover {
-    border-color: var(--alert-600);
+.hover-b--o-ui-alert-600:hover {
+    border-color: var(--o-ui-alert-600);
 }
 
-.hover-b--alert-700:hover {
-    border-color: var(--alert-700);
+.hover-b--o-ui-alert-700:hover {
+    border-color: var(--o-ui-alert-700);
 }
 
-.hover-b--alert-800:hover {
-    border-color: var(--alert-800);
+.hover-b--o-ui-alert-800:hover {
+    border-color: var(--o-ui-alert-800);
 }
 
-.hover-b--alert-900:hover {
-    border-color: var(--alert-900);
+.hover-b--o-ui-alert-900:hover {
+    border-color: var(--o-ui-alert-900);
 }
 
-.focus-b--alert-50:focus {
-    border-color: var(--alert-50);
+.focus-b--o-ui-alert-50:focus {
+    border-color: var(--o-ui-alert-50);
 }
 
-.focus-b--alert-100:focus {
-    border-color: var(--alert-100);
+.focus-b--o-ui-alert-100:focus {
+    border-color: var(--o-ui-alert-100);
 }
 
-.focus-b--alert-200:focus {
-    border-color: var(--alert-200);
+.focus-b--o-ui-alert-200:focus {
+    border-color: var(--o-ui-alert-200);
 }
 
-.focus-b--alert-300:focus {
-    border-color: var(--alert-300);
+.focus-b--o-ui-alert-300:focus {
+    border-color: var(--o-ui-alert-300);
 }
 
-.focus-b--alert-400:focus {
-    border-color: var(--alert-400);
+.focus-b--o-ui-alert-400:focus {
+    border-color: var(--o-ui-alert-400);
 }
 
-.focus-b--alert-500:focus {
-    border-color: var(--alert-500);
+.focus-b--o-ui-alert-500:focus {
+    border-color: var(--o-ui-alert-500);
 }
 
-.focus-b--alert-600:focus {
-    border-color: var(--alert-600);
+.focus-b--o-ui-alert-600:focus {
+    border-color: var(--o-ui-alert-600);
 }
 
-.focus-b--alert-700:focus {
-    border-color: var(--alert-700);
+.focus-b--o-ui-alert-700:focus {
+    border-color: var(--o-ui-alert-700);
 }
 
-.focus-b--alert-800:focus {
-    border-color: var(--alert-800);
+.focus-b--o-ui-alert-800:focus {
+    border-color: var(--o-ui-alert-800);
 }
 
-.focus-b--alert-900:focus {
-    border-color: var(--alert-900);
+.focus-b--o-ui-alert-900:focus {
+    border-color: var(--o-ui-alert-900);
 }

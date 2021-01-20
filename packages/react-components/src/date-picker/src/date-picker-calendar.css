@@ -1,54 +1,54 @@
 .o-ui.calendar {
     box-shadow: var(--shadow-200);
-    background-color: var(--background-1);
-    border: 1px solid var(--cloud-100);
-    border-radius: var(--scale-alpha);
+    background-color: var(--o-ui-background-1);
+    border: 1px solid var(--o-ui-cloud-100);
+    border-radius: var(--o-ui-scale-alpha);
 }
 
 .o-ui.calendar .CalendarMonth_table {
-    margin-top: var(--scale-bravo) !important;
+    margin-top: var(--o-ui-scale-bravo) !important;
 }
 
 .o-ui.calendar .CalendarDay__default {
     border: none !important;
-    background-color: var(--background-1) !important;
-    color: var(--marine-700) !important;
+    background-color: var(--o-ui-background-1) !important;
+    color: var(--o-ui-marine-700) !important;
     font-size: 1rem !important;
     transition: box-shadow .15s ease-in;
 }
 
 .o-ui.calendar .DayPicker {
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-scale-alpha);
 }
 
 .o-ui.calendar .DayPicker__horizontal {
-    background-color: var(--background-1) !important;
+    background-color: var(--o-ui-background-1) !important;
 }
 
 .o-ui.calendar .CalendarMonth {
-    background-color: var(--background-1) !important;
+    background-color: var(--o-ui-background-1) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected {
-    background: var(--primary-500) !important;
-    color: var(--white) !important;
+    background: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-white) !important;
 }
 
 .o-ui.calendar .CalendarMonthGrid {
-    background-color: var(--background-1) !important;
+    background-color: var(--o-ui-background-1) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected_span {
-    background: var(--primary-50) !important;
+    background: var(--o-ui-primary-50) !important;
 }
 
 .o-ui.calendar .CalendarDay__hovered_span {
-    background: var(--primary-50) !important;
+    background: var(--o-ui-primary-50) !important;
 }
 
 .o-ui.calendar .CalendarMonth_caption {
     font-size: 24px !important;
-    color: var(--marine-900) !important;
+    color: var(--o-ui-marine-900) !important;
     padding-top: 1.25rem !important;
     padding-bottom: 2.5rem !important;
     line-height: 1 !important;
@@ -60,7 +60,7 @@
 
 .o-ui.calendar .CalendarDay__blocked_calendar {
     background: var(--transparent) !important;
-    color: var(--cloud-400) !important;
+    color: var(--o-ui-cloud-400) !important;
 }
 
 .o-ui.calendar .DayPickerNavigation {
@@ -83,11 +83,11 @@
 
 .o-ui.calendar .DayPicker_weekHeader_li small {
     font-size: 0.875rem !important;
-    color: var(--cloud-900) !important;
+    color: var(--o-ui-cloud-900) !important;
 }
 
 .o-ui.calendar .CalendarDay__default:hover {
-    background: var(--cloud-100) !important;
+    background: var(--o-ui-cloud-100) !important;
 }
 
 .o-ui.calendar .CalendarDay__default:focus {
@@ -96,7 +96,7 @@
 }
 
 .o-ui.calendar .DayPickerNavigation_button > div {
-    border-radius: var(--scale-alpha);
+    border-radius: var(--o-ui-scale-alpha);
 }
 
 .o-ui.calendar .DayPickerNavigation_button > div:focus {
@@ -107,35 +107,35 @@
 .o-ui.calendar .CalendarDay__blocked_calendar:hover,
 .o-ui.calendar .CalendarDay__blocked_calendar:focus {
     background: var(--transparent) !important;
-    color: var(--cloud-400) !important;
+    color: var(--o-ui-cloud-400) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected:hover,
 .o-ui.calendar .CalendarDay__selected:active {
-    background: var(--primary-500) !important;
+    background: var(--o-ui-primary-500) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected_span:hover,
 .o-ui.calendar .CalendarDay__selected_span:active {
-    background: var(--primary-50) !important;
+    background: var(--o-ui-primary-50) !important;
 }
 
 .o-ui.calendar .CalendarDay__default.CalendarDay__selected:focus {
-    background: var(--primary-500) !important;
-    color: var(--white) !important;
+    background: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-white) !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected {
-    background: var(--primary-500) !important;
-    color: var(--white) !important;
+    background: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-white) !important;
     opacity: 0.6 !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected_span {
-    background: var(--primary-50) !important;
+    background: var(--o-ui-primary-50) !important;
     opacity: 0.6 !important;
 }
 
 .o-ui.calendar .DayPickerNavigation_button__disabled path {
-    fill: var(--cloud-100) !important;
+    fill: var(--o-ui-cloud-100) !important;
 }
