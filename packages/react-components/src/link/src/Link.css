@@ -200,8 +200,8 @@
 /* PRIMARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
-    background-color: var(--background-primary-light);
-    box-shadow: 0 0 0 2px var(--background-primary-light);
+    background-color: var(--background-primary-focus);
+    box-shadow: 0 0 0 2px var(--background-primary-focus);
 }
 
 /* PRIMARY | STATE | ACTIVE */

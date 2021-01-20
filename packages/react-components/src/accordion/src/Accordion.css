@@ -1,8 +1,8 @@
 .o-ui-accordion {
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-100);
-    border-radius: var(--scale-bravo);
+    box-shadow: var(--o-ui-shadow-100);
+    border-radius: var(--o-ui-scale-bravo);
     overflow-anchor: none;
     width: 100%;
 }
@@ -15,14 +15,14 @@
 .o-ui-accordion-header:first-of-type,
 .o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
     border-top: 0;
-    border-top-left-radius: var(--scale-bravo);
-    border-top-right-radius: var(--scale-bravo);
+    border-top-left-radius: var(--o-ui-scale-bravo);
+    border-top-right-radius: var(--o-ui-scale-bravo);
 }
 
 .o-ui-accordion-header:nth-last-child(2) .o-ui-accordion-trigger[aria-expanded="false"],
 .o-ui-accordion-header:nth-last-child(2) + div .o-ui-accordion-panel {
-    border-bottom-left-radius: var(--scale-bravo);
-    border-bottom-right-radius: var(--scale-bravo);
+    border-bottom-left-radius: var(--o-ui-scale-bravo);
+    border-bottom-right-radius: var(--o-ui-scale-bravo);
 }
 
 /* TRIGGER */
@@ -30,29 +30,29 @@
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--background-1);
+    background-color: var(--o-ui-background-1);
     cursor: pointer;
     border: 0;
-    border-top: 1px solid var(--border-2);
+    border-top: 1px solid var(--o-ui-border-2);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
-    color: var(--text-1);
+    color: var(--o-ui-text-1);
     line-height: inherit;
     font-weight: inherit;
 }
 
 .o-ui-accordion-header-sm .o-ui-accordion-trigger {
-    padding: calc(var(--scale-charlie) - 1px) var(--scale-echo) var(--scale-charlie) var(--scale-foxtrot);
+    padding: calc(var(--o-ui-scale-charlie) - 1px) var(--o-ui-scale-echo) var(--o-ui-scale-charlie) var(--o-ui-scale-foxtrot);
 }
 
 .o-ui-accordion-header-md .o-ui-accordion-trigger {
-    padding: calc(var(--scale-delta) - 1px) var(--scale-echo) var(--scale-delta) var(--scale-foxtrot);
+    padding: calc(var(--o-ui-scale-delta) - 1px) var(--o-ui-scale-echo) var(--o-ui-scale-delta) var(--o-ui-scale-foxtrot);
 }
 
 /* TRIGGER | ICON */
 .o-ui-accordion-header-md .o-ui-accordion-trigger-has-icon,
 .o-ui-accordion-header-sm .o-ui-accordion-trigger-has-icon{
-    padding-left: var(--scale-echo);
+    padding-left: var(--o-ui-scale-echo);
 }
 
 /* TRIGGER | TITLE */
@@ -62,15 +62,15 @@
 
 /* TRIGGER | TITLE | ICON */
 .o-ui-accordion-icon + .o-ui-accordion-title {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--text-1);
-    padding-left: var(--scale-echo);
-    padding-right: calc(var(--scale-foxtrot) + var(--scale-foxtrot));
-    background-color: var(--background-1);
+    color: var(--o-ui-text-1);
+    padding-left: var(--o-ui-scale-echo);
+    padding-right: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-foxtrot));
+    background-color: var(--o-ui-background-1);
 }
 
 /* STATES */
@@ -81,7 +81,7 @@
 
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
-    opacity: var(--o-ui-disabled-opacity);
+    opacity: var(--o-ui-o-ui-disabled-opacity);
 }
 
 /* HOVER */
@@ -92,7 +92,7 @@
 
 /* HOVER | DISABLED */
 .o-ui-accordion-trigger[disabled]:hover {
-    background-color: var(--background-1);
+    background-color: var(--o-ui-background-1);
 }
 
 /* FOCUS */
@@ -100,13 +100,13 @@
     content: "";
     position: absolute;
     top: 50%;
-    left: var(--scale-bravo);
-    right: var(--scale-bravo);
-    bottom: calc(var(--scale-bravo) - 2px);
+    left: var(--o-ui-scale-bravo);
+    right: var(--o-ui-scale-bravo);
+    bottom: calc(var(--o-ui-scale-bravo) - 2px);
     border: 2px transparent solid;
-    border-radius: var(--o-ui-rounded-border-radius);
+    border-radius: var(--o-ui-o-ui-rounded-border-radius);
     pointer-events: none;
-    height: var(--scale-golf);
+    height: var(--o-ui-scale-golf);
     transform: translateY(-50%);
 }
 
@@ -118,5 +118,5 @@
 
 .o-ui-accordion-trigger:focus::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--border-primary);
+    border-color: var(--o-ui-border-primary);
 }
