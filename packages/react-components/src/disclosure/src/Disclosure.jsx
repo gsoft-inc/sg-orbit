@@ -59,6 +59,8 @@ export function InnerDisclosure({
     }, [isOpen, setIsOpen, onChange]);
 
     const handleClick = useEventCallback(event => {
+        event.preventDefault();
+
         toggle(event);
     });
 

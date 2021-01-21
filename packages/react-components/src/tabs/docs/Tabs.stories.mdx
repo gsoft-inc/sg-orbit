@@ -1,11 +1,10 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { Fragment } from "react";
 import { InnerItem, Item } from "@react-components/placeholders";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
-import { LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Lozenge } from "@react-components/lozenge";
+import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -104,7 +103,7 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
     </Story>
 </Preview>
 
-### Array Map
+### Array map
 
 Tabs items can be rendered with an array map.
 
@@ -126,19 +125,19 @@ Tabs items can be rendered with an array map.
     </Story>
 </Preview>
 
-### Render Props (Async Content)
+### Render props (Async content)
 
 A tab can update is content based on the `isActive` value by providing a render prop function. This is particulary usefull when dealing with async content.
 
 <Preview filePath="/tabs/docs/AsyncTabs" noInline />
 
-### Custom Component
+### Tabs context
 
-The previous [render props](#render-props) example could also be achieve with a custom component.
+The previous [render props](#render-props) example could also be achieve by using `useTabsContext`.
 
-<Preview filePath="/tabs/docs/CustomTabs" noInline />
+<Preview filePath="/tabs/docs/TabsContext" noInline />
 
-### Manually Activated Tabs
+### Manually activated tabs
 
 By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
 

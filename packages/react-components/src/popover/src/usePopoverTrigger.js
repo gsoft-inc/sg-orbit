@@ -12,6 +12,8 @@ export function usePopoverTrigger(isOverlayVisible, type, { onToggle }) {
     };
 
     const handleClick = useEventCallback(event => {
+        event.preventDefault();
+
         toggle(event);
     });
 
@@ -20,6 +22,7 @@ export function usePopoverTrigger(isOverlayVisible, type, { onToggle }) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
+
                 toggle(event, FocusTarget.first);
                 break;
         }

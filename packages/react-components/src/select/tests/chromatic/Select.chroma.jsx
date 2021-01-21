@@ -1,7 +1,10 @@
+import { Button } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
+import { Listbox } from "@react-components/listbox";
+import { Overlay } from "@react-components/overlay";
 import { Paragraph } from "@react-components/paragraph";
-import { Select } from "@react-components/select";
+import { Select, useSelect } from "@react-components/select";
 import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -97,6 +100,49 @@ createTestSuite(<Select variant="inline" />, stories("/inline"))
     });
 
 stories()
+    .add("custom select", () => {
+        function CustomSelect({
+            open,
+            placeholder,
+            "aria-label": ariaLabel,
+            children,
+            ...rest
+        }) {
+            const { selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+                open,
+                ariaLabel
+            });
+
+            return (
+                <>
+                    <Button
+                        {...rest}
+                        {...triggerProps}
+                    >
+                        {selectedItem?.content ?? placeholder}
+                    </Button>
+                    <Overlay {...overlayProps}>
+                        <Listbox {...listboxProps} />
+                    </Overlay>
+                </>
+            );
+        }
+
+        return (
+            <Inline>
+                <CustomSelect placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </CustomSelect>
+                <CustomSelect open placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </CustomSelect>
+            </Inline>
+        );
+    })
     .add("with name", () =>
         <Select name="planet" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>

@@ -161,34 +161,15 @@ export function createTestSuite(element, stories) {
                 <Item key="venus">Venus</Item>
             </Select>
         )
-        .add("position start bottom", () =>
-            <Select align="start" direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("direction bottom", () =>
+            <Select direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("position end bottom", () =>
-            <Select align="end" direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        )
-        .add("position start top", () =>
-            <Select align="start" direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>,
-             {
-                 ...paramsBuilder()
-                     .canvasLayout({ marginTop: "100px" })
-                     .build()
-             }
-        )
-        .add("position end top", () =>
-            <Select align="end" direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("direction top", () =>
+            <Select direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

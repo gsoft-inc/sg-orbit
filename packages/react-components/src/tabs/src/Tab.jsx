@@ -62,6 +62,8 @@ export function InnerTab({
     });
 
     const handleClick = useEventCallback(event => {
+        event.preventDefault();
+
         onSelect(event, index);
     });
 

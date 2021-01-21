@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { HiddenSelect, InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerSelect, Select } from "@react-components/select";
 import { Text } from "@react-components/text";
 
@@ -15,7 +15,7 @@ import { Text } from "@react-components/text";
 <Tagline>A select allow users to choose a single option from a collapsible list of options.</Tagline>
 
 <ComponentInfo
-    usage={"import { Select, Item, Section } from \"@orbit-ui/react-components\""}
+    usage={"import { Select, Item, Section, HiddenSelect, useSelect } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/select/src"
 />
 
@@ -205,13 +205,13 @@ A select can be part of a form. To submit the value of a select, make sure you s
     </Story>
 </Preview>
 
-### Position
+### Direction
 
-A select position can vary.
+A select open direction can vary.
 
 <Preview>
-    <Story name="position">
-        <Select align="end" direction="top" placeholder="Planets" aria-label="Planets">
+    <Story name="direction">
+        <Select direction="top" placeholder="Planets" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -223,9 +223,9 @@ A select position can vary.
     </Story>
 </Preview>
 
-### Array Map
+### Array map
 
-A seclect items can be rendered with an array map.
+A select items can be rendered with an array map.
 
 <Preview>
     <Story name="array map">
@@ -279,6 +279,12 @@ A select can appear inline with other content.
     </Story>
 </Preview>
 
+### Custom select
+
+Some use cases requires to render a select with a custom trigger. Orbit helps by providing a `useSelect` hook.
+
+<Preview filePath="/select/docs/CustomSelect" noInline />
+
 ## API
 
 ### Select
@@ -308,5 +314,14 @@ A select can appear inline with other content.
 />
 
 <ArgsTable of={InnerSection} />
+
+### HiddenSelect
+
+<ComponentInfo
+    usage={"import { HiddenSelect } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={HiddenSelect} />
 
 

@@ -109,9 +109,9 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
-     * Controlled autofocus target.
+     * Controlled focus target when enabling autofocus.
      */
-    autoFocusTarget: string,
+    focusTarget: string,
     /**
      * Whether or not the listbox take up the width of its container.
      */
@@ -132,7 +132,7 @@ export function InnerListbox({
     selectionMode = "single",
     nodes: userNodes,
     autoFocus,
-    autoFocusTarget,
+    focusTarget: userFocusTarget,
     fluid,
     "aria-label": ariaLabel,
     as = "div",
@@ -153,9 +153,9 @@ export function InnerListbox({
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const focusTarget = selectionManager.selectedKeys[0] ?? autoFocusTarget;
+    const focusTarget = selectionManager.selectedKeys[0] ?? userFocusTarget;
 
-    // When autoFocus is specified, if there is a selected key, autofocus the item matching the key.
+    // When autofocus is specified, if there is a selected key, autofocus the item matching the key or the provided target.
     useAutoFocusChild(focusManager, {
         target: focusTarget,
         isDisabled: !autoFocus || isNil(focusTarget),
@@ -166,7 +166,7 @@ export function InnerListbox({
         }
     });
 
-    // Otherwise, autofocus the listbox container element to enable keyboard support.
+    // Otherwise, when autofocus is speficied, autofocus the listbox container element to enable keyboard support.
     useAutoFocus(containerRef, { isDisabled: !autoFocus || !isNil(focusTarget) });
 
     const updateSelectedKeys = (event, keys) => {

@@ -286,21 +286,21 @@ stories()
         </Listbox>
     )
     .add("autofocus first", () =>
-        <Listbox autoFocus autoFocusTarget="first" aria-label="Planets">
+        <Listbox autoFocus focusTarget="first" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus last", () =>
-        <Listbox autoFocus autoFocusTarget="last" aria-label="Planets">
+        <Listbox autoFocus focusTarget="last" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus key", () =>
-        <Listbox autoFocus autoFocusTarget="jupiter" aria-label="Planets">
+        <Listbox autoFocus focusTarget="jupiter" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
