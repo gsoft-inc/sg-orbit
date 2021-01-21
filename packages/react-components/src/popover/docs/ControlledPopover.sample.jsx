@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-
 () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -17,7 +15,7 @@ import { useCallback } from "react";
             show={isVisible}
             onVisibilityChange={handleVisibilityChange}
         >
-            <Button>Toggle</Button>
+            <Button variant="outline">Toggle</Button>
             <Square>
                 <TextLink
                     as="button"

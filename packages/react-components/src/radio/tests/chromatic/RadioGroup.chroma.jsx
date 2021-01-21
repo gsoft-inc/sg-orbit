@@ -118,22 +118,6 @@ stories()
             <CustomComponent value="3">3</CustomComponent>
         </RadioGroup>
     )
-    .add("render props", () =>
-        <RadioGroup defaultValue="2">
-            {
-                ({ checkedValue }) =>
-                    ["1", "2", "3"].map(x =>
-                        <Radio
-                            className={checkedValue === x ? "bg-primary-500" : undefined}
-                            value={x}
-                            key={x}
-                        >
-                            {x}
-                        </Radio>
-                    )
-            }
-        </RadioGroup>
-    )
     .add("validation", () =>
         <Inline gap={13}>
             <RadioGroup validationState="invalid">

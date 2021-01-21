@@ -1,1 +1,1 @@
-export * from "./useCollectionBuilder";
+export * from "./useCollection";

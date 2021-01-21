@@ -1,7 +1,7 @@
 import { Children, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
-import { mergeProps, resolveChildren } from "../../shared";
+import { mergeProps } from "../../shared";
 
 export class AccordionBuilder {
     _rootId;
@@ -10,15 +10,13 @@ export class AccordionBuilder {
         this._rootId = rootId;
     }
 
-    build(nodes, selectedIndexes) {
-        if (isNil(nodes)) {
+    build(children) {
+        if (isNil(children)) {
             throw new Error("An accordion must have children.");
         }
 
-        return Children.map(nodes, (item, index) => {
-            const [header, content] = Children.toArray(resolveChildren(item.props.children, {
-                isOpen: selectedIndexes.includes(index)
-            }));
+        return Children.map(children, (element, index) => {
+            const [header, content] = Children.toArray(element.props.children);
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
@@ -28,7 +26,7 @@ export class AccordionBuilder {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
                 ref: header.ref,
-                props: mergeProps(header.props, item.props)
+                props: mergeProps(header.props, element.props)
             };
 
             const panelProps = {
@@ -41,6 +39,7 @@ export class AccordionBuilder {
             return {
                 id: `${this._rootId}-${index}`,
                 key: index.toString(),
+                position: index,
                 index,
                 header: headerProps,
                 panel: panelProps
@@ -49,8 +48,8 @@ export class AccordionBuilder {
     }
 }
 
-export function useAccordionBuilder({ items, selectedIndexes, rootId }) {
+export function useAccordionItems(children, rootId) {
     const builder = useMemo(() => new AccordionBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(items, selectedIndexes), [builder, items, selectedIndexes]);
+    return useMemo(() => builder.build(children), [builder, children]);
 }

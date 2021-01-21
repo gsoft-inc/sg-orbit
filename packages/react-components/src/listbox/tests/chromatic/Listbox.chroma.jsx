@@ -191,13 +191,11 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("render props", () =>
+    .add("array map", () =>
         <Listbox aria-label="Planets">
-            {() =>
-                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
-                    <Item key={x.toLowerCase()}>{x}</Item>
-                ))
-            }
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
         </Listbox>
     )
     .add("custom item component", () => {
@@ -282,6 +280,27 @@ stories()
     )
     .add("autofocus + multiple selected key", () =>
         <Listbox autoFocus defaultSelectedKey={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus first", () =>
+        <Listbox autoFocus autoFocusTarget="first" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus last", () =>
+        <Listbox autoFocus autoFocusTarget="last" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus key", () =>
+        <Listbox autoFocus autoFocusTarget="jupiter" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

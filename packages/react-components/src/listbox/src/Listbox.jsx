@@ -1,10 +1,10 @@
 import "./Listbox.css";
 
-import { ListboxBase, SelectionMode } from "./ListboxBase";
+import { ListboxBase } from "./ListboxBase";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { arrayify, mergeProps, useControllableState, useEventCallback } from "../../shared";
-import { forwardRef, useMemo } from "react";
-import { useCollectionBuilder } from "../../collection";
+import { forwardRef } from "react";
+import { mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { useCollection } from "../../collection";
 
 const propTypes = {
     /**
@@ -30,6 +30,10 @@ const propTypes = {
      * Whether or not the listbox should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
+    /**
+     * Autofocus target to use when no value is selected.
+     */
+    autoFocusTarget: string,
     /**
      * Whether or not the listbox take up the width of its container.
      */
@@ -59,15 +63,7 @@ export function InnerListbox({
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, []);
 
-    const renderProps = useMemo(() => ({
-        selectedKey: selectionMode === SelectionMode.single
-            ? selectedKey
-            : arrayify(selectedKey)
-    }), [selectedKey, selectionMode]);
-
-    const nodes = useCollectionBuilder(children, renderProps);
-
-    console.log(nodes);
+    const nodes = useCollection(children);
 
     const handleChange = useEventCallback((event, newKey) => {
         setSelectedKey(newKey);

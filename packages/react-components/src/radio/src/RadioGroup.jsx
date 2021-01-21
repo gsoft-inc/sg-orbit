@@ -6,7 +6,6 @@ import {
     augmentElement,
     mergeProps,
     omitProps,
-    resolveChildren,
     useAutoFocusChild,
     useBasicKeyboardNavigation,
     useControllableState,
@@ -183,8 +182,6 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = resolveChildren(children, { checkedValue });
-
     return (
         <Group
             {...mergeProps(
@@ -199,7 +196,7 @@ export function InnerRadioGroup(props) {
                     checkedValue
                 }}
             >
-                {Children.map(items, x => {
+                {Children.map(children, x => {
                     return augmentElement(x, {
                         ...itemProps,
                         role: "radio",

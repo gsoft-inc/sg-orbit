@@ -5,7 +5,6 @@ import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
 import { Text } from "@react-components/text";
-import cx from "clsx";
 
 <Meta
     title="Components/Listbox"
@@ -207,12 +206,12 @@ A listbox can take the width of it's container.
     </Story>
 </Preview>
 
-### Data items
+### Array Map
 
-A listbox items can be provided with an array instead of using the granular components.
+A listbox items can be rendered with an array map.
 
 <Preview>
-    <Story name="data items">
+    <Story name="array map">
         <Listbox aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
@@ -221,25 +220,7 @@ A listbox items can be provided with an array instead of using the granular comp
     </Story>
 </Preview>
 
-### Render props
-
-A listbox can render his items based on the `selectedKey` value.
-
-<Preview>
-    <Story name="render props">
-        <Listbox aria-label="Planets">
-            {({ selectedKey }) =>
-                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
-                    <Item key={x.toLowerCase()} className={cx({ "primary-600": selectedKey === x.toLowerCase() })}>
-                        {x}
-                    </Item>
-                ))
-            }
-        </Listbox>
-    </Story>
-</Preview>
-
-### Listbox context
+### Listbox Context
 
 The previous render props example could also be achieve by using `useListboxContext`.
 

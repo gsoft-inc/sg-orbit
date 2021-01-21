@@ -189,26 +189,6 @@ A radio can update is content based on the `isChecked` value by providing a rend
     </Story>
 </Preview>
 
-Or even use a render prop function for items:
-
-<Preview>
-    <Story name="group render props">
-        <RadioGroup>
-            {
-                ({ checkedValue }) =>
-                    ["Mars", "Jupiter", "Pluto"].map(x =>
-                        <Radio
-                            className={checkedValue === x && "primary-500"}
-                            value={x}
-                        >
-                            {checkedValue === x ? "Selected" : x}
-                        </Radio>
-                    )
-            }
-        </RadioGroup>
-    </Story>
-</Preview>
-
 ### Toggle buttons
 
 In somes cases, you might want a group of toggle buttons to behave like a radio group.

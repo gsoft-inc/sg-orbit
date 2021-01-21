@@ -2,7 +2,7 @@
     const [isOpen, setIsOpen] = useState(false);
     const [selectedKey, setSelectedKey] = useState("earth");
 
-    const handleVisibilityChange = useCallback((event, newValue) => {
+    const handleOpenChange = useCallback((event, newValue) => {
         setIsOpen(newValue);
         console.log(newValue);
     }, [setIsOpen]);
@@ -17,7 +17,7 @@
             open={isOpen}
             selectedKey={selectedKey}
             placeholder="Planets"
-            onVisibilityChange={handleVisibilityChange}
+            onOpenChange={handleOpenChange}
             onChange={handleChange}
             aria-label="Planets"
         >

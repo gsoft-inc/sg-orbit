@@ -194,33 +194,7 @@ stories()
             </Item>
         </Accordion>
     )
-    .add("render props", () =>
-        <Accordion defaultIndex={0}>
-            <Item>
-                {({ isOpen }) => (
-                    <>
-                        <Header as="h3">
-                            {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
-                            <Text>Mars</Text>
-                        </Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                    </>
-                )}
-            </Item>
-            <Item>
-                {({ isOpen }) => (
-                    <>
-                        <Header as="h3">
-                            {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
-                            <Text>Jupiter</Text>
-                        </Header>
-                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                    </>
-                )}
-            </Item>
-        </Accordion>
-    )
-    .add("data render", () =>
+    .add("array map", () =>
         <Stack>
             <Accordion>
                 {[1, 2, 3].map(x => (

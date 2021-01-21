@@ -8,7 +8,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { cssModule, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { useTabsBuilder } from "./useTabsBuilder";
+import { useTabsItems } from "./useTabsItems";
 
 const propTypes = {
     /**
@@ -72,7 +72,7 @@ export function InnerTabs({
 }) {
     const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
-    const [tabs, panels] = useTabsBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
 
     const isInitialRender = useIsInitialRender();
 

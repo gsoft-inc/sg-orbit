@@ -43,6 +43,7 @@ export function InnerOverlay({
                         enter: "o-ui-fade-in",
                         leave: "o-ui-fade-out",
                         className: "o-ui-overlay",
+                        role: "presentation",
                         ref: forwardedRef
                     }
                 )}

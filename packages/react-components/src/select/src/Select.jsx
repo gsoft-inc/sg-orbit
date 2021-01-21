@@ -1,6 +1,7 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
+import { CollectionNodeType, useCollection } from "../../collection";
 import {
     FocusTarget,
     Keys,
@@ -19,9 +20,8 @@ import { ListboxBase } from "../../listbox";
 import { Overlay, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import { forwardRef, useMemo, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
-import { useCollectionBuilder } from "../../collection";
 import { useFieldInputProps } from "../../field";
 import { usePopover } from "../../popover";
 
@@ -62,12 +62,12 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Called when the select visibility change.
+     * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} isVisible - Indicate if the select is visible.
+     * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onVisibilityChange: func,
+    onOpenChange: func,
     /**
      * The style to use.
      */
@@ -126,7 +126,7 @@ export function InnerSelect(props) {
         required,
         validationState,
         onChange,
-        onVisibilityChange,
+        onOpenChange,
         variant = "outline",
         align = "start",
         direction = "bottom",
@@ -150,7 +150,6 @@ export function InnerSelect(props) {
         fieldProps
     );
 
-    // const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
     const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
@@ -163,10 +162,10 @@ export function InnerSelect(props) {
 
     const autoFocusTargetRef = useRef(null);
 
-    const { isVisible, setVisibility: setPopoverVisibility, triggerProps, overlayProps } = usePopover(triggerElement, overlayElement, "listbox", {
+    const { isVisible: isOpen, setVisibility: setIsOpen, triggerProps, overlayProps } = usePopover(triggerElement, overlayElement, "listbox", {
         show: open,
         defaultShow: defaultOpen,
-        onVisibilityChange,
+        onVisibilityChange: onOpenChange,
         hideOnEscape: true,
         hideOnBlur: true,
         position: `${direction}-${align}`,
@@ -176,7 +175,7 @@ export function InnerSelect(props) {
         zIndex
     });
 
-    const setSelection = (event, newKey) => {
+    const updateSelection = (event, newKey) => {
         if (!isNil(onChange)) {
             onChange(event, newKey);
         }
@@ -184,35 +183,31 @@ export function InnerSelect(props) {
         setSelectedKey(newKey);
     };
 
-    const setVisibility = useCallback((event, newVisibility, focusTarget = null) => {
-        setPopoverVisibility(event, newVisibility);
+    const updateOpen = (event, newOpen, focusTarget = null) => {
+        setIsOpen(event, newOpen);
         autoFocusTargetRef.current = focusTarget;
-    }, [setPopoverVisibility, autoFocusTargetRef]);
-
-    const renderProps = useMemo(() => ({ selectedKey }), [selectedKey]);
-
-    const nodes = useCollectionBuilder(children, renderProps);
+    };
 
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
             case Keys.down:
-                setVisibility(event, true, FocusTarget.first);
+                updateOpen(event, true, FocusTarget.first);
                 break;
             case Keys.up:
-                setVisibility(event, true, FocusTarget.last);
+                updateOpen(event, true, FocusTarget.last);
                 break;
         }
     });
 
     const handleSelectOption = useEventCallback((event, newKey) => {
-        setSelection(event, newKey);
-        setVisibility(event, false);
+        updateSelection(event, newKey);
+        updateOpen(event, false);
     });
 
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isVisible });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isOpen });
 
     useAutoFocus(triggerRef, {
-        isDisabled: !autoFocus || isVisible,
+        isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
@@ -223,9 +218,12 @@ export function InnerSelect(props) {
         { box: "border-box" }
     );
 
-    const selectedNode = nodes.find(x => x.itemKey === selectedKey);
+    const nodes = useCollection(children);
+    const items = useMemo(() => nodes.filter(x => x.type === CollectionNodeType.item), [nodes]);
 
-    const { icon: selectedIcon, text: selectedText, "right-icon": selectedRightIcon } = useSlots(selectedNode?.content, {
+    const selectedItem = items.find(x => x.key === selectedKey);
+
+    const { icon: selectedIcon, text: selectedText, "right-icon": selectedRightIcon } = useSlots(selectedItem?.content, {
         _: {
             defaultWrapper: Text
         },
@@ -242,7 +240,7 @@ export function InnerSelect(props) {
         }
     });
 
-    const valueMarkup = !isNil(selectedNode) ? (
+    const valueMarkup = !isNil(selectedItem) ? (
         <div className="o-ui-select-value">
             {selectedIcon}
             {selectedText}
@@ -266,7 +264,7 @@ export function InnerSelect(props) {
                     rest,
                     triggerProps,
                     {
-                        onKeyDown: !isVisible ? handleTriggerKeyDown : undefined,
+                        onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                         className: cssModule(
                             "o-ui-select-trigger",
                             variant,
@@ -293,7 +291,7 @@ export function InnerSelect(props) {
                     overlayProps,
                     restoreFocusProps,
                     {
-                        show: isVisible,
+                        show: isOpen,
                         className: "o-ui-select-menu",
                         style: {
                             width: triggerWidth
@@ -306,9 +304,9 @@ export function InnerSelect(props) {
                     nodes={nodes}
                     selectedKey={selectedKey}
                     onChange={handleSelectOption}
-                    /* Must be conditional to isVisible otherwise it will steal the focus from the trigger when selecting
+                    /* Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
                        a value because the listbox re-render before the exit animation is done. */
-                    autoFocus={isVisible}
+                    autoFocus={isOpen}
                     autoFocusTarget={autoFocusTargetRef.current}
                     fluid
                     aria-label={!fieldProps["aria-labelledby"] ? ariaLabel : undefined}

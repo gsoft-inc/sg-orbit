@@ -15,7 +15,7 @@
                     position="top"
                     containerElement={boundaryElement}
                 >
-                    <Button>Toggle</Button>
+                    <Button variant="outline">Toggle</Button>
                     <Square />
                 </Popover>
             </div>

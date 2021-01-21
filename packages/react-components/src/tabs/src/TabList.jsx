@@ -60,7 +60,7 @@ export function TabList({
             {tabs.map(({
                 id,
                 key,
-                index,
+                position,
                 elementType: ElementType = Tab,
                 ref,
                 panelId,
@@ -69,7 +69,7 @@ export function TabList({
                 <ElementType
                     {...props}
                     tab={{
-                        index,
+                        index: position,
                         panelId
                     }}
                     id={id}

@@ -6,7 +6,6 @@ import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, Item } from "@react-components/placeholders";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
-import cx from "clsx";
 
 <Meta
     title="Components/Accordion"
@@ -86,56 +85,9 @@ An accordion can allow multiple items to be expanded at once.
     </Story>
 </Preview>
 
-### Render props
+### Array Map
 
-An accordion item can update is content based on the `isOpen` value by providing a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Accordion>
-            <Item>
-                {({ isOpen }) => (
-                    <>
-                        <Header className={cx({ "primary-600": isOpen })} as="h3">
-                            Mars
-                        </Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </>
-                )}
-            </Item>
-            <Item>
-                {({ isOpen }) => (
-                    <>
-                        <Header className={cx({ "primary-600": isOpen })} as="h3">
-                            Jupiter
-                        </Header>
-                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                    </>
-                )}
-            </Item>
-            <Item>
-                {({ isOpen }) => (
-                    <>
-                        <Header className={cx({ "primary-600": isOpen })} as="h3">
-                            Venus
-                        </Header>
-                        <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                    </>
-                )}
-            </Item>
-        </Accordion>
-    </Story>
-</Preview>
-
-### Custom components
-
-The previous [render props](#render-props) example could also be achieve with a custom component.
-
-<Preview filePath="/accordion/docs/CustomAccordion" noInline />
-
-### Data items
-
-You can supply accordion items with an array instead of using the granular components.
+An accordion items can be rendered with an array map.
 
 <Preview>
     <Story name="data render">
@@ -154,6 +106,12 @@ You can supply accordion items with an array instead of using the granular compo
         </Accordion>
     </Story>
 </Preview>
+
+### Custom Component
+
+The previous [render props](#render-props) example could also be achieve with a custom component.
+
+<Preview filePath="/accordion/docs/CustomAccordion" noInline />
 
 ### Disabled
 

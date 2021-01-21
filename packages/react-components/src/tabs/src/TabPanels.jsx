@@ -11,7 +11,7 @@ export function TabPanels({ panels, ...rest }) {
             {panels.map(({
                 id,
                 key,
-                index,
+                position,
                 elementType: ElementType = TabPanel,
                 ref,
                 tabId,
@@ -20,7 +20,7 @@ export function TabPanels({ panels, ...rest }) {
                 <ElementType
                     {...props}
                     panel={{
-                        index,
+                        index: position,
                         tabId
                     }}
                     id={id}

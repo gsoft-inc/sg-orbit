@@ -5,6 +5,7 @@ import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerPopover, Popover } from "@react-components/popover";
+import { TextLink } from "@react-components/link";
 
 <Meta
     title="Components/Popover"
@@ -49,7 +50,7 @@ A default popover using a button trigger.
 <Preview scope={{ Square }}>
     <Story name="default">
         <Popover>
-            <Button>Toggle</Button>
+            <Button variant="outline">Toggle</Button>
             <Square />
         </Popover>
     </Story>
@@ -62,7 +63,7 @@ A popover can show at different positions.
 <Preview scope={{ Square }}>
     <Story name="position">
         <Popover position="right">
-            <Button>Toggle</Button>
+            <Button variant="outline">Toggle</Button>
             <Square />
         </Popover>
     </Story>
@@ -75,7 +76,7 @@ A popover can have an horizontal and / or vertical offset.
 <Preview scope={{ Square }}>
     <Story name="offset">
         <Popover offset={[0, 8]}>
-            <Button>Toggle</Button>
+            <Button variant="outline">Toggle</Button>
             <Square />
         </Popover>
     </Story>
@@ -87,7 +88,7 @@ A popover automatic repositioning features can be disabled. When disabled, the p
 
 <Preview scope={{ Square }} filePath="/popover/docs/PinnedPopover" />
 
-### Render props
+### Render Props
 
 A popover can update is content based on the `isVisible` value and optionally use the `hide` function by providing a render prop function:
 
@@ -97,14 +98,22 @@ A popover can update is content based on the `isVisible` value and optionally us
             {({ isVisible, hide }) => (
                 <>
                     <Button color={isVisible ? "secondary" : "primary"}>Toggle</Button>
-                    <Square />
+                    <Square>
+                        <TextLink
+                            as="button"
+                            className="mt6 ml5"
+                            onClick={hide}
+                        >
+                            Close
+                        </TextLink>
+                    </Square>
                 </>
             )}
         </Popover>
     </Story>
 </Preview>
 
-### Popover context
+### Popover Context
 
 The previous render props example could also be achieve by using `usePopoverContext`.
 

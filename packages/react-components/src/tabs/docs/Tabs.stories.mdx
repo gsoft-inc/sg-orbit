@@ -104,9 +104,9 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
     </Story>
 </Preview>
 
-### Data tabs
+### Array Map
 
-Tabs can be provided with an array instead of using the granular components.
+Tabs items can be rendered with an array map.
 
 <Preview>
     <Story name="data tabs">
@@ -126,43 +126,19 @@ Tabs can be provided with an array instead of using the granular components.
     </Story>
 </Preview>
 
-### Render props
+### Render Props (Async Content)
 
-A tab can update is content based on the `isActive` value by providing a render prop function.
+A tab can update is content based on the `isActive` value by providing a render prop function. This is particulary usefull when dealing with async content.
 
-<Preview>
-    <Story name="render props">
-        <Tabs aria-label="Planets">
-            <Item>
-                {({ isActive }) => (
-                    <>
-                        <Header>
-                            {isActive ? <LightbulbIcon /> : <NotificationIcon />}
-                            <Text>Mars</Text>
-                        </Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </>
-                )}
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    </Story>
-</Preview>
+<Preview filePath="/tabs/docs/AsyncTabs" noInline />
 
-### Custom components
+### Custom Component
 
 The previous [render props](#render-props) example could also be achieve with a custom component.
 
 <Preview filePath="/tabs/docs/CustomTabs" noInline />
 
-### Manually activated tabs
+### Manually Activated Tabs
 
 By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
 
@@ -188,12 +164,6 @@ In this scenario, you should use a manually activated tab, it moves focus withou
         </Tabs>
     </Story>
 </Preview>
-
-### Async content
-
-We recommend using the [render props](#render-props) syntax to load async content.
-
-<Preview filePath="/tabs/docs/AsyncTabs" noInline />
 
 ### Orientation
 

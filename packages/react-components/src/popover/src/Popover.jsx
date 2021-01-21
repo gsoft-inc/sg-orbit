@@ -38,7 +38,7 @@ const propTypes = {
     /**
      * Called when the popover visibility change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} isVisible - Indicate if the popover is visible.
+     * @param {boolean} isVisible - Indicate if the overlay is visible.
      * @returns {void}
      */
     onVisibilityChange: func,

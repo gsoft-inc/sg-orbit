@@ -10,42 +10,48 @@ export class TabsBuilder {
         this._rootId = rootId;
     }
 
-    build(nodes, selectedIndex) {
-        if (isNil(nodes)) {
+    build(children, selectedIndex) {
+        if (isNil(children)) {
             throw new Error("A tabs component must have children.");
         }
 
         const tabs = [];
         const panels = [];
 
-        let nodeIndex = 0;
+        let index = 0;
 
-        Children.forEach(nodes, (tab, index) => {
-            const [header, content] = Children.toArray(resolveChildren(tab.props.children, {
-                isActive: selectedIndex === index
+        Children.forEach(children, (element, position) => {
+            const [header, content] = Children.toArray(resolveChildren(element.props.children, {
+                isActive: selectedIndex === position
             }));
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("A tabs item must have an <Header> and a <Content>.");
             }
 
-            const tabId = this._makeId(header, "tab", index);
-            const panelId = this._makeId(content, "panel", index);
+            const tabId = this._makeId(header, "tab", position);
+            const panelId = this._makeId(content, "panel", position);
+
+            index++;
 
             tabs.push({
                 id: tabId,
-                key: (nodeIndex++).toString(),
+                key: index.toString(),
+                position,
                 index,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
                 ref: header.ref,
                 panelId,
-                props: mergeProps(header.props, tab.props)
+                props: mergeProps(header.props, element.props)
             });
+
+            index++;
 
             panels.push({
                 id: panelId,
-                key: (nodeIndex++).toString(),
+                key: index.toString(),
+                position,
                 index,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: content.type !== Content ? content.type : undefined,
@@ -63,8 +69,8 @@ export class TabsBuilder {
     }
 }
 
-export function useTabsBuilder(tabs, selectedIndex, rootId) {
+export function useTabsItems(children, selectedIndex, rootId) {
     const builder = useMemo(() => new TabsBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(tabs, selectedIndex), [builder, tabs, selectedIndex]);
+    return useMemo(() => builder.build(children, selectedIndex), [builder, children, selectedIndex]);
 }

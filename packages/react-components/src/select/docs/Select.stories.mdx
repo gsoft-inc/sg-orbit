@@ -4,7 +4,6 @@ import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-comp
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerSelect, Select } from "@react-components/select";
 import { Text } from "@react-components/text";
-import cx from "clsx";
 
 <Meta
     title="Components/Select"
@@ -224,34 +223,16 @@ A select position can vary.
     </Story>
 </Preview>
 
-### Data items
+### Array Map
 
-A select items can be provided with an array instead of using the granular components.
+A seclect items can be rendered with an array map.
 
 <Preview>
-    <Story name="data items">
+    <Story name="array map">
         <Select placeholder="Planets" aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
-        </Select>
-    </Story>
-</Preview>
-
-### Render props
-
-A select can render his items based on the `selectedKey` value.
-
-<Preview>
-    <Story name="render props">
-        <Select placeholder="Planets" aria-label="Planets">
-            {({ selectedKey }) =>
-                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
-                    <Item key={x.toLowerCase()} className={cx({ "primary-600": selectedKey === x.toLowerCase() })}>
-                        {x}
-                    </Item>
-                ))
-            }
         </Select>
     </Story>
 </Preview>

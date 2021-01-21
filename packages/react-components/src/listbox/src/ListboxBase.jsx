@@ -1,6 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
+import { CollectionNodeType } from "../../collection";
 import {
     Keys,
     arrayify,
@@ -22,7 +23,7 @@ import { any, array, arrayOf, bool, elementType, func, number, object, oneOf, on
 import { forwardRef, useMemo, useRef } from "react";
 import { isNil, isNumber } from "lodash";
 
-export function useSelectionManager({ selectedKey, nodes }) {
+export function useSelectionManager({ selectedKey, items }) {
     return useMemo(() => {
         const selectedKeys = arrayify(selectedKey);
 
@@ -40,8 +41,8 @@ export function useSelectionManager({ selectedKey, nodes }) {
 
                 const newKeys = new Set(selectedKeys);
 
-                let startIndex = nodes.findIndex(x => x.itemKey === lastKey);
-                let endIndex = nodes.findIndex(x => x.itemKey === toKey);
+                let startIndex = items.findIndex(x => x.key === lastKey);
+                let endIndex = items.findIndex(x => x.key === toKey);
 
                 // Support both directions.
                 if (startIndex > endIndex) {
@@ -49,7 +50,7 @@ export function useSelectionManager({ selectedKey, nodes }) {
                 }
 
                 for (let i = startIndex; i <= endIndex; i += 1) {
-                    newKeys.add(nodes[i].itemKey);
+                    newKeys.add(items[i].key);
                 }
 
                 return Array.from(newKeys);
@@ -64,7 +65,7 @@ export function useSelectionManager({ selectedKey, nodes }) {
             replaceSelection,
             extendSelection
         };
-    }, [selectedKey, nodes]);
+    }, [selectedKey, items]);
 }
 
 ///////////////////
@@ -137,11 +138,13 @@ export const ListboxBase = forwardRef(({
     as,
     ...rest
 }, forwardedRef) => {
+    const items = nodes.filter(x => x.type === CollectionNodeType.item);
+
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const selectionManager = useSelectionManager({ selectedKey, nodes });
+    const selectionManager = useSelectionManager({ selectedKey, items });
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
@@ -249,7 +252,7 @@ export const ListboxBase = forwardRef(({
         key,
         ref,
         props,
-        items
+        items: sectionItems
     }) => (
         <ListboxSection
             {...props}
@@ -257,7 +260,7 @@ export const ListboxBase = forwardRef(({
             key={key}
             ref={ref}
         >
-            {items.map(x => renderOption(x))}
+            {sectionItems.map(x => renderOption(x))}
         </ListboxSection>
     );
 
@@ -265,7 +268,6 @@ export const ListboxBase = forwardRef(({
         key,
         elementType: ElementType = ListboxOption,
         ref,
-        itemKey,
         content,
         props
     }) => (
@@ -274,7 +276,7 @@ export const ListboxBase = forwardRef(({
             id={`${rootId}-option-${key}`}
             key={key}
             ref={ref}
-            item={{ key: itemKey }}
+            item={{ key: key }}
         >
             {content}
         </ElementType>
