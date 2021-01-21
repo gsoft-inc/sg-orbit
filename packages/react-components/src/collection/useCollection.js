@@ -1,9 +1,22 @@
 import { Children, useMemo } from "react";
 import { Item, Section } from "../placeholders";
+import { any, array, element as elementProp, elementType, number, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolveChildren } from "../shared";
 
-export const CollectionNodeType = {
+export const NodeShape = {
+    key: string.isRequired,
+    position: number.isRequired,
+    index: number.isRequired,
+    type: string.isRequired,
+    elementType: elementType,
+    ref: any,
+    content: oneOfType([elementProp, string]),
+    props: object,
+    items: array // Section only
+};
+
+export const NodeType = {
     item: "item",
     section: "section"
 };
@@ -22,7 +35,7 @@ export class CollectionBuilder {
             key: index.toString(),
             position,
             index,
-            type: CollectionNodeType.section,
+            type: NodeType.section,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Section ? element.type : undefined,
             ref: element.ref,
@@ -41,7 +54,7 @@ export class CollectionBuilder {
             key: !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : index.toString(),
             position,
             index,
-            type: CollectionNodeType.item,
+            type: NodeType.item,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Item ? element.type : undefined,
             ref: element.ref,
@@ -51,6 +64,10 @@ export class CollectionBuilder {
     }
 
     build(children) {
+        if (isNil(children)) {
+            return [];
+        }
+
         let index = 0;
 
         const elements = resolveChildren(children);

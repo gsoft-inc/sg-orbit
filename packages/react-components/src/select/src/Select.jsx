@@ -1,7 +1,6 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
-import { CollectionNodeType, useCollection } from "../../collection";
 import {
     FocusTarget,
     Keys,
@@ -16,7 +15,8 @@ import {
     useSlots
 } from "../../shared";
 import { HiddenSelect } from "./HiddenSelect";
-import { ListboxBase } from "../../listbox";
+import { Listbox } from "../../listbox";
+import { NodeType, useCollection } from "../../collection";
 import { Overlay, useRestoreFocus } from "../../overlay";
 import { Text } from "../../text";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -120,7 +120,7 @@ export function InnerSelect(props) {
     const {
         open,
         defaultOpen,
-        selectedKey: controlledKey,
+        selectedKey: userKey,
         defaultSelectedKey,
         placeholder,
         required,
@@ -150,7 +150,7 @@ export function InnerSelect(props) {
         fieldProps
     );
 
-    const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
+    const [selectedKey, setSelectedKey] = useControllableState(userKey, defaultSelectedKey, null);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
     const [triggerWidth, setTriggerWidth] = useState("0px");
@@ -219,7 +219,7 @@ export function InnerSelect(props) {
     );
 
     const nodes = useCollection(children);
-    const items = useMemo(() => nodes.filter(x => x.type === CollectionNodeType.item), [nodes]);
+    const items = useMemo(() => nodes.filter(x => x.type === NodeType.item), [nodes]);
 
     const selectedItem = items.find(x => x.key === selectedKey);
 
@@ -300,7 +300,7 @@ export function InnerSelect(props) {
                     }
                 )}
             >
-                <ListboxBase
+                <Listbox
                     nodes={nodes}
                     selectedKey={selectedKey}
                     onChange={handleSelectOption}

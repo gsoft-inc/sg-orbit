@@ -1,5 +1,5 @@
 () => {
-    const [selectedKey, setSelectedKey] = useState("earth");
+    const [selectedKey, setSelectedKey] = useState(null);
 
     const handleChange = useCallback((event, newValue) => {
         setSelectedKey(newValue);
