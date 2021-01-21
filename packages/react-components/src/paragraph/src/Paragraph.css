@@ -1,7 +1,6 @@
 .o-ui-p {
     font-weight: 400;
     margin-top: 0;
-    color: var(--o-ui-text-1);
 }
 
 .o-ui-p:last-child {

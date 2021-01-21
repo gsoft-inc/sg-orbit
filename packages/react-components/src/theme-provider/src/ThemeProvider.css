@@ -20,6 +20,15 @@
     --o-ui-background-danger: var(--o-ui-alert-500);
     --o-ui-background-danger-hover: var(--o-ui-alert-700);
     --o-ui-background-danger-active: var(--o-ui-alert-900);
+    --o-ui-background-warning: var(--o-ui-sunray-50);
+    --o-ui-background-warning-hover: var(--o-ui-sunray-700);
+    --o-ui-background-warning-active: var(--o-ui-sunray-900);
+    --o-ui-background-positive: var(--o-ui-green-500);
+    --o-ui-background-positive-hover: var(--o-ui-green-700);
+    --o-ui-background-positive-active: var(--o-ui-green-900);
+    --o-ui-background-info: var(--o-ui-marine-50);
+    --o-ui-background-info-hover: var(--o-ui-marine-100);
+    --o-ui-background-info-active: var(--o-ui-marine-300);
     /* TEXT */
     --o-ui-text-1: var(--o-ui-marine-900);
     --o-ui-text-1-hover: var(--o-ui-marine-900);
@@ -37,9 +46,23 @@
     --o-ui-text-danger: var(--o-ui-alert-500);
     --o-ui-text-danger-hover: var(--o-ui-alert-700);
     --o-ui-text-danger-active: var(--o-ui-alert-900);
+    --o-ui-text-info: var(--o-ui-marine-500);
+    --o-ui-text-info-hover: var(--o-ui-marine-700);
+    --o-ui-text-info-active: var(--o-ui-marine-900);
+    --o-ui-text-positive: var(--o-ui-green-500);
+    --o-ui-text-positive-hover: var(--o-ui-green-700);
+    --o-ui-text-positive-active: var(--o-ui-green-900);
+    --o-ui-text-warning: var(--o-ui-warning-500);
+    --o-ui-text-warning-hover: var(--o-ui-warning-700);
+    --o-ui-text-warning-active: var(--o-ui-warning-900);
     /* ICON */
     --o-ui-icon-1: var(--o-ui-marine-900);
     --o-ui-icon-2: var(--o-ui-marine-500);
+    --o-ui-icon-primary: var(--o-ui-primary-500);
+    --o-ui-icon-danger: var(--o-ui-alert-500);
+    --o-ui-icon-positive: var(--o-ui-green-500);
+    --o-ui-icon-warning: var(--o-ui-sunray-500);
+    --o-ui-icon-info: var(--o-ui-marine-500);
     /* BORDER */
     --o-ui-border-1: var(--o-ui-cloud-100);
     --o-ui-border-1-hover: var(--o-ui-cloud-300);
@@ -56,6 +79,12 @@
     --o-ui-border-danger: var(--o-ui-alert-500);
     --o-ui-border-danger-hover: var(--o-ui-alert-700);
     --o-ui-border-danger-active: var(--o-ui-alert-900);
+    --o-ui-border-warning: var(--o-ui-sunray-500);
+    --o-ui-border-warning-hover: var(--o-ui-sunray-700);
+    --o-ui-border-warning-active: var(--o-ui-sunray-900);
+    --o-ui-border-positive: var(--o-ui-green-500);
+    --o-ui-border-positive-hover: var(--o-ui-green-700);
+    --o-ui-border-positive-active: var(--o-ui-green-900);
     /* INFO */
     --o-ui-info-50: var(--o-ui-marine-50);
     --o-ui-info-100: var(--o-ui-marine-100);
@@ -124,13 +153,22 @@
     --o-ui-background-5: var(--o-ui-marine-600);
     --o-ui-background-5-hover: var(--o-ui-marine-500);
     --o-ui-background-5-active: var(--o-ui-marine-400);
-    --o-ui-background-primary: var(--o-ui-primary-500);
-    --o-ui-background-primary-hover: var(--o-ui-primary-400);
-    --o-ui-background-primary-active: var(--o-ui-primary-300);
+    --o-ui-background-primary: var(--o-ui-primary-700);
+    --o-ui-background-primary-hover: var(--o-ui-primary-500);
+    --o-ui-background-primary-active: var(--o-ui-primary-400);
     --o-ui-background-primary-light: var(--o-ui-neutral-dark-800);
     --o-ui-background-danger: var(--o-ui-alert-700);
     --o-ui-background-danger-hover: var(--o-ui-alert-500);
     --o-ui-background-danger-active: var(--o-ui-alert-400);
+    --o-ui-background-warning: var(--o-ui-sunray-700);
+    --o-ui-background-warning-hover: var(--o-ui-sunray-500);
+    --o-ui-background-warning-active: var(--o-ui-sunray-400);
+    --o-ui-background-positive: var(--o-ui-green-700);
+    --o-ui-background-positive-hover: var(--o-ui-green-500);
+    --o-ui-background-positive-active: var(--o-ui-green-400);
+    --o-ui-background-info: var(--o-ui-marine-600);
+    --o-ui-background-info-hover: var(--o-ui-marine-400);
+    --o-ui-background-info-active: var(--o-ui-marine-300);
     /* TEXT */
     --o-ui-text-1: var(--o-ui-static-white);
     --o-ui-text-1-hover: var(--o-ui-static-white);
@@ -141,7 +179,6 @@
     --o-ui-text-3: var(--o-ui-cloud-700);
     --o-ui-text-3-hover: var(--o-ui-cloud-600);
     --o-ui-text-3-hover-active: var(--o-ui-cloud-500);
-    /* @todo / check if this color is needed */
     --o-ui-text-4: var(--o-ui-marine-300);
     --o-ui-text-primary: var(--o-ui-primary-500);
     --o-ui-text-primary-hover: var(--o-ui-primary-400);
@@ -149,9 +186,23 @@
     --o-ui-text-danger: var(--o-ui-alert-700);
     --o-ui-text-danger-hover: var(--o-ui-alert-600);
     --o-ui-text-danger-active: var(--o-ui-alert-500);
+    --o-ui-text-warning: var(--o-ui-sunray-700);
+    --o-ui-text-warning-hover: var(--o-ui-sunray-600);
+    --o-ui-text-warning-active: var(--o-ui-sunray-500);
+    --o-ui-text-positive: var(--o-ui-green-700);
+    --o-ui-text-positive-hover: var(--o-ui-green-600);
+    --o-ui-text-positive-active: var(--o-ui-green-500);
+    --o-ui-text-info: var(--o-ui-marine-100);
+    --o-ui-text-info-hover: var(--o-ui-marine-300);
+    --o-ui-text-info-active: var(--o-ui-marine-400);
     /* ICON */
     --o-ui-icon-1: var(--o-ui-static-white);
     --o-ui-icon-2: var(--o-ui-cloud-500);
+    --o-ui-icon-primary: var(--o-ui-primary-700);
+    --o-ui-icon-danger: var(--o-ui-alert-700);
+    --o-ui-icon-positive: var(--o-ui-green-500);
+    --o-ui-icon-warning: var(--o-ui-sunray-500);
+    --o-ui-icon-info: var(--o-ui-marine-100);
     /* BORDER */
     --o-ui-border-1: var(--o-ui-neutral-dark-600);
     --o-ui-border-1-hover: var(--o-ui-neutral-dark-400);
@@ -166,6 +217,15 @@
     --o-ui-border-danger: var(--o-ui-alert-700);
     --o-ui-border-danger-hover: var(--o-ui-alert-600);
     --o-ui-border-danger-active: var(--o-ui-alert-500);
+    --o-ui-border-warning: var(--o-ui-sunray-700);
+    --o-ui-border-warning-hover: var(--o-ui-sunray-600);
+    --o-ui-border-warning-active: var(--o-ui-sunray-500);
+    --o-ui-border-positive: var(--o-ui-green-700);
+    --o-ui-border-positive-hover: var(--o-ui-green-600);
+    --o-ui-border-positive-active: var(--o-ui-green-500);
+    --o-ui-border-info: var(--o-ui-marine-100);
+    --o-ui-border-info-hover: var(--o-ui-marine-300);
+    --o-ui-border-info-active: var(--o-ui-marine-400);
     /* INFO */
     --o-ui-info-50: var(--o-ui-marine-900);
     --o-ui-info-500: var(--o-ui-marine-600);

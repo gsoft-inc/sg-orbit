@@ -66,7 +66,7 @@
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
-    background-color: var(--o-ui-warning-50);
+    background-color: var(--o-ui-background-warning);
     color: var(--o-ui-warning-900);
 }
 
@@ -82,26 +82,4 @@
 
 .o-ui-alert-critical .o-ui-alert-icon {
     fill: var(--o-ui-danger-900);
-}
-
-/* DARK MODE */
-/* @todo  Note add an indirection here - we should not be aware that we are using Sunray and al. - not until colors are under control*/
-.o-ui-dark-color-scheme .o-ui-alert-warning {
-    background-color: var(--o-ui-warning-700);
-    --o-ui-opacity-sunray-700: .4;
-}
-
-.o-ui-dark-color-scheme .o-ui-alert-info {
-    --o-ui-opacity-marine-600: .7;
-    background-color: var(--o-ui-marine-600);
-    color: var(--o-ui-marine-100);
-}
-
-.o-ui-dark-color-scheme .o-ui-alert-critical {
-    --o-ui-opacity-alert-900: .4;
-}
-
-.o-ui-dark-color-scheme .o-ui-alert-success {
-    /* @todo Having to know which color is set up is bad */
-    --o-ui-opacity-green-900: .2;
 }
