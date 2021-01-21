@@ -48,7 +48,7 @@
 
 .o-ui.calendar .CalendarMonth_caption {
     font-size: 24px !important;
-    color: var(--o-ui-marine-900) !important;
+    color: var(--o-ui-text-1) !important;
     padding-top: 1.25rem !important;
     padding-bottom: 2.5rem !important;
     line-height: 1 !important;

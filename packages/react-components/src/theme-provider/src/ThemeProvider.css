@@ -29,6 +29,7 @@
     --o-ui-background-info: var(--o-ui-marine-50);
     --o-ui-background-info-hover: var(--o-ui-marine-100);
     --o-ui-background-info-active: var(--o-ui-marine-300);
+    --o-ui-background-input-selection: var(--o-ui-primary-100);
     /* TEXT */
     --o-ui-text-1: var(--o-ui-marine-900);
     --o-ui-text-1-hover: var(--o-ui-marine-900);
@@ -38,7 +39,7 @@
     --o-ui-text-2-active: var(--o-ui-marine-900);
     --o-ui-text-3: var(--o-ui-cloud-500);
     --o-ui-text-3-hover: var(--o-ui-cloud-700);
-    --o-ui-text-3-hover-active: var(--o-ui-cloud-900);
+    --o-ui-text-3-active: var(--o-ui-cloud-900);
     --o-ui-text-4: var(--o-ui-marine-300);
     --o-ui-text-primary: var(--o-ui-primary-500);
     --o-ui-text-primary-hover: var(--o-ui-primary-700);
@@ -55,6 +56,7 @@
     --o-ui-text-warning: var(--o-ui-warning-500);
     --o-ui-text-warning-hover: var(--o-ui-warning-700);
     --o-ui-text-warning-active: var(--o-ui-warning-900);
+    --o-ui-text-input-selection: var(--o-ui-text-2);
     /* ICON */
     --o-ui-icon-1: var(--o-ui-marine-900);
     --o-ui-icon-2: var(--o-ui-marine-500);
@@ -169,6 +171,7 @@
     --o-ui-background-info: var(--o-ui-marine-600);
     --o-ui-background-info-hover: var(--o-ui-marine-400);
     --o-ui-background-info-active: var(--o-ui-marine-300);
+    --o-ui-background-input-selection: var(--o-ui-primary-900);
     /* TEXT */
     --o-ui-text-1: var(--o-ui-static-white);
     --o-ui-text-1-hover: var(--o-ui-static-white);
@@ -178,7 +181,7 @@
     --o-ui-text-2-active: var(--o-ui-cloud-50);
     --o-ui-text-3: var(--o-ui-cloud-700);
     --o-ui-text-3-hover: var(--o-ui-cloud-600);
-    --o-ui-text-3-hover-active: var(--o-ui-cloud-500);
+    --o-ui-text-3-active: var(--o-ui-cloud-500);
     --o-ui-text-4: var(--o-ui-marine-300);
     --o-ui-text-primary: var(--o-ui-primary-500);
     --o-ui-text-primary-hover: var(--o-ui-primary-400);
@@ -195,6 +198,7 @@
     --o-ui-text-info: var(--o-ui-marine-100);
     --o-ui-text-info-hover: var(--o-ui-marine-300);
     --o-ui-text-info-active: var(--o-ui-marine-400);
+    --o-ui-text-input-selection: var(--o-ui-text-1);
     /* ICON */
     --o-ui-icon-1: var(--o-ui-static-white);
     --o-ui-icon-2: var(--o-ui-cloud-500);
@@ -239,7 +243,7 @@
     --o-ui-warning-50: var(--o-ui-sunray-900);
     --o-ui-warning-500: var(--o-ui-sunray-600);
     --o-ui-warning-900: var(--o-ui-sunray-50);
-    /* danger */
+    /* DANGER */
     --o-ui-danger-50: var(--o-ui-alert-900);
     --o-ui-danger-500: var(--o-ui-alert-600);
     --o-ui-danger-900: var(--o-ui-alert-50);

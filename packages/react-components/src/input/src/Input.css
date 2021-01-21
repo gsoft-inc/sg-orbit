@@ -31,14 +31,13 @@
 
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
-    background-color: var(--o-ui-primary-100);
-    color: var(--o-ui-text-2);
+    background-color: var(--o-ui-background-input-selection);
+    color: var(--o-ui-text-input-selection);
 }
 
 /* PLACEHOLDER */
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {
-    /* @todo */
     color: var(--o-ui-marine-200);
 }
 
@@ -69,7 +68,7 @@
 
 .o-ui-input input:disabled::placeholder,
 .o-ui-input textarea:disabled::placeholder {
-    color: var(--var-marine-500);
+    color: var(--marine-500);
 }
 
 /* FLUID */
@@ -215,12 +214,4 @@
 
 .o-ui-input-loading.o-ui-input input {
     padding-right: var(--o-ui-padding-loading);
-}
-
-/* DARK MODE */
-.o-ui-dark-color-scheme .o-ui-input input::selection,
-.o-ui-dark-color-scheme .o-ui-input textarea::selection {
-    /* add indirection - I guess selection color makes sense here or in fact primary colors should not be inverted only their inderections */
-    background-color: var(--o-ui-primary-900);
-    color: var(--o-ui-text-1);
 }
