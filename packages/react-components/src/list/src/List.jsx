@@ -1,5 +1,3 @@
-import "./List.css";
-
 import { Children, forwardRef } from "react";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";

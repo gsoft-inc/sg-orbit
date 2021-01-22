@@ -117,7 +117,7 @@
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
 }
 
 .sbdocs.sbdocs-preview,

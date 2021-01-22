@@ -24,7 +24,7 @@ export function LearnUsageLink({ className, ...rest }) {
                 className
             )}
         >
-            <A href="#dimensions" target="_self" className="f7" onClick={handleClick}>Learn more about usage</A>
+            <A href="#dimensions" target="_self" className="f7 o-ui-text-primary" onClick={handleClick}>Learn more about usage</A>
         </div>
     );
 }

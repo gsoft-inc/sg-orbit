@@ -26,7 +26,7 @@ export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
         <Modal open={open} onClose={onClose} size="small" basic className="o-ui-background-1 sbdocs">
             <Modal.Header>
                 <div className="flex items-center">
-                    <span className="flex-grow-1 text-1">{iconDisplayName}</span>
+                    <span className="flex-grow-1 o-ui-text-1">{iconDisplayName}</span>
                     <IconButton variant="ghost" color="secondary" shape="circular" size="sm" onClick={onClose} aria-label="Close modal">
                         <CrossIcon />
                     </IconButton>

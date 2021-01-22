@@ -77,7 +77,7 @@
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--o-ui-background-danger);
+    background-color: var(--o-ui-background-primary);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {

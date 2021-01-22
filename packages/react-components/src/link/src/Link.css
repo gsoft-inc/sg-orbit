@@ -4,6 +4,8 @@
     background-color: var(--o-ui-transparent);
     padding: 0;
     position: relative;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Set direct child border-radius */
@@ -11,23 +13,10 @@
     border-radius: inherit;
 }
 
-/* STATES */
-/* STATE | HOVER */
-.o-ui-link:hover,
-.o-ui-link-hover {
-    color: var(--o-ui-primary-text);
-}
-
 /* INHERIT | STATE | HOVER */
 .o-ui-link-inherit:hover,
 .o-ui-link-inherit-hover {
     color: inherit;
-}
-
-/* STATE | HOVER | DISABLED */
-.o-ui-link[disabled]:hover,
-.o-ui-link-hover[disabled] {
-    color: var(--o-ui-primary-text);
 }
 
 /* STATE | FOCUS */
@@ -54,12 +43,6 @@
 .o-ui-link:focus:after,
 .o-ui-link-focus:after {
     opacity: 1;
-}
-
-/* STATE | ACTIVE */
-.o-ui-link:active,
-.o-ui-link-active {
-    color: var(--o-ui-primary-text);
 }
 
 /* STATE | ACTIVE | FOCUS */
@@ -94,7 +77,6 @@
     display: inline-flex;
     align-items: flex-start;
     justify-content: center;
-    color: var(--o-ui-primary-text);
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
 }
@@ -292,11 +274,6 @@ button.o-ui-link-hover {
 /* SHAPE | BOX */
 .o-ui-link-box {
     border-radius: 0;
-}
-
-/* ICON LINK */
-.o-ui-icon-link {
-    color: var(--o-ui-primary-text);
 }
 
 /* we need a .o-ui-icon-link-icon [sic] */

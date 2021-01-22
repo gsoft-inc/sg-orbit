@@ -87,7 +87,7 @@
     font-size: 1em;
     text-shadow: none;
     text-align: left;
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
     will-change: transform, opacity;
     outline: none;
 }
