@@ -2,6 +2,6 @@
     font-size: var(--o-ui-type-scale-5) !important;
     line-height: 1.2 !important;
     margin: var(--o-ui-scale-delta) 0 1rem 0 !important;
-    color: var(--o-ui-marine-500) !important;
+    color: var(--o-ui-text-2) !important;
     max-width: 60ch !important;
 }

@@ -1,11 +1,11 @@
-.b--o-ui-white {
+.b--white {
     border-color: var(--o-ui-white);
 }
 
-.hover-b--o-ui-white:hover {
+.hover-b--white:hover {
     border-color: var(--o-ui-white);
 }
 
-.focus-b--o-ui-white:focus {
+.focus-b--white:focus {
     border-color: var(--o-ui-white);
 }

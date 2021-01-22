@@ -1,7 +1,7 @@
 .o-ui.calendar {
     box-shadow: var(--shadow-200);
     background-color: var(--o-ui-background-1);
-    border: 1px solid var(--o-ui-cloud-100);
+    border: 1px solid var(--o-ui-border-1);
     border-radius: var(--o-ui-scale-alpha);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .o-ui.calendar .CalendarDay__selected {
-    background: var(--o-ui-primary-500) !important;
+    background: var(--o-ui-background-primary) !important;
     color: var(--o-ui-white) !important;
 }
 
@@ -39,11 +39,11 @@
 }
 
 .o-ui.calendar .CalendarDay__selected_span {
-    background: var(--o-ui-primary-50) !important;
+    background: var(--o-ui-background-primary-light) !important;
 }
 
 .o-ui.calendar .CalendarDay__hovered_span {
-    background: var(--o-ui-primary-50) !important;
+    background: var(--o-ui-background-primary-light) !important;
 }
 
 .o-ui.calendar .CalendarMonth_caption {
@@ -87,7 +87,7 @@
 }
 
 .o-ui.calendar .CalendarDay__default:hover {
-    background: var(--o-ui-cloud-100) !important;
+    background: var(--o-ui-background-2) !important;
 }
 
 .o-ui.calendar .CalendarDay__default:focus {
@@ -112,27 +112,27 @@
 
 .o-ui.calendar .CalendarDay__selected:hover,
 .o-ui.calendar .CalendarDay__selected:active {
-    background: var(--o-ui-primary-500) !important;
+    background: var(--o-ui-background-primary) !important;
 }
 
 .o-ui.calendar .CalendarDay__selected_span:hover,
 .o-ui.calendar .CalendarDay__selected_span:active {
-    background: var(--o-ui-primary-50) !important;
+    background: var(--o-ui-background-primary-light) !important;
 }
 
 .o-ui.calendar .CalendarDay__default.CalendarDay__selected:focus {
-    background: var(--o-ui-primary-500) !important;
+    background: var(--o-ui-background-primary) !important;
     color: var(--o-ui-white) !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected {
-    background: var(--o-ui-primary-500) !important;
+    background: var(--o-ui-background-primary) !important;
     color: var(--o-ui-white) !important;
     opacity: 0.6 !important;
 }
 
 .o-ui.calendar .CalendarDay__blocked_calendar.CalendarDay__selected_span {
-    background: var(--o-ui-primary-50) !important;
+    background: var(--o-ui-background-primary-light) !important;
     opacity: 0.6 !important;
 }
 

@@ -249,7 +249,7 @@
 /* SECONDARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-secondary,
 .o-ui-link-focus.o-ui-link-secondary {
-    background-color: var(--o-ui-cloud-50);
+    background-color: var(--o-ui-background-3);
     box-shadow: 0 0 0 2px var(--o-ui-cloud-50);
 }
 

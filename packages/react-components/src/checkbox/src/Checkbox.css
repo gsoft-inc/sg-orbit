@@ -68,7 +68,7 @@
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
     mask: none;
-    background-color: var(--o-ui-primary-500);
+    background-color: var(--o-ui-background-primary);
 }
 
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {

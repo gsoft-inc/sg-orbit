@@ -438,19 +438,19 @@ a.o-ui-button {
 /* OUTLINE | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-outline.o-ui-button-primary:before {
     border: 2px solid var(--o-ui-primary-100);
-    border-top-color: var(--o-ui-primary-500);
+    border-top-color: var(--o-ui-border-primary);
 }
 
 /* OUTLINE | LOADING | SECONDARY */
 .o-ui-button-loading.o-ui-button-outline.o-ui-button-secondary:before {
-    border: 2px solid var(--o-ui-cloud-100);
+    border: 2px solid var(--o-ui-border-1);
     border-top-color: var(--o-ui-cloud-500);
 }
 
 /* OUTLINE | LOADING | DANGER */
 .o-ui-button-loading.o-ui-button-outline.o-ui-button-danger:before {
     border: 2px solid var(--o-ui-alert-100);
-    border-top-color: var(--o-ui-alert-500);
+    border-top-color: var(--o-ui-border-danger);
 }
 
 /* GHOST | LOADING | PRIMARY */
@@ -462,19 +462,19 @@ a.o-ui-button {
 /* GHOST | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-ghost.o-ui-button-primary:before {
     border: 2px solid var(--o-ui-primary-100);
-    border-top-color: var(--o-ui-primary-500);
+    border-top-color: var(--o-ui-border-primary);
 }
 
 /* GHOST | LOADING | SECONDARY */
 .o-ui-button-loading.o-ui-button-ghost.o-ui-button-secondary:before {
-    border: 2px solid var(--o-ui-cloud-100);
+    border: 2px solid var(--o-ui-border-1);
     border-top-color: var(--o-ui-cloud-500);
 }
 
 /* GHOST | LOADING | DANGER */
 .o-ui-button-loading.o-ui-button-ghost.o-ui-button-danger:before {
     border: 2px solid var(--o-ui-alert-100);
-    border-top-color: var(--o-ui-alert-500);
+    border-top-color: var(--o-ui-border-danger);
 }
 
 /* DISABLED */
