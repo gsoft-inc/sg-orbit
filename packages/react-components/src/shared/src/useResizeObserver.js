@@ -1,10 +1,7 @@
 // Strongly inspired by https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
 
-import { ResizeObserver as Polyfill } from "@juggle/resize-observer";
 import { isFunction, isNil } from "lodash";
 import { useEffect } from "react";
-
-const ResizeObserver = window.ResizeObserver || Polyfill;
 
 const handlersMap = new WeakMap();
 

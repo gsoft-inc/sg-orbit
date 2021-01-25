@@ -35,6 +35,10 @@
     border: 3px solid blue !important;
 }
 
+/* .o-ui-select-trigger-opened:focus {
+    border: 0 !important;
+} */
+
 .o-ui-select-value,
 .o-ui-select-placeholder {
     flex-grow: 1;

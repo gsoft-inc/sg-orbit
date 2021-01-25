@@ -187,7 +187,7 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        wrapperProps: userWrapperProps,
+        wrapperProps: wrapperPropsProp,
         as = "div",
         forwardedRef,
         ...rest
@@ -334,7 +334,7 @@ export function InnerNumberInput(props) {
     return (
         <Box
             {...mergeProps(
-                userWrapperProps,
+                wrapperPropsProp,
                 wrapperProps,
                 {
                     className: cssModule(

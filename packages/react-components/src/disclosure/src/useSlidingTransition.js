@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
-import { match, useDisposables, useIsInitialRender } from "../../shared";
-import { useCallback, useReducer, useRef } from "react";
+import { match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
+import { useCallback, useReducer } from "react";
 import { useEffect } from "react";
 
 const ActionType = {
@@ -44,14 +44,13 @@ export function useSlidingTransition(isOpen, ref) {
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up
     });
 
-    const isInitialRender = useRef();
     const disposables = useDisposables();
 
     const slideDown = useCallback(() => { dispatch(ActionType.slideDown); }, [dispatch]);
     const slideUp = useCallback(() => { dispatch(ActionType.slideUp); }, [dispatch]);
     const completeTransition = useCallback(() => { dispatch(ActionType.completeTransition); }, [dispatch]);
 
-    isInitialRender.current = useIsInitialRender();
+    const isInitialRender = useCommittedRef(useIsInitialRender());
 
     useEffect(() => {
         if (!isInitialRender.current) {

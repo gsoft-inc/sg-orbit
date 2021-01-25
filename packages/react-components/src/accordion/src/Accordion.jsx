@@ -8,12 +8,12 @@ import {
     arrayify,
     mergeProps,
     useAutoFocusChild,
-    useBasicKeyboardNavigation,
     useControllableState,
     useEventCallback,
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyboardNavigation,
     useMergedRefs
 } from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
@@ -90,7 +90,7 @@ export function InnerAccordion({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const navigationProps = useBasicKeyboardNavigation(focusManager, {
+    const navigationProps = useKeyboardNavigation(focusManager, {
         previous: [Keys.up],
         next: [Keys.down],
         first: [Keys.home],

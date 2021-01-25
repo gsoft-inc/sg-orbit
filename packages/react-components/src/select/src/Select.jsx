@@ -5,7 +5,7 @@ import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, instanceOf, number, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -18,7 +18,7 @@ const propTypes = {
      */
     open: bool,
     /**
-     * The initial value of show when in auto controlled mode.
+     * The initial value of open when in auto controlled mode.
      */
     defaultOpen: bool,
     /**
@@ -103,7 +103,7 @@ export function InnerSelect(props) {
     const {
         open,
         defaultOpen,
-        selectedKey: userSelectedKey,
+        selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
         required,
@@ -116,8 +116,8 @@ export function InnerSelect(props) {
         name,
         fluid,
         disabled,
-        allowFlip,
-        allowPreventOverflow,
+        allowFlip = true,
+        allowPreventOverflow = true,
         zIndex,
         active,
         focus,
@@ -136,7 +136,7 @@ export function InnerSelect(props) {
     const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
         open,
         defaultOpen,
-        selectedKey: userSelectedKey,
+        selectedKey: selectedKeyProp,
         defaultSelectedKey,
         onChange,
         onOpenChange,
@@ -213,7 +213,9 @@ export function InnerSelect(props) {
             <Overlay
                 {...mergeProps(
                     overlayProps,
-                    { className: "o-ui-select-menu" }
+                    {
+                        className: "o-ui-select-menu"
+                    }
                 )}
             >
                 <Listbox {...listboxProps} />

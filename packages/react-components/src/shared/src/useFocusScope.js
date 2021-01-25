@@ -1,13 +1,15 @@
-import { useCallback, useMemo, useRef } from "react";
+import { createContext, useCallback, useContext, useMemo } from "react";
+import { isNil } from "lodash";
+import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
 class DomScope {
     _scopeRef;
-    _changeHandlersRef;
+    _handlersRef;
 
-    constructor(scopeRef, changeHandlersRef) {
+    constructor(scopeRef, handlersRef) {
         this._scopeRef = scopeRef;
-        this._changeHandlersRef = changeHandlersRef;
+        this._handlersRef = handlersRef;
     }
 
     get elements() {
@@ -15,11 +17,11 @@ class DomScope {
     }
 
     registerChangeHandler(handler) {
-        this._changeHandlersRef.current.push(handler);
+        this._handlersRef.current.push(handler);
     }
 
     removeChangeHandler(handler) {
-        const handlers = this._changeHandlersRef.current;
+        const handlers = this._handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
     }
@@ -30,16 +32,16 @@ class DomScope {
 }
 
 export function useFocusScope() {
-    const scopeRef = useRef([]);
-    const changeHandlersRef = useRef([]);
+    const [scopeRef, setScope] = useRefState([]);
+    const [handlersRef] = useRefState([]);
 
     const setRef = useCallback(rootElement => {
         const setElements = elements => {
-            changeHandlersRef.current.forEach(x => {
+            handlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
             });
 
-            scopeRef.current = elements;
+            setScope(elements);
         };
 
         const parseElements = () => {
@@ -69,9 +71,19 @@ export function useFocusScope() {
             mutationObserver.disconnect();
             setElements([]);
         }
-    }, [scopeRef]);
+    }, [scopeRef, setScope, handlersRef]);
 
-    const scope = useMemo(() => new DomScope(scopeRef, changeHandlersRef), [scopeRef, changeHandlersRef]);
+    const scope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
 
-    return [scope, setRef];
+    const { scope: contextScope } = useFocusContext();
+
+    return isNil(contextScope)
+        ? [scope, setRef]
+        : [contextScope, undefined];
+}
+
+export const FocusContext = createContext({});
+
+export function useFocusContext() {
+    return useContext(FocusContext) ?? {};
 }

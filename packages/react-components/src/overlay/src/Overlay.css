@@ -1,3 +1,5 @@
 .o-ui-overlay {
     outline: none;
+    width: fit-content;
+    height: fit-content;
 }

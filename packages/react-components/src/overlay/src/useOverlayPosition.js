@@ -2,7 +2,7 @@ import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-export function usePopoverPosition(triggerElement, overlayElement, {
+export function useOverlayPosition(triggerElement, overlayElement, {
     position = "bottom",
     offset,
     allowFlip = false,

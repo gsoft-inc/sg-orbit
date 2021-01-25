@@ -1,16 +1,16 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
-import { Keys, createFocusableTreeWalker, useEventCallback } from "../../shared";
+import { Keys, createFocusableTreeWalker, useEventCallback, useRefState } from "../../shared";
 import { isNil } from "lodash";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
 export function useRestoreFocus(scope, { isDisabled } = {}) {
-    const elementToRestoreRef = useRef();
+    const [elementToRestoreRef, setElementToRestore] = useRefState();
 
     useLayoutEffect(() => {
-        elementToRestoreRef.current = document.activeElement;
-    }, [isDisabled]);
+        setElementToRestore(document.activeElement);
+    }, [isDisabled, setElementToRestore]);
 
     // Handle the tab key so that tabbing out of the scope goes to the next element after the node that had focus when the scope mounted.
     // This is important when using portals for overlays, so that focus goes to the expected element when tabbing out of the overlay.
@@ -61,6 +61,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
             return () => {
                 if (scope.isInScope(document.activeElement)) {
                     // Don't move this line inside the frame.
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
                     const elementToRestore = elementToRestoreRef.current;
 
                     requestAnimationFrame(() => {
@@ -71,7 +72,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
                 }
             };
         }
-    }, [scope, isDisabled]);
+    }, [scope, isDisabled, elementToRestoreRef]);
 
     return isDisabled ? {} : {
         onKeyDown: handleKeyDown

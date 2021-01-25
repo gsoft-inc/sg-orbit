@@ -1,4 +1,6 @@
 export * from "./Overlay";
-export * from "./useOverlay";
 export * from "./useOverlayTrigger";
+export * from "./useOverlayPosition";
+export * from "./useOverlayLightDismiss";
 export * from "./useRestoreFocus";
+export * from "./usePopup";

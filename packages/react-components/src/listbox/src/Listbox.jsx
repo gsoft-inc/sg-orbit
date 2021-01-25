@@ -14,14 +14,15 @@ import {
     useFocusManager,
     useFocusScope,
     useId,
-    useMergedRefs
+    useMergedRefs,
+    useRefState
 } from "../../shared";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
 import { NodeShape, NodeType, useCollection } from "../../collection";
 import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const SelectionMode = {
@@ -126,13 +127,13 @@ const KeyProp = "data-o-ui-key";
 
 export function InnerListbox({
     id,
-    selectedKey: userKey,
+    selectedKey: selectedKeyProp,
     defaultSelectedKey,
     onChange,
     selectionMode = "single",
-    nodes: userNodes,
+    nodes: nodesProp,
     autoFocus,
-    focusTarget: userFocusTarget,
+    focusTarget: focusTargetProp,
     fluid,
     "aria-label": ariaLabel,
     as = "div",
@@ -140,9 +141,10 @@ export function InnerListbox({
     forwardedRef,
     ...rest
 }) {
-    const [selectedKey, setSelectedKey] = useControllableState(userKey, defaultSelectedKey, []);
+    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, []);
+    const [searchQueryRef, setSearchQuery] = useRefState("");
 
-    const nodes = useListboxItems(children, userNodes);
+    const nodes = useListboxItems(children, nodesProp);
     const items = nodes.filter(x => x.type === NodeType.item);
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -153,7 +155,7 @@ export function InnerListbox({
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const focusTarget = selectionManager.selectedKeys[0] ?? userFocusTarget;
+    const focusTarget = selectionManager.selectedKeys[0] ?? focusTargetProp;
 
     // When autofocus is specified, if there is a selected key, autofocus the item matching the key or the provided target.
     useAutoFocusChild(focusManager, {
@@ -189,7 +191,6 @@ export function InnerListbox({
         updateSelectedKeys(event, newKeys);
     });
 
-    const searchQueryRef = useRef("");
     const searchDisposables = useDisposables();
 
     const handleKeyDown = useEventCallback(event => {
@@ -226,12 +227,10 @@ export function InnerListbox({
             }
             case Keys.home:
                 event.preventDefault();
-
                 focusManager.focusFirst();
                 break;
             case Keys.end:
                 event.preventDefault();
-
                 focusManager.focusLast();
                 break;
             case Keys.space:
@@ -254,13 +253,14 @@ export function InnerListbox({
                 {
                     event.preventDefault();
 
-                    const query = searchQueryRef.current = searchQueryRef.current + event.key;
+                    const query = searchQueryRef.current + event.key;
 
+                    setSearchQuery(query);
                     focusManager.search(query);
 
                     // Clear search query.
                     searchDisposables.setTimeout(() => {
-                        searchQueryRef.current = "";
+                        setSearchQuery("");
                     }, 350);
                 }
         }

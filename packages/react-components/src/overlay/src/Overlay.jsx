@@ -12,7 +12,7 @@ const propTypes = {
     /**
      * Whether or not to show the overlay element.
      */
-    show: bool,
+    show: bool.isRequired,
     /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
@@ -26,6 +26,7 @@ const propTypes = {
 export function InnerOverlay({
     show,
     containerElement,
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -44,6 +45,7 @@ export function InnerOverlay({
                         leave: "o-ui-fade-out",
                         className: "o-ui-overlay",
                         role: "presentation",
+                        as,
                         ref: forwardedRef
                     }
                 )}

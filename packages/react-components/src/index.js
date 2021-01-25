@@ -39,6 +39,5 @@ export * from "./theme-provider";
 export * from "./collection";
 export * from "./listbox";
 export * from "./overlay";
-export * from "./popover";
 export * from "./select";
 export * from "./shared";

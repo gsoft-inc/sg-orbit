@@ -3,6 +3,7 @@ import { isFunction, isNil, isUndefined } from "lodash";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
+// Usefull to compose a weak map key with multiple objects.
 export class CompositeKeyWeakMap {
     _root = new WeakMap();
 
@@ -53,6 +54,18 @@ export class CompositeKeyWeakMap {
 const cache = new CompositeKeyWeakMap();
 
 function memoMerge(x, y, fct) {
+    if (isNil(x) && isNil(y)) {
+        return undefined;
+    }
+
+    if (isNil(x)) {
+        return y;
+    }
+
+    if (isNil(y)) {
+        return x;
+    }
+
     const key = [x, y];
     const value = cache.get(key);
 

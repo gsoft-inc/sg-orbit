@@ -1,31 +1,16 @@
 import "./Popover.css";
 
 import { Box } from "@react-components/box";
-import { Button } from "@react-components/button";
+import { Button, ButtonGroup, CrossButton } from "@react-components/button";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
-import { Popover, usePopoverContext } from "@react-components/popover";
-import { Text } from "@react-components/text";
+import { Content, Header } from "@react-components/placeholders";
+import { Field, Label } from "@react-components/field";
+import { Form } from "@react-components/form";
+import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
 import { TextInput } from "@react-components/input";
-import { ThemeProvider } from "@react-components/theme-provider";
-import { augmentElement, cssModule, disposables, mergeClasses, useMergedRefs } from "@react-components/shared";
-import { createPortal } from "react-dom";
+import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-components/shared";
 import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-
-/*
-INTERACTION TEST:
-- open on click
-- open on space
-- open on enter? TO VALIDATE with specs
-- open on custom keys (like open on arrow down)
-- close on esc
-- close on blur
-- focus first element on open
-- with and without restoreFocus
-- restore focus on close
-- restore focus on next element when closed with tab
-- restore focus on previous element when closed with shift+tab
-*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Popover")
@@ -38,9 +23,7 @@ function stories(segment) {
 }
 
 const Boundary = forwardRef(({
-    scrollable,
     scrollTop = 0,
-    className,
     children,
     ...rest
 },
@@ -66,15 +49,13 @@ ref) => {
 
     return (
         <Box
-            {...rest}
-            className={mergeClasses(
-                cssModule(
-                    "o-ui-chroma-popover-boundary",
-                    (scrollable || scrollTop) && "scrollable"
-                ),
-                className
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-chroma-popover-boundary",
+                    ref: containerRef
+                }
             )}
-            ref={containerRef}
         >
             {content}
             {otherChildren}
@@ -82,440 +63,370 @@ ref) => {
     );
 });
 
-function RedBox({
-    style,
-    children,
-    ...rest
-}) {
-    return (
-        <Box
-            {...rest}
-            className="pa2"
-            style={{
-                backgroundColor: "red",
-                minWidth: "75px",
-                minHeight: "75px",
-                ...(style ?? {})
-            }}
-        >
-            {children}
-        </Box>
-    );
-}
-
-function AbsoluteBlueBox({
-    containerElement,
-    style,
-    ...rest
-}) {
-    const content = (
-        <Box
-            {...rest}
-            style={{
-                backgroundColor: "blue",
-                width: "25px",
-                height: "25px",
-                position: "absolute",
-                top: "175px",
-                left: "225px",
-                ...style
-            }}
-        />
-    );
-
-    return !isNil(containerElement) ? createPortal(content, containerElement) : null;
-}
+/*
+TODO:
+- Hover + Focus (trigger)
+*/
 
 stories()
-    .add("default", () =>
+    .add("default open", () =>
         <Boundary>
-            <Popover>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
-    .add("show", () =>
+    .add("text only", () =>
         <Boundary>
-            <Popover show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
-    .add("default show", () =>
+    .add("content", () =>
         <Boundary>
-            <Popover defaultShow>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("header", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Header>Space News</Header>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("single button", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Header>Space News</Header>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <Button>Accept</Button>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("button group", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Header>Space News</Header>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <ButtonGroup align="end">
+                        <Button color="secondary">Cancel</Button>
+                        <Button color="primary">Accept</Button>
+                    </ButtonGroup>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("close button", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Header>Space News</Header>
+                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <ButtonGroup align="end">
+                        <Button color="secondary">Cancel</Button>
+                        <Button color="primary">Accept</Button>
+                    </ButtonGroup>
+                </Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position auto", () =>
         <Boundary>
-            <Popover position="auto" show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="auto" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position auto-start", () =>
         <Boundary>
-            <Popover position="auto-start" show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="auto-start" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position auto-end", () =>
         <Boundary>
-            <Popover position="auto-end" show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="auto-end" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position top", () =>
         <Boundary>
-            <Popover position="top" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position top-start", () =>
         <Boundary>
-            <Popover position="top-start" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-start" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position top-end", () =>
         <Boundary>
-            <Popover position="top-end" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-end" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position bottom", () =>
         <Boundary>
-            <Popover position="bottom" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position bottom-start", () =>
         <Boundary>
-            <Popover position="bottom-start" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-start" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position bottom-end", () =>
         <Boundary>
-            <Popover position="bottom-end" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-end" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position right", () =>
         <Boundary>
-            <Popover position="right" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="right" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position right-start", () =>
         <Boundary>
-            <Popover position="right-start" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="right-start" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position right-end", () =>
         <Boundary>
-            <Popover position="right-end" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="right-end" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position left", () =>
         <Boundary>
-            <Popover position="left" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="left" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position left-start", () =>
         <Boundary>
-            <Popover position="left-start" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="left-start" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("position left-end", () =>
         <Boundary>
-            <Popover position="left-end" pinned show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="left-end" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
-    .add("can prevent overflow", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="right" allowFlip={false} show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("do not prevent overflow when not allowed", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="right" allowFlip={false} allowPreventOverflow={false} show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("do not prevent overflow when pinned", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="right" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("can flip", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="top" allowPreventOverflow={false} show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("do not flip when not allowed", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="top" allowFlip={false} allowPreventOverflow={false} show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("do not flip when pinned", () =>
-        <Boundary scrollTop={100}>
-            <Popover position="top" pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
-        </Boundary>
-    )
-    .add("focusable overlay content", () =>
+    .add("form", () =>
         <Boundary>
-            <Popover defaultShow autoFocus>
-                <Button fluid>Open</Button>
-                <RedBox>
-                    <>
-                        <Text>What's on your mind?</Text>
-                        <br />
-                        <TextInput />
-                    </>
-                </RedBox>
-            </Popover>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Content>
+                        <Form fluid>
+                            <Field>
+                                <Label>First Name</Label>
+                                <TextInput name="first-name" />
+                            </Field>
+                            <Field>
+                                <Label>Last Name</Label>
+                                <TextInput name="last-name" />
+                            </Field>
+                            <ButtonGroup align="end">
+                                <Button color="secondary">Cancel</Button>
+                                <Button color="primary">Save</Button>
+                            </ButtonGroup>
+                        </Form>
+                    </Content>
+                </Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("render props", () =>
         <Boundary>
-            <Popover>
-                {({ isVisible }) => (
+            <PopoverTrigger>
+                {({ isOpen }) => (
                     <>
-                        <Button color={isVisible ? "secondary" : "primary"} fluid>Open</Button>
-                        <RedBox />
+                        <Button color={isOpen ? "secondary" : "primary"}>Toggle</Button>
+                        <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
                     </>
                 )}
-            </Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("custom component", () => {
-        const PrimaryBox = () => {
-            const { isVisible } = usePopoverContext();
+        const PrimaryPopover = ({ children }) => {
+            const { isOpen } = usePopoverTriggerContext();
 
             return (
-                <RedBox style={isVisible ? { backgroundColor: "var(--primary-500)" } : undefined} />
+                <Popover>
+                    <Box style={isOpen ? { backgroundColor: "var(--primary-500)" } : undefined}>
+                        {children}
+                    </Box>
+                </Popover>
             );
         };
 
         return (
             <Boundary>
-                <Popover show>
-                    <Button fluid>Open</Button>
-                    <PrimaryBox />
-                </Popover>
+                <PopoverTrigger open>
+                    <Button>Toggle</Button>
+                    <PrimaryPopover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</PrimaryPopover>
+                </PopoverTrigger>
             </Boundary>
         );
     })
-    .add("inherit theme", () =>
-        <ThemeProvider theme="desktop" colorScheme="light">
-            <Boundary>
-                <Popover show>
-                    <Button>Open</Button>
-                    <RedBox>
-                        <Button color="primary">Cutoff</Button>
-                    </RedBox>
-                </Popover>
-            </Boundary>
-
-        </ThemeProvider>
-    )
-    .add("className", () =>
+    .add("popover trigger className", () =>
         <Boundary>
-            <Popover className="border-blue" show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger className="border-red" open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
+        </Boundary>
+
+    )
+    .add("popover trigger style", () =>
+        <Boundary>
+            <PopoverTrigger style={{ border: "1px solid red" }} open>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
-    .add("style", () =>
+    .add("popover className", () =>
         <Boundary>
-            <Popover style={{ border: "1px solid blue" }} show>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover className="border-red">SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("popover style", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover style={{ border: "1px solid red" }}>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     );
 
 stories("/offsets/bottom")
     .add("left + positive", () =>
         <Boundary>
-            <Popover position="bottom-end" offset={[100, 30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-end" offset={[100, 30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("left + negative", () =>
         <Boundary>
-            <Popover position="bottom-end" offset={[-100, -30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-end" offset={[-100, -30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("right + positive", () =>
         <Boundary>
-            <Popover position="bottom-start" offset={[100, 30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-start" offset={[100, 30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("right + negative", () =>
         <Boundary>
-            <Popover position="bottom-start" offset={[-100, -30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="bottom-start" offset={[-100, -30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     );
 
 stories("/offsets/top")
     .add("left + positive", () =>
         <Boundary>
-            <Popover position="top-end" offset={[100, 30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-end" offset={[100, 30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("left + negative", () =>
         <Boundary>
-            <Popover position="top-end" offset={[-100, -30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-end" offset={[-100, -30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("right + positive", () =>
         <Boundary>
-            <Popover position="top-start" offset={[100, 30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-start" offset={[100, 30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     )
     .add("right + negative", () =>
         <Boundary>
-            <Popover position="top-start" offset={[-100, -30]} pinned show>
-                <Button fluid>Open</Button>
-                <RedBox />
-            </Popover>
+            <PopoverTrigger position="top-start" offset={[-100, -30]} allowFlip={false} allowPreventOverflow={false} show>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
         </Boundary>
     );
-
-stories("/z-index")
-    .add("over regular text", () =>
-        <Boundary>
-            <Popover defaultShow>
-                <Button>Open</Button>
-                <RedBox />
-            </Popover>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-        </Boundary>
-    )
-    .add("over an element with a z-index greater than 1 but smaller than the popover", () => {
-        const [boundaryElement, setBoundaryElement] = useState();
-
-        return (
-            <Boundary ref={setBoundaryElement}>
-                <Popover defaultShow>
-                    <Button>Open</Button>
-                    <RedBox />
-                </Popover>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <AbsoluteBlueBox style={{ zIndex: 2 }} containerElement={boundaryElement} />
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            </Boundary>
-        );
-    })
-    .add("over an element with a z-index greater than the popover", () => {
-        const [boundaryElement, setBoundaryElement] = useState();
-
-        return (
-            <Boundary ref={setBoundaryElement}>
-                <Popover defaultShow>
-                    <Button>Open</Button>
-                    <RedBox />
-                </Popover>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <AbsoluteBlueBox style={{ zIndex: 100000 + 1 }} containerElement={boundaryElement} />
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum et</p>
-            </Boundary>
-        );
-    });

@@ -7,12 +7,12 @@ import {
     mergeProps,
     omitProps,
     useAutoFocusChild,
-    useBasicKeyboardNavigation,
     useControllableState,
     useEventCallback,
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyboardNavigation,
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
@@ -153,7 +153,7 @@ export function InnerRadioGroup(props) {
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
+    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",

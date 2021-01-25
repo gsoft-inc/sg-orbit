@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
@@ -42,7 +42,7 @@ export function TabList({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
+    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     return (
         <Box

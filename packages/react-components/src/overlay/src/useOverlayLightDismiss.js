@@ -1,17 +1,16 @@
-import { Keys, useEventCallback } from "../../shared";
+import { Keys, useEventCallback, useRefState } from "../../shared";
 import { isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
-import { useRef } from "react";
 
-export function useOverlay(overlayRef, {
+export function useOverlayLightDismiss(overlayRef, {
     onHide,
     hideOnEscape,
     hideOnBlur,
     hideOnOutsideClick,
-    canHide
+    shouldHide
 }) {
-    const activeElementRef = useRef();
+    const [activeElementRef, setActiveElement] = useRefState();
 
     const hide = event => {
         if (!isNil(onHide)) {
@@ -26,24 +25,24 @@ export function useOverlay(overlayRef, {
         }
     };
 
-    const handleFocusWithin = useEventCallback(() => {
-        activeElementRef.current = document.activeElement;
+    const handleFocus = useEventCallback(() => {
+        setActiveElement(document.activeElement);
     });
 
-    const handleBlurWithin = useEventCallback(event => {
-        // This is a fix to prevent the popper from closing when the dev tools opens. Opening the dev tools will cause a blur event since the popper
-        // loose the focus in favor of the dev tools. Since this is the dev tools who receive the focused, no elements of the popper will be focused on
-        // the next tick which will cause the popper to close.
+    const handleBlur = useEventCallback(event => {
+        // This is a fix to prevent the popper from closing when the dev tools opens.
+        // Opening the dev tools will cause a blur event since the popper loose the focus in favor of the dev tools.
+        // Since this is the dev tools who receive the focused, no elements of the popper will be focused on the next tick which will cause the popper to close.
         // To prevent the popper from closing we leverage the fact that opening the dev tools doesn't update document.activeElement.
         if (activeElementRef.current !== document.activeElement) {
-            if (isNil(canHide) || canHide(event.relatedTarget)) {
+            if (isNil(shouldHide) || shouldHide(event.relatedTarget)) {
                 hide(event);
             }
         }
     });
 
     const onInteractOutside = useEventCallback(event => {
-        if (isNil(canHide) || canHide(event.target)) {
+        if (isNil(shouldHide) || shouldHide(event.target)) {
             hide(event);
         }
     });
@@ -51,17 +50,14 @@ export function useOverlay(overlayRef, {
     useInteractOutside(overlayRef, { onInteractOutside, isDisabled: !hideOnOutsideClick });
 
     const focusWithinProps = useFocusWithin({
-        onFocusWithin: handleFocusWithin,
-        onBlurWithin: handleBlurWithin,
+        onFocus: handleFocus,
+        onBlur: handleBlur,
         isDisabled: !hideOnBlur
     });
 
     return {
-        overlayProps: {
-            ...focusWithinProps,
-            onKeyDown: hideOnEscape ? handleKeyDown : undefined,
-            tabIndex: "-1"
-        }
+        ...focusWithinProps,
+        onKeyDown: hideOnEscape ? handleKeyDown : undefined
     };
 }
 

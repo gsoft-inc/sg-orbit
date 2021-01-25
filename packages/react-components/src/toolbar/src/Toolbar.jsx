@@ -1,5 +1,5 @@
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useMergedRefs, useRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -89,7 +89,7 @@ export function InnerToolbar({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const arrowNavigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
+    const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     const directionProps = useFlexDirection(orientation);
 

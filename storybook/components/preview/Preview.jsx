@@ -145,8 +145,8 @@ function StoryPreview({ language, scope, noInline, children }) {
 
 export function Preview({
     filePath,
-    language,
     mdxSource,
+    language,
     scope,
     noInline,
     children

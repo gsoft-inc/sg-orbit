@@ -1,0 +1,14 @@
+.o-ui-popover {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    /* Must keep a max width. */
+    width: 300px;
+    position: relative;
+}
+
+.o-ui-popover-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

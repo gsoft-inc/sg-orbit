@@ -1,33 +1,31 @@
 import { isNil } from "lodash";
-import { useEventCallback } from "../../shared";
-import { useRef } from "react";
+import { useEventCallback, useRefState } from "../../shared";
 
-export function useFocusWithin({ onFocusWithin, onBlurWithin, isDisabled }) {
-    const isFocusWithinRef = useRef();
+export function useFocusWithin({ onFocus, onBlur, isDisabled }) {
+    const [isFocusWithinRef, setIsFocusWithin] = useRefState();
 
-    const onFocus = useEventCallback(event => {
-        if (!isNil(onFocusWithin)) {
-            onFocusWithin(event);
+    const handleFocus = useEventCallback(event => {
+        if (!isNil(onFocus)) {
+            onFocus(event);
         }
 
-        isFocusWithinRef.current = true;
+        setIsFocusWithin(true);
     });
 
-    const onBlur = useEventCallback(event => {
-
-        // We don't want to trigger onBlurWithin and then immediately onFocusWithin again when moving focus inside the element. Only trigger if the currentTarget doesn't
+    const handleBlur = useEventCallback(event => {
+        // We don't want to trigger onBlur and then immediately onFocus again when moving focus inside the element. Only trigger if the currentTarget doesn't
         // include the relatedTarget (where focus is moving).
         if (isFocusWithinRef.current && !event.currentTarget.contains(event.relatedTarget)) {
-            if (!isNil(onBlurWithin)) {
-                onBlurWithin(event);
+            if (!isNil(onBlur)) {
+                onBlur(event);
             }
 
-            isFocusWithinRef.current = false;
+            setIsFocusWithin(false);
         }
     });
 
     return isDisabled ? {} : {
-        onFocus,
-        onBlur
+        onFocus: !isNil(onFocus) ? handleFocus : undefined,
+        onBlur: !isNil(onBlur) ? handleBlur : undefined
     };
 }
