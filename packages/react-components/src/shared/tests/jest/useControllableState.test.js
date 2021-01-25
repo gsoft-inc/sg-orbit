@@ -42,7 +42,7 @@ test("state is the default value when no controlled value and no initial value a
 test("state is unchanged when a subsequent run is made with the same values", () => {
     const handler = jest.fn();
 
-    const { result, rerender } = renderHook(() => useControllableState(true, undefined, false, handler));
+    const { result, rerender } = renderHook(() => useControllableState(true, undefined, false, { onChange: handler }));
 
     expect(result.current[0]).toBeTruthy();
 
@@ -55,7 +55,7 @@ test("state is unchanged when a subsequent run is made with the same values", ()
 test("state is updated when a new controlled value is provided on a subsequent run", () => {
     const handler = jest.fn();
 
-    const { result, rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, handler), {
+    const { result, rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, { onChange: handler }), {
         initialProps: {
             controlledValue: true
         }
@@ -178,10 +178,12 @@ test("call onChange on first run", () => {
     let lastState;
     let lastIsInitialState;
 
-    renderHook(() => useControllableState(true, undefined, false, (state, isInitialState) => {
-        callCount++;
-        lastState = state;
-        lastIsInitialState = isInitialState;
+    renderHook(() => useControllableState(true, undefined, false, {
+        onChange: (state, isInitialState) => {
+            callCount++;
+            lastState = state;
+            lastIsInitialState = isInitialState;
+        }
     }));
 
     expect(callCount).toBe(1);
@@ -193,9 +195,11 @@ test("call onChange when a new value is provided for a controlled prop", () => {
     let callCount = 0;
     let lastState;
 
-    const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, state => {
-        callCount++;
-        lastState = state;
+    const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, {
+        onChange: state => {
+            callCount++;
+            lastState = state;
+        }
     }), {
         initialProps: {
             controlledValue: true
@@ -210,10 +214,10 @@ test("call onChange when a new value is provided for a controlled prop", () => {
     expect(lastState).toBeFalsy();
 });
 
-test("don't call onChange when a new value is set for a controlled prop", () => {
+test("don't call onChange when a new uncontrolled value is set for a controlled prop", () => {
     const handler = jest.fn();
 
-    const { result } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, handler), {
+    const { result } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, { onChange: handler }), {
         initialProps: {
             controlledValue: true
         }
@@ -230,9 +234,11 @@ test("call onChange when a new value is set for an uncontrolled prop", () => {
     let callCount = 0;
     let lastState;
 
-    const { result } = renderHook(() => useControllableState(undefined, true, false, state => {
-        callCount++;
-        lastState = state;
+    const { result } = renderHook(() => useControllableState(undefined, true, false, {
+        onChange: state => {
+            callCount++;
+            lastState = state;
+        }
     }));
 
     act(() => {
@@ -241,6 +247,48 @@ test("call onChange when a new value is set for an uncontrolled prop", () => {
 
     expect(callCount).toBe(2);
     expect(lastState).toBeFalsy();
+});
+
+test("when onChange return a value for a controlled prop, this is the new value", () => {
+    let callCount = 0;
+
+    const handler = jest.fn(state => {
+        callCount++;
+
+        return `${state} ${callCount}`;
+    });
+
+    const { result, rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false, { onChange: handler }), {
+        initialProps: {
+            controlledValue: "elon"
+        }
+    });
+
+    rerender({
+        controlledValue: "musk"
+    });
+
+    expect(result.current[0]).toBe("musk 2");
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { isInitial: expect.anything(), isControlled: true });
+});
+
+test("when onChange return a value for an uncontrolled prop, this is the new value", () => {
+    let callCount = 0;
+
+    const handler = jest.fn(state => {
+        callCount++;
+
+        return `${state} ${callCount}`;
+    });
+
+    const { result } = renderHook(() => useControllableState(undefined, "elon", false, { onChange: handler }));
+
+    act(() => {
+        result.current[1]("musk");
+    });
+
+    expect(result.current[0]).toBe("musk 2");
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), { isInitial: expect.anything(), isControlled: false });
 });
 
 // ***** isControlled *****

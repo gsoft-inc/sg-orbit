@@ -5,8 +5,8 @@ import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
-import { forwardRef, useLayoutEffect } from "react";
+import { cssModule, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
+import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useTabsBuilder } from "./useTabsBuilder";
 
@@ -74,6 +74,8 @@ export function InnerTabs({
 
     const [tabs, panels] = useTabsBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
 
+    const isInitialRender = useIsInitialRender();
+
     // Give an heads up to the consumer if he doesn't manage correctly the selected tab index & the disabled state.
     if (isControlledIndex) {
         if (isNil(selectedIndex)) {
@@ -83,15 +85,14 @@ export function InnerTabs({
         if (tabs[selectedIndex].disabled) {
             throw new Error("The selected tab index cannot match a disabled tab.");
         }
-    }
-
-    // When uncontrolled, ensure the initial selected tab is not a disabled one.
-    useLayoutEffect(() => {
-        if (tabs[selectedIndex]?.props?.disabled) {
-            setSelectedIndex(tabs.find(x => !x.props?.disabled)?.index ?? 0);
+    } else {
+        if (isInitialRender) {
+            // When uncontrolled, ensure the initial selected tab is not a disabled one.
+            if (tabs[selectedIndex]?.props?.disabled) {
+                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.index ?? 0);
+            }
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }
 
     const handleSelect = useEventCallback((event, newIndex) => {
         setSelectedIndex(newIndex);

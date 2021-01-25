@@ -6,7 +6,7 @@ import { any, bool, instanceOf } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
-import { useThemeContext } from "@react-components/theme-provider";
+import { useThemeContext } from "../../theme-provider";
 
 const propTypes = {
     /**
