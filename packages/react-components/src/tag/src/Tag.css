@@ -21,6 +21,7 @@ button.o-ui-tag {
 button.o-ui-tag,
 a.o-ui-tag {
     position: relative;
+    text-decoration: none;
 }
 
 button.o-ui-tag:after,

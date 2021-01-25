@@ -75,6 +75,11 @@
     transition: transform 0.125 ease-in 0.0625s;
 }
 
+/* BOX | INDETERMINATE | STATE | INVALID */
+.o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {
+    background-color: var(--o-ui-background-danger);
+}
+
 /* CONTENT | LABEL */
 .o-ui-checkbox-label {
     margin-left: var(--o-ui-scale-bravo);
@@ -125,9 +130,9 @@
     box-shadow: 0 0 0 1px var(--o-ui-border-danger);
 }
 
-.o-ui-checkbox-indeterminate.o-ui-checkbox-invalid .o-ui-checkbox-box {
-    background-color: var(--o-ui-border-danger);
-}
+/* .o-ui-checkbox-indeterminate.o-ui-checkbox-invalid .o-ui-checkbox-box {
+    background-color: var(--o-ui-background-danger);
+} */
 
 .o-ui-checkbox-invalid .o-ui-checkbox-box::before {
     --o-ui-focus-ring-color: var(--o-ui-border-danger);
@@ -141,7 +146,7 @@
 
 /* STATE | CHECKED | INDETERMINATE */
 .o-ui-checkbox-checked.o-ui-checkbox-indeterminate .o-ui-checkbox-box {
-    background-color: var(foreground-1);
+    background-color: var(o-ui-foreground-1);
 }
 
 /* STATE | CHECKED | CHECKMARK */

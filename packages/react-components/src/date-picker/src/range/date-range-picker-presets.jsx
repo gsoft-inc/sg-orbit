@@ -142,7 +142,7 @@ export class DateRangePickerPresets extends PureComponent {
 
         if (presets.length > 0) {
             const classes = mergeClasses(
-                "o-ui presets flex flex-column pt8 ph8 br o-ui-border-1",
+                "o-ui presets flex flex-column pt8 ph8 br border-1",
                 className
             );
 

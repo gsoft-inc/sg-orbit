@@ -9,7 +9,7 @@ export function CheckeredBackground({ className, children, ...rest }) {
             className={mergeClasses(
                 "o-ui-sb-checkered-background-preview",
                 "pl2",
-                "o-ui-text-1",
+                "text-1",
                 className
             )}
         >
