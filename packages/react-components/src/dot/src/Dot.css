@@ -1,5 +1,8 @@
-.o-ui-dot {
+html * {
     --o-ui-dot-color: var(--o-ui-background-2);
+}
+
+.o-ui-dot {
     display: inline-flex;
     align-items: center;
     color: var(--o-ui-text-1);

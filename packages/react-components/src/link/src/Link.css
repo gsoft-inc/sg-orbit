@@ -286,6 +286,4 @@ button.o-ui-link-hover {
 .o-ui-icon-link-focus {
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
-    background-color: var(--o-ui-background-primary-light);
-    box-shadow: 0 0 0 2px var(--o-ui-background-primary-light);
 }

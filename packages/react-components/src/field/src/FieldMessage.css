@@ -14,7 +14,7 @@
 
 /* VALID */
 .o-ui-field-message-success {
-    color: var(--o-ui-success-500);
+    color: var(--o-ui-green-500);
 }
 
 /* INVALID */
