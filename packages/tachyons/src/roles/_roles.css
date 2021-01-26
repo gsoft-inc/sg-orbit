@@ -74,6 +74,10 @@
     background-color: var(--o-ui-background-danger-active);
 }
 
+.background-danger-pale {
+    background-color: var(--o-ui-background-danger-pale);
+}
+
 .background-warning {
     background-color: var(--o-ui-background-warning);
 }
@@ -86,6 +90,10 @@
     background-color: var(--o-ui-background-warning-active);
 }
 
+.background-warning-pale {
+    background-color: var(--o-ui-background-warning-pale);
+}
+
 .background-positive {
     background-color: var(--o-ui-background-warning-positive);
 }
@@ -96,6 +104,10 @@
 
 .background-positive-active:active {
     background-color: var(--o-ui-background-warning-active);
+}
+
+.background-positive-pale {
+    background-color: var(--o-ui-background-positive-pale);
 }
 
 .background-info {
@@ -179,6 +191,10 @@
     color: var(--o-ui-text-danger-active);
 }
 
+.text-danger-strong {
+    color: var(--o-ui-text-danger-strong);
+}
+
 .text-warning {
     color: var(--o-ui-text-warning);
 }
@@ -189,6 +205,10 @@
 
 .text-warning-active:active {
     color: var(--o-ui-text-warning-active);
+}
+
+.text-warning-strong {
+    color: var(--o-ui-text-warning-strong);
 }
 
 .text-positive {
@@ -202,6 +222,10 @@
 
 .text-positive-active:active {
     color: var(--o-ui-text-positive-active);
+}
+
+.text-positive-strong {
+    color: var(--o-ui-text-positive-strong);
 }
 
 .text-info {
@@ -301,6 +325,10 @@
 
 .border-danger-active:active {
     border-color: var(--o-ui-border-danger-active);
+}
+
+.border-danger-pale {
+    border-color: var(--o-ui-border-danger-pale);
 }
 
 .border-warning {

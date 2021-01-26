@@ -13,6 +13,12 @@ html * {
     --o-ui-rounded-border-radius: var(--o-ui-scale-alpha);
 }
 
+/* DARK */
+/* FOCUS */
+html .o-ui-dark-color-scheme * {
+    --o-ui-focus-ring-color: var(--o-ui-primary-800);
+}
+
 /* ROTATE */
 .o-ui-rotate-90 {
     transform: rotate(90deg);

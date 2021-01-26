@@ -38,7 +38,7 @@
 /* PLACEHOLDER */
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {
-    color: var(--o-ui-marine-200);
+    color: var(--o-ui-text-input-placeholder);
 }
 
 /* TRANSPARENT */
@@ -47,7 +47,7 @@
     background-color: transparent;
     border-radius: 0;
     border: none;
-    box-shadow: 0 1px 0 0 var(--o-ui-neutral-400);
+    box-shadow: 0 1px 0 0 var(--o-ui-border-3);
     padding-left: 0;
     padding-right: 0;
 }
@@ -57,7 +57,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 2px 0 0 var(--o-ui-primary-500);
+    box-shadow: 0 2px 0 0 var(--o-ui-border-primary);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
@@ -68,7 +68,7 @@
 
 .o-ui-input input:disabled::placeholder,
 .o-ui-input textarea:disabled::placeholder {
-    color: var(--marine-500);
+    color: var(--o-ui-text-info);
 }
 
 /* FLUID */

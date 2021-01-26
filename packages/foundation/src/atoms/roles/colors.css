@@ -1,0 +1,8 @@
+html * {
+    /* LIGHT */
+    /* STATIC */
+    --o-ui-static-white-light: var(--o-ui-white);
+    /* DARK */
+    /* STATIC */
+    --o-ui-static-white-dark: var(--o-ui-white);
+}

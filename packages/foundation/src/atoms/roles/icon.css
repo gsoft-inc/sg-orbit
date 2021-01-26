@@ -1,0 +1,24 @@
+html * {
+    /* LIGHT */
+    --o-ui-icon-1-light: var(--o-ui-marine-900);
+    --o-ui-icon-2-light: var(--o-ui-marine-500);
+    --o-ui-icon-primary-light: var(--o-ui-primary-500);
+    --o-ui-icon-danger-light: var(--o-ui-alert-500);
+    --o-ui-icon-danger-strong-light: var(--o-ui-alert-900);
+    --o-ui-icon-positive-light: var(--o-ui-green-500);
+    --o-ui-icon-positive-strong-light: var(--o-ui-green-900);
+    --o-ui-icon-warning-light: var(--o-ui-sunray-500);
+    --o-ui-icon-warning-strong-light: var(--o-ui-sunray-900);
+    --o-ui-icon-info-light: var(--o-ui-marine-500);
+    /* DARK */
+    --o-ui-icon-1-dark: var(--o-ui-static-white);
+    --o-ui-icon-2-dark: var(--o-ui-cloud-500);
+    --o-ui-icon-primary-dark: var(--o-ui-primary-700);
+    --o-ui-icon-danger-dark: var(--o-ui-alert-700);
+    --o-ui-icon-danger-strong-dark: var(--o-ui-alert-50);
+    --o-ui-icon-positive-dark: var(--o-ui-green-500);
+    --o-ui-icon-positive-strong-dark: var(--o-ui-green-50);
+    --o-ui-icon-warning-dark: var(--o-ui-sunray-500);
+    --o-ui-icon-warning-strong-dark: var(--o-ui-sunray-50);
+    --o-ui-icon-info-dark: var(--o-ui-marine-100);
+}

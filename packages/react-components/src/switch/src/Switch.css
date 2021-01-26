@@ -67,11 +67,11 @@
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-danger-100);
+    background-color: var(--o-ui-background-danger-pale);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(foreground-danger);
+    background-color: var(--o-ui-background-danger);
 }
 
 /* STATE */
@@ -102,6 +102,11 @@
 .o-ui-switch input[type="checkbox"]:focus + .o-ui-switch-control:after,
 .o-ui-switch-focus .o-ui-switch-control:after {
     opacity: 1;
+}
+
+/* STATE | FOCUS | INVALID */
+.o-ui-switch-invalid .o-ui-switch-control:after {
+    --o-ui-focus-ring-color: var(--o-ui-border-danger);
 }
 
 /* STATE | DISABLED */

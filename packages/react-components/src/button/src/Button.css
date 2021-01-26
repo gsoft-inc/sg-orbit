@@ -1,6 +1,7 @@
-:root {
+html * {
     --o-ui-button-height-sm: var(--o-ui-scale-golf);
     --o-ui-button-height-md: var(--o-ui-scale-hotel);
+    --o-ui-loading-spinner-background: rgba(256, 256, 256, 0.5);
 }
 
 /* SHARED */

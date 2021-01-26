@@ -46,40 +46,40 @@
 
 /* TONE | INFO */
 .o-ui-alert-info {
-    background-color: var(--o-ui-info-50);
-    color: var(--o-ui-info-500);
+    background-color: var(--o-ui-background-info);
+    color: var(--o-ui-text-info);
 }
 
 .o-ui-alert-info .o-ui-alert-icon {
-    fill: var(--o-ui-info-900);
+    fill: var(--o-ui-icon-info);
 }
 
 /* TONE | SUCCESS */
 .o-ui-alert-success {
-    background-color: var(--o-ui-success-50);
-    color: var(--o-ui-success-900);
+    background-color: var(--o-ui-background-positive-pale);
+    color: var(--o-ui-text-positive-strong);
 }
 
 .o-ui-alert-success .o-ui-alert-icon {
-    fill: var(--o-ui-success-900);
+    fill: var(--o-ui-icon-positive-strong);
 }
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
-    background-color: var(--o-ui-background-warning);
-    color: var(--o-ui-warning-900);
+    background-color: var(--o-ui-background-warning-pale);
+    color: var(--o-ui-text-warning-strong);
 }
 
 .o-ui-alert-warning .o-ui-alert-icon {
-    fill: var(--o-ui-warning-900);
+    fill: var(--o-ui-icon-warning-strong);
 }
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--o-ui-danger-50);
-    color: var(--o-ui-danger-900);
+    background-color: var(--o-ui-background-danger-pale);
+    color: var(--o-ui-text-danger-strong);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--o-ui-danger-900);
+    fill: var(--o-ui-icon-danger-strong);
 }

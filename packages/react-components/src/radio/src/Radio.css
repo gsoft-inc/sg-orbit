@@ -73,11 +73,11 @@
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-danger-200);
+    border-color: var(--o-ui-border-danger-pale);
 }
 
 .o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-danger-200);
+    border-color: var(--o-ui-border-danger-pale);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
