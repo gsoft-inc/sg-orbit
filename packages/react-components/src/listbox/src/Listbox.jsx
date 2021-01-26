@@ -6,7 +6,6 @@ import {
     arrayify,
     cssModule,
     mergeProps,
-    useAutoFocus,
     useAutoFocusChild,
     useControllableState,
     useDisposables,
@@ -152,24 +151,7 @@ export function InnerListbox({
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const selectionManager = useSelectionManager({ selectedKey, items });
-
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
-
-    const focusTarget = selectionManager.selectedKeys[0] ?? focusTargetProp;
-
-    // When autofocus is specified, if there is a selected key, autofocus the item matching the key or the provided target.
-    useAutoFocusChild(focusManager, {
-        target: focusTarget,
-        isDisabled: !autoFocus || isNil(focusTarget),
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: () => {
-            // Enable keyboard navigation.
-            containerRef.current?.focus();
-        }
-    });
-
-    // Otherwise, when autofocus is speficied, autofocus the listbox container element to enable keyboard support.
-    useAutoFocus(containerRef, { isDisabled: !autoFocus || !isNil(focusTarget) });
 
     const updateSelectedKeys = (event, keys) => {
         if (!isNil(onChange)) {
@@ -267,6 +249,18 @@ export function InnerListbox({
     });
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");
+
+    const focusTarget = selectionManager.selectedKeys[0] ?? focusTargetProp;
+
+    useAutoFocusChild(focusManager, {
+        target: focusTarget,
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        onNotFound: () => {
+            // Ensure keyboard navigation is available.
+            containerRef.current?.focus();
+        }
+    });
 
     const renderSection = ({
         key,

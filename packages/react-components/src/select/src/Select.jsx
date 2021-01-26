@@ -5,7 +5,7 @@ import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, bool, elementType, func, instanceOf, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";

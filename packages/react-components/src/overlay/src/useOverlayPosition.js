@@ -7,7 +7,6 @@ export function useOverlayPosition(triggerElement, overlayElement, {
     offset,
     allowFlip = false,
     allowPreventOverflow = false,
-    pinned = false,
     boundaryElement = document.body
 }) {
     const popperModifiers = [];
@@ -23,7 +22,7 @@ export function useOverlayPosition(triggerElement, overlayElement, {
 
     popperModifiers.push({
         name: "flip",
-        enabled: allowFlip && !pinned,
+        enabled: allowFlip,
         options: {
             boundary: boundaryElement
         }
@@ -31,7 +30,7 @@ export function useOverlayPosition(triggerElement, overlayElement, {
 
     popperModifiers.push({
         name: "preventOverflow",
-        enabled: allowPreventOverflow && !pinned,
+        enabled: allowPreventOverflow,
         options: {
             boundary: boundaryElement
         }

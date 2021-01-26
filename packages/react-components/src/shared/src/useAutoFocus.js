@@ -1,4 +1,4 @@
-import { FocusTarget } from "./useFocusManager";
+import { FocusTarget } from "./focusTarget";
 import { disposables } from "./useDisposables";
 import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
@@ -37,10 +37,13 @@ export function useAutoFocus(targetRef, { isDisabled, delay, onFocus } = {}) {
 
 export function useAutoFocusChild(focusManager, { target = FocusTarget.first, isDisabled, delay, onFocus, onNotFound } = {}) {
     useAbstractAutoFocus({
-        isDisabled,
+        isDisabled: isDisabled,
         delay,
         onFocus: useEventCallback(() => {
-            focusManager.focusTarget(target, { onFocus, onNotFound });
+            // Do not autofocus another child if there is already one focused.
+            if (!focusManager.hasFocus()) {
+                focusManager.focusTarget(target, { onFocus, onNotFound });
+            }
         })
     });
 }

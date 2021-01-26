@@ -7,8 +7,7 @@ export function useOverlayLightDismiss(overlayRef, {
     onHide,
     hideOnEscape,
     hideOnBlur,
-    hideOnOutsideClick,
-    shouldHide
+    hideOnOutsideClick
 }) {
     const [activeElementRef, setActiveElement] = useRefState();
 
@@ -31,20 +30,16 @@ export function useOverlayLightDismiss(overlayRef, {
 
     const handleBlur = useEventCallback(event => {
         // This is a fix to prevent the popper from closing when the dev tools opens.
-        // Opening the dev tools will cause a blur event since the popper loose the focus in favor of the dev tools.
+        // Opening the dev tools will cause a blur event since the popper lose the focus in favor of the dev tools.
         // Since this is the dev tools who receive the focused, no elements of the popper will be focused on the next tick which will cause the popper to close.
         // To prevent the popper from closing we leverage the fact that opening the dev tools doesn't update document.activeElement.
         if (activeElementRef.current !== document.activeElement) {
-            if (isNil(shouldHide) || shouldHide(event.relatedTarget)) {
-                hide(event);
-            }
+            hide(event);
         }
     });
 
     const onInteractOutside = useEventCallback(event => {
-        if (isNil(shouldHide) || shouldHide(event.target)) {
-            hide(event);
-        }
+        hide(event);
     });
 
     useInteractOutside(overlayRef, { onInteractOutside, isDisabled: !hideOnOutsideClick });

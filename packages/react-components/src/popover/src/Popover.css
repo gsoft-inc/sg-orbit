@@ -7,6 +7,10 @@
     position: relative;
 }
 
+.o-ui-popover:focus {
+    border: 1px solid blue;
+}
+
 .o-ui-popover-close-button {
     position: absolute;
     top: 10px;

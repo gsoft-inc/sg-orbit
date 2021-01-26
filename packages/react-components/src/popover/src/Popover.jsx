@@ -36,7 +36,8 @@ export function InnerPopover({
             defaultWrapper: Content
         },
         header: {
-            className: "o-ui-popover-header"
+            className: "o-ui-popover-header",
+            as: "header"
         },
         content: {
             className: "o-ui-popover-content"

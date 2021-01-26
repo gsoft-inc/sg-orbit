@@ -1,7 +1,7 @@
 import { Children, forwardRef, useCallback } from "react";
-import { Overlay, Trigger, usePopup } from "../../overlay";
+import { Overlay, OverlayTrigger, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { any, arrayOf, bool, func, instanceOf, number, oneOf, oneOfType } from "prop-types";
+import { any, arrayOf, bool, func, number, oneOf, oneOfType } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren } from "../../shared";
 import { isNil } from "lodash";
 
@@ -75,11 +75,11 @@ const propTypes = {
 export function InnerPopoverTrigger({
     open,
     defaultOpen,
-    trigger: triggerProp = Trigger.click,
+    trigger: triggerProp = OverlayTrigger.click,
     position = "bottom",
     offset,
     onOpenChange,
-    autoFocus,
+    autoFocus = true,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
@@ -94,6 +94,7 @@ export function InnerPopoverTrigger({
         onOpenChange,
         hideOnEscape: true,
         hideOnBlur: true,
+        hideOnOutsideClick: true,
         autoFocus,
         restoreFocus: true,
         trigger: triggerProp,

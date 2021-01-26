@@ -1,6 +1,17 @@
-import { FocusTarget, Keys, mergeProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs, useRefState, useResizeObserver } from "../../shared";
+import {
+    FocusTarget,
+    Keys,
+    mergeProps,
+    useAutoFocus,
+    useChainedEventCallback,
+    useControllableState,
+    useEventCallback,
+    useMergedRefs,
+    useRefState,
+    useResizeObserver
+} from "../../shared";
 import { NodeType, useCollection } from "../../collection";
-import { Trigger, usePopup } from "../../overlay";
+import { OverlayTrigger, usePopup } from "../../overlay";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo, useState } from "react";
 
@@ -30,11 +41,15 @@ export function useSelect(children, {
     const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
         open: openProp,
         defaultOpen,
-        onOpenChange,
+        // Defaulting the focusTarget to null otherwise useAutoFocusChild will use his default value.
+        onOpenChange: useChainedEventCallback(onOpenChange, (event, _, { focusTarget = null } = {}) => {
+            setFocusTarget(focusTarget);
+        }),
         hideOnEscape: true,
         hideOnBlur: true,
         restoreFocus: true,
-        trigger: Trigger.click,
+        autoFocus: false,
+        trigger: OverlayTrigger.click,
         position: `${direction}-start`,
         offset: [0, 4],
         allowFlip,
@@ -43,42 +58,42 @@ export function useSelect(children, {
     });
 
     const updateSelectedKey = (event, newValue) => {
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
-        }
+        if (newValue !== selectedKey) {
+            if (!isNil(onChange)) {
+                onChange(event, newValue);
+            }
 
-        setSelectedKey(newValue);
+            setSelectedKey(newValue);
+        }
     };
 
-    const open = useCallback((event, focusTarget = null) => {
-        setIsOpen(event, true);
-        setFocusTarget(focusTarget);
-    }, [setIsOpen, setFocusTarget]);
+    const open = useCallback((event, options) => {
+        setIsOpen(event, true, options);
+    }, [setIsOpen]);
 
-    const close = useCallback((event, focusTarget = null) => {
+    const close = useCallback(event => {
         setIsOpen(event, false);
-        setFocusTarget(focusTarget);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen]);
 
-    // Open the menu on up & down arrow.
+    // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
             case Keys.down:
-                open(event, FocusTarget.first);
+                open(event, { focusTarget: FocusTarget.first });
                 break;
             case Keys.up:
-                open(event, FocusTarget.last);
+                open(event, { focusTarget: FocusTarget.last });
                 break;
         }
     });
 
-    // Keep selected key in sync with the listbox.
+    // Keep the selected key in sync with the listbox.
     const handleListboxChange = useEventCallback((event, newValue) => {
         updateSelectedKey(event, newValue);
         close(event);
     });
 
-    // Focus the trigger on first render.
+    // Autofocus the trigger.
     useAutoFocus(triggerRef, {
         isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined

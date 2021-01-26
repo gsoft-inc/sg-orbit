@@ -5,8 +5,11 @@ export * from "./OLD_env";
 export * from "./assertion";
 export * from "./semantic-ui";
 
-// Utils
+// Constants
 export * from "./keys";
+export * from "./focusTarget";
+
+// Utils
 export * from "./normalizeSize";
 export * from "./createSizeAdapter";
 export * from "./mergeProps";

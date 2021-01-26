@@ -7,6 +7,11 @@
     max-height: calc(10 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
     background-color: darkkhaki;
+    outline: none;
+}
+
+.o-ui-listbox:focus {
+    border: 1px solid blue;
 }
 
 .o-ui-listbox-fluid {

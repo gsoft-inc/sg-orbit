@@ -1,4 +1,4 @@
-import { Trigger, useOverlayTrigger } from "./useOverlayTrigger";
+import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
 import { isNil, isNumber } from "lodash";
 import { mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { useCallback, useState } from "react";
@@ -10,17 +10,16 @@ export function usePopup(type, {
     open,
     defaultOpen,
     onOpenChange,
-    hideOnEscape,
-    hideOnBlur,
+    hideOnEscape = true,
+    hideOnBlur = true,
     hideOnOutsideClick,
-    autoFocus,
-    restoreFocus,
-    trigger = Trigger.click,
+    restoreFocus = true,
+    autoFocus = true,
+    trigger = OverlayTrigger.click,
     position,
     offset,
-    allowFlip,
-    allowPreventOverflow,
-    pinned,
+    allowFlip = true,
+    allowPreventOverflow = true,
     boundaryElement,
     zIndex = 10000
 }) {
@@ -34,29 +33,41 @@ export function usePopup(type, {
 
     const overlayId = useId(null, "o-ui-overlay");
 
-    const updateIsOpen = useCallback((event, newValue) => {
-        if (!isNil(onOpenChange)) {
-            onOpenChange(event, newValue);
+    const updateIsOpen = useCallback((event, newValue, options) => {
+        if (isOpen !== newValue) {
+            if (!isNil(onOpenChange)) {
+                onOpenChange(event, newValue, options);
+            }
+
+            setIsOpen(newValue);
         }
-
-        setIsOpen(newValue);
-    }, [onOpenChange, setIsOpen]);
-
+    }, [onOpenChange, isOpen, setIsOpen]);
 
     const triggerProps = useOverlayTrigger(trigger, {
         onToggle: useEventCallback(event => {
             updateIsOpen(event, !isOpen);
+        }),
+        onShow: useEventCallback((event, options) => {
+            updateIsOpen(event, true, options);
+        }),
+        onHide: useEventCallback(event => {
+            // Prevent from closing when the focus goes to an element of the overlay when opening.
+            if (event.target !== overlayElement && event.relatedTarget !== overlayElement) {
+                updateIsOpen(event, false);
+            }
         })
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         onHide: useEventCallback(event => {
-            updateIsOpen(event, false);
+            // Ignore events related to the trigger to prevent double toggle.
+            if (event.target !== triggerElement && event.relatedTarget !== triggerElement) {
+                updateIsOpen(event, false);
+            }
         }),
         hideOnEscape,
         hideOnBlur,
-        hideOnOutsideClick,
-        shouldHide: useCallback(target => target !== triggerElement, [triggerElement])
+        hideOnOutsideClick
     });
 
     const { overlayStyles, overlayProps: overlayPositionProps } = useOverlayPosition(triggerElement, overlayElement, {
@@ -64,8 +75,7 @@ export function usePopup(type, {
         offset,
         allowFlip,
         boundaryElement,
-        allowPreventOverflow,
-        pinned
+        allowPreventOverflow
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });

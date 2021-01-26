@@ -15,23 +15,24 @@ import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 INTERACTION TEST:
 - on click
-    - if no selection, open and select first item
-    - if selection, open and focus selected item
+    - if close & no selection, open and don't select an item
+    - if close & selection, open and focus selected item
     - if open, close
-- open on space
-- open on enter
-- when close, on arrow down
+- when close, on space keydown
+- when close, on enter keydown
+    - for both, open and select first item
+- when close, on arrow down keydown
     - if no selection, open and focus first item
     - if selection, open and focus selection item
-- when close, on arrow up
+- when close, on arrow up keydown
     - if no selection, open and focus last item
     - if selection, open and focus selection item
-- close on esc
+- close on esc keydown
 - close on blur
-- on select item
+- on select an item
     - update selected value
     - close menu and focus trigger
-- when open on tab
+- when open, on tab keydown
     - select next tabbable element
     - when shift, select previous tabbable element
 - can provide custom name

@@ -1,10 +1,6 @@
+import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
-
-export const FocusTarget = {
-    first: "first",
-    last: "last"
-};
 
 export class FocusManager {
     _scope;
@@ -76,7 +72,7 @@ export class FocusManager {
             throw new Error("\"focusKey\" cannot be called without providing a `keyProp` to the FocusManager.");
         }
 
-        return this._focusElement(elements.find(x => x.getAttribute(this._keyProp) === key.toString()), options);
+        return this._focusElement(elements.find(x => x.getAttribute(this._keyProp) === key?.toString()), options);
     }
 
     focusTarget(target, options) {
@@ -94,6 +90,12 @@ export class FocusManager {
         const { elements } = this._scope;
 
         return this._focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);
+    }
+
+    hasFocus() {
+        const { elements } = this._scope;
+
+        return elements.some(x => x === document.activeElement);
     }
 }
 

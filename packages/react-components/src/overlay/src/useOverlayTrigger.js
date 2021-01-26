@@ -1,15 +1,27 @@
-import { Keys, useEventCallback } from "../../shared";
+import { FocusTarget, Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
-export const Trigger = {
+export const OverlayTrigger = {
     click: "click",
     hover: "hover"
 };
 
-export function useOverlayTrigger(trigger, { onToggle }) {
-    const toggle = (event, focusTarget) => {
+export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
+    const toggle = event => {
         if (!isNil(onToggle)) {
-            onToggle(event, focusTarget);
+            onToggle(event);
+        }
+    };
+
+    const show = (event, options) => {
+        if (!isNil(onShow)) {
+            onShow(event, options);
+        }
+    };
+
+    const hide = event => {
+        if (!isNil(onHide)) {
+            onHide(event);
         }
     };
 
@@ -23,7 +35,11 @@ export function useOverlayTrigger(trigger, { onToggle }) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
-                toggle(event);
+                show(event, { focusTarget: FocusTarget.first });
+                break;
+            case Keys.esc:
+                event.preventDefault();
+                hide(event);
                 break;
         }
     });
@@ -35,12 +51,12 @@ export function useOverlayTrigger(trigger, { onToggle }) {
         }
     });
 
-    const handleMouseEnter = useEventCallback(event => { toggle(event); });
-    const handleMouseLeave = useEventCallback(event => { toggle(event); });
-    const handleFocus = useEventCallback(event => { toggle(event); });
-    const handleBlur = useEventCallback(event => { toggle(event); });
+    const handleMouseEnter = useEventCallback(event => { show(event); });
+    const handleMouseLeave = useEventCallback(event => { hide(event); });
+    const handleFocus = useEventCallback(event => { show(event, { focusTarget: FocusTarget.first }); });
+    const handleBlur = useEventCallback(event => { hide(event); });
 
-    return trigger === Trigger.hover
+    return trigger === OverlayTrigger.hover
         // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
         ? {
             onMouseEnter: handleMouseEnter,

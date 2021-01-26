@@ -1,11 +1,12 @@
-import "./Popover.css";
-
 import { Box } from "@react-components/box";
 import { Button, ButtonGroup, CrossButton } from "@react-components/button";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { Content, Header } from "@react-components/placeholders";
 import { Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
+import { Image } from "@react-components/image";
+import { Launch } from "./assets";
+import { OverlayTrigger } from "@react-components/overlay";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
 import { TextInput } from "@react-components/input";
 import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-components/shared";
@@ -52,7 +53,10 @@ ref) => {
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-chroma-popover-boundary",
+                    style: {
+                        padding: "200px 400px",
+                        position: "relative"
+                    },
                     ref: containerRef
                 }
             )}
@@ -63,12 +67,15 @@ ref) => {
     );
 });
 
-/*
-TODO:
-- Hover + Focus (trigger)
-*/
-
 stories()
+    .add("default", () =>
+        <Boundary>
+            <PopoverTrigger>
+                <Button>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
     .add("default open", () =>
         <Boundary>
             <PopoverTrigger defaultOpen>
@@ -77,9 +84,17 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
+    .add("open on focus", () =>
+        <Boundary>
+            <PopoverTrigger trigger={OverlayTrigger.hover}>
+                <Button autoFocus>Toggle</Button>
+                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
     .add("text only", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Popover>
             </PopoverTrigger>
@@ -87,7 +102,7 @@ stories()
     )
     .add("content", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -97,7 +112,7 @@ stories()
     )
     .add("header", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
                     <Header>Space News</Header>
@@ -108,7 +123,7 @@ stories()
     )
     .add("single button", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
                     <Header>Space News</Header>
@@ -120,7 +135,7 @@ stories()
     )
     .add("button group", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
                     <Header>Space News</Header>
@@ -135,7 +150,7 @@ stories()
     )
     .add("close button", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
                     <Header>Space News</Header>
@@ -144,6 +159,49 @@ stories()
                     <ButtonGroup align="end">
                         <Button color="secondary">Cancel</Button>
                         <Button color="primary">Accept</Button>
+                    </ButtonGroup>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("form", () =>
+        <Boundary>
+            <PopoverTrigger defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>
+                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Content>
+                        <Form fluid>
+                            <Field>
+                                <Label>First Name</Label>
+                                <TextInput name="first-name" />
+                            </Field>
+                            <Field>
+                                <Label>Last Name</Label>
+                                <TextInput name="last-name" />
+                            </Field>
+                            <ButtonGroup align="end">
+                                <Button color="secondary">Cancel</Button>
+                                <Button color="primary">Save</Button>
+                            </ButtonGroup>
+                        </Form>
+                    </Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("image", () =>
+        <Boundary>
+            <PopoverTrigger defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>
+                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Content>
+                        <Image src={Launch} alt="SpaceX launch" />
+                    </Content>
+                    <ButtonGroup align="center">
+                        <Button color="secondary">Cancel</Button>
+                        <Button color="primary">Save</Button>
                     </ButtonGroup>
                 </Popover>
             </PopoverTrigger>
@@ -269,12 +327,11 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
-    .add("form", () =>
+    .add("autofocus", () =>
         <Boundary>
             <PopoverTrigger open>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
                     <Content>
                         <Form fluid>
                             <Field>
@@ -287,6 +344,56 @@ stories()
                             </Field>
                             <ButtonGroup align="end">
                                 <Button color="secondary">Cancel</Button>
+                                <Button color="primary">Save</Button>
+                            </ButtonGroup>
+                        </Form>
+                    </Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("no autofocus", () =>
+        <Boundary>
+            <PopoverTrigger autoFocus={false} open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Content>
+                        <Form fluid>
+                            <Field>
+                                <Label>First Name</Label>
+                                <TextInput name="first-name" />
+                            </Field>
+                            <Field>
+                                <Label>Last Name</Label>
+                                <TextInput name="last-name" />
+                            </Field>
+                            <ButtonGroup align="end">
+                                <Button color="secondary">Cancel</Button>
+                                <Button color="primary">Save</Button>
+                            </ButtonGroup>
+                        </Form>
+                    </Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("manual autofocus", () =>
+        <Boundary>
+            <PopoverTrigger open>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Content>
+                        <Form fluid>
+                            <Field>
+                                <Label>First Name</Label>
+                                <TextInput name="first-name" />
+                            </Field>
+                            <Field>
+                                <Label>Last Name</Label>
+                                <TextInput name="last-name" />
+                            </Field>
+                            <ButtonGroup align="end">
+                                <Button autoFocus color="secondary">Cancel</Button>
                                 <Button color="primary">Save</Button>
                             </ButtonGroup>
                         </Form>
