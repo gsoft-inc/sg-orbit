@@ -47,39 +47,39 @@
 /* TONE | INFO */
 .o-ui-alert-info {
     background-color: var(--o-ui-background-info);
-    color: var(--o-ui-text-info);
+    color: var(--o-ui-text-info-1);
 }
 
 .o-ui-alert-info .o-ui-alert-icon {
-    fill: var(--o-ui-icon-info);
+    fill: var(--o-ui-icon-info-1);
 }
 
 /* TONE | SUCCESS */
 .o-ui-alert-success {
-    background-color: var(--o-ui-background-positive-pale);
-    color: var(--o-ui-text-positive-strong);
+    background-color: var(--o-ui-background-positive-2);
+    color: var(--o-ui-text-positive-2);
 }
 
 .o-ui-alert-success .o-ui-alert-icon {
-    fill: var(--o-ui-icon-positive-strong);
+    fill: var(--o-ui-icon-positive-2);
 }
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
-    background-color: var(--o-ui-background-warning-pale);
-    color: var(--o-ui-text-warning-strong);
+    background-color: var(--o-ui-background-warning-2);
+    color: var(--o-ui-text-warning-2);
 }
 
 .o-ui-alert-warning .o-ui-alert-icon {
-    fill: var(--o-ui-icon-warning-strong);
+    fill: var(--o-ui-icon-warning-2);
 }
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--o-ui-background-danger-pale);
-    color: var(--o-ui-text-danger-strong);
+    background-color: var(--o-ui-background-danger-2);
+    color: var(--o-ui-text-danger-2);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--o-ui-icon-danger-strong);
+    fill: var(--o-ui-icon-danger-2);
 }

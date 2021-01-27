@@ -57,7 +57,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 2px 0 0 var(--o-ui-border-primary);
+    box-shadow: 0 2px 0 0 var(--o-ui-border-primary-1);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
@@ -68,7 +68,7 @@
 
 .o-ui-input input:disabled::placeholder,
 .o-ui-input textarea:disabled::placeholder {
-    color: var(--o-ui-text-info);
+    color: var(--o-ui-text-info-1);
 }
 
 /* FLUID */
@@ -79,7 +79,7 @@
 /* INVALID */
 .o-ui-input-invalid input,
 .o-ui-input-invalid textarea {
-    --o-ui-border-color: var(--o-ui-border-danger);
+    --o-ui-border-color: var(--o-ui-border-danger-1);
 }
 
 .o-ui-input-fluid input,
@@ -95,7 +95,7 @@
 .o-ui-input.o-ui-input-invalid input:focus,
 .o-ui-input.o-ui-input-invalid-focus {
     box-shadow: var(--o-ui-focus-ring-inset-sm);
-    border-color: var(--o-ui-border-danger);
+    border-color: var(--o-ui-border-danger-1);
 }
 
 /* INVALID | TRANSPARENT */
@@ -109,7 +109,7 @@
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 2px 0 0 var(--o-ui-border-danger);
+    box-shadow: 0 2px 0 0 var(--o-ui-border-danger-1);
 }
 
 /* ICON */
@@ -169,7 +169,7 @@
 .o-ui-input-focus textarea {
     outline: none;
     box-shadow: var(--o-ui-focus-ring-inset-sm);
-    border-color: var(--o-ui-border-primary);
+    border-color: var(--o-ui-border-primary-1);
 }
 
 /* STATES | DISABLED */

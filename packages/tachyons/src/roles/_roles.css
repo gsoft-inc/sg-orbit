@@ -46,80 +46,80 @@
     background-color: var(--o-ui-background-5-hover);
 }
 
-.background-primary {
-    background-color: var(--o-ui-background-primary);
+.background-primary-1 {
+    background-color: var(--o-ui-background-primary-1);
 }
 
-.background-primary-hover:hover {
-    background-color: var(--o-ui-background-primary-hover);
+.background-primary-1-hover:hover {
+    background-color: var(--o-ui-background-primary-1-hover);
 }
 
-.background-primary-active:active {
-    background-color: var(--o-ui-background-primary-active);
+.background-primary-1-active:active {
+    background-color: var(--o-ui-background-primary-1-active);
 }
 
-.background-primary-light {
-    background-color: var(--o-ui-background-primary-light);
+.background-primary-1-light {
+    background-color: var(--o-ui-background-primary-1-light);
 }
 
-.background-danger {
-    background-color: var(--o-ui-background-danger);
+.background-danger-1 {
+    background-color: var(--o-ui-background-danger-1);
 }
 
-.background-danger-hover:hover {
-    background-color: var(--o-ui-background-danger-hover);
+.background-danger-1-hover:hover {
+    background-color: var(--o-ui-background-danger-1-hover);
 }
 
-.background-danger-active:active {
-    background-color: var(--o-ui-background-danger-active);
+.background-danger-1-active:active {
+    background-color: var(--o-ui-background-danger-1-active);
 }
 
-.background-danger-pale {
-    background-color: var(--o-ui-background-danger-pale);
+.background-danger-1-pale {
+    background-color: var(--o-ui-background-danger-2);
 }
 
-.background-warning {
-    background-color: var(--o-ui-background-warning);
+.background-warning-1 {
+    background-color: var(--o-ui-background-warning-1);
 }
 
-.background-warning-hover:hover {
-    background-color: var(--o-ui-background-warning-hover);
+.background-warning-1-hover:hover {
+    background-color: var(--o-ui-background-warning-1-hover);
 }
 
-.background-warning-active:active {
-    background-color: var(--o-ui-background-warning-active);
+.background-warning-1-active:active {
+    background-color: var(--o-ui-background-warning-1-active);
 }
 
-.background-warning-pale {
-    background-color: var(--o-ui-background-warning-pale);
+.background-warning-2 {
+    background-color: var(--o-ui-background-warning-2);
 }
 
-.background-positive {
-    background-color: var(--o-ui-background-warning-positive);
+.background-positive-1 {
+    background-color: var(--o-ui-background-warning-1-positive);
 }
 
-.background-positive-hover:hover {
-    background-color: var(--o-ui-background-warning-hover);
+.background-positive-1-hover:hover {
+    background-color: var(--o-ui-background-warning-1-hover);
 }
 
-.background-positive-active:active {
-    background-color: var(--o-ui-background-warning-active);
+.background-positive-1-active:active {
+    background-color: var(--o-ui-background-warning-1-active);
 }
 
-.background-positive-pale {
-    background-color: var(--o-ui-background-positive-pale);
+.background-positive-2 {
+    background-color: var(--o-ui-background-positive-2);
 }
 
-.background-info {
-    background-color: var(--o-ui-background-info);
+.background-info-1 {
+    background-color: var(--o-ui-background-info-1);
 }
 
 .background-info-hover:hover {
-    background-color: var(--o-ui-background-info-hover);
+    background-color: var(--o-ui-background-info-1-hover);
 }
 
-.background-info-active:active {
-    background-color: var(--o-ui-background-info-active);
+.background-info-1-active:active {
+    background-color: var(--o-ui-background-info-1-active);
 }
 
 .background-input-selection {
@@ -167,77 +167,77 @@
     color: var(--o-ui-text-4);
 }
 
-.text-primary {
-    color: var(--o-ui-text-primary);
+.text-primary-1 {
+    color: var(--o-ui-text-primary-1);
 }
 
-.text-primary-hover:hover {
-    color: var(--o-ui-text-primary-hover);
+.text-primary-1-hover:hover {
+    color: var(--o-ui-text-primary-1-hover);
 }
 
-.text-primary-active:active {
-    color: var(--o-ui-text-primary-active);
+.text-primary-1-active:active {
+    color: var(--o-ui-text-primary-1-active);
 }
 
-.text-danger {
-    color: var(--o-ui-text-danger);
+.text-danger-1 {
+    color: var(--o-ui-text-danger-1);
 }
 
-.text-danger-hover:hover {
-    color: var(--o-ui-text-danger-hover);
+.text-danger-1-hover:hover {
+    color: var(--o-ui-text-danger-1-hover);
 }
 
-.text-danger-active:active {
-    color: var(--o-ui-text-danger-active);
+.text-danger-1-active:active {
+    color: var(--o-ui-text-danger-1-active);
 }
 
-.text-danger-strong {
-    color: var(--o-ui-text-danger-strong);
+.text-danger-2 {
+    color: var(--o-ui-text-danger-2);
 }
 
-.text-warning {
-    color: var(--o-ui-text-warning);
+.text-warning-1 {
+    color: var(--o-ui-text-warning-1);
 }
 
-.text-warning-hover:hover {
-    color: var(--o-ui-text-warning-hover);
+.text-warning-1-hover:hover {
+    color: var(--o-ui-text-warning-1-hover);
 }
 
-.text-warning-active:active {
-    color: var(--o-ui-text-warning-active);
+.text-warning-1-active:active {
+    color: var(--o-ui-text-warning-1-active);
 }
 
-.text-warning-strong {
-    color: var(--o-ui-text-warning-strong);
+.text-warning-2 {
+    color: var(--o-ui-text-warning-2);
 }
 
-.text-positive {
-    color: var(--o-ui-text-positive);
+.text-positive-1 {
+    color: var(--o-ui-text-positive-1);
 }
 
-.text-positive-hover:hover {
-    color: var(--o-ui-text-positive-hover);
+.text-positive-1-hover:hover {
+    color: var(--o-ui-text-positive-1-hover);
 
 }
 
-.text-positive-active:active {
-    color: var(--o-ui-text-positive-active);
+.text-positive-1-active:active {
+    color: var(--o-ui-text-positive-1-active);
 }
 
-.text-positive-strong {
-    color: var(--o-ui-text-positive-strong);
+.text-positive-2 {
+    color: var(--o-ui-text-positive-2);
 }
 
-.text-info {
-    color: var(--o-ui-text-info);
+.text-info-1 {
+    color: var(--o-ui-text-info-1);
 }
 
-.text-info-hover:hover {
-    color: var(--o-ui-text-info-hover);
+.text-info-1-hover:hover {
+    color: var(--o-ui-text-info-1-hover);
 }
 
-.text-info-active:active {
-    color: var(--o-ui-text-info-active);
+.text-info-1-active:active {
+    color: var(--o-ui-text-info-1-active);
 }
 
 .text-input-selection {
@@ -253,24 +253,24 @@
     fill: var(--o-ui-icon-2);
 }
 
-.icon-primary {
-    fill: var(--o-ui-icon-primary);
+.icon-primary-1 {
+    fill: var(--o-ui-icon-primary-1);
 }
 
-.icon-danger {
-    fill: var(--o-ui-icon-danger);
+.icon-danger-1 {
+    fill: var(--o-ui-icon-1-danger-1);
 }
 
-.icon-positive {
-    fill: var(--o-ui-icon-positive);
+.icon-positive-1 {
+    fill: var(--o-ui-ico-1-positive-1);
 }
 
-.icon-warning {
-    fill: var(--o-ui-icon-warning);
+.icon-warning-1 {
+    fill: var(--o-ui-icon-warning-1);
 }
 
-.icon-info {
-    fill: var(--o-ui-icon-info);
+.icon-info-1 {
+    fill: var(--o-ui-icon-info-1);
 }
 
     /* BORDER */
@@ -303,68 +303,68 @@
     border-color: var(--o-ui-border-4-hover);
 }
 
-.border-primary {
-    border-color: var(--o-ui-border-primary);
+.border-primary-1 {
+    border-color: var(--o-ui-border-primary-1);
 }
 
-.border-primary-hover:hover {
-    border-color: var(--o-ui-border-primary-hover);
+.border-primary-1-hover:hover {
+    border-color: var(--o-ui-border-primary-1-hover);
 }
 
-.border-primary-active:active {
-    border-color: var(--o-ui-border-primary-active);
+.border-primary-1-active:active {
+    border-color: var(--o-ui-border-primary-1-active);
 }
 
-.border-danger {
-    border-color: var(--o-ui-border-danger);
+.border-danger-1 {
+    border-color: var(--o-ui-border-danger-1);
 }
 
-.border-danger-hover:hover {
-    border-color: var(--o-ui-border-danger-hover);
+.border-danger-1-hover:hover {
+    border-color: var(--o-ui-border-danger-1-hover);
 }
 
-.border-danger-active:active {
-    border-color: var(--o-ui-border-danger-active);
+.border-danger-1-active:active {
+    border-color: var(--o-ui-border-danger-1-active);
 }
 
-.border-danger-pale {
-    border-color: var(--o-ui-border-danger-pale);
+.border-danger-2 {
+    border-color: var(--o-ui-border-danger-2);
 }
 
-.border-warning {
-    border-color: var(--o-ui-border-warning);
+.border-warning-1 {
+    border-color: var(--o-ui-border-warning-1);
 }
 
-.border-warning-hover:hover {
-    border-color: var(--o-ui-border-warning-hover);
+.border-warning-1-hover:hover {
+    border-color: var(--o-ui-border-warning-1-hover);
 }
 
-.border-warning-active:active {
-    border-color: var(--o-ui-border-warning-active);
+.border-warning-1-active:active {
+    border-color: var(--o-ui-border-warning-1-active);
 }
 
-.border-positive {
-    border-color: var(--o-ui-border-positive);
+.border-positive-1 {
+    border-color: var(--o-ui-border-positive-1);
 }
 
-.border-positive-hover:hover {
-    border-color: var(--o-ui-border-positive-hover);
+.border-positive-1-hover:hover {
+    border-color: var(--o-ui-border-positive-1-hover);
 }
 
-.border-positive-active:active {
-    border-color: var(--o-ui-border-positive-active);
+.border-positive-1-active:active {
+    border-color: var(--o-ui-border-positive-1-active);
 }
 
-.border-info {
-    border-color: var(--o-ui-border-info);
+.border-info-1 {
+    border-color: var(--o-ui-border-info-1);
 }
 
-.border-info-hover:hover {
-    border-color: var(--o-ui-border-info-hover);
+.border-info-1-hover:hover {
+    border-color: var(--o-ui-border-info-1-hover);
 }
 
-.border-info-active:active {
-    border-color: var(--o-ui-border-info-active);
+.border-info-1-active:active {
+    border-color: var(--o-ui-border-info-1-active);
 }
 
 /* STATIC */

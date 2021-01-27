@@ -63,21 +63,21 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--o-ui-text-danger);
+    color: var(--o-ui-text-danger-1);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-background-danger-pale);
+    background-color: var(--o-ui-background-danger-2);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-background-danger);
+    background-color: var(--o-ui-background-danger-1);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--o-ui-background-primary);
+    background-color: var(--o-ui-background-primary-1);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {

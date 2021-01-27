@@ -22,7 +22,7 @@
 .o-ui-radio-button::before {
     content: "";
     display: block;
-    background-color: var(--o-ui-background-primary);
+    background-color: var(--o-ui-background-primary-1);
     border-radius: var(--o-ui-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
@@ -69,19 +69,19 @@
 
 /* VALIDATION */
 .o-ui-radio-invalid .o-ui-radio-label {
-    color: var(--o-ui-text-danger);
+    color: var(--o-ui-text-danger-1);
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-pale);
+    border-color: var(--o-ui-border-danger-2);
 }
 
 .o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-pale);
+    border-color: var(--o-ui-border-danger-2);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--o-ui-background-danger);
+    background-color: var(--o-ui-background-danger-1);
 }
 
 /* STATE | CHECKED */
@@ -90,15 +90,15 @@
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger);
+    border-color: var(--o-ui-border-danger-1);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger);
+    border-color: var(--o-ui-border-danger-1);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--o-ui-background-danger);
+    background-color: var(--o-ui-background-danger-1);
 }
 
 /* STATES | FOCUS | FOCUS RING */
