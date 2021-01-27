@@ -11,9 +11,9 @@ import {
     useResizeObserver
 } from "../../shared";
 import { NodeType, useCollection } from "../../collection";
-import { OverlayTrigger, usePopup } from "../../overlay";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo, useState } from "react";
+import { usePopup } from "../../overlay";
 
 export function useSelect(children, {
     open: openProp,
@@ -49,7 +49,7 @@ export function useSelect(children, {
         hideOnBlur: true,
         restoreFocus: true,
         autoFocus: false,
-        trigger: OverlayTrigger.click,
+        trigger: "click",
         position: `${direction}-start`,
         offset: [0, 4],
         allowFlip,

@@ -86,16 +86,16 @@ A select item can contain [icons](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-### Right icon
+### End icon
 
-A select item can contain *non standard* right [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding right icons, left icons should be your go to.
+A select item can contain *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
-    <Story name="right icon">
+    <Story name="end icon">
         <Select placeholder="Planets" aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
-                <IconList slot="right-icon">
+                <IconList slot="end-icon">
                     <NotificationIcon />
                     <HelpIcon />
                     <LightbulbIcon />
@@ -103,11 +103,11 @@ A select item can contain *non standard* right [icons](?path=/docs/icon-gallery-
             </Item>
             <Item key="jupiter">
                 <Text>Jupiter</Text>
-                <HelpIcon slot="right-icon" />
+                <HelpIcon slot="end-icon" />
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <IconList slot="right-icon">
+                <IconList slot="end-icon">
                     <NotificationIcon />
                     <HelpIcon />
                     <LightbulbIcon />
@@ -300,7 +300,7 @@ Some use cases requires to render a select with a custom trigger. Orbit helps by
 
 <ComponentInfo
     usage={"import { Item } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "right-icon"]}
+    slots={["icon", "text", "description", "end-icon"]}
     compact
 />
 

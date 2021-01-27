@@ -1,9 +1,9 @@
-import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
 import { isNil, isNumber } from "lodash";
 import { mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { useCallback, useState } from "react";
 import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
 import { useOverlayPosition } from "./useOverlayPosition";
+import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export function usePopup(type, {
@@ -15,7 +15,7 @@ export function usePopup(type, {
     hideOnOutsideClick,
     restoreFocus = true,
     autoFocus = true,
-    trigger = OverlayTrigger.click,
+    trigger = "click",
     position,
     offset,
     allowFlip = true,

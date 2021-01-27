@@ -7,11 +7,6 @@ import { forwardRef } from "react";
 import { mergeProps, useEventCallback, useSlots } from "../../shared";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
-/*
-TODO:
-    - focusLock - focusTrap
-*/
-
 const propTypes = {
     /**
      * React children.

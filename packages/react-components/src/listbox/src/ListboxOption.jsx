@@ -43,13 +43,13 @@ export function InnerListboxOption({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    const { icon, text, description, "right-icon": rightIcon } = useSlots(children, {
+    const { icon, text, description, "end-icon": endIcon } = useSlots(children, {
         _: {
             defaultWrapper: Text
         },
         icon: {
             size: "sm",
-            className: "o-ui-listbox-option-left-icon"
+            className: "o-ui-listbox-option-start-icon"
         },
         text: {
             id: labelId,
@@ -59,9 +59,9 @@ export function InnerListboxOption({
             id: descriptionId,
             className: "o-ui-listbox-option-description"
         },
-        "right-icon": {
+        "end-icon": {
             size: "sm",
-            className: "o-ui-listbox-option-right-icon"
+            className: "o-ui-listbox-option-end-icon"
         }
     });
 
@@ -116,7 +116,7 @@ export function InnerListboxOption({
             {icon}
             {text}
             {description}
-            {rightIcon}
+            {endIcon}
         </Box>
     );
 }

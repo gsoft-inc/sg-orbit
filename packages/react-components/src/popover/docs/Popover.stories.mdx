@@ -1,5 +1,4 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Box } from "@react-components/box";
 import { Button, ButtonGroup, CrossButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
@@ -9,7 +8,6 @@ import { Image } from "@react-components/image";
 import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
 import { Launch } from "./assets";
 import { TextInput } from "@react-components/input";
-import { TextLink } from "@react-components/link";
 
 <Meta
     title="Components/Popover"
@@ -21,7 +19,7 @@ import { TextLink } from "@react-components/link";
 <Tagline>A Popover can be used to display some content on top of another.</Tagline>
 
 <ComponentInfo
-    usage={"import { PopoverTrigger, Popover, PopoverTriggerContext, Header, Content } from \"@orbit-ui/react-components\""}
+    usage={"import { PopoverTrigger, Popover, Header, Content, PopoverTriggerContext, usePopoverTriggerContext } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/popover/src"
 />
 
@@ -29,7 +27,7 @@ import { TextLink } from "@react-components/link";
 
 A popover accepts exactly two children: the element which triggers the opening of the popover and the popover content. A trigger can be any component which handles `onClick` and `ref` props.
 
-### This is not a tooltip
+#### This is not a tooltip
 
 A popover is not meant to be used as a tooltip. If you need a component that behave like a tooltip, use the tooltip component instead.
 
@@ -48,7 +46,7 @@ A default popover.
 
 ### Header
 
-A popover with an header.
+A popover can have an header.
 
 <Preview>
     <Story name="header">
@@ -64,7 +62,7 @@ A popover with an header.
 
 ### Close button
 
-A popover with a close button.
+A popover can have a close button.
 
 <Preview>
     <Story name="close button">
@@ -81,7 +79,7 @@ A popover with a close button.
 
 ### Button
 
-A popper can contain a single button or a group of button.
+A popper can have a single button or a group of button.
 
 <Preview>
     <Story name="buttons">
@@ -99,7 +97,7 @@ A popper can contain a single button or a group of button.
 
 ### Form
 
-A popper can contain a form.
+A popper can have a form.
 
 <Preview>
     <Story name="form">
@@ -191,7 +189,7 @@ A similar result could also be achieve by using `usePopoverTriggerContext`.
 
 ### Controlled
 
-The open state can be handled in controlled mode.
+A popover `open` state can be handled in controlled mode.
 
 <Preview filePath="/popover/docs/ControlledPopover" />
 

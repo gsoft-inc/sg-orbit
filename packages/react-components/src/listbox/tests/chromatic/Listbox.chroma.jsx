@@ -85,7 +85,7 @@ stories()
             </Listbox>
         </Inline>
     )
-    .add("item with left icon", () =>
+    .add("item with start icon", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
@@ -105,16 +105,16 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("item with right icon", () =>
+    .add("item with end icon", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
-                <NotificationIcon slot="right-icon" />
+                <NotificationIcon slot="end-icon" />
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <IconList slot="right-icon">
+                <IconList slot="end-icon">
                     <LightbulbIcon />
                     <NotificationIcon />
                 </IconList>
@@ -130,7 +130,7 @@ stories()
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
-                <NotificationIcon slot="right-icon" />
+                <NotificationIcon slot="end-icon" />
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">

@@ -82,7 +82,7 @@ stories()
                         <>
                             <Button>
                                 <Text>Mars</Text>
-                                <ArrowIcon slot="right-icon" className={isOpen ? "rotate-90" : undefined} />
+                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
                             </Button>
                             <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                         </>
@@ -95,7 +95,7 @@ stories()
                         <>
                             <Button>
                                 <Text>Mars</Text>
-                                <ArrowIcon slot="right-icon" className={isOpen ? "rotate-90" : undefined} />
+                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
                             </Button>
                             <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                         </>

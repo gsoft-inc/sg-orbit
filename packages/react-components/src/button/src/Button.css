@@ -533,8 +533,8 @@ a.o-ui-button {
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
     fill: var(--white);
     opacity: .9;
 }
@@ -551,10 +551,10 @@ a.o-ui-button {
 
 .o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
 .o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
     opacity: 1;
 }
 

@@ -151,20 +151,20 @@ export function InnerSelect(props) {
         ref: forwardedRef
     });
 
-    const { icon: selectedIcon, text: selectedText, "right-icon": selectedRightIcon } = useSlots(selectedItem?.content, {
+    const { icon: selectedIcon, text: selectedText, "end-icon": selectedEndIcon } = useSlots(selectedItem?.content, {
         _: {
             defaultWrapper: Text
         },
         icon: {
             size: "sm",
-            className: "o-ui-select-value-left-icon"
+            className: "o-ui-select-value-start-icon"
         },
         text: {
             className: "o-ui-select-value"
         },
-        "right-icon": {
+        "end-icon": {
             size: "sm",
-            className: "o-ui-select-value-right-icon"
+            className: "o-ui-select-value-end-icon"
         }
     });
 
@@ -172,7 +172,7 @@ export function InnerSelect(props) {
         <div className="o-ui-select-value">
             {selectedIcon}
             {selectedText}
-            {selectedRightIcon}
+            {selectedEndIcon}
         </div>
     ) : (
         <span className="o-ui-select-placeholder">{placeholder}</span>

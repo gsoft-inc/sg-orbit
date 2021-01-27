@@ -6,7 +6,6 @@ import { Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
-import { OverlayTrigger } from "@react-components/overlay";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
 import { TextInput } from "@react-components/input";
 import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-components/shared";
@@ -86,7 +85,7 @@ stories()
     )
     .add("open on focus", () =>
         <Boundary>
-            <PopoverTrigger trigger={OverlayTrigger.hover}>
+            <PopoverTrigger trigger="hover">
                 <Button autoFocus>Toggle</Button>
                 <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
             </PopoverTrigger>

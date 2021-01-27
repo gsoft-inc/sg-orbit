@@ -94,28 +94,28 @@ export function createButtonTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("right icon", () =>
+        .add("end icon", () =>
             <Stack>
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <IconList slot="right-icon">
+                        <IconList slot="end-icon">
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
                         </IconList>
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <IconList slot="right-icon">
+                        <IconList slot="end-icon">
                             <SignoutIcon /><SignoutIcon /><SignoutIcon />
                         </IconList>
                     </Button>
@@ -123,33 +123,33 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button loading element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Button condensed size="sm" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button condensed element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </div>
                 <div>
                     <Button fluid element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </div>
             </Stack>
@@ -167,7 +167,7 @@ export function createButtonTestSuite(element, stories) {
                     </Button>
                     <Button color="primary" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline>
@@ -192,7 +192,7 @@ export function createButtonTestSuite(element, stories) {
                     </Button>
                     <Button color="secondary" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline>
@@ -217,7 +217,7 @@ export function createButtonTestSuite(element, stories) {
                     </Button>
                     <Button color="danger" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline>
@@ -242,7 +242,7 @@ export function createButtonTestSuite(element, stories) {
                     </Button>
                     <Button color="inherit" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="right-icon" />
+                        <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline>

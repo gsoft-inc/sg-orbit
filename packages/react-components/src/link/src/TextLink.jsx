@@ -97,13 +97,13 @@ export function InnerTextLink(props) {
         forwardedRef
     });
 
-    const { "left-icon": leftIcon, text, icon } = useSlots(children, useMemo(() => ({
+    const { "start-icon": startIcon, text, icon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        "left-icon": {
+        "start-icon": {
             size: embeddedIconSize(size),
-            className: "o-ui-link-left-icon"
+            className: "o-ui-link-start-icon"
         },
         text: {
             size,
@@ -116,7 +116,7 @@ export function InnerTextLink(props) {
 
     const iconMarkup = iconElement && augmentElement(iconElement, {
         size: embeddedIconSize(size),
-        className: "o-ui-link-right-icon"
+        className: "o-ui-link-end-icon"
     });
 
     return (
@@ -126,7 +126,7 @@ export function InnerTextLink(props) {
                 linkProps
             )}
         >
-            {leftIcon}
+            {startIcon}
             {text}
             {iconMarkup}
         </ElementType>

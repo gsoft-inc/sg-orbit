@@ -47,7 +47,7 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("selected item with left icon", () =>
+        .add("selected item with start icon", () =>
             <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">
                     <NotificationIcon />
@@ -57,11 +57,11 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("selected item with right icon", () =>
+        .add("selected item with end icon", () =>
             <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">
                     <Text>Earth</Text>
-                    <NotificationIcon slot="right-icon" />
+                    <NotificationIcon slot="end-icon" />
                 </Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

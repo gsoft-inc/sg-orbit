@@ -1,5 +1,5 @@
 import { Children, forwardRef, useCallback } from "react";
-import { Overlay, OverlayTrigger, usePopup } from "../../overlay";
+import { Overlay, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, arrayOf, bool, func, number, oneOf, oneOfType } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren } from "../../shared";
@@ -75,7 +75,7 @@ const propTypes = {
 export function InnerPopoverTrigger({
     open,
     defaultOpen,
-    trigger: triggerProp = OverlayTrigger.click,
+    trigger: triggerProp = "click",
     position = "bottom",
     offset,
     onOpenChange,

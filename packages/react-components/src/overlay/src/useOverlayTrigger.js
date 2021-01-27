@@ -1,11 +1,6 @@
 import { FocusTarget, Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
-export const OverlayTrigger = {
-    click: "click",
-    hover: "hover"
-};
-
 export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
     const toggle = event => {
         if (!isNil(onToggle)) {
@@ -56,7 +51,7 @@ export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
     const handleFocus = useEventCallback(event => { show(event, { focusTarget: FocusTarget.first }); });
     const handleBlur = useEventCallback(event => { hide(event); });
 
-    return trigger === OverlayTrigger.hover
+    return trigger === "hover"
         // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
         ? {
             onMouseEnter: handleMouseEnter,

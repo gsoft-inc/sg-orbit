@@ -16,7 +16,7 @@ import { Text } from "@react-components/text";
 <Tagline>A listbox presents a list of options and allows a user to select one or more of them</Tagline>
 
 <ComponentInfo
-    usage={"import { Listbox, Item, Section } from \"@orbit-ui/react-components\""}
+    usage={"import { Listbox, Item, Section, ListboxContext, useListboxContext } from \"@orbit-ui/react-components\""}
     ariaPath="#listbox"
     githubPath="/packages/react-components/src/listbox/src"
 />
@@ -115,16 +115,16 @@ A listbox item can contain [icons](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-### Right icon
+### End icon
 
-A listbox item can contain *non standard* right [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding right icons, left icons should be your go to.
+A listbox item can contain *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
-    <Story name="right icon">
+    <Story name="end icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
-                <IconList slot="right-icon">
+                <IconList slot="end-icon">
                     <NotificationIcon />
                     <HelpIcon />
                     <LightbulbIcon />
@@ -132,11 +132,11 @@ A listbox item can contain *non standard* right [icons](?path=/docs/icon-gallery
             </Item>
             <Item key="jupiter">
                 <Text>Jupiter</Text>
-                <HelpIcon slot="right-icon" />
+                <HelpIcon slot="end-icon" />
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <IconList slot="right-icon">
+                <IconList slot="end-icon">
                     <NotificationIcon />
                     <HelpIcon />
                     <LightbulbIcon />
@@ -247,7 +247,7 @@ The selected key can be handled in controlled mode.
 
 <ComponentInfo
     usage={"import { Item } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "right-icon"]}
+    slots={["icon", "text", "description", "end-icon"]}
     compact
 />
 
@@ -266,7 +266,7 @@ The selected key can be handled in controlled mode.
 
 <ComponentInfo
     usage={"import { ListboxOption } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "right-icon"]}
+    slots={["icon", "text", "description", "end-icon"]}
     compact
 />
 

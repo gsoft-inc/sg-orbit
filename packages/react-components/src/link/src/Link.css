@@ -163,18 +163,18 @@
 }
 
 /* ICON */
-.o-ui-link-left-icon,
-.o-ui-link-right-icon {
+.o-ui-link-start-icon,
+.o-ui-link-end-icon {
     flex-shrink: 0;
 }
 
 /* LEFT ICON */
-.o-ui-link-left-icon {
+.o-ui-link-start-icon {
     margin-right: 0.125rem;
 }
 
 /* RIGHT ICON */
-.o-ui-link-right-icon {
+.o-ui-link-end-icon {
     margin-left: 0.125rem;
 }
 
