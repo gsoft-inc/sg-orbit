@@ -6,6 +6,8 @@ import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
+export const KeyProp = "data-o-ui-key";
+
 export function usePopup(type, {
     open,
     defaultOpen,
@@ -79,7 +81,7 @@ export function usePopup(type, {
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
-    const focusManager = useFocusManager(focusScope);
+    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
     useAutoFocusChild(
         focusManager,

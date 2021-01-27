@@ -30,7 +30,51 @@ export const SelectionMode = {
     multiple: "multiple"
 };
 
-export function useSelectionManager({ selectedKey, items }) {
+const propTypes = {
+    /**
+     * A controlled array holding the currently selected key(s).
+     */
+    selectedKey: oneOfType([string, arrayOf(string)]),
+    /**
+     * The initial value of `selectedKey` when uncontrolled.
+     */
+    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
+    /**
+     * Called when the selected keys change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {String | String[]} key - The selected key(s).
+     * @returns {void}
+     */
+    onChange: func,
+    /**
+     * The type of selection that is allowed.
+     */
+    selectionMode: oneOf(["single", "multiple"]),
+    /**
+     * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
+     */
+    nodes: arrayOf(shape(NodeShape)),
+    /**
+     * Whether or not the listbox should autofocus on render.
+     */
+    autoFocus: oneOfType([bool, number]),
+    /**
+     * Default focus target when enabling autofocus.
+     */
+    defaultFocusTarget: string,
+    /**
+     * Whether or not the listbox take up the width of its container.
+     */
+    fluid: bool,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType])
+};
+
+const KeyProp = "data-o-ui-key";
+
+function useSelectionManager({ selectedKey, items }) {
     return useMemo(() => {
         const selectedKeys = arrayify(selectedKey);
 
@@ -80,50 +124,6 @@ function useListboxItems(children, nodes) {
 
     return nodes ?? collectionNodes;
 }
-
-const propTypes = {
-    /**
-     * A controlled array holding the currently selected key(s).
-     */
-    selectedKey: oneOfType([string, arrayOf(string)]),
-    /**
-     * The initial value of `selectedKey` when uncontrolled.
-     */
-    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
-    /**
-     * Called when the selected keys change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {String | String[]} key - The selected key(s).
-     * @returns {void}
-     */
-    onChange: func,
-    /**
-     * The type of selection that is allowed.
-     */
-    selectionMode: oneOf(["single", "multiple"]),
-    /**
-     * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
-     */
-    nodes: arrayOf(shape(NodeShape)),
-    /**
-     * Whether or not the listbox should autofocus on render.
-     */
-    autoFocus: oneOfType([bool, number]),
-    /**
-     * Default focus target when enabling autofocus.
-     */
-    defaultFocusTarget: string,
-    /**
-     * Whether or not the listbox take up the width of its container.
-     */
-    fluid: bool,
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as: oneOfType([string, elementType])
-};
-
-const KeyProp = "data-o-ui-key";
 
 export function InnerListbox({
     id,

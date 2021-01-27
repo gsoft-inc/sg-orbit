@@ -35,6 +35,8 @@ INTERACTION TEST:
 - when open, on tab keydown
     - select next tabbable element
     - when shift, select previous tabbable element
+- when hover an item
+    - focus the item
 - can provide custom name
 - can provide custom id
 - when in field, focus when clicking on label

@@ -10,10 +10,10 @@ import {
     useRefState,
     useResizeObserver
 } from "../../shared";
+import { KeyProp, usePopup } from "../../overlay";
 import { NodeType, useCollection } from "../../collection";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo, useState } from "react";
-import { usePopup } from "../../overlay";
 
 export function useSelect(children, {
     open: openProp,
@@ -34,18 +34,19 @@ export function useSelect(children, {
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [triggerWidth, setTriggerWidth] = useState();
-    const [defaultFocusTargetRef, setDefaultFocusTarget] = useRefState(null);
+    const [focusTargetRef, setFocusTarget] = useRefState(null);
 
     const triggerRef = useMergedRefs(ref);
 
-    const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
         open: openProp,
         defaultOpen,
-        // onOpenChange,
-        // // Defaulting the focusTarget to null otherwise useAutoFocusChild will use his default value.
-        onOpenChange: useChainedEventCallback(onOpenChange, () => {
-            if (isNil(defaultFocusTargetRef.current)) {
-                setDefaultFocusTarget(FocusTarget.first);
+        // Focusing the first item on open if nore are already set to be focused.
+        onOpenChange: useChainedEventCallback(onOpenChange, (event, newValue) => {
+            if (newValue) {
+                if (isNil(focusTargetRef.current)) {
+                    setFocusTarget(FocusTarget.first);
+                }
             }
         }),
         hideOnEscape: true,
@@ -71,14 +72,14 @@ export function useSelect(children, {
     };
 
     const open = useCallback((event, focusTarget) => {
-        setDefaultFocusTarget(focusTarget);
+        setFocusTarget(focusTarget);
         setIsOpen(event, true);
-    }, [setIsOpen, setDefaultFocusTarget]);
+    }, [setIsOpen, setFocusTarget]);
 
     const close = useCallback(event => {
-        setDefaultFocusTarget(null);
+        setFocusTarget(null);
         setIsOpen(event, false);
-    }, [setIsOpen, setDefaultFocusTarget]);
+    }, [setIsOpen, setFocusTarget]);
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
@@ -98,6 +99,11 @@ export function useSelect(children, {
         close(event);
     });
 
+    // Move focus to item on mouse hover.
+    const handleListboxOptionMouseEnter = useEventCallback(event => {
+        focusManager.focusKey(event.target.getAttribute(KeyProp));
+    });
+
     // Autofocus the trigger.
     useAutoFocus(triggerRef, {
         isDisabled: !autoFocus || isOpen,
@@ -111,6 +117,10 @@ export function useSelect(children, {
 
     const nodes = useCollection(children);
     const items = useMemo(() => nodes.filter(x => x.type === NodeType.item), [nodes]);
+
+    items.forEach(x => {
+        x.props.onMouseEnter = handleListboxOptionMouseEnter;
+    });
 
     const selectedItem = items.find(x => x.key === selectedKey);
 
@@ -145,7 +155,7 @@ export function useSelect(children, {
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
-            defaultFocusTarget: defaultFocusTargetRef.current,
+            defaultFocusTarget: focusTargetRef.current,
             fluid: true,
             "aria-label": isNil(ariaLabelledBy) ? ariaLabel : undefined,
             "aria-labelledby": ariaLabelledBy,
