@@ -13,6 +13,7 @@ import {
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyedRovingFocus,
     useMergedRefs,
     useRefState
 } from "../../shared";
@@ -109,9 +110,9 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
-     * Controlled focus target when enabling autofocus.
+     * Default focus target when enabling autofocus.
      */
-    focusTarget: string,
+    defaultFocusTarget: string,
     /**
      * Whether or not the listbox take up the width of its container.
      */
@@ -132,7 +133,7 @@ export function InnerListbox({
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
-    focusTarget: focusTargetProp,
+    defaultFocusTarget,
     fluid,
     "aria-label": ariaLabel,
     as = "div",
@@ -151,14 +152,15 @@ export function InnerListbox({
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const selectionManager = useSelectionManager({ selectedKey, items });
+
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const updateSelectedKeys = (event, keys) => {
+    const updateSelectedKeys = (event, newValue) => {
         if (!isNil(onChange)) {
-            onChange(event, selectionMode === SelectionMode.multiple ? keys : keys[0]);
+            onChange(event, selectionMode === SelectionMode.multiple ? newValue : newValue[0]);
         }
 
-        setSelectedKey(keys);
+        setSelectedKey(newValue);
     };
 
     const handleSelect = useEventCallback((event, key) => {
@@ -250,10 +252,10 @@ export function InnerListbox({
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");
 
-    const focusTarget = selectionManager.selectedKeys[0] ?? focusTargetProp;
+    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: focusTarget,
+        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: () => {
@@ -310,7 +312,6 @@ export function InnerListbox({
                     role: "listbox",
                     "aria-label": ariaLabel,
                     "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
-                    tabIndex: "-1",
                     as,
                     ref: containerRef
                 }

@@ -27,6 +27,7 @@ export function InnerMenuItem({ children, ...rest }) {
             {...mergeProps(
                 rest,
                 {
+                    className: "o-ui-menu-item",
                     role: "menuitem"
                 }
             )}

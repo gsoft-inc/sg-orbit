@@ -1,4 +1,4 @@
-import { FocusTarget, Keys, useEventCallback } from "../../shared";
+import { Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
 export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
@@ -8,9 +8,9 @@ export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
         }
     };
 
-    const show = (event, options) => {
+    const show = event => {
         if (!isNil(onShow)) {
-            onShow(event, options);
+            onShow(event);
         }
     };
 
@@ -30,7 +30,7 @@ export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
-                show(event, { focusTarget: FocusTarget.first });
+                show(event);
                 break;
             case Keys.esc:
                 event.preventDefault();
@@ -48,7 +48,7 @@ export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
 
     const handleMouseEnter = useEventCallback(event => { show(event); });
     const handleMouseLeave = useEventCallback(event => { hide(event); });
-    const handleFocus = useEventCallback(event => { show(event, { focusTarget: FocusTarget.first }); });
+    const handleFocus = useEventCallback(event => { show(event); });
     const handleBlur = useEventCallback(event => { hide(event); });
 
     return trigger === "hover"

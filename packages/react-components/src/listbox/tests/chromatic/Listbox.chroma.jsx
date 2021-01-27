@@ -1,11 +1,19 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { FocusTarget } from "@react-components/shared";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
+
+/*
+INTERACTION TESTS:
+- when listbox receive focus
+     focus the first focusable item
+- roving focus
+*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
@@ -308,6 +316,13 @@ stories()
     )
     .add("autofocus with delay", () =>
         <Listbox autoFocus={50} aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus with defaultFocusTarget", () =>
+        <Listbox autoFocus defaultFocusTarget={FocusTarget.last} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

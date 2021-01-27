@@ -34,16 +34,19 @@ export function useSelect(children, {
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [triggerWidth, setTriggerWidth] = useState();
-    const [focusTargetRef, setFocusTarget] = useRefState(null);
+    const [defaultFocusTargetRef, setDefaultFocusTarget] = useRefState(null);
 
     const triggerRef = useMergedRefs(ref);
 
     const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
         open: openProp,
         defaultOpen,
-        // Defaulting the focusTarget to null otherwise useAutoFocusChild will use his default value.
-        onOpenChange: useChainedEventCallback(onOpenChange, (event, _, { focusTarget = null } = {}) => {
-            setFocusTarget(focusTarget);
+        // onOpenChange,
+        // // Defaulting the focusTarget to null otherwise useAutoFocusChild will use his default value.
+        onOpenChange: useChainedEventCallback(onOpenChange, () => {
+            if (isNil(defaultFocusTargetRef.current)) {
+                setDefaultFocusTarget(FocusTarget.first);
+            }
         }),
         hideOnEscape: true,
         hideOnBlur: true,
@@ -67,22 +70,24 @@ export function useSelect(children, {
         }
     };
 
-    const open = useCallback((event, options) => {
-        setIsOpen(event, true, options);
-    }, [setIsOpen]);
+    const open = useCallback((event, focusTarget) => {
+        setDefaultFocusTarget(focusTarget);
+        setIsOpen(event, true);
+    }, [setIsOpen, setDefaultFocusTarget]);
 
     const close = useCallback(event => {
+        setDefaultFocusTarget(null);
         setIsOpen(event, false);
-    }, [setIsOpen]);
+    }, [setIsOpen, setDefaultFocusTarget]);
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
             case Keys.down:
-                open(event, { focusTarget: FocusTarget.first });
+                open(event, FocusTarget.first);
                 break;
             case Keys.up:
-                open(event, { focusTarget: FocusTarget.last });
+                open(event, FocusTarget.last);
                 break;
         }
     });
@@ -140,7 +145,7 @@ export function useSelect(children, {
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
-            focusTarget: focusTargetRef.current,
+            defaultFocusTarget: defaultFocusTargetRef.current,
             fluid: true,
             "aria-label": isNil(ariaLabelledBy) ? ariaLabel : undefined,
             "aria-labelledby": ariaLabelledBy,

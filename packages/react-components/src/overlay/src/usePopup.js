@@ -33,10 +33,10 @@ export function usePopup(type, {
 
     const overlayId = useId(null, "o-ui-overlay");
 
-    const updateIsOpen = useCallback((event, newValue, options) => {
+    const updateIsOpen = useCallback((event, newValue) => {
         if (isOpen !== newValue) {
             if (!isNil(onOpenChange)) {
-                onOpenChange(event, newValue, options);
+                onOpenChange(event, newValue);
             }
 
             setIsOpen(newValue);
@@ -47,8 +47,8 @@ export function usePopup(type, {
         onToggle: useEventCallback(event => {
             updateIsOpen(event, !isOpen);
         }),
-        onShow: useEventCallback((event, options) => {
-            updateIsOpen(event, true, options);
+        onShow: useEventCallback(event => {
+            updateIsOpen(event, true);
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.

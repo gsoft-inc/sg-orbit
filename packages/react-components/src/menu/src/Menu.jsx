@@ -26,6 +26,7 @@ export function InnerMenu({
             {...mergeProps(
                 rest,
                 {
+                    className: "o-ui-menu",
                     role: "menu",
                     tabIndex: "-1",
                     "aria-orientation": "vertical",
