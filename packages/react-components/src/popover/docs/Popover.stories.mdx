@@ -1,0 +1,236 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
+import { Button, ButtonGroup, CrossButton } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
+import { Field, HelpMessage, Label } from "@react-components/field";
+import { Form } from "@react-components/form";
+import { Image } from "@react-components/image";
+import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
+import { Launch } from "./assets";
+import { TextInput } from "@react-components/input";
+import { TextLink } from "@react-components/link";
+
+<Meta
+    title="Components/Popover"
+    id="popover"
+/>
+
+# Popover
+
+<Tagline>A Popover can be used to display some content on top of another.</Tagline>
+
+<ComponentInfo
+    usage={"import { PopoverTrigger, Popover, PopoverTriggerContext, Header, Content } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/popover/src"
+/>
+
+## Usage
+
+A popover accepts exactly two children: the element which triggers the opening of the popover and the popover content. A trigger can be any component which handles `onClick` and `ref` props.
+
+### This is not a tooltip
+
+A popover is not meant to be used as a tooltip. If you need a component that behave like a tooltip, use the tooltip component instead.
+
+### Default
+
+A default popover.
+
+<Preview>
+    <Story name="default">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Header
+
+A popover with an header.
+
+<Preview>
+    <Story name="header">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Header>WikiSpace</Header>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Close button
+
+A popover with a close button.
+
+<Preview>
+    <Story name="close button">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <CrossButton slot="close-button" aria-label="Close" />
+                <Header>WikiSpace</Header>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Button
+
+A popper can contain a single button or a group of button.
+
+<Preview>
+    <Story name="buttons">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <CrossButton slot="close-button" aria-label="Close" />
+                <Header>WikiSpace</Header>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button color="primary">Got it</Button>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Form
+
+A popper can contain a form.
+
+<Preview>
+    <Story name="form">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <CrossButton slot="close-button" aria-label="Close" />
+                <Header>Passenger information</Header>
+                <Content>
+                    <Form fluid>
+                        <Field>
+                            <Label>Space ID</Label>
+                            <TextInput placeholder="999-999-999" />
+                            <HelpMessage>Your space id is a 9-digit number available at the top right corner of your membership card.</HelpMessage>
+                        </Field>
+                        <Field>
+                            <Label>Fullname</Label>
+                            <TextInput />
+                        </Field>
+                    </Form>
+                </Content>
+                <ButtonGroup align="end">
+                    <Button color="secondary">Cancel</Button>
+                    <Button color="primary">Save</Button>
+                </ButtonGroup>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Trigger
+
+A popover can be triggered on *hover* instead of on *click*.
+
+<Preview scope={{ Launch }}>
+    <Story name="trigger">
+        <PopoverTrigger trigger="hover">
+            <Button>Trigger</Button>
+            <Popover>
+                <Image src={Launch} alt="SpaceX launch" />
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Position
+
+A popover can open at different positions.
+
+<Preview>
+    <Story name="position">
+        <PopoverTrigger position="right">
+            <Button>Trigger</Button>
+            <Popover>
+                <CrossButton slot="close-button" aria-label="Close" />
+                <Header>WikiSpace</Header>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Render props
+
+A popover can update is content based on the `isOpen` value and optionally use the `close` function by providing a render prop function:
+
+<Preview>
+    <Story name="render props">
+        <PopoverTrigger>
+            {({ isOpen, close }) => (
+                <>
+                    <Button color={isOpen ? "secondary" : "primary"}>Trigger</Button>
+                    <Popover>
+                        <Header>WikiSpace</Header>
+                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                        <Button onClick={event => close(event)}>Close</Button>
+                    </Popover>
+                </>
+            )}
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Popover context
+
+A similar result could also be achieve by using `usePopoverTriggerContext`.
+
+<Preview filePath="/popover/docs/PopoverContext" noInline />
+
+### Controlled
+
+The open state can be handled in controlled mode.
+
+<Preview filePath="/popover/docs/ControlledPopover" />
+
+## API
+
+### PopoverTrigger
+
+<ComponentInfo
+    usage={"import { PopoverTrigger } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerPopoverTrigger} />
+
+### Popover
+
+<ComponentInfo
+    usage={"import { Popover } from \"@orbit-ui/react-components\""}
+    slots={["header", "content", "button", "button-group", "close-button"]}
+    compact
+/>
+
+<ArgsTable of={InnerPopover} />
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
+
