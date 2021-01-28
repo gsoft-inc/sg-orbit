@@ -1,7 +1,11 @@
+html * {
+    --o-ui-dot-color: var(--o-ui-background-2);
+}
+
 .o-ui-dot {
     display: inline-flex;
     align-items: center;
-    --o-ui-dot-color: var(--cloud-100);
+    color: var(--o-ui-text-1);
 }
 
 .o-ui-dot:before {
@@ -11,12 +15,12 @@
     background-color: var(--o-ui-dot-color);
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 /* CONTENT | LABEL */
 .o-ui-dot-has-label.o-ui-dot:before {
-    margin-right: var(--scale-bravo);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 /* DISABLED */

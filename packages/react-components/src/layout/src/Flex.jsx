@@ -99,19 +99,19 @@ const propTypes = {
 };
 
 const Spacing = [
-    "--scale-alpha",
-    "--scale-bravo",
-    "--scale-charlie",
-    "--scale-delta",
-    "--scale-echo",
-    "--scale-foxtrot",
-    "--scale-golf",
-    "--scale-hotel",
-    "--scale-india",
-    "--scale-juliett",
-    "--scale-kilo",
-    "--scale-lima",
-    "--scale-mike"
+    "--o-ui-scale-alpha",
+    "--o-ui-scale-bravo",
+    "--o-ui-scale-charlie",
+    "--o-ui-scale-delta",
+    "--o-ui-scale-echo",
+    "--o-ui-scale-foxtrot",
+    "--o-ui-scale-golf",
+    "--o-ui-scale-hotel",
+    "--o-ui-scale-india",
+    "--o-ui-scale-juliett",
+    "--o-ui-scale-kilo",
+    "--o-ui-scale-lima",
+    "--o-ui-scale-mike"
 ];
 
 // @supports doesn't work for flexbox-gap.

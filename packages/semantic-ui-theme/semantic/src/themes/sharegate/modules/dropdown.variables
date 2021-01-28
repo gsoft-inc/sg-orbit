@@ -153,8 +153,8 @@
 /* Selected */
 
 /* Error */
-@errorItemHoverBackground: var(--alert-50);
-@errorItemActiveBackground: var(--alert-50);
+@errorItemHoverBackground: var(--o-ui-alert-50);
+@errorItemActiveBackground: var(--o-ui-alert-50);
 
 /* Clearable */
 

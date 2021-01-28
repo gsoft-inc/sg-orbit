@@ -41,11 +41,11 @@ stories()
     .add("pushed", () =>
         <Stack>
             <Box className="flex">
-                Planets Visited
+                <Text>Planets Visited</Text>
                 <Counter pushed>15</Counter>
             </Box>
             <Box className="flex">
-                Planets Visited
+                <Text>Planets Visited</Text>
                 <Counter pushed size="inherit" variant="divider">15</Counter>
             </Box>
         </Stack>

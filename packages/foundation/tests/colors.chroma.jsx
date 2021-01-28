@@ -85,16 +85,16 @@ stories()
                      <div className="pa4 bg-alert-700" />
                      <div className="pa4 bg-alert-800" />
                      <div className="pa4 bg-alert-900" />
-                     <div className="pa4 bg-success-50" />
-                     <div className="pa4 bg-success-100" />
-                     <div className="pa4 bg-success-200" />
-                     <div className="pa4 bg-success-300" />
-                     <div className="pa4 bg-success-400" />
-                     <div className="pa4 bg-success-500" />
-                     <div className="pa4 bg-success-600" />
-                     <div className="pa4 bg-success-700" />
-                     <div className="pa4 bg-success-800" />
-                     <div className="pa4 bg-success-900" />
+                     <div className="pa4 bg-green-50" />
+                     <div className="pa4 bg-green-100" />
+                     <div className="pa4 bg-green-200" />
+                     <div className="pa4 bg-green-300" />
+                     <div className="pa4 bg-green-400" />
+                     <div className="pa4 bg-green-500" />
+                     <div className="pa4 bg-green-600" />
+                     <div className="pa4 bg-green-700" />
+                     <div className="pa4 bg-green-800" />
+                     <div className="pa4 bg-green-900" />
                      <div className="pa4 bg-cloud-50" />
                      <div className="pa4 bg-cloud-100" />
                      <div className="pa4 bg-cloud-200" />
@@ -117,6 +117,16 @@ stories()
                      <div className="pa4 bg-neutral-700" />
                      <div className="pa4 bg-neutral-800" />
                      <div className="pa4 bg-neutral-900" />
+                     <div className="pa4 bg-neutral-dark-50" />
+                     <div className="pa4 bg-neutral-dark-100" />
+                     <div className="pa4 bg-neutral-dark-200" />
+                     <div className="pa4 bg-neutral-dark-300" />
+                     <div className="pa4 bg-neutral-dark-400" />
+                     <div className="pa4 bg-neutral-dark-500" />
+                     <div className="pa4 bg-neutral-dark-600" />
+                     <div className="pa4 bg-neutral-dark-700" />
+                     <div className="pa4 bg-neutral-dark-800" />
+                     <div className="pa4 bg-neutral-dark-900" />
                  </Inline>
              </Stack>
     );

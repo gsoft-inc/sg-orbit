@@ -1,119 +1,119 @@
 .b--desktop-50 {
-    border-color: var(--desktop-50);
+    border-color: var(--o-ui-desktop-50);
 }
 
 .b--desktop-100 {
-    border-color: var(--desktop-100);
+    border-color: var(--o-ui-desktop-100);
 }
 
 .b--desktop-200 {
-    border-color: var(--desktop-200);
+    border-color: var(--o-ui-desktop-200);
 }
 
 .b--desktop-300 {
-    border-color: var(--desktop-300);
+    border-color: var(--o-ui-desktop-300);
 }
 
 .b--desktop-400 {
-    border-color: var(--desktop-400);
+    border-color: var(--o-ui-desktop-400);
 }
 
 .b--desktop-500 {
-    border-color: var(--desktop-500);
+    border-color: var(--o-ui-desktop-500);
 }
 
 .b--desktop-600 {
-    border-color: var(--desktop-600);
+    border-color: var(--o-ui-desktop-600);
 }
 
 .b--desktop-700 {
-    border-color: var(--desktop-700);
+    border-color: var(--o-ui-desktop-700);
 }
 
 .b--desktop-800 {
-    border-color: var(--desktop-800);
+    border-color: var(--o-ui-desktop-800);
 }
 
 .b--desktop-900 {
-    border-color: var(--desktop-900);
+    border-color: var(--o-ui-desktop-900);
 }
 
 .hover-b--desktop-50:hover {
-    border-color: var(--desktop-50);
+    border-color: var(--o-ui-desktop-50);
 }
 
 .hover-b--desktop-100:hover {
-    border-color: var(--desktop-100);
+    border-color: var(--o-ui-desktop-100);
 }
 
 .hover-b--desktop-200:hover {
-    border-color: var(--desktop-200);
+    border-color: var(--o-ui-desktop-200);
 }
 
 .hover-b--desktop-300:hover {
-    border-color: var(--desktop-300);
+    border-color: var(--o-ui-desktop-300);
 }
 
 .hover-b--desktop-400:hover {
-    border-color: var(--desktop-400);
+    border-color: var(--o-ui-desktop-400);
 }
 
 .hover-b--desktop-500:hover {
-    border-color: var(--desktop-500);
+    border-color: var(--o-ui-desktop-500);
 }
 
 .hover-b--desktop-600:hover {
-    border-color: var(--desktop-600);
+    border-color: var(--o-ui-desktop-600);
 }
 
 .hover-b--desktop-700:hover {
-    border-color: var(--desktop-700);
+    border-color: var(--o-ui-desktop-700);
 }
 
 .hover-b--desktop-800:hover {
-    border-color: var(--desktop-800);
+    border-color: var(--o-ui-desktop-800);
 }
 
 .hover-b--desktop-900:hover {
-    border-color: var(--desktop-900);
+    border-color: var(--o-ui-desktop-900);
 }
 
 .focus-b--desktop-50:focus {
-    border-color: var(--desktop-50);
+    border-color: var(--o-ui-desktop-50);
 }
 
 .focus-b--desktop-100:focus {
-    border-color: var(--desktop-100);
+    border-color: var(--o-ui-desktop-100);
 }
 
 .focus-b--desktop-200:focus {
-    border-color: var(--desktop-200);
+    border-color: var(--o-ui-desktop-200);
 }
 
 .focus-b--desktop-300:focus {
-    border-color: var(--desktop-300);
+    border-color: var(--o-ui-desktop-300);
 }
 
 .focus-b--desktop-400:focus {
-    border-color: var(--desktop-400);
+    border-color: var(--o-ui-desktop-400);
 }
 
 .focus-b--desktop-500:focus {
-    border-color: var(--desktop-500);
+    border-color: var(--o-ui-desktop-500);
 }
 
 .focus-b--desktop-600:focus {
-    border-color: var(--desktop-600);
+    border-color: var(--o-ui-desktop-600);
 }
 
 .focus-b--desktop-700:focus {
-    border-color: var(--desktop-700);
+    border-color: var(--o-ui-desktop-700);
 }
 
 .focus-b--desktop-800:focus {
-    border-color: var(--desktop-800);
+    border-color: var(--o-ui-desktop-800);
 }
 
 .focus-b--desktop-900:focus {
-    border-color: var(--desktop-900);
+    border-color: var(--o-ui-desktop-900);
 }

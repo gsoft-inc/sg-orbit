@@ -13,7 +13,7 @@ const H4 = components.h4;
 function IconComponent({ componentType }) {
     return (
         <details>
-            <summary className="marine-900">Use as a component</summary>
+            <summary className="text-1">Use as a component</summary>
             <H4>Import</H4>
             <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} className="mv2" />
             <H4>Usage</H4>
@@ -26,7 +26,7 @@ function IconComponent({ componentType }) {
 function ImageSource({ componentType, iconFileName, iconDisplayName }) {
     return (
         <details>
-            <summary className="marine-900">As an image source</summary>
+            <summary className="text-1">As an image source</summary>
             <H4>Import</H4>
             <Snippet language="javascript" code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} className="mv2" />
             <H4>Usage</H4>
@@ -39,14 +39,14 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
 function CssBackground({ iconFileName, iconDisplayName }) {
     const code = `.${iconDisplayName.replace(/\s+/g, "-").toLowerCase()} {
     background: url("~@orbit-ui/icons/${iconFileName}");
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }
     `;
 
     return (
         <details>
-            <summary className="marine-900">As a CSS background</summary>
+            <summary className="text-1">As a CSS background</summary>
             <Snippet language="css" code={code} className="mv2" />
             <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
         </details>

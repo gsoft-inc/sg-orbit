@@ -51,8 +51,8 @@
 @groupBoxShadow: none;
 @borderRadius: 32px;
 @basicGroupBoxShadow: none;
-@basicGroupBorder: 1px solid var(--cloud-100);
-@basicHoverBoxShadow: 0px 0px 0px 1px var(--marine-500) inset !important;
+@basicGroupBorder: 1px solid var(--o-ui-cloud-100);
+@basicHoverBoxShadow: 0px 0px 0px 1px var(--o-ui-marine-500) inset !important;
 @groupButtonBoxShadow: none;
 
 /*-------------------
@@ -67,7 +67,7 @@
 @focusColor: @white;
 
 /* Pressed Down */
-@downBackgroundColor: var(--marine-700);
+@downBackgroundColor: var(--o-ui-marine-700);
 @downColor: @white;
 
 /* Active */
@@ -140,7 +140,7 @@
 /* Ordinality */
 
 @primaryTextColor: @white;
-@secondaryTextColor: var(--marine-900);
+@secondaryTextColor: var(--o-ui-marine-900);
 @secondaryColorFocus: @cloud200;
 @positiveTextColor: @white;
 @negativeTextColor: @white;

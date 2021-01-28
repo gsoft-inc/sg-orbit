@@ -10,13 +10,13 @@
 
 .sbdocs.sbdocs-content {
     max-width: 1200px;
-    /* font-size: var(--type-scale-6); */
+    font-size: var(--o-ui-type-scale-6);
 }
 
 /* STORY */
 .docs-story div + div > button {
     font-weight: 500;
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 /* ARGS TABLE */
@@ -28,17 +28,17 @@
 /* ARGS TABLE | HEADER */
 .docblock-argstable-head,
 .docblock-argstable-body {
-    font-size: var(--type-scale-7) !important;
+    font-size: var(--o-ui-type-scale-7) !important;
 }
 
 .docblock-argstable-head tr th {
     font-weight: 500 !important;
-    color: var(--marine-900) !important;
+    color: var(--o-ui-text-1) !important;
 }
 
 /* ARGS TABLE | HEADER | RESET */
 .docblock-argstable-head button {
-    background-color: var(--primary-500) !important;
+    background-color: var(--o-ui-background-primary) !important;
     box-shadow: none;
 }
 
@@ -47,11 +47,11 @@
 }
 
 .docblock-argstable-head button:hover {
-    background-color: var(--primary-700) !important;
+    background-color: var(--o-ui-primary-700) !important;
 }
 
 .docblock-argstable-head button svg path {
-    fill: var(--white) !important;
+    fill: var(--o-ui-white) !important;
 }
 
 /* ARGS TABLE | BODY  */
@@ -73,7 +73,7 @@
 }
 
 .docblock-argstable-body td label span {
-    font-size: var(--type-scale-8) !important;
+    font-size: var(--o-ui-type-scale-8) !important;
 }
 
 .docblock-argstable-body td label input[type="radio"] {
@@ -84,40 +84,40 @@
 .docblock-argstable-body td input[type="number"],
 .docblock-argstable-body td input[type="text"],
 .docblock-argstable-body td textarea {
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 .docblock-argstable-body a {
-    color: var(--primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
 }
 
 .docblock-argstable-body button {
-    color: var(--primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
     font-family: var(--orbit-font-family) !important;
-    font-size: var(--type-scale-8) !important;
+    font-size: var(--o-ui-type-scale-8) !important;
     padding-left: 2px !important;
 }
 
 /* EMPTY BLOCK */
 .docblock-emptyblock {
-    color: var(--cloud-500) !important;
-    border: 1px dashed var(--cloud-100) !important;
+    color: var(--o-ui-cloud-500) !important;
+    border: 1px dashed var(--o-ui-border-1) !important;
 }
 
 .docblock-emptyblock a {
-    color: var(--primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
 }
 
 /* SOURCE BLOCK */
 .docblock-source {
-    margin-top: var(--scale-golf) !important;
+    margin-top: var(--o-ui-scale-golf) !important;
     margin-bottom: 35px !important;
 }
 
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
 }
 
 .sbdocs.sbdocs-preview,
@@ -137,7 +137,7 @@
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6,
 .sbdocs.sbdocs-p  {
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
 }
 
 /* ELEMENTS | HEADER */
@@ -152,7 +152,7 @@
 }
 
 .sbdocs.sbdocs-h1 {
-    font-size: var(--type-scale-1);
+    font-size: var(--o-ui-type-scale-1);
     line-height: 1;
 }
 
@@ -162,23 +162,23 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    border-bottom: 1px solid var(--marine-50);
+    border-bottom: 1px solid var(--o-ui-marine-50);
 }
 
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h2:first-of-type {
     margin: 1.5rem 0;
-    font-size: var(--type-scale-3);
+    font-size: var(--o-ui-type-scale-3);
 }
 
 .sbdocs.sbdocs.sbdocs-h3 {
-    margin: var(--scale-golf) 0 var(--scale-delta);
-    font-size: var(--type-scale-4);
+    margin: var(--o-ui-scale-golf) 0 var(--o-ui-scale-delta);
+    font-size: var(--o-ui-type-scale-4);
 }
 
 .sbdocs.sbdocs.sbdocs-h4 {
-    font-size: var(--type-scale-5);
-    margin: var(--scale-foxtrot) 0 var(--scale-bravo);
+    font-size: var(--o-ui-type-scale-5);
+    margin: var(--o-ui-scale-foxtrot) 0 var(--o-ui-scale-bravo);
 }
 
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
@@ -193,8 +193,8 @@
 
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
-    font-size: var(--type-scale-6);
-    color: var(--primary-700) !important;
+    font-size: var(--o-ui-type-scale-6);
+    color: var(--o-ui-primary-700) !important;
 }
 
 .sbdocs.sbdocs-a:hover,
@@ -215,38 +215,38 @@
 }
 
 .sbdocs .sbdocs-a code {
-    color: var(--primary-500);
+    color: var(--o-ui-primary-500);
 }
 
 /* ELEMENTS | TYPOGRAPHY */
 .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-span {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
     line-height: 1.2;
     max-width: 90ch;
 }
 
 /* ELEMENTS | TABLE */
 .sbdocs.sbdocs-table tr {
-    border-top: 1px solid var(--cloud-100);
+    border-top: 1px solid var(--o-ui-border-1);
 }
 
 .sbdocs.sbdocs-table thead tr {
-    border-top: 1px solid var(--cloud-100);
+    border-top: 1px solid var(--o-ui-border-1);
 }
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 600;
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
 }
 
 .sbdocs.sbdocs-table td {
-    font-size: var(--type-scale-7);
+    font-size: var(--o-ui-type-scale-7);
 }
 
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
-    border: 1px solid var(--cloud-100);
+    border: 1px solid var(--o-ui-border-1);
 }
 
 .sbdocs.sbdocs-table b,
@@ -260,7 +260,7 @@
 
 /* ELEMENTS | SUMMARY */
 .sb-show-main summary {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
     cursor: pointer;
     line-height: 1.3333;
 }
@@ -268,23 +268,23 @@
 .sb-show-main details {
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--moonstone-50);
+    background-color: var(--o-ui-moonstone-50);
 }
 
 .sb-show-main details + details {
-    margin-top: var(--scale-delta);
+    margin-top: var(--o-ui-scale-delta);
 }
 
 .sbdocs details .docblock-source {
     box-shadow: none !important;
     border: none !important;
-    margin: var(--scale-delta) 0 !important;
+    margin: var(--o-ui-scale-delta) 0 !important;
 }
 
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
-    padding: var(--scale-charlie) var(--scale-delta) var(--scale-charlie) var(--scale-charlie);
-    background-color: var(--moonstone-50);
+    padding: var(--o-ui-scale-charlie) var(--o-ui-scale-delta) var(--o-ui-scale-charlie) var(--o-ui-scale-charlie);
+    background-color: var(--o-ui-moonstone-50);
 }
 
 /* ELEMENTS | KBD */
@@ -303,7 +303,7 @@
 
 /* ELEMENTS | LIST */
 .sbdocs.sbdocs-li {
-    font-size: var(--type-scale-6) !important;
+    font-size: var(--o-ui-type-scale-6) !important;
 }
 
 /* ELEMENTS | STRONG */
@@ -317,6 +317,6 @@
 }
 
 .sbdocs.sbdocs-h1 a svg {
-    width: var(--scale-foxtrot);
-    height: var(--scale-foxtrot);
+    width: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }

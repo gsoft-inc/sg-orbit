@@ -1,13 +1,13 @@
 .o-ui-tag {
-    --o-ui-padding-sm: var(--scale-delta);
-    --o-ui-padding-md: var(--scale-echo);
+    --o-ui-padding-sm: var(--o-ui-scale-delta);
+    --o-ui-padding-md: var(--o-ui-scale-echo);
     border: none;
     display: inline-flex;
     align-items: center;
     line-height: 1;
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
     border-radius: var(--o-ui-pill-border-radius);
-    transition: background-color 0.1s linear;
+    transition: all 0.1s linear;
     width: max-content;
     height: max-content;
 }
@@ -17,30 +17,60 @@ button.o-ui-tag {
     cursor: pointer;
 }
 
+/* AS ANCHOR / BUTTON  */
+button.o-ui-tag,
+a.o-ui-tag {
+    position: relative;
+    text-decoration: none;
+}
+
+button.o-ui-tag:after,
+a.o-ui-tag:after {
+    opacity: 0;
+    content: "";
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-pill-border-radius);
+    transition: var(--o-ui-focus-ring-transition);
+}
+
+/* AS ANCHOR / BUTTON | STATE | FOCUS */
+button:not([disabled]).o-ui-tag:focus:after,
+a:not([disabled]).o-ui-tag:focus:after,
+button:not([disabled]).o-ui-tag.o-ui-tag-focus:after,
+a:not([disabled]).o-ui-tag.o-ui-tag-focus:after {
+    opacity: 1;
+}
+
 /* AS BUTTON | STATES */
 /* AS BUTTON | STATES | HOVER */
 button.o-ui-tag:hover {
-    background-color: var(--cloud-100);
+    background-color: var(--o-ui-background-2);
 }
 
 /* AS ANCHOR */
 /* AS ANCHOR | STATES */
 /* AS ANCHOR | STATES | HOVER */
 a.o-ui-tag:hover {
-    background-color: var(--cloud-100);
+    background-color: var(--o-ui-background-2);
 }
 
 /* SIZE */
 /* SIZE | SMALL */
 .o-ui-tag-sm {
-    min-height: var(--scale-golf);
+    min-height: var(--o-ui-scale-golf);
     padding: 0 var(--o-ui-padding-sm);
 }
 
 /* SIZE */
 /* SIZE | MEDIUM */
 .o-ui-tag-md {
-    min-height: var(--scale-hotel);
+    min-height: var(--o-ui-scale-hotel);
     padding: 0 var(--o-ui-padding-md);
 }
 
@@ -52,7 +82,7 @@ a.o-ui-tag:hover {
 
 /* SOLID */
 .o-ui-tag-solid {
-    background-color: var(--cloud-50);
+    background-color: var(--o-ui-background-3);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES */
@@ -61,12 +91,12 @@ button.o-ui-tag-solid:hover,
 a.o-ui-tag-solid:hover,
 button.o-ui-tag-solid.o-ui-tag-hover,
 a.o-ui-tag-solid.o-ui-tag-hover {
-    background-color: var(--cloud-100);
+    background-color: var(--o-ui-background-2);
 }
 
 button.o-ui-tag:hover,
 a.o-ui-tag:hover {
-    background-color: var(--cloud-100);
+    background-color: var(--o-ui-background-2);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | ACTIVE */
@@ -74,7 +104,7 @@ button.o-ui-tag-solid:active,
 a.o-ui-tag-solid:active
 button.o-ui-tag-solid.o-ui-tag-active,
 a.o-ui-tag-solid.o-ui-tag-active {
-    background-color: var(--cloud-200);
+    background-color: var(--o-ui-background-2-hover);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | FOCUS */
@@ -83,7 +113,6 @@ a.o-ui-tag-solid:focus,
 button.o-ui-tag-solid.o-ui-tag-focus,
 a.o-ui-tag-solid.o-ui-tag-focus {
     outline: none;
-    box-shadow: var(--o-ui-focus-ring);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED */
@@ -104,7 +133,7 @@ a.o-ui-tag-solid[disabled]:hover,
 a.o-ui-tag-solid.o-ui-tag-disabled:hover,
 a.o-ui-tag-solid[disabled].o-ui-tag-hover,
 a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
-    background-color: var(--cloud-50);
+    background-color: var(--o-ui-background-3);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
@@ -121,8 +150,8 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
 
 /* OUTLINE */
 .o-ui-tag-outline {
-    background-color: var(--white);
-    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+    background-color: var(--o-ui-background-1);
+    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES */
@@ -132,7 +161,7 @@ a.o-ui-tag-outline:hover,
 button.o-ui-tag-outline.o-ui-tag-hover,
 a.o-ui-tag-outline.o-ui-tag-hover {
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-300) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-border-1-hover) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | ACTIVE */
@@ -141,7 +170,7 @@ a.o-ui-tag-outline:active,
 button.o-ui-tag-outline.o-ui-tag-active,
 a.o-ui-tag-outline.o-ui-tag-active {
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-500) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS */
@@ -151,7 +180,51 @@ button.o-ui-tag-outline.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-focus {
     outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--cloud-200) inset, var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
+}
+
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & ACTIVE */
+a.o-ui-tag-outline:focus:active,
+a.o-ui-tag-outline.o-ui-tag-focus:active,
+a.o-ui-tag-outline:focus.o-ui-tag-active,
+a.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active
+button.o-ui-tag-outline:focus:active,
+button.o-ui-tag-outline.o-ui-tag-focus:active,
+button.o-ui-tag-outline:focus.o-ui-tag-active,
+button.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active {
+    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
+}
+
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER */
+a.o-ui-tag-outline:hover:focus,
+a.o-ui-tag-outline.o-ui-tag-hover:focus,
+a.o-ui-tag-outline:hover.o-ui-tag-focus,
+a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus,
+button.o-ui-tag-outline:hover:focus,
+button.o-ui-tag-outline.o-ui-tag-hover:focus,
+button.o-ui-tag-outline:hover.o-ui-tag-focus,
+button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus {
+    box-shadow: 0 0 0 1px var(--o-ui-border-1-hover) inset;
+}
+
+/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER & ACTIVE */
+a.o-ui-tag-outline:hover:focus:active,
+a.o-ui-tag-outline.o-ui-tag-hover:focus:active,
+a.o-ui-tag-outline:hover.o-ui-tag-focus:active,
+a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
+a.o-ui-tag-outline.o-ui-tag-active:hover:focus,
+a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus,
+a.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
+a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus,
+button.o-ui-tag-outline:hover:focus:active,
+button.o-ui-tag-outline.o-ui-tag-hover:focus:active,
+button.o-ui-tag-outline:hover.o-ui-tag-focus:active,
+button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
+button.o-ui-tag-outline.o-ui-tag-active:hover:focus,
+button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus,
+button.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
+button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus{
+    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */
@@ -172,7 +245,7 @@ button.o-ui-tag-outline[disabled].o-ui-tag-focus,
 a.o-ui-tag-outline[disabled].o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus {
-    box-shadow: 0 0 0 1px var(--cloud-200) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-background-2) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
@@ -184,18 +257,18 @@ button.o-ui-tag-outline[disabled].o-ui-tag-hover,
 a.o-ui-tag-outline[disabled].o-ui-tag-hover,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover,
 a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
-    box-shadow: 0 0 0 1px var(--cloud-200) inset;
-    cursor: default;
+    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
+    cursor: not-allowed;
 }
 
 /* CONTENT | DOT */
 .o-ui-tag-dot {
-    margin-right: var(--scale-bravo);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 /* CONTENT | ICON */
 .o-ui-tag-icon {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* CONTENT | ICON | SMALL */
@@ -226,7 +299,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 
 /* CONTENT | REMOVE BUTTON */
 .o-ui-tag-remove-button {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* CONTENT | REMOVE BUTTON | SMALL */

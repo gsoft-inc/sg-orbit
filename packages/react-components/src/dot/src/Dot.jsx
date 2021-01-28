@@ -50,7 +50,7 @@ export function InnerDot(props) {
                         children && "has-label"
                     ),
                     style: {
-                        "--o-ui-dot-color": color && `var(--${color})`
+                        "--o-ui-dot-color": color && `var(--o-ui-${color})`
                     },
                     as,
                     ref: forwardedRef

@@ -1,7 +1,7 @@
 @import "./Input.css";
 
 :root {
-    --o-ui-spinner-width: var(--scale-foxtrot);
+    --o-ui-spinner-width: var(--o-ui-scale-foxtrot);
 }
 
 /* INPUT */
@@ -23,7 +23,8 @@
 }
 
 .o-ui-number-input {
-    width: 150px;
+    /* 150px @ 16px */
+    width: 9.365rem;
 }
 
 /* SPINNER */
@@ -32,12 +33,17 @@
     visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
-    min-height: calc(var(--scale-hotel) - 2px);
+    min-height: calc(var(--o-ui-scale-hotel) - 2px);
     margin: 1px;
     position: absolute;
     right: 0;
     bottom: 0;
     z-index: 1;
+}
+
+/* TRANSPARENT */
+.o-ui-input-transparent .o-ui-number-input-spinner {
+    margin: 0;
 }
 
 .o-ui-number-input-spinner-increment,
@@ -51,7 +57,7 @@
     border-left: 1px solid var(--o-ui-border-color);
     outline: none;
     cursor: pointer;
-    background-color: var(--o-ui-neutral-100);
+    background-color: var(--o-ui-background-4);
 }
 
 .o-ui-number-input-spinner-increment {
@@ -72,7 +78,7 @@
 }
 
 .o-ui-number-input-spinner .o-ui-icon {
-    fill: var(--marine-900);
+    fill: var(--icon-1);
 }
 
 /* SPINNER | ACTIVE */
@@ -80,20 +86,13 @@
 .o-ui-number-input-spinner-decrement:active,
 .o-ui-number-input-spinner-increment:hover:active,
 .o-ui-number-input-spinner-decrement:hover:active {
-    background-color: var(--marine-500);
-}
-
-.o-ui-number-input-spinner-increment:active .o-ui-icon,
-.o-ui-number-input-spinner-decrement:active .o-ui-icon,
-.o-ui-number-input-spinner-increment:hover:active .o-ui-icon,
-.o-ui-number-input-spinner-decrement:hover:active .o-ui-icon {
-    fill: var(--white);
+    background-color: var(--o-ui-background-4-active);
 }
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--marine-50);
+    background-color: var(--o-ui-background-4-hover);
 }
 
 .o-ui-number-input-spinner-increment:disabled,
@@ -109,20 +108,20 @@
 /* SPINNER | TRANSPARENT */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement {
-    background-color: none;
+    background-color: transparent;
     border: 0;
 }
 
 /* SPINNER | TRANSPARENT | HOVER */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--marine-50);
+    background-color: var(--o-ui-background-4-hover);
 }
 
 /* SPINNER | TRANSPARENT | HOVER ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active:hover {
-    background-color: var(--marine-500);
+    background-color: var(--o-ui-background-4-active);
 }
 
 .o-ui-input-transparent .o-ui-number-input-spinner-increment {
@@ -132,5 +131,5 @@
 /* SPINNER | TRANSPARENT | ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
-    background-color: var(--neutral-300);
+    background-color: var(--o-ui-background-4-active);
 }

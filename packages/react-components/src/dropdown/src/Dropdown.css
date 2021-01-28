@@ -7,12 +7,12 @@
 .o-ui.dropdown .title-trigger {
     background: none;
     border: none;
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
     padding: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: var(--type-scale-7);
+    font-size: var(--o-ui-type-scale-7);
     line-height: 1;
     transition: background-color .15s ease-in;
 }
@@ -25,40 +25,40 @@
 
 /* Dropdown | Title Trigger | Disabled */
 .o-ui.dropdown .title-trigger[disabled] {
-    color: var(--marine-200);
+    color: var(--o-ui-marine-200);
     cursor: default;
 }
 
 /* Dropdown | Title Trigger | Icon | Disabled */
 .o-ui.dropdown .title-trigger[disabled] .icon {
-    fill: var(--marine-200);
+    fill: var(--o-ui-marine-200);
 }
 
 /* Dropdown | Title Trigger | Small */
 .o-ui.dropdown .title-trigger.small {
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 /* Dropdown | Title Trigger | Large */
 .o-ui.dropdown .title-trigger.large {
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
 }
 
 /* Dropdown | Title Trigger | Text */
 .o-ui.dropdown .title-trigger .text {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* Dropdown | Title Trigger | Icon */
 .o-ui.dropdown .title-trigger.with-icon .text {
-    margin-left: var(--scale-alpha);
-    margin-right: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* Dropdown | Title Trigger | Focus */
 .o-ui.dropdown .title-trigger:focus,
 .o-ui.dropdown .title-trigger.focus {
-    background-color: var(--primary-50);
+    background-color: var(--o-ui-primary-50);
     outline: none;
     border-radius: 2px;
 }
@@ -75,8 +75,8 @@
 
 /* Dropdown Menu */
 .o-ui.dropdown-menu {
-    border: 1px solid var(--cloud-100);
-    border-radius: var(--scale-alpha);
+    border: 1px solid var(--o-ui-border-1);
+    border-radius: var(--o-ui-scale-alpha);
     overflow-x: hidden;
     overflow-y: auto;
     min-width: 175px;
@@ -87,23 +87,23 @@
     font-size: 1em;
     text-shadow: none;
     text-align: left;
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
     will-change: transform, opacity;
     outline: none;
 }
 
 /* Dropdown Menu | Title */
 .o-ui.dropdown-menu .title {
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
     letter-spacing: -0.155px;
     display: flex;
     align-items: center;
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
     font-weight: 500;
     text-transform: uppercase;
     margin: 0;
     padding: .25rem 1rem;
-    min-height: var(--scale-hotel);
+    min-height: var(--o-ui-scale-hotel);
 }
 
 /* Dropdown Menu | Title | Text */
@@ -113,22 +113,22 @@
 
 /* Dropdown Menu | Title | Icon */
 .o-ui.dropdown-menu .title .icon {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* Dropdown Menu | Title | Small */
 .o-ui.dropdown-menu.small .title {
-    min-height: var(--scale-golf);
+    min-height: var(--o-ui-scale-golf);
 }
 
 /* Dropdown Menu | Title | Large */
 .o-ui.dropdown-menu.large .title {
-    min-height: var(--scale-india);
+    min-height: var(--o-ui-scale-india);
 }
 
 /* Dropdown Menu | Divider */
 .o-ui.dropdown-menu .divider {
-    border-top: 1px solid var(--cloud-100);
+    border-top: 1px solid var(--o-ui-border-1);
     height: 0;
 }
 
@@ -146,7 +146,7 @@
     height: auto;
     text-align: left;
     line-height: 1;
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
     font-size: 1rem;
     text-transform: none;
     font-weight: 400;
@@ -161,38 +161,38 @@
 /* Dropdown Menu | Item | Small */
 .o-ui.dropdown-menu.small .item {
     min-height: 2rem;
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
 }
 
 /* Dropdown Menu | Item | Large */
 .o-ui.dropdown-menu.large .item {
     min-height: 3rem;
-    font-size: var(--type-scale-6);
+    font-size: var(--o-ui-type-scale-6);
 }
 
 /* Dropdown Menu | Item | Text | Disabled */
 .o-ui.dropdown-menu .item[disabled] .text {
-    color: var(--cloud-200);
+    color: var(--o-ui-cloud-200);
 }
 
 /* Dropdown Menu | Item | Text | Left Icon  */
 .o-ui.dropdown-menu .item.with-left-icon .text {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* Dropdown Menu | Item | Text | Right Icon  */
 .o-ui.dropdown-menu .item.with-right-icon .text {
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* Dropdown Menu | Item | Icon | Disabled */
 .o-ui.dropdown-menu .item[disabled] .icon {
-    fill: var(--cloud-200);
+    fill: var(--o-ui-cloud-200);
 }
 
 /* Dropdown Menu | Item as a link */
 .o-ui.dropdown-menu a[href].item .text {
-    color: var(--primary-500);
+    color: var(--o-ui-text-primary);
     border-bottom: 1px solid var(--transparent);
     transition: border-bottom .15s ease-in;
 }
@@ -202,26 +202,26 @@
 .o-ui.dropdown-menu a[href^="https://"].item:hover .text,
 .o-ui.dropdown-menu a[href^="http://"].item.hover .text,
 .o-ui.dropdown-menu a[href^="https://"].item.hover .text {
-    border-bottom: 1px solid var(--primary-500);
+    border-bottom: 1px solid var(--o-ui-border-primary-1);
 }
 
 /* Dropdown Menu | Item | Hover */
 .o-ui.dropdown-menu .item:hover,
 .o-ui.dropdown-menu .item.hover {
-    background: var(--primary-50);
+    background: var(--o-ui-background-primary);
     z-index: 13;
 }
 
 /* Dropdown Menu | Item | Selected */
 .o-ui.dropdown-menu .item.selected {
     outline: none;
-    background-color: var(--primary-50);
+    background-color: var(--o-ui-primary-50);
 }
 
 /* Dropdown Menu | Item | Disabled */
 .o-ui.dropdown-menu .item[disabled] {
-    background-color: var(--cloud-50);
-    border-color: var(--cloud-50);
+    background-color: var(--o-ui-background-3);
+    border-color: var(--o-ui-border-2);
     cursor: not-allowed;
 }
 
@@ -230,8 +230,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0 0 0 var(--scale-bravo);
-    color: var(--cloud-300);
+    margin: 0 0 0 var(--o-ui-scale-bravo);
+    color: var(--o-ui-cloud-300);
 }
 
 /* Dropdown Menu | Scrolling */

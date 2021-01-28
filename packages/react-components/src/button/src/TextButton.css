@@ -1,10 +1,10 @@
 @import "./Button.css";
 
 :root {
-    --o-ui-text-button-rounded-padding-sm: var(--scale-delta);
-    --o-ui-text-button-rounded-padding-md: var(--scale-echo);
-    --o-ui-text-button-pill-padding-sm: var(--scale-charlie);
-    --o-ui-text-button-pill-padding-md: var(--scale-delta);
+    --o-ui-text-button-rounded-padding-sm: var(--o-ui-scale-delta);
+    --o-ui-text-button-rounded-padding-md: var(--o-ui-scale-echo);
+    --o-ui-text-button-pill-padding-sm: var(--o-ui-scale-charlie);
+    --o-ui-text-button-pill-padding-md: var(--o-ui-scale-delta);
     --o-ui-text-button-pill-padding-ratio-factor: 1.5;
     --o-ui-text-button-rounded-padding-ratio-factor: 2;
 }
@@ -16,14 +16,14 @@
     height: max-content;
 }
 
-/* CONTENT | ICON | LEFT */
+/* CONTENT | ICON | START */
 .o-ui-text-button .o-ui-button-start-icon + .o-ui-button-text {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
-/* CONTENT | ICON | RIGHT */
+/* CONTENT | ICON | END */
 .o-ui-text-button .o-ui-button-end-icon {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* SIZES */

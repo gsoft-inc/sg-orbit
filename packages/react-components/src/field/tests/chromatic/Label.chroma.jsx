@@ -1,5 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Label } from "@react-components/field";
+import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -18,10 +19,10 @@ stories()
     .add("complex", () =>
         <Inline verticalAlign="end">
             <Label size="sm">
-                <span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>
+                <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
             </Label>
             <Label>
-                <span>Where to? (<a href="https://www.google.com/sky" target="_blank" rel="noreferrer">view destinations</a>)</span>
+                <span>Where to? ( <TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
             </Label>
         </Inline>
     )

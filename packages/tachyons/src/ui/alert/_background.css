@@ -1,120 +1,120 @@
 .bg-alert-50 {
-    background-color: var(--alert-50);
+    background-color: var(--o-ui-alert-50);
 }
 
 .bg-alert-100 {
-    background-color: var(--alert-100);
+    background-color: var(--o-ui-alert-100);
 }
 
 .bg-alert-200 {
-    background-color: var(--alert-200);
+    background-color: var(--o-ui-alert-200);
 }
 
 .bg-alert-300 {
-    background-color: var(--alert-300);
+    background-color: var(--o-ui-alert-300);
 }
 
 .bg-alert-400 {
-    background-color: var(--alert-400);
+    background-color: var(--o-ui-alert-400);
 }
 
 .bg-alert-500 {
-    background-color: var(--alert-500);
+    background-color: var(--o-ui-alert-500);
 }
 
 .bg-alert-600 {
-    background-color: var(--alert-600);
+    background-color: var(--o-ui-alert-600);
 }
 
 .bg-alert-700 {
-    background-color: var(--alert-700);
+    background-color: var(--o-ui-alert-700);
 }
 
 .bg-alert-800 {
-    background-color: var(--alert-800);
+    background-color: var(--o-ui-alert-800);
 }
 
 .bg-alert-900 {
-    background-color: var(--alert-900);
+    background-color: var(--o-ui-alert-900);
 }
 
 .hover-bg-alert-50:hover {
-    background-color: var(--alert-50);
+    background-color: var(--o-ui-alert-50);
 }
 
 .hover-bg-alert-100:hover {
-    background-color: var(--alert-100);
+    background-color: var(--o-ui-alert-100);
 }
 
 .hover-bg-alert-200:hover {
-    background-color: var(--alert-200);
+    background-color: var(--o-ui-alert-200);
 }
 
 .hover-bg-alert-300:hover {
-    background-color: var(--alert-300);
+    background-color: var(--o-ui-alert-300);
 }
 
 .hover-bg-alert-400:hover {
-    background-color: var(--alert-400);
+    background-color: var(--o-ui-alert-400);
 }
 
 .hover-bg-alert-500:hover {
-    background-color: var(--alert-500);
+    background-color: var(--o-ui-alert-500);
 }
 
 .hover-bg-alert-600:hover {
-    background-color: var(--alert-600);
+    background-color: var(--o-ui-alert-600);
 }
 
 .hover-bg-alert-700:hover {
-    background-color: var(--alert-700);
+    background-color: var(--o-ui-alert-700);
 }
 
 .hover-bg-alert-800:hover {
-    background-color: var(--alert-800);
+    background-color: var(--o-ui-alert-800);
 }
 
 .hover-bg-alert-900:hover {
-    background-color: var(--alert-900);
+    background-color: var(--o-ui-alert-900);
 }
 
 .focus-bg-alert-50:focus {
-    background-color: var(--alert-50);
+    background-color: var(--o-ui-alert-50);
 }
 
 .focus-bg-alert-100:focus {
-    background-color: var(--alert-100);
+    background-color: var(--o-ui-alert-100);
 }
 
 .focus-bg-alert-200:focus {
-    background-color: var(--alert-200);
+    background-color: var(--o-ui-alert-200);
 }
 
 .focus-bg-alert-300:focus {
-    background-color: var(--alert-300);
+    background-color: var(--o-ui-alert-300);
 }
 
 .focus-bg-alert-400:focus {
-    background-color: var(--alert-400);
+    background-color: var(--o-ui-alert-400);
 }
 
 .focus-bg-alert-500:focus {
-    background-color: var(--alert-500);
+    background-color: var(--o-ui-alert-500);
 }
 
 .focus-bg-alert-600:focus {
-    background-color: var(--alert-600);
+    background-color: var(--o-ui-alert-600);
 }
 
 .focus-bg-alert-700:focus {
-    background-color: var(--alert-700);
+    background-color: var(--o-ui-alert-700);
 }
 
 .focus-bg-alert-800:focus {
-    background-color: var(--alert-800);
+    background-color: var(--o-ui-alert-800);
 }
 
 .focus-bg-alert-900:focus {
-    background-color: var(--alert-900);
+    background-color: var(--o-ui-alert-900);
 }
 
