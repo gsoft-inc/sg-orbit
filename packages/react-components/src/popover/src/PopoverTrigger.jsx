@@ -19,7 +19,7 @@ const propTypes = {
      */
     trigger: oneOf(["click", "hover"]),
     /**
-     * Position of the popover element.
+     * Position of the popover element related to the trigger.
      */
     position: oneOf([
         "auto",
@@ -38,11 +38,6 @@ const propTypes = {
         "left-start",
         "left-end"
     ]),
-    /**
-     * Allow to displace the popover element from its trigger.
-     * Ex: `[10, -10]`
-     */
-    offset: arrayOf(number),
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -77,13 +72,13 @@ export function InnerPopoverTrigger({
     defaultOpen,
     trigger: triggerProp = "click",
     position = "bottom",
-    offset,
     onOpenChange,
     autoFocus = true,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
     zIndex,
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -99,7 +94,6 @@ export function InnerPopoverTrigger({
         restoreFocus: true,
         trigger: triggerProp,
         position,
-        offset: offset ?? [0, 4],
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
@@ -126,6 +120,7 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        as,
                         ref: forwardedRef
                     }
                 )}

@@ -250,8 +250,6 @@ export function InnerListbox({
         }
     });
 
-    const rootId = useId(id, id ? undefined : "o-ui-listbox");
-
     useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
@@ -263,6 +261,8 @@ export function InnerListbox({
             containerRef.current?.focus();
         }
     });
+
+    const rootId = useId(id, id ? undefined : "o-ui-listbox");
 
     const renderSection = ({
         key,

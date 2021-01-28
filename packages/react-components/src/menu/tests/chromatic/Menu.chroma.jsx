@@ -1,6 +1,6 @@
-import { Inline, Stack } from "@react-components/layout";
+import { ActionMenu, Menu } from "@react-components/menu";
+import { Button } from "@react-components/button";
 import { Item } from "@react-components/placeholders";
-import { Menu } from "@react-components/menu";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -15,12 +15,15 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Menu>
-            <Item key="new">New</Item>
-            <Item key="open">Open...</Item>
-            <Item key="save">Save as...</Item>
-            <Item key="rename">Rename</Item>
-            <Item key="exit">Exit</Item>
-        </Menu>
+        <ActionMenu>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="new">New</Item>
+                <Item key="open">Open...</Item>
+                <Item key="save">Save as...</Item>
+                <Item key="rename">Rename</Item>
+                <Item key="exit">Exit</Item>
+            </Menu>
+        </ActionMenu>
     );
 

@@ -1,14 +1,16 @@
 import "./Menu.css";
 
 import { Box } from "../../box";
+import { MenuContext } from "./MenuContext";
+import { MenuItem } from "./MenuItem";
+import { NodeType, useCollection } from "../../collection";
 import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { mergeProps, useId } from "../../shared";
 
 /*
 TODO:
     - orientation
     - aria-label | aria-labelledby
-    - use UL / LI
 */
 
 const propTypes = {
@@ -16,26 +18,63 @@ const propTypes = {
 };
 
 export function InnerMenu({
-    as = "div",
+    id,
+    onSelect,
+    as = "ul",
     children,
     forwardedRef,
     ...rest
 }) {
+    const nodes = useCollection(children);
+
+    const rootId = useId(id, id ? undefined : "o-ui-menu");
+
+    const renderSection = (
+        <div>Section</div>
+    );
+
+    const renderOption = ({
+        key,
+        elementType: ElementType = MenuItem,
+        ref,
+        content,
+        props
+    }) => (
+        <ElementType
+            {...props}
+            id={`${rootId}-item-${key}`}
+            key={key}
+            ref={ref}
+            item={{ key: key }}
+        >
+            {content}
+        </ElementType>
+    );
+
     return (
         <Box
             {...mergeProps(
                 rest,
                 {
+                    id: rootId,
                     className: "o-ui-menu",
                     role: "menu",
-                    tabIndex: "-1",
+                    // tabIndex: "-1",
                     "aria-orientation": "vertical",
                     as,
                     ref: forwardedRef
                 }
             )}
         >
-            {children}
+            <MenuContext.Provider
+                value={{
+                    onSelect
+                }}
+            >
+                {nodes.map(({ type, ...nodeProps }) =>
+                    type === NodeType.section ? renderSection(nodeProps) : renderOption(nodeProps)
+                )}
+            </MenuContext.Provider>
         </Box>
     );
 }

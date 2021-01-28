@@ -40,6 +40,27 @@ export function InnerListboxOption({
 }) {
     const { selectedKeys, onSelect } = useListboxContext();
 
+    const handleClick = useEventCallback(event => {
+        onSelect(event, key);
+    });
+
+    const handleKeyDown = useEventCallback(event => {
+        switch(event.keyCode) {
+            case Keys.enter:
+            case Keys.space:
+                event.preventDefault();
+                onSelect(event, key);
+                break;
+        }
+    });
+
+    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    const handleKeyUp = useEventCallback(event => {
+        if (event.keyCode === Keys.space) {
+            event.preventDefault();
+        }
+    });
+
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
@@ -65,27 +86,6 @@ export function InnerListboxOption({
         }
     });
 
-    const handleClick = useEventCallback(event => {
-        onSelect(event, key);
-    });
-
-    const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
-            case Keys.enter:
-            case Keys.space:
-                event.preventDefault();
-                onSelect(event, key);
-                break;
-        }
-    });
-
-    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
-            event.preventDefault();
-        }
-    });
-
     return (
         <Box
             {...mergeProps(
@@ -101,7 +101,6 @@ export function InnerListboxOption({
                         focus && "focus",
                         hover && "hover"
                     ),
-                    as,
                     role: "option",
                     tabIndex: !disabled ? "-1" : undefined,
                     "data-o-ui-key": key,
@@ -109,6 +108,7 @@ export function InnerListboxOption({
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
                     "aria-describedby": descriptionId,
+                    as,
                     ref: forwardedRef
                 }
             )}
