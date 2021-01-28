@@ -95,7 +95,7 @@
 .ui.checkbox input:checked:focus ~ label:before,
 .ui.checkbox.focus input:checked ~ .box:before,
 .ui.checkbox.focus input:checked ~ label:before {
-    border-color: var(--o-ui-border-primary);
+    border-color: var(--o-ui-border-primary-1);
 }
 
 .ui.indeterminate.checkbox:hover label:before {
@@ -106,7 +106,7 @@
 .ui.checkbox input:checked:focus ~ label:before,
 .ui.checkbox.focus input:checked ~ .box:before,
 .ui.checkbox.focus input:checked ~ label:before {
-    border-color: var(--o-ui-border-primary);
+    border-color: var(--o-ui-border-primary-1);
 }
 
 .ui.checkbox:not(.radio):not(.toggle) input:checked ~ .box:after,

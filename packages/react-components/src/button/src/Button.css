@@ -262,7 +262,7 @@ a.o-ui-button {
 /* OUTLINE | DANGER */
 .o-ui-button-outline.o-ui-button-danger {
     box-shadow: 0 0 0 1px var(--o-ui-border-danger-1) inset;
-    color: var(--o-ui-text-danger);
+    color: var(--o-ui-text-danger-1);
     --o-ui-focus-ring-color: var(--o-ui-border-danger-1);
 }
 

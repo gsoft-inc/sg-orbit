@@ -99,7 +99,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:focus:before,
 .o-ui-tab-focus:before {
-    border-color: var(--o-ui-border-primary);
+    border-color: var(--o-ui-border-primary-1);
 }
 
 .o-ui-tab:focus,

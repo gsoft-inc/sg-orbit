@@ -170,38 +170,38 @@
 /* VARIATIONS */
 /* PRIMARY */
 .o-ui-link-primary {
-    color: var(--o-ui-text-primary);
+    color: var(--o-ui-text-primary-1);
 }
 
 /* PRIMARY | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-primary,
 .o-ui-link-hover.o-ui-link-primary {
-    color: var(--o-ui-text-primary-hover);
+    color: var(--o-ui-text-primary-1-hover);
 }
 
 /* PRIMARY | STATE | FOCUS */
 .o-ui-link:focus.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
-    background-color: var(--o-ui-background-primary-focus);
-    box-shadow: 0 0 0 2px var(--o-ui-background-primary-focus);
+    background-color: var(--o-ui-background-primary-1-focus);
+    box-shadow: 0 0 0 2px var(--o-ui-background-primary-1-focus);
 }
 
 /* PRIMARY | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-primary,
 .o-ui-link-active.o-ui-link-primary {
-    color: var(--o-ui-text-primary-active);
+    color: var(--o-ui-text-primary-1-active);
 }
 
 /* DANGER */
 .o-ui-link-danger {
-    --o-ui-focus-ring-color: var(--o-ui-border-danger);
-    color: var(--o-ui-text-danger);
+    --o-ui-focus-ring-color: var(--o-ui-border-danger-1);
+    color: var(--o-ui-text-danger-1);
 }
 
 /* DANGER | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-danger,
 .o-ui-link-hover.o-ui-link-danger {
-    color: var(--o-ui-text-danger-hover);
+    color: var(--o-ui-text-danger-1-hover);
 }
 
 /* DANGER | STATE | FOCUS */
@@ -214,7 +214,7 @@
 /* DANGER | STATE | ACTIVE */
 .o-ui-link:active.o-ui-link-danger,
 .o-ui-link-active.o-ui-link-danger {
-    color: var(--o-ui-text-danger-active);
+    color: var(--o-ui-text-danger-1-active);
 }
 
 /* SECONDARY */

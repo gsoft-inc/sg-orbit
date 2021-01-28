@@ -19,5 +19,5 @@
 
 /* INVALID */
 .o-ui-field-message-error {
-    color: var(--o-ui-text-danger);
+    color: var(--o-ui-text-danger-1);
 }

@@ -12,7 +12,7 @@ html * {
     --o-ui-background-5-light: var(--o-ui-marine-500);
     --o-ui-background-5-hover-light: var(--o-ui-marine-700);
     --o-ui-background-5-active-light: var(--o-ui-marine-900);
-    --o-ui-background-primary-light: var(--o-ui-primary-500);
+    --o-ui-background-primary-1-light: var(--o-ui-primary-500);
     --o-ui-background-primary-1-hover-light: var(--o-ui-primary-700);
     --o-ui-background-primary-1-active-light: var(--o-ui-primary-900);
     --o-ui-background-primary-1-focus-light: var(--o-ui-primary-50);

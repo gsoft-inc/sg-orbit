@@ -85,9 +85,9 @@
     --o-ui-border-3-active: var(--o-ui-border-3-active-light);
     --o-ui-border-4: var(--o-ui-border-4-light);
     --o-ui-border-4-hover: var(--o-ui-border-4-hover-light);
-    --o-ui-border-primary: var(--o-ui-border-primary-1-light);
-    --o-ui-border-primary-hover: var(--o-ui-border-primary-1-hover-light);
-    --o-ui-border-primary-active: var(--o-ui-border-primary-1-active-light);
+    --o-ui-border-primary-1: var(--o-ui-border-primary-1-light);
+    --o-ui-border-primary-1-hover: var(--o-ui-border-primary-1-hover-light);
+    --o-ui-border-primary-1-active: var(--o-ui-border-primary-1-active-light);
     --o-ui-border-danger-1: var(--o-ui-border-danger-1-light);
     --o-ui-border-danger-1-hover: var(--o-ui-border-danger-1-hover-light);
     --o-ui-border-danger-1-active: var(--o-ui-border-danger-1-active-light);

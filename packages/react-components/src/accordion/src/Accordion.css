@@ -118,5 +118,5 @@
 
 .o-ui-accordion-trigger:focus::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--o-ui-border-primary);
+    border-color: var(--o-ui-border-primary-1);
 }

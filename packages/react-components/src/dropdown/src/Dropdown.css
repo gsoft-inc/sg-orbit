@@ -202,7 +202,7 @@
 .o-ui.dropdown-menu a[href^="https://"].item:hover .text,
 .o-ui.dropdown-menu a[href^="http://"].item.hover .text,
 .o-ui.dropdown-menu a[href^="https://"].item.hover .text {
-    border-bottom: 1px solid var(--o-ui-border-primary);
+    border-bottom: 1px solid var(--o-ui-border-primary-1);
 }
 
 /* Dropdown Menu | Item | Hover */
