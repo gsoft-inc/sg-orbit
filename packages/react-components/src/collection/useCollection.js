@@ -100,14 +100,12 @@ export class CollectionBuilder {
 
         return Children.map(elements, (element, position) => {
             switch (element.type) {
-                case Item:
-                    return that._parseItem(element, position, nextIndex);
                 case Section:
                     return that._parseSection(element, position, nextIndex);
                 case Divider:
                     return that._parseDivider(element, position, nextIndex);
                 default:
-                    throw new Error(`Unsupported collection type: ${element.type}.`);
+                    return that._parseItem(element, position, nextIndex);
             }
         });
     }
