@@ -123,7 +123,7 @@
 
 .o-ui-checkbox-checked.o-ui-checkbox-invalid .o-ui-checkbox-box {
     background-color: var(--o-ui-background-danger-1);
-    box-shadow: 0 0 0 1px var(--o-ui-border-danger);
+    box-shadow: 0 0 0 1px var(--o-ui-border-danger-1);
 }
 
 .o-ui-checkbox.o-ui-checkbox-invalid:hover .o-ui-checkbox-box {

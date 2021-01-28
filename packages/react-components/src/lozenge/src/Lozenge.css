@@ -34,7 +34,7 @@
 
 /* PRIMARY */
 .o-ui-lozenge.o-ui-lozenge-primary {
-    background-color: var(--o-ui-background-primary);
+    background-color: var(--o-ui-background-primary-1);
     color: var(--o-ui-static-white);
 }
 

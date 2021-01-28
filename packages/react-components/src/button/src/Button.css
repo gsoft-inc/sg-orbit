@@ -236,7 +236,7 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-border-primary-1) inset;
     color: var(--o-ui-static-white);
-    background-color: var(--o-ui-background-primary);
+    background-color: var(--o-ui-background-primary-1);
 }
 
 /* OUTLINE | SECONDARY */
