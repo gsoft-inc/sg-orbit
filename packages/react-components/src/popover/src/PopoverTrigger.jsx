@@ -94,6 +94,7 @@ export function InnerPopoverTrigger({
         restoreFocus: true,
         trigger: triggerProp,
         position,
+        offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
