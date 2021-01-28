@@ -264,22 +264,6 @@ export function InnerListbox({
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");
 
-    const renderSection = ({
-        key,
-        ref,
-        props,
-        items: sectionItems
-    }) => (
-        <ListboxSection
-            {...props}
-            id={`${rootId}-section-${key}`}
-            key={key}
-            ref={ref}
-        >
-            {sectionItems.map(x => renderOption(x))}
-        </ListboxSection>
-    );
-
     const renderOption = ({
         key,
         elementType: ElementType = ListboxOption,
@@ -295,6 +279,23 @@ export function InnerListbox({
             item={{ key: key }}
         >
             {content}
+        </ElementType>
+    );
+
+    const renderSection = ({
+        key,
+        elementType: ElementType = ListboxSection,
+        ref,
+        props,
+        items: sectionItems
+    }) => (
+        <ElementType
+            {...props}
+            id={`${rootId}-section-${key}`}
+            key={key}
+            ref={ref}
+        >
+            {sectionItems.map(x => renderOption(x))}
         </ElementType>
     );
 
@@ -323,9 +324,16 @@ export function InnerListbox({
                     onSelect: handleSelect
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) =>
-                    type === NodeType.section ? renderSection(nodeProps) : renderOption(nodeProps)
-                )}
+                {nodes.map(({ type, ...nodeProps }) => {
+                    switch (type) {
+                        case NodeType.item:
+                            return renderOption(nodeProps);
+                        case NodeType.section:
+                            return renderSection(nodeProps);
+                        default:
+                            return null;
+                    }
+                })}
             </ListboxContext.Provider>
         </Box>
     );

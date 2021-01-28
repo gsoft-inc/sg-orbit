@@ -1,4 +1,5 @@
 import { Children, useMemo } from "react";
+import { Divider } from "../divider";
 import { Item, Section } from "../placeholders";
 import { any, array, element as elementProp, elementType, number, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
@@ -13,15 +14,34 @@ export const NodeShape = {
     ref: any,
     content: oneOfType([elementProp, string]),
     props: object,
-    items: array // Section only
+    items: array // Sections only
 };
 
 export const NodeType = {
     item: "item",
-    section: "section"
+    section: "section",
+    divider: "divider"
 };
 
 export class CollectionBuilder {
+    _parseItem(element, position, nextIndex) {
+        const { children, ...props } = element.props;
+
+        const index = nextIndex();
+
+        return {
+            key: !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : index.toString(),
+            position,
+            index,
+            type: NodeType.item,
+            // Use a custom type if available otherwise let the final component choose his type.
+            elementType: element.type !== Item ? element.type : undefined,
+            ref: element.ref,
+            content: children,
+            props
+        };
+    }
+
     _parseSection(element, position, nextIndex) {
         const { children, ...props } = element.props;
 
@@ -45,18 +65,18 @@ export class CollectionBuilder {
         };
     }
 
-    _parseItem(element, position, nextIndex) {
+    _parseDivider(element, position, nextIndex) {
         const { children, ...props } = element.props;
 
         const index = nextIndex();
 
         return {
-            key: !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : index.toString(),
+            key: index.toString(),
             position,
             index,
-            type: NodeType.item,
+            type: NodeType.divider,
             // Use a custom type if available otherwise let the final component choose his type.
-            elementType: element.type !== Item ? element.type : undefined,
+            elementType: Divider,
             ref: element.ref,
             content: children,
             props
@@ -78,10 +98,18 @@ export class CollectionBuilder {
 
         const that = this;
 
-        return Children.map(elements, (element, position) =>
-            element.type === Section
-                ? that._parseSection(element, position, nextIndex)
-                : that._parseItem(element, position, nextIndex));
+        return Children.map(elements, (element, position) => {
+            switch (element.type) {
+                case Item:
+                    return that._parseItem(element, position, nextIndex);
+                case Section:
+                    return that._parseSection(element, position, nextIndex);
+                case Divider:
+                    return that._parseDivider(element, position, nextIndex);
+                default:
+                    throw new Error(`Unsupported collection type: ${element.type}.`);
+            }
+        });
     }
 }
 

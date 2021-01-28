@@ -1,6 +1,7 @@
-import { ActionMenu, Menu } from "@react-components/menu";
 import { Button } from "@react-components/button";
-import { Item } from "@react-components/placeholders";
+import { Divider } from "@react-components/divider";
+import { Item, Section } from "@react-components/placeholders";
+import { Menu, MenuTrigger } from "@react-components/menu";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -15,15 +16,75 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <ActionMenu>
+        <MenuTrigger>
             <Button>Trigger</Button>
             <Menu>
-                <Item key="new">New</Item>
-                <Item key="open">Open...</Item>
-                <Item key="save">Save as...</Item>
-                <Item key="rename">Rename</Item>
-                <Item key="exit">Exit</Item>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
             </Menu>
-        </ActionMenu>
+        </MenuTrigger>
+    )
+    .add("open with items only", () =>
+        <MenuTrigger defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with sections", () =>
+        <MenuTrigger defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Section title="Visited">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Section>
+                <Section title="Not Visited">
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Section>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with dividers", () =>
+        <MenuTrigger defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Divider />
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Divider />
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("scrolling", () =>
+        <MenuTrigger defaultOpen>
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </MenuTrigger>
     );
 

@@ -144,7 +144,7 @@ export function createTestSuite(element, stories) {
             </Inline>
         )
         .add("scrolling", () =>
-            <Select placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="ceres">Ceres</Item>
                 <Item key="charon">Charon</Item>
                 <Item key="earth">Earth</Item>

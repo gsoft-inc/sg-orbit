@@ -7,7 +7,7 @@ const propTypes = {
     /**
      * The section name.
      */
-    title: string.isRequired,
+    title: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */

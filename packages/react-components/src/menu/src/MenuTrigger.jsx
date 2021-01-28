@@ -1,5 +1,4 @@
 import { Children, forwardRef } from "react";
-import { MenuContext } from "./MenuContext";
 import { Overlay, usePopup } from "../../overlay";
 import { any, bool, func, number, oneOf, oneOfType } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren, useEventCallback } from "../../shared";
@@ -72,7 +71,7 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-export function InnerActionMenu({
+export function InnerMenuTrigger({
     open,
     defaultOpen,
     onSelect,
@@ -141,10 +140,10 @@ export function InnerActionMenu({
     );
 }
 
-InnerActionMenu.propTypes = propTypes;
+InnerMenuTrigger.propTypes = propTypes;
 
-export const ActionMenu = forwardRef((props, ref) => (
-    <InnerActionMenu {...props} forwardedRef={ref} />
+export const MenuTrigger = forwardRef((props, ref) => (
+    <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
 
-ActionMenu.displayName = "ActionMenu";
+MenuTrigger.displayName = "MenuTrigger";

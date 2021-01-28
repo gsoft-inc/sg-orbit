@@ -3,6 +3,7 @@ import "./Menu.css";
 import { Box } from "../../box";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
+import { MenuSection } from "./MenuSection";
 import { NodeType, useCollection } from "../../collection";
 import { forwardRef } from "react";
 import { mergeProps, useId } from "../../shared";
@@ -29,10 +30,6 @@ export function InnerMenu({
 
     const rootId = useId(id, id ? undefined : "o-ui-menu");
 
-    const renderSection = (
-        <div>Section</div>
-    );
-
     const renderOption = ({
         key,
         elementType: ElementType = MenuItem,
@@ -46,6 +43,44 @@ export function InnerMenu({
             key={key}
             ref={ref}
             item={{ key: key }}
+        >
+            {content}
+        </ElementType>
+    );
+
+    const renderSection = ({
+        key,
+        elementType: ElementType = MenuSection,
+        ref,
+        props,
+        items: sectionItems
+    }) => (
+        <ElementType
+            {...props}
+            id={`${rootId}-section-${key}`}
+            key={key}
+            ref={ref}
+        >
+            {sectionItems.map(x => renderOption(x))}
+        </ElementType>
+    );
+
+    const renderDivider = ({
+        key,
+        elementType: ElementType,
+        ref,
+        content,
+        props
+    }) => (
+        <ElementType
+            {...mergeProps(
+                props,
+                {
+                    className: "o-ui-menu-divider"
+                }
+            )}
+            key={key}
+            ref={ref}
         >
             {content}
         </ElementType>
@@ -71,9 +106,18 @@ export function InnerMenu({
                     onSelect
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) =>
-                    type === NodeType.section ? renderSection(nodeProps) : renderOption(nodeProps)
-                )}
+                {nodes.map(({ type, ...nodeProps }) => {
+                    switch (type) {
+                        case NodeType.item:
+                            return renderOption(nodeProps);
+                        case NodeType.section:
+                            return renderSection(nodeProps);
+                        case NodeType.divider:
+                            return renderDivider(nodeProps);
+                        default:
+                            return null;
+                    }
+                })}
             </MenuContext.Provider>
         </Box>
     );
