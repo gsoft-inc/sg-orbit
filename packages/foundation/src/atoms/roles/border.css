@@ -9,9 +9,9 @@ html * {
     --o-ui-border-3-active-light: var(--o-ui-neutral-900);
     --o-ui-border-4-light: var(--o-ui-marine-500);
     --o-ui-border-4-hover-light: var(--o-ui-marine-700);
-    --o-ui-border-primary-light: var(--o-ui-primary-500);
-    --o-ui-border-primary-hover-light: var(--o-ui-primary-700);
-    --o-ui-border-primary-active-light: var(--o-ui-primary-900);
+    --o-ui-border-primary-1-light: var(--o-ui-primary-500);
+    --o-ui-border-primary-1-hover-light: var(--o-ui-primary-700);
+    --o-ui-border-primary-1-active-light: var(--o-ui-primary-900);
     --o-ui-border-danger-1-light: var(--o-ui-alert-500);
     --o-ui-border-danger-1-hover-light: var(--o-ui-alert-700);
     --o-ui-border-danger-1-active-light: var(--o-ui-alert-900);
