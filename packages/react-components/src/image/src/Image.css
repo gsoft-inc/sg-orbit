@@ -13,3 +13,8 @@
 .o-ui-image-circular {
     border-radius: var(--o-ui-circular-border-radius);
 }
+
+/* DARK MODE */
+.o-ui-dark-color-scheme .o-ui-image {
+    opacity: 0.75;
+}

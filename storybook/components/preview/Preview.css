@@ -1,13 +1,13 @@
 /* PREVIEW */
 .o-ui-sb-preview {
-    margin: var(--scale-golf) 0 var(--scale-hotel);
+    margin: var(--o-ui-scale-golf) 0 var(--o-ui-scale-hotel);
     border-radius: 4px;
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
 }
 
 /* STORY */
 .o-ui-sb-preview-story {
-    padding: var(--scale-golf) var(--scale-echo);
+    padding: var(--o-ui-scale-golf) var(--o-ui-scale-echo);
 }
 
 /* SOURCE */
@@ -21,7 +21,7 @@
     top: 3px;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--white);
+    color: var(--o-ui-white);
     z-index: 1;
     font-size: 0.75rem;
     font-weight: 600;
@@ -36,14 +36,14 @@
 
 .o-ui-sb-preview-editor .npm__react-simple-code-editor__textarea,
 .o-ui-sb-preview-editor pre {
-    padding: var(--scale-echo) !important;
+    padding: var(--o-ui-scale-echo) !important;
 }
 
 /* SOURCE | ERROR */
 .o-ui-sb-preview-error {
-    background-color: var(--alert-50);
-    color: var(--alert-900);
+    background-color: var(--o-ui-alert-50);
+    color: var(--o-ui-alert-900);
     font-size: 15px;
-    padding: var(--scale-charlie) var(--scale-echo);
+    padding: var(--o-ui-scale-charlie) var(--o-ui-scale-echo);
     margin: 0;
 }

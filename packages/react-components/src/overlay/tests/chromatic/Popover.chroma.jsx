@@ -351,7 +351,7 @@ stories()
             const { isVisible } = useContext(PopoverContext);
 
             return (
-                <RedBox style={isVisible ? { backgroundColor: "var(--primary-500)" } : undefined} />
+                <RedBox style={isVisible ? { backgroundColor: "var(--o-ui-primary-500)" } : undefined} />
             );
         };
 

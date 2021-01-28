@@ -1,48 +1,64 @@
-:root {
-    --white: #FFFFFF;
-    --transparent: transparent;
+html * {
+    --o-ui-white: #FFFFFF;
+    --o-ui-transparent: transparent;
     /* Cloud */
-    --cloud-50: #F0F1F3;
-    --cloud-100: #DADCE2;
-    --cloud-200: #C1C5CF;
-    --cloud-300: #A8ADBB;
-    --cloud-400: #959CAD;
-    --cloud-500: #828A9E;
-    --cloud-600: #7A8296;
-    --cloud-700: #6F778C;
-    --cloud-800: #656D82;
-    --cloud-900: #525A70;
+    --o-ui-opacity-cloud: 1;
+    --o-ui-cloud-50: hsla(223, 11%, 95%, var(--o-ui-opacity-cloud-50, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-100: hsla(223, 12%, 87%, var(--o-ui-opacity-cloud-100, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-200: hsla(223, 13%, 78%, var(--o-ui-opacity-cloud-200, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-300: hsla(223, 12%, 70%, var(--o-ui-opacity-cloud-300, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-400: hsla(223, 13%, 63%, var(--o-ui-opacity-cloud-400, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-500: hsla(223, 13%, 56%, var(--o-ui-opacity-cloud-500, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-600: hsla(223, 12%, 53%, var(--o-ui-opacity-cloud-600, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-700: hsla(223, 12%, 49%, var(--o-ui-opacity-cloud-700, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-800: hsla(223, 13%, 45%, var(--o-ui-opacity-cloud-800, var(--o-ui-opacity-cloud)));
+    --o-ui-cloud-900: hsla(223, 15%, 38%, var(--o-ui-opacity-cloud-900, var(--o-ui-opacity-cloud)));
     /* Neutral */
-    --neutral-50: #FBFCFC;
-    --neutral-100: #F5F6F7;
-    --neutral-200: #EFF0F3;
-    --neutral-300: #E9EAEE;
-    --neutral-400: #E4E6EA;
-    --neutral-500: #E0E2E7;
-    --neutral-600: #D0D3D8;
-    --neutral-700: #C2C4C9;
-    --neutral-800: #B1B3B8;
-    --neutral-900: #9FA1A6;
+    --o-ui-opacity-neutral: 1;
+    --o-ui-neutral-50: hsla(180, 14%, 99%, var(--o-ui-opacity-neutral-50, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-100: hsla(210, 11%, 96%, var(--o-ui-opacity-neutral-100, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-200: hsla(225, 14%, 95%, var(--o-ui-opacity-neutral-200, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-300: hsla(228, 13%, 92%, var(--o-ui-opacity-neutral-300, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-400: hsla(220, 12%, 91%, var(--o-ui-opacity-neutral-400, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-500: hsla(223, 13%, 89%, var(--o-ui-opacity-neutral-500, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-600: hsla(218, 9%, 83%, var(--o-ui-opacity-neutral-600, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-700: hsla(223, 6%, 77%, var(--o-ui-opacity-neutral-700, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-800: hsla(223, 5%, 71%, var(--o-ui-opacity-neutral-800, var(--o-ui-opacity-neutral)));
+    --o-ui-neutral-900: hsla(223, 4%, 64%, var(--o-ui-opacity-neutral-900, var(--o-ui-opacity-neutral)));
+    /* Neutral Dark */
+    --o-ui-opacity-neutral-dark: 1;
+    --o-ui-neutral-dark-50: hsla(220, 6%, 56%, var(--o-ui-opacity-neutral-dark-50, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-100: hsla(220, 6%, 52%, var(--o-ui-opacity-neutral-dark-100, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-200: hsla(220, 6%, 48%, var(--o-ui-opacity-neutral-dark-200, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-300: hsla(220, 6%, 44%, var(--o-ui-opacity-neutral-dark-300, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-400: hsla(220, 6%, 40%, var(--o-ui-opacity-neutral-dark-400, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-500: hsla(220, 6%, 36%, var(--o-ui-opacity-neutral-dark-500, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-600: hsla(220, 6%, 32%, var(--o-ui-opacity-neutral-dark-600, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-700: hsla(220, 6%, 28%, var(--o-ui-opacity-neutral-dark-700, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-800: hsla(220, 6%, 24%, var(--o-ui-opacity-neutral-dark-800, var(--o-ui-opacity-neutral-dark)));
+    --o-ui-neutral-dark-900: hsla(220, 6%, 20%, var(--o-ui-opacity-neutral-dark-900, var(--o-ui-opacity-neutral-dark)));
     /* Alert */
-    --alert-50: #FFE3E8;
-    --alert-100: #FFB2B7;
-    --alert-200: #FF878E;
-    --alert-300: #FF6A73;
-    --alert-400: #FF4E58;
-    --alert-500: #FC1242;
-    --alert-600: #DE0D35;
-    --alert-700: #CE0B31;
-    --alert-800: #BA0527;
-    --alert-900: #9C001E;
-    /* Success */
-    --success-50: #E4F9ED;
-    --success-100: #BBF0D2;
-    --success-200: #8EE7B5;
-    --success-300: #61DD97;
-    --success-400: #3FD580;
-    --success-500: #1DCE6A;
-    --success-600: #3FBB64;
-    --success-700: #2DA852;
-    --success-800: #0A8F32;
-    --success-900: #00641E;
+    --o-ui-opacity-alert: 1;
+    --o-ui-alert-50: hsla(349, 100%, 95%, var(--o-ui-opacity-alert-50, var(--o-ui-opacity-alert)));
+    --o-ui-alert-100: hsla(348, 97%, 86%, var(--o-ui-opacity-alert-100, var(--o-ui-opacity-alert)));
+    --o-ui-alert-200: hsla(348, 98%, 77%, var(--o-ui-opacity-alert-200, var(--o-ui-opacity-alert)));
+    --o-ui-alert-300: hsla(348, 98%, 67%, var(--o-ui-opacity-alert-300, var(--o-ui-opacity-alert)));
+    --o-ui-alert-400: hsla(348, 97%, 60%, var(--o-ui-opacity-alert-400, var(--o-ui-opacity-alert)));
+    --o-ui-alert-500: hsla(348, 98%, 53%, var(--o-ui-opacity-alert-500, var(--o-ui-opacity-alert)));
+    --o-ui-alert-600: hsla(348, 90%, 51%, var(--o-ui-opacity-alert-600, var(--o-ui-opacity-alert)));
+    --o-ui-alert-700: hsla(348, 83%, 50%, var(--o-ui-opacity-alert-700, var(--o-ui-opacity-alert)));
+    --o-ui-alert-800: hsla(348, 81%, 48%, var(--o-ui-opacity-alert-800, var(--o-ui-opacity-alert)));
+    --o-ui-alert-900: hsla(348, 80%, 46%, var(--o-ui-opacity-alert-900, var(--o-ui-opacity-alert)));
+    /* Green */
+    --o-ui-opacity-green: 1;
+    --o-ui-green-50: hsla(146, 64%, 94%, var(--o-ui-opacity-green-50, var(--o-ui-opacity-green)));
+    --o-ui-green-100: hsla(146, 64%, 84%, var(--o-ui-opacity-green-100, var(--o-ui-opacity-green)));
+    --o-ui-green-200: hsla(146, 65%, 73%, var(--o-ui-opacity-green-200, var(--o-ui-opacity-green)));
+    --o-ui-green-300: hsla(146, 65%, 62%, var(--o-ui-opacity-green-300, var(--o-ui-opacity-green)));
+    --o-ui-green-400: hsla(146, 64%, 54%, var(--o-ui-opacity-green-400, var(--o-ui-opacity-green)));
+    --o-ui-green-500: hsla(146, 75%, 46%, var(--o-ui-opacity-green-500, var(--o-ui-opacity-green)));
+    --o-ui-green-600: hsla(145, 77%, 45%, var(--o-ui-opacity-green-600, var(--o-ui-opacity-green)));
+    --o-ui-green-700: hsla(143, 80%, 42%, var(--o-ui-opacity-green-700, var(--o-ui-opacity-green)));
+    --o-ui-green-800: hsla(141, 83%, 40%, var(--o-ui-opacity-green-800, var(--o-ui-opacity-green)));
+    --o-ui-green-900: hsla(138, 89%, 36%, var(--o-ui-opacity-green-900, var(--o-ui-opacity-green)));
 }

@@ -8,6 +8,10 @@ const propTypes = {
      */
     size: oneOf(["inherit"]),
     /**
+     * A list can vary in color.
+     */
+    color: oneOf(["inherit"]),
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -22,6 +26,7 @@ const List = forwardRef((props, ref) => {
 
     const {
         size,
+        color,
         as: ElementType,
         children,
         ...rest
@@ -37,7 +42,8 @@ const List = forwardRef((props, ref) => {
                 {
                     className: cssModule(
                         "o-ui-list",
-                        size
+                        size,
+                        color ? `color-${color}`: ""
                     ),
                     ref
                 }

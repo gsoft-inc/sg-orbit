@@ -3,5 +3,5 @@
 *******************************/
 .ui,
 .o-ui {
-    color: var(--marine-900);
+    color: var(--o-ui-marine-900);
 }

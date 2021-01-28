@@ -1,9 +1,9 @@
 .o-ui-sb-component-info {
-    margin: var(--scale-foxtrot) 0 var(--scale-golf) 0;
+    margin: var(--o-ui-scale-foxtrot) 0 var(--o-ui-scale-golf) 0;
 }
 
 .o-ui-sb-component-info-compact {
-    margin: var(--scale-delta) 0;
+    margin: var(--o-ui-scale-delta) 0;
 }
 
 .o-ui-sb-component-info-item {
@@ -14,22 +14,22 @@
 
 .o-ui-sb-component-info-title {
     display: inline-block !important;
-    color: var(--marine-500) !important;
+    color: var(--o-ui-text-2) !important;
     font-weight: 500 !important;
-    font-size: var(--type-scale-7) !important;
+    font-size: var(--o-ui-type-scale-7) !important;
     font-style: normal !important;
-    width: var(--scale-mike) !important;
+    width: var(--o-ui-scale-mike) !important;
     margin: 0 !important;
     min-width: 80px;
 }
 
 .o-ui-sb-component-info-compact .o-ui-sb-component-info-title {
-    width: var(--scale-kilo) !important;
+    width: var(--o-ui-scale-kilo) !important;
 }
 
 .o-ui-sb-component-info-value {
     display: flex !important;
-    font-size: var(--type-scale-8) !important;
+    font-size: var(--o-ui-type-scale-8) !important;
     font-variant: normal !important;
     margin: 0 !important;
     overflow-x: auto;
@@ -37,7 +37,7 @@
 }
 
 .o-ui-sb-component-info-value a {
-    font-size: var(--type-scale-7) !important;
+    font-size: var(--o-ui-type-scale-7) !important;
 }
 
 .o-ui-sb-component-info code {

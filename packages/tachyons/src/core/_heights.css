@@ -1,53 +1,53 @@
 .h1 {
-    height: var(--scale-alpha);
+    height: var(--o-ui-scale-alpha);
 }
 
 .h2 {
-    height: var(--scale-bravo);
+    height: var(--o-ui-scale-bravo);
 }
 
 .h3 {
-    height: var(--scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .h4 {
-    height: var(--scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .h5 {
-    height: var(--scale-echo);
+    height: var(--o-ui-scale-echo);
 }
 
 .h6 {
-    height: var(--scale-foxtrot);
+    height: var(--o-ui-scale-foxtrot);
 }
 
 .h7 {
-    height: var(--scale-golf);
+    height: var(--o-ui-scale-golf);
 }
 
 .h8 {
-    height: var(--scale-hotel);
+    height: var(--o-ui-scale-hotel);
 }
 
 .h9 {
-    height: var(--scale-india);
+    height: var(--o-ui-scale-india);
 }
 
 .h10 {
-    height: var(--scale-juliett);
+    height: var(--o-ui-scale-juliett);
 }
 
 .h11 {
-    height: var(--scale-kilo);
+    height: var(--o-ui-scale-kilo);
 }
 
 .h12 {
-    height: var(--scale-lima);
+    height: var(--o-ui-scale-lima);
 }
 
 .h13 {
-    height: var(--scale-mike);
+    height: var(--o-ui-scale-mike);
 }
 
 /* Height Percentages - Based off of height of parent */
@@ -106,43 +106,43 @@
 
 @media (--breakpoint-not-small) {
     .h1-ns {
-        height: var(--scale-alpha);
+        height: var(--o-ui-scale-alpha);
     }
     .h2-ns {
-        height: var(--scale-bravo);
+        height: var(--o-ui-scale-bravo);
     }
     .h3-ns {
-        height: var(--scale-charlie);
+        height: var(--o-ui-scale-charlie);
     }
     .h4-ns {
-        height: var(--scale-delta);
+        height: var(--o-ui-scale-delta);
     }
     .h5-ns {
-        height: var(--scale-echo);
+        height: var(--o-ui-scale-echo);
     }
     .h6-ns {
-        height: var(--scale-foxtrot);
+        height: var(--o-ui-scale-foxtrot);
     }
     .h7-ns {
-        height: var(--scale-golf);
+        height: var(--o-ui-scale-golf);
     }
     .h8-ns {
-        height: var(--scale-hotel);
+        height: var(--o-ui-scale-hotel);
     }
     .h9-ns {
-        height: var(--scale-india);
+        height: var(--o-ui-scale-india);
     }
     .h10-ns {
-        height: var(--scale-juliett);
+        height: var(--o-ui-scale-juliett);
     }
     .h11-ns {
-        height: var(--scale-kilo);
+        height: var(--o-ui-scale-kilo);
     }
     .h12-ns {
-        height: var(--scale-lima);
+        height: var(--o-ui-scale-lima);
     }
     .h13-ns {
-        height: var(--scale-mike);
+        height: var(--o-ui-scale-mike);
     }
     .h-25-ns {
         height: 25%;
@@ -184,43 +184,43 @@
 
 @media (--breakpoint-medium) {
     .h1-m {
-        height: var(--scale-alpha);
+        height: var(--o-ui-scale-alpha);
     }
     .h2-m {
-        height: var(--scale-bravo);
+        height: var(--o-ui-scale-bravo);
     }
     .h3-m {
-        height: var(--scale-charlie);
+        height: var(--o-ui-scale-charlie);
     }
     .h4-m {
-        height: var(--scale-delta);
+        height: var(--o-ui-scale-delta);
     }
     .h5-m {
-        height: var(--scale-echo);
+        height: var(--o-ui-scale-echo);
     }
     .h6-m {
-        height: var(--scale-foxtrot);
+        height: var(--o-ui-scale-foxtrot);
     }
     .h7-m {
-        height: var(--scale-golf);
+        height: var(--o-ui-scale-golf);
     }
     .h8-m {
-        height: var(--scale-hotel);
+        height: var(--o-ui-scale-hotel);
     }
     .h9-m {
-        height: var(--scale-india);
+        height: var(--o-ui-scale-india);
     }
     .h10-m {
-        height: var(--scale-juliett);
+        height: var(--o-ui-scale-juliett);
     }
     .h11-m {
-        height: var(--scale-kilo);
+        height: var(--o-ui-scale-kilo);
     }
     .h12-m {
-        height: var(--scale-lima);
+        height: var(--o-ui-scale-lima);
     }
     .h13-m {
-        height: var(--scale-mike);
+        height: var(--o-ui-scale-mike);
     }
     .h-25-m {
         height: 25%;
@@ -262,43 +262,43 @@
 
 @media (--breakpoint-large) {
     .h1-l {
-        height: var(--scale-alpha);
+        height: var(--o-ui-scale-alpha);
     }
     .h2-l {
-        height: var(--scale-bravo);
+        height: var(--o-ui-scale-bravo);
     }
     .h3-l {
-        height: var(--scale-charlie);
+        height: var(--o-ui-scale-charlie);
     }
     .h4-l {
-        height: var(--scale-delta);
+        height: var(--o-ui-scale-delta);
     }
     .h5-l {
-        height: var(--scale-echo);
+        height: var(--o-ui-scale-echo);
     }
     .h6-l {
-        height: var(--scale-foxtrot);
+        height: var(--o-ui-scale-foxtrot);
     }
     .h7-l {
-        height: var(--scale-golf);
+        height: var(--o-ui-scale-golf);
     }
     .h8-l {
-        height: var(--scale-hotel);
+        height: var(--o-ui-scale-hotel);
     }
     .h9-l {
-        height: var(--scale-india);
+        height: var(--o-ui-scale-india);
     }
     .h10-l {
-        height: var(--scale-juliett);
+        height: var(--o-ui-scale-juliett);
     }
     .h11-l {
-        height: var(--scale-kilo);
+        height: var(--o-ui-scale-kilo);
     }
     .h12-l {
-        height: var(--scale-lima);
+        height: var(--o-ui-scale-lima);
     }
     .h13-l {
-        height: var(--scale-mike);
+        height: var(--o-ui-scale-mike);
     }
     .h-25-l {
         height: 25%;

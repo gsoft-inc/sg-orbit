@@ -36,16 +36,16 @@
 /*-------------------
     Brand Colors
 --------------------*/
-@primary50              :  var(--primary-50);
-@primary100             :  var(--primary-100);
-@primary200             :  var(--primary-200);
-@primary300             :  var(--primary-300);
-@primary400             :  var(--primary-400);
-@primary500             :  var(--primary-500);
-@primary600             :  var(--primary-600);
-@primary700             :  var(--primary-700);
-@primary800             :  var(--primary-800);
-@primary900             :  var(--primary-900);
+@primary50              :  var(--o-ui-primary-50);
+@primary100             :  var(--o-ui-primary-100);
+@primary200             :  var(--o-ui-primary-200);
+@primary300             :  var(--o-ui-primary-300);
+@primary400             :  var(--o-ui-primary-400);
+@primary500             :  var(--o-ui-primary-500);
+@primary600             :  var(--o-ui-primary-600);
+@primary700             :  var(--o-ui-primary-700);
+@primary800             :  var(--o-ui-primary-800);
+@primary900             :  var(--o-ui-primary-900);
 
 /*-------------- Fallback ---------------*/
 @primaryColor           : @primary500;
@@ -76,8 +76,8 @@
 
 /* Input Text Color */
 @inputColor: @textColor;
-@inputPlaceholderColor: var(--marine-500);
-@inputPlaceholderFocusColor: var(--marine-500);
+@inputPlaceholderColor: var(--o-ui-marine-500);
+@inputPlaceholderFocusColor: var(--o-ui-marine-500);
 
 /* Line Height Default For Inputs in Browser (Descenders are 17px at 14px base em) */
 @inputLineHeight: unit((17 / 14), em);
@@ -114,7 +114,7 @@
         Page
 --------------------*/
 
-@pageBackground      : var(--white);
+@pageBackground      : var(--o-ui-white);
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
@@ -131,7 +131,7 @@
     Links
 --------------------*/
 
-@linkColor           : var(--primary-500);
+@linkColor           : var(--o-ui-primary-500);
 @linkUnderline       : none;
 @linkHoverColor      : @linkColor;
 @linkHoverUnderline  : @linkUnderline;
@@ -218,88 +218,88 @@
 /*---  SG Colors  ---*/
 
 /*---  Marine  ---*/
-@marine50: var(--marine-50);
-@marine100: var(--marine-100);
-@marine200: var(--marine-200);
-@marine300: var(--marine-300);
-@marine400: var(--marine-400);
-@marine500: var(--marine-500);
-@marine600: var(--marine-600);
-@marine700: var(--marine-700);
-@marine800: var(--marine-800);
-@marine900: var(--marine-900);
+@marine50: var(--o-ui-marine-50);
+@marine100: var(--o-ui-marine-100);
+@marine200: var(--o-ui-marine-200);
+@marine300: var(--o-ui-marine-300);
+@marine400: var(--o-ui-marine-400);
+@marine500: var(--o-ui-marine-500);
+@marine600: var(--o-ui-marine-600);
+@marine700: var(--o-ui-marine-700);
+@marine800: var(--o-ui-marine-800);
+@marine900: var(--o-ui-marine-900);
 
 /*--- Success --*/
-@success50: var(--success-50);
-@success100: var(--success-100);
-@success200: var(--success-200);
-@success300: var(--success-300);
-@success400: var(--success-400);
-@success500: var(--success-500);
-@success600: var(--success-600);
-@success700: var(--success-700);
-@success800: var(--success-800);
-@success900: var(--success-900);
+@success50: var(--o-ui-success-50);
+@success100: var(--o-ui-success-100);
+@success200: var(--o-ui-success-200);
+@success300: var(--o-ui-success-300);
+@success400: var(--o-ui-success-400);
+@success500: var(--o-ui-success-500);
+@success600: var(--o-ui-success-600);
+@success700: var(--o-ui-success-700);
+@success800: var(--o-ui-success-800);
+@success900: var(--o-ui-success-900);
 
 /*--- Alert --*/
-@alert50: var(--alert-50);
-@alert100: var(--alert-100);
-@alert200: var(--alert-200);
-@alert300: var(--alert-300);
-@alert400: var(--alert-400);
-@alert500: var(--alert-500);
-@alert600: var(--alert-600);
-@alert700: var(--alert-700);
-@alert800: var(--alert-800);
-@alert900: var(--alert-900);
+@alert50: var(--o-ui-alert-50);
+@alert100: var(--o-ui-alert-100);
+@alert200: var(--o-ui-alert-200);
+@alert300: var(--o-ui-alert-300);
+@alert400: var(--o-ui-alert-400);
+@alert500: var(--o-ui-alert-500);
+@alert600: var(--o-ui-alert-600);
+@alert700: var(--o-ui-alert-700);
+@alert800: var(--o-ui-alert-800);
+@alert900: var(--o-ui-alert-900);
 
 /*--- Warning --*/
-@warning50: var(--sunray-50);
-@warning100: var(--sunray-100);
-@warning200: var(--sunray-200);
-@warning300: var(--sunray-300);
-@warning400: var(--sunray-400);
-@warning500: var(--sunray-500);
-@warning600: var(--sunray-600);
-@warning700: var(--sunray-700);
-@warning800: var(--sunray-800);
-@warning900: var(--sunray-900);
+@warning50: var(--o-ui-sunray-50);
+@warning100: var(--o-ui-sunray-100);
+@warning200: var(--o-ui-sunray-200);
+@warning300: var(--o-ui-sunray-300);
+@warning400: var(--o-ui-sunray-400);
+@warning500: var(--o-ui-sunray-500);
+@warning600: var(--o-ui-sunray-600);
+@warning700: var(--o-ui-sunray-700);
+@warning800: var(--o-ui-sunray-800);
+@warning900: var(--o-ui-sunray-900);
 
 /*--- Cloud --*/
-@cloud50: var(--cloud-50);
-@cloud100: var(--cloud-100);
-@cloud200: var(--cloud-200);
-@cloud300: var(--cloud-300);
-@cloud400: var(--cloud-400);
-@cloud500: var(--cloud-500);
-@cloud600: var(--cloud-600);
-@cloud700: var(--cloud-700);
-@cloud800: var(--cloud-800);
-@cloud900: var(--cloud-900);
+@cloud50: var(--o-ui-cloud-50);
+@cloud100: var(--o-ui-cloud-100);
+@cloud200: var(--o-ui-cloud-200);
+@cloud300: var(--o-ui-cloud-300);
+@cloud400: var(--o-ui-cloud-400);
+@cloud500: var(--o-ui-cloud-500);
+@cloud600: var(--o-ui-cloud-600);
+@cloud700: var(--o-ui-cloud-700);
+@cloud800: var(--o-ui-cloud-800);
+@cloud900: var(--o-ui-cloud-900);
 
 /*--- Sunray --*/
-@sunray50: var(--sunray-50);
-@sunray100: var(--sunray-100);
-@sunray200: var(--sunray-200);
-@sunray300: var(--sunray-300);
-@sunray400: var(--sunray-400);
-@sunray500: var(--sunray-500);
-@sunray600: var(--sunray-600);
-@sunray700: var(--sunray-700);
-@sunray800: var(--sunray-800);
-@sunray900: var(--sunray-900);
+@sunray50: var(--o-ui-sunray-50);
+@sunray100: var(--o-ui-sunray-100);
+@sunray200: var(--o-ui-sunray-200);
+@sunray300: var(--o-ui-sunray-300);
+@sunray400: var(--o-ui-sunray-400);
+@sunray500: var(--o-ui-sunray-500);
+@sunray600: var(--o-ui-sunray-600);
+@sunray700: var(--o-ui-sunray-700);
+@sunray800: var(--o-ui-sunray-800);
+@sunray900: var(--o-ui-sunray-900);
 
 /*--- Moonstone --*/
-@moonstone50: var(--moonstone-50);
-@moonstone100: var(--moonstone-100);
-@moonstone200: var(--moonstone-200);
-@moonstone300: var(--moonstone-300);
-@moonstone400: var(--moonstone-400);
-@moonstone500: var(--moonstone-500);
-@moonstone600: var(--moonstone-600);
-@moonstone700: var(--moonstone-700);
-@moonstone800: var(--moonstone-800);
-@moonstone900: var(--moonstone-900);
+@moonstone50: var(--o-ui-moonstone-50);
+@moonstone100: var(--o-ui-moonstone-100);
+@moonstone200: var(--o-ui-moonstone-200);
+@moonstone300: var(--o-ui-moonstone-300);
+@moonstone400: var(--o-ui-moonstone-400);
+@moonstone500: var(--o-ui-moonstone-500);
+@moonstone600: var(--o-ui-moonstone-600);
+@moonstone700: var(--o-ui-moonstone-700);
+@moonstone800: var(--o-ui-moonstone-800);
+@moonstone900: var(--o-ui-moonstone-900);
 
 /*---  Colors  ---*/
 @red              : #DB2828;
@@ -352,7 +352,7 @@
 @offWhite         : #F9FAFB;
 @darkWhite        : #F3F4F5;
 @midWhite         : #DCDDDE;
-@white            : var(--white);
+@white            : var(--o-ui-white);
 @transparent      : transparent;
 
 /*--- Colored Backgrounds ---*/
@@ -450,7 +450,7 @@
 
 /* Negative */
 @negativeColor           : @alert500;
-@negativeBackgroundColor : var(--white);
+@negativeBackgroundColor : var(--o-ui-white);
 @negativeBorderColor     : @alert500;
 @negativeHeaderColor     : @alert900;
 @negativeTextColor       : @textColor;
@@ -478,55 +478,55 @@
 
 /* Spacing */
 /* 4px */
-@scaleAlpha: var(--scale-alpha);
+@scaleAlpha: var(--o-ui-scale-alpha);
 /* 8px */
-@scaleBravo: var(--scale-bravo);
+@scaleBravo: var(--o-ui-scale-bravo);
 /* 12px */
-@scaleCharlie: var(--scale-charlie);
+@scaleCharlie: var(--o-ui-scale-charlie);
 /* 16px */
-@scaleDelta: var(--scale-delta);
+@scaleDelta: var(--o-ui-scale-delta);
 /* 20px */
-@scaleEcho: var(--scale-echo);
+@scaleEcho: var(--o-ui-scale-echo);
 /* 24px */
-@scaleFoxtrot: var(--scale-foxtrot);
+@scaleFoxtrot: var(--o-ui-scale-foxtrot);
 /* 32px */
-@scaleGolf: var(--scale-golf);
+@scaleGolf: var(--o-ui-scale-golf);
 /* 40px */
-@scaleHotel: var(--scale-hotel);
+@scaleHotel: var(--o-ui-scale-hotel);
 /* 48px */
-@scaleIndia: var(--scale-india);
+@scaleIndia: var(--o-ui-scale-india);
 /* 56px */
-@scaleJuliett: var(--scale-juliett);
+@scaleJuliett: var(--o-ui-scale-juliett);
 /* 64px */
-@scaleKilo: var(--scale-kilo);
+@scaleKilo: var(--o-ui-scale-kilo);
 /* 72px */
-@scaleLima: var(--scale-lima);
+@scaleLima: var(--o-ui-scale-lima);
 /* 80px */
-@scaleMike: var(--scale-mike);
+@scaleMike: var(--o-ui-scale-mike);
 
 /* Type Scale */
 /* 96px */
-@typeScaleHeadline: var(--type-scale-headline);
+@typeScaleHeadline: var(--o-ui-type-scale-headline);
 /* 80px */
-@typeScaleSubheadline: var(--type-scale-subheadline);
+@typeScaleSubheadline: var(--o-ui-type-scale-subheadline);
 /* 48px */
-@typeScale1: var(--type-scale-1);
+@typeScale1: var(--o-ui-type-scale-1);
 /* 40px */
-@typeScale2: var(--type-scale-2);
+@typeScale2: var(--o-ui-type-scale-2);
 /* 32px */
-@typeScale3: var(--type-scale-3);
+@typeScale3: var(--o-ui-type-scale-3);
 /* 24px */
-@typeScale4: var(--type-scale-4);
+@typeScale4: var(--o-ui-type-scale-4);
 /* 20px */
-@typeScale5: var(--type-scale-5);
+@typeScale5: var(--o-ui-type-scale-5);
 /* 18px */
-@typeScale6: var(--type-scale-6);
+@typeScale6: var(--o-ui-type-scale-6);
 /* 16px */
-@typeScale7: var(--type-scale-7);
+@typeScale7: var(--o-ui-type-scale-7);
 /* 14px */
-@typeScale8: var(--type-scale-8);
+@typeScale8: var(--o-ui-type-scale-8);
 /* 12px */
-@typeScale9: var(--type-scale-9);
+@typeScale9: var(--o-ui-type-scale-9);
 
 /* Line Height */
 @lh1: 1;
@@ -593,15 +593,15 @@
     Neutral Text
 --------------------*/
 
-@darkTextColor               : var(--marine-700);
-@mutedTextColor              : var(--marine-400);
-@lightTextColor              : var(--marine-300);
+@darkTextColor               : var(--o-ui-marine-700);
+@mutedTextColor              : var(--o-ui-marine-400);
+@lightTextColor              : var(--o-ui-marine-300);
 
-@unselectedTextColor         : var(--marine-300);
-@hoveredTextColor            : var(--marine-700);
-@pressedTextColor            : var(--marine-900);
-@selectedTextColor           : var(--marine-900);
-@disabledTextColor           : var(--marine-50);
+@unselectedTextColor         : var(--o-ui-marine-300);
+@hoveredTextColor            : var(--o-ui-marine-700);
+@pressedTextColor            : var(--o-ui-marine-900);
+@selectedTextColor           : var(--o-ui-marine-900);
+@disabledTextColor           : var(--o-ui-marine-50);
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);
 @invertedMutedTextColor      : rgba(255, 255, 255, 0.8);
@@ -885,8 +885,8 @@
 ;
 
 /*---  Colors  ---*/
-@primaryColorHover        : var(--primary-900);
-@secondaryColorHover      : var(--cloud-200);
+@primaryColorHover        : var(--o-ui-primary-900);
+@secondaryColorHover      : var(--o-ui-cloud-200);
 @lightPrimaryColorHover   : @lightPrimaryColor;
 @lightSecondaryColorHover : @lightSecondaryColor;
 
@@ -917,8 +917,8 @@
 @lightBlackHover          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorHover       : var(--success-900);
-@negativeColorHover       : var(--alert-900);
+@positiveColorHover       : var(--o-ui-success-900);
+@negativeColorHover       : var(--o-ui-alert-900);
 
 /*---  Brand   ---*/
 @facebookHoverColor       : @facebookColor;
@@ -978,7 +978,7 @@
 
 /*---  Emotive  ---*/
 @positiveColorFocus       : @positiveColor;
-@negativeColorFocus       : var(--alert-500);
+@negativeColorFocus       : var(--o-ui-alert-500);
 
 /*---  Brand   ---*/
 @facebookFocusColor       : @facebookColor;
@@ -1006,8 +1006,8 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@primaryColorDown        : var(--primary-700);
-@secondaryColorDown      : var(--cloud-200);
+@primaryColorDown        : var(--o-ui-primary-700);
+@secondaryColorDown      : var(--o-ui-cloud-200);
 @lightPrimaryColorDown   : @lightPrimaryColor;
 @lightSecondaryColorDown : @lightSecondaryColor;
 
@@ -1038,8 +1038,8 @@
 @lightBlackDown          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorDown       : var(--success-900);
-@negativeColorDown       : var(--alert-900);
+@positiveColorDown       : var(--o-ui-success-900);
+@negativeColorDown       : var(--o-ui-alert-900);
 
 /*---  Brand   ---*/
 @facebookDownColor       : @facebookColor;
@@ -1099,8 +1099,8 @@
 @lightBlackActive          : @fullBlack;
 
 /*---  Emotive  ---*/
-@positiveColorActive       : var(--success-900);
-@negativeColorActive       : var(--alert-900);
+@positiveColorActive       : var(--o-ui-success-900);
+@negativeColorActive       : var(--o-ui-alert-900);
 
 /*---  Brand   ---*/
 @facebookActiveColor       : @facebookColor;

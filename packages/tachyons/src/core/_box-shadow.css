@@ -1,34 +1,34 @@
 .shadow-100 {
-    box-shadow: var(--shadow-100);
+    box-shadow: var(--o-ui-shadow-100);
 }
 
 .shadow-200 {
-    box-shadow: var(--shadow-200);
+    box-shadow: var(--o-ui-shadow-200);
 }
 
 @media (--breakpoint-not-small) {
     .shadow-100-ns {
-        box-shadow: var(--shadow-100);
+        box-shadow: var(--o-ui-shadow-100);
     }
     .shadow-200-ns {
-        box-shadow: var(--shadow-200);
+        box-shadow: var(--o-ui-shadow-200);
     }
 }
 
 @media (--breakpoint-medium) {
     .shadow-100-m {
-        box-shadow: var(--shadow-100);
+        box-shadow: var(--o-ui-shadow-100);
     }
     .shadow-200-m {
-        box-shadow: var(--shadow-200);
+        box-shadow: var(--o-ui-shadow-200);
     }
 }
 
 @media (--breakpoint-large) {
     .shadow-100-l {
-        box-shadow: var(--shadow-100);
+        box-shadow: var(--o-ui-shadow-100);
     }
     .shadow-200-l {
-        box-shadow: var(--shadow-200);
+        box-shadow: var(--o-ui-shadow-200);
     }
 }

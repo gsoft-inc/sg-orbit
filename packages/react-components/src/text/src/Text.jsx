@@ -3,10 +3,10 @@ import "./Text.css";
 import { Box } from "../../box";
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export function getTextClass(size) {
-    return `o-ui-text-${normalizeSize(size)}`;
+    return `o-ui-text-${normalizeSize(size)} `;
 }
 
 ////////
@@ -49,7 +49,7 @@ export function InnerText(props) {
             {...mergeProps(
                 rest,
                 {
-                    className: getTextClass(size),
+                    className: mergeClasses(getTextClass(size), "o-ui-text"),
                     as,
                     ref: forwardedRef
                 }

@@ -11,7 +11,8 @@
 /* SWITCH */
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
-    background-color: var(--cloud-200);
+    /* was cloud 200 now 300 because too much similar colors */
+    background-color: var(--o-ui-background-2);
     border-radius: var(--o-ui-pill-border-radius);
     position: relative;
     flex-shrink: 0;
@@ -20,7 +21,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--white);
+    background-color: var(--o-ui-background-1);
     border-radius: var(--o-ui-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
@@ -30,7 +31,8 @@
 /* LABEL */
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
-    margin-left: var(--scale-bravo);
+    margin-left: var(--o-ui-scale-bravo);
+    color: var(--o-ui-text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -40,18 +42,18 @@
 /* LABEL | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-label {
     margin-left: 0;
-    margin-right: var(--scale-bravo);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
 
 /* ICON | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
-    margin-right: var(--scale-alpha);
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* REVERSE */
@@ -61,25 +63,25 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--alert-500);
+    color: var(--o-ui-text-danger-1);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--alert-100);
+    background-color: var(--o-ui-background-danger-2);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--alert-500);
+    background-color: var(--o-ui-background-danger-1);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--primary-500);
+    background-color: var(--o-ui-background-primary-1);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
@@ -102,6 +104,11 @@
     opacity: 1;
 }
 
+/* STATE | FOCUS | INVALID */
+.o-ui-switch-invalid .o-ui-switch-control:after {
+    --o-ui-focus-ring-color: var(--o-ui-border-danger);
+}
+
 /* STATE | DISABLED */
 .o-ui-switch[disabled],
 .o-ui-switch-disabled {
@@ -112,30 +119,30 @@
 /* SIZING */
 /* SMALL */
 .o-ui-switch-sm .o-ui-switch-control {
-    width: var(--scale-golf);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-golf);
+    height: var(--o-ui-scale-delta);
 }
 
 .o-ui-switch-sm .o-ui-switch-control::before {
-    width: var(--scale-charlie);
-    height: var(--scale-charlie);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-golf) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-golf) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
 .o-ui-switch-md .o-ui-switch-control {
-    width: var(--scale-hotel);
-    height: var(--scale-echo);
+    width: var(--o-ui-scale-hotel);
+    height: var(--o-ui-scale-echo);
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
-    width: var(--scale-delta);
-    height: var(--scale-delta);
+    width: var(--o-ui-scale-delta);
+    height: var(--o-ui-scale-delta);
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
 }

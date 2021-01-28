@@ -13,7 +13,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon24 size="lg" />
                     <Icon24 size="xl" />
                     <Icon24 size="xl" className="fill-sunray-900" />
-                    <Icon24 size="xl" style={{ fill: "var(--sunray-900)" }} />
+                    <Icon24 size="xl" style={{ fill: "var(--o-ui-sunray-900)" }} />
                 </Inline>
             </If>
             <If condition={!isNil(Icon32)}>
@@ -25,7 +25,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon32 size="lg" />
                     <Icon32 size="xl" />
                     <Icon32 size="xl" className="fill-sunray-900" />
-                    <Icon32 size="xl" style={{ fill: "var(--sunray-900)" }} />
+                    <Icon32 size="xl" style={{ fill: "var(--o-ui-sunray-900)" }} />
                 </Inline>
             </If>
             <Inline verticalAlign="end">
@@ -36,7 +36,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon size="lg" />
                 <MultiIcon size="xl" />
                 <MultiIcon size="xl" className="fill-sunray-900" />
-                <MultiIcon size="xl" style={{ fill: "var(--sunray-900)" }} />
+                <MultiIcon size="xl" style={{ fill: "var(--o-ui-sunray-900)" }} />
             </Inline>
             <div className="f1">
                 <MultiIcon size="inherit" />

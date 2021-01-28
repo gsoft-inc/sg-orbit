@@ -125,7 +125,7 @@ export function InnerButton(props) {
         },
         icon: {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-left-icon"
+            className: "o-ui-button-icon o-ui-button-left-icon"
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
@@ -168,5 +168,3 @@ export const Button = slot("button", forwardRef((props, ref) => (
 )));
 
 Button.displayName = "Button";
-
-

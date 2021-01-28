@@ -1,8 +1,12 @@
+.o-ui-counter {
+    color: var(--o-ui-text-1);
+}
+
 /* PILL */
 .o-ui-counter-pill {
     display: inline-flex;
-    background-color: var(--cloud-100);
-    color: var(--marine-900);
+    background-color: var(--o-ui-background-2);
+    color: var(--o-ui-text-1);
     border-radius: var(--o-ui-pill-border-radius);
     line-height: 1;
     align-items: center;
@@ -13,20 +17,20 @@
 .o-ui-counter-pill.o-ui-counter-sm {
     min-height: 1rem;
     min-width: 1rem;
-    font-size: var(--type-scale-9);
-    padding: 0 var(--scale-bravo) 0 var(--scale-bravo);
+    font-size: var(--o-ui-type-scale-9);
+    padding: 0 var(--o-ui-scale-bravo) 0 var(--o-ui-scale-bravo);
 }
 
 .o-ui-counter-pill.o-ui-counter-md {
     min-height: 1.25rem;
     min-width: 1.25rem;
-    font-size: var(--type-scale-8);
+    font-size: var(--o-ui-type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
 /* PILL | COLOR */
 .o-ui-counter-pill.o-ui-counter-light {
-    background-color: var(--cloud-50);
+    background-color: var(--o-ui-background-3);
 }
 
 /* PILL | HIGHLIGHT */
@@ -37,21 +41,21 @@
 /* DIVIDER */
 .o-ui-counter-divider {
     display: inline-block;
-    border-left: 1px solid var(--cloud-100);
-    padding-left: var(--scale-bravo);
+    border-left: 1px solid var(--o-ui-border-1);
+    padding-left: var(--o-ui-scale-bravo);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     border-left: 0;
-    border-right: 1px solid var(--cloud-100);
+    border-right: 1px solid var(--o-ui-border-1);
     padding-left: 0;
-    padding-right: var(--scale-bravo);
+    padding-right: var(--o-ui-scale-bravo);
 }
 
 /* DIVIDER | COLOR | LIGHT */
 .o-ui-counter-divider.o-ui-counter-light {
-    color: var(--cloud-200);
+    color: var(--o-ui-text-3);
 }
 
 /* DIVIDER | HIGHLIGHT */
@@ -61,13 +65,13 @@
 
 /* PUSHED */
 .o-ui-counter-pushed {
-    margin-left: var(--scale-bravo);
+    margin-left: var(--o-ui-scale-bravo);
 }
 
 /* PUSHED | REVERSE */
 .o-ui-counter-pushed.o-ui-counter-reverse {
     margin-left: 0;
-    margin-right: var(--scale-bravo);
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 /* DISABLED */

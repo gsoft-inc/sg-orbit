@@ -4,8 +4,8 @@ import { useEffect } from "react";
 const StyleElementId = "story-background-color";
 
 const BackgroundColors = {
-    light: "#FFF",
-    dark: "#2B2F3B"
+    light: "#FFFFFF",
+    dark: "hsl(226deg, 20%, 15%)"
 };
 
 export function withBackgroundMatchingColorScheme(Story, context) {

@@ -16,17 +16,21 @@ const propTypes = {
      */
     size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl", "inherit"]),
     /**
+     * An icon can change inherit it's parent color.
+     */
+    color: oneOf(["inherit"]),
+    /**
      * Default slot override.
      */
     slot: string
 };
-
 export function InnerIcon(props) {
     const [styleProps] = useStyleProps("icon");
 
     const {
         type,
         size,
+        color,
         disabled,
         "aria-label": ariaLabel,
         forwardedRef,
@@ -44,7 +48,8 @@ export function InnerIcon(props) {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        normalizeSize(size)
+                        normalizeSize(size),
+                        color ? `color-${color}`: ""
                     ),
                     focusable: false,
                     as: type,

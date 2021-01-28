@@ -1,5 +1,5 @@
 .hover-outline:hover {
-    box-shadow: 0px 0px 0px 2px var(--primary-200);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-primary-200);
 }
 
 .hover-outline-transparent:hover {
@@ -11,7 +11,7 @@
 }
 
 .focus-outline:focus {
-    box-shadow: 0px 0px 0px 2px var(--primary-200);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-primary-200);
 }
 
 .focus-outline-transparent:focus {

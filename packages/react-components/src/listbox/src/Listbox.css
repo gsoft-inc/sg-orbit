@@ -1,5 +1,5 @@
 :root {
-    --o-ui-listbox-option-height: var(--scale-foxtrot);
+    --o-ui-listbox-option-height: var(--o-ui-scale-foxtrot);
 }
 
 .o-ui-listbox {

@@ -1,119 +1,119 @@
 .sunray-50 {
-    color: var(--sunray-50);
+    color: var(--o-ui-sunray-50);
 }
 
 .sunray-100 {
-    color: var(--sunray-100);
+    color: var(--o-ui-sunray-100);
 }
 
 .sunray-200 {
-    color: var(--sunray-200);
+    color: var(--o-ui-sunray-200);
 }
 
 .sunray-300 {
-    color: var(--sunray-300);
+    color: var(--o-ui-sunray-300);
 }
 
 .sunray-400 {
-    color: var(--sunray-400);
+    color: var(--o-ui-sunray-400);
 }
 
 .sunray-500 {
-    color: var(--sunray-500);
+    color: var(--o-ui-sunray-500);
 }
 
 .sunray-600 {
-    color: var(--sunray-600);
+    color: var(--o-ui-sunray-600);
 }
 
 .sunray-700 {
-    color: var(--sunray-700);
+    color: var(--o-ui-sunray-700);
 }
 
 .sunray-800 {
-    color: var(--sunray-800);
+    color: var(--o-ui-sunray-800);
 }
 
 .sunray-900 {
-    color: var(--sunray-900);
+    color: var(--o-ui-sunray-900);
 }
 
 .hover-sunray-50:hover {
-    color: var(--sunray-50);
+    color: var(--o-ui-sunray-50);
 }
 
 .hover-sunray-100:hover {
-    color: var(--sunray-100);
+    color: var(--o-ui-sunray-100);
 }
 
 .hover-sunray-200:hover {
-    color: var(--sunray-200);
+    color: var(--o-ui-sunray-200);
 }
 
 .hover-sunray-300:hover {
-    color: var(--sunray-300);
+    color: var(--o-ui-sunray-300);
 }
 
 .hover-sunray-400:hover {
-    color: var(--sunray-400);
+    color: var(--o-ui-sunray-400);
 }
 
 .hover-sunray-500:hover {
-    color: var(--sunray-500);
+    color: var(--o-ui-sunray-500);
 }
 
 .hover-sunray-600:hover {
-    color: var(--sunray-600);
+    color: var(--o-ui-sunray-600);
 }
 
 .hover-sunray-700:hover {
-    color: var(--sunray-700);
+    color: var(--o-ui-sunray-700);
 }
 
 .hover-sunray-800:hover {
-    color: var(--sunray-800);
+    color: var(--o-ui-sunray-800);
 }
 
 .hover-sunray-900:hover {
-    color: var(--sunray-900);
+    color: var(--o-ui-sunray-900);
 }
 
 .focus-sunray-50:focus {
-    color: var(--sunray-50);
+    color: var(--o-ui-sunray-50);
 }
 
 .focus-sunray-100:focus {
-    color: var(--sunray-100);
+    color: var(--o-ui-sunray-100);
 }
 
 .focus-sunray-200:focus {
-    color: var(--sunray-200);
+    color: var(--o-ui-sunray-200);
 }
 
 .focus-sunray-300:focus {
-    color: var(--sunray-300);
+    color: var(--o-ui-sunray-300);
 }
 
 .focus-sunray-400:focus {
-    color: var(--sunray-400);
+    color: var(--o-ui-sunray-400);
 }
 
 .focus-sunray-500:focus {
-    color: var(--sunray-500);
+    color: var(--o-ui-sunray-500);
 }
 
 .focus-sunray-600:focus {
-    color: var(--sunray-600);
+    color: var(--o-ui-sunray-600);
 }
 
 .focus-sunray-700:focus {
-    color: var(--sunray-700);
+    color: var(--o-ui-sunray-700);
 }
 
 .focus-sunray-800:focus {
-    color: var(--sunray-800);
+    color: var(--o-ui-sunray-800);
 }
 
 .focus-sunray-900:focus {
-    color: var(--sunray-900);
+    color: var(--o-ui-sunray-900);
 }

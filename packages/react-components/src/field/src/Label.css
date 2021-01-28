@@ -1,9 +1,9 @@
 .o-ui-field-label {
-    color: var(--marine-900);
+    color: var(--o-ui-text-1);
     white-space: nowrap;
 }
 
 /* REQUIRED */
 .o-ui-field-label-required {
-    margin-left: var(--scale-alpha);
+    margin-left: var(--o-ui-scale-alpha);
 }
