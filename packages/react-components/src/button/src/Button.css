@@ -221,7 +221,7 @@ a.o-ui-button {
 /* OUTLINE | PRIMARY */
 .o-ui-button-outline.o-ui-button-primary {
     box-shadow: 0 0 0 1px var(--o-ui-border-primary-1) inset;
-    color: var(--o-ui-text-primary);
+    color: var(--o-ui-text-primary-1);
 }
 
 /* OUTLINE | PRIMARY | HOVER */
@@ -234,7 +234,7 @@ a.o-ui-button {
 /* OUTLINE | PRIMARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-primary:active,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--o-ui-border-primary) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-border-primary-1) inset;
     color: var(--o-ui-static-white);
     background-color: var(--o-ui-background-primary);
 }
