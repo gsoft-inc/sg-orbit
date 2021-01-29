@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export function getTextClass(size) {
-    return `o-ui-text-${normalizeSize(size)} `;
+    return `o-ui-text-${normalizeSize(size)}`;
 }
 
 ////////

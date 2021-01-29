@@ -1,9 +1,10 @@
 import { Box } from "@react-components/box";
 import { Button, ButtonGroup, CrossButton } from "@react-components/button";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
-import { Content, Header } from "@react-components/placeholders";
+import { Content, Footer } from "@react-components/placeholders";
 import { Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
+import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
@@ -109,23 +110,44 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
-    .add("header", () =>
+    .add("close button", () =>
         <Boundary>
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <Header>Space News</Header>
+                    <CrossButton slot="close-button" aria-label="Close" />
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 </Popover>
             </PopoverTrigger>
         </Boundary>
     )
-    .add("single button", () =>
+    .add("heading", () =>
         <Boundary>
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <Header>Space News</Header>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("footer", () =>
+        <Boundary>
+            <PopoverTrigger defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <Footer>All rights reserved.</Footer>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("button", () =>
+        <Boundary>
+            <PopoverTrigger defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <Button>Accept</Button>
                 </Popover>
@@ -137,7 +159,6 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <Header>Space News</Header>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <ButtonGroup align="end">
                         <Button color="secondary">Cancel</Button>
@@ -147,14 +168,15 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
-    .add("close button", () =>
+    .add("all slots", () =>
         <Boundary>
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <Header>Space News</Header>
                     <CrossButton slot="close-button" aria-label="Close" />
+                    <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <Footer>All rights reserved.</Footer>
                     <ButtonGroup align="end">
                         <Button color="secondary">Cancel</Button>
                         <Button color="primary">Accept</Button>
@@ -179,12 +201,12 @@ stories()
                                 <Label>Last Name</Label>
                                 <TextInput name="last-name" />
                             </Field>
-                            <ButtonGroup align="end">
-                                <Button color="secondary">Cancel</Button>
-                                <Button color="primary">Save</Button>
-                            </ButtonGroup>
                         </Form>
                     </Content>
+                    <ButtonGroup align="end">
+                        <Button color="secondary">Cancel</Button>
+                        <Button color="primary">Save</Button>
+                    </ButtonGroup>
                 </Popover>
             </PopoverTrigger>
         </Boundary>

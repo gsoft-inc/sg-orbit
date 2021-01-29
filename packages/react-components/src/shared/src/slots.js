@@ -39,7 +39,6 @@ export function getSlots(children, { _ = {}, ...slots }) {
         required.forEach(x => {
             if (isUndefined(slotElements[x])) {
                 unfulfilledSlots.push(x);
-
             }
         });
 

@@ -30,6 +30,7 @@ export function useSelect(children, {
     zIndex = 10000,
     ariaLabel,
     ariaLabelledBy,
+    menuProps: { style: { width, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
@@ -141,10 +142,12 @@ export function useSelect(children, {
             }
         ),
         overlayProps: mergeProps(
+            menuProps,
             overlayProps,
             {
                 style: {
-                    width: triggerWidth || "0px"
+                    ...menuStyle,
+                    width: width ?? triggerWidth ?? "0px"
                 }
             }
         ),
