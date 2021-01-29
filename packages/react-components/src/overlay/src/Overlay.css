@@ -5,5 +5,5 @@
 }
 
 .o-ui-overlay:focus {
-    border: 1px solid blue;
+    box-shadow: var(--o-ui-focus-ring-inset-md);
 }
