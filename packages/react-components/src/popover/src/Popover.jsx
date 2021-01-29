@@ -2,12 +2,17 @@ import "./Popover.css";
 
 import { Box } from "../../box";
 import { Content } from "../../placeholders";
-import { any, func, oneOfType } from "prop-types";
+import { Text } from "../../text";
+import { any, elementType, func, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps, useEventCallback, useSlots } from "../../shared";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
 const propTypes = {
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
     /**
      * React children.
      */
@@ -26,29 +31,53 @@ export function InnerPopover({
         close(event);
     });
 
-    const { header, content, button, "button-group": buttonGroup, "close-button": closeButton } = useSlots(children, {
+    const { heading, content, footer, button, "button-group": buttonGroup, "close-button": closeButton } = useSlots(children, {
         _: {
             defaultWrapper: Content
         },
-        header: {
-            className: "o-ui-popover-header",
-            as: "header"
+        heading: {
+            size: "sm",
+            as: "h1"
         },
         content: {
-            className: "o-ui-popover-content"
+            className: "o-ui-popover-content",
+            as: Text
+        },
+        footer: {
+            className: "o-ui-popover-footer-text",
+            as: Text
         },
         button: {
-            className: "o-ui-popover-single-button"
+            size: "sm",
+            className: "o-ui-popover-button"
         },
         "button-group": {
+            size: "sm",
             className: "o-ui-popover-button-group"
         },
         "close-button": {
             onClick: handleCloseButtonClick,
-            size: "sm",
+            condensed: true,
+            size: "xs",
             className: "o-ui-popover-close-button"
         }
     });
+
+    console.log(heading);
+
+    const headerMarkup = heading && (
+        <header className="o-ui-popover-header">
+            {heading}
+        </header>
+    );
+
+    const footerMarkup = (button || buttonGroup || footer) && (
+        <footer className="o-ui-popover-footer">
+            {footer}
+            {button}
+            {buttonGroup}
+        </footer>
+    );
 
     return (
         <Box
@@ -61,11 +90,10 @@ export function InnerPopover({
                 }
             )}
         >
-            {header}
-            {content}
-            {button}
-            {buttonGroup}
             {closeButton}
+            {headerMarkup}
+            {content}
+            {footerMarkup}
         </Box>
     );
 }

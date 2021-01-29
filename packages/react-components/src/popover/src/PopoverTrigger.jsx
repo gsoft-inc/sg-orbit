@@ -1,7 +1,7 @@
 import { Children, forwardRef, useCallback } from "react";
 import { Overlay, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { any, arrayOf, bool, func, number, oneOf, oneOfType } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren } from "../../shared";
 import { isNil } from "lodash";
 
@@ -61,6 +61,10 @@ const propTypes = {
      * z-index of the popover element.
      */
     zIndex: number,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
     /**
      * React children.
      */

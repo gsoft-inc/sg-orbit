@@ -106,7 +106,7 @@ export function InnerTextInput(props) {
         active,
         focus,
         hover,
-        wrapperProps: userWrapperProps,
+        wrapperProps: additionalWrapperProps,
         as = "div",
         forwardedRef,
         ...rest
@@ -166,7 +166,7 @@ export function InnerTextInput(props) {
     return (
         <Box
             {...mergeProps(
-                userWrapperProps,
+                additionalWrapperProps,
                 wrapperProps,
                 {
                     className: cssModule(

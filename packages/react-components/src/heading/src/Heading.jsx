@@ -1,7 +1,7 @@
 import "./Heading.css";
 
 import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { forwardRef } from "react";
 
 const propTypes = {
@@ -53,8 +53,8 @@ export function InnerHeading(props) {
 
 InnerHeading.propTypes = propTypes;
 
-export const Heading = forwardRef((props, ref) => (
+export const Heading = slot("heading", forwardRef((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
-));
+)));
 
 Heading.displayName = "Heading";

@@ -1,9 +1,10 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, ButtonGroup, CrossButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
+import { Content, Footer, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
+import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
 import { Launch } from "./assets";
@@ -44,16 +45,16 @@ A default popover.
     </Story>
 </Preview>
 
-### Header
+### Heading
 
-A popover can have an header.
+A popover can have an heading.
 
 <Preview>
-    <Story name="header">
+    <Story name="heading">
         <PopoverTrigger>
             <Button>Trigger</Button>
             <Popover>
-                <Header>WikiSpace</Header>
+                <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
@@ -70,7 +71,7 @@ A popover can have a close button.
             <Button>Trigger</Button>
             <Popover>
                 <CrossButton slot="close-button" aria-label="Close" />
-                <Header>WikiSpace</Header>
+                <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
@@ -82,14 +83,33 @@ A popover can have a close button.
 A popper can have a single button or a group of button.
 
 <Preview>
-    <Story name="buttons">
+    <Story name="button">
         <PopoverTrigger>
             <Button>Trigger</Button>
             <Popover>
                 <CrossButton slot="close-button" aria-label="Close" />
-                <Header>WikiSpace</Header>
+                <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 <Button color="primary">Got it</Button>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Footer
+
+A popper can have footer text.
+
+<Preview>
+    <Story name="footer">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <CrossButton slot="close-button" aria-label="Close" />
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button color="primary">Got it</Button>
+                <Footer>All right reserved.</Footer>
             </Popover>
         </PopoverTrigger>
     </Story>
@@ -105,7 +125,7 @@ A popper can have a form.
             <Button>Trigger</Button>
             <Popover>
                 <CrossButton slot="close-button" aria-label="Close" />
-                <Header>Passenger information</Header>
+                <Heading>Passenger information</Heading>
                 <Content>
                     <Form fluid>
                         <Field>
@@ -153,7 +173,7 @@ A popover can open at different positions.
             <Button>Trigger</Button>
             <Popover>
                 <CrossButton slot="close-button" aria-label="Close" />
-                <Header>WikiSpace</Header>
+                <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
@@ -171,7 +191,7 @@ A popover can update is content based on the `isOpen` value and optionally use t
                 <>
                     <Button color={isOpen ? "secondary" : "primary"}>Trigger</Button>
                     <Popover>
-                        <Header>WikiSpace</Header>
+                        <Heading>WikiSpace</Heading>
                         <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                         <Button onClick={event => close(event)}>Close</Button>
                     </Popover>

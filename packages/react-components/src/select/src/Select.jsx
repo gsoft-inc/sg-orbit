@@ -5,7 +5,7 @@ import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -88,6 +88,10 @@ const propTypes = {
      */
     zIndex: number,
     /**
+     * Additional props to render on the menu of options.
+     */
+    menuProps: object,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -124,6 +128,7 @@ export function InnerSelect(props) {
         hover,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
+        menuProps,
         as: TriggerType = "button",
         children,
         forwardedRef,
