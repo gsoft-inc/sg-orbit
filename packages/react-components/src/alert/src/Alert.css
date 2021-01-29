@@ -46,7 +46,7 @@
 
 /* TONE | INFO */
 .o-ui-alert-info {
-    background-color: var(--o-ui-background-info);
+    background-color: var(--o-ui-background-info-1);
     color: var(--o-ui-text-info-1);
 }
 

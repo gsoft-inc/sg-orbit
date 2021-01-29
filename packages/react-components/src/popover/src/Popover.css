@@ -1,18 +1,28 @@
 .o-ui-popover {
-    background-color: white;
-    border: 1px solid black;
-    padding: 20px;
+    background-color: var(--o-ui-background-1);
+    padding: var(--o-ui-scale-echo);
+    border-radius: var(--o-ui-rounded-border-radius);
+    box-shadow: var(--o-ui-shadow-200);
     /* Must keep a max width. */
     width: 300px;
     position: relative;
 }
 
 .o-ui-popover:focus {
-    border: 1px solid blue;
+    box-shadow: var(--o-ui-focus-ring-inset-md);
+}
+
+.o-ui-popover-header {
+    margin-bottom: var(--o-ui-scale-bravo);
 }
 
 .o-ui-popover-close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: var(--o-ui-scale-charlie);
+    right: var(--o-ui-scale-charlie);
+}
+
+.o-ui-popover-single-button,
+.o-ui-popover-button-group {
+    margin-top: var(--o-ui-scale-delta);
 }
