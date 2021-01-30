@@ -1,4 +1,4 @@
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
@@ -179,6 +179,27 @@ export function createTestSuite(element, stories) {
                      .canvasLayout({ marginTop: "100px" })
                      .build()
              }
+        )
+        .add("custom trigger width", () =>
+            <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
+        .add("custom menu width", () =>
+            <Stack gap={13}>
+                <Select menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Select align="end" allowFlip={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+            </Stack>
         )
         .add("as div", () =>
             <Select as="div" placeholder="Select a planet" aria-label="Planets" element={element}>

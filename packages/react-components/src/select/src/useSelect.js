@@ -10,10 +10,11 @@ import {
     useRefState,
     useResizeObserver
 } from "../../shared";
-import { KeyProp, usePopup } from "../../overlay";
+import { KeyProp } from "../../listbox";
 import { NodeType, useCollection } from "../../collection";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo, useState } from "react";
+import { usePopup } from "../../overlay";
 
 export function useSelect(children, {
     open: openProp,
@@ -23,6 +24,7 @@ export function useSelect(children, {
     onChange,
     onOpenChange,
     direction = "bottom",
+    align = "start",
     autoFocus,
     disabled,
     allowFlip,
@@ -55,11 +57,12 @@ export function useSelect(children, {
         restoreFocus: true,
         autoFocus: false,
         trigger: "click",
-        position: `${direction}-start`,
+        position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        zIndex
+        zIndex,
+        keyProp: KeyProp
     });
 
     const updateSelectedKey = (event, newValue) => {
@@ -105,7 +108,6 @@ export function useSelect(children, {
         focusManager.focusKey(event.target.getAttribute(KeyProp));
     });
 
-    // Autofocus the trigger.
     useAutoFocus(triggerRef, {
         isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined

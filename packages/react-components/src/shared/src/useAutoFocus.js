@@ -35,14 +35,14 @@ export function useAutoFocus(targetRef, { isDisabled, delay, onFocus } = {}) {
     });
 }
 
-export function useAutoFocusChild(focusManager, { target = FocusTarget.first, isDisabled, delay, onFocus, onNotFound } = {}) {
+export function useAutoFocusChild(focusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound } = {}) {
     useAbstractAutoFocus({
         isDisabled: isDisabled,
         delay,
         onFocus: useEventCallback(() => {
             // Do not autofocus another child if there is already one focused.
             if (!focusManager.hasFocus()) {
-                focusManager.focusTarget(target, { onFocus, onNotFound });
+                focusManager.focusTarget(target, { canFocus, onFocus, onNotFound });
             }
         })
     });

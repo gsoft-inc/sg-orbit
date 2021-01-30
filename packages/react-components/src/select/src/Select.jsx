@@ -64,6 +64,10 @@ const propTypes = {
      */
     direction: oneOf(["bottom", "top"]),
     /**
+     * The horizontal alignment of the select menu relative to the input target.
+     */
+    align: oneOf(["start", "end"]),
+    /**
      * Whether or not the select should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
@@ -116,6 +120,7 @@ export function InnerSelect(props) {
         onOpenChange,
         variant = "outline",
         direction = "bottom",
+        align = "start",
         autoFocus,
         name,
         fluid,
@@ -146,6 +151,7 @@ export function InnerSelect(props) {
         onChange,
         onOpenChange,
         direction,
+        align,
         autoFocus,
         disabled,
         allowFlip,
@@ -153,6 +159,7 @@ export function InnerSelect(props) {
         zIndex,
         ariaLabel,
         ariaLabelledBy,
+        menuProps,
         ref: forwardedRef
     });
 

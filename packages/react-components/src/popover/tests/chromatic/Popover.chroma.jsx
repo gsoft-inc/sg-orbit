@@ -13,6 +13,11 @@ import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-c
 import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
+/*
+INTERACTION TESTS:
+- When tabbing out of the popper and no focus lock, tab next focusable element after the trigger.
+*/
+
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Popover")
         .segment(segment)
@@ -350,9 +355,10 @@ stories()
     )
     .add("autofocus", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>
                 <Popover>
+                    <CrossButton slot="close-button" aria-label="Close" />
                     <Content>
                         <Form fluid>
                             <Field>
@@ -363,44 +369,19 @@ stories()
                                 <Label>Last Name</Label>
                                 <TextInput name="last-name" />
                             </Field>
-                            <ButtonGroup align="end">
-                                <Button color="secondary">Cancel</Button>
-                                <Button color="primary">Save</Button>
-                            </ButtonGroup>
                         </Form>
                     </Content>
-                </Popover>
-            </PopoverTrigger>
-        </Boundary>
-    )
-    .add("no autofocus", () =>
-        <Boundary>
-            <PopoverTrigger autoFocus={false} open>
-                <Button>Toggle</Button>
-                <Popover>
-                    <Content>
-                        <Form fluid>
-                            <Field>
-                                <Label>First Name</Label>
-                                <TextInput name="first-name" />
-                            </Field>
-                            <Field>
-                                <Label>Last Name</Label>
-                                <TextInput name="last-name" />
-                            </Field>
-                            <ButtonGroup align="end">
-                                <Button color="secondary">Cancel</Button>
-                                <Button color="primary">Save</Button>
-                            </ButtonGroup>
-                        </Form>
-                    </Content>
+                    <ButtonGroup align="end">
+                        <Button color="secondary">Cancel</Button>
+                        <Button color="primary">Save</Button>
+                    </ButtonGroup>
                 </Popover>
             </PopoverTrigger>
         </Boundary>
     )
     .add("manual autofocus", () =>
         <Boundary>
-            <PopoverTrigger open>
+            <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>
                 <Popover>
                     <Content>
@@ -413,12 +394,12 @@ stories()
                                 <Label>Last Name</Label>
                                 <TextInput name="last-name" />
                             </Field>
-                            <ButtonGroup align="end">
-                                <Button autoFocus color="secondary">Cancel</Button>
-                                <Button color="primary">Save</Button>
-                            </ButtonGroup>
                         </Form>
                     </Content>
+                    <ButtonGroup align="end">
+                        <Button autoFocus color="secondary">Cancel</Button>
+                        <Button color="primary">Save</Button>
+                    </ButtonGroup>
                 </Popover>
             </PopoverTrigger>
         </Boundary>

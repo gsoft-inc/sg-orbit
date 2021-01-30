@@ -25,6 +25,8 @@ import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, stri
 import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
+export const KeyProp = "data-o-ui-key";
+
 export const SelectionMode = {
     single: "single",
     multiple: "multiple"
@@ -71,8 +73,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType])
 };
-
-const KeyProp = "data-o-ui-key";
 
 function useSelectionManager({ selectedKey, items }) {
     return useMemo(() => {

@@ -48,22 +48,20 @@ export function InnerPopover({
             as: Text
         },
         button: {
-            size: "sm",
             className: "o-ui-popover-button"
         },
         "button-group": {
-            size: "sm",
             className: "o-ui-popover-button-group"
         },
         "close-button": {
+            // Used to prevent autoFocusing the close button.
+            id: "o-ui-popover-close-button",
             onClick: handleCloseButtonClick,
             condensed: true,
             size: "xs",
             className: "o-ui-popover-close-button"
         }
     });
-
-    console.log(heading);
 
     const headerMarkup = heading && (
         <header className="o-ui-popover-header">
