@@ -184,7 +184,7 @@ export function InnerListbox({
             case Keys.down: {
                 event.preventDefault();
 
-                const activeElement = focusManager.focusNext(event.target);
+                const activeElement = focusManager.focusNext();
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
@@ -198,7 +198,7 @@ export function InnerListbox({
             case Keys.up: {
                 event.preventDefault();
 
-                const activeElement = focusManager.focusPrevious(event.target);
+                const activeElement = focusManager.focusPrevious();
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {

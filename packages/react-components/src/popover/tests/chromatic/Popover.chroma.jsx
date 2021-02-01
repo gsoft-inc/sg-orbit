@@ -15,7 +15,12 @@ import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 /*
 INTERACTION TESTS:
-- When tabbing out of the popper and no focus lock, tab next focusable element after the trigger.
+    - When tabbing out of the popper and no focus lock, tab next focusable element after the trigger.
+*/
+
+/*
+CHROMA TESTS:
+    - hover + autofocus child
 */
 
 function stories(segment) {
@@ -375,6 +380,17 @@ stories()
                         <Button color="secondary">Cancel</Button>
                         <Button color="primary">Save</Button>
                     </ButtonGroup>
+                </Popover>
+            </PopoverTrigger>
+        </Boundary>
+    )
+    .add("autofocus with only close button", () =>
+        <Boundary>
+            <PopoverTrigger autoFocus defaultOpen>
+                <Button>Toggle</Button>
+                <Popover>
+                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 </Popover>
             </PopoverTrigger>
         </Boundary>

@@ -2,9 +2,7 @@ import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
 
-// In special circumstances that should not happen for our use cases this interator might cause an infinite
-// loop when it's used with "canFocus" and a condition which result in discarding all the elements.
-class InfiniteIterator {
+class ElementIterator {
     _elements;
     _index;
 
@@ -15,22 +13,26 @@ class InfiniteIterator {
 
     next() {
         if (this._index < this._elements.length - 1) {
-            this._index++;
-        } else {
-            this._index = 0;
+            return this._elements[++this._index];
         }
 
-        return this._elements[this._index];
+        return null;
     }
 
     previous() {
         if (this._index > 0) {
-            this._index--;
-        } else {
-            this._index = this._elements.length - 1;
+            return this._elements[--this._index];
         }
 
-        return this._elements[this._index];
+        return null;
+    }
+
+    reset({ from = -1 } = {}) {
+        this._index = from;
+    }
+
+    get currentIndex() {
+        return this._index;
     }
 }
 
@@ -66,12 +68,15 @@ export class FocusManager {
 
         let target;
 
-        if (isNil(canFocus)) {
-            target = elements[0];
-        } else {
-            const iterator = new InfiniteIterator(elements);
+        if (elements.length > 0) {
+            if (isNil(canFocus)) {
+                target = elements[0];
+            }
+            else {
+                const iterator = new ElementIterator(elements);
 
-            do { target = iterator.next(); } while(!canFocus(target));
+                do { target = iterator.next(); } while(!isNil(target) && !canFocus(target));
+            }
         }
 
         return this._focusElement(target, options);
@@ -82,47 +87,85 @@ export class FocusManager {
 
         let target;
 
-        if (isNil(canFocus)) {
-            target = elements[elements.length - 1];
-        }
-        else {
-            const iterator = new InfiniteIterator(elements);
+        if (elements.length > 0) {
+            if (isNil(canFocus)) {
+                target = elements[elements.length - 1];
+            }
+            else {
+                const iterator = new ElementIterator(elements, { from: elements.length });
 
-            do { target = iterator.previous(); } while(!canFocus(target));
-        }
-
-        return this._focusElement(target, options);
-    }
-
-    focusNext(currentElement, { canFocus, ...options } = {}) {
-        const { elements } = this._scope;
-
-        let target;
-
-        const index = elements.indexOf(currentElement);
-        const iterator = new InfiniteIterator(elements, { from: index !== -1 ? index : undefined });
-
-        if (isNil(canFocus)) {
-            target = iterator.next();
-        } else {
-            do { target = iterator.next(); } while(!canFocus(target));
+                do { target = iterator.previous(); } while(!isNil(target) && !canFocus(target));
+            }
         }
 
         return this._focusElement(target, options);
     }
 
-    focusPrevious(currentElement, { canFocus, ...options } = {}) {
+    focusNext({ canFocus, ...options } = {}) {
         const { elements } = this._scope;
 
         let target;
 
-        const index = elements.indexOf(currentElement);
-        const iterator = new InfiniteIterator(elements, { from: index !== -1 ? index : undefined });
+        if (elements.length > 0) {
+            let hasLooped = false;
 
-        if (isNil(canFocus)) {
-            target = iterator.previous();
-        } else {
-            do { target = iterator.previous(); } while(!canFocus(target));
+            canFocus = !isNil(canFocus) ? canFocus : () => true;
+
+            const index = elements.indexOf(document.activeElement);
+            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+
+            do {
+                target = iterator.next();
+
+                if (isNil(target)) {
+                    iterator.reset();
+                }
+
+                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
+                // therefore we should stop looping to prevent an infinite loop.
+                if (iterator.currentIndex === index) {
+                    hasLooped = true;
+                }
+
+                if (!isNil(target) && !canFocus(target)) {
+                    target = null;
+                }
+            } while(isNil(target) && !hasLooped);
+        }
+
+        return this._focusElement(target, options);
+    }
+
+    focusPrevious({ canFocus, ...options } = {}) {
+        const { elements } = this._scope;
+
+        let target;
+
+        if (elements.length > 0) {
+            let hasLooped = false;
+
+            canFocus = !isNil(canFocus) ? canFocus : () => true;
+
+            const index = elements.indexOf(document.activeElement);
+            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+
+            do {
+                target = iterator.previous();
+
+                if (isNil(target)) {
+                    iterator.reset({ from: elements.length });
+                }
+
+                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
+                // therefore we should stop looping to prevent an infinite loop.
+                if (iterator.currentIndex === index) {
+                    hasLooped = true;
+                }
+
+                if (!isNil(target) && !canFocus(target)) {
+                    target = null;
+                }
+            } while(isNil(target) && !hasLooped);
         }
 
         return this._focusElement(target, options);
@@ -156,9 +199,7 @@ export class FocusManager {
     }
 
     hasFocus() {
-        const { elements } = this._scope;
-
-        return elements.some(x => x === document.activeElement);
+        return this._scope.isInScope(document.activeElement);
     }
 }
 
