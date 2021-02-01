@@ -43,4 +43,24 @@
     grid-area: button;
 }
 
+.o-ui-popover-overlay {
+    --o-ui-popover-offset: 4px;
+}
+
+.o-ui-popover-overlay[data-popper-placement*="top"] {
+    margin-bottom: var(--o-ui-popover-offset);
+}
+
+.o-ui-popover-overlay[data-popper-placement*="bottom"] {
+    margin-top: var(--o-ui-popover-offset);
+}
+
+.o-ui-popover-overlay[data-popper-placement*="right"] {
+    margin-left: var(--o-ui-popover-offset);
+}
+
+.o-ui-popover-overlay[data-popper-placement*="left"] {
+    margin-right: var(--o-ui-popover-offset);
+}
+
 

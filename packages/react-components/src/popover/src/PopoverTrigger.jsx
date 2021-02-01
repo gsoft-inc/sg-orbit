@@ -101,7 +101,6 @@ export function InnerPopoverTrigger({
         restoreFocus: true,
         trigger: triggerProp,
         position,
-        offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
@@ -131,6 +130,7 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        className: "o-ui-popover-overlay",
                         as,
                         ref: forwardedRef
                     }

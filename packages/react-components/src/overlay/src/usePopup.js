@@ -54,7 +54,8 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            if (event.target !== overlayElement && event.relatedTarget !== overlayElement) {
+            // Must validate that relatedTarget is a DOM element because it could be anything like "window".
+            if (!(event.relatedTarget instanceof HTMLElement) || !overlayElement.contains(event.relatedTarget)) {
                 updateIsOpen(event, false);
             }
         })
@@ -88,7 +89,10 @@ export function usePopup(type, {
         {
             ...autoFocusOptions,
             isDisabled: !autoFocus || !isOpen,
-            delay: isNumber(autoFocus) ? autoFocus : undefined
+            delay: isNumber(autoFocus) ? autoFocus : undefined,
+            onNotFound: useCallback(() => {
+                overlayElement?.focus();
+            }, [overlayElement])
         });
 
     return {
