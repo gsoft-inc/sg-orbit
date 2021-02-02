@@ -1,7 +1,8 @@
-import { Button } from "@react-components/button";
 import { Divider } from "@react-components/divider";
+import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
-import { Menu, MenuTrigger } from "@react-components/menu";
+import { Menu } from "@react-components/menu";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -22,98 +23,235 @@ TODO:
     - keyboard nav
 */
 
+/*
+SPLIT IN 2 FILES -> MenuTrigger & Menu
+
+MISSING CHROMA TESTS:
+
+FOR MENU:
+    - Menu component styling
+    - custom item component
+    - custom as
+    - fluid
+
+autoFocus sur le menu directement???? Les 2 probablement un peu comme Select et Listbox, menu dans être pas mal on-pair avec Listbox
+*/
+
 stories()
-    .add("default", () =>
-        <MenuTrigger>
-            <Button>Trigger</Button>
-            <Menu>
+    .add("only items", () =>
+        <Menu>
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Menu>
+    )
+    .add("without keys", () =>
+        <Menu>
+            <Item>Earth</Item>
+            <Item>Mars</Item>
+            <Item>Saturn</Item>
+        </Menu>
+    )
+    .add("sections", () =>
+        <Menu>
+            <Section title="Visited">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
-            </Menu>
-        </MenuTrigger>
-    )
-    .add("open with items only", () =>
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-        </MenuTrigger>
-    )
-    .add("open with sections", () =>
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
-                <Section title="Visited">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Section>
-                <Section title="Not Visited">
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mercury">Mercury</Item>
-                    <Item key="neptune">Neptune</Item>
-                    <Item key="uranus">Uranus</Item>
-                </Section>
-            </Menu>
-        </MenuTrigger>
-    )
-    .add("open with dividers", () =>
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Divider />
-                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
                 <Item key="jupiter">Jupiter</Item>
-                <Divider />
                 <Item key="mercury">Mercury</Item>
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
-            </Menu>
-        </MenuTrigger>
+            </Section>
+        </Menu>
     )
-    .add("open with mixed sections and items", () =>
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
+    .add("dividers", () =>
+        <Menu>
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Divider />
+            <Item key="saturn">Saturn</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Divider />
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="uranus">Uranus</Item>
+        </Menu>
+    )
+    .add("mixed sections and items", () =>
+        <Menu>
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Menu>
+    )
+    .add("item with start icon", () =>
+        <Menu>
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <IconList>
+                    <LightbulbIcon />
+                    <NotificationIcon />
+                </IconList>
+                <Text>Mars</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Menu>
+    )
+    .add("item with end icon", () =>
+        <Menu>
+            <Item key="earth">
+                <Text>Earth</Text>
+                <NotificationIcon slot="end-icon" />
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="end-icon">
+                    <LightbulbIcon />
+                    <NotificationIcon />
+                </IconList>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Menu>
+    )
+    .add("item with description", () =>
+        <Menu>
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+                <NotificationIcon slot="end-icon" />
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Menu>
+    )
+    .add("item overflow", () =>
+        <Menu>
+            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+            <Item>Jupiter</Item>
+            <Item>Mars</Item>
+        </Menu>
+    )
+    .add("states", () =>
+        <Menu>
+            <Item active key="earth">Earth</Item>
+            <Item focus key="jupiter">Jupiter</Item>
+            <Item hover key="mars">Mars</Item>
+            <Item focus hover key="mercury">Mercury</Item>
+            <Item disabled key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+        </Menu>
+    )
+    .add("array map", () =>
+        <Menu>
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
+        </Menu>
+    )
+    .add("autofocus", () =>
+        <Menu autoFocus>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    )
+    .add("autofocus with sections", () =>
+        <Menu autoFocus>
+            <Section title="Visited">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
-                <Section title="Not Visited">
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mercury">Mercury</Item>
-                    <Item key="neptune">Neptune</Item>
-                    <Item key="uranus">Uranus</Item>
-                </Section>
-            </Menu>
-        </MenuTrigger>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Menu>
     )
-    // .add("item wit start icon", () =>
-    // )
+    .add("autofocus with delay", () =>
+        <Menu autoFocus={50}>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    )
+    .add("do not autofocus first item when disabled", () =>
+        <Menu autoFocus>
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Menu>
+    )
     .add("scrolling", () =>
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
-                <Item key="ceres">Ceres</Item>
-                <Item key="charon">Charon</Item>
+        <Menu>
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Menu>
+    )
+    .add("custom menu width", () =>
+        <Menu style={{ width: "500px" }}>
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Menu>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Menu className="border-red">
                 <Item key="earth">Earth</Item>
-                <Item key="eris">Eris</Item>
                 <Item key="jupiter">Jupiter</Item>
-                <Item key="haumea">Haumea</Item>
-                <Item key="makemake">Makemake</Item>
                 <Item key="mars">Mars</Item>
-                <Item key="mercury">Mercury</Item>
-                <Item key="neptune">Neptune</Item>
-                <Item key="pluto">Pluto</Item>
-                <Item key="saturn">Saturn</Item>
-                <Item key="uranus">Uranus</Item>
-                <Item key="venus">Venus</Item>
             </Menu>
-        </MenuTrigger>
+            <Menu style={{ border: "1px solid red" }}>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </Inline>
     );
 

@@ -8,12 +8,6 @@ import { NodeType, useCollection } from "../../collection";
 import { forwardRef } from "react";
 import { mergeProps, useId } from "../../shared";
 
-/*
-TODO:
-    - orientation
-    - aria-label | aria-labelledby
-*/
-
 const propTypes = {
 
 };

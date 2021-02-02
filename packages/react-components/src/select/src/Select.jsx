@@ -172,7 +172,7 @@ export function InnerSelect(props) {
             className: "o-ui-select-value-start-icon"
         },
         text: {
-            className: "o-ui-select-value"
+            className: "o-ui-select-value-text"
         },
         "end-icon": {
             size: "sm",
@@ -222,14 +222,7 @@ export function InnerSelect(props) {
                     size="sm"
                 />
             </TriggerType>
-            <Overlay
-                {...mergeProps(
-                    overlayProps,
-                    {
-                        className: "o-ui-select-menu"
-                    }
-                )}
-            >
+            <Overlay {...overlayProps}>
                 <Listbox {...listboxProps} />
             </Overlay>
         </>

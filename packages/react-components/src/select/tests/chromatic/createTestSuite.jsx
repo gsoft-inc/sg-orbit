@@ -161,15 +161,29 @@ export function createTestSuite(element, stories) {
                 <Item key="venus">Venus</Item>
             </Select>
         )
+        .add("custom trigger width", () =>
+            <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
+        .add("custom menu width", () =>
+            <Select menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
         .add("direction bottom", () =>
-            <Select direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select direction="bottom" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
         .add("direction top", () =>
-            <Select direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select direction="top" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -180,26 +194,19 @@ export function createTestSuite(element, stories) {
                      .build()
              }
         )
-        .add("custom trigger width", () =>
-            <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("align start", () =>
+            <Select align="start" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("custom menu width", () =>
-            <Stack gap={13}>
-                <Select menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select align="end" allowFlip={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            </Stack>
+        .add("align end", () =>
+            <Select align="end" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
         )
         .add("as div", () =>
             <Select as="div" placeholder="Select a planet" aria-label="Planets" element={element}>

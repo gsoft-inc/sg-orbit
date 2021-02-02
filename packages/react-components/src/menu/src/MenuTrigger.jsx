@@ -118,7 +118,8 @@ export function InnerMenuTrigger({
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const menuMarkup = augmentElement(menu, {
-        onSelect: handleSelect
+        onSelect: handleSelect,
+        fluid: true
     });
 
     return (
