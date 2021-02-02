@@ -138,7 +138,7 @@ stories()
                 <Button>Toggle</Button>
                 <Popover>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                    <Footer>All rights reserved.</Footer>
+                    <Footer>Step 2/4</Footer>
                 </Popover>
             </PopoverTrigger>
         </Boundary>
@@ -176,7 +176,7 @@ stories()
                     <CrossButton slot="close-button" aria-label="Close" />
                     <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                    <Footer>All rights reserved.</Footer>
+                    <Footer>Step 2/4</Footer>
                     <ButtonGroup align="end">
                         <Button color="secondary">Cancel</Button>
                         <Button color="primary">Accept</Button>

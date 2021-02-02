@@ -3,7 +3,3 @@
     width: fit-content;
     height: fit-content;
 }
-
-.o-ui-overlay:focus {
-    box-shadow: var(--o-ui-focus-ring-inset-md);
-}
