@@ -1,12 +1,11 @@
 import { Children, forwardRef } from "react";
 import { Overlay, usePopup } from "../../overlay";
 import { any, bool, func, number, oneOf, oneOfType } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren, useEventCallback } from "../../shared";
+import { augmentElement, mergeProps, resolveChildren, useEventCallback, useId } from "../../shared";
 import { isNil } from "lodash";
 
 /*
 TODO:
-- aria-label
 - autoFocus???
 */
 
@@ -72,6 +71,7 @@ const propTypes = {
 };
 
 export function InnerMenuTrigger({
+    id,
     open,
     defaultOpen,
     onSelect,
@@ -86,6 +86,7 @@ export function InnerMenuTrigger({
     ...rest
 }) {
     const { setIsOpen, triggerProps, overlayProps } = usePopup("menu", {
+        id,
         open,
         defaultOpen,
         onOpenChange,
@@ -115,11 +116,23 @@ export function InnerMenuTrigger({
         setIsOpen(event, false);
     });
 
-    const triggerMarkup = augmentElement(trigger, triggerProps);
+    // The trigger might already have a custom id.
+    const { id: triggerIdProp, "aria-labelledby": ariaLabelledBy, "aria-describedby": ariaDescribedBy } = trigger.props;
+
+    const triggerId = useId(triggerIdProp, triggerIdProp ? undefined : "o-ui-menu-trigger");
+
+    const triggerMarkup = augmentElement(trigger, mergeProps(
+        triggerProps,
+        {
+            id: triggerId
+        }
+    ));
 
     const menuMarkup = augmentElement(menu, {
         onSelect: handleSelect,
-        fluid: true
+        fluid: true,
+        "aria-labelledby": ariaLabelledBy ?? triggerId,
+        "aria-describedby": ariaDescribedBy
     });
 
     return (

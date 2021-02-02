@@ -39,21 +39,21 @@ autoFocus sur le menu directement???? Les 2 probablement un peu comme Select et 
 
 stories()
     .add("only items", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
     )
     .add("without keys", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item>Earth</Item>
             <Item>Mars</Item>
             <Item>Saturn</Item>
         </Menu>
     )
     .add("sections", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -68,7 +68,7 @@ stories()
         </Menu>
     )
     .add("dividers", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Divider />
@@ -81,7 +81,7 @@ stories()
         </Menu>
     )
     .add("mixed sections and items", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -94,7 +94,7 @@ stories()
         </Menu>
     )
     .add("item with start icon", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
                 <Text>Earth</Text>
@@ -114,7 +114,7 @@ stories()
         </Menu>
     )
     .add("item with end icon", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
                 <NotificationIcon slot="end-icon" />
@@ -134,7 +134,7 @@ stories()
         </Menu>
     )
     .add("item with description", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
@@ -152,14 +152,14 @@ stories()
         </Menu>
     )
     .add("item overflow", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
         </Menu>
     )
     .add("states", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item active key="earth">Earth</Item>
             <Item focus key="jupiter">Jupiter</Item>
             <Item hover key="mars">Mars</Item>
@@ -169,21 +169,21 @@ stories()
         </Menu>
     )
     .add("array map", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
         </Menu>
     )
     .add("autofocus", () =>
-        <Menu autoFocus>
+        <Menu autoFocus aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
     )
     .add("autofocus with sections", () =>
-        <Menu autoFocus>
+        <Menu autoFocus aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -198,14 +198,14 @@ stories()
         </Menu>
     )
     .add("autofocus with delay", () =>
-        <Menu autoFocus={50}>
+        <Menu autoFocus={50} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
     )
     .add("do not autofocus first item when disabled", () =>
-        <Menu autoFocus>
+        <Menu autoFocus aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -216,7 +216,7 @@ stories()
         </Menu>
     )
     .add("scrolling", () =>
-        <Menu>
+        <Menu aria-label="Planets">
             <Item key="ceres">Ceres</Item>
             <Item key="charon">Charon</Item>
             <Item key="earth">Earth</Item>
@@ -234,7 +234,7 @@ stories()
         </Menu>
     )
     .add("custom menu width", () =>
-        <Menu style={{ width: "500px" }}>
+        <Menu style={{ width: "500px" }} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -242,12 +242,12 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Menu className="border-red">
+            <Menu className="border-red" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
-            <Menu style={{ border: "1px solid red" }}>
+            <Menu style={{ border: "1px solid red" }} aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

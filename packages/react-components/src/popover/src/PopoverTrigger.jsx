@@ -72,6 +72,7 @@ const propTypes = {
 };
 
 export function InnerPopoverTrigger({
+    id,
     open,
     defaultOpen,
     trigger: triggerProp = "click",
@@ -88,6 +89,7 @@ export function InnerPopoverTrigger({
     ...rest
 }) {
     const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps } = usePopup("dialog", {
+        id,
         open,
         defaultOpen,
         onOpenChange,

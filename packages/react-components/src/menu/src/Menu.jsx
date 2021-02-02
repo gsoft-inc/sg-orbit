@@ -5,8 +5,9 @@ import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { NodeType, useCollection } from "../../collection";
+import { cssModule, mergeProps, useEventCallback, useId } from "../../shared";
 import { forwardRef } from "react";
-import { mergeProps, useId } from "../../shared";
+import { isNil } from "lodash";
 
 const propTypes = {
 
@@ -15,17 +16,26 @@ const propTypes = {
 export function InnerMenu({
     id,
     onSelect,
+    fluid,
     as = "ul",
     children,
     forwardedRef,
     ...rest
 }) {
     const nodes = useCollection(children);
+    const items = nodes.filter(x => x.type === NodeType.item);
+
+    const handleSelect = useEventCallback(event => {
+        if (!isNil(onSelect)) {
+            onSelect(event);
+        }
+    });
 
     const rootId = useId(id, id ? undefined : "o-ui-menu");
 
     const renderOption = ({
         key,
+        index,
         elementType: ElementType = MenuItem,
         ref,
         content,
@@ -33,7 +43,7 @@ export function InnerMenu({
     }) => (
         <ElementType
             {...props}
-            id={`${rootId}-item-${key}`}
+            id={`${rootId}-item-${index}`}
             key={key}
             ref={ref}
             item={{ key: key }}
@@ -44,6 +54,7 @@ export function InnerMenu({
 
     const renderSection = ({
         key,
+        index,
         elementType: ElementType = MenuSection,
         ref,
         props,
@@ -51,7 +62,7 @@ export function InnerMenu({
     }) => (
         <ElementType
             {...props}
-            id={`${rootId}-section-${key}`}
+            id={`${rootId}-section-${index}`}
             key={key}
             ref={ref}
         >
@@ -70,7 +81,8 @@ export function InnerMenu({
             {...mergeProps(
                 props,
                 {
-                    className: "o-ui-menu-divider"
+                    className: "o-ui-menu-divider",
+                    as: "li"
                 }
             )}
             key={key}
@@ -86,9 +98,11 @@ export function InnerMenu({
                 rest,
                 {
                     id: rootId,
-                    className: "o-ui-menu",
+                    className: cssModule(
+                        "o-ui-menu",
+                        fluid && "fluid"
+                    ),
                     role: "menu",
-                    // tabIndex: "-1",
                     "aria-orientation": "vertical",
                     as,
                     ref: forwardedRef
@@ -97,7 +111,7 @@ export function InnerMenu({
         >
             <MenuContext.Provider
                 value={{
-                    onSelect
+                    onSelect: handleSelect
                 }}
             >
                 {nodes.map(({ type, ...nodeProps }) => {

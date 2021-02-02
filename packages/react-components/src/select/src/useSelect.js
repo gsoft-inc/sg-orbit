@@ -6,6 +6,7 @@ import {
     useChainedEventCallback,
     useControllableState,
     useEventCallback,
+    useId,
     useMergedRefs,
     useRefState,
     useResizeObserver
@@ -17,6 +18,7 @@ import { useCallback, useMemo, useState } from "react";
 import { usePopup } from "../../overlay";
 
 export function useSelect(children, {
+    id,
     open: openProp,
     defaultOpen,
     selectedKey: selectedKeyProp,
@@ -30,9 +32,9 @@ export function useSelect(children, {
     allowFlip,
     allowPreventOverflow,
     zIndex = 10000,
-    ariaLabel,
     ariaLabelledBy,
-    menuProps: { style: { width, ...menuStyle } = {}, ...menuProps } = {},
+    ariaDescribedBy,
+    menuProps: { id: menuId, style: { width, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
@@ -42,6 +44,7 @@ export function useSelect(children, {
     const triggerRef = useMergedRefs(ref);
 
     const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
+        id: menuId,
         open: openProp,
         defaultOpen,
         // Focusing the first item on open if nore are already set to be focused.
@@ -118,6 +121,8 @@ export function useSelect(children, {
         box: "border-box"
     });
 
+    const triggerId = useId(id, id ? undefined : "o-ui-select-trigger");
+
     const nodes = useCollection(children);
     const items = useMemo(() => nodes.filter(x => x.type === NodeType.item), [nodes]);
 
@@ -137,9 +142,11 @@ export function useSelect(children, {
         triggerProps: mergeProps(
             triggerProps,
             {
+                id: triggerId,
                 onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                 disabled,
-                "aria-label": isNil(ariaLabelledBy) ? ariaLabel : undefined,
+                "aria-labelledby": ariaLabelledBy,
+                "aria-describedby": ariaDescribedBy,
                 ref: triggerRef
             }
         ),
@@ -164,9 +171,8 @@ export function useSelect(children, {
             defaultFocusTarget: focusTargetRef.current,
             fluid: true,
             className: "o-ui-select-listbox",
-            "aria-label": isNil(ariaLabelledBy) ? ariaLabel : undefined,
-            "aria-labelledby": ariaLabelledBy,
-            "aria-describedby": ariaLabelledBy
+            "aria-labelledby": ariaLabelledBy ?? triggerId,
+            "aria-describedby": ariaDescribedBy
         }
     };
 }
