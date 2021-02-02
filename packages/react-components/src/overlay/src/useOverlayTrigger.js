@@ -1,7 +1,7 @@
 import { Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
-export function useOverlayTrigger(trigger, { onToggle, onShow, onHide }) {
+export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide } = {}) {
     const toggle = event => {
         if (!isNil(onToggle)) {
             onToggle(event);

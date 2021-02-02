@@ -4,9 +4,10 @@ import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 
 export function useOverlayLightDismiss(overlayRef, {
+    trigger = "click",
     onHide,
     hideOnEscape,
-    hideOnBlur,
+    hideOnLeave,
     hideOnOutsideClick
 }) {
     const [activeElementRef, setActiveElement] = useRefState();
@@ -38,20 +39,30 @@ export function useOverlayLightDismiss(overlayRef, {
         }
     });
 
-    const onInteractOutside = useEventCallback(event => {
+    const handleMouseLeave = useEventCallback(event => {
+        console.log("mouse leaved");
+
         hide(event);
     });
 
-    useInteractOutside(overlayRef, { onInteractOutside, isDisabled: !hideOnOutsideClick });
+    const handleInteractOutside = useEventCallback(event => {
+        hide(event);
+    });
+
+    useInteractOutside(overlayRef, {
+        onInteractOutside: handleInteractOutside,
+        isDisabled: !hideOnOutsideClick
+    });
 
     const focusWithinProps = useFocusWithin({
         onFocus: handleFocus,
         onBlur: handleBlur,
-        isDisabled: !hideOnBlur
+        isDisabled: !hideOnLeave
     });
 
     return {
         ...focusWithinProps,
+        onMouseLeave: trigger === "hover" ? hideOnLeave ? handleMouseLeave : undefined : undefined,
         onKeyDown: hideOnEscape ? handleKeyDown : undefined
     };
 }

@@ -92,7 +92,7 @@ export function InnerPopoverTrigger({
         defaultOpen,
         onOpenChange,
         hideOnEscape: true,
-        hideOnBlur: true,
+        hideOLeave: true,
         hideOnOutsideClick: true,
         autoFocus,
         autoFocusOptions: {

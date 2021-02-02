@@ -53,7 +53,7 @@ export function useSelect(children, {
             }
         }),
         hideOnEscape: true,
-        hideOnBlur: true,
+        hideOnLeave: true,
         restoreFocus: true,
         autoFocus: false,
         trigger: "click",
@@ -147,6 +147,7 @@ export function useSelect(children, {
             menuProps,
             overlayProps,
             {
+                className: "o-ui-select-menu",
                 style: {
                     ...menuStyle,
                     width: width ?? triggerWidth ?? "0px"
@@ -162,6 +163,7 @@ export function useSelect(children, {
             autoFocus: isOpen,
             defaultFocusTarget: focusTargetRef.current,
             fluid: true,
+            className: "o-ui-select-listbox",
             "aria-label": isNil(ariaLabelledBy) ? ariaLabel : undefined,
             "aria-labelledby": ariaLabelledBy,
             "aria-describedby": ariaLabelledBy
