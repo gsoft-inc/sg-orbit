@@ -53,7 +53,7 @@ export function useSelect(children, {
             }
         }),
         hideOnEscape: true,
-        hideOnBlur: true,
+        hideOnLeave: true,
         restoreFocus: true,
         autoFocus: false,
         trigger: "click",

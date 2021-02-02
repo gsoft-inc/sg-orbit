@@ -11,7 +11,7 @@ export function usePopup(type, {
     defaultOpen,
     onOpenChange,
     hideOnEscape = true,
-    hideOnBlur = true,
+    hideOnLeave = true,
     hideOnOutsideClick,
     restoreFocus = true,
     autoFocus,
@@ -45,7 +45,8 @@ export function usePopup(type, {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = useOverlayTrigger(trigger, {
+    const triggerProps = useOverlayTrigger({
+        trigger,
         onToggle: useEventCallback(event => {
             updateIsOpen(event, !isOpen);
         }),
@@ -62,6 +63,7 @@ export function usePopup(type, {
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
+        trigger,
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger to prevent double toggle.
             if (event.target !== triggerElement && event.relatedTarget !== triggerElement) {
@@ -69,7 +71,7 @@ export function usePopup(type, {
             }
         }),
         hideOnEscape,
-        hideOnBlur,
+        hideOnLeave,
         hideOnOutsideClick
     });
 

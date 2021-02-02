@@ -16,6 +16,13 @@ import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 /*
 INTERACTION TESTS:
     - When tabbing out of the popper and no focus lock, tab next focusable element after the trigger.
+    - trigger "hover"
+        - open on "hover"
+        - close when leaving trigger
+        - doesn't close when hover overlay
+        - close when leaving overlay
+        - close on blur
+        - close on esc
 */
 
 /*

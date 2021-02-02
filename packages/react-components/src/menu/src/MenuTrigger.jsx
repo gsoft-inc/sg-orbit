@@ -90,7 +90,7 @@ export function InnerMenuTrigger({
         defaultOpen,
         onOpenChange,
         hideOnEscape: true,
-        hideOnBlur: true,
+        hideOnLeave: true,
         hideOnOutsideClick: true,
         autoFocus: true,
         restoreFocus: true,
