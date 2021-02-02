@@ -7,7 +7,7 @@ import keyboardKey from "keyboard-key";
 // https://github.com/Semantic-Org/Semantic-UI-React/issues/3768
 // Sadly, specifying "search" doesn't work for us since it renders the dropdown as a "combolist" instead of a "listbox" and it cause a
 // whole new set of problems.
-class MonkeyPatchDropdown extends Dropdown {
+export class MonkeyPatchDropdown extends Dropdown {
     selectItemOnEnter = (e: any) => {
         const { search } = this.props;
 
@@ -32,5 +32,3 @@ class MonkeyPatchDropdown extends Dropdown {
         }
     }
 }
-
-export { MonkeyPatchDropdown };
