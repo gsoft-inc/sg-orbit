@@ -209,7 +209,7 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("as div", () =>
-            <Select as="div" placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select as="div" tabIndex="0" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
