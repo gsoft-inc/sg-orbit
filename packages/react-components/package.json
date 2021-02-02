@@ -6,16 +6,33 @@
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
+    ],
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "babel src -d dist --config-file ./babel.config.js --copy-files",
+        "build": "yarn run build:types && yarn run build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
-        "clean": "rimraf dist"
+        "clean": "rimraf dist",
+        "type-check": "tsc --noEmit",
+        "type-check:watch": "yarn run type-check -- --watch"
+    },
+    "devDependencies": {
+        "@types/lodash": "4.14.168",
+        "@types/react-with-styles": "4.0.5",
+        "@types/react-dates": "21.8.1",
+        "@types/react-dom": "17.0.0",
+        "@types/react": "17.0.0"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
