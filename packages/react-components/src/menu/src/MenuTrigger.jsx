@@ -104,7 +104,7 @@ export function InnerMenuTrigger({
     const [trigger, menu] = Children.toArray(resolveChildren(children));
 
     if (isNil(trigger) || isNil(menu)) {
-        throw new Error("An action menu must have exactly 2 children.");
+        throw new Error("An menu trigger must have exactly 2 children.");
     }
 
     const handleSelect = useEventCallback((event, key) => {

@@ -1,3 +1,7 @@
+[class^="o-ui-popover"] {
+    --o-ui-popover-offset: var(--o-ui-scale-alpha);
+}
+
 .o-ui-popover {
     background-color: var(--o-ui-background-1);
     padding: var(--o-ui-scale-foxtrot);
@@ -42,10 +46,6 @@
 
 .o-ui-popover-button-group {
     grid-area: button;
-}
-
-.o-ui-popover-overlay {
-    --o-ui-popover-offset: 4px;
 }
 
 .o-ui-popover-overlay[data-popper-placement*="top"] {

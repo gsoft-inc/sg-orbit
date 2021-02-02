@@ -1,11 +1,18 @@
+[class^="o-ui-menu"] {
+    --o-ui-menu-item-height: var(--o-ui-scale-golf);
+}
+
 .o-ui-menu {
     background-color: white;
     border: 1px solid black;
     padding: 0;
     margin: 0;
+    max-height: calc(10 * var(--o-ui-menu-item-height));
+    overflow-y: auto;
 }
 
 .o-ui-menu-item {
+    height: var(--o-ui-menu-item-height);
     list-style: none;
     padding: 0;
     margin: 0;
