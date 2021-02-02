@@ -4,7 +4,7 @@
     border: none;
     background: none;
     padding: 0;
-    min-width: 325px;
+    color: var(--o-ui-text-1);
 }
 
 .o-ui-select-trigger-fluid {
@@ -15,6 +15,8 @@
 .o-ui-select-trigger-transparent {
     display: flex;
     align-items: center;
+    min-height: var(--o-ui-scale-hotel);
+    min-width: 325px;
 }
 
 .o-ui-select-trigger-inline {
@@ -23,21 +25,30 @@
 }
 
 .o-ui-select-trigger-outline {
-    border: 1px solid black;
+    min-height: var(--o-ui-scale-hotel);
+    padding: 0 var(--o-ui-scale-charlie) 0 var(--o-ui-scale-foxtrot);
+    background-color: var(--o-ui-background-1);
+    border-radius: var(--o-ui-rounded-border-radius);
+    border: 1px solid var(--o-ui-border-1);
 }
 
 .o-ui-select-trigger-invalid {
     border: 1px solid red;
 }
 
-.o-ui-select-trigger-focus,
-.o-ui-select-trigger:focus:not(:hover) {
-    border: 3px solid blue !important;
+.o-ui-select-trigger-outline.o-ui-select-trigger-focus,
+.o-ui-select-trigger-outline:focus:not(:hover) {
+    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
 }
 
 /* .o-ui-select-trigger-opened:focus {
     border: 0 !important;
 } */
+
+/* SELECT VALUE */
+.o-ui-select-value {
+    display: flex;
+}
 
 .o-ui-select-value,
 .o-ui-select-placeholder {
@@ -45,10 +56,20 @@
     text-align: left;
 }
 
-.o-ui-select-menu {
-    border: 1px solid black;
+.o-ui-select-value-start-icon {
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 .o-ui-select-menu-fluid {
     width: 100%;
+}
+
+/* TRANSPARENT */
+.o-ui-select-trigger-transparent.o-ui-select-trigger-focus,
+.o-ui-select-trigger-transparent:focus:not(:hover) {
+    box-shadow: 0 2px 0 0 var(--o-ui-border-primary-1);
+}
+
+.o-ui-select-menu {
+    min-width: 325px;
 }

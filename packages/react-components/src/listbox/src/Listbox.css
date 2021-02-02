@@ -19,6 +19,7 @@
 
 .o-ui-listbox-fluid {
     width: 100%;
+    max-width: 100%;
 }
 
 .o-ui-listbox-option {
@@ -57,7 +58,7 @@
     outline: none;
 }
 
-.o-ui-listbox-option:hover {
+.o-ui-listbox-option:not([aria-disabled="true"]):hover {
     background-color: var(--o-ui-background-primary-1);
     color: var(--o-ui-static-white);
 }
@@ -66,6 +67,7 @@
     font-weight: 500;
     padding-left: var(--o-ui-scale-foxtrot);
     margin: var(--o-ui-scale-bravo) 0;
+    cursor: default;
 }
 
 /* LABEL */
@@ -80,4 +82,9 @@
 /* END ICON */
 .o-ui-listbox-option-end-icon {
     margin-left: var(--o-ui-scale-alpha);
+}
+
+/* START ICON */
+.o-ui-listbox-option-start-icon {
+    margin-right: var(--o-ui-scale-alpha);
 }
