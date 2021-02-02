@@ -3,7 +3,3 @@
     width: fit-content;
     height: fit-content;
 }
-
-.o-ui-overlay:focus {
-    border: 1px solid blue;
-}

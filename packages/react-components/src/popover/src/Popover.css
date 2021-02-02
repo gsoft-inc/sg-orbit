@@ -1,10 +1,10 @@
 .o-ui-popover {
     background-color: var(--o-ui-background-1);
-    padding: var(--o-ui-scale-echo);
+    padding: var(--o-ui-scale-foxtrot);
     border-radius: var(--o-ui-rounded-border-radius);
     box-shadow: var(--o-ui-shadow-200);
     /* Must keep a max width. */
-    width: 300px;
+    width: 325px;
     position: relative;
 }
 
@@ -14,8 +14,8 @@
 
 .o-ui-popover-close-button {
     position: absolute;
-    top: var(--o-ui-scale-charlie);
-    right: var(--o-ui-scale-charlie);
+    top: var(--o-ui-scale-bravo);
+    right: var(--o-ui-scale-bravo);
 }
 
 /* AJOUT POUR TE MONTRER DES POSSIBILITÉS À TOI DE VOIR */
@@ -33,6 +33,7 @@
 
 .o-ui-popover-footer-text {
     grid-area: text;
+    margin-right: var(--o-ui-scale-bravo);
 }
 
 .o-ui-popover-button {
@@ -62,5 +63,3 @@
 .o-ui-popover-overlay[data-popper-placement*="left"] {
     border-right: var(--o-ui-popover-offset) solid transparent;
 }
-
-
