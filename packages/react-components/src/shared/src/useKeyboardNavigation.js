@@ -14,10 +14,10 @@ export function useKeyboardNavigation(focusManager, { previous = [], next = [], 
 
         if (previous.includes(keyCode)) {
             event.preventDefault();
-            focusManager.focusPrevious(event.target, { onFocus: handleFocus });
+            focusManager.focusPrevious({ onFocus: handleFocus });
         } else if (next.includes(keyCode)) {
             event.preventDefault();
-            focusManager.focusNext(event.target, { onFocus: handleFocus });
+            focusManager.focusNext({ onFocus: handleFocus });
         } else if (first.includes(keyCode)) {
             event.preventDefault();
             focusManager.focusFirst({ onFocus: handleFocus });

@@ -2,6 +2,40 @@ import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
 
+class ElementIterator {
+    _elements;
+    _index;
+
+    constructor(elements, { from = -1 } = {}) {
+        this._elements = elements;
+        this._index = from;
+    }
+
+    next() {
+        if (this._index < this._elements.length - 1) {
+            return this._elements[++this._index];
+        }
+
+        return null;
+    }
+
+    previous() {
+        if (this._index > 0) {
+            return this._elements[--this._index];
+        }
+
+        return null;
+    }
+
+    reset({ from = -1 } = {}) {
+        this._index = from;
+    }
+
+    get currentIndex() {
+        return this._index;
+    }
+}
+
 export class FocusManager {
     _scope;
     _keyProp;
@@ -29,40 +63,112 @@ export class FocusManager {
         return element;
     }
 
-    focusFirst(options) {
+    focusFirst({ canFocus, ...options } = {}) {
         const { elements } = this._scope;
 
-        return this._focusElement(elements[0], options);
-    }
+        let target;
 
-    focusLast(options) {
-        const { elements } = this._scope;
+        if (elements.length > 0) {
+            if (isNil(canFocus)) {
+                target = elements[0];
+            }
+            else {
+                const iterator = new ElementIterator(elements);
 
-        return this._focusElement(elements[elements.length - 1], options);
-    }
-
-    focusNext(currentElement, options) {
-        const { elements } = this._scope;
-
-        const index = elements.indexOf(currentElement);
-
-        if (index === -1 || index + 1 > (elements.length - 1)) {
-            return this.focusFirst(options);
+                do { target = iterator.next(); } while(!isNil(target) && !canFocus(target));
+            }
         }
 
-        return this._focusElement(elements[index + 1], options);
+        return this._focusElement(target, options);
     }
 
-    focusPrevious(currentElement, options) {
+    focusLast({ canFocus, ...options } = {}) {
         const { elements } = this._scope;
 
-        const index = elements.indexOf(currentElement);
+        let target;
 
-        if (index === -1 || index - 1 < 0) {
-            return this.focusLast(options);
+        if (elements.length > 0) {
+            if (isNil(canFocus)) {
+                target = elements[elements.length - 1];
+            }
+            else {
+                const iterator = new ElementIterator(elements, { from: elements.length });
+
+                do { target = iterator.previous(); } while(!isNil(target) && !canFocus(target));
+            }
         }
 
-        return this._focusElement(elements[index - 1], options);
+        return this._focusElement(target, options);
+    }
+
+    focusNext({ canFocus, ...options } = {}) {
+        const { elements } = this._scope;
+
+        let target;
+
+        if (elements.length > 0) {
+            let hasLooped = false;
+
+            canFocus = !isNil(canFocus) ? canFocus : () => true;
+
+            const index = elements.indexOf(document.activeElement);
+            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+
+            do {
+                target = iterator.next();
+
+                if (isNil(target)) {
+                    iterator.reset();
+                }
+
+                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
+                // therefore we should stop looping to prevent an infinite loop.
+                if (iterator.currentIndex === index) {
+                    hasLooped = true;
+                }
+
+                if (!isNil(target) && !canFocus(target)) {
+                    target = null;
+                }
+            } while(isNil(target) && !hasLooped);
+        }
+
+        return this._focusElement(target, options);
+    }
+
+    focusPrevious({ canFocus, ...options } = {}) {
+        const { elements } = this._scope;
+
+        let target;
+
+        if (elements.length > 0) {
+            let hasLooped = false;
+
+            canFocus = !isNil(canFocus) ? canFocus : () => true;
+
+            const index = elements.indexOf(document.activeElement);
+            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+
+            do {
+                target = iterator.previous();
+
+                if (isNil(target)) {
+                    iterator.reset({ from: elements.length });
+                }
+
+                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
+                // therefore we should stop looping to prevent an infinite loop.
+                if (iterator.currentIndex === index) {
+                    hasLooped = true;
+                }
+
+                if (!isNil(target) && !canFocus(target)) {
+                    target = null;
+                }
+            } while(isNil(target) && !hasLooped);
+        }
+
+        return this._focusElement(target, options);
     }
 
     focusKey(key, options) {
@@ -93,9 +199,7 @@ export class FocusManager {
     }
 
     hasFocus() {
-        const { elements } = this._scope;
-
-        return elements.some(x => x === document.activeElement);
+        return this._scope.isInScope(document.activeElement);
     }
 }
 

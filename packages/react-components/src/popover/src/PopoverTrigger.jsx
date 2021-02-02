@@ -2,7 +2,7 @@ import { Children, forwardRef, useCallback } from "react";
 import { Overlay, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren } from "../../shared";
+import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useCommittedRef } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -77,7 +77,7 @@ export function InnerPopoverTrigger({
     trigger: triggerProp = "click",
     position = "bottom",
     onOpenChange,
-    autoFocus = true,
+    autoFocus,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
@@ -87,7 +87,7 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { isOpen, setIsOpen, triggerProps, overlayProps } = usePopup("dialog", {
+    const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps } = usePopup("dialog", {
         open,
         defaultOpen,
         onOpenChange,
@@ -95,10 +95,12 @@ export function InnerPopoverTrigger({
         hideOnBlur: true,
         hideOnOutsideClick: true,
         autoFocus,
+        autoFocusOptions: {
+            canFocus: useCallback(element => element.id !== "o-ui-popover-close-button", [])
+        },
         restoreFocus: true,
         trigger: triggerProp,
         position,
-        offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
@@ -115,6 +117,9 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
+    // When content is not autofocused, focus the overlay on render.
+    useAutoFocus(useCommittedRef(overlayElement), { isDisabled: autoFocus || !isOpen });
+
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     return (
@@ -125,6 +130,7 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        className: "o-ui-popover-overlay",
                         as,
                         ref: forwardedRef
                     }

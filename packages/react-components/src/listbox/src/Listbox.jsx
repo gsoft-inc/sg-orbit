@@ -25,6 +25,8 @@ import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, stri
 import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
+export const KeyProp = "data-o-ui-key";
+
 export const SelectionMode = {
     single: "single",
     multiple: "multiple"
@@ -71,8 +73,6 @@ const propTypes = {
      */
     as: oneOfType([string, elementType])
 };
-
-const KeyProp = "data-o-ui-key";
 
 function useSelectionManager({ selectedKey, items }) {
     return useMemo(() => {
@@ -184,7 +184,7 @@ export function InnerListbox({
             case Keys.down: {
                 event.preventDefault();
 
-                const activeElement = focusManager.focusNext(event.target);
+                const activeElement = focusManager.focusNext();
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
@@ -198,7 +198,7 @@ export function InnerListbox({
             case Keys.up: {
                 event.preventDefault();
 
-                const activeElement = focusManager.focusPrevious(event.target);
+                const activeElement = focusManager.focusPrevious();
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {

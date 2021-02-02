@@ -6,8 +6,6 @@ import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
-export const KeyProp = "data-o-ui-key";
-
 export function usePopup(type, {
     open,
     defaultOpen,
@@ -16,14 +14,16 @@ export function usePopup(type, {
     hideOnBlur = true,
     hideOnOutsideClick,
     restoreFocus = true,
-    autoFocus = true,
+    autoFocus,
+    autoFocusOptions = {},
     trigger = "click",
     position,
     offset,
     allowFlip = true,
     allowPreventOverflow = true,
     boundaryElement,
-    zIndex = 10000
+    zIndex = 10000,
+    keyProp
 }) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState();
@@ -54,7 +54,8 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            if (event.target !== overlayElement && event.relatedTarget !== overlayElement) {
+            // Must validate that relatedTarget is a DOM element because it could be anything like "window".
+            if (!(event.relatedTarget instanceof HTMLElement) || !overlayElement.contains(event.relatedTarget)) {
                 updateIsOpen(event, false);
             }
         })
@@ -81,13 +82,17 @@ export function usePopup(type, {
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp });
 
     useAutoFocusChild(
         focusManager,
         {
+            ...autoFocusOptions,
             isDisabled: !autoFocus || !isOpen,
-            delay: isNumber(autoFocus) ? autoFocus : undefined
+            delay: isNumber(autoFocus) ? autoFocus : undefined,
+            onNotFound: useCallback(() => {
+                overlayElement?.focus();
+            }, [overlayElement])
         });
 
     return {
