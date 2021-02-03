@@ -41,7 +41,7 @@
     "install:pkg": "yarn install --ignore-scripts",
     "install:sb": "cd storybook && yarn install",
     "lint": "run-s eslint stylelint check-types",
-    "lint-ci": "yarn eslint -- -- 0 && yarn stylelint",
+    "lint-ci": "yarn eslint -- -- 0 && yarn stylelint && yarn check-types",
     "new-version": "lerna version --exact --no-push --loglevel verbose",
     "force-new-version": "yarn new-version --force-publish",
     "push-release": "node scripts/push-release",
