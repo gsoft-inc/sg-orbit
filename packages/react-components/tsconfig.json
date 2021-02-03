@@ -20,5 +20,5 @@
     "isolatedModules": true
   },
   "include": ["src"],
-  "exclude": ["./src/*/tests/**", "./src/*/docs/**"]
+  "exclude": ["src/*/tests/**", "src/*/docs/**"]
 }
