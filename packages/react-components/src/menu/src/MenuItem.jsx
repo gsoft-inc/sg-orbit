@@ -38,7 +38,9 @@ export function InnerMenuItem({
     const { onSelect } = useMenuContext();
 
     const handleClick = useEventCallback(event => {
-        onSelect(event, key);
+        if (!disabled) {
+            onSelect(event, key);
+        }
     });
 
     const labelId = `${id}-label`;
@@ -80,7 +82,8 @@ export function InnerMenuItem({
                         hover && "hover"
                     ),
                     role: "menuitem",
-                    tabIndex: !disabled ? "-1" : undefined,
+                    tabIndex: "-1",
+                    // tabIndex: !disabled ? "-1" : undefined,
                     "data-o-ui-key": key,
                     "aria-disabled": disabled,
                     as,

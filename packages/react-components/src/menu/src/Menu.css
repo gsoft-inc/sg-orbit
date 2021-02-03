@@ -7,6 +7,8 @@
     border: 1px solid black;
     padding: 0;
     margin: 0;
+    width: max-content;
+    min-width: 200px;
     max-height: calc(10 * var(--o-ui-menu-item-height));
     overflow-y: auto;
 }
@@ -16,8 +18,33 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.o-ui-menu-item-focus,
+.o-ui-menu-item:focus {
+    background-color: blue;
+    color: white;
+}
+
+.o-ui-menu-item-hover,
+.o-ui-menu-item:hover {
+    color: red;
+}
+
+.o-ui-menu-item[aria-disabled="true"] {
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 .o-ui-menu-section {
     font-weight: 800;
+}
+
+.o-ui-menu-divider {
+    margin: 0 !important;
+}
+
+.o-ui-menu-fluid {
+    width: 100%;
 }

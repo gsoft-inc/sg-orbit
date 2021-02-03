@@ -64,7 +64,7 @@ const propTypes = {
      */
     direction: oneOf(["bottom", "top"]),
     /**
-     * The horizontal alignment of the select menu relative to the input target.
+     * The horizontal alignment of the select menu relative to the input.
      */
     align: oneOf(["start", "end"]),
     /**

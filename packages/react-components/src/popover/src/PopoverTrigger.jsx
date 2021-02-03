@@ -125,7 +125,12 @@ export function InnerPopoverTrigger({
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     return (
-        <>
+        <PopoverTriggerContext.Provider
+            value={{
+                isOpen,
+                close
+            }}
+        >
             {triggerMarkup}
             <Overlay
                 {...mergeProps(
@@ -138,16 +143,10 @@ export function InnerPopoverTrigger({
                     }
                 )}
             >
-                <PopoverTriggerContext.Provider
-                    value={{
-                        isOpen,
-                        close
-                    }}
-                >
-                    {popover}
-                </PopoverTriggerContext.Provider>
+
+                {popover}
             </Overlay>
-        </>
+        </PopoverTriggerContext.Provider>
     );
 }
 

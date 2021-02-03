@@ -1,4 +1,4 @@
-import { Inline, Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
@@ -199,14 +199,24 @@ export function createTestSuite(element, stories) {
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
-            </Select>
+            </Select>,
+             {
+                 ...paramsBuilder()
+                     .canvasLayout({ paddingLeft: "200px" })
+                     .build()
+             }
         )
         .add("align end", () =>
             <Select align="end" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
-            </Select>
+            </Select>,
+             {
+                 ...paramsBuilder()
+                     .canvasLayout({ paddingLeft: "400px" })
+                     .build()
+             }
         )
         .add("as div", () =>
             <Select as="div" tabIndex="0" placeholder="Select a planet" aria-label="Planets" element={element}>

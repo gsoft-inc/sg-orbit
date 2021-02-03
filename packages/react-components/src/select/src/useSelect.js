@@ -92,9 +92,11 @@ export function useSelect(children, {
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.keyCode) {
             case Keys.down:
+                event.preventDefault();
                 open(event, FocusTarget.first);
                 break;
             case Keys.up:
+                event.preventDefault();
                 open(event, FocusTarget.last);
                 break;
         }

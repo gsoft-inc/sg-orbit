@@ -1,8 +1,39 @@
-import { Button } from "@react-components/button";
-import { Inline } from "@react-components/layout";
+import { Button, IconButton } from "@react-components/button";
 import { Item } from "@react-components/placeholders";
-import { Menu, MenuTrigger } from "@react-components/menu";
+import { Menu, MenuArrow, MenuTrigger } from "@react-components/menu";
+import { Text } from "@react-components/text";
+import { VerticalDotsIcon } from "@react-components/icons";
+import { forwardRef } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
+/*
+INTERACTION TEST:
+- on trigger click
+    - if close & no selection, open and focus first
+    - if open, close
+- when close, on space keydown
+- when close, on enter keydown
+    - for both, open and select first item
+- when close, on arrow down keydown
+    - open and focus first item
+- when close, on arrow up keydown
+    - open and focus last item
+- close on esc keydown
+- close on blur
+- on select an item
+    - close menu and focus trigger
+- when open, on tab keydown
+    - select next tabbable element
+    - when shift, select previous tabbable element
+- can provide custom name
+- can provide custom id
+- aria props (aria-expanded, aria-controls, aria-labelledby, ...)
+*/
+
+/*
+MISSING JEST TEST:
+- MenuTriggerContext -> Custom menu
+*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/MenuTrigger")
@@ -35,16 +66,6 @@ stories()
             </Menu>
         </MenuTrigger>
     )
-    .add("autofocus", () =>
-        <MenuTrigger autoFocus defaultOpen>
-            <Button>Trigger</Button>
-            <Menu>
-                <Item key="earth">Earth</Item>
-                <Item key="jupiter">Jupiter</Item>
-                <Item key="mars">Mars</Item>
-            </Menu>
-        </MenuTrigger>
-    )
     .add("direction bottom", () =>
         <MenuTrigger direction="bottom" defaultOpen>
             <Button>Trigger</Button>
@@ -63,45 +84,121 @@ stories()
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Menu>
-        </MenuTrigger>
+        </MenuTrigger>,
+         {
+             ...paramsBuilder()
+                 .canvasLayout({ marginTop: "100px" })
+                 .build()
+         }
     )
     .add("align start", () =>
         <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button>Trigger</Button>
-            <Menu style={{ width: "500px" }}>
+            <Menu style={{ width: "300px" }}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Menu>
-        </MenuTrigger>
+        </MenuTrigger>,
+         {
+             ...paramsBuilder()
+                 .canvasLayout({ paddingLeft: "200px" })
+                 .build()
+         }
     )
     .add("align end", () =>
         <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button>Trigger</Button>
-            <Menu style={{ width: "500px" }}>
+            <Menu style={{ width: "300px" }}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>,
+         {
+             ...paramsBuilder()
+                 .canvasLayout({ paddingLeft: "200px" })
+                 .build()
+         }
+    )
+    .add("icon button trigger", () =>
+        <MenuTrigger defaultOpen>
+            <IconButton aria-label="Open menu">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Menu>
         </MenuTrigger>
     )
-    .add("styling", () =>
-        <Inline>
-            <MenuTrigger className="border-red" defaultOpen>
-                <Button>Trigger</Button>
+    .add("custom trigger with menu arrow", () => {
+        const CustomTrigger = forwardRef((props, ref) => {
+            return (
+                <button
+                    {...props}
+                    type="button"
+                    ref={ref}
+                >
+                    <Text>Trigger</Text>
+                    <MenuArrow />
+                </button>
+            );
+        });
+
+        return (
+            <MenuTrigger defaultOpen>
+                <CustomTrigger />
                 <Menu>
                     <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
                     <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
                 </Menu>
             </MenuTrigger>
-            <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
+        );
+    })
+    .add("custom menu", () => {
+        const CustomMenu = forwardRef(({ children, ...props }, ref) => {
+            return (
+                <Menu
+                    {...props}
+                    className="bg-red"
+                    ref={ref}
+                >
+                    {children}
+                </Menu>
+            );
+        });
+
+        return (
+            <MenuTrigger defaultOpen>
                 <Button>Trigger</Button>
-                <Menu>
+                <CustomMenu>
                     <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
                     <Item key="mars">Mars</Item>
-                </Menu>
+                    <Item key="saturn">Saturn</Item>
+                </CustomMenu>
             </MenuTrigger>
-        </Inline>
+        );
+    })
+    .add("className", () =>
+        <MenuTrigger className="border-red" defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("style", () =>
+        <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
     );

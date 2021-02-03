@@ -1,0 +1,13 @@
+.o-ui-menu-arrow {
+    flex-shrink: 0;
+    /* transition: transform .3s ease-in; */
+    fill: var(--icon-1);
+}
+
+.o-ui-menu-arrow-down {
+    transform: rotate(90deg);
+}
+
+.o-ui-menu-arrow-up {
+    transform: rotate(-90deg);
+}
