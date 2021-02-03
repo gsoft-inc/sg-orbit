@@ -18,7 +18,7 @@
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "yarn run build:types && yarn run build:js",
+        "build": "yarn run build:js",
         "build:types": "tsc --emitDeclarationOnly",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
