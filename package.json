@@ -22,8 +22,8 @@
     "build-theme": "cd packages/semantic-ui-theme && yarn build",
     "chromatic": "cd storybook && yarn chromatic",
     "chromatic-ci": "cd storybook && yarn chromatic-ci",
-    "check-types": "run-s \"check-types:* --max-warnings={1:--1}\"",
-    "check-types:pkg": "tsc --noEmit packages/*",
+    "check-types": "run-s \"check-types:* --noEmit\"",
+    "check-types:pkg": "cd packages/react-components && tsc",
     "clean": "run-p -c clean:*",
     "clean:pkg": "lerna run clean --parallel",
     "clean:storybook": "cd storybook && yarn clean",
@@ -40,7 +40,7 @@
     "eslint-fix": "eslint --ext .js,.jsx . --fix",
     "install:pkg": "yarn install --ignore-scripts",
     "install:sb": "cd storybook && yarn install",
-    "lint": "run-s eslint stylelint",
+    "lint": "run-s eslint stylelint check-types",
     "lint-ci": "yarn eslint -- -- 0 && yarn stylelint",
     "new-version": "lerna version --exact --no-push --loglevel verbose",
     "force-new-version": "yarn new-version --force-publish",
@@ -145,6 +145,7 @@
     "stylelint": "13.8.0",
     "tachyons-cli": "1.3.3",
     "tachyons-modules": "1.1.10",
+    "typescript": "4.1.3",
     "watch": "1.0.2"
   },
   "engines": {
