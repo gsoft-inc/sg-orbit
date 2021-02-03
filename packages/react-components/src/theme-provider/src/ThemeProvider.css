@@ -17,6 +17,7 @@
     --o-ui-background-primary-1-hover: var(--o-ui-background-primary-1-hover-light);
     --o-ui-background-primary-1-active: var(--o-ui-background-primary-1-active-light);
     --o-ui-background-primary-1-focus: var(--o-ui-background-primary-focus-light);
+    --o-ui-background-primary-2: var(--o-ui-background-primary-2-light);
     --o-ui-background-danger-1: var(--o-ui-background-danger-1-light);
     --o-ui-background-danger-1-hover: var(--o-ui-background-danger-1-hover-light);
     --o-ui-background-danger-1-active: var(--o-ui-background-danger-1-active-light);
@@ -124,6 +125,7 @@
     --o-ui-background-primary-1-hover: var(--o-ui-background-primary-1-hover-dark);
     --o-ui-background-primary-1-active: var(--o-ui-background-primary-1-active-dark);
     --o-ui-background-primary-1-focus: var(--o-ui-background-primary-1-focus-dark);
+    --o-ui-background-primary-2: var(--o-ui-background-primary-2-dark);
     --o-ui-background-danger-1: var(--o-ui-background-danger-1-dark);
     --o-ui-background-danger-1-hover: var(--o-ui-background-danger-1-hover-dark);
     --o-ui-background-danger-1-active: var(--o-ui-background-danger-1-active-dark);

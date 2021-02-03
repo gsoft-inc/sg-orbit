@@ -13,10 +13,6 @@
     box-shadow: var(--o-ui-shadow-100);
 }
 
-.o-ui-listbox:focus {
-    /* border: 1px solid blue; */
-}
-
 .o-ui-listbox-fluid {
     width: 100%;
     max-width: 100%;
@@ -24,7 +20,7 @@
 
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
-    padding-right: 75px;
+    padding-right: var(--o-ui-scale-foxtrot);
     padding-left: var(--o-ui-scale-foxtrot);
     display: flex;
     align-items: center;
@@ -33,13 +29,13 @@
 
 .o-ui-listbox-option[aria-selected="true"]::before {
     content: "";
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-scale-charlie);
+    height: var(--o-ui-scale-charlie);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
+    mask-size: var(--o-ui-scale-charlie) var(--o-ui-scale-charlie);
     background-color: currentColor;
     position: absolute;
-    left: 4px;
+    left: 6px;
 }
 
 .o-ui-listbox-option[aria-disabled="true"] {
@@ -47,7 +43,7 @@
 }
 
 .o-ui-listbox-option-description {
-    color: var(--o-ui-text-3);
+    color: var(--o-ui-text-2);
     margin-left: var(--o-ui-scale-bravo);
     cursor: default;
 }
@@ -65,7 +61,7 @@
 
 .o-ui-listbox-section {
     font-weight: 500;
-    padding-left: var(--o-ui-scale-foxtrot);
+    padding-left: var(--o-ui-scale-echo);
     margin: var(--o-ui-scale-bravo) 0;
     cursor: default;
 }
@@ -88,3 +84,5 @@
 .o-ui-listbox-option-start-icon {
     margin-right: var(--o-ui-scale-alpha);
 }
+
+/* SELECT LISTBOX */
