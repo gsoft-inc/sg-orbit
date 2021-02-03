@@ -23,7 +23,7 @@
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
-        "clean": "rimraf dist",
+        "clean": "rimraf dist"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",
