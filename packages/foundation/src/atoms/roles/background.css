@@ -16,6 +16,7 @@ html * {
     --o-ui-background-primary-1-hover-light: var(--o-ui-primary-700);
     --o-ui-background-primary-1-active-light: var(--o-ui-primary-900);
     --o-ui-background-primary-1-focus-light: var(--o-ui-primary-50);
+    --o-ui-background-primary-2-light: var(--o-ui-primary-50);
     --o-ui-background-danger-1-light: var(--o-ui-alert-500);
     --o-ui-background-danger-1-hover-light: var(--o-ui-alert-700);
     --o-ui-background-danger-1-active-light: var(--o-ui-alert-900);
@@ -49,6 +50,7 @@ html * {
     --o-ui-background-primary-1-hover-dark: var(--o-ui-primary-500);
     --o-ui-background-primary-1-active-dark: var(--o-ui-primary-400);
     --o-ui-background-primary-1-focus-dark: var(--o-ui-neutral-dark-800);
+    --o-ui-background-primary-2-dark: var(--o-ui-neutral-dark-800);
     --o-ui-background-danger-1-dark: var(--o-ui-alert-700);
     --o-ui-background-danger-1-hover-dark: var(--o-ui-alert-500);
     --o-ui-background-danger-1-active-dark: var(--o-ui-alert-400);
