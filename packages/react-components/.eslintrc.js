@@ -2,8 +2,8 @@
 
 module.exports = {
     extends: [
-        "plugin:jsx-control-statements/recommended",
-        "@sharegate/eslint-config-react"
+        "@sharegate/eslint-config-react",
+        "plugin:jsx-control-statements/recommended"
     ],
     plugins: ["jsx-control-statements"],
     overrides: [
