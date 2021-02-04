@@ -3,19 +3,24 @@ import { isFunction, isNil, isUndefined } from "lodash";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
-// Usefull to compose a weak map key with multiple objects.
-export class CompositeKeyWeakMap {
-    _root = new WeakMap();
+interface Child<T> {
+    value?: T,
+    map: WeakMap<any, any>
+}
 
-    set(keys, value) {
-        let node = this._root;
+// Useful to compose a weak map key with multiple objects.
+export class CompositeKeyWeakMap<T> {
+    _root = new WeakMap<any, any>();
+
+    set(keys: any[], value: T) {
+        let node: WeakMap<any, any> | Child<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
             const key = keys[i];
-            const map = node.map || node;
+            const map: WeakMap<any, any> = (node as Child<T>).map || node as WeakMap<any, any>;
 
             if (!map.has(key)) {
-                const child = {
+                const child: Child<T> = {
                     value: undefined,
                     map: new WeakMap()
                 };
@@ -27,33 +32,34 @@ export class CompositeKeyWeakMap {
             }
         }
 
-        node.value = value;
+        (node as Child<T>).value = value;
     }
 
-    get(keys) {
-        let node = this._root;
+    get(keys: any[]) {
+        let node: WeakMap<any, any> | Child<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
-            node = (node.map || node).get(keys[i]);
+            const map: WeakMap<any, any> = (node as Child<T>).map || node as WeakMap<any, any>;
+            node = map.get(keys[i]);
 
             if (isUndefined(node)) {
                 return node;
             }
         }
 
-        return node.value;
+        return (node as Child<T>).value;
     }
 
-    has(keys) {
+    has(keys: any[]) {
         return !isUndefined(this.get(keys));
     }
 }
 
 ////////
 
-const cache = new CompositeKeyWeakMap();
+const cache = new CompositeKeyWeakMap<any>();
 
-function memoMerge(x, y, fct) {
+function memoMerge<TFirst, TSecond, TReturnValue>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TReturnValue) {
     if (isNil(x) && isNil(y)) {
         return undefined;
     }
@@ -67,7 +73,7 @@ function memoMerge(x, y, fct) {
     }
 
     const key = [x, y];
-    const value = cache.get(key);
+    const value = cache.get(key) as TReturnValue;
 
     if (!isUndefined(value)) {
         return value;
@@ -80,7 +86,7 @@ function memoMerge(x, y, fct) {
     return mergeResult;
 }
 
-function merge(props, newProps) {
+function merge(props: any, newProps: any) {
     Object
         .keys(newProps)
         .forEach(x => {
@@ -107,12 +113,17 @@ function merge(props, newProps) {
     return props;
 }
 
-export function mergeProps(...args) {
+// taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379
+type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
+// eslint-disable-next-line no-undef, @typescript-eslint/no-unused-vars
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
+
+export function mergeProps<T extends object[]>(...args: T) {
     let result = {};
 
     args.forEach(x => {
         result = merge(result, x);
     });
 
-    return result;
+    return result as UnionToIntersection<TupleTypes<T>>;
 }

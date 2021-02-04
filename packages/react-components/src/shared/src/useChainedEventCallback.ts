@@ -2,8 +2,8 @@
 
 import { useEventCallback } from "./useEventCallback";
 
-export function createChainedFunction(...funcs) {
-    return (...args) => {
+export function createChainedFunction<T extends (...args: any[]) => void>(...funcs: T[]) {
+    return (...args: any[]) => {
         funcs
             .filter(Boolean)
             .forEach(x => {
@@ -12,6 +12,6 @@ export function createChainedFunction(...funcs) {
     };
 }
 
-export function useChainedEventCallback(...callbacks) {
+export function useChainedEventCallback<T extends (...args: any[]) => void>(...callbacks: T[]) {
     return useEventCallback(createChainedFunction(...callbacks));
 }
