@@ -184,20 +184,8 @@ stories()
                 <Item focus hover key="mercury">Mercury</Item>
                 <Item disabled key="neptune">Neptune</Item>
                 <Item key="saturn">Saturn</Item>
-                <Item key="uranus">Uranus</Item>
             </Listbox>
         </Inline>
-    )
-    .add("disabled item is not focusable", () =>
-        <Listbox autoFocus aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Listbox>
     )
     .add("array map", () =>
         <Listbox aria-label="Planets">
@@ -272,13 +260,6 @@ stories()
             </Section>
         </Listbox>
     )
-    .add("do not autofocus a disabled item", () =>
-        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
     .add("autofocus + selected key", () =>
         <Listbox autoFocus defaultSelectedKey="jupiter" aria-label="Planets">
             <Item key="earth">Earth</Item>
@@ -294,21 +275,21 @@ stories()
         </Listbox>
     )
     .add("autofocus first", () =>
-        <Listbox autoFocus focusTarget="first" aria-label="Planets">
+        <Listbox autoFocus defaultFocusTarget="first" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus last", () =>
-        <Listbox autoFocus focusTarget="last" aria-label="Planets">
+        <Listbox autoFocus defaultFocusTarget="last" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
-    .add("autofocus key", () =>
-        <Listbox autoFocus focusTarget="jupiter" aria-label="Planets">
+    .add("autofocus target key", () =>
+        <Listbox autoFocus defaultFocusTarget="jupiter" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -321,9 +302,20 @@ stories()
             <Item key="mars">Mars</Item>
         </Listbox>
     )
-    .add("autofocus with defaultFocusTarget", () =>
-        <Listbox autoFocus defaultFocusTarget={FocusTarget.last} aria-label="Planets">
-            <Item key="earth">Earth</Item>
+    .add("do not autofocus first item when disabled", () =>
+        <Listbox autoFocus aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("do not autofocus selected item when disabled", () =>
+        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
@@ -344,6 +336,13 @@ stories()
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
             <Item key="venus">Venus</Item>
+        </Listbox>
+    )
+    .add("custom menu width", () =>
+        <Listbox style={{ width: "500px" }} aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
         </Listbox>
     )
     .add("styling", () =>

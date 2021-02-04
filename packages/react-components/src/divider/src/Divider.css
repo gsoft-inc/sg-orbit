@@ -12,6 +12,7 @@
 /* HORIZONTAL */
 .o-ui-divider[aria-orientation="horizontal"] {
     margin: var(--o-ui-scale-delta) 0;
+    height: 0;
 }
 
 .o-ui-divider[aria-orientation="horizontal"]:not(.o-ui-divider-has-label) {

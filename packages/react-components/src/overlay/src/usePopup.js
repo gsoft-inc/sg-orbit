@@ -7,6 +7,7 @@ import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export function usePopup(type, {
+    id,
     open,
     defaultOpen,
     onOpenChange,
@@ -32,8 +33,6 @@ export function usePopup(type, {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
-
-    const overlayId = useId(null, "o-ui-overlay");
 
     const updateIsOpen = useCallback((event, newValue) => {
         if (isOpen !== newValue) {
@@ -96,6 +95,8 @@ export function usePopup(type, {
                 overlayElement?.focus();
             }, [overlayElement])
         });
+
+    const overlayId = useId(id, id ? undefined : "o-ui-overlay");
 
     return {
         isOpen,

@@ -2,7 +2,6 @@ import { isNil } from "lodash";
 import { useEventCallback } from "./useEventCallback";
 
 export function useKeyboardNavigation(focusManager, { previous = [], next = [], first = [], last = [] }, { onSelect } = {}) {
-
     const handleKeyDown = useEventCallback(event => {
         const keyCode = event.keyCode;
 

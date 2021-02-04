@@ -14,8 +14,8 @@ import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
     - All list test to the listbox component
 
 INTERACTION TEST:
-- on click
-    - if close & no selection, open and don't select an item
+- on trigger click
+    - if close & no selection, open and focus first
     - if close & selection, open and focus selected item
     - if open, close
 - when close, on space keydown

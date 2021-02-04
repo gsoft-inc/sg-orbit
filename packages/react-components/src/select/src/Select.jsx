@@ -64,7 +64,7 @@ const propTypes = {
      */
     direction: oneOf(["bottom", "top"]),
     /**
-     * The horizontal alignment of the select menu relative to the input target.
+     * The horizontal alignment of the select menu relative to the input.
      */
     align: oneOf(["start", "end"]),
     /**
@@ -109,6 +109,7 @@ export function InnerSelect(props) {
     const [fieldProps] = useFieldInputProps();
 
     const {
+        id,
         open,
         defaultOpen,
         selectedKey: selectedKeyProp,
@@ -131,8 +132,9 @@ export function InnerSelect(props) {
         active,
         focus,
         hover,
-        "aria-label": ariaLabel,
+        // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
+        "aria-describedby": ariaDescribedBy,
         menuProps,
         as: TriggerType = "button",
         children,
@@ -144,6 +146,7 @@ export function InnerSelect(props) {
     );
 
     const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+        id,
         open,
         defaultOpen,
         selectedKey: selectedKeyProp,
@@ -157,8 +160,8 @@ export function InnerSelect(props) {
         allowFlip,
         allowPreventOverflow,
         zIndex,
-        ariaLabel,
         ariaLabelledBy,
+        ariaDescribedBy,
         menuProps,
         ref: forwardedRef
     });
@@ -172,7 +175,7 @@ export function InnerSelect(props) {
             className: "o-ui-select-value-start-icon"
         },
         text: {
-            className: "o-ui-select-value"
+            className: "o-ui-select-value-text"
         },
         "end-icon": {
             size: "sm",
@@ -222,14 +225,7 @@ export function InnerSelect(props) {
                     size="sm"
                 />
             </TriggerType>
-            <Overlay
-                {...mergeProps(
-                    overlayProps,
-                    {
-                        className: "o-ui-select-menu"
-                    }
-                )}
-            >
+            <Overlay {...overlayProps}>
                 <Listbox {...listboxProps} />
             </Overlay>
         </>

@@ -1,11 +1,11 @@
-import "./DisclosureArrow.css";
+import "./MenuArrow.css";
 
 import { ChevronIcon } from "../../icons";
 import { bool, oneOf } from "prop-types";
 import { cssModule, mergeProps, slot } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { useDisclosureContext } from "./DisclosureContext";
+import { useMenuTriggerContext } from "./MenuTriggerContext";
 
 const propTypes = {
     /**
@@ -18,17 +18,17 @@ const propTypes = {
     size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl", "inherit"])
 };
 
-export function InnerDisclosureArrow({
+export function InnerMenuArrow({
     open,
     forwardedRef,
     ...rest
 }) {
-    const disclosureContext = useDisclosureContext();
+    const menuContext = useMenuTriggerContext();
 
-    const isOpen = open ?? disclosureContext?.isOpen;
+    const isOpen = open ?? menuContext?.isOpen;
 
     if (isNil(isOpen)) {
-        throw new Error("The disclosure arrow component must receive a controlled prop \"open\" or have a parent DisclosureContext.");
+        throw new Error("The menu arrow component must receive a controlled prop \"open\" or have a parent MenuTriggerContext.");
     }
 
     return (
@@ -37,7 +37,7 @@ export function InnerDisclosureArrow({
                 rest,
                 {
                     className: cssModule(
-                        "o-ui-disclosure-arrow",
+                        "o-ui-menu-arrow",
                         isOpen ? "down" : "up"
                     ),
                     ref: forwardedRef
@@ -47,10 +47,10 @@ export function InnerDisclosureArrow({
     );
 }
 
-InnerDisclosureArrow.propTypes = propTypes;
+InnerMenuArrow.propTypes = propTypes;
 
-export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
-    <InnerDisclosureArrow {...props} forwardedRef={ref} />
+export const MenuArrow = slot("icon", forwardRef((props, ref) => (
+    <InnerMenuArrow {...props} forwardedRef={ref} />
 )));
 
-DisclosureArrow.displayName = "DisclosureArrow";
+MenuArrow.displayName = "MenuArrow";

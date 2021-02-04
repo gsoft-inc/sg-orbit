@@ -135,7 +135,6 @@ export function InnerListbox({
     autoFocus,
     defaultFocusTarget,
     fluid,
-    "aria-label": ariaLabel,
     as = "div",
     children,
     forwardedRef,
@@ -266,6 +265,7 @@ export function InnerListbox({
 
     const renderOption = ({
         key,
+        index,
         elementType: ElementType = ListboxOption,
         ref,
         content,
@@ -273,7 +273,7 @@ export function InnerListbox({
     }) => (
         <ElementType
             {...props}
-            id={`${rootId}-option-${key}`}
+            id={`${rootId}-option-${index}`}
             key={key}
             ref={ref}
             item={{ key: key }}
@@ -284,6 +284,7 @@ export function InnerListbox({
 
     const renderSection = ({
         key,
+        index,
         elementType: ElementType = ListboxSection,
         ref,
         props,
@@ -291,7 +292,7 @@ export function InnerListbox({
     }) => (
         <ElementType
             {...props}
-            id={`${rootId}-section-${key}`}
+            id={`${rootId}-section-${index}`}
             key={key}
             ref={ref}
         >
@@ -311,7 +312,6 @@ export function InnerListbox({
                     ),
                     onKeyDown: handleKeyDown,
                     role: "listbox",
-                    "aria-label": ariaLabel,
                     "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
                     as,
                     ref: containerRef
