@@ -21,6 +21,7 @@ import { NodeType, useCollection } from "../../collection";
 import { any, bool, elementType, func, number, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
+import { useRovingFocus } from "../../../dist";
 
 export const KeyProp = "data-o-ui-key";
 
@@ -124,6 +125,8 @@ export function InnerMenu({
                 }
         }
     });
+
+    useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
         target: defaultFocusTarget,
