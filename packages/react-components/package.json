@@ -6,13 +6,21 @@
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
+    ],
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "babel src -d dist --config-file ./babel.config.js --copy-files",
+        "build": "yarn build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
         "clean": "rimraf dist"
