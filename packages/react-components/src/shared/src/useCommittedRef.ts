@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function useCommittedRef(value) {
+export function useCommittedRef<T>(value: T) {
     const ref = useRef(value);
 
     useEffect(() => {

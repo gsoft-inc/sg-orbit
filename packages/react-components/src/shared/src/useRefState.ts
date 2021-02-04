@@ -1,12 +1,12 @@
 import { useCallback, useRef } from "react";
 import { useForceRender } from "./useForceRender";
 
-export function useRefState(initialValue) {
+export function useRefState<T>(initialValue: T) {
     const rerender = useForceRender();
 
-    const valueRef = useRef(initialValue);
+    const valueRef = useRef<T>(initialValue);
 
-    const setValue = useCallback((newValue, forceRender = false) => {
+    const setValue = useCallback((newValue: T, forceRender: boolean = false) => {
         valueRef.current = newValue;
 
         if (forceRender) {
@@ -14,5 +14,5 @@ export function useRefState(initialValue) {
         }
     }, [valueRef, rerender]);
 
-    return [valueRef, setValue];
+    return [valueRef, setValue] as const;
 }

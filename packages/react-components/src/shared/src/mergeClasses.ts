@@ -1,4 +1,4 @@
-export function mergeClasses(...values) {
+export function mergeClasses(...values: string[]) {
     const deduped = values
         .filter(Boolean)
         .reduce((set, x) => {
@@ -7,7 +7,7 @@ export function mergeClasses(...values) {
             });
 
             return set;
-        }, new Set());
+        }, new Set<string>());
 
-    return [...deduped].join(" ");
+    return Array.from(deduped).join(" ");
 }

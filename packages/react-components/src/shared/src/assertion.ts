@@ -3,6 +3,6 @@
 
 import { isNil } from "lodash";
 
-export function isNilOrEmpty(value) {
+export function isNilOrEmpty(value: any): value is null | undefined | "" {
     return isNil(value) || value === "";
 }
