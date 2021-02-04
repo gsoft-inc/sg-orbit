@@ -11,6 +11,7 @@
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
     box-shadow: var(--o-ui-shadow-100);
+    border: 1px solid var(--o-ui-border-2);
 }
 
 .o-ui-listbox-fluid {

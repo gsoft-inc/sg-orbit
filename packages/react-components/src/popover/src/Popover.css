@@ -63,3 +63,9 @@
 .o-ui-popover-overlay[data-popper-placement*="left"] {
     border-right: var(--o-ui-popover-offset) solid transparent;
 }
+
+/* IMAGE */
+.o-ui-popover img {
+    margin-top: var(--o-ui-scale-charlie);
+    border-radius: var(--o-ui-border-radius-pill);
+}
