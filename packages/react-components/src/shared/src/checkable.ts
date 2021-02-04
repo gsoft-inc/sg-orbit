@@ -1,19 +1,19 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-export const CheckableContext = createContext();
+export const CheckableContext = createContext<any>(null);
 
 export function useCheckableContext() {
     const context = useContext(CheckableContext);
 
     if (!isNil(context)) {
-        return [context, true];
+        return [context, true] as const;
     }
 
-    return [context, false];
+    return [context, false] as const;
 }
 
-export function useCheckableProps({ value }) {
+export function useCheckableProps({ value }: { value: boolean }) {
     const [context, isCheckable] = useCheckableContext();
 
     if (isCheckable) {
@@ -24,8 +24,8 @@ export function useCheckableProps({ value }) {
             ...rest
         };
 
-        return [props, true];
+        return [props, true] as const;
     }
 
-    return [{}, false];
+    return [{}, false] as const;
 }
