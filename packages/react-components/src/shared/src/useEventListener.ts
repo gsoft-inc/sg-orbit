@@ -1,7 +1,7 @@
 import { isFunction, isNil } from "lodash";
 import { useCallback, useEffect } from "react";
 
-export function useEventListener(eventTarget, eventName, listener, active = true, capture = false) {
+export function useEventListener(eventTarget: EventTarget | (() => EventTarget), eventName: string, listener: EventListenerOrEventListenerObject | null, active = true, capture = false) {
     useEffect(() => {
         const target = isFunction(eventTarget) ? eventTarget() : eventTarget;
 
@@ -19,13 +19,13 @@ export function useEventListener(eventTarget, eventName, listener, active = true
     }, [eventTarget, eventName, listener, active, capture]);
 }
 
-export function useDocumentListener(eventName, listener, active, capture) {
+export function useDocumentListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active: boolean, capture: boolean) {
     const documentTarget = useCallback(() => document, []);
 
     useEventListener(documentTarget, eventName, listener, active, capture);
 }
 
-export function useWindowListener(eventName, listener, active, capture) {
+export function useWindowListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active: boolean, capture: boolean) {
     const documentTarget = useCallback(() => window, []);
 
     useEventListener(documentTarget, eventName, listener, active, capture);

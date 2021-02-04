@@ -2,11 +2,11 @@ import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
 
-class ElementIterator {
+class ElementIterator<T> {
     _elements;
     _index;
 
-    constructor(elements, { from = -1 } = {}) {
+    constructor(elements: T[], { from = -1 } = {}) {
         this._elements = elements;
         this._index = from;
     }
@@ -36,19 +36,37 @@ class ElementIterator {
     }
 }
 
+export interface FocusManagerOptions {
+    keyProp?: string;
+}
+
+export interface FocusElementOptions {
+    onFocus?(element: Element): void
+    onNotFound?(): void
+}
+
+export interface FocusActionOptions extends FocusElementOptions {
+    canFocus?(element: Element): boolean;
+}
+
+export interface FocusScope {
+    elements: Element[];
+    isInScope: (element: Element) => boolean;
+}
+
 export class FocusManager {
     _scope;
     _keyProp;
 
-    constructor(scope, { keyProp } = {}) {
+    constructor(scope: FocusScope, { keyProp }: FocusManagerOptions = {}) {
         this._scope = scope;
         this._keyProp = keyProp;
     }
 
-    _focusElement(element, { onFocus, onNotFound } = {}) {
+    _focusElement(element: Element | HTMLElement, { onFocus, onNotFound }: FocusElementOptions = {}) {
         if (!isNil(element)) {
-            if (isFunction(element.focus)) {
-                element.focus();
+            if (isFunction((element as HTMLElement).focus)) {
+                (element as HTMLElement).focus();
 
                 if (!isNil(onFocus)) {
                     onFocus(element);
@@ -63,7 +81,7 @@ export class FocusManager {
         return element;
     }
 
-    focusFirst({ canFocus, ...options } = {}) {
+    focusFirst({ canFocus, ...options }: FocusActionOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -75,17 +93,17 @@ export class FocusManager {
             else {
                 const iterator = new ElementIterator(elements);
 
-                do { target = iterator.next(); } while(!isNil(target) && !canFocus(target));
+                do { target = iterator.next(); } while (!isNil(target) && !canFocus(target));
             }
         }
 
         return this._focusElement(target, options);
     }
 
-    focusLast({ canFocus, ...options } = {}) {
+    focusLast({ canFocus, ...options }: FocusActionOptions = {}) {
         const { elements } = this._scope;
 
-        let target;
+        let target: Element;
 
         if (elements.length > 0) {
             if (isNil(canFocus)) {
@@ -94,14 +112,14 @@ export class FocusManager {
             else {
                 const iterator = new ElementIterator(elements, { from: elements.length });
 
-                do { target = iterator.previous(); } while(!isNil(target) && !canFocus(target));
+                do { target = iterator.previous(); } while (!isNil(target) && !canFocus(target));
             }
         }
 
         return this._focusElement(target, options);
     }
 
-    focusNext({ canFocus, ...options } = {}) {
+    focusNext({ canFocus, ...options }: FocusActionOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -130,13 +148,13 @@ export class FocusManager {
                 if (!isNil(target) && !canFocus(target)) {
                     target = null;
                 }
-            } while(isNil(target) && !hasLooped);
+            } while (isNil(target) && !hasLooped);
         }
 
         return this._focusElement(target, options);
     }
 
-    focusPrevious({ canFocus, ...options } = {}) {
+    focusPrevious({ canFocus, ...options }: FocusActionOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -165,13 +183,13 @@ export class FocusManager {
                 if (!isNil(target) && !canFocus(target)) {
                     target = null;
                 }
-            } while(isNil(target) && !hasLooped);
+            } while (isNil(target) && !hasLooped);
         }
 
         return this._focusElement(target, options);
     }
 
-    focusKey(key, options) {
+    focusKey(key: FocusTarget, options: FocusElementOptions) {
         const { elements } = this._scope;
 
         if (isNil(this._keyProp)) {
@@ -181,7 +199,7 @@ export class FocusManager {
         return this._focusElement(elements.find(x => x.getAttribute(this._keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target, options) {
+    focusTarget(target: FocusTarget, options: FocusElementOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
@@ -194,7 +212,7 @@ export class FocusManager {
         }
     }
 
-    search(query, options) {
+    search(query: string, options: FocusElementOptions) {
         const { elements } = this._scope;
 
         return this._focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);
@@ -205,6 +223,6 @@ export class FocusManager {
     }
 }
 
-export function useFocusManager(scope, { keyProp } = {}) {
+export function useFocusManager(scope: FocusScope, { keyProp }: FocusManagerOptions = {}) {
     return useMemo(() => new FocusManager(scope, { keyProp }), [scope, keyProp]);
 }

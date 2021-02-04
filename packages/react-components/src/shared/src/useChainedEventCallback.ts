@@ -2,16 +2,16 @@
 
 import { useEventCallback } from "./useEventCallback";
 
-export function createChainedFunction<T extends (...args: any[]) => void>(...funcs: T[]) {
+export function createChainedFunction<T extends (...args: any[]) => void>(...funcs: (T | false)[]) {
     return (...args: any[]) => {
-        funcs
-            .filter(Boolean)
+        (funcs
+            .filter(Boolean) as T[])
             .forEach(x => {
                 x(...args);
             });
     };
 }
 
-export function useChainedEventCallback<T extends (...args: any[]) => void>(...callbacks: T[]) {
+export function useChainedEventCallback<T extends (...args: any[]) => void>(...callbacks: (T | false)[]) {
     return useEventCallback(createChainedFunction(...callbacks));
 }

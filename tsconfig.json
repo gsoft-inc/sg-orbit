@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
     "skipLibCheck": true, // Skip type checking of all declaration files
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
     "noImplicitAny": true,
