@@ -6,6 +6,11 @@ import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
+function isTargetParent(element, target) {
+    // Must validate that "target" is a DOM element because it could be anything like "window".
+    return target instanceof Element && element.contains(target);
+}
+
 export function usePopup(type, {
     id,
     open,
@@ -54,8 +59,7 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            // Must validate that relatedTarget is a DOM element because it could be anything like "window".
-            if (!(event.relatedTarget instanceof HTMLElement) || !overlayElement.contains(event.relatedTarget)) {
+            if (!isTargetParent(overlayElement, event.relatedTarget)) {
                 updateIsOpen(event, false);
             }
         })
@@ -65,7 +69,7 @@ export function usePopup(type, {
         trigger,
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger to prevent double toggle.
-            if (event.target !== triggerElement && event.relatedTarget !== triggerElement) {
+            if (event.target !== triggerElement && !isTargetParent(triggerElement, event.target) && event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -91,9 +95,9 @@ export function usePopup(type, {
             ...autoFocusOptions,
             isDisabled: !autoFocus || !isOpen,
             delay: isNumber(autoFocus) ? autoFocus : undefined,
-            onNotFound: useCallback(() => {
+            onNotFound: useEventCallback(() => {
                 overlayElement?.focus();
-            }, [overlayElement])
+            })
         });
 
     const overlayId = useId(id, id ? undefined : "o-ui-overlay");

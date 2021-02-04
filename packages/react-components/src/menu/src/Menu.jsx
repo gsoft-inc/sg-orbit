@@ -129,10 +129,10 @@ export function InnerMenu({
         target: defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: () => {
+        onNotFound: useEventCallback(() => {
             // Ensure keyboard navigation is available.
             containerRef.current?.focus();
-        }
+        })
     });
 
     const nodes = useCollection(children);

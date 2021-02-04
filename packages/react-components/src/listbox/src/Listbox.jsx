@@ -255,10 +255,10 @@ export function InnerListbox({
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: () => {
+        onNotFound: useEventCallback(() => {
             // Ensure keyboard navigation is available.
             containerRef.current?.focus();
-        }
+        })
     });
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");

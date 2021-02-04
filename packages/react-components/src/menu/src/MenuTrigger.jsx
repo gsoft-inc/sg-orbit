@@ -1,5 +1,4 @@
 import { Children, forwardRef, useCallback } from "react";
-import { DisclosureContext } from "../../disclosure/src/DisclosureContext";
 import { FocusTarget, Keys, augmentElement, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
@@ -181,6 +180,7 @@ export function InnerMenuTrigger({
     );
 }
 
+InnerMenuTrigger.propTypes = propTypes;
 
 export const MenuTrigger = forwardRef((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
