@@ -1,7 +1,7 @@
 import { IS_PRODUCTION } from "../OLD_env";
 import { isNil } from "lodash";
 
-export function throwWhenUnsupportedPropIsProvided(props, unsupportedProps, componentName) {
+export function throwWhenUnsupportedPropIsProvided(props: Record<string, any>, unsupportedProps: string[], componentName: string) {
     if (!IS_PRODUCTION) {
         unsupportedProps.forEach(x => {
             if (!isNil(props[x])) {
