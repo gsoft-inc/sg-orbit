@@ -115,7 +115,6 @@ function merge(props: any, newProps: any) {
 
 // taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379
 type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
-// eslint-disable-next-line no-undef, @typescript-eslint/no-unused-vars
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 
 export function mergeProps<T extends object[]>(...args: T) {

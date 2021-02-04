@@ -41,11 +41,8 @@ export interface FocusManagerOptions {
 }
 
 export interface FocusElementOptions {
-    onFocus?(element: Element): void
+    onFocus?(element?: Element): void
     onNotFound?(): void
-}
-
-export interface FocusActionOptions extends FocusElementOptions {
     canFocus?(element: Element): boolean;
 }
 
@@ -81,7 +78,7 @@ export class FocusManager {
         return element;
     }
 
-    focusFirst({ canFocus, ...options }: FocusActionOptions = {}) {
+    focusFirst({ canFocus, ...options }: FocusElementOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -100,7 +97,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusLast({ canFocus, ...options }: FocusActionOptions = {}) {
+    focusLast({ canFocus, ...options }: FocusElementOptions = {}) {
         const { elements } = this._scope;
 
         let target: Element;
@@ -119,7 +116,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusNext({ canFocus, ...options }: FocusActionOptions = {}) {
+    focusNext({ canFocus, ...options }: FocusElementOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -154,7 +151,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusPrevious({ canFocus, ...options }: FocusActionOptions = {}) {
+    focusPrevious({ canFocus, ...options }: FocusElementOptions = {}) {
         const { elements } = this._scope;
 
         let target;

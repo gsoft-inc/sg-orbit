@@ -1,19 +1,32 @@
-import { Children, useMemo } from "react";
-import { augmentElement, resolveChildren } from "../../shared";
+import { augmentElement, resolveChildren } from "..";
 import { isNil, isString, isUndefined } from "lodash";
+import React, { Children, ReactElement, useMemo } from "react";
 
+type FixMe = any;
 const SLOT_KEY = "__slot__";
 
-function slotDecorator(slotName, ElementType) {
-    ElementType[SLOT_KEY] = slotName;
+interface ComponentWithSlotProps {
+    [SLOT_KEY]?: string;
+}
+
+function slotDecorator<T extends ReactElement>(slotName: string, ElementType: T): T & ComponentWithSlotProps {
+    (ElementType as FixMe)[SLOT_KEY] = slotName;
 
     return ElementType;
 }
 
 export { slotDecorator as slot };
 
-export function getSlots(children, { _ = {}, ...slots }) {
-    const slotElements = {};
+interface Slots {
+    _: {
+        defaultWrapper?: FixMe;
+        required?: string[];
+    },
+    [x: string]: any;
+}
+
+export function getSlots(children: ReactElement<any, any>, { _ = {}, ...slots }: Slots) {
+    const slotElements: Record<string, ReactElement<any, any>> = {};
 
     children = resolveChildren(children);
 
@@ -34,7 +47,7 @@ export function getSlots(children, { _ = {}, ...slots }) {
     const { required, defaultWrapper: Wrapper } = _;
 
     if (!isNil(required)) {
-        const unfulfilledSlots = [];
+        const unfulfilledSlots: string[] = [];
 
         required.forEach(x => {
             if (isUndefined(slotElements[x])) {
@@ -49,17 +62,13 @@ export function getSlots(children, { _ = {}, ...slots }) {
 
     if (!isNil(Wrapper)) {
         if (Object.keys(slotElements).length === 0 && !isNil(children)) {
-            const wrapperSlot = Wrapper[SLOT_KEY];
+            const wrapperSlot = (Wrapper as ComponentWithSlotProps)[SLOT_KEY];
 
             if (isNil(wrapperSlot)) {
                 throw new Error("A default wrapper should have a slot key.");
             }
 
-            slotElements[wrapperSlot] = (
-                <Wrapper>
-                    {children}
-                </Wrapper>
-            );
+            slotElements[wrapperSlot] = <Wrapper>{children}</Wrapper>;
         }
     }
 
@@ -74,6 +83,6 @@ export function getSlots(children, { _ = {}, ...slots }) {
     return slotElements;
 }
 
-export function useSlots(children, slots) {
+export function useSlots(children: ReactElement<any, any>, slots: Slots) {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

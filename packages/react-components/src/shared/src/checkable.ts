@@ -1,7 +1,8 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-export const CheckableContext = createContext<any>(null);
+type FixMe = any;
+export const CheckableContext = createContext<FixMe>(null);
 
 export function useCheckableContext() {
     const context = useContext(CheckableContext);

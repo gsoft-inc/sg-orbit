@@ -1,3 +1,5 @@
+import { MutableRefObject } from "react";
+
 const API_METHODS = [
     "blur",
     "focus",
@@ -8,14 +10,14 @@ const API_METHODS = [
     "checkValidity",
     "reportValidity",
     "setCustomValidity"
-];
+] as const;
 
-export function useForwardInputApi(inputRef) {
-    return targetRef => {
+export function useForwardInputApi<T extends Record<string, any>>(inputRef: MutableRefObject<T | undefined>) {
+    return (targetRef: MutableRefObject<any | undefined>) => {
         const element = targetRef.current;
 
         API_METHODS.forEach(x => {
-            element[x] = (...args) => {
+            element[x] = (...args: any[]) => {
                 inputRef.current[x](...args);
             };
         });

@@ -1,9 +1,9 @@
 // These hooks are a "temporary" solution until CSS Selector 4 (and :has with complex combinators) is available.
 
 import { isNil } from "lodash";
-import { useLayoutEffect, useState } from "react";
+import { RefObject, useLayoutEffect, useState } from "react";
 
-export function useHasChild(querySelector, rootRef) {
+export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>) {
     const [result, setResult] = useState(false);
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
@@ -21,8 +21,8 @@ export function useHasChild(querySelector, rootRef) {
  * @example
  * const { hasIcon } = useHasChildren({ hasIcon: ".o-ui-lozenge-icon" }, ref);
  */
-export function useHasChildren(querySelectors, rootRef) {
-    const [queryResults, setResults] = useState({});
+export function useHasChildren(querySelectors: Record<string, string>, rootRef: RefObject<HTMLElement>) {
+    const [queryResults, setResults] = useState<Record<string, boolean>>({});
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +32,7 @@ export function useHasChildren(querySelectors, rootRef) {
         if (!isNil(element)) {
             let isDirty = false;
 
-            const newResults = Object.keys(querySelectors).reduce((results, x) => {
+            const newResults = Object.keys(querySelectors).reduce((results: Record<string, boolean>, x) => {
                 const result = !isNil(element.querySelector(`:scope > ${querySelectors[x]}`));
 
                 isDirty = isDirty || queryResults[x] !== result;

@@ -3,24 +3,24 @@ import { useEffect, useState } from "react";
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/disposables.ts
 export function disposables() {
     // eslint-disable-next-line no-shadow
-    const disposables = [];
+    const disposables: Function[] = [];
 
     const api = {
-        requestAnimationFrame(...args) {
+        requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
             const id = requestAnimationFrame(...args);
             api.add(() => cancelAnimationFrame(id));
         },
 
-        nextFrame(...args) {
+        nextFrame(...args: Parameters<typeof requestAnimationFrame>) {
             api.requestAnimationFrame(...args);
         },
 
-        setTimeout(...args) {
+        setTimeout(...args: Parameters<typeof setTimeout>) {
             const timer = setTimeout(...args);
             api.add(() => clearTimeout(timer));
         },
 
-        add(callback) {
+        add(callback: Function) {
             disposables.push(callback);
         },
 
