@@ -186,8 +186,6 @@ export class FocusManager {
             case FocusTarget.first:
                 return this.focusFirst(options);
             case FocusTarget.last:
-                console.log("will focus last");
-
                 return this.focusLast(options);
             default:
                 return this.focusKey(target, options);
