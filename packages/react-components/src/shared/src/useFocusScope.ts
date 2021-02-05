@@ -4,7 +4,7 @@ import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 import { FocusScope } from "./useFocusManager";
 
-class DomScope<T extends Element> {
+class DomScope<T extends HTMLElement> {
     _scopeRef: RefObject<T[]>;
     _handlersRef: RefObject<((elements: T[], scope: T[]) => void)[]>;
 
@@ -33,11 +33,11 @@ class DomScope<T extends Element> {
 }
 
 export function useFocusScope() {
-    const [scopeRef, setScope] = useRefState<Element[]>([]);
+    const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
     const [handlersRef] = useRefState<((elements: Element[], scope: Element[]) => void)[]>([]);
 
     const setRef = useCallback(rootElement => {
-        const setElements = (elements: Element[]) => {
+        const setElements = (elements: HTMLElement[]) => {
             handlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
             });
@@ -46,10 +46,10 @@ export function useFocusScope() {
         };
 
         const parseElements = () => {
-            const scope: Element[] = [];
+            const scope: HTMLElement[] = [];
 
             walkFocusableElements(rootElement, x => {
-                scope.push(x);
+                scope.push(x as HTMLElement);
             });
 
             setElements(scope);

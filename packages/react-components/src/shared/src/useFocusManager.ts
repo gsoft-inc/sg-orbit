@@ -47,8 +47,10 @@ export interface FocusElementOptions {
 }
 
 export interface FocusScope {
-    elements: Element[];
-    isInScope: (element: Element) => boolean;
+    elements: HTMLElement[];
+    isInScope: (element: HTMLElement) => boolean;
+    registerChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
+    removeChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
 }
 
 export class FocusManager {
@@ -126,7 +128,7 @@ export class FocusManager {
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
-            const index = elements.indexOf(document.activeElement);
+            const index = elements.indexOf(document.activeElement as HTMLElement);
             const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
 
             do {
@@ -161,7 +163,7 @@ export class FocusManager {
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
-            const index = elements.indexOf(document.activeElement);
+            const index = elements.indexOf(document.activeElement as HTMLElement);
             const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
 
             do {
@@ -216,7 +218,7 @@ export class FocusManager {
     }
 
     hasFocus() {
-        return this._scope.isInScope(document.activeElement);
+        return this._scope.isInScope(document.activeElement as HTMLElement);
     }
 }
 

@@ -1,25 +1,26 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
+import type { FocusScope } from "./useFocusManager";
 
-export function useRovingFocus(scope) {
+export function useRovingFocus(scope: FocusScope) {
     useLayoutEffect(() => {
-        const handleFocus = event => {
+        const handleFocus = (event: Event) => {
             scope.elements.forEach(x => {
                 if (x.tabIndex === 0) {
                     x.tabIndex = -1;
                 }
             });
 
-            event.target.tabIndex = 0;
+            (event.target as HTMLElement).tabIndex = 0;
         };
 
-        const registerElement = (element, isTabbable) => {
+        const registerElement = (element: HTMLElement, isTabbable: boolean) => {
             element.tabIndex = isTabbable ? 0 : -1;
 
             element.addEventListener("focusin", handleFocus, { capture: true });
         };
 
-        const disposeElement = element => {
+        const disposeElement = (element: HTMLElement) => {
             element.removeEventListener("focusin", handleFocus, { capture: true });
         };
 
@@ -31,7 +32,7 @@ export function useRovingFocus(scope) {
 
         initializeElements();
 
-        const onChange = (newElements, oldElements) => {
+        const onChange = (newElements: HTMLElement[], oldElements: HTMLElement[]) => {
             oldElements.forEach(disposeElement);
 
             const tabbableIndex = newElements.findIndex(x => x.tabIndex === 0);
@@ -54,9 +55,9 @@ export function useRovingFocus(scope) {
 /*
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(scope, currentKey, { keyProp = "value" } = {}) {
+export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { keyProp = "value" } = {}) {
     useLayoutEffect(() => {
-        const setTabIndexes = elements => {
+        const setTabIndexes = (elements: HTMLElement[]) => {
             if (!isNil(currentKey)) {
                 const tabbableIndex = !isNil(currentKey)
                     ? elements.findIndex(x => x.getAttribute(keyProp) === currentKey.toString())
@@ -79,7 +80,7 @@ export function useKeyedRovingFocus(scope, currentKey, { keyProp = "value" } = {
 
         initializeElements();
 
-        const onChange = newElements => {
+        const onChange = (newElements: HTMLElement[]) => {
             setTabIndexes(newElements);
         };
 
