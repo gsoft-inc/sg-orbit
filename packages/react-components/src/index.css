@@ -34,11 +34,11 @@ html .o-ui-dark-color-scheme * {
 
 /* ANIMATIONS | FADE */
 .o-ui-fade-in {
-    animation: o-ui-fade-in-animation .3s;
+    animation: o-ui-fade-in-animation .2s;
 }
 
 .o-ui-fade-out {
-    animation: o-ui-fade-out-animation .3s;
+    animation: o-ui-fade-out-animation .2s;
 }
 
 @keyframes o-ui-fade-in-animation {
@@ -62,9 +62,9 @@ html .o-ui-dark-color-scheme * {
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otheriwse it won't work. */
 .o-ui-slide-down {
-    transition: height 0.2s linear;
+    transition: height .2s linear;
 }
 
 .o-ui-slide-up {
-    transition: height 0.2s linear;
+    transition: height .2s linear;
 }
