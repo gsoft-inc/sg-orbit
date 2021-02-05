@@ -223,7 +223,7 @@ export function InnerSelect(props) {
             >
                 {valueMarkup}
                 <ChevronIcon
-                    className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
+                    className={`o-ui-select-icon-arrow ${direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}`}
                     size="sm"
                 />
             </TriggerType>

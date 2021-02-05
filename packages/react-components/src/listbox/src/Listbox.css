@@ -1,5 +1,6 @@
 :root {
     --o-ui-listbox-option-height: var(--o-ui-scale-golf);
+    --o-ui-listbox-option-checkmark-size: var(--o-ui-scale-charlie);
 }
 
 .o-ui-listbox {
@@ -14,11 +15,13 @@
     border: 1px solid var(--o-ui-border-2);
 }
 
+/* FLUID */
 .o-ui-listbox-fluid {
     width: 100%;
     max-width: 100%;
 }
 
+/* OPTION */
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
     padding-right: var(--o-ui-scale-hotel);
@@ -28,32 +31,37 @@
     position: relative;
 }
 
+/* OPTION | SELECTED */
 .o-ui-listbox-option[aria-selected="true"]::before {
     content: "";
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-listbox-option-checkmark-size);
+    height: var(--o-ui-listbox-option-checkmark-size);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-scale-charlie) var(--o-ui-scale-charlie);
+    mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
     background-color: var(--o-ui-background-primary-1);
     position: absolute;
     right: 1rem;
 }
 
+/* OPTION | SELECTED */
 .o-ui-listbox-option[aria-disabled="true"] {
     opacity: var(--o-ui-disabled-opacity);
 }
 
+/* OPTION | DESCRIPTION */
 .o-ui-listbox-option-description {
     color: var(--o-ui-text-2);
     margin-left: var(--o-ui-scale-bravo);
     cursor: default;
 }
 
+/* OPTION | STATE | FOCUS */
 .o-ui-listbox-option:focus {
     background-color: var(--o-ui-background-4);
     outline: none;
 }
 
+/* OPTION | STATE | FOCUS | SELECTOR BAR */
 .o-ui-listbox-option:focus:after {
     content: "";
     display: block;
@@ -68,6 +76,18 @@
     background-color: var(--o-ui-background-4);
 }
 
+/* OPTION | ICONS */
+/* OPTION | ICONS | START ICON */
+.o-ui-listbox-option-start-icon {
+    margin-right: var(--o-ui-scale-alpha);
+}
+
+/* OPTION | ICONS | END ICON */
+.o-ui-listbox-option-end-icon {
+    margin-left: var(--o-ui-scale-alpha);
+}
+
+/* SECTION */
 .o-ui-listbox-section {
     font-weight: 500;
     padding-left: var(--o-ui-scale-bravo);
@@ -82,14 +102,4 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* END ICON */
-.o-ui-listbox-option-end-icon {
-    margin-left: var(--o-ui-scale-alpha);
-}
-
-/* START ICON */
-.o-ui-listbox-option-start-icon {
-    margin-right: var(--o-ui-scale-alpha);
 }
