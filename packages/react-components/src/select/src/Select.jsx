@@ -6,7 +6,7 @@ import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useSlots } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -223,7 +223,10 @@ export function InnerSelect(props) {
             >
                 {valueMarkup}
                 <ChevronIcon
-                    className={`o-ui-select-icon-arrow ${direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}`}
+                    className={mergeClasses(
+                        "o-ui-select-icon-arrow",
+                        direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"
+                    )}
                     size="sm"
                 />
             </TriggerType>
