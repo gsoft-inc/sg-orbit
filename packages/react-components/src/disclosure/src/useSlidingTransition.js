@@ -70,10 +70,12 @@ export function useSlidingTransition(isOpen, ref) {
                         disposables.nextFrame(() => {
                             if (!isNil(ref.current)) {
                                 ref.current.style.height = "0px";
+                                ref.current.style.opacity = "0";
 
                                 disposables.nextFrame(() => {
                                     if (!isNil(ref.current)) {
                                         ref.current.style.height = `${ref.current.scrollHeight}px`;
+                                        ref.current.style.opacity = "1";
                                     }
                                 });
                             }
@@ -87,6 +89,7 @@ export function useSlidingTransition(isOpen, ref) {
                                 disposables.nextFrame(() => {
                                     if (!isNil(ref.current)) {
                                         ref.current.style.height = "0px";
+                                        ref.current.style.opacity = "0";
                                     }
                                 });
                             }

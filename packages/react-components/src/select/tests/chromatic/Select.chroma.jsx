@@ -93,11 +93,11 @@ createTestSuite(<Select variant="inline" />, stories("/inline"))
 
         return (
             <Stack>
-                <Paragraph size="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
-                <Paragraph size="2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect />elementum viverra maximus.</Paragraph>
+                <Paragraph size="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
+                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
+                <Paragraph size="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
+                <Paragraph size="xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
+                <Paragraph size="2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
             </Stack>
         );
     });

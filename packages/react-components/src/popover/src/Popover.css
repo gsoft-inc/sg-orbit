@@ -10,23 +10,22 @@
     /* Must keep a max width. */
     width: 325px;
     position: relative;
+    border: 1px solid var(--o-ui-border-2);
 }
 
-.o-ui-popover:focus {
-    box-shadow: var(--o-ui-focus-ring-inset-md);
-}
-
+/* CLOSE BUTTON */
 .o-ui-popover-close-button {
     position: absolute;
     top: var(--o-ui-scale-bravo);
     right: var(--o-ui-scale-bravo);
 }
 
-/* AJOUT POUR TE MONTRER DES POSSIBILITÉS À TOI DE VOIR */
+/* HEADER */
 .o-ui-popover-header {
     margin-bottom: var(--o-ui-scale-bravo);
 }
 
+/* FOOTER */
 .o-ui-popover-footer {
     margin-top: var(--o-ui-scale-delta);
     display: grid;
@@ -35,11 +34,19 @@
     grid-template-areas: "text button";
 }
 
+/* FOOTER | TEXT */
 .o-ui-popover-footer-text {
     grid-area: text;
     margin-right: var(--o-ui-scale-bravo);
 }
 
+/* IMAGE */
+.o-ui-popover img {
+    margin-top: var(--o-ui-scale-charlie);
+    border-radius: var(--o-ui-border-radius-pill);
+}
+
+/* BUTTONS */
 .o-ui-popover-button {
     grid-area: button;
 }
@@ -48,6 +55,7 @@
     grid-area: button;
 }
 
+/* OVERLAY */
 .o-ui-popover-overlay[data-popper-placement*="top"] {
     border-bottom: var(--o-ui-popover-offset) solid transparent;
 }
