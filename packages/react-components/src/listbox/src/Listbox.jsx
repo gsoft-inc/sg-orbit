@@ -135,6 +135,8 @@ export function InnerListbox({
     autoFocus,
     defaultFocusTarget,
     fluid,
+    "arial-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
     as = "div",
     children,
     forwardedRef,
@@ -255,10 +257,10 @@ export function InnerListbox({
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: () => {
+        onNotFound: useEventCallback(() => {
             // Ensure keyboard navigation is available.
             containerRef.current?.focus();
-        }
+        })
     });
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");
@@ -312,6 +314,8 @@ export function InnerListbox({
                     ),
                     onKeyDown: handleKeyDown,
                     role: "listbox",
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
                     as,
                     ref: containerRef

@@ -41,4 +41,5 @@ export * from "./listbox";
 export * from "./overlay";
 export * from "./popover";
 export * from "./select";
+export * from "./menu";
 export * from "./shared";

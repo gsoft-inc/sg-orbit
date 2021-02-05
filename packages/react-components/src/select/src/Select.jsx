@@ -132,6 +132,7 @@ export function InnerSelect(props) {
         active,
         focus,
         hover,
+        "aria-label": ariaLabel,
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
@@ -160,6 +161,7 @@ export function InnerSelect(props) {
         allowFlip,
         allowPreventOverflow,
         zIndex,
+        ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,
         menuProps,

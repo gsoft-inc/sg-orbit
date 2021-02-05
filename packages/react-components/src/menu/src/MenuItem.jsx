@@ -1,26 +1,27 @@
 import { Box } from "../../box";
 import { Text } from "../../text";
+import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { useMenuContext } from "./MenuContext";
 
-/*
-To facilitate TS typings maybe an Item could have a button or link as child:
-<Menu
-    <Item>
-        <a>Google</a>
-    </Item>
-    <Item>
-        <button>Add</button>
-    </Item>
-</Menu> -> NOPE COMPLIQUÉ ENSUITE POUR TOOLTIP, ICON, DESC
-
-- Support command?
-- aria-labelledby si fait <li><a>text</a></li>
-*/
-
 const propTypes = {
-
+    /**
+     * Matching collection item.
+     */
+    item: object.isRequired,
+    /**
+     * Whether or not the item is disabled.
+     */
+    disabled: bool,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: oneOfType([any, func]).isRequired
 };
 
 export function InnerMenuItem({
@@ -41,6 +42,10 @@ export function InnerMenuItem({
         if (!disabled) {
             onSelect(event, key);
         }
+    });
+
+    const handleMouseEnter = useEventCallback(event => {
+        event.target.focus();
     });
 
     const labelId = `${id}-label`;
@@ -75,6 +80,7 @@ export function InnerMenuItem({
                 {
                     id,
                     onClick: !disabled ? handleClick : undefined,
+                    onMouseEnter: handleMouseEnter,
                     className: cssModule(
                         "o-ui-menu-item",
                         active && "active",
@@ -83,7 +89,6 @@ export function InnerMenuItem({
                     ),
                     role: "menuitem",
                     tabIndex: "-1",
-                    // tabIndex: !disabled ? "-1" : undefined,
                     "data-o-ui-key": key,
                     "aria-disabled": disabled,
                     as,

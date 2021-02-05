@@ -40,8 +40,6 @@ export function useOverlayLightDismiss(overlayRef, {
     });
 
     const handleMouseLeave = useEventCallback(event => {
-        console.log("mouse leaved");
-
         hide(event);
     });
 
