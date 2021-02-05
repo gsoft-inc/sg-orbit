@@ -113,16 +113,20 @@ function merge(props: any, newProps: any) {
     return props;
 }
 
-// taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379
-type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
+type Unpack<T> =
+    T extends (infer U)[] ? U :
+    T extends (...args: any[]) => infer U ? U :
+    T extends Promise<infer U> ? U :
+    T;
+
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 
-export function mergeProps<T extends object[]>(...args: T) {
+export function mergeProps<T extends Record<string, any>[]>(...args: T) {
     let result = {};
 
     args.forEach(x => {
         result = merge(result, x);
     });
 
-    return result as UnionToIntersection<TupleTypes<T>>;
+    return result as UnionToIntersection<Unpack<T>>;
 }

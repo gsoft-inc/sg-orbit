@@ -2,16 +2,13 @@ import { isString } from "lodash";
 import { isValidElementType } from "react-is";
 import { mergeProps } from "./mergeProps";
 import { normalizeSize } from "./normalizeSize";
-import React, { ElementType, HTMLAttributes, ReactElement, cloneElement } from "react";
-import type { Size } from "./size";
+import React, { ElementType, HTMLAttributes, ReactElement, RefAttributes, cloneElement } from "react";
 import type { SizeAdapter } from "./createSizeAdapter";
 
-type FixMe = any;
+export function augmentElement(element: ReactElement<any, any> & RefAttributes<any>, newProps: Record<string, any>) {
+    const augmentedProps = mergeProps({ ...element.props, ref: element.ref }, newProps);
 
-export function augmentElement<T extends string, P extends Record<string, any>>(element: ReactElement<P, T>, newProps: P) {
-    const augmentedProps = mergeProps({ ...element.props, ref: (element as FixMe).ref }, newProps);
-
-    return cloneElement(element, augmentedProps as FixMe);
+    return cloneElement(element, augmentedProps);
 }
 
 export function createOrAugmentElement<T extends string, P extends HTMLAttributes<T>>(element: ReactElement<P, T> | ElementType, props: P) {
@@ -29,7 +26,7 @@ export function createOrAugmentElement<T extends string, P extends HTMLAttribute
 }
 
 export function createEmbeddableAdapter(sizeAdapter: SizeAdapter) {
-    return <T extends string, P extends FixMe>(element: ReactElement<P, T>, { size, ...props }: { size: Size } & FixMe = {}) => {
+    return <P extends Record<string, any>>(element: ReactElement<P, any>, { size, ...props }: P) => {
         const newProps = {
             ...props,
             size: sizeAdapter[normalizeSize(size)]

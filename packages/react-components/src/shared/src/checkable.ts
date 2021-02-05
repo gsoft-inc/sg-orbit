@@ -1,8 +1,12 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-type FixMe = any;
-export const CheckableContext = createContext<FixMe>(null);
+interface CheckableContextProps {
+    checkedValue?: boolean;
+    [x: string]: any;
+}
+
+export const CheckableContext = createContext<CheckableContextProps>(null);
 
 export function useCheckableContext() {
     const context = useContext(CheckableContext);
