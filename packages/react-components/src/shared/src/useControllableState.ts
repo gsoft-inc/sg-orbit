@@ -2,7 +2,7 @@ import { isFunction, isUndefined } from "lodash";
 import { useCallback, useRef } from "react";
 import { useRefState } from "./useRefState";
 
-function validatePrerequisites(controlledValue, initialValue) {
+function validatePrerequisites(controlledValue: any, initialValue: any) {
     if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
         throw new Error(
             "useControllableState - A controllable state value can either have a controlled value or an initial value, but not both."
@@ -10,14 +10,14 @@ function validatePrerequisites(controlledValue, initialValue) {
     }
 }
 
-function ensureControlledStateHaveNotChanged(controlledValue, isControlled) {
+function ensureControlledStateHaveNotChanged(controlledValue: any, isControlled: any) {
     if ((isControlled && isUndefined(controlledValue)) || (!isControlled && !isUndefined(controlledValue))) {
         throw new Error("useControllableState - A controllable state value cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
     }
 }
 
-function useComputeInitialState(controlledValue, initialValue, defaultValue) {
-    const result = (state, isControlled, isInitialState = false) => ({ state, isControlled, isInitialState });
+function useComputeInitialState<T>(controlledValue: T, initialValue: T, defaultValue: T) {
+    const result = (state: T, isControlled: boolean, isInitialState = false) => ({ state, isControlled, isInitialState });
 
     const hasComputedRef = useRef(false);
 
@@ -25,7 +25,7 @@ function useComputeInitialState(controlledValue, initialValue, defaultValue) {
         return result(null, null);
     }
 
-    let state;
+    let state: T;
     let isControlled = false;
 
     if (isUndefined(controlledValue)) {
@@ -42,8 +42,8 @@ function useComputeInitialState(controlledValue, initialValue, defaultValue) {
     return result(state, isControlled, true);
 }
 
-function computeSubsequentState(controlledValue, currentState, isControlled) {
-    let newState = null;
+function computeSubsequentState<T>(controlledValue: T, currentState: T, isControlled: boolean) {
+    let newState: T | null = null;
     let hasChanged = false;
 
     ensureControlledStateHaveNotChanged(controlledValue, isControlled);
@@ -59,6 +59,10 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
         newState,
         hasChanged
     };
+}
+
+interface ControllableStateOptions<T> {
+    onChange?: (newState: T, options: { isControlled: boolean; isInitialState: boolean; }) => void
 }
 
 /**
@@ -85,7 +89,7 @@ function computeSubsequentState(controlledValue, currentState, isControlled) {
  *
  * setUncontrolledState("Neil Armstrong");
  */
-export function useControllableState(controlledValue, initialValue, defaultValue, { onChange } = {}) {
+export function useControllableState<T>(controlledValue: T, initialValue: T, defaultValue: T, { onChange }: ControllableStateOptions<T> = {}) {
     validatePrerequisites(controlledValue, initialValue);
 
     let { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);

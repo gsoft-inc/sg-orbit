@@ -3,9 +3,9 @@
 import { isFunction, isNil } from "lodash";
 import { useEffect } from "react";
 
-const handlersMap = new WeakMap();
+const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>();
 
-let observer;
+let observer: ResizeObserver;
 
 function getResizeObserver() {
     return (observer =
@@ -21,7 +21,7 @@ function getResizeObserver() {
     );
 }
 
-export const useResizeObserver = (element, onResize, { box } = {}) => {
+export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { box }: ResizeObserverOptions = {}) => {
     useEffect(() => {
         if (!isNil(element)) {
             getResizeObserver().observe(element, { box });
