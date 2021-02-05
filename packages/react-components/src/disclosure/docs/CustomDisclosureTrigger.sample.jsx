@@ -2,19 +2,12 @@ function CustomTrigger({ children, ...rest }) {
     const { isOpen } = useDisclosureContext();
 
     return (
-        <Box
+        <Button
             {...rest}
-            className="flex items-center"
-            role="button"
+            color={isOpen ? "primary" : "secondary"}
         >
             {children}
-            <ChevronIcon
-                className={cx(
-                    isOpen ? "rotate-270" : "rotate-90",
-                    "ml1"
-                )}
-            />
-        </Box>
+        </Button>
     );
 }
 

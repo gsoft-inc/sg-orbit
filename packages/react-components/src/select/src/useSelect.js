@@ -32,6 +32,7 @@ export function useSelect(children, {
     allowFlip,
     allowPreventOverflow,
     zIndex = 10000,
+    ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
     menuProps: { id: menuId, style: { width, ...menuStyle } = {}, ...menuProps } = {},
@@ -147,7 +148,8 @@ export function useSelect(children, {
                 id: triggerId,
                 onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                 disabled,
-                "aria-labelledby": ariaLabelledBy,
+                "aria-label": ariaLabel,
+                "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                 "aria-describedby": ariaDescribedBy,
                 ref: triggerRef
             }
@@ -173,7 +175,8 @@ export function useSelect(children, {
             defaultFocusTarget: focusTargetRef.current,
             fluid: true,
             className: "o-ui-select-listbox",
-            "aria-labelledby": ariaLabelledBy ?? triggerId,
+            "aria-label": ariaLabel,
+            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined,
             "aria-describedby": ariaDescribedBy
         }
     };

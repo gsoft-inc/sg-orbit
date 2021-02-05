@@ -65,7 +65,7 @@ A select items can be group by sections.
 
 ### Icon
 
-A select item can contain [icons](?path=/docs/icon-gallery--page).
+A select item can have [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
@@ -88,7 +88,7 @@ A select item can contain [icons](?path=/docs/icon-gallery--page).
 
 ### End icon
 
-A select item can contain *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
+A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
     <Story name="end icon">
@@ -205,24 +205,6 @@ A select can be part of a form. To submit the value of a select, make sure you s
     </Story>
 </Preview>
 
-### Direction
-
-A select open direction can vary.
-
-<Preview>
-    <Story name="direction">
-        <Select direction="top" placeholder="Planets" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Select>
-    </Story>
-</Preview>
-
 ### Array map
 
 A select items can be rendered with an array map.
@@ -282,6 +264,8 @@ A select can appear inline with other content.
 ### Custom select
 
 Some use cases requires to render a select with a custom trigger. Orbit helps by providing a `useSelect` hook.
+
+Make sure your trigger accepts a `ref` and any other props returned by the hook.
 
 <Preview filePath="/select/docs/CustomSelect" noInline />
 

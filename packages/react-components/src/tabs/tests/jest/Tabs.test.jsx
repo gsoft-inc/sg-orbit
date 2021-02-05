@@ -273,6 +273,10 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
     );
 
     act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
         fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowRight", keyCode: Keys.right });
     });
 
@@ -296,6 +300,10 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
             </Item>
         </Tabs>
     );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
 
     act(() => {
         fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowLeft", keyCode: Keys.left });
@@ -323,6 +331,10 @@ test("when vertical, down arrow keypress select the next tab", async () => {
     );
 
     act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
         fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowDown", keyCode: Keys.down });
     });
 
@@ -346,6 +358,10 @@ test("when vertical, up arrow keypress select the next tab", async () => {
             </Item>
         </Tabs>
     );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
 
     act(() => {
         fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowUp", keyCode: Keys.up });

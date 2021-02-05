@@ -89,17 +89,17 @@ export function InnerTabs({
         if (isInitialRender) {
             // When uncontrolled, ensure the initial selected tab is not a disabled one.
             if (tabs[selectedIndex]?.props?.disabled) {
-                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.index ?? 0);
+                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.position ?? 0);
             }
         }
     }
 
     const handleSelect = useEventCallback((event, newIndex) => {
-        setSelectedIndex(newIndex);
-
         if (!isNil(onChange)) {
             onChange(event, newIndex);
         }
+
+        setSelectedIndex(newIndex);
     });
 
     return (

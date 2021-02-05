@@ -21,6 +21,10 @@ import { Text } from "@react-components/text";
     githubPath="/packages/react-components/src/listbox/src"
 />
 
+## Accessibility
+
+A listbox should have an `aria-label` prop describing the content of the list.
+
 ## Usage
 
 ### Default
@@ -94,7 +98,7 @@ A listbox items can be group by sections.
 
 ### Icon
 
-A listbox item can contain [icons](?path=/docs/icon-gallery--page).
+A listbox item can have [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
@@ -117,7 +121,7 @@ A listbox item can contain [icons](?path=/docs/icon-gallery--page).
 
 ### End icon
 
-A listbox item can contain *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
+A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
     <Story name="end icon">

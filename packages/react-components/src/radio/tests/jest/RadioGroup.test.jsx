@@ -56,6 +56,10 @@ test("right arrow keypress select the next radio", async () => {
     );
 
     act(() => {
+        getInput(getByTestId("radio-1")).focus();
+    });
+
+    act(() => {
         fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowRight", keyCode: Keys.right });
     });
 
@@ -70,6 +74,10 @@ test("left arrow keypress select the next radio", async () => {
             <Radio value="3" data-testid="radio-3">3</Radio>
         </RadioGroup>
     );
+
+    act(() => {
+        getInput(getByTestId("radio-1")).focus();
+    });
 
     act(() => {
         fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowLeft", keyCode: Keys.left });
@@ -88,6 +96,10 @@ test("down arrow keypress select the next radio", async () => {
     );
 
     act(() => {
+        getInput(getByTestId("radio-1")).focus();
+    });
+
+    act(() => {
         fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowDown", keyCode: Keys.down });
     });
 
@@ -102,6 +114,10 @@ test("up arrow keypress select the next radio", async () => {
             <Radio value="3" data-testid="radio-3">3</Radio>
         </RadioGroup>
     );
+
+    act(() => {
+        getInput(getByTestId("radio-1")).focus();
+    });
 
     act(() => {
         fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowUp", keyCode: Keys.up });
