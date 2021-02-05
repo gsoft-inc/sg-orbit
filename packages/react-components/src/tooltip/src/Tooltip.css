@@ -1,0 +1,34 @@
+.o-ui-tooltip-arrow,
+.o-ui-tooltip-arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+}
+
+.o-ui-tooltip-arrow::before {
+    content: "";
+    transform: rotate(45deg);
+    background: blue;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement^="top"] > .o-ui-tooltip-arrow {
+    bottom: -4px;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement^="bottom"] > .o-ui-tooltip-arrow {
+    top: -4px;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement^="left"] > .o-ui-tooltip-arrow {
+    right: -4px;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement^="right"] > .o-ui-tooltip-arrow {
+    left: -4px;
+}
+
+.o-ui-tooltip {
+    padding: 5px;
+    background-color: red;
+}

@@ -1,4 +1,5 @@
 import { Children, forwardRef, useCallback } from "react";
+import { DisclosureContext } from "../../disclosure";
 import { FocusTarget, Keys, augmentElement, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
@@ -167,7 +168,13 @@ export function InnerMenuTrigger({
                 close
             }}
         >
-            {triggerMarkup}
+            <DisclosureContext.Provider
+                value={{
+                    isOpen
+                }}
+            >
+                {triggerMarkup}
+            </DisclosureContext.Provider>
             <Overlay
                 {...mergeProps(
                     rest,

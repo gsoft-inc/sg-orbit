@@ -3,6 +3,7 @@ import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
 export function useOverlayPosition(triggerElement, overlayElement, {
+    arrowElement,
     position = "bottom",
     offset,
     allowFlip = false,
@@ -36,6 +37,15 @@ export function useOverlayPosition(triggerElement, overlayElement, {
         }
     });
 
+    if (!isNil(arrowElement)) {
+        popperModifiers.push({
+            name: "arrow",
+            options: {
+                element: arrowElement
+            }
+        });
+    }
+
     const { styles, attributes, update: updatePopper } = usePopper(triggerElement, overlayElement, {
         placement: position,
         modifiers: popperModifiers
@@ -51,6 +61,7 @@ export function useOverlayPosition(triggerElement, overlayElement, {
 
     return {
         overlayStyles: styles.popper,
-        overlayProps: attributes.popper || {}
+        overlayProps: attributes.popper || {},
+        arrowStyles: styles.arrow
     };
 }

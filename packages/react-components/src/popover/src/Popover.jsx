@@ -41,6 +41,7 @@ export function InnerPopover({
         },
         content: {
             className: "o-ui-popover-content",
+            role: "dialog",
             as: Text
         },
         footer: {

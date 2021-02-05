@@ -1,4 +1,4 @@
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
@@ -85,11 +85,20 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("fluid", () =>
-            <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
+            <Stack>
+                <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div className="w-10">
+                    <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("validation", () =>
             <Inline>
