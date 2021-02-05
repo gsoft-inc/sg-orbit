@@ -28,11 +28,6 @@
     color: white;
 }
 
-.o-ui-menu-item-hover,
-.o-ui-menu-item:hover {
-    color: red;
-}
-
 .o-ui-menu-item[aria-disabled="true"] {
     opacity: var(--o-ui-disabled-opacity);
 }

@@ -1,10 +1,11 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon, VerticalDotsIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
-import { InnerMenu, InnerMenuArrow, InnerMenuTrigger, Menu, MenuArrow, MenuTrigger } from "@react-components/menu";
+import { InnerMenu, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -17,7 +18,7 @@ import { Text } from "@react-components/text";
 <Tagline>A menu offers a list of choices to the user, such as a set of actions or functions.</Tagline>
 
 <ComponentInfo
-    usage={"import { MenuTrigger, Menu, Item, Section, Divider, MenuArrow, MenuTriggerContext, useMenuTriggerContext } from \"@orbit-ui/react-components\""}
+    usage={"import { MenuTrigger, Menu, Item, Section, Divider, MenuTriggerContext, useMenuTriggerContext } from \"@orbit-ui/react-components\""}
     ariaPath="#menu"
     githubPath="/packages/react-components/src/menu/src"
 />
@@ -223,16 +224,16 @@ Any trigger would work as long as it accepts a `ref` and any other props provide
 
 <Preview filePath="/menu/docs/CustomTrigger" noInline />
 
-### Menu arrow
+### Disclosure arrow
 
-You can use a [menu arrow](?path=/docs/menu-arrow--context) component to hint that activating the button will display additional content.
+You can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) component to hint that activating the button will display additional content.
 
 <Preview>
     <Story name="menu arrow">
         <MenuTrigger>
             <Button>
                 <Text>Trigger</Text>
-                <MenuArrow slot="end-icon" />
+                <DisclosureArrow slot="end-icon" />
             </Button>
             <Menu>
                 <Item key="launch">Launch...</Item>

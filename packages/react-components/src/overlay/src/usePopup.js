@@ -1,15 +1,11 @@
 import { isNil, isNumber } from "lodash";
+import { isTargetParent } from "./isTargetParent";
 import { mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { useCallback, useState } from "react";
 import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
 import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
-
-function isTargetParent(element, target) {
-    // Must validate that "target" is a DOM element because it could be anything like "window".
-    return target instanceof Element && element.contains(target);
-}
 
 export function usePopup(type, {
     id,
