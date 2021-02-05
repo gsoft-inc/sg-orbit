@@ -1,13 +1,14 @@
-import { createContext, useCallback, useContext, useMemo } from "react";
+import { createContext, RefObject, useCallback, useContext, useMemo } from "react";
 import { isNil } from "lodash";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
+import { FocusScope } from "./useFocusManager";
 
-class DomScope {
-    _scopeRef;
-    _handlersRef;
+class DomScope<T extends Element> {
+    _scopeRef: RefObject<T[]>;
+    _handlersRef: RefObject<((elements: T[], scope: T[]) => void)[]>;
 
-    constructor(scopeRef, handlersRef) {
+    constructor(scopeRef: RefObject<T[]>, handlersRef: RefObject<((elements: T[], scope: T[]) => void)[]>) {
         this._scopeRef = scopeRef;
         this._handlersRef = handlersRef;
     }
@@ -16,27 +17,27 @@ class DomScope {
         return this._scopeRef.current;
     }
 
-    registerChangeHandler(handler) {
+    registerChangeHandler(handler: ((elements: T[], scope: T[]) => void)) {
         this._handlersRef.current.push(handler);
     }
 
-    removeChangeHandler(handler) {
+    removeChangeHandler(handler: ((elements: T[], scope: T[]) => void)) {
         const handlers = this._handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
     }
 
-    isInScope(element) {
+    isInScope(element: T) {
         return this.elements.some(x => x.contains(element));
     }
 }
 
 export function useFocusScope() {
-    const [scopeRef, setScope] = useRefState([]);
-    const [handlersRef] = useRefState([]);
+    const [scopeRef, setScope] = useRefState<Element[]>([]);
+    const [handlersRef] = useRefState<((elements: Element[], scope: Element[]) => void)[]>([]);
 
     const setRef = useCallback(rootElement => {
-        const setElements = elements => {
+        const setElements = (elements: Element[]) => {
             handlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
             });
@@ -45,7 +46,7 @@ export function useFocusScope() {
         };
 
         const parseElements = () => {
-            const scope = [];
+            const scope: Element[] = [];
 
             walkFocusableElements(rootElement, x => {
                 scope.push(x);
@@ -73,16 +74,20 @@ export function useFocusScope() {
         }
     }, [scopeRef, setScope, handlersRef]);
 
-    const scope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
+    const scope: FocusScope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
 
     const { scope: contextScope } = useFocusContext();
 
     return isNil(contextScope)
-        ? [scope, setRef]
-        : [contextScope, undefined];
+        ? [scope, setRef] as const
+        : [contextScope, undefined] as const;
 }
 
-export const FocusContext = createContext({});
+interface FocusContextProps {
+    scope?: FocusScope
+}
+
+export const FocusContext = createContext<FocusContextProps>({});
 
 export function useFocusContext() {
     return useContext(FocusContext) ?? {};

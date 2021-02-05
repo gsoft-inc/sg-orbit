@@ -25,8 +25,8 @@ interface Slots {
     [x: string]: any;
 }
 
-export function getSlots(children: ReactElement<any, any>, { _ = {}, ...slots }: Slots) {
-    const slotElements: Record<string, ReactElement<any, any>> = {};
+export function getSlots(children: ReactElement<FixMe, FixMe>, { _ = {}, ...slots }: Slots) {
+    const slotElements: Record<string, ReactElement<FixMe, FixMe>> = {};
 
     children = resolveChildren(children);
 
