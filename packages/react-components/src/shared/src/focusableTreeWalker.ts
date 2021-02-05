@@ -14,13 +14,17 @@ const FocusableElement = [
     "audio[controls]",
     "video[controls]",
     "[contenteditable]"
-];
+] as const;
 
 export const FocusableElementSelector = [...FocusableElement, "[tabindex]"].join(",");
 
 export const TabbableElementSelector = [...FocusableElement, "[tabindex]:not([tabindex=\"-1\"])"].join(":not([tabindex=\"-1\"]),");
 
-export function createFocusableTreeWalker(root, { tabbable } = {}) {
+interface FocusableTreeWalkerOptions {
+    tabbable?: boolean;
+}
+
+export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: FocusableTreeWalkerOptions = {}) {
     const selector = tabbable ? TabbableElementSelector : FocusableElementSelector;
 
     const walker = document.createTreeWalker(
@@ -28,7 +32,7 @@ export function createFocusableTreeWalker(root, { tabbable } = {}) {
         NodeFilter.SHOW_ELEMENT,
         {
             acceptNode(node) {
-                if (node.matches(selector)) {
+                if ((node as HTMLElement).matches(selector)) {
                     return NodeFilter.FILTER_ACCEPT;
                 }
 
@@ -41,6 +45,6 @@ export function createFocusableTreeWalker(root, { tabbable } = {}) {
     return walker;
 }
 
-export function walkFocusableElements(root, onElement) {
+export function walkFocusableElements(root: HTMLElement, onElement: (element: Element, index?: number) => void) {
     root.querySelectorAll(FocusableElementSelector).forEach((x, index) => onElement(x, index));
 }
