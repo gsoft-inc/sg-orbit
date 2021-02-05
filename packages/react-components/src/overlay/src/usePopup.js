@@ -85,16 +85,14 @@ export function usePopup(type, {
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
     const focusManager = useFocusManager(focusScope, { keyProp });
 
-    useAutoFocusChild(
-        focusManager,
-        {
-            ...autoFocusOptions,
-            isDisabled: !autoFocus || !isOpen,
-            delay: isNumber(autoFocus) ? autoFocus : undefined,
-            onNotFound: useEventCallback(() => {
-                overlayElement?.focus();
-            })
-        });
+    useAutoFocusChild(focusManager, {
+        ...autoFocusOptions,
+        isDisabled: !autoFocus || !isOpen,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        onNotFound: useEventCallback(() => {
+            overlayElement?.focus();
+        })
+    });
 
     const overlayId = useId(id, id ? undefined : "o-ui-overlay");
 

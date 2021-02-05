@@ -40,7 +40,7 @@ export function useSelect(children, {
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [triggerWidth, setTriggerWidth] = useState();
-    const [focusTargetRef, setFocusTarget] = useRefState(null);
+    const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
 
@@ -48,12 +48,10 @@ export function useSelect(children, {
         id: menuId,
         open: openProp,
         defaultOpen,
-        // Focusing the first item on open if nore are already set to be focused.
         onOpenChange: useChainedEventCallback(onOpenChange, (event, newValue) => {
-            if (newValue) {
-                if (isNil(focusTargetRef.current)) {
-                    setFocusTarget(FocusTarget.first);
-                }
+            // When the select is closed because of a blur or outside click event, reset the focus target.
+            if (!newValue) {
+                setFocusTarget(FocusTarget.first);
             }
         }),
         hideOnEscape: true,
@@ -85,9 +83,8 @@ export function useSelect(children, {
     }, [setIsOpen, setFocusTarget]);
 
     const close = useCallback(event => {
-        setFocusTarget(null);
         setIsOpen(event, false);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen]);
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
