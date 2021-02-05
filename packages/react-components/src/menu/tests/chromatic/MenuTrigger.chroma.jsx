@@ -139,6 +139,10 @@ stories()
                 <button
                     {...props}
                     type="button"
+                    style={{
+                        display: "flex",
+                        alignItems: "center"
+                    }}
                     ref={ref}
                 >
                     <Text>Trigger</Text>

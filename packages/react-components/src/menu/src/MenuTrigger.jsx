@@ -1,9 +1,8 @@
 import { Children, forwardRef, useCallback } from "react";
-import { DisclosureContext } from "../../disclosure/src/DisclosureContext";
 import { FocusTarget, Keys, augmentElement, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { any, bool, func, number, oneOf, oneOfType } from "prop-types";
+import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -49,6 +48,10 @@ const propTypes = {
      * z-index of the menu.
      */
     zIndex: number,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
     /**
      * React children.
      */
@@ -181,6 +184,7 @@ export function InnerMenuTrigger({
     );
 }
 
+InnerMenuTrigger.propTypes = propTypes;
 
 export const MenuTrigger = forwardRef((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />

@@ -38,7 +38,7 @@ export function InnerDisclosureArrow({
                 {
                     className: cssModule(
                         "o-ui-disclosure-arrow",
-                        isOpen ? "down" : "up"
+                        isOpen ? "up" : "down"
                     ),
                     ref: forwardedRef
                 }

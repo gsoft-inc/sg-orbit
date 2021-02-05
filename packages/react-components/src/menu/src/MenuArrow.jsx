@@ -38,7 +38,7 @@ export function InnerMenuArrow({
                 {
                     className: cssModule(
                         "o-ui-menu-arrow",
-                        isOpen ? "down" : "up"
+                        isOpen ? "up" : "down"
                     ),
                     ref: forwardedRef
                 }

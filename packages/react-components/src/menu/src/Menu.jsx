@@ -12,7 +12,8 @@ import {
     useFocusScope,
     useId,
     useMergedRefs,
-    useRefState
+    useRefState,
+    useRovingFocus
 } from "../../shared";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
@@ -60,6 +61,8 @@ export function InnerMenu({
     autoFocus,
     defaultFocusTarget,
     fluid,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
     as = "ul",
     children,
     forwardedRef,
@@ -73,9 +76,9 @@ export function InnerMenu({
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const handleSelect = useEventCallback(event => {
+    const handleSelect = useEventCallback((event, key) => {
         if (!isNil(onSelect)) {
-            onSelect(event);
+            onSelect(event, key);
         }
     });
 
@@ -125,19 +128,21 @@ export function InnerMenu({
         }
     });
 
+    useRovingFocus(focusScope);
+
     useAutoFocusChild(focusManager, {
         target: defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: () => {
+        onNotFound: useEventCallback(() => {
             // Ensure keyboard navigation is available.
             containerRef.current?.focus();
-        }
+        })
     });
 
-    const nodes = useCollection(children);
-
     const rootId = useId(id, id ? undefined : "o-ui-menu");
+
+    const nodes = useCollection(children);
 
     const renderOption = ({
         key,
@@ -211,6 +216,8 @@ export function InnerMenu({
                     onKeyDown: handleKeyDown,
                     role: "menu",
                     "aria-orientation": "vertical",
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     as,
                     ref: containerRef
                 }
