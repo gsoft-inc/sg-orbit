@@ -10,6 +10,7 @@
     /* Must keep a max width. */
     width: 325px;
     position: relative;
+    border: 1px solid var(--o-ui-border-2);
 }
 
 .o-ui-popover:focus {
