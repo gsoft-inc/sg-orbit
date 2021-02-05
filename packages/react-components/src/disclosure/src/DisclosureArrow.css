@@ -1,6 +1,6 @@
 .o-ui-disclosure-arrow {
     flex-shrink: 0;
-    transition: transform .2s ease-in;
+    transition: transform .15s linear;
     fill: currentColor;
 }
 

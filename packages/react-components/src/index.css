@@ -44,6 +44,8 @@ html .o-ui-dark-color-scheme * {
 @keyframes o-ui-fade-in-animation {
     0% {
         opacity: 0;
+    }0% {
+        opacity: 0;
     }
     100% {
         opacity: 1;
@@ -62,9 +64,9 @@ html .o-ui-dark-color-scheme * {
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otheriwse it won't work. */
 .o-ui-slide-down {
-    transition: height .2s linear;
+    transition: all .2s linear;
 }
 
 .o-ui-slide-up {
-    transition: height .2s linear;
+    transition: all .2s linear;
 }
