@@ -58,7 +58,7 @@ const propTypes = {
     /**
      * The style to use.
      */
-    variant: oneOf(["outline", "inline", "transparent"]),
+    variant: oneOf(["outline", "ghost"]),
     /**
      * The direction the select menu will open relative to the input.
      */

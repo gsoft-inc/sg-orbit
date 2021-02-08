@@ -20,19 +20,17 @@
 }
 
 /* TRIGGER | FLUID */
-.o-ui-select-trigger-transparent.o-ui-select-trigger-fluid,
-.o-ui-select-trigger-inline.o-ui-select-trigger-fluid,
+.o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
 .o-ui-select-trigger-outline.o-ui-select-trigger-fluid {
     width: 100%;
 }
 
-/* TRIGGER | FLUID & TRANSPARENT */
+/* TRIGGER | OUTLINE & GHOST */
 .o-ui-select-trigger-outline,
-.o-ui-select-trigger-transparent {
+.o-ui-select-trigger-ghost {
     display: flex;
     align-items: center;
     min-height: var(--o-ui-scale-hotel);
-    width: 325px;
     overflow: hidden;
 }
 
@@ -42,61 +40,41 @@
 }
 
 /* TRIGGER | STATE | DISABLED */
-.o-ui-select-trigger-transparent[disabled],
-.o-ui-select-trigger-inline[disabled],
+.o-ui-select-trigger-ghost[disabled],
 .o-ui-select-trigger-outline[disabled] {
-    opacity: 0.4;
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
-/* TRIGGER | TRANSPARENT */
-.o-ui-select-trigger-transparent {
-    padding: 0 2px;
+/* TRIGGER | GHOST */
+.o-ui-select-trigger-ghost {
+    padding: 0 var(--o-ui-scale-bravo);
     border: 1px solid transparent;
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
-/* TRIGGER | TRANSPARENT | STATE | FOCUS */
-.o-ui-select-trigger-transparent:not([disabled]).o-ui-select-trigger-focus,
-.o-ui-select-trigger-transparent:not([disabled]):focus:not(:hover),
-.o-ui-select-trigger-transparent:not([disabled])[aria-expanded="true"] {
+/* TRIGGER | GHOST | STATE | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover),
+.o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
     background: var(--o-ui-background-3);
 }
 
-/* TRIGGER | TRANSPARENT | STATE | HOVER */
-.o-ui-select-trigger-transparent:not([disabled]).o-ui-select-trigger-hover,
-.o-ui-select-trigger-transparent:not([disabled]):hover {
+/* TRIGGER | GHOST | STATE | HOVER */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-hover,
+.o-ui-select-trigger-ghost:not([disabled]):hover {
     background: var(--o-ui-background-3);
 }
 
-/* TRIGGER | TRANSPARENT | STATE | INVALID | FOCUS */
-.o-ui-select-trigger-transparent:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
-.o-ui-select-trigger-transparent:not([disabled]):focus:not(:hover).o-ui-select-trigger-invalid {
+/* TRIGGER | GHOST | STATE | INVALID | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover).o-ui-select-trigger-invalid {
     box-shadow: 0 2px 0 0 var(--o-ui-border-danger-1);
-}
-
-/* TRIGGER | INLINE */
-.o-ui-select-trigger-inline {
-    display: inline-flex;
-    cursor: default;
-    align-items: center;
-    padding: 0 2px;
-    border-radius: var(--o-ui-rounded-border-radius);
-}
-
-/* TRIGGER | INLINE | PLACEHOLDER & VALUE */
-.o-ui-select-trigger-inline .o-ui-select-placeholder,
-.o-ui-select-trigger-inline .o-ui-select-value-text {
-    margin-right: var(--o-ui-scale-alpha);
-}
-
-/* TRIGGER | INLINE | VALUE | END ICON */
-.o-ui-select-trigger-inline .o-ui-select-value-text + .o-ui-select-value-end-icon {
-    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* TRIGGER | OUTLINE */
 .o-ui-select-trigger-outline {
+    width: 325px;
     min-height: var(--o-ui-scale-hotel);
     padding: 0 var(--o-ui-scale-charlie) 0;
     background-color: var(--o-ui-background-1);
@@ -155,24 +133,6 @@
 .o-ui-select-trigger-outline:not([disabled]):hover:focus.o-ui-select-trigger-invalid {
     --o-ui-focus-ring-color: var(--o-ui-border-danger-1);
     border: 1px solid var(--o-ui-border-danger-1);
-}
-
-/* TRIGGER | INLINE | STATE | FOCUS && HOVER */
-.o-ui-select-trigger-inline:not([disabled]):focus,
-.o-ui-select-trigger-focus.o-ui-select-trigger-inline:not([disabled]),
-.o-ui-select-trigger-inline:not([disabled]):focus:hover,
-.o-ui-select-trigger-focus.o-ui-select-trigger-hover.o-ui-select-trigger-inline:not([disabled]),
-.o-ui-select-trigger-inline:not([disabled]):hover,
-.o-ui-select-trigger-hover.o-ui-select-trigger-inline:not([disabled]),
-.o-ui-select-trigger-inline:not([disabled])[aria-expanded="true"],
-.o-ui-select-trigger-inline:not([disabled])[aria-expanded="true"]:hover {
-    background-color: var(--o-ui-background-3);
-}
-
-/* TRIGGER | INLINE | STATE | INVALID | FOCUS && HOVER */
-.o-ui-select-trigger-inline:not([disabled]):focus.o-ui-select-trigger-invalid ,
-.o-ui-select-trigger-focus.o-ui-select-trigger-inline:not([disabled]).o-ui-select-trigger-invalid {
-    background-color: var(--o-ui-background-danger-2);
 }
 
 /* SELECT VALUE */
