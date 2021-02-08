@@ -94,7 +94,7 @@ export function InnerDisclosure({
 
     const contentMarkup = augmentElement(content, {
         id: contentId,
-        className: "o-ui-disclosure-content",
+        className: "o-ui-disclosure-content-inner",
         "aria-hidden": !isOpen
     });
 
@@ -112,8 +112,8 @@ export function InnerDisclosure({
                     rest,
                     transitionProps,
                     {
-                        className: cssModule("o-ui-disclosure-content-section", transitionClasses),
-                        "aria-hidden": !isOpen,
+                        className: cssModule("o-ui-disclosure-content", transitionClasses),
+                        role: "presentation",
                         ref: contentRef
                     }
                 )}
