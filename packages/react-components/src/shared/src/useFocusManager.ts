@@ -42,9 +42,9 @@ export interface FocusManagerOptions {
 }
 
 export interface FocusOptions {
-    onFocus?(element?: Element): void
+    onFocus?(element?: HTMLElement): void
     onNotFound?(): void
-    canFocus?(element: Element): boolean;
+    canFocus?(element: HTMLElement): boolean;
 }
 
 export class FocusManager {
@@ -56,10 +56,10 @@ export class FocusManager {
         this._keyProp = keyProp;
     }
 
-    _focusElement(element: Element | HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
+    _focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
         if (!isNil(element)) {
-            if (isFunction((element as HTMLElement).focus)) {
-                (element as HTMLElement).focus();
+            if (isFunction(element.focus)) {
+                element.focus();
 
                 if (!isNil(onFocus)) {
                     onFocus(element);
@@ -96,7 +96,7 @@ export class FocusManager {
     focusLast({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this._scope;
 
-        let target: Element;
+        let target: HTMLElement;
 
         if (elements.length > 0) {
             if (isNil(canFocus)) {

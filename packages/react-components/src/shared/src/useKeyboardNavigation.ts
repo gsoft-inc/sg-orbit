@@ -1,7 +1,7 @@
 import { isNil } from "lodash";
 import { KeyboardEventHandler } from "react";
 import { useEventCallback } from "./useEventCallback";
-import type { FocusElementOptions, FocusManager } from "./useFocusManager"
+import type { FocusOptions, FocusManager } from "./useFocusManager"
 
 interface KeyboardNavigationOptions {
     onSelect?(event: KeyboardEvent, element: Element): void;
@@ -18,7 +18,7 @@ export function useKeyboardNavigation(focusManager: FocusManager, { previous = [
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
         const keyCode = event.keyCode;
 
-        const handleFocus: FocusElementOptions["onFocus"] = element => {
+        const handleFocus: FocusOptions["onFocus"] = element => {
             if (!isNil(onSelect)) {
                 onSelect(event, element);
             }

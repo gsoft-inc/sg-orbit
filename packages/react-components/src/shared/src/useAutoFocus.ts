@@ -4,9 +4,9 @@ import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEffect, MutableRefObject } from "react";
 import { useEventCallback } from "./useEventCallback";
-import { FocusElementOptions, FocusManager } from "./useFocusManager";
+import { FocusOptions, FocusManager } from "./useFocusManager";
 
-interface AutoFocusOptions extends FocusElementOptions {
+interface AutoFocusOptions extends FocusOptions {
     target?: FocusTarget;
     isDisabled?: boolean;
     delay?: number;
