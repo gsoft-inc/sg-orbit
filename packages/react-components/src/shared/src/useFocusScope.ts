@@ -3,7 +3,7 @@ import { isNil } from "lodash";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
-type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
+export type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
 
 export interface FocusScope {
     elements: HTMLElement[];
@@ -41,11 +41,11 @@ class DomScope implements FocusScope {
     }
 }
 
-export function useFocusScope() {
+export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void] {
     const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
     const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
 
-    const setRef = useCallback(rootElement => {
+    const setRef = useCallback((rootElement: HTMLElement) => {
         const setElements = (elements: HTMLElement[]) => {
             handlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
@@ -88,8 +88,8 @@ export function useFocusScope() {
     const { scope: contextScope } = useFocusContext();
 
     return isNil(contextScope)
-        ? [scope, setRef] as const
-        : [contextScope, undefined] as const;
+        ? [scope, setRef]
+        : [contextScope, undefined];
 }
 
 interface FocusContextProps {

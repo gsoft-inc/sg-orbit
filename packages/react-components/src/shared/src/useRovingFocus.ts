@@ -1,10 +1,10 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import type { FocusScope } from "./useFocusScope";
+import type { ChangeEventHandler, FocusScope } from "./useFocusScope";
 
 export function useRovingFocus(scope: FocusScope) {
     useLayoutEffect(() => {
-        const handleFocus = (event: Event) => {
+        const handleFocus = (event: FocusEvent) => {
             scope.elements.forEach(x => {
                 if (x.tabIndex === 0) {
                     x.tabIndex = -1;
@@ -32,7 +32,7 @@ export function useRovingFocus(scope: FocusScope) {
 
         initializeElements();
 
-        const onChange = (newElements: HTMLElement[], oldElements: HTMLElement[]) => {
+        const onChange: ChangeEventHandler = (newElements: HTMLElement[], oldElements: HTMLElement[]) => {
             oldElements.forEach(disposeElement);
 
             const tabbableIndex = newElements.findIndex(x => x.tabIndex === 0);

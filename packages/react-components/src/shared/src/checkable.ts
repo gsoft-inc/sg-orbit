@@ -6,19 +6,19 @@ interface CheckableContextProps {
     [x: string]: any;
 }
 
-export const CheckableContext = createContext<CheckableContextProps>(null);
+export const CheckableContext = createContext<CheckableContextProps>();
 
 export function useCheckableContext() {
     const context = useContext(CheckableContext);
 
     if (!isNil(context)) {
-        return [context, true] as const;
+        return [context, true];
     }
 
-    return [context, false] as const;
+    return [context, false];
 }
 
-export function useCheckableProps({ value }: { value: boolean }) {
+export function useCheckableProps({ value }: { value: boolean }): [{ checked: boolean } & any, boolean] {
     const [context, isCheckable] = useCheckableContext();
 
     if (isCheckable) {
@@ -29,8 +29,8 @@ export function useCheckableProps({ value }: { value: boolean }) {
             ...rest
         };
 
-        return [props, true] as const;
+        return [props, true];
     }
 
-    return [{}, false] as const;
+    return [{}, false];
 }

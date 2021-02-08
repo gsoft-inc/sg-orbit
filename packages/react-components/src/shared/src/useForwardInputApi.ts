@@ -10,7 +10,7 @@ const API_METHODS = [
     "checkValidity",
     "reportValidity",
     "setCustomValidity"
-] as const;
+];
 
 export function useForwardInputApi<T extends Record<string, any>>(inputRef: MutableRefObject<T | undefined>) {
     return (targetRef: MutableRefObject<any | undefined>) => {
