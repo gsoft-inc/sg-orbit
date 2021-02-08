@@ -10,16 +10,18 @@ const API_METHODS = [
     "checkValidity",
     "reportValidity",
     "setCustomValidity"
-];
+] as const;
 
-export function useForwardInputApi<T extends Record<string, any>>(inputRef: MutableRefObject<T | undefined>) {
-    return (targetRef: MutableRefObject<any | undefined>) => {
+export function useForwardInputApi(inputRef: MutableRefObject<HTMLInputElement>) {
+    return (targetRef: MutableRefObject<HTMLInputElement>) => {
         const element = targetRef.current;
 
         API_METHODS.forEach(x => {
-            element[x] = (...args: any[]) => {
+            element[x] = ((...args: any[]) => {
+                // we know the args passed here will match the one needed. Disable TS check
+                // @ts-ignore
                 inputRef.current[x](...args);
-            };
+            }) as any;
         });
 
         return element;

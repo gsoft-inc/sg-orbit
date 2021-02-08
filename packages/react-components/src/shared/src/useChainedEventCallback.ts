@@ -2,7 +2,9 @@
 
 import { useEventCallback } from "./useEventCallback";
 
-export function createChainedFunction<T extends (...args: any[]) => void>(...funcs: (T | false)[]) {
+type ChainableFunction = (...args: any[]) => void;
+
+export function createChainedFunction<T extends ChainableFunction>(...funcs: (T | false)[]) {
     return (...args: any[]) => {
         (funcs
             .filter(Boolean) as T[])
@@ -12,6 +14,6 @@ export function createChainedFunction<T extends (...args: any[]) => void>(...fun
     };
 }
 
-export function useChainedEventCallback<T extends (...args: any[]) => void>(...callbacks: (T | false)[]) {
+export function useChainedEventCallback<T extends ChainableFunction>(...callbacks: (T | false)[]) {
     return useEventCallback(createChainedFunction(...callbacks));
 }
