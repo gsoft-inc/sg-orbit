@@ -9,7 +9,7 @@ import { Image } from "@react-components/image";
 import { Launch } from "./assets";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
 import { TextInput } from "@react-components/input";
-import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-components/shared";
+import { augmentElement, mergeProps, useMergedRefs } from "@react-components/shared";
 import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -48,7 +48,7 @@ ref) => {
 
     useLayoutEffect(() => {
         // Not cool. Maybe it's because of the animation?
-        disposables().setTimeout(() => {
+        setTimeout(() => {
             if (!isNil(boundaryElement)) {
                 boundaryElement.scrollTop = scrollTop;
             }
@@ -464,7 +464,6 @@ stories()
                 <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
             </PopoverTrigger>
         </Boundary>
-
     )
     .add("popover trigger style", () =>
         <Boundary>
