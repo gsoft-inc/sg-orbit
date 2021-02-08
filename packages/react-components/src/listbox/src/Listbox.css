@@ -25,7 +25,7 @@
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
     padding-right: var(--o-ui-scale-hotel);
-    padding-left: var(--o-ui-scale-charlie);
+    padding-left: var(--o-ui-scale-delta);
     display: flex;
     align-items: center;
     position: relative;
