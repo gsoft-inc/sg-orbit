@@ -3,18 +3,21 @@ import { isNil } from "lodash";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
+type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
+
 export interface FocusScope {
     elements: HTMLElement[];
     isInScope: (element: HTMLElement) => boolean;
-    registerChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
-    removeChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
+    registerChangeHandler: (onChangeHandler: ChangeEventHandler) => void;
+    removeChangeHandler: (onChangeHandler: ChangeEventHandler) => void;
 }
+
 
 class DomScope implements FocusScope {
     _scopeRef: RefObject<HTMLElement[]>;
-    _handlersRef: RefObject<((elements: HTMLElement[], scope: HTMLElement[]) => void)[]>;
+    _handlersRef: RefObject<ChangeEventHandler[]>;
 
-    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<((elements: HTMLElement[], scope: HTMLElement[]) => void)[]>) {
+    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ChangeEventHandler[]>) {
         this._scopeRef = scopeRef;
         this._handlersRef = handlersRef;
     }
@@ -23,11 +26,11 @@ class DomScope implements FocusScope {
         return this._scopeRef.current;
     }
 
-    registerChangeHandler(handler: ((elements: HTMLElement[], scope: HTMLElement[]) => void)) {
+    registerChangeHandler(handler: ChangeEventHandler) {
         this._handlersRef.current.push(handler);
     }
 
-    removeChangeHandler(handler: ((elements: HTMLElement[], scope: HTMLElement[]) => void)) {
+    removeChangeHandler(handler: ChangeEventHandler) {
         const handlers = this._handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
@@ -40,7 +43,7 @@ class DomScope implements FocusScope {
 
 export function useFocusScope() {
     const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
-    const [handlersRef] = useRefState<((elements: Element[], scope: Element[]) => void)[]>([]);
+    const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
 
     const setRef = useCallback(rootElement => {
         const setElements = (elements: HTMLElement[]) => {
