@@ -186,13 +186,13 @@ export function InnerSelect(props) {
     });
 
     const valueMarkup = !isNil(selectedItem) ? (
-        <div className="o-ui-select-value">
+        <Text className="o-ui-select-value">
             {selectedIcon}
             {selectedText}
             {selectedEndIcon}
-        </div>
+        </Text>
     ) : (
-        <span className="o-ui-select-placeholder">{placeholder}</span>
+        <Text className="o-ui-select-placeholder">{placeholder}</Text>
     );
 
     return (
