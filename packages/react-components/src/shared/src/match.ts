@@ -1,7 +1,7 @@
 import { isFunction, isNil } from "lodash";
 
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/match.ts
-export function match<TValue extends string | number = string, TReturnValue = unknown>(value: TValue, lookup: Record<TValue, TReturnValue | ((...args: any[]) => TReturnValue)>, ...args: any[]): TReturnValue {
+export function match<TValue extends string | number = string, TReturnValue = unknown>(value: TValue, lookup: Record<TValue, TReturnValue | ((...arg: any[]) => TReturnValue)>, ...args: any[]): TReturnValue {
     const handler = lookup[value];
 
     if (!isNil(handler)) {

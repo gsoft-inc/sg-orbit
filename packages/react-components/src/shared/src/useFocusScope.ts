@@ -41,6 +41,16 @@ class DomScope implements FocusScope {
     }
 }
 
+interface FocusContextProps {
+    scope?: FocusScope
+}
+
+export const FocusContext = createContext<FocusContextProps>({});
+
+export function useFocusContext() {
+    return useContext(FocusContext) ?? {};
+}
+
 export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void] {
     const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
     const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
@@ -90,14 +100,4 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
     return isNil(contextScope)
         ? [scope, setRef]
         : [contextScope, undefined];
-}
-
-interface FocusContextProps {
-    scope?: FocusScope
-}
-
-export const FocusContext = createContext<FocusContextProps>({});
-
-export function useFocusContext() {
-    return useContext(FocusContext) ?? {};
 }

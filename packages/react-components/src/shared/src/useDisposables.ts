@@ -7,7 +7,7 @@ type DisposableFunction = Function;
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/disposables.ts
 export function disposables() {
     // eslint-disable-next-line no-shadow
-    const disposables: DisposableFunction[] = [];
+    const _disposables: DisposableFunction[] = [];
 
     const api = {
         requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
@@ -25,11 +25,11 @@ export function disposables() {
         },
 
         add(callback: DisposableFunction) {
-            disposables.push(callback);
+            _disposables.push(callback);
         },
 
         dispose() {
-            disposables.splice(0).forEach(dispose => dispose());
+            _disposables.splice(0).forEach(dispose => dispose());
         }
     };
 

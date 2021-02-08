@@ -45,7 +45,12 @@ module.exports = {
                 "@typescript-eslint/explicit-function-return-type": "off",
                 "@typescript-eslint/explicit-module-boundary-types": "off",
                 "@typescript-eslint/no-explicit-any": "off",
-                "jsx-control-statements/jsx-jcs-no-undef": "off"
+
+                "jsx-control-statements/jsx-jcs-no-undef": "off",
+                "no-shadow": "off",
+                "@typescript-eslint/no-shadow": "warn",
+                "no-use-before-define": "off",
+                "@typescript-eslint/no-use-before-define": "warn"
             }
         }
     ],
