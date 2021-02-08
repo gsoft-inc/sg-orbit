@@ -32,7 +32,7 @@ export function useRovingFocus(scope: FocusScope) {
 
         initializeElements();
 
-        const onChange: ChangeEventHandler = (newElements: HTMLElement[], oldElements: HTMLElement[]) => {
+        const onChange: ChangeEventHandler = (newElements, oldElements) => {
             oldElements.forEach(disposeElement);
 
             const tabbableIndex = newElements.findIndex(x => x.tabIndex === 0);

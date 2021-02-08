@@ -6,9 +6,9 @@ interface CheckableContextProps {
     [x: string]: any;
 }
 
-export const CheckableContext = createContext<CheckableContextProps>();
+export const CheckableContext = createContext<CheckableContextProps>(undefined);
 
-export function useCheckableContext() {
+export function useCheckableContext(): [CheckableContextProps, boolean] {
     const context = useContext(CheckableContext);
 
     if (!isNil(context)) {
