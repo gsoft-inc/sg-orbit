@@ -10,11 +10,11 @@ export interface FocusScope {
     removeChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
 }
 
-class DomScope<T extends HTMLElement> {
-    _scopeRef: RefObject<T[]>;
-    _handlersRef: RefObject<((elements: T[], scope: T[]) => void)[]>;
+class DomScope implements FocusScope {
+    _scopeRef: RefObject<HTMLElement[]>;
+    _handlersRef: RefObject<((elements: HTMLElement[], scope: HTMLElement[]) => void)[]>;
 
-    constructor(scopeRef: RefObject<T[]>, handlersRef: RefObject<((elements: T[], scope: T[]) => void)[]>) {
+    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<((elements: HTMLElement[], scope: HTMLElement[]) => void)[]>) {
         this._scopeRef = scopeRef;
         this._handlersRef = handlersRef;
     }
@@ -23,17 +23,17 @@ class DomScope<T extends HTMLElement> {
         return this._scopeRef.current;
     }
 
-    registerChangeHandler(handler: ((elements: T[], scope: T[]) => void)) {
+    registerChangeHandler(handler: ((elements: HTMLElement[], scope: HTMLElement[]) => void)) {
         this._handlersRef.current.push(handler);
     }
 
-    removeChangeHandler(handler: ((elements: T[], scope: T[]) => void)) {
+    removeChangeHandler(handler: ((elements: HTMLElement[], scope: HTMLElement[]) => void)) {
         const handlers = this._handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
     }
 
-    isInScope(element: T) {
+    isInScope(element: HTMLElement) {
         return this.elements.some(x => x.contains(element));
     }
 }
