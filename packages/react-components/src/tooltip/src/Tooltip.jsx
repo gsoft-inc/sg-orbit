@@ -7,6 +7,11 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { augmentElement, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
+/*
+TODO:
+ -  support on ESC on trigger.
+*/
+
 const propTypes = {
     /**
      * Whether or not to show the tooltip.
@@ -110,7 +115,7 @@ function InnerTooltip({
             updateIsOpen(event, true);
         }),
         onHide: useEventCallback(event => {
-            // Prevent from closing when the focus goes to an element of the overlay when opening.
+            // Prevent from closing when the focus or mouse goes to an element of the overlay.
             if (!isTargetParent(overlayElement, event.relatedTarget)) {
                 updateIsOpen(event, false);
             }
@@ -120,7 +125,7 @@ function InnerTooltip({
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         trigger: "hover",
         onHide: useEventCallback(event => {
-            // Ignore events related to the trigger to prevent double toggle.
+            // Ignore events related to the trigger.
             if (event.target !== triggerElement && !isTargetParent(triggerElement, event.target) && event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
@@ -133,7 +138,6 @@ function InnerTooltip({
     const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
         arrowElement,
         position,
-        offset: [0, 8],
         allowFlip,
         boundaryElement: containerElement,
         allowPreventOverflow
@@ -150,7 +154,7 @@ function InnerTooltip({
     const contentId = useId(contentIdProp, contentIdProp ? undefined : "o-ui-tooltip-content");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
-        triggerProps,
+        !disabled ? triggerProps : {},
         {
             "aria-describedby": !disabled && isOpen ? contentId : undefined,
             ref: setTriggerElement

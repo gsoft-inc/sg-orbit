@@ -22,12 +22,8 @@ INTERACTION TESTS:
         - doesn't close when hover overlay
         - close when leaving overlay
         - close on blur
-        - close on esc
-*/
-
-/*
-CHROMA TESTS:
-    - hover + autofocus child
+        - close on esc when focus on overlay
+        - close on esc when focus on trigger
 */
 
 function stories(segment) {

@@ -1,8 +1,28 @@
+[class^="o-ui-tooltip"] {
+    --o-ui-tooltip-offset: var(--o-ui-scale-bravo);
+}
+
+.o-ui-tooltip-overlay[data-popper-placement*="top"] {
+    border-bottom: var(--o-ui-tooltip-offset) solid transparent;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement*="bottom"] {
+    border-top: var(--o-ui-tooltip-offset) solid transparent;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement*="right"] {
+    border-left: var(--o-ui-tooltip-offset) solid transparent;
+}
+
+.o-ui-tooltip-overlay[data-popper-placement*="left"] {
+    border-right: var(--o-ui-tooltip-offset) solid transparent;
+}
+
 .o-ui-tooltip-arrow,
 .o-ui-tooltip-arrow::before {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
     z-index: -1;
 }
 
