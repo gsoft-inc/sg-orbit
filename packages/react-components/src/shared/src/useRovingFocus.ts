@@ -1,6 +1,6 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import type { FocusScope } from "./useFocusManager";
+import type { FocusScope } from "./useFocusScope";
 
 export function useRovingFocus(scope: FocusScope) {
     useLayoutEffect(() => {

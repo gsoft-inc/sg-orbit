@@ -3,7 +3,7 @@ import { isFunction, isNil, isUndefined } from "lodash";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
-interface Child<T> {
+interface CompositeKeyWeakMapNode<T> {
     value?: T,
     map: WeakMap<any, any>
 }
@@ -13,14 +13,14 @@ export class CompositeKeyWeakMap<T> {
     _root = new WeakMap<any, any>();
 
     set(keys: any[], value: T) {
-        let node: WeakMap<any, any> | Child<T> = this._root;
+        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
             const key = keys[i];
-            const map: WeakMap<any, any> = (node as Child<T>).map || node as WeakMap<any, any>;
+            const map: WeakMap<any, any> = (node as CompositeKeyWeakMapNode<T>).map || node as WeakMap<any, any>;
 
             if (!map.has(key)) {
-                const child: Child<T> = {
+                const child: CompositeKeyWeakMapNode<T> = {
                     value: undefined,
                     map: new WeakMap()
                 };
@@ -32,14 +32,14 @@ export class CompositeKeyWeakMap<T> {
             }
         }
 
-        (node as Child<T>).value = value;
+        (node as CompositeKeyWeakMapNode<T>).value = value;
     }
 
     get(keys: any[]) {
-        let node: WeakMap<any, any> | Child<T> = this._root;
+        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
-            const map: WeakMap<any, any> = (node as Child<T>).map || node as WeakMap<any, any>;
+            const map: WeakMap<any, any> = (node as CompositeKeyWeakMapNode<T>).map || node as WeakMap<any, any>;
             node = map.get(keys[i]);
 
             if (isUndefined(node)) {
@@ -47,7 +47,7 @@ export class CompositeKeyWeakMap<T> {
             }
         }
 
-        return (node as Child<T>).value;
+        return (node as CompositeKeyWeakMapNode<T>).value;
     }
 
     has(keys: any[]) {
@@ -59,7 +59,7 @@ export class CompositeKeyWeakMap<T> {
 
 const cache = new CompositeKeyWeakMap<any>();
 
-function memoMerge<TFirst, TSecond, TReturnValue>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TReturnValue) {
+function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TOutput) {
     if (isNil(x) && isNil(y)) {
         return undefined;
     }
@@ -73,7 +73,7 @@ function memoMerge<TFirst, TSecond, TReturnValue>(x: TFirst, y: TSecond, fct: (y
     }
 
     const key = [x, y];
-    const value = cache.get(key) as TReturnValue;
+    const value = cache.get(key) as TOutput;
 
     if (!isUndefined(value)) {
         return value;

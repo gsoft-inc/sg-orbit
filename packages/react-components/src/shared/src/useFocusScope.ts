@@ -2,7 +2,13 @@ import { createContext, RefObject, useCallback, useContext, useMemo } from "reac
 import { isNil } from "lodash";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
-import { FocusScope } from "./useFocusManager";
+
+export interface FocusScope {
+    elements: HTMLElement[];
+    isInScope: (element: HTMLElement) => boolean;
+    registerChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
+    removeChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
+}
 
 class DomScope<T extends HTMLElement> {
     _scopeRef: RefObject<T[]>;

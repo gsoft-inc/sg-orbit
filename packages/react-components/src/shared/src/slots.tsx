@@ -4,7 +4,7 @@ import React, { Children, ComponentType, ReactElement, ReactNode, useMemo } from
 
 const SLOT_KEY = "__slot__";
 
-interface ElementTypeWithSlot {
+interface SlottedElement {
     [SLOT_KEY]?: string;
 }
 
@@ -34,8 +34,8 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
 
         Children.forEach(children, x => {
             if (!isNil(x)) {
-                const reactComponent = children as ReactElement;
-                const slot = (reactComponent.props && reactComponent.props["slot"]) ?? (reactComponent.type && (reactComponent.type as ElementTypeWithSlot)[SLOT_KEY]);
+                const reactComponent = x as ReactElement;
+                const slot = (reactComponent.props && reactComponent.props["slot"]) ?? (reactComponent.type && (reactComponent.type as SlottedElement)[SLOT_KEY]);
 
                 if (!isNil(slot) && slotsKeys.includes(slot)) {
                     slotElements[slot] = x;
@@ -62,7 +62,7 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
 
     if (!isNil(Wrapper)) {
         if (Object.keys(slotElements).length === 0 && !isNil(children)) {
-            const wrapperSlot = (Wrapper as ElementTypeWithSlot)[SLOT_KEY];
+            const wrapperSlot = (Wrapper as SlottedElement)[SLOT_KEY];
 
             if (isNil(wrapperSlot)) {
                 throw new Error("A default wrapper should have a slot key.");

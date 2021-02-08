@@ -1,6 +1,7 @@
 import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
+import { FocusScope } from "./useFocusScope";
 
 class ElementIterator<T> {
     _elements;
@@ -40,17 +41,10 @@ export interface FocusManagerOptions {
     keyProp?: string;
 }
 
-export interface FocusElementOptions {
+export interface FocusOptions {
     onFocus?(element?: Element): void
     onNotFound?(): void
     canFocus?(element: Element): boolean;
-}
-
-export interface FocusScope {
-    elements: HTMLElement[];
-    isInScope: (element: HTMLElement) => boolean;
-    registerChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
-    removeChangeHandler: (onChangeHandler: (newElements: HTMLElement[], oldElements: HTMLElement[]) => void) => void;
 }
 
 export class FocusManager {
@@ -62,7 +56,7 @@ export class FocusManager {
         this._keyProp = keyProp;
     }
 
-    _focusElement(element: Element | HTMLElement, { onFocus, onNotFound }: FocusElementOptions = {}) {
+    _focusElement(element: Element | HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
         if (!isNil(element)) {
             if (isFunction((element as HTMLElement).focus)) {
                 (element as HTMLElement).focus();
@@ -80,7 +74,7 @@ export class FocusManager {
         return element;
     }
 
-    focusFirst({ canFocus, ...options }: FocusElementOptions = {}) {
+    focusFirst({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -99,7 +93,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusLast({ canFocus, ...options }: FocusElementOptions = {}) {
+    focusLast({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this._scope;
 
         let target: Element;
@@ -118,7 +112,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusNext({ canFocus, ...options }: FocusElementOptions = {}) {
+    focusNext({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -153,7 +147,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusPrevious({ canFocus, ...options }: FocusElementOptions = {}) {
+    focusPrevious({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this._scope;
 
         let target;
@@ -188,7 +182,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusKey(key: FocusTarget, options: FocusElementOptions) {
+    focusKey(key: FocusTarget, options: FocusOptions) {
         const { elements } = this._scope;
 
         if (isNil(this._keyProp)) {
@@ -198,7 +192,7 @@ export class FocusManager {
         return this._focusElement(elements.find(x => x.getAttribute(this._keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target: FocusTarget, options: FocusElementOptions) {
+    focusTarget(target: FocusTarget, options: FocusOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
@@ -211,7 +205,7 @@ export class FocusManager {
         }
     }
 
-    search(query: string, options: FocusElementOptions) {
+    search(query: string, options: FocusOptions) {
         const { elements } = this._scope;
 
         return this._focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);

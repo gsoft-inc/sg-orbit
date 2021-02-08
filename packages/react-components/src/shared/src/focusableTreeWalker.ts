@@ -14,7 +14,7 @@ const FocusableElement = [
     "audio[controls]",
     "video[controls]",
     "[contenteditable]"
-] as const;
+];
 
 export const FocusableElementSelector = [...FocusableElement, "[tabindex]"].join(",");
 
