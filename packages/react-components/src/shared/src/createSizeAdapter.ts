@@ -1,5 +1,5 @@
 import { normalizeSize } from "./normalizeSize";
-import type { Size } from "./size"
+import type { Size } from "./size";
 
 export type SizeAdapter = Record<Size, Size>;
 

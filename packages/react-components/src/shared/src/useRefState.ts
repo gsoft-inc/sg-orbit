@@ -6,7 +6,7 @@ export function useRefState<T>(initialValue: T): [MutableRefObject<T>, (newValue
 
     const valueRef = useRef<T>(initialValue);
 
-    const setValue = useCallback((newValue: T, forceRender: boolean = false) => {
+    const setValue = useCallback((newValue: T, forceRender = false) => {
         valueRef.current = newValue;
 
         if (forceRender) {

@@ -11,4 +11,4 @@ export enum Keys {
     right = 39,
     down = 40,
     delete = 46
-};
+}

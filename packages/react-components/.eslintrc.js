@@ -37,14 +37,15 @@ module.exports = {
             }
         },
         {
-            files: ["*.tsx"],
+            files: ["*.ts?(x)"],
             extends:[
                 "@sharegate/eslint-config-typescript"
             ],
             rules: {
                 "@typescript-eslint/explicit-function-return-type": "off",
                 "@typescript-eslint/explicit-module-boundary-types": "off",
-                "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true, "variables": false }]
+                "@typescript-eslint/no-explicit-any": "off",
+                "jsx-control-statements/jsx-jcs-no-undef": "off"
             }
         }
     ],
