@@ -1,7 +1,7 @@
+import { FocusScope } from "./useFocusScope";
 import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
-import { FocusScope } from "./useFocusScope";
 
 class ElementIterator<T> {
     _elements;

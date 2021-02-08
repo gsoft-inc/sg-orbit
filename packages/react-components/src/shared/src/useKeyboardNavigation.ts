@@ -1,7 +1,7 @@
-import { isNil } from "lodash";
 import { KeyboardEventHandler } from "react";
+import { isNil } from "lodash";
 import { useEventCallback } from "./useEventCallback";
-import type { FocusOptions, FocusManager } from "./useFocusManager"
+import type { FocusManager, FocusOptions } from "./useFocusManager";
 
 interface KeyboardNavigationOptions {
     onSelect?(event: KeyboardEvent, element: Element): void;

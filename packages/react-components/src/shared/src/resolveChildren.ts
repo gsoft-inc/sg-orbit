@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement, Fragment } from "react";
+import { Fragment, ReactElement, ReactNode } from "react";
 import { isFunction, isNil } from "lodash";
 
 // Support first level fragment: https://github.com/facebook/react/issues/11859.

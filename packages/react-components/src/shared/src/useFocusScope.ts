@@ -1,4 +1,4 @@
-import { createContext, RefObject, useCallback, useContext, useMemo } from "react";
+import { RefObject, createContext, useCallback, useContext, useMemo } from "react";
 import { isNil } from "lodash";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";

@@ -4,6 +4,7 @@ export function omitProps<TObject extends Record<string, any>, TKey extends keyo
             if (!props.includes(x as TKey)) {
                 acc[x] = obj[x];
             }
+
             return acc;
         }, {}) as Omit<TObject, TKey>;
 }

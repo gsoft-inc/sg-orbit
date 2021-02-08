@@ -1,7 +1,7 @@
 // These hooks are a "temporary" solution until CSS Selector 4 (and :has with complex combinators) is available.
 
-import { isNil } from "lodash";
 import { RefObject, useLayoutEffect, useState } from "react";
+import { isNil } from "lodash";
 
 export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>) {
     const [result, setResult] = useState(false);

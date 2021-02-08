@@ -1,10 +1,10 @@
+import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
+import { MutableRefObject, useEffect } from "react";
 import { disposables } from "./useDisposables";
 import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
-import { useEffect, MutableRefObject } from "react";
 import { useEventCallback } from "./useEventCallback";
-import { FocusOptions, FocusManager } from "./useFocusManager";
 
 interface AutoFocusOptions extends FocusOptions {
     target?: FocusTarget;

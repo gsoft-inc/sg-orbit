@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 
+// we use function here since we copied the method from another repo and they use this
+// eslint-disable-next-line @typescript-eslint/ban-types
+type DisposableFunction = Function;
+
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/disposables.ts
 export function disposables() {
     // eslint-disable-next-line no-shadow
-    const disposables: Function[] = [];
+    const disposables: DisposableFunction[] = [];
 
     const api = {
         requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
@@ -20,7 +24,7 @@ export function disposables() {
             api.add(() => clearTimeout(timer));
         },
 
-        add(callback: Function) {
+        add(callback: DisposableFunction) {
             disposables.push(callback);
         },
 
