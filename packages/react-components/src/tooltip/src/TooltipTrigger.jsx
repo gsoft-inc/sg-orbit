@@ -9,7 +9,6 @@ import { isNil } from "lodash";
 
 /*
 TODO:
- - Support on ESC on trigger.
  - Add tooltip to Select + Menu
 */
 
@@ -165,11 +164,6 @@ function InnerTooltipTrigger({
     const tooltipMarkup = augmentElement(tooltip, {
         id: tooltipId
     });
-
-    // const contentMarkup = augmentElement(content, {
-    //     role: "tooltip",
-    //     className: "o-ui-tooltip"
-    // });
 
     return (
         <TooltipTriggerContext.Provider

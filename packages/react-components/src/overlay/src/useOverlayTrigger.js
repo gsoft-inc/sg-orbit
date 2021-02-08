@@ -29,8 +29,10 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
         switch(event.keyCode) {
             case Keys.enter:
             case Keys.space:
-                event.preventDefault();
-                show(event);
+                if (trigger === "click") {
+                    event.preventDefault();
+                    show(event);
+                }
                 break;
             case Keys.esc:
                 event.preventDefault();
@@ -57,7 +59,8 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
             onMouseEnter: handleMouseEnter,
             onMouseLeave: handleMouseLeave,
             onFocus: handleFocus,
-            onBlur: handleBlur
+            onBlur: handleBlur,
+            onKeyDown: handleKeyDown
         }
         // The overlay will show on click or on "Enter" or "Space" keydown.
         : {

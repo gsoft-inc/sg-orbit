@@ -13,6 +13,10 @@
     border: 1px solid var(--o-ui-border-2);
 }
 
+.o-ui-popover-overlay:focus {
+    border: 1px solid blue;
+}
+
 /* CLOSE BUTTON */
 .o-ui-popover-close-button {
     position: absolute;
