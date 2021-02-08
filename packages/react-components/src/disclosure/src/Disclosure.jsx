@@ -3,7 +3,8 @@ import "./Disclosure.css";
 import { Children, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import { Keys, augmentElement, cssModule, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
-import { any, bool, func } from "prop-types";
+import { Text } from "../../text";
+import { any, bool, elementType, func, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 
@@ -24,6 +25,10 @@ const propTypes = {
      */
     onChange: func,
     /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
      * React children.
      */
     children: any.isRequired
@@ -34,6 +39,7 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onChange,
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -107,7 +113,7 @@ export function InnerDisclosure({
             }}
         >
             {triggerMarkup}
-            <div
+            <Text
                 {...mergeProps(
                     rest,
                     transitionProps,
@@ -119,7 +125,7 @@ export function InnerDisclosure({
                 )}
             >
                 {contentMarkup}
-            </div>
+            </Text>
         </DisclosureContext.Provider>
     );
 }
