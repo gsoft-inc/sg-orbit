@@ -1,6 +1,6 @@
+import { GroupIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
-import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 import { paramsBuilder } from "@stories/utils";
@@ -84,8 +84,8 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("** trigger icon **", () =>
-            <Select placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("trigger icon", () =>
+            <Select icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
