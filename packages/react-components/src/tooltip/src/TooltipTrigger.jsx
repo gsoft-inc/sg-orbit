@@ -1,7 +1,7 @@
 import "./Tooltip.css";
 
 import { Children, forwardRef, useCallback, useState } from "react";
-import { Overlay, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, isTargetParent, useOverlayBorderOffset, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
@@ -77,7 +77,7 @@ const propTypes = {
 function InnerTooltipTrigger({
     open,
     defaultOpen,
-    position = "top",
+    position : positionProp = "top",
     onOpenChange,
     disabled,
     allowFlip = true,
@@ -135,13 +135,15 @@ function InnerTooltipTrigger({
         hideOnOutsideClick: false
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
         arrowElement,
-        position,
+        position: positionProp,
         allowFlip,
         boundaryElement: containerElement,
         allowPreventOverflow
     });
+
+    const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
 
     const [trigger, tooltip] = Children.toArray(resolveChildren(children, { isOpen }));
 
@@ -182,6 +184,7 @@ function InnerTooltipTrigger({
                         className: "o-ui-tooltip-overlay",
                         style: {
                             ...overlayStyles,
+                            ...overlayOffsetStyles,
                             zIndex
                         },
                         as,
@@ -190,11 +193,15 @@ function InnerTooltipTrigger({
                 )}
             >
                 {tooltipMarkup}
-                <div
-                    className="o-ui-tooltip-arrow"
+                <OverlayArrow
                     style={arrowStyles}
                     ref={setArrowElement}
                 />
+                {/* <div
+                    className="o-ui-tooltip-arrow"
+                    style={arrowStyles}
+                    ref={setArrowElement}
+                /> */}
             </Overlay>
         </TooltipTriggerContext.Provider>
     );

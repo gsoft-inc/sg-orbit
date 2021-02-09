@@ -1,5 +1,37 @@
+/* OVERLAY */
 .o-ui-overlay {
     outline: none;
     width: fit-content;
     height: fit-content;
+}
+
+/* OVERLAY | ARROW */
+.o-ui-overlay-arrow,
+.o-ui-overlay-arrow::before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: -1;
+}
+
+.o-ui-overlay-arrow::before {
+    content: "";
+    transform: rotate(45deg);
+    background: blue;
+}
+
+.o-ui-overlay[data-popper-placement^="top"] > .o-ui-overlay-arrow {
+    bottom: calc(-1 * var(--o-ui-scale-alpha));
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] > .o-ui-overlay-arrow {
+    top: calc(-1 * var(--o-ui-scale-alpha));
+}
+
+.o-ui-overlay[data-popper-placement^="left"] > .o-ui-overlay-arrow {
+    right: calc(-1 * var(--o-ui-scale-alpha));
+}
+
+.o-ui-overlay[data-popper-placement^="right"] > .o-ui-overlay-arrow {
+    left: calc(-1 * var(--o-ui-scale-alpha));
 }

@@ -19,7 +19,8 @@ export function usePopup(type, {
     autoFocus,
     autoFocusOptions = {},
     trigger = "click",
-    position,
+    hasArrow = false,
+    position: positionProp,
     offset,
     allowFlip = true,
     allowPreventOverflow = true,
@@ -30,6 +31,7 @@ export function usePopup(type, {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
+    const [arrowElement, setArrowElement] = useState();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -74,8 +76,9 @@ export function usePopup(type, {
         hideOnOutsideClick
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps } = useOverlayPosition(triggerElement, overlayElement, {
-        position,
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
+        arrowElement: hasArrow ? arrowElement : undefined,
+        position: positionProp,
         offset,
         allowFlip,
         boundaryElement,
@@ -101,8 +104,10 @@ export function usePopup(type, {
         setIsOpen: updateIsOpen,
         triggerElement,
         overlayElement,
+        arrowElement,
         focusScope,
         focusManager,
+        position,
         triggerProps: mergeProps(
             triggerProps,
             {
@@ -126,6 +131,11 @@ export function usePopup(type, {
                 tabIndex: "-1",
                 ref: overlayRef
             }
-        )
+        ),
+        arrowProps: !hasArrow ? {} : {
+            className: "o-ui-overlay-arrow",
+            style: arrowStyles,
+            ref: setArrowElement
+        }
     };
 }
