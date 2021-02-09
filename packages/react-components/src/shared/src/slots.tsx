@@ -1,6 +1,6 @@
+import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
 import { augmentElement, resolveChildren } from "..";
 import { isNil, isString, isUndefined } from "lodash";
-import React, { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
 
 const SLOT_KEY = "__slot__";
 
