@@ -143,7 +143,6 @@ export function InnerPopoverTrigger({
                     }
                 )}
             >
-
                 {popover}
             </Overlay>
         </PopoverTriggerContext.Provider>

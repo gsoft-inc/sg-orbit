@@ -120,6 +120,7 @@ export function InnerDisclosure({
                     {
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
                         role: "presentation",
+                        as,
                         ref: contentRef
                     }
                 )}

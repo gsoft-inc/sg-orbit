@@ -161,6 +161,7 @@ export function InnerSelect(props) {
         allowFlip,
         allowPreventOverflow,
         zIndex,
+        syncTriggerAndMenuWidth: variant !== "ghost",
         ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,

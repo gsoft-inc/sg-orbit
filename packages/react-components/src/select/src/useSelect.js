@@ -31,11 +31,12 @@ export function useSelect(children, {
     disabled,
     allowFlip,
     allowPreventOverflow,
+    syncTriggerAndMenuWidth = true,
     zIndex = 10000,
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
-    menuProps: { id: menuId, style: { width, ...menuStyle } = {}, ...menuProps } = {},
+    menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
@@ -44,16 +45,18 @@ export function useSelect(children, {
 
     const triggerRef = useMergedRefs(ref);
 
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, newValue) => {
+        // When the select is closed because of a blur or outside click event, reset the focus target.
+        if (!newValue) {
+            setFocusTarget(FocusTarget.first);
+        }
+    });
+
     const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
-        onOpenChange: useChainedEventCallback(onOpenChange, (event, newValue) => {
-            // When the select is closed because of a blur or outside click event, reset the focus target.
-            if (!newValue) {
-                setFocusTarget(FocusTarget.first);
-            }
-        }),
+        onOpenChange: handleOpenChange,
         hideOnEscape: true,
         hideOnLeave: true,
         restoreFocus: true,
@@ -118,6 +121,7 @@ export function useSelect(children, {
 
     // Ensure the trigger and menu width stay in sync.
     useResizeObserver(triggerElement, useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }), {
+        isDisabled: !syncTriggerAndMenuWidth || !isNil(menuWidth),
         box: "border-box"
     });
 
@@ -158,7 +162,7 @@ export function useSelect(children, {
                 className: "o-ui-select-menu",
                 style: {
                     ...menuStyle,
-                    width: width ?? triggerWidth ?? "0px"
+                    width: menuWidth ?? triggerWidth ?? undefined
                 }
             }
         ),
