@@ -7,7 +7,7 @@ const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>()
 
 let observer: ResizeObserver;
 
-function getResizeObserver() {
+function getResizeObserver(): ResizeObserver {
     return (observer =
         observer || new ResizeObserver(entries => {
             entries.forEach(entry => {
@@ -21,7 +21,7 @@ function getResizeObserver() {
     );
 }
 
-export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { box }: ResizeObserverOptions = {}) => {
+export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { box }: ResizeObserverOptions = {}): void => {
     useEffect(() => {
         if (!isNil(element)) {
             getResizeObserver().observe(element, { box });
@@ -29,7 +29,7 @@ export const useResizeObserver = (element: Element, onResize: (entry: ResizeObse
             handlersMap.set(element, onResize);
         }
 
-        return () => {
+        return (): void => {
             if (!isNil(element)) {
                 handlersMap.delete(element);
 

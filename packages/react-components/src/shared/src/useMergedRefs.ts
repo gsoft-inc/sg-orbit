@@ -1,7 +1,7 @@
 import { ForwardedRef, useCallback } from "react";
 import { isFunction, isNil } from "lodash";
 
-export function assignRef<T>(ref: ForwardedRef<T>, node: T) {
+export function assignRef<T>(ref: ForwardedRef<T>, node: T): void {
     if (!isNil(ref)) {
         if (isFunction(ref)) {
             ref(node);
@@ -11,8 +11,8 @@ export function assignRef<T>(ref: ForwardedRef<T>, node: T) {
     }
 }
 
-export function mergeRefs<T>(...refs: ForwardedRef<T>[]) {
-    const mergedRef = (current: T) => {
+export function mergeRefs<T>(...refs: ForwardedRef<T>[]): (current: T) => void {
+    const mergedRef = (current: T): void => {
         // Resulting callback function can be used has a ref.
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -28,7 +28,7 @@ export function mergeRefs<T>(...refs: ForwardedRef<T>[]) {
     return mergedRef;
 }
 
-export function useMergedRefs<T>(...refs: ForwardedRef<T>[]) {
+export function useMergedRefs<T>(...refs: ForwardedRef<T>[]): (current: T) => void {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     return useCallback(mergeRefs(...refs), refs);
 }

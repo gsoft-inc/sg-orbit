@@ -1,4 +1,4 @@
-import { KeyboardEventHandler } from "react";
+import { KeyboardEvent, KeyboardEventHandler } from "react";
 import { isNil } from "lodash";
 import { useEventCallback } from "./useEventCallback";
 import type { FocusManager, FocusOptions } from "./useFocusManager";
@@ -14,7 +14,11 @@ interface KeyboardNavigationBindings {
     last: string[];
 }
 
-export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}) {
+interface KeyboardNavigationAPI {
+    onKeyDown: (event: KeyboardEvent) => void;
+}
+
+export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}): KeyboardNavigationAPI {
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
         const keyCode = event.keyCode;
 
