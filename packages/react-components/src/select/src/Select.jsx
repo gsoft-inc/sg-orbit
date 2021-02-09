@@ -6,7 +6,7 @@ import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { any, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useSlots } from "../../shared";
+import { cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -58,7 +58,7 @@ const propTypes = {
     /**
      * The style to use.
      */
-    variant: oneOf(["outline", "inline", "transparent"]),
+    variant: oneOf(["outline", "ghost"]),
     /**
      * The direction the select menu will open relative to the input.
      */
@@ -161,6 +161,7 @@ export function InnerSelect(props) {
         allowFlip,
         allowPreventOverflow,
         zIndex,
+        syncTriggerAndMenuWidth: variant !== "ghost",
         ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,
@@ -186,13 +187,13 @@ export function InnerSelect(props) {
     });
 
     const valueMarkup = !isNil(selectedItem) ? (
-        <div className="o-ui-select-value">
+        <Text className="o-ui-select-value">
             {selectedIcon}
             {selectedText}
             {selectedEndIcon}
-        </div>
+        </Text>
     ) : (
-        <span className="o-ui-select-placeholder">{placeholder}</span>
+        <Text className="o-ui-select-placeholder">{placeholder}</Text>
     );
 
     return (
@@ -223,11 +224,17 @@ export function InnerSelect(props) {
             >
                 {valueMarkup}
                 <ChevronIcon
-                    className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
+                    className={mergeClasses(
+                        "o-ui-select-icon-arrow",
+                        direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"
+                    )}
                     size="sm"
                 />
             </TriggerType>
-            <Overlay {...overlayProps}>
+            <Overlay
+                {...overlayProps}
+                zIndex={zIndex}
+            >
                 <Listbox {...listboxProps} />
             </Overlay>
         </>

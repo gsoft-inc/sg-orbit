@@ -31,31 +31,31 @@ export function useSelect(children, {
     disabled,
     allowFlip,
     allowPreventOverflow,
-    zIndex = 10000,
+    syncTriggerAndMenuWidth = true,
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
-    menuProps: { id: menuId, style: { width, ...menuStyle } = {}, ...menuProps } = {},
+    menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [triggerWidth, setTriggerWidth] = useState();
-    const [focusTargetRef, setFocusTarget] = useRefState(null);
+    const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
+
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, newValue) => {
+        // When the select is closed because of a blur or outside click event, reset the focus target.
+        if (!newValue) {
+            setFocusTarget(FocusTarget.first);
+        }
+    });
 
     const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
-        // Focusing the first item on open if nore are already set to be focused.
-        onOpenChange: useChainedEventCallback(onOpenChange, (event, newValue) => {
-            if (newValue) {
-                if (isNil(focusTargetRef.current)) {
-                    setFocusTarget(FocusTarget.first);
-                }
-            }
-        }),
+        onOpenChange: handleOpenChange,
         hideOnEscape: true,
         hideOnLeave: true,
         restoreFocus: true,
@@ -65,7 +65,6 @@ export function useSelect(children, {
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        zIndex,
         keyProp: KeyProp
     });
 
@@ -85,9 +84,8 @@ export function useSelect(children, {
     }, [setIsOpen, setFocusTarget]);
 
     const close = useCallback(event => {
-        setFocusTarget(null);
         setIsOpen(event, false);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen]);
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
@@ -121,6 +119,7 @@ export function useSelect(children, {
 
     // Ensure the trigger and menu width stay in sync.
     useResizeObserver(triggerElement, useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }), {
+        isDisabled: !syncTriggerAndMenuWidth || !isNil(menuWidth),
         box: "border-box"
     });
 
@@ -161,7 +160,7 @@ export function useSelect(children, {
                 className: "o-ui-select-menu",
                 style: {
                     ...menuStyle,
-                    width: width ?? triggerWidth ?? "0px"
+                    width: menuWidth ?? triggerWidth ?? undefined
                 }
             }
         ),

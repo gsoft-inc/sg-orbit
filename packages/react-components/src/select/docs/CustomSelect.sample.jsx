@@ -14,7 +14,7 @@ function CustomSelect({
                 {...rest}
                 {...triggerProps}
                 color="secondary"
-                className="w-25"
+                className="w-20"
             >
                 {!isNil(selectedItem) ? selectedItem.content : placeholder}
             </Button>

@@ -3,7 +3,8 @@ import "./Disclosure.css";
 import { Children, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import { Keys, augmentElement, cssModule, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
-import { any, bool, func } from "prop-types";
+import { Text } from "../../text";
+import { any, bool, elementType, func, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 
@@ -24,6 +25,10 @@ const propTypes = {
      */
     onChange: func,
     /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
+    /**
      * React children.
      */
     children: any.isRequired
@@ -34,6 +39,7 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onChange,
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -94,7 +100,7 @@ export function InnerDisclosure({
 
     const contentMarkup = augmentElement(content, {
         id: contentId,
-        className: "o-ui-disclosure-content",
+        className: "o-ui-disclosure-content-inner",
         "aria-hidden": !isOpen
     });
 
@@ -107,19 +113,20 @@ export function InnerDisclosure({
             }}
         >
             {triggerMarkup}
-            <div
+            <Text
                 {...mergeProps(
                     rest,
                     transitionProps,
                     {
-                        className: cssModule("o-ui-disclosure-content-section", transitionClasses),
-                        "aria-hidden": !isOpen,
+                        className: cssModule("o-ui-disclosure-content", transitionClasses),
+                        role: "presentation",
+                        as,
                         ref: contentRef
                     }
                 )}
             >
                 {contentMarkup}
-            </div>
+            </Text>
         </DisclosureContext.Provider>
     );
 }

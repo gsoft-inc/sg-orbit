@@ -21,7 +21,7 @@ render(() => {
         <PopoverTrigger>
             <Button>Toggle</Button>
             <CustomPopover>
-                <CrossButton slot="close-button" />
+                <CrossButton slot="close-button" aria-label="Close" />
                 <Header>WikiSpace</Header>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
             </CustomPopover>

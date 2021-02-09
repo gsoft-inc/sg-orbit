@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@react-components/button";
+import { DisclosureArrow } from "@react-components/disclosure";
 import { Item } from "@react-components/placeholders";
-import { Menu, MenuArrow, MenuTrigger } from "@react-components/menu";
+import { Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { VerticalDotsIcon } from "@react-components/icons";
 import { forwardRef } from "react";
@@ -133,7 +134,7 @@ stories()
             </Menu>
         </MenuTrigger>
     )
-    .add("custom trigger with menu arrow", () => {
+    .add("custom trigger with disclosure arrow", () => {
         const CustomTrigger = forwardRef((props, ref) => {
             return (
                 <button
@@ -146,7 +147,7 @@ stories()
                     ref={ref}
                 >
                     <Text>Trigger</Text>
-                    <MenuArrow />
+                    <DisclosureArrow />
                 </button>
             );
         });

@@ -4,4 +4,3 @@ export * from "./MenuSection";
 export * from "./MenuContext";
 export * from "./MenuTrigger";
 export * from "./MenuTriggerContext";
-export * from "./MenuArrow";

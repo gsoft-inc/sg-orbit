@@ -9,7 +9,7 @@ import { Image } from "@react-components/image";
 import { Launch } from "./assets";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
 import { TextInput } from "@react-components/input";
-import { augmentElement, disposables, mergeProps, useMergedRefs } from "@react-components/shared";
+import { augmentElement, mergeProps, useMergedRefs } from "@react-components/shared";
 import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -22,12 +22,8 @@ INTERACTION TESTS:
         - doesn't close when hover overlay
         - close when leaving overlay
         - close on blur
-        - close on esc
-*/
-
-/*
-CHROMA TESTS:
-    - hover + autofocus child
+        - close on esc when focus on overlay
+        - close on esc when focus on trigger
 */
 
 function stories(segment) {
@@ -52,7 +48,7 @@ ref) => {
 
     useLayoutEffect(() => {
         // Not cool. Maybe it's because of the animation?
-        disposables().setTimeout(() => {
+        setTimeout(() => {
             if (!isNil(boundaryElement)) {
                 boundaryElement.scrollTop = scrollTop;
             }
@@ -365,7 +361,7 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
-    .add("autofocus", () =>
+    .add("autofocus first focusable element", () =>
         <Boundary>
             <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>
@@ -468,7 +464,6 @@ stories()
                 <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
             </PopoverTrigger>
         </Boundary>
-
     )
     .add("popover trigger style", () =>
         <Boundary>
