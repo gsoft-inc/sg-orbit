@@ -1,11 +1,10 @@
-/* OVERLAY */
 .o-ui-overlay {
     outline: none;
     width: fit-content;
     height: fit-content;
 }
 
-/* OVERLAY | ARROW */
+/* ARROW */
 .o-ui-overlay-arrow,
 .o-ui-overlay-arrow::before {
     position: absolute;
