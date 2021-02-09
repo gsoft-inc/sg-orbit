@@ -97,8 +97,7 @@ export function InnerMenuTrigger({
         position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,
-        allowPreventOverflow,
-        zIndex
+        allowPreventOverflow
     });
 
     const [trigger, menu] = Children.toArray(resolveChildren(children));
@@ -180,6 +179,7 @@ export function InnerMenuTrigger({
                     rest,
                     overlayProps,
                     {
+                        zIndex,
                         as,
                         ref: forwardedRef
                     }

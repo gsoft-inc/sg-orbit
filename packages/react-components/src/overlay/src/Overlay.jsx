@@ -2,7 +2,7 @@ import "./Overlay.css";
 
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
-import { any, bool, elementType, instanceOf, oneOfType, string } from "prop-types";
+import { any, bool, elementType, instanceOf, number, oneOfType, string } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
@@ -18,6 +18,10 @@ const propTypes = {
      */
     containerElement: instanceOf(HTMLElement),
     /**
+     * z-index of the overlay.
+     */
+    zIndex: number,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -30,6 +34,7 @@ const propTypes = {
 export function InnerOverlay({
     show,
     containerElement,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
@@ -48,6 +53,7 @@ export function InnerOverlay({
                         enter: "o-ui-fade-in",
                         leave: "o-ui-fade-out",
                         className: "o-ui-overlay",
+                        style: { zIndex },
                         role: "presentation",
                         as,
                         ref: forwardedRef

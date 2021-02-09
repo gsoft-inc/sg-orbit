@@ -181,11 +181,11 @@ function InnerTooltipTrigger({
                     overlayPositionProps,
                     {
                         show: !disabled && isOpen,
+                        zIndex,
                         className: "o-ui-tooltip-overlay",
                         style: {
                             ...overlayStyles,
-                            ...overlayOffsetStyles,
-                            zIndex
+                            ...overlayOffsetStyles
                         },
                         as,
                         ref: overlayRef

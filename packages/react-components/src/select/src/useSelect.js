@@ -32,7 +32,6 @@ export function useSelect(children, {
     allowFlip,
     allowPreventOverflow,
     syncTriggerAndMenuWidth = true,
-    zIndex = 10000,
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
@@ -66,7 +65,6 @@ export function useSelect(children, {
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        zIndex,
         keyProp: KeyProp
     });
 

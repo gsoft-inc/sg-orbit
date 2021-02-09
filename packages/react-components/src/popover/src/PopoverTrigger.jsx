@@ -106,8 +106,7 @@ export function InnerPopoverTrigger({
         position: positionProp,
         allowFlip,
         allowPreventOverflow,
-        boundaryElement: containerElement,
-        zIndex
+        boundaryElement: containerElement
     });
 
     const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
@@ -140,6 +139,7 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        zIndex,
                         className: "o-ui-popover-overlay",
                         style: overlayOffsetStyles,
                         as,
