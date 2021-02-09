@@ -12,7 +12,7 @@ interface AutoFocusOptions extends FocusOptions {
     delay?: number;
 }
 
-function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AutoFocusOptions) {
+function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AutoFocusOptions): void {
     useEffect(() => {
         const d = disposables();
 
@@ -30,7 +30,7 @@ function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AutoFocusOptions) 
     }, [isDisabled, delay, onFocus]);
 }
 
-export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
+export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}): void {
     useAbstractAutoFocus({
         isDisabled,
         delay,
@@ -42,7 +42,7 @@ export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<
     });
 }
 
-export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusOptions = {}) {
+export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusOptions = {}): void {
     useAbstractAutoFocus({
         isDisabled: isDisabled,
         delay,

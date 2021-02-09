@@ -5,13 +5,13 @@ import { normalizeSize } from "./normalizeSize";
 import React, { ElementType, HTMLAttributes, ReactElement, RefAttributes, cloneElement } from "react";
 import type { SizeAdapter } from "./createSizeAdapter";
 
-export function augmentElement(element: ReactElement & RefAttributes<any>, newProps: Record<string, any>) {
+export function augmentElement(element: ReactElement & RefAttributes<any>, newProps: Record<string, any>): ReactElement {
     const augmentedProps = mergeProps({ ...element.props, ref: element.ref }, newProps);
 
     return cloneElement(element, augmentedProps);
 }
 
-export function createOrAugmentElement<T extends string, P extends HTMLAttributes<T>>(element: ReactElement<P, T> | ElementType, props: P) {
+export function createOrAugmentElement<T extends string, P extends HTMLAttributes<T>>(element: ReactElement<P, T> | ElementType, props: P): ReactElement {
     if (isValidElementType(element) && !isString(element)) {
         const Type = element;
 

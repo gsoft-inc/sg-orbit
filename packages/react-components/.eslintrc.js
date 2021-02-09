@@ -46,7 +46,7 @@ module.exports = {
                 "@typescript-eslint/no-explicit-any": "off",
 
                 "jsx-control-statements/jsx-jcs-no-undef": "off",
-                "@typescript-eslint/explicit-function-return-type": "warn"
+                "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }]
             }
         }
     ],

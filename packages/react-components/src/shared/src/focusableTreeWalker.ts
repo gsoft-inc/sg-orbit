@@ -24,7 +24,7 @@ interface FocusableTreeWalkerOptions {
     tabbable?: boolean;
 }
 
-export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: FocusableTreeWalkerOptions = {}) {
+export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: FocusableTreeWalkerOptions = {}): TreeWalker {
     const selector = tabbable ? TabbableElementSelector : FocusableElementSelector;
 
     const walker = document.createTreeWalker(
@@ -45,6 +45,6 @@ export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: Focus
     return walker;
 }
 
-export function walkFocusableElements(root: HTMLElement, onElement: (element: Element, index?: number) => void) {
+export function walkFocusableElements(root: HTMLElement, onElement: (element: Element, index?: number) => void): void {
     root.querySelectorAll(FocusableElementSelector).forEach((x, index) => onElement(x, index));
 }

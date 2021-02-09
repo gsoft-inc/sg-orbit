@@ -8,7 +8,7 @@ interface SlottedElement {
     [SLOT_KEY]?: string;
 }
 
-function slotDecorator<P>(slotName: string, ElementType: P) {
+function slotDecorator<P>(slotName: string, ElementType: P): P {
     (ElementType as Record<string, unknown>)[SLOT_KEY] = slotName;
 
     return ElementType;
@@ -24,7 +24,7 @@ interface Slots {
     [x: string]: any;
 }
 
-export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
+export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Record<string, unknown> {
     const slotElements: Record<string, unknown> = {};
 
     children = resolveChildren(children);
@@ -83,6 +83,6 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
     return slotElements;
 }
 
-export function useSlots(children: ReactElement, slots: Slots) {
+export function useSlots(children: ReactElement, slots: Slots): Record<string, unknown> {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

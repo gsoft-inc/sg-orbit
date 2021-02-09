@@ -7,7 +7,7 @@ export const StyleContext = createContext<StyleContextProps>(undefined);
 
 export const StyleProvider = StyleContext.Provider;
 
-export function useStyleContext() {
+export function useStyleContext(): StyleContextProps {
     return useContext(StyleContext);
 }
 

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export function useForceRender() {
+export function useForceRender(): () => void {
     const [, set] = useState(false);
 
     return useCallback(() => {

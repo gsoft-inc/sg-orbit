@@ -12,7 +12,7 @@ interface CompositeKeyWeakMapNode<T> {
 export class CompositeKeyWeakMap<T> {
     _root = new WeakMap<any, any>();
 
-    set(keys: any[], value: T) {
+    set(keys: any[], value: T): void {
         let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
@@ -35,7 +35,7 @@ export class CompositeKeyWeakMap<T> {
         (node as CompositeKeyWeakMapNode<T>).value = value;
     }
 
-    get(keys: any[]) {
+    get(keys: any[]): T {
         let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
 
         for (let i = 0; i < keys.length; i += 1) {
@@ -50,7 +50,7 @@ export class CompositeKeyWeakMap<T> {
         return (node as CompositeKeyWeakMapNode<T>).value;
     }
 
-    has(keys: any[]) {
+    has(keys: any[]): boolean {
         return !isUndefined(this.get(keys));
     }
 }
@@ -59,7 +59,7 @@ export class CompositeKeyWeakMap<T> {
 
 const cache = new CompositeKeyWeakMap<any>();
 
-function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TOutput) {
+function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TOutput): undefined | TFirst | TSecond | TOutput {
     if (isNil(x) && isNil(y)) {
         return undefined;
     }
@@ -86,7 +86,7 @@ function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSe
     return mergeResult;
 }
 
-function merge(props: any, newProps: any) {
+function merge(props: any, newProps: any): any {
     Object
         .keys(newProps)
         .forEach(x => {
@@ -117,7 +117,7 @@ function merge(props: any, newProps: any) {
 type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 
-export function mergeProps<T extends Record<string, any>[]>(...args: T) {
+export function mergeProps<T extends Record<string, any>[]>(...args: T): UnionToIntersection<TupleTypes<T>> {
     let result = {};
 
     args.forEach(x => {

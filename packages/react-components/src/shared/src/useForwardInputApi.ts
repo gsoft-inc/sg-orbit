@@ -13,7 +13,7 @@ const API_METHODS = [
 ] as const;
 
 export function useForwardInputApi(inputRef: MutableRefObject<HTMLInputElement>) {
-    return (targetRef: MutableRefObject<HTMLInputElement>) => {
+    return (targetRef: MutableRefObject<HTMLInputElement>): HTMLInputElement => {
         const element = targetRef.current;
 
         API_METHODS.forEach(x => {
