@@ -65,7 +65,8 @@ export function InnerOverlay({
         </ThemeProvider>
     );
 
-    return createPortal(content, containerElement || document.body);
+    // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
+    return <>{createPortal(content, containerElement || document.body)}</>;
 }
 
 InnerOverlay.propTypes = propTypes;
