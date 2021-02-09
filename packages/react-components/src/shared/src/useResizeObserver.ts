@@ -21,23 +21,30 @@ function getResizeObserver() {
     );
 }
 
-export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { box }: ResizeObserverOptions = {}) => {
+interface UseResizeObserverOptions extends ResizeObserverOptions {
+    isDisabled?: boolean;
+}
+
+export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}) => {
     useEffect(() => {
-        if (!isNil(element)) {
-            getResizeObserver().observe(element, { box });
-
-            handlersMap.set(element, onResize);
-        }
-
-        return () => {
+        if (!isDisabled) {
             if (!isNil(element)) {
-                handlersMap.delete(element);
+                getResizeObserver().observe(element, { box });
 
-                if (!handlersMap.has(element)) {
-                    getResizeObserver().unobserve(element);
-                }
+                handlersMap.set(element, onResize);
             }
 
-        };
-    }, [element, onResize, box]);
+            return () => {
+
+                if (!isNil(element)) {
+                    handlersMap.delete(element);
+
+                    if (!handlersMap.has(element)) {
+                        getResizeObserver().unobserve(element);
+                    }
+                }
+
+            };
+        }
+    }, [element, onResize, box, isDisabled]);
 };

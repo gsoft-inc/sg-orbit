@@ -1,15 +1,11 @@
 import { isNil, isNumber } from "lodash";
+import { isTargetParent } from "./isTargetParent";
 import { mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { useCallback, useState } from "react";
 import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
 import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
-
-function isTargetParent(element, target) {
-    // Must validate that "target" is a DOM element because it could be anything like "window".
-    return target instanceof Element && element.contains(target);
-}
 
 export function usePopup(type, {
     id,
@@ -23,17 +19,18 @@ export function usePopup(type, {
     autoFocus,
     autoFocusOptions = {},
     trigger = "click",
-    position,
+    hasArrow = false,
+    position: positionProp,
     offset,
     allowFlip = true,
     allowPreventOverflow = true,
     boundaryElement,
-    zIndex = 10000,
     keyProp
 }) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
+    const [arrowElement, setArrowElement] = useState();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -78,8 +75,9 @@ export function usePopup(type, {
         hideOnOutsideClick
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps } = useOverlayPosition(triggerElement, overlayElement, {
-        position,
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
+        arrowElement: hasArrow ? arrowElement : undefined,
+        position: positionProp,
         offset,
         allowFlip,
         boundaryElement,
@@ -89,16 +87,14 @@ export function usePopup(type, {
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
     const focusManager = useFocusManager(focusScope, { keyProp });
 
-    useAutoFocusChild(
-        focusManager,
-        {
-            ...autoFocusOptions,
-            isDisabled: !autoFocus || !isOpen,
-            delay: isNumber(autoFocus) ? autoFocus : undefined,
-            onNotFound: useEventCallback(() => {
-                overlayElement?.focus();
-            })
-        });
+    useAutoFocusChild(focusManager, {
+        ...autoFocusOptions,
+        isDisabled: !autoFocus || !isOpen,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        onNotFound: useEventCallback(() => {
+            overlayElement?.focus();
+        })
+    });
 
     const overlayId = useId(id, id ? undefined : "o-ui-overlay");
 
@@ -107,8 +103,10 @@ export function usePopup(type, {
         setIsOpen: updateIsOpen,
         triggerElement,
         overlayElement,
+        arrowElement,
         focusScope,
         focusManager,
+        position,
         triggerProps: mergeProps(
             triggerProps,
             {
@@ -125,13 +123,15 @@ export function usePopup(type, {
             {
                 id: overlayId,
                 show: isOpen,
-                style: {
-                    ...overlayStyles,
-                    zIndex
-                },
+                style: overlayStyles,
                 tabIndex: "-1",
                 ref: overlayRef
             }
-        )
+        ),
+        arrowProps: !hasArrow ? {} : {
+            className: "o-ui-overlay-arrow",
+            style: arrowStyles,
+            ref: setArrowElement
+        }
     };
 }

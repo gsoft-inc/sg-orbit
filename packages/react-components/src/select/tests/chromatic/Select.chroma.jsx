@@ -1,9 +1,8 @@
 import { Button } from "@react-components/button";
-import { Inline, Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
 import { Listbox } from "@react-components/listbox";
 import { Overlay } from "@react-components/overlay";
-import { Paragraph } from "@react-components/paragraph";
 import { Select, useSelect } from "@react-components/select";
 import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -61,46 +60,9 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
-    )
-    .add("fluid", () =>
-        <Select fluid aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
     );
 
-createTestSuite(<Select variant="transparent" />, stories("/transparent"))
-    .add("fluid", () =>
-        <Select fluid variant="transparent" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Select>
-    );
-
-createTestSuite(<Select variant="inline" />, stories("/inline"))
-    .add("in a block", () => {
-        function InlineSelect() {
-            return (
-                <Select variant="inline" placeholder="Select a planet" aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            );
-        }
-
-        return (
-            <Stack>
-                <Paragraph size="sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
-                <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
-                <Paragraph size="lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
-                <Paragraph size="xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
-                <Paragraph size="2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum <br /> et lacus at euismod <InlineSelect /> elementum viverra maximus.</Paragraph>
-            </Stack>
-        );
-    });
+createTestSuite(<Select variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("custom select", () => {

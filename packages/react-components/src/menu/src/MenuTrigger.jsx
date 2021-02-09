@@ -1,4 +1,5 @@
 import { Children, forwardRef, useCallback } from "react";
+import { DisclosureContext } from "../../disclosure";
 import { FocusTarget, Keys, augmentElement, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
@@ -96,8 +97,7 @@ export function InnerMenuTrigger({
         position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,
-        allowPreventOverflow,
-        zIndex
+        allowPreventOverflow
     });
 
     const [trigger, menu] = Children.toArray(resolveChildren(children));
@@ -167,12 +167,19 @@ export function InnerMenuTrigger({
                 close
             }}
         >
-            {triggerMarkup}
+            <DisclosureContext.Provider
+                value={{
+                    isOpen
+                }}
+            >
+                {triggerMarkup}
+            </DisclosureContext.Provider>
             <Overlay
                 {...mergeProps(
                     rest,
                     overlayProps,
                     {
+                        zIndex,
                         as,
                         ref: forwardedRef
                     }

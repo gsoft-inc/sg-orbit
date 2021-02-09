@@ -1,3 +1,4 @@
+/* TRIGGER */
 .o-ui-select-trigger {
     outline: none;
     appearance: none;
@@ -8,98 +9,127 @@
     transition: all .2s ease-in;
 }
 
-.o-ui-select-trigger-fluid {
+/* TRIGGER | ICON ARROW */
+.o-ui-select-icon-arrow {
+    flex-shrink: 0;
+}
+
+/* TRIGGER | FLUID */
+.o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
+.o-ui-select-trigger-outline.o-ui-select-trigger-fluid {
     width: 100%;
 }
 
+/* TRIGGER | OUTLINE & GHOST */
 .o-ui-select-trigger-outline,
-.o-ui-select-trigger-transparent {
+.o-ui-select-trigger-ghost {
     display: flex;
     align-items: center;
     min-height: var(--o-ui-scale-hotel);
-    width: 325px;
     overflow: hidden;
-}
-
-.o-ui-select-trigger-transparent {
-    padding: 0 2px;
-    border: 1px solid transparent;
-    border-radius: var(--o-ui-rounded-border-radius);
-}
-
-.o-ui-select-trigger-inline {
-    display: inline-flex;
-    cursor: default;
-    align-items: center;
-    padding: 0 2px;
-    border-radius: var(--o-ui-rounded-border-radius);
-}
-
-.o-ui-select-trigger-inline .o-ui-select-placeholder {
-    margin-right: var(--o-ui-scale-alpha);
-}
-
-.o-ui-select-trigger-inline .o-ui-select-value-text + .o-ui-select-value-end-icon {
-    margin-right: var(--o-ui-scale-alpha);
-}
-
-.o-ui-select-trigger-outline {
-    min-height: var(--o-ui-scale-hotel);
     padding: 0 var(--o-ui-scale-charlie) 0;
-    background-color: var(--o-ui-background-1);
     border-radius: var(--o-ui-rounded-border-radius);
-    border: 1px solid var(--o-ui-border-1);
 }
 
-.o-ui-select-trigger-outline:hover,
-.o-ui-select-trigger-outline.o-ui-select-trigger-hover {
-    border: 1px solid var(--o-ui-border-1-hover);
-}
-
+/* TRIGGER | STATE | INVALID */
 .o-ui-select-trigger-invalid {
     color: var(--o-ui-text-danger-1);
 }
 
+/* TRIGGER | STATE | DISABLED */
+.o-ui-select-trigger-ghost[disabled],
+.o-ui-select-trigger-outline[disabled] {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
+}
+
+/* TRIGGER | GHOST */
+.o-ui-select-trigger-ghost {
+    border: 1px solid transparent;
+}
+
+/* TRIGGER | GHOST | STATE | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover),
+.o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
+    background: var(--o-ui-background-3);
+}
+
+/* TRIGGER | GHOST | STATE | HOVER */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-hover,
+.o-ui-select-trigger-ghost:not([disabled]):hover {
+    background: var(--o-ui-background-3);
+}
+
+/* TRIGGER | GHOST | STATE | INVALID | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover).o-ui-select-trigger-invalid {
+    box-shadow: 0 2px 0 0 var(--o-ui-border-danger-1);
+}
+
+/* TRIGGER | GHOST | PLACEHOLDER / VALUE */
+.o-ui-select-trigger-ghost .o-ui-select-placeholder {
+    margin-right: var(--o-ui-scale-alpha);
+}
+
+/* TRIGGER | OUTLINE */
+.o-ui-select-trigger-outline {
+    width: 325px;
+    background-color: var(--o-ui-background-1);
+    border: 1px solid var(--o-ui-border-1);
+}
+
+/* TRIGGER | OUTLINE | STATE | OPENED */
+.o-ui-select-trigger-outline[aria-expanded="true"] {
+    border: 1px solid var(--o-ui-border-1-active);
+}
+
+/* TRIGGER | OUTLINE | STATE | HOVER */
+.o-ui-select-trigger-outline:not([disabled]),
+.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-hover {
+    border: 1px solid var(--o-ui-border-1-hover);
+}
+
+/* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline.o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
 .o-ui-select-trigger-invalid.o-ui-select-trigger-outline:focus:not(:hover) {
     --o-ui-focus-ring-color: var(--o-ui-border-danger-1);
     border: 1px solid var(--o-ui-border-danger-1);
 }
 
+/* TRIGGER | OUTLINE | STATE | INVALID */
 .o-ui-select-trigger-invalid.o-ui-select-trigger-outline {
     border: 1px solid var(--o-ui-border-danger-1);
 }
 
-.o-ui-select-trigger-outline.o-ui-select-trigger-focus,
-.o-ui-select-trigger-outline:focus:not(:hover) {
+/* TRIGGER | OUTLINE | STATE | OPENED | INVALID */
+.o-ui-select-trigger-outline[aria-expanded="true"].o-ui-select-trigger-invalid {
+    border: 1px solid var(--o-ui-border-danger-1-active);
+}
+
+/* TRIGGER | OUTLINE | STATE | HOVER | INVALID */
+.o-ui-select-trigger-outline:not([disabled]):hover.o-ui-select-trigger-invalid,
+.o-ui-select-trigger-hover.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-invalid {
+    border: 1px solid var(--o-ui-border-danger-1-hover);
+}
+
+/* TRIGGER | OUTLINE | STATE | FOCUS */
+.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-outline:not([disabled]):focus:not(:hover) {
     box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
     border: 1px solid var(--o-ui-border-primary-1);
 }
 
-.o-ui-select-trigger-outline:hover:focus {
+/* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
+.o-ui-select-trigger-outline:not([disabled]):hover:focus {
     border: 1px solid var(--o-ui-border-primary-1);
     box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
 }
 
-.o-ui-select-trigger-invalid.o-ui-select-trigger-outline:hover:focus {
+/* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
+.o-ui-select-trigger-outline:not([disabled]):hover:focus.o-ui-select-trigger-invalid {
     --o-ui-focus-ring-color: var(--o-ui-border-danger-1);
     border: 1px solid var(--o-ui-border-danger-1);
-}
-
-.o-ui-select-trigger-inline:focus,
-.o-ui-select-trigger-focus.o-ui-select-trigger-inline,
-.o-ui-select-trigger-inline:focus:hover,
-.o-ui-select-trigger-focus.o-ui-select-trigger-hover.o-ui-select-trigger-inline,
-.o-ui-select-trigger-inline:hover,
-.o-ui-select-trigger-hover.o-ui-select-trigger-inline,
-.o-ui-select-trigger-inline[aria-expanded="true"],
-.o-ui-select-trigger-inline[aria-expanded="true"]:hover {
-    background-color: var(--o-ui-background-3);
-}
-
-.o-ui-select-trigger-invalid.o-ui-select-trigger-inline:focus ,
-.o-ui-select-trigger-invalid.o-ui-select-trigger-focus.o-ui-select-trigger-inline {
-    background-color: var(--o-ui-background-danger-2);
 }
 
 /* SELECT VALUE */
@@ -108,63 +138,28 @@
     overflow: hidden;
 }
 
+/* SELECT VALUE & PLACEHOLDER */
 .o-ui-select-value,
 .o-ui-select-placeholder {
     flex-grow: 1;
     text-align: left;
 }
 
+/* SELECT VALUE | START ICON */
 .o-ui-select-value-start-icon {
     margin-right: var(--o-ui-scale-alpha);
 }
 
-.o-ui-select-value-end-icon {
-    margin-left: var(--o-ui-scale-alpha);
-}
-
+/* MENU | FLUID */
 .o-ui-select-menu-fluid {
     width: 100%;
 }
 
-/* TEXT */
-.o-ui-select-value-text {
+/* TEXT & PLACEHOLDER OVERFLOW */
+.o-ui-select-value-text,
+.o-ui-select-placeholder {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* TRANSPARENT */
-.o-ui-select-trigger-transparent.o-ui-select-trigger-focus,
-.o-ui-select-trigger-transparent:focus:not(:hover),
-.o-ui-select-trigger-transparent[aria-expanded="true"] {
-    background: var(--o-ui-background-3);
-}
-
-.o-ui-select-trigger-transparent.o-ui-select-trigger-hover,
-.o-ui-select-trigger-transparent:hover {
-    background: var(--o-ui-background-3);
-}
-
-/* TRANSPARENT FOCUS INVALID */
-.o-ui-select-trigger-transparent.o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
-.o-ui-select-trigger-transparent:focus:not(:hover).o-ui-select-trigger-invalid {
-    box-shadow: 0 2px 0 0 var(--o-ui-border-danger-1);
-}
-
-.o-ui-select-menu {
-    min-width: 325px;
-}
-
-/* OPENED TRIGGER OUTLINE */
-.o-ui-select-trigger-outline[aria-expanded="true"] {
-    border: 1px solid var(--o-ui-border-1-active);
-}
-
-.o-ui-select-trigger-invalid.o-ui-select-trigger-outline[aria-expanded="true"] {
-    border: 1px solid var(--o-ui-border-danger-1-active);
-}
-
-.o-ui-select-trigger-invalid.o-ui-select-trigger-outline:hover {
-    border: 1px solid var(--o-ui-border-danger-1-hover);
 }

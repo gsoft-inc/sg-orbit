@@ -62,7 +62,7 @@ html .o-ui-dark-color-scheme * {
 }
 
 /* ANIMATIONS | SLIDE */
-/* Must be a transition on height otheriwse it won't work. */
+/* Must be a transition on height otherwise it won't work. */
 .o-ui-slide-down {
     transition: all .2s linear;
 }
