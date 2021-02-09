@@ -8,15 +8,17 @@
 .o-ui-overlay-arrow,
 .o-ui-overlay-arrow::before {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    z-index: -1;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
 }
 
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background: blue;
+    background: var(--o-ui-background-1);
+    border-top: 1px solid var(--o-ui-border-2);
+    border-left: 1px solid var(--o-ui-border-2);
 }
 
 .o-ui-overlay[data-popper-placement^="top"] > .o-ui-overlay-arrow {
