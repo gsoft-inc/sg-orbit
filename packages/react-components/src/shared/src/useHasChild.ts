@@ -49,3 +49,4 @@ export function useHasChildren<T extends string>(querySelectors: Record<T, strin
 
     return queryResults as Record<T, boolean>;
 }
+
