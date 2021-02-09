@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { Tooltip, TooltipTrigger } from "../../tooltip";
+import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -19,10 +19,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * A tooltip displayed when the option is hover or focused.
-     */
-    tooltip: string,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -33,10 +29,9 @@ const propTypes = {
 };
 
 export function InnerListboxOption({
-    item: { key },
+    item: { key, tooltip },
     id,
     disabled,
-    tooltip,
     active,
     focus,
     hover,
@@ -114,7 +109,7 @@ export function InnerListboxOption({
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
-                    "aria-describedby": descriptionId,
+                    "aria-describedby": description && descriptionId,
                     as,
                     ref: forwardedRef
                 }
@@ -127,12 +122,25 @@ export function InnerListboxOption({
         </Box>
     );
 
-    return isNil(tooltip) ? optionMarkup : (
-        <TooltipTrigger position="left">
-            {optionMarkup}
-            <Tooltip>{tooltip}</Tooltip>
-        </TooltipTrigger>
-    );
+    if (!isNil(tooltip)) {
+        const { props: tooltipProps, content: tooltipContent } = tooltip;
+
+        return (
+            <TooltipTrigger
+                {...mergeProps(
+                    tooltipProps,
+                    {
+                        position: "left"
+                    }
+                )}
+            >
+                {optionMarkup}
+                {tooltipContent}
+            </TooltipTrigger>
+        );
+    }
+
+    return optionMarkup;
 }
 
 InnerListboxOption.propTypes = propTypes;

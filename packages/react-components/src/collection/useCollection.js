@@ -1,6 +1,7 @@
 import { Children, useMemo } from "react";
 import { Divider } from "../divider";
 import { Item, Section } from "../placeholders";
+import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
 import { any, array, element as elementProp, elementType, number, object, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolveChildren } from "../shared";
@@ -49,7 +50,7 @@ export class CollectionBuilder {
 
         const that = this;
 
-        const items = Children.map(children, (x, childPosition) => that._parseItem(x, childPosition, nextIndex));
+        const items = Children.map(resolveChildren(children), (x, childPosition) => that._parseItem(x, childPosition, nextIndex));
 
         return {
             key: index.toString(),
@@ -83,6 +84,21 @@ export class CollectionBuilder {
         };
     }
 
+    _parseTooltip(element, position, nextIndex) {
+        const { children, ...props } = element.props;
+
+        const [item, tooltip] = parseTooltipTrigger(children);
+
+        const parsedItem = this._parseItem(item, position, nextIndex);
+
+        parsedItem.tooltip = {
+            props,
+            content: tooltip
+        };
+
+        return parsedItem;
+    }
+
     build(children) {
         if (isNil(children)) {
             return [];
@@ -104,6 +120,8 @@ export class CollectionBuilder {
                     return that._parseSection(element, position, nextIndex);
                 case Divider:
                     return that._parseDivider(element, position, nextIndex);
+                case TooltipTrigger:
+                    return that._parseTooltip(element, position, nextIndex);
                 default:
                     return that._parseItem(element, position, nextIndex);
             }

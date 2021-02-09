@@ -5,6 +5,7 @@ import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/Listbox"
@@ -181,9 +182,15 @@ A listbox item can have a basic tooltip.
 <Preview>
     <Story name="tooltip">
         <Listbox aria-label="Planets">
-            <Item tooltip="Best planet so far!" key="earth">Earth</Item>
+            <TooltipTrigger>
+                <Item key="earth">Earth</Item>
+                <Tooltip>Best planet so far!</Tooltip>
+            </TooltipTrigger>
             <Item key="jupiter">Jupiter</Item>
-            <Item tooltip="See you in 2025!" key="mars">Mars</Item>
+            <TooltipTrigger>
+                <Item key="mars">Mars</Item>
+                <Tooltip>See you in 2025!</Tooltip>
+            </TooltipTrigger>
             <Item key="mercury">Mercury</Item>
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
