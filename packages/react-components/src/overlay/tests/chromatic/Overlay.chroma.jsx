@@ -36,11 +36,6 @@ stories()
             </Overlay>
         </ThemeProvider>
     )
-    .add("border offset", () =>
-        <Overlay borderOffset="20px">
-            <PrimaryBox />
-        </Overlay>
-    )
     .add("styling", () =>
         <>
             <Overlay className="border-red" show>

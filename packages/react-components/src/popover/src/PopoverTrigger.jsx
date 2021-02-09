@@ -2,7 +2,7 @@ import { Children, forwardRef, useCallback } from "react";
 import { Overlay, OverlayArrow, useOverlayBorderOffset, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useCommittedRef } from "../../shared";
+import { augmentElement, mergeProps, resolveChildren } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -88,7 +88,7 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
+    const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
         id,
         open,
         defaultOpen,
@@ -106,8 +106,7 @@ export function InnerPopoverTrigger({
         position: positionProp,
         allowFlip,
         allowPreventOverflow,
-        boundaryElement: containerElement,
-        zIndex
+        boundaryElement: containerElement
     });
 
     const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
@@ -121,9 +120,6 @@ export function InnerPopoverTrigger({
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");
     }
-
-    // When content is not autofocused, focus the overlay on render.
-    useAutoFocus(useCommittedRef(overlayElement), { isDisabled: autoFocus || !isOpen });
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
@@ -140,6 +136,7 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        zIndex,
                         className: "o-ui-popover-overlay",
                         style: overlayOffsetStyles,
                         as,

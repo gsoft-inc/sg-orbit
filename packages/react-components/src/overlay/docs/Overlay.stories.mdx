@@ -1,5 +1,6 @@
+import { ArgsTable, Meta } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Tagline } from "@stories/components";
-import { Meta } from "@storybook/addon-docs/blocks";
+import { InnerOverlay, InnerOverlayArrow } from "@react-components/overlay";
 
 <Meta
     title="Components/Overlay"
@@ -11,7 +12,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 <Tagline>Container for overlays such as dialogs, popups, and menus.</Tagline>
 
 <ComponentInfo
-    usage={"import { Overlay } from \"@orbit-ui/react-components\""}
+    usage={"import { Overlay, OverlayArrow } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/overlay/src"
 />
 
@@ -27,5 +28,25 @@ An overlay takes care of rendering a container for your component with Orbit's *
     The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.
 </Overlay>
 ```
+
+## API
+
+### Overlay
+
+<ComponentInfo
+    usage={"import { Overlay } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerOverlay} />
+
+### OverlayArrow
+
+<ComponentInfo
+    usage={"import { OverlayArrow } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerOverlayArrow} />
 
 

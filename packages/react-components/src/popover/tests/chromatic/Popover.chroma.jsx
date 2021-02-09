@@ -361,7 +361,7 @@ stories()
             </PopoverTrigger>
         </Boundary>
     )
-    .add("autofocus", () =>
+    .add("autofocus first focusable element", () =>
         <Boundary>
             <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>

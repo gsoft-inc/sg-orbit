@@ -3,8 +3,10 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
+import { Tooltip, TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
 const propTypes = {
@@ -16,6 +18,10 @@ const propTypes = {
      * Whether or not the option is disabled.
      */
     disabled: bool,
+    /**
+     * A tooltip displayed when the option is hover or focused.
+     */
+    tooltip: string,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -30,6 +36,7 @@ export function InnerListboxOption({
     item: { key },
     id,
     disabled,
+    tooltip,
     active,
     focus,
     hover,
@@ -86,7 +93,7 @@ export function InnerListboxOption({
         }
     });
 
-    return (
+    const optionMarkup = (
         <Box
             {...mergeProps(
                 rest,
@@ -118,6 +125,13 @@ export function InnerListboxOption({
             {description}
             {endIcon}
         </Box>
+    );
+
+    return isNil(tooltip) ? optionMarkup : (
+        <TooltipTrigger position="left">
+            {optionMarkup}
+            <Tooltip>{tooltip}</Tooltip>
+        </TooltipTrigger>
     );
 }
 

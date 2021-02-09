@@ -97,8 +97,7 @@ export function InnerMenuTrigger({
         position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,
-        allowPreventOverflow,
-        zIndex
+        allowPreventOverflow
     });
 
     const [trigger, menu] = Children.toArray(resolveChildren(children));
@@ -106,8 +105,6 @@ export function InnerMenuTrigger({
     if (isNil(trigger) || isNil(menu)) {
         throw new Error("A menu trigger must have exactly 2 children.");
     }
-
-    const { id: triggerIdProp, "aria-labelledby": ariaLabelledBy, "aria-describedby": ariaDescribedBy } = trigger.props;
 
     const open = useCallback((event, focusTarget) => {
         setFocusTarget(focusTarget);
@@ -141,7 +138,7 @@ export function InnerMenuTrigger({
         close();
     });
 
-    const triggerId = useId(triggerIdProp, triggerIdProp ? undefined : "o-ui-menu-trigger");
+    const triggerId = useId(trigger.props.id, trigger.props.id ? undefined : "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         triggerProps,
@@ -157,8 +154,8 @@ export function InnerMenuTrigger({
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,
         defaultFocusTarget: focusTargetRef.current,
-        "aria-labelledby": ariaLabelledBy ?? triggerId,
-        "aria-describedby": ariaDescribedBy
+        "aria-labelledby": trigger.props["aria-labelledby"] ?? triggerId,
+        "aria-describedby": trigger.props["aria-describedby"]
     });
 
     return (
@@ -180,6 +177,7 @@ export function InnerMenuTrigger({
                     rest,
                     overlayProps,
                     {
+                        zIndex,
                         as,
                         ref: forwardedRef
                     }

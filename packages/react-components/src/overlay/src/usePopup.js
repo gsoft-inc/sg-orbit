@@ -25,7 +25,6 @@ export function usePopup(type, {
     allowFlip = true,
     allowPreventOverflow = true,
     boundaryElement,
-    zIndex = 10000,
     keyProp
 }) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -124,10 +123,7 @@ export function usePopup(type, {
             {
                 id: overlayId,
                 show: isOpen,
-                style: {
-                    ...overlayStyles,
-                    zIndex
-                },
+                style: overlayStyles,
                 tabIndex: "-1",
                 ref: overlayRef
             }

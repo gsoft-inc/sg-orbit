@@ -195,6 +195,27 @@ A menu item can have a description.
     </Story>
 </Preview>
 
+### Tooltip
+
+A menu item can have a basic tooltip.
+
+<Preview>
+    <Story name="tooltip">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
+                <Item key="launch">Launch...</Item>
+                <Item key="eject">Eject...</Item>
+                <Item tooltip="Land on Of Course I Still Love You" key="land">Land...</Item>
+                <Item key="help">Help</Item>
+                <Item key="exit">Exit</Item>
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
 ### Disabled item
 
 A menu item can be disabled.

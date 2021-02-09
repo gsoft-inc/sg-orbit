@@ -231,7 +231,10 @@ export function InnerSelect(props) {
                     size="sm"
                 />
             </TriggerType>
-            <Overlay {...overlayProps}>
+            <Overlay
+                {...overlayProps}
+                zIndex={zIndex}
+            >
                 <Listbox {...listboxProps} />
             </Overlay>
         </>
