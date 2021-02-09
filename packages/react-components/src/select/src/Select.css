@@ -9,11 +9,6 @@
     transition: all .2s ease-in;
 }
 
-/* MENU */
-.o-ui-select-menu {
-    min-width: 325px;
-}
-
 /* TRIGGER | ICON ARROW */
 .o-ui-select-icon-arrow {
     flex-shrink: 0;
