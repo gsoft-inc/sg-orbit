@@ -13,6 +13,14 @@
     border: 1px solid var(--o-ui-border-2);
 }
 
+.o-ui-popover-overlay > *:first-child {
+    border: 2px solid transparent;
+}
+
+.o-ui-popover-overlay:focus > *:first-child {
+    border: 2px solid var(--o-ui-border-primary-1);
+}
+
 /* CLOSE BUTTON */
 .o-ui-popover-close-button {
     position: absolute;
