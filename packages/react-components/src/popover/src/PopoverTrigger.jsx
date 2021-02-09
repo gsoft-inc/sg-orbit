@@ -88,7 +88,7 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
+    const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
         id,
         open,
         defaultOpen,

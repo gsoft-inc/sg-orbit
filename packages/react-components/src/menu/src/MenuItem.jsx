@@ -1,8 +1,10 @@
 import { Box } from "../../box";
 import { Text } from "../../text";
+import { Tooltip, TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
 
 const propTypes = {
@@ -14,6 +16,9 @@ const propTypes = {
      * Whether or not the item is disabled.
      */
     disabled: bool,
+    /**
+     * A tooltip displayed when the item is hover or focused.
+     */
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -28,6 +33,7 @@ export function InnerMenuItem({
     item: { key },
     id,
     disabled,
+    tooltip,
     active,
     focus,
     hover,
@@ -73,7 +79,7 @@ export function InnerMenuItem({
         }
     });
 
-    return (
+    const itemMarkup = (
         <Box
             {...mergeProps(
                 rest,
@@ -101,6 +107,13 @@ export function InnerMenuItem({
             {description}
             {endIcon}
         </Box>
+    );
+
+    return isNil(tooltip) ? itemMarkup : (
+        <TooltipTrigger position="left">
+            {itemMarkup}
+            <Tooltip>{tooltip}</Tooltip>
+        </TooltipTrigger>
     );
 }
 

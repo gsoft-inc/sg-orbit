@@ -13,6 +13,10 @@ const propTypes = {
      */
     disabled: bool,
     /**
+     * Optional tooltip supported by a few collections.
+     */
+    tooltip: string,
+    /**
      * React children.
      */
     children: any.isRequired
