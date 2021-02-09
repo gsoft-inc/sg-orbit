@@ -2,7 +2,7 @@ import "./Overlay.css";
 
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
-import { any, bool, instanceOf } from "prop-types";
+import { any, bool, elementType, instanceOf, oneOfType, string } from "prop-types";
 import { createPortal } from "react-dom";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
@@ -17,6 +17,10 @@ const propTypes = {
      * A DOM element in which the overlay element will be appended via a React portal.
      */
     containerElement: instanceOf(HTMLElement),
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
     /**
      * React children.
      */

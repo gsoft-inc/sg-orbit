@@ -1,5 +1,5 @@
 import { Children, forwardRef, useCallback } from "react";
-import { Overlay, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, useOverlayBorderOffset, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useCommittedRef } from "../../shared";
@@ -76,7 +76,7 @@ export function InnerPopoverTrigger({
     open,
     defaultOpen,
     trigger: triggerProp = "click",
-    position = "bottom",
+    position: positionProp = "bottom",
     onOpenChange,
     autoFocus,
     allowFlip = true,
@@ -88,7 +88,7 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps } = usePopup("dialog", {
+    const { isOpen, setIsOpen, overlayElement, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
         id,
         open,
         defaultOpen,
@@ -102,12 +102,15 @@ export function InnerPopoverTrigger({
         },
         restoreFocus: true,
         trigger: triggerProp,
-        position,
+        hasArrow: true,
+        position: positionProp,
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
         zIndex
     });
+
+    const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
 
     const close = useCallback(event => {
         setIsOpen(event, false);
@@ -138,12 +141,14 @@ export function InnerPopoverTrigger({
                     overlayProps,
                     {
                         className: "o-ui-popover-overlay",
+                        style: overlayOffsetStyles,
                         as,
                         ref: forwardedRef
                     }
                 )}
             >
                 {popover}
+                <OverlayArrow {...arrowProps} />
             </Overlay>
         </PopoverTriggerContext.Provider>
     );
