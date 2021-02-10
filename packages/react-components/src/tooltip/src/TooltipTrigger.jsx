@@ -1,7 +1,7 @@
 import "./Tooltip.css";
 
 import { Children, forwardRef, useCallback, useState } from "react";
-import { Overlay, OverlayArrow, isTargetParent, useOverlayBorderOffset, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
@@ -135,7 +135,7 @@ export function InnerTooltipTrigger({
         hideOnOutsideClick: false
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
         arrowElement,
         position: positionProp,
         allowFlip,
@@ -143,8 +143,6 @@ export function InnerTooltipTrigger({
         // Not accepting prevent overflow feature because the tooltip big enough and it cause arrow render issue sometime when the position if left or right.
         allowPreventOverflow: false
     });
-
-    const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
 
@@ -176,12 +174,10 @@ export function InnerTooltipTrigger({
                     overlayPositionProps,
                     {
                         show: !disabled && isOpen,
+                        borderOffset: "var(--o-ui-scale-bravo)",
                         zIndex,
                         className: "o-ui-tooltip-overlay",
-                        style: {
-                            ...overlayStyles,
-                            ...overlayOffsetStyles
-                        },
+                        style: overlayStyles,
                         as,
                         ref: overlayRef
                     }
