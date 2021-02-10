@@ -10,10 +10,10 @@
     justify-content: center;
 }
 
-/* We need a .o-ui-tooltip-content class :pray: */
+/* We need a .o-ui-tooltip-content class */
 /* LEFT ICON */
-.o-ui-tooltip .o-ui-icon + .o-ui-text {
-    margin-left: var(--o-ui-scale-alpha);
+.o-ui-tooltip .o-ui-icon {
+    margin-right: var(--o-ui-scale-alpha);
 }
 
 /* RIGHT ICON */

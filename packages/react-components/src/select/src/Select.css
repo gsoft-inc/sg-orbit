@@ -53,6 +53,7 @@
 .o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover),
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
     background: var(--o-ui-background-3);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | GHOST | STATE | HOVER */
