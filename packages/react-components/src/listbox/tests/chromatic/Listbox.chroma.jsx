@@ -4,6 +4,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
 

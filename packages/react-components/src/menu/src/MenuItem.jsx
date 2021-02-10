@@ -17,9 +17,6 @@ const propTypes = {
      */
     disabled: bool,
     /**
-     * A tooltip displayed when the item is hover or focused.
-     */
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -30,10 +27,9 @@ const propTypes = {
 };
 
 export function InnerMenuItem({
-    item: { key },
+    item: { key, tooltip },
     id,
     disabled,
-    tooltip,
     active,
     focus,
     hover,
@@ -109,12 +105,25 @@ export function InnerMenuItem({
         </Box>
     );
 
-    return isNil(tooltip) ? itemMarkup : (
-        <TooltipTrigger position="left">
-            {itemMarkup}
-            <Tooltip>{tooltip}</Tooltip>
-        </TooltipTrigger>
-    );
+    if (!isNil(tooltip)) {
+        const { props: tooltipProps, content: tooltipContent } = tooltip;
+
+        return (
+            <TooltipTrigger
+                {...mergeProps(
+                    tooltipProps,
+                    {
+                        position: "left"
+                    }
+                )}
+            >
+                {itemMarkup}
+                {tooltipContent}
+            </TooltipTrigger>
+        );
+    }
+
+    return itemMarkup;
 }
 
 InnerMenuItem.propTypes = propTypes;

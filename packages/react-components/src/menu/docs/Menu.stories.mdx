@@ -7,6 +7,7 @@ import { IconButton } from "@react-components/button";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerMenu, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/Menu"
@@ -208,7 +209,10 @@ A menu item can have a basic tooltip.
             <Menu>
                 <Item key="launch">Launch...</Item>
                 <Item key="eject">Eject...</Item>
-                <Item tooltip="Land on Of Course I Still Love You" key="land">Land...</Item>
+                <TooltipTrigger>
+                    <Item key="land">Land...</Item>
+                    <Tooltip>Land on Of Course I Still Love You</Tooltip>
+                </TooltipTrigger>
                 <Item key="help">Help</Item>
                 <Item key="exit">Exit</Item>
             </Menu>

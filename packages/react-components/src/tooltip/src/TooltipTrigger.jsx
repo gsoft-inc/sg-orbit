@@ -65,6 +65,16 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+export function parseTooltipTrigger(children) {
+    const array = Children.toArray(resolveChildren(children));
+
+    if (array.length !== 2) {
+        throw new Error("A tooltip trigger must have exactly 2 children.");
+    }
+
+    return array;
+}
+
 function InnerTooltipTrigger({
     open,
     defaultOpen,
@@ -136,11 +146,7 @@ function InnerTooltipTrigger({
 
     const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
 
-    const [trigger, tooltip] = Children.toArray(resolveChildren(children, { isOpen }));
-
-    if (isNil(trigger) || isNil(tooltip)) {
-        throw new Error("A tooltip trigger must have exactly 2 children.");
-    }
+    const [trigger, tooltip] = parseTooltipTrigger(children);
 
     const tooltipId = useId(tooltip.props.id, tooltip.props.id ? undefined : "o-ui-tooltip");
 
