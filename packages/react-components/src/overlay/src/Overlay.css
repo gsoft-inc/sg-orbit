@@ -22,17 +22,17 @@
 }
 
 .o-ui-overlay[data-popper-placement^="top"] > .o-ui-overlay-arrow {
-    bottom: calc(-1 * var(--o-ui-scale-alpha));
+    bottom: calc(-1 * var(--o-ui-scale-alpha) + 1px);
 }
 
 .o-ui-overlay[data-popper-placement^="bottom"] > .o-ui-overlay-arrow {
-    top: calc(-1 * var(--o-ui-scale-alpha));
+    top: calc(-1 * var(--o-ui-scale-alpha) + 1px);
 }
 
 .o-ui-overlay[data-popper-placement^="left"] > .o-ui-overlay-arrow {
-    right: calc(-1 * var(--o-ui-scale-alpha));
+    right: calc(-1 * var(--o-ui-scale-alpha) + 1px );
 }
 
 .o-ui-overlay[data-popper-placement^="right"] > .o-ui-overlay-arrow {
-    left: calc(-1 * var(--o-ui-scale-alpha));
+    left: calc(-1 * var(--o-ui-scale-alpha) + 1px);
 }
