@@ -16,7 +16,7 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-function InnerTooltip({
+export function InnerTooltip({
     as = "div",
     children,
     forwardedRef,
