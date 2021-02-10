@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { Text } from "../../text";
-import { Tooltip, TooltipTrigger } from "../../tooltip";
+import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { forwardRef } from "react";
