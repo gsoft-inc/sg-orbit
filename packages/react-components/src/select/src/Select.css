@@ -85,7 +85,7 @@
 }
 
 /* TRIGGER | OUTLINE | STATE | HOVER */
-.o-ui-select-trigger-outline:not([disabled]),
+.o-ui-select-trigger-outline:not([disabled]):hover,
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-hover {
     border: 1px solid var(--o-ui-border-1-hover);
 }

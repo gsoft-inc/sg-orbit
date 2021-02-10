@@ -1,7 +1,5 @@
 [class^="o-ui-popover"] {
     --o-ui-popover-offset: var(--o-ui-scale-alpha);
-    --o-ui-popover-border-color: var(--o-ui-border-2);
-    --o-ui-popover-focus-border-color: var(--o-ui-focus-ring-color);
 }
 
 .o-ui-popover {
@@ -17,43 +15,6 @@
 
 .o-ui-popover-overlay:focus > *:first-child {
     border: var(--o-ui-focus-ring-dimension-small) solid var(--o-ui-focus-ring-color);
-}
-
-/* FOCUS ARROW  */
-.o-ui-popover-overlay:focus {
-    --o-ui-popover-border-color: var(--o-ui-focus-ring-color);
-}
-
-/* BOTTOM ARROW */
-.o-ui-popover-overlay[data-popper-placement="bottom"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="bottom-start"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="bottom-end"] .o-ui-overlay-arrow::before {
-    border-top: 1px solid var(--o-ui-popover-border-color);
-    border-left: 1px solid var(--o-ui-popover-border-color);
-}
-
-/* TOP ARROW */
-.o-ui-popover-overlay[data-popper-placement="top"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="top-start"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="top-end"] .o-ui-overlay-arrow::before {
-    border-bottom: 1px solid var(--o-ui-popover-border-color);
-    border-right: 1px solid var(--o-ui-popover-border-color);
-}
-
-/* RIGHT ARROW */
-.o-ui-popover-overlay[data-popper-placement="right"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="right-start"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="right-end"] .o-ui-overlay-arrow::before {
-    border-bottom: 1px solid var(--o-ui-popover-border-color);
-    border-left: 1px solid var(--o-ui-popover-border-color);
-}
-
-/* LEFT ARROW */
-.o-ui-popover-overlay[data-popper-placement="left"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="left-start"] .o-ui-overlay-arrow::before,
-.o-ui-popover-overlay[data-popper-placement="left-end"] .o-ui-overlay-arrow::before {
-    border-top: 1px solid var(--o-ui-popover-border-color);
-    border-right: 1px solid var(--o-ui-popover-border-color);
 }
 
 /* CLOSE BUTTON */
