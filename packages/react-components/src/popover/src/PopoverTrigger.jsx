@@ -1,5 +1,5 @@
 import { Children, forwardRef, useCallback } from "react";
-import { Overlay, OverlayArrow, useOverlayBorderOffset, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren } from "../../shared";
@@ -88,7 +88,7 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
-    const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps, position } = usePopup("dialog", {
+    const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
         id,
         open,
         defaultOpen,
@@ -108,8 +108,6 @@ export function InnerPopoverTrigger({
         allowPreventOverflow,
         boundaryElement: containerElement
     });
-
-    const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
 
     const close = useCallback(event => {
         setIsOpen(event, false);
@@ -136,9 +134,9 @@ export function InnerPopoverTrigger({
                     rest,
                     overlayProps,
                     {
+                        borderOffset: "var(--o-ui-scale-bravo)",
                         zIndex,
                         className: "o-ui-popover-overlay",
-                        style: overlayOffsetStyles,
                         as,
                         ref: forwardedRef
                     }

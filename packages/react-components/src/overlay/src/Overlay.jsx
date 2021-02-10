@@ -14,6 +14,11 @@ const propTypes = {
      */
     show: bool.isRequired,
     /**
+     * Hacky offset utility to apply a transparent CSS border to the overlay.
+     * It's usefull to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
+     */
+    borderOffset: oneOfType([string, number]),
+    /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
     containerElement: instanceOf(HTMLElement),
@@ -33,6 +38,7 @@ const propTypes = {
 
 export function InnerOverlay({
     show,
+    borderOffset,
     containerElement,
     zIndex = 10000,
     as = "div",
@@ -53,7 +59,10 @@ export function InnerOverlay({
                         enter: "o-ui-fade-in",
                         leave: "o-ui-fade-out",
                         className: "o-ui-overlay",
-                        style: { zIndex },
+                        style: {
+                            "--o-ui-overlay-border-offset": borderOffset,
+                            zIndex
+                        },
                         role: "presentation",
                         as,
                         ref: forwardedRef
