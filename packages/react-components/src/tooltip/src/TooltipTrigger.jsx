@@ -13,7 +13,7 @@ const propTypes = {
      */
     open: bool,
     /**
-     * The initial value of open when in auto controlled mode.
+     * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen: bool,
     /**
@@ -75,7 +75,7 @@ export function parseTooltipTrigger(children) {
     return array;
 }
 
-function InnerTooltipTrigger({
+export function InnerTooltipTrigger({
     open,
     defaultOpen,
     position : positionProp = "top",

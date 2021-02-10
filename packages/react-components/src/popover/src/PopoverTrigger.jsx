@@ -11,7 +11,7 @@ const propTypes = {
      */
     open: bool,
     /**
-     * The initial value of open when in auto controlled mode.
+     * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen: bool,
     /**

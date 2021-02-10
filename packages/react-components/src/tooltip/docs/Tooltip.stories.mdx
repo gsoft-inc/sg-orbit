@@ -1,0 +1,133 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, IconButton } from "@react-components/button"
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { EmailIcon, LightbulbIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { InnerTooltip, InnerTooltipTrigger, Tooltip, TooltipTrigger } from "@react-components/tooltip";
+import { TextLink } from "@react-components/link";
+
+<Meta
+    title="Components/Tooltip"
+    id="tooltip"
+/>
+
+# Tooltip
+
+<Tagline>A tooltip is a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.</Tagline>
+
+<ComponentInfo
+    usage={"import { TooltipTrigger, Tooltip, useTooltipTriggerContext } from \"@orbit-ui/react-components\""}
+    ariaPath="#tooltip"
+    githubPath="/packages/react-components/src/tooltip/src"
+/>
+
+## Usage
+
+### Default
+
+A default tooltip.
+
+<Preview>
+    <Story name="default">
+        <TooltipTrigger>
+            <Button>Trigger</Button>
+            <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
+        </TooltipTrigger>
+    </Story>
+</Preview>
+
+### Trigger
+
+A tooltip trigger can be anything.
+
+<Preview>
+    <Story name="trigger">
+        <Inline gap={10} verticalAlign="center">
+            <TooltipTrigger>
+                <IconButton color="secondary" condensed aria-label="An awesome quote">
+                    <LightbulbIcon />
+                </IconButton>
+                <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <EmailIcon />
+                <Tooltip>Send an email to the orbital space station.</Tooltip>
+            </TooltipTrigger>
+        </Inline>
+    </Story>
+</Preview>
+
+### Content
+
+A tooltip can contains [icons](?path=/docs/icon-gallery--page) and rich content like [links](?path=/docs/link--default-story).
+
+<Preview>
+    <Story name="content">
+        <TooltipTrigger>
+            <Button>Trigger</Button>
+            <Tooltip>
+                <EmailIcon />Your email have been sent to the <TextLink href="https://en.wikipedia.org/wiki/Space_station">orbital space station</TextLink>.
+            </Tooltip>
+        </TooltipTrigger>
+    </Story>
+</Preview>
+
+### Position
+
+A tooltip can open at different positions.
+
+<Preview>
+    <Story name="position">
+        <TooltipTrigger position="right">
+            <Button>Trigger</Button>
+            <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
+        </TooltipTrigger>
+    </Story>
+</Preview>
+
+### Disabled
+
+A tooltip can be disabled event if the trigger is not.
+
+<Preview>
+    <Story name="disabled">
+        <TooltipTrigger disabled>
+            <Button>Trigger</Button>
+            <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
+        </TooltipTrigger>
+    </Story>
+</Preview>
+
+### Custom trigger
+
+A tooltip trigger can update is appareance based on the `isOpen` value by using `useTooltipTriggerContext`.
+
+Any trigger would work as long as it accepts a `ref` and any other props provided by the tooltip.
+
+<Preview filePath="/tooltip/docs/CustomTrigger" noInline />
+
+### Controlled
+
+The open state can be handled in controlled mode.
+
+<Preview filePath="/tooltip/docs/ControlledTooltip" />
+
+## API
+
+### TooltipTrigger
+
+<ComponentInfo
+    usage={"import { TooltipTrigger } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTooltipTrigger} />
+
+### Tooltip
+
+<ComponentInfo
+    usage={"import { Tooltip } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTooltip} />
