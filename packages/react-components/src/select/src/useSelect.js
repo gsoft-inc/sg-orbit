@@ -126,7 +126,24 @@ export function useSelect(children, {
     const triggerId = useId(id, id ? undefined : "o-ui-select-trigger");
 
     const nodes = useCollection(children);
-    const items = useMemo(() => nodes.filter(x => x.type === NodeType.item), [nodes]);
+
+    const items = useMemo(() => {
+        return nodes.reduce((acc, x) => {
+            if (x.type === NodeType.section) {
+                x.items
+                    .filter(y => y.type === NodeType.item)
+                    .forEach(z => {
+                        console.log(z);
+
+                        acc.push(z);
+                    });
+            } else if (x.type === NodeType.item) {
+                acc.push(x);
+            }
+
+            return acc;
+        }, []);
+    }, [nodes]);
 
     items.forEach(x => {
         x.props.onMouseEnter = handleListboxOptionMouseEnter;

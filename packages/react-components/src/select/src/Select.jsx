@@ -202,7 +202,7 @@ export function InnerSelect(props) {
             {selectedText}
             {selectedEndIcon}
         </Text>
-    ) : (
+    ) : placeholder && (
         <Text className="o-ui-select-placeholder">{placeholder}</Text>
     );
 
