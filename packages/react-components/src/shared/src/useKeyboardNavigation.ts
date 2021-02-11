@@ -1,4 +1,5 @@
 import { KeyboardEventHandler } from "react";
+import { Keys } from "./keys";
 import { isNil } from "lodash";
 import { useEventCallback } from "./useEventCallback";
 import type { FocusManager, FocusOptions } from "./useFocusManager";
@@ -8,10 +9,10 @@ interface KeyboardNavigationOptions {
 }
 
 interface KeyboardNavigationBindings {
-    previous: string[];
-    next: string[];
-    first: string[];
-    last: string[];
+    previous: Keys[];
+    next: Keys[];
+    first: Keys[];
+    last: Keys[];
 }
 
 export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}) {
@@ -24,16 +25,16 @@ export function useKeyboardNavigation(focusManager: FocusManager, { previous = [
             }
         };
 
-        if (previous.includes(keyCode.toString())) {
+        if (previous.includes(keyCode)) {
             event.preventDefault();
             focusManager.focusPrevious({ onFocus: handleFocus });
-        } else if (next.includes(keyCode.toString())) {
+        } else if (next.includes(keyCode)) {
             event.preventDefault();
             focusManager.focusNext({ onFocus: handleFocus });
-        } else if (first.includes(keyCode.toString())) {
+        } else if (first.includes(keyCode)) {
             event.preventDefault();
             focusManager.focusFirst({ onFocus: handleFocus });
-        } else if (last.includes(keyCode.toString())) {
+        } else if (last.includes(keyCode)) {
             event.preventDefault();
             focusManager.focusLast({ onFocus: handleFocus });
         }
