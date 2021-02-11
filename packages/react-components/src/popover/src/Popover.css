@@ -13,13 +13,8 @@
     border: 1px solid var(--o-ui-border-2);
 }
 
-/* OVERLAY */
-.o-ui-popover-overlay > *:first-child {
-    border: 2px solid transparent;
-}
-
 .o-ui-popover-overlay:focus > *:first-child {
-    border: 2px solid var(--o-ui-focus-ring-color);
+    border: var(--o-ui-focus-ring-dimension-small) solid var(--o-ui-focus-ring-color);
 }
 
 /* CLOSE BUTTON */

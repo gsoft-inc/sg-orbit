@@ -5,6 +5,7 @@ import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/Listbox"
@@ -166,6 +167,30 @@ A listbox item can have a description.
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Tooltip
+
+A listbox item can have a basic tooltip.
+
+<Preview>
+    <Story name="tooltip">
+        <Listbox aria-label="Planets">
+            <TooltipTrigger>
+                <Item key="earth">Earth</Item>
+                <Tooltip>Best planet so far!</Tooltip>
+            </TooltipTrigger>
+            <Item key="jupiter">Jupiter</Item>
+            <TooltipTrigger>
+                <Item key="mars">Mars</Item>
+                <Tooltip>See you in 2025!</Tooltip>
+            </TooltipTrigger>
             <Item key="mercury">Mercury</Item>
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>

@@ -3,7 +3,6 @@ export * from "./OverlayArrow";
 export * from "./useOverlayTrigger";
 export * from "./useOverlayPosition";
 export * from "./useOverlayLightDismiss";
-export * from "./useOverlayBorderOffset";
 export * from "./useRestoreFocus";
 export * from "./usePopup";
 export * from "./isTargetParent";

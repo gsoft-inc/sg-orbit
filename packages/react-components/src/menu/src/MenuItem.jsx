@@ -1,8 +1,10 @@
 import { Box } from "../../box";
 import { Text } from "../../text";
+import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
 
 const propTypes = {
@@ -25,7 +27,7 @@ const propTypes = {
 };
 
 export function InnerMenuItem({
-    item: { key },
+    item: { key, tooltip },
     id,
     disabled,
     active,
@@ -73,7 +75,7 @@ export function InnerMenuItem({
         }
     });
 
-    return (
+    const itemMarkup = (
         <Box
             {...mergeProps(
                 rest,
@@ -102,6 +104,26 @@ export function InnerMenuItem({
             {endIcon}
         </Box>
     );
+
+    if (!isNil(tooltip)) {
+        const { props: tooltipProps, content: tooltipContent } = tooltip;
+
+        return (
+            <TooltipTrigger
+                {...mergeProps(
+                    tooltipProps,
+                    {
+                        position: "left"
+                    }
+                )}
+            >
+                {itemMarkup}
+                {tooltipContent}
+            </TooltipTrigger>
+        );
+    }
+
+    return itemMarkup;
 }
 
 InnerMenuItem.propTypes = propTypes;
