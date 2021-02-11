@@ -7,7 +7,7 @@ const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>()
 
 let observer: ResizeObserver;
 
-function getResizeObserver() {
+function getResizeObserver(): ResizeObserver {
     return (observer =
         observer || new ResizeObserver(entries => {
             entries.forEach(entry => {
@@ -25,7 +25,7 @@ interface UseResizeObserverOptions extends ResizeObserverOptions {
     isDisabled?: boolean;
 }
 
-export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}) => {
+export const useResizeObserver = (element: Element, onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}): void => {
     useEffect(() => {
         if (!isDisabled) {
             if (!isNil(element)) {
@@ -34,8 +34,7 @@ export const useResizeObserver = (element: Element, onResize: (entry: ResizeObse
                 handlersMap.set(element, onResize);
             }
 
-            return () => {
-
+            return (): void => {
                 if (!isNil(element)) {
                     handlersMap.delete(element);
 

@@ -14,6 +14,6 @@ export function createChainedFunction<T extends ChainableFunction>(...funcs: (T 
     };
 }
 
-export function useChainedEventCallback<T extends ChainableFunction>(...callbacks: (T | false)[]) {
+export function useChainedEventCallback<T extends ChainableFunction>(...callbacks: (T | false)[]): ChainableFunction {
     return useEventCallback(createChainedFunction(...callbacks));
 }

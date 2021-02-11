@@ -3,7 +3,7 @@
 import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "lodash";
 
-export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>) {
+export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>): boolean {
     const [result, setResult] = useState(false);
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
@@ -21,7 +21,7 @@ export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElemen
  * @example
  * const { hasIcon } = useHasChildren({ hasIcon: ".o-ui-lozenge-icon" }, ref);
  */
-export function useHasChildren<T extends string>(querySelectors: Record<T, string>, rootRef: RefObject<HTMLElement>) {
+export function useHasChildren<T extends string>(querySelectors: Record<T, string>, rootRef: RefObject<HTMLElement>): Record<T, boolean> {
     const [queryResults, setResults] = useState<Record<string, boolean>>({});
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.

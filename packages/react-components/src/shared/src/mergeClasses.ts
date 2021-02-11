@@ -1,4 +1,4 @@
-export function mergeClasses(...values: (string | false)[]) {
+export function mergeClasses(...values: (string | false)[]): string {
     const deduped = (values
         .filter(Boolean) as string[])
         .reduce((set, x) => {
