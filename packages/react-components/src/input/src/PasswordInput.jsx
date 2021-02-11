@@ -32,18 +32,6 @@ const propTypes = {
      */
     description: string,
     /**
-     * Help message displayed beneath the input when `validateState` is undefined.
-     */
-    helpMessage: node,
-    /**
-     * Invalid message displayed beneath the input when `validateState` is `"invalid"`.
-     */
-    invalidMessage: node,
-    /**
-     * Valid message displayed beneath the input when `validateState` is `"valid"`.
-     */
-    validMessage: node,
-    /**
      * Whether or not the input should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),

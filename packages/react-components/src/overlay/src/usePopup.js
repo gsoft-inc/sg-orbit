@@ -111,7 +111,7 @@ export function usePopup(type, {
             {
                 "aria-haspopup": type,
                 "aria-expanded": isOpen,
-                "aria-controls": overlayId,
+                "aria-controls": isOpen && overlayId,
                 ref: setTriggerElement
             }
         ),
