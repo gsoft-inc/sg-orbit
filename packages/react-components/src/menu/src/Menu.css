@@ -65,6 +65,14 @@
     color: var(--o-ui-text-2);
 }
 
+/* LABEL */
+.o-ui-menu-item-label {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* SECTION */
 .o-ui-menu-section {
     font-weight: 500;

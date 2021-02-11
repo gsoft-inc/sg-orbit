@@ -132,6 +132,13 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Menu>
     )
+    .add("item overflow", () =>
+        <Menu style={{ width: "150px" }} aria-label="Planets">
+            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+            <Item>Jupiter</Item>
+            <Item>Mars</Item>
+        </Menu>
+    )
     .add("fluid", () =>
         <Menu fluid aria-label="Planets">
             <Item key="earth">Earth</Item>
