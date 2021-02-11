@@ -57,7 +57,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 2px 0 0 var(--o-ui-border-primary-1);
+    box-shadow: 0 var(--o-ui-focus-ring-dimension-medium) 0 0 var(--o-ui-border-primary-1);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
@@ -109,7 +109,7 @@
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 2px 0 0 var(--o-ui-border-danger-1);
+    box-shadow: 0 var(--o-ui-focus-ring-dimension-medium) 0 0 var(--o-ui-border-danger-1);
 }
 
 /* ICON */

@@ -1,9 +1,9 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, IconButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon, VerticalDotsIcon } from "@react-components/icons";
-import { IconButton } from "@react-components/button";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerMenu, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
@@ -254,7 +254,7 @@ Any trigger would work as long as it accepts a `ref` and any other props provide
 You can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) component to hint that activating the button will display additional content.
 
 <Preview>
-    <Story name="menu arrow">
+    <Story name="disclosure arrow">
         <MenuTrigger>
             <Button>
                 <Text>Trigger</Text>
