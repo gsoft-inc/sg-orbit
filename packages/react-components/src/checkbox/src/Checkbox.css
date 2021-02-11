@@ -39,7 +39,7 @@
     bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-rounded-border-radius);
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -196,7 +196,7 @@
 .o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:focus + .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
-    box-shadow: 0 0 0 2px var(--o-ui-border-primary-1);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-border-primary-1);
 }
 
 /* STATE | HOVER | DISABLED */

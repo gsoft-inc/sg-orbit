@@ -1,12 +1,13 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, IconButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon, VerticalDotsIcon } from "@react-components/icons";
-import { IconButton } from "@react-components/button";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerMenu, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/Menu"
@@ -195,6 +196,30 @@ A menu item can have a description.
     </Story>
 </Preview>
 
+### Tooltip
+
+A menu item can have a basic tooltip.
+
+<Preview>
+    <Story name="tooltip">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
+                <Item key="launch">Launch...</Item>
+                <Item key="eject">Eject...</Item>
+                <TooltipTrigger>
+                    <Item key="land">Land...</Item>
+                    <Tooltip>Land on Of Course I Still Love You</Tooltip>
+                </TooltipTrigger>
+                <Item key="help">Help</Item>
+                <Item key="exit">Exit</Item>
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
 ### Disabled item
 
 A menu item can be disabled.
@@ -229,7 +254,7 @@ Any trigger would work as long as it accepts a `ref` and any other props provide
 You can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) component to hint that activating the button will display additional content.
 
 <Preview>
-    <Story name="menu arrow">
+    <Story name="disclosure arrow">
         <MenuTrigger>
             <Button>
                 <Text>Trigger</Text>
@@ -248,7 +273,7 @@ You can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) componen
 
 ### Controlled
 
-The visibility state can be handled in controlled mode.
+The open state can be handled in controlled mode.
 
 <Preview filePath="/menu/docs/ControlledMenu" />
 

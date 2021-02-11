@@ -5,8 +5,8 @@ import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
+import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -59,6 +59,10 @@ const propTypes = {
      * The style to use.
      */
     variant: oneOf(["outline", "ghost"]),
+    /**
+     * A trigger icon.
+     */
+    icon: element,
     /**
      * The direction the select menu will open relative to the input.
      */
@@ -120,6 +124,7 @@ export function InnerSelect(props) {
         onChange,
         onOpenChange,
         variant = "outline",
+        icon,
         direction = "bottom",
         align = "start",
         autoFocus,
@@ -186,6 +191,11 @@ export function InnerSelect(props) {
         }
     });
 
+    const iconMarkup = icon && augmentElement(icon, {
+        className: "o-ui-select-icon",
+        size: "sm"
+    });
+
     const valueMarkup = !isNil(selectedItem) ? (
         <Text className="o-ui-select-value">
             {selectedIcon}
@@ -222,6 +232,7 @@ export function InnerSelect(props) {
                     }
                 )}
             >
+                {iconMarkup}
                 {valueMarkup}
                 <ChevronIcon
                     className={mergeClasses(

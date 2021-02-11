@@ -20,7 +20,7 @@ export function usePopup(type, {
     autoFocusOptions = {},
     trigger = "click",
     hasArrow = false,
-    position: positionProp,
+    position,
     offset,
     allowFlip = true,
     allowPreventOverflow = true,
@@ -75,9 +75,9 @@ export function usePopup(type, {
         hideOnOutsideClick
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
         arrowElement: hasArrow ? arrowElement : undefined,
-        position: positionProp,
+        position,
         offset,
         allowFlip,
         boundaryElement,
@@ -106,7 +106,6 @@ export function usePopup(type, {
         arrowElement,
         focusScope,
         focusManager,
-        position,
         triggerProps: mergeProps(
             triggerProps,
             {

@@ -3,8 +3,10 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
+import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
 const propTypes = {
@@ -27,7 +29,7 @@ const propTypes = {
 };
 
 export function InnerListboxOption({
-    item: { key },
+    item: { key, tooltip },
     id,
     disabled,
     active,
@@ -86,7 +88,7 @@ export function InnerListboxOption({
         }
     });
 
-    return (
+    const optionMarkup = (
         <Box
             {...mergeProps(
                 rest,
@@ -107,7 +109,7 @@ export function InnerListboxOption({
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
-                    "aria-describedby": descriptionId,
+                    "aria-describedby": description && descriptionId,
                     as,
                     ref: forwardedRef
                 }
@@ -119,6 +121,26 @@ export function InnerListboxOption({
             {endIcon}
         </Box>
     );
+
+    if (!isNil(tooltip)) {
+        const { props: tooltipProps, content: tooltipContent } = tooltip;
+
+        return (
+            <TooltipTrigger
+                {...mergeProps(
+                    tooltipProps,
+                    {
+                        position: "left"
+                    }
+                )}
+            >
+                {optionMarkup}
+                {tooltipContent}
+            </TooltipTrigger>
+        );
+    }
+
+    return optionMarkup;
 }
 
 InnerListboxOption.propTypes = propTypes;

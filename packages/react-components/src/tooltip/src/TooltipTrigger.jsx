@@ -1,16 +1,11 @@
 import "./Tooltip.css";
 
 import { Children, forwardRef, useCallback, useState } from "react";
-import { Overlay, OverlayArrow, isTargetParent, useOverlayBorderOffset, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
-
-/*
-TODO:
- - Add tooltip to Select + Menu
-*/
 
 const propTypes = {
     /**
@@ -18,7 +13,7 @@ const propTypes = {
      */
     open: bool,
     /**
-     * The initial value of open when in auto controlled mode.
+     * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen: bool,
     /**
@@ -57,10 +52,6 @@ const propTypes = {
      */
     allowFlip: bool,
     /**
-     * Whether or not the tooltip element position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow: bool,
-    /**
      * z-index of the popover element.
      */
     zIndex: number,
@@ -74,14 +65,23 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-function InnerTooltipTrigger({
+export function parseTooltipTrigger(children) {
+    const array = Children.toArray(resolveChildren(children));
+
+    if (array.length !== 2) {
+        throw new Error("A tooltip trigger must have exactly 2 children.");
+    }
+
+    return array;
+}
+
+export function InnerTooltipTrigger({
     open,
     defaultOpen,
     position : positionProp = "top",
     onOpenChange,
     disabled,
     allowFlip = true,
-    allowPreventOverflow = true,
     containerElement,
     zIndex,
     as = "div",
@@ -135,25 +135,18 @@ function InnerTooltipTrigger({
         hideOnOutsideClick: false
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles, position } = useOverlayPosition(triggerElement, overlayElement, {
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
         arrowElement,
         position: positionProp,
         allowFlip,
         boundaryElement: containerElement,
-        allowPreventOverflow
+        // Not accepting prevent overflow feature because the tooltip big enough and it cause arrow render issue sometime when the position if left or right.
+        allowPreventOverflow: false
     });
 
-    const overlayOffsetStyles = useOverlayBorderOffset(position, "var(--o-ui-scale-bravo)");
+    const [trigger, tooltip] = parseTooltipTrigger(children);
 
-    const [trigger, tooltip] = Children.toArray(resolveChildren(children, { isOpen }));
-
-    if (isNil(trigger) || isNil(tooltip)) {
-        throw new Error("A tooltip trigger must have exactly 2 children.");
-    }
-
-    const { id: contentIdProp } = tooltip.props;
-
-    const tooltipId = useId(contentIdProp, contentIdProp ? undefined : "o-ui-tooltip");
+    const tooltipId = useId(tooltip.props.id, tooltip.props.id ? undefined : "o-ui-tooltip");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         !disabled ? triggerProps : {},
@@ -181,12 +174,10 @@ function InnerTooltipTrigger({
                     overlayPositionProps,
                     {
                         show: !disabled && isOpen,
+                        borderOffset: "var(--o-ui-scale-bravo)",
                         zIndex,
                         className: "o-ui-tooltip-overlay",
-                        style: {
-                            ...overlayStyles,
-                            ...overlayOffsetStyles
-                        },
+                        style: overlayStyles,
                         as,
                         ref: overlayRef
                     }
@@ -197,11 +188,6 @@ function InnerTooltipTrigger({
                     style={arrowStyles}
                     ref={setArrowElement}
                 />
-                {/* <div
-                    className="o-ui-tooltip-arrow"
-                    style={arrowStyles}
-                    ref={setArrowElement}
-                /> */}
             </Overlay>
         </TooltipTriggerContext.Provider>
     );
