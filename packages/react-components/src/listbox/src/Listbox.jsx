@@ -271,14 +271,15 @@ export function InnerListbox({
         elementType: ElementType = ListboxOption,
         ref,
         content,
-        props
+        props,
+        tooltip
     }) => (
         <ElementType
             {...props}
             id={`${rootId}-option-${index}`}
             key={key}
             ref={ref}
-            item={{ key: key }}
+            item={{ key: key, tooltip }}
         >
             {content}
         </ElementType>

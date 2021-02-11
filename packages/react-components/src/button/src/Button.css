@@ -34,7 +34,7 @@ html * {
     bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-pill-border-radius);
     transition: var(--o-ui-focus-ring-transition);
 }

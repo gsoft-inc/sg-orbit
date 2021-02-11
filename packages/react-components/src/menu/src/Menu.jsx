@@ -150,14 +150,15 @@ export function InnerMenu({
         elementType: ElementType = MenuItem,
         ref,
         content,
-        props
+        props,
+        tooltip
     }) => (
         <ElementType
             {...props}
             id={`${rootId}-item-${index}`}
             key={key}
             ref={ref}
-            item={{ key: key }}
+            item={{ key, tooltip }}
         >
             {content}
         </ElementType>

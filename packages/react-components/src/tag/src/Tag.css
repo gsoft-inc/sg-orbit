@@ -180,7 +180,7 @@ button.o-ui-tag-outline.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-focus {
     outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-small) var(--o-ui-border-1) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & ACTIVE */
@@ -245,7 +245,7 @@ button.o-ui-tag-outline[disabled].o-ui-tag-focus,
 a.o-ui-tag-outline[disabled].o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus {
-    box-shadow: 0 0 0 1px var(--o-ui-background-2) inset;
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-small) var(--o-ui-background-2) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */

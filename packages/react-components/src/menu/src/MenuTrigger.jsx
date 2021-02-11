@@ -106,8 +106,6 @@ export function InnerMenuTrigger({
         throw new Error("A menu trigger must have exactly 2 children.");
     }
 
-    const { id: triggerIdProp, "aria-labelledby": ariaLabelledBy, "aria-describedby": ariaDescribedBy } = trigger.props;
-
     const open = useCallback((event, focusTarget) => {
         setFocusTarget(focusTarget);
         setIsOpen(event, true);
@@ -140,7 +138,7 @@ export function InnerMenuTrigger({
         close();
     });
 
-    const triggerId = useId(triggerIdProp, triggerIdProp ? undefined : "o-ui-menu-trigger");
+    const triggerId = useId(trigger.props.id, trigger.props.id ? undefined : "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         triggerProps,
@@ -156,8 +154,8 @@ export function InnerMenuTrigger({
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,
         defaultFocusTarget: focusTargetRef.current,
-        "aria-labelledby": ariaLabelledBy ?? triggerId,
-        "aria-describedby": ariaDescribedBy
+        "aria-labelledby": trigger.props["aria-labelledby"] ?? triggerId,
+        "aria-describedby": trigger.props["aria-describedby"]
     });
 
     return (

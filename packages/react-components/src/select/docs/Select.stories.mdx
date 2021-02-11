@@ -4,6 +4,7 @@ import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-comp
 import { HiddenSelect, InnerSelect, Select } from "@react-components/select";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/Select"
@@ -16,6 +17,7 @@ import { Text } from "@react-components/text";
 
 <ComponentInfo
     usage={"import { Select, Item, Section, HiddenSelect, useSelect } from \"@orbit-ui/react-components\""}
+    ariaPath="#listbox"
     githubPath="/packages/react-components/src/select/src"
 />
 
@@ -141,6 +143,30 @@ A select item can have a description.
     </Story>
 </Preview>
 
+### Tooltip
+
+A select can have a basic tooltip.
+
+<Preview>
+    <Story name="tooltip">
+        <Select placeholder="Planets" aria-label="Planets">
+            <TooltipTrigger>
+                <Item key="earth">Earth</Item>
+                <Tooltip>Best planet so far!</Tooltip>
+            </TooltipTrigger>
+            <Item key="jupiter">Jupiter</Item>
+            <TooltipTrigger>
+                <Item key="mars">Mars</Item>
+                <Tooltip>See you in 2025!</Tooltip>
+            </TooltipTrigger>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
 ### Disabled item
 
 A select item can be disabled.
@@ -221,7 +247,7 @@ A select items can be rendered with an array map.
 
 ### Controlled
 
-The selected key and visibility state can be handled in controlled mode.
+The selected key and open state can be handled in controlled mode.
 
 <Preview filePath="/select/docs/ControlledSelect" />
 

@@ -1,4 +1,22 @@
 .o-ui-tooltip {
-    padding: 10px;
-    background-color: pink;
+    background-color: var(--o-ui-background-1);
+    border-radius: var(--o-ui-rounded-border-radius);
+    box-shadow: var(--o-ui-shadow-100);
+    border: 1px solid var(--o-ui-border-2);
+    padding: var(--o-ui-scale-charlie);
+    max-width: 325px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* We need a .o-ui-tooltip-content class */
+/* LEFT ICON */
+.o-ui-tooltip .o-ui-icon {
+    margin-right: var(--o-ui-scale-alpha);
+}
+
+/* RIGHT ICON */
+.o-ui-tooltip .o-ui-text + .o-ui-icon  {
+    margin-left: var(--o-ui-scale-alpha);
 }

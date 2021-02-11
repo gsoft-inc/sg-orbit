@@ -92,7 +92,7 @@
     outline: none;
     border-radius: var(--o-ui-rounded-border-radius);
     background-color: rgba(0, 0, 0, 0.04);
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) rgba(0, 0, 0, 0.04);
 }
 
 .o-ui-text-link:focus:after,
@@ -183,7 +183,7 @@
 .o-ui-link:focus.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
     background-color: var(--o-ui-background-primary-1-focus);
-    box-shadow: 0 0 0 2px var(--o-ui-background-primary-1-focus);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-background-primary-1-focus);
 }
 
 /* PRIMARY | STATE | ACTIVE */
@@ -208,7 +208,7 @@
 .o-ui-link:focus.o-ui-link-danger,
 .o-ui-link-focus.o-ui-link-danger {
     background-color: var(--o-ui-background-danger-2);
-    box-shadow: 0 0 0 2px var(--o-ui-background-danger-2);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-background-danger-2);
 }
 
 /* DANGER | STATE | ACTIVE */
@@ -232,7 +232,7 @@
 .o-ui-link:focus.o-ui-link-secondary,
 .o-ui-link-focus.o-ui-link-secondary {
     background-color: var(--o-ui-background-3);
-    box-shadow: 0 0 0 2px var(--o-ui-border-2);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-border-2);
 }
 
 /* SECONDARY | STATE | ACTIVE */
