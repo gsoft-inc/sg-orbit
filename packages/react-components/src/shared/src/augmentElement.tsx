@@ -1,8 +1,8 @@
+import { ElementType, HTMLAttributes, ReactElement, RefAttributes, cloneElement } from "react";
 import { isString } from "lodash";
 import { isValidElementType } from "react-is";
 import { mergeProps } from "./mergeProps";
 import { normalizeSize } from "./normalizeSize";
-import React, { ElementType, HTMLAttributes, ReactElement, RefAttributes, cloneElement } from "react";
 import type { SizeAdapter } from "./createSizeAdapter";
 
 export function augmentElement(element: ReactElement & RefAttributes<any>, newProps: Record<string, any>): ReactElement {

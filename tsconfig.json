@@ -11,7 +11,7 @@
     // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
 
     //  the bare minimum for our project
-    "jsx": "react",
+    "jsx": "react-jsx",
     "outDir": "./dist",
     "allowJs": true,
     "esModuleInterop": true,
