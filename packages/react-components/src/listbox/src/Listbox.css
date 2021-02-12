@@ -56,7 +56,7 @@
 }
 
 /* OPTION | STATE | FOCUS */
-.o-ui-listbox-option:not(aria-disabled="true"]) {
+.o-ui-listbox-option:focus {
     background-color: var(--o-ui-background-4);
     outline: none;
 }

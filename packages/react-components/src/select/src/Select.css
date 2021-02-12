@@ -151,6 +151,17 @@
     margin-right: var(--o-ui-scale-alpha);
 }
 
+/* SELECT VALUE | END ICON */
+.o-ui-select-value-end-icon {
+    margin-left: var(--o-ui-scale-alpha);
+}
+
+/* ICON */
+.o-ui-select-icon {
+    flex-shrink: 0;
+    margin-right: var(--o-ui-scale-alpha);
+}
+
 /* MENU | FLUID */
 .o-ui-select-menu-fluid {
     width: 100%;

@@ -43,31 +43,30 @@
 
 /* ARROW | BORDER */
 /* BOTTOM ARROW */
-.o-ui-overlay[data-popper-placement=ˆ="bottom"] .o-ui-overlay-arrow::before {
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-arrow::before {
     border-top: 1px solid var(--o-ui-overlay-arrow-border-color);
     border-left: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
 /* TOP ARROW */
-.o-ui-overlay[data-popper-placementˆ="top"] .o-ui-overlay-arrow::before {
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-overlay-arrow::before {
     border-bottom: 1px solid var(--o-ui-overlay-arrow-border-color);
     border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
 /* RIGHT ARROW */
-.o-ui-overlay[data-popper-placementˆ="right"] .o-ui-overlay-arrow::before {
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-overlay-arrow::before {
     border-bottom: 1px solid var(--o-ui-overlay-arrow-border-color);
     border-left: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
 /* LEFT ARROW */
-.o-ui-overlay[data-popper-placementˆ="left"] .o-ui-overlay-arrow::before {
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-overlay-arrow::before {
     border-top: 1px solid var(--o-ui-overlay-arrow-border-color);
     border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
 /* ARROW | STATE | FOCUS */
-/* FOCUS  */
 .o-ui-overlay:focus .o-ui-overlay-arrow {
     --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
 }
