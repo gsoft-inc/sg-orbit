@@ -1,13 +1,12 @@
 import "./ComboBox.css";
 
-import { ChevronIcon } from "../../icons";
 import { HiddenComboBox } from "./HiddenComboBox";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { TextInput } from "../../input";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
+import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useComboBox } from "./useComboBox";
