@@ -1,5 +1,5 @@
 import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
-import { augmentElement, resolveChildren } from "..";
+import { augmentElement, resolveChildren } from "../../shared";
 import { isNil, isString, isUndefined } from "lodash";
 
 const SLOT_KEY = "__slot__";
@@ -24,24 +24,49 @@ interface Slots {
     [x: string]: any;
 }
 
-export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Record<string, unknown> {
-    const slotElements: Record<string, unknown> = {};
+
+function findSlots(children: ReactNode, slots: string[]): Record<string, any> {
+    return Children.toArray(children).reduce((acc: Record<string, any>, x: ReactNode) => {
+        if (!isNil(x)) {
+            const reactElement = x as ReactElement;
+            const slotKey = (reactElement.props && reactElement.props["slot"]) ?? (reactElement.type && (reactElement.type as SlottedElement)[SLOT_KEY]);
+
+            if (!isNil(slotKey) && slots.includes(slotKey)) {
+                acc[slotKey] = x;
+            }
+        }
+
+        return acc;
+    }, {}) as Record<string, any>;
+}
+
+export function parseSlots(children: ReactNode, slots: string[]): Record<string, any> {
+    if (isNil(children)) {
+        return {};
+    }
 
     children = resolveChildren(children);
 
     if (!isString(children)) {
-        const slotsKeys = Object.keys(slots);
+        return findSlots(children, slots);
+    }
 
-        Children.forEach(children, x => {
-            if (!isNil(x)) {
-                const reactComponent = x as ReactElement;
-                const slot = (reactComponent.props && reactComponent.props["slot"]) ?? (reactComponent.type && (reactComponent.type as SlottedElement)[SLOT_KEY]);
+    return {
+        stringValue: children
+    };
+}
 
-                if (!isNil(slot) && slotsKeys.includes(slot)) {
-                    slotElements[slot] = x;
-                }
-            }
-        });
+export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Record<string, any> {
+    if (isNil(children)) {
+        return {};
+    }
+
+    let slotElements: Record<string, any> = {};
+
+    children = resolveChildren(children);
+
+    if (!isString(children)) {
+        slotElements = findSlots(children, Object.keys(slots));
     }
 
     const { required, defaultWrapper: Wrapper } = _;
@@ -68,7 +93,11 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Reco
                 throw new Error("A default wrapper should have a slot key.");
             }
 
-            slotElements[wrapperSlot] = <Wrapper>{children}</Wrapper>;
+            slotElements[wrapperSlot] = (
+                <Wrapper>
+                    {children}
+                </Wrapper>
+            );
         }
     }
 
@@ -76,13 +105,13 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Reco
         const slotProps = slots[x];
 
         if (!isNil(slotProps)) {
-            slotElements[x] = augmentElement(slotElements[x] as ReactElement, slotProps);
+            slotElements[x] = augmentElement(slotElements[x], slotProps);
         }
     });
 
     return slotElements;
 }
 
-export function useSlots(children: ReactElement, slots: Slots): Record<string, unknown> {
+export function useSlots(children: ReactElement, slots: Slots): Record<string, any> {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }
