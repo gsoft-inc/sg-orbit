@@ -49,10 +49,12 @@ export function InnerPopover({
             as: Text
         },
         button: {
-            className: "o-ui-popover-button"
+            className: "o-ui-popover-button",
+            size: "sm"
         },
         "button-group": {
-            className: "o-ui-popover-button-group"
+            className: "o-ui-popover-button-group",
+            size: "sm"
         },
         "close-button": {
             // Used to prevent autoFocusing the close button.

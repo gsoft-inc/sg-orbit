@@ -3,7 +3,6 @@ import "./ComboBox.css";
 import { HiddenComboBox } from "./HiddenComboBox";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
-import { Text } from "../../text";
 import { TextInput } from "../../input";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
@@ -27,6 +26,8 @@ const propTypes = {
      * The initial value of open when in auto controlled mode.
      */
     defaultOpen: bool,
+    inputValue: string,
+    defaultInputValue: string,
     /**
      * A controlled selected key.
      */
@@ -48,12 +49,19 @@ const propTypes = {
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
-     * Called when the combobox value change.
+     * Called when the combobox input value change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {boolean} selectedKey - The new value.
+     * @returns {void}
+     */
+    onInputValueChange: func,
+    /**
+     * Called when the combobox selection change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} selectedKey - The new selected key.
      * @returns {void}
      */
-    onChange: func,
+    onSelectionChange: func,
     /**
      * Called when the combobox open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -61,6 +69,13 @@ const propTypes = {
      * @returns {void}
      */
     onOpenChange: func,
+    /**
+     * Called before the combobox results are rendered.
+     * @param {Result[]} results - The results to render.
+     * @param {string} query - The search query.
+     * @returns {Result[]} - New results to render.
+     */
+    onResults: func,
     /**
      * A trigger icon.
      */
@@ -118,13 +133,17 @@ export function InnerComboBox(props) {
         id,
         open,
         defaultOpen,
+        inputValue: inputValueProp,
+        defaultInputValue,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
         required,
         validationState,
-        onChange,
+        onInputValueChange,
+        onSelectionChange,
         onOpenChange,
+        onResults,
         icon,
         direction = "bottom",
         align = "start",
@@ -152,13 +171,16 @@ export function InnerComboBox(props) {
         fieldProps
     );
 
-    const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useComboBox(children, {
+    const { inputValue, selectedKey, triggerProps, overlayProps, listboxProps } = useComboBox(children, {
         id,
         open,
         defaultOpen,
+        inputValue: inputValueProp,
+        defaultInputValue,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
-        onChange,
+        onInputValueChange,
+        onSelectionChange,
         onOpenChange,
         direction,
         align,
@@ -193,8 +215,8 @@ export function InnerComboBox(props) {
                     rest,
                     triggerProps,
                     {
-                        value: selectedItem?.text ?? "",
-                        placeholder: isNil(selectedItem) ? placeholder : undefined,
+                        value: inputValue,
+                        placeholder: isNil(selectedKey) ? placeholder : undefined,
                         icon: iconMarkup,
                         className: cssModule(
                             "o-ui-combobox-trigger",

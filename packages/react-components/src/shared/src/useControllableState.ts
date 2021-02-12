@@ -103,7 +103,7 @@ export function useControllableState<T>(controlledValue: T, initialValue: T, def
 
     const [isControlledRef] = useRefState(isControlledProp);
 
-    const transformState = useCallback((newState, context) => {
+    const transformState = useCallback((newState, context = {}) => {
         const transformedState = isFunction(onChange)
             ? onChange(newState, { ...context, isControlled: isControlledRef.current })
             : undefined;

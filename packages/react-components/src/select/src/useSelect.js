@@ -89,7 +89,7 @@ export function useSelect(children, {
         keyProp: KeyProp
     });
 
-    const updateSelectedKey = (event, newValue) => {
+    const updateSelectedKey = useCallback((event, newValue) => {
         if (newValue !== selectedKey) {
             if (!isNil(onChange)) {
                 onChange(event, newValue);
@@ -97,7 +97,7 @@ export function useSelect(children, {
 
             setSelectedKey(newValue);
         }
-    };
+    }, [selectedKey, setSelectedKey, onChange]);
 
     const open = useCallback((event, focusTarget) => {
         setFocusTarget(focusTarget);
@@ -153,12 +153,14 @@ export function useSelect(children, {
         x.props.onMouseEnter = handleListboxOptionMouseEnter;
     });
 
+    // TODO: move to useControllableState onChange?
     const selectedItem = items.find(x => x.key === selectedKey);
 
     const { icon, text, "end-icon": endIcon, stringValue } = parseSlots(selectedItem?.content, ["icon", "text", "end-icon"]);
 
     return {
         selectedKey,
+        setSelectedKey: updateSelectedKey,
         selectedItem: isNil(selectedItem) ? undefined : {
             text: text?.props?.children ?? stringValue ?? "",
             icon,

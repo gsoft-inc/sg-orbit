@@ -42,9 +42,12 @@ export function useComboBox(children, {
     id,
     open: openProp,
     defaultOpen,
+    inputValue: inputValueProp,
+    defaultInputValue,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
-    onChange,
+    onInputValueChange,
+    onSelectionChange,
     onOpenChange,
     direction = "bottom",
     align = "start",
@@ -58,8 +61,38 @@ export function useComboBox(children, {
     menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }) {
-    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
-    const [triggerWidth, setTriggerWidth] = useState();
+    const nodes = useCollection(children);
+    const items = useCollectionItems(nodes);
+
+    const [inputValue, setInputValue] = useControllableState(inputValueProp, defaultInputValue, "");
+    // const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
+    // const [selectedItem, setSelectedItem] = useState(null);
+    const [selection, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null, {
+        onChange: useCallback((newState, { event } = {}) => {
+            if (!isNil(newState)) {
+                const selectedItem = items.find(x => x.key === newState);
+
+                const { icon, text, "end-icon": endIcon, stringValue } = parseSlots(selectedItem?.content, ["icon", "text", "end-icon"]);
+
+                updateInputValue(event, text ?? "");
+
+                return {
+                    key: newState,
+                    item: {
+                        text: text?.props?.children ?? stringValue ?? "",
+                        icon,
+                        endIcon
+                    }
+                };
+            }
+
+            return {
+                key: null,
+                item: null
+            };
+        }, [items, updateInputValue])
+    });
+    const [triggerWidth, setTriggerWidth] = useState(null);
     const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
@@ -80,7 +113,8 @@ export function useComboBox(children, {
         hideOnLeave: true,
         restoreFocus: true,
         autoFocus: false,
-        trigger: "click",
+        // Contrary to other popups, our combobox open when a value is typed.
+        trigger: "none",
         position: `${direction}-${align}`,
         offset: [0, 4],
         allowFlip,
@@ -88,15 +122,25 @@ export function useComboBox(children, {
         keyProp: KeyProp
     });
 
-    const updateSelectedKey = (event, newValue) => {
-        if (newValue !== selectedKey) {
-            if (!isNil(onChange)) {
-                onChange(event, newValue);
+    const updateInputValue = useCallback((event, newValue) => {
+        if (!isNil(onInputValueChange)) {
+            onInputValueChange(event, newValue);
+        }
+
+        setInputValue(newValue);
+    }, [setInputValue, onInputValueChange]);
+
+    const updateSelectedKey = useCallback((event, newValue) => {
+        if (newValue !== selection.key) {
+            if (!isNil(onSelectionChange)) {
+                onSelectionChange(event, newValue);
             }
 
+            // Not proud of passing the event, to the set but I am not sure how to do this
+            // differently because the selectedKey could also be controlled.
             setSelectedKey(newValue);
         }
-    };
+    }, [selection.key, setSelectedKey, onSelectionChange]);
 
     const open = useCallback((event, focusTarget) => {
         setFocusTarget(focusTarget);
@@ -108,17 +152,21 @@ export function useComboBox(children, {
     }, [setIsOpen]);
 
     // Open the menu on up & down arrow keydown.
-    const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case Keys.down:
-                event.preventDefault();
-                open(event, FocusTarget.first);
-                break;
-            case Keys.up:
-                event.preventDefault();
-                open(event, FocusTarget.last);
-                break;
-        }
+    // const handleTriggerKeyDown = useEventCallback(event => {
+    //     switch (event.keyCode) {
+    //         case Keys.down:
+    //             event.preventDefault();
+    //             open(event, FocusTarget.first);
+    //             break;
+    //         case Keys.up:
+    //             event.preventDefault();
+    //             open(event, FocusTarget.last);
+    //             break;
+    //     }
+    // });
+
+    const handleTriggerChange = useEventCallback(event => {
+        setInputValue(event.target.value);
     });
 
     // Keep the selected key in sync with the listbox.
@@ -144,24 +192,23 @@ export function useComboBox(children, {
 
     const triggerId = useId(id, id ? undefined : "o-ui-combobox-trigger");
 
-    const nodes = useCollection(children);
-    const items = useCollectionItems(nodes);
+    // const nodes = useCollection(children);
+    // const items = useCollectionItems(nodes);
 
     items.forEach(x => {
         x.props.onMouseEnter = handleListboxOptionMouseEnter;
     });
 
-    const selectedItem = items.find(x => x.key === selectedKey);
+    // const selectedItem = items.find(x => x.key === selectedKey);
 
-    const { icon, text, "end-icon": endIcon, stringValue } = parseSlots(selectedItem?.content, ["icon", "text", "end-icon"]);
+    // const { icon, text, "end-icon": endIcon, stringValue } = parseSlots(selectedItem?.content, ["icon", "text", "end-icon"]);
 
     return {
-        selectedKey,
-        selectedItem: isNil(selectedItem) ? undefined : {
-            text: text?.props?.children ?? stringValue ?? "",
-            icon,
-            endIcon
-        },
+        inputValue,
+        setInputValue: updateInputValue,
+        selectedKey: selection.key,
+        setSelectedKey: updateSelectedKey,
+        selectedItem: selection.item,
         isOpen,
         open,
         close,
@@ -170,7 +217,8 @@ export function useComboBox(children, {
             triggerProps,
             {
                 id: triggerId,
-                onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
+                onChange: handleTriggerChange,
+                // onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                 disabled,
                 "aria-label": ariaLabel,
                 "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
@@ -191,7 +239,7 @@ export function useComboBox(children, {
         ),
         listboxProps: {
             nodes,
-            selectedKey,
+            selectedKey: selection.key,
             onChange: handleListboxChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
