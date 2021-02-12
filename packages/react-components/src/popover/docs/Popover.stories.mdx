@@ -8,6 +8,7 @@ import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
 import { Launch } from "./assets";
+import { Paragraph } from "../../paragraph";
 import { TextInput } from "@react-components/input";
 
 <Meta
@@ -38,19 +39,6 @@ A default popover.
 
 <Preview>
     <Story name="default">
-        <PopoverTrigger>
-            <Button>Trigger</Button>
-            <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Popover>
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
-### Heading
-
-A popover can have an heading.
-
-<Preview>
-    <Story name="heading">
         <PopoverTrigger>
             <Button>Trigger</Button>
             <Popover>
@@ -121,7 +109,7 @@ A popper can have a form.
 
 <Preview>
     <Story name="form">
-        <PopoverTrigger>
+        <PopoverTrigger autoFocus>
             <Button>Trigger</Button>
             <Popover>
                 <CrossButton slot="close-button" aria-label="Close" />
@@ -157,7 +145,10 @@ A popover can be triggered on *hover* instead of on *click*.
         <PopoverTrigger trigger="hover">
             <Button>Trigger</Button>
             <Popover>
-                <Image src={Launch} alt="SpaceX launch" />
+                <Content>
+                    <Image src={Launch} alt="SpaceX launch" />
+                    <Paragraph className="mt3">SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Paragraph>
+                </Content>
             </Popover>
         </PopoverTrigger>
     </Story>
