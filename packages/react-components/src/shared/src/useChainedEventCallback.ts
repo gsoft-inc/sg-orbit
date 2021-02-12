@@ -4,7 +4,7 @@ import { useEventCallback } from "./useEventCallback";
 
 type ChainableFunction = (...args: any[]) => void;
 
-export function createChainedFunction<T extends ChainableFunction>(...funcs: (T | false)[]) {
+export function createChainedFunction<T extends ChainableFunction>(...funcs: (T | false)[]): ChainableFunction {
     return (...args: any[]) => {
         (funcs.filter(Boolean) as T[])
             .forEach(x => {
