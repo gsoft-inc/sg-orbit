@@ -6,8 +6,7 @@ type ChainableFunction = (...args: any[]) => void;
 
 export function createChainedFunction<T extends ChainableFunction>(...funcs: (T | false)[]) {
     return (...args: any[]) => {
-        (funcs
-            .filter(Boolean) as T[])
+        (funcs.filter(Boolean) as T[])
             .forEach(x => {
                 x(...args);
             });
