@@ -37,20 +37,22 @@ module.exports = {
             }
         },
         {
-            files: ["*.tsx"],
+            files: ["*.ts?(x)"],
             extends:[
                 "@sharegate/eslint-config-typescript"
             ],
             rules: {
-                "@typescript-eslint/explicit-function-return-type": "off",
-                "@typescript-eslint/explicit-module-boundary-types": "off",
-                "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true, "variables": false }]
+                "no-param-reassign": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+
+                "jsx-control-statements/jsx-jcs-no-undef": "off",
+                "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }]
             }
         }
     ],
     rules: {
         "no-param-reassign": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx",".ts", ".tsx", ".mdx"] }],
         "react/destructuring-assignment": "off",
         "jsx-control-statements/jsx-use-if-tag": "off"
     }

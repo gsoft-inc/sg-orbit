@@ -24,7 +24,7 @@ module.exports = {
         [
             "@babel/preset-react",
             {
-                // runtime: "automatic",
+                runtime: "automatic",
                 useBuiltIns: true,
                 development: !IS_PRODUCTION
             }
@@ -49,7 +49,6 @@ module.exports = {
             }
         ],
         "babel-plugin-jsx-control-statements",
-        "babel-plugin-react-require",
         IS_PRODUCTION && "babel-plugin-jsx-remove-data-test-id",
         !IS_TEST && [
             "babel-plugin-named-asset-import",
