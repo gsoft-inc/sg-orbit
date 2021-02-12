@@ -4,7 +4,7 @@ import { isNil } from "lodash";
 import { useCallback } from "react";
 import { useCommittedRef } from "./useCommittedRef";
 
-export function useEventCallback<T extends (...args: any[]) => void>(callback: T): (...args: any[]) => void {
+export function useEventCallback(callback: (...args: any[]) => void): (...args: any[]) => void {
     const ref = useCommittedRef(callback);
 
     return useCallback((...args) => {
