@@ -38,7 +38,7 @@ function useCollectionItems(nodes) {
     }, [nodes]);
 }
 
-export function useSelect(children, {
+export function useComboBox(children, {
     id,
     open: openProp,
     defaultOpen,
@@ -52,7 +52,6 @@ export function useSelect(children, {
     disabled,
     allowFlip,
     allowPreventOverflow,
-    syncTriggerAndMenuWidth = true,
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
@@ -140,11 +139,10 @@ export function useSelect(children, {
 
     // Ensure the trigger and menu width stay in sync.
     useResizeObserver(triggerElement, useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }), {
-        isDisabled: !syncTriggerAndMenuWidth || !isNil(menuWidth),
         box: "border-box"
     });
 
-    const triggerId = useId(id, id ? undefined : "o-ui-select-trigger");
+    const triggerId = useId(id, id ? undefined : "o-ui-combobox-trigger");
 
     const nodes = useCollection(children);
     const items = useCollectionItems(nodes);
@@ -184,7 +182,7 @@ export function useSelect(children, {
             menuProps,
             overlayProps,
             {
-                className: "o-ui-select-menu",
+                className: "o-ui-combobox-menu",
                 style: {
                     ...menuStyle,
                     width: menuWidth ?? triggerWidth ?? undefined
@@ -200,7 +198,7 @@ export function useSelect(children, {
             autoFocus: isOpen,
             defaultFocusTarget: focusTargetRef.current,
             fluid: true,
-            className: "o-ui-select-listbox",
+            className: "o-ui-combobox-listbox",
             "aria-label": ariaLabel,
             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined,
             "aria-describedby": ariaDescribedBy

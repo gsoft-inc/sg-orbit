@@ -12,23 +12,47 @@ function slotDecorator(slotName, ElementType) {
 
 export { slotDecorator as slot };
 
-export function getSlots(children, { _ = {}, ...slots }) {
-    const slotElements = {};
+function findSlots(children, slots) {
+    return Children.toArray(children).reduce((acc, x) => {
+        if (!isNil(x)) {
+            const slotKey = (x.props && x.props["slot"]) ?? (x.type && x.type[SLOT_KEY]);
+
+            if (!isNil(slotKey) && slots.includes(slotKey)) {
+                acc[slotKey] = x;
+            }
+        }
+
+        return acc;
+    }, {});
+}
+
+export function parseSlots(children, slots) {
+    if (isNil(children)) {
+        return {};
+    }
 
     children = resolveChildren(children);
 
     if (!isString(children)) {
-        const slotsKeys = Object.keys(slots);
+        return findSlots(children, slots);
+    }
 
-        Children.forEach(children, x => {
-            if (!isNil(x)) {
-                const slot = (x.props && x.props["slot"]) ?? (x.type && x.type[SLOT_KEY]);
+    return {
+        stringValue: children
+    };
+}
 
-                if (!isNil(slot) && slotsKeys.includes(slot)) {
-                    slotElements[slot] = x;
-                }
-            }
-        });
+export function getSlots(children, { _ = {}, ...slots }) {
+    if (isNil(children)) {
+        return {};
+    }
+
+    let slotElements = {};
+
+    children = resolveChildren(children);
+
+    if (!isString(children)) {
+        slotElements = findSlots(children, Object.keys(slots));
     }
 
     const { required, defaultWrapper: Wrapper } = _;
