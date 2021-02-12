@@ -53,19 +53,24 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
     const handleFocus = useEventCallback(event => { show(event); });
     const handleBlur = useEventCallback(event => { hide(event); });
 
-    return trigger === "hover"
-        // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
-        ? {
-            onMouseEnter: handleMouseEnter,
-            onMouseLeave: handleMouseLeave,
-            onFocus: handleFocus,
-            onBlur: handleBlur,
-            onKeyDown: handleKeyDown
-        }
-        // The overlay will show on click or on "Enter" or "Space" keydown.
-        : {
-            onClick: handleClick,
-            onKeyDown: handleKeyDown,
-            onKeyUp: handleKeyUp
-        };
+    switch (trigger) {
+        case "click":
+            // The overlay will show on click or on "Enter" or "Space" keydown.
+            return {
+                onClick: handleClick,
+                onKeyDown: handleKeyDown,
+                onKeyUp: handleKeyUp
+            };
+        case "hover":
+            return {
+                // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
+                onMouseEnter: handleMouseEnter,
+                onMouseLeave: handleMouseLeave,
+                onFocus: handleFocus,
+                onBlur: handleBlur,
+                onKeyDown: handleKeyDown
+            };
+        default:
+            return {};
+    }
 }

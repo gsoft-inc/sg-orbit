@@ -16,7 +16,7 @@ function CustomSelect({
                 color="secondary"
                 className="w-20"
             >
-                {!isNil(selectedItem) ? selectedItem.content : placeholder}
+                {!isNil(selectedItem) ? selectedItem.text : placeholder}
             </Button>
             <Overlay {...overlayProps}>
                 <Listbox {...listboxProps} />

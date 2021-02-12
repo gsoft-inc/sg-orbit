@@ -1,15 +1,26 @@
+const CustomTrigger = forwardRef(({ children, ...rest }, ref) => {
+    const { isOpen } = usePopoverTriggerContext();
+
+    return (
+        <Button
+            {...rest}
+            color={isOpen ? "secondary" : "primary"}
+            ref={ref}
+        >
+            Trigger
+        </Button>
+    );
+});
+
 function CustomPopover({ children, ...rest }) {
-    const { isOpen, close } = usePopoverTriggerContext();
+    const { close } = usePopoverTriggerContext();
 
     const handleClose = useCallback(event => {
         close(event);
     }, [close]);
 
     return (
-        <Popover
-            {...rest}
-            className={cx({ "bg-primary-50": isOpen })}
-        >
+        <Popover {...rest}>
             {children}
             <Button onClick={handleClose}>Close</Button>
         </Popover>
@@ -19,11 +30,10 @@ function CustomPopover({ children, ...rest }) {
 render(() => {
     return (
         <PopoverTrigger>
-            <Button>Toggle</Button>
+            <CustomTrigger />
             <CustomPopover>
-                <CrossButton slot="close-button" aria-label="Close" />
-                <Header>WikiSpace</Header>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </CustomPopover>
         </PopoverTrigger>
     );

@@ -2,7 +2,7 @@ import { Children, useMemo } from "react";
 import { Divider } from "../divider";
 import { Item, Section } from "../placeholders";
 import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
-import { any, array, element as elementProp, elementType, number, object, oneOfType, string } from "prop-types";
+import { any, array, arrayOf, elementType, number, object, oneOfType, element as reactElement, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolveChildren } from "../shared";
 
@@ -13,7 +13,7 @@ export const NodeShape = {
     type: string.isRequired,
     elementType: elementType,
     ref: any,
-    content: oneOfType([elementProp, string]),
+    content: oneOfType([reactElement, arrayOf(reactElement), string]),
     props: object,
     items: array // Sections only
 };

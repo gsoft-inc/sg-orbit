@@ -6,7 +6,7 @@ import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps, useSlots } from "../../shared";
+import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -174,37 +174,38 @@ export function InnerSelect(props) {
         ref: forwardedRef
     });
 
-    const { icon: selectedIcon, text: selectedText, "end-icon": selectedEndIcon } = useSlots(selectedItem?.content, {
-        _: {
-            defaultWrapper: Text
-        },
-        icon: {
-            size: "sm",
-            className: "o-ui-select-value-start-icon"
-        },
-        text: {
-            className: "o-ui-select-value-text"
-        },
-        "end-icon": {
-            size: "sm",
-            className: "o-ui-select-value-end-icon"
-        }
-    });
-
     const iconMarkup = icon && augmentElement(icon, {
         className: "o-ui-select-icon",
         size: "sm"
     });
 
-    const valueMarkup = !isNil(selectedItem) ? (
-        <Text className="o-ui-select-value">
-            {selectedIcon}
-            {selectedText}
-            {selectedEndIcon}
+    const selectedIconMarkup = selectedItem?.icon && augmentElement(selectedItem.icon, {
+        size: "sm",
+        className: "o-ui-select-value-start-icon"
+    });
+
+    const selectedTextMarkup = selectedItem?.text && (
+        <Text className="o-ui-select-value-text">
+            {selectedItem.text}
         </Text>
-    ) : placeholder && (
-        <Text className="o-ui-select-placeholder">{placeholder}</Text>
     );
+
+    const selectedEndIconMarkup = selectedItem?.endIcon && augmentElement(selectedItem.endIcon, {
+        size: "sm",
+        className: "o-ui-select-value-end-icon"
+    });
+
+    const valueMarkup = isNil(selectedItem)
+        ? placeholder && (
+            <Text className="o-ui-select-placeholder">{placeholder}</Text>
+        )
+        : (
+            <span className="o-ui-select-value">
+                {selectedIconMarkup}
+                {selectedTextMarkup}
+                {selectedEndIconMarkup}
+            </span>
+        );
 
     return (
         <>
