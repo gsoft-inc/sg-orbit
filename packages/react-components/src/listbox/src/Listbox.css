@@ -93,6 +93,7 @@
     padding-left: var(--o-ui-scale-bravo);
     margin: var(--o-ui-scale-bravo) 0;
     cursor: default;
+    line-height: 1;
 }
 
 /* LABEL */
