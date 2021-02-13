@@ -2,6 +2,7 @@ import "./Popover.css";
 
 import { Box } from "../../box";
 import { Content } from "../../placeholders";
+import { CrossButton } from "../../button";
 import { Text } from "../../text";
 import { any, elementType, func, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -31,9 +32,9 @@ export function InnerPopover({
         close(event);
     });
 
-    const { heading, content, footer, button, "button-group": buttonGroup, "close-button": closeButton } = useSlots(children, {
+    const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, {
         _: {
-            defaultWrapper: Content
+            required: ["heading", "content"]
         },
         heading: {
             size: "sm",
@@ -55,14 +56,6 @@ export function InnerPopover({
         "button-group": {
             className: "o-ui-popover-button-group",
             size: "sm"
-        },
-        "close-button": {
-            // Used to prevent autoFocusing the close button.
-            id: "o-ui-popover-close-button",
-            onClick: handleCloseButtonClick,
-            condensed: true,
-            size: "xs",
-            className: "o-ui-popover-close-button"
         }
     });
 
@@ -91,7 +84,15 @@ export function InnerPopover({
                 }
             )}
         >
-            {closeButton}
+            <CrossButton
+                // Used to prevent autoFocusing the close button.
+                id="o-ui-popover-close-button"
+                onClick={handleCloseButtonClick}
+                condensed
+                size="xs"
+                className="o-ui-popover-close-button"
+                aria-label="Close"
+            />
             {headerMarkup}
             {content}
             {footerMarkup}

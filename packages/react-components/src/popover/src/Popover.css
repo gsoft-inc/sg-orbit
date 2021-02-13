@@ -5,6 +5,7 @@
 .o-ui-popover {
     background-color: var(--o-ui-background-1);
     padding: var(--o-ui-scale-foxtrot);
+    padding-top: var(--o-ui-scale-echo);
     border-radius: var(--o-ui-rounded-border-radius);
     box-shadow: var(--o-ui-shadow-200);
     /* Must keep a max width. */

@@ -67,6 +67,7 @@ export function useComboBox(children, {
     const [inputValue, setInputValue] = useControllableState(inputValueProp, defaultInputValue, "");
     // const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     // const [selectedItem, setSelectedItem] = useState(null);
+
     const [selection, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null, {
         onChange: useCallback((newState, { event } = {}) => {
             if (!isNil(newState)) {
@@ -92,6 +93,7 @@ export function useComboBox(children, {
             };
         }, [items, updateInputValue])
     });
+
     const [triggerWidth, setTriggerWidth] = useState(null);
     const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 

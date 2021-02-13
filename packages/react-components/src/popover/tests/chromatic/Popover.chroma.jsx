@@ -1,5 +1,5 @@
 import { Box } from "@react-components/box";
-import { Button, ButtonGroup, CrossButton } from "@react-components/button";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Children, forwardRef, useLayoutEffect, useState } from "react";
 import { Content, Footer } from "@react-components/placeholders";
 import { Field, Label } from "@react-components/field";
@@ -85,7 +85,10 @@ stories()
         <Boundary>
             <PopoverTrigger>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -93,7 +96,10 @@ stories()
         <Boundary>
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -101,46 +107,9 @@ stories()
         <Boundary>
             <PopoverTrigger trigger="hover">
                 <Button autoFocus>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
-            </PopoverTrigger>
-        </Boundary>
-    )
-    .add("text only", () =>
-        <Boundary>
-            <PopoverTrigger defaultOpen>
-                <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Popover>
-            </PopoverTrigger>
-        </Boundary>
-    )
-    .add("content", () =>
-        <Boundary>
-            <PopoverTrigger defaultOpen>
-                <Button>Toggle</Button>
-                <Popover>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                </Popover>
-            </PopoverTrigger>
-        </Boundary>
-    )
-    .add("close button", () =>
-        <Boundary>
-            <PopoverTrigger defaultOpen>
-                <Button>Toggle</Button>
-                <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                </Popover>
-            </PopoverTrigger>
-        </Boundary>
-    )
-    .add("heading", () =>
-        <Boundary>
-            <PopoverTrigger defaultOpen>
-                <Button>Toggle</Button>
                 <Popover>
                     <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
                 </Popover>
             </PopoverTrigger>
         </Boundary>
@@ -150,6 +119,7 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
+                    <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <Footer>Step 2/4</Footer>
                 </Popover>
@@ -161,6 +131,7 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
+                    <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <Button>Accept</Button>
                 </Popover>
@@ -172,6 +143,7 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
+                    <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <ButtonGroup>
                         <Button color="secondary">Cancel</Button>
@@ -186,7 +158,6 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
                     <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                     <Footer>Step 2/4</Footer>
@@ -203,7 +174,7 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Heading>Space News</Heading>
                     <Content>
                         <Form fluid>
                             <Field>
@@ -229,7 +200,7 @@ stories()
             <PopoverTrigger defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Heading>Space News</Heading>
                     <Content>
                         <Image src={Launch} alt="SpaceX launch" />
                     </Content>
@@ -245,7 +216,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="auto" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -253,7 +227,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="auto-start" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -261,7 +238,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="auto-end" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -269,7 +249,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="top" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -277,7 +260,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="top-start" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -285,7 +271,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="top-end" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -293,7 +282,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="bottom" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -301,7 +293,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="bottom-start" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -309,7 +304,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="bottom-end" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -317,7 +315,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="right" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -325,7 +326,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="right-start" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -333,7 +337,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="right-end" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -341,7 +348,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="left" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -349,7 +359,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="left-start" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -357,7 +370,10 @@ stories()
         <Boundary>
             <PopoverTrigger position="left-end" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -366,7 +382,7 @@ stories()
             <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Heading>Space News</Heading>
                     <Content>
                         <Form fluid>
                             <Field>
@@ -392,7 +408,7 @@ stories()
             <PopoverTrigger autoFocus defaultOpen>
                 <Button>Toggle</Button>
                 <Popover>
-                    <CrossButton slot="close-button" aria-label="Close" />
+                    <Heading>Space News</Heading>
                     <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 </Popover>
             </PopoverTrigger>
@@ -403,6 +419,7 @@ stories()
             <PopoverTrigger autoFocus open>
                 <Button>Toggle</Button>
                 <Popover>
+                    <Heading>Space News</Heading>
                     <Content>
                         <Form fluid>
                             <Field>
@@ -429,7 +446,10 @@ stories()
                 {({ isOpen }) => (
                     <>
                         <Button color={isOpen ? "secondary" : "primary"}>Toggle</Button>
-                        <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                        <Popover>
+                            <Heading>Space News</Heading>
+                            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                        </Popover>
                     </>
                 )}
             </PopoverTrigger>
@@ -452,7 +472,10 @@ stories()
             <Boundary>
                 <PopoverTrigger open>
                     <Button>Toggle</Button>
-                    <PrimaryPopover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</PrimaryPopover>
+                    <PrimaryPopover>
+                        <Heading>Space News</Heading>
+                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                    </PrimaryPopover>
                 </PopoverTrigger>
             </Boundary>
         );
@@ -461,7 +484,10 @@ stories()
         <Boundary>
             <PopoverTrigger className="border-red" open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -469,7 +495,10 @@ stories()
         <Boundary>
             <PopoverTrigger style={{ border: "1px solid red" }} open>
                 <Button>Toggle</Button>
-                <Popover>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -477,7 +506,10 @@ stories()
         <Boundary>
             <PopoverTrigger open>
                 <Button>Toggle</Button>
-                <Popover className="border-red">SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover className="border-red">
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     )
@@ -485,7 +517,10 @@ stories()
         <Boundary>
             <PopoverTrigger open>
                 <Button>Toggle</Button>
-                <Popover style={{ border: "1px solid red" }}>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Popover>
+                <Popover style={{ border: "1px solid red" }}>
+                    <Heading>Space News</Heading>
+                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                </Popover>
             </PopoverTrigger>
         </Boundary>
     );
