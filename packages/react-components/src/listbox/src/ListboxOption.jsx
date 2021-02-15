@@ -91,9 +91,9 @@ export function InnerListboxOption({
     });
 
     // TEMP code until useSlots is improved with conditional props based on other slots existence.
-    if (!isNil(icon)) {
+    if (!isNil(icon) && isNil(description)) {
         icon = augmentElement(icon, {
-            className: isNil(description) ? "sm" : "lg"
+            size: "sm"
         });
     }
 

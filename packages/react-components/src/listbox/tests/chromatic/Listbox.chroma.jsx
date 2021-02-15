@@ -182,6 +182,27 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
+    .add("item with end icon and description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <NotificationIcon slot="end-icon" />
+                <Text slot="description">Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="end-icon">
+                    <LightbulbIcon />
+                    <NotificationIcon />
+                </IconList>
+                <Text slot="description">Mars</Text>
+            </Item>
+        </Listbox>
+    )
     .add("item with avatar", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
