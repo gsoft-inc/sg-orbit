@@ -23,6 +23,22 @@ function stories(segment) {
         .build();
 }
 
+function SmallAvatar({ children, ...rest }) {
+    return (
+        <div {...rest}>
+            {children}
+        </div>
+    );
+}
+
+function LargeAvatar({ children, ...rest }) {
+    return (
+        <div {...rest}>
+            {children}
+        </div>
+    );
+}
+
 stories()
     .add("only items", () =>
         <Listbox aria-label="Planets">
@@ -98,7 +114,10 @@ stories()
                 <NotificationIcon />
                 <Text>Earth</Text>
             </Item>
-            <Item key="jupiter">Jupiter</Item>
+            <Item key="jupiter">
+                <NotificationIcon />
+                <Text>Jupiter</Text>
+            </Item>
             <Item key="mars">
                 <IconList>
                     <LightbulbIcon />
@@ -106,10 +125,41 @@ stories()
                 </IconList>
                 <Text>Mars</Text>
             </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
+            <Item key="mercury">
+                <NotificationIcon />
+                <Text>Mercury</Text>
+            </Item>
+            <Item key="neptune">
+                <NotificationIcon />
+                <Text>Neptune</Text>
+            </Item>
+            <Item key="saturn">
+                <NotificationIcon />
+                <Text>Saturn</Text>
+            </Item>
+            <Item key="uranus">
+                <NotificationIcon />
+                <Text>Uranus</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with start icon and description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <NotificationIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">Mars</Text>
+            </Item>
         </Listbox>
     )
     .add("item with end icon", () =>
@@ -130,6 +180,41 @@ stories()
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item with avatar", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <Text>Mars</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with avatar and description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Mars</Text>
+            </Item>
         </Listbox>
     )
     .add("item with description", () =>

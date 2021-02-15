@@ -10,8 +10,7 @@ export * from "./keys";
 export * from "./focusTarget";
 
 // Utils
-export * from "./normalizeSize";
-export * from "./createSizeAdapter";
+export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./cssModule";
