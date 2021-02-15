@@ -1,7 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
@@ -66,13 +66,15 @@ export function InnerListboxOption({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    const { icon, text, description, "end-icon": endIcon } = useSlots(children, {
+    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, {
         _: {
             defaultWrapper: Text
         },
         icon: {
-            size: "sm",
             className: "o-ui-listbox-option-start-icon"
+        },
+        avatar: {
+            className: "o-ui-listbox-option-avatar"
         },
         text: {
             id: labelId,
@@ -88,6 +90,13 @@ export function InnerListboxOption({
         }
     });
 
+    // TEMP code until useSlots is improved with conditional props based on other slots existence.
+    if (!isNil(icon) && isNil(description)) {
+        icon = augmentElement(icon, {
+            size: "sm"
+        });
+    }
+
     const optionMarkup = (
         <Box
             {...mergeProps(
@@ -99,6 +108,7 @@ export function InnerListboxOption({
                     onKeyUp: !disabled ? handleKeyUp : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
+                        description && "has-description",
                         active && "active",
                         focus && "focus",
                         hover && "hover"
@@ -116,6 +126,7 @@ export function InnerListboxOption({
             )}
         >
             {icon}
+            {avatar}
             {text}
             {description}
             {endIcon}
