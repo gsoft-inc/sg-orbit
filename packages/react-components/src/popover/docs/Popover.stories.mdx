@@ -1,15 +1,12 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Button, ButtonGroup } from "@react-components/button";
+import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Content, Footer, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { Field, HelpMessage, Label } from "@react-components/field";
-import { Form } from "@react-components/form";
-import { Heading } from "@react-components/heading";
+import { Content, Footer, InnerContent } from "@react-components/placeholders";
+import { Heading, InnerHeading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
 import { Launch } from "./assets";
 import { Paragraph } from "../../paragraph";
-import { TextInput } from "@react-components/input";
 
 <Meta
     title="Components/Popover"
@@ -21,7 +18,7 @@ import { TextInput } from "@react-components/input";
 <Tagline>A Popover can be used to display some content on top of another.</Tagline>
 
 <ComponentInfo
-    usage={"import { PopoverTrigger, Popover, Header, Content, PopoverTriggerContext, usePopoverTriggerContext } from \"@orbit-ui/react-components\""}
+    usage={"import { PopoverTrigger, Popover, Heading, Content, Footer, PopoverTriggerContext, usePopoverTriggerContext } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/popover/src"
 />
 
@@ -191,14 +188,14 @@ A popover `open` state can be handled in controlled mode.
 
 <ArgsTable of={InnerPopover} />
 
-### Header
+### Heading
 
 <ComponentInfo
-    usage={"import { Header } from \"@orbit-ui/react-components\""}
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
     compact
 />
 
-<ArgsTable of={InnerHeader} />
+<ArgsTable of={InnerHeading} />
 
 ### Content
 
