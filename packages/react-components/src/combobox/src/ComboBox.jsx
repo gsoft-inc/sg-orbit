@@ -1,20 +1,27 @@
 import "./ComboBox.css";
 
+import { FocusTarget } from "../../../dist";
 import { HiddenComboBox } from "./HiddenComboBox";
+import { KeyProp } from "../../listbox";
+import { Keys, augmentElement, cssModule, mergeProps, useAutoFocus, useChainedEventCallback, useControllableState, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver } from "../../shared";
 import { Listbox } from "../../listbox";
-import { Overlay } from "../../overlay";
+import { NodeType, useCollection } from "../../collection";
+import { Overlay, usePopup } from "../../overlay";
 import { TextInput } from "../../input";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
-import { forwardRef } from "react";
-import { isNil } from "lodash";
-import { useComboBox } from "./useComboBox";
+import { forwardRef, useCallback, useMemo, useState } from "react";
+import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
 
 /*
 TODO:
 - inputValue
 - items
+*/
+
+/*
+Do I have to maintain a dummy selected key for listbox????
+Or always provide null
 */
 
 const propTypes = {
@@ -26,16 +33,14 @@ const propTypes = {
      * The initial value of open when in auto controlled mode.
      */
     defaultOpen: bool,
-    inputValue: string,
-    defaultInputValue: string,
     /**
-     * A controlled selected key.
+     * A controlled combobox value.
      */
-    selectedKey: string,
+    value: string,
     /**
-     * The initial value of `selectedKey` when uncontrolled.
+     * The default value of `value` when uncontrolled.
      */
-    defaultSelectedKey: string,
+    defaultValue: string,
     /**
      * Temporary text that occupies the combobox trigger when no value is selected.
      */
@@ -49,19 +54,12 @@ const propTypes = {
      */
     validationState: oneOf(["valid", "invalid"]),
     /**
-     * Called when the combobox input value change.
+     * Called when the combobox value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} selectedKey - The new value.
+     * @param {string} selectedKey - The new value.
      * @returns {void}
      */
-    onInputValueChange: func,
-    /**
-     * Called when the combobox selection change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} selectedKey - The new selected key.
-     * @returns {void}
-     */
-    onSelectionChange: func,
+    onChange: func,
     /**
      * Called when the combobox open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -126,22 +124,39 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+function useCollectionItems(nodes) {
+    return useMemo(() => {
+        return nodes.reduce((acc, x) => {
+            if (x.type === NodeType.section) {
+                x.items
+                    .filter(y => y.type === NodeType.item)
+                    .forEach(z => {
+                        console.log(z);
+
+                        acc.push(z);
+                    });
+            } else if (x.type === NodeType.item) {
+                acc.push(x);
+            }
+
+            return acc;
+        }, []);
+    }, [nodes]);
+}
+
 export function InnerComboBox(props) {
     const [fieldProps] = useFieldInputProps();
 
     const {
         id,
-        open,
+        open: openProp,
         defaultOpen,
-        inputValue: inputValueProp,
-        defaultInputValue,
-        selectedKey: selectedKeyProp,
-        defaultSelectedKey,
+        value: valueProp,
+        defaultValue,
         placeholder,
         required,
         validationState,
-        onInputValueChange,
-        onSelectionChange,
+        onChange,
         onOpenChange,
         onResults,
         icon,
@@ -161,7 +176,7 @@ export function InnerComboBox(props) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps,
+        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as: TriggerType = TextInput,
         children,
         forwardedRef,
@@ -171,29 +186,104 @@ export function InnerComboBox(props) {
         fieldProps
     );
 
-    const { inputValue, selectedKey, triggerProps, overlayProps, listboxProps } = useComboBox(children, {
-        id,
-        open,
+    const [value, setValue] = useControllableState(valueProp, defaultValue, "");
+    const [triggerWidth, setTriggerWidth] = useState(null);
+    const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
+
+    const triggerRef = useMergedRefs(forwardedRef);
+
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, newValue) => {
+        // When the select is closed because of a blur or outside click event, reset the focus target.
+        if (!newValue) {
+            setFocusTarget(FocusTarget.first);
+        }
+    });
+
+    const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
+        id: menuId,
+        open: openProp,
         defaultOpen,
-        inputValue: inputValueProp,
-        defaultInputValue,
-        selectedKey: selectedKeyProp,
-        defaultSelectedKey,
-        onInputValueChange,
-        onSelectionChange,
-        onOpenChange,
-        direction,
-        align,
-        autoFocus,
-        disabled,
+        onOpenChange: handleOpenChange,
+        hideOnEscape: true,
+        hideOnLeave: true,
+        restoreFocus: true,
+        autoFocus: false,
+        // Contrary to other popups, our combobox open when a value is typed.
+        trigger: "none",
+        position: `${direction}-${align}`,
+        offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        zIndex,
-        ariaLabel,
-        ariaLabelledBy,
-        ariaDescribedBy,
-        menuProps,
-        ref: forwardedRef
+        keyProp: KeyProp
+    });
+
+    const updateValue = (event, newValue) => {
+        if (!isNil(onChange)) {
+            onChange(event, newValue);
+        }
+
+        setValue(newValue);
+    };
+
+    const open = (event, focusTarget) => {
+        setFocusTarget(focusTarget);
+        setIsOpen(event, true);
+    };
+
+    const close = event => {
+        setIsOpen(event, false);
+    };
+
+    // Open the menu on up & down arrow keydown.
+    // const handleTriggerKeyDown = useEventCallback(event => {
+    //     switch (event.keyCode) {
+    //         case Keys.down:
+    //             event.preventDefault();
+    //             open(event, FocusTarget.first);
+    //             break;
+    //         case Keys.up:
+    //             event.preventDefault();
+    //             open(event, FocusTarget.last);
+    //             break;
+    //     }
+    // });
+
+    const handleTriggerChange = useEventCallback(event => {
+        // TODO: filter and display results
+
+        updateValue(event, event.target.value);
+    });
+
+    const handleListboxChange = useEventCallback((event, newValue) => {
+        // updateSelectedKey(event, newValue);
+
+        // TODO: set value
+
+        close(event);
+    });
+
+    // Move focus to item on mouse hover.
+    const handleListboxOptionMouseEnter = useEventCallback(event => {
+        focusManager.focusKey(event.target.getAttribute(KeyProp));
+    });
+
+    useAutoFocus(triggerRef, {
+        isDisabled: !autoFocus || isOpen,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    // Ensure the trigger and menu width stay in sync.
+    useResizeObserver(triggerElement, useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }), {
+        box: "border-box"
+    });
+
+    const triggerId = useId(id, id ? undefined : "o-ui-combobox-trigger");
+
+    const nodes = useCollection(children);
+    const items = useCollectionItems(nodes);
+
+    items.forEach(x => {
+        x.props.onMouseEnter = handleListboxOptionMouseEnter;
     });
 
     const iconMarkup = icon && augmentElement(icon, {
@@ -205,7 +295,7 @@ export function InnerComboBox(props) {
         <>
             <HiddenComboBox
                 name={name}
-                selectedKey={selectedKey}
+                value={value}
                 required={required}
                 validationState={validationState}
                 disabled={disabled}
@@ -215,9 +305,12 @@ export function InnerComboBox(props) {
                     rest,
                     triggerProps,
                     {
-                        value: inputValue,
-                        placeholder: isNil(selectedKey) ? placeholder : undefined,
+                        id: triggerId,
+                        value,
+                        placeholder,
                         icon: iconMarkup,
+                        onChange: handleTriggerChange,
+                        // onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                         className: cssModule(
                             "o-ui-combobox-trigger",
                             validationState,
@@ -225,15 +318,42 @@ export function InnerComboBox(props) {
                             active && "active",
                             focus && "focus",
                             hover && "hover"
-                        )
+                        ),
+                        disabled,
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                        "aria-describedby": ariaDescribedBy,
+                        ref: triggerRef
                     }
                 )}
             />
             <Overlay
-                {...overlayProps}
-                zIndex={zIndex}
+                {...mergeProps(
+                    menuProps,
+                    overlayProps,
+                    {
+                        zIndex,
+                        className: "o-ui-combobox-menu",
+                        style: {
+                            ...menuStyle,
+                            width: menuWidth ?? triggerWidth ?? undefined
+                        }
+                    }
+                )}
             >
-                <Listbox {...listboxProps} />
+                <Listbox
+                    nodes={nodes}
+                    onChange={handleListboxChange}
+                    // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
+                    // a value because the listbox re-render before the exit animation is done.
+                    autoFocus={isOpen}
+                    defaultFocusTarget={focusTargetRef.current}
+                    fluid
+                    className="o-ui-combobox-listbox"
+                    aria-label={ariaLabel}
+                    aria-labelledby={isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined}
+                    aria-describedby={ariaDescribedBy}
+                />
             </Overlay>
         </>
     );
