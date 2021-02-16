@@ -9,7 +9,7 @@ export interface StrictBoxProps {
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
-    slot?: string
+    slot?: string;
     /*
      * React children
     */
@@ -17,7 +17,7 @@ export interface StrictBoxProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export interface BoxProps extends StrictBoxProps {
