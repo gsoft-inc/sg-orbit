@@ -50,4 +50,4 @@ export * from "./checkable";
 export * from "./styles";
 
 // Types
-export type { SlotAttribute, ChildrenAttribute, AsAttribute, ForwardedRefAttribute } from "./component-types";
+export type { SlotAttribute, ChildrenAttribute, AsAttribute, ForwardedRefAttribute, AsAttributeWithChildren } from "./component-types";
