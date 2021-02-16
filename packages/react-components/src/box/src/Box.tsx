@@ -1,7 +1,7 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, RefAttributes, forwardRef } from "react";
 import { PropsWithoutForwardedRef, omitProps } from "../../shared";
 
-export interface BoxProps {
+export interface InnerBoxProps {
     /**
     * An HTML element type or a custom React element type to render as.
     */
@@ -20,7 +20,9 @@ export interface BoxProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function InnerBox(props: BoxProps): ReactElement {
+export type BoxProps = PropsWithoutForwardedRef<InnerBoxProps> & RefAttributes<any>;
+
+export function InnerBox(props: InnerBoxProps): ReactElement {
     const {
         as: Wrapper = "div",
         children,
@@ -38,7 +40,7 @@ export function InnerBox(props: BoxProps): ReactElement {
     );
 }
 
-export const Box = forwardRef<any, PropsWithoutForwardedRef<BoxProps>>((props, ref) => (
+export const Box = forwardRef<any, BoxProps>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 

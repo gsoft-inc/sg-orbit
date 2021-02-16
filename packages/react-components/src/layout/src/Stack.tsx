@@ -1,10 +1,10 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { Flex } from "./Flex";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, RefAttributes, forwardRef } from "react";
+import { Flex, FlexProps } from "./Flex";
 import { PropsWithoutForwardedRef, mergeProps } from "../../shared";
 import { isNil } from "lodash";
 import { useFlexAlignment } from "./adapters";
 
-interface StackProps {
+export interface InnerStackProps {
     /**
      * Whether or not to inline the elements.
      */
@@ -47,6 +47,8 @@ interface StackProps {
     forwardedRef: ForwardedRef<any>
 }
 
+export type StackProps = PropsWithoutForwardedRef<InnerStackProps> & RefAttributes<any>;
+
 export function InnerStack({
     align,
     verticalAlign,
@@ -55,20 +57,21 @@ export function InnerStack({
     children,
     forwardedRef,
     ...rest
-}: StackProps): ReactElement {
+}: InnerStackProps): ReactElement {
     const alignProps = useFlexAlignment("vertical", align, verticalAlign);
+    const extraProps: Partial<FlexProps> = {
+        direction: "column",
+        gap: gap !== 0 ? gap : undefined,
+        wrap: !isNil(wrap) ? "wrap" : undefined,
+        ref: forwardedRef
+    };
 
     return (
         <Flex
             {...mergeProps(
                 rest,
                 alignProps,
-                {
-                    direction: "column" as const,
-                    gap: gap !== 0 ? gap : undefined,
-                    wrap: !isNil(wrap) ? "wrap" as const : undefined,
-                    ref: forwardedRef
-                }
+                extraProps
             )}
         >
             {children}
@@ -76,7 +79,7 @@ export function InnerStack({
     );
 }
 
-export const Stack = forwardRef<any, PropsWithoutForwardedRef<StackProps>>((props, ref) => (
+export const Stack = forwardRef<any, StackProps>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
 
