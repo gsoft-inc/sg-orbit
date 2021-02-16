@@ -1,8 +1,8 @@
 import "./Flex.css";
 
 import { Box } from "../../box";
-import { ElementType, ForwardedRef, ReactElement, ReactNode, RefAttributes, forwardRef } from "react";
-import { PropsWithoutForwardedRef, cssModule, mergeProps } from "../../shared";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { InnerPropsToProps, cssModule, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
@@ -65,7 +65,7 @@ export interface InnerFlexProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export type FlexProps = PropsWithoutForwardedRef<InnerFlexProps> & RefAttributes<any>;
+export type FlexProps = InnerPropsToProps<InnerFlexProps>;
 
 const Spacing = [
     "--o-ui-scale-alpha",

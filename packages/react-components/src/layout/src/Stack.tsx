@@ -1,6 +1,6 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode, RefAttributes, forwardRef } from "react";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
 import { Flex, FlexProps } from "./Flex";
-import { PropsWithoutForwardedRef, mergeProps } from "../../shared";
+import { InnerPropsToProps, mergeProps } from "../../shared";
 import { isNil } from "lodash";
 import { useFlexAlignment } from "./adapters";
 
@@ -47,7 +47,7 @@ export interface InnerStackProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export type StackProps = PropsWithoutForwardedRef<InnerStackProps> & RefAttributes<any>;
+export type StackProps = InnerPropsToProps<InnerStackProps>;
 
 export function InnerStack({
     align,
