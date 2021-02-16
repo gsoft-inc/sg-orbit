@@ -18,7 +18,7 @@ interface TextProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
     slot?: string;
     /**
