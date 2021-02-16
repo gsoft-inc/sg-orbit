@@ -1,4 +1,4 @@
-import { ElementType, ForwardedRef, PropsWithChildren, ReactNode } from "react";
+import type { ElementType, ForwardedRef, PropsWithChildren, ReactNode } from "react";
 
 export interface ForwardedRefAttribute<T = any> {
     /**
