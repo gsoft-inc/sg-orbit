@@ -65,5 +65,4 @@ export const Text = slot("text", forwardRef<any, PropsWithoutForwardedRef<TextPr
     <InnerText {...props} forwardedRef={ref} />
 )));
 
-
 Text.displayName = "Text";
