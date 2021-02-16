@@ -9,22 +9,18 @@ interface InlineProps {
      * Whether or not to inline the elements.
      */
     inline?: boolean;
-
     /**
      * Whether or not to reverse the order of the elements.
      */
     reverse?: boolean;
-
     /**
      * The horizontal alignment of the elements.
      */
     align?: "start" | "end" | "center";
-
     /**
      * The vertical alignment of the elements.
      */
     verticalAlign?: "start" | "end" | "center";
-
     /**
      * Space to display between each elements.
      */
@@ -37,17 +33,14 @@ interface InlineProps {
      * Whether the elements take up all the space of their container.
      */
     fluid?: boolean;
-
     /**
     * An HTML element type or a custom React element type to render as.
     */
     as?: ElementType;
-
     /**
      * React children
     */
     children?: ReactNode;
-
     /**
     * @ignore
     */

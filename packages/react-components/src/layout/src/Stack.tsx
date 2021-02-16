@@ -9,22 +9,18 @@ interface StackProps {
      * Whether or not to inline the elements.
      */
     inline?: boolean;
-
     /**
      * Whether or not to reverse the order of the elements.
      */
     reverse?: boolean;
-
     /**
      * The horizontal alignment of the elements.
      */
     align?: "start" | "end" | "center";
-
     /**
      * The vertical alignment of the elements.
      */
     verticalAlign?: "start" | "end" | "center";
-
     /**
      * Space to display between each elements.
      */
@@ -33,22 +29,18 @@ interface StackProps {
      * Whether elements are forced onto one line or can wrap onto multiple lines
      */
     wrap?: boolean;
-
     /**
      * Whether the elements take up the all the space of their container.
      */
     fluid?: boolean;
-
     /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
-
     /**
      * React children.
      */
     children?: ReactNode
-
     /**
     * @ignore
     */
