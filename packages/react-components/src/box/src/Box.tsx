@@ -1,7 +1,23 @@
-import { AsAttributeWithChildren, ForwardedRefAttribute, SlotAttribute, omitProps } from "../../shared";
-import { ReactElement, forwardRef } from "react";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { omitProps } from "../../shared";
 
-export interface StrictBoxProps extends AsAttributeWithChildren, SlotAttribute, ForwardedRefAttribute {
+export interface StrictBoxProps {
+    /**
+    * An HTML element type or a custom React element type to render as.
+    */
+    as?: ElementType;
+    /**
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
+     */
+    slot?: string
+    /*
+     * React children
+    */
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
 }
 
 export interface BoxProps extends StrictBoxProps {
@@ -13,19 +29,19 @@ export interface BoxProps extends StrictBoxProps {
 
 export function InnerBox(props: BoxProps): ReactElement {
     const {
-        as: ElementType = "div",
+        as: Wrapper = "div",
         children,
         forwardedRef,
         ...rest
     } = omitProps(props, ["slot"]);
 
     return (
-        <ElementType
+        <Wrapper
             {...rest}
             ref={forwardedRef}
         >
             {children}
-        </ElementType>
+        </Wrapper>
     );
 }
 

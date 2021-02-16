@@ -48,6 +48,3 @@ export * from "./useRefState";
 export * from "./slots";
 export * from "./checkable";
 export * from "./styles";
-
-// Types
-export type { SlotAttribute, ChildrenAttribute, AsAttribute, ForwardedRefAttribute, AsAttributeWithChildren } from "./component-types";
