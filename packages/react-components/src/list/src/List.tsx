@@ -1,33 +1,37 @@
-import { Children, forwardRef } from "react";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { Children, ElementType, ForwardedRef, ReactElement, forwardRef } from "react";
+import { PropsWithoutForwardedRef, augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { isElement } from "react-is";
 
-const propTypes = {
+export interface ListProps {
     /**
      * A list can vary in size.
      */
-    size: oneOf(["inherit"]),
+    size?: "inherit";
     /**
      * A list can vary in color.
      */
-    color: oneOf(["inherit"]),
+    color?: "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children?: ReactElement;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-const List = forwardRef((props, ref) => {
+const List = forwardRef<any, PropsWithoutForwardedRef<ListProps>>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
     const {
         size,
         color,
-        as: ElementType,
+        as: Wrapper,
         children,
         ...rest
     } = mergeProps(
@@ -36,7 +40,7 @@ const List = forwardRef((props, ref) => {
     );
 
     return (
-        <ElementType
+        <Wrapper
             {...mergeProps(
                 rest,
                 {
@@ -50,11 +54,15 @@ const List = forwardRef((props, ref) => {
             )}
         >
             {Children.map(children, x => {
-                return x && augmentElement(x, {
-                    size
-                });
+                if(isElement(x)){
+                    return x && augmentElement(x, {
+                        size
+                    });
+                }
+
+                return x;
             })}
-        </ElementType>
+        </Wrapper>
     );
 });
 
@@ -62,11 +70,7 @@ List.displayName = "List";
 
 ////////
 
-export function InnerOrderedList({
-    as = "ol",
-    forwardedRef,
-    ...rest
-}) {
+function InnerOrderedList({ as = "ol", forwardedRef, ...rest }: ListProps): ReactElement {
     return (
         <List
             {...rest}
@@ -76,9 +80,7 @@ export function InnerOrderedList({
     );
 }
 
-InnerOrderedList.propTypes = propTypes;
-
-export const OrderedList = forwardRef((props, ref) => (
+export const OrderedList = forwardRef<any, PropsWithoutForwardedRef<ListProps>>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
@@ -86,11 +88,7 @@ OrderedList.displayName = "OrderedList";
 
 ////////
 
-export function InnerUnorderedList({
-    as = "ul",
-    forwardedRef,
-    ...rest
-}) {
+function InnerUnorderedList({ as = "ul", forwardedRef, ...rest }: ListProps): ReactElement {
     return (
         <List
             {...rest}
@@ -100,9 +98,7 @@ export function InnerUnorderedList({
     );
 }
 
-InnerUnorderedList.propTypes = propTypes;
-
-export const UnorderedList = forwardRef((props, ref) => (
+export const UnorderedList = forwardRef<any, PropsWithoutForwardedRef<ListProps>>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
 
