@@ -60,18 +60,16 @@ export function InnerInline({
 }: InnerInlineProps): ReactElement {
     const alignProps = useFlexAlignment("horizontal", align, verticalAlign);
 
-    const extraFlexProps: Partial<FlexProps> = {
-        gap: gap !== 0 ? gap : undefined,
-        wrap: !isNil(wrap) ? "wrap" : undefined,
-        ref: forwardedRef
-    };
-
     return (
         <Flex
-            {...mergeProps(
+            {...mergeProps<Partial<FlexProps>[]>(
                 rest,
                 alignProps,
-                extraFlexProps
+                {
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
             )}
         >
             {children}

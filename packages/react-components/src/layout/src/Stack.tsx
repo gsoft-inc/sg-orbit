@@ -59,19 +59,18 @@ export function InnerStack({
     ...rest
 }: InnerStackProps): ReactElement {
     const alignProps = useFlexAlignment("vertical", align, verticalAlign);
-    const extraProps: Partial<FlexProps> = {
-        direction: "column",
-        gap: gap !== 0 ? gap : undefined,
-        wrap: !isNil(wrap) ? "wrap" : undefined,
-        ref: forwardedRef
-    };
 
     return (
         <Flex
-            {...mergeProps(
+            {...mergeProps<Partial<FlexProps>[]>(
                 rest,
                 alignProps,
-                extraProps
+                {
+                    direction: "column",
+                    gap: gap !== 0 ? gap : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    ref: forwardedRef
+                }
             )}
         >
             {children}
