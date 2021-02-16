@@ -6,15 +6,18 @@ export interface BoxProps {
     * An HTML element type or a custom React element type to render as.
     */
     as?: ElementType;
+
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
     slot?: string;
-    /*
+
+    /**
      * React children
     */
     children?: ReactNode;
-    /*
+
+    /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>
