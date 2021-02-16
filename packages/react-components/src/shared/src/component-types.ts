@@ -1,1 +1,3 @@
-export type PropsWithoutForwardedRef<P extends { forwardedRef?: any }> = Omit<P, "forwardedRef">
+import { RefAttributes } from "react";
+
+export type InnerPropsToProps<P> = Omit<P, "forwardedRef"> & RefAttributes<any>;

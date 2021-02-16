@@ -50,4 +50,4 @@ export * from "./checkable";
 export * from "./styles";
 
 // types
-export type { PropsWithoutForwardedRef } from "./component-types";
+export type { InnerPropsToProps } from "./component-types";

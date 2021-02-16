@@ -1,10 +1,10 @@
 import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { Flex } from "./Flex";
-import { PropsWithoutForwardedRef, mergeProps } from "../../shared";
+import { Flex, FlexProps } from "./Flex";
+import { InnerPropsToProps, mergeProps } from "../../shared";
 import { isNil } from "lodash";
 import { useFlexAlignment } from "./adapters";
 
-interface InlineProps {
+export interface InnerInlineProps {
     /**
      * Whether or not to inline the elements.
      */
@@ -47,6 +47,8 @@ interface InlineProps {
     forwardedRef: ForwardedRef<any>
 }
 
+export type InlineProps = InnerPropsToProps<InnerInlineProps>;
+
 export function InnerInline({
     align,
     verticalAlign,
@@ -55,17 +57,17 @@ export function InnerInline({
     wrap,
     forwardedRef,
     ...rest
-}: InlineProps): ReactElement {
+}: InnerInlineProps): ReactElement {
     const alignProps = useFlexAlignment("horizontal", align, verticalAlign);
 
     return (
         <Flex
-            {...mergeProps(
+            {...mergeProps<Partial<FlexProps>[]>(
                 rest,
                 alignProps,
                 {
                     gap: gap !== 0 ? gap : undefined,
-                    wrap: !isNil(wrap) ? "wrap" as const : undefined,
+                    wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
                 }
             )}
@@ -75,7 +77,7 @@ export function InnerInline({
     );
 }
 
-export const Inline = forwardRef<any, PropsWithoutForwardedRef<InlineProps>>((props, ref) => (
+export const Inline = forwardRef<any, InlineProps>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
 

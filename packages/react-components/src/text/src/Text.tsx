@@ -2,13 +2,13 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { PropsWithoutForwardedRef, Size, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InnerPropsToProps, Size, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export function getTextClass(size: Size): string {
     return `o-ui-text-${normalizeSize(size)}`;
 }
 
-interface TextProps {
+export interface InnerTextProps {
     /**
      * A text can vary in size.
      */
@@ -31,7 +31,9 @@ interface TextProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerText(props: TextProps): ReactElement {
+export type TextProps = InnerPropsToProps<InnerTextProps>;
+
+export function InnerText(props: InnerTextProps): ReactElement {
     const [styleProps] = useStyleProps("text");
 
     const {
@@ -61,7 +63,7 @@ export function InnerText(props: TextProps): ReactElement {
     );
 }
 
-export const Text = slot("text", forwardRef<any, PropsWithoutForwardedRef<TextProps>>((props, ref) => (
+export const Text = slot("text", forwardRef<any, TextProps>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
 

@@ -2,11 +2,11 @@ import "./Flex.css";
 
 import { Box } from "../../box";
 import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { PropsWithoutForwardedRef, cssModule, mergeProps } from "../../shared";
+import { InnerPropsToProps, cssModule, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
-interface FlexProps {
+export interface InnerFlexProps {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
@@ -65,6 +65,8 @@ interface FlexProps {
     forwardedRef: ForwardedRef<any>
 }
 
+export type FlexProps = InnerPropsToProps<InnerFlexProps>;
+
 const Spacing = [
     "--o-ui-scale-alpha",
     "--o-ui-scale-bravo",
@@ -121,7 +123,7 @@ export function InnerFlex({
     children,
     forwardedRef,
     ...rest
-}: FlexProps): ReactElement {
+}: InnerFlexProps): ReactElement {
     const isGapSupported = useIsGapSupported(noGap);
 
     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
@@ -161,6 +163,6 @@ export function InnerFlex({
     );
 }
 
-export const Flex = forwardRef<any, PropsWithoutForwardedRef<FlexProps>>((props, ref) => (
+export const Flex = forwardRef<any, FlexProps>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
