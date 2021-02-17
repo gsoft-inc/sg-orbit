@@ -1,15 +1,18 @@
 import "./Popover.css";
 
 import { Box } from "../../box";
-import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
-import { any, elementType, func, oneOfType, string } from "prop-types";
+import { any, bool, elementType, func, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps, useEventCallback, useSlots } from "../../shared";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
 const propTypes = {
+    /**
+     * Whether or not to hide the close button.
+     */
+    hideCloseButton: bool,
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -21,6 +24,7 @@ const propTypes = {
 };
 
 export function InnerPopover({
+    hideCloseButton,
     as = "section",
     children,
     forwardedRef,
@@ -59,6 +63,18 @@ export function InnerPopover({
         }
     });
 
+    const closeButtonMarkup = !hideCloseButton && (
+        <CrossButton
+        // Used to prevent autoFocusing the close button.
+            id="o-ui-popover-close-button"
+            onClick={handleCloseButtonClick}
+            condensed
+            size="xs"
+            className="o-ui-popover-close-button"
+            aria-label="Close"
+        />
+    );
+
     const headerMarkup = heading && (
         <header className="o-ui-popover-header">
             {heading}
@@ -84,15 +100,7 @@ export function InnerPopover({
                 }
             )}
         >
-            <CrossButton
-                // Used to prevent autoFocusing the close button.
-                id="o-ui-popover-close-button"
-                onClick={handleCloseButtonClick}
-                condensed
-                size="xs"
-                className="o-ui-popover-close-button"
-                aria-label="Close"
-            />
+            {closeButtonMarkup}
             {headerMarkup}
             {content}
             {footerMarkup}

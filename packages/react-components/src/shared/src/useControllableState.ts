@@ -68,8 +68,13 @@ function computeSubsequentState<T>(controlledValue: T, currentState: T, isContro
     };
 }
 
-interface ControllableStateOptions<T> {
-    onChange?: (newState: T, options: { isControlled: boolean; isInitialState: boolean; }) => void
+export interface OnChangeContext {
+    isControlled: boolean;
+    isInitial: boolean;
+}
+
+export interface ControllableStateOptions<T> {
+    onChange?: (newState: T, options: OnChangeContext) => T | undefined;
 }
 
 /**
@@ -96,14 +101,14 @@ interface ControllableStateOptions<T> {
  *
  * setUncontrolledState("Neil Armstrong");
  */
-export function useControllableState<T>(controlledValue: T, initialValue: T, defaultValue: T, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: any) => void, boolean] {
+export function useControllableState<T>(controlledValue: T, initialValue: T, defaultValue: T, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
     validatePrerequisites(controlledValue, initialValue);
 
     let { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
 
     const [isControlledRef] = useRefState(isControlledProp);
 
-    const transformState = useCallback((newState, context = {}) => {
+    const transformState = useCallback((newState: T, context: Omit<OnChangeContext, "isControlled">) => {
         const transformedState = isFunction(onChange)
             ? onChange(newState, { ...context, isControlled: isControlledRef.current })
             : undefined;
@@ -133,7 +138,7 @@ export function useControllableState<T>(controlledValue: T, initialValue: T, def
      * Safely attempt to set state for a prop that might be "controlled" by the consumer.
      * When the prop is "uncontrolled", the state will be updated with the value, otherwise ignored.
      */
-    const setUncontrolledState = useCallback(maybeState => {
+    const setUncontrolledState = useCallback((maybeState: T) => {
         if (!isControlledRef.current) {
             if (maybeState !== stateRef.current) {
                 setState(transformState(maybeState, { isInitial: false }), true);

@@ -21,7 +21,7 @@ const propTypes = {
     validationState: oneOf(["valid", "invalid"])
 };
 
-export function HiddenComboBox({ name, selectedKey, required, validationState, ...rest }) {
+export function HiddenComboBox({ name, value, required, validationState, ...rest }) {
     if (isNil(name)) {
         return null;
     }
@@ -32,7 +32,7 @@ export function HiddenComboBox({ name, selectedKey, required, validationState, .
                 rest,
                 {
                     type: "hidden",
-                    value: selectedKey ?? "",
+                    value: value ?? "",
                     "aria-required": required,
                     "aria-invalid": validationState === "invalid"
                 }
