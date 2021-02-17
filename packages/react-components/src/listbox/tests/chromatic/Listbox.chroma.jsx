@@ -182,39 +182,24 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("item with end icon and description", () =>
-        <Listbox aria-label="Planets">
-            <Item key="earth">
-                <Text>Earth</Text>
-                <NotificationIcon slot="end-icon" />
-                <Text slot="description">Earth</Text>
-            </Item>
-            <Item key="jupiter">
-                <Text>Jupiter</Text>
-                <Text slot="description">Jupiter</Text>
-            </Item>
-            <Item key="mars">
-                <Text>Mars</Text>
-                <IconList slot="end-icon">
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
-                <Text slot="description">Mars</Text>
-            </Item>
-        </Listbox>
-    )
     .add("item with avatar", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                </SmallAvatar>
                 <Text>Mars</Text>
             </Item>
         </Listbox>
@@ -222,17 +207,17 @@ stories()
     .add("item with avatar and description", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Earth</Text>
                 <Text slot="description">Earth</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Jupiter</Text>
                 <Text slot="description">Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Mars</Text>
                 <Text slot="description">Mars</Text>
             </Item>
@@ -243,7 +228,6 @@ stories()
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
-                <NotificationIcon slot="end-icon" />
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
@@ -261,6 +245,23 @@ stories()
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
+        </Listbox>
+    )
+    .add("item with description overflow", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
         </Listbox>
     )
     .add("fluid", () =>
