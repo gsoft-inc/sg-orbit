@@ -130,11 +130,11 @@
     text-overflow: ellipsis;
     line-height: 1;
     justify-self: start;
-    width: 100%;
 }
 
 .o-ui-listbox-option-has-description .o-ui-listbox-option-label {
     grid-area: label;
+    width: 100%;
 }
 
 /* AVATAR */

@@ -186,19 +186,19 @@ stories()
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <SmallAvatar slot="avatar">
-                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
                 </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
                 <SmallAvatar slot="avatar">
-                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
                 </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
                 <SmallAvatar slot="avatar">
-                    <div className="w4 h4"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
                 </SmallAvatar>
                 <Text>Mars</Text>
             </Item>
