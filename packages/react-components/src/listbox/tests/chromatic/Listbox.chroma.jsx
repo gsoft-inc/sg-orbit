@@ -255,6 +255,24 @@ stories()
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item with description overflow fluid", () =>
+        <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
                 <Text>Mars</Text>
                 <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
             </Item>
