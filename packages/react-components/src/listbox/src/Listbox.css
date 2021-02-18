@@ -72,7 +72,7 @@
     background-color: var(--o-ui-border-primary-1);
 }
 
-.o-ui-listbox-option:not([aria-disabled="true"]):hover {
+.o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover {
     background-color: var(--o-ui-background-4);
 }
 

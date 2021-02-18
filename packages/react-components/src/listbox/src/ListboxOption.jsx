@@ -40,7 +40,7 @@ export function InnerListboxOption({
     forwardedRef,
     ...rest
 }) {
-    const { selectedKeys, onSelect } = useListboxContext();
+    const { selectedKeys, onSelect, focusManager, focusOnHover } = useListboxContext();
 
     const handleClick = useEventCallback(event => {
         onSelect(event, key);
@@ -61,6 +61,11 @@ export function InnerListboxOption({
         if (event.keyCode === Keys.space) {
             event.preventDefault();
         }
+    });
+
+    // Move focus to item on mouse hover.
+    const handleMouseEnter = useEventCallback(() => {
+        focusManager.focusKey(key);
     });
 
     const labelId = `${id}-label`;
@@ -90,7 +95,7 @@ export function InnerListboxOption({
         }
     });
 
-    // TEMP code until useSlots is improved with conditional props based on other slots existence.
+    // TEMP: until useSlots is improved with conditional props based on other slots existence.
     if (!isNil(icon) && isNil(description)) {
         icon = augmentElement(icon, {
             size: "sm"
@@ -106,9 +111,11 @@ export function InnerListboxOption({
                     onClick: !disabled ? handleClick : undefined,
                     onKeyDown: !disabled ? handleKeyDown : undefined,
                     onKeyUp: !disabled ? handleKeyUp : undefined,
+                    onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
                         description && "has-description",
+                        focusOnHover && "no-hover",
                         active && "active",
                         focus && "focus",
                         hover && "hover"
@@ -154,7 +161,6 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
-InnerListboxOption.propTypes = propTypes;
 
 export const ListboxOption = forwardRef((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />

@@ -1,3 +1,10 @@
+/*
+TO REMOVE:
+    - legacy stuff
+    - createOrAugmentElement
+    - match
+*/
+
 // Legacy stuff to review
 export * from "./auto-controlled-state";
 export * from "./DomEventListener";

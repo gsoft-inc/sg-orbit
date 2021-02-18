@@ -4,8 +4,8 @@ import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { any, bool, elementType, instanceOf, number, oneOfType, string } from "prop-types";
 import { createPortal } from "react-dom";
+import { cssModule, mergeProps } from "../../shared";
 import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
 const propTypes = {
@@ -58,7 +58,10 @@ export function InnerOverlay({
                         show,
                         enter: "o-ui-fade-in",
                         leave: "o-ui-fade-out",
-                        className: "o-ui-overlay",
+                        className: cssModule(
+                            "o-ui-overlay",
+                            borderOffset && "has-border-offset"
+                        ),
                         style: {
                             "--o-ui-overlay-border-offset": borderOffset,
                             zIndex

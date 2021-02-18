@@ -5,6 +5,7 @@ import {
     Keys,
     arrayify,
     cssModule,
+    isTyping,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -20,9 +21,9 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { NodeShape, NodeType, useCollection } from "../../collection";
+import { NodeShape, NodeType, useCollection, useCollectionItems } from "../../collection";
 import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const KeyProp = "data-o-ui-key";
@@ -61,6 +62,10 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
+     * Whether or not to focus the hovered item.
+     */
+    focusOnHover: bool,
+    /**
      * Default focus target when enabling autofocus.
      */
     defaultFocusTarget: string,
@@ -74,7 +79,13 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-function useSelectionManager({ selectedKey, items }) {
+function useListboxItems(children, nodes) {
+    const collectionNodes = useCollection(children);
+
+    return nodes ?? collectionNodes;
+}
+
+function useSelectionManager(items, { selectedKey }) {
     return useMemo(() => {
         const selectedKeys = arrayify(selectedKey);
 
@@ -119,12 +130,6 @@ function useSelectionManager({ selectedKey, items }) {
     }, [selectedKey, items]);
 }
 
-function useListboxItems(children, nodes) {
-    const collectionNodes = useCollection(children);
-
-    return nodes ?? collectionNodes;
-}
-
 export function InnerListbox({
     id,
     selectedKey: selectedKeyProp,
@@ -133,7 +138,9 @@ export function InnerListbox({
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus?
     defaultFocusTarget,
+    focusOnHover,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -145,16 +152,30 @@ export function InnerListbox({
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
-    const nodes = useListboxItems(children, nodesProp);
-    const items = nodes.filter(x => x.type === NodeType.item);
-
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs(setFocusRef, forwardedRef);
+    const containerRef = useMergedRefs(setFocusRef);
 
-    const selectionManager = useSelectionManager({ selectedKey, items });
+    const nodes = useListboxItems(children, nodesProp);
+    const items = useCollectionItems(nodes);
+
+    const selectionManager = useSelectionManager(items, { selectedKey });
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+
+    useImperativeHandle(forwardedRef, () => {
+        const element = containerRef.current;
+
+        element.focusFirst = () => {
+            focusManager.focusFirst();
+        };
+
+        element.focusLast = () => {
+            focusManager.focusLast();
+        };
+
+        return element;
+    });
 
     const updateSelectedKeys = (event, newValue) => {
         if (!isNil(onChange)) {
@@ -231,11 +252,7 @@ export function InnerListbox({
                 break;
             // eslint-disable-next-line no-fallthrough
             default:
-                // Search accepts only alphanumeric and spacebar keys.
-                if ((event.keyCode >= 48 && event.keyCode <= 57) ||
-                    (event.keyCode >= 65 && event.keyCode <= 90) ||
-                     event.keyCode === Keys.space)
-                {
+                if (isTyping(event.keyCode)) {
                     event.preventDefault();
 
                     const query = searchQueryRef.current + event.key;
@@ -271,7 +288,7 @@ export function InnerListbox({
         elementType: ElementType = ListboxOption,
         ref,
         content,
-        props,
+        props = {},
         tooltip
     }) => (
         <ElementType
@@ -290,18 +307,24 @@ export function InnerListbox({
         index,
         elementType: ElementType = ListboxSection,
         ref,
-        props,
+        props = {},
         items: sectionItems
-    }) => (
-        <ElementType
-            {...props}
-            id={`${rootId}-section-${index}`}
-            key={key}
-            ref={ref}
-        >
-            {sectionItems.map(x => renderOption(x))}
-        </ElementType>
-    );
+    }) => {
+        if (sectionItems.length === 0) {
+            return null;
+        }
+
+        return (
+            <ElementType
+                {...props}
+                id={`${rootId}-section-${index}`}
+                key={key}
+                ref={ref}
+            >
+                {sectionItems.map(x => renderOption(x))}
+            </ElementType>
+        );
+    };
 
     return (
         <Box
@@ -326,7 +349,9 @@ export function InnerListbox({
             <ListboxContext.Provider
                 value={{
                     selectedKeys: selectionManager.selectedKeys,
-                    onSelect: handleSelect
+                    onSelect: handleSelect,
+                    focusManager,
+                    focusOnHover
                 }}
             >
                 {nodes.map(({ type, ...nodeProps }) => {

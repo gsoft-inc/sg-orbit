@@ -140,9 +140,9 @@ export function InnerMenu({
         })
     });
 
-    const rootId = useId(id, id ? undefined : "o-ui-menu");
-
     const nodes = useCollection(children);
+
+    const rootId = useId(id, id ? undefined : "o-ui-menu");
 
     const renderOption = ({
         key,
@@ -171,16 +171,22 @@ export function InnerMenu({
         ref,
         props,
         items: sectionItems
-    }) => (
-        <ElementType
-            {...props}
-            id={`${rootId}-section-${index}`}
-            key={key}
-            ref={ref}
-        >
-            {sectionItems.map(x => renderOption(x))}
-        </ElementType>
-    );
+    }) => {
+        if (sectionItems.length === 0) {
+            return null;
+        }
+
+        return (
+            <ElementType
+                {...props}
+                id={`${rootId}-section-${index}`}
+                key={key}
+                ref={ref}
+            >
+                {sectionItems.map(x => renderOption(x))}
+            </ElementType>
+        );
+    };
 
     const renderDivider = ({
         key,

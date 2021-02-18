@@ -42,7 +42,8 @@ export function useInput({
                     focus && "focus",
                     hover && "hover"
                 )
-            )
+            ),
+            role: "presentation"
         },
         inputProps: {
             id,

@@ -41,4 +41,5 @@ export * from "./popover";
 export * from "./select";
 export * from "./menu";
 export * from "./tooltip";
+export * from "./autocomplete";
 export * from "./shared";
