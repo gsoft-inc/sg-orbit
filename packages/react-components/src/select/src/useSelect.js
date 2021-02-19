@@ -120,7 +120,7 @@ export function useSelect(children, {
 
     const { icon, avatar, text, "end-icon": endIcon, stringValue } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
 
-    const triggerId = useId(id, id ? undefined : "o-ui-select-trigger");
+    const triggerId = useId(id, id ? null : "o-ui-select-trigger");
 
     return {
         selectedKey,

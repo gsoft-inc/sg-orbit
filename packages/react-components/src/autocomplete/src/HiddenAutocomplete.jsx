@@ -33,8 +33,8 @@ export function HiddenAutocomplete({ name, value, required, validationState, ...
                 {
                     type: "hidden",
                     value: value ?? "",
-                    "aria-required": required,
-                    "aria-invalid": validationState === "invalid"
+                    "aria-required": required ? true : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined
                 }
             )}
         />

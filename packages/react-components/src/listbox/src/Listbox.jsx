@@ -139,6 +139,7 @@ export function InnerListbox({
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
     onChange,
+    onFocusChange,
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
@@ -185,7 +186,7 @@ export function InnerListbox({
         setSelectedKey(newValue);
     };
 
-    const handleSelect = useEventCallback((event, key) => {
+    const handleSelectOption = useEventCallback((event, key) => {
         let newKeys;
 
         if (selectionMode === SelectionMode.multiple) {
@@ -195,6 +196,12 @@ export function InnerListbox({
         }
 
         updateSelectedKeys(event, newKeys);
+    });
+
+    const handleFocusOption = useEventCallback((event, key, activeElement) => {
+        if (!isNil(onFocusChange)) {
+            onFocusChange(event, key, activeElement);
+        }
     });
 
     const searchDisposables = useDisposables();
@@ -207,10 +214,15 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusNext();
+                const key = activeElement.getAttribute(KeyProp);
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
@@ -221,24 +233,41 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
+                const key = activeElement.getAttribute(KeyProp);
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
                 }
                 break;
             }
-            case Keys.home:
+            case Keys.home: {
                 event.preventDefault();
-                focusManager.focusFirst();
+
+                const activeElement = focusManager.focusFirst();
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                }
                 break;
-            case Keys.end:
+            }
+            case Keys.end: {
                 event.preventDefault();
-                focusManager.focusLast();
+
+                const activeElement = focusManager.focusLast();
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                }
                 break;
+            }
             case Keys.space:
                 event.preventDefault();
 
@@ -276,7 +305,7 @@ export function InnerListbox({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const rootId = useId(id, id ? undefined : "o-ui-listbox");
+    const rootId = useId(id, id ? null : "o-ui-listbox");
 
     const renderOption = ({
         key,
@@ -345,7 +374,8 @@ export function InnerListbox({
             <ListboxContext.Provider
                 value={{
                     selectedKeys: selectionManager.selectedKeys,
-                    onSelect: handleSelect,
+                    onSelect: handleSelectOption,
+                    onFocus: handleFocusOption,
                     focusManager,
                     focusOnHover
                 }}

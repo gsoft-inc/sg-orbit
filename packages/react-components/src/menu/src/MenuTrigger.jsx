@@ -140,7 +140,7 @@ export function InnerMenuTrigger({
         close();
     });
 
-    const triggerId = useId(trigger.props.id, trigger.props.id ? undefined : "o-ui-menu-trigger");
+    const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         triggerProps,

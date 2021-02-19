@@ -43,10 +43,10 @@ export function useGroupInput({
 
             ),
             role,
-            "aria-required": required,
-            "aria-invalid": validationState === "invalid",
+            "aria-required": required ? true : undefined,
+            "aria-invalid": validationState === "invalid" ? true : undefined,
             "aria-orientation": orientation,
-            "aria-disabled": disabled,
+            "aria-disabled": disabled ? true : undefined,
             ref: groupRef
         },
         itemProps: {
