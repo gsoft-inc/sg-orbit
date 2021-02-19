@@ -1,5 +1,6 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
@@ -186,19 +187,25 @@ stories()
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
                 </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
                 </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5"><img className="br-100" src="https://thispersondoesnotexist.com/image" alt="this person does not exist" /></div>
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
                 </SmallAvatar>
                 <Text>Mars</Text>
             </Item>

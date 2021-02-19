@@ -4,6 +4,7 @@ import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-comp
 import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
+import { LargeAvatar } from "./Avatar.jsx"
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -171,6 +172,52 @@ A listbox item can have a description.
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Avatar
+
+A listbox item can have an avatar.
+
+<Preview>
+    <Story name="avatar">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>ER</span></div></LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>JU</span></div></LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>MA</span></div></LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="mercury">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>ME</span></div></LargeAvatar>
+                <Text>Mercury</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="neptune">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>NE</span></div></LargeAvatar>
+                <Text>Neptune</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="saturn">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>SA</span></div></LargeAvatar>
+                <Text>Saturn</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="uranus">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>UR</span></div></LargeAvatar>
+                <Text>Uranus</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
         </Listbox>
     </Story>
 </Preview>
