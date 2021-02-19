@@ -76,13 +76,17 @@
 }
 
 /* OPTION | STATE | FOCUS */
-.o-ui-listbox-option:focus {
+.o-ui-listbox-option:focus,
+.o-ui-listbox-option-focus,
+.o-ui-listbox-option.o-ui-focus {
     background-color: var(--o-ui-background-4);
     outline: none;
 }
 
 /* OPTION | STATE | FOCUS | SELECTOR BAR */
-.o-ui-listbox-option:focus:after {
+.o-ui-listbox-option:focus:after,
+.o-ui-listbox-option-focus:after,
+.o-ui-listbox-option.o-ui-focus:after {
     content: "";
     display: block;
     position: absolute;
@@ -92,7 +96,9 @@
     background-color: var(--o-ui-border-primary-1);
 }
 
-.o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover {
+/* OPTION | STATE | HOVER */
+.o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
+.o-ui-listbox-option-hover {
     background-color: var(--o-ui-background-4);
 }
 

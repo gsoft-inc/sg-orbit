@@ -47,7 +47,7 @@ export function InnerListboxOption({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
+        switch(event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -58,12 +58,12 @@ export function InnerListboxOption({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
+        if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    // Move focus to item on mouse hover.
+    // Move focus to the option on mouse hover.
     const handleMouseEnter = useEventCallback(() => {
         focusManager.focusKey(key);
     });
@@ -162,6 +162,7 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
+InnerListboxOption.propTypes = propTypes;
 
 export const ListboxOption = forwardRef((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />

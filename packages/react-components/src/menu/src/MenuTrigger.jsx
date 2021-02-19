@@ -120,7 +120,7 @@ export function InnerMenuTrigger({
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
+        switch (event.key) {
             case Keys.down:
                 event.preventDefault();
                 open(event, FocusTarget.first);

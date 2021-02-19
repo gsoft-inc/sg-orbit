@@ -10,10 +10,10 @@ interface CompositeKeyWeakMapNode<T> {
 
 // Useful to compose a weak map key with multiple objects.
 export class CompositeKeyWeakMap<T> {
-    _root = new WeakMap<any, any>();
+    private root = new WeakMap<any, any>();
 
     set(keys: any[], value: T): void {
-        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
+        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this.root;
 
         for (let i = 0; i < keys.length; i += 1) {
             const key = keys[i];
@@ -36,7 +36,7 @@ export class CompositeKeyWeakMap<T> {
     }
 
     get(keys: any[]): T {
-        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this._root;
+        let node: WeakMap<any, any> | CompositeKeyWeakMapNode<T> = this.root;
 
         for (let i = 0; i < keys.length; i += 1) {
             const map: WeakMap<any, any> = (node as CompositeKeyWeakMapNode<T>).map || node as WeakMap<any, any>;

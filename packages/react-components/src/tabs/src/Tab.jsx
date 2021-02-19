@@ -72,7 +72,7 @@ export function InnerTab({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
+        switch(event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -83,7 +83,7 @@ export function InnerTab({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
+        if (event.key === Keys.space) {
             event.preventDefault();
         }
     });

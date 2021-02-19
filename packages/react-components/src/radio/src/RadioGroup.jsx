@@ -88,14 +88,14 @@ const propTypes = {
 
 const NavigationKeyBinding = {
     default: {
-        previous: [Keys.left, Keys.up],
-        next: [Keys.right, Keys.down],
+        previous: [Keys.arrowLeft, Keys.arrowUp],
+        next: [Keys.arrowRight, Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     },
     toolbar: {
-        previous: [Keys.up],
-        next: [Keys.down]
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown]
     }
 };
 

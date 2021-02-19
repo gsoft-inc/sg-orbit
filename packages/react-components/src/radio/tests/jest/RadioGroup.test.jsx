@@ -60,7 +60,7 @@ test("right arrow keypress select the next radio", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowRight", keyCode: Keys.right });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowRight });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
@@ -80,7 +80,7 @@ test("left arrow keypress select the next radio", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowLeft", keyCode: Keys.left });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowLeft });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
@@ -100,7 +100,7 @@ test("down arrow keypress select the next radio", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowDown", keyCode: Keys.down });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowDown });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
@@ -120,7 +120,7 @@ test("up arrow keypress select the next radio", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: "ArrowUp", keyCode: Keys.up });
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowUp });
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());

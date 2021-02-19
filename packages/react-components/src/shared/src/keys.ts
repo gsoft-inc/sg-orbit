@@ -1,24 +1,29 @@
+import { isNilOrEmpty } from "./assertion";
+
+// https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
 export enum Keys {
-    backspace = 8,
-    tab = 9,
-    enter = 13,
-    esc = 27,
-    space = 32,
-    end = 35,
-    home = 36,
-    left = 37,
-    up = 38,
-    right = 39,
-    down = 40,
-    delete = 46
+    arrowDown = "ArrowDown",
+    arrowLeft = "ArrowLeft",
+    arrowRight = "ArrowRight",
+    arrowUp = "ArrowUp",
+    backspace = "Backspace",
+    delete = "Delete",
+    enter = "Enter",
+    end = "End",
+    esc = "Escape",
+    home = "Home",
+    tab = "Tab",
+    space = " "
 }
 
-export function isAlphanumeric(keyCode: number): boolean {
-    return (keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90);
-}
-
-export function isTyping(keyCode: number): boolean {
-    return isAlphanumeric(keyCode)
-        || keyCode === Keys.space
-        || keyCode === Keys.backspace;
+export function appendEventKey(str: string, key: string): string {
+    switch (key) {
+        case Keys.backspace:
+            // Backspace it already handled by browser.
+            return str;
+        case Keys.delete:
+            return !isNilOrEmpty(str) ? str.slice(0, -1) : str;
+        default:
+            return `${str}${key}`;
+    }
 }

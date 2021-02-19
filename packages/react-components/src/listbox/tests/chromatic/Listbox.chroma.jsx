@@ -302,7 +302,6 @@ stories()
                 <Item key="saturn">Saturn</Item>
             </Listbox>
             <Listbox aria-label="Planets">
-                <Item active key="earth">Earth</Item>
                 <Item focus key="jupiter">Jupiter</Item>
                 <Item hover key="mars">Mars</Item>
                 <Item focus hover key="mercury">Mercury</Item>
@@ -364,6 +363,13 @@ stories()
     })
     .add("autofocus", () =>
         <Listbox autoFocus aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus when virtual", () =>
+        <Listbox useVirtualFocus autoFocus aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

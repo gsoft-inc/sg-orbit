@@ -50,14 +50,14 @@ const propTypes = {
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [Keys.left],
-        next: [Keys.right],
+        previous: [Keys.arrowLeft],
+        next: [Keys.arrowRight],
         first: [Keys.home],
         last: [Keys.end]
     },
     vertical: {
-        previous: [Keys.up],
-        next: [Keys.down],
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     }
