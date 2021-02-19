@@ -3,6 +3,8 @@ import { FocusTarget } from "./focusTarget";
 import { isFunction, isNil } from "lodash";
 import { useMemo } from "react";
 
+export const VirtualFocusCssClass = "o-ui-focus";
+
 export class ElementIterator<T> {
     private elements;
     private index;
@@ -65,12 +67,12 @@ export class FocusManager {
                 const { elements } = this.scope;
 
                 elements.forEach(x => {
-                    if (x.classList.contains("o-ui-focus")) {
-                        x.classList.remove("o-ui-focus");
+                    if (x.classList.contains(VirtualFocusCssClass)) {
+                        x.classList.remove(VirtualFocusCssClass);
                     }
                 });
 
-                element.classList.add("o-ui-focus");
+                element.classList.add(VirtualFocusCssClass);
             } else {
                 if (isFunction(element.focus)) {
                     element.focus();
@@ -138,7 +140,7 @@ export class FocusManager {
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains("o-ui-focus"))
+                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
                 : elements.indexOf(document.activeElement as HTMLElement);
 
             const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
@@ -176,7 +178,7 @@ export class FocusManager {
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains("o-ui-focus"))
+                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
                 : elements.indexOf(document.activeElement as HTMLElement);
 
             const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
@@ -231,7 +233,23 @@ export class FocusManager {
     }
 
     hasFocus(): boolean {
-        return this.scope.isInScope(document.activeElement as HTMLElement);
+        return !isNil(this.getActiveElement());
+    }
+
+    getActiveElement(): HTMLElement {
+        if (this.isVirtual) {
+            const { elements } = this.scope;
+
+            return elements.find(x => x.classList.contains(VirtualFocusCssClass));
+        }
+
+        const activeElement = document.activeElement as HTMLElement;
+
+        if (this.scope.isInScope(activeElement)) {
+            return activeElement;
+        }
+
+        return null;
     }
 }
 

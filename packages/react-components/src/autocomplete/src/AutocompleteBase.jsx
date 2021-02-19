@@ -1,6 +1,7 @@
 import "./Autocomplete.css";
 
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
+import { KeyProp, Listbox } from "../../listbox";
 import {
     Keys,
     augmentElement,
@@ -15,7 +16,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Listbox } from "../../listbox";
 import { NodeShape, useCollectionItems } from "../../collection";
 import { Overlay, isTargetParent, useFocusWithin, useOverlayLightDismiss, useOverlayPosition, useRestoreFocus, useTriggerWidth } from "../../overlay";
 import { TextInput } from "../../input";
@@ -128,6 +128,22 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         }
     };
 
+    const selectItem = (event, key) => {
+        const selectedItem = items.find(x => x.key === key);
+
+        if (!isNil(selectedItem)) {
+            const { text, stringValue } = getRawSlots(selectedItem?.content, ["text"]);
+
+            if (!clearOnSelect) {
+                updateValue(event, text ?? stringValue);
+            } else {
+                clear();
+            }
+        }
+
+        close(event);
+    };
+
     const updateQuery = newQuery => {
         setQuery(newQuery, true);
     };
@@ -217,6 +233,17 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     clear(event);
                 }
                 break;
+            case Keys.enter: {
+                const activeElement = listboxRef.current?.focusManager.getActiveElement();
+
+                if (!isNil(activeElement)) {
+                    event.preventDefault();
+
+                    const key = activeElement.getAttribute(KeyProp);
+                    selectItem(event, key);
+                }
+                break;
+            }
         }
     });
 
@@ -227,19 +254,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const items = useCollectionItems(nodes);
 
     const handleListboxChange = useEventCallback((event, newKey) => {
-        const selectedItem = items.find(x => x.key === newKey);
-
-        if (!isNil(selectedItem)) {
-            const { text, stringValue } = getRawSlots(selectedItem?.content, ["text"]);
-
-            if (!clearOnSelect) {
-                updateValue(event, text ?? stringValue);
-            } else {
-                clear();
-            }
-        }
-
-        close(event);
+        selectItem(event, newKey);
     });
 
     // const triggerId = useId(id, id ? undefined : "o-ui-autocomplete-trigger");
@@ -256,6 +271,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             // An autocomplete doesn't support a selected key.
             selectedKey={null}
             onChange={handleListboxChange}
+            focusOnHover
             useVirtualFocus
             fluid
             className="o-ui-autocomplete-listbox"
