@@ -1,10 +1,10 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Avatar } from "./Avatar.jsx"
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
-import { LargeAvatar } from "./Avatar.jsx"
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -142,11 +142,7 @@ A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--pag
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <IconList slot="end-icon">
-                    <NotificationIcon />
-                    <HelpIcon />
-                    <LightbulbIcon />
-                </IconList>
+                <LightbulbIcon slot="end-icon" />
             </Item>
         </Listbox>
     </Story>
@@ -163,15 +159,14 @@ A listbox item can have a description.
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
-            <Item key="jupiter">Jupiter</Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
             <Item key="mars">
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
         </Listbox>
     </Story>
 </Preview>
@@ -180,43 +175,23 @@ A listbox item can have a description.
 
 A listbox item can have an avatar.
 
-<Preview>
+<Preview scope={{ Avatar }}>
     <Story name="avatar">
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>ER</span></div></LargeAvatar>
+                <Avatar slot="avatar">ER</Avatar>
                 <Text>Earth</Text>
-                <Text slot="description">Home sweet home!</Text>
+                <Text slot="description">Terra</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>JU</span></div></LargeAvatar>
+                <Avatar slot="avatar">JU</Avatar>
                 <Text>Jupiter</Text>
-                <Text slot="description">Home sweet home!</Text>
+                <Text slot="description">Jupe</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>MA</span></div></LargeAvatar>
+                <Avatar slot="avatar">MA</Avatar>
                 <Text>Mars</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="mercury">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>ME</span></div></LargeAvatar>
-                <Text>Mercury</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="neptune">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>NE</span></div></LargeAvatar>
-                <Text>Neptune</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="saturn">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>SA</span></div></LargeAvatar>
-                <Text>Saturn</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="uranus">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>UR</span></div></LargeAvatar>
-                <Text>Uranus</Text>
-                <Text slot="description">See you in 2026</Text>
+                <Text slot="description">Red Planet</Text>
             </Item>
         </Listbox>
     </Story>
@@ -289,7 +264,7 @@ A listbox items can be rendered with an array map.
 <Preview>
     <Story name="array map">
         <Listbox aria-label="Planets">
-            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+            {["Earth", "Jupiter", "Mars"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
         </Listbox>

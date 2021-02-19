@@ -70,7 +70,7 @@ const propTypes = {
      */
     focusOnHover: bool,
     /**
-     * Whether or not focus should be virtual (add a class instead of actual focus).
+     * Whether or not focus should be virtual (add a CSS class instead of switching the active element).
      */
     useVirtualFocus: bool,
     /**
@@ -145,7 +145,7 @@ export function InnerListbox({
     // TODO: Could it be removed now that useImperativeHandle expose the focus?
     defaultFocusTarget,
     focusOnHover,
-    useVirtualFocus = false,
+    useVirtualFocus,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
