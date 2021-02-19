@@ -227,7 +227,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: "Space", keyCode: Keys.space });
+        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.space });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -248,7 +248,7 @@ test("when manual, enter keypress makes a tab active", async () => {
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: "Enter", keyCode: Keys.enter });
+        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.enter });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -277,7 +277,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowRight", keyCode: Keys.right });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowRight });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -306,7 +306,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowLeft", keyCode: Keys.left });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowLeft });
     });
 
     await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
@@ -335,7 +335,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowDown", keyCode: Keys.down });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowDown });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
@@ -364,7 +364,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: "ArrowUp", keyCode: Keys.up });
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowUp });
     });
 
     await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));

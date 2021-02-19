@@ -91,8 +91,8 @@ export function InnerAccordion({
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, {
-        previous: [Keys.up],
-        next: [Keys.down],
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     });

@@ -10,7 +10,7 @@ export function augmentElement(element: ReactElement & RefAttributes<any>, newPr
     return cloneElement(element, augmentedProps);
 }
 
-export function createOrAugmentElement<T extends string, P extends HTMLAttributes<T>>(element: ReactElement<P, T> | ElementType, props: P): ReactElement {
+export function createOrAugmentElement<T extends string, Props extends HTMLAttributes<T>>(element: ReactElement<Props, T> | ElementType, props: Props): ReactElement {
     if (isValidElementType(element) && !isString(element)) {
         const Type = element;
 
@@ -25,7 +25,7 @@ export function createOrAugmentElement<T extends string, P extends HTMLAttribute
 }
 
 export function createEmbeddableAdapter(sizeAdapter: SizeAdapter) {
-    return <P extends Record<string, any>>(element: ReactElement<P, any>, { size, ...props }: P) => {
+    return <Props extends Record<string, any>>(element: ReactElement<Props, any>, { size, ...props }: Props) => {
         const newProps = {
             ...props,
             size: sizeAdapter[normalizeSize(size)]

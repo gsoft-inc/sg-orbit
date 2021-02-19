@@ -6,13 +6,13 @@ import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
-interface AutoFocusOptions extends FocusOptions {
-    target?: FocusTarget;
+interface AbstractAutoFocusProps {
     isDisabled?: boolean;
     delay?: number;
+    onFocus?(element?: HTMLElement): void
 }
 
-function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AutoFocusOptions): void {
+function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusProps): void {
     useEffect(() => {
         const d = disposables();
 
@@ -30,6 +30,12 @@ function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AutoFocusOptions):
     }, [isDisabled, delay, onFocus]);
 }
 
+interface AutoFocusOptions {
+    isDisabled?: boolean;
+    delay?: number;
+    onFocus?(element?: HTMLElement): void
+}
+
 export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}): void {
     useAbstractAutoFocus({
         isDisabled,
@@ -42,7 +48,13 @@ export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<
     });
 }
 
-export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusOptions = {}): void {
+interface AutoFocusChildOptions extends FocusOptions {
+    target?: FocusTarget,
+    isDisabled?: boolean,
+    delay?: number,
+}
+
+export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusChildOptions = {}): void {
     useAbstractAutoFocus({
         isDisabled: isDisabled,
         delay,

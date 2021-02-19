@@ -1,37 +1,28 @@
-import { RefObject, createContext, useCallback, useContext, useMemo } from "react";
-import { isNil } from "lodash";
+import { RefObject, useCallback, useMemo } from "react";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
 export type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
 
-export interface FocusScope {
-    elements: HTMLElement[];
-    isInScope: (element: HTMLElement) => boolean;
-    registerChangeHandler: (onChangeHandler: ChangeEventHandler) => void;
-    removeChangeHandler: (onChangeHandler: ChangeEventHandler) => void;
-}
-
-
-class DomScope implements FocusScope {
-    _scopeRef: RefObject<HTMLElement[]>;
-    _handlersRef: RefObject<ChangeEventHandler[]>;
+export class DomScope {
+    private scopeRef: RefObject<HTMLElement[]>;
+    private handlersRef: RefObject<ChangeEventHandler[]>;
 
     constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ChangeEventHandler[]>) {
-        this._scopeRef = scopeRef;
-        this._handlersRef = handlersRef;
+        this.scopeRef = scopeRef;
+        this.handlersRef = handlersRef;
     }
 
     get elements(): HTMLElement[] {
-        return this._scopeRef.current;
+        return this.scopeRef.current;
     }
 
     registerChangeHandler(handler: ChangeEventHandler): void {
-        this._handlersRef.current.push(handler);
+        this.handlersRef.current.push(handler);
     }
 
     removeChangeHandler(handler: ChangeEventHandler): void {
-        const handlers = this._handlersRef.current;
+        const handlers = this.handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
     }
@@ -41,17 +32,7 @@ class DomScope implements FocusScope {
     }
 }
 
-interface FocusContextProps {
-    scope?: FocusScope
-}
-
-export const FocusContext = createContext<FocusContextProps>({});
-
-export function useFocusContext(): FocusContextProps {
-    return useContext(FocusContext) ?? {};
-}
-
-export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void] {
+export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] {
     const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
     const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
 
@@ -67,8 +48,8 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
         const parseElements = (): void => {
             const scope: HTMLElement[] = [];
 
-            walkFocusableElements(rootElement, x => {
-                scope.push(x as HTMLElement);
+            walkFocusableElements(rootElement, (x: HTMLElement) => {
+                scope.push(x);
             });
 
             setElements(scope);
@@ -93,11 +74,7 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
         }
     }, [scopeRef, setScope, handlersRef]);
 
-    const scope: FocusScope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
+    const scope: DomScope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
 
-    const { scope: contextScope } = useFocusContext();
-
-    return isNil(contextScope)
-        ? [scope, setRef]
-        : [contextScope, undefined];
+    return [scope, setRef];
 }

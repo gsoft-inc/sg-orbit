@@ -2,7 +2,7 @@ import { KeyboardEvent, KeyboardEventHandler } from "react";
 import { Keys } from "./keys";
 import { isNil } from "lodash";
 import { useEventCallback } from "./useEventCallback";
-import type { FocusManager, FocusOptions } from "./useFocusManager";
+import type { FocusManager } from "./useFocusManager";
 
 interface KeyboardNavigationOptions {
     onSelect?(event: KeyboardEvent, element: Element): void;
@@ -15,30 +15,30 @@ interface KeyboardNavigationBindings {
     last: Keys[];
 }
 
-interface KeyboardNavigationAPI {
+interface KeyboardNavigationApi {
     onKeyDown: (event: KeyboardEvent) => void;
 }
 
-export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}): KeyboardNavigationAPI {
+export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}): KeyboardNavigationApi {
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
-        const keyCode = event.keyCode;
+        const key = event.key as any;
 
-        const handleFocus: FocusOptions["onFocus"] = element => {
+        const handleFocus = (element: HTMLElement): void => {
             if (!isNil(onSelect)) {
                 onSelect(event, element);
             }
         };
 
-        if (previous.includes(keyCode)) {
+        if (previous.includes(key)) {
             event.preventDefault();
             focusManager.focusPrevious({ onFocus: handleFocus });
-        } else if (next.includes(keyCode)) {
+        } else if (next.includes(key)) {
             event.preventDefault();
             focusManager.focusNext({ onFocus: handleFocus });
-        } else if (first.includes(keyCode)) {
+        } else if (first.includes(key)) {
             event.preventDefault();
             focusManager.focusFirst({ onFocus: handleFocus });
-        } else if (last.includes(keyCode)) {
+        } else if (last.includes(key)) {
             event.preventDefault();
             focusManager.focusLast({ onFocus: handleFocus });
         }

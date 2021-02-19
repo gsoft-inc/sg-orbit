@@ -30,7 +30,7 @@ test("down arrow keypress select the next item", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("item-1"), { key: "ArrowDown", keyCode: Keys.down });
+        fireEvent.keyDown(getByTestId("item-1"), { key: Keys.arrowDown });
     });
 
     await waitFor(() => expect(getByTestId("item-2")).toHaveFocus());
@@ -59,7 +59,7 @@ test("up arrow keypress select the next item", async () => {
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("item-2"), { key: "ArrowUp", keyCode: Keys.up });
+        fireEvent.keyDown(getByTestId("item-2"), { key: Keys.arrowUp });
     });
 
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());

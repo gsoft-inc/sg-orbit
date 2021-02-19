@@ -103,7 +103,7 @@ export class TagsPickerDropdownTrigger extends PureComponent {
             onKeyDown(event);
         }
 
-        const key = event.keyCode;
+        const key = event.key;
 
         if (key === Keys.space) {
             event.preventDefault();

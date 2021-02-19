@@ -1,33 +1,28 @@
 import "./Autocomplete.css";
 
-import { FocusTarget, Keys } from "../../../dist";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { Listbox } from "../../listbox";
-import { NodeShape, useCollectionItems } from "../../collection";
-import { Overlay, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useRestoreFocus, useTriggerWidth } from "../../overlay";
-import { TextInput } from "../../input";
-import { arrayOf, func, shape } from "prop-types";
 import {
+    Keys,
     augmentElement,
     cssModule,
     getRawSlots,
     isNilOrEmpty,
-    isTyping,
     mergeProps,
-    useAutoFocus,
-    useChainedEventCallback,
     useCommittedRef,
     useControllableState,
     useEventCallback,
     useFocusScope,
-    useId,
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { Listbox } from "../../listbox";
+import { NodeShape, useCollectionItems } from "../../collection";
+import { Overlay, isTargetParent, useFocusWithin, useOverlayLightDismiss, useOverlayPosition, useRestoreFocus, useTriggerWidth } from "../../overlay";
+import { TextInput } from "../../input";
+import { arrayOf, func, shape } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
-import { isNil, isNumber } from "lodash";
+import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
-import { useFocusWithin } from "../../overlay/src/useFocusWithin";
 
 /*
 Do I have to maintain a dummy selected key for listbox????
@@ -200,17 +195,17 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     });
 
     const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case Keys.down:
+        switch (event.key) {
+            case Keys.arrowDown:
                 if (isOpen) {
                     event.preventDefault();
-                    listboxRef.current?.focusFirst();
+                    listboxRef.current?.focusManager.focusNext();
                 }
                 break;
-            case Keys.up:
+            case Keys.arrowUp:
                 if (isOpen) {
                     event.preventDefault();
-                    listboxRef.current?.focusLast();
+                    listboxRef.current?.focusManager.focusPrevious();
                 }
                 break;
             case Keys.esc:
@@ -227,13 +222,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
     const handleTriggerChange = useEventCallback(event => {
         search(event, event.target.value);
-    });
-
-    const handleListboxKeyDown = useEventCallback(event => {
-        if (isTyping(event.keyCode)) {
-            search(event, `${queryRef.current}${event.key}`);
-            triggerElement?.focus();
-        }
     });
 
     const items = useCollectionItems(nodes);
@@ -268,7 +256,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             // An autocomplete doesn't support a selected key.
             selectedKey={null}
             onChange={handleListboxChange}
-            onKeyDown={handleListboxKeyDown}
+            useVirtualFocus
             fluid
             className="o-ui-autocomplete-listbox"
             aria-label={ariaLabel}

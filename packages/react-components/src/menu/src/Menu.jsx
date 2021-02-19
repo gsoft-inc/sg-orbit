@@ -3,6 +3,7 @@ import "./Menu.css";
 import { Box } from "../../box";
 import {
     Keys,
+    appendEventKey,
     cssModule,
     mergeProps,
     useAutoFocusChild,
@@ -87,13 +88,13 @@ export function InnerMenu({
     const handleKeyDown = useEventCallback(event => {
         searchDisposables.dispose();
 
-        switch (event.keyCode) {
-            case Keys.down: {
+        switch (event.key) {
+            case Keys.arrowDown: {
                 event.preventDefault();
                 focusManager.focusNext();
                 break;
             }
-            case Keys.up: {
+            case Keys.arrowUp: {
                 event.preventDefault();
                 focusManager.focusPrevious();
                 break;
@@ -108,14 +109,10 @@ export function InnerMenu({
                 break;
             // eslint-disable-next-line no-fallthrough
             default:
-                // Search accepts only alphanumeric and spacebar keys.
-                if ((event.keyCode >= 48 && event.keyCode <= 57) ||
-                    (event.keyCode >= 65 && event.keyCode <= 90) ||
-                     event.keyCode === Keys.space)
-                {
+                if (event.key.length === 1) {
                     event.preventDefault();
 
-                    const query = searchQueryRef.current + event.key;
+                    const query = appendEventKey(searchQueryRef.current, event.key);
 
                     setSearchQuery(query);
                     focusManager.search(query);

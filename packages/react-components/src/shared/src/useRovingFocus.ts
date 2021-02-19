@@ -1,8 +1,8 @@
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
-import type { ChangeEventHandler, FocusScope } from "./useFocusScope";
+import type { ChangeEventHandler, DomScope } from "./useFocusScope";
 
-export function useRovingFocus(scope: FocusScope): void {
+export function useRovingFocus(scope: DomScope): void {
     useLayoutEffect(() => {
         const handleFocus = (event: FocusEvent): void => {
             scope.elements.forEach(x => {
@@ -55,7 +55,7 @@ export function useRovingFocus(scope: FocusScope): void {
 /*
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { keyProp = "value" } = {}): void {
+export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { keyProp = "value" } = {}): void {
     useLayoutEffect(() => {
         const setTabIndexes = (elements: HTMLElement[]): void => {
             if (!isNil(currentKey)) {

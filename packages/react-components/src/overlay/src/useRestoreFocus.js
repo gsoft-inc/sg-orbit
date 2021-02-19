@@ -15,7 +15,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
     // Handle the tab key so that tabbing out of the scope goes to the next element after the node that had focus when the scope mounted.
     // This is important when using portals for overlays, so that focus goes to the expected element when tabbing out of the overlay.
     const handleKeyDown = useEventCallback(event => {
-        if (event.keyCode === Keys.tab) {
+        if (event.key === Keys.tab) {
             const focusedElement = event.target;
 
             // Create a DOM tree walker that matches all tabbable elements.

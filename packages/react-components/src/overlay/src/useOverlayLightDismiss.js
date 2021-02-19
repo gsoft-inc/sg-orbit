@@ -19,7 +19,7 @@ export function useOverlayLightDismiss(overlayRef, {
     };
 
     const handleKeyDown = event => {
-        if (event.keyCode === Keys.esc) {
+        if (event.key === Keys.esc) {
             event.preventDefault();
             hide(event);
         }

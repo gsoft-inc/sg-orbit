@@ -3,9 +3,9 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import {
     Keys,
+    appendEventKey,
     arrayify,
     cssModule,
-    isTyping,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -62,13 +62,17 @@ const propTypes = {
      */
     autoFocus: oneOfType([bool, number]),
     /**
+     * Default focus target when enabling autofocus.
+     */
+    defaultFocusTarget: string,
+    /**
      * Whether or not to focus the hovered item.
      */
     focusOnHover: bool,
     /**
-     * Default focus target when enabling autofocus.
+     * Whether or not focus should be virtual (add a class instead of actual focus).
      */
-    defaultFocusTarget: string,
+    useVirtualFocus: bool,
     /**
      * Whether or not the listbox take up the width of its container.
      */
@@ -141,6 +145,7 @@ export function InnerListbox({
     // TODO: Could it be removed now that useImperativeHandle expose the focus?
     defaultFocusTarget,
     focusOnHover,
+    useVirtualFocus = false,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -161,18 +166,13 @@ export function InnerListbox({
 
     const selectionManager = useSelectionManager(items, { selectedKey });
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: KeyProp });
 
+    // Would be nice to find a better way to give control over the focused item to the parent.
     useImperativeHandle(forwardedRef, () => {
         const element = containerRef.current;
 
-        element.focusFirst = () => {
-            focusManager.focusFirst();
-        };
-
-        element.focusLast = () => {
-            focusManager.focusLast();
-        };
+        element.focusManager = focusManager;
 
         return element;
     });
@@ -202,8 +202,8 @@ export function InnerListbox({
     const handleKeyDown = useEventCallback(event => {
         searchDisposables.dispose();
 
-        switch (event.keyCode) {
-            case Keys.down: {
+        switch (event.key) {
+            case Keys.arrowDown: {
                 event.preventDefault();
 
                 const activeElement = focusManager.focusNext();
@@ -217,7 +217,7 @@ export function InnerListbox({
                 }
                 break;
             }
-            case Keys.up: {
+            case Keys.arrowUp: {
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
@@ -252,10 +252,10 @@ export function InnerListbox({
                 break;
             // eslint-disable-next-line no-fallthrough
             default:
-                if (isTyping(event.keyCode)) {
+                if (event.key.length === 1) {
                     event.preventDefault();
 
-                    const query = searchQueryRef.current + event.key;
+                    const query = appendEventKey(searchQueryRef.current, event.key);
 
                     setSearchQuery(query);
                     focusManager.search(query);
@@ -273,11 +273,7 @@ export function InnerListbox({
     useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: useEventCallback(() => {
-            // Ensure keyboard navigation is available.
-            containerRef.current?.focus();
-        })
+        delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
     const rootId = useId(id, id ? undefined : "o-ui-listbox");

@@ -255,7 +255,7 @@ export class RemoteSearchInput extends AutoControlledPureComponent {
         const { onKeyDown } = this.props;
 
         // Since we fully control the open / close of the <Search /> component, we must handle close on "esc" ourself.
-        if (event.keyCode === Keys.esc) {
+        if (event.key === Keys.esc) {
             this.close(event);
         }
 

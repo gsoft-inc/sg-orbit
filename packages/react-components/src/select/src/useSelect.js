@@ -88,12 +88,12 @@ export function useSelect(children, {
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case Keys.down:
+        switch (event.key) {
+            case Keys.arrowDown:
                 event.preventDefault();
                 open(event, FocusTarget.first);
                 break;
-            case Keys.up:
+            case Keys.arrownUp:
                 event.preventDefault();
                 open(event, FocusTarget.last);
                 break;
@@ -111,7 +111,6 @@ export function useSelect(children, {
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    // Ensure the trigger and menu width stay in sync.
     const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
     const nodes = useCollection(children);

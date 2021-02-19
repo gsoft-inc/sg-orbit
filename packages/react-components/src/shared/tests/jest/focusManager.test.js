@@ -643,3 +643,87 @@ describe("focusKey", () => {
         expect(onNotFound).toHaveBeenCalledTimes(1);
     });
 });
+
+describe("virtual focus", () => {
+    test("add focus CSS class to the focused element", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        focusManager.focusFirst();
+
+        expect(elements[0]).toHaveClass("o-ui-focus");
+        expect(elements[1]).not.toHaveClass("o-ui-focus");
+        expect(elements[2]).not.toHaveClass("o-ui-focus");
+    });
+
+    test("remove focus CSS class from previous focused element", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        focusManager.focusLast();
+        focusManager.focusFirst();
+
+        expect(elements[0]).toHaveClass("o-ui-focus");
+        expect(elements[1]).not.toHaveClass("o-ui-focus");
+        expect(elements[2]).not.toHaveClass("o-ui-focus");
+    });
+
+    test("the focused element is not the document active element", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        focusManager.focusFirst();
+
+        expect(document.activeElement).not.toBe(elements[0]);
+    });
+
+    test("can focus next", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        focusManager.focusNext();
+        focusManager.focusNext();
+
+        expect(document.activeElement).not.toBe(elements[1]);
+    });
+
+    test("can focus previous", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        focusManager.focusNext();
+        focusManager.focusNext();
+
+        expect(document.activeElement).not.toBe(elements[1]);
+    });
+});
