@@ -182,7 +182,7 @@ export class FocusManager {
         return this._focusElement(target, options);
     }
 
-    focusKey(key: FocusTarget, options: FocusOptions): HTMLElement {
+    focusKey(key: string, options: FocusOptions): HTMLElement {
         const { elements } = this._scope;
 
         if (isNil(this._keyProp)) {

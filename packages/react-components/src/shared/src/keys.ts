@@ -12,3 +12,13 @@ export enum Keys {
     down = 40,
     delete = 46
 }
+
+export function isAlphanumeric(keyCode: number): boolean {
+    return (keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90);
+}
+
+export function isTyping(keyCode: number): boolean {
+    return isAlphanumeric(keyCode)
+        || keyCode === Keys.space
+        || keyCode === Keys.backspace;
+}

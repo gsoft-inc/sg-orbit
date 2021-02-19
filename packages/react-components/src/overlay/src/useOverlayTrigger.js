@@ -62,8 +62,8 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
                 onKeyUp: handleKeyUp
             };
         case "hover":
+            // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
-                // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
                 onMouseEnter: handleMouseEnter,
                 onMouseLeave: handleMouseLeave,
                 onFocus: handleFocus,

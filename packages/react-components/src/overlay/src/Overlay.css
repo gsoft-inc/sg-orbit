@@ -72,18 +72,18 @@
 }
 
 /* BORDER OFFSET */
-.o-ui-overlay[data-popper-placement^="top"] {
+.o-ui-overlay-has-border-offset[data-popper-placement^="top"] {
     border-bottom: var(--o-ui-overlay-border-offset) solid transparent;
 }
 
-.o-ui-overlay[data-popper-placement^="bottom"] {
+.o-ui-overlay-has-border-offset[data-popper-placement^="bottom"] {
     border-top: var(--o-ui-overlay-border-offset) solid transparent;
 }
 
-.o-ui-overlay[data-popper-placement^="left"] {
+.o-ui-overlay-has-border-offset[data-popper-placement^="left"] {
     border-right: var(--o-ui-overlay-border-offset) solid transparent;
 }
 
-.o-ui-overlay[data-popper-placement^="right"] {
+.o-ui-overlay-has-border-offset[data-popper-placement^="right"] {
     border-left: var(--o-ui-overlay-border-offset) solid transparent;
 }

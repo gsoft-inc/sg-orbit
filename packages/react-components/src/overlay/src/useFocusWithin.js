@@ -2,7 +2,7 @@ import { isNil } from "lodash";
 import { useEventCallback, useRefState } from "../../shared";
 
 export function useFocusWithin({ onFocus, onBlur, isDisabled }) {
-    const [isFocusWithinRef, setIsFocusWithin] = useRefState();
+    const [isFocusWithinRef, setIsFocusWithin] = useRefState(false);
 
     const handleFocus = useEventCallback(event => {
         if (!isNil(onFocus)) {
@@ -25,7 +25,7 @@ export function useFocusWithin({ onFocus, onBlur, isDisabled }) {
     });
 
     return isDisabled ? {} : {
-        onFocus: !isNil(onFocus) ? handleFocus : undefined,
-        onBlur: !isNil(onBlur) ? handleBlur : undefined
+        onFocus: handleFocus,
+        onBlur: handleBlur
     };
 }

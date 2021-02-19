@@ -56,7 +56,7 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            if (!isTargetParent(overlayElement, event.relatedTarget)) {
+            if (!isTargetParent(event.relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -66,7 +66,7 @@ export function usePopup(type, {
         trigger,
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger to prevent double toggle.
-            if (event.target !== triggerElement && !isTargetParent(triggerElement, event.target) && event.relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -80,8 +80,8 @@ export function usePopup(type, {
         position,
         offset,
         allowFlip,
-        boundaryElement,
-        allowPreventOverflow
+        allowPreventOverflow,
+        boundaryElement
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
@@ -109,6 +109,7 @@ export function usePopup(type, {
         triggerProps: mergeProps(
             triggerProps,
             {
+                tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
                 "aria-haspopup": type,
                 "aria-expanded": isOpen,
                 "aria-controls": isOpen && overlayId,
