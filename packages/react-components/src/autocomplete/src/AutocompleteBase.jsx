@@ -24,11 +24,6 @@ import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 
-/*
-Do I have to maintain a dummy selected key for listbox????
-Or always provide null
-*/
-
 const propTypes = {
     nodes: arrayOf(shape(NodeShape)).isRequired,
     onSearch: func.isRequired
@@ -224,6 +219,18 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     listboxRef.current?.focusManager.focusPrevious();
                 }
                 break;
+            case Keys.home:
+                if (isOpen) {
+                    event.preventDefault();
+                    listboxRef.current?.focusManager.focusFirst();
+                }
+                break;
+            case Keys.end:
+                if (isOpen) {
+                    event.preventDefault();
+                    listboxRef.current?.focusManager.focusLast();
+                }
+                break;
             case Keys.esc:
                 event.preventDefault();
 
@@ -233,17 +240,18 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     clear(event);
                 }
                 break;
-            case Keys.enter: {
-                const activeElement = listboxRef.current?.focusManager.getActiveElement();
+            case Keys.enter:
+                if (isOpen) {
+                    const activeElement = listboxRef.current?.focusManager.getActiveElement();
 
-                if (!isNil(activeElement)) {
-                    event.preventDefault();
+                    if (!isNil(activeElement)) {
+                        event.preventDefault();
 
-                    const key = activeElement.getAttribute(KeyProp);
-                    selectItem(event, key);
+                        const key = activeElement.getAttribute(KeyProp);
+                        selectItem(event, key);
+                    }
                 }
                 break;
-            }
         }
     });
 
