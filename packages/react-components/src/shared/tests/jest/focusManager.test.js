@@ -726,4 +726,22 @@ describe("virtual focus", () => {
 
         expect(document.activeElement).not.toBe(elements[1]);
     });
+
+    test("hasFocus", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+
+        expect(focusManager.hasFocus()).toBeFalsy();
+
+        focusManager.focusFirst();
+
+        expect(focusManager.hasFocus()).toBeTruthy();
+    });
 });

@@ -1,6 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
+import { KeyProp } from "./Listbox";
 import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
@@ -40,7 +41,13 @@ export function InnerListboxOption({
     forwardedRef,
     ...rest
 }) {
-    const { selectedKeys, onSelect, focusManager, focusOnHover } = useListboxContext();
+    const {
+        selectedKeys,
+        onSelect,
+        onFocus,
+        focusManager,
+        focusOnHover
+    } = useListboxContext();
 
     const handleClick = useEventCallback(event => {
         onSelect(event, key);
@@ -64,8 +71,12 @@ export function InnerListboxOption({
     });
 
     // Move focus to the option on mouse hover.
-    const handleMouseEnter = useEventCallback(() => {
-        focusManager.focusKey(key);
+    const handleMouseEnter = useEventCallback(event => {
+        const activeElement = focusManager.focusKey(key);
+
+        if (!isNil(onFocus)) {
+            onFocus(event, activeElement.getAttribute(KeyProp), activeElement);
+        }
     });
 
     const labelId = `${id}-label`;

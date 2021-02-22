@@ -139,7 +139,7 @@ export function InnerMenu({
 
     const nodes = useCollection(children);
 
-    const rootId = useId(id, id ? undefined : "o-ui-menu");
+    const rootId = useId(id, id ? null : "o-ui-menu");
 
     const renderOption = ({
         key,

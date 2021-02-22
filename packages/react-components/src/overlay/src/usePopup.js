@@ -96,7 +96,7 @@ export function usePopup(type, {
         })
     });
 
-    const overlayId = useId(id, id ? undefined : "o-ui-overlay");
+    const overlayId = useId(id, id ? null : "o-ui-overlay");
 
     return {
         isOpen,
@@ -111,8 +111,8 @@ export function usePopup(type, {
             {
                 tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
                 "aria-haspopup": type,
-                "aria-expanded": isOpen,
-                "aria-controls": isOpen && overlayId,
+                "aria-expanded": isOpen ? true : undefined,
+                "aria-controls": isOpen ? overlayId : undefined,
                 ref: setTriggerElement
             }
         ),

@@ -1,6 +1,7 @@
 import "./Autocomplete.css";
 
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
+import { KeyProp, Listbox } from "../../listbox";
 import {
     Keys,
     augmentElement,
@@ -12,10 +13,10 @@ import {
     useControllableState,
     useEventCallback,
     useFocusScope,
+    useId,
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Listbox } from "../../listbox";
 import { NodeShape, useCollectionItems } from "../../collection";
 import { Overlay, isTargetParent, useFocusWithin, useOverlayLightDismiss, useOverlayPosition, useRestoreFocus, useTriggerWidth } from "../../overlay";
 import { TextInput } from "../../input";
@@ -23,11 +24,6 @@ import { arrayOf, func, shape } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
-
-/*
-Do I have to maintain a dummy selected key for listbox????
-Or always provide null
-*/
 
 const propTypes = {
     nodes: arrayOf(shape(NodeShape)).isRequired,
@@ -84,9 +80,10 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
 
+    const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
 
-    // Mostly to keep query in sync with the initial or controlled value.
+    // To keep query in sync with the initial or controlled value.
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
         onChange: useCallback(newValue => {
             setQuery(newValue ?? "");
@@ -116,6 +113,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
     const close = event => {
         updateIsOpen(event, false);
+        setFocusedItem(null);
     };
 
     const updateValue = (event, newValue) => {
@@ -126,6 +124,23 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
             setValue(newValue);
         }
+    };
+
+    const selectItem = (event, key) => {
+        const selectedItem = items.find(x => x.key === key);
+
+        if (!isNil(selectedItem)) {
+            const { text, stringValue } = getRawSlots(selectedItem?.content, ["text"]);
+
+            if (!clearOnSelect) {
+                updateValue(event, text ?? stringValue);
+
+            } else {
+                clear();
+            }
+        }
+
+        close(event);
     };
 
     const updateQuery = newQuery => {
@@ -199,13 +214,49 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             case Keys.arrowDown:
                 if (isOpen) {
                     event.preventDefault();
-                    listboxRef.current?.focusManager.focusNext();
+
+                    const activeElement = listboxRef.current?.focusManager.focusNext();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
                 }
                 break;
             case Keys.arrowUp:
                 if (isOpen) {
                     event.preventDefault();
-                    listboxRef.current?.focusManager.focusPrevious();
+
+                    const activeElement = listboxRef.current?.focusManager.focusPrevious();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.home:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusFirst();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.end:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusLast();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
                 }
                 break;
             case Keys.esc:
@@ -215,6 +266,12 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     close(event);
                 } else {
                     clear(event);
+                }
+                break;
+            case Keys.enter:
+                if (isOpen) {
+                    event.preventDefault();
+                    selectItem(event, focusedItem.key);
                 }
                 break;
         }
@@ -227,23 +284,18 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const items = useCollectionItems(nodes);
 
     const handleListboxChange = useEventCallback((event, newKey) => {
-        const selectedItem = items.find(x => x.key === newKey);
-
-        if (!isNil(selectedItem)) {
-            const { text, stringValue } = getRawSlots(selectedItem?.content, ["text"]);
-
-            if (!clearOnSelect) {
-                updateValue(event, text ?? stringValue);
-            } else {
-                clear();
-            }
-        }
-
-        close(event);
+        selectItem(event, newKey);
     });
 
-    // const triggerId = useId(id, id ? undefined : "o-ui-autocomplete-trigger");
-    // const overlayId = useId(id, id ? undefined : "o-ui-autocomplete-overlay");
+    const handleListboxFocusChange = useEventCallback((event, newKey, activeElement) => {
+        setFocusedItem({
+            id: activeElement.id,
+            key: newKey
+        });
+    });
+
+    const triggerId = useId(id, id ? null : "o-ui-autocomplete-trigger");
+    const overlayId = useId(null, "o-ui-autocomplete-overlay");
 
     const iconMarkup = icon && augmentElement(icon, {
         className: "o-ui-autocomplete-icon",
@@ -256,11 +308,13 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             // An autocomplete doesn't support a selected key.
             selectedKey={null}
             onChange={handleListboxChange}
+            onFocusChange={handleListboxFocusChange}
+            focusOnHover
             useVirtualFocus
             fluid
             className="o-ui-autocomplete-listbox"
             aria-label={ariaLabel}
-            // aria-labelledby={isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined}
+            aria-labelledby={isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined}
             aria-describedby={ariaDescribedBy}
             ref={listboxRef}
         />
@@ -284,7 +338,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     rest,
                     triggerFocusWithinProps,
                     {
-                        // id: triggerId,
+                        id: triggerId,
                         value: queryRef.current,
                         placeholder,
                         icon: iconMarkup,
@@ -300,7 +354,15 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                             focus && "focus",
                             hover && "hover"
                         ),
+                        role: "combobox",
+                        autoCorrect: "off",
+                        spellCheck: "false",
                         autoComplete: "off",
+                        "aria-haspopup": "listbox",
+                        "aria-expanded": isOpen ? true : undefined,
+                        "aria-controls": isOpen ? overlayId : undefined,
+                        "aria-activedescendant": focusedItem?.id,
+                        "aria-autocomplete": "list",
                         "aria-label": ariaLabel,
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
@@ -315,6 +377,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     overlayPositionProps,
                     restoreFocusProps,
                     {
+                        id: overlayId,
                         show: isOpen,
                         // TODO: hide when loading
                         zIndex,
