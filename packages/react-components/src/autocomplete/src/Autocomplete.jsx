@@ -126,23 +126,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-// function useSearchItems(items) {
-//     return useMemo(() => {
-//         return query => {
-//             const searchableItems = items.map(items, x => {
-//                 const { text, stringValue } = getRawSlots(x, ["text"]);
-
-//                 return {
-//                     text: text ?? stringValue,
-//                     item: x
-//                 };
-//             });
-
-//             return searchableItems.filter(x => x.text.toLowerCase().startsWith(query.toLowerCase()));
-//         };
-//     }, [items]);
-// }
-
 function isMatchingItem(item, query) {
     const { text, stringValue } = getRawSlots(item?.content, ["text"]);
 
@@ -153,10 +136,18 @@ function isMatchingItem(item, query) {
 
 function useLocalSearch(nodes) {
     return useMemo(() => {
+        const results = {};
+
         return query => {
             query = query.toLowerCase();
 
-            return nodes.reduce((acc, node) => {
+            let result = results[query];
+
+            if (!isNil(result)) {
+                return result;
+            }
+
+            result = nodes.reduce((acc, node) => {
                 if (node.type === NodeType.section) {
                     const items = node.items.reduce((sectionItems, item) => {
                         if (isMatchingItem(item, query)) {
@@ -185,6 +176,10 @@ function useLocalSearch(nodes) {
 
                 return acc;
             }, []);
+
+            results[query] = result;
+
+            return result;
         };
     }, [nodes]);
 }
@@ -214,8 +209,6 @@ export function InnerAutocomplete({
             setLocalQuery(newQuery);
         }
     });
-
-    // console.log(!isNil(localQuery) ? localSearch(localQuery) : nodes);
 
     return (
         <AutocompleteBase

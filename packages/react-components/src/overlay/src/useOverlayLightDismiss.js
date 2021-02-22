@@ -4,7 +4,7 @@ import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 
 export function useOverlayLightDismiss(overlayRef, {
-    trigger = "click",
+    trigger,
     onHide,
     hideOnEscape,
     hideOnLeave,

@@ -9,16 +9,13 @@ import {
     getRawSlots,
     isNilOrEmpty,
     mergeProps,
-    useCommittedRef,
     useControllableState,
     useEventCallback,
-    useFocusScope,
     useId,
-    useMergedRefs,
     useRefState
 } from "../../shared";
 import { NodeShape, useCollectionItems } from "../../collection";
-import { Overlay, isTargetParent, useFocusWithin, useOverlayLightDismiss, useOverlayPosition, useRestoreFocus, useTriggerWidth } from "../../overlay";
+import { Overlay, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { TextInput } from "../../input";
 import { arrayOf, func, shape } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
@@ -30,7 +27,11 @@ const propTypes = {
     onSearch: func.isRequired
 };
 
-// TODO: Actually find a way to use "usePopup" or extract a custom one?
+/*
+TODO:
+  - Debounce the close?
+  - Clear button. Also add one to select? Make a clearable option to TextInput?
+*/
 
 export const AutocompleteBase = forwardRef((props, ref) => {
     const [fieldProps] = useFieldInputProps();
@@ -76,43 +77,43 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         fieldProps
     );
 
-    const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
-    const [triggerElement, setTriggerElement] = useState();
-    const [overlayElement, setOverlayElement] = useState();
-
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
 
-    // To keep query in sync with the initial or controlled value.
+    // Keep query in sync with the initial or controlled value.
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
         onChange: useCallback(newValue => {
+            console.log("will update query: ", newValue);
+
             setQuery(newValue ?? "");
         }, [setQuery])
     });
 
-    const [overlayFocusScope, setOverlayFocusRef] = useFocusScope();
-
-    const triggerRef = useMergedRefs(setTriggerElement, ref);
-    const overlayRef = useMergedRefs(setOverlayElement, setOverlayFocusRef);
-
     const listboxRef = useRef();
 
-    const updateIsOpen = useCallback((event, newValue) => {
-        if (isOpen !== newValue) {
-            if (!isNil(onOpenChange)) {
-                onOpenChange(event, newValue);
-            }
-
-            setIsOpen(newValue);
-        }
-    }, [onOpenChange, isOpen, setIsOpen]);
+    const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
+        id,
+        open: openProp,
+        defaultOpen,
+        onOpenChange,
+        hideOnEscape: true,
+        hideOLeave: true,
+        restoreFocus: true,
+        autoFocus,
+        // An autocomplete take care of his own trigger logic.
+        trigger: null,
+        position: `${direction}-${align}`,
+        offset: [0, 4],
+        allowFlip,
+        allowPreventOverflow
+    });
 
     const open = event => {
-        updateIsOpen(event, true);
+        setIsOpen(event, true);
     };
 
     const close = event => {
-        updateIsOpen(event, false);
+        setIsOpen(event, false);
         setFocusedItem(null);
     };
 
@@ -123,6 +124,8 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             }
 
             setValue(newValue);
+        } else {
+            updateQuery(newValue);
         }
     };
 
@@ -134,7 +137,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
             if (!clearOnSelect) {
                 updateValue(event, text ?? stringValue);
-
             } else {
                 clear();
             }
@@ -144,14 +146,17 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     };
 
     const updateQuery = newQuery => {
-        setQuery(newQuery, true);
+        setQuery(newQuery ?? "", true);
     };
 
     const clear = event => {
-        updateValue(event, null);
-        // When the value is already null it won't trigger an onChange
-        // which would have updated the query.
-        updateQuery("");
+        if (!isNil(value)) {
+            updateValue(event, null);
+        } else {
+            // When the value is already null it won't trigger an onChange
+            // which would have updated the query. Must update manually.
+            updateQuery("");
+        }
     };
 
     const reset = () => {
@@ -162,7 +167,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     };
 
     const search = (event, query) => {
-        if (query.length > minCharacters) {
+        if (query.trim().length > minCharacters) {
             updateQuery(query);
             onSearch(query);
             open(event);
@@ -174,28 +179,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             close(event);
         }
     };
-
-    const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
-        trigger: "click",
-        onHide: useEventCallback(event => {
-            // Don't close the menu when the focus goes back to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
-                close(event);
-                reset();
-            }
-        }),
-        hideOnEscape: true,
-        hideOnLeave: true
-    });
-
-    const { overlayStyles, overlayProps: overlayPositionProps } = useOverlayPosition(triggerElement, overlayElement, {
-        position: `${direction}-${align}`,
-        offset: [0, 4],
-        allowFlip,
-        allowPreventOverflow
-    });
-
-    const restoreFocusProps = useRestoreFocus(overlayFocusScope, { isDisabled: !isOpen });
 
     const triggerWidth = useTriggerWidth(triggerElement);
 
@@ -295,7 +278,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     });
 
     const triggerId = useId(id, id ? null : "o-ui-autocomplete-trigger");
-    const overlayId = useId(null, "o-ui-autocomplete-overlay");
 
     const iconMarkup = icon && augmentElement(icon, {
         className: "o-ui-autocomplete-icon",
@@ -336,6 +318,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             <TriggerType
                 {...mergeProps(
                     rest,
+                    triggerProps,
                     triggerFocusWithinProps,
                     {
                         id: triggerId,
@@ -358,37 +341,27 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                         autoCorrect: "off",
                         spellCheck: "false",
                         autoComplete: "off",
-                        "aria-haspopup": "listbox",
-                        "aria-expanded": isOpen ? true : undefined,
-                        "aria-controls": isOpen ? overlayId : undefined,
                         "aria-activedescendant": focusedItem?.id,
                         "aria-autocomplete": "list",
                         "aria-label": ariaLabel,
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
-                        ref: triggerRef
+                        ref
                     }
                 )}
             />
             <Overlay
                 {...mergeProps(
                     menuProps,
-                    overlayDismissProps,
-                    overlayPositionProps,
-                    restoreFocusProps,
+                    overlayProps,
                     {
-                        id: overlayId,
-                        show: isOpen,
                         // TODO: hide when loading
                         zIndex,
                         className: "o-ui-autocomplete-menu",
                         style: {
-                            ...overlayStyles,
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined
-                        },
-                        tabIndex: "-1",
-                        ref: overlayRef
+                        }
                     }
                 )}
             >
