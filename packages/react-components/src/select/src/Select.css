@@ -38,6 +38,13 @@
     cursor: not-allowed;
 }
 
+.o-ui-select-trigger-ghost[disabled] .o-ui-select-value-text,
+.o-ui-select-trigger-outline[disabled] .o-ui-select-value-text,
+.o-ui-select-trigger-ghost[disabled] .o-ui-select-placeholder,
+.o-ui-select-trigger-outline[disabled] .o-ui-select-placeholder {
+    cursor: not-allowed;
+}
+
 /* TRIGGER | GHOST */
 .o-ui-select-trigger-ghost {
     border: 1px solid transparent;
