@@ -28,3 +28,4 @@ export function forwardOrbitRef<P extends AsAttribute, T = Element>(render: Forw
     return (forwardRef(render) as unknown) as ForwardedOrbitComponent<T, P>;
 }
 
+export { forwardOrbitRef as forwardRef };

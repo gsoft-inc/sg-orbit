@@ -2,7 +2,7 @@ import "./Flex.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { cssModule, forwardOrbitRef, mergeProps } from "../../shared";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
@@ -158,7 +158,7 @@ export function InnerFlex({
     );
 }
 
-export const Flex = forwardOrbitRef<InnerFlexProps>((props, ref) => (
+export const Flex = forwardRef<InnerFlexProps>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
 

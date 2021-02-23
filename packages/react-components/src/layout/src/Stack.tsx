@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Flex, FlexProps } from "./Flex";
-import { forwardOrbitRef, mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { isNil } from "lodash";
 import { useFlexAlignment } from "./adapters";
 
@@ -77,7 +77,7 @@ export function InnerStack({
     );
 }
 
-export const Stack = forwardOrbitRef<InnerStackProps>((props, ref) => (
+export const Stack = forwardRef<InnerStackProps>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
 
