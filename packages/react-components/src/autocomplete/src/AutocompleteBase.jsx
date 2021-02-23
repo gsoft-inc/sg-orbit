@@ -1,5 +1,6 @@
 import "./Autocomplete.css";
 
+import { CrossButton } from "../../../dist";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { KeyProp, Listbox } from "../../listbox";
 import {
@@ -30,7 +31,9 @@ const propTypes = {
 
 /*
 TODO:
-  - Clear button. Also add one to select? Make a clearable option to TextInput?
+  - Dynamic items
+  - Remote itemd
+  - Merge Autocomplete + AutocompleteBase
 */
 
 export const AutocompleteBase = forwardRef((props, ref) => {
@@ -265,6 +268,10 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         search(event, event.target.value);
     });
 
+    const handleTriggerClear = useEventCallback(event => {
+        clear(event);
+    });
+
     const items = useCollectionItems(nodes);
 
     const handleListboxChange = useEventCallback((event, newKey) => {
@@ -284,6 +291,15 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         className: "o-ui-autocomplete-icon",
         size: "sm"
     });
+
+    const clearButtonMarkup = !isNilOrEmpty(queryRef.current) && (
+        <CrossButton
+            onClick={handleTriggerClear}
+            size="xs"
+            condensed
+            aria-label="Clear value"
+        />
+    );
 
     const listboxMarkup = (
         <Listbox
@@ -327,6 +343,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                         value: queryRef.current,
                         placeholder,
                         icon: iconMarkup,
+                        button: clearButtonMarkup,
                         onChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,

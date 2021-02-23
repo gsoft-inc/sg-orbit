@@ -74,6 +74,10 @@ const propTypes = {
      */
     useVirtualFocus: bool,
     /**
+     * Whether or not the listbox option should be reachable with tabs.
+     */
+    tabbable: bool,
+    /**
      * Whether or not the listbox take up the width of its container.
      */
     fluid: bool,
