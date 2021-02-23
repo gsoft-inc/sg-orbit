@@ -1,6 +1,6 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Flex, FlexProps } from "./Flex";
-import { InnerPropsToProps, mergeProps } from "../../shared";
+import { forwardOrbitRef, mergeProps } from "../../shared";
 import { isNil } from "lodash";
 import { useFlexAlignment } from "./adapters";
 
@@ -47,8 +47,6 @@ export interface InnerInlineProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export type InlineProps = InnerPropsToProps<InnerInlineProps>;
-
 export function InnerInline({
     align,
     verticalAlign,
@@ -77,8 +75,10 @@ export function InnerInline({
     );
 }
 
-export const Inline = forwardRef<any, InlineProps>((props, ref) => (
+export const Inline = forwardOrbitRef<InnerInlineProps>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
+
+export type InlineProps = ComponentProps<typeof Inline>;
 
 Inline.displayName = "Inline";
