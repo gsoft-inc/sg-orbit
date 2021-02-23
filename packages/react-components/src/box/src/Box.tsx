@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { forwardRef, omitProps } from "../../shared";
 
 export interface InnerBoxProps {
