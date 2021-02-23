@@ -4,7 +4,7 @@ import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, For
 type PropsOf<T> =
     T extends ElementType ? ComponentProps<T> & RefAttributes<ElementRef<T>> :
     T extends Element ? HTMLProps<T> & RefAttributes<T> :
-    Record<string, any>;
+    never;
 
 export type RightJoinProps<
     SourceProps extends Record<string, any> = {},
@@ -20,8 +20,7 @@ type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>> & {
     [key: string]: any;
 };
 
-
-export type ForwardedOrbitComponent<T, P extends Record<string, any>> = ForwardRefExoticComponent<MergeWithAs<PropsOf<T>, P>>
+export type ForwardedOrbitComponent<T, P extends Record<string, any>> = ForwardRefExoticComponent<MergeWithAs<T, P>>
 
 export type AsAttribute = { as?: ElementType };
 
