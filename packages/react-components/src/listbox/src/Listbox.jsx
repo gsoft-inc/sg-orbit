@@ -147,6 +147,7 @@ export function InnerListbox({
     defaultFocusTarget,
     focusOnHover,
     useVirtualFocus,
+    tabbable = true,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -297,7 +298,10 @@ export function InnerListbox({
         }
     });
 
-    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
+        keyProp: KeyProp,
+        isDisabled: !tabbable
+    });
 
     useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,

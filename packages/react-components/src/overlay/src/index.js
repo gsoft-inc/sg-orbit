@@ -8,3 +8,4 @@ export * from "./usePopup";
 export * from "./useTriggerWidth";
 export * from "./useFocusWithin";
 export * from "./isTargetParent";
+export * from "./isDevtoolsBlurEvent";

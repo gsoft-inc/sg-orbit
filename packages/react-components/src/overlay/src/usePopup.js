@@ -62,17 +62,22 @@ export function usePopup(type, {
         })
     });
 
+    // Usefull for component enabling hide on outside click like the Popover.
+    const canHideOnInteractOutside = useCallback(event => !isTargetParent(event.target, triggerElement), [triggerElement]);
+
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         trigger,
         onHide: useEventCallback(event => {
+            console.log("useOverlayLightDismiss - onHide", event.target, event.relatedTarget);
+
             // Ignore events related to the trigger to prevent double toggle.
-            if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
+            if (event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnEscape,
-        hideOnLeave,
-        hideOnOutsideClick
+        hideOnEscape: isOpen && hideOnEscape,
+        hideOnLeave: isOpen && hideOnLeave,
+        hideOnOutsideClick: isOpen && hideOnOutsideClick ? canHideOnInteractOutside : false
     });
 
     const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {

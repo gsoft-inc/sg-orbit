@@ -9,17 +9,18 @@ import {
     getRawSlots,
     isNilOrEmpty,
     mergeProps,
+    useCommittedRef,
     useControllableState,
     useEventCallback,
     useId,
     useRefState
 } from "../../shared";
 import { NodeShape, useCollectionItems } from "../../collection";
-import { Overlay, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { TextInput } from "../../input";
 import { arrayOf, func, shape } from "prop-types";
+import { debounce, isNil } from "lodash";
 import { forwardRef, useCallback, useRef, useState } from "react";
-import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 
 const propTypes = {
@@ -29,7 +30,6 @@ const propTypes = {
 
 /*
 TODO:
-  - Debounce the close?
   - Clear button. Also add one to select? Make a clearable option to TextInput?
 */
 
@@ -83,13 +83,9 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     // Keep query in sync with the initial or controlled value.
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
         onChange: useCallback(newValue => {
-            console.log("will update query: ", newValue);
-
             setQuery(newValue ?? "");
         }, [setQuery])
     });
-
-    const listboxRef = useRef();
 
     const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
         id,
@@ -107,6 +103,9 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         allowFlip,
         allowPreventOverflow
     });
+
+    const listboxRef = useRef();
+    const triggerRef = useCommittedRef(triggerElement);
 
     const open = event => {
         setIsOpen(event, true);
@@ -166,7 +165,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         }
     };
 
-    const search = (event, query) => {
+    const search = debounce((event, query) => {
         if (query.trim().length > minCharacters) {
             updateQuery(query);
             onSearch(query);
@@ -178,16 +177,18 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             updateQuery(query);
             close(event);
         }
-    };
+    }, 200, { leading: true });
 
     const triggerWidth = useTriggerWidth(triggerElement);
 
     const triggerFocusWithinProps = useFocusWithin({
         onBlur: useEventCallback(event => {
-            // Close the menu when the focus switch from the trigger to somewhere else than the menu.
-            if (!isTargetParent(event.relatedTarget, overlayElement)) {
-                close(event);
-                reset();
+            if (!isDevToolsBlurEvent(triggerRef)) {
+                // Close the menu when the focus switch from the trigger to somewhere else than the menu.
+                if (!isTargetParent(event.relatedTarget, overlayElement)) {
+                    close(event);
+                    reset();
+                }
             }
         })
     });
@@ -293,6 +294,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             onFocusChange={handleListboxFocusChange}
             focusOnHover
             useVirtualFocus
+            tabbable={false}
             fluid
             className="o-ui-autocomplete-listbox"
             aria-label={ariaLabel}
