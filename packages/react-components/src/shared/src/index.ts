@@ -21,6 +21,7 @@ export * from "./arrayify";
 export * from "./resolveChildren";
 export * from "./match";
 export * from "./focusableTreeWalker";
+export * from "./forwardRef";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -48,6 +49,3 @@ export * from "./useRefState";
 export * from "./slots";
 export * from "./checkable";
 export * from "./styles";
-
-// types
-export type { InnerPropsToProps } from "./component-types";

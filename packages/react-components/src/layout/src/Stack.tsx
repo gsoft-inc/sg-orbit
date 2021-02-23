@@ -40,7 +40,7 @@ export interface InnerStackProps {
     /**
      * React children.
      */
-    children?: ReactNode
+    children: ReactNode
     /**
     * @ignore
     */

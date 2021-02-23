@@ -40,7 +40,7 @@ export interface InnerInlineProps {
     /**
      * React children
     */
-    children?: ReactNode;
+    children: ReactNode;
     /**
     * @ignore
     */

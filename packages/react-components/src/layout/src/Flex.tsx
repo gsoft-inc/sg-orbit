@@ -1,8 +1,8 @@
 import "./Flex.css";
 
 import { Box } from "../../box";
-import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { InnerPropsToProps, cssModule, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { ForwardedOrbitComponent, InnerPropsToProps, cssModule, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
 import { useMemo } from "react";
 
@@ -58,14 +58,13 @@ export interface InnerFlexProps {
     /**
      * React children
      */
-    children?: ReactNode;
+    children: ReactNode;
     /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>
 }
 
-export type FlexProps = InnerPropsToProps<InnerFlexProps>;
 
 const Spacing = [
     "--o-ui-scale-alpha",
@@ -126,11 +125,6 @@ export function InnerFlex({
 }: InnerFlexProps): ReactElement {
     const isGapSupported = useIsGapSupported(noGap);
 
-    // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
-    const normalizedAlignContent = alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end");
-    const normalizedAlignItems = alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end");
-    const normalizeJustifyContent = justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end");
-
     const items = children;
 
     return (
@@ -148,9 +142,10 @@ export function InnerFlex({
                     ),
                     style: {
                         flexDirection: direction && `${direction}${reverse ? "-reverse" : ""}`,
-                        alignContent: normalizedAlignContent,
-                        alignItems: normalizedAlignItems,
-                        justifyContent: normalizeJustifyContent,
+                        // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
+                        alignContent: alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end"),
+                        alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
+                        justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
                         "--o-ui-gap": gap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
                     },
@@ -163,6 +158,8 @@ export function InnerFlex({
     );
 }
 
-export const Flex = forwardRef<any, FlexProps>((props, ref) => (
+export const Flex: ForwardedOrbitComponent<InnerFlexProps> = forwardRef((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
+
+export type FlexProps = ComponentProps<typeof Flex>;

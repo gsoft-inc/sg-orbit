@@ -1,5 +1,5 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { InnerPropsToProps, omitProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { forwardOrbitRef, omitProps } from "../../shared";
 
 export interface InnerBoxProps {
     /**
@@ -17,10 +17,8 @@ export interface InnerBoxProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
-
-export type BoxProps = InnerPropsToProps<InnerBoxProps>;
 
 export function InnerBox(props: InnerBoxProps): ReactElement {
     const {
@@ -40,9 +38,10 @@ export function InnerBox(props: InnerBoxProps): ReactElement {
     );
 }
 
-export const Box = forwardRef<any, BoxProps>((props, ref) => (
+export const Box = forwardOrbitRef<InnerBoxProps>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 
-Box.displayName = "Box";
+export type BoxProps = ComponentProps<typeof Box>
 
+Box.displayName = "Box";
