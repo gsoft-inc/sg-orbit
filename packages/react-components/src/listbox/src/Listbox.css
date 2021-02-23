@@ -28,7 +28,22 @@
     padding-left: var(--o-ui-scale-delta);
     display: flex;
     align-items: center;
+    justify-items: center;
     position: relative;
+}
+
+/* WITH DESCRIPTION */
+.o-ui-listbox-option.o-ui-listbox-option-has-description {
+    --o-ui-listbox-option-height: var(--o-ui-scale-india);
+    display: grid;
+    overflow-x: hidden;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    padding-top: var(--o-ui-scale-bravo);
+    grid-template-areas:
+        "gutter label"
+        "gutter description";
 }
 
 /* OPTION | SELECTED */
@@ -51,18 +66,27 @@
 /* OPTION | DESCRIPTION */
 .o-ui-listbox-option-description {
     color: var(--o-ui-text-2);
-    margin-left: var(--o-ui-scale-bravo);
     cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    grid-area: description;
+    justify-self: start;
+    width: 100%;
 }
 
 /* OPTION | STATE | FOCUS */
-.o-ui-listbox-option:focus {
+.o-ui-listbox-option:focus,
+.o-ui-listbox-option-focus,
+.o-ui-listbox-option.o-ui-focus {
     background-color: var(--o-ui-background-4);
     outline: none;
 }
 
 /* OPTION | STATE | FOCUS | SELECTOR BAR */
-.o-ui-listbox-option:focus:after {
+.o-ui-listbox-option:focus:after,
+.o-ui-listbox-option-focus:after,
+.o-ui-listbox-option.o-ui-focus:after {
     content: "";
     display: block;
     position: absolute;
@@ -72,7 +96,9 @@
     background-color: var(--o-ui-border-primary-1);
 }
 
-.o-ui-listbox-option:not([aria-disabled="true"]):hover {
+/* OPTION | STATE | HOVER */
+.o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
+.o-ui-listbox-option-hover {
     background-color: var(--o-ui-background-4);
 }
 
@@ -80,6 +106,12 @@
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {
     margin-right: var(--o-ui-scale-alpha);
+    grid-area: gutter;
+}
+
+/* OPTION | WITH DESCRIPTION | ICONS | START ICON */
+.o-ui-listbox-option-has-description .o-ui-listbox-option-start-icon {
+    align-self: start;
 }
 
 /* OPTION | ICONS | END ICON */
@@ -99,8 +131,20 @@
 /* LABEL */
 .o-ui-listbox-option-label {
     cursor: default;
-    display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1;
+    justify-self: start;
+}
+
+.o-ui-listbox-option-has-description .o-ui-listbox-option-label {
+    grid-area: label;
+    width: 100%;
+}
+
+/* AVATAR */
+.o-ui-listbox-option-avatar {
+    margin-right: var(--o-ui-scale-bravo);
+    grid-area: gutter;
 }

@@ -77,18 +77,20 @@ export function InnerMenuTrigger({
 }) {
     const [focusTargetRef, setFocusTarget] = useRefState(null);
 
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, isVisible) => {
+        if (isVisible) {
+            // Focusing the first item on open if nore are already set to be focused.
+            if (isNil(focusTargetRef.current)) {
+                setFocusTarget(FocusTarget.first);
+            }
+        }
+    });
+
     const { isOpen, setIsOpen, triggerProps, overlayProps } = usePopup("menu", {
         id,
         open: openProp,
         defaultOpen,
-        // Focusing the first item on open if nore are already set to be focused.
-        onOpenChange: useChainedEventCallback(onOpenChange, (event, newValue) => {
-            if (newValue) {
-                if (isNil(focusTargetRef.current)) {
-                    setFocusTarget(FocusTarget.first);
-                }
-            }
-        }),
+        onOpenChange: handleOpenChange,
         hideOnEscape: true,
         hideOnLeave: true,
         hideOnOutsideClick: true,
@@ -118,7 +120,7 @@ export function InnerMenuTrigger({
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
+        switch (event.key) {
             case Keys.down:
                 event.preventDefault();
                 open(event, FocusTarget.first);
@@ -138,7 +140,7 @@ export function InnerMenuTrigger({
         close();
     });
 
-    const triggerId = useId(trigger.props.id, trigger.props.id ? undefined : "o-ui-menu-trigger");
+    const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         triggerProps,

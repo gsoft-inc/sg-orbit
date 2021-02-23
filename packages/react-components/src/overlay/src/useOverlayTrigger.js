@@ -26,7 +26,7 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
+        switch(event.key) {
             case Keys.enter:
             case Keys.space:
                 if (trigger === "click") {
@@ -43,7 +43,7 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
+        if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
@@ -62,8 +62,8 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
                 onKeyUp: handleKeyUp
             };
         case "hover":
+            // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
-                // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
                 onMouseEnter: handleMouseEnter,
                 onMouseLeave: handleMouseLeave,
                 onFocus: handleFocus,

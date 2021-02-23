@@ -1,5 +1,6 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
@@ -182,39 +183,30 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("item with end icon and description", () =>
-        <Listbox aria-label="Planets">
-            <Item key="earth">
-                <Text>Earth</Text>
-                <NotificationIcon slot="end-icon" />
-                <Text slot="description">Earth</Text>
-            </Item>
-            <Item key="jupiter">
-                <Text>Jupiter</Text>
-                <Text slot="description">Jupiter</Text>
-            </Item>
-            <Item key="mars">
-                <Text>Mars</Text>
-                <IconList slot="end-icon">
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
-                <Text slot="description">Mars</Text>
-            </Item>
-        </Listbox>
-    )
     .add("item with avatar", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <SmallAvatar slot="avatar">EL</SmallAvatar>
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
                 <Text>Mars</Text>
             </Item>
         </Listbox>
@@ -222,17 +214,17 @@ stories()
     .add("item with avatar and description", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Earth</Text>
                 <Text slot="description">Earth</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Jupiter</Text>
                 <Text slot="description">Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
                 <Text>Mars</Text>
                 <Text slot="description">Mars</Text>
             </Item>
@@ -243,7 +235,6 @@ stories()
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
-                <NotificationIcon slot="end-icon" />
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
@@ -261,6 +252,41 @@ stories()
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
+        </Listbox>
+    )
+    .add("item with description overflow", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item with description overflow fluid", () =>
+        <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
         </Listbox>
     )
     .add("fluid", () =>
@@ -283,7 +309,6 @@ stories()
                 <Item key="saturn">Saturn</Item>
             </Listbox>
             <Listbox aria-label="Planets">
-                <Item active key="earth">Earth</Item>
                 <Item focus key="jupiter">Jupiter</Item>
                 <Item hover key="mars">Mars</Item>
                 <Item focus hover key="mercury">Mercury</Item>
@@ -345,6 +370,13 @@ stories()
     })
     .add("autofocus", () =>
         <Listbox autoFocus aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus when virtual", () =>
+        <Listbox useVirtualFocus autoFocus aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

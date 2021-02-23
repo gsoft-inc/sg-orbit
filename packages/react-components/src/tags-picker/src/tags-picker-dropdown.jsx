@@ -146,7 +146,7 @@ export class TagsPickerDropdown extends PureComponent {
     }
 
     handleDocumentKeyDown = event => {
-        switch (event.keyCode) {
+        switch (event.key) {
             case Keys.esc:
                 this.handleDocumentEscape(event);
                 break;

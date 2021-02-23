@@ -21,7 +21,7 @@ const propTypes = {
     validationState: oneOf(["valid", "invalid"])
 };
 
-export function HiddenComboBox({ name, value, required, validationState, ...rest }) {
+export function HiddenAutocomplete({ name, value, required, validationState, ...rest }) {
     if (isNil(name)) {
         return null;
     }
@@ -33,13 +33,13 @@ export function HiddenComboBox({ name, value, required, validationState, ...rest
                 {
                     type: "hidden",
                     value: value ?? "",
-                    "aria-required": required,
-                    "aria-invalid": validationState === "invalid"
+                    "aria-required": required ? true : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined
                 }
             )}
         />
     );
 }
 
-HiddenComboBox.propTypes = propTypes;
-HiddenComboBox.displayName = "HiddenComboBox";
+HiddenAutocomplete.propTypes = propTypes;
+HiddenAutocomplete.displayName = "HiddenComboBox";

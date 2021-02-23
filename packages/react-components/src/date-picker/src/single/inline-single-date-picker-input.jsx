@@ -58,7 +58,7 @@ export class InnerInlineSingleDatePickerInput extends PureComponent {
     handleKeyDown = event => {
         const { onKeyDown, onClear, open } = this.props;
 
-        if (event.keyCode === Keys.esc) {
+        if (event.key === Keys.esc) {
             if (!open) {
                 onClear(event, this.props);
             }

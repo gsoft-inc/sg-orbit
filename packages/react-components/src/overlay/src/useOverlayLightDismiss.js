@@ -1,16 +1,17 @@
 import { Keys, useEventCallback, useRefState } from "../../shared";
-import { isNil } from "lodash";
+import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
+import { isFunction, isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 
 export function useOverlayLightDismiss(overlayRef, {
-    trigger = "click",
+    trigger,
     onHide,
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick
 }) {
-    const [activeElementRef, setActiveElement] = useRefState();
+    const [isHandled, setIsHandled] = useRefState(false);
 
     const hide = event => {
         if (!isNil(onHide)) {
@@ -19,24 +20,29 @@ export function useOverlayLightDismiss(overlayRef, {
     };
 
     const handleKeyDown = event => {
-        if (event.keyCode === Keys.esc) {
-            event.preventDefault();
+        if (event.key === Keys.esc) {
+            if (hideOnEscape) {
+                event.preventDefault();
+                hide(event);
+            }
+        } else if (event.key === Keys.tab) {
+            // Must handle tab out this way to be able to differiante them from trigger click.
+            setIsHandled(true);
             hide(event);
         }
     };
 
-    const handleFocus = useEventCallback(() => {
-        setActiveElement(document.activeElement);
-    });
-
     const handleBlur = useEventCallback(event => {
-        // This is a fix to prevent the popper from closing when the dev tools opens.
-        // Opening the dev tools will cause a blur event since the popper lose the focus in favor of the dev tools.
-        // Since this is the dev tools who receive the focused, no elements of the popper will be focused on the next tick which will cause the popper to close.
-        // To prevent the popper from closing we leverage the fact that opening the dev tools doesn't update document.activeElement.
-        if (activeElementRef.current !== document.activeElement) {
-            hide(event);
-        }
+        // Sad hack, I am not sure why but keydown event occurs after blur event.
+        setTimeout(() => {
+            if (!isHandled.current) {
+                if (!isDevToolsBlurEvent(overlayRef)) {
+                    hide(event);
+                }
+            }
+
+            setIsHandled(false);
+        }, 0);
     });
 
     const handleMouseLeave = useEventCallback(event => {
@@ -44,7 +50,9 @@ export function useOverlayLightDismiss(overlayRef, {
     });
 
     const handleInteractOutside = useEventCallback(event => {
-        hide(event);
+        if (!isFunction(hideOnOutsideClick) || hideOnOutsideClick(event)) {
+            hide(event);
+        }
     });
 
     useInteractOutside(overlayRef, {
@@ -53,7 +61,6 @@ export function useOverlayLightDismiss(overlayRef, {
     });
 
     const focusWithinProps = useFocusWithin({
-        onFocus: handleFocus,
         onBlur: handleBlur,
         isDisabled: !hideOnLeave
     });
@@ -61,7 +68,7 @@ export function useOverlayLightDismiss(overlayRef, {
     return {
         ...focusWithinProps,
         onMouseLeave: trigger === "hover" ? hideOnLeave ? handleMouseLeave : undefined : undefined,
-        onKeyDown: hideOnEscape ? handleKeyDown : undefined
+        onKeyDown: handleKeyDown
     };
 }
 

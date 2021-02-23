@@ -2,19 +2,21 @@ import { Children, useMemo } from "react";
 import { Divider } from "../divider";
 import { Item, Section } from "../placeholders";
 import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
-import { any, array, arrayOf, elementType, number, object, oneOfType, element as reactElement, string } from "prop-types";
+import { any, array, arrayOf, number, object, oneOfType, element as reactElement, elementType as reactElementType, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolveChildren } from "../shared";
 
+// ALEX: With TS would be nice to seggregate this shape into multiple interface like CollectionItem, CollectionSection, CollectionDivider.
 export const NodeShape = {
     key: string.isRequired,
     position: number.isRequired,
     index: number.isRequired,
     type: string.isRequired,
-    elementType: elementType,
+    elementType: reactElementType,
     ref: any,
     content: oneOfType([reactElement, arrayOf(reactElement), string]),
     props: object,
+    tooltip: string, // option only
     items: array // Sections only
 };
 
@@ -23,6 +25,19 @@ export const NodeType = {
     section: "section",
     divider: "divider"
 };
+
+export function createCollectionItem({ key, position, index, elementType, ref, content, props }) {
+    return {
+        key,
+        position,
+        index,
+        type: NodeType.item,
+        elementType,
+        ref,
+        content,
+        props
+    };
+}
 
 export class CollectionBuilder {
     _parseItem(element, position, nextIndex) {
@@ -99,14 +114,14 @@ export class CollectionBuilder {
         return parsedItem;
     }
 
-    build(children) {
+    build(children, { items }) {
         if (isNil(children)) {
             return [];
         }
 
         let index = 0;
 
-        const elements = resolveChildren(children);
+        const elements = resolveChildren(children, { items });
 
         const nextIndex = () => {
             return index++;
@@ -129,8 +144,8 @@ export class CollectionBuilder {
     }
 }
 
-export function useCollection(children) {
+export function useCollection(children, { items } = {}) {
     const builder = useMemo(() => new CollectionBuilder(), []);
 
-    return useMemo(() => builder.build(children), [builder, children]);
+    return useMemo(() => builder.build(children, { items }), [builder, children, items]);
 }

@@ -72,7 +72,7 @@ export function InnerTabs({
 }) {
     const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
-    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? null : "o-ui-tabs"));
 
     const isInitialRender = useIsInitialRender();
 

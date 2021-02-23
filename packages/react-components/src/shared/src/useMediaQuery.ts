@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 export function useMediaQuery(query: string): boolean {
     const supportsMatchMedia = isFunction(window?.matchMedia);
 
-    const [matches, setMatches] = useState(() =>
-        supportsMatchMedia
-            ? window.matchMedia(query).matches
-            : false
+    const [matches, setMatches] = useState(() => supportsMatchMedia
+        ? window.matchMedia(query).matches
+        : false
     );
 
     useEffect(() => {

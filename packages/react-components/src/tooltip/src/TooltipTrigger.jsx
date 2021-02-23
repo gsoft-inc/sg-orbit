@@ -116,7 +116,7 @@ export function InnerTooltipTrigger({
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus or mouse goes to an element of the overlay.
-            if (!isTargetParent(overlayElement, event.relatedTarget)) {
+            if (!isTargetParent(event.relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -126,7 +126,8 @@ export function InnerTooltipTrigger({
         trigger: "hover",
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger.
-            if (event.target !== triggerElement && !isTargetParent(triggerElement, event.target) && event.relatedTarget !== triggerElement) {
+            // if (event.target !== triggerElement && !isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -146,7 +147,7 @@ export function InnerTooltipTrigger({
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
 
-    const tooltipId = useId(tooltip.props.id, tooltip.props.id ? undefined : "o-ui-tooltip");
+    const tooltipId = useId(tooltip.props.id, tooltip.props.id ? null : "o-ui-tooltip");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         !disabled ? triggerProps : {},
@@ -178,6 +179,7 @@ export function InnerTooltipTrigger({
                         zIndex,
                         className: "o-ui-tooltip-overlay",
                         style: overlayStyles,
+                        role: "tooltip",
                         as,
                         ref: overlayRef
                     }

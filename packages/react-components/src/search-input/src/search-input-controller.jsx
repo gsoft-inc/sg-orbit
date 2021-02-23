@@ -185,7 +185,7 @@ export class SearchInputController extends AutoControlledPureComponent {
     handleInputKeyDown = event => {
         const { onKeyDown } = this.props;
 
-        switch (event.keyCode) {
+        switch (event.key) {
             case Keys.enter:
                 this.handleInputEnter(event);
                 break;

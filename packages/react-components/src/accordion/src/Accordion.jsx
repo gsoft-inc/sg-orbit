@@ -81,7 +81,7 @@ export function InnerAccordion({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
-    const items = useAccordionItems(children, useId(id, id ? undefined : "o-ui-accordion"));
+    const items = useAccordionItems(children, useId(id, id ? null : "o-ui-accordion"));
 
     const focusManager = useFocusManager(focusScope);
 
@@ -91,8 +91,8 @@ export function InnerAccordion({
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, {
-        previous: [Keys.up],
-        next: [Keys.down],
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     });

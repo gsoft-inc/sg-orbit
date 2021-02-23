@@ -1,6 +1,7 @@
 import { Box } from "@react-components/box";
 import { forwardRef } from "react";
-import { parseSlots, slot } from "@react-components/shared";
+import { renderHook } from "@testing-library/react-hooks";
+import { slot, useRawSlots } from "@react-components/shared";
 
 const Title = slot("title", forwardRef(({ children, ...rest }, ref) => {
     return (
@@ -24,9 +25,16 @@ const Content = slot("content", forwardRef(({ children, ...rest }, ref) => {
     );
 }));
 
-test("return an empty object when children is null or undefined", () => {
-    expect(parseSlots(null, ["title"])).toEqual({});
-    expect(parseSlots(undefined, ["title"])).toEqual({});
+test("return an empty object when children is null", () => {
+    const { result } = renderHook(() => useRawSlots(null, ["title"]));
+
+    expect(result.current).toEqual({});
+});
+
+test("return an empty object when children is undefined", () => {
+    const { result } = renderHook(() => useRawSlots(undefined, ["title"]));
+
+    expect(result.current).toEqual({});
 });
 
 test("can parse a single static slot", () => {
@@ -39,10 +47,10 @@ test("can parse a single static slot", () => {
         </>
     );
 
-    const slots = parseSlots(children, ["title"]);
+    const { result } = renderHook(() => useRawSlots(children, ["title"]));
 
-    expect(slots.title).not.toBeUndefined();
-    expect(slots.title.props.children).toBe(title);
+    expect(result.current.title).not.toBeUndefined();
+    expect(result.current.title.props.children).toBe(title);
 });
 
 test("can parse multiple static slots", () => {
@@ -53,10 +61,10 @@ test("can parse multiple static slots", () => {
         </>
     );
 
-    const slots = parseSlots(children, ["title", "content"]);
+    const { result } = renderHook(() => useRawSlots(children, ["title", "content"]));
 
-    expect(slots.title).not.toBeUndefined();
-    expect(slots.content).not.toBeUndefined();
+    expect(result.current.title).not.toBeUndefined();
+    expect(result.current.content).not.toBeUndefined();
 });
 
 test("can parse a dynamic slot", () => {
@@ -69,19 +77,19 @@ test("can parse a dynamic slot", () => {
         </>
     );
 
-    const slots = parseSlots(children, ["title"]);
+    const { result } = renderHook(() => useRawSlots(children, ["title"]));
 
-    expect(slots.title).not.toBeUndefined();
-    expect(slots.title.props.children).toBe(title);
+    expect(result.current.title).not.toBeUndefined();
+    expect(result.current.title.props.children).toBe(title);
 });
 
 test("return string content as \"stringValue\" key", () => {
     const content = "SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight";
 
-    const slots = parseSlots(content, []);
+    const { result } = renderHook(() => useRawSlots(content, []));
 
-    expect(slots.stringValue).not.toBeUndefined();
-    expect(slots.stringValue).toBe(content);
+    expect(result.current.stringValue).not.toBeUndefined();
+    expect(result.current.stringValue).toBe(content);
 });
 
 test("doesn't return more values than the requested amount of available slots", () => {
@@ -91,7 +99,7 @@ test("doesn't return more values than the requested amount of available slots", 
         </>
     );
 
-    const slots = parseSlots(children, ["title", "content"]);
+    const { result } = renderHook(() => useRawSlots(children, ["title", "content"]));
 
-    expect(Object.keys(slots).length).toBe(1);
+    expect(Object.keys(result.current).length).toBe(1);
 });

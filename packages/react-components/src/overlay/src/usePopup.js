@@ -56,23 +56,28 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            if (!isTargetParent(overlayElement, event.relatedTarget)) {
+            if (!isTargetParent(event.relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
     });
 
+    // Usefull for component enabling hide on outside click like the Popover.
+    const canHideOnInteractOutside = useCallback(event => !isTargetParent(event.target, triggerElement), [triggerElement]);
+
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         trigger,
         onHide: useEventCallback(event => {
+            console.log("useOverlayLightDismiss - onHide", event.target, event.relatedTarget);
+
             // Ignore events related to the trigger to prevent double toggle.
-            if (event.target !== triggerElement && !isTargetParent(triggerElement, event.target) && event.relatedTarget !== triggerElement) {
+            if (event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnEscape,
-        hideOnLeave,
-        hideOnOutsideClick
+        hideOnEscape: isOpen && hideOnEscape,
+        hideOnLeave: isOpen && hideOnLeave,
+        hideOnOutsideClick: isOpen && hideOnOutsideClick ? canHideOnInteractOutside : false
     });
 
     const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
@@ -80,8 +85,8 @@ export function usePopup(type, {
         position,
         offset,
         allowFlip,
-        boundaryElement,
-        allowPreventOverflow
+        allowPreventOverflow,
+        boundaryElement
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
@@ -96,7 +101,7 @@ export function usePopup(type, {
         })
     });
 
-    const overlayId = useId(id, id ? undefined : "o-ui-overlay");
+    const overlayId = useId(id, id ? null : "o-ui-overlay");
 
     return {
         isOpen,
@@ -109,9 +114,10 @@ export function usePopup(type, {
         triggerProps: mergeProps(
             triggerProps,
             {
+                tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
                 "aria-haspopup": type,
-                "aria-expanded": isOpen,
-                "aria-controls": isOpen && overlayId,
+                "aria-expanded": isOpen ? true : undefined,
+                "aria-controls": isOpen ? overlayId : undefined,
                 ref: setTriggerElement
             }
         ),

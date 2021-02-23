@@ -33,8 +33,8 @@ export function HiddenSelect({ name, selectedKey, required, validationState, ...
                 {
                     type: "hidden",
                     value: selectedKey ?? "",
-                    "aria-required": required,
-                    "aria-invalid": validationState === "invalid"
+                    "aria-required": required ? true : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined
                 }
             )}
         />

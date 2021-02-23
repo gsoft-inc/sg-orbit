@@ -1,6 +1,7 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
+import { KeyProp } from "./Listbox";
 import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
@@ -40,14 +41,20 @@ export function InnerListboxOption({
     forwardedRef,
     ...rest
 }) {
-    const { selectedKeys, onSelect } = useListboxContext();
+    const {
+        selectedKeys,
+        onSelect,
+        onFocus,
+        focusManager,
+        focusOnHover
+    } = useListboxContext();
 
     const handleClick = useEventCallback(event => {
         onSelect(event, key);
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
+        switch(event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -58,8 +65,17 @@ export function InnerListboxOption({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
+        if (event.key === Keys.space) {
             event.preventDefault();
+        }
+    });
+
+    // Move focus to the option on mouse hover.
+    const handleMouseEnter = useEventCallback(event => {
+        const activeElement = focusManager.focusKey(key);
+
+        if (!isNil(onFocus)) {
+            onFocus(event, activeElement.getAttribute(KeyProp), activeElement);
         }
     });
 
@@ -82,7 +98,8 @@ export function InnerListboxOption({
         },
         description: {
             id: descriptionId,
-            className: "o-ui-listbox-option-description"
+            className: "o-ui-listbox-option-description",
+            size: "sm"
         },
         "end-icon": {
             size: "sm",
@@ -90,7 +107,7 @@ export function InnerListboxOption({
         }
     });
 
-    // TEMP code until useSlots is improved with conditional props based on other slots existence.
+    // TEMP: until useSlots is improved with conditional props based on other slots existence.
     if (!isNil(icon) && isNil(description)) {
         icon = augmentElement(icon, {
             size: "sm"
@@ -106,9 +123,11 @@ export function InnerListboxOption({
                     onClick: !disabled ? handleClick : undefined,
                     onKeyDown: !disabled ? handleKeyDown : undefined,
                     onKeyUp: !disabled ? handleKeyUp : undefined,
+                    onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
                         description && "has-description",
+                        focusOnHover && "no-hover",
                         active && "active",
                         focus && "focus",
                         hover && "hover"

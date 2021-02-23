@@ -3,6 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import {
     Keys,
+    appendEventKey,
     arrayify,
     cssModule,
     mergeProps,
@@ -20,9 +21,9 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { NodeShape, NodeType, useCollection } from "../../collection";
+import { NodeShape, NodeType, useCollection, useCollectionItems } from "../../collection";
 import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const KeyProp = "data-o-ui-key";
@@ -65,6 +66,18 @@ const propTypes = {
      */
     defaultFocusTarget: string,
     /**
+     * Whether or not to focus the hovered item.
+     */
+    focusOnHover: bool,
+    /**
+     * Whether or not focus should be virtual (add a CSS class instead of switching the active element).
+     */
+    useVirtualFocus: bool,
+    /**
+     * Whether or not the listbox option should be reachable with tabs.
+     */
+    tabbable: bool,
+    /**
      * Whether or not the listbox take up the width of its container.
      */
     fluid: bool,
@@ -74,7 +87,13 @@ const propTypes = {
     as: oneOfType([string, elementType])
 };
 
-function useSelectionManager({ selectedKey, items }) {
+function useListboxItems(children, nodes) {
+    const collectionNodes = useCollection(children);
+
+    return nodes ?? collectionNodes;
+}
+
+function useSelectionManager(items, { selectedKey }) {
     return useMemo(() => {
         const selectedKeys = arrayify(selectedKey);
 
@@ -119,21 +138,20 @@ function useSelectionManager({ selectedKey, items }) {
     }, [selectedKey, items]);
 }
 
-function useListboxItems(children, nodes) {
-    const collectionNodes = useCollection(children);
-
-    return nodes ?? collectionNodes;
-}
-
 export function InnerListbox({
     id,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
     onChange,
+    onFocusChange,
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus?
     defaultFocusTarget,
+    focusOnHover,
+    useVirtualFocus,
+    tabbable = true,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -145,16 +163,25 @@ export function InnerListbox({
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
-    const nodes = useListboxItems(children, nodesProp);
-    const items = nodes.filter(x => x.type === NodeType.item);
-
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs(setFocusRef, forwardedRef);
+    const containerRef = useMergedRefs(setFocusRef);
 
-    const selectionManager = useSelectionManager({ selectedKey, items });
+    const nodes = useListboxItems(children, nodesProp);
+    const items = useCollectionItems(nodes);
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const selectionManager = useSelectionManager(items, { selectedKey });
+
+    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: KeyProp });
+
+    // Would be nice to find a better way to give control over the focused item to the parent.
+    useImperativeHandle(forwardedRef, () => {
+        const element = containerRef.current;
+
+        element.focusManager = focusManager;
+
+        return element;
+    });
 
     const updateSelectedKeys = (event, newValue) => {
         if (!isNil(onChange)) {
@@ -164,7 +191,7 @@ export function InnerListbox({
         setSelectedKey(newValue);
     };
 
-    const handleSelect = useEventCallback((event, key) => {
+    const handleSelectOption = useEventCallback((event, key) => {
         let newKeys;
 
         if (selectionMode === SelectionMode.multiple) {
@@ -176,48 +203,76 @@ export function InnerListbox({
         updateSelectedKeys(event, newKeys);
     });
 
+    const handleFocusOption = useEventCallback((event, key, activeElement) => {
+        if (!isNil(onFocusChange)) {
+            onFocusChange(event, key, activeElement);
+        }
+    });
+
     const searchDisposables = useDisposables();
 
     const handleKeyDown = useEventCallback(event => {
         searchDisposables.dispose();
 
-        switch (event.keyCode) {
-            case Keys.down: {
+        switch (event.key) {
+            case Keys.arrowDown: {
                 event.preventDefault();
 
                 const activeElement = focusManager.focusNext();
+                const key = activeElement.getAttribute(KeyProp);
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
                 }
                 break;
             }
-            case Keys.up: {
+            case Keys.arrowUp: {
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
+                const key = activeElement.getAttribute(KeyProp);
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.toggleKey(activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
                 }
                 break;
             }
-            case Keys.home:
+            case Keys.home: {
                 event.preventDefault();
-                focusManager.focusFirst();
+
+                const activeElement = focusManager.focusFirst();
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                }
                 break;
-            case Keys.end:
+            }
+            case Keys.end: {
                 event.preventDefault();
-                focusManager.focusLast();
+
+                const activeElement = focusManager.focusLast();
+
+                if (!isNil(onFocusChange)) {
+                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                }
                 break;
+            }
             case Keys.space:
                 event.preventDefault();
 
@@ -231,14 +286,10 @@ export function InnerListbox({
                 break;
             // eslint-disable-next-line no-fallthrough
             default:
-                // Search accepts only alphanumeric and spacebar keys.
-                if ((event.keyCode >= 48 && event.keyCode <= 57) ||
-                    (event.keyCode >= 65 && event.keyCode <= 90) ||
-                     event.keyCode === Keys.space)
-                {
+                if (event.key.length === 1) {
                     event.preventDefault();
 
-                    const query = searchQueryRef.current + event.key;
+                    const query = appendEventKey(searchQueryRef.current, event.key);
 
                     setSearchQuery(query);
                     focusManager.search(query);
@@ -251,19 +302,18 @@ export function InnerListbox({
         }
     });
 
-    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
+        keyProp: KeyProp,
+        isDisabled: !tabbable
+    });
 
     useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: useEventCallback(() => {
-            // Ensure keyboard navigation is available.
-            containerRef.current?.focus();
-        })
+        delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const rootId = useId(id, id ? undefined : "o-ui-listbox");
+    const rootId = useId(id, id ? null : "o-ui-listbox");
 
     const renderOption = ({
         key,
@@ -271,7 +321,7 @@ export function InnerListbox({
         elementType: ElementType = ListboxOption,
         ref,
         content,
-        props,
+        props = {},
         tooltip
     }) => (
         <ElementType
@@ -290,18 +340,24 @@ export function InnerListbox({
         index,
         elementType: ElementType = ListboxSection,
         ref,
-        props,
+        props = {},
         items: sectionItems
-    }) => (
-        <ElementType
-            {...props}
-            id={`${rootId}-section-${index}`}
-            key={key}
-            ref={ref}
-        >
-            {sectionItems.map(x => renderOption(x))}
-        </ElementType>
-    );
+    }) => {
+        if (sectionItems.length === 0) {
+            return null;
+        }
+
+        return (
+            <ElementType
+                {...props}
+                id={`${rootId}-section-${index}`}
+                key={key}
+                ref={ref}
+            >
+                {sectionItems.map(x => renderOption(x))}
+            </ElementType>
+        );
+    };
 
     return (
         <Box
@@ -326,7 +382,10 @@ export function InnerListbox({
             <ListboxContext.Provider
                 value={{
                     selectedKeys: selectionManager.selectedKeys,
-                    onSelect: handleSelect
+                    onSelect: handleSelectOption,
+                    onFocus: handleFocusOption,
+                    focusManager,
+                    focusOnHover
                 }}
             >
                 {nodes.map(({ type, ...nodeProps }) => {

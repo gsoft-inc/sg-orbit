@@ -2,41 +2,20 @@ import {
     FocusTarget,
     Keys,
     mergeProps,
-    parseSlots,
     useAutoFocus,
     useChainedEventCallback,
     useControllableState,
     useEventCallback,
     useId,
     useMergedRefs,
-    useRefState,
-    useResizeObserver
+    useRawSlots,
+    useRefState
 } from "../../shared";
 import { KeyProp } from "../../listbox";
-import { NodeType, useCollection } from "../../collection";
 import { isNil, isNumber } from "lodash";
-import { useCallback, useMemo, useState } from "react";
-import { usePopup } from "../../overlay";
-
-function useCollectionItems(nodes) {
-    return useMemo(() => {
-        return nodes.reduce((acc, x) => {
-            if (x.type === NodeType.section) {
-                x.items
-                    .filter(y => y.type === NodeType.item)
-                    .forEach(z => {
-                        console.log(z);
-
-                        acc.push(z);
-                    });
-            } else if (x.type === NodeType.item) {
-                acc.push(x);
-            }
-
-            return acc;
-        }, []);
-    }, [nodes]);
-}
+import { useCallback, useMemo } from "react";
+import { useCollection, useCollectionItems } from "../../collection";
+import { usePopup, useTriggerWidth } from "../../overlay";
 
 export function useSelect(children, {
     id,
@@ -52,7 +31,7 @@ export function useSelect(children, {
     disabled,
     allowFlip,
     allowPreventOverflow,
-    syncTriggerAndMenuWidth = true,
+    allowResponsiveMenuWidth = true,
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
@@ -60,19 +39,18 @@ export function useSelect(children, {
     ref
 }) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
-    const [triggerWidth, setTriggerWidth] = useState();
     const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, newValue) => {
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, isVisible) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
-        if (!newValue) {
+        if (!isVisible) {
             setFocusTarget(FocusTarget.first);
         }
     });
 
-    const { isOpen, setIsOpen, triggerElement, focusScope, focusManager, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -110,12 +88,12 @@ export function useSelect(children, {
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case Keys.down:
+        switch (event.key) {
+            case Keys.arrowDown:
                 event.preventDefault();
                 open(event, FocusTarget.first);
                 break;
-            case Keys.up:
+            case Keys.arrownUp:
                 event.preventDefault();
                 open(event, FocusTarget.last);
                 break;
@@ -128,35 +106,21 @@ export function useSelect(children, {
         close(event);
     });
 
-    // Move focus to item on mouse hover.
-    const handleListboxOptionMouseEnter = useEventCallback(event => {
-        focusManager.focusKey(event.target.getAttribute(KeyProp));
-    });
-
     useAutoFocus(triggerRef, {
         isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    // Ensure the trigger and menu width stay in sync.
-    useResizeObserver(triggerElement, useEventCallback(entry => { setTriggerWidth(`${entry.borderBoxSize[0].inlineSize}px`); }), {
-        isDisabled: !syncTriggerAndMenuWidth || !isNil(menuWidth),
-        box: "border-box"
-    });
-
-    const triggerId = useId(id, id ? undefined : "o-ui-select-trigger");
+    const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
     const nodes = useCollection(children);
     const items = useCollectionItems(nodes);
 
-    items.forEach(x => {
-        x.props.onMouseEnter = handleListboxOptionMouseEnter;
-    });
+    const selectedItem = useMemo(() => items.find(x => x.key === selectedKey), [items, selectedKey]);
 
-    // TODO: move to useControllableState onChange?
-    const selectedItem = items.find(x => x.key === selectedKey);
+    const { icon, avatar, text, "end-icon": endIcon, stringValue } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
 
-    const { icon, text, "end-icon": endIcon, stringValue } = parseSlots(selectedItem?.content, ["icon", "text", "end-icon"]);
+    const triggerId = useId(id, id ? null : "o-ui-select-trigger");
 
     return {
         selectedKey,
@@ -164,7 +128,8 @@ export function useSelect(children, {
         selectedItem: isNil(selectedItem) ? undefined : {
             text: text?.props?.children ?? stringValue ?? "",
             icon,
-            endIcon
+            endIcon,
+            avatar
         },
         isOpen,
         open,
@@ -201,6 +166,7 @@ export function useSelect(children, {
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
             defaultFocusTarget: focusTargetRef.current,
+            focusOnHover: true,
             fluid: true,
             className: "o-ui-select-listbox",
             "aria-label": ariaLabel,

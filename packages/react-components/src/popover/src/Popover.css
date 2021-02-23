@@ -54,8 +54,10 @@
 /* BUTTONS */
 .o-ui-popover-button {
     grid-area: button;
+    justify-self: end;
 }
 
 .o-ui-popover-button-group {
     grid-area: button;
+    justify-self: end;
 }
