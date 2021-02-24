@@ -109,7 +109,7 @@ function useIsGapSupported(noGap: boolean): boolean {
 }
 
 export function InnerFlex({
-    direction = "row",
+    direction,
     inline,
     reverse,
     alignContent,
@@ -129,19 +129,19 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergeProps<BoxProps[]>(
+            {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
                     className: cssModule(
                         "o-ui-flex",
-                        direction,
+                        direction || "row",
                         inline && "inline",
                         reverse && "reverse",
                         fluid && "fluid",
                         !isGapSupported && "no-gap"
                     ),
                     style: {
-                        flexDirection: `${direction}${reverse ? "-reverse" : ""}` as const,
+                        flexDirection: direction ? (`${direction}${reverse ? "-reverse" : ""}` as const) : undefined,
                         // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                         alignContent: alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end"),
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),

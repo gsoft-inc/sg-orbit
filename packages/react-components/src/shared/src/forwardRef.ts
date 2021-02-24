@@ -3,7 +3,7 @@ import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, For
 
 type PropsOf<T> =
     T extends ElementType ? ComponentProps<T> & RefAttributes<ElementRef<T>> :
-    T extends Element ? HTMLProps<T> & RefAttributes<T> :
+    T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
     never;
 
 export type RightJoinProps<
@@ -24,6 +24,6 @@ export type ForwardedOrbitComponent<T, P extends Record<string, any>> = ForwardR
 
 export type AsAttribute = { as?: ElementType };
 
-export function forwardRef<P extends AsAttribute, T = Element>(render: ForwardRefRenderFunction<T, P>): ForwardedOrbitComponent<T, P> {
+export function forwardRef<P extends AsAttribute, T = HTMLElement>(render: ForwardRefRenderFunction<T, P>): ForwardedOrbitComponent<T, P> {
     return (reactForwardRef(render) as unknown) as ForwardedOrbitComponent<T, P>;
 }
