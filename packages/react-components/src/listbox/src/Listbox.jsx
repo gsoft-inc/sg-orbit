@@ -74,6 +74,10 @@ const propTypes = {
      */
     useVirtualFocus: bool,
     /**
+     * Whether or not the listbox option should be reachable with tabs.
+     */
+    tabbable: bool,
+    /**
      * Whether or not the listbox take up the width of its container.
      */
     fluid: bool,
@@ -147,6 +151,7 @@ export function InnerListbox({
     defaultFocusTarget,
     focusOnHover,
     useVirtualFocus,
+    tabbable = true,
     fluid,
     "arial-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -297,7 +302,10 @@ export function InnerListbox({
         }
     });
 
-    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
+        keyProp: KeyProp,
+        isDisabled: !tabbable
+    });
 
     useAutoFocusChild(focusManager, {
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
