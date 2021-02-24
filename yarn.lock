@@ -3234,12 +3234,12 @@
     "@sharegate/eslint-config-sort-imports" "*"
     "@typescript-eslint/eslint-plugin" "*"
 
-"@sharegate/stylelint-config-recommended@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-2.0.0.tgz#b3da9b9745c67c2c3ef818ae8ebd13b674f417fa"
-  integrity sha512-xXZzJ7jBm4joOGy+g90fRzX+2u7ShCFEUrEZjOHDZrcAfD86k7ThGXrM21RLBWzpJZDKnPwO3DdZyH1uSm5LUQ==
+"@sharegate/stylelint-config-recommended@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-2.1.1.tgz#624fc26335777b32930e6bcd798babe7635eb942"
+  integrity sha512-5S19V3DT2bBnOH18uzx1dyFufiZ+5WCJSVMau2rnvSFyloGBhDgO0BSLFV+0ITmX1IBKNhQQgkUEafEU4ZyIaw==
   dependencies:
-    stylelint-config-recommended "*"
+    stylelint-config-recommended "^3"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -21617,7 +21617,7 @@ styled-system@^5.0.0, styled-system@^5.1.5:
     "@styled-system/variant" "^5.1.5"
     object-assign "^4.1.1"
 
-stylelint-config-recommended@*:
+stylelint-config-recommended@^3:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
