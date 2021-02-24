@@ -53,7 +53,7 @@ export function InnerMenuItem({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    const { icon, text, description, "end-icon": endIcon } = useSlots(children, {
+    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, {
         _: {
             defaultWrapper: Text
         },
@@ -61,13 +61,17 @@ export function InnerMenuItem({
             size: "sm",
             className: "o-ui-menu-item-start-icon"
         },
+        avatar: {
+            className: "o-ui-menu-item-option-avatar"
+        },
         text: {
             id: labelId,
             className: "o-ui-menu-item-label"
         },
         description: {
             id: descriptionId,
-            className: "o-ui-menu-item-description"
+            className: "o-ui-menu-item-description",
+            size: "sm"
         },
         "end-icon": {
             size: "sm",
@@ -85,6 +89,7 @@ export function InnerMenuItem({
                     onMouseEnter: handleMouseEnter,
                     className: cssModule(
                         "o-ui-menu-item",
+                        description && "has-description",
                         active && "active",
                         focus && "focus",
                         hover && "hover"
@@ -99,6 +104,7 @@ export function InnerMenuItem({
             )}
         >
             {icon}
+            {avatar}
             {text}
             {description}
             {endIcon}
