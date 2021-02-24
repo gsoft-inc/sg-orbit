@@ -1,6 +1,6 @@
 import "./Flex.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
@@ -109,7 +109,7 @@ function useIsGapSupported(noGap: boolean): boolean {
 }
 
 export function InnerFlex({
-    direction,
+    direction = "row",
     inline,
     reverse,
     alignContent,
@@ -129,25 +129,25 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergeProps(
+            {...mergeProps<BoxProps[]>(
                 rest,
                 {
                     className: cssModule(
                         "o-ui-flex",
-                        direction || "row",
+                        direction,
                         inline && "inline",
                         reverse && "reverse",
                         fluid && "fluid",
                         !isGapSupported && "no-gap"
                     ),
                     style: {
-                        flexDirection: direction && `${direction}${reverse ? "-reverse" : ""}`,
+                        flexDirection: `${direction}${reverse ? "-reverse" : ""}` as const,
                         // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                         alignContent: alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end"),
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
                         justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
-                        "--o-ui-gap": gap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
+                        ["--o-ui-gap" as any]: gap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
                     },
                     ref: forwardedRef
                 }
