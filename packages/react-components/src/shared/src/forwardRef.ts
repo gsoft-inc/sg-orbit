@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes, forwardRef } from "react";
+// Idea and naming based off Chakra UI. https://github.com/chakra-ui/chakra-ui/blob/main/packages/system/src/system.types.tsx
+
+import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes, reactForwardRef } from "react";
 
 type PropsOf<T> =
     T extends ElementType ? ComponentProps<T> & RefAttributes<ElementRef<T>> :
@@ -7,8 +8,8 @@ type PropsOf<T> =
     never;
 
 export type RightJoinProps<
-    SourceProps extends Record<string, any> = {},
-    OverrideProps extends Record<string, any> = {}
+    SourceProps extends Record<string, any> = Record<string, never>,
+    OverrideProps extends Record<string, any> = Record<string, never>
     > = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps
 
 export type OmitCommonProps<
@@ -24,8 +25,6 @@ export type ForwardedOrbitComponent<T, P extends Record<string, any>> = ForwardR
 
 export type AsAttribute = { as?: ElementType };
 
-export function forwardOrbitRef<P extends AsAttribute, T = Element>(render: ForwardRefRenderFunction<T, P>): ForwardedOrbitComponent<T, P> {
-    return (forwardRef(render) as unknown) as ForwardedOrbitComponent<T, P>;
+export function forwardRef<P extends AsAttribute, T = Element>(render: ForwardRefRenderFunction<T, P>): ForwardedOrbitComponent<T, P> {
+    return (reactForwardRef(render) as unknown) as ForwardedOrbitComponent<T, P>;
 }
-
-export { forwardOrbitRef as forwardRef };
