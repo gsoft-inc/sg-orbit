@@ -12,7 +12,7 @@ export interface InnerTextProps {
     /**
      * A text can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */

@@ -11,7 +11,7 @@ export interface InnerBoxProps {
      */
     slot?: string;
     /**
-     * React children
+    * @ignore
     */
     children?: ReactNode;
     /**
