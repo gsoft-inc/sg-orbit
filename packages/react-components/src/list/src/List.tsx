@@ -68,10 +68,11 @@ List.displayName = "List";
 
 ////////
 
-function InnerOrderedList({
+export function InnerOrderedList({
     as = "ol",
     forwardedRef,
-    ...rest }: InnerListProps): ReactElement {
+    ...rest
+}: InnerListProps): ReactElement {
     return (
         <List
             {...rest}
