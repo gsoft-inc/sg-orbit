@@ -1,36 +1,37 @@
 import "./Text.css";
 
 import { Box } from "../../box";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Size, forwardRef, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export function getTextClass(size) {
+export function getTextClass(size: Size): string {
     return `o-ui-text-${normalizeSize(size)}`;
 }
 
-////////
-
-const propTypes = {
+export interface InnerTextProps {
     /**
      * A text can vary in size.
      */
-    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "inherit"]),
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
-     * Default slot override.
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
-    slot: string,
+    slot?: string;
     /**
      * @ignore
      */
-    children: any.isRequired
-};
+    children?: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerText(props) {
+export function InnerText(props: InnerTextProps): ReactElement {
     const [styleProps] = useStyleProps("text");
 
     const {
@@ -60,10 +61,10 @@ export function InnerText(props) {
     );
 }
 
-InnerText.propTypes = propTypes;
-
-export const Text = slot("text", forwardRef((props, ref) => (
+export const Text = slot("text", forwardRef<InnerTextProps>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
+
+export type TextProps = ComponentProps<typeof Text>
 
 Text.displayName = "Text";

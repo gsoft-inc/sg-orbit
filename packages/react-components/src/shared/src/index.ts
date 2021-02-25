@@ -28,6 +28,7 @@ export * from "./arrayify";
 export * from "./resolveChildren";
 export * from "./match";
 export * from "./focusableTreeWalker";
+export * from "./forwardRef";
 
 // Hooks
 export * from "./useMergedRefs";
