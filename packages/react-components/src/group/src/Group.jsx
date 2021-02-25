@@ -67,12 +67,12 @@ export function InnerGroup({
         <Flex
             {...mergeProps(
                 rest,
-                directionProps,
-                alignProps,
                 {
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                }
+                },
+                directionProps,
+                alignProps
             )}
         >
             {children}

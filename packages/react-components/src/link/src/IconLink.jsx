@@ -114,11 +114,11 @@ export function InnerIconLink(props) {
         <ElementType
             {...mergeProps(
                 rest,
-                linkProps,
                 {
                     title: title ?? ariaLabel,
                     "aria-label": ariaLabel
-                }
+                },
+                linkProps
             )}
         >
             {iconMarkup}

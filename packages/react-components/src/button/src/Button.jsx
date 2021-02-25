@@ -142,7 +142,6 @@ export function InnerButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps,
                 {
                     className: cssModule(
                         "o-ui-button",
@@ -151,7 +150,8 @@ export function InnerButton(props) {
                     ),
                     as,
                     ref: buttonRef
-                }
+                },
+                buttonProps
             )}
         >
             {icon}

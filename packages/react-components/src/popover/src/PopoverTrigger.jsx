@@ -132,14 +132,14 @@ export function InnerPopoverTrigger({
             <Overlay
                 {...mergeProps(
                     rest,
-                    overlayProps,
                     {
                         borderOffset: "var(--o-ui-scale-bravo)",
                         zIndex,
                         className: "o-ui-popover-overlay",
                         as,
                         ref: forwardedRef
-                    }
+                    },
+                    overlayProps
                 )}
             >
                 {popover}

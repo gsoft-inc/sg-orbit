@@ -116,13 +116,13 @@ export function InnerDisclosure({
             <Text
                 {...mergeProps(
                     rest,
-                    transitionProps,
                     {
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
                         role: "presentation",
                         as,
                         ref: contentRef
-                    }
+                    },
+                    transitionProps
                 )}
             >
                 {contentMarkup}

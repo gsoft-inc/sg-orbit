@@ -167,10 +167,10 @@ export function InnerCheckbox(props) {
         <Box
             {...mergeProps(
                 rest,
-                wrapperProps,
                 {
                     as
-                }
+                },
+                wrapperProps
             )}
         >
             <VisuallyHidden {...inputProps} />

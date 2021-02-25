@@ -218,7 +218,6 @@ export function InnerSelect(props) {
             <TriggerType
                 {...mergeProps(
                     rest,
-                    triggerProps,
                     {
                         className: cssModule(
                             "o-ui-select-trigger",
@@ -229,7 +228,8 @@ export function InnerSelect(props) {
                             focus && "focus",
                             hover && "hover"
                         )
-                    }
+                    },
+                    triggerProps
                 )}
             >
                 {iconMarkup}

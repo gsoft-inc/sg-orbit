@@ -125,12 +125,12 @@ export function InnerIconButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps,
                 {
                     title: title ?? ariaLabel,
                     as,
                     "aria-label": ariaLabel
-                }
+                },
+                buttonProps
             )}
         >
             {iconMarkup}
