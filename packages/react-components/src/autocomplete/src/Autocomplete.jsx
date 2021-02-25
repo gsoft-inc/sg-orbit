@@ -3,14 +3,9 @@ import "./Autocomplete.css";
 import { AutocompleteBase } from "./AutocompleteBase";
 import { NodeType, useCollection } from "../../collection";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import { getRawSlots, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-
-/*
-Do I have to maintain a dummy selected key for listbox????
-Or always provide null
-*/
 
 const propTypes = {
     /**
@@ -33,7 +28,19 @@ const propTypes = {
      * Temporary text that occupies the autocomplete trigger when no value is selected.
      */
     placeholder: string,
+    /**
+     * The items to render.
+     */
     items: arrayOf(object),
+    /**
+     * Called when the input query change and new search results are expected.
+     * @param {string} - The search query.
+     */
+    onSearch: func,
+    /**
+     * Whether or not the autocomplete should display a loading state.
+     */
+    loading: bool,
     /**
      * Whether or not the query should be cleared when a result is selected.
      */
@@ -68,14 +75,6 @@ const propTypes = {
      * @returns {void}
      */
     onOpenChange: func,
-    onSearch: func,
-    /**
-     * Called before the autocomplete results are rendered.
-     * @param {Result[]} results - The results to render.
-     * @param {string} query - The search query.
-     * @returns {Result[]} - New results to render.
-     */
-    // onResults: func,
     /**
      * A trigger icon.
      */
@@ -193,10 +192,6 @@ export function InnerAutocomplete({
     ...rest
 }) {
     const [localQuery, setLocalQuery] = useState();
-
-    if (!isNil(itemsProp) && isNil(onSearch)) {
-        throw new Error("An autocomplete with dynamic items must receive an \"onSearch\" handler.");
-    }
 
     const nodes = useCollection(children, { items: itemsProp });
 

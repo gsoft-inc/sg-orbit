@@ -1,6 +1,6 @@
 import "./Autocomplete.css";
 
-import { CrossButton } from "../../../dist";
+import { CrossButton } from "../../button";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { KeyProp, Listbox } from "../../listbox";
 import {
@@ -20,8 +20,11 @@ import { NodeShape, useCollectionItems } from "../../collection";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { TextInput } from "../../input";
 import { arrayOf, func, shape } from "prop-types";
-import { debounce, isNil } from "lodash";
 import { forwardRef, useCallback, useRef, useState } from "react";
+import { isNil } from "lodash";
+import { useDebounceCallback } from "./useDebounceCallback";
+import { useDeferredCallback } from "./useDeferredCallback";
+import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
 const propTypes = {
@@ -31,8 +34,6 @@ const propTypes = {
 
 /*
 TODO:
-  - Dynamic items
-  - Remote itemd
   - Merge Autocomplete + AutocompleteBase
 */
 
@@ -47,6 +48,8 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         value: valueProp,
         defaultValue,
         placeholder,
+        onSearch,
+        loading,
         clearOnSelect,
         noResultsMessage,
         minCharacters = 1,
@@ -54,7 +57,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         validationState,
         onChange,
         onOpenChange,
-        onSearch,
         icon,
         direction = "bottom",
         align = "start",
@@ -110,16 +112,28 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const listboxRef = useRef();
     const triggerRef = useCommittedRef(triggerElement);
 
-    const open = event => {
-        setIsOpen(event, true);
-    };
+    const items = useCollectionItems(nodes);
 
-    const close = event => {
-        setIsOpen(event, false);
+    const [deferredUpdateIsOpen, updateIsOpen] = useDeferredCallback((event, newValue) => {
+        setIsOpen(event, newValue);
+    }, 200, [setIsOpen]);
+
+    const open = useCallback(event => {
+        deferredUpdateIsOpen(event, true);
+    }, [deferredUpdateIsOpen]);
+
+    const close = useCallback(event => {
+        updateIsOpen(event, false);
         setFocusedItem(null);
-    };
+    }, [updateIsOpen, setFocusedItem]);
 
-    const updateValue = (event, newValue) => {
+    const updateQuery = useCallback(newQuery => {
+        if (queryRef.current !== newQuery) {
+            setQuery(newQuery ?? "", true);
+        }
+    }, [queryRef, setQuery]);
+
+    const updateValue = useCallback((event, newValue) => {
         if (value !== newValue) {
             if (!isNil(onChange)) {
                 onChange(event, newValue);
@@ -127,11 +141,38 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
             setValue(newValue);
         } else {
+            // When the value hasn't change it won't trigger value onChange handler which would have updated the query.
+            // We must update the query manually.
             updateQuery(newValue);
         }
-    };
+    }, [value, onChange, setValue, updateQuery]);
 
-    const selectItem = (event, key) => {
+    const clear = useCallback(event => {
+        if (!isNil(value)) {
+            updateValue(event, null);
+        }
+    }, [value, updateValue]);
+
+    const reset = useCallback(() => {
+        // Reset the value to the last selected one.
+        if (value !== queryRef.current) {
+            updateQuery(value ?? "");
+        }
+    }, [value, queryRef, updateQuery]);
+
+    const search = useDebounceCallback((event, query) => {
+        if (query.trim().length >= minCharacters) {
+            onSearch(query);
+            open(event);
+        } else if (isNilOrEmpty(query)) {
+            clear(event);
+            close(event);
+        } else {
+            close(event);
+        }
+    }, 200, [minCharacters, onSearch, open, close, clear]);
+
+    const selectItem = useCallback((event, key) => {
         const selectedItem = items.find(x => x.key === key);
 
         if (!isNil(selectedItem)) {
@@ -145,42 +186,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         }
 
         close(event);
-    };
-
-    const updateQuery = newQuery => {
-        setQuery(newQuery ?? "", true);
-    };
-
-    const clear = event => {
-        if (!isNil(value)) {
-            updateValue(event, null);
-        } else {
-            // When the value is already null it won't trigger an onChange
-            // which would have updated the query. Must update manually.
-            updateQuery("");
-        }
-    };
-
-    const reset = () => {
-        // Reset the value to the last selected one.
-        if (value !== queryRef.current) {
-            updateQuery(value ?? "");
-        }
-    };
-
-    const search = debounce((event, query) => {
-        if (query.trim().length > minCharacters) {
-            updateQuery(query);
-            onSearch(query);
-            open(event);
-        } else if (isNilOrEmpty(query)) {
-            clear(event);
-            close(event);
-        } else {
-            updateQuery(query);
-            close(event);
-        }
-    }, 200, { leading: true });
+    }, [items, clearOnSelect, clear, close, updateValue]);
 
     const triggerWidth = useTriggerWidth(triggerElement);
 
@@ -265,14 +271,15 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     });
 
     const handleTriggerChange = useEventCallback(event => {
-        search(event, event.target.value);
+        const query = event.target.value;
+
+        updateQuery(query);
+        search(event, query);
     });
 
     const handleTriggerClear = useEventCallback(event => {
         clear(event);
     });
-
-    const items = useCollectionItems(nodes);
 
     const handleListboxChange = useEventCallback((event, newKey) => {
         selectItem(event, newKey);
@@ -292,14 +299,16 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         size: "sm"
     });
 
-    const clearButtonMarkup = !isNilOrEmpty(queryRef.current) && (
-        <CrossButton
-            onClick={handleTriggerClear}
-            size="xs"
-            condensed
-            aria-label="Clear value"
-        />
-    );
+    const clearButtonMarkup = !isNilOrEmpty(queryRef.current)
+        ? (
+            <CrossButton
+                onClick={handleTriggerClear}
+                size="xs"
+                condensed
+                aria-label="Clear value"
+            />
+        )
+        : undefined;
 
     const listboxMarkup = (
         <Listbox
@@ -336,8 +345,6 @@ export const AutocompleteBase = forwardRef((props, ref) => {
             <TriggerType
                 {...mergeProps(
                     rest,
-                    triggerProps,
-                    triggerFocusWithinProps,
                     {
                         id: triggerId,
                         value: queryRef.current,
@@ -347,6 +354,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                         onChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,
+                        loading: useDeferredValue(loading, 100, false),
                         disabled,
                         className: cssModule(
                             "o-ui-autocomplete-trigger",
@@ -366,22 +374,25 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
                         ref
-                    }
+                    },
+                    triggerProps,
+                    triggerFocusWithinProps
                 )}
             />
             <Overlay
                 {...mergeProps(
                     menuProps,
-                    overlayProps,
                     {
-                        // TODO: hide when loading
+                        // The defer helps to prevent a flicking "not found" results by delaying the open.
+                        show: useDeferredValue(isOpen && !loading, 150, false),
                         zIndex,
                         className: "o-ui-autocomplete-menu",
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined
                         }
-                    }
+                    },
+                    overlayProps
                 )}
             >
                 {nodes.length > 0 ? listboxMarkup : noItemsMarkup}
@@ -391,5 +402,4 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 });
 
 AutocompleteBase.propTypes = propTypes;
-AutocompleteBase.displayName = "AutocompleteBase";
 

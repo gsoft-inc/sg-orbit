@@ -50,7 +50,9 @@ export function useDisposables(): DisposableAPI {
     const [d] = useState(disposables);
 
     useEffect(() => {
-        return () => d.dispose();
+        return () => {
+            d.dispose();
+        };
     }, [d]);
 
     return d;
