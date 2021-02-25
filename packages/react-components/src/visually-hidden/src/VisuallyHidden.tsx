@@ -1,23 +1,30 @@
 import "./VisuallyHidden.css";
 
 import { Box } from "../../box";
-import { elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerVisuallyHiddenProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as: ElementType;
+    /**
+     * @ignore
+     */
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerVisuallyHidden({
     as = "div",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerVisuallyHiddenProps): ReactElement {
     return (
         <Box
             {...mergeProps(
@@ -34,9 +41,7 @@ export function InnerVisuallyHidden({
     );
 }
 
-InnerVisuallyHidden.propTypes = propTypes;
-
-export const VisuallyHidden = forwardRef((props, ref) => (
+export const VisuallyHidden = forwardRef<InnerVisuallyHiddenProps>((props, ref) => (
     <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));
 
