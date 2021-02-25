@@ -63,13 +63,13 @@ export function InnerStack({
         <Flex
             {...mergeProps<Partial<FlexProps>[]>(
                 rest,
-                alignProps,
                 {
                     direction: "column",
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                }
+                },
+                alignProps
             )}
         >
             {children}

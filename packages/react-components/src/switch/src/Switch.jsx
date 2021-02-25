@@ -86,11 +86,7 @@ export function InnerSwitch(props) {
         fieldProps
     );
 
-    const {
-        isChecked,
-        wrapperProps,
-        inputProps
-    } = useCheckbox({
+    const { isChecked, wrapperProps, inputProps } = useCheckbox({
         cssModule: "o-ui-switch",
         isInField,
         id,
@@ -137,10 +133,10 @@ export function InnerSwitch(props) {
         <Box
             {...mergeProps(
                 rest,
-                wrapperProps,
                 {
                     as
-                }
+                },
+                wrapperProps
             )}
         >
             <VisuallyHidden {...inputProps} />

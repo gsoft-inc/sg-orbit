@@ -143,11 +143,11 @@ export function InnerMenuTrigger({
     const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
-        triggerProps,
         {
             id: triggerId,
             onKeyDown: !isOpen ? handleTriggerKeyDown : undefined
-        }
+        },
+        triggerProps
     ));
 
     const menuMarkup = augmentElement(menu, {
@@ -177,12 +177,12 @@ export function InnerMenuTrigger({
             <Overlay
                 {...mergeProps(
                     rest,
-                    overlayProps,
                     {
                         zIndex,
                         as,
                         ref: forwardedRef
-                    }
+                    },
+                    overlayProps
                 )}
             >
                 {menuMarkup}

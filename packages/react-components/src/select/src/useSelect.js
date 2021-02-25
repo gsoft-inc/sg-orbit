@@ -136,7 +136,6 @@ export function useSelect(children, {
         close,
         focusScope,
         triggerProps: mergeProps(
-            triggerProps,
             {
                 id: triggerId,
                 onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
@@ -145,18 +144,19 @@ export function useSelect(children, {
                 "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                 "aria-describedby": ariaDescribedBy,
                 ref: triggerRef
-            }
+            },
+            triggerProps
         ),
         overlayProps: mergeProps(
-            menuProps,
-            overlayProps,
             {
                 className: "o-ui-select-menu",
                 style: {
                     ...menuStyle,
                     width: menuWidth ?? triggerWidth ?? undefined
                 }
-            }
+            },
+            menuProps,
+            overlayProps
         ),
         listboxProps: {
             nodes,

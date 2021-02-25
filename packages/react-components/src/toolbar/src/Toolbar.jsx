@@ -105,9 +105,6 @@ export function InnerToolbar({
         <Flex
             {...mergeProps(
                 rest,
-                directionProps,
-                alignProps,
-                arrowNavigationProps,
                 {
                     role: "toolbar",
                     gap,
@@ -115,7 +112,10 @@ export function InnerToolbar({
                     as,
                     ref: containerRef,
                     "aria-orientation": orientation
-                }
+                },
+                directionProps,
+                alignProps,
+                arrowNavigationProps
             )}
         >
             <ToolbarContext.Provider

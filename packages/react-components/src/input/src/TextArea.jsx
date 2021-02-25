@@ -135,11 +135,7 @@ export function InnerTextArea(props) {
         setValue(event.target.value);
     });
 
-    const {
-        wrapperProps,
-        inputProps,
-        inputRef
-    } = useInput({
+    const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-text-area",
         id,
         value: inputValue,
@@ -186,13 +182,13 @@ export function InnerTextArea(props) {
             <textarea
                 {...mergeProps(
                     rest,
-                    inputProps,
                     {
                         rows,
                         style: {
                             "--o-ui-resize": resize
                         }
-                    }
+                    },
+                    inputProps
                 )}
             />
             {buttonMarkup}
@@ -203,15 +199,14 @@ export function InnerTextArea(props) {
         <Box
             {...mergeProps(
                 userWrapperProps,
-                wrapperProps,
                 {
                     className: cssModule(
                         "o-ui-input",
                         buttonMarkup && "has-button"
                     ),
                     as
-                }
-
+                },
+                wrapperProps
             )}
         >
             {content}

@@ -62,12 +62,12 @@ export function InnerInline({
         <Flex
             {...mergeProps<Partial<FlexProps>[]>(
                 rest,
-                alignProps,
                 {
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                }
+                },
+                alignProps
             )}
         >
             {children}

@@ -77,10 +77,10 @@ export function InnerField(props) {
         <Box
             {...mergeProps(
                 rest,
-                fieldProps,
                 {
                     as
-                }
+                },
+                fieldProps
             )}
         >
             <ClearToolbar>

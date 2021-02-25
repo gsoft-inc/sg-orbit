@@ -112,26 +112,26 @@ export function usePopup(type, {
         focusScope,
         focusManager,
         triggerProps: mergeProps(
-            triggerProps,
             {
                 tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
                 "aria-haspopup": type,
                 "aria-expanded": isOpen ? true : undefined,
                 "aria-controls": isOpen ? overlayId : undefined,
                 ref: setTriggerElement
-            }
+            },
+            triggerProps
         ),
         overlayProps: mergeProps(
-            overlayDismissProps,
-            overlayPositionProps,
-            restoreFocusProps,
             {
                 id: overlayId,
                 show: isOpen,
                 style: overlayStyles,
                 tabIndex: "-1",
                 ref: overlayRef
-            }
+            },
+            overlayDismissProps,
+            overlayPositionProps,
+            restoreFocusProps
         ),
         arrowProps: !hasArrow ? {} : {
             className: "o-ui-overlay-arrow",

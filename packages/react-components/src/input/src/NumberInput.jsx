@@ -282,11 +282,7 @@ export function InnerNumberInput(props) {
         inputRef.current.focus();
     });
 
-    const {
-        wrapperProps,
-        inputProps,
-        inputRef
-    } = useInput({
+    const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",

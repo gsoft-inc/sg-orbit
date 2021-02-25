@@ -48,13 +48,13 @@ export function TabList({
         <Box
             {...mergeProps(
                 rest,
-                navigationProps,
                 {
                     className: "o-ui-tab-list",
                     role: "tablist",
                     "aria-orientation": orientation,
                     ref: setFocusRef
-                }
+                },
+                navigationProps
             )}
         >
             {tabs.map(({

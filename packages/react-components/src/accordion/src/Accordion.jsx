@@ -124,12 +124,12 @@ export function InnerAccordion({
         <Box
             {...mergeProps(
                 rest,
-                navigationProps,
                 {
                     className: "o-ui-accordion",
                     as,
                     ref: containerRef
-                }
+                },
+                navigationProps
             )}
         >
             <AccordionContext.Provider

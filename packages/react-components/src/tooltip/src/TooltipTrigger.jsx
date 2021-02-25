@@ -171,8 +171,6 @@ export function InnerTooltipTrigger({
             <Overlay
                 {...mergeProps(
                     rest,
-                    overlayDismissProps,
-                    overlayPositionProps,
                     {
                         show: !disabled && isOpen,
                         borderOffset: "var(--o-ui-scale-bravo)",
@@ -182,7 +180,9 @@ export function InnerTooltipTrigger({
                         role: "tooltip",
                         as,
                         ref: overlayRef
-                    }
+                    },
+                    overlayDismissProps,
+                    overlayPositionProps
                 )}
             >
                 {tooltipMarkup}
