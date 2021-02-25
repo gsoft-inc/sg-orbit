@@ -22,52 +22,52 @@ export interface InnerFlexProps {
     /**
      * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
      */
-    alignContent?:
-    "start" |
-    "end" |
-    "center" |
-    "space-between" |
-    "space-around" |
-    "space-evenly" |
-    "stretch" |
-    "baseline" |
-    "first baseline" |
-    "last baseline" |
-    "safe center" |
-    "unsafe center";
+    alignContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
     /**
      * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?:
-    "start" |
-    "end" |
-    "center" |
-    "stretch" |
-    "self-start" |
-    "self-end" |
-    "baseline" |
-    "first baseline" |
-    "last baseline" |
-    "safe center" |
-    "unsafe center";
+    alignItems?: (
+        "start" |
+        "end" |
+        "center" |
+        "stretch" |
+        "self-start" |
+        "self-end" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
     /**
      * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    justifyContent?:
-    "start" |
-    "end" |
-    "center" |
-    "left" |
-    "right" |
-    "space-between" |
-    "space-around" |
-    "space-evenly" |
-    "stretch" |
-    "baseline" |
-    "first baseline" |
-    "last baseline" |
-    "safe center" |
-    "unsafe center"
+    justifyContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "left" |
+        "right" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
     /**
      * TODO: document this property
      */
