@@ -5,13 +5,13 @@
 .o-ui-menu {
     background-color: var(--o-ui-background-1);
     border: 1px solid var(--o-ui-border-2);
+    list-style-type: none;
     padding: 0;
     margin: 0;
     border-radius: var(--o-ui-rounded-border-radius);
     width: max-content;
     min-width: 200px;
-    max-height: calc(10 * var(--o-ui-menu-item-height));
-    overflow-y: auto;
+    max-width: 325px;
     box-shadow: var(--o-ui-shadow-100);
 }
 
@@ -24,6 +24,19 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.o-ui-menu-item.o-ui-menu-item-has-description {
+    --o-ui-menu-item-height: var(--o-ui-scale-india);
+    display: grid;
+    overflow-x: hidden;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    padding-top: var(--o-ui-scale-bravo);
+    grid-template-areas:
+        "gutter label"
+        "gutter description";
 }
 
 /* ITEM | ICON | START  */
@@ -61,24 +74,33 @@
 
 /* ITEM | DESCRIPTION */
 .o-ui-menu-item-description {
-    margin-left: var(--o-ui-scale-bravo);
+    grid-area: description;
     color: var(--o-ui-text-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-self: start;
+    width: 100%;
 }
 
 /* LABEL */
 .o-ui-menu-item-label {
     display: inline-block;
     white-space: nowrap;
+    line-height: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+    grid-area: label;
 }
 
 /* SECTION */
 .o-ui-menu-section {
     font-weight: 500;
     padding-left: var(--o-ui-scale-bravo);
-    margin: var(--o-ui-scale-bravo) 0;
     cursor: default;
+    height: var(--o-ui-menu-item-height);
+    line-height: 1;
+    padding-top: var(--o-ui-scale-bravo);
 }
 
 /* DIVIDER  */
@@ -89,4 +111,10 @@
 /* FLUID */
 .o-ui-menu-fluid {
     width: 100%;
+}
+
+/* AVATAR */
+.o-ui-menu-item-option-avatar {
+    margin-right: var(--o-ui-scale-bravo);
+    grid-area: gutter;
 }

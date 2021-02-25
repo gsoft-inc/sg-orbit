@@ -219,12 +219,12 @@ stories()
                 <Text slot="description">Earth</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>JU</span></div></LargeAvatar>
                 <Text>Jupiter</Text>
                 <Text slot="description">Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>MA</span></div></LargeAvatar>
                 <Text>Mars</Text>
                 <Text slot="description">Mars</Text>
             </Item>
