@@ -1,4 +1,4 @@
-import { Children, ElementType, ForwardedRef, ReactElement } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { isElement } from "react-is";
 
@@ -66,6 +66,8 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     );
 });
 
+export type ListProps = ComponentProps<typeof List>
+
 List.displayName = "List";
 
 ////////
@@ -84,6 +86,8 @@ export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
+export type OrderedListProps = ComponentProps<typeof OrderedList>
+
 OrderedList.displayName = "OrderedList";
 
 ////////
@@ -101,5 +105,7 @@ function InnerUnorderedList({ as = "ul", forwardedRef, ...rest }: InnerListProps
 export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
+
+export type UnorderedListProps = ComponentProps<typeof UnorderedList>
 
 UnorderedList.displayName = "UnorderedList";
