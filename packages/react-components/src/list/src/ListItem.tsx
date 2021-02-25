@@ -2,7 +2,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } fr
 import { Text } from "../../text";
 import { forwardRef, mergeProps } from "../../shared";
 
-interface InnerListItemProps {
+export interface InnerListItemProps {
     /**
      * A list item can vary in size.
      */

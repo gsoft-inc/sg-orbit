@@ -1,7 +1,7 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 
-interface InnerListProps {
+export interface InnerListProps {
     /**
      * A list can vary in size.
      */
