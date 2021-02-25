@@ -88,7 +88,7 @@ stories()
         );
     })
     .add("TEMP remote items", () => {
-        const fetcher = useAsyncItems(useCallback(async query => {
+        const fetcher = useAsyncItems(async query => {
             const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries?namePrefix=${query}`, {
                 method: "GET",
                 headers: {
@@ -104,7 +104,7 @@ stories()
                 key: x.code,
                 value: x.name
             }));
-        }, []));
+        });
 
         return (
             <Autocomplete

@@ -22,8 +22,7 @@ import { TextInput } from "../../input";
 import { arrayOf, func, shape } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
-import { useDebounceCallback } from "./useDebounceCallback";
-import { useDeferredCallback } from "./useDeferredCallback";
+import { useDebouncedCallback } from "use-debounce";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
@@ -114,18 +113,14 @@ export const AutocompleteBase = forwardRef((props, ref) => {
 
     const items = useCollectionItems(nodes);
 
-    const [deferredUpdateIsOpen, updateIsOpen] = useDeferredCallback((event, newValue) => {
-        setIsOpen(event, newValue);
-    }, 200, [setIsOpen]);
-
     const open = useCallback(event => {
-        deferredUpdateIsOpen(event, true);
-    }, [deferredUpdateIsOpen]);
+        setIsOpen(event, true);
+    }, [setIsOpen]);
 
     const close = useCallback(event => {
-        updateIsOpen(event, false);
+        setIsOpen(event, false);
         setFocusedItem(null);
-    }, [updateIsOpen, setFocusedItem]);
+    }, [setIsOpen, setFocusedItem]);
 
     const updateQuery = useCallback(newQuery => {
         if (queryRef.current !== newQuery) {
@@ -160,7 +155,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         }
     }, [value, queryRef, updateQuery]);
 
-    const search = useDebounceCallback((event, query) => {
+    const debouncedSearch = useDebouncedCallback((event, query) => {
         if (query.trim().length >= minCharacters) {
             onSearch(query);
             open(event);
@@ -170,7 +165,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         } else {
             close(event);
         }
-    }, 200, [minCharacters, onSearch, open, close, clear]);
+    }, 200);
 
     const selectItem = useCallback((event, key) => {
         const selectedItem = items.find(x => x.key === key);
@@ -274,7 +269,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         const query = event.target.value;
 
         updateQuery(query);
-        search(event, query);
+        debouncedSearch.callback(event, query);
     });
 
     const handleTriggerClear = useEventCallback(event => {
@@ -384,7 +379,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     menuProps,
                     {
                         // The defer helps to prevent a flicking "not found" results by delaying the open.
-                        show: useDeferredValue(isOpen && !loading, 150, false),
+                        show: useDeferredValue(isOpen && !loading, 100, false),
                         zIndex,
                         className: "o-ui-autocomplete-menu",
                         style: {
