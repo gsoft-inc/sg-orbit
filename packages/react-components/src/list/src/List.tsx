@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { isElement } from "react-is";
 
@@ -18,7 +18,7 @@ interface InnerListProps {
     /**
      * React children.
      */
-    children: ReactElement;
+    children: ReactNode;
     /**
      * @ignore
      */
