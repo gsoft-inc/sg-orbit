@@ -1,6 +1,7 @@
 import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Menu, MenuItem } from "@react-components/menu";
@@ -15,6 +16,22 @@ function stories(segment) {
             .chromaticPauseAnimationAtEnd()
             .build())
         .build();
+}
+
+function SmallAvatar({ children, ...rest }) {
+    return (
+        <div {...rest}>
+            {children}
+        </div>
+    );
+}
+
+function LargeAvatar({ children, ...rest }) {
+    return (
+        <div {...rest}>
+            {children}
+        </div>
+    );
 }
 
 stories()
@@ -114,12 +131,39 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Menu>
     )
+    .add("item with avatar", () =>
+        <Menu aria-label="Planets">
+            <Item key="earth">
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <SmallAvatar slot="avatar">
+                    <div className="w5 h5">
+                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    </div>
+                </SmallAvatar>
+                <Text>Mars</Text>
+            </Item>
+        </Menu>
+    )
     .add("item with description", () =>
         <Menu aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
-                <NotificationIcon slot="end-icon" />
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
@@ -132,11 +176,48 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Menu>
     )
+    .add("item with avatar and description", () =>
+        <Menu aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Home Sweet Home</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>JU</span></div></LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter did it!</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>MA</span></div></LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Elon and Grimes are coming.</Text>
+            </Item>
+        </Menu>
+    )
     .add("item overflow", () =>
         <Menu style={{ width: "150px" }} aria-label="Planets">
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
+        </Menu>
+    )
+    .add("item with description overflow", () =>
+        <Menu aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
         </Menu>
     )
     .add("fluid", () =>
@@ -262,24 +343,6 @@ stories()
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
-        </Menu>
-    )
-    .add("scrolling", () =>
-        <Menu aria-label="Planets">
-            <Item key="ceres">Ceres</Item>
-            <Item key="charon">Charon</Item>
-            <Item key="earth">Earth</Item>
-            <Item key="eris">Eris</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="haumea">Haumea</Item>
-            <Item key="makemake">Makemake</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="pluto">Pluto</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-            <Item key="venus">Venus</Item>
         </Menu>
     )
     .add("adapt width to largest item", () =>

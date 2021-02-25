@@ -123,9 +123,10 @@
 .o-ui-listbox-section {
     font-weight: 500;
     padding-left: var(--o-ui-scale-bravo);
-    margin: var(--o-ui-scale-bravo) 0;
     cursor: default;
     line-height: 1;
+    height: var(--o-ui-menu-item-height);
+    padding-top: var(--o-ui-scale-bravo);
 }
 
 /* LABEL */

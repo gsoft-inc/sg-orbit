@@ -86,7 +86,7 @@
     "@sharegate/eslint-config-recommended": "1.1.0",
     "@sharegate/eslint-config-sort-imports": "1.0.2",
     "@sharegate/eslint-config-typescript": "1.3.0",
-    "@sharegate/stylelint-config-recommended": "2.0.0",
+    "@sharegate/stylelint-config-recommended": "2.1.1",
     "@types/lodash": "4.14.168",
     "@types/react-with-styles": "4.0.5",
     "@types/react-dates": "21.8.1",
@@ -147,6 +147,7 @@
     "tachyons-cli": "1.3.3",
     "tachyons-modules": "1.1.10",
     "typescript": "4.1.3",
+    "use-debounce": "5.2.1",
     "watch": "1.0.2"
   },
   "engines": {
