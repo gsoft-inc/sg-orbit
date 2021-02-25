@@ -1,6 +1,5 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
-import { isElement } from "react-is";
 
 interface InnerListProps {
     /**
@@ -31,7 +30,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     const {
         size,
         color,
-        as: Wrapper,
+        as: As,
         children,
         ...rest
     } = mergeProps(
@@ -40,7 +39,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     );
 
     return (
-        <Wrapper
+        <As
             {...mergeProps(
                 rest,
                 {
@@ -53,16 +52,13 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                 }
             )}
         >
-            {Children.map(children, x => {
-                if (isElement(x)) {
-                    return x && augmentElement(x, {
-                        size
-                    });
-                }
+            {Children.map(children, (x: ReactElement) => {
+                return x && augmentElement(x, {
+                    size
+                });
 
-                return x;
             })}
-        </Wrapper>
+        </As>
     );
 });
 

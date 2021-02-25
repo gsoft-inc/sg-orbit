@@ -22,19 +22,19 @@ export interface InnerBoxProps {
 
 export function InnerBox(props: InnerBoxProps): ReactElement {
     const {
-        as: Wrapper = "div",
+        as: As = "div",
         children,
         forwardedRef,
         ...rest
     } = omitProps(props, ["slot"]);
 
     return (
-        <Wrapper
+        <As
             {...rest}
             ref={forwardedRef}
         >
             {children}
-        </Wrapper>
+        </As>
     );
 }
 export const Box = forwardRef<InnerBoxProps>((props, ref) => (
