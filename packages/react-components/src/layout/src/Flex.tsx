@@ -1,10 +1,9 @@
 import "./Flex.css";
 
 import { Box, BoxProps } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { cssModule, forwardRef, isNilOrEmpty, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
-import { useMemo } from "react";
 
 export interface InnerFlexProps {
     /**
@@ -69,13 +68,9 @@ export interface InnerFlexProps {
     "safe center" |
     "unsafe center"
     /**
-     * TODO: document this property
-     */
-    noGap?: boolean;
-    /**
      * The space between both rows and columns. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
-    gap?: (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
+    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
     /**
      * Whether flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
@@ -155,11 +150,11 @@ export function InnerFlex({
     gap,
     wrap,
     fluid,
-    noGap,
     children,
     forwardedRef,
     ...rest
 }: InnerFlexProps): ReactElement {
+    const noGap = isNilOrEmpty(gap) || gap === 0;
     const isGapSupported = useIsGapSupported(noGap);
 
     const items = children;
@@ -184,7 +179,7 @@ export function InnerFlex({
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
                         justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
-                        ["--o-ui-gap" as any]: gap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
+                        ["--o-ui-gap" as any]: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
                     },
                     ref: forwardedRef
                 }

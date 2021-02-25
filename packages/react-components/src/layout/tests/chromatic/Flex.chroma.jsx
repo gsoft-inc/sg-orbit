@@ -59,6 +59,13 @@ stories()
                     <div>Charlie</div>
                 </Flex>
             </div>
+            <div className="w12">
+                <Flex gap={0} fluid>
+                    <div>Alpha</div>
+                    <div>Bravo</div>
+                    <div>Charlie</div>
+                </Flex>
+            </div>
             <div className="h10">
                 <Flex direction="row" reverse fluid>
                     <div className="bg-cloud-500">Alpha</div>
@@ -114,6 +121,13 @@ stories()
             </div>
             <div className="w12">
                 <Flex direction="column" gap="200px" fluid>
+                    <div>Alpha</div>
+                    <div>Bravo</div>
+                    <div>Charlie</div>
+                </Flex>
+            </div>
+            <div className="w12">
+                <Flex direction="column" gap={0} fluid>
                     <div>Alpha</div>
                     <div>Bravo</div>
                     <div>Charlie</div>
