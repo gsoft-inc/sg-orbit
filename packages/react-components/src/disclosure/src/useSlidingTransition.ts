@@ -1,6 +1,6 @@
+import { RefObject, useCallback, useReducer } from "react";
 import { isNil } from "lodash";
 import { match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
-import { useCallback, useReducer } from "react";
 import { useEffect } from "react";
 
 enum ActionType {
@@ -48,7 +48,7 @@ interface SlidingTransition {
 
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
-export function useSlidingTransition(isOpen: boolean, ref: any): SlidingTransition {
+export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): SlidingTransition {
     const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
         transitionState: TransitionState.completed,
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up
