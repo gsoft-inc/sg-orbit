@@ -22,7 +22,7 @@ import { TextInput } from "../../input";
 import { arrayOf, func, shape } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
-import { useDebouncedCallback } from "use-debounce";
+import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
@@ -84,10 +84,12 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
 
-    // Keep query in sync with the initial or controlled value.
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
-        onChange: useCallback(newValue => {
-            setQuery(newValue ?? "");
+        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+            // Keep query in sync with the initial or controlled value.
+            if (isInitial || isControlled) {
+                setQuery(newValue ?? "");
+            }
         }, [setQuery])
     });
 
@@ -122,40 +124,45 @@ export const AutocompleteBase = forwardRef((props, ref) => {
         setFocusedItem(null);
     }, [setIsOpen, setFocusedItem]);
 
-    const updateQuery = useCallback(newQuery => {
-        if (queryRef.current !== newQuery) {
-            setQuery(newQuery ?? "", true);
-        }
-    }, [queryRef, setQuery]);
+    const setSelection = useCallback((event, newKey) => {
+        let newValue = null;
 
-    const updateValue = useCallback((event, newValue) => {
+        if (!isNil(newKey)) {
+            const selectedItem = items.find(x => x.key === newKey);
+
+            if (!isNil(selectedItem)) {
+                const { text, stringValue } = getRawSlots(selectedItem.content, ["text"]);
+
+                newValue = text ?? stringValue;
+            }
+        }
+
         if (value !== newValue) {
             if (!isNil(onChange)) {
-                onChange(event, newValue);
+                onChange(event, isNil(newKey) ? null : {
+                    key: newKey,
+                    value: newValue
+                });
             }
 
             setValue(newValue);
-        } else {
-            // When the value hasn't change it won't trigger value onChange handler which would have updated the query.
-            // We must update the query manually.
-            updateQuery(newValue);
         }
-    }, [value, onChange, setValue, updateQuery]);
+
+        setQuery(clearOnSelect ? "" : newValue ?? "", true);
+    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
 
     const clear = useCallback(event => {
-        if (!isNil(value)) {
-            updateValue(event, null);
-        }
-    }, [value, updateValue]);
+        setSelection(event, null);
+    }, [setSelection]);
 
     const reset = useCallback(() => {
         // Reset the value to the last selected one.
         if (value !== queryRef.current) {
-            updateQuery(value ?? "");
+            setQuery(value ?? "");
         }
-    }, [value, queryRef, updateQuery]);
+    }, [value, queryRef, setQuery]);
 
-    const debouncedSearch = useDebouncedCallback((event, query) => {
+    const search = useDebouncedCallback((event, query) => {
         if (query.trim().length >= minCharacters) {
             onSearch(query);
             open(event);
@@ -168,20 +175,9 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     }, 200);
 
     const selectItem = useCallback((event, key) => {
-        const selectedItem = items.find(x => x.key === key);
-
-        if (!isNil(selectedItem)) {
-            const { text, stringValue } = getRawSlots(selectedItem?.content, ["text"]);
-
-            if (!clearOnSelect) {
-                updateValue(event, text ?? stringValue);
-            } else {
-                clear();
-            }
-        }
-
+        setSelection(event, key);
         close(event);
-    }, [items, clearOnSelect, clear, close, updateValue]);
+    }, [setSelection, close]);
 
     const triggerWidth = useTriggerWidth(triggerElement);
 
@@ -268,8 +264,8 @@ export const AutocompleteBase = forwardRef((props, ref) => {
     const handleTriggerChange = useEventCallback(event => {
         const query = event.target.value;
 
-        updateQuery(query);
-        debouncedSearch.callback(event, query);
+        setQuery(query, true);
+        search(event, query);
     });
 
     const handleTriggerClear = useEventCallback(event => {
@@ -379,7 +375,7 @@ export const AutocompleteBase = forwardRef((props, ref) => {
                     menuProps,
                     {
                         // The defer helps to prevent a flicking "not found" results by delaying the open.
-                        show: useDeferredValue(isOpen && !loading, 100, false),
+                        show: isOpen && (!loading || items?.length > 0),
                         zIndex,
                         className: "o-ui-autocomplete-menu",
                         style: {

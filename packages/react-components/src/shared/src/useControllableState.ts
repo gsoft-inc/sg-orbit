@@ -16,7 +16,6 @@ function ensureControlledStateHaveNotChanged(controlledValue: any, isControlled:
     }
 }
 
-
 interface useComputeInitialStateResult<T> {
     state: T;
     isControlled: boolean;
@@ -74,7 +73,7 @@ export interface OnChangeContext {
 }
 
 export interface ControllableStateOptions<T> {
-    onChange?: (newState: T, options: OnChangeContext) => T | undefined;
+    onChange?: (newState: T, context: OnChangeContext) => T | undefined;
 }
 
 /**
@@ -116,7 +115,7 @@ export function useControllableState<T>(controlledValue: T, initialValue: T, def
         return !isUndefined(transformedState)
             ? transformedState
             : newState;
-    }, [isControlledRef, onChange]);
+    }, [onChange, isControlledRef]);
 
     if (isInitialState) {
         initialState = transformState(initialState, { isInitial: true });
