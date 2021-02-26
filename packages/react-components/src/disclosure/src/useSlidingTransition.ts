@@ -25,11 +25,7 @@ interface SlidingTransitionState {
 }
 
 function reducer(state: SlidingTransitionState, action: ActionType): SlidingTransitionState {
-    if (action === ActionType.completeTransition) {
-        return { transitionState: TransitionState.completed, direction: state.direction };
-    }
-
-    return match<ActionType.slideDown | ActionType.slideUp, SlidingTransitionState>(action, {
+    return match<ActionType, SlidingTransitionState>(action, {
         [ActionType.slideDown]: () => ({
             transitionState: TransitionState.transitioning,
             direction: SlidingDirection.down
@@ -37,6 +33,10 @@ function reducer(state: SlidingTransitionState, action: ActionType): SlidingTran
         [ActionType.slideUp]: () => ({
             transitionState: TransitionState.transitioning,
             direction: SlidingDirection.up
+        }),
+        [ActionType.completeTransition]: () => ({
+            transitionState: TransitionState.completed,
+            direction: state.direction
         })
     });
 }
