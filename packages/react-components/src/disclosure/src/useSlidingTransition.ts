@@ -43,7 +43,9 @@ function reducer(state: SlidingTransitionState, action: ActionType): SlidingTran
 
 interface SlidingTransition {
     transitionClasses: string;
-    transitionProps: { onTransitionEnd?(): void };
+    transitionProps: {
+        onTransitionEnd?(): void
+    };
 }
 
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
