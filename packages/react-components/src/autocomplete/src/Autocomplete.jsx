@@ -3,7 +3,7 @@ import "./Autocomplete.css";
 import { AutocompleteBase } from "./AutocompleteBase";
 import { NodeType, useCollection } from "../../collection";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useMemo, useState } from "react";
 import { getRawSlots, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
