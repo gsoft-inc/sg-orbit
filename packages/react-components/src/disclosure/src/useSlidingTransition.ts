@@ -3,28 +3,33 @@ import { match, useCommittedRef, useDisposables, useIsInitialRender } from "../.
 import { useCallback, useReducer } from "react";
 import { useEffect } from "react";
 
-const ActionType = {
-    slideDown: "SlideDown",
-    slideUp: "SlideUp",
-    completeTransition: "CompleteTransition"
-};
+enum ActionType {
+    slideDown = "SlideDown",
+    slideUp = "SlideUp",
+    completeTransition = "CompleteTransition"
+}
 
-const TransitionState = {
-    transitioning: "Transitioning",
-    completed: "Completed"
-};
+enum TransitionState {
+    transitioning = "Transitioning",
+    completed = "Completed"
+}
 
-const SlidingDirection = {
-    down: "Down",
-    up: "Up"
-};
+enum SlidingDirection {
+    down = "Down",
+    up = "Up"
+}
 
-function reducer(state, action) {
+interface SlidingTransitionState {
+    transitionState: TransitionState;
+    direction: SlidingDirection;
+}
+
+function reducer(state: SlidingTransitionState, action: ActionType): SlidingTransitionState {
     if (action === ActionType.completeTransition) {
         return { transitionState: TransitionState.completed, direction: state.direction };
     }
 
-    return match(action, {
+    return match<ActionType.slideDown | ActionType.slideUp, SlidingTransitionState>(action, {
         [ActionType.slideDown]: () => ({
             transitionState: TransitionState.transitioning,
             direction: SlidingDirection.down
@@ -36,9 +41,14 @@ function reducer(state, action) {
     });
 }
 
+interface SlidingTransition {
+    transitionClasses: string;
+    transitionProps: { onTransitionEnd?(): void };
+}
+
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
-export function useSlidingTransition(isOpen, ref) {
+export function useSlidingTransition(isOpen: boolean, ref: any): SlidingTransition {
     const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
         transitionState: TransitionState.completed,
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up

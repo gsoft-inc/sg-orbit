@@ -34,7 +34,7 @@ export interface InnerDisclosureProps {
     /**
      * React children.
      */
-    children: ReactNode | ((args: T[]) => ReactNode);
+    children: ReactNode | ((args: any[]) => ReactNode);
     /**
     * @ignore
     */
@@ -58,7 +58,7 @@ export function InnerDisclosure({
 
     const [trigger, content] = Children.toArray(resolveChildren(children, {
         isOpen
-    }));
+    })) as ReactElement[];
 
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A disclosure component must have a trigger and a content element.");
