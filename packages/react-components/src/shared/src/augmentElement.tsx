@@ -19,7 +19,6 @@ export function createOrAugmentElement<T extends string, Props extends HTMLAttri
 
     // The isString in the previous condition assume it can be possible that element is a string. however, if its the case, cloneElement does not support string, so it does not make sense
     // Therefore, since we are only typing the code and i don't want to introduce regression bugs, i will disable the ts compiler for that line
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return augmentElement(element, props);
 }
