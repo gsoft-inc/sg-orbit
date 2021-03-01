@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-size: var(--o-ui-type-scale-7);
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description {
@@ -95,12 +96,17 @@
 
 /* SECTION */
 .o-ui-menu-section {
-    font-weight: 500;
-    padding-left: var(--o-ui-scale-bravo);
     cursor: default;
+    display: flex;
+    font-weight: 500;
+    padding-left: var(--o-ui-scale-delta);
     height: var(--o-ui-menu-item-height);
     line-height: 1;
     padding-top: var(--o-ui-scale-bravo);
+    color: var(--o-ui-text-2);
+    text-transform: uppercase;
+    font-size: var(--o-ui-type-scale-8);
+    align-items: center;
 }
 
 /* DIVIDER  */

@@ -6,7 +6,7 @@
 .o-ui-listbox {
     width: max-content;
     max-width: 325px;
-    max-height: calc(10 * var(--o-ui-listbox-option-height));
+    max-height: calc(12 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
     background-color: var(--o-ui-background-1);
     outline: none;
@@ -121,12 +121,16 @@
 
 /* SECTION */
 .o-ui-listbox-section {
+    display: flex;
     font-weight: 500;
-    padding-left: var(--o-ui-scale-bravo);
+    padding-left: var(--o-ui-scale-delta);
     cursor: default;
     line-height: 1;
-    height: var(--o-ui-menu-item-height);
-    padding-top: var(--o-ui-scale-bravo);
+    height: var(--o-ui-listbox-option-height);
+    color: var(--o-ui-text-2);
+    text-transform: uppercase;
+    font-size: var(--o-ui-type-scale-8);
+    align-items: center;
 }
 
 /* LABEL */
