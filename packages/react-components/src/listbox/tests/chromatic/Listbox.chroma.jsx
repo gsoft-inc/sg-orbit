@@ -26,7 +26,10 @@ function stories(segment) {
 
 function SmallAvatar({ children, ...rest }) {
     return (
-        <div {...rest}>
+        <div
+            {...rest}
+            className="w5 h5"
+        >
             {children}
         </div>
     );
@@ -34,7 +37,10 @@ function SmallAvatar({ children, ...rest }) {
 
 function LargeAvatar({ children, ...rest }) {
     return (
-        <div {...rest}>
+        <div
+            {...rest}
+            className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"
+        >
             {children}
         </div>
     );
@@ -120,10 +126,7 @@ stories()
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <IconList>
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
+                <LightbulbIcon />
                 <Text>Mars</Text>
             </Item>
             <Item key="mercury">
@@ -187,25 +190,19 @@ stories()
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5">
-                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
-                    </div>
+                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5">
-                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
-                    </div>
+                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
                 <SmallAvatar slot="avatar">
-                    <div className="w5 h5">
-                        <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
-                    </div>
+                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Mars</Text>
             </Item>
@@ -214,17 +211,17 @@ stories()
     .add("item with avatar and description", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
                 <Text>Earth</Text>
                 <Text slot="description">Earth</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>JU</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar">JU</LargeAvatar>
                 <Text>Jupiter</Text>
                 <Text slot="description">Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>MA</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar">MA</LargeAvatar>
                 <Text>Mars</Text>
                 <Text slot="description">Mars</Text>
             </Item>
@@ -262,7 +259,7 @@ stories()
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar"><div className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"><span>EL</span></div></LargeAvatar>
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
                 <Text>Mars</Text>
                 <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
             </Item>
