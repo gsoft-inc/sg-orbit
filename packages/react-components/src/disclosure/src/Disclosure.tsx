@@ -34,7 +34,7 @@ export interface InnerDisclosureProps {
     /**
      * React children.
      */
-    children: ReactNode | ((args: any[]) => ReactNode);
+    children: ReactNode;
     /**
     * @ignore
     */
