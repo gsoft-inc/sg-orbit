@@ -4,7 +4,7 @@ import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Autocomplete")
