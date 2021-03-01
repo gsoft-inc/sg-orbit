@@ -248,7 +248,7 @@ export function InnerAutocomplete(props) {
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
         menuProps: { style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
-        as: TriggerType = TextInput,
+        as = "input",
         children,
         forwardedRef,
         ...rest
@@ -519,7 +519,7 @@ export function InnerAutocomplete(props) {
                 validationState={validationState}
                 disabled={disabled}
             />
-            <TriggerType
+            <TextInput
                 {...mergeProps(
                     rest,
                     {
@@ -550,6 +550,7 @@ export function InnerAutocomplete(props) {
                         "aria-label": ariaLabel,
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
+                        as,
                         ref: forwardedRef
                     },
                     triggerProps,

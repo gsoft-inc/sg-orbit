@@ -107,7 +107,7 @@ export function InnerTextInput(props) {
         focus,
         hover,
         wrapperProps: userWrapperProps,
-        as = "div",
+        as: TriggerType = "input",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -150,7 +150,7 @@ export function InnerTextInput(props) {
     const content = (
         <>
             {iconMarkup}
-            <input
+            <TriggerType
                 {...mergeProps(
                     rest,
                     inputProps
@@ -169,8 +169,7 @@ export function InnerTextInput(props) {
                         "o-ui-input",
                         iconMarkup && "has-icon",
                         buttonMarkup && "has-button"
-                    ),
-                    as
+                    )
                 },
                 wrapperProps
             )}
