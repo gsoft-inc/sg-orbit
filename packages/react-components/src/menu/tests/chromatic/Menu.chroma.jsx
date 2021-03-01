@@ -25,7 +25,7 @@ export function SmallAvatar({ children, ...rest }) {
             {...mergeProps(
                 rest,
                 {
-                    className: "w5 h5 bg-primary-500 white f8 br-100 flex items-center justify-center"
+                    className: "w5 h5 f8 br-100 flex items-center justify-center"
                 }
             )}
         >

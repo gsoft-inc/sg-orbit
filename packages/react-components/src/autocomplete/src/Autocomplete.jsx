@@ -507,7 +507,7 @@ export function InnerAutocomplete(props) {
     );
 
     const noResultsMarkup = (
-        <div>{noResultsMessage ?? "No results found."}</div>
+        <div className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</div>
     );
 
     return (
