@@ -160,6 +160,10 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
     </Story>
 </Preview>
 
+### Avatar
+
+
+
 ### Description
 
 A menu item can have a description.
@@ -181,15 +185,36 @@ A menu item can have a description.
                 </Item>
                 <Item key="land">
                     <Text>Land...</Text>
-                    <Text slot="description">Land...</Text>
+                    <Text slot="description">Land on Of Course I Still Love You</Text>
                 </Item>
-                <Item key="help">
-                    <Text>Help</Text>
-                    <Text slot="description">Help</Text>
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="description + icon">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
+                <Item key="launch">
+                    <NotificationIcon />
+                    <Text>Launch...</Text>
+                    <Text slot="description">Launch...</Text>
                 </Item>
-                <Item key="exit">
-                    <Text>Exit</Text>
-                    <Text slot="description">Exit</Text>
+                <Item key="eject">
+                    <HelpIcon />
+                    <Text>Eject...</Text>
+                    <Text slot="description">Eject...</Text>
+                </Item>
+                <Item key="land">
+                    <LightbulbIcon />
+                    <Text>Land...</Text>
+                    <Text slot="description">Land on Of Course I Still Love You</Text>
                 </Item>
             </Menu>
         </MenuTrigger>

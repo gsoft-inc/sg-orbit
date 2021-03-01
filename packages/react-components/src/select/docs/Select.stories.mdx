@@ -130,15 +130,38 @@ A select item can have a description.
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
-            <Item key="jupiter">Jupiter</Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
             <Item key="mars">
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+A select description can be paired with an [icon](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="description + icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
         </Select>
     </Story>
 </Preview>
@@ -152,17 +175,16 @@ A select can have a basic tooltip.
         <Select placeholder="Planets" aria-label="Planets">
             <TooltipTrigger>
                 <Item key="earth">Earth</Item>
-                <Tooltip>Best planet so far!</Tooltip>
+                <Tooltip>Home sweet home!</Tooltip>
             </TooltipTrigger>
-            <Item key="jupiter">Jupiter</Item>
+            <TooltipTrigger>
+                <Item key="jupiter">Jupiter</Item>
+                <Tooltip>The fourth-brightest object in the sky</Tooltip>
+            </TooltipTrigger>
             <TooltipTrigger>
                 <Item key="mars">Mars</Item>
-                <Tooltip>See you in 2025!</Tooltip>
+                <Tooltip>See you in 2026</Tooltip>
             </TooltipTrigger>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
         </Select>
     </Story>
 </Preview>

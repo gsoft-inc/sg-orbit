@@ -196,7 +196,7 @@ A listbox item can have a description.
     </Story>
 </Preview>
 
-A description can be paired with an icon.
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="description + icon">
@@ -253,17 +253,16 @@ A listbox item can have a basic tooltip.
         <Listbox aria-label="Planets">
             <TooltipTrigger>
                 <Item key="earth">Earth</Item>
-                <Tooltip>Best planet so far!</Tooltip>
+                <Tooltip>Home sweet home!</Tooltip>
             </TooltipTrigger>
-            <Item key="jupiter">Jupiter</Item>
+            <TooltipTrigger>
+                <Item key="jupiter">Jupiter</Item>
+                <Tooltip>The fourth-brightest object in the sky</Tooltip>
+            </TooltipTrigger>
             <TooltipTrigger>
                 <Item key="mars">Mars</Item>
-                <Tooltip>See you in 2025!</Tooltip>
+                <Tooltip>See you in 2026</Tooltip>
             </TooltipTrigger>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
         </Listbox>
     </Story>
 </Preview>
