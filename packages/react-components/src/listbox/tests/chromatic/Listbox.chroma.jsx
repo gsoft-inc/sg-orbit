@@ -5,6 +5,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
+import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
 
@@ -24,24 +25,32 @@ function stories(segment) {
         .build();
 }
 
-function SmallAvatar({ children, ...rest }) {
+export function SmallAvatar({ children, ...rest }) {
     return (
         <div
-            {...rest}
-            className="w5 h5 bg-primary-500 white f8 br-100 flex items-center justify-center"
+            {...mergeProps(
+                rest,
+                {
+                    className: "w5 h5 bg-primary-500 white f8 br-100 flex items-center justify-center"
+                }
+            )}
         >
             {children}
         </div>
     );
 }
 
-function LargeAvatar({ children, ...rest }) {
+export function LargeAvatar({ children, ...rest }) {
     return (
         <div
-            {...rest}
-            className="w7 h7 bg-primary-500 white br-100 flex items-center justify-center"
+            {...mergeProps(
+                rest,
+                {
+                    className: "w7 h7 bg-primary-500 white br-100 flex items-center justify-center"
+                }
+            )}
         >
-            {children}
+            <span>{children}</span>
         </div>
     );
 }
