@@ -64,7 +64,9 @@ const propTypes = {
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {string} selectedKey - The new value.
+     * @param {Object} selection - The new selection.
+     * @param {string} selection.key - The selected key.
+     * @param {string} selection.value - The selected value.
      * @returns {void}
      */
     onChange: func,
