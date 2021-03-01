@@ -1,10 +1,10 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Avatar } from "./Avatar.jsx"
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
+import { LargeAvatar, SmallAvatar } from "./Avatar.jsx"
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -123,7 +123,9 @@ A listbox item can have [icons](?path=/docs/icon-gallery--page).
 
 ### End icon
 
-A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
+A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons.
+
+However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
     <Story name="end icon">
@@ -143,6 +145,29 @@ A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--pag
             <Item key="mars">
                 <Text>Mars</Text>
                 <LightbulbIcon slot="end-icon" />
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Avatar
+
+A listbox item can have an avatar.
+
+<Preview scope={{ SmallAvatar }}>
+    <Story name="avatar">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <SmallAvatar slot="avatar">ER</SmallAvatar>
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <SmallAvatar slot="avatar">JU</SmallAvatar>
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <SmallAvatar slot="avatar">MA</SmallAvatar>
+                <Text>Mars</Text>
             </Item>
         </Listbox>
     </Story>
@@ -171,27 +196,49 @@ A listbox item can have a description.
     </Story>
 </Preview>
 
-### Avatar
+A description can be paired with an icon.
 
-A listbox item can have an avatar.
-
-<Preview scope={{ Avatar }}>
-    <Story name="avatar">
+<Preview>
+    <Story name="description + icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <Avatar slot="avatar">ER</Avatar>
+                <NotificationIcon />
                 <Text>Earth</Text>
-                <Text slot="description">Terra</Text>
+                <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <Avatar slot="avatar">JU</Avatar>
+                <HelpIcon />
                 <Text>Jupiter</Text>
-                <Text slot="description">Jupe</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <Avatar slot="avatar">MA</Avatar>
+                <LightbulbIcon />
                 <Text>Mars</Text>
-                <Text slot="description">Red Planet</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+A description can also be paired with an avatar.
+
+<Preview scope={{ LargeAvatar }}>
+    <Story name="description + avatar">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar">ER</LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar">JU</LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar">MA</LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
             </Item>
         </Listbox>
     </Story>
