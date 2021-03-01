@@ -19,7 +19,7 @@ export enum Keys {
 export function appendEventKey(str: string, key: string): string {
     switch (key) {
         case Keys.backspace:
-            // Backspace it already handled by browser.
+            // Backspace is already handled by browser.
             return str;
         case Keys.delete:
             return !isNilOrEmpty(str) ? str.slice(0, -1) : str;
