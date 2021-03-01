@@ -42,8 +42,8 @@
     grid-auto-flow: column;
     padding-top: var(--o-ui-scale-bravo);
     grid-template-areas:
-        "gutter label"
-        "gutter description";
+        "aside label"
+        "aside description";
 }
 
 /* OPTION | SELECTED */
@@ -106,7 +106,7 @@
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {
     margin-right: var(--o-ui-scale-alpha);
-    grid-area: gutter;
+    grid-area: aside;
 }
 
 /* OPTION | WITH DESCRIPTION | ICONS | START ICON */
@@ -147,5 +147,5 @@
 /* AVATAR */
 .o-ui-listbox-option-avatar {
     margin-right: var(--o-ui-scale-bravo);
-    grid-area: gutter;
+    grid-area: aside;
 }

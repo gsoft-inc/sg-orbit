@@ -35,8 +35,8 @@
     grid-auto-flow: column;
     padding-top: var(--o-ui-scale-bravo);
     grid-template-areas:
-        "gutter label"
-        "gutter description";
+        "aside label"
+        "aside description";
 }
 
 /* ITEM | ICON | START  */
@@ -116,5 +116,5 @@
 /* AVATAR */
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-scale-bravo);
-    grid-area: gutter;
+    grid-area: aside;
 }
