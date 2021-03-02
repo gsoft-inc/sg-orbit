@@ -1,9 +1,15 @@
 .o-ui-autocomplete-no-results {
-    cursor: default;
-    background-color: var(--o-ui-background-1);
-    padding: var(--o-ui-scale-bravo);
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--o-ui-border-2);
     border-radius: var(--o-ui-scale-alpha);
-    font-size: var(--o-ui-type-scale-7);
     box-shadow: var(--o-ui-shadow-100);
-    z-index: -1;
+    background-color: var(--o-ui-background-1);
+    font-size: var(--o-ui-type-scale-7);
+    height: calc(var(--o-ui-scale-golf) + 2px);
+    line-height: 1;
+    padding-right: var(--o-ui-scale-hotel);
+    padding-left: var(--o-ui-scale-charlie);
+    position: relative;
+    cursor: default;
 }
