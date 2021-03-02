@@ -1,52 +1,56 @@
-import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
+import { Keys, forwardRef, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 
-const propTypes = {
+export interface InnerToolbarProps {
     /**
-     * Whether or not the toolbar should autoFocus the first tabbable element on render.
-     */
-    autoFocus: oneOfType([bool, number]),
+         * Whether or not the toolbar should autoFocus the first tabbable element on render.
+         */
+    autoFocus?: boolean | number;
     /**
      * The orientation of the elements.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * The horizontal alignment of the elements.
      */
-    align: oneOf(["start", "end", "center"]),
+    align?: "start" | "end" | "center";
     /**
      * The vertical alignment of the elements.
      */
-    verticalAlign: oneOf(["start", "end", "center"]),
+    verticalAlign?: "start" | "end" | "center";
     /**
      * The space between the elements.
      */
-    gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
     /**
      * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */
-    wrap: bool,
+    wrap?: boolean;
     /**
      * Whether the toolbar take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not the toolbar elements are disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
+
 
 const NavigationKeyBinding = {
     horizontal: {
@@ -75,7 +79,7 @@ export function InnerToolbar({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerToolbarProps): ReactElement {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
@@ -103,7 +107,7 @@ export function InnerToolbar({
 
     return (
         <Flex
-            {...mergeProps(
+            {...mergeProps<Partial<FlexProps>[]>(
                 rest,
                 {
                     role: "toolbar",
@@ -130,9 +134,7 @@ export function InnerToolbar({
     );
 }
 
-InnerToolbar.propTypes = propTypes;
-
-export const Toolbar = forwardRef((props, ref) => (
+export const Toolbar = forwardRef<InnerToolbarProps>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
 
