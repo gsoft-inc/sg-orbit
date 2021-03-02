@@ -3,7 +3,7 @@ import "./Image.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 
-interface InnerImageProps {
+export interface InnerImageProps {
     /**
      * The path to the image.
      */

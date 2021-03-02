@@ -1,4 +1,4 @@
-import { ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
 import { Keys, forwardRef, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
@@ -137,5 +137,7 @@ export function InnerToolbar({
 export const Toolbar = forwardRef<InnerToolbarProps>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
+
+export type ToolbarProps = ComponentProps<typeof Toolbar>
 
 Toolbar.displayName = "Toolbar";

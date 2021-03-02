@@ -5,7 +5,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } fr
 import { FormContext } from "./FormContext";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 
-interface InnerFormProps {
+export interface InnerFormProps {
     /**
      * Whether or not the form take up the width of its container.
      */
