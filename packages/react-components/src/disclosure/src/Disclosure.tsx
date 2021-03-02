@@ -9,7 +9,7 @@ import { useSlidingTransition } from "./useSlidingTransition";
 
 export interface InnerDisclosureProps {
     /**
-     * TODO: Document this prop
+    * @ignore
      */
     id?: string;
     /**
