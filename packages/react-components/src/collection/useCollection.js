@@ -16,7 +16,7 @@ export const NodeShape = {
     ref: any,
     content: oneOfType([reactElement, arrayOf(reactElement), string]),
     props: object,
-    tooltip: string, // option only
+    tooltip: object, // option only
     items: array // Sections only
 };
 

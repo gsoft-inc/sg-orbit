@@ -1,7 +1,6 @@
 /*
 TO REMOVE:
     - legacy stuff
-    - createOrAugmentElement
     - match
 */
 

@@ -2,7 +2,7 @@ import "./ThemeProvider.css";
 
 import { ThemeContext } from "./ThemeContext";
 import { isNil } from "lodash";
-import { mergeClasses, useMediaQuery } from "../../shared";
+import { mergeClasses, mergeProps, useMediaQuery } from "../../shared";
 import { oneOf, string } from "prop-types";
 import { useCallback, useEffect, useState } from "react";
 
@@ -52,7 +52,14 @@ export function useColorScheme(colorScheme, defaultColorScheme) {
     return colorScheme;
 }
 
-export function ThemeProvider({ theme, colorScheme, defaultColorScheme, children }) {
+export function ThemeProvider({
+    theme,
+    colorScheme,
+    defaultColorScheme,
+    children,
+    as: TriggerType = "div",
+    ...rest
+}) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
     colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
@@ -69,14 +76,19 @@ export function ThemeProvider({ theme, colorScheme, defaultColorScheme, children
                 setColorScheme
             }}
         >
-            <div
-                className={mergeClasses(
-                    `o-ui-${theme}-theme`,
-                    `o-ui-${colorScheme}-color-scheme`
+            <TriggerType
+                {...mergeProps(
+                    rest,
+                    {
+                        className: mergeClasses(
+                            `o-ui-${theme}-theme`,
+                            `o-ui-${colorScheme}-color-scheme`
+                        )
+                    }
                 )}
             >
                 {children}
-            </div>
+            </TriggerType>
         </ThemeContext.Provider>
     );
 }

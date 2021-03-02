@@ -1,6 +1,8 @@
 import { Box } from "@react-components/box";
 import { Overlay } from "@react-components/overlay";
 import { ThemeProvider } from "@react-components/theme-provider";
+import { augmentElement, mergeProps, useMergedRefs } from "../../../shared";
+import { forwardRef, useState } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -28,22 +30,59 @@ function PrimaryBox({ children, ...rest }) {
     );
 }
 
+const Boundary = forwardRef(({
+    children,
+    ...rest
+},
+ref) => {
+    const [boundaryElement, setBoundaryElement] = useState();
+
+    const containerRef = useMergedRefs(setBoundaryElement, ref);
+
+    const content = augmentElement(children, {
+        containerElement: boundaryElement
+    });
+
+    return (
+        <Box
+            {...mergeProps(
+                rest,
+                {
+                    // style: {
+                    //     padding: "100px 250px",
+                    //     position: "relative"
+                    // },
+                    ref: containerRef
+                }
+            )}
+        >
+            {content}
+        </Box>
+    );
+});
+
 stories()
     .add("inherit theme", () =>
         <ThemeProvider theme="desktop" colorScheme="light">
-            <Overlay show>
-                <PrimaryBox />
-            </Overlay>
+            <Boundary>
+                <Overlay show>
+                    <PrimaryBox />
+                </Overlay>
+            </Boundary>
         </ThemeProvider>
     )
-    .add("styling", () =>
-        <>
+    .add("className", () =>
+        <Boundary>
             <Overlay className="border-red" show>
                 <PrimaryBox />
             </Overlay>
+        </Boundary>
+    )
+    .add("style", () =>
+        <Boundary>
             <Overlay style={{ border: "1px solid red" }} show>
                 <PrimaryBox />
             </Overlay>
-        </>
+        </Boundary>
     );
 

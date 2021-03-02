@@ -177,6 +177,24 @@ export function createTestSuite(element, stories) {
                 <Item key="venus">Venus</Item>
             </Select>
         )
+        .add("scrolling with selected item outside initial visible scope", () =>
+            <Select defaultSelectedKey="venus" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="earth">Earth</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="pluto">Pluto</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Select>
+        )
         .add("custom trigger width", () =>
             <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
@@ -211,7 +229,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align start", () =>
-            <Select align="start" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="start" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -223,7 +241,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align end", () =>
-            <Select align="end" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="end" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
