@@ -1,30 +1,31 @@
+import { RefObject, useCallback, useReducer } from "react";
 import { isNil } from "lodash";
 import { match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
-import { useCallback, useReducer } from "react";
 import { useEffect } from "react";
 
-const ActionType = {
-    slideDown: "SlideDown",
-    slideUp: "SlideUp",
-    completeTransition: "CompleteTransition"
-};
+enum ActionType {
+    slideDown = "SlideDown",
+    slideUp = "SlideUp",
+    completeTransition = "CompleteTransition"
+}
 
-const TransitionState = {
-    transitioning: "Transitioning",
-    completed: "Completed"
-};
+enum TransitionState {
+    transitioning = "Transitioning",
+    completed = "Completed"
+}
 
-const SlidingDirection = {
-    down: "Down",
-    up: "Up"
-};
+enum SlidingDirection {
+    down = "Down",
+    up = "Up"
+}
 
-function reducer(state, action) {
-    if (action === ActionType.completeTransition) {
-        return { transitionState: TransitionState.completed, direction: state.direction };
-    }
+interface SlidingTransitionState {
+    transitionState: TransitionState;
+    direction: SlidingDirection;
+}
 
-    return match(action, {
+function reducer(state: SlidingTransitionState, action: ActionType): SlidingTransitionState {
+    return match<ActionType, SlidingTransitionState>(action, {
         [ActionType.slideDown]: () => ({
             transitionState: TransitionState.transitioning,
             direction: SlidingDirection.down
@@ -32,13 +33,24 @@ function reducer(state, action) {
         [ActionType.slideUp]: () => ({
             transitionState: TransitionState.transitioning,
             direction: SlidingDirection.up
+        }),
+        [ActionType.completeTransition]: () => ({
+            transitionState: TransitionState.completed,
+            direction: state.direction
         })
     });
 }
 
+interface SlidingTransition {
+    transitionClasses: string;
+    transitionProps: {
+        onTransitionEnd?(): void
+    };
+}
+
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
-export function useSlidingTransition(isOpen, ref) {
+export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): SlidingTransition {
     const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
         transitionState: TransitionState.completed,
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up

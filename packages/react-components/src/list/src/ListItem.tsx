@@ -1,22 +1,26 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Text } from "../../text";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerListItemProps {
     /**
      * A list item can vary in size.
      */
-    size: oneOf(["inherit"]),
+    size?: "inherit",
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * @ignore
      */
-    children: any.isRequired
-};
+    forwardedRef: ForwardedRef<any>;
+}
+
 
 export function InnerListItem({
     size,
@@ -24,7 +28,7 @@ export function InnerListItem({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerListItemProps): ReactElement {
     return (
         <Text
             {...mergeProps(
@@ -41,8 +45,8 @@ export function InnerListItem({
     );
 }
 
-InnerListItem.propTypes = propTypes;
-
-export const ListItem = forwardRef((props, ref) => (
+export const ListItem = forwardRef<InnerListItemProps>((props, ref) => (
     <InnerListItem {...props} forwardedRef={ref} />
 ));
+
+export type ListItemProps = ComponentProps<typeof ListItem>
