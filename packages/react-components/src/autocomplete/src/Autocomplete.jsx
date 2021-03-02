@@ -157,8 +157,6 @@ function getItemText(item) {
 function isQueryMatchItem(query, item) {
     const itemText = getItemText(item);
 
-    console.log(itemText);
-
     return itemText.toLowerCase().startsWith(query);
 }
 
@@ -339,7 +337,7 @@ export function InnerAutocomplete(props) {
     const reset = useCallback(() => {
         // Reset the value to the last selected one.
         if (value !== queryRef.current) {
-            setQuery(value ?? "");
+            setQuery(value ?? "", true);
         }
     }, [value, queryRef, setQuery]);
 
@@ -370,8 +368,8 @@ export function InnerAutocomplete(props) {
     const triggerFocusWithinProps = useFocusWithin({
         onBlur: useEventCallback(event => {
             if (!isDevToolsBlurEvent(triggerRef)) {
-                // Close the menu when the focus switch from the trigger to somewhere else than the menu.
-                if (!isTargetParent(event.relatedTarget, overlayElement)) {
+                // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
+                if (!isTargetParent(event.relatedTarget, triggerElement) && !isTargetParent(event.relatedTarget, overlayElement)) {
                     close(event);
                     reset();
                 }
@@ -456,6 +454,7 @@ export function InnerAutocomplete(props) {
 
     const handleTriggerClear = useEventCallback(event => {
         clear(event);
+        triggerElement.focus();
     });
 
     const handleListboxChange = useEventCallback((event, newKey) => {

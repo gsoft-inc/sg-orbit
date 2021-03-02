@@ -1,20 +1,20 @@
 import { MutableRefObject, useCallback, useRef } from "react";
 import { useForceRender } from "./useForceRender";
 
-export function useRefState<T>(initialValue: T): [MutableRefObject<T>, (newValue: T, forceRender?: boolean) => void] {
-    const rerender = useForceRender();
+export function useRefState<T>(initialValue: T): [MutableRefObject<T>, (newValue: T, rerender?: boolean) => void] {
+    const forceRender = useForceRender();
 
     const valueRef = useRef<T>(initialValue);
 
-    const setValue = useCallback((newValue: T, forceRender = false) => {
+    const setValue = useCallback((newValue: T, rerender = false) => {
         if (valueRef.current !== newValue) {
             valueRef.current = newValue;
 
-            if (forceRender) {
-                rerender();
+            if (rerender) {
+                forceRender();
             }
         }
-    }, [valueRef, rerender]);
+    }, [valueRef, forceRender]);
 
     return [valueRef, setValue];
 }

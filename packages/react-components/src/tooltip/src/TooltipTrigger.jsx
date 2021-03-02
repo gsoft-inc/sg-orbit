@@ -78,7 +78,7 @@ export function parseTooltipTrigger(children) {
 export function InnerTooltipTrigger({
     open,
     defaultOpen,
-    position : positionProp = "top",
+    position: positionProp = "top",
     onOpenChange,
     disabled,
     allowFlip = true,
