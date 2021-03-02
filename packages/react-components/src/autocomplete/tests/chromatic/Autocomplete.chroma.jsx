@@ -1,10 +1,8 @@
-import { Autocomplete, useAsyncItems } from "@react-components/autocomplete";
+import { Autocomplete } from "@react-components/autocomplete";
 import { GroupIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
-import { isNil } from "lodash";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Autocomplete")
