@@ -1,6 +1,6 @@
 import "./Paragraph.css";
 
-import { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { StyleProvider, cssModule, forwardRef, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../text";
 
