@@ -9,7 +9,6 @@ export * from "./radio";
 export * from "./tag";
 export * from "./tags-picker";
 export * from "./OLD_popper";
-export * from "./search-input";
 export * from "./tabs";
 export * from "./badge";
 export * from "./lozenge";

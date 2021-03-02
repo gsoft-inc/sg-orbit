@@ -1,4 +1,9 @@
-.o-ui-autocomplete-menu {
-    background-color: white;
-    border: 1px solid black;
+.o-ui-autocomplete-no-results {
+    cursor: default;
+    background-color: var(--o-ui-background-1);
+    padding: var(--o-ui-scale-bravo);
+    border-radius: var(--o-ui-scale-alpha);
+    font-size: var(--o-ui-type-scale-7);
+    box-shadow: var(--o-ui-shadow-100);
+    z-index: -1;
 }

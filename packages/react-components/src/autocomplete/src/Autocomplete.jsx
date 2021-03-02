@@ -1,11 +1,30 @@
 import "./Autocomplete.css";
 
-import { AutocompleteBase } from "./AutocompleteBase";
-import { NodeType, useCollection } from "../../collection";
+import { CrossButton } from "../../button";
+import { HiddenAutocomplete } from "./HiddenAutocomplete";
+import { KeyProp, Listbox } from "../../listbox";
+import {
+    Keys,
+    augmentElement,
+    cssModule,
+    getRawSlots,
+    isNilOrEmpty,
+    mergeProps,
+    useCommittedRef,
+    useControllableState,
+    useEventCallback,
+    useId,
+    useRefState
+} from "../../shared";
+import { NodeType, useCollection, useCollectionItems } from "../../collection";
+import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
+import { TextInput } from "../../input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo, useState } from "react";
-import { getRawSlots, useEventCallback } from "../../shared";
+import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
+import { useDebouncedCallback } from "./useDebouncedCallback";
+import { useDeferredValue } from "./useDeferredValue";
+import { useFieldInputProps } from "../../field";
 
 const propTypes = {
     /**
@@ -64,7 +83,9 @@ const propTypes = {
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {string} selectedKey - The new value.
+     * @param {Object} selection - The new selection.
+     * @param {string} selection.key - The selected key.
+     * @param {string} selection.value - The selected value.
      * @returns {void}
      */
     onChange: func,
@@ -125,31 +146,35 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-function isMatchingItem(item, query) {
+function getItemText(item) {
     const { text, stringValue } = getRawSlots(item?.content, ["text"]);
 
-    const searchableText = text ?? stringValue ?? "";
+    return !isNil(text)
+        ? text.props?.children ?? ""
+        : stringValue ?? "";
+}
 
-    return searchableText.toLowerCase().startsWith(query);
+function isQueryMatchItem(query, item) {
+    const itemText = getItemText(item);
+
+    return itemText.toLowerCase().startsWith(query);
 }
 
 function useLocalSearch(nodes) {
-    return useMemo(() => {
-        const results = {};
+    const [results, setResults] = useState([]);
 
-        return query => {
-            query = query.toLowerCase();
+    const search = useCallback(query => {
+        const cache = {};
 
-            let result = results[query];
+        query = query.toLowerCase();
 
-            if (!isNil(result)) {
-                return result;
-            }
-
-            result = nodes.reduce((acc, node) => {
+        if (!isNil(cache[query])) {
+            setResults(cache[query]);
+        } else {
+            const reducedNodes = nodes.reduce((acc, node) => {
                 if (node.type === NodeType.section) {
                     const items = node.items.reduce((sectionItems, item) => {
-                        if (isMatchingItem(item, query)) {
+                        if (isQueryMatchItem(query, item)) {
                             sectionItems.push(item);
                         }
 
@@ -166,7 +191,7 @@ function useLocalSearch(nodes) {
                         });
                     }
                 } else if (node.type === NodeType.item) {
-                    if (isMatchingItem(node, query)) {
+                    if (isQueryMatchItem(query, node)) {
                         acc.push(node);
                     }
                 } else {
@@ -176,42 +201,381 @@ function useLocalSearch(nodes) {
                 return acc;
             }, []);
 
-            results[query] = result;
+            setResults(reducedNodes);
+        }
+    }, [nodes, setResults]);
 
-            return result;
-        };
-    }, [nodes]);
+    return [results, search];
 }
 
-// TODO: Pretty sure I could be able to move this into AutocompleteBase.
-export function InnerAutocomplete({
-    items: itemsProp,
-    onSearch,
-    children,
-    forwardedRef,
-    ...rest
-}) {
-    const [localQuery, setLocalQuery] = useState();
+export function InnerAutocomplete(props) {
+    const [fieldProps] = useFieldInputProps();
+
+    const {
+        id,
+        open: openProp,
+        defaultOpen,
+        value: valueProp,
+        defaultValue,
+        placeholder,
+        items: itemsProp,
+        onSearch,
+        loading,
+        clearOnSelect,
+        noResultsMessage,
+        minCharacters = 1,
+        required,
+        validationState,
+        onChange,
+        onOpenChange,
+        icon,
+        direction = "bottom",
+        align = "start",
+        autoFocus,
+        name,
+        fluid,
+        disabled,
+        allowFlip = true,
+        allowPreventOverflow = true,
+        zIndex,
+        active,
+        focus,
+        hover,
+        "aria-label": ariaLabel,
+        // Usually provided by the field inputs.
+        "aria-labelledby": ariaLabelledBy,
+        "aria-describedby": ariaDescribedBy,
+        menuProps: { style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        as = "input",
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        fieldProps
+    );
+
+    const [focusedItem, setFocusedItem] = useState(null);
+    const [queryRef, setQuery] = useRefState("");
+
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
+        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+            // Keep query in sync with the initial or controlled value.
+            if (isInitial || isControlled) {
+                setQuery(newValue ?? "");
+            }
+        }, [setQuery])
+    });
+
+    const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
+        id,
+        open: openProp,
+        defaultOpen,
+        onOpenChange,
+        hideOnEscape: true,
+        hideOLeave: true,
+        restoreFocus: true,
+        autoFocus,
+        // An autocomplete take care of his own trigger logic.
+        trigger: null,
+        position: `${direction}-${align}`,
+        offset: [0, 4],
+        allowFlip,
+        allowPreventOverflow
+    });
+
+    const listboxRef = useRef();
+    const triggerRef = useCommittedRef(triggerElement);
 
     const nodes = useCollection(children, { items: itemsProp });
+    const items = useCollectionItems(nodes);
 
-    const localSearch = useLocalSearch(nodes);
+    const [localSearchResults, searchInNodes] = useLocalSearch(nodes);
 
-    const handleSearch = useEventCallback(newQuery => {
-        if (!isNil(onSearch)) {
-            onSearch(newQuery);
+    // If a search function is provided, offload the search to the caller and use the nodes computed from the items
+    // otherwise use our local search results.
+    const results = !isNil(onSearch) ? nodes : localSearchResults;
+
+    const open = useCallback(event => {
+        setIsOpen(event, true);
+    }, [setIsOpen]);
+
+    const close = useCallback(event => {
+        setIsOpen(event, false);
+        setFocusedItem(null);
+    }, [setIsOpen, setFocusedItem]);
+
+    const setSelection = useCallback((event, newKey) => {
+        let newValue = null;
+
+        if (!isNil(newKey)) {
+            const selectedItem = items.find(x => x.key === newKey);
+
+            if (!isNil(selectedItem)) {
+                newValue = getItemText(selectedItem);
+            }
+        }
+
+        if (value !== newValue) {
+            if (!isNil(onChange)) {
+                onChange(event, isNil(newKey) ? null : {
+                    key: newKey,
+                    value: newValue
+                });
+            }
+
+            setValue(newValue);
+        }
+
+        setQuery(clearOnSelect ? "" : newValue ?? "", true);
+    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
+
+    const clear = useCallback(event => {
+        setSelection(event, null);
+    }, [setSelection]);
+
+    const reset = useCallback(() => {
+        // Reset the value to the last selected one.
+        if (value !== queryRef.current) {
+            setQuery(value ?? "", true);
+        }
+    }, [value, queryRef, setQuery]);
+
+    const search = useDebouncedCallback((event, query) => {
+        if (query.trim().length >= minCharacters) {
+            if (!isNil(onSearch)) {
+                onSearch(query);
+            } else {
+                searchInNodes(query);
+            }
+
+            open(event);
+        } else if (isNilOrEmpty(query)) {
+            clear(event);
+            close(event);
         } else {
-            setLocalQuery(newQuery);
+            close(event);
+        }
+    }, 200);
+
+    const selectItem = useCallback((event, key) => {
+        setSelection(event, key);
+        close(event);
+    }, [setSelection, close]);
+
+    const triggerWidth = useTriggerWidth(triggerElement);
+
+    const triggerFocusWithinProps = useFocusWithin({
+        onBlur: useEventCallback(event => {
+            if (!isDevToolsBlurEvent(triggerRef)) {
+                // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
+                if (!isTargetParent(event.relatedTarget, triggerElement) && !isTargetParent(event.relatedTarget, overlayElement)) {
+                    close(event);
+                    reset();
+                }
+            }
+        })
+    });
+
+    const handleTriggerKeyDown = useEventCallback(event => {
+        switch (event.key) {
+            case Keys.arrowDown:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusNext();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.arrowUp:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusPrevious();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.home:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusFirst();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.end:
+                if (isOpen) {
+                    event.preventDefault();
+
+                    const activeElement = listboxRef.current?.focusManager.focusLast();
+
+                    setFocusedItem({
+                        id: activeElement.id,
+                        key: activeElement.getAttribute(KeyProp)
+                    });
+                }
+                break;
+            case Keys.esc:
+                event.preventDefault();
+
+                if (isOpen) {
+                    close(event);
+                } else {
+                    clear(event);
+                }
+                break;
+            case Keys.enter:
+                if (isOpen) {
+                    event.preventDefault();
+                    selectItem(event, focusedItem.key);
+                }
+                break;
         }
     });
 
-    return (
-        <AutocompleteBase
-            {...rest}
-            nodes={!isNil(localQuery) ? localSearch(localQuery) : nodes}
-            onSearch={handleSearch}
-            ref={forwardedRef}
+    const handleTriggerChange = useEventCallback(event => {
+        const query = event.target.value;
+
+        setQuery(query, true);
+        search(event, query);
+    });
+
+    const handleTriggerClear = useEventCallback(event => {
+        clear(event);
+        triggerElement.focus();
+    });
+
+    const handleListboxChange = useEventCallback((event, newKey) => {
+        selectItem(event, newKey);
+    });
+
+    const handleListboxFocusChange = useEventCallback((event, newKey, activeElement) => {
+        setFocusedItem({
+            id: activeElement.id,
+            key: newKey
+        });
+    });
+
+    const triggerId = useId(id, id ? null : "o-ui-autocomplete-trigger");
+
+    const iconMarkup = icon && augmentElement(icon, {
+        className: "o-ui-autocomplete-icon",
+        size: "sm"
+    });
+
+    const clearButtonMarkup = !isNilOrEmpty(queryRef.current)
+        ? (
+            <CrossButton
+                onClick={handleTriggerClear}
+                size="xs"
+                condensed
+                aria-label="Clear value"
+            />
+        )
+        : undefined;
+
+    const listboxMarkup = (
+        <Listbox
+            nodes={results}
+            // An autocomplete doesn't support a selected key.
+            selectedKey={null}
+            onChange={handleListboxChange}
+            onFocusChange={handleListboxFocusChange}
+            focusOnHover
+            useVirtualFocus
+            tabbable={false}
+            fluid
+            className="o-ui-autocomplete-listbox"
+            aria-label={ariaLabel}
+            aria-labelledby={isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined}
+            aria-describedby={ariaDescribedBy}
+            ref={listboxRef}
         />
+    );
+
+    const noResultsMarkup = (
+        <div className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</div>
+    );
+
+    return (
+        <div>
+            <HiddenAutocomplete
+                name={name}
+                value={value}
+                required={required}
+                validationState={validationState}
+                disabled={disabled}
+            />
+            <TextInput
+                {...mergeProps(
+                    rest,
+                    {
+                        id: triggerId,
+                        value: queryRef.current,
+                        placeholder,
+                        icon: iconMarkup,
+                        button: clearButtonMarkup,
+                        onChange: handleTriggerChange,
+                        onKeyDown: handleTriggerKeyDown,
+                        autoFocus,
+                        loading: useDeferredValue(loading, 100, false),
+                        disabled,
+                        className: cssModule(
+                            "o-ui-autocomplete-trigger",
+                            validationState,
+                            fluid && "fluid",
+                            active && "active",
+                            focus && "focus",
+                            hover && "hover"
+                        ),
+                        role: "combobox",
+                        autoCorrect: "off",
+                        spellCheck: "false",
+                        autoComplete: "off",
+                        "aria-activedescendant": focusedItem?.id,
+                        "aria-autocomplete": "list",
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                        "aria-describedby": ariaDescribedBy,
+                        as,
+                        ref: forwardedRef
+                    },
+                    triggerProps,
+                    triggerFocusWithinProps
+                )}
+            />
+            <Overlay
+                {...mergeProps(
+                    menuProps,
+                    {
+                        // TODO: need to be based on results node not items
+                        // show: isOpen && (!loading || items?.length > 0),
+                        show: isOpen && (!loading || results.length > 0),
+                        zIndex,
+                        className: "o-ui-autocomplete-menu",
+                        style: {
+                            ...menuStyle,
+                            width: menuWidth ?? triggerWidth ?? undefined
+                        }
+                    },
+                    overlayProps
+                )}
+            >
+                {results.length > 0 ? listboxMarkup : noResultsMarkup}
+            </Overlay>
+        </div>
     );
 }
 
@@ -222,3 +586,4 @@ export const Autocomplete = forwardRef((props, ref) => (
 ));
 
 Autocomplete.displayName = "Autocomplete";
+

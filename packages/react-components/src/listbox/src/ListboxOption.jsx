@@ -126,6 +126,7 @@ export function InnerListboxOption({
                     onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
+                        icon && "has-start-icon",
                         description && "has-description",
                         focusOnHover && "no-hover",
                         active && "active",
