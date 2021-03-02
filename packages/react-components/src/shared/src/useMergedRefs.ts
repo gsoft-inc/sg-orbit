@@ -11,7 +11,7 @@ export function assignRef<T>(ref: ForwardedRef<T>, node: T): void {
     }
 }
 
-type MergedRef<T> = ((instance: T | null) => void) & MutableRefObject<T | null>;
+export type MergedRef<T> = ((instance: T | null) => void) & MutableRefObject<T | null>;
 
 export function mergeRefs<T>(...refs: ForwardedRef<T>[]): MergedRef<T> {
     const mergedRef = ((current: T): void => {
