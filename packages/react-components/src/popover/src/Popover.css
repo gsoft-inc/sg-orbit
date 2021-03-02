@@ -16,7 +16,7 @@
 
 /* OVERLAY */
 .o-ui-popover-overlay:focus > *:first-child {
-    border: var(--o-ui-focus-ring-dimension-small) solid var(--o-ui-focus-ring-color);
+    border: var(--o-ui-focus-ring-thickness-sm) solid var(--o-ui-focus-ring-color);
 }
 
 /* CLOSE BUTTON */
