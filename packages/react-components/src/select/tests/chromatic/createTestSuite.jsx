@@ -229,7 +229,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align start", () =>
-            <Select align="start" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="start" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -241,7 +241,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align end", () =>
-            <Select align="end" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="end" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

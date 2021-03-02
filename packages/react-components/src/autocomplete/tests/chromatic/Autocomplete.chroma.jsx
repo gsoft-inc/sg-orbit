@@ -114,13 +114,6 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
-    .add("autofocus with default open", () =>
-        <Autocomplete autoFocus defaultOpen placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
     .add("trigger states", () =>
         <Inline>
             <Autocomplete active placeholder="Select a planet" aria-label="Planets">
@@ -188,7 +181,7 @@ stories()
         </Autocomplete>
     )
     .add("align start", () =>
-        <Autocomplete align="start" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="start" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -200,7 +193,7 @@ stories()
          }
     )
     .add("align end", () =>
-        <Autocomplete align="end" allowFlip={false} allowPreventOverflow={false} menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="end" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
