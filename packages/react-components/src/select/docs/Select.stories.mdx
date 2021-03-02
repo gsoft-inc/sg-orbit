@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
 import { HiddenSelect, InnerSelect, Select } from "@react-components/select";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
@@ -43,12 +43,12 @@ A default select.
     </Story>
 </Preview>
 
-### Section
+### Sections
 
 A select items can be group by sections.
 
 <Preview>
-    <Story name="section">
+    <Story name="sections">
         <Select placeholder="Planets" aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
@@ -65,12 +65,12 @@ A select items can be group by sections.
     </Story>
 </Preview>
 
-### Icon
+### Item icon
 
 A select item can have [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
-    <Story name="icon">
+    <Story name="item icon">
         <Select placeholder="Planets" aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
@@ -88,12 +88,12 @@ A select item can have [icons](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-### End icon
+### Item end icon
 
 A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
-    <Story name="end icon">
+    <Story name="item end icon">
         <Select placeholder="Planets" aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
@@ -119,12 +119,12 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
     </Story>
 </Preview>
 
-### Description
+### Item description
 
 A select item can have a description.
 
 <Preview>
-    <Story name="description">
+    <Story name="item description">
         <Select placeholder="Planets" aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
@@ -142,10 +142,10 @@ A select item can have a description.
     </Story>
 </Preview>
 
-A select description can be paired with an [icon](?path=/docs/icon-gallery--page).
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
-    <Story name="description + icon">
+    <Story name="item description + icon">
         <Select placeholder="Planets" aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
@@ -166,12 +166,12 @@ A select description can be paired with an [icon](?path=/docs/icon-gallery--page
     </Story>
 </Preview>
 
-### Tooltip
+### Item tooltip
 
 A select can have a basic tooltip.
 
 <Preview>
-    <Story name="tooltip">
+    <Story name="item tooltip">
         <Select placeholder="Planets" aria-label="Planets">
             <TooltipTrigger>
                 <Item key="earth">Earth</Item>
@@ -200,6 +200,24 @@ A select item can be disabled.
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
             <Item disabled key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Trigger icon
+
+A select trigger can have an icon.
+
+<Preview>
+    <Story name="trigger icon">
+        <Select icon={<MagnifierIcon />} placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
@@ -314,7 +332,7 @@ Make sure your trigger accepts a `ref` and any other props returned by the hook.
 
 <ComponentInfo
     usage={"import { Item } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "end-icon"]}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
     compact
 />
 
