@@ -2,8 +2,17 @@ import { Children, ReactElement, ReactNode } from "react";
 import { augmentElement, createSizeAdapter } from "../../shared";
 
 export interface EmbeddedIconProps {
+    /**
+     * An icon can vary in size.
+     */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    /**
+     * React children.
+     */
     children: ReactNode;
+    /**
+     * Allow any extra props
+     */
     [key: string]: any
 }
 
