@@ -126,7 +126,6 @@ export function InnerTooltipTrigger({
         trigger: "hover",
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger.
-            // if (event.target !== triggerElement && !isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
             if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
@@ -175,7 +174,6 @@ export function InnerTooltipTrigger({
                         show: !disabled && isOpen,
                         borderOffset: "var(--o-ui-scale-bravo)",
                         zIndex,
-                        className: "o-ui-tooltip-overlay",
                         style: overlayStyles,
                         role: "tooltip",
                         as,

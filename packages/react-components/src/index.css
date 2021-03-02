@@ -1,11 +1,11 @@
 html * {
-    --o-ui-focus-ring-dimension-small: 1px;
-    --o-ui-focus-ring-dimension-medium: 2px;
-    --o-ui-focus-ring-dimension-large: 4px;
-    --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-dimension-small) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-dimension-large) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring: 0 0 0 2px var(--o-ui-white), 0 0 0 calc(2px + var(--o-ui-focus-ring-dimension-medium)) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-thickness-sm: 1px;
+    --o-ui-focus-ring-thickness-md: 2px;
+    --o-ui-focus-ring-thickness-lg: 4px;
+    --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring: 0 0 0 2px var(--o-ui-white), 0 0 0 calc(2px + var(--o-ui-focus-ring-thickness-md)) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-outset-outer-offset: 2px;
     --o-ui-focus-ring-outset-inner-offset: 1px;
     --o-ui-focus-ring-transition: all .2s ease-in;

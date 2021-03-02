@@ -168,7 +168,6 @@ export function useSelect(children, {
             defaultFocusTarget: focusTargetRef.current,
             focusOnHover: true,
             fluid: true,
-            className: "o-ui-select-listbox",
             "aria-label": ariaLabel,
             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined,
             "aria-describedby": ariaDescribedBy

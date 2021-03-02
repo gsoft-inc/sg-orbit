@@ -152,6 +152,13 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
+    .add("custom no results message overflow", () =>
+        <Autocomplete defaultOpen noResultsMessage="Custom no results message, this is as custom as can be" placeholder="Select a planet" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Autocomplete>
+    )
     .add("custom trigger width", () =>
         <Autocomplete style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>

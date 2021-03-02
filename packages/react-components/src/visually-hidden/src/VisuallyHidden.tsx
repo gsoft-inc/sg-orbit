@@ -8,7 +8,7 @@ export interface InnerVisuallyHiddenProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: ElementType;
+    as?: ElementType;
     /**
      * @ignore
      */

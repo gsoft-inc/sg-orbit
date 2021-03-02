@@ -93,7 +93,8 @@ OrderedList.displayName = "OrderedList";
 function InnerUnorderedList({
     as = "ul",
     forwardedRef,
-    ...rest }: InnerListProps): ReactElement {
+    ...rest }
+    : InnerListProps): ReactElement {
     return (
         <List
             {...rest}
