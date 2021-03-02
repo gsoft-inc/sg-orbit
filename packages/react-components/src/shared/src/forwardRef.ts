@@ -6,7 +6,7 @@ type UnwrapElementType<T> = T extends ElementType ? ElementRef<T> : T;
 type PropsOf<T> =
     T extends ElementType ? HTMLProps<UnwrapElementType<T>> & ComponentProps<T> & RefAttributes<UnwrapElementType<T>> :
     T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
-    RefAttributes<T>;
+    never;
 
 export type RightJoinProps<
     SourceProps extends Record<string, any> = Record<string, never>,
