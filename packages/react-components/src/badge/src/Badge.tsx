@@ -8,15 +8,15 @@ export interface InnerBadgeProps {
     /**
      * The style to use.
      */
-    variant: "count" | "dot" | "icon";
+    variant?: "count" | "dot" | "icon";
     /**
      * The shape of the element being overlap by the badge.
      */
-    overlap: "circle" | "icon";
+    overlap?: "circle" | "icon";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: ElementType;
+    as?: ElementType;
     /**
      * React children.
      */
