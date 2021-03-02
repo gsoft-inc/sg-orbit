@@ -8,10 +8,7 @@
     box-shadow: var(--o-ui-shadow-100);
     background-color: var(--o-ui-background-1);
     font-size: var(--o-ui-type-scale-7);
-    height: calc(var(--o-ui-scale-golf) + 2px);
     line-height: 1;
-    padding-right: var(--o-ui-scale-hotel);
-    padding-left: var(--o-ui-scale-charlie);
     position: relative;
     cursor: default;
 }
@@ -20,4 +17,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-right: var(--o-ui-scale-hotel);
+    padding-left: var(--o-ui-scale-charlie);
+    height: calc(var(--o-ui-scale-golf) + 2px);
+    display: flex;
+    align-items: center;
 }
