@@ -1,25 +1,29 @@
-import { Children, forwardRef } from "react";
-import { Inline } from "../../layout";
-import { any, bool, elementType, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, omitProps } from "../../shared";
-import { useFormContext } from "..";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Inline, InlineProps } from "../../layout";
+import { augmentElement, forwardRef, mergeProps, omitProps } from "../../shared";
+import { useFormContext } from "./FormContext";
 
-const propTypes = {
+export interface InnerRowProps {
     /**
      * Whether or not the fields take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerRow(props) {
+
+export function InnerRow(props: InnerRowProps): ReactElement {
     const [formProps] = useFormContext();
 
     const {
@@ -34,7 +38,7 @@ export function InnerRow(props) {
 
     return (
         <Inline
-            {...mergeProps(
+            {...mergeProps<Partial<InlineProps>[]>(
                 rest,
                 {
                     fluid,
@@ -44,7 +48,7 @@ export function InnerRow(props) {
                 }
             )}
         >
-            {Children.map(children, x => {
+            {Children.map(children, (x: ReactElement) => {
                 return augmentElement(x, {
                     fluid
                 });
@@ -53,10 +57,10 @@ export function InnerRow(props) {
     );
 }
 
-InnerRow.propTypes = propTypes;
-
-export const Row = forwardRef((props, ref) => (
+export const Row = forwardRef<InnerRowProps>((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
+
+export type RowProps = ComponentProps<typeof Row>
 
 Row.displayName = "Row";
