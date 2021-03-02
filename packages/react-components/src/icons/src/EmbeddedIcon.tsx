@@ -1,11 +1,11 @@
-import { Children } from "react";
-import { any, string } from "prop-types";
+import { Children, ReactElement, ReactNode } from "react";
 import { augmentElement, createSizeAdapter } from "../../shared";
 
-const propTypes = {
-    size: string,
-    children: any.isRequired
-};
+export interface EmbeddedIconProps {
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    children: ReactNode;
+    [key: string]: any
+}
 
 export const embeddedIconSize = createSizeAdapter({
     "2xs": "2xs",
@@ -17,8 +17,8 @@ export const embeddedIconSize = createSizeAdapter({
     "inherit": "inherit"
 });
 
-export function EmbeddedIcon({ size, children, ...rest }) {
-    const icon = Children.only(children);
+export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps): ReactElement {
+    const icon = Children.only(children) as ReactElement;
 
     return augmentElement(icon, {
         size: embeddedIconSize(size),
@@ -26,5 +26,4 @@ export function EmbeddedIcon({ size, children, ...rest }) {
     });
 }
 
-EmbeddedIcon.propTypes = propTypes;
 EmbeddedIcon.displayName = "EmbeddedIcon";
