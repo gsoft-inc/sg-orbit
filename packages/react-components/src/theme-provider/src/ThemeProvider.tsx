@@ -23,7 +23,7 @@ export interface ThemeProviderProps {
     /**
      * Default color scheme to use when a user prefered color scheme (system) is not available.
      */
-    defaultColorScheme?: string
+    defaultColorScheme?: ColorScheme.dark | ColorScheme.light
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -38,7 +38,7 @@ export interface ThemeProviderProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function useColorScheme(colorScheme: ColorScheme, defaultColorScheme: ColorScheme): ColorScheme {
+export function useColorScheme(colorScheme: ColorScheme, defaultColorScheme: ColorScheme.dark | ColorScheme.light): ColorScheme {
     const matchesLight = useMediaQuery("(prefers-color-scheme: light)");
     const matchesDark = useMediaQuery("(prefers-color-scheme: dark)");
 
