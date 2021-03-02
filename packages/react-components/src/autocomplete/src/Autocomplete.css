@@ -1,6 +1,8 @@
-.o-ui-autocomplete-no-results {
+.o-ui-autocomplete-menu {
     display: flex;
     align-items: center;
+    overflow: hidden;
+    width: 100%;
     border: 1px solid var(--o-ui-border-2);
     border-radius: var(--o-ui-scale-alpha);
     box-shadow: var(--o-ui-shadow-100);
@@ -12,4 +14,10 @@
     padding-left: var(--o-ui-scale-charlie);
     position: relative;
     cursor: default;
+}
+
+.o-ui-autocomplete-no-results {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

@@ -1,0 +1,96 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Autocomplete, InnerAutocomplete } from "@react-components/autocomplete";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@react-components/layout";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { LightbulbIcon } from "@react-components/icons";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Components/Autocomplete"
+    id="autocomplete"
+/>
+
+# Autocomplete
+
+<Tagline>An autocomplete is a normal text input enhanced by a panel of suggested options.</Tagline>
+
+<ComponentInfo
+    usage={"import { Autocomplete, Item, Section } from \"@orbit-ui/react-components\""}
+    ariaPath="#combobox"
+    githubPath="/packages/react-components/src/autocomplete/src"
+/>
+
+An autocomplete is a combination of a [TextInput](?path=/docs/text-input--default-story), an [Overlay](?path=/docs/overlay--default-story) and a [Listbox](?path=/docs/listbox--default-story) to form an input having a *list autocomplete with manual selection behavior*. You can find a detailed example on [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/examples/combobox/aria1.1pattern/listbox-combo.html).
+
+## Usage
+
+### Default
+
+A default autocomplete
+
+<Preview>
+    <Story name="default">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Sections
+
+An autocomple items can be group by sections.
+
+<Preview>
+    <Story name="sections">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+## API
+
+### Autocomplete
+
+<ComponentInfo
+    usage={"import { Autocomplete } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerAutocomplete} />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
+
+### Section
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSection} />

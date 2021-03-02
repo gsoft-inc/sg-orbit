@@ -76,12 +76,12 @@ A listbox support single and multiple selection mode.
     </Story>
 </Preview>
 
-### Section
+### Sections
 
 A listbox items can be group by sections.
 
 <Preview>
-    <Story name="section">
+    <Story name="sections">
         <Listbox aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
@@ -98,12 +98,12 @@ A listbox items can be group by sections.
     </Story>
 </Preview>
 
-### Icon
+### Item icon
 
 A listbox item can have [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
-    <Story name="icon">
+    <Story name="item icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
@@ -121,14 +121,14 @@ A listbox item can have [icons](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-### End icon
+### Item end icon
 
 A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons.
 
 However, think twice before adding *end* icons, *start* icons should be your go to.
 
 <Preview>
-    <Story name="end icon">
+    <Story name="item end icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
@@ -150,12 +150,12 @@ However, think twice before adding *end* icons, *start* icons should be your go 
     </Story>
 </Preview>
 
-### Avatar
+### Item avatar
 
 A listbox item can have an avatar.
 
 <Preview scope={{ SmallAvatar }}>
-    <Story name="avatar">
+    <Story name="item avatar">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <SmallAvatar slot="avatar">ER</SmallAvatar>
@@ -173,12 +173,12 @@ A listbox item can have an avatar.
     </Story>
 </Preview>
 
-### Description
+### Item description
 
 A listbox item can have a description.
 
 <Preview>
-    <Story name="description">
+    <Story name="item description">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
@@ -196,10 +196,10 @@ A listbox item can have a description.
     </Story>
 </Preview>
 
-A description can be paired with an [icon](?path=/docs/icon-gallery--page).
+A can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
-    <Story name="description + icon">
+    <Story name="item description + icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
@@ -220,10 +220,10 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-A description can also be paired with an avatar.
+A can also be paired with an avatar.
 
 <Preview scope={{ LargeAvatar }}>
-    <Story name="description + avatar">
+    <Story name="item description + avatar">
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <LargeAvatar slot="avatar">ER</LargeAvatar>
@@ -244,12 +244,12 @@ A description can also be paired with an avatar.
     </Story>
 </Preview>
 
-### Tooltip
+### Item tooltip
 
 A listbox item can have a basic tooltip.
 
 <Preview>
-    <Story name="tooltip">
+    <Story name="item tooltip">
         <Listbox aria-label="Planets">
             <TooltipTrigger>
                 <Item key="earth">Earth</Item>
@@ -344,7 +344,7 @@ The selected key can be handled in controlled mode.
 
 <ComponentInfo
     usage={"import { Item } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "end-icon"]}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
     compact
 />
 
@@ -363,7 +363,7 @@ The selected key can be handled in controlled mode.
 
 <ComponentInfo
     usage={"import { ListboxOption } from \"@orbit-ui/react-components\""}
-    slots={["icon", "text", "description", "end-icon"]}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
     compact
 />
 

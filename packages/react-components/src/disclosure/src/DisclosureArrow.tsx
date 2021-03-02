@@ -1,28 +1,31 @@
 import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
-import { bool, oneOf } from "prop-types";
+import { ComponentProps, ForwardedRef, ReactElement, forwardRef } from "react";
 import { cssModule, mergeProps, slot } from "../../shared";
-import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useDisclosureContext } from "./DisclosureContext";
 
-const propTypes = {
+export interface InnerDisclosureArrowProps {
     /**
      * A controlled open value that determined whether or not the arrow is up or down.
      */
-    open: bool,
+    open?: boolean;
     /**
      * An arrow can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl", "inherit"])
-};
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerDisclosureArrow({
     open,
     forwardedRef,
     ...rest
-}) {
+}: InnerDisclosureArrowProps): ReactElement {
     const disclosureContext = useDisclosureContext();
 
     const isOpen = open ?? disclosureContext?.isOpen;
@@ -47,10 +50,10 @@ export function InnerDisclosureArrow({
     );
 }
 
-InnerDisclosureArrow.propTypes = propTypes;
-
 export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));
+
+export type DisclosureArrowProps = ComponentProps<typeof DisclosureArrow>;
 
 DisclosureArrow.displayName = "DisclosureArrow";
