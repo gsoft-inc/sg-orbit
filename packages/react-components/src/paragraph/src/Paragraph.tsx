@@ -1,30 +1,33 @@
 import "./Paragraph.css";
 
-import { StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
+import { StyleProvider, cssModule, forwardRef, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../text";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 
-const propTypes = {
+export interface InnerParagraphProps {
     /**
      * A paragraph can vary in size.
      */
-    size: oneOf(["xs", "sm", "md", "lg", "xl", "2xl"]),
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
      * A paragraph can change inherit it's parent color.
      */
-    color: oneOf(["inherit"]),
+    color?: "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
-     * @ignore
+     * React children
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerParagraph(props) {
+export function InnerParagraph(props: InnerParagraphProps): ReactElement {
     const [styleProps] = useStyleProps("p");
 
     const {
@@ -68,11 +71,11 @@ export function InnerParagraph(props) {
     );
 }
 
-InnerParagraph.propTypes = propTypes;
-
-export const Paragraph = forwardRef((props, ref) => (
+export const Paragraph = forwardRef<InnerParagraphProps>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
+
+export type ParagraphProps = ComponentProps<typeof Paragraph>
 
 Paragraph.displayName = "Paragraph";
 
