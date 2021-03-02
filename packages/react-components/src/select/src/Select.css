@@ -54,7 +54,7 @@
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover){
     background: var(--o-ui-background-3);
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-dimension-medium) var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {

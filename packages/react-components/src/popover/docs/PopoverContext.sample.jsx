@@ -4,7 +4,7 @@ const CustomTrigger = forwardRef(({ children, ...rest }, ref) => {
     return (
         <Button
             {...rest}
-            color={isOpen ? "secondary" : "primary"}
+            color={isOpen ? "primary" : undefined}
             ref={ref}
         >
             Trigger

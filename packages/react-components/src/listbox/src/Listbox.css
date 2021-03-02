@@ -25,7 +25,7 @@
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
     padding-right: var(--o-ui-scale-hotel);
-    padding-left: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-scale-charlie);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -123,11 +123,11 @@
 .o-ui-listbox-section {
     display: flex;
     font-weight: 500;
-    padding-left: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-scale-charlie);
     cursor: default;
     line-height: 1;
     height: var(--o-ui-listbox-option-height);
-    color: var(--o-ui-text-2);
+    color: var(--o-ui-text-3);
     text-transform: uppercase;
     font-size: var(--o-ui-type-scale-8);
     align-items: center;

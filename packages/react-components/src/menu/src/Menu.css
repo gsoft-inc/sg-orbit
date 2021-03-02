@@ -19,7 +19,7 @@
 .o-ui-menu-item {
     height: var(--o-ui-menu-item-height);
     list-style: none;
-    padding: 0 var(--o-ui-scale-delta);
+    padding: 0 var(--o-ui-scale-charlie);
     margin: 0;
     display: flex;
     align-items: center;
@@ -99,11 +99,10 @@
     cursor: default;
     display: flex;
     font-weight: 500;
-    padding-left: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-scale-charlie);
     height: var(--o-ui-menu-item-height);
     line-height: 1;
-    padding-top: var(--o-ui-scale-bravo);
-    color: var(--o-ui-text-2);
+    color: var(--o-ui-text-3);
     text-transform: uppercase;
     font-size: var(--o-ui-type-scale-8);
     align-items: center;
