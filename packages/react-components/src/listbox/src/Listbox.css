@@ -127,7 +127,7 @@
     cursor: default;
     line-height: 1;
     height: var(--o-ui-listbox-option-height);
-    color: var(--o-ui-text-2);
+    color: var(--o-ui-text-3);
     text-transform: uppercase;
     font-size: var(--o-ui-type-scale-8);
     align-items: center;
