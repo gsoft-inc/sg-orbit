@@ -1,33 +1,36 @@
-import { Children, forwardRef } from "react";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 
-const propTypes = {
+export interface InnerListProps {
     /**
      * A list can vary in size.
      */
-    size: oneOf(["inherit"]),
+    size?: "inherit";
     /**
      * A list can vary in color.
      */
-    color: oneOf(["inherit"]),
+    color?: "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-const List = forwardRef((props, ref) => {
+const List = forwardRef<InnerListProps>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
     const {
         size,
         color,
-        as: ElementType,
+        as: As,
         children,
         ...rest
     } = mergeProps(
@@ -36,25 +39,26 @@ const List = forwardRef((props, ref) => {
     );
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 {
                     className: cssModule(
                         "o-ui-list",
                         size,
-                        color ? `color-${color}`: ""
+                        color ? `color-${color}` : ""
                     ),
                     ref
                 }
             )}
         >
-            {Children.map(children, x => {
+            {Children.map(children, (x: ReactElement) => {
                 return x && augmentElement(x, {
                     size
                 });
+
             })}
-        </ElementType>
+        </As>
     );
 });
 
@@ -66,7 +70,7 @@ export function InnerOrderedList({
     as = "ol",
     forwardedRef,
     ...rest
-}) {
+}: InnerListProps): ReactElement {
     return (
         <List
             {...rest}
@@ -76,21 +80,21 @@ export function InnerOrderedList({
     );
 }
 
-InnerOrderedList.propTypes = propTypes;
-
-export const OrderedList = forwardRef((props, ref) => (
+export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
+
+export type OrderedListProps = ComponentProps<typeof OrderedList>
 
 OrderedList.displayName = "OrderedList";
 
 ////////
 
-export function InnerUnorderedList({
+function InnerUnorderedList({
     as = "ul",
     forwardedRef,
-    ...rest
-}) {
+    ...rest }
+    : InnerListProps): ReactElement {
     return (
         <List
             {...rest}
@@ -100,10 +104,10 @@ export function InnerUnorderedList({
     );
 }
 
-InnerUnorderedList.propTypes = propTypes;
-
-export const UnorderedList = forwardRef((props, ref) => (
+export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
+
+export type UnorderedListProps = ComponentProps<typeof UnorderedList>
 
 UnorderedList.displayName = "UnorderedList";

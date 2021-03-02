@@ -1,38 +1,46 @@
 import "./Disclosure.css";
 
-import { Children, forwardRef, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { Keys, augmentElement, cssModule, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { Keys, augmentElement, cssModule, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
-import { any, bool, elementType, func, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-const propTypes = {
+export interface InnerDisclosureProps {
+    /**
+    * @ignore
+     */
+    id?: string;
     /**
      * A controlled open value.
      */
-    open: bool,
+    open?: boolean;
     /**
      * The initial value of `open` when uncontrolled.
      */
-    defaultOpen: bool,
+    defaultOpen?: boolean;
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
+
 
 export function InnerDisclosure({
     id,
@@ -43,14 +51,14 @@ export function InnerDisclosure({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerDisclosureProps): ReactElement {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
     const contentRef = useMergedRefs(forwardedRef);
 
     const [trigger, content] = Children.toArray(resolveChildren(children, {
         isOpen
-    }));
+    })) as ReactElement[];
 
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A disclosure component must have a trigger and a content element.");
@@ -71,7 +79,7 @@ export function InnerDisclosure({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -87,7 +95,7 @@ export function InnerDisclosure({
         }
     });
 
-    const rootId = useId(id, id ? undefined: "o-ui-disclosure");
+    const rootId = useId(id, id ? undefined : "o-ui-disclosure");
     const contentId = `${rootId}-content`;
 
     const triggerMarkup = augmentElement(trigger, {
@@ -131,10 +139,10 @@ export function InnerDisclosure({
     );
 }
 
-InnerDisclosure.propTypes = propTypes;
-
-export const Disclosure = forwardRef((props, ref) => (
+export const Disclosure = forwardRef<InnerDisclosureProps>((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
 ));
+
+export type DisclosureProps = ComponentProps<typeof Disclosure>
 
 Disclosure.displayName = "Disclosure";

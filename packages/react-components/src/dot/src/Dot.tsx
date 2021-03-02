@@ -1,31 +1,34 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { Text } from "../../text";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, slot } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
-const propTypes = {
+export interface InnerDotProps {
     /**
      * The dot color, e.g "primary-200".
      */
-    color: string,
+    color?: string;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
-     * React children.
+     * @ignore
      */
-    children: any
-};
+    children?: any;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerDot(props) {
+export function InnerDot(props: InnerDotProps): ReactElement {
     const {
         color,
         as = "span",
@@ -62,10 +65,10 @@ export function InnerDot(props) {
     );
 }
 
-InnerDot.propTypes = propTypes;
-
-export const Dot = slot("dot", forwardRef((props, ref) => (
+export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
+
+export type DotProps = ComponentProps<typeof Dot>
 
 Dot.displayName = "Dot";

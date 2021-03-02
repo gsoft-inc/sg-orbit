@@ -10,7 +10,7 @@ export function resolveFragment(children: ReactNode): ReactNode {
     return children;
 }
 
-export function resolveChildren<T extends any[]>(children: ReactNode | ((args: T[]) => ReactNode), renderProps?: T): ReactNode {
+export function resolveChildren(children: ReactNode, renderProps?: Record<string, any>): ReactNode {
     if (isFunction(children)) {
         return resolveFragment(children(renderProps));
     }

@@ -19,7 +19,6 @@ export function useForwardInputApi(inputRef: MutableRefObject<HTMLInputElement>)
         ApiMethods.forEach((x: string) => {
             (element as Record<string, any>)[x] = ((...args: any[]) => {
                 // We know the args passed here will match the one needed.
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 inputRef.current[x](...args);
             });
