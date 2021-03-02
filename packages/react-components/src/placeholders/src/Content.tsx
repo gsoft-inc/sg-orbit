@@ -1,29 +1,32 @@
 import { Box } from "../../box";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { slot } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { forwardRef, slot } from "../../shared";
 
-const propTypes = {
+export interface InnerContentProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerContent({
     as = "div",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerContentProps): ReactElement {
     return (
         <Box
             {...rest}
@@ -35,10 +38,10 @@ export function InnerContent({
     );
 }
 
-InnerContent.propTypes = propTypes;
-
-export const Content = slot("content", forwardRef((props, ref) => (
+export const Content = slot("content", forwardRef<InnerContentProps>((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
 )));
+
+export type ContentProps = ComponentProps<typeof Content>;
 
 Content.displayName = "Content";
