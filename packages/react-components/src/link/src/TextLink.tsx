@@ -1,61 +1,64 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSize } from "../../icons";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, useMemo } from "react";
 import { Text } from "../../text";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
-import { forwardRef, useMemo } from "react";
+import { augmentElement, forwardRef, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
-const propTypes = {
+export interface InnerTextLinkProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    href: string,
+    href?: string;
     /**
      * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    target: string,
+    target?: string;
     /**
      * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    rel: string,
+    rel?: string;
     /**
      * The color accent.
      */
-    color: oneOf(["primary", "secondary", "danger", "inherit"]),
+    color?: "primary" | "secondary" | "danger" | "inherit";
     /**
      * The underline style.
      */
-    underline: oneOf(["solid", "dotted"]),
+    underline?: "solid" | "dotted";
     /**
      * Whether or not this is an external link.
      */
-    external: bool,
+    external?: boolean;
     /**
      * Whether or not the link should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * A link can vary in size.
      */
-    size: oneOf(["sm", "md", "inherit"]),
+    size?: "sm" | "md" | "inherit";
     /**
-     * Whether or not the link is disabled.
+     * @ignore
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactElement<any, any>;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerTextLink(props) {
+export function InnerTextLink(props: InnerTextLinkProps): ReactElement {
     const [styleProps] = useStyleProps("link");
     const [formProps] = useFormButton();
 
@@ -71,7 +74,7 @@ export function InnerTextLink(props) {
         focus,
         hover,
         visited,
-        as: ElementType = "a",
+        as: As = "a",
         children,
         forwardedRef,
         ...rest
@@ -120,7 +123,7 @@ export function InnerTextLink(props) {
     });
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 linkProps
@@ -129,14 +132,14 @@ export function InnerTextLink(props) {
             {startIcon}
             {text}
             {iconMarkup}
-        </ElementType>
+        </As>
     );
 }
 
-InnerTextLink.propTypes = propTypes;
-
-export const TextLink = forwardRef((props, ref) => (
+export const TextLink = forwardRef<InnerTextLinkProps>((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
+
+export type TextLinkProps = ComponentProps<typeof TextLink>
 
 TextLink.displayName = "TextLink";

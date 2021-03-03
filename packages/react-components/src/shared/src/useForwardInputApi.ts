@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 
 const ApiMethods = [
     "blur",
@@ -12,8 +12,8 @@ const ApiMethods = [
     "setCustomValidity"
 ];
 
-export function useForwardInputApi(inputRef: MutableRefObject<HTMLInputElement>) {
-    return (targetRef: MutableRefObject<HTMLInputElement>): HTMLInputElement => {
+export function useForwardInputApi(inputRef: RefObject<HTMLInputElement>) {
+    return (targetRef: RefObject<HTMLInputElement>): HTMLInputElement => {
         const element = targetRef.current;
 
         ApiMethods.forEach((x: string) => {
