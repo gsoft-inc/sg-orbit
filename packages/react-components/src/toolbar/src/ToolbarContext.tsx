@@ -2,14 +2,14 @@ import { Orientation } from "../../layout";
 import { ReactNode, createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-export interface ToolbarContextProps {
+export interface ToolbarContextType {
     orientation?: Orientation;
     disabled?: boolean;
 }
 
-export const ToolbarContext = createContext<ToolbarContextProps>(null);
+export const ToolbarContext = createContext<ToolbarContextType>(null);
 
-export function useToolbarContext(): [ToolbarContextProps, boolean] {
+export function useToolbarContext(): [ToolbarContextType, boolean] {
     const context = useContext(ToolbarContext);
 
     if (!isNil(context)) {

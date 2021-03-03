@@ -1,7 +1,7 @@
-import { FormContextProps, useFormContext } from "./FormContext";
+import { FormContextType, useFormContext } from "./FormContext";
 import { omitProps } from "../../shared";
 
-export type FormButtonProps = Omit<FormContextProps, "fluid">;
+export type FormButtonProps = Omit<FormContextType, "fluid">;
 
 export function useFormButton(): [FormButtonProps, boolean] {
     const [context, isInForm] = useFormContext();
