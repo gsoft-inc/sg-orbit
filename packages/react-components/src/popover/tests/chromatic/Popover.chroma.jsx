@@ -31,6 +31,7 @@ function stories(segment) {
             })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
+            .chromaticLowerVisualAccurary()
             .build())
         .build();
 }
