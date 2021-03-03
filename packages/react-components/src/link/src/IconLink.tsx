@@ -1,67 +1,86 @@
 import "./Link.css";
 
-import { Children, forwardRef } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, useStyleProps } from "../../shared";
+import { augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
-const propTypes = {
+export interface InnerIconLinkProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    href: string,
+    href?: string;
     /**
      * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    target: string,
+    target?: string;
     /**
      * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    rel: string,
+    rel?: string;
     /**
      * The link color accent.
      */
-    color: oneOf(["primary", "secondary", "danger"]),
+    color?: "primary" | "secondary" | "danger";
     /**
      * Whether or not the link content should takes additional space.
      */
-    condensed: bool,
+    condensed?: boolean;
     /**
      * Whether or not this is an external link.
      */
-    external: bool,
+    external?: boolean;
     /**
      * Whether or not the link should autoFocus on render.
      */
-    autoFocus: bool,
-    /**
-     * The delay before trying to autofocus.
-     */
-    autoFocusDelay: number,
+    autoFocus?: boolean | number;
     /**
      * A link can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the link is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
-    "aria-label": string.isRequired,
+    "aria-label": string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    title?: string;
+    /**
+    * @ignore
+    */
+    active?: boolean;
+    /**
+    * @ignore
+    */
+    focus?: boolean;
+    /**
+    * @ignore
+    */
+    hover?: boolean;
+    /**
+    * @ignore
+    */
+    visited?: boolean;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerIconLink(props) {
+export function InnerIconLink(props: InnerIconLinkProps): ReactElement {
     const [styleProps] = useStyleProps("link");
 
     const {
@@ -72,14 +91,13 @@ export function InnerIconLink(props) {
         condensed,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,
         hover,
         visited,
         "aria-label": ariaLabel,
-        as: ElementType = "a",
+        as: As = "a",
         children,
         forwardedRef,
         ...rest
@@ -93,7 +111,6 @@ export function InnerIconLink(props) {
         color,
         external,
         autoFocus,
-        autoFocusDelay,
         size,
         active,
         focus,
@@ -104,14 +121,14 @@ export function InnerIconLink(props) {
         forwardedRef
     });
 
-    const icon = Children.only(children);
+    const icon = Children.only(children) as ReactElement;
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
         size
     });
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 {
@@ -122,14 +139,14 @@ export function InnerIconLink(props) {
             )}
         >
             {iconMarkup}
-        </ElementType>
+        </As>
     );
 }
 
-InnerIconLink.propTypes = propTypes;
-
-export const IconLink = forwardRef((props, ref) => (
+export const IconLink = forwardRef<InnerIconLinkProps>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
+
+export type IconLinkProps = ComponentProps<typeof IconLink>
 
 IconLink.displayName = "IconLink";

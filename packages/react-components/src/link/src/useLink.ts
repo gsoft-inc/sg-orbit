@@ -1,5 +1,31 @@
-import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { ForwardedRef } from "react";
+import { MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
+
+export interface UseLinkProps {
+    cssModule?: string;
+    omitSize?: boolean;
+    color?: string;
+    underline?: string;
+    shape?: string;
+    external?: boolean;
+    autoFocus?: boolean | number;
+    size?: Size;
+    active?: boolean;
+    focus?: boolean;
+    hover?: boolean;
+    visited?: boolean;
+    target?: string;
+    rel?: string;
+    forwardedRef?: ForwardedRef<HTMLElement>;
+}
+
+export interface UseLinkApi {
+    target: string;
+    rel: string;
+    className: string;
+    ref: MergedRef<HTMLElement>;
+}
 
 export function useLink({
     cssModule: module,
@@ -17,7 +43,7 @@ export function useLink({
     target,
     rel,
     forwardedRef
-}) {
+}: UseLinkProps): UseLinkApi {
     const linkRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(linkRef, {
