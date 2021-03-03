@@ -17,7 +17,7 @@ export interface UseLinkProps {
     visited?: boolean;
     target?: string;
     rel?: string;
-    forwardedRef: ForwardedRef<HTMLElement>;
+    forwardedRef?: ForwardedRef<HTMLElement>;
 }
 
 export interface UseLinkApi {
