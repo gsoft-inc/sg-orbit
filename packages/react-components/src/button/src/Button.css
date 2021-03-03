@@ -415,18 +415,12 @@ a.o-ui-button {
     border-top-color: var(--o-ui-static-white);
 }
 
-/* SOLID | LOADING | SECONDARY */
-.o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary {
-    --o-ui-opacity-cloud-500: 0.5;
-}
-
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
     border: 2px solid var(--o-ui-cloud-500);
     border-top-color: var(--o-ui-text-1);
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {
-    --o-ui-opacity-alert-500: 0.5;
     border: 2px solid var(--o-ui-loading-spinner-background);
     border-top-color: var(--o-ui-static-white);
 }
