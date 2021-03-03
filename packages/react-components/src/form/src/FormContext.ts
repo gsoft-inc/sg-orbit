@@ -1,9 +1,14 @@
 import { createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-export const FormContext = createContext(null);
+export interface FormContextProps {
+    fluid?: boolean;
+    disabled?: boolean;
+}
 
-export function useFormContext() {
+export const FormContext = createContext<FormContextProps>(null);
+
+export function useFormContext(): [FormContextProps, boolean] {
     const context = useContext(FormContext);
 
     if (!isNil(context)) {

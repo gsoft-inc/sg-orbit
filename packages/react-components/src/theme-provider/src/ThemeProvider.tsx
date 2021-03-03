@@ -1,33 +1,44 @@
 import "./ThemeProvider.css";
 
+import { ElementType, ForwardedRef, ReactElement, ReactNode, useCallback, useEffect, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { isNil } from "lodash";
 import { mergeClasses, mergeProps, useMediaQuery } from "../../shared";
-import { oneOf, string } from "prop-types";
-import { useCallback, useEffect, useState } from "react";
 
-const ColorScheme = {
-    light: "light",
-    dark: "dark",
-    system: "system"
-};
+export enum ColorScheme {
+    light = "light",
+    dark = "dark",
+    system = "system"
+}
 
-const propTypes = {
+export interface ThemeProviderProps {
     /**
      * The theme to use.
      */
-    theme: oneOf(["apricot", "overcast", "desktop"]).isRequired,
+    theme: "apricot" | "overcast" | "desktop";
     /**
      * The color scheme to use.
      */
-    colorScheme: oneOf([ColorScheme.light, ColorScheme.dark, ColorScheme.system]).isRequired,
+    colorScheme: ColorScheme
     /**
      * Default color scheme to use when a user prefered color scheme (system) is not available.
      */
-    defaultColorScheme: string
-};
+    defaultColorScheme?: ColorScheme.dark | ColorScheme.light
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    children?: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function useColorScheme(colorScheme, defaultColorScheme) {
+export function useColorScheme(colorScheme: ColorScheme, defaultColorScheme: ColorScheme.dark | ColorScheme.light): ColorScheme {
     const matchesLight = useMediaQuery("(prefers-color-scheme: light)");
     const matchesDark = useMediaQuery("(prefers-color-scheme: dark)");
 
@@ -59,7 +70,7 @@ export function ThemeProvider({
     children,
     as: TriggerType = "div",
     ...rest
-}) {
+}: ThemeProviderProps): ReactElement {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
     colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
@@ -92,5 +103,3 @@ export function ThemeProvider({
         </ThemeContext.Provider>
     );
 }
-
-ThemeProvider.propTypes = propTypes;
