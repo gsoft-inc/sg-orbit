@@ -1,21 +1,21 @@
 import { ElementType } from "react";
-import { Icon } from "./Icon";
-import { MultiVariantIcon } from "./MultiVariantIcon";
+import { createIcon } from "./Icon";
+import { createMultiVariantIcon } from "./MultiVariantIcon";
 
 export * from "./Icon";
 export * from "./MultiVariantIcon";
 export * from "./IconList";
 export * from "./EmbeddedIcon";
 
-function createOrbitIcon(source: ElementType, displayName: string): ReturnType<typeof Icon.create> {
-    const Component = Icon.create(source);
+function createOrbitIcon(source: ElementType, displayName: string): ReturnType<typeof createIcon> {
+    const Component = createIcon(source);
     Component.displayName = displayName;
 
     return Component;
 }
 
-function createOrbitMultiVariantIcon(source24: ElementType, source32: ElementType, displayName: string): ReturnType<typeof MultiVariantIcon.create> {
-    const Component = MultiVariantIcon.create(source24, source32);
+function createOrbitMultiVariantIcon(source24: ElementType, source32: ElementType, displayName: string): ReturnType<typeof createMultiVariantIcon> {
+    const Component = createMultiVariantIcon(source24, source32);
     Component.displayName = displayName;
 
     return Component;

@@ -5,7 +5,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { OrbitComponent, cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { isNil } from "lodash";
 
-export interface CreatedIconProps {
+export interface IconElementProps {
     /**
      * An icon can vary in size.
      */
@@ -20,7 +20,7 @@ export interface CreatedIconProps {
     slot?: string;
 }
 
-export interface InnerIconProps extends CreatedIconProps {
+export interface InnerIconProps extends IconElementProps {
     /**
      * An icon as a React component.
      */
@@ -29,12 +29,6 @@ export interface InnerIconProps extends CreatedIconProps {
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
-}
-
-export type IconFactory = (type: ElementType) => OrbitComponent<"svg", CreatedIconProps>;
-
-type InnerIconComponentWithFactory = ((props: InnerIconProps) => ReactElement) & {
-    create: IconFactory
 }
 
 export const InnerIcon = ((props: InnerIconProps): ReactElement => {
@@ -73,15 +67,13 @@ export const InnerIcon = ((props: InnerIconProps): ReactElement => {
             )}
         />
     );
-}) as InnerIconComponentWithFactory;
-
-type IconComponentWithFactory = OrbitComponent<"svg", InnerIconProps> & {
-    create: IconFactory
+});
+Factory
 }
 
 export const Icon = slot("icon", forwardRef<InnerIconProps, "svg">((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
-)) as IconComponentWithFactory;
+));
 
 Icon.displayName = "Icon";
 
@@ -89,16 +81,12 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
-const createIconFactory: IconFactory = type => {
-    return slot("icon", forwardRef<CreatedIconProps, "svg">((props, ref) =>
+export function createIcon(type: ElementType): OrbitComponent<"svg", IconElementProps> {
+    return slot("icon", forwardRef<IconElementProps, "svg">((props, ref) =>
         <Icon
             {...props}
             type={type}
             ref={ref}
         />
     ));
-};
-
-[InnerIcon, Icon].forEach(x => {
-    x.create = createIconFactory;
-});
+}
