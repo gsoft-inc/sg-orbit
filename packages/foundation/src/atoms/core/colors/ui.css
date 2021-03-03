@@ -30,13 +30,13 @@ html * {
     --o-ui-neutral-dark-50: hsla(220, 6%, 56%, var(--o-ui-opacity-neutral-dark));
     --o-ui-neutral-dark-100: hsla(220, 6%, 52%, var(--o-ui-opacity-neutral-dark));
     --o-ui-neutral-dark-200: hsla(220, 6%, 48%, var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-300: hsla(220, 6%, 44%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-400: hsla(220, 6%, 40%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-500: hsla(220, 6%, 36%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-600: hsla(220, 6%, 32%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-700: hsla(220, 6%, 28%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-800: hsla(220, 6%, 24%,  var(--o-ui-opacity-neutral-dark));
-    --o-ui-neutral-dark-900: hsla(220, 6%, 20%,  var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-300: hsla(220, 6%, 44%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-400: hsla(220, 6%, 40%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-500: hsla(220, 6%, 36%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-600: hsla(220, 6%, 32%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-700: hsla(220, 6%, 28%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-800: hsla(220, 6%, 24%, var(--o-ui-opacity-neutral-dark));
+    --o-ui-neutral-dark-900: hsla(220, 6%, 20%, var(--o-ui-opacity-neutral-dark));
     /* Alert */
     --o-ui-opacity-alert: 1;
     --o-ui-alert-50: hsla(349, 100%, 95%, var(--o-ui-opacity-alert));
@@ -49,4 +49,16 @@ html * {
     --o-ui-alert-700: hsla(348, 83%, 50%, var(--o-ui-opacity-alert));
     --o-ui-alert-800: hsla(348, 81%, 48%, var(--o-ui-opacity-alert));
     --o-ui-alert-900: hsla(348, 80%, 46%, var(--o-ui-opacity-alert));
+    /* Green */
+    --o-ui-opacity-green: 1;
+    --o-ui-green-50: hsla(146, 64%, 94%, var(--o-ui-opacity-green-50, var(--o-ui-opacity-green)));
+    --o-ui-green-100: hsla(146, 64%, 84%, var(--o-ui-opacity-green-100, var(--o-ui-opacity-green)));
+    --o-ui-green-200: hsla(146, 65%, 73%, var(--o-ui-opacity-green-200, var(--o-ui-opacity-green)));
+    --o-ui-green-300: hsla(146, 65%, 62%, var(--o-ui-opacity-green-300, var(--o-ui-opacity-green)));
+    --o-ui-green-400: hsla(146, 64%, 54%, var(--o-ui-opacity-green-400, var(--o-ui-opacity-green)));
+    --o-ui-green-500: hsla(146, 75%, 46%, var(--o-ui-opacity-green-500, var(--o-ui-opacity-green)));
+    --o-ui-green-600: hsla(145, 77%, 45%, var(--o-ui-opacity-green-600, var(--o-ui-opacity-green)));
+    --o-ui-green-700: hsla(143, 80%, 42%, var(--o-ui-opacity-green-700, var(--o-ui-opacity-green)));
+    --o-ui-green-800: hsla(141, 83%, 40%, var(--o-ui-opacity-green-800, var(--o-ui-opacity-green)));
+    --o-ui-green-900: hsla(138, 89%, 36%, var(--o-ui-opacity-green-900, var(--o-ui-opacity-green)));
 }
