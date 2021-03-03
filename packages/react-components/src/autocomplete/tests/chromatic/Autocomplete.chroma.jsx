@@ -158,7 +158,7 @@ stories()
         </Autocomplete>
     )
     .add("custom trigger width", () =>
-        <Autocomplete style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete style={{ width: "500px" }} placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
