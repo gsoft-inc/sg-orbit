@@ -204,21 +204,6 @@ stories()
                     </Item>
                 ))}
             </Accordion>
-            <Accordion defaultIndex={1}>
-                {[1, 2, 3].map(x => (
-                    <Item key={x}>
-                        {({ isOpen }) => (
-                            <>
-                                <Header as="h3">
-                                    {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
-                                    <Text>{`Header ${x}`}</Text>
-                                </Header>
-                                <Content>{`Content ${x}`}</Content>
-                            </>
-                        )}
-                    </Item>
-                ))}
-            </Accordion>
         </Stack>
     )
     .add("custom component", () => {
