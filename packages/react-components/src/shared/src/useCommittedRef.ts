@@ -1,8 +1,8 @@
 // Copied from https://github.com/react-restart/hooks/blob/master/src/useCommittedRef.ts.
 
-import { MutableRefObject, useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 
-export function useCommittedRef<T>(value: T): MutableRefObject<T> {
+export function useCommittedRef<T>(value: T): RefObject<T> {
     const ref = useRef(value);
 
     useEffect(() => {

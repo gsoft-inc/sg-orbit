@@ -1,6 +1,6 @@
 import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
-import { MutableRefObject, useEffect } from "react";
+import { RefObject, useEffect } from "react";
 import { disposables } from "./useDisposables";
 import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
@@ -36,7 +36,7 @@ interface AutoFocusOptions {
     onFocus?(element?: HTMLElement): void
 }
 
-export function useAutoFocus<T extends HTMLElement>(targetRef: MutableRefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}): void {
+export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}): void {
     useAbstractAutoFocus({
         isDisabled,
         delay,

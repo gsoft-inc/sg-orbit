@@ -1,4 +1,4 @@
-import { ForwardedRef, MutableRefObject, useCallback } from "react";
+import { ForwardedRef, MutableRefObject, RefCallback, RefObject, useCallback } from "react";
 import { isFunction, isNil } from "lodash";
 
 export function assignRef<T>(ref: ForwardedRef<T>, node: T): void {
@@ -11,11 +11,11 @@ export function assignRef<T>(ref: ForwardedRef<T>, node: T): void {
     }
 }
 
-export type MergedRef<T> = ((instance: T | null) => void) & MutableRefObject<T | null>;
+export type MergedRef<T> = RefCallback<T> & RefObject<T>;
 
 export function mergeRefs<T>(...refs: ForwardedRef<T>[]): MergedRef<T> {
     const mergedRef = ((current: T): void => {
-        mergedRef.current = current;
+        (mergedRef as MutableRefObject<T>).current = current;
         refs
             .filter(Boolean)
             .forEach(ref => {
