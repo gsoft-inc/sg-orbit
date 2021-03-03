@@ -559,7 +559,7 @@ export function InnerAutocomplete(props) {
                     {
                         show: isOpen && (!loading || results.length > 0),
                         zIndex,
-                        className: "o-ui-autocomplete-menu",
+                        className: `o-ui-autocomplete-menu ${results.length > 0 ? "" : "o-ui-autocomplete-menu-no-results"}`,
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined

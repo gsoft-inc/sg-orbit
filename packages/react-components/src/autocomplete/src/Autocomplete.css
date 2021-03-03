@@ -1,26 +1,22 @@
-.o-ui-autocomplete-menu {
+.o-ui-autocomplete-menu-no-results {
     display: flex;
     align-items: center;
-    overflow: hidden;
-    width: 100%;
     border: 1px solid var(--o-ui-border-2);
     border-radius: var(--o-ui-scale-alpha);
     box-shadow: var(--o-ui-shadow-100);
     background-color: var(--o-ui-background-1);
-    font-size: var(--o-ui-type-scale-7);
-    line-height: 1;
+    padding-right: var(--o-ui-scale-hotel);
+    padding-left: var(--o-ui-scale-charlie);
     position: relative;
     cursor: default;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    height: calc(var(--o-ui-scale-golf) + 2px);
 }
 
 .o-ui-autocomplete-no-results {
-    padding-right: var(--o-ui-scale-hotel);
-    padding-left: var(--o-ui-scale-charlie);
+    font-size: var(--o-ui-type-scale-7);
+    line-height: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    height: calc(var(--o-ui-scale-golf) + 2px);
-    line-height: calc(var(--o-ui-scale-golf) + 2px);
+
 }
