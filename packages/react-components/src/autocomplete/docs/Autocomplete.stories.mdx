@@ -1,9 +1,9 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Autocomplete, InnerAutocomplete } from "@react-components/autocomplete";
+import { Avatar } from "./Avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Inline } from "@react-components/layout";
+import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
-import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -45,7 +45,7 @@ A default autocomplete
 
 ### Sections
 
-An autocomple items can be group by sections.
+An autocomplete items can be group by sections.
 
 <Preview>
     <Story name="sections">
@@ -64,6 +64,253 @@ An autocomple items can be group by sections.
         </Autocomplete>
     </Story>
 </Preview>
+
+### Item icon
+
+An autocomplete item can have [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item icon">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+            </Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Item end icon
+
+An autocomplete item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
+
+<Preview>
+    <Story name="item end icon">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <IconList slot="end-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <HelpIcon slot="end-icon" />
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="end-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Item description
+
+An autocomplete item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item description + icon">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+A description can be paired with an avatar.
+
+<Preview scope={{ Avatar }}>
+    <Story name="item description + avatar">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Avatar slot="avatar">ER</Avatar>
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <Avatar slot="avatar">JU</Avatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <Avatar slot="avatar">MA</Avatar>
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Trigger icon
+
+An autocomplete trigger can have an icon.
+
+<Preview>
+    <Story name="trigger icon">
+        <Autocomplete icon={<MagnifierIcon />} placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Fluid
+
+An autocomplete can take the width of it's container.
+
+<Preview>
+    <Story name="fluid">
+        <Autocomplete fluid placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Validation
+
+An autocomplete can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate that a specific value have been selected.
+
+<Preview filePath="/autocomplete/docs/SelectedValueValidation" />
+
+### Form
+
+An autocomplete can be part of a form. To submit the value of a select, make sure you specify the `name` property.
+
+<Preview>
+    <Story name="form">
+        <form>
+            <Autocomplete name="planet" placeholder="Planets" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+        </form>
+    </Story>
+</Preview>
+
+### Array map
+
+An autocomplete items can be rendered with an array map.
+
+<Preview>
+    <Story name="array map">
+        <Autocomplete placeholder="Planets" aria-label="Planets">
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+An autocomplete items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="dynamic items">
+        <Autocomplete
+            items={[
+                { key: "earth", value: "Earth" },
+                { key: "jupiter", value: "Jupiter" },
+                { key: "mars", value: "Mars" }
+            ]}
+            placeholder="Planets"
+            aria-label="Planets"
+        >
+            {({ items }) => items.map((x => (
+                <Item key={x.key}>{x.value}</Item>
+            )))}
+        </Autocomplete>
+    </Story>
+</Preview>
+
+### Remote items
+
+An autocomplete items can be fetch from a remote source.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview filePath="/autocomplete/docs/RemoteItems" scope={{ ApiKey: "8aa06f2e50msh9ff37516b3c0282p1e8624jsn81c867aa0d74" }} />
+
+### Custom search
+
+An autocomplete search strategy can be customized by providing on `onSearch` handler.
+
+<Preview filePath="/autocomplete/docs/CustomSearch" />
+
+### Controlled
+
+The selected key and open state can be handled in controlled mode.
+
+<Preview filePath="/autocomplete/docs/ControlledAutocomplete" />
 
 ## API
 

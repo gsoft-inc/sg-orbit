@@ -6,7 +6,6 @@ import { KeyProp, Listbox } from "../../listbox";
 import {
     Keys,
     augmentElement,
-    cssModule,
     getRawSlots,
     isNilOrEmpty,
     mergeProps,
@@ -558,11 +557,9 @@ export function InnerAutocomplete(props) {
                 {...mergeProps(
                     menuProps,
                     {
-                        // TODO: need to be based on results node not items
-                        // show: isOpen && (!loading || items?.length > 0),
                         show: isOpen && (!loading || results.length > 0),
                         zIndex,
-                        className: "o-ui-autocomplete-menu",
+                        className: `o-ui-autocomplete-menu ${results.length > 0 ? "" : "o-ui-autocomplete-menu-no-results"}`,
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined

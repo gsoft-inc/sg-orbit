@@ -14,7 +14,8 @@ export function withCenteredCanvas(Story, context) {
                 className="center"
                 style={{
                     width: "90%",
-                    // minHeight: "600px",
+                    // Important for chromatic tests.
+                    minHeight: "600px",
                     ...canvasLayout
                 }}
             >
