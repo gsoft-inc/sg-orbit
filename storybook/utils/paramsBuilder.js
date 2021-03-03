@@ -43,6 +43,12 @@ class ParamsBuilder {
         return this;
     }
 
+    chromaticLowerVisualAccurary() {
+        this._chromatic.diffThreshold = 0.1;
+
+        return this;
+    }
+
     chromaticIgnore() {
         this._chromatic.disable = true;
 

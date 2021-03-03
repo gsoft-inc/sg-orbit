@@ -1,36 +1,35 @@
 import { Box } from "../../box";
-import { any, bool, elementType, oneOfType, string } from "prop-types";
-import { forwardRef, useEffect, useState } from "react";
-import { mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ElementType, ReactNode, useEffect, useState } from "react";
+import { forwardRef, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
-const propTypes = {
+export interface InnerTransitionProps {
     /**
      * A controlled show value that determined whether or not the component is displayed.
      */
-    show: bool.isRequired,
+    show: boolean;
     /**
      * 	Whether the transition should run on initial mount.
      */
-    animateFirstRender: bool,
+    animateFirstRender?: boolean;
     /**
      * CSS classes to add to the transitioning element during the enter phase.
      */
-    enter: string,
+    enter?: string;
     /**
      * CSS classes to add to the transitioning element during the leave phase.
      */
-    leave: string,
+    leave?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * @ignore
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+}
 
-export const Transition = forwardRef(({
+export const Transition = forwardRef<InnerTransitionProps>(({
     show,
     animateFirstRender = false,
     enter,
@@ -78,5 +77,4 @@ export const Transition = forwardRef(({
     );
 });
 
-Transition.propTypes = propTypes;
 Transition.displayName = "Transition";

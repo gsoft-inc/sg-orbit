@@ -1,25 +1,28 @@
 import "./Divider.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { Text } from "../../text";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerDividerProps {
     /**
      * The orientation of the divider.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
-     * React children.
+     * @ignore
      */
-    children: any
-};
+    children?: any
+    /**
+     * @ignore
+     */
+    forwardedRef?: ForwardedRef<any>;
+}
 
 export function InnerDivider({
     orientation = "horizontal",
@@ -27,7 +30,7 @@ export function InnerDivider({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerDividerProps): ReactElement {
     const labelMarkup = children && (
         <Text className="o-ui-divider-label">
             {children}
@@ -55,11 +58,11 @@ export function InnerDivider({
     );
 }
 
-InnerDivider.propTypes = propTypes;
-
-export const Divider = forwardRef((props, ref) => (
+export const Divider = forwardRef<InnerDividerProps>((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));
+
+export type DividerProps = ComponentProps<typeof Divider>
 
 Divider.displayName = "Divider";
 

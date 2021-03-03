@@ -3,7 +3,6 @@ import { EmailIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
-import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -27,8 +26,9 @@ function stories(segment) {
             .canvasLayout({
                 padding: "100px 250px"
             })
-            .chromaticDelay(100)
+            .chromaticDelay(3000)
             .chromaticPauseAnimationAtEnd()
+            // .chromaticLowerVisualAccurary()
             .build())
         .build();
 }
@@ -88,16 +88,6 @@ stories()
         <TooltipTrigger open>
             <Button>Trigger</Button>
             <Tooltip>Man must rise above the Earth—to the top of the atmosphere and beyond—for only thus will he fully understand the world in which he lives. Astronomy compels the soul to look upward, and leads us from this world to another.</Tooltip>
-        </TooltipTrigger>
-    )
-    .add("icon in content", () =>
-        <TooltipTrigger open>
-            <Button>Trigger</Button>
-            <Tooltip>
-                <EmailIcon />
-                <Text>Man must rise above the Earth</Text>
-                <EmailIcon />
-            </Tooltip>
         </TooltipTrigger>
     )
     .add("link in content", () =>

@@ -1,30 +1,33 @@
 import "./Heading.css";
 
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
-import { forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-const propTypes = {
+interface InnerHeadingProps {
     /**
      * A heading can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl"]),
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerHeading(props) {
+export function InnerHeading(props: InnerHeadingProps): ReactElement {
     const [styleProps] = useStyleProps("heading");
 
     const {
         size,
-        as: ElementType = "div",
+        as: As = "div",
         children,
         forwardedRef,
         ...rest
@@ -34,7 +37,7 @@ export function InnerHeading(props) {
     );
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 {
@@ -47,14 +50,14 @@ export function InnerHeading(props) {
             )}
         >
             {children}
-        </ElementType>
+        </As>
     );
 }
 
-InnerHeading.propTypes = propTypes;
-
-export const Heading = slot("heading", forwardRef((props, ref) => (
+export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));
+
+export type HeadingProps = ComponentProps<typeof Heading>
 
 Heading.displayName = "Heading";

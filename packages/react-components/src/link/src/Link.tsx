@@ -1,50 +1,53 @@
 import "./Link.css";
 
-import { any, bool, elementType, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
-const propTypes = {
+export interface InnerLinkProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    href: string,
+    href?: string;
     /**
      * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    target: string,
+    target?: string;
     /**
      * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    rel: string,
+    rel?: string;
     /**
      * Whether or not this is an external link.
      */
-    external: bool,
+    external?: boolean;
     /**
      * The link shape.
      */
-    shape: oneOf(["rounded", "circular", "box"]),
+    shape?: "rounded" | "circular" | "box";
     /**
      * Whether or not the link should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the link is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerLink(props) {
+export function InnerLink(props: InnerLinkProps): ReactElement {
     const [styleProps] = useStyleProps("link");
 
     const {
@@ -56,7 +59,7 @@ export function InnerLink(props) {
         active,
         focus,
         hover,
-        as: ElementType = "a",
+        as: As = "a",
         children,
         forwardedRef,
         ...rest
@@ -79,21 +82,21 @@ export function InnerLink(props) {
     });
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 linkProps
             )}
         >
             {children}
-        </ElementType>
+        </As>
     );
 }
 
-InnerLink.propTypes = propTypes;
-
-export const Link = forwardRef((props, ref) => (
+export const Link = forwardRef<InnerLinkProps>((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
+
+export type LinkProps = ComponentProps<typeof Link>;
 
 Link.displayName = "Link";

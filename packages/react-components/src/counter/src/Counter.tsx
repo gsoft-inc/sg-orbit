@@ -1,55 +1,58 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Text } from "../../text";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, normalizeSize, slot } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
 
-const propTypes = {
+export interface InnerCounterProps {
     /**
      * The style to use.
      */
-    variant: oneOf(["pill", "divider"]),
+    variant?: "pill" | "divider";
     /**
      * The color accent.
      */
-    color: oneOf(["light"]),
+    color?: "light";
     /**
      * Whether or not to add emphasis on the count value.
      */
-    highlight: bool,
+    highlight?: boolean;
     /**
      * Whether or not to reverse counter elements order.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
      * A counter can vary in size.
      */
-    size: oneOf(["sm", "md", "inherit"]),
+    size?: "sm" | "md" | "inherit";
     /**
      * Whether or not the counter is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Whether or not the counter push itself away from leading sibling element.
      */
-    pushed: bool,
+    pushed?: boolean;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef?: ForwardedRef<any>;
+}
 
-export function InnerCounter(props) {
+export function InnerCounter(props: InnerCounterProps): ReactElement {
     const {
         variant = "pill",
         color,
@@ -91,10 +94,10 @@ export function InnerCounter(props) {
     );
 }
 
-InnerCounter.propTypes = propTypes;
-
-export const Counter = slot("counter", forwardRef((props, ref) => (
+export const Counter = slot("counter", forwardRef<InnerCounterProps>((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
+
+export type CounterProps = ComponentProps<typeof Counter>
 
 Counter.displayName = "Counter";

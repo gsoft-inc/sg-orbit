@@ -1,7 +1,7 @@
-import { MutableRefObject, useCallback, useRef } from "react";
+import { RefObject, useCallback, useRef } from "react";
 import { useForceRender } from "./useForceRender";
 
-export function useRefState<T>(initialValue: T): [MutableRefObject<T>, (newValue: T, rerender?: boolean) => void] {
+export function useRefState<T>(initialValue: T): [RefObject<T>, (newValue: T, rerender?: boolean) => void] {
     const forceRender = useForceRender();
 
     const valueRef = useRef<T>(initialValue);

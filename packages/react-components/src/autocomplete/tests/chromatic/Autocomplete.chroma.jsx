@@ -113,49 +113,51 @@ stories()
         </Autocomplete>
     )
     .add("trigger states", () =>
+        <Stack>
+            <Inline>
+                <Autocomplete active placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete focus placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+            <Inline>
+                <Autocomplete hover placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete disabled placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+        </Stack>
+    )
+    .add("no results", () =>
         <Inline>
-            <Autocomplete active placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete defaultOpen placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
-            <Autocomplete focus placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete defaultOpen noResultsMessage="Custom no results message" placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
-            <Autocomplete hover placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Autocomplete>
-            <Autocomplete disabled placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete defaultOpen noResultsMessage="Custom no results message, this is as custom as can be" placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
         </Inline>
-    )
-    .add("no results", () =>
-        <Autocomplete defaultOpen placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
-    .add("custom no results message", () =>
-        <Autocomplete defaultOpen noResultsMessage="Custom no results message" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
-    .add("custom no results message overflow", () =>
-        <Autocomplete defaultOpen noResultsMessage="Custom no results message, this is as custom as can be" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
     )
     .add("custom trigger width", () =>
         <Autocomplete style={{ width: "500px" }} placeholder="Select a planet" aria-label="Planets">

@@ -1,29 +1,32 @@
 import { Box } from "../../box";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { slot } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { forwardRef, slot } from "../../shared";
 
-const propTypes = {
+export interface InnerFooterProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerFooter({
     as = "div",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerFooterProps): ReactElement {
     return (
         <Box
             {...rest}
@@ -35,10 +38,10 @@ export function InnerFooter({
     );
 }
 
-InnerFooter.propTypes = propTypes;
-
-export const Footer = slot("footer", forwardRef((props, ref) => (
+export const Footer = slot("footer", forwardRef<InnerFooterProps>((props, ref) => (
     <InnerFooter {...props} forwardedRef={ref} />
 )));
+
+export type FooterProps = ComponentProps<typeof Footer>;
 
 Footer.displayName = "Footer";
