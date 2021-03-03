@@ -4,7 +4,7 @@ export function normalizeSize(size?: Size): Size {
     return size || "md";
 }
 
-export type SizeAdapter = Record<Size, Size>;
+export type SizeAdapter = Partial<Record<Size, Size>>;
 
 export function createSizeAdapter(adapter: SizeAdapter): (size: Size) => Size {
     return (size: Size) => adapter[normalizeSize(size)];

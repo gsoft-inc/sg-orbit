@@ -1,22 +1,29 @@
-import { Children, cloneElement, forwardRef } from "react";
+import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, cloneElement } from "react";
 import { Inline } from "../../layout";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { slot } from "../../shared";
+import { forwardRef, slot } from "../../shared";
 
-const propTypes = {
+interface InnerIconListProps {
+    /**
+     * Whether or not the IconList is disabled.
+     */
+    disabled?: boolean;
     /**
      * Size of the icons.
      */
-    size: string,
+    size?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerIconList({
     size,
@@ -25,7 +32,7 @@ export function InnerIconList({
     as = "span",
     forwardedRef,
     ...rest
-}) {
+}: InnerIconListProps): ReactElement {
     return (
         <Inline
             {...rest}
@@ -34,7 +41,7 @@ export function InnerIconList({
             aria-hidden="true"
             ref={forwardedRef}
         >
-            {Children.map(children, x => {
+            {Children.map(children, (x: ReactElement) => {
                 return cloneElement(x, {
                     size,
                     disabled
@@ -44,8 +51,6 @@ export function InnerIconList({
     );
 }
 
-InnerIconList.propTypes = propTypes;
-
-export const IconList = slot("icon", forwardRef((props, ref) => (
+export const IconList = slot("icon", forwardRef<InnerIconListProps>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));

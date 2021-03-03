@@ -3,13 +3,13 @@
 ```jsx
 // assets/index.js
 
-import { Icon, MultiVariantIcon } from "@orbit-ui/react-components";
+import { createIcon, createMultiVariantIcon } from "@orbit-ui/react-components";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 import { ReactComponent as Filter24 } from "./icon-filter-24.svg";
 import { ReactComponent as Filter32 } from "./icon-filter-32.svg";
 
-export const AzureIcon32 = Icon.create(Azure32);
-export const FilterIcon = MultiVariantIcon.create(Filter24, Filter32);
+export const AzureIcon32 = createIcon(Azure32);
+export const FilterIcon = createMultiVariantIcon(Filter24, Filter32);
 ```
 
 ```jsx
