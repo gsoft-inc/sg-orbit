@@ -22,4 +22,5 @@
     white-space: nowrap;
     overflow: hidden;
     height: calc(var(--o-ui-scale-golf) + 2px);
+    line-height: calc(var(--o-ui-scale-golf) + 2px);
 }
