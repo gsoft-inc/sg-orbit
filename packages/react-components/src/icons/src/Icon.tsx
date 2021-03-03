@@ -68,8 +68,6 @@ export const InnerIcon = ((props: InnerIconProps): ReactElement => {
         />
     );
 });
-Factory
-}
 
 export const Icon = slot("icon", forwardRef<InnerIconProps, "svg">((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
