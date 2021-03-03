@@ -11,15 +11,15 @@
     line-height: 1;
     position: relative;
     cursor: default;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .o-ui-autocomplete-no-results {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     padding-right: var(--o-ui-scale-hotel);
     padding-left: var(--o-ui-scale-charlie);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     height: calc(var(--o-ui-scale-golf) + 2px);
-    display: flex;
-    align-items: center;
 }
