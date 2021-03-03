@@ -80,7 +80,7 @@ export interface InnerIconLinkProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function InnerIconLink(props: InnerIconLinkProps): ReactElement {
+export function InnerIconLink(props: InnerIconLinkProps) {
     const [styleProps] = useStyleProps("link");
 
     const {

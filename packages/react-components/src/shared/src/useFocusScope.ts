@@ -13,21 +13,21 @@ export class DomScope {
         this.handlersRef = handlersRef;
     }
 
-    get elements(): HTMLElement[] {
+    get elements() {
         return this.scopeRef.current;
     }
 
-    registerChangeHandler(handler: ChangeEventHandler): void {
+    registerChangeHandler(handler: ChangeEventHandler) {
         this.handlersRef.current.push(handler);
     }
 
-    removeChangeHandler(handler: ChangeEventHandler): void {
+    removeChangeHandler(handler: ChangeEventHandler) {
         const handlers = this.handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
     }
 
-    isInScope(element: HTMLElement): boolean {
+    isInScope(element: HTMLElement) {
         return this.elements.some(x => x.contains(element));
     }
 }
@@ -37,7 +37,7 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
     const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
 
     const setRef = useCallback((rootElement: HTMLElement) => {
-        const setElements = (elements: HTMLElement[]): void => {
+        const setElements = (elements: HTMLElement[]) => {
             handlersRef.current.forEach(x => {
                 x(elements, scopeRef.current);
             });
@@ -45,7 +45,7 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
             setScope(elements);
         };
 
-        const parseElements = (): void => {
+        const parseElements = () => {
             const scope: HTMLElement[] = [];
 
             walkFocusableElements(rootElement, (x: HTMLElement) => {

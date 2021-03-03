@@ -58,7 +58,7 @@ export interface InnerTextLinkProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerTextLink(props: InnerTextLinkProps): ReactElement {
+export function InnerTextLink(props: InnerTextLinkProps) {
     const [styleProps] = useStyleProps("link");
     const [formProps] = useFormButton();
 

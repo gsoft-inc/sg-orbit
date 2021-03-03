@@ -7,13 +7,13 @@ const Direction: Record<Orientation, Direction> = {
     "vertical": "column"
 };
 
-export function useFlexDirection(orientation: Orientation): { direction: Direction } {
+export function useFlexDirection(orientation: Orientation) {
     return {
         direction: Direction[orientation]
     };
 }
 
-export function useFlexAlignment(orientation: Orientation, align: Alignment, verticalAlign: Alignment): { alignItems: Alignment, justifyContent: Alignment } {
+export function useFlexAlignment(orientation: Orientation, align: Alignment, verticalAlign: Alignment) {
     return orientation === "horizontal"
         ? {
             alignItems: verticalAlign,

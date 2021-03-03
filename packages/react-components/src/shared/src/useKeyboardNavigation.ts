@@ -15,15 +15,11 @@ interface KeyboardNavigationBindings {
     last: Keys[];
 }
 
-interface KeyboardNavigationApi {
-    onKeyDown: (event: KeyboardEvent) => void;
-}
-
-export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}): KeyboardNavigationApi {
+export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}) {
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
         const key = event.key as any;
 
-        const handleFocus = (element: HTMLElement): void => {
+        const handleFocus = (element: HTMLElement) => {
             if (!isNil(onSelect)) {
                 onSelect(event, element);
             }

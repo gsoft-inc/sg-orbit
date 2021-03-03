@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { forwardRef, slot } from "../../shared";
 
 export interface InnerContentProps {
@@ -26,7 +26,7 @@ export function InnerContent({
     children,
     forwardedRef,
     ...rest
-}: InnerContentProps): ReactElement {
+}: InnerContentProps) {
     return (
         <Box
             {...rest}

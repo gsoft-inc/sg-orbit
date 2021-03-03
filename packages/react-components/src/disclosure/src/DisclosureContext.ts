@@ -6,6 +6,6 @@ export interface DisclosureContextProps {
 
 export const DisclosureContext = createContext<DisclosureContextProps>({});
 
-export function useDisclosureContext(): DisclosureContextProps {
+export function useDisclosureContext() {
     return useContext(DisclosureContext);
 }

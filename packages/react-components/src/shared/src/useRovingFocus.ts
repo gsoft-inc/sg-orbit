@@ -2,10 +2,10 @@ import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 import type { ChangeEventHandler, DomScope } from "./useFocusScope";
 
-export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}): void {
+export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
-            const handleFocus = (event: FocusEvent): void => {
+            const handleFocus = (event: FocusEvent) => {
                 scope.elements.forEach(x => {
                     if (x.tabIndex === 0) {
                         x.tabIndex = -1;
@@ -15,17 +15,17 @@ export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}): vo
                 (event.target as HTMLElement).tabIndex = 0;
             };
 
-            const registerElement = (element: HTMLElement, isTabbable: boolean): void => {
+            const registerElement = (element: HTMLElement, isTabbable: boolean) => {
                 element.tabIndex = isTabbable ? 0 : -1;
 
                 element.addEventListener("focusin", handleFocus, { capture: true });
             };
 
-            const disposeElement = (element: HTMLElement): void => {
+            const disposeElement = (element: HTMLElement) => {
                 element.removeEventListener("focusin", handleFocus, { capture: true });
             };
 
-            const initializeElements = (): void => {
+            const initializeElements = () => {
                 scope.elements.forEach((x, index) => {
                     registerElement(x, index === 0);
                 });
@@ -46,7 +46,7 @@ export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}): vo
 
             scope.registerChangeHandler(onChange);
 
-            return (): void => {
+            return () => {
                 scope.elements.forEach(disposeElement);
                 scope.removeChangeHandler(onChange);
             };
@@ -57,10 +57,10 @@ export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}): vo
 /*
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { keyProp = "value", isDisabled = false } = {}): void {
+export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { keyProp = "value", isDisabled = false } = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
-            const setTabIndexes = (elements: HTMLElement[]): void => {
+            const setTabIndexes = (elements: HTMLElement[]) => {
                 if (!isNil(currentKey)) {
                     const tabbableIndex = !isNil(currentKey)
                         ? elements.findIndex(x => x.getAttribute(keyProp) === currentKey.toString())
@@ -77,19 +77,19 @@ export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { keyPr
                 }
             };
 
-            const initializeElements = (): void => {
+            const initializeElements = () => {
                 setTabIndexes(scope.elements);
             };
 
             initializeElements();
 
-            const onChange = (newElements: HTMLElement[]): void => {
+            const onChange = (newElements: HTMLElement[]) => {
                 setTabIndexes(newElements);
             };
 
             scope.registerChangeHandler(onChange);
 
-            return (): void => {
+            return () => {
                 scope.removeChangeHandler(onChange);
             };
         }

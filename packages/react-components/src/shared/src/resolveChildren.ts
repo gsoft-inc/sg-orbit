@@ -10,7 +10,7 @@ export function resolveFragment(children: ReactNode): ReactNode {
     return children;
 }
 
-export function resolveChildren(children: ReactNode, renderProps?: Record<string, any>): ReactNode {
+export function resolveChildren(children: ReactNode, renderProps?: Record<string, any>) {
     if (isFunction(children)) {
         return resolveFragment(children(renderProps));
     }

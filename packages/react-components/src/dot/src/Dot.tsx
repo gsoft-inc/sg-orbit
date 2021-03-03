@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
@@ -28,7 +28,7 @@ export interface InnerDotProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerDot(props: InnerDotProps): ReactElement {
+export function InnerDot(props: InnerDotProps) {
     const {
         color,
         as = "span",

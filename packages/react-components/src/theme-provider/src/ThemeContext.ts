@@ -9,6 +9,6 @@ export interface ThemeContextProps {
 
 export const ThemeContext = createContext<ThemeContextProps>({});
 
-export function useThemeContext(): ThemeContextProps {
+export function useThemeContext() {
     return useContext(ThemeContext);
 }
