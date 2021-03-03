@@ -2,7 +2,7 @@ import { AzureIcon32 } from "./assets";
 import { Icon, createIcon } from "@react-components/icons";
 import { render, waitFor } from "@testing-library/react";
 
-function createIcon(props = {}) {
+function createAzureIcon(props = {}) {
     return <Icon
         type={AzureIcon32}
         {...props}
@@ -15,7 +15,7 @@ test("ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        createIcon({
+        createAzureIcon({
             ref: node => {
                 refNode = node;
             }
@@ -51,7 +51,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        createIcon({
+        createAzureIcon({
             ref: handler
         })
     );
