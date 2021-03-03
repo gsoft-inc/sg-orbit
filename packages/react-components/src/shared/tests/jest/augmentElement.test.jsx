@@ -1,6 +1,5 @@
 import { TextInput } from "@react-components/input";
-import { augmentElement, createOrAugmentElement } from "@react-components/shared";
-import { isElement } from "react-is";
+import { augmentElement } from "@react-components/shared";
 
 describe("augmentElement", () => {
     test("augment existing element props", () => {
