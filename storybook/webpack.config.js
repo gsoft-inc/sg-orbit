@@ -1,4 +1,5 @@
 const path = require("path");
+const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
 
 function addWebpackAliases(config) {
     const existingAlias = config.resolve.alias || {};
@@ -24,10 +25,17 @@ function supportPackagesWithDependencyOnNodeFileSystem(config) {
     };
 }
 
+function ignoreJarleWarning(config) {
+    config.plugins.push(new FilterWarningsPlugin({
+        exclude: /Module not found: Error: Can't resolve 'holderjs'/
+    }));
+}
+
 module.exports = {
     customizeWebpack: async config => {
         addWebpackAliases(config);
         supportPackagesWithDependencyOnNodeFileSystem(config);
+        ignoreJarleWarning(config);
 
         return config;
     }

@@ -1,3 +1,4 @@
+import { Autocomplete } from "@react-components/autocomplete";
 import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
@@ -155,6 +156,17 @@ stories()
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
+            <HelpMessage>Must be a planet of the solar system.</HelpMessage>
+        </Field>
+    )
+    .add("autocomplete", () =>
+        <Field>
+            <Label>Planet</Label>
+            <Autocomplete placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
             <HelpMessage>Must be a planet of the solar system.</HelpMessage>
         </Field>
     )
