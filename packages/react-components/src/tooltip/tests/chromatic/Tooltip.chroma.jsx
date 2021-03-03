@@ -90,16 +90,6 @@ stories()
             <Tooltip>Man must rise above the Earth—to the top of the atmosphere and beyond—for only thus will he fully understand the world in which he lives. Astronomy compels the soul to look upward, and leads us from this world to another.</Tooltip>
         </TooltipTrigger>
     )
-    .add("icon in content", () =>
-        <TooltipTrigger open>
-            <Button>Trigger</Button>
-            <Tooltip>
-                <EmailIcon />
-                <Text>Man must rise above the Earth</Text>
-                <EmailIcon />
-            </Tooltip>
-        </TooltipTrigger>
-    )
     .add("link in content", () =>
         <TooltipTrigger open>
             <Button>Trigger</Button>

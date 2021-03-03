@@ -1,6 +1,6 @@
-type Orientation = "horizontal" | "vertical";
-type Direction = "row" | "column"
-type Alignment = "start" | "end" | "center";
+export type Orientation = "horizontal" | "vertical";
+export type Direction = "row" | "column"
+export type Alignment = "start" | "end" | "center";
 
 const Direction: Record<Orientation, Direction> = {
     "horizontal": "row",

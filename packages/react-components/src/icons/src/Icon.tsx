@@ -1,36 +1,35 @@
 import "./Icon.css";
 
 import { Box } from "../../box";
-import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
-import { elementType, oneOf, string } from "prop-types";
-import { forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { OrbitComponent, cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { isNil } from "lodash";
 
-const propTypes = {
+export interface InnerIconProps {
     /**
      * An icon as a React component.
      */
-    type: elementType.isRequired,
+    type: ElementType;
     /**
      * An icon can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md", "lg", "xl", "inherit"]),
-    /**
-     * An icon can change inherit it's parent color.
-     */
-    color: oneOf(["inherit"]),
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
     /**
      * Default slot override.
      */
-    slot: string
-};
-export function InnerIcon(props) {
+    slot?: string;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
+
+export const InnerIcon = ((props: InnerIconProps): ReactElement => {
     const [styleProps] = useStyleProps("icon");
 
     const {
         type,
         size,
-        color,
         disabled,
         "aria-label": ariaLabel,
         forwardedRef,
@@ -48,8 +47,7 @@ export function InnerIcon(props) {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        normalizeSize(size),
-                        color ? `color-${color}`: ""
+                        normalizeSize(size)
                     ),
                     focusable: false,
                     as: type,
@@ -60,20 +58,20 @@ export function InnerIcon(props) {
             )}
         />
     );
-}
+});
 
-InnerIcon.propTypes = propTypes;
-
-export const Icon = slot("icon", forwardRef((props, ref) => (
+export const Icon = slot("icon", forwardRef<InnerIconProps, "svg">((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));
 
 Icon.displayName = "Icon";
 
+export type IconProps = ComponentProps<typeof Icon>;
+
 ////////
 
-function createIconFactory(type) {
-    return slot("icon", forwardRef((props, ref) =>
+export function createIcon(type: ElementType): OrbitComponent<"svg", Omit<InnerIconProps, "type" | "forwardedRef">> {
+    return slot("icon", forwardRef<Omit<InnerIconProps, "type" | "forwardedRef">, "svg">((props, ref) =>
         <Icon
             {...props}
             type={type}
@@ -81,7 +79,3 @@ function createIconFactory(type) {
         />
     ));
 }
-
-[InnerIcon, Icon].forEach(x => {
-    x.create = createIconFactory;
-});

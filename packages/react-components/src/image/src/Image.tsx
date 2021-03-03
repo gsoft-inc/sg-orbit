@@ -1,39 +1,51 @@
 import "./Image.css";
 
-import { cssModule, mergeProps } from "../../shared";
-import { elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerImageProps {
     /**
      * The path to the image.
      */
-    src: string.isRequired,
+    src: string;
     /**
      * A text description of the image.
      */
-    alt: string.isRequired,
+    alt: string;
     /**
      * Width and height in a single value.
      */
-    size: string,
+    size?: string;
+    /**
+    * @ignore
+    */
+    width?: number;
+    /**
+    * @ignore
+    */
+    height?: number;
     /**
      * The image shape.
      */
-    shape: oneOf(["rounded", "circular"]),
+    shape?: "rounded" | "circular";
     /**
      * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
-    fit: oneOf(["contain", "cover", "fill", "scale-down", "none"]),
+    fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
     /**
      * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
-    position: string,
+    position?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
+
 
 export function InnerImage({
     shape,
@@ -42,12 +54,12 @@ export function InnerImage({
     height,
     fit,
     position,
-    as: ElementType = "img",
+    as: As = "img",
     forwardedRef,
     ...rest
-}) {
+}: InnerImageProps): ReactElement {
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 {
@@ -68,10 +80,10 @@ export function InnerImage({
     );
 }
 
-InnerImage.propTypes = propTypes;
-
-export const Image = forwardRef((props, ref) => (
+export const Image = forwardRef<InnerImageProps>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 ));
+
+export type ImageProps = ComponentProps<typeof Image>
 
 Image.displayName = "Image";

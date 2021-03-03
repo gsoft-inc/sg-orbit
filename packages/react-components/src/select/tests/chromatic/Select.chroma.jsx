@@ -4,6 +4,7 @@ import { Item } from "@react-components/placeholders";
 import { Listbox } from "@react-components/listbox";
 import { Overlay } from "@react-components/overlay";
 import { Select, useSelect } from "@react-components/select";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -129,3 +130,4 @@ stories()
             </Select>
         </Inline>
     );
+
