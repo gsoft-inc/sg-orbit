@@ -11,7 +11,7 @@ export interface InnerFormProps {
      */
     fluid?: boolean;
     /**
-     * Whether or not the Form is disabled.
+    * @ignore
      */
     disabled?: boolean;
     /**

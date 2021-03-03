@@ -20,9 +20,9 @@ export interface InnerLozengeProps {
      */
     as?: ElementType;
     /**
-    * @ignore
+     * React children.
      */
-    children: ReactElement;
+    children: ReactElement<any, any>;
     /**
     * @ignore
     */

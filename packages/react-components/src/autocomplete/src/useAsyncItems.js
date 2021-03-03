@@ -3,7 +3,6 @@ import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
 import { useCallback, useEffect, useState } from "react";
 
-// TODO: add caching for a query/results pair for a given amount of time.
 export function useAsyncItems(fetch) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);

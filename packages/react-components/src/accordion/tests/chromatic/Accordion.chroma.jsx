@@ -1,7 +1,7 @@
 import { Accordion, AccordionHeader, useAccordionContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
-import { CheckCircleIcon, CrossIcon, InfoIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/placeholders";
+import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
@@ -201,21 +201,6 @@ stories()
                     <Item key={x}>
                         <Header as="h3">{`Header ${x}`}</Header>
                         <Content>{`Content ${x}`}</Content>
-                    </Item>
-                ))}
-            </Accordion>
-            <Accordion defaultIndex={1}>
-                {[1, 2, 3].map(x => (
-                    <Item key={x}>
-                        {({ isOpen }) => (
-                            <>
-                                <Header as="h3">
-                                    {isOpen ? <CheckCircleIcon /> : <CrossIcon />}
-                                    <Text>{`Header ${x}`}</Text>
-                                </Header>
-                                <Content>{`Content ${x}`}</Content>
-                            </>
-                        )}
                     </Item>
                 ))}
             </Accordion>
