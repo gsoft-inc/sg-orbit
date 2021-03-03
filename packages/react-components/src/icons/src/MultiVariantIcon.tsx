@@ -2,7 +2,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { Icon } from "./Icon";
 import { OrbitComponent, forwardRef, slot } from "../../shared";
 
-export interface MultiVariantIconElementProps {
+export interface InnerMultiVariantIconProps {
     /**
      * An icon can vary in size.
      */
@@ -11,9 +11,6 @@ export interface MultiVariantIconElementProps {
      * Default slot override.
      */
     slot?: string
-}
-
-export interface InnerMultiVariantIconProps extends MultiVariantIconElementProps {
     /**
      * An icon as a React component for the 24px variant.
      */
@@ -55,8 +52,8 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 
 ////////
 
-export function createMultiVariantIcon(type24: ElementType, type32: ElementType): OrbitComponent<"svg", MultiVariantIconElementProps> {
-    return slot("icon", forwardRef<InnerMultiVariantIconProps, "svg">((props, ref) =>
+export function createMultiVariantIcon(type24: ElementType, type32: ElementType): OrbitComponent<"svg", Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">> {
+    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">, "svg">((props, ref) =>
         <MultiVariantIcon
             {...props}
             type24={type24}

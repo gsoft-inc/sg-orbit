@@ -5,26 +5,19 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { OrbitComponent, cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { isNil } from "lodash";
 
-export interface IconElementProps {
+export interface InnerIconProps {
+    /**
+     * An icon as a React component.
+     */
+    type: ElementType;
     /**
      * An icon can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
     /**
-     * An icon can change inherit it's parent color.
-     */
-    color?: "inherit";
-    /**
      * Default slot override.
      */
     slot?: string;
-}
-
-export interface InnerIconProps extends IconElementProps {
-    /**
-     * An icon as a React component.
-     */
-    type: ElementType;
     /**
     * @ignore
     */
@@ -37,7 +30,6 @@ export const InnerIcon = ((props: InnerIconProps): ReactElement => {
     const {
         type,
         size,
-        color,
         disabled,
         "aria-label": ariaLabel,
         forwardedRef,
@@ -55,8 +47,7 @@ export const InnerIcon = ((props: InnerIconProps): ReactElement => {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        normalizeSize(size),
-                        color ? `color-${color}` : ""
+                        normalizeSize(size)
                     ),
                     focusable: false,
                     as: type,
@@ -79,8 +70,8 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
-export function createIcon(type: ElementType): OrbitComponent<"svg", IconElementProps> {
-    return slot("icon", forwardRef<IconElementProps, "svg">((props, ref) =>
+export function createIcon(type: ElementType): OrbitComponent<"svg", Omit<InnerIconProps, "type" | "forwardedRef">> {
+    return slot("icon", forwardRef<Omit<InnerIconProps, "type" | "forwardedRef">, "svg">((props, ref) =>
         <Icon
             {...props}
             type={type}
