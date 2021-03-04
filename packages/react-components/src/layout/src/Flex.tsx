@@ -114,11 +114,17 @@ const Spacing = [
     "--o-ui-scale-mike"
 ];
 
+let isGapSupported: boolean = undefined;
+
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap: boolean): boolean {
     return useMemo(() => {
         if (noGap) {
             return false;
+        }
+
+        if (!isNil(isGapSupported)) {
+            return isGapSupported;
         }
 
         const element = document.createElement("DIV");
