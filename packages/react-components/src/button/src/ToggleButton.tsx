@@ -78,7 +78,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as = Button,
+        as,
         children,
         forwardedRef,
         ...rest
@@ -102,7 +102,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     const content = resolveChildren(children, { isChecked });
 
     return (
-        <Box
+        <Button
             {...mergeProps(
                 rest,
                 {
@@ -112,7 +112,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
             )}
         >
             {content}
-        </Box>
+        </Button>
     );
 }
 

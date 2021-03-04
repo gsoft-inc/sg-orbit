@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
 import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
@@ -88,7 +88,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
-        as: As = IconButton,
+        as,
         children,
         forwardedRef,
         ...rest
@@ -111,14 +111,17 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     const content = resolveChildren(children, { isChecked });
 
     return (
-        <As
+        <IconButton
             {...mergeProps(
+                {
+                    as: as
+                },
                 rest,
                 buttonProps
             )}
         >
             {content}
-        </As>
+        </IconButton>
     );
 }
 
