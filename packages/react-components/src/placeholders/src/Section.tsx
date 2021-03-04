@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ReactNode } from "react";
 import { forwardRef } from "../../shared";
 
 export interface InnerSectionProps {
@@ -16,7 +16,7 @@ export interface InnerSectionProps {
     children: ReactNode;
 }
 
-export function InnerSection(): ReactElement {
+export function InnerSection() {
     // When returning null, react-docgen doesn't ignore the component.
     return <></>;
 }

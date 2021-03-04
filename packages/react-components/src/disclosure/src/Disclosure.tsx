@@ -51,7 +51,7 @@ export function InnerDisclosure({
     children,
     forwardedRef,
     ...rest
-}: InnerDisclosureProps): ReactElement {
+}: InnerDisclosureProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
     const contentRef = useMergedRefs(forwardedRef);

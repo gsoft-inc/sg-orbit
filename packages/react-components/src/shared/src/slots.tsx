@@ -8,7 +8,7 @@ interface SlottableType {
     [SlotKey]?: string;
 }
 
-function slotDecorator<P>(slotName: string, ElementType: P): P {
+function slotDecorator<P>(slotName: string, ElementType: P) {
     (ElementType as Record<string, unknown>)[SlotKey] = slotName;
 
     return ElementType;
@@ -16,7 +16,7 @@ function slotDecorator<P>(slotName: string, ElementType: P): P {
 
 export { slotDecorator as slot };
 
-function findSlots(children: ReactNode, slots: string[]): Record<string, any> {
+function findSlots(children: ReactNode, slots: string[]) {
     return Children
         .toArray(children)
         .reduce((acc: Record<string, any>, x: ReactElement) => {
@@ -32,7 +32,7 @@ function findSlots(children: ReactNode, slots: string[]): Record<string, any> {
         }, {}) as Record<string, any>;
 }
 
-export function getRawSlots(children: ReactNode, slots: string[]): Record<string, any> {
+export function getRawSlots(children: ReactNode, slots: string[]) {
     if (isNil(children)) {
         return {};
     }
@@ -48,7 +48,7 @@ export function getRawSlots(children: ReactNode, slots: string[]): Record<string
     };
 }
 
-export function useRawSlots(children: ReactNode, slots: string[]): Record<string, any> {
+export function useRawSlots(children: ReactNode, slots: string[]) {
     return useMemo(() => getRawSlots(children, slots), [children, slots]);
 }
 
@@ -60,7 +60,7 @@ interface Slots {
     [x: string]: any;
 }
 
-export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Record<string, any> {
+export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
     if (isNil(children)) {
         return {};
     }
@@ -116,6 +116,6 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots): Reco
     return slotElements;
 }
 
-export function useSlots(children: ReactElement, slots: Slots): Record<string, any> {
+export function useSlots(children: ReactElement, slots: Slots) {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

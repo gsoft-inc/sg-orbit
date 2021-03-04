@@ -1,6 +1,6 @@
 import "./Heading.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 interface InnerHeadingProps {
@@ -22,7 +22,7 @@ interface InnerHeadingProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function InnerHeading(props: InnerHeadingProps): ReactElement {
+export function InnerHeading(props: InnerHeadingProps) {
     const [styleProps] = useStyleProps("heading");
 
     const {

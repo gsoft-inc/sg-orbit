@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
@@ -47,7 +47,7 @@ export interface InnerLinkProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function InnerLink(props: InnerLinkProps): ReactElement {
+export function InnerLink(props: InnerLinkProps) {
     const [styleProps] = useStyleProps("link");
 
     const {

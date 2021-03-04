@@ -16,7 +16,7 @@ export enum Keys {
     space = " "
 }
 
-export function appendEventKey(str: string, key: string): string {
+export function appendEventKey(str: string, key: string) {
     switch (key) {
         case Keys.backspace:
             // Backspace is already handled by browser.

@@ -1,11 +1,11 @@
 import { createContext, useContext } from "react";
 
-export interface DisclosureContextProps {
+export interface DisclosureContextType {
     isOpen?: boolean;
 }
 
-export const DisclosureContext = createContext<DisclosureContextProps>({});
+export const DisclosureContext = createContext<DisclosureContextType>({});
 
-export function useDisclosureContext(): DisclosureContextProps {
+export function useDisclosureContext() {
     return useContext(DisclosureContext);
 }

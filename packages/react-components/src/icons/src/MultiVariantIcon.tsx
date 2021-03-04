@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Icon } from "./Icon";
-import { OrbitComponent, forwardRef, slot } from "../../shared";
+import { forwardRef, slot } from "../../shared";
 
 export interface InnerMultiVariantIconProps {
     /**
@@ -25,7 +25,7 @@ export interface InnerMultiVariantIconProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps): ReactElement => {
+export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {
     let type = Component24;
 
     if (size === "lg" || size === "xl") {
@@ -52,7 +52,7 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 
 ////////
 
-export function createMultiVariantIcon(type24: ElementType, type32: ElementType): OrbitComponent<"svg", Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">> {
+export function createMultiVariantIcon(type24: ElementType, type32: ElementType) {
     return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">, "svg">((props, ref) =>
         <MultiVariantIcon
             {...props}

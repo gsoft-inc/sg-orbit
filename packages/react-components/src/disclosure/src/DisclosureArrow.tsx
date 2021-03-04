@@ -1,7 +1,7 @@
 import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
-import { ComponentProps, ForwardedRef, ReactElement, forwardRef } from "react";
+import { ComponentProps, ForwardedRef, forwardRef } from "react";
 import { cssModule, mergeProps, slot } from "../../shared";
 import { isNil } from "lodash";
 import { useDisclosureContext } from "./DisclosureContext";
@@ -25,7 +25,7 @@ export function InnerDisclosureArrow({
     open,
     forwardedRef,
     ...rest
-}: InnerDisclosureArrowProps): ReactElement {
+}: InnerDisclosureArrowProps) {
     const disclosureContext = useDisclosureContext();
 
     const isOpen = open ?? disclosureContext?.isOpen;

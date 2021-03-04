@@ -27,6 +27,6 @@ export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWit
     propTypes?: WeakValidationMap<any>;
 }
 
-export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<UnwrapElementType<T>, P>): OrbitComponent<T, P> {
+export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<UnwrapElementType<T>, P>) {
     return (reactForwardRef(render) as unknown) as OrbitComponent<T, P>;
 }
