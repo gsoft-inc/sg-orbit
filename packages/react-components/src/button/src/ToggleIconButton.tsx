@@ -125,7 +125,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     );
 }
 
-export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonProps>((props, ref) => (
+export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonProps, "button">((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
 

@@ -159,7 +159,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     );
 }
 
-export const IconButton = slot("button", forwardRef<InnerIconButtonProps>((props, ref) => (
+export const IconButton = slot("button", forwardRef<InnerIconButtonProps, "button">((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 
