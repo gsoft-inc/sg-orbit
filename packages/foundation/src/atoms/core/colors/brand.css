@@ -1,38 +1,38 @@
 html * {
     /* Marine */
     --o-ui-opacity-marine: 1;
-    --o-ui-marine-50: hsla(222, 100%, 96%, var(--o-ui-opacity-marine-50, var(--o-ui-opacity-marine)));
-    --o-ui-marine-100: hsla(222, 26%, 79%, var(--o-ui-opacity-marine-100, var(--o-ui-opacity-marine)));
-    --o-ui-marine-200: hsla(222, 16%, 65%, var(--o-ui-opacity-marine-200, var(--o-ui-opacity-marine)));
-    --o-ui-marine-300: hsla(220, 15%, 54%, var(--o-ui-opacity-marine-300, var(--o-ui-opacity-marine)));
-    --o-ui-marine-400: hsla(220, 18%, 45%, var(--o-ui-opacity-marine-400, var(--o-ui-opacity-marine)));
-    --o-ui-marine-500: hsla(222, 24%, 38%, var(--o-ui-opacity-marine-500, var(--o-ui-opacity-marine)));
-    --o-ui-marine-600: hsla(222, 30%, 32%, var(--o-ui-opacity-marine-600, var(--o-ui-opacity-marine)));
-    --o-ui-marine-700: hsla(222, 37%, 27%, var(--o-ui-opacity-marine-700, var(--o-ui-opacity-marine)));
-    --o-ui-marine-800: hsla(221, 45%, 22%, var(--o-ui-opacity-marine-800, var(--o-ui-opacity-marine)));
-    --o-ui-marine-900: hsla(222, 63%, 15%, var(--o-ui-opacity-marine-900, var(--o-ui-opacity-marine)));
+    --o-ui-marine-50: hsla(222, 100%, 96%, var(--o-ui-opacity-marine));
+    --o-ui-marine-100: hsla(222, 26%, 79%, var(--o-ui-opacity-marine));
+    --o-ui-marine-200: hsla(222, 16%, 65%, var(--o-ui-opacity-marine));
+    --o-ui-marine-300: hsla(220, 15%, 54%, var(--o-ui-opacity-marine));
+    --o-ui-marine-400: hsla(220, 18%, 45%, var(--o-ui-opacity-marine));
+    --o-ui-marine-500: hsla(222, 24%, 38%, var(--o-ui-opacity-marine));
+    --o-ui-marine-600: hsla(222, 30%, 32%, var(--o-ui-opacity-marine));
+    --o-ui-marine-700: hsla(222, 37%, 27%, var(--o-ui-opacity-marine));
+    --o-ui-marine-800: hsla(221, 45%, 22%, var(--o-ui-opacity-marine));
+    --o-ui-marine-900: hsla(222, 63%, 15%, var(--o-ui-opacity-marine));
     /* Sunray */
     --o-ui-opacity-sunray: 1;
-    --o-ui-sunray-50: hsla(38, 100%, 95%, var(--o-ui-opacity-sunray-50, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-100: hsla(39, 97%, 85%, var(--o-ui-opacity-sunray-100, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-200: hsla(39, 98%, 80%, var(--o-ui-opacity-sunray-200, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-300: hsla(39, 97%, 75%, var(--o-ui-opacity-sunray-300, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-400: hsla(39, 97%, 70%, var(--o-ui-opacity-sunray-400, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-500: hsla(39, 97%, 65%, var(--o-ui-opacity-sunray-500, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-600: hsla(38, 97%, 60%, var(--o-ui-opacity-sunray-600, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-700: hsla(36, 96%, 55%, var(--o-ui-opacity-sunray-700, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-800: hsla(35, 96%, 50%, var(--o-ui-opacity-sunray-800, var(--o-ui-opacity-sunray)));
-    --o-ui-sunray-900: hsla(32, 96%, 45%, var(--o-ui-opacity-sunray-900, var(--o-ui-opacity-sunray)));
+    --o-ui-sunray-50: hsla(38, 100%, 95%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-100: hsla(39, 97%, 85%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-200: hsla(39, 98%, 80%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-300: hsla(39, 97%, 75%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-400: hsla(39, 97%, 70%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-500: hsla(39, 97%, 65%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-600: hsla(38, 97%, 60%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-700: hsla(36, 96%, 55%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-800: hsla(35, 96%, 50%, var(--o-ui-opacity-sunray));
+    --o-ui-sunray-900: hsla(32, 96%, 45%, var(--o-ui-opacity-sunray));
     /* Moonstone */
     --o-ui-opacity-moonstone: 1;
-    --o-ui-moonstone-50: hsla(180, 28%, 95%, var(--o-ui-opacity-moonstone-50, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-100: hsla(180, 30%, 88%, var(--o-ui-opacity-moonstone-100, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-200: hsla(178, 31%, 80%, var(--o-ui-opacity-moonstone-200, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-300: hsla(179, 31%, 71%, var(--o-ui-opacity-moonstone-300, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-400: hsla(179, 30%, 65%, var(--o-ui-opacity-moonstone-400, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-500: hsla(179, 30%, 59%, var(--o-ui-opacity-moonstone-500, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-600: hsla(179, 29%, 56%, var(--o-ui-opacity-moonstone-600, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-700: hsla(179, 27%, 52%, var(--o-ui-opacity-moonstone-700, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-800: hsla(179, 28%, 48%, var(--o-ui-opacity-moonstone-800, var(--o-ui-opacity-moonstone)));
-    --o-ui-moonstone-900: hsla(179, 34%, 42%, var(--o-ui-opacity-moonstone-900, var(--o-ui-opacity-moonstone)));
+    --o-ui-moonstone-50: hsla(180, 28%, 95%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-100: hsla(180, 30%, 88%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-200: hsla(178, 31%, 80%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-300: hsla(179, 31%, 71%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-400: hsla(179, 30%, 65%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-500: hsla(179, 30%, 59%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-600: hsla(179, 29%, 56%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-700: hsla(179, 27%, 52%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-800: hsla(179, 28%, 48%, var(--o-ui-opacity-moonstone));
+    --o-ui-moonstone-900: hsla(179, 34%, 42%, var(--o-ui-opacity-moonstone));
 }

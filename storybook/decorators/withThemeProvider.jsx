@@ -9,7 +9,7 @@ export function withThemeProvider(Story, context) {
             theme={globals.theme}
             colorScheme={globals.colorScheme}
             // min-height ensure popup components renders correctly in chromatic tests.
-            style={viewMode === "story" || isChromatic ? { minHeight: "600px" } : undefined}
+            style={viewMode === "story" || isChromatic ? { height: "600px" } : undefined}
         >
             <Story />
         </ThemeProvider>

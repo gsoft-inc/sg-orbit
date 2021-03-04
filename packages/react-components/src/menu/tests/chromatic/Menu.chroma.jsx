@@ -169,19 +169,19 @@ stories()
         <Menu aria-label="Planets">
             <Item key="earth">
                 <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
                 <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
                 <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://thispersondoesnotexist.com/image" alt="this user does not exist" />
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
                 </SmallAvatar>
                 <Text>Mars</Text>
             </Item>
