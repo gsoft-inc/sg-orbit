@@ -1,4 +1,4 @@
-html * {
+:root {
     /* LIGHT */
     --o-ui-shadow-lightness-light: 56%;
     --o-ui-shadow-opacity-light: .32;

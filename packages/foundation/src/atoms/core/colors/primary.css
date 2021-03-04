@@ -1,4 +1,4 @@
-:root {
+[class^="o-ui"] {
     --o-ui-primary-50: var(--o-ui-apricot-50);
     --o-ui-primary-100: var(--o-ui-apricot-100);
     --o-ui-primary-200: var(--o-ui-apricot-200);

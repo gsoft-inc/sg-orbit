@@ -1,4 +1,4 @@
-html * {
+[class^="o-ui"] {
     --o-ui-white: #FFFFFF;
     --o-ui-transparent: transparent;
     /* Cloud */

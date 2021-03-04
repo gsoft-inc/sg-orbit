@@ -1,4 +1,4 @@
-html * {
+[class^="o-ui"] {
     --o-ui-hue-apricot: 172;
     --o-ui-opacity-apricot: 1;
     --o-ui-apricot-50: hsla(174, 61%, 94%, var(--o-ui-opacity-apricot));

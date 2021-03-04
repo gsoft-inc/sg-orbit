@@ -1,4 +1,4 @@
-html * {
+[class^="o-ui"] {
     /* STATIC */
     --o-ui-static-white: var(--o-ui-white);
 }

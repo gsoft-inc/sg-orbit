@@ -1,4 +1,4 @@
-html * {
+:root {
     --o-ui-dot-color: var(--o-ui-background-2);
 }
 

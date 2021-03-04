@@ -1,4 +1,4 @@
-html * {
+[class^="o-ui"] {
     --o-ui-hue-overcast: 208;
     --o-ui-opacity-overcast: 1;
     --o-ui-overcast-50: hsla(209, 100%, 95%, var(--o-ui-opacity-overcast));

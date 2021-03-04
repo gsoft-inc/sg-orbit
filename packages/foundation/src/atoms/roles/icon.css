@@ -1,4 +1,4 @@
-html * {
+[class^="o-ui"] {
     /* LIGHT */
     --o-ui-icon-1-light: var(--o-ui-marine-900);
     --o-ui-icon-2-light: var(--o-ui-marine-500);

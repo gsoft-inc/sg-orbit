@@ -1,4 +1,4 @@
-html * {
+:root {
     --o-ui-focus-ring-thickness-sm: 1px;
     --o-ui-focus-ring-thickness-md: 2px;
     --o-ui-focus-ring-thickness-lg: 4px;
