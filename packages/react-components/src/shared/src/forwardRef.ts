@@ -1,12 +1,17 @@
 // Idea and naming based off Chakra UI. https://github.com/chakra-ui/chakra-ui/blob/main/packages/system/src/system.types.tsx
 import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes, WeakValidationMap, forwardRef as reactForwardRef } from "react";
 
-type UnwrapElementType<T> = T extends ElementType ? ElementRef<T> : T;
+type AsRef<T> = T extends ElementType ? ElementRef<T> : T;
 
-type PropsOf<T> =
-    T extends ElementType ? HTMLProps<UnwrapElementType<T>> & ComponentProps<T> & RefAttributes<UnwrapElementType<T>> :
+type PropsWithoutChildren<P> =
+    "children" extends keyof P
+    ? Pick<P, Exclude<keyof P, "children">>
+    : P;
+
+type PropsOf<T> = PropsWithoutChildren<
+    T extends ElementType ? HTMLProps<AsRef<T>> & ComponentProps<T> & RefAttributes<AsRef<T>> :
     T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
-    never;
+    never>;
 
 export type RightJoinProps<
     SourceProps extends Record<string, any> = Record<string, never>,
@@ -27,6 +32,6 @@ export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWit
     propTypes?: WeakValidationMap<any>;
 }
 
-export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<UnwrapElementType<T>, P>) {
+export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<AsRef<T>, P>) {
     return (reactForwardRef(render) as unknown) as OrbitComponent<T, P>;
 }

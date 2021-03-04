@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
 import { forwardRef, slot } from "../../shared";
@@ -39,10 +39,6 @@ interface InnerCrossButtonProps {
      */
     slot?: string;
     /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
      * @ignore
      */
     forwardedRef: ForwardedRef<any>;
@@ -61,7 +57,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
     );
 }
 
-export const CrossButton = slot("button", forwardRef<InnerCrossButtonProps>((props, ref) => (
+export const CrossButton = slot("button", forwardRef<InnerCrossButtonProps, "button">((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
 
