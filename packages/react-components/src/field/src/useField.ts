@@ -1,4 +1,26 @@
-import { cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { ForwardedRef } from "react";
+import { MergedRef, cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
+import type { CommonFieldContextType } from "./FieldContext";
+
+interface UseFieldProps {
+    id?: string;
+    validationState?: "valid" | "invalid";
+    required?: boolean;
+    fluid?: boolean;
+    size?: "sm" | "md";
+    disabled?: boolean;
+    className?: string;
+    forwardedRef?: ForwardedRef<any>;
+}
+
+export interface UseFieldReturn {
+    fieldProps: {
+        className: string;
+        role: string;
+        ref: MergedRef<any>;
+    };
+    fieldContext: CommonFieldContextType
+}
 
 export function useField({
     id,
@@ -9,7 +31,7 @@ export function useField({
     disabled,
     className,
     forwardedRef
-}) {
+}: UseFieldProps): UseFieldReturn {
     const ref = useMergedRefs(forwardedRef);
 
     const inputId = useId(id, id ? null : "o-ui-field");

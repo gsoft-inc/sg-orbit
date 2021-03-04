@@ -2,45 +2,48 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { FieldContext } from "./FieldContext";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
-const propTypes = {
+interface InnerFieldProps {
     /**
      * A field id.
      */
-    id: string,
+    id?: string,
     /**
      * Whether the field should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Whether or not the field show a required state.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the field take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * A field can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerField(props) {
+export function InnerField(props: InnerFieldProps) {
     const [formProps] = useFormField();
     const [toolbarProps] = useToolbarProps();
 
@@ -92,10 +95,10 @@ export function InnerField(props) {
     );
 }
 
-InnerField.propTypes = propTypes;
-
-export const Field = forwardRef((props, ref) => (
+export const Field = forwardRef<InnerFieldProps>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
+
+export type FieldProps = ComponentProps<typeof Field>
 
 Field.displayName = "Field";
