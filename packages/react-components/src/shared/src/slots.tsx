@@ -52,15 +52,18 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
     return useMemo(() => getRawSlots(children, slots), [children, slots]);
 }
 
-interface Slots {
+interface RequiredDefaultSlot {
     _: {
         defaultWrapper?: ComponentType;
         required?: string[];
-    },
-    [x: string]: any;
+    }
 }
 
-export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
+type SlotElements<T extends RequiredDefaultSlot> = {
+    [key in keyof Omit<T, "_">]?: ReactElement;
+} & Record<string, ReactElement>
+
+export function getSlots<T extends RequiredDefaultSlot>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
     if (isNil(children)) {
         return {};
     }
@@ -106,16 +109,16 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
     }
 
     Object.keys(slotElements).forEach(x => {
-        const slotProps = slots[x];
+        const slotProps = (slots as Record<string, any>)[x];
 
         if (!isNil(slotProps)) {
             slotElements[x] = augmentElement(slotElements[x], slotProps);
         }
     });
 
-    return slotElements;
+    return slotElements as SlotElements<T>;
 }
 
-export function useSlots(children: ReactNode, slots: Slots) {
+export function useSlots<T extends RequiredDefaultSlot>(children: ReactNode, slots: T) {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }
