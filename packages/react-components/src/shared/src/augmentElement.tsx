@@ -1,5 +1,5 @@
 import { ReactElement, RefAttributes, cloneElement } from "react";
-import { SizeAdapter, normalizeSize } from "./size";
+import { Size, SizeAdapter, normalizeSize } from "./size";
 import { mergeProps } from "./mergeProps";
 
 export function augmentElement(element: ReactElement & RefAttributes<any>, newProps: Record<string, any>) {
@@ -9,7 +9,7 @@ export function augmentElement(element: ReactElement & RefAttributes<any>, newPr
 }
 
 export function createEmbeddableAdapter(sizeAdapter: SizeAdapter) {
-    return <Props extends Record<string, any>>(element: ReactElement<Props, any>, { size, ...props }: Props) => {
+    return <Props extends { size: Size } & Record<string, any>>(element: ReactElement<Props, any>, { size, ...props }: Props) => {
         const newProps = {
             ...props,
             size: sizeAdapter[normalizeSize(size)]

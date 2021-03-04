@@ -1,76 +1,83 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-const propTypes = {
+interface InnerToggleIconButtonProps {
     /**
      * A controlled checked value.
      */
-    checked: bool,
+    checked?: boolean;
     /**
      * The initial value of `checked` when uncontrolled.
      */
-    defaultChecked: bool,
+    defaultChecked?: boolean;
     /**
      * 	The value to associate with when in a group.
      */
-    value: oneOfType([string, number]),
+    value?: string | number;
     /**
      * Called when the toggle icon button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, isChecked: boolean): void;
     /**
      * The style to use.
      */
-    variant: oneOf(["solid", "outline"]),
+    variant?: "solid" | "outline";
     /**
      * The toggle icon button color accent.
      */
-    color: oneOf(["primary", "secondary"]),
+    color?: "primary" | "secondary";
     /**
      * The toggle icon button shape.
      */
-    shape: oneOf(["rounded", "circular"]),
+    shape?: "rounded" | "circular";
     /**
      * Whether or not the toggle icon button content should takes additional space.
      */
-    condensed: bool,
+    condensed?: boolean;
     /**
      * Whether or not the toggle icon button should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * A toggle icon button can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the toggle icon button is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * A label providing an accessible name to the toggle icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
-    "aria-label": string.isRequired,
+    "aria-label": string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
+    /**
+     * @ignore
+     */
+    active?: boolean;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerToggleIconButton(props) {
+export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     const [checkableProps] = useCheckableProps(props);
 
     const {
@@ -81,7 +88,7 @@ export function InnerToggleIconButton(props) {
         value,
         onChange,
         active,
-        as: ElementType = IconButton,
+        as: As = IconButton,
         children,
         forwardedRef,
         ...rest
@@ -104,21 +111,21 @@ export function InnerToggleIconButton(props) {
     const content = resolveChildren(children, { isChecked });
 
     return (
-        <ElementType
+        <As
             {...mergeProps(
                 rest,
                 buttonProps
             )}
         >
             {content}
-        </ElementType>
+        </As>
     );
 }
 
-InnerToggleIconButton.propTypes = propTypes;
-
-export const ToggleIconButton = slot("button", forwardRef((props, ref) => (
+export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonProps>((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
+
+export type ToggleIconButtonProps = ComponentProps<typeof ToggleIconButton>
 
 ToggleIconButton.displayName = "ToggleIconButton";

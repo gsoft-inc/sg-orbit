@@ -1,47 +1,54 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
-import { bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { slot } from "../../shared";
+import { forwardRef, slot } from "../../shared";
 
-const propTypes = {
+interface InnerCrossButtonProps {
     /**
      * Whether or not the button content should takes additional space.
      */
-    condensed: bool,
+    condensed?: boolean;
     /**
      * Whether or not the button should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * A cross button can vary in size.
      */
-    size: oneOf(["2xs", "xs", "sm", "md"]),
+    size?: "2xs" | "xs" | "sm" | "md";
     /**
      * Whether or not the cross button is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Called when the button is click.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClick: func,
+    onClick?(event: SyntheticEvent): void,
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
-    "aria-label": string.isRequired,
+    "aria-label": string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Default slot override.
      */
-    slot: string
-};
+    slot?: string;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerCrossButton({ forwardedRef, ...rest }) {
+export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
     return (
         <IconButton
             {...rest}
@@ -54,10 +61,10 @@ export function InnerCrossButton({ forwardedRef, ...rest }) {
     );
 }
 
-InnerCrossButton.propTypes = propTypes;
-
-export const CrossButton = slot("button", forwardRef((props, ref) => (
+export const CrossButton = slot("button", forwardRef<InnerCrossButtonProps>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
+
+export type CrossButtonProps = ComponentProps<typeof CrossButton>;
 
 CrossButton.displayName = "CrossButton";

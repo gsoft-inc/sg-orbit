@@ -116,6 +116,6 @@ export function getSlots(children: ReactNode, { _ = {}, ...slots }: Slots) {
     return slotElements;
 }
 
-export function useSlots(children: ReactElement, slots: Slots) {
+export function useSlots(children: ReactNode, slots: Slots) {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

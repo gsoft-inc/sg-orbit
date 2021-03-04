@@ -1,82 +1,97 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { Text } from "../../text";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots } from "../../shared";
+import { createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+interface InnerButtonProps {
     /**
      * The button style to use.
      */
-    variant: oneOf(["solid", "outline", "ghost"]),
+    variant?: "solid" | "outline" | "ghost";
     /**
      * The button color accent.
      */
-    color: oneOf(["primary", "secondary", "danger", "inherit"]),
+    color?: "primary" | "secondary" | "danger" | "inherit";
     /**
      * The button shape.
      */
-    shape: oneOf(["pill", "rounded", "circular"]),
+    shape?: "pill" | "rounded" | "circular";
     /**
      * Whether or not the button content should takes additional space.
      */
-    condensed: bool,
+    condensed?: boolean;
     /**
      * Whether or not the button should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the button take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * A button can show a loading indicator.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * A button can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the button is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * The button type.
      */
-    type: oneOf(["button", "submit", "reset"]),
+    type?: "button" | "submit" | "reset";
     /**
-     * Called when the button is click.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onClick: func,
+    * Called when the button is click.
+    * @param {SyntheticEvent} event - React's original SyntheticEvent.
+    * @returns {void}
+    */
+    onClick?: (event: SyntheticEvent) => void
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Default slot override.
      */
-    slot: string,
+    slot?: string;
+    /**
+     * @ignore
+     */
+    active?: boolean;
+    /**
+     * @ignore
+     */
+    focus?: boolean;
+    /**
+     * @ignore
+     */
+    hover?: boolean;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 const condensedTextSize = createSizeAdapter({
     "sm": "md",
     "md": "lg"
 });
 
-export function InnerButton(props) {
+export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
 
@@ -161,10 +176,10 @@ export function InnerButton(props) {
     );
 }
 
-InnerButton.propTypes = propTypes;
-
-export const Button = slot("button", forwardRef((props, ref) => (
+export const Button = slot("button", forwardRef<InnerButtonProps>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
+
+export type ButtonProps = ComponentProps<typeof Button>;
 
 Button.displayName = "Button";
