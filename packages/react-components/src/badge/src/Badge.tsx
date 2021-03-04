@@ -1,7 +1,7 @@
 import "./Badge.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
 
 export interface InnerBadgeProps {
@@ -34,7 +34,7 @@ export function InnerBadge({
     children,
     forwardedRef,
     ...rest
-}: InnerBadgeProps): ReactElement {
+}: InnerBadgeProps) {
     // Not using slots because the overlapped content could also be an icon and thinks get complicated.
     let [badgeContent, overlappedElement] = Children.toArray(children);
 
