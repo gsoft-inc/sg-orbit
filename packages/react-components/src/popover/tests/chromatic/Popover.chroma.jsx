@@ -27,11 +27,10 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({
-                padding: "200px 400px"
+                padding: "150px 350px"
             })
-            .chromaticDelay(3000)
+            .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
-            // .chromaticLowerVisualAccurary()
             .build())
         .build();
 }

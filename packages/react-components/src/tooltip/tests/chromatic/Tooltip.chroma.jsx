@@ -26,9 +26,8 @@ function stories(segment) {
             .canvasLayout({
                 padding: "100px 250px"
             })
-            .chromaticDelay(3000)
+            .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
-            // .chromaticLowerVisualAccurary()
             .build())
         .build();
 }
