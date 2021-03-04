@@ -70,7 +70,7 @@ interface InnerToggleIconButtonProps {
     /**
      * React children.
      */
-    children: ReactNode;
+    children: ReactElement<any, any>;
     /**
      * @ignore
      */
