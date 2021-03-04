@@ -1,6 +1,6 @@
-import { FormContextProps, useFormContext } from "./FormContext";
+import { FormContextType, useFormContext } from "./FormContext";
 
-export interface FormFieldProps extends FormContextProps {
+export interface FormFieldProps extends FormContextType {
     className?: string;
 }
 

@@ -1,5 +1,5 @@
 import { ForwardedRef } from "react";
-import { MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
 
 export interface UseLinkProps {
@@ -17,14 +17,7 @@ export interface UseLinkProps {
     visited?: boolean;
     target?: string;
     rel?: string;
-    forwardedRef: ForwardedRef<HTMLElement>;
-}
-
-export interface UseLinkApi {
-    target: string;
-    rel: string;
-    className: string;
-    ref: MergedRef<HTMLElement>;
+    forwardedRef?: ForwardedRef<HTMLElement>;
 }
 
 export function useLink({
@@ -43,7 +36,7 @@ export function useLink({
     target,
     rel,
     forwardedRef
-}: UseLinkProps): UseLinkApi {
+}: UseLinkProps) {
     const linkRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(linkRef, {

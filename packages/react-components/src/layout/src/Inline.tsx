@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Flex, FlexProps } from "./Flex";
 import { forwardRef, mergeProps } from "../../shared";
 import { isNil } from "lodash";
@@ -55,7 +55,7 @@ export function InnerInline({
     wrap,
     forwardedRef,
     ...rest
-}: InnerInlineProps): ReactElement {
+}: InnerInlineProps) {
     const alignProps = useFlexAlignment("horizontal", align, verticalAlign);
 
     return (

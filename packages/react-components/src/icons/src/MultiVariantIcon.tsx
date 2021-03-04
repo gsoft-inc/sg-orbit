@@ -1,8 +1,8 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Icon } from "./Icon";
-import { OrbitComponent, forwardRef, slot } from "../../shared";
+import { forwardRef, slot } from "../../shared";
 
-export interface CreatedMultiVariantIconProps {
+export interface InnerMultiVariantIconProps {
     /**
      * An icon can vary in size.
      */
@@ -11,9 +11,6 @@ export interface CreatedMultiVariantIconProps {
      * Default slot override.
      */
     slot?: string
-}
-
-export interface InnerMultiVariantIconProps extends CreatedMultiVariantIconProps {
     /**
      * An icon as a React component for the 24px variant.
      */
@@ -28,13 +25,7 @@ export interface InnerMultiVariantIconProps extends CreatedMultiVariantIconProps
     forwardedRef: ForwardedRef<any>;
 }
 
-export type MultiVariantIconFactory = (type24: ElementType, type32: ElementType) => OrbitComponent<"svg", CreatedMultiVariantIconProps>;
-
-export type InnerMultiVariantIconComponentWithFactory = ((props: InnerMultiVariantIconProps) => ReactElement) & {
-    create: MultiVariantIconFactory
-}
-
-export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps): ReactElement => {
+export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {
     let type = Component24;
 
     if (size === "lg" || size === "xl") {
@@ -49,15 +40,11 @@ export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component3
             ref={forwardedRef}
         />
     );
-}) as InnerMultiVariantIconComponentWithFactory;
-
-export type MultiVariantIconComponentWithFactory = OrbitComponent<"svg", InnerMultiVariantIconProps> & {
-    create: MultiVariantIconFactory
-}
+});
 
 export const MultiVariantIcon = slot("icon", forwardRef<InnerMultiVariantIconProps, "svg">((props, ref) => (
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
-))) as MultiVariantIconComponentWithFactory;
+)));
 
 Icon.displayName = "MultiVariantIcon";
 
@@ -65,8 +52,8 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 
 ////////
 
-const createMultiVariantFactory: MultiVariantIconFactory = (type24, type32) => {
-    return slot("icon", forwardRef<InnerMultiVariantIconProps, "svg">((props, ref) =>
+export function createMultiVariantIcon(type24: ElementType, type32: ElementType) {
+    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">, "svg">((props, ref) =>
         <MultiVariantIcon
             {...props}
             type24={type24}
@@ -74,8 +61,4 @@ const createMultiVariantFactory: MultiVariantIconFactory = (type24, type32) => {
             ref={ref}
         />
     ));
-};
-
-[InnerMultiVariantIcon, MultiVariantIcon].forEach(x => {
-    x.create = createMultiVariantFactory;
-});
+}

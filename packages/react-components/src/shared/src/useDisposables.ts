@@ -5,16 +5,8 @@ import { useEffect, useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-types
 type DisposableFunction = Function;
 
-interface DisposableAPI {
-    requestAnimationFrame(callback: FrameRequestCallback): void;
-    nextFrame(callback: FrameRequestCallback): void;
-    setTimeout(callback: (...args: any[]) => void, ms: number, ...args: any[]): void;
-    add(callback: DisposableFunction): void;
-    dispose(): void;
-}
-
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/disposables.ts
-export function disposables(): DisposableAPI {
+export function disposables() {
     // eslint-disable-next-line no-shadow
     const _disposables: DisposableFunction[] = [];
 
@@ -45,7 +37,7 @@ export function disposables(): DisposableAPI {
     return api;
 }
 
-export function useDisposables(): DisposableAPI {
+export function useDisposables() {
     // Using useState instead of useRef so that we can use the initializer function.
     const [d] = useState(disposables);
 

@@ -20,9 +20,9 @@ export interface InnerLozengeProps {
      */
     as?: ElementType;
     /**
-    * @ignore
+     * React children.
      */
-    children: ReactElement;
+    children: ReactElement<any, any>;
     /**
     * @ignore
     */
@@ -41,7 +41,7 @@ export function InnerLozenge({
     children,
     forwardedRef,
     ...rest
-}: InnerLozengeProps): ReactElement {
+}: InnerLozengeProps) {
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, text } = useSlots(children, useMemo(() => ({

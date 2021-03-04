@@ -1,7 +1,7 @@
 import "./Form.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { FormContext } from "./FormContext";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 
@@ -11,7 +11,7 @@ export interface InnerFormProps {
      */
     fluid?: boolean;
     /**
-     * Whether or not the Form is disabled.
+    * @ignore
      */
     disabled?: boolean;
     /**
@@ -28,7 +28,7 @@ export interface InnerFormProps {
     forwardedRef: ForwardedRef<any>
 }
 
-export function InnerForm(props: InnerFormProps): ReactElement {
+export function InnerForm(props: InnerFormProps) {
     const {
         fluid,
         disabled,

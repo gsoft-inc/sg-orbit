@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
 import { forwardRef, mergeProps } from "../../shared";
 
@@ -28,7 +28,7 @@ export function InnerListItem({
     children,
     forwardedRef,
     ...rest
-}: InnerListItemProps): ReactElement {
+}: InnerListItemProps) {
     return (
         <Text
             {...mergeProps(

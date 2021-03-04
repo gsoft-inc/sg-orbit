@@ -1,5 +1,5 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
-import { MultiVariantIcon } from "@react-components/icons";
+import { MultiVariantIcon, createMultiVariantIcon } from "@react-components/icons";
 import { render } from "@testing-library/react";
 
 function createIcon(props = {}) {
@@ -31,7 +31,7 @@ test("ref is a DOM element", async () => {
 test("hoc icon ref is a DOM element", async () => {
     let refNode = null;
 
-    const HocIcon = MultiVariantIcon.create(FilterIcon24, FilterIcon32);
+    const HocIcon = createMultiVariantIcon(FilterIcon24, FilterIcon32);
 
     render(
         <HocIcon

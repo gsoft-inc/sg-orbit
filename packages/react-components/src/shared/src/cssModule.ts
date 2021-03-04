@@ -1,4 +1,4 @@
-export function cssModule(moduleName: string, ...values: (false | string)[]): string {
+export function cssModule(moduleName: string, ...values: (false | string)[]) {
     const classes = values
         .filter(Boolean)
         .map(x => `${moduleName}-${x}`);

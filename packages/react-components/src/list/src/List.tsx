@@ -70,7 +70,7 @@ export function InnerOrderedList({
     as = "ol",
     forwardedRef,
     ...rest
-}: InnerListProps): ReactElement {
+}: InnerListProps) {
     return (
         <List
             {...rest}
@@ -94,7 +94,7 @@ function InnerUnorderedList({
     as = "ul",
     forwardedRef,
     ...rest }
-    : InnerListProps): ReactElement {
+    : InnerListProps) {
     return (
         <List
             {...rest}

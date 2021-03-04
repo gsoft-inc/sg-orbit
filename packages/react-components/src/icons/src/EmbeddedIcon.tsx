@@ -26,7 +26,7 @@ export const embeddedIconSize = createSizeAdapter({
     "inherit": "inherit"
 });
 
-export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps): ReactElement {
+export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps) {
     const icon = Children.only(children) as ReactElement;
 
     return augmentElement(icon, {

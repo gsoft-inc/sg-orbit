@@ -2,7 +2,7 @@ import { isFunction } from "lodash";
 import { useEffect, useState } from "react";
 
 // Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/useMediaQuery.ts
-export function useMediaQuery(query: string): boolean {
+export function useMediaQuery(query: string) {
     const supportsMatchMedia = isFunction(window?.matchMedia);
 
     const [matches, setMatches] = useState(() => supportsMatchMedia
@@ -17,13 +17,13 @@ export function useMediaQuery(query: string): boolean {
 
         const mediaQueryList = window.matchMedia(query);
 
-        const onChange = (event: MediaQueryListEvent): void => {
+        const onChange = (event: MediaQueryListEvent) => {
             setMatches(event.matches);
         };
 
         mediaQueryList.addListener(onChange);
 
-        return (): void => {
+        return () => {
             mediaQueryList.removeListener(onChange);
         };
     }, [supportsMatchMedia, query]);

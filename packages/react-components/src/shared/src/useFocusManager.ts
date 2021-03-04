@@ -14,7 +14,7 @@ export class ElementIterator<T> {
         this.index = from;
     }
 
-    next(): T {
+    next() {
         if (this.index < this.elements.length - 1) {
             return this.elements[++this.index];
         }
@@ -22,7 +22,7 @@ export class ElementIterator<T> {
         return null;
     }
 
-    previous(): T {
+    previous() {
         if (this.index > 0) {
             return this.elements[--this.index];
         }
@@ -30,11 +30,11 @@ export class ElementIterator<T> {
         return null;
     }
 
-    reset({ from = -1 } = {}): void {
+    reset({ from = -1 } = {}) {
         this.index = from;
     }
 
-    get currentIndex(): number {
+    get currentIndex() {
         return this.index;
     }
 }
@@ -61,7 +61,7 @@ export class FocusManager {
         this.keyProp = keyProp;
     }
 
-    private focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}): HTMLElement {
+    private focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
         if (!isNil(element)) {
             if (this.isVirtual) {
                 const { elements } = this.scope;
@@ -91,7 +91,7 @@ export class FocusManager {
         return element;
     }
 
-    focusFirst({ canFocus, ...options }: FocusOptions = {}): HTMLElement {
+    focusFirst({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
         let target;
@@ -110,7 +110,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusLast({ canFocus, ...options }: FocusOptions = {}): HTMLElement {
+    focusLast({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
         let target: HTMLElement;
@@ -129,7 +129,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusNext({ canFocus, ...options }: FocusOptions = {}): HTMLElement {
+    focusNext({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
         let target;
@@ -167,7 +167,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusPrevious({ canFocus, ...options }: FocusOptions = {}): HTMLElement {
+    focusPrevious({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
         let target;
@@ -205,7 +205,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusKey(key: string, options: FocusOptions): HTMLElement {
+    focusKey(key: string, options: FocusOptions) {
         const { elements } = this.scope;
 
         if (isNil(this.keyProp)) {
@@ -215,7 +215,7 @@ export class FocusManager {
         return this.focusElement(elements.find(x => x.getAttribute(this.keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target: FocusTarget, options: FocusOptions): HTMLElement {
+    focusTarget(target: FocusTarget, options: FocusOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
@@ -226,17 +226,17 @@ export class FocusManager {
         }
     }
 
-    search(query: string, options: FocusOptions): HTMLElement {
+    search(query: string, options: FocusOptions) {
         const { elements } = this.scope;
 
         return this.focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);
     }
 
-    hasFocus(): boolean {
+    hasFocus() {
         return !isNil(this.getActiveElement());
     }
 
-    getActiveElement(): HTMLElement {
+    getActiveElement() {
         if (this.isVirtual) {
             const { elements } = this.scope;
 
@@ -253,6 +253,6 @@ export class FocusManager {
     }
 }
 
-export function useFocusManager(scope: DomScope, { isVirtual, keyProp }: FocusManagerOptions = {}): FocusManager {
+export function useFocusManager(scope: DomScope, { isVirtual, keyProp }: FocusManagerOptions = {}) {
     return useMemo(() => new FocusManager(scope, { isVirtual, keyProp }), [scope, isVirtual, keyProp]);
 }

@@ -41,7 +41,7 @@ export interface InnerTextLinkProps {
      */
     size?: "sm" | "md" | "inherit";
     /**
-     * Whether or not the link is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
@@ -51,14 +51,14 @@ export interface InnerTextLinkProps {
     /**
      * React children.
      */
-    children: ReactElement;
+    children: ReactElement<any, any>;
     /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerTextLink(props: InnerTextLinkProps): ReactElement {
+export function InnerTextLink(props: InnerTextLinkProps) {
     const [styleProps] = useStyleProps("link");
     const [formProps] = useFormButton();
 

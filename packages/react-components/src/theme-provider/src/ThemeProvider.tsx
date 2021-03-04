@@ -1,6 +1,6 @@
 import "./ThemeProvider.css";
 
-import { ElementType, ForwardedRef, ReactElement, ReactNode, useCallback, useEffect, useState } from "react";
+import { ElementType, ForwardedRef, ReactNode, useCallback, useEffect, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { isNil } from "lodash";
 import { mergeClasses, mergeProps, useMediaQuery } from "../../shared";
@@ -70,7 +70,7 @@ export function ThemeProvider({
     children,
     as: TriggerType = "div",
     ...rest
-}: ThemeProviderProps): ReactElement {
+}: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
     colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);

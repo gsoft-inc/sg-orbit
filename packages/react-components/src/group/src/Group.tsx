@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
 import { forwardRef, mergeProps } from "../../shared";
 import { isNil } from "lodash";
@@ -61,7 +61,7 @@ export function InnerGroup({
     children,
     forwardedRef,
     ...rest
-}: InnerGroupProps): ReactElement {
+}: InnerGroupProps) {
     const directionProps = useFlexDirection(orientation);
     const alignProps = useFlexAlignment(orientation, align, verticalAlign);
 

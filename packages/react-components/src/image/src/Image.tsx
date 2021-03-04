@@ -1,6 +1,6 @@
 import "./Image.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 
 export interface InnerImageProps {
@@ -57,7 +57,7 @@ export function InnerImage({
     as: As = "img",
     forwardedRef,
     ...rest
-}: InnerImageProps): ReactElement {
+}: InnerImageProps) {
     return (
         <As
             {...mergeProps(
