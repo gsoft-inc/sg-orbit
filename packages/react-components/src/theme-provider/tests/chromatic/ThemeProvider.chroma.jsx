@@ -85,4 +85,10 @@ stories()
                 <PrimaryColors />
             </ThemeProvider>
         );
-    });
+    })
+    .add("styling", () =>
+        <Inline>
+            <ThemeProvider className="border-red" theme="apricot" colorScheme="light">className</ThemeProvider>
+            <ThemeProvider style={{ border: "1px solid red" }} theme="apricot" colorScheme="light">style</ThemeProvider>
+        </Inline>
+    );

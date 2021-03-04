@@ -1,0 +1,80 @@
+import { RefObject, useCallback, useMemo } from "react";
+import { useRefState } from "./useRefState";
+import { walkFocusableElements } from "./focusableTreeWalker";
+
+export type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
+
+export class DomScope {
+    private scopeRef: RefObject<HTMLElement[]>;
+    private handlersRef: RefObject<ChangeEventHandler[]>;
+
+    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ChangeEventHandler[]>) {
+        this.scopeRef = scopeRef;
+        this.handlersRef = handlersRef;
+    }
+
+    get elements(): HTMLElement[] {
+        return this.scopeRef.current;
+    }
+
+    registerChangeHandler(handler: ChangeEventHandler): void {
+        this.handlersRef.current.push(handler);
+    }
+
+    removeChangeHandler(handler: ChangeEventHandler): void {
+        const handlers = this.handlersRef.current;
+
+        handlers.splice(handlers.indexOf(handler), 1);
+    }
+
+    isInScope(element: HTMLElement): boolean {
+        return this.elements.some(x => x.contains(element));
+    }
+}
+
+export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] {
+    const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
+    const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
+
+    const setRef = useCallback((rootElement: HTMLElement) => {
+        const setElements = (elements: HTMLElement[]): void => {
+            handlersRef.current.forEach(x => {
+                x(elements, scopeRef.current);
+            });
+
+            setScope(elements);
+        };
+
+        const parseElements = (): void => {
+            const scope: HTMLElement[] = [];
+
+            walkFocusableElements(rootElement, (x: HTMLElement) => {
+                scope.push(x);
+            });
+
+            setElements(scope);
+        };
+
+        // Watch for dynamic elements.
+        const mutationObserver = new MutationObserver(() => {
+            parseElements();
+        });
+
+        if (rootElement) {
+            // Parse initial elements.
+            parseElements();
+
+            mutationObserver.observe(rootElement, {
+                subtree: true,
+                childList: true
+            });
+        } else {
+            mutationObserver.disconnect();
+            setElements([]);
+        }
+    }, [scopeRef, setScope, handlersRef]);
+
+    const scope: DomScope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
+
+    return [scope, setRef];
+}

@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { any, string } from "prop-types";
+import { any, elementType, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
@@ -8,6 +8,10 @@ const propTypes = {
      * The section name.
      */
     title: string.isRequired,
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as: oneOfType([string, elementType]),
     /**
      * React children.
      */

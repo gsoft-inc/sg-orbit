@@ -8,18 +8,18 @@ import {
     arrayify,
     mergeProps,
     useAutoFocusChild,
-    useBasicKeyboardNavigation,
     useControllableState,
     useEventCallback,
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyboardNavigation,
     useMergedRefs
 } from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
-import { useAccordionBuilder } from "./useAccordionBuilder";
+import { useAccordionItems } from "./useAccordionItems";
 
 export const ExpandMode = {
     single: "single",
@@ -81,11 +81,7 @@ export function InnerAccordion({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
-    const items = useAccordionBuilder({
-        items: children,
-        selectedIndexes: memoSelectedIndexes,
-        rootId: useId(id, id ? undefined : "o-ui-accordion")
-    });
+    const items = useAccordionItems(children, useId(id, id ? null : "o-ui-accordion"));
 
     const focusManager = useFocusManager(focusScope);
 
@@ -94,9 +90,9 @@ export function InnerAccordion({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const navigationProps = useBasicKeyboardNavigation(focusManager, {
-        previous: [Keys.up],
-        next: [Keys.down],
+    const navigationProps = useKeyboardNavigation(focusManager, {
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     });
@@ -128,12 +124,12 @@ export function InnerAccordion({
         <Box
             {...mergeProps(
                 rest,
-                navigationProps,
                 {
                     className: "o-ui-accordion",
                     as,
                     ref: containerRef
-                }
+                },
+                navigationProps
             )}
         >
             <AccordionContext.Provider
@@ -145,13 +141,13 @@ export function InnerAccordion({
                 {items.map(({
                     id: itemId,
                     key,
-                    index: itemIndex,
+                    position,
                     header,
                     panel
                 }) => (
                     <AccordionItem
                         item={{
-                            index: itemIndex,
+                            index: position,
                             header,
                             panel
                         }}

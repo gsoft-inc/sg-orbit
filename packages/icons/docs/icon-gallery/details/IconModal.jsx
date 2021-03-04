@@ -15,7 +15,7 @@ const propTypes = {
 
 export function IconModal({ open, iconDisplayName, onClose, ...rest }) {
     const handleDocumentKeyDown = event => {
-        if (event.keyCode === Keys.esc) {
+        if (event.key === Keys.esc) {
             onClose(event);
         }
     };

@@ -198,6 +198,38 @@ describe("mergeProps", () => {
         expect(func2).toHaveBeenCalledTimes(1);
     });
 
+    test("ignore original null ref", () => {
+        const func2 = jest.fn();
+
+        const originalProps = {
+            ref: null
+        };
+
+        const result = mergeProps(originalProps, {
+            ref: func2
+        });
+
+        result.ref();
+
+        expect(func2).toHaveBeenCalledTimes(1);
+    });
+
+    test("ignore additional null ref", () => {
+        const func1 = jest.fn();
+
+        const originalProps = {
+            ref: func1
+        };
+
+        const result = mergeProps(originalProps, {
+            ref: null
+        });
+
+        result.ref();
+
+        expect(func1).toHaveBeenCalledTimes(1);
+    });
+
     test("merged handler is memoized", () => {
         const func1 = jest.fn();
         const func2 = jest.fn();

@@ -1,6 +1,6 @@
-import { Inline } from "@react-components/layout";
+import { GroupIcon, NotificationIcon } from "@react-components/icons";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
-import { NotificationIcon } from "@react-components/icons";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
 import { paramsBuilder } from "@stories/utils";
@@ -47,7 +47,7 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("selected item with left icon", () =>
+        .add("selected item with start icon", () =>
             <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">
                     <NotificationIcon />
@@ -57,11 +57,21 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("selected item with right icon", () =>
+        .add("selected item with end icon", () =>
             <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">
                     <Text>Earth</Text>
-                    <NotificationIcon slot="right-icon" />
+                    <NotificationIcon slot="end-icon" />
+                </Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
+        .add("selected item with description", () =>
+            <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">
+                    <Text>Earth</Text>
+                    <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -74,12 +84,28 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("fluid", () =>
-            <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("trigger icon", () =>
+            <Select icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
+        )
+        .add("fluid", () =>
+            <Stack>
+                <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div className="w-10">
+                    <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("validation", () =>
             <Inline>
@@ -97,6 +123,13 @@ export function createTestSuite(element, stories) {
         )
         .add("autofocus trigger", () =>
             <Select autoFocus placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
+        .add("autofocus with default open", () =>
+            <Select autoFocus defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -126,22 +159,65 @@ export function createTestSuite(element, stories) {
                 </Select>
             </Inline>
         )
-        .add("position start bottom", () =>
-            <Select align="start" direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("scrolling", () =>
+            <Select defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="earth">Earth</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="pluto">Pluto</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Select>
+        )
+        .add("scrolling with selected item outside initial visible scope", () =>
+            <Select defaultSelectedKey="venus" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="earth">Earth</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="pluto">Pluto</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Select>
+        )
+        .add("custom trigger width", () =>
+            <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("position end bottom", () =>
-            <Select align="end" direction="bottom" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("custom menu width", () =>
+            <Select menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
-        .add("position start top", () =>
-            <Select align="start" direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("direction bottom", () =>
+            <Select direction="bottom" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
+        .add("direction top", () =>
+            <Select direction="top" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -152,20 +228,32 @@ export function createTestSuite(element, stories) {
                      .build()
              }
         )
-        .add("position end top", () =>
-            <Select align="end" direction="top" fluid defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+        .add("align start", () =>
+            <Select align="start" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>,
              {
                  ...paramsBuilder()
-                     .canvasLayout({ marginTop: "100px" })
+                     .canvasLayout({ paddingLeft: "200px" })
+                     .build()
+             }
+        )
+        .add("align end", () =>
+            <Select align="end" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>,
+             {
+                 ...paramsBuilder()
+                     .canvasLayout({ paddingLeft: "400px" })
                      .build()
              }
         )
         .add("as div", () =>
-            <Select as="div" placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select as="div" tabIndex="0" placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

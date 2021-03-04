@@ -42,7 +42,8 @@ export function useInput({
                     focus && "focus",
                     hover && "hover"
                 )
-            )
+            ),
+            role: "presentation"
         },
         inputProps: {
             id,
@@ -52,8 +53,8 @@ export function useInput({
             type,
             disabled,
             readOnly,
-            "aria-required": required,
-            "aria-invalid": validationState === "invalid",
+            "aria-required": required ? true : undefined,
+            "aria-invalid": validationState === "invalid" ? true : undefined,
             ref: inputRef
         },
         inputRef

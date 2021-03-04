@@ -1,0 +1,359 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
+import { HiddenSelect, InnerSelect, Select } from "@react-components/select";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
+
+<Meta
+    title="Components/Select"
+    id="select"
+/>
+
+# Select
+
+<Tagline>A select allow users to choose a single option from a collapsible list of options.</Tagline>
+
+<ComponentInfo
+    usage={"import { Select, Item, Section, HiddenSelect, useSelect } from \"@orbit-ui/react-components\""}
+    ariaPath="#listbox"
+    githubPath="/packages/react-components/src/select/src"
+/>
+
+A select is a combination of a [Button](?path=/docs/button--default-story), an [Overlay](?path=/docs/overlay--default-story) and a [Listbox](?path=/docs/listbox--default-story) to form a collapsible dropdown listbox. You can find a detailed example on [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html).
+
+## Usage
+
+### Default
+
+A default select.
+
+<Preview>
+    <Story name="default">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Sections
+
+A select items can be group by sections.
+
+<Preview>
+    <Story name="sections">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Select>
+    </Story>
+</Preview>
+
+### Item icon
+
+A select item can have [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Item end icon
+
+A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons. However, think twice before adding *end* icons, *start* icons should be your go to.
+
+<Preview>
+    <Story name="item end icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <IconList slot="end-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <HelpIcon slot="end-icon" />
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <IconList slot="end-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Item description
+
+A select item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item description + icon">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Item tooltip
+
+A select can have a basic tooltip.
+
+<Preview>
+    <Story name="item tooltip">
+        <Select placeholder="Planets" aria-label="Planets">
+            <TooltipTrigger>
+                <Item key="earth">Earth</Item>
+                <Tooltip>Home sweet home!</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <Item key="jupiter">Jupiter</Item>
+                <Tooltip>The fourth-brightest object in the sky</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <Item key="mars">Mars</Item>
+                <Tooltip>See you in 2026</Tooltip>
+            </TooltipTrigger>
+        </Select>
+    </Story>
+</Preview>
+
+### Disabled item
+
+A select item can be disabled.
+
+<Preview>
+    <Story name="disabled item">
+        <Select placeholder="Planets" aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item disabled key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Trigger icon
+
+A select trigger can have an icon.
+
+<Preview>
+    <Story name="trigger icon">
+        <Select icon={<MagnifierIcon />} placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Fluid
+
+A select can take the width of it's container.
+
+<Preview>
+    <Story name="fluid">
+        <Select fluid placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Validation
+
+A select can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate that a specific value have been selected.
+
+<Preview filePath="/select/docs/SelectedValueValidation" />
+
+### Form
+
+A select can be part of a form. To submit the value of a select, make sure you specify the `name` property.
+
+<Preview>
+    <Story name="form">
+        <form>
+            <Select name="planet" placeholder="Planets" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Select>
+        </form>
+    </Story>
+</Preview>
+
+### Array map
+
+A select items can be rendered with an array map.
+
+<Preview>
+    <Story name="array map">
+        <Select placeholder="Planets" aria-label="Planets">
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
+        </Select>
+    </Story>
+</Preview>
+
+### Controlled
+
+The selected key and open state can be handled in controlled mode.
+
+<Preview filePath="/select/docs/ControlledSelect" />
+
+### Ghost
+
+A select can be more discrete.
+
+<Preview>
+    <Story name="ghost">
+        <Select variant="ghost" placeholder="Planets" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Select>
+    </Story>
+</Preview>
+
+### Headless select
+
+For advanced customization use cases, Orbit helps by providing an headless `useSelect` hook.
+
+Make sure your trigger accepts a `ref` and any other props returned by the hook.
+
+<Preview filePath="/select/docs/CustomSelect" />
+
+## API
+
+### Select
+
+<ComponentInfo
+    usage={"import { Select } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSelect} />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
+
+### Section
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSection} />
+
+### HiddenSelect
+
+<ComponentInfo
+    usage={"import { HiddenSelect } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={HiddenSelect} />
+
+

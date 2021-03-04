@@ -1,7 +1,7 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, normalizeSize } from "../../shared";
+import { augmentElement, mergeProps, normalizeSize, slot } from "../../shared";
 
 const propTypes = {
     /**
@@ -85,8 +85,8 @@ export function InnerButtonGroup(props) {
 
 InnerButtonGroup.propTypes = propTypes;
 
-export const ButtonGroup = forwardRef((props, ref) => (
+export const ButtonGroup = slot("button-group", forwardRef((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
-));
+)));
 
 ButtonGroup.displayName = "ButtonGroup";

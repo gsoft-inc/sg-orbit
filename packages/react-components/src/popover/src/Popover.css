@@ -1,0 +1,63 @@
+[class^="o-ui-popover"] {
+    --o-ui-popover-offset: var(--o-ui-scale-alpha);
+}
+
+.o-ui-popover {
+    background-color: var(--o-ui-background-1);
+    padding: var(--o-ui-scale-foxtrot);
+    padding-top: var(--o-ui-scale-echo);
+    border-radius: var(--o-ui-rounded-border-radius);
+    box-shadow: var(--o-ui-shadow-200);
+    /* Must keep a max width. */
+    width: 325px;
+    position: relative;
+    border: 1px solid var(--o-ui-border-2);
+}
+
+/* OVERLAY */
+.o-ui-popover-overlay:focus > *:first-child {
+    border: var(--o-ui-focus-ring-thickness-sm) solid var(--o-ui-focus-ring-color);
+}
+
+/* CLOSE BUTTON */
+.o-ui-popover-close-button {
+    position: absolute;
+    top: var(--o-ui-scale-bravo);
+    right: var(--o-ui-scale-bravo);
+}
+
+/* HEADER */
+.o-ui-popover-header {
+    margin-bottom: var(--o-ui-scale-bravo);
+}
+
+/* FOOTER */
+.o-ui-popover-footer {
+    margin-top: var(--o-ui-scale-delta);
+    display: grid;
+    align-items: center;
+    grid-template-columns: max-content auto;
+    grid-template-areas: "text button";
+}
+
+/* FOOTER | TEXT */
+.o-ui-popover-footer-text {
+    grid-area: text;
+    margin-right: var(--o-ui-scale-bravo);
+}
+
+/* IMAGE */
+.o-ui-popover img {
+    border-radius: var(--o-ui-border-radius-pill);
+}
+
+/* BUTTONS */
+.o-ui-popover-button {
+    grid-area: button;
+    justify-self: end;
+}
+
+.o-ui-popover-button-group {
+    grid-area: button;
+    justify-self: end;
+}

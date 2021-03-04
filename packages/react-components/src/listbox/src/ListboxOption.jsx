@@ -1,10 +1,13 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { KeyProp } from "./Listbox";
+import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
+import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
 const propTypes = {
@@ -27,7 +30,7 @@ const propTypes = {
 };
 
 export function InnerListboxOption({
-    item: { key },
+    item: { key, tooltip },
     id,
     disabled,
     active,
@@ -38,34 +41,20 @@ export function InnerListboxOption({
     forwardedRef,
     ...rest
 }) {
-    const { selectedKeys, onSelect } = useListboxContext();
-
-    const labelId = `${id}-label`;
-
-    const { icon, text, "right-icon": rightIcon } = useSlots(children, {
-        _: {
-            defaultWrapper: Text
-        },
-        icon: {
-            size: "sm",
-            className: "o-ui-listbox-option-left-icon"
-        },
-        text: {
-            id: labelId,
-            className: "o-ui-listbox-option-label"
-        },
-        "right-icon": {
-            size: "sm",
-            className: "o-ui-listbox-option-right-icon"
-        }
-    });
+    const {
+        selectedKeys,
+        onSelect,
+        onFocus,
+        focusManager,
+        focusOnHover
+    } = useListboxContext();
 
     const handleClick = useEventCallback(event => {
         onSelect(event, key);
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.keyCode) {
+        switch(event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -76,12 +65,56 @@ export function InnerListboxOption({
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
-        if (event.keyCode === Keys.space) {
+        if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    return (
+    // Move focus to the option on mouse hover.
+    const handleMouseEnter = useEventCallback(event => {
+        const activeElement = focusManager.focusKey(key);
+
+        if (!isNil(onFocus)) {
+            onFocus(event, activeElement.getAttribute(KeyProp), activeElement);
+        }
+    });
+
+    const labelId = `${id}-label`;
+    const descriptionId = `${id}-description`;
+
+    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, {
+        _: {
+            defaultWrapper: Text
+        },
+        icon: {
+            className: "o-ui-listbox-option-start-icon"
+        },
+        avatar: {
+            className: "o-ui-listbox-option-avatar"
+        },
+        text: {
+            id: labelId,
+            className: "o-ui-listbox-option-label"
+        },
+        description: {
+            id: descriptionId,
+            className: "o-ui-listbox-option-description",
+            size: "sm"
+        },
+        "end-icon": {
+            size: "sm",
+            className: "o-ui-listbox-option-end-icon"
+        }
+    });
+
+    // TEMP: until useSlots is improved with conditional props based on other slots existence.
+    if (!isNil(icon) && isNil(description)) {
+        icon = augmentElement(icon, {
+            size: "sm"
+        });
+    }
+
+    const optionMarkup = (
         <Box
             {...mergeProps(
                 rest,
@@ -90,28 +123,54 @@ export function InnerListboxOption({
                     onClick: !disabled ? handleClick : undefined,
                     onKeyDown: !disabled ? handleKeyDown : undefined,
                     onKeyUp: !disabled ? handleKeyUp : undefined,
+                    onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
+                        description && "has-description",
+                        focusOnHover && "no-hover",
                         active && "active",
                         focus && "focus",
                         hover && "hover"
                     ),
-                    as,
                     role: "option",
                     tabIndex: !disabled ? "-1" : undefined,
                     "data-o-ui-key": key,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
+                    "aria-describedby": description && descriptionId,
+                    as,
                     ref: forwardedRef
                 }
             )}
         >
             {icon}
+            {avatar}
             {text}
-            {rightIcon}
+            {description}
+            {endIcon}
         </Box>
     );
+
+    if (!isNil(tooltip)) {
+        const { props: tooltipProps, content: tooltipContent } = tooltip;
+
+        return (
+            <TooltipTrigger
+                {...mergeProps(
+                    tooltipProps,
+                    {
+                        position: "left"
+                    }
+                )}
+            >
+                {optionMarkup}
+                {tooltipContent}
+            </TooltipTrigger>
+        );
+    }
+
+    return optionMarkup;
 }
 
 InnerListboxOption.propTypes = propTypes;

@@ -1,11 +1,20 @@
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/placeholders";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
+import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
+
+/*
+INTERACTION TESTS:
+- when listbox receive focus
+     focus the first focusable item
+- roving focus
+*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
@@ -14,6 +23,36 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
+}
+
+export function SmallAvatar({ children, ...rest }) {
+    return (
+        <div
+            {...mergeProps(
+                rest,
+                {
+                    className: "w5 h5 f8 br-100 flex items-center justify-center"
+                }
+            )}
+        >
+            {children}
+        </div>
+    );
+}
+
+export function LargeAvatar({ children, ...rest }) {
+    return (
+        <div
+            {...mergeProps(
+                rest,
+                {
+                    className: "w7 h7 bg-primary-500 white br-100 flex items-center justify-center"
+                }
+            )}
+        >
+            <span>{children}</span>
+        </div>
+    );
 }
 
 stories()
@@ -85,19 +124,70 @@ stories()
             </Listbox>
         </Inline>
     )
-    .add("item with left icon", () =>
+    .add("item with start icon", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <NotificationIcon />
                 <Text>Earth</Text>
             </Item>
+            <Item key="jupiter">
+                <NotificationIcon />
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+            </Item>
+            <Item key="mercury">
+                <NotificationIcon />
+                <Text>Mercury</Text>
+            </Item>
+            <Item key="neptune">
+                <NotificationIcon />
+                <Text>Neptune</Text>
+            </Item>
+            <Item key="saturn">
+                <NotificationIcon />
+                <Text>Saturn</Text>
+            </Item>
+            <Item key="uranus">
+                <NotificationIcon />
+                <Text>Uranus</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with start icon and description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <NotificationIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">Mars</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with end icon", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <NotificationIcon slot="end-icon" />
+            </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
-                <IconList>
+                <Text>Mars</Text>
+                <IconList slot="end-icon">
                     <LightbulbIcon />
                     <NotificationIcon />
                 </IconList>
-                <Text>Mars</Text>
             </Item>
             <Item key="mercury">Mercury</Item>
             <Item key="neptune">Neptune</Item>
@@ -105,19 +195,57 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("item with right icon", () =>
+    .add("item with avatar", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <SmallAvatar slot="avatar">
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
+                </SmallAvatar>
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <SmallAvatar slot="avatar">
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
+                </SmallAvatar>
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <SmallAvatar slot="avatar">
+                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
+                </SmallAvatar>
+                <Text>Mars</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with avatar and description", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar">JU</LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar">MA</LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Mars</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("item with description", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
-                <NotificationIcon slot="right-icon" />
+                <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <IconList slot="right-icon">
-                    <LightbulbIcon />
-                    <NotificationIcon />
-                </IconList>
+                <Text slot="description">See you in 2026</Text>
             </Item>
             <Item key="mercury">Mercury</Item>
             <Item key="neptune">Neptune</Item>
@@ -130,6 +258,48 @@ stories()
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
+        </Listbox>
+    )
+    .add("item with description overflow", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("item with description overflow fluid", () =>
+        <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
+            <Item key="earth">
+                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("fluid", () =>
+        <Listbox fluid aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
         </Listbox>
     )
     .add("states", () =>
@@ -145,34 +315,19 @@ stories()
                 <Item key="saturn">Saturn</Item>
             </Listbox>
             <Listbox aria-label="Planets">
-                <Item active key="earth">Earth</Item>
                 <Item focus key="jupiter">Jupiter</Item>
                 <Item hover key="mars">Mars</Item>
                 <Item focus hover key="mercury">Mercury</Item>
                 <Item disabled key="neptune">Neptune</Item>
                 <Item key="saturn">Saturn</Item>
-                <Item key="uranus">Uranus</Item>
             </Listbox>
         </Inline>
     )
-    .add("disabled item is not focusable", () =>
-        <Listbox autoFocus aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Listbox>
-    )
-    .add("render props", () =>
+    .add("array map", () =>
         <Listbox aria-label="Planets">
-            {() =>
-                ["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
-                    <Item key={x.toLowerCase()}>{x}</Item>
-                ))
-            }
+            {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
         </Listbox>
     )
     .add("custom item component", () => {
@@ -226,6 +381,13 @@ stories()
             <Item key="mars">Mars</Item>
         </Listbox>
     )
+    .add("autofocus when virtual", () =>
+        <Listbox useVirtualFocus autoFocus aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
     .add("autofocus with sections", () =>
         <Listbox autoFocus aria-label="Planets">
             <Section title="Visited">
@@ -239,13 +401,6 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Section>
-        </Listbox>
-    )
-    .add("do not autofocus a disabled item", () =>
-        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus + selected key", () =>
@@ -262,9 +417,48 @@ stories()
             <Item key="mars">Mars</Item>
         </Listbox>
     )
+    .add("autofocus first", () =>
+        <Listbox autoFocus defaultFocusTarget="first" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus last", () =>
+        <Listbox autoFocus defaultFocusTarget="last" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("autofocus target key", () =>
+        <Listbox autoFocus defaultFocusTarget="jupiter" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
     .add("autofocus with delay", () =>
         <Listbox autoFocus={50} aria-label="Planets">
             <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
+    .add("do not autofocus first item when disabled", () =>
+        <Listbox autoFocus aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    )
+    .add("do not autofocus selected item when disabled", () =>
+        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
@@ -285,6 +479,13 @@ stories()
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
             <Item key="venus">Venus</Item>
+        </Listbox>
+    )
+    .add("custom menu width", () =>
+        <Listbox style={{ width: "500px" }} aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
         </Listbox>
     )
     .add("styling", () =>

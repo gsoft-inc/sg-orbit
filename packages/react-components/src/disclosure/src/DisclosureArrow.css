@@ -1,13 +1,13 @@
 .o-ui-disclosure-arrow {
     flex-shrink: 0;
-    transition: transform .3s ease-in;
-    fill: var(--icon-1);
-}
-
-.o-ui-disclosure-arrow-down {
-    transform: rotate(90deg);
+    transition: transform .15s linear;
+    fill: currentColor;
 }
 
 .o-ui-disclosure-arrow-up {
     transform: rotate(-90deg);
+}
+
+.o-ui-disclosure-arrow-down {
+    transform: rotate(90deg);
 }

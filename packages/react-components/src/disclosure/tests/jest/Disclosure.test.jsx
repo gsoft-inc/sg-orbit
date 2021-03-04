@@ -51,13 +51,13 @@ test("Spacebar keypress toggles content visibility", async () => {
     expect(header.getAttribute("aria-expanded")).toBe("false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: Keys.space });
+        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Space", keyCode: Keys.space });
+        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("false");
@@ -76,13 +76,13 @@ test("Enter keypress toggles content visibility", async () => {
     expect(header.getAttribute("aria-expanded")).toBe("false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: Keys.enter });
+        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: "Enter", keyCode: Keys.enter });
+        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
     });
 
     expect(header.getAttribute("aria-expanded")).toBe("false");

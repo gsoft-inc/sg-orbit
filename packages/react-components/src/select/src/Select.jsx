@@ -1,27 +1,16 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
-import {
-    FocusTarget,
-    Keys,
-    cssModule,
-    mergeProps,
-    useAutoFocus,
-    useControllableState,
-    useEventCallback,
-    useFocusScope,
-    useMergedRefs,
-    useSlots
-} from "../../shared";
 import { HiddenSelect } from "./HiddenSelect";
-import { ListboxBase } from "../../listbox";
-import { Overlay, useOverlay, usePopoverPosition, usePopoverTrigger, useRestoreFocus } from "../../overlay";
+import { Listbox } from "../../listbox";
+import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useMemo, useRef, useState } from "react";
-import { isNil, isNumber } from "lodash";
-import { useCollectionBuilder } from "../../collection";
+import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
+import { forwardRef } from "react";
+import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
+import { useSelect } from "./useSelect";
 
 const propTypes = {
     /**
@@ -29,17 +18,17 @@ const propTypes = {
      */
     open: bool,
     /**
-     * The initial value of show when in auto controlled mode.
+     * The initial value of open when in auto controlled mode.
      */
     defaultOpen: bool,
     /**
-     * A controlled array holding the currently selected key(s).
+     * A controlled selected key.
      */
-    selectedKey: oneOfType([string, arrayOf(string)]),
+    selectedKey: string,
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
+    defaultSelectedKey: string,
     /**
      * Temporary text that occupies the select trigger when no value is selected.
      */
@@ -60,24 +49,28 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * Called when the select visibility change.
+     * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} isVisible - Indicate if the select is visible.
+     * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onVisibilityChange: func,
+    onOpenChange: func,
     /**
      * The style to use.
      */
-    variant: oneOf(["outline", "inline", "transparent"]),
+    variant: oneOf(["outline", "ghost"]),
     /**
-     * The horizontal alignment of the select menu relative to the input target.
+     * A trigger icon.
      */
-    align: oneOf(["start", "end"]),
+    icon: element,
     /**
      * The direction the select menu will open relative to the input.
      */
     direction: oneOf(["bottom", "top"]),
+    /**
+     * The horizontal alignment of the select menu relative to the input.
+     */
+    align: oneOf(["start", "end"]),
     /**
      * Whether or not the select should autofocus on render.
      */
@@ -99,6 +92,14 @@ const propTypes = {
      */
     allowPreventOverflow: bool,
     /**
+     * z-index of the overlay element.
+     */
+    zIndex: number,
+    /**
+     * Additional props to render on the menu of options.
+     */
+    menuProps: object,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType]),
@@ -112,28 +113,35 @@ export function InnerSelect(props) {
     const [fieldProps] = useFieldInputProps();
 
     const {
+        id,
         open,
         defaultOpen,
-        selectedKey: controlledKey,
+        selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
         required,
         validationState,
         onChange,
-        onVisibilityChange,
+        onOpenChange,
         variant = "outline",
-        align = "start",
+        icon,
         direction = "bottom",
+        align = "start",
         autoFocus,
         name,
         fluid,
         disabled,
-        allowFlip,
-        allowPreventOverflow,
+        allowFlip = true,
+        allowPreventOverflow = true,
+        zIndex,
         active,
         focus,
         hover,
         "aria-label": ariaLabel,
+        // Usually provided by the field inputs.
+        "aria-labelledby": ariaLabelledBy,
+        "aria-describedby": ariaDescribedBy,
+        menuProps,
         as: TriggerType = "button",
         children,
         forwardedRef,
@@ -143,121 +151,60 @@ export function InnerSelect(props) {
         fieldProps
     );
 
-    const [isVisible, setIsVisible] = useControllableState(open, defaultOpen, false);
-    const [selectedKey, setSelectedKey] = useControllableState(controlledKey, defaultSelectedKey, null);
-    const [triggerElement, setTriggerElement] = useState();
-    const [overlayElement, setOverlayElement] = useState();
-
-    const [focusScope, setFocusRef] = useFocusScope();
-
-    const triggerRef = useMergedRefs(setTriggerElement, forwardedRef);
-    const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
-
-    const autoFocusTargetRef = useRef(null);
-
-    const setSelection = (event, newKey) => {
-        if (!isNil(onChange)) {
-            onChange(event, newKey);
-        }
-
-        setSelectedKey(newKey);
-    };
-
-    const setVisibility = useCallback((event, newVisibility, focusTarget = null) => {
-        if (!isNil(onVisibilityChange)) {
-            onVisibilityChange(event, newVisibility);
-        }
-
-        autoFocusTargetRef.current = focusTarget;
-        setIsVisible(newVisibility);
-    }, [onVisibilityChange, setIsVisible]);
-
-    const close = useCallback(event => {
-        setVisibility(event, false);
-    }, [setVisibility]);
-
-    const renderProps = useMemo(() => ({ isOpen: isVisible, close }), [isVisible, close]);
-
-    const nodes = useCollectionBuilder(children, renderProps);
-
-    const handleTriggerToggle = useEventCallback((event, focusTarget) => {
-        setVisibility(event, !isVisible, focusTarget);
-    });
-
-    const handleTriggerKeyDown = useEventCallback(event => {
-        switch (event.keyCode) {
-            case Keys.down:
-                setVisibility(event, true, FocusTarget.first);
-                break;
-            case Keys.up:
-                setVisibility(event, true, FocusTarget.last);
-                break;
-        }
-    });
-
-    const handleSelectOption = useEventCallback((event, newKey) => {
-        setSelection(event, newKey);
-        close(event);
-    });
-
-    const handleClose = useEventCallback(event => {
-        close(event);
-    });
-
-    const { overlayProps } = useOverlay({
-        isVisible,
-        onHide: handleClose,
-        // Without this condition, closing the menu with a mouse click will double toggled the menu.
-        canHideOnBlur: useCallback(target => target !== triggerElement, [triggerElement]),
-        hideOnEscape: true,
-        hideOnBlur: true,
-        overlayRef
-    });
-
-    const { triggerProps, overlayProps: overlayTriggerProps } = usePopoverTrigger("listbox", { isVisible, onToggle: handleTriggerToggle });
-
-    const { overlayStyles, overlayProps: overlayPositionProps } = usePopoverPosition(triggerElement, overlayElement, {
-        position: `${direction}-${align}`,
-        offset: [0, 4],
+    const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+        id,
+        open,
+        defaultOpen,
+        selectedKey: selectedKeyProp,
+        defaultSelectedKey,
+        onChange,
+        onOpenChange,
+        direction,
+        align,
+        autoFocus,
+        disabled,
         allowFlip,
-        allowPreventOverflow
+        allowPreventOverflow,
+        allowResponsiveMenuWidth: variant !== "ghost",
+        ariaLabel,
+        ariaLabelledBy,
+        ariaDescribedBy,
+        menuProps,
+        ref: forwardedRef
     });
 
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isVisible });
-
-    useAutoFocus(triggerRef, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+    const iconMarkup = icon && augmentElement(icon, {
+        className: "o-ui-select-icon",
+        size: "sm"
     });
 
-    const selectedNode = nodes.find(x => x.itemKey === selectedKey);
-
-    const { icon: selectedIcon, text: selectedText, "right-icon": selectedRightIcon } = useSlots(selectedNode?.content, {
-        _: {
-            defaultWrapper: Text
-        },
-        icon: {
-            size: "sm",
-            className: "o-ui-select-value-left-icon"
-        },
-        text: {
-            className: "o-ui-select-value"
-        },
-        "right-icon": {
-            size: "sm",
-            className: "o-ui-select-value-right-icon"
-        }
+    const selectedIconMarkup = selectedItem?.icon && augmentElement(selectedItem.icon, {
+        size: "sm",
+        className: "o-ui-select-value-start-icon"
     });
 
-    const valueMarkup = !isNil(selectedNode) ? (
-        <div className="o-ui-select-value">
-            {selectedIcon}
-            {selectedText}
-            {selectedRightIcon}
-        </div>
-    ) : (
-        <span className="o-ui-select-placeholder">{placeholder}</span>
+    const selectedTextMarkup = selectedItem?.text && (
+        <Text className="o-ui-select-value-text">
+            {selectedItem.text}
+        </Text>
     );
+
+    const selectedEndIconMarkup = selectedItem?.endIcon && augmentElement(selectedItem.endIcon, {
+        size: "sm",
+        className: "o-ui-select-value-end-icon"
+    });
+
+    const valueMarkup = isNil(selectedItem)
+        ? placeholder && (
+            <Text className="o-ui-select-placeholder">{placeholder}</Text>
+        )
+        : (
+            <span className="o-ui-select-value">
+                {selectedIconMarkup}
+                {selectedTextMarkup}
+                {selectedEndIconMarkup}
+            </span>
+        );
 
     return (
         <>
@@ -271,9 +218,7 @@ export function InnerSelect(props) {
             <TriggerType
                 {...mergeProps(
                     rest,
-                    triggerProps,
                     {
-                        onKeyDown: !isVisible ? handleTriggerKeyDown : undefined,
                         className: cssModule(
                             "o-ui-select-trigger",
                             variant,
@@ -282,45 +227,26 @@ export function InnerSelect(props) {
                             active && "active",
                             focus && "focus",
                             hover && "hover"
-                        ),
-                        disabled,
-                        "aria-label": !fieldProps["aria-labelledby"] ? ariaLabel : undefined,
-                        ref: triggerRef
-                    }
+                        )
+                    },
+                    triggerProps
                 )}
             >
+                {iconMarkup}
                 {valueMarkup}
                 <ChevronIcon
-                    className={direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"}
+                    className={mergeClasses(
+                        "o-ui-select-icon-arrow",
+                        direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"
+                    )}
                     size="sm"
                 />
             </TriggerType>
             <Overlay
-                {...mergeProps(
-                    overlayProps,
-                    overlayPositionProps,
-                    overlayTriggerProps,
-                    restoreFocusProps,
-                    {
-                        show: isVisible,
-                        className: "o-ui-select-menu",
-                        style: overlayStyles,
-                        ref: overlayRef
-                    }
-                )}
+                {...overlayProps}
+                zIndex={zIndex}
             >
-                <ListboxBase
-                    nodes={nodes}
-                    selectedKey={selectedKey}
-                    onChange={handleSelectOption}
-                    /* Must be conditional to isVisible otherwise it will steal the focus from the trigger when selecting
-                       a value because the listbox re-render before the exit animation is done. */
-                    autoFocus={isVisible}
-                    autoFocusTarget={autoFocusTargetRef.current}
-                    aria-label={!fieldProps["aria-labelledby"] ? ariaLabel : undefined}
-                    aria-labelledby={fieldProps["aria-labelledby"]}
-                    aria-describedby={fieldProps["aria-describedby"]}
-                />
+                <Listbox {...listboxProps} />
             </Overlay>
         </>
     );

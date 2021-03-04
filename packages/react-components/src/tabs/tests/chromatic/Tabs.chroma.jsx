@@ -266,7 +266,7 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("data render", () =>
+    .add("array map", () =>
         <Stack>
             <Tabs aria-label="Planets">
                 {[1, 2, 3].map(x => (

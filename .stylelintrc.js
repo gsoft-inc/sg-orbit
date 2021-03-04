@@ -4,7 +4,7 @@ module.exports = {
         "linebreaks": "unix",
         "no-descending-specificity": null,
         "declaration-colon-space-after": "always-single-line",
-        "unit-whitelist": [
+        "unit-allowed-list": [
             "em",
             "rem",
             "px",

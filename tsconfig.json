@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
+    "skipLibCheck": true, // Skip type checking of all declaration files
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
+    "noUnusedLocals": true, // Report errors on unused locals
+    "noUnusedParameters": true, // Report errors on unused parameters
+    // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
+
+    //  the bare minimum for our project
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "allowJs": true,
+    "esModuleInterop": true,
+
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true
+  },
+  "include": ["packages", "typings"],
+}

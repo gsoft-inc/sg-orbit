@@ -2,51 +2,40 @@ import "./Preview.css";
 
 import { CodeTheme, useFormattedCode } from "@stories/components";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs/blocks";
+import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
-import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
-import { bool, object, string } from "prop-types";
 import { defaultDecorateStory } from "@storybook/client-api";
 import { isNil } from "lodash";
+import { object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useState } from "react";
 
 const propTypes = {
     filePath: string,
     language: string,
-    scope: object,
-    noInline: bool
+    scope: object
 };
 
 function CodeEditor({
     code,
     language = "jsx",
     scope: additionalScope = {},
-    noInline,
     children,
     ...rest
 }) {
-    const refreshKey = useRef(0);
-
-    // Ensure the editor code is refreshed when the theme or color scheme change.
-    // See https://github.com/FormidableLabs/react-live/issues/28
-    useEffect(() => {
-        refreshKey.current += 1;
-    });
-
     const formattedCoded = useFormattedCode(code, language);
 
     return (
         <div className="o-ui-sb-preview sbdocs sbdocs-preview">
-            <LiveProvider
+            <JarleProvider
                 code={formattedCoded}
-                key={refreshKey.current}
                 language={language}
                 theme={CodeTheme}
                 scope={{
                     ...KnownScope,
                     ...additionalScope
                 }}
-                noInline={noInline}
+                showImports={false}
                 {...rest}
             >
                 <div className="o-ui-sb-preview-story docs-story">
@@ -54,10 +43,10 @@ function CodeEditor({
                 </div>
                 <div className="o-ui-sb-preview-source">
                     <span className="o-ui-sb-preview-editable-label">Editable example</span>
-                    <LiveEditor className="o-ui-sb-preview-editor" />
-                    <LiveError className="o-ui-sb-preview-error" />
+                    <JarleEditor className="o-ui-sb-preview-editor" />
+                    <JarleError className="o-ui-sb-preview-error" />
                 </div>
-            </LiveProvider>
+            </JarleProvider>
         </div>
     );
 }
@@ -68,8 +57,8 @@ function DecoratedLivePreview() {
     const decorators = docsContext.storyStore._globalMetadata.decorators;
 
     return decorators
-        ? defaultDecorateStory(() => <LivePreview />, decorators)(docsContext)
-        : <LivePreview />;
+        ? defaultDecorateStory(() => <JarlePreview />, decorators)(docsContext)
+        : <JarlePreview />;
 }
 
 function FilePreview({ filePath, language, scope, noInline }) {
@@ -145,8 +134,8 @@ function StoryPreview({ language, scope, noInline, children }) {
 
 export function Preview({
     filePath,
-    language,
     mdxSource,
+    language,
     scope,
     noInline,
     children

@@ -183,7 +183,7 @@ export function useAutoControlledPopper(props) {
         lastTriggerEventRef.current = event.type;
 
         if (!disabled) {
-            const key = event.keyCode;
+            const key = event.key;
 
             switch (key) {
                 case Keys.space:
@@ -211,7 +211,7 @@ export function useAutoControlledPopper(props) {
     });
 
     const handleDocumentKeyDown = useEventCallback(event => {
-        if (event.keyCode === Keys.esc) {
+        if (event.key === Keys.esc) {
             if (hideOnEscape) {
                 hidePopper(event);
 

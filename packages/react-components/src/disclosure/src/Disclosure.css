@@ -1,19 +1,20 @@
 /* SECTION */
-.o-ui-disclosure-content-section-collapsing {
+.o-ui-disclosure-content-collapsing {
     overflow: hidden;
 }
 
-.o-ui-disclosure-content-section-collapsed {
+.o-ui-disclosure-content-collapsed {
     display: none;
 }
 
-.o-ui-disclosure-content-section-expanding {
+.o-ui-disclosure-content-expanding {
     overflow: hidden;
     height: 0;
+    opacity: 0;
 }
 
 /* CONTENT */
-.o-ui-disclosure-content {
+.o-ui-disclosure-content-inner {
     padding-top: var(--o-ui-scale-echo);
     padding-bottom: var(--o-ui-scale-echo);
     color: var(--o-ui-text-1);

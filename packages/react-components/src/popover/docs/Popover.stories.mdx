@@ -1,0 +1,208 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Footer, InnerContent } from "@react-components/placeholders";
+import { Heading, InnerHeading } from "@react-components/heading";
+import { Image } from "@react-components/image";
+import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
+import { Launch } from "./assets";
+import { Paragraph } from "../../paragraph";
+
+<Meta
+    title="Components/Popover"
+    id="popover"
+/>
+
+# Popover
+
+<Tagline>A Popover can be used to display some content on top of another.</Tagline>
+
+<ComponentInfo
+    usage={"import { PopoverTrigger, Popover, Heading, Content, Footer, PopoverTriggerContext, usePopoverTriggerContext } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/popover/src"
+/>
+
+## Usage
+
+A popover trigger accepts exactly two children: the element which trigger the opening of the popover and the popover content. A trigger can be any component which accepts a `ref` and any other props passed from popover.
+
+The popover content must have at least an heading and some content.
+
+#### This is not a tooltip
+
+A popover is not meant to be used as a [tooltip](?path=/docs/tooltip--default-story). If you need a component that behave like a [tooltip](?path=/docs/tooltip--default-story), use the [tooltip](?path=/docs/tooltip--default-story) component instead.
+
+### Default
+
+A default popover.
+
+<Preview>
+    <Story name="default">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Button
+
+A popper can have a single button or a group of button.
+
+<Preview>
+    <Story name="button">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button color="primary">Got it</Button>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Footer
+
+A popper can have footer text.
+
+<Preview>
+    <Story name="footer">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button color="primary">Got it</Button>
+                <Footer>All right reserved.</Footer>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Hide close button
+
+A popper can hide his default close button.
+
+<Preview>
+    <Story name="hide close button">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover hideCloseButton>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Trigger
+
+A popover can be triggered on *hover* instead of on *click*.
+
+<Preview scope={{ Launch }}>
+    <Story name="trigger">
+        <PopoverTrigger trigger="hover">
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>SpaceX launch</Heading>
+                <Content>
+                    <Image src={Launch} alt="SpaceX launch" />
+                    <Paragraph className="mt3">SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Paragraph>
+                </Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Position
+
+A popover can open at different positions.
+
+<Preview>
+    <Story name="position">
+        <PopoverTrigger position="right">
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Render props
+
+A popover can update is content based on the `isOpen` value and optionally use the `close` function by providing a render prop function:
+
+<Preview>
+    <Story name="render props">
+        <PopoverTrigger>
+            {({ isOpen, close }) => (
+                <>
+                    <Button color={isOpen ? "primary" : undefined}>Trigger</Button>
+                    <Popover>
+                        <Heading>WikiSpace</Heading>
+                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                        <Button onClick={event => close(event)}>Close</Button>
+                    </Popover>
+                </>
+            )}
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Popover context
+
+A similar result could also be achieve by using `usePopoverTriggerContext`.
+
+<Preview filePath="/popover/docs/PopoverContext" />
+
+### Controlled
+
+A popover `open` state can be handled in controlled mode.
+
+<Preview filePath="/popover/docs/ControlledPopover" />
+
+## API
+
+### PopoverTrigger
+
+<ComponentInfo
+    usage={"import { PopoverTrigger } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerPopoverTrigger} />
+
+### Popover
+
+<ComponentInfo
+    usage={"import { Popover } from \"@orbit-ui/react-components\""}
+    slots={["header", "content", "button", "button-group", "close-button"]}
+    compact
+/>
+
+<ArgsTable of={InnerPopover} />
+
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerContent} />
+

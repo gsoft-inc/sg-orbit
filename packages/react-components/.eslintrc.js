@@ -30,15 +30,30 @@ module.exports = {
         {
             files: ["*.sample.jsx"],
             rules: {
+                "no-unused-vars": "off",
                 "no-unused-expressions": "off",
                 "react/jsx-no-undef": "off",
                 "jsx-control-statements/jsx-jcs-no-undef": "off"
+            }
+        },
+        {
+            files: ["*.ts?(x)"],
+            extends:[
+                "@sharegate/eslint-config-typescript"
+            ],
+            rules: {
+                "no-param-reassign": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+
+                "jsx-control-statements/jsx-jcs-no-undef": "off",
+                "@typescript-eslint/explicit-function-return-type": ["warn", { allowExpressions: true }],
+                "@typescript-eslint/ban-ts-comment": "off"
             }
         }
     ],
     rules: {
         "no-param-reassign": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx",".ts", ".tsx", ".mdx"] }],
         "react/destructuring-assignment": "off",
         "jsx-control-statements/jsx-use-if-tag": "off"
     }

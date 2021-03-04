@@ -1,13 +1,15 @@
 () => {
     const [isChecked, setIsChecked] = useState(false);
 
+    const handleChange = useCallback(() => {
+        setIsChecked(x => !x);
+        console.log(!isChecked);
+    }, [isChecked, setIsChecked]);
+
     return (
         <Checkbox
             checked={isChecked}
-            onChange={() => {
-                setIsChecked(x => !x);
-                console.log(!isChecked);
-            }}
+            onChange={handleChange}
         >
             {isChecked ? "On" : "Off"}
         </Checkbox>

@@ -45,21 +45,21 @@ export function createTextLinkTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("left icon", () =>
+        .add("start icon", () =>
             <Stack>
                 <Inline verticalAlign="end">
                     <TextLink size="sm" href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
+                        <InfoIcon slot="start-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                     <TextLink href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
+                        <InfoIcon slot="start-icon" />
                         <Text>Flight details</Text>
                     </TextLink>
                 </Inline>
                 <div style={{ width: "400px" }}>
                     <TextLink href="#" element={element}>
-                        <InfoIcon slot="left-icon" />
+                        <InfoIcon slot="start-icon" />
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
                     </TextLink>
                 </div>

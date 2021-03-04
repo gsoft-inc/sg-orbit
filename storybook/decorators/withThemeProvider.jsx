@@ -1,11 +1,16 @@
 import { ThemeProvider } from "@react-components/theme-provider";
+import { isChromatic } from "../env";
 
 export function withThemeProvider(Story, context) {
-    const theme = context.globals.theme;
-    const colorScheme = context.globals.colorScheme;
+    const { viewMode, globals } = context;
 
     return (
-        <ThemeProvider theme={theme} colorScheme={colorScheme}>
+        <ThemeProvider
+            theme={globals.theme}
+            colorScheme={globals.colorScheme}
+            // min-height ensure popup components renders correctly in chromatic tests.
+            style={viewMode === "story" || isChromatic ? { height: "600px" } : undefined}
+        >
             <Story />
         </ThemeProvider>
     );

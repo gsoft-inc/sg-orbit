@@ -62,6 +62,10 @@
     background-color: var(--o-ui-background-primary-1-light);
 }
 
+.background-primary-2 {
+    background-color: var(--o-ui-background-primary-2);
+}
+
 .background-danger-1 {
     background-color: var(--o-ui-background-danger-1);
 }
@@ -74,7 +78,7 @@
     background-color: var(--o-ui-background-danger-1-active);
 }
 
-.background-danger-1-pale {
+.background-danger-2 {
     background-color: var(--o-ui-background-danger-2);
 }
 

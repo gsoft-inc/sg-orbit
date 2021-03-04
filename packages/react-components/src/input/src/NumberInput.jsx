@@ -187,7 +187,7 @@ export function InnerNumberInput(props) {
         active,
         focus,
         hover,
-        wrapperProps: userWrapperProps,
+        wrapperProps: wrapperPropsProp,
         as = "div",
         forwardedRef,
         ...rest
@@ -282,11 +282,7 @@ export function InnerNumberInput(props) {
         inputRef.current.focus();
     });
 
-    const {
-        wrapperProps,
-        inputProps,
-        inputRef
-    } = useInput({
+    const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-number-input",
         id,
         value: !isNil(inputValue) ? inputValue : "",
@@ -334,7 +330,7 @@ export function InnerNumberInput(props) {
     return (
         <Box
             {...mergeProps(
-                userWrapperProps,
+                wrapperPropsProp,
                 wrapperProps,
                 {
                     className: cssModule(

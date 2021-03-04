@@ -169,7 +169,7 @@ The example below illustrates how one would validate if a specific value of the 
 
 <Preview filePath="/radio/docs/ValueSelectedValidation" />
 
-### Render Props
+### Render props
 
 A radio can update is content based on the `isChecked` value by providing a render prop function:
 
@@ -189,27 +189,7 @@ A radio can update is content based on the `isChecked` value by providing a rend
     </Story>
 </Preview>
 
-Or even use a render prop function for items:
-
-<Preview>
-    <Story name="group render props">
-        <RadioGroup>
-            {
-                ({ checkedValue }) =>
-                    ["Mars", "Jupiter", "Pluto"].map(x =>
-                        <Radio
-                            className={checkedValue === x && "primary-500"}
-                            value={x}
-                        >
-                            {checkedValue === x ? "Selected" : x}
-                        </Radio>
-                    )
-            }
-        </RadioGroup>
-    </Story>
-</Preview>
-
-### Toggle Buttons
+### Toggle buttons
 
 In somes cases, you might want a group of toggle buttons to behave like a radio group.
 
@@ -225,11 +205,11 @@ In somes cases, you might want a group of toggle buttons to behave like a radio 
     </Story>
 </Preview>
 
-### Custom Components
+### Custom components
 
 Any component implementing the `CheckableContext` can behave like a radio group. This is usually done by using the `useCheckableProps` hook.
 
-<Preview filePath="/radio/docs/CustomGroup" noInline />
+<Preview filePath="/radio/docs/CustomGroup" />
 
 ### Wrapped
 

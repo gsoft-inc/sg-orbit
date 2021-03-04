@@ -3,7 +3,7 @@ import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, GroupField, HelpMessage, InnerErrorMessage, InnerField, InnerGroupField, InnerHelpMessage, InnerLabel, InnerValidMessage, Label } from "@react-components/field";
 import { Inline } from "@react-components/layout";
-import { NumberInput, TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/input";
 
 <Meta
     title="Components/Field"
@@ -41,7 +41,7 @@ A field can be an Orbit UI input.
     </Story>
 </Preview>
 
-### Group Input
+### Group input
 
 When the input is a group, use a `GroupField` instead of a `Field`.
 
@@ -70,11 +70,11 @@ When the input is a group, use a `GroupField` instead of a `Field`.
     </Story>
 </Preview>
 
-### Custom Input
+### Custom input
 
 Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInputProps` hook.
 
-<Preview filePath="/field/docs/CustomInput" noInline />
+<Preview filePath="/field/docs/CustomInput" />
 
 ### Required
 
@@ -126,14 +126,14 @@ A field can vary in size.
     <Story name="size">
         <Inline verticalAlign="center" gap={8}>
             <Field size="sm">
-                <Label>Age</Label>
-                <NumberInput />
-                <HelpMessage>How many years ago were you born?</HelpMessage>
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
             </Field>
             <Field>
-                <Label>Age</Label>
-                <NumberInput />
-                <HelpMessage>How many years ago were you born?</HelpMessage>
+                <Label>Select your favorite galaxy</Label>
+                <Checkbox>Milky Way</Checkbox>
+                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
             </Field>
         </Inline>
     </Story>

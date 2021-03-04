@@ -20,7 +20,7 @@ function ColorSchemePicker() {
     );
 }
 
-function App() {
+render(() => {
     return (
         <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
             <Stack>
@@ -29,8 +29,4 @@ function App() {
             </Stack>
         </ThemeProvider>
     );
-}
-
-render(
-    <App />
-);
+});

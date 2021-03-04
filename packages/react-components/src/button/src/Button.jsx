@@ -119,7 +119,7 @@ export function InnerButton(props) {
         forwardedRef
     });
 
-    const { icon, text, "right-icon": rightIcon } = useSlots(children, useMemo(() => ({
+    const { icon, text, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -132,9 +132,9 @@ export function InnerButton(props) {
             className: "o-ui-button-text",
             "aria-hidden": loading
         },
-        "right-icon": {
+        "end-icon": {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-right-icon"
+            className: "o-ui-button-end-icon"
         }
     }), [size, condensed, loading]));
 
@@ -142,21 +142,21 @@ export function InnerButton(props) {
         <Box
             {...mergeProps(
                 rest,
-                buttonProps,
                 {
                     className: cssModule(
                         "o-ui-button",
-                        rightIcon && "has-right-icon",
-                        icon && "has-left-icon"
+                        icon && "has-start-icon",
+                        endIcon && "has-end-icon"
                     ),
                     as,
                     ref: buttonRef
-                }
+                },
+                buttonProps
             )}
         >
             {icon}
             {text}
-            {rightIcon}
+            {endIcon}
         </Box>
     );
 }

@@ -1,21 +1,21 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { Keys, mergeProps, useAutoFocusChild, useBasicKeyboardNavigation, useFocusManager, useFocusScope, useKeyedRovingFocus } from "../../shared";
+import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [Keys.left],
-        next: [Keys.right],
+        previous: [Keys.arrowLeft],
+        next: [Keys.arrowRight],
         first: [Keys.home],
         last: [Keys.end]
     },
     vertical: {
-        previous: [Keys.up],
-        next: [Keys.down],
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     }
@@ -42,25 +42,25 @@ export function TabList({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
+    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
     return (
         <Box
             {...mergeProps(
                 rest,
-                navigationProps,
                 {
                     className: "o-ui-tab-list",
                     role: "tablist",
                     "aria-orientation": orientation,
                     ref: setFocusRef
-                }
+                },
+                navigationProps
             )}
         >
             {tabs.map(({
                 id,
                 key,
-                index,
+                position,
                 elementType: ElementType = Tab,
                 ref,
                 panelId,
@@ -69,7 +69,7 @@ export function TabList({
                 <ElementType
                     {...props}
                     tab={{
-                        index,
+                        index: position,
                         panelId
                     }}
                     id={id}

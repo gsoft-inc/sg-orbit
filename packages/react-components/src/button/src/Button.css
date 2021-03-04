@@ -34,7 +34,7 @@ html * {
     bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-pill-border-radius);
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -415,18 +415,12 @@ a.o-ui-button {
     border-top-color: var(--o-ui-static-white);
 }
 
-/* SOLID | LOADING | SECONDARY */
-.o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary {
-    --o-ui-opacity-cloud-500: 0.5;
-}
-
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
     border: 2px solid var(--o-ui-cloud-500);
     border-top-color: var(--o-ui-text-1);
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {
-    --o-ui-opacity-alert-500: 0.5;
     border: 2px solid var(--o-ui-loading-spinner-background);
     border-top-color: var(--o-ui-static-white);
 }
@@ -560,8 +554,8 @@ a.o-ui-button {
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
     fill: var(--o-ui-static-white);
     opacity: .9;
 }
@@ -582,10 +576,10 @@ a.o-ui-button {
 
 .o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
 .o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-left-icon,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-right-icon {
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon,
+.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
     opacity: 1;
 }
 

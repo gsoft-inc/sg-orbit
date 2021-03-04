@@ -1,0 +1,379 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Inline } from "@react-components/layout";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
+import { LargeAvatar, SmallAvatar } from "./Avatar.jsx"
+import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
+
+<Meta
+    title="Components/Listbox"
+    id="listbox"
+/>
+
+# Listbox
+
+<Tagline>A listbox presents a list of options and allows a user to select one or more of them</Tagline>
+
+<ComponentInfo
+    usage={"import { Listbox, Item, Section, ListboxContext, useListboxContext } from \"@orbit-ui/react-components\""}
+    ariaPath="#listbox"
+    githubPath="/packages/react-components/src/listbox/src"
+/>
+
+## Accessibility
+
+A listbox should have an `aria-label` prop describing the content of the list.
+
+## Usage
+
+### Default
+
+A default listbox.
+
+<Preview>
+    <Story name="default">
+        <Listbox aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Selection mode
+
+A listbox support single and multiple selection mode.
+
+<Preview>
+    <Story name="selection">
+        <Inline gap={10}>
+            <Listbox aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+            <Listbox selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+        </Inline>
+    </Story>
+</Preview>
+
+### Sections
+
+A listbox items can be group by sections.
+
+<Preview>
+    <Story name="sections">
+        <Listbox aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Item icon
+
+A listbox item can have [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item icon">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Item end icon
+
+A listbox item can have *non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases like displaying a list of icons.
+
+However, think twice before adding *end* icons, *start* icons should be your go to.
+
+<Preview>
+    <Story name="item end icon">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <IconList slot="end-icon">
+                    <NotificationIcon />
+                    <HelpIcon />
+                    <LightbulbIcon />
+                </IconList>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <HelpIcon slot="end-icon" />
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <LightbulbIcon slot="end-icon" />
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Item avatar
+
+A listbox item can have an avatar.
+
+<Preview scope={{ SmallAvatar }}>
+    <Story name="item avatar">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <SmallAvatar slot="avatar">ER</SmallAvatar>
+                <Text>Earth</Text>
+            </Item>
+            <Item key="jupiter">
+                <SmallAvatar slot="avatar">JU</SmallAvatar>
+                <Text>Jupiter</Text>
+            </Item>
+            <Item key="mars">
+                <SmallAvatar slot="avatar">MA</SmallAvatar>
+                <Text>Mars</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Item description
+
+A listbox item can have a description.
+
+<Preview>
+    <Story name="item description">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+A can be paired with an [icon](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="item description + icon">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <NotificationIcon />
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <HelpIcon />
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LightbulbIcon />
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+A can also be paired with an avatar.
+
+<Preview scope={{ LargeAvatar }}>
+    <Story name="item description + avatar">
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <LargeAvatar slot="avatar">ER</LargeAvatar>
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="jupiter">
+                <LargeAvatar slot="avatar">JU</LargeAvatar>
+                <Text>Jupiter</Text>
+                <Text slot="description">The fourth-brightest object in the sky</Text>
+            </Item>
+            <Item key="mars">
+                <LargeAvatar slot="avatar">MA</LargeAvatar>
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Item tooltip
+
+A listbox item can have a basic tooltip.
+
+<Preview>
+    <Story name="item tooltip">
+        <Listbox aria-label="Planets">
+            <TooltipTrigger>
+                <Item key="earth">Earth</Item>
+                <Tooltip>Home sweet home!</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <Item key="jupiter">Jupiter</Item>
+                <Tooltip>The fourth-brightest object in the sky</Tooltip>
+            </TooltipTrigger>
+            <TooltipTrigger>
+                <Item key="mars">Mars</Item>
+                <Tooltip>See you in 2026</Tooltip>
+            </TooltipTrigger>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Disabled item
+
+A listbox item can be disabled.
+
+<Preview>
+    <Story name="disabled item">
+        <Listbox aria-label="Planets">
+            <Item disabled key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item disabled key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Fluid
+
+A listbox can take the width of it's container.
+
+<Preview>
+    <Story name="fluid">
+        <Listbox fluid aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
+### Array map
+
+A listbox items can be rendered with an array map.
+
+<Preview>
+    <Story name="array map">
+        <Listbox aria-label="Planets">
+            {["Earth", "Jupiter", "Mars"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
+        </Listbox>
+    </Story>
+</Preview>
+
+### Listbox context
+
+The previous render props example could also be achieve by using `useListboxContext`.
+
+<Preview filePath="/listbox/docs/ListboxContext" />
+
+### Controlled
+
+The selected key can be handled in controlled mode.
+
+<Preview filePath="/listbox/docs/ControlledListbox" />
+
+## API
+
+### Listbox
+
+<ComponentInfo
+    usage={"import { Listbox } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerListbox} />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/react-components\""}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerItem} />
+
+### Section
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSection} />
+
+### ListboxOption
+
+<ComponentInfo
+    usage={"import { ListboxOption } from \"@orbit-ui/react-components\""}
+    slots={["icon", "avatar", "text", "description", "end-icon"]}
+    compact
+/>
+
+<ArgsTable of={InnerListboxOption} />
+
+### ListboxSection
+
+<ComponentInfo
+    usage={"import { ListboxSection } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerListboxSection} />

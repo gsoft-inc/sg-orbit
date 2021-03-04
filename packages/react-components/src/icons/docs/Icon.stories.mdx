@@ -49,10 +49,10 @@ import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 Or export your icon as an HOC and render it at a later time:
 
 ```jsx
-import { Icon } from "@orbit-ui/react-components";
+import { createIcon } from "@orbit-ui/react-components";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 
-export const AzureIcon32 = Icon.create(Azure32);
+export const AzureIcon32 = createIcon(Azure32);
 ```
 
 <IndexFileUsage />
@@ -155,7 +155,7 @@ A multi variants icon support the same props as `<Icon />`.
     </Story>
 </Preview>
 
-## Icon List
+## Icon list
 
 To inline multiple icons in a component, wrap your icons in an icon list component.
 

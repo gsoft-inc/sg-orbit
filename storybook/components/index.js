@@ -1,7 +1,6 @@
 export * from "./checkered-background";
 export * from "./external-link";
 export * from "./figure";
-export * from "./file-source";
 export * from "./github-link";
 export * from "./link";
 export * from "./table";

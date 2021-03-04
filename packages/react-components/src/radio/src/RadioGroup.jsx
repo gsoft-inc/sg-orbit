@@ -6,14 +6,13 @@ import {
     augmentElement,
     mergeProps,
     omitProps,
-    resolveChildren,
     useAutoFocusChild,
-    useBasicKeyboardNavigation,
     useControllableState,
     useEventCallback,
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyboardNavigation,
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
@@ -89,14 +88,14 @@ const propTypes = {
 
 const NavigationKeyBinding = {
     default: {
-        previous: [Keys.left, Keys.up],
-        next: [Keys.right, Keys.down],
+        previous: [Keys.arrowLeft, Keys.arrowUp],
+        next: [Keys.arrowRight, Keys.arrowDown],
         first: [Keys.home],
         last: [Keys.end]
     },
     toolbar: {
-        previous: [Keys.up],
-        next: [Keys.down]
+        previous: [Keys.arrowUp],
+        next: [Keys.arrowDown]
     }
 };
 
@@ -154,7 +153,7 @@ export function InnerRadioGroup(props) {
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
-    const navigationProps = useBasicKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
+    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[navigationMode], !isInToolbar ? { onSelect: handleArrowSelect } : undefined);
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
@@ -183,8 +182,6 @@ export function InnerRadioGroup(props) {
 
     const groupName = useId(name, "radio-group");
 
-    const items = resolveChildren(children, { checkedValue });
-
     return (
         <Group
             {...mergeProps(
@@ -199,7 +196,7 @@ export function InnerRadioGroup(props) {
                     checkedValue
                 }}
             >
-                {Children.map(items, x => {
+                {Children.map(children, x => {
                     return augmentElement(x, {
                         ...itemProps,
                         role: "radio",

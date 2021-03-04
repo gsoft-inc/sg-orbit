@@ -107,7 +107,7 @@ export function InnerTextInput(props) {
         focus,
         hover,
         wrapperProps: userWrapperProps,
-        as = "div",
+        as: TriggerType = "input",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -122,10 +122,7 @@ export function InnerTextInput(props) {
         setValue(event.target.value);
     });
 
-    const {
-        wrapperProps,
-        inputProps
-    } = useInput({
+    const { wrapperProps, inputProps } = useInput({
         cssModule: "o-ui-text-input",
         id,
         value: inputValue,
@@ -153,7 +150,7 @@ export function InnerTextInput(props) {
     const content = (
         <>
             {iconMarkup}
-            <input
+            <TriggerType
                 {...mergeProps(
                     rest,
                     inputProps
@@ -167,15 +164,14 @@ export function InnerTextInput(props) {
         <Box
             {...mergeProps(
                 userWrapperProps,
-                wrapperProps,
                 {
                     className: cssModule(
                         "o-ui-input",
                         iconMarkup && "has-icon",
                         buttonMarkup && "has-button"
-                    ),
-                    as
-                }
+                    )
+                },
+                wrapperProps
             )}
         >
             {content}

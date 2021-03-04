@@ -1,12 +1,12 @@
 import * as OrbitComponents from "@react-components";
 import { CheckeredBackground } from "@stories/components";
 import { Dimmer, Loader } from "semantic-ui-react";
+import { forwardRef, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
 import { isNil } from "lodash";
-import { useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useFormik } from "formik";
 import cx from "classnames";
 
-const ReactHooks = {
+const React = {
     useState,
     useEffect,
     useContext,
@@ -16,7 +16,8 @@ const ReactHooks = {
     useRef,
     useImperativeHandle,
     useLayoutEffect,
-    useDebugValue
+    useDebugValue,
+    forwardRef
 };
 
 const Semantic = {
@@ -36,7 +37,7 @@ const ThirdParties = {
 
 export const KnownScope = {
     ...OrbitComponents,
-    ...ReactHooks,
+    ...React,
     ...Semantic,
     ...DocsComponents,
     ...ThirdParties

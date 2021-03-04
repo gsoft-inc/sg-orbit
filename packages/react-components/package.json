@@ -6,13 +6,21 @@
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
+    ],
     "publishConfig": {
         "access": "public"
     },
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "babel src -d dist --config-file ./babel.config.js --copy-files",
+        "build": "yarn build:js",
+        "build:types": "tsc --emitDeclarationOnly",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
         "clean": "rimraf dist"
@@ -29,7 +37,6 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@juggle/resize-observer": "3.2.0",
         "@popperjs/core": "2.5.4",
         "@reach/auto-id": "0.11.2",
         "prop-types": "*",
@@ -37,7 +44,8 @@
         "react-is": "17.0.1",
         "react-moment-proptypes": "*",
         "react-popper": "2.2.4",
-        "semantic-ui-react": "2.0.1"
+        "semantic-ui-react": "2.0.1",
+        "use-debounce": "5.2.1"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

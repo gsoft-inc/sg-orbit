@@ -8,7 +8,7 @@ import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "
 import { cssModule, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
-import { useTabsBuilder } from "./useTabsBuilder";
+import { useTabsItems } from "./useTabsItems";
 
 const propTypes = {
     /**
@@ -72,7 +72,7 @@ export function InnerTabs({
 }) {
     const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
-    const [tabs, panels] = useTabsBuilder(children, selectedIndex, useId(id, id ? undefined : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? null : "o-ui-tabs"));
 
     const isInitialRender = useIsInitialRender();
 
@@ -89,17 +89,17 @@ export function InnerTabs({
         if (isInitialRender) {
             // When uncontrolled, ensure the initial selected tab is not a disabled one.
             if (tabs[selectedIndex]?.props?.disabled) {
-                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.index ?? 0);
+                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.position ?? 0);
             }
         }
     }
 
     const handleSelect = useEventCallback((event, newIndex) => {
-        setSelectedIndex(newIndex);
-
         if (!isNil(onChange)) {
             onChange(event, newIndex);
         }
+
+        setSelectedIndex(newIndex);
     });
 
     return (

@@ -4,7 +4,7 @@ module.exports = {
     rootDir: path.resolve(__dirname, ".."),
     roots: ["<rootDir>/packages/react-components"],
     transform: {
-        "^.+\\.(js|jsx)$": path.resolve("jest/babel-transform.js")
+        "^.+\\.(js|jsx|ts|tsx)$": path.resolve("jest/babel-transform.js")
     },
     // https://github.com/facebook/jest/issues/6229#issuecomment-403539460
     transformIgnorePatterns: [

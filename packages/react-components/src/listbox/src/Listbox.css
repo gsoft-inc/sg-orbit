@@ -1,29 +1,155 @@
 :root {
-    --o-ui-listbox-option-height: var(--o-ui-scale-foxtrot);
+    --o-ui-listbox-option-height: var(--o-ui-scale-golf);
+    --o-ui-listbox-option-checkmark-size: var(--o-ui-scale-charlie);
 }
 
 .o-ui-listbox {
     width: max-content;
-    max-height: calc(10 * var(--o-ui-listbox-option-height));
+    max-width: 325px;
+    max-height: calc(12 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
+    background-color: var(--o-ui-background-1);
+    outline: none;
+    border-radius: var(--o-ui-rounded-border-radius);
+    box-shadow: var(--o-ui-shadow-100);
+    border: 1px solid var(--o-ui-border-2);
 }
 
+/* FLUID */
+.o-ui-listbox-fluid {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* OPTION */
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
-    padding-right: 75px;
+    padding-right: var(--o-ui-scale-hotel);
+    padding-left: var(--o-ui-scale-charlie);
     display: flex;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+
+/* WITH DESCRIPTION */
+.o-ui-listbox-option.o-ui-listbox-option-has-description {
+    --o-ui-listbox-option-height: var(--o-ui-scale-india);
+    display: grid;
+    overflow-x: hidden;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    padding-top: var(--o-ui-scale-bravo);
+    grid-template-areas:
+        "aside label"
+        "aside description";
+}
+
+/* OPTION | SELECTED */
+.o-ui-listbox-option[aria-selected="true"]::before {
+    content: "";
+    width: var(--o-ui-listbox-option-checkmark-size);
+    height: var(--o-ui-listbox-option-checkmark-size);
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
+    background-color: var(--o-ui-background-primary-1);
+    position: absolute;
+    right: 1rem;
+}
+
+/* OPTION | SELECTED */
+.o-ui-listbox-option[aria-disabled="true"] {
+    opacity: var(--o-ui-disabled-opacity);
+}
+
+/* OPTION | DESCRIPTION */
+.o-ui-listbox-option-description {
+    color: var(--o-ui-text-2);
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    grid-area: description;
+    justify-self: start;
+    width: 100%;
+}
+
+/* OPTION | STATE | FOCUS */
+.o-ui-listbox-option:focus,
+.o-ui-listbox-option-focus,
+.o-ui-listbox-option.o-ui-focus {
+    background-color: var(--o-ui-background-4);
+    outline: none;
+}
+
+/* OPTION | STATE | FOCUS | SELECTOR BAR */
+.o-ui-listbox-option:focus:after,
+.o-ui-listbox-option-focus:after,
+.o-ui-listbox-option.o-ui-focus:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    height: var(--o-ui-listbox-option-height);
+    width: 2px;
+    background-color: var(--o-ui-border-primary-1);
+}
+
+/* OPTION | STATE | HOVER */
+.o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
+.o-ui-listbox-option-hover {
+    background-color: var(--o-ui-background-4);
+}
+
+/* OPTION | ICONS */
+/* OPTION | ICONS | START ICON */
+.o-ui-listbox-option-start-icon {
+    margin-right: var(--o-ui-scale-alpha);
+    grid-area: aside;
+}
+
+/* OPTION | WITH DESCRIPTION | ICONS | START ICON */
+.o-ui-listbox-option-has-description .o-ui-listbox-option-start-icon {
+    align-self: start;
+}
+
+/* OPTION | ICONS | END ICON */
+.o-ui-listbox-option-end-icon {
+    margin-left: var(--o-ui-scale-alpha);
+}
+
+/* SECTION */
+.o-ui-listbox-section {
+    display: flex;
+    font-weight: 500;
+    padding-left: var(--o-ui-scale-charlie);
+    cursor: default;
+    line-height: 1;
+    height: var(--o-ui-listbox-option-height);
+    color: var(--o-ui-text-3);
+    text-transform: uppercase;
+    font-size: var(--o-ui-type-scale-8);
     align-items: center;
 }
 
-.o-ui-listbox-option[aria-selected="true"] {
-    background-color: blue;
-    color: white;
+/* LABEL */
+.o-ui-listbox-option-label {
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+    justify-self: start;
 }
 
-.o-ui-listbox-option:focus {
-    color: red;
+.o-ui-listbox-option-has-description .o-ui-listbox-option-label {
+    grid-area: label;
+    width: 100%;
 }
 
-.o-ui-listbox-section {
-    font-weight: 500;
+/* AVATAR */
+.o-ui-listbox-option-avatar {
+    margin-right: var(--o-ui-scale-bravo);
+    grid-area: aside;
 }
