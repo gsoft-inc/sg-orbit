@@ -108,7 +108,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         forwardedRef
     });
 
-    const content = resolveChildren(children, { isChecked });
+    const content = resolveChildren(children, { isChecked }) as ReactElement;
 
     return (
         <IconButton

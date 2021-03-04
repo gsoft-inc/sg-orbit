@@ -1,4 +1,3 @@
-import { Box } from "../../box";
 import { Button } from "./Button";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";

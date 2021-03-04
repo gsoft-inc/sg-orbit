@@ -2,9 +2,9 @@ import { ForwardedRef, SyntheticEvent } from "react";
 import { isNil } from "lodash";
 import { useControllableState, useEventCallback } from "../../shared";
 
-export interface UseToggleButtonProps {
+export interface UseToggleButtonProps<Shape> {
     variant?: "solid" | "outline" | "ghost";
-    shape?: "pill" | "rounded" | "circular";
+    shape?: Shape;
     active?: boolean;
     checked?: boolean;
     defaultChecked?: boolean;
@@ -14,7 +14,9 @@ export interface UseToggleButtonProps {
     forwardedRef?: ForwardedRef<any>;
 }
 
-export function useToggleButton({
+export function useToggleButton<
+    Shape extends "pill" | "rounded" | "circular"
+>({
     variant,
     shape,
     checked,
@@ -24,7 +26,7 @@ export function useToggleButton({
     onCheck,
     active,
     forwardedRef
-}: UseToggleButtonProps) {
+}: UseToggleButtonProps<Shape>) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
     const handleClick = useEventCallback(event => {
