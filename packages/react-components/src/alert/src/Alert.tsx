@@ -216,7 +216,7 @@ export interface AlertTemplateProps {
     /**
      * React children.
      */
-    children?: ReactNode
+    children: ReactNode
 }
 
 // Dummy component for documentation purpose.
