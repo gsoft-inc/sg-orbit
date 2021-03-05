@@ -57,8 +57,8 @@ export function useButton({
             )
         ),
         type,
-        "aria-live": "polite" as const,
+        "aria-live": "polite",
         "aria-busy": loading,
         ref: buttonRef
-    };
+    } as const;
 }
