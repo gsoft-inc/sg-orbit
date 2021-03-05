@@ -35,7 +35,7 @@ const adaptSize = createSizeAdapter({
 
 function RequiredIndicator() {
     return (
-        <span className="o-ui-field-label-required" focusable="false" aria-hidden="true">*</span>
+        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
     );
 }
 

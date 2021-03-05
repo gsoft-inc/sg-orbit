@@ -1,38 +1,5 @@
-import { ForwardedRef, SyntheticEvent, useImperativeHandle, useLayoutEffect, useRef } from "react";
-import { cssModule, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
-import { isNil, isNumber } from "lodash";
 
-interface UseCheckboxProps {
-    cssModule?: string;
-    isInField?: boolean;
-    id?: string;
-    checked?: boolean;
-    defaultChecked?: boolean;
-    indeterminate?: boolean;
-    defaultIndeterminate?: boolean;
-    autoFocus?: boolean | number;
-    required?: boolean;
-    validationState?: "valid" | "invalid";
-    onChange?(event: SyntheticEvent): void;
-    size?: "sm" | "md";
-    reverse?: boolean;
-    name?: string;
-    tabIndex?: number;
-    active?: boolean;
-    focus?: boolean;
-    hover?: boolean;
-    disabled?: boolean;
-    forwardedRef?: ForwardedRef<any>;
-}
-
-export function useCheckbox({
-    cssModule: module,
-    isInField,
-    id,
-    checked,
-    defaultChecked,
-    indeterminate,
-    defaultIndeterminate,
+defaultIndeterminate,
     autoFocus,
     required,
     validationState,
@@ -46,12 +13,12 @@ export function useCheckbox({
     hover,
     disabled,
     forwardedRef
-}: UseCheckboxProps) {
+}) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);
 
-    const wrapperRef = useRef<HTMLInputElement>();
-    const inputRef = useRef<HTMLInputElement>();
+    const wrapperRef = useRef();
+    const inputRef = useRef();
 
     useAutoFocus(inputRef, {
         isDisabled: !autoFocus,
