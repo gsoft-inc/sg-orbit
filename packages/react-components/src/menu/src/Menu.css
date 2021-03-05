@@ -43,6 +43,8 @@
 /* ITEM | ICON | START  */
 .o-ui-menu-item-start-icon {
     margin-right: var(--o-ui-scale-alpha);
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 
 /* ITEM | ICON | END  */
