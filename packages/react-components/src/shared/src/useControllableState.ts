@@ -71,28 +71,8 @@ export interface ControllableStateOptions<T> {
 }
 
 /**
- * This implementation is a port of Semantic UI React "AutoControlledComponent" base component to hooks: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/src/lib/AutoControlledComponent.js.
- * The goal is to seemlessly support "controlled" and "uncontrolled" component behaviors by abstracting the complexity in this hook.
+ * The goal of this hook is to seemlessly support "controlled" and "uncontrolled" component behaviors.
  * This is achieved by abstracting the state and updating a state value only when a prop is considered "uncontrolled".
- *
- * @param {Object} controlledValue - The controlled value.
- * @param {Object} initialValue - The initial value.
- * @param {Object} defaultValue - The default value.
- * @param {Object} [options] - A set of optionnal options.
- * @returns {[Object, Function]} An array with the first value being the value of the state and the second value being a function to manually update the state value.
- * @example
- * const [controllableValue, setUncontrolledState] = useControllableState(value, initialValue, defaultValue, {
- *    onChange: (newValue, isInitialState) => {
- *       // Optionally compute derived state...
- *       if (isInitialState) {
- *           setSelectedValue(newValue)
- *       }
- *    }
- * });
- *
- * ...
- *
- * setUncontrolledState("Neil Armstrong");
  */
 export function useControllableState<T>(controlledValue: T, initialValue: T, defaultValue: T, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
     validatePrerequisites(controlledValue, initialValue);

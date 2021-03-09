@@ -3,6 +3,7 @@ export * from "./button";
 export * from "./date-picker";
 export * from "./icons";
 export * from "./input";
+export * from "./date-input";
 export * from "./checkbox";
 export * from "./switch";
 export * from "./radio";

@@ -244,7 +244,7 @@ export function InnerAutocomplete(props) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: { style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
         children,
         forwardedRef,
@@ -267,7 +267,7 @@ export function InnerAutocomplete(props) {
     });
 
     const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
-        id,
+        id: menuId,
         open: openProp,
         defaultOpen,
         onOpenChange,
