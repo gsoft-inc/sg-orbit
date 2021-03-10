@@ -3,9 +3,11 @@ import { Checkbox } from "@react-components/checkbox";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
-import { NumberInput, TextArea, TextInput } from "@react-components/input";
+import { NumberInput } from "@react-components/number-input";
+import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
+import { TextArea } from "@react-components/text-area";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -103,6 +105,13 @@ stories()
         <Field>
             <Label>Where to?</Label>
             <TextInput placeholder="Ex. Mars" />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
+    )
+    .add("password input", () =>
+        <Field>
+            <Label>Where to?</Label>
+            <PasswordInput />
             <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
         </Field>
     )

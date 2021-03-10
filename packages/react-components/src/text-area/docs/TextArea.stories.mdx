@@ -1,0 +1,113 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@react-components/layout";
+import { InnerTextArea, TextArea } from "@react-components/text-area";
+
+<Meta
+    title="Components/TextArea"
+    id="textarea"
+/>
+
+# TextArea
+
+<Tagline>A text area is a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text.</Tagline>
+
+<ComponentInfo
+    usage={"import { TextArea } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/text-area/src"
+/>
+
+## Usage
+
+### Default
+
+A default text input.
+
+<Preview>
+    <Story name="default">
+        <TextArea placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Value
+
+A text area can have a value.
+
+<Preview>
+    <Story name="value">
+        <TextArea defaultValue="To fly high!" placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Max Rows
+
+A text are can be limited to a maximum number of rows.
+
+<Preview>
+    <Story name="max rows">
+        <Inline>
+            <TextArea maxRows={5} placeholder="Why should you go to space?" />
+        </Inline>
+    </Story>
+</Preview>
+
+### Disabled
+
+A text area can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <TextArea disabled placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Readonly
+
+A text area can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <TextArea readOnly defaultValue="NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program." />
+    </Story>
+</Preview>
+
+### Fluid
+
+A text area can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <TextArea fluid placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+### Validation
+
+A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
+
+<Preview filePath="/text-area/docs/LengthValidation" />
+
+### Transparent
+
+A text area can be transparent.
+
+<Preview>
+    <Story name="transparent">
+        <TextArea variant="transparent" placeholder="Why should you go to space?" />
+    </Story>
+</Preview>
+
+## API
+
+### TextArea
+
+<ComponentInfo
+    usage={"import { TextArea } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTextArea} />
+
+

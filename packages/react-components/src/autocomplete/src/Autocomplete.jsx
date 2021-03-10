@@ -17,7 +17,7 @@ import {
 } from "../../shared";
 import { NodeType, useCollection, useCollectionItems } from "../../collection";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { TextInput } from "../../input";
+import { TextInput } from "../../text-input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";

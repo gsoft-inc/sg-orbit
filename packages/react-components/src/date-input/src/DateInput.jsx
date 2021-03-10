@@ -1,5 +1,5 @@
 import { CalendarIcon } from "../../icons";
-import { TextInput } from "../../input";
+import { TextInput } from "../../text-input";
 import { bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useState } from "react";
 import { isNil } from "lodash";
@@ -162,17 +162,19 @@ export function InnerDateInput({
         if (newValue === "") {
             commit(event, newValue);
         } else if (newValue.length === InputMask.length) {
+            let adjustedValue = newValue;
+
             if (!isNil(minDate) || !isNil(maxDate)) {
                 const newDate = toDate(newValue);
 
                 if (minDate > newDate) {
-                    commit(event, toString(minDate));
+                    adjustedValue = toString(minDate);
                 } else if (maxDate < newDate) {
-                    commit(event, toString(maxDate));
-                } else {
-                    commit(event, newValue);
+                    adjustedValue = toString(maxDate);
                 }
             }
+
+            commit(event, adjustedValue);
         } else {
             setInputValue(newValue, true);
         }

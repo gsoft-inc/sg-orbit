@@ -2,7 +2,7 @@ import { CalendarIcon, CrossIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { Keys, isNilOrEmpty } from "../../shared";
 import { PureComponent, forwardRef } from "react";
-import { TextInput } from "../../input";
+import { TextInput } from "../../text-input";
 import { bool, func, object, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
