@@ -235,13 +235,6 @@ stories()
             </div>
         </Stack>
     )
-    // .add("without placeholder", () =>
-    //     <Autocomplete aria-label="Planets">
-    //         <Item key="earth">Earth</Item>
-    //         <Item key="mars">Mars</Item>
-    //         <Item key="saturn">Saturn</Item>
-    //     </Autocomplete>
-    // )
     .add("can clear value", () =>
         <Autocomplete defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
@@ -249,29 +242,6 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
-    // .add("fluid", () =>
-    //     <Stack>
-    //         <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
-    //             <Item key="earth">Earth</Item>
-    //             <Item key="mars">Mars</Item>
-    //             <Item key="saturn">Saturn</Item>
-    //         </Autocomplete>
-    //         <div className="w-10">
-    //             <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
-    //                 <Item key="earth">Earth</Item>
-    //                 <Item key="mars">Mars</Item>
-    //                 <Item key="saturn">Saturn</Item>
-    //             </Autocomplete>
-    //         </div>
-    //     </Stack>
-    // )
-    // .add("loading", () =>
-    //     <Autocomplete loading placeholder="Select a planet" aria-label="Planets">
-    //         <Item key="earth">Earth</Item>
-    //         <Item key="mars">Mars</Item>
-    //         <Item key="saturn">Saturn</Item>
-    //     </Autocomplete>
-    // )
     .add("validation", () =>
         <Inline>
             <Autocomplete validationState="invalid" placeholder="Select a planet" aria-label="Planets">

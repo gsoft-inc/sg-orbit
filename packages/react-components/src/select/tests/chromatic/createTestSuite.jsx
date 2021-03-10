@@ -12,11 +12,32 @@ function Select({ element, ...rest }) {
 export function createTestSuite(element, stories) {
     return stories
         .add("default", () =>
-            <Select placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
+            <Stack>
+                <Select placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Select disabled placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div>
+                    <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+                <div className="w-10">
+                    <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("open with items only", () =>
             <Select defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
@@ -41,31 +62,119 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("selected key", () =>
-            <Select defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
+            <Stack>
+                <Inline>
+                    <Select defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select selectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </Inline>
+                <Select disabled defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div>
+                    <Select fluid defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+                <div className="w-10">
+                    <Select fluid defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("selected item with start icon", () =>
-            <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">
-                    <NotificationIcon />
-                    <Text>Earth</Text>
-                </Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
+            <Stack>
+                <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <NotificationIcon />
+                        <Text>Earth</Text>
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Select disabled defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <NotificationIcon />
+                        <Text>Earth</Text>
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div>
+                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">
+                            <NotificationIcon />
+                            <Text>Earth</Text>
+                        </Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+                <div className="w-10">
+                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">
+                            <NotificationIcon />
+                            <Text>Earth</Text>
+                        </Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("selected item with end icon", () =>
-            <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">
-                    <Text>Earth</Text>
-                    <NotificationIcon slot="end-icon" />
-                </Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
+            <Stack>
+                <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <Text>Earth</Text>
+                        <NotificationIcon slot="end-icon" />
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Select disabled defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <Text>Earth</Text>
+                        <NotificationIcon slot="end-icon" />
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div>
+                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">
+                            <Text>Earth</Text>
+                            <NotificationIcon slot="end-icon" />
+                        </Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+                <div className="w-10">
+                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">
+                            <Text>Earth</Text>
+                            <NotificationIcon slot="end-icon" />
+                        </Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
+            </Stack>
         )
         .add("selected item with description", () =>
             <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
@@ -85,21 +194,26 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("trigger icon", () =>
-            <Select icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        )
-        .add("fluid", () =>
             <Stack>
-                <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Select icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
+                <Select disabled icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <div>
+                    <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </div>
                 <div className="w-10">
-                    <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
