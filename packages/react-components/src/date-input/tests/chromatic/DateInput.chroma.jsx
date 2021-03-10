@@ -15,9 +15,7 @@ stories()
     .add("default", () =>
         <Stack>
             <DateInput />
-            <div>
-                <DateInput disabled></DateInput>
-            </div>
+            <DateInput disabled></DateInput>
             <div>
                 <DateInput fluid></DateInput>
             </div>
@@ -29,9 +27,7 @@ stories()
     .add("placeholder", () =>
         <Stack>
             <DateInput placeholder="dd/mm/yyyy" />
-            <div>
-                <DateInput disabled placeholder="dd/mm/yyyy"></DateInput>
-            </div>
+            <DateInput disabled placeholder="dd/mm/yyyy"></DateInput>
             <div>
                 <DateInput fluid placeholder="dd/mm/yyyy"></DateInput>
             </div>

@@ -13,9 +13,7 @@ export function createTextInputTestSuite(element, stories) {
             <Stack>
                 <TextInput element={element} />
                 <TextInput loading element={element} />
-                <div>
-                    <TextInput disabled element={element}></TextInput>
-                </div>
+                <TextInput disabled element={element}></TextInput>
                 <div>
                     <TextInput fluid element={element}></TextInput>
                 </div>
@@ -31,9 +29,7 @@ export function createTextInputTestSuite(element, stories) {
             <Stack>
                 <TextInput placeholder="Where to?" element={element} />
                 <TextInput loading placeholder="Where to?" element={element} />
-                <div>
-                    <TextInput disabled placeholder="Where to?" element={element}></TextInput>
-                </div>
+                <TextInput disabled placeholder="Where to?" element={element}></TextInput>
                 <div>
                     <TextInput fluid placeholder="Where to?" element={element}></TextInput>
                 </div>
@@ -49,6 +45,7 @@ export function createTextInputTestSuite(element, stories) {
             <Stack>
                 <TextInput defaultValue="SpaceX will win the race!" element={element} />
                 <TextInput loading defaultValue="SpaceX will win the race!" element={element} />
+                <TextInput disabled defaultValue="SpaceX will win the race!" element={element} />
                 <Inline>
                     <TextInput placeholder="Where to?" defaultValue="SpaceX will win the race!" element={element} />
                     <TextInput value="SpaceX will win the race!" element={element} />
@@ -68,9 +65,7 @@ export function createTextInputTestSuite(element, stories) {
             <Stack>
                 <TextInput icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" element={element} />
-                <div>
-                    <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
-                </div>
+                <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 <div>
                     <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" element={element} />
                 </div>

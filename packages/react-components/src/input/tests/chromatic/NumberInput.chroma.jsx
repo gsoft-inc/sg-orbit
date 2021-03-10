@@ -16,9 +16,7 @@ stories()
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />
-            <div>
-                <NumberInput disabled placeholder="Age" />
-            </div>
+            <NumberInput disabled placeholder="Age" />>
         </Stack>
     )
     .add("min / max", () =>
@@ -27,9 +25,7 @@ stories()
                 <NumberInput min={1} max={15} defaultValue={20} placeholder="Age" />
                 <NumberInput min={1} max={15} defaultValue={-20} placeholder="Age" />
             </Inline>
-            <div>
-                <NumberInput validationState="valid" min={1} max={15} defaultValue={20} placeholder="Age" />
-            </div>
+            <NumberInput validationState="valid" min={1} max={15} defaultValue={20} placeholder="Age" />
         </Stack>
     )
     .add("integer value", () =>
@@ -41,9 +37,7 @@ stories()
     .add("icon", () =>
         <Stack>
             <NumberInput icon={<EditIcon />} placeholder="Age" />
-            <div>
-                <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
-            </div>
+            <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
         </Stack>
     )
     .add("fluid", () =>

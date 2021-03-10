@@ -10,15 +10,9 @@ export function createTextAreaTestSuite(element, stories) {
     stories
         .add("default", () =>
             <Stack>
-                <div>
-                    <TextArea element={element} />
-                </div>
-                <div>
-                    <TextArea loading element={element} />
-                </div>
-                <div>
-                    <TextArea disabled element={element} />
-                </div>
+                <TextArea element={element} />
+                <TextArea loading element={element} />
+                <TextArea disabled element={element} />
                 <div>
                     <TextArea fluid element={element}></TextArea>
                 </div>
@@ -32,15 +26,9 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("placeholder", () =>
             <Stack>
-                <div>
-                    <TextArea placeholder="Where to?" element={element} />
-                </div>
-                <div>
-                    <TextArea loading placeholder="Where to?" element={element} />
-                </div>
-                <div>
-                    <TextArea disabled placeholder="Where to?" element={element} />
-                </div>
+                <TextArea placeholder="Where to?" element={element} />
+                <TextArea loading placeholder="Where to?" element={element} />
+                <TextArea disabled placeholder="Where to?" element={element} />
                 <div>
                     <TextArea fluid placeholder="Where to?" element={element}></TextArea>
                 </div>
@@ -54,12 +42,8 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("value", () =>
             <Stack>
-                <div>
-                    <TextArea defaultValue="SpaceX will win the race!" element={element} />
-                </div>
-                <div>
-                    <TextArea loading defaultValue="SpaceX will win the race!" element={element} />
-                </div>
+                <TextArea defaultValue="SpaceX will win the race!" element={element} />
+                <TextArea loading defaultValue="SpaceX will win the race!" element={element} />
                 <Inline>
                     <TextArea placeholder="Where to?" defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea value="SpaceX will win the race!" element={element} />
@@ -77,18 +61,10 @@ export function createTextAreaTestSuite(element, stories) {
         )
         .add("button", () =>
             <Stack>
-                <div>
-                    <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                </div>
-                <div>
-                    <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
-                </div>
-                <div>
-                    <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                </div>
-                <div>
-                    <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
-                </div>
+                <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
+                <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
             </Stack>
         )
         .add("validation", () =>
