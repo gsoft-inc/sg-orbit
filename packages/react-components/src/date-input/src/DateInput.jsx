@@ -8,8 +8,6 @@ import { useMaskedInput } from "./useMaskedInput";
 
 /*
 TODO:
-    - mix & max date
-
     - try an inline date range with a button / select for presets
 */
 
@@ -116,7 +114,6 @@ export function InnerDateInput({
             // Keep input value in sync with the initial or controlled value and keep the value string form to faciliate internal manipulation.
             if (isInitial || isControlled) {
                 const rawValue = newValue ? toString(newValue) : "";
-
                 setInputValue(rawValue);
 
                 return rawValue;
@@ -159,7 +156,6 @@ export function InnerDateInput({
         setInputValue(rawValue, true);
     }, [onChange, value, setValue, setInputValue, reset]);
 
-    // TODO: Consider adding a defer before commit. If doing so might need to add an additional function layer to include the chars count in the defer. deferreddCommit.
     const handleChange = useEventCallback(event => {
         const newValue = event.target.value;
 
@@ -182,7 +178,6 @@ export function InnerDateInput({
         }
     });
 
-    // TODO: If adding a defer, don't forget to flush the defer before comparing the value of a reset.
     const handleBlur = useEventCallback(() => {
         reset();
     });

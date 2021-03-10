@@ -1,5 +1,5 @@
 import { DateInput } from "@react-components/date-input";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -13,14 +13,78 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <DateInput placeholder="dd/mm/yyyy" onChange={(event, newValue) => { console.log(newValue); }} />
+        <Stack>
+            <DateInput />
+            <div>
+                <DateInput disabled></DateInput>
+            </div>
+            <div>
+                <DateInput fluid></DateInput>
+            </div>
+            <div className="w-10">
+                <DateInput fluid></DateInput>
+            </div>
+        </Stack>
     )
-    .add("default value", () =>
-        <>
-            <DateInput defaultValue={new Date(2021, 0, 1)} placeholder="dd/mm/yyyy" />
-            <DateInput defaultValue={new Date(2021, 10, 21)} placeholder="dd/mm/yyyy" />
-        </>
+    .add("placeholder", () =>
+        <Stack>
+            <DateInput placeholder="dd/mm/yyyy" />
+            <div>
+                <DateInput disabled placeholder="dd/mm/yyyy"></DateInput>
+            </div>
+            <div>
+                <DateInput fluid placeholder="dd/mm/yyyy"></DateInput>
+            </div>
+            <div className="w-10">
+                <DateInput fluid placeholder="dd/mm/yyyy"></DateInput>
+            </div>
+        </Stack>
     )
-    .add("min & max date", () =>
-        <DateInput minDate={new Date(2021, 0, 1)} maxDate={new Date(2023, 0, 1)} placeholder="dd/mm/yyyy" onChange={(event, newValue) => { console.log(newValue); }} />
+    .add("value", () =>
+        <Stack>
+            <DateInput defaultValue={new Date(1970, 0, 5)} />
+            <Inline>
+                <DateInput placeholder="dd/mm/yyyy" defaultValue={new Date(1970, 0, 5)} />
+                <DateInput value={new Date(1970, 0, 5)} />
+            </Inline>
+            <div>
+                <DateInput fluid placeholder="dd/mm/yyyy" defaultValue={new Date(1970, 0, 5)}></DateInput>
+            </div>
+            <div className="w-10">
+                <DateInput fluid placeholder="dd/mm/yyyy" defaultValue={new Date(1970, 0, 5)}></DateInput>
+            </div>
+        </Stack>
+    )
+    .add("autofocus", () =>
+        <DateInput autoFocus />
+    )
+    .add("when disabled do not autofocus", () =>
+        <DateInput disabled autoFocus />
+    )
+    .add("autofocus with delay", () =>
+        <DateInput autoFocus={50} />
+    )
+    .add("validation", () =>
+        <Inline>
+            <DateInput validationState="invalid" placeholder="dd/mm/yyyy" />
+            <DateInput validationState="valid" placeholder="dd/mm/yyyy" />
+        </Inline>
+    )
+    .add("states", () =>
+        <Stack>
+            <DateInput active placeholder="Where to?" />
+            <DateInput focus placeholder="Where to?" />
+            <DateInput hover placeholder="Where to?" />
+            <DateInput focus hover placeholder="Where to?" />
+            <DateInput disabled placeholder="Where to?" />
+            <DateInput readOnly placeholder="Where to?" />
+        </Stack>
+    )
+    .add("styling", () =>
+        <Inline>
+            <DateInput className="bg-red" />
+            <DateInput style={{ backgroundColor: "red" }} />
+            <DateInput wrapperProps={{ className: "border-red" }} />
+            <DateInput wrapperProps={{ style: { border: "1px solid red" } }} />
+        </Inline>
     );
