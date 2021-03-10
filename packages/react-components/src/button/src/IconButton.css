@@ -1,12 +1,9 @@
 @import "./Button.css";
 
-:root {
-    --o-ui-button-height-2xs: var(--o-ui-scale-echo);
-    --o-ui-button-height-xs: var(--o-ui-scale-foxtrot);
-}
-
 /* ICON BUTTON */
 .o-ui-icon-button {
+    --o-ui-button-height-2xs: var(--o-ui-global-scale-echo);
+    --o-ui-button-height-xs: var(--o-ui-global-scale-foxtrot);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -25,28 +22,28 @@
 
 /* SIZES | ROUNDED */
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-2xs {
-    min-width: var(--o-ui-scale-echo);
+    min-width: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-xs {
-    min-width: var(--o-ui-scale-foxtrot);
+    min-width: var(--o-ui-global-scale-foxtrot);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
-    min-width: var(--o-ui-scale-golf);
+    min-width: var(--o-ui-global-scale-golf);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-md {
-    min-width: var(--o-ui-scale-hotel);
+    min-width: var(--o-ui-global-scale-hotel);
 }
 
 /* SIZES | CIRCULAR */
 .o-ui-icon-button.o-ui-button-circular.o-ui-button-2xs {
-    min-width: var(--o-ui-scale-echo);
+    min-width: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-icon-button.o-ui-button-circular.o-ui-button-xs {
-    min-width: var(--o-ui-scale-foxtrot);
+    min-width: var(--o-ui-global-scale-foxtrot);
 }
 
 /* LOADING */
@@ -62,7 +59,7 @@
 
 /* INHERIT */
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
-    fill: var(--o-ui-static-white);
+    fill: var(--o-ui-alias-static-white);
     opacity: .9;
 }
 

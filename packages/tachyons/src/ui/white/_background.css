@@ -1,11 +1,11 @@
 .bg-white {
-    background-color: var(--o-ui-white);
+    background-color: var(--o-ui-global-white);
 }
 
 .hover-bg-white:hover {
-    background-color: var(--o-ui-white);
+    background-color: var(--o-ui-global-white);
 }
 
 .focus-bg-white:focus {
-    background-color: var(--o-ui-white);
+    background-color: var(--o-ui-global-white);
 }

@@ -1,119 +1,119 @@
 .bg-desktop-50 {
-    background-color: var(--o-ui-desktop-50);
+    background-color: var(--o-ui-global-desktop-50);
 }
 
 .bg-desktop-100 {
-    background-color: var(--o-ui-desktop-100);
+    background-color: var(--o-ui-global-desktop-100);
 }
 
 .bg-desktop-200 {
-    background-color: var(--o-ui-desktop-200);
+    background-color: var(--o-ui-global-desktop-200);
 }
 
 .bg-desktop-300 {
-    background-color: var(--o-ui-desktop-300);
+    background-color: var(--o-ui-global-desktop-300);
 }
 
 .bg-desktop-400 {
-    background-color: var(--o-ui-desktop-400);
+    background-color: var(--o-ui-global-desktop-400);
 }
 
 .bg-desktop-500 {
-    background-color: var(--o-ui-desktop-500);
+    background-color: var(--o-ui-global-desktop-500);
 }
 
 .bg-desktop-600 {
-    background-color: var(--o-ui-desktop-600);
+    background-color: var(--o-ui-global-desktop-600);
 }
 
 .bg-desktop-700 {
-    background-color: var(--o-ui-desktop-700);
+    background-color: var(--o-ui-global-desktop-700);
 }
 
 .bg-desktop-800 {
-    background-color: var(--o-ui-desktop-800);
+    background-color: var(--o-ui-global-desktop-800);
 }
 
 .bg-desktop-900 {
-    background-color: var(--o-ui-desktop-900);
+    background-color: var(--o-ui-global-desktop-900);
 }
 
 .hover-bg-desktop-50:hover {
-    background-color: var(--o-ui-desktop-50);
+    background-color: var(--o-ui-global-desktop-50);
 }
 
 .hover-bg-desktop-100:hover {
-    background-color: var(--o-ui-desktop-100);
+    background-color: var(--o-ui-global-desktop-100);
 }
 
 .hover-bg-desktop-200:hover {
-    background-color: var(--o-ui-desktop-200);
+    background-color: var(--o-ui-global-desktop-200);
 }
 
 .hover-bg-desktop-300:hover {
-    background-color: var(--o-ui-desktop-300);
+    background-color: var(--o-ui-global-desktop-300);
 }
 
 .hover-bg-desktop-400:hover {
-    background-color: var(--o-ui-desktop-400);
+    background-color: var(--o-ui-global-desktop-400);
 }
 
 .hover-bg-desktop-500:hover {
-    background-color: var(--o-ui-desktop-500);
+    background-color: var(--o-ui-global-desktop-500);
 }
 
 .hover-bg-desktop-600:hover {
-    background-color: var(--o-ui-desktop-600);
+    background-color: var(--o-ui-global-desktop-600);
 }
 
 .hover-bg-desktop-700:hover {
-    background-color: var(--o-ui-desktop-700);
+    background-color: var(--o-ui-global-desktop-700);
 }
 
 .hover-bg-desktop-800:hover {
-    background-color: var(--o-ui-desktop-800);
+    background-color: var(--o-ui-global-desktop-800);
 }
 
 .hover-bg-desktop-900:hover {
-    background-color: var(--o-ui-desktop-900);
+    background-color: var(--o-ui-global-desktop-900);
 }
 
 .focus-bg-desktop-50:focus {
-    background-color: var(--o-ui-desktop-50);
+    background-color: var(--o-ui-global-desktop-50);
 }
 
 .focus-bg-desktop-100:focus {
-    background-color: var(--o-ui-desktop-100);
+    background-color: var(--o-ui-global-desktop-100);
 }
 
 .focus-bg-desktop-200:focus {
-    background-color: var(--o-ui-desktop-200);
+    background-color: var(--o-ui-global-desktop-200);
 }
 
 .focus-bg-desktop-300:focus {
-    background-color: var(--o-ui-desktop-300);
+    background-color: var(--o-ui-global-desktop-300);
 }
 
 .focus-bg-desktop-400:focus {
-    background-color: var(--o-ui-desktop-400);
+    background-color: var(--o-ui-global-desktop-400);
 }
 
 .focus-bg-desktop-500:focus {
-    background-color: var(--o-ui-desktop-500);
+    background-color: var(--o-ui-global-desktop-500);
 }
 
 .focus-bg-desktop-600:focus {
-    background-color: var(--o-ui-desktop-600);
+    background-color: var(--o-ui-global-desktop-600);
 }
 
 .focus-bg-desktop-700:focus {
-    background-color: var(--o-ui-desktop-700);
+    background-color: var(--o-ui-global-desktop-700);
 }
 
 .focus-bg-desktop-800:focus {
-    background-color: var(--o-ui-desktop-800);
+    background-color: var(--o-ui-global-desktop-800);
 }
 
 .focus-bg-desktop-900:focus {
-    background-color: var(--o-ui-desktop-900);
+    background-color: var(--o-ui-global-desktop-900);
 }

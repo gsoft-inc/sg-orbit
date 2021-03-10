@@ -39,12 +39,12 @@
 /*
  * ALERT
  */
-@import "../../src/ui/alert/_border.css";
+@import "../../src/ui/beetle/_border.css";
 
 /*
- * SUCCESS
+ * POSITIVE
  */
-@import "../../src/ui/success/_border.css";
+@import "../../src/ui/botanic/_border.css";
 
 /*
  * WHITE

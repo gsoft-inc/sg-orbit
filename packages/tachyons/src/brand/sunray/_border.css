@@ -1,119 +1,119 @@
 .b--sunray-50 {
-    border-color: var(--o-ui-sunray-50);
+    border-color: var(--o-ui-global-sunray-50);
 }
 
 .b--sunray-100 {
-    border-color: var(--o-ui-sunray-100);
+    border-color: var(--o-ui-global-sunray-100);
 }
 
 .b--sunray-200 {
-    border-color: var(--o-ui-sunray-200);
+    border-color: var(--o-ui-global-sunray-200);
 }
 
 .b--sunray-300 {
-    border-color: var(--o-ui-sunray-300);
+    border-color: var(--o-ui-global-sunray-300);
 }
 
 .b--sunray-400 {
-    border-color: var(--o-ui-sunray-400);
+    border-color: var(--o-ui-global-sunray-400);
 }
 
 .b--sunray-500 {
-    border-color: var(--o-ui-sunray-500);
+    border-color: var(--o-ui-global-sunray-500);
 }
 
 .b--sunray-600 {
-    border-color: var(--o-ui-sunray-600);
+    border-color: var(--o-ui-global-sunray-600);
 }
 
 .b--sunray-700 {
-    border-color: var(--o-ui-sunray-700);
+    border-color: var(--o-ui-global-sunray-700);
 }
 
 .b--sunray-800 {
-    border-color: var(--o-ui-sunray-800);
+    border-color: var(--o-ui-global-sunray-800);
 }
 
 .b--sunray-900 {
-    border-color: var(--o-ui-sunray-900);
+    border-color: var(--o-ui-global-sunray-900);
 }
 
 .hover-b--sunray-50:hover {
-    border-color: var(--o-ui-sunray-50);
+    border-color: var(--o-ui-global-sunray-50);
 }
 
 .hover-b--sunray-100:hover {
-    border-color: var(--o-ui-sunray-100);
+    border-color: var(--o-ui-global-sunray-100);
 }
 
 .hover-b--sunray-200:hover {
-    border-color: var(--o-ui-sunray-200);
+    border-color: var(--o-ui-global-sunray-200);
 }
 
 .hover-b--sunray-300:hover {
-    border-color: var(--o-ui-sunray-300);
+    border-color: var(--o-ui-global-sunray-300);
 }
 
 .hover-b--sunray-400:hover {
-    border-color: var(--o-ui-sunray-400);
+    border-color: var(--o-ui-global-sunray-400);
 }
 
 .hover-b--sunray-500:hover {
-    border-color: var(--o-ui-sunray-500);
+    border-color: var(--o-ui-global-sunray-500);
 }
 
 .hover-b--sunray-600:hover {
-    border-color: var(--o-ui-sunray-600);
+    border-color: var(--o-ui-global-sunray-600);
 }
 
 .hover-b--sunray-700:hover {
-    border-color: var(--o-ui-sunray-700);
+    border-color: var(--o-ui-global-sunray-700);
 }
 
 .hover-b--sunray-800:hover {
-    border-color: var(--o-ui-sunray-800);
+    border-color: var(--o-ui-global-sunray-800);
 }
 
 .hover-b--sunray-900:hover {
-    border-color: var(--o-ui-sunray-900);
+    border-color: var(--o-ui-global-sunray-900);
 }
 
 .focus-b--sunray-50:focus {
-    border-color: var(--o-ui-sunray-50);
+    border-color: var(--o-ui-global-sunray-50);
 }
 
 .focus-b--sunray-100:focus {
-    border-color: var(--o-ui-sunray-100);
+    border-color: var(--o-ui-global-sunray-100);
 }
 
 .focus-b--sunray-200:focus {
-    border-color: var(--o-ui-sunray-200);
+    border-color: var(--o-ui-global-sunray-200);
 }
 
 .focus-b--sunray-300:focus {
-    border-color: var(--o-ui-sunray-300);
+    border-color: var(--o-ui-global-sunray-300);
 }
 
 .focus-b--sunray-400:focus {
-    border-color: var(--o-ui-sunray-400);
+    border-color: var(--o-ui-global-sunray-400);
 }
 
 .focus-b--sunray-500:focus {
-    border-color: var(--o-ui-sunray-500);
+    border-color: var(--o-ui-global-sunray-500);
 }
 
 .focus-b--sunray-600:focus {
-    border-color: var(--o-ui-sunray-600);
+    border-color: var(--o-ui-global-sunray-600);
 }
 
 .focus-b--sunray-700:focus {
-    border-color: var(--o-ui-sunray-700);
+    border-color: var(--o-ui-global-sunray-700);
 }
 
 .focus-b--sunray-800:focus {
-    border-color: var(--o-ui-sunray-800);
+    border-color: var(--o-ui-global-sunray-800);
 }
 
 .focus-b--sunray-900:focus {
-    border-color: var(--o-ui-sunray-900);
+    border-color: var(--o-ui-global-sunray-900);
 }

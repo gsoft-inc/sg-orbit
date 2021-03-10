@@ -1,4 +1,4 @@
-[class^="o-ui"] {
+.o-ui-theme {
     /* STATIC */
-    --o-ui-static-white: var(--o-ui-white);
+    --o-ui-alias-static-white: var(--o-ui-global-white);
 }

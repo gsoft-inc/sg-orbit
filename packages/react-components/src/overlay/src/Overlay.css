@@ -1,4 +1,4 @@
-[class^="o-ui-overlay"] {
+.o-ui-theme {
     --o-ui-overlay-border-offset: 0;
     --o-ui-overlay-arrow-border-color: var(--o-ui-border-2);
 }
@@ -21,24 +21,24 @@
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background: var(--o-ui-background-1);
+    background: var(--o-ui-alias-background-1);
 }
 
 /* ARROW | POSITION */
 .o-ui-overlay[data-popper-placement^="top"] > .o-ui-overlay-arrow {
-    bottom: calc(-1 * var(--o-ui-scale-alpha) - 1px);
+    bottom: calc(-1 * var(--o-ui-global-scale-alpha) - 1px);
 }
 
 .o-ui-overlay[data-popper-placement^="bottom"] > .o-ui-overlay-arrow {
-    top: calc(-1 * var(--o-ui-scale-alpha) - 1px);
+    top: calc(-1 * var(--o-ui-global-scale-alpha) - 1px);
 }
 
 .o-ui-overlay[data-popper-placement^="left"] > .o-ui-overlay-arrow {
-    right: calc(-1 * var(--o-ui-scale-alpha) - 1px);
+    right: calc(-1 * var(--o-ui-global-scale-alpha) - 1px);
 }
 
 .o-ui-overlay[data-popper-placement^="right"] > .o-ui-overlay-arrow {
-    left: calc(-1 * var(--o-ui-scale-alpha) - 1px);
+    left: calc(-1 * var(--o-ui-global-scale-alpha) - 1px);
 }
 
 /* ARROW | BORDER */
@@ -68,7 +68,7 @@
 
 /* ARROW | STATE | FOCUS */
 .o-ui-overlay:focus .o-ui-overlay-arrow {
-    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
+    --o-ui-overlay-arrow-border-color: var(--o-ui-global-focus-ring-color);
 }
 
 /* BORDER OFFSET */

@@ -1,53 +1,53 @@
 .h1 {
-    height: var(--o-ui-scale-alpha);
+    height: var(--o-ui-global-scale-alpha);
 }
 
 .h2 {
-    height: var(--o-ui-scale-bravo);
+    height: var(--o-ui-global-scale-bravo);
 }
 
 .h3 {
-    height: var(--o-ui-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .h4 {
-    height: var(--o-ui-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .h5 {
-    height: var(--o-ui-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .h6 {
-    height: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
 }
 
 .h7 {
-    height: var(--o-ui-scale-golf);
+    height: var(--o-ui-global-scale-golf);
 }
 
 .h8 {
-    height: var(--o-ui-scale-hotel);
+    height: var(--o-ui-global-scale-hotel);
 }
 
 .h9 {
-    height: var(--o-ui-scale-india);
+    height: var(--o-ui-global-scale-india);
 }
 
 .h10 {
-    height: var(--o-ui-scale-juliett);
+    height: var(--o-ui-global-scale-juliett);
 }
 
 .h11 {
-    height: var(--o-ui-scale-kilo);
+    height: var(--o-ui-global-scale-kilo);
 }
 
 .h12 {
-    height: var(--o-ui-scale-lima);
+    height: var(--o-ui-global-scale-lima);
 }
 
 .h13 {
-    height: var(--o-ui-scale-mike);
+    height: var(--o-ui-global-scale-mike);
 }
 
 /* Height Percentages - Based off of height of parent */
@@ -106,43 +106,43 @@
 
 @media (--breakpoint-not-small) {
     .h1-ns {
-        height: var(--o-ui-scale-alpha);
+        height: var(--o-ui-global-scale-alpha);
     }
     .h2-ns {
-        height: var(--o-ui-scale-bravo);
+        height: var(--o-ui-global-scale-bravo);
     }
     .h3-ns {
-        height: var(--o-ui-scale-charlie);
+        height: var(--o-ui-global-scale-charlie);
     }
     .h4-ns {
-        height: var(--o-ui-scale-delta);
+        height: var(--o-ui-global-scale-delta);
     }
     .h5-ns {
-        height: var(--o-ui-scale-echo);
+        height: var(--o-ui-global-scale-echo);
     }
     .h6-ns {
-        height: var(--o-ui-scale-foxtrot);
+        height: var(--o-ui-global-scale-foxtrot);
     }
     .h7-ns {
-        height: var(--o-ui-scale-golf);
+        height: var(--o-ui-global-scale-golf);
     }
     .h8-ns {
-        height: var(--o-ui-scale-hotel);
+        height: var(--o-ui-global-scale-hotel);
     }
     .h9-ns {
-        height: var(--o-ui-scale-india);
+        height: var(--o-ui-global-scale-india);
     }
     .h10-ns {
-        height: var(--o-ui-scale-juliett);
+        height: var(--o-ui-global-scale-juliett);
     }
     .h11-ns {
-        height: var(--o-ui-scale-kilo);
+        height: var(--o-ui-global-scale-kilo);
     }
     .h12-ns {
-        height: var(--o-ui-scale-lima);
+        height: var(--o-ui-global-scale-lima);
     }
     .h13-ns {
-        height: var(--o-ui-scale-mike);
+        height: var(--o-ui-global-scale-mike);
     }
     .h-25-ns {
         height: 25%;
@@ -184,43 +184,43 @@
 
 @media (--breakpoint-medium) {
     .h1-m {
-        height: var(--o-ui-scale-alpha);
+        height: var(--o-ui-global-scale-alpha);
     }
     .h2-m {
-        height: var(--o-ui-scale-bravo);
+        height: var(--o-ui-global-scale-bravo);
     }
     .h3-m {
-        height: var(--o-ui-scale-charlie);
+        height: var(--o-ui-global-scale-charlie);
     }
     .h4-m {
-        height: var(--o-ui-scale-delta);
+        height: var(--o-ui-global-scale-delta);
     }
     .h5-m {
-        height: var(--o-ui-scale-echo);
+        height: var(--o-ui-global-scale-echo);
     }
     .h6-m {
-        height: var(--o-ui-scale-foxtrot);
+        height: var(--o-ui-global-scale-foxtrot);
     }
     .h7-m {
-        height: var(--o-ui-scale-golf);
+        height: var(--o-ui-global-scale-golf);
     }
     .h8-m {
-        height: var(--o-ui-scale-hotel);
+        height: var(--o-ui-global-scale-hotel);
     }
     .h9-m {
-        height: var(--o-ui-scale-india);
+        height: var(--o-ui-global-scale-india);
     }
     .h10-m {
-        height: var(--o-ui-scale-juliett);
+        height: var(--o-ui-global-scale-juliett);
     }
     .h11-m {
-        height: var(--o-ui-scale-kilo);
+        height: var(--o-ui-global-scale-kilo);
     }
     .h12-m {
-        height: var(--o-ui-scale-lima);
+        height: var(--o-ui-global-scale-lima);
     }
     .h13-m {
-        height: var(--o-ui-scale-mike);
+        height: var(--o-ui-global-scale-mike);
     }
     .h-25-m {
         height: 25%;
@@ -262,43 +262,43 @@
 
 @media (--breakpoint-large) {
     .h1-l {
-        height: var(--o-ui-scale-alpha);
+        height: var(--o-ui-global-scale-alpha);
     }
     .h2-l {
-        height: var(--o-ui-scale-bravo);
+        height: var(--o-ui-global-scale-bravo);
     }
     .h3-l {
-        height: var(--o-ui-scale-charlie);
+        height: var(--o-ui-global-scale-charlie);
     }
     .h4-l {
-        height: var(--o-ui-scale-delta);
+        height: var(--o-ui-global-scale-delta);
     }
     .h5-l {
-        height: var(--o-ui-scale-echo);
+        height: var(--o-ui-global-scale-echo);
     }
     .h6-l {
-        height: var(--o-ui-scale-foxtrot);
+        height: var(--o-ui-global-scale-foxtrot);
     }
     .h7-l {
-        height: var(--o-ui-scale-golf);
+        height: var(--o-ui-global-scale-golf);
     }
     .h8-l {
-        height: var(--o-ui-scale-hotel);
+        height: var(--o-ui-global-scale-hotel);
     }
     .h9-l {
-        height: var(--o-ui-scale-india);
+        height: var(--o-ui-global-scale-india);
     }
     .h10-l {
-        height: var(--o-ui-scale-juliett);
+        height: var(--o-ui-global-scale-juliett);
     }
     .h11-l {
-        height: var(--o-ui-scale-kilo);
+        height: var(--o-ui-global-scale-kilo);
     }
     .h12-l {
-        height: var(--o-ui-scale-lima);
+        height: var(--o-ui-global-scale-lima);
     }
     .h13-l {
-        height: var(--o-ui-scale-mike);
+        height: var(--o-ui-global-scale-mike);
     }
     .h-25-l {
         height: 25%;

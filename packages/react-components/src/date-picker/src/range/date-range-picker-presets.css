@@ -1,7 +1,7 @@
 .o-ui.presets {
     min-width: 200px;
-    border-top-left-radius: var(--o-ui-scale-alpha);
-    border-bottom-left-radius: var(--o-ui-scale-alpha);
+    border-top-left-radius: var(--o-ui-global-scale-alpha);
+    border-bottom-left-radius: var(--o-ui-global-scale-alpha);
 }
 
 .o-ui.presets .values {

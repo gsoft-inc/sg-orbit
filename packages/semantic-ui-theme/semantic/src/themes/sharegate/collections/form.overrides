@@ -117,7 +117,7 @@
 
 /* LAYOUT | Sizes */
 .ui.textarea {
-    padding: var(--o-ui-scale-delta) var(--o-ui-scale-echo);
+    padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo);
     line-height: @lh1;
     /* Firefox fix to make sure it respects number of rows */
     overflow-x:hidden;
@@ -125,11 +125,11 @@
 
 .ui.textarea.small {
     font-size: var(	--type-scale-8);
-    padding: var(--o-ui-scale-bravo) var(--o-ui-scale-delta);
+    padding: var(--o-ui-global-scale-bravo) var(--o-ui-global-scale-delta);
 }
 
 .ui.textarea.large {
-    font-size: var(--o-ui-type-scale-6);
+    font-size: var(--o-ui-global-type-scale-6);
     line-height: @lh4;
-    padding: var(--o-ui-scale-echo) var(--o-ui-scale-foxtrot);
+    padding: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-foxtrot);
 }

@@ -1,5 +1,5 @@
 .b--transparent {
-    border-color: var(--transparent);
+    border-color: var(--o-ui-global-transparent);
 }
 
 .b--inherit {

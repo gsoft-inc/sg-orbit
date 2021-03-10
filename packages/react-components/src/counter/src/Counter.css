@@ -1,13 +1,13 @@
 .o-ui-counter {
-    color: var(--o-ui-text-1);
+    color: var(--o-ui-alias-text-1);
 }
 
 /* PILL */
 .o-ui-counter-pill {
     display: inline-flex;
-    background-color: var(--o-ui-background-2);
-    color: var(--o-ui-text-1);
-    border-radius: var(--o-ui-pill-border-radius);
+    background-color: var(--o-ui-alias-background-2);
+    color: var(--o-ui-alias-text-1);
+    border-radius: var(--o-ui-global-pill-border-radius);
     line-height: 1;
     align-items: center;
     justify-content: center;
@@ -17,20 +17,20 @@
 .o-ui-counter-pill.o-ui-counter-sm {
     min-height: 1rem;
     min-width: 1rem;
-    font-size: var(--o-ui-type-scale-9);
-    padding: 0 var(--o-ui-scale-bravo) 0 var(--o-ui-scale-bravo);
+    font-size: var(--o-ui-global-type-scale-9);
+    padding: 0 var(--o-ui-global-scale-bravo) 0 var(--o-ui-global-scale-bravo);
 }
 
 .o-ui-counter-pill.o-ui-counter-md {
     min-height: 1.25rem;
     min-width: 1.25rem;
-    font-size: var(--o-ui-type-scale-8);
+    font-size: var(--o-ui-global-type-scale-8);
     padding: 0 0.625rem 0 0.625rem;
 }
 
 /* PILL | COLOR */
 .o-ui-counter-pill.o-ui-counter-light {
-    background-color: var(--o-ui-background-3);
+    background-color: var(--o-ui-alias-background-3);
 }
 
 /* PILL | HIGHLIGHT */
@@ -41,21 +41,21 @@
 /* DIVIDER */
 .o-ui-counter-divider {
     display: inline-block;
-    border-left: 1px solid var(--o-ui-border-1);
-    padding-left: var(--o-ui-scale-bravo);
+    border-left: 1px solid var(--o-ui-alias-border-1);
+    padding-left: var(--o-ui-global-scale-bravo);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     border-left: 0;
-    border-right: 1px solid var(--o-ui-border-1);
+    border-right: 1px solid var(--o-ui-alias-border-1);
     padding-left: 0;
-    padding-right: var(--o-ui-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo);
 }
 
 /* DIVIDER | COLOR | LIGHT */
 .o-ui-counter-divider.o-ui-counter-light {
-    color: var(--o-ui-text-3);
+    color: var(--o-ui-alias-text-3);
 }
 
 /* DIVIDER | HIGHLIGHT */
@@ -65,16 +65,16 @@
 
 /* PUSHED */
 .o-ui-counter-pushed {
-    margin-left: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
 }
 
 /* PUSHED | REVERSE */
 .o-ui-counter-pushed.o-ui-counter-reverse {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* DISABLED */
 .o-ui-counter[disabled] {
-    opacity: var(--o-ui-disabled-opacity);
+    opacity: var(--o-ui-global-disabled-opacity);
 }

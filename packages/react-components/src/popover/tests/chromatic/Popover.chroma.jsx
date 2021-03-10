@@ -369,7 +369,7 @@ stories()
             const { isOpen } = usePopoverTriggerContext();
 
             return (
-                <Popover style={isOpen ? { backgroundColor: "var(--o-ui-primary-500)" } : undefined}>
+                <Popover style={isOpen ? { backgroundColor: "var(--o-ui-alias-primary-500)" } : undefined}>
                     {children}
                 </Popover>
             );

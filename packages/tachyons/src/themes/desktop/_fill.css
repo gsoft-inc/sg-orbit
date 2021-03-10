@@ -1,119 +1,119 @@
 .fill-desktop-50 {
-    fill: var(--o-ui-desktop-50);
+    fill: var(--o-ui-global-desktop-50);
 }
 
 .fill-desktop-100 {
-    fill: var(--o-ui-desktop-100);
+    fill: var(--o-ui-global-desktop-100);
 }
 
 .fill-desktop-200 {
-    fill: var(--o-ui-desktop-200);
+    fill: var(--o-ui-global-desktop-200);
 }
 
 .fill-desktop-300 {
-    fill: var(--o-ui-desktop-300);
+    fill: var(--o-ui-global-desktop-300);
 }
 
 .fill-desktop-400 {
-    fill: var(--o-ui-desktop-400);
+    fill: var(--o-ui-global-desktop-400);
 }
 
 .fill-desktop-500 {
-    fill: var(--o-ui-desktop-500);
+    fill: var(--o-ui-global-desktop-500);
 }
 
 .fill-desktop-600 {
-    fill: var(--o-ui-desktop-600);
+    fill: var(--o-ui-global-desktop-600);
 }
 
 .fill-desktop-700 {
-    fill: var(--o-ui-desktop-700);
+    fill: var(--o-ui-global-desktop-700);
 }
 
 .fill-desktop-800 {
-    fill: var(--o-ui-desktop-800);
+    fill: var(--o-ui-global-desktop-800);
 }
 
 .fill-desktop-900 {
-    fill: var(--o-ui-desktop-900);
+    fill: var(--o-ui-global-desktop-900);
 }
 
 .hover-fill-desktop-50:hover {
-    fill: var(--o-ui-desktop-50);
+    fill: var(--o-ui-global-desktop-50);
 }
 
 .hover-fill-desktop-100:hover {
-    fill: var(--o-ui-desktop-100);
+    fill: var(--o-ui-global-desktop-100);
 }
 
 .hover-fill-desktop-200:hover {
-    fill: var(--o-ui-desktop-200);
+    fill: var(--o-ui-global-desktop-200);
 }
 
 .hover-fill-desktop-300:hover {
-    fill: var(--o-ui-desktop-300);
+    fill: var(--o-ui-global-desktop-300);
 }
 
 .hover-fill-desktop-400:hover {
-    fill: var(--o-ui-desktop-400);
+    fill: var(--o-ui-global-desktop-400);
 }
 
 .hover-fill-desktop-500:hover {
-    fill: var(--o-ui-desktop-500);
+    fill: var(--o-ui-global-desktop-500);
 }
 
 .hover-fill-desktop-600:hover {
-    fill: var(--o-ui-desktop-600);
+    fill: var(--o-ui-global-desktop-600);
 }
 
 .hover-fill-desktop-700:hover {
-    fill: var(--o-ui-desktop-700);
+    fill: var(--o-ui-global-desktop-700);
 }
 
 .hover-fill-desktop-800:hover {
-    fill: var(--o-ui-desktop-800);
+    fill: var(--o-ui-global-desktop-800);
 }
 
 .hover-fill-desktop-900:hover {
-    fill: var(--o-ui-desktop-900);
+    fill: var(--o-ui-global-desktop-900);
 }
 
 .focus-fill-desktop-50:focus {
-    fill: var(--o-ui-desktop-50);
+    fill: var(--o-ui-global-desktop-50);
 }
 
 .focus-fill-desktop-100:focus {
-    fill: var(--o-ui-desktop-100);
+    fill: var(--o-ui-global-desktop-100);
 }
 
 .focus-fill-desktop-200:focus {
-    fill: var(--o-ui-desktop-200);
+    fill: var(--o-ui-global-desktop-200);
 }
 
 .focus-fill-desktop-300:focus {
-    fill: var(--o-ui-desktop-300);
+    fill: var(--o-ui-global-desktop-300);
 }
 
 .focus-fill-desktop-400:focus {
-    fill: var(--o-ui-desktop-400);
+    fill: var(--o-ui-global-desktop-400);
 }
 
 .focus-fill-desktop-500:focus {
-    fill: var(--o-ui-desktop-500);
+    fill: var(--o-ui-global-desktop-500);
 }
 
 .focus-fill-desktop-600:focus {
-    fill: var(--o-ui-desktop-600);
+    fill: var(--o-ui-global-desktop-600);
 }
 
 .focus-fill-desktop-700:focus {
-    fill: var(--o-ui-desktop-700);
+    fill: var(--o-ui-global-desktop-700);
 }
 
 .focus-fill-desktop-800:focus {
-    fill: var(--o-ui-desktop-800);
+    fill: var(--o-ui-global-desktop-800);
 }
 
 .focus-fill-desktop-900:focus {
-    fill: var(--o-ui-desktop-900);
+    fill: var(--o-ui-global-desktop-900);
 }

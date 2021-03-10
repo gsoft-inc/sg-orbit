@@ -2,8 +2,8 @@
     Site Overrides
 *******************************/
 .ui.input > input {
-    height: var(--o-ui-scale-hotel);
-    line-height: var(--o-ui-scale-hotel);
+    height: var(--o-ui-global-scale-hotel);
+    line-height: var(--o-ui-global-scale-hotel);
     min-width: 325px;
     color: var(--o-ui-marine-900);
 }
@@ -37,7 +37,7 @@
 .ui.input.error > input:active,
 .ui.input.error.active > input,
 .ui.input.error.down input {
-    border-color: var(--o-ui-alert-900);
+    border-color: var(--o-ui-red-900);
 }
 
 .ui.input.fluid > input {
@@ -45,17 +45,17 @@
 }
 
 .ui.input.small > input {
-    height: var(--o-ui-scale-golf);
-    line-height: var(--o-ui-scale-golf);
-    padding-left: var(--o-ui-scale-delta);
-    padding-right: var(--o-ui-scale-delta);
+    height: var(--o-ui-global-scale-golf);
+    line-height: var(--o-ui-global-scale-golf);
+    padding-left: var(--o-ui-global-scale-delta);
+    padding-right: var(--o-ui-global-scale-delta);
 }
 
 .ui.input.large > input {
-    height: var(--o-ui-scale-india);
-    line-height: var(--o-ui-scale-india);
-    padding-left: var(--o-ui-scale-foxtrot);
-    padding-right: var(--o-ui-scale-foxtrot);
+    height: var(--o-ui-global-scale-india);
+    line-height: var(--o-ui-global-scale-india);
+    padding-left: var(--o-ui-global-scale-foxtrot);
+    padding-right: var(--o-ui-global-scale-foxtrot);
 }
 
 .ui.input:not(.disabled) input[disabled],
@@ -79,56 +79,56 @@
 
 /* Icons */
 .ui.icon.input.small > input {
-    padding-right: calc(var(--o-ui-scale-delta) + var(--o-ui-scale-delta))!important;
+    padding-right: calc(var(--o-ui-global-scale-delta) + var(--o-ui-global-scale-delta))!important;
 }
 
 .ui.icon.input.large > input {
-    padding-right: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-foxtrot))!important;
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-foxtrot))!important;
 }
 
 .ui.icon.input > svg.icon {
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    right: calc( var(--o-ui-scale-echo) / 2 );
+    right: calc( var(--o-ui-global-scale-echo) / 2 );
     pointer-events: none;
 }
 
 .ui.icon.input.small > svg.icon {
-    right: calc(var(--o-ui-scale-delta) / 2);
+    right: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 .ui.icon.input.large > svg.icon {
-    right: calc(var(--o-ui-scale-foxtrot) / 2);
+    right: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 .ui.left.icon.input > input {
-    padding-right: var(--o-ui-scale-echo) !important;
+    padding-right: var(--o-ui-global-scale-echo) !important;
 }
 
 .ui.left.icon.input.large > input {
-    padding-right: var(--o-ui-scale-foxtrot) !important;
+    padding-right: var(--o-ui-global-scale-foxtrot) !important;
 }
 
 .ui.left.icon.input.small > input {
-    padding-left: var(--o-ui-scale-golf) !important;
-    padding-right: var(--o-ui-scale-delta) !important;
+    padding-left: var(--o-ui-global-scale-golf) !important;
+    padding-right: var(--o-ui-global-scale-delta) !important;
 }
 
 .ui.left.icon.input.large > input {
-    padding-left: var(--o-ui-scale-india) !important;
+    padding-left: var(--o-ui-global-scale-india) !important;
 }
 
 .ui.left.icon.input > svg.icon {
-    left: calc(var(--o-ui-scale-echo) / 2);
+    left: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 .ui.left.icon.input.small > svg.icon {
-    left: calc(var(--o-ui-scale-delta) / 2);
+    left: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 .ui.left.icon.input.large > svg.icon {
-    left: calc(var(--o-ui-scale-foxtrot) / 2);
+    left: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 .ui.icon.input.disabled > svg.icon  {
@@ -149,43 +149,43 @@
 .o-ui.input-clear-button {
     position: absolute;
     top: 50%;
-    right: calc(var(--o-ui-scale-hotel) / 2);
+    right: calc(var(--o-ui-global-scale-hotel) / 2);
     transform: translateY(-50%);
 }
 
 /* Input with clear button */
 .with-button .ui.input > input {
     /* 20px padding + 24px button */
-    padding-right: calc(var(--o-ui-scale-echo) + var(--o-ui-scale-foxtrot));
+    padding-right: calc(var(--o-ui-global-scale-echo) + var(--o-ui-global-scale-foxtrot));
 }
 
 .with-button .ui.input + .input-clear-button, {
-    right: calc(var(--o-ui-scale-echo) / 2);
+    right: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 .with-button .ui.input.large > input,
 .with-button .ui.left.icon.input.large > input {
-    padding-right: var(--o-ui-scale-india) !important;
+    padding-right: var(--o-ui-global-scale-india) !important;
 }
 
 /* Small */
 .with-button .ui.input.small > input {
     /* 16px padding + 24px button = 40px */
-    padding-right: calc(var(--o-ui-scale-delta) + var(--o-ui-scale-foxtrot));
+    padding-right: calc(var(--o-ui-global-scale-delta) + var(--o-ui-global-scale-foxtrot));
 }
 
 .with-button .ui.input.small + .input-clear-button {
-    right: calc(var(--o-ui-scale-delta) / 2);
+    right: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 /* Large */
 .with-button .ui.input.large > input {
     /* 24px padding + 40px button = 64px */
-    padding-right: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-hotel));
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-hotel));
 }
 
 .with-button .ui.input.large + .input-clear-button {
-    right: var(--o-ui-scale-charlie);
+    right: var(--o-ui-global-scale-charlie);
 }
 
 /* Input fix for Edge */

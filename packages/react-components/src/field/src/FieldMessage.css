@@ -9,15 +9,15 @@
 
 /* NEUTRAL */
 .o-ui-field-message-neutral {
-    color: var(--o-ui-text-4);
+    color: var(--o-ui-alias-text-4);
 }
 
 /* VALID */
-.o-ui-field-message-success {
-    color: var(--o-ui-green-500);
+.o-ui-field-message-positive {
+    color: var(--o-ui-global-botanic-500);
 }
 
 /* INVALID */
 .o-ui-field-message-error {
-    color: var(--o-ui-text-danger-1);
+    color: var(--o-ui-alias-text-negative-1);
 }

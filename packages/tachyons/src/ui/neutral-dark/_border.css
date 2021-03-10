@@ -1,119 +1,119 @@
 .b--neutral-dark-50 {
-    border-color: var(--o-ui-neutral-dark-50);
+    border-color: var(--o-ui-global-neutral-dark-50);
 }
 
 .b--neutral-dark-100 {
-    border-color: var(--o-ui-neutral-dark-100);
+    border-color: var(--o-ui-global-neutral-dark-100);
 }
 
 .b--neutral-dark-200 {
-    border-color: var(--o-ui-neutral-dark-200);
+    border-color: var(--o-ui-global-neutral-dark-200);
 }
 
 .b--neutral-dark-300 {
-    border-color: var(--o-ui-neutral-dark-300);
+    border-color: var(--o-ui-global-neutral-dark-300);
 }
 
 .b--neutral-dark-400 {
-    border-color: var(--o-ui-neutral-dark-400);
+    border-color: var(--o-ui-global-neutral-dark-400);
 }
 
 .b--neutral-dark-500 {
-    border-color: var(--o-ui-neutral-dark-500);
+    border-color: var(--o-ui-global-neutral-dark-500);
 }
 
 .b--neutral-dark-600 {
-    border-color: var(--o-ui-neutral-dark-600);
+    border-color: var(--o-ui-global-neutral-dark-600);
 }
 
 .b--neutral-dark-700 {
-    border-color: var(--o-ui-neutral-dark-700);
+    border-color: var(--o-ui-global-neutral-dark-700);
 }
 
 .b--neutral-dark-800 {
-    border-color: var(--o-ui-neutral-dark-800);
+    border-color: var(--o-ui-global-neutral-dark-800);
 }
 
 .b--neutral-dark-900 {
-    border-color: var(--o-ui-neutral-dark-900);
+    border-color: var(--o-ui-global-neutral-dark-900);
 }
 
 .hover-b--neutral-dark-50:hover {
-    border-color: var(--o-ui-neutral-dark-50);
+    border-color: var(--o-ui-global-neutral-dark-50);
 }
 
 .hover-b--neutral-dark-100:hover {
-    border-color: var(--o-ui-neutral-dark-100);
+    border-color: var(--o-ui-global-neutral-dark-100);
 }
 
 .hover-b--neutral-dark-200:hover {
-    border-color: var(--o-ui-neutral-dark-200);
+    border-color: var(--o-ui-global-neutral-dark-200);
 }
 
 .hover-b--neutral-dark-300:hover {
-    border-color: var(--o-ui-neutral-dark-300);
+    border-color: var(--o-ui-global-neutral-dark-300);
 }
 
 .hover-b--neutral-dark-400:hover {
-    border-color: var(--o-ui-neutral-dark-400);
+    border-color: var(--o-ui-global-neutral-dark-400);
 }
 
 .hover-b--neutral-dark-500:hover {
-    border-color: var(--o-ui-neutral-dark-500);
+    border-color: var(--o-ui-global-neutral-dark-500);
 }
 
 .hover-b--neutral-dark-600:hover {
-    border-color: var(--o-ui-neutral-dark-600);
+    border-color: var(--o-ui-global-neutral-dark-600);
 }
 
 .hover-b--neutral-dark-700:hover {
-    border-color: var(--o-ui-neutral-dark-700);
+    border-color: var(--o-ui-global-neutral-dark-700);
 }
 
 .hover-b--neutral-dark-800:hover {
-    border-color: var(--o-ui-neutral-dark-800);
+    border-color: var(--o-ui-global-neutral-dark-800);
 }
 
 .hover-b--neutral-dark-900:hover {
-    border-color: var(--o-ui-neutral-dark-900);
+    border-color: var(--o-ui-global-neutral-dark-900);
 }
 
 .focus-b--neutral-dark-50:focus {
-    border-color: var(--o-ui-neutral-dark-50);
+    border-color: var(--o-ui-global-neutral-dark-50);
 }
 
 .focus-b--neutral-dark-100:focus {
-    border-color: var(--o-ui-neutral-dark-100);
+    border-color: var(--o-ui-global-neutral-dark-100);
 }
 
 .focus-b--neutral-dark-200:focus {
-    border-color: var(--o-ui-neutral-dark-200);
+    border-color: var(--o-ui-global-neutral-dark-200);
 }
 
 .focus-b--neutral-dark-300:focus {
-    border-color: var(--o-ui-neutral-dark-300);
+    border-color: var(--o-ui-global-neutral-dark-300);
 }
 
 .focus-b--neutral-dark-400:focus {
-    border-color: var(--o-ui-neutral-dark-400);
+    border-color: var(--o-ui-global-neutral-dark-400);
 }
 
 .focus-b--neutral-dark-500:focus {
-    border-color: var(--o-ui-neutral-dark-500);
+    border-color: var(--o-ui-global-neutral-dark-500);
 }
 
 .focus-b--neutral-dark-600:focus {
-    border-color: var(--o-ui-neutral-dark-600);
+    border-color: var(--o-ui-global-neutral-dark-600);
 }
 
 .focus-b--neutral-dark-700:focus {
-    border-color: var(--o-ui-neutral-dark-700);
+    border-color: var(--o-ui-global-neutral-dark-700);
 }
 
 .focus-b--neutral-dark-800:focus {
-    border-color: var(--o-ui-neutral-dark-800);
+    border-color: var(--o-ui-global-neutral-dark-800);
 }
 
 .focus-b--neutral-dark-900:focus {
-    border-color: var(--o-ui-neutral-dark-900);
+    border-color: var(--o-ui-global-neutral-dark-900);
 }

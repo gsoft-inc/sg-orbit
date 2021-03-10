@@ -8,16 +8,16 @@
 
 @lineHeightOffset: 0;
 
-@paddingLeft: var(--o-ui-scale-delta);
-@paddingRight: var(--o-ui-scale-delta);
-@padding: var(--o-ui-scale-charlie) var(--o-ui-scale-echo);
+@paddingLeft: var(--o-ui-global-scale-delta);
+@paddingRight: var(--o-ui-global-scale-delta);
+@padding: var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-echo);
 
-@relativeSmall: var(--o-ui-type-scale-8);
-@relativeMedium: var(--o-ui-type-scale-7);
-@relativeLarge: var(--o-ui-type-scale-6);
+@relativeSmall: var(--o-ui-global-type-scale-8);
+@relativeMedium: var(--o-ui-global-type-scale-7);
+@relativeLarge: var(--o-ui-global-type-scale-6);
 
 @iconPadding: 4px;
-@iconMargin: var(--o-ui-scale-hotel);
+@iconMargin: var(--o-ui-global-scale-hotel);
 @iconOpacity: 1;
 
 @disabledOpacity: 1;

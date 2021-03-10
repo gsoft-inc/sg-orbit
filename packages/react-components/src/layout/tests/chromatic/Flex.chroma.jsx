@@ -184,7 +184,7 @@ stories()
                             style={{
                                 width: "50px",
                                 height: "50px",
-                                backgroundColor: `var(--o-ui-${x})`
+                                backgroundColor: `var(--o-ui-global-${x})`
                             }}
                             key={index}
                         />

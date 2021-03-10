@@ -5,33 +5,33 @@
 
 /* SIZES */
 .o-ui-icon-2xs {
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-icon-xs {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .o-ui-icon-sm {
-    width: var(--o-ui-scale-echo);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-icon-md {
-    width: var(--o-ui-scale-foxtrot);
-    height: var(--o-ui-scale-foxtrot);
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
 }
 
 .o-ui-icon-lg {
-    width: var(--o-ui-scale-golf);
-    height: var(--o-ui-scale-golf);
+    width: var(--o-ui-global-scale-golf);
+    height: var(--o-ui-global-scale-golf);
 }
 
 .o-ui-icon-xl {
-    width: var(--o-ui-scale-hotel);
-    height: var(--o-ui-scale-hotel);
+    width: var(--o-ui-global-scale-hotel);
+    height: var(--o-ui-global-scale-hotel);
 }
 
 .o-ui-icon-inherit {
@@ -41,5 +41,5 @@
 
 /* DISABLED */
 .o-ui-icon-disabled {
-    opacity: var(--o-ui-disabled-opacity);
+    opacity: var(--o-ui-global-disabled-opacity);
 }

@@ -1,119 +1,119 @@
 .fill-marine-50 {
-    fill: var(--o-ui-marine-50);
+    fill: var(--o-ui-global-marine-50);
 }
 
 .fill-marine-100 {
-    fill: var(--o-ui-marine-100);
+    fill: var(--o-ui-global-marine-100);
 }
 
 .fill-marine-200 {
-    fill: var(--o-ui-marine-200);
+    fill: var(--o-ui-global-marine-200);
 }
 
 .fill-marine-300 {
-    fill: var(--o-ui-marine-300);
+    fill: var(--o-ui-global-marine-300);
 }
 
 .fill-marine-400 {
-    fill: var(--o-ui-marine-400);
+    fill: var(--o-ui-global-marine-400);
 }
 
 .fill-marine-500 {
-    fill: var(--o-ui-marine-500);
+    fill: var(--o-ui-global-marine-500);
 }
 
 .fill-marine-600 {
-    fill: var(--o-ui-marine-600);
+    fill: var(--o-ui-global-marine-600);
 }
 
 .fill-marine-700 {
-    fill: var(--o-ui-marine-700);
+    fill: var(--o-ui-global-marine-700);
 }
 
 .fill-marine-800 {
-    fill: var(--o-ui-marine-800);
+    fill: var(--o-ui-global-marine-800);
 }
 
 .fill-marine-900 {
-    fill: var(--o-ui-marine-900);
+    fill: var(--o-ui-global-marine-900);
 }
 
 .hover-fill-marine-50:hover {
-    fill: var(--o-ui-marine-50);
+    fill: var(--o-ui-global-marine-50);
 }
 
 .hover-fill-marine-100:hover {
-    fill: var(--o-ui-marine-100);
+    fill: var(--o-ui-global-marine-100);
 }
 
 .hover-fill-marine-200:hover {
-    fill: var(--o-ui-marine-200);
+    fill: var(--o-ui-global-marine-200);
 }
 
 .hover-fill-marine-300:hover {
-    fill: var(--o-ui-marine-300);
+    fill: var(--o-ui-global-marine-300);
 }
 
 .hover-fill-marine-400:hover {
-    fill: var(--o-ui-marine-400);
+    fill: var(--o-ui-global-marine-400);
 }
 
 .hover-fill-marine-500:hover {
-    fill: var(--o-ui-marine-500);
+    fill: var(--o-ui-global-marine-500);
 }
 
 .hover-fill-marine-600:hover {
-    fill: var(--o-ui-marine-600);
+    fill: var(--o-ui-global-marine-600);
 }
 
 .hover-fill-marine-700:hover {
-    fill: var(--o-ui-marine-700);
+    fill: var(--o-ui-global-marine-700);
 }
 
 .hover-fill-marine-800:hover {
-    fill: var(--o-ui-marine-800);
+    fill: var(--o-ui-global-marine-800);
 }
 
 .hover-fill-marine-900:hover {
-    fill: var(--o-ui-marine-900);
+    fill: var(--o-ui-global-marine-900);
 }
 
 .focus-fill-marine-50:focus {
-    fill: var(--o-ui-marine-50);
+    fill: var(--o-ui-global-marine-50);
 }
 
 .focus-fill-marine-100:focus {
-    fill: var(--o-ui-marine-100);
+    fill: var(--o-ui-global-marine-100);
 }
 
 .focus-fill-marine-200:focus {
-    fill: var(--o-ui-marine-200);
+    fill: var(--o-ui-global-marine-200);
 }
 
 .focus-fill-marine-300:focus {
-    fill: var(--o-ui-marine-300);
+    fill: var(--o-ui-global-marine-300);
 }
 
 .focus-fill-marine-400:focus {
-    fill: var(--o-ui-marine-400);
+    fill: var(--o-ui-global-marine-400);
 }
 
 .focus-fill-marine-500:focus {
-    fill: var(--o-ui-marine-500);
+    fill: var(--o-ui-global-marine-500);
 }
 
 .focus-fill-marine-600:focus {
-    fill: var(--o-ui-marine-600);
+    fill: var(--o-ui-global-marine-600);
 }
 
 .focus-fill-marine-700:focus {
-    fill: var(--o-ui-marine-700);
+    fill: var(--o-ui-global-marine-700);
 }
 
 .focus-fill-marine-800:focus {
-    fill: var(--o-ui-marine-800);
+    fill: var(--o-ui-global-marine-800);
 }
 
 .focus-fill-marine-900:focus {
-    fill: var(--o-ui-marine-900);
+    fill: var(--o-ui-global-marine-900);
 }

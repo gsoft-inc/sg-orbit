@@ -53,7 +53,7 @@ export function InnerDot(props: InnerDotProps): ReactElement {
                         children && "has-label"
                     ),
                     style: {
-                        "--o-ui-dot-color": color && `var(--o-ui-${color})`
+                        "--o-ui-dot-color": color && `var(--o-ui-global-${color})`
                     },
                     as,
                     ref: forwardedRef

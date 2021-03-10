@@ -1,8 +1,8 @@
-:root {
+.o-ui-theme {
     /* LIGHT */
-    --o-ui-shadow-lightness-light: 56%;
-    --o-ui-shadow-opacity-light: .32;
+    --o-ui-global-shadow-lightness-light: 56%;
+    --o-ui-global-shadow-opacity-light: .32;
     /* DARK */
-    --o-ui-shadow-lightness-dark: 3%;
-    --o-ui-shadow-opacity-dark: 1;
+    --o-ui-global-shadow-lightness-dark: 3%;
+    --o-ui-global-shadow-opacity-dark: 1;
 }

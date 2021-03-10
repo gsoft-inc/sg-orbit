@@ -4,8 +4,8 @@
 /* hidden HTML Input should be small */
 .ui.checkbox input[type="checkbox"],
 .ui.checkbox input[type="radio"] {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 /* border-box is necessary in order for the radio to be centered everywhere */
@@ -118,11 +118,11 @@
     position: absolute;
     top: 50%;
     left: 0px;
-    width: var(--o-ui-scale-echo);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
     content: '';
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-scale-echo) var(--o-ui-scale-echo);
+    mask-size: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
     background-color: @white;
     transform: translateY(-50%);
 }
@@ -162,7 +162,7 @@
 .ui.checkbox input:checked:disabled ~ label:before {
     background: var(--o-ui-cloud-100);
     border-color: var(--o-ui-cloud-100);
-    background-size: var(--o-ui-scale-foxtrot) var(--o-ui-scale-foxtrot);
+    background-size: var(--o-ui-global-scale-foxtrot) var(--o-ui-global-scale-foxtrot);
 }
 
 /* Indeterminate */
@@ -214,8 +214,8 @@
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.small.indeterminate:not(.radio):not(.toggle)::after {
-    width: var(--o-ui-scale-bravo);
-    height: var(--o-ui-scale-bravo);
+    width: var(--o-ui-global-scale-bravo);
+    height: var(--o-ui-global-scale-bravo);
     top: 50%;
     left: 4px;
 }
@@ -228,8 +228,8 @@
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after,
 .ui.checkbox.large.indeterminate:not(.radio):not(.toggle)::after {
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
     top: 50%;
     left: 6px;
 }
@@ -318,8 +318,8 @@
 .ui.toggle.tiny.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .ui.toggle.checkbox.tiny input:checked ~ .box::after,
@@ -329,7 +329,7 @@
 
 .ui.toggle.tiny.checkbox .box:before,
 .ui.toggle.tiny.checkbox label:before {
-    width: var(--o-ui-scale-golf);
+    width: var(--o-ui-global-scale-golf);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -344,8 +344,8 @@
 .ui.toggle.small.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .ui.toggle.checkbox input:checked ~ .box::after,
@@ -365,7 +365,7 @@
 
 .ui.toggle.small.checkbox .box:before,
 .ui.toggle.small.checkbox label:before {
-    width: var(--o-ui-scale-golf);
+    width: var(--o-ui-global-scale-golf);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -384,13 +384,13 @@
 .ui.toggle.large.checkbox label:after {
     top: 50%;
     transform: translateY(-50%);
-    width: var(--o-ui-scale-echo);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .ui.toggle.large.checkbox .box:before,
 .ui.toggle.large.checkbox label:before {
-    width: var(--o-ui-scale-india);
+    width: var(--o-ui-global-scale-india);
     top: 50%;
     transform: translateY(-50%);
 }
@@ -449,7 +449,7 @@
 .ui.fitted.checkbox.with-badge .box,
 .ui.fitted.checkbox.with-icon label,
 .ui.fitted.checkbox.with-icon .box {
-    padding-left: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-alpha))!important;
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-alpha))!important;
 }
 
 .ui.fitted.toggle.checkbox.with-badge label,
@@ -463,22 +463,22 @@
 /* Making sure the checkbox have the height they deserve */
 .ui.checkbox.large,
 .ui.checkbox.large > label {
-    min-height: var(--o-ui-scale-foxtrot);
+    min-height: var(--o-ui-global-scale-foxtrot);
 }
 
 .ui.checkbox.small,
 .ui.checkbox.small > label {
-    min-height: var(--o-ui-scale-delta);
+    min-height: var(--o-ui-global-scale-delta);
 }
 
 .ui.checkbox.radio label {
     padding-left: 1.625rem!important;
-    min-height: var(--o-ui-scale-echo);
+    min-height: var(--o-ui-global-scale-echo);
 }
 
 .ui.checkbox label {
-    padding-left: calc(var(--o-ui-scale-foxtrot) + var(--o-ui-scale-alpha));
-    font-size: var(--o-ui-type-scale-7);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-alpha));
+    font-size: var(--o-ui-global-type-scale-7);
 }
 
 .ui.checkbox label span.label {
@@ -497,16 +497,16 @@
 }
 
 .ui.checkbox.small label {
-    font-size: var(--o-ui-type-scale-8);
+    font-size: var(--o-ui-global-type-scale-8);
 }
 
 .ui.checkbox.large label {
-    font-size: var(--o-ui-type-scale-6);
+    font-size: var(--o-ui-global-type-scale-6);
 }
 
 /* Large */
 .ui.checkbox.toggle.large label {
-    font-size: var(--o-ui-type-scale-5);
+    font-size: var(--o-ui-global-type-scale-5);
 }
 
 .ui.checkbox .box:hover::before,
@@ -581,13 +581,13 @@
     position: absolute;
     transform: translate3d(0.125rem, -50%, 0);
     top: 50%;
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
     z-index: 10;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
+    mask-size: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-delta);
 }
 
 /* SIZE | Small */
@@ -604,8 +604,8 @@
 
 /* SIZE | Large */
 .ui.toggle.large.checkbox::before {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
     top: 50%;
     transform: translate3d(0.25rem, -50%, 0);
 }
@@ -643,21 +643,21 @@
 
 .ui.checkbox label > .icon {
     flex-shrink: 0;
-    flex-basis: var(--o-ui-scale-echo);
+    flex-basis: var(--o-ui-global-scale-echo);
 }
 
 .ui.checkbox.with-icon .label {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 /* Small */
 .ui.checkbox.small label > .icon {
-    flex-basis: var(--o-ui-scale-delta);
+    flex-basis: var(--o-ui-global-scale-delta);
 }
 
 /* Large */
 .ui.checkbox.large label > .icon {
-    flex-basis: var(--o-ui-scale-foxtrot);
+    flex-basis: var(--o-ui-global-scale-foxtrot);
 }
 
 /* State | Read Only */
@@ -693,13 +693,13 @@
 /* LAYOUT | SIZE | Tiny | Checkbox */
 .ui.checkbox.tiny .box,
 .ui.checkbox.tiny label {
-    padding-left: var(--o-ui-scale-echo)!important;
+    padding-left: var(--o-ui-global-scale-echo)!important;
 }
 
 .ui.checkbox.tiny .box:before,
 .ui.checkbox.tiny label:before {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -708,9 +708,9 @@
 .ui.checkbox.tiny:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.tiny:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
-    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
+    mask-size: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-delta);
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */
@@ -720,14 +720,14 @@
 .ui.checkbox.small.fitted.with-icon label,
 .ui.checkbox.small.fitted.with-badge .box,
 .ui.checkbox.small.fitted.with-badge label {
-    padding-left: var(--o-ui-scale-foxtrot)!important;
-    min-height: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-global-scale-foxtrot)!important;
+    min-height: var(--o-ui-global-scale-delta);
 }
 
 .ui.checkbox.small .box:before,
 .ui.checkbox.small label:before {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -736,9 +736,9 @@
 .ui.checkbox.small:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.small:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
-    mask-size: var(--o-ui-scale-delta) var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
+    mask-size: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-delta);
 }
 
 /* LAYOUT | SIZE | Large | Checkbox */
@@ -749,13 +749,13 @@
 .ui.checkbox.large.fitted.with-badge .box,
 .ui.checkbox.large.fitted.with-badge label {
     padding-left: 2rem!important;
-    min-height: var(--o-ui-scale-foxtrot);
+    min-height: var(--o-ui-global-scale-foxtrot);
 }
 
 .ui.checkbox.large .box:before,
 .ui.checkbox.large label:before {
-    width: var(--o-ui-scale-foxtrot);
-    height: var(--o-ui-scale-foxtrot);
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
 }
 
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked ~ .box:after,
@@ -764,23 +764,23 @@
 .ui.checkbox.large:not(.radio):not(.toggle) input:checked:focus ~ label:after,
 .ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ .box:after,
 .ui.checkbox.large:not(.radio):not(.toggle).focus input:checked ~ label:after {
-    width: var(--o-ui-scale-foxtrot);
-    height: var(--o-ui-scale-foxtrot);
-    mask-size: var(--o-ui-scale-foxtrot) var(--o-ui-scale-foxtrot);
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
+    mask-size: var(--o-ui-global-scale-foxtrot) var(--o-ui-global-scale-foxtrot);
 }
 
 /* LAYOUT | SIZE | Small | Checkbox */
 .ui.radio.checkbox.small .box:after,
 .ui.radio.checkbox.small label:after {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 /* LAYOUT | SIZE | Large | Checkbox */
 .ui.radio.checkbox.large .box:after,
 .ui.radio.checkbox.large label:after {
-    width: var(--o-ui-scale-foxtrot);
-    height: var(--o-ui-scale-foxtrot);
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
 }
 
 /* Additions */
@@ -790,12 +790,12 @@
 
 .ui.checkbox.fitted.indeterminate.large,
 .ui.checkbox.fitted.indeterminate.large label {
-    min-height: var(--o-ui-scale-foxtrot);
+    min-height: var(--o-ui-global-scale-foxtrot);
 }
 
 /* IN CHECKBOX */
 .ui.checkbox.with-badge .badge {
-    margin-left: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
 }
 
 /* FITTED TOGGLE */

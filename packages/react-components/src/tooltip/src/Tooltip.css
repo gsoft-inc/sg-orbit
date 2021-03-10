@@ -1,19 +1,19 @@
 .o-ui-tooltip {
-    background-color: var(--o-ui-background-1);
-    border-radius: var(--o-ui-rounded-border-radius);
-    box-shadow: var(--o-ui-shadow-100);
-    border: 1px solid var(--o-ui-border-2);
-    padding: var(--o-ui-scale-charlie);
+    background-color: var(--o-ui-alias-background-1);
+    border-radius: var(--o-ui-alias-rounded-border-radius);
+    box-shadow: var(--o-ui-global-shadow-100);
+    border: 1px solid var(--o-ui-alias-border-2);
+    padding: var(--o-ui-global-scale-charlie);
     max-width: 325px;
 }
 
 /* We need a .o-ui-tooltip-content class */
 /* LEFT ICON */
 .o-ui-tooltip .o-ui-icon {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 /* RIGHT ICON */
 .o-ui-tooltip .o-ui-text + .o-ui-icon  {
-    margin-left: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
 }

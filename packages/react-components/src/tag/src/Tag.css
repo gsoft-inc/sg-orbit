@@ -1,12 +1,12 @@
 .o-ui-tag {
-    --o-ui-padding-sm: var(--o-ui-scale-delta);
-    --o-ui-padding-md: var(--o-ui-scale-echo);
+    --o-ui-padding-sm: var(--o-ui-global-scale-delta);
+    --o-ui-padding-md: var(--o-ui-global-scale-echo);
     border: none;
     display: inline-flex;
     align-items: center;
     line-height: 1;
-    color: var(--o-ui-text-1);
-    border-radius: var(--o-ui-pill-border-radius);
+    color: var(--o-ui-alias-text-1);
+    border-radius: var(--o-ui-global-pill-border-radius);
     transition: all 0.1s linear;
     width: max-content;
     height: max-content;
@@ -28,15 +28,15 @@ button.o-ui-tag:after,
 a.o-ui-tag:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    top: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
-    border-radius: var(--o-ui-pill-border-radius);
-    transition: var(--o-ui-focus-ring-transition);
+    box-shadow: 0 0 0 2px var(--o-ui-global-focus-ring-color);
+    border-radius: var(--o-ui-global-pill-border-radius);
+    transition: var(--o-ui-global-focus-ring-transition);
 }
 
 /* AS ANCHOR / BUTTON | STATE | FOCUS */
@@ -50,27 +50,27 @@ a:not([disabled]).o-ui-tag.o-ui-tag-focus:after {
 /* AS BUTTON | STATES */
 /* AS BUTTON | STATES | HOVER */
 button.o-ui-tag:hover {
-    background-color: var(--o-ui-background-2);
+    background-color: var(--o-ui-alias-background-2);
 }
 
 /* AS ANCHOR */
 /* AS ANCHOR | STATES */
 /* AS ANCHOR | STATES | HOVER */
 a.o-ui-tag:hover {
-    background-color: var(--o-ui-background-2);
+    background-color: var(--o-ui-alias-background-2);
 }
 
 /* SIZE */
 /* SIZE | SMALL */
 .o-ui-tag-sm {
-    min-height: var(--o-ui-scale-golf);
+    min-height: var(--o-ui-global-scale-golf);
     padding: 0 var(--o-ui-padding-sm);
 }
 
 /* SIZE */
 /* SIZE | MEDIUM */
 .o-ui-tag-md {
-    min-height: var(--o-ui-scale-hotel);
+    min-height: var(--o-ui-global-scale-hotel);
     padding: 0 var(--o-ui-padding-md);
 }
 
@@ -82,7 +82,7 @@ a.o-ui-tag:hover {
 
 /* SOLID */
 .o-ui-tag-solid {
-    background-color: var(--o-ui-background-3);
+    background-color: var(--o-ui-alias-background-3);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES */
@@ -91,12 +91,12 @@ button.o-ui-tag-solid:hover,
 a.o-ui-tag-solid:hover,
 button.o-ui-tag-solid.o-ui-tag-hover,
 a.o-ui-tag-solid.o-ui-tag-hover {
-    background-color: var(--o-ui-background-2);
+    background-color: var(--o-ui-alias-background-2);
 }
 
 button.o-ui-tag:hover,
 a.o-ui-tag:hover {
-    background-color: var(--o-ui-background-2);
+    background-color: var(--o-ui-alias-background-2);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | ACTIVE */
@@ -104,7 +104,7 @@ button.o-ui-tag-solid:active,
 a.o-ui-tag-solid:active
 button.o-ui-tag-solid.o-ui-tag-active,
 a.o-ui-tag-solid.o-ui-tag-active {
-    background-color: var(--o-ui-background-2-hover);
+    background-color: var(--o-ui-alias-background-2-hover);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | FOCUS */
@@ -121,7 +121,7 @@ button.o-ui-tag-solid.o-ui-tag-disabled,
 a.o-ui-tag-solid[disabled],
 a.o-ui-tag-solid.o-ui-tag-disabled {
     cursor: not-allowed;
-    opacity: var(--o-ui-disabled-opacity);
+    opacity: var(--o-ui-global-disabled-opacity);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
@@ -133,7 +133,7 @@ a.o-ui-tag-solid[disabled]:hover,
 a.o-ui-tag-solid.o-ui-tag-disabled:hover,
 a.o-ui-tag-solid[disabled].o-ui-tag-hover,
 a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
-    background-color: var(--o-ui-background-3);
+    background-color: var(--o-ui-global-background-3);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
@@ -150,8 +150,8 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
 
 /* OUTLINE */
 .o-ui-tag-outline {
-    background-color: var(--o-ui-background-1);
-    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
+    background-color: var(--o-ui-alias-background-1);
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES */
@@ -161,7 +161,7 @@ a.o-ui-tag-outline:hover,
 button.o-ui-tag-outline.o-ui-tag-hover,
 a.o-ui-tag-outline.o-ui-tag-hover {
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--o-ui-border-1-hover) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-hover) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | ACTIVE */
@@ -170,7 +170,7 @@ a.o-ui-tag-outline:active,
 button.o-ui-tag-outline.o-ui-tag-active,
 a.o-ui-tag-outline.o-ui-tag-active {
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS */
@@ -180,7 +180,7 @@ button.o-ui-tag-outline.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-focus {
     outline: none;
     background-color: transparent;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-border-1) inset;
+    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-sm) var(--o-ui-alias-border-1) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & ACTIVE */
@@ -192,7 +192,7 @@ button.o-ui-tag-outline:focus:active,
 button.o-ui-tag-outline.o-ui-tag-focus:active,
 button.o-ui-tag-outline:focus.o-ui-tag-active,
 button.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active {
-    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER */
@@ -204,7 +204,7 @@ button.o-ui-tag-outline:hover:focus,
 button.o-ui-tag-outline.o-ui-tag-hover:focus,
 button.o-ui-tag-outline:hover.o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus {
-    box-shadow: 0 0 0 1px var(--o-ui-border-1-hover) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-hover) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER & ACTIVE */
@@ -224,7 +224,7 @@ button.o-ui-tag-outline.o-ui-tag-active:hover:focus,
 button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus,
 button.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus{
-    box-shadow: 0 0 0 1px var(--o-ui-border-1-active) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */
@@ -232,7 +232,7 @@ button.o-ui-tag-outline[disabled],
 a.o-ui-tag-outline[disabled],
 button.o-ui-tag-outline.o-ui-tag-disabled,
 a.o-ui-tag-outline.o-ui-tag-disabled {
-    opacity: var(--o-ui-disabled-opacity);
+    opacity: var(--o-ui-global-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -245,7 +245,7 @@ button.o-ui-tag-outline[disabled].o-ui-tag-focus,
 a.o-ui-tag-outline[disabled].o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-background-2) inset;
+    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-sm) var(--o-ui-alias-background-2) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
@@ -257,18 +257,18 @@ button.o-ui-tag-outline[disabled].o-ui-tag-hover,
 a.o-ui-tag-outline[disabled].o-ui-tag-hover,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover,
 a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
-    box-shadow: 0 0 0 1px var(--o-ui-border-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1) inset;
     cursor: not-allowed;
 }
 
 /* CONTENT | DOT */
 .o-ui-tag-dot {
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* CONTENT | ICON */
 .o-ui-tag-icon {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 /* CONTENT | ICON | SMALL */
@@ -299,7 +299,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 
 /* CONTENT | REMOVE BUTTON */
 .o-ui-tag-remove-button {
-    margin-left: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
 }
 
 /* CONTENT | REMOVE BUTTON | SMALL */

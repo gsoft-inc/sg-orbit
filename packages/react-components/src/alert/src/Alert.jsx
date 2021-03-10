@@ -18,7 +18,7 @@ const propTypes = {
     /**
      * The style to use.
      */
-    tone: oneOf(["info", "success", "warning", "critical"]),
+    tone: oneOf(["info", "positive", "warning", "critical"]),
     /**
      * Called when the dismiss button is clicked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -37,7 +37,7 @@ const propTypes = {
 
 const Role = {
     info: "status",
-    success: "status",
+    positive: "status",
     warning: "alert",
     critical: "alert"
 };
@@ -154,14 +154,14 @@ Alert.displayName = "Alert";
 
 const variations = [
     { tone: "info", icon: <NotificationIcon /> },
-    { tone: "success", icon: <CheckIcon /> },
+    { tone: "positive", icon: <CheckIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
     { tone: "critical", icon: <InfoIcon /> }
 ];
 
 const [
     InfoAlert,
-    SuccessAlert,
+    PositiveAlert,
     WarningAlert,
     CriticalAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
@@ -223,13 +223,13 @@ AlertTemplate.propTypes = {
 };
 
 InfoAlert.displayName = "InfoAlert";
-SuccessAlert.displayName = "SuccessAlert";
+PositiveAlert.displayName = "PositiveAlert";
 WarningAlert.displayName = "WarningAlert";
 CriticalAlert.displayName = "CriticalAlert";
 
 export {
     InfoAlert,
-    SuccessAlert,
+    PositiveAlert,
     WarningAlert,
     CriticalAlert
 };

@@ -92,6 +92,7 @@ export function ThemeProvider({
                     rest,
                     {
                         className: mergeClasses(
+                            "o-ui-theme",
                             `o-ui-${theme}-theme`,
                             `o-ui-${colorScheme}-color-scheme`
                         )

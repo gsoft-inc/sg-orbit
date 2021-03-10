@@ -7,9 +7,9 @@
 
 .ui.button,
 .ui.buttons .button {
-    min-height: var(--o-ui-scale-hotel);
+    min-height: var(--o-ui-global-scale-hotel);
     display: inline-flex;
-    border-radius: calc(var(--o-ui-scale-hotel) / 2);
+    border-radius: calc(var(--o-ui-global-scale-hotel) / 2);
     align-items: center;
     justify-content: center;
     padding: @verticalPadding 0 (@verticalPadding + @shadowOffset);
@@ -30,8 +30,8 @@ a.ui.button {
 .ui.button.with-icon.micro,
 .ui.micro.buttons .button,
 .ui.micro.with-icon.buttons .button {
-    min-height: var(--o-ui-scale-delta);
-    border-radius: calc(var(--o-ui-scale-delta) / 2);
+    min-height: var(--o-ui-global-scale-delta);
+    border-radius: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 /* Micro */
@@ -40,19 +40,19 @@ a.ui.button {
 .ui.micro.button {
     font-size: 0.625rem;
     padding: 0.125rem 0 0.125rem;
-    padding-left: var(--o-ui-scale-bravo);
-    padding-right: var(--o-ui-scale-bravo)
+    padding-left: var(--o-ui-global-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo)
 }
 
 /* Micro | With Icon  */
 .ui.micro.buttons .button.with-icon,
 .ui.micro.button.with-icon {
-    padding-left: var(--o-ui-scale-bravo);
-    padding-right: var(--o-ui-scale-bravo);
+    padding-left: var(--o-ui-global-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo);
 }
 
 .ui.micro.with-icon.fitted.button {
-    padding-left: var(--o-ui-scale-bravo);
+    padding-left: var(--o-ui-global-scale-bravo);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Mini */
@@ -60,8 +60,8 @@ a.ui.button {
 .ui.button.with-icon.mini,
 .ui.mini.buttons .button,
 .ui.mini.with-icon.buttons .button {
-    min-height: var(--o-ui-scale-echo);
-    border-radius: calc(var(--o-ui-scale-echo) / 2);
+    min-height: var(--o-ui-global-scale-echo);
+    border-radius: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 /* Mini */
@@ -70,17 +70,17 @@ a.ui.button {
 .ui.mini.button {
     font-size: 0.75rem;
     padding: 0.125rem 0 0.125rem;
-    padding-left: var(--o-ui-scale-bravo);
-    padding-right: var(--o-ui-scale-bravo)
+    padding-left: var(--o-ui-global-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo)
 }
 
 .ui.button.mini.with-right-icon {
-    padding-right: var(--o-ui-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo);
 }
 
 .ui.mini.with-icon.fitted.button,
 .ui.mini.with-icon.button {
-    padding-left: var(--o-ui-scale-bravo);
+    padding-left: var(--o-ui-global-scale-bravo);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Tiny */
@@ -88,8 +88,8 @@ a.ui.button {
 .ui.button.with-icon.tiny,
 .ui.tiny.buttons .button,
 .ui.tiny.with-icon.buttons .button {
-    min-height: var(--o-ui-scale-foxtrot);
-    border-radius: calc(var(--o-ui-scale-foxtrot) / 2);
+    min-height: var(--o-ui-global-scale-foxtrot);
+    border-radius: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Small */
@@ -97,8 +97,8 @@ a.ui.button {
 .ui.button.with-icon.small,
 .ui.small.buttons .button,
 .ui.small.with-icon.buttons .button {
-    min-height: var(--o-ui-scale-golf);
-    border-radius: calc(var(--o-ui-scale-golf) / 2);
+    min-height: var(--o-ui-global-scale-golf);
+    border-radius: calc(var(--o-ui-global-scale-golf) / 2);
 }
 
 /* LAYOUT | Height/Radius | Sizes | Large */
@@ -106,8 +106,8 @@ a.ui.button {
 .ui.button.with-icon.large,
 .ui.large.buttons .button,
 .ui.large.with-icon.buttons .button {
-    min-height: var(--o-ui-scale-india);
-    border-radius: calc(var(--o-ui-scale-india) / 2);
+    min-height: var(--o-ui-global-scale-india);
+    border-radius: calc(var(--o-ui-global-scale-india) / 2);
 }
 
 /* LAYOUT | Padding | Sizes | Tiny */
@@ -115,8 +115,8 @@ a.ui.button {
 .ui.tiny.buttons .button {
     padding-top: 0.125em;
     padding-bottom: 0.125em;
-    padding-left: var(--o-ui-scale-charlie);
-    padding-right: var(--o-ui-scale-charlie);
+    padding-left: var(--o-ui-global-scale-charlie);
+    padding-right: var(--o-ui-global-scale-charlie);
 }
 
 /* LAYOUT | Padding | Sizes | Small */
@@ -124,15 +124,15 @@ a.ui.button {
 .ui.small.buttons .button {
     padding-top: 0.375rem;
     padding-bottom: 0.375rem;
-    padding-left: var(--o-ui-scale-delta);
-    padding-right: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-global-scale-delta);
+    padding-right: var(--o-ui-global-scale-delta);
 }
 
 /* LAYOUT | Padding | Sizes | Medium */
 .ui.button,
 .ui.buttons .button {
-    padding-left: var(--o-ui-scale-echo);
-    padding-right: var(--o-ui-scale-echo);
+    padding-left: var(--o-ui-global-scale-echo);
+    padding-right: var(--o-ui-global-scale-echo);
 }
 
 /* LAYOUT | Padding | Sizes | Large */
@@ -140,8 +140,8 @@ a.ui.button {
 .ui.large.buttons .button {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    padding-left: var(--o-ui-scale-foxtrot);
-    padding-right: var(--o-ui-scale-foxtrot);
+    padding-left: var(--o-ui-global-scale-foxtrot);
+    padding-right: var(--o-ui-global-scale-foxtrot);
 }
 
 /* LAYOUT | Circular */
@@ -151,8 +151,8 @@ a.ui.button {
 .ui.button.with-icon.fitted.circular {
     padding: 0!important;
     font-size: @typeScale6;
-    min-height: var(--o-ui-scale-hotel);
-    min-width: var(--o-ui-scale-hotel);
+    min-height: var(--o-ui-global-scale-hotel);
+    min-width: var(--o-ui-global-scale-hotel);
 }
 
 .ui.button.circular.compact,
@@ -165,24 +165,24 @@ a.ui.button {
 .ui.button.micro.circular,
 .ui.button.with-icon.micro.circular {
     font-size: @typeScale9;
-    min-height: var(--o-ui-scale-delta);
-    min-width: var(--o-ui-scale-delta);
+    min-height: var(--o-ui-global-scale-delta);
+    min-width: var(--o-ui-global-scale-delta);
 }
 
 /* LAYOUT | Circular/Mini */
 .ui.button.mini.circular,
 .ui.button.with-icon.mini.circular {
     font-size: @typeScale9;
-    min-height: var(--o-ui-scale-echo);
-    min-width: var(--o-ui-scale-echo);
+    min-height: var(--o-ui-global-scale-echo);
+    min-width: var(--o-ui-global-scale-echo);
 }
 
 /* LAYOUT | Circular/Tiny */
 .ui.button.tiny.circular,
 .ui.button.with-icon.tiny.circular {
     font-size: @typeScale8;
-    min-height: var(--o-ui-scale-foxtrot);
-    min-width: var(--o-ui-scale-foxtrot);
+    min-height: var(--o-ui-global-scale-foxtrot);
+    min-width: var(--o-ui-global-scale-foxtrot);
 }
 
 /* LAYOUT | Circular/Tiny|Compact */
@@ -195,8 +195,8 @@ a.ui.button {
 .ui.button.small.circular,
 .ui.button.with-icon.small.circular {
     font-size: @typeScale7;
-    min-height: var(--o-ui-scale-golf);
-    min-width: var(--o-ui-scale-golf);
+    min-height: var(--o-ui-global-scale-golf);
+    min-width: var(--o-ui-global-scale-golf);
 }
 
 /* LAYOUT | Circular/Small|Compact */
@@ -209,8 +209,8 @@ a.ui.button {
 .ui.button.large.circular,
 .ui.button.with-icon.large.circular {
     font-size: @typeScale6;
-    min-height: var(--o-ui-scale-india);
-    min-width: var(--o-ui-scale-india);
+    min-height: var(--o-ui-global-scale-india);
+    min-width: var(--o-ui-global-scale-india);
 }
 
 /* LAYOUT | Circular/Large|Compact */
@@ -278,29 +278,29 @@ a.ui.button {
 /* CONTENT | Compact | Layout | Padding */
 .ui.button.compact.tiny,
 .ui.tiny.buttons .button.compact {
-    padding-left: calc(var(--o-ui-scale-charlie) / 2);
-    padding-right: calc(var(--o-ui-scale-charlie) / 2);
+    padding-left: calc(var(--o-ui-global-scale-charlie) / 2);
+    padding-right: calc(var(--o-ui-global-scale-charlie) / 2);
 }
 
 /* CONTENT | Compact | Layout | Padding | Sizes | Small */
 .ui.button.compact.small,
 .ui.small.buttons .button.compact {
-    padding-left: calc(var(--o-ui-scale-delta) / 2);
-    padding-right: calc(var(--o-ui-scale-delta) / 2);
+    padding-left: calc(var(--o-ui-global-scale-delta) / 2);
+    padding-right: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 /* CONTENT | Compact | Layout | Padding | Sizes | Medium */
 .ui.button.compact,
 .ui.buttons .button.compact {
-    padding-left: calc(var(--o-ui-scale-echo) / 2);
-    padding-right: calc(var(--o-ui-scale-echo) / 2);
+    padding-left: calc(var(--o-ui-global-scale-echo) / 2);
+    padding-right: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 /* CONTENT | Compact | Layout | Padding | Sizes | Large */
 .ui.button.compact.large,
 .ui.large.buttons .button.compact {
-    padding-left: calc(var(--o-ui-scale-foxtrot) / 2);
-    padding-right: calc(var(--o-ui-scale-foxtrot) / 2);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) / 2);
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 .ui.button:focus,
@@ -417,7 +417,7 @@ a.ui.button {
 .ui.button.positive.hover.focus,
 .ui.buttons.positive .button:hover:focus,
 .ui.buttons.positive .button.hover.focus {
-    background-color: var(--o-ui-success-900);
+    background-color: var(--o-ui-positive-900);
 }
 
 /* SKIN | Positive | STATE | Active */
@@ -425,7 +425,7 @@ a.ui.button {
 .ui.buttons.positive .button:active,
 .ui.button.positive.active,
 .ui.buttons.positive .button.active {
-    background-color: var(--o-ui-success-900);
+    background-color: var(--o-ui-positive-900);
 }
 
 .ui.button.basic:focus,
@@ -514,157 +514,157 @@ a.ui.button {
 /* CONTENT | With Icon | Layout | Padding */
 .ui.button.with-icon.tiny,
 .ui.tiny.buttons .button.with-icon {
-    padding-left: calc(var(--o-ui-scale-charlie) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-charlie) - 2px);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Small */
 .ui.button.with-icon.small,
 .ui.small.buttons .button.with-icon {
-    padding-left: calc(var(--o-ui-scale-delta) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-delta) - 2px);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Medium */
 .ui.button.with-icon,
 .ui.buttons .button.with-icon {
-    padding-left: calc(var(--o-ui-scale-echo) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-echo) - 2px);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Large */
 .ui.button.with-icon.large,
 .ui.large.buttons .button.with-icon {
-    padding-left: calc(var(--o-ui-scale-foxtrot) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) - 2px);
 }
 
 /* Compact */
 /* CONTENT | With Icon | Layout | Padding */
 .ui.button.with-icon.compact.tiny,
 .ui.tiny.buttons .button.with-icon.compact {
-    padding-left: calc(var(--o-ui-scale-charlie) / 2);
+    padding-left: calc(var(--o-ui-global-scale-charlie) / 2);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Small */
 .ui.button.with-icon.compact.small,
 .ui.small.buttons .button.with-icon.compact {
-    padding-left: calc(var(--o-ui-scale-delta) / 2);
+    padding-left: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Medium */
 .ui.button.with-icon.compact,
 .ui.buttons .button.with-icon.compact {
-    padding-left: calc(var(--o-ui-scale-echo) / 2);
+    padding-left: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 /* CONTENT | With Icon | Layout | Padding | Sizes | Large */
 .ui.button.with-icon.compact.large,
 .ui.large.buttons .button.with-icon.compact {
-    padding-left: calc(var(--o-ui-scale-foxtrot) / 2);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding */
 .ui.button.with-right-icon.tiny,
 .ui.tiny.buttons .button.with-right-icon {
-    padding-left: var(--o-ui-scale-charlie);
-    padding-right: calc(var(--o-ui-scale-charlie) - 2px);
+    padding-left: var(--o-ui-global-scale-charlie);
+    padding-right: calc(var(--o-ui-global-scale-charlie) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Small */
 .ui.button.with-right-icon.small,
 .ui.small.buttons .button.with-right-icon {
-    padding-left: var(--o-ui-scale-delta);
-    padding-right: calc(var(--o-ui-scale-delta) - 2px);
+    padding-left: var(--o-ui-global-scale-delta);
+    padding-right: calc(var(--o-ui-global-scale-delta) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
 .ui.button.with-right-icon,
 .ui.buttons .button.with-right-icon {
-    padding-left: var(--o-ui-scale-echo);
-    padding-right: calc(var(--o-ui-scale-echo) - 2px);
+    padding-left: var(--o-ui-global-scale-echo);
+    padding-right: calc(var(--o-ui-global-scale-echo) - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Large */
 .ui.button.with-right-icon.large,
 .ui.large.buttons .button.with-right-icon {
-    padding-left: var(--o-ui-scale-foxtrot);
-    padding-right: calc(var(--o-ui-scale-foxtrot) - 2px);
+    padding-left: var(--o-ui-global-scale-foxtrot);
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) - 2px);
 }
 
 /* Compact */
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Tiny */
 .ui.button.with-right-icon.compact.tiny,
 .ui.tiny.buttons .button.with-right-icon.compact {
-    padding-left: calc(var(--o-ui-scale-charlie) / 2);
-    padding-right: calc(var(--o-ui-scale-charlie) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-charlie) / 2);
+    padding-right: calc(var(--o-ui-global-scale-charlie) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Small */
 .ui.button.with-right-icon.compact.small,
 .ui.small.buttons .button.with-right-icon.compact {
-    padding-left: calc(var(--o-ui-scale-delta) / 2);
-    padding-right: calc(var(--o-ui-scale-delta) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-delta) / 2);
+    padding-right: calc(var(--o-ui-global-scale-delta) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Medium */
 .ui.button.with-right-icon.compact,
 .ui.buttons .button.with-right-icon.compact {
-    padding-left: calc(var(--o-ui-scale-echo) / 2);
-    padding-right: calc(var(--o-ui-scale-echo) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-echo) / 2);
+    padding-right: calc(var(--o-ui-global-scale-echo) / 2 - 2px);
 }
 
 /* CONTENT | With Icon Right | Layout | Padding | Sizes | Large */
 .ui.button.with-right-icon.compact.large,
 .ui.large.buttons .button.with-right-icon.compact {
-    padding-left: calc(var(--o-ui-scale-foxtrot) / 2);
-    padding-right: calc(var(--o-ui-scale-foxtrot) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) / 2);
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) / 2 - 2px);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
 .ui.with-icon.fitted.button.tiny,
 .ui.tiny.buttons .fitted.button {
-    padding-left: var(--o-ui-scale-charlie);
+    padding-left: var(--o-ui-global-scale-charlie);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
 .ui.with-icon.fitted.button.small,
 .ui.small.buttons .fitted.button {
-    padding-left: var(--o-ui-scale-delta);
+    padding-left: var(--o-ui-global-scale-delta);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
 .ui.with-icon.fitted.button,
 .ui.buttons .fitted.button {
-    padding-left: var(--o-ui-scale-echo);
+    padding-left: var(--o-ui-global-scale-echo);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
 .ui.with-icon.fitted.button.large,
 .ui.large.buttons .fitted.button {
-    padding-left: var(--o-ui-scale-foxtrot);
+    padding-left: var(--o-ui-global-scale-foxtrot);
 }
 
 /* Compact */
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Tiny */
 .ui.with-icon.fitted.button.tiny.compact,
 .ui.tiny.buttons .fitted.button.compact {
-    padding-left: calc(var(--o-ui-scale-charlie) / 2);
+    padding-left: calc(var(--o-ui-global-scale-charlie) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Small */
 .ui.with-icon.fitted.button.small.compact,
 .ui.small.buttons .fitted.button.compact {
-    padding-left: calc(var(--o-ui-scale-delta) / 2);
+    padding-left: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Medium */
 .ui.with-icon.fitted.button.compact,
 .ui.buttons.compact .fitted.button {
-    padding-left: calc(var(--o-ui-scale-echo) / 2);
-    padding-right: calc(var(--o-ui-scale-echo) / 2);
+    padding-left: calc(var(--o-ui-global-scale-echo) / 2);
+    padding-right: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 /* CONTENT | With Icon/Without Text | Layout | Padding | Sizes | Large */
 .ui.with-icon.fitted.button.large.compact,
 .ui.large.buttons .fitted.button.compact {
-    padding-left: calc(var(--o-ui-scale-foxtrot) / 2);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 /* CONTENT | With Icon | Layout | Margin */
@@ -690,83 +690,83 @@ a.ui.button {
 /* CONTENT | With Left Badge | Layout | Margin */
 .ui.button.with-left-badge .o-ui.badge,
 .ui.buttons.with-left-badge .o-ui.badge {
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding */
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny */
 .ui.button.with-left-badge.tiny,
 .ui.tiny.buttons .button.with-left-badge {
-    padding-left: calc(var(--o-ui-scale-charlie) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-charlie) - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Small */
 .ui.button.with-left-badge.small,
 .ui.small.buttons .button.with-left-badge {
-    padding-left: calc(var(--o-ui-scale-delta) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-delta) - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium */
 .ui.button.with-left-badge,
 .ui.buttons .button.with-left-badge {
-    padding-left: calc(var(--o-ui-scale-echo) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-echo) - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Large */
 .ui.button.with-left-badge.large,
 .ui.large.buttons .button.with-left-badge {
-    padding-left: calc(var(--o-ui-scale-foxtrot) - 2px);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) - 2px);
 }
 
 /* Compact */
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Tiny | Compact */
 .ui.button.with-left-badge.tiny.compact,
 .ui.tiny.buttons .button.with-left-badge.compact {
-    padding-left: calc(var(--o-ui-scale-charlie) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-charlie) / 2 - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Small | Compact */
 .ui.button.with-left-badge.small.compact,
 .ui.small.buttons .button.with-left-badge.compact {
-    padding-left: calc(var(--o-ui-scale-delta) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-delta) / 2 - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Medium | Compact */
 .ui.button.with-left-badge.compact,
 .ui.buttons .button.with-left-badge.compact {
-    padding-left: calc(var(--o-ui-scale-echo) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-echo) / 2 - 2px);
 }
 
 /* CONTENT | With Left Badge | Layout | Padding | Sizes | Large | Compact */
 .ui.button.with-left-badge.large.compact,
 .ui.large.buttons .button.with-left-badge.compact {
-    padding-left: calc(var(--o-ui-scale-foxtrot) / 2 - 2px);
+    padding-left: calc(var(--o-ui-global-scale-foxtrot) / 2 - 2px);
 }
 
 /* CONTENT | With Right Badge | Layout | Margin */
 .ui.button.with-right-badge .o-ui.badge,
 .ui.buttons.with-right-badge .o-ui.badge {
-    margin-left: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
 }
 
 .ui.button.with-right-badge.tiny,
 .ui.buttons.with-right-badge.tiny .button {
-    padding-right: calc(var(--o-ui-scale-charlie) / 2);
+    padding-right: calc(var(--o-ui-global-scale-charlie) / 2);
 }
 
 .ui.button.with-right-badge.small,
 .ui.buttons.with-right-badge.small .button {
-    padding-right: calc(var(--o-ui-scale-delta) / 2);
+    padding-right: calc(var(--o-ui-global-scale-delta) / 2);
 }
 
 .ui.button.with-right-badge,
 .ui.buttons.with-right-badge .button {
-    padding-right: calc(var(--o-ui-scale-echo) / 2);
+    padding-right: calc(var(--o-ui-global-scale-echo) / 2);
 }
 
 .ui.button.with-right-badge.large,
 .ui.buttons.with-right-badge.large .button {
-    padding-right: calc(var(--o-ui-scale-foxtrot) / 2);
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 /* SKIN | Basic */
@@ -1580,57 +1580,57 @@ a.ui.button {
 /* Setting border radius for group of buttons */
 /* LAYOUT | Sizes | Medium */
 .ui.buttons .button:first-child {
-    border-top-left-radius: calc(var(--o-ui-scale-hotel) / 2);
-    border-bottom-left-radius: calc(var(--o-ui-scale-hotel) / 2);
+    border-top-left-radius: calc(var(--o-ui-global-scale-hotel) / 2);
+    border-bottom-left-radius: calc(var(--o-ui-global-scale-hotel) / 2);
 }
 
 .ui.buttons .button:last-child {
-    border-top-right-radius: calc(var(--o-ui-scale-hotel) / 2);
-    border-bottom-right-radius: calc(var(--o-ui-scale-hotel) / 2);
+    border-top-right-radius: calc(var(--o-ui-global-scale-hotel) / 2);
+    border-bottom-right-radius: calc(var(--o-ui-global-scale-hotel) / 2);
 }
 
 /* LAYOUT | Sizes | Tiny */
 .ui.buttons.tiny .button:first-child {
-    border-top-left-radius: calc(var(--o-ui-scale-foxtrot) / 2);
-    border-bottom-left-radius: calc(var(--o-ui-scale-foxtrot) / 2);
+    border-top-left-radius: calc(var(--o-ui-global-scale-foxtrot) / 2);
+    border-bottom-left-radius: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 .ui.buttons.tiny .button:last-child {
-    border-top-right-radius: calc(var(--o-ui-scale-foxtrot) / 2);
-    border-bottom-right-radius: calc(var(--o-ui-scale-foxtrot) / 2);
+    border-top-right-radius: calc(var(--o-ui-global-scale-foxtrot) / 2);
+    border-bottom-right-radius: calc(var(--o-ui-global-scale-foxtrot) / 2);
 }
 
 /* LAYOUT | Sizes | Small */
 .ui.buttons.small .button:first-child {
-    border-top-left-radius: calc(var(--o-ui-scale-golf) / 2);
-    border-bottom-left-radius: calc(var(--o-ui-scale-golf) / 2);
+    border-top-left-radius: calc(var(--o-ui-global-scale-golf) / 2);
+    border-bottom-left-radius: calc(var(--o-ui-global-scale-golf) / 2);
 }
 
 .ui.buttons.small .button:last-child {
-    border-top-right-radius: calc(var(--o-ui-scale-golf) / 2);
-    border-bottom-right-radius: calc(var(--o-ui-scale-golf) / 2);
+    border-top-right-radius: calc(var(--o-ui-global-scale-golf) / 2);
+    border-bottom-right-radius: calc(var(--o-ui-global-scale-golf) / 2);
 }
 
 /* LAYOUT | Sizes | Large */
 .ui.buttons.large .button:first-child {
-    border-top-left-radius: calc(var(--o-ui-scale-india) / 2);
-    border-bottom-left-radius: calc(var(--o-ui-scale-india) / 2);
+    border-top-left-radius: calc(var(--o-ui-global-scale-india) / 2);
+    border-bottom-left-radius: calc(var(--o-ui-global-scale-india) / 2);
 }
 
 .ui.buttons.large .button:last-child {
-    border-top-right-radius: calc(var(--o-ui-scale-india) / 2);
-    border-bottom-right-radius: calc(var(--o-ui-scale-india) / 2);
+    border-top-right-radius: calc(var(--o-ui-global-scale-india) / 2);
+    border-bottom-right-radius: calc(var(--o-ui-global-scale-india) / 2);
 }
 
 /* LAYOUT | Sizes | Large */
 .ui.buttons.large .button:first-child {
-    border-top-left-radius: calc(var(--o-ui-scale-india) / 2);
-    border-bottom-left-radius: calc(var(--o-ui-scale-india) / 2);
+    border-top-left-radius: calc(var(--o-ui-global-scale-india) / 2);
+    border-bottom-left-radius: calc(var(--o-ui-global-scale-india) / 2);
 }
 
 .ui.buttons.large .button:last-child {
-    border-top-right-radius: calc(var(--o-ui-scale-india) / 2);
-    border-bottom-right-radius: calc(var(--o-ui-scale-india) / 2);
+    border-top-right-radius: calc(var(--o-ui-global-scale-india) / 2);
+    border-bottom-right-radius: calc(var(--o-ui-global-scale-india) / 2);
 }
 
 /* CONTENT / STATE / Loading */

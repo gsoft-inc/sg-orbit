@@ -1,5 +1,5 @@
 .hover-b--transparent:hover{
-    border-color: var(--transparent);
+    border-color: var(--o-ui-global-transparent);
 }
 
 .hover-b--inherit:hover {
@@ -7,7 +7,7 @@
 }
 
 .focus-b--transparent:focus {
-    border-color: var(--transparent);
+    border-color: var(--o-ui-global-transparent);
 }
 
 .focus-b--inherit:focus {

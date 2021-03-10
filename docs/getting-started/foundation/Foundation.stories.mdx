@@ -45,14 +45,14 @@ A foundation CSS variable can be accessed in a CSS class:
 
 ```css
 .button {
-    color: var(--o-ui-primary-50);
+    color: var(--o-ui-alias-primary-50);
 }
 ```
 
 In a `style` attribute:
 
 ```html
-<button style="color: var(--o-ui-primary-50)" type="button">
+<button style="color: var(--o-ui-alias-primary-50)" type="button">
     Click me!
 </button>
 ```
@@ -60,7 +60,7 @@ In a `style` attribute:
 In JavaScript (the computed variable value is available as a string):
 
 ```javascript
-window.getComputedStyle(document.documentElement).getPropertyValue("--o-ui-primary-50");
+window.getComputedStyle(document.documentElement).getPropertyValue("--o-ui-alias-primary-50");
 ```
 
 ## Override variables
@@ -69,17 +69,17 @@ Once installed the default values of the CSS foundation can be customized to you
 
 ```css
 :root {
-    --o-ui-primary-50: #c63a0c;
-    --o-ui-apricot-50: #c63a0c;
-    --o-ui-overcast-50: #c63a0c;
-    --o-ui-desktop-50: #c63a0c;
+    --o-ui-alias-primary-50: #c63a0c;
+    --o-ui-global-apricot-50: #c63a0c;
+    --o-ui-global-overcast-50: #c63a0c;
+    --o-ui-global-desktop-50: #c63a0c;
 }
 ```
 
 If you need to use a dynamic value or to scope an update to a specific element you can override a variable with a `style` attribute:
 
 ```html
-<button style="--o-ui-primary-50: #c63a0c" type="button">
+<button style="--o-ui-alias-primary-50: #c63a0c" type="button">
     Click me!
 </button>
 ```
@@ -87,7 +87,7 @@ If you need to use a dynamic value or to scope an update to a specific element y
 At last resort, you can override a variable in JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
 
 ```javascript
-document.body.style.setProperty("--o-ui-primary-50", "#c63a0c");
+document.body.style.setProperty("--o-ui-alias-primary-50", "#c63a0c");
 ```
 
 > Please be aware that customization would no longuer benefinits from updates and could break.

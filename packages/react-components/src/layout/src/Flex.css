@@ -1,8 +1,11 @@
+.o-ui-theme {
+    --o-ui-flex-gap: normal;
+}
+
 /* FLEX */
 .o-ui-flex {
-    --o-ui-gap: normal;
     display: flex;
-    gap: var(--o-ui-gap);
+    gap: var(--o-ui-flex-gap);
 }
 
 /* FLEX | INLINE */
@@ -12,20 +15,20 @@
 
 /* FLEX | NO GAP | ROW */
 .o-ui-flex-no-gap.o-ui-flex-row > *:not(:last-child) {
-    margin-right: var(--o-ui-gap);
+    margin-right: var(--o-ui-flex-gap);
 }
 
 .o-ui-flex-no-gap.o-ui-flex-row.o-ui-flex-reverse > *:not(:last-child) {
-    margin-left: var(--o-ui-gap);
+    margin-left: var(--o-ui-flex-gap);
 }
 
 /* FLEX | NO GAP | COLUMN */
 .o-ui-flex-no-gap.o-ui-flex-column > *:not(:last-child) {
-    margin-bottom: var(--o-ui-gap);
+    margin-bottom: var(--o-ui-flex-gap);
 }
 
 .o-ui-flex-no-gap.o-ui-flex-column.o-ui-flex-reverse > *:not(:last-child) {
-    margin-top: var(--o-ui-gap);
+    margin-top: var(--o-ui-flex-gap);
 }
 
 /* FLEX | FLUID */
