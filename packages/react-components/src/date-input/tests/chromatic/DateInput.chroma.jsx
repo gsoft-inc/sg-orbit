@@ -20,4 +20,7 @@ stories()
             <DateInput defaultValue={new Date(2021, 0, 1)} placeholder="dd/mm/yyyy" />
             <DateInput defaultValue={new Date(2021, 10, 21)} placeholder="dd/mm/yyyy" />
         </>
+    )
+    .add("min & max date", () =>
+        <DateInput minDate={new Date(2021, 0, 1)} maxDate={new Date(2023, 0, 1)} placeholder="dd/mm/yyyy" onChange={(event, newValue) => { console.log(newValue); }} />
     );

@@ -8,7 +8,6 @@ import { useMaskedInput } from "./useMaskedInput";
 
 /*
 TODO:
-    - value & defaultValue should be object (or Date);
     - mix & max date
 
     - try an inline date range with a button / select for presets
@@ -102,6 +101,8 @@ function toString(date) {
 export function InnerDateInput({
     value: valueProp,
     defaultValue,
+    minDate,
+    maxDate,
     onChange,
     wrapperProps,
     as = "input",
@@ -112,14 +113,14 @@ export function InnerDateInput({
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, "", {
         onChange: useCallback((newValue, { isInitial, isControlled }) => {
-            const rawValue = newValue ? toString(newValue) : "";
-
-            // Keep input value in sync with the initial or controlled value.
+            // Keep input value in sync with the initial or controlled value and keep the value string form to faciliate internal manipulation.
             if (isInitial || isControlled) {
-                setInputValue(rawValue);
-            }
+                const rawValue = newValue ? toString(newValue) : "";
 
-            return rawValue;
+                setInputValue(rawValue);
+
+                return rawValue;
+            }
         }, [setInputValue])
     });
 
@@ -135,34 +136,50 @@ export function InnerDateInput({
     }, [value, inputValueRef, setInputValue]);
 
     const commit = useCallback((event, rawValue) => {
-        let newDate = null;
+        if (value !== rawValue) {
+            let newDate = null;
 
-        if (rawValue !== "") {
-            if (!isNaN(Date.parse(rawValue))) {
-                newDate = toDate(rawValue);
-            } else {
-                reset();
+            if (rawValue !== "") {
+                if (!isNaN(Date.parse(rawValue))) {
+                    newDate = toDate(rawValue);
+                } else {
+                    reset();
+
+                    return;
+                }
             }
-        }
 
-        if (value !== newDate) {
             if (!isNil(onChange)) {
                 onChange(event, newDate);
             }
 
-            setValue(newDate);
+            setValue(rawValue);
         }
-    }, [onChange, value, setValue, reset]);
+
+        setInputValue(rawValue, true);
+    }, [onChange, value, setValue, setInputValue, reset]);
 
     // TODO: Consider adding a defer before commit. If doing so might need to add an additional function layer to include the chars count in the defer. deferreddCommit.
     const handleChange = useEventCallback(event => {
         const newValue = event.target.value;
 
-        if (newValue === "" || newValue.length === InputMask.length) {
+        if (newValue === "") {
             commit(event, newValue);
-        }
+        } else if (newValue.length === InputMask.length) {
+            if (!isNil(minDate) || !isNil(maxDate)) {
+                const newDate = toDate(newValue);
 
-        setInputValue(newValue, true);
+                if (minDate > newDate) {
+                    commit(event, toString(minDate));
+                } else if (maxDate < newDate) {
+                    commit(event, toString(maxDate));
+                } else {
+                    commit(event, newValue);
+                }
+            }
+        } else {
+            setInputValue(newValue, true);
+        }
     });
 
     // TODO: If adding a defer, don't forget to flush the defer before comparing the value of a reset.
@@ -197,54 +214,6 @@ export function InnerDateInput({
             )}
         />
     );
-
-    // const [inputValue, setValue] = useControllableState(value, defaultValue, "");
-
-    // const handleChange = useEventCallback(event => {
-    //     // console.log(event.target.value);
-
-    //     const newValue = event.target.value;
-
-    //     // if (!isNil(onChange)) {
-    //     //     if ()
-    //     // }
-
-    //     setValue(newValue);
-    // });
-
-    // return (
-    //     <InputMask
-    //         {...mergeProps(
-    //             rest,
-    //             {
-    //                 value: inputValue,
-    //                 onChange: handleChange,
-    //                 mask: MaskFormat,
-    //                 maskChar: MaskChar,
-    //                 ref: forwardedRef
-    //             }
-    //         )}
-    //     >
-    //         {maskProps => (
-    //             <TextInput
-    //                 {...mergeProps(
-    //                     rest,
-    //                     {
-    //                         icon: <CalendarIcon />,
-    //                         wrapperProps: mergeProps(
-    //                             wrapperProps ?? {},
-    //                             {
-    //                                 className: "o-ui-date-input"
-    //                             }
-    //                         ),
-    //                         as
-    //                     },
-    //                     maskProps
-    //                 )}
-    //             />
-    //         )}
-    //     </InputMask>
-    // );
 }
 
 InnerDateInput.propTypes = propTypes;
