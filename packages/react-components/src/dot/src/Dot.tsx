@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { useMemo } from "react";
 
 export interface InnerDotProps {
     /**
@@ -43,6 +44,29 @@ export function InnerDot(props: InnerDotProps): ReactElement {
         </Text>
     );
 
+    function colorStyle(color): any {
+        return useMemo(() => {
+            let dotCSSDeclaration = {};
+
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": color
+                };
+                console.log(dotCSSDeclaration);
+            } else if (color.startsWith("--")) {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": `var(${color})`
+                };
+            } else {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": `var(--o-ui-global-${color})`
+                };
+            }
+
+            return dotCSSDeclaration;
+        }, [color]);
+    }
+
     return (
         <Box
             {...mergeProps(
@@ -52,9 +76,8 @@ export function InnerDot(props: InnerDotProps): ReactElement {
                         "o-ui-dot",
                         children && "has-label"
                     ),
-                    style: {
-                        "--o-ui-dot-color": color && `var(--o-ui-global-${color})`
-                    },
+                    style:
+                        color && colorStyle(color),
                     as,
                     ref: forwardedRef
                 }
