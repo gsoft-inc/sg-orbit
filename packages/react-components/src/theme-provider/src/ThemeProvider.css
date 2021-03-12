@@ -1,3 +1,4 @@
+/* stylelint-disable max-line-length */
 /* GLOBAL */
 .o-ui-theme {
     /* Radiuses */
@@ -268,3 +269,4 @@
     --o-ui-alias-primary-800: var(--o-ui-global-desktop-800);
     --o-ui-alias-primary-900: var(--o-ui-global-desktop-900);
 }
+/* stylelint-enable max-line-length */
