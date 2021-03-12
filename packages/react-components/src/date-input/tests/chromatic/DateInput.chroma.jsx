@@ -96,7 +96,7 @@ stories()
             <DateInput value={value} onDateChange={handleDateChange} />
         );
     })
-    .add("TEMP controlled min date", () => {
+    .add("TEMP controlled max date", () => {
         const [value, setValue] = useState(null);
 
         const handleDateChange = useCallback((event, newValue) => {
@@ -105,7 +105,7 @@ stories()
         }, [setValue]);
 
         return (
-            <DateInput minDate={new Date(2021, 0, 1)} value={value} onDateChange={handleDateChange} />
+            <DateInput maxDate={new Date(2020, 0, 1)} value={value} onDateChange={handleDateChange} />
         );
     })
     .add("TEMP test value", () =>

@@ -98,29 +98,39 @@ export function useDateInput({
         }
     }, [value, inputValueRef, setInputValue]);
 
-    const commit = useCallback((event, rawValue) => {
-        if (toNumericString(value) !== rawValue) {
-            let newDate = null;
+    const commitValue = useCallback((event, newDate) => {
+        if (!isNil(onDateChange)) {
+            onDateChange(event, newDate);
+        }
 
-            if (rawValue !== "") {
-                newDate = toDate(rawValue);
-
-                if (isNil(newDate)) {
-                    reset();
-
-                    return;
-                }
-            }
-
-            if (!isNil(onDateChange)) {
-                onDateChange(event, newDate);
-            }
-
+        if (value !== newDate) {
             setValue(newDate);
         }
 
-        setInputValue(rawValue, true);
-    }, [onDateChange, value, setValue, setInputValue, reset]);
+        setInputValue(toNumericString(newDate), true);
+    }, [onDateChange, value, setValue, setInputValue]);
+
+    const commit = useCallback((event, rawValue) => {
+        if (rawValue === "") {
+            commitValue(event, null);
+        } else {
+            let newDate = toDate(rawValue);
+
+            if (isNil(newDate)) {
+                newDate = new Date();
+            }
+
+            if (!isNil(minDate) && minDate > newDate) {
+                newDate = minDate;
+            }
+
+            if ( !isNil(maxDate) && maxDate < newDate) {
+                newDate = maxDate;
+            }
+
+            commitValue(event, newDate);
+        }
+    }, [minDate, maxDate, commitValue]);
 
     const handleChange = useChainedEventCallback(onChange, event => {
         const newValue = event.target.value;
@@ -128,19 +138,7 @@ export function useDateInput({
         if (newValue === "") {
             commit(event, newValue);
         } else if (newValue.length === InputMask.length) {
-            let adjustedValue = newValue;
-
-            if (!isNil(minDate) || !isNil(maxDate)) {
-                const newDate = toDate(newValue);
-
-                if (minDate > newDate) {
-                    adjustedValue = toNumericString(minDate);
-                } else if (maxDate < newDate) {
-                    adjustedValue = toNumericString(maxDate);
-                }
-            }
-
-            commit(event, adjustedValue);
+            commit(event, newValue);
         } else {
             setInputValue(newValue, true);
         }
