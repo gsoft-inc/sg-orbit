@@ -3,8 +3,8 @@ import { isNumber } from "lodash";
 
 export function useInput({
     cssModule: module,
-    value,
     id,
+    value,
     placeholder,
     required,
     validationState,

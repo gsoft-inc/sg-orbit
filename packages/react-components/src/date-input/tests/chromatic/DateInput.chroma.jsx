@@ -1,6 +1,7 @@
 import { DateInput } from "@react-components/date-input";
 import { Inline, Stack } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { useCallback, useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/DateInput")
@@ -83,4 +84,27 @@ stories()
             <DateInput wrapperProps={{ className: "border-red" }} />
             <DateInput wrapperProps={{ style: { border: "1px solid red" } }} />
         </Inline>
-    );
+    )
+    .add("TEMP controlled", () => {
+        const [value, setValue] = useState(null);
+
+        const handleDateChange = useCallback((event, newValue) => {
+            setValue(newValue);
+        }, [setValue]);
+
+        return (
+            <DateInput value={value} onDateChange={handleDateChange} />
+        );
+    })
+    .add("TEMP controlled min date", () => {
+        const [value, setValue] = useState(null);
+
+        const handleDateChange = useCallback((event, newValue) => {
+            console.log(newValue);
+            setValue(newValue);
+        }, [setValue]);
+
+        return (
+            <DateInput minDate={new Date(2021, 0, 1)} value={value} onDateChange={handleDateChange} />
+        );
+    });
