@@ -114,7 +114,7 @@ const Spacing = [
     "--o-ui-global-scale-mike"
 ];
 
-const isGapSupported: boolean = undefined;
+let globalIsGapSupported: boolean = undefined;
 
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap: boolean) {
@@ -123,8 +123,8 @@ function useIsGapSupported(noGap: boolean) {
             return false;
         }
 
-        if (!isNil(isGapSupported)) {
-            return isGapSupported;
+        if (!isNil(globalIsGapSupported)) {
+            return globalIsGapSupported;
         }
 
         const element = document.createElement("DIV");
@@ -142,7 +142,9 @@ function useIsGapSupported(noGap: boolean) {
 
         document.body.removeChild(element);
 
-        return width === 3;
+        globalIsGapSupported = width === 3;
+
+        return globalIsGapSupported;
     }, [noGap]);
 }
 
