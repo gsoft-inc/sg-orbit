@@ -7,6 +7,7 @@ import { IconButton } from "../../button";
 import { Item } from "../../placeholders";
 import { Menu, MenuTrigger } from "../../menu";
 import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
+import { augmentElement } from "../../../dist";
 import { cssModule, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { forwardRef, useCallback, useState } from "react";
 import { isNil } from "lodash";
@@ -18,8 +19,8 @@ TODO:
     - hidden field pour form
     - required?
 
+    - go to next field automatically
     - start date cannot be > end date. When it happens, autofix
-    - presets
     - roving focus
     - support toolbar
 */
@@ -186,6 +187,41 @@ function InnerDateRangeInput({
         }
     });
 
+    const inputMarkup = (
+        <Box
+            className={cssModule(
+                "o-ui-date-range-input",
+                validationState,
+                fluid && "fluid",
+                disabled && "disabled",
+                readOnly && "readonly",
+                active && "active",
+                hasFocus && "focus",
+                hover && "hover"
+            )}
+            role="presentation"
+        >
+            <CalendarIcon className="o-ui-date-range-input-icon" />
+            <DateInput
+                value={startDate}
+                placeholder={placeholder}
+                onDateChange={handleStartDateChange}
+                minDate={minDate}
+                onFocus={handleDateFocus}
+                onBlur={handleDateBlur}
+            />
+            <Divider orientation="vertical" className="o-ui-date-range-input-divider" />
+            <DateInput
+                value={endDate}
+                placeholder={placeholder}
+                onDateChange={handleEndDateChange}
+                maxDate={maxDate}
+                onFocus={handleDateFocus}
+                onBlur={handleDateBlur}
+            />
+        </Box>
+    );
+
     const presetsMarkup = !isNil(presets) && (
         <MenuTrigger onSelect={handleSelectPreset}>
             <IconButton
@@ -207,53 +243,23 @@ function InnerDateRangeInput({
         </MenuTrigger>
     );
 
-    // TODO: je switch le "rest" selon mon main container
-    // TODO: fluid
-
-    return (
-        <Box className="o-ui-date-range-input-group">
-            <Box
-                {...mergeProps(
-                    rest,
-                    {
-                        className: cssModule(
-                            "o-ui-date-range-input",
-                            validationState,
-                            fluid && "fluid",
-                            disabled && "disabled",
-                            readOnly && "readonly",
-                            active && "active",
-                            hasFocus && "focus",
-                            hover && "hover"
-                        ),
-                        role: "presentation",
-                        as,
-                        ref: forwardedRef
-                    }
-                )}
-            >
-                <CalendarIcon className="o-ui-date-range-input-icon" />
-                <DateInput
-                    value={startDate}
-                    placeholder={placeholder}
-                    onDateChange={handleStartDateChange}
-                    minDate={minDate}
-                    onFocus={handleDateFocus}
-                    onBlur={handleDateBlur}
-                />
-                <Divider orientation="vertical" className="o-ui-date-range-input-divider" />
-                <DateInput
-                    value={endDate}
-                    placeholder={placeholder}
-                    onDateChange={handleEndDateChange}
-                    maxDate={maxDate}
-                    onFocus={handleDateFocus}
-                    onBlur={handleDateBlur}
-                />
-            </Box>
+    const container = !isNil(presets) ? (
+        <Box
+            className="o-ui-date-range-input-group"
+            role="presentation"
+        >
+            {inputMarkup}
             {presetsMarkup}
         </Box>
-    );
+    ) : inputMarkup;
+
+    return augmentElement(container, mergeProps(
+        rest,
+        {
+            as,
+            ref: forwardedRef
+        }
+    ));
 }
 
 InnerDateRangeInput.propTypes = propTypes;

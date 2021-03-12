@@ -84,30 +84,4 @@ stories()
             <DateInput wrapperProps={{ className: "border-red" }} />
             <DateInput wrapperProps={{ style: { border: "1px solid red" } }} />
         </Inline>
-    )
-    .add("TEMP controlled", () => {
-        const [value, setValue] = useState(null);
-
-        const handleDateChange = useCallback((event, newValue) => {
-            setValue(newValue);
-        }, [setValue]);
-
-        return (
-            <DateInput value={value} onDateChange={handleDateChange} />
-        );
-    })
-    .add("TEMP controlled max date", () => {
-        const [value, setValue] = useState(null);
-
-        const handleDateChange = useCallback((event, newValue) => {
-            console.log(newValue);
-            setValue(newValue);
-        }, [setValue]);
-
-        return (
-            <DateInput maxDate={new Date(2020, 0, 1)} value={value} onDateChange={handleDateChange} />
-        );
-    })
-    .add("TEMP test value", () =>
-        <DateInput defaultValue={new Date(1970, 0, 5)} />
     );
