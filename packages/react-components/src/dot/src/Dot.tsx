@@ -44,29 +44,6 @@ export function InnerDot(props: InnerDotProps) {
         </Text>
     );
 
-    function colorStyle(color): any {
-        return useMemo(() => {
-            let dotCSSDeclaration = {};
-
-            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": color
-                };
-                console.log(dotCSSDeclaration);
-            } else if (color.startsWith("--")) {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": `var(${color})`
-                };
-            } else {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": `var(--o-ui-global-${color})`
-                };
-            }
-
-            return dotCSSDeclaration;
-        }, [color]);
-    }
-
     return (
         <Box
             {...mergeProps(
@@ -77,7 +54,7 @@ export function InnerDot(props: InnerDotProps) {
                         children && "has-label"
                     ),
                     style:
-                        color && colorStyle(color),
+                        useColorStyle(color),
                     as,
                     ref: forwardedRef
                 }
@@ -86,6 +63,30 @@ export function InnerDot(props: InnerDotProps) {
             {labelMarkup}
         </Box>
     );
+}
+
+function useColorStyle(color: string) {
+    return useMemo(() => {
+        let dotCSSDeclaration = {};
+
+        if (color) {
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": color
+                };
+            } else if (color.startsWith("--")) {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": `var(${color})`
+                };
+            } else {
+                dotCSSDeclaration = {
+                    "--o-ui-dot-color": `var(--o-ui-global-${color})`
+                };
+            }
+        }
+
+        return dotCSSDeclaration;
+    }, [color]);
 }
 
 export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (
