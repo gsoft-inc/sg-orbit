@@ -18,6 +18,7 @@ stories()
             <NumberInput placeholder="Age" />
             <NumberInput loading placeholder="Age" />
             <NumberInput disabled placeholder="Age" />
+            <NumberInput readOnly placeholder="Age" />
             <div>
                 <NumberInput fluid placeholder="Age" />
             </div>
@@ -49,6 +50,7 @@ stories()
             <NumberInput icon={<EditIcon />} placeholder="Age" />
             <NumberInput loading icon={<EditIcon />} placeholder="Age" />
             <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
+            <NumberInput readOnly icon={<EditIcon />} placeholder="Age" />
             <div>
                 <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
             </div>
@@ -66,9 +68,6 @@ stories()
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
     )
-    .add("readonly", () =>
-        <NumberInput readOnly placeholder="Age" />
-    )
     .add("transparent", () =>
         <NumberInput variant="transparent" placeholder="Age" />
     )
@@ -77,6 +76,9 @@ stories()
     )
     .add("when disabled do not autofocus", () =>
         <NumberInput autoFocus disabled placeholder="Age" />
+    )
+    .add("when readonly do not autofocus", () =>
+        <NumberInput autoFocus readOnly placeholder="Age" />
     )
     .add("autofocus with delay", () =>
         <NumberInput autoFocus={50} placeholder="Age" />

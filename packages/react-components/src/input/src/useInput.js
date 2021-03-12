@@ -24,7 +24,7 @@ export function useInput({
     const inputRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(inputRef, {
-        isDisabled: !autoFocus,
+        isDisabled: !autoFocus || disabled || readOnly,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 

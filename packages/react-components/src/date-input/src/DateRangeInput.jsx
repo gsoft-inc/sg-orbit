@@ -1,16 +1,16 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { CalendarIcon, FilterIcon, VerticalDotsIcon } from "../../icons";
+import { CalendarIcon, VerticalDotsIcon } from "../../icons";
+import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
-import { IconButton } from "../../button";
 import { Item } from "../../placeholders";
 import { Menu, MenuTrigger } from "../../menu";
 import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { augmentElement } from "../../../dist";
-import { cssModule, mergeProps, useControllableState, useEventCallback } from "../../shared";
-import { forwardRef, useCallback, useState } from "react";
-import { isNil } from "lodash";
+import { cssModule, mergeProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { forwardRef, useCallback, useRef, useState } from "react";
+import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";
 
 /*
@@ -19,7 +19,6 @@ TODO:
     - hidden field pour form
     - required?
 
-    - go to next field automatically
     - start date cannot be > end date. When it happens, autofix
     - roving focus
     - support toolbar
@@ -107,16 +106,29 @@ const DateInput = forwardRef(({
     placeholder,
     minDate,
     maxDate,
+    onChange,
     onDateChange,
+    autoFocus,
+    disabled,
+    readOnly,
     ...rest
 }, ref) => {
+    const inputRef = useMergedRefs(ref);
+
+    useAutoFocus(inputRef, {
+        isDisabled: !autoFocus || disabled || readOnly,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
     const dateProps = useDateInput({
         value,
         placeholder,
         minDate,
         maxDate,
+        onChange,
         onDateChange,
-        forwardedRef: ref
+        autoFocus,
+        forwardedRef: inputRef
     });
 
     return (
@@ -127,7 +139,9 @@ const DateInput = forwardRef(({
                     placeholder,
                     className: "o-ui-date-range-input-date-input",
                     type: "text",
-                    ref
+                    disabled,
+                    readOnly,
+                    ref: inputRef
                 },
                 dateProps
             )}
@@ -162,12 +176,39 @@ function InnerDateRangeInput({
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
 
+    const startDateRef = useRef();
+    const endDateRef = useRef();
+
+    // TODO: missing something can't call until we have 2 dates
+    const applyDates = useCallback((event, newStartDate, newEndDate) => {
+        if (startDate !== newStartDate || endDate !== newEndDate) {
+            if (!isNil(onDatesChange)) {
+                onDatesChange(event, newStartDate, newEndDate);
+            }
+
+            setStartDate(newStartDate);
+            setEndDate(newEndDate);
+        }
+    }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
+
     const handleStartDateChange = useEventCallback((event, newDate) => {
-        setStartDate(newDate);
+        applyDates(event, newDate, endDate);
+
+        if (!isNil(newDate)) {
+            // Jump to end date.
+            endDateRef?.current.focus();
+        }
+    });
+
+    const handleEndDateInputValueChange = useEventCallback(event => {
+        if (event.target.value === "") {
+            // Jump to start date.
+            startDateRef?.current.focus();
+        }
     });
 
     const handleEndDateChange = useEventCallback((event, newDate) => {
-        setEndDate(newDate);
+        applyDates(event, startDate, newDate);
     });
 
     const handleDateFocus = useEventCallback(() => {
@@ -182,10 +223,15 @@ function InnerDateRangeInput({
         const preset = presets[key];
 
         if (!isNil(preset)) {
-            setStartDate(preset.startDate);
-            setEndDate(preset.endDate);
+            applyDates(event, preset.startDate, preset.endDate);
         }
     });
+
+    const handleClearDates = useEventCallback(event => {
+        applyDates(event, null, null);
+    });
+
+    const hasValue = !isNil(startDate) || !isNil(endDate);
 
     const inputMarkup = (
         <Box
@@ -205,20 +251,35 @@ function InnerDateRangeInput({
             <DateInput
                 value={startDate}
                 placeholder={placeholder}
-                onDateChange={handleStartDateChange}
                 minDate={minDate}
+                onDateChange={handleStartDateChange}
+                autoFocus={autoFocus}
                 onFocus={handleDateFocus}
                 onBlur={handleDateBlur}
+                disabled={disabled}
+                readOnly={readOnly}
+                ref={startDateRef}
             />
             <Divider orientation="vertical" className="o-ui-date-range-input-divider" />
             <DateInput
                 value={endDate}
                 placeholder={placeholder}
-                onDateChange={handleEndDateChange}
                 maxDate={maxDate}
+                onChange={handleEndDateInputValueChange}
+                onDateChange={handleEndDateChange}
                 onFocus={handleDateFocus}
                 onBlur={handleDateBlur}
+                disabled={disabled}
+                readOnly={readOnly}
+                ref={endDateRef}
             />
+            {hasValue && !disabled && !readOnly && <CrossButton
+                onClick={handleClearDates}
+                size="xs"
+                condensed
+                className="o-ui-date-range-input-clear-button"
+                aria-label="Clear dates"
+            />}
         </Box>
     );
 

@@ -13,6 +13,7 @@ export function createTestSuite(element, stories) {
                 <TextArea element={element} />
                 <TextArea loading element={element} />
                 <TextArea disabled element={element} />
+                <TextArea readOnly element={element} />
                 <div>
                     <TextArea fluid element={element}></TextArea>
                 </div>
@@ -29,6 +30,7 @@ export function createTestSuite(element, stories) {
                 <TextArea placeholder="Where to?" element={element} />
                 <TextArea loading placeholder="Where to?" element={element} />
                 <TextArea disabled placeholder="Where to?" element={element} />
+                <TextArea readOnly placeholder="Where to?" element={element} />
                 <div>
                     <TextArea fluid placeholder="Where to?" element={element}></TextArea>
                 </div>
@@ -44,6 +46,8 @@ export function createTestSuite(element, stories) {
             <Stack>
                 <TextArea defaultValue="SpaceX will win the race!" element={element} />
                 <TextArea loading defaultValue="SpaceX will win the race!" element={element} />
+                <TextArea disabled defaultValue="SpaceX will win the race!" element={element} />
+                <TextArea readOnly defaultValue="SpaceX will win the race!" element={element} />
                 <Inline>
                     <TextArea placeholder="Where to?" defaultValue="SpaceX will win the race!" element={element} />
                     <TextArea value="SpaceX will win the race!" element={element} />
@@ -64,6 +68,7 @@ export function createTestSuite(element, stories) {
                 <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" element={element} />
                 <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
+                <TextArea readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
                 <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" element={element} />
             </Stack>
         )

@@ -17,6 +17,7 @@ stories()
         <Stack>
             <DateRangeInput />
             <DateRangeInput disabled></DateRangeInput>
+            <DateRangeInput readOnly placeholder="dd/mm/yyyy"></DateRangeInput>
             <div>
                 <DateRangeInput fluid></DateRangeInput>
             </div>
@@ -29,6 +30,7 @@ stories()
         <Stack>
             <DateRangeInput placeholder="dd/mm/yyyy" />
             <DateRangeInput disabled placeholder="dd/mm/yyyy"></DateRangeInput>
+            <DateRangeInput readOnly placeholder="dd/mm/yyyy"></DateRangeInput>
             <div>
                 <DateRangeInput fluid placeholder="dd/mm/yyyy"></DateRangeInput>
             </div>
@@ -36,6 +38,35 @@ stories()
                 <DateRangeInput fluid placeholder="dd/mm/yyyy"></DateRangeInput>
             </div>
         </Stack>
+    )
+    .add("value", () =>
+        <Stack>
+            <DateRangeInput defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy" />
+            <DateRangeInput disabled defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy"></DateRangeInput>
+            <DateRangeInput readOnly defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy"></DateRangeInput>
+            <Inline>
+                <DateRangeInput defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy" />
+                <DateRangeInput startDate={new Date(1970, 0, 5)} endDate={new Date(1971, 3, 10)} />
+            </Inline>
+            <div>
+                <DateRangeInput fluid defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy"></DateRangeInput>
+            </div>
+            <div className="w-10">
+                <DateRangeInput fluid defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} placeholder="dd/mm/yyyy"></DateRangeInput>
+            </div>
+        </Stack>
+    )
+    .add("autofocus", () =>
+        <DateRangeInput autoFocus placeholder="dd/mm/yyyy" />
+    )
+    .add("when disabled do not autofocus", () =>
+        <DateRangeInput disabled autoFocus />
+    )
+    .add("when readonly do not autofocus", () =>
+        <DateRangeInput readOnly autoFocus />
+    )
+    .add("autofocus with delay", () =>
+        <DateRangeInput autoFocus={50} />
     )
     .add("presets", () =>
         <DateRangeInput

@@ -35,6 +35,9 @@ stories()
     .add("when disabled do not autofocus", () =>
         <TextArea disabled autoFocus />
     )
+    .add("when readOnly do not autofocus", () =>
+        <TextArea disabled autoFocus />
+    )
     .add("autofocus with delay", () =>
         <TextArea autoFocus={50} />
     )

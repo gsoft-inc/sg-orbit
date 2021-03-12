@@ -98,7 +98,7 @@ export function useDateInput({
         }
     }, [value, inputValueRef, setInputValue]);
 
-    const commitValue = useCallback((event, newDate) => {
+    const applyValue = useCallback((event, newDate) => {
         if (!isNil(onDateChange)) {
             onDateChange(event, newDate);
         }
@@ -112,7 +112,7 @@ export function useDateInput({
 
     const commit = useCallback((event, rawValue) => {
         if (rawValue === "") {
-            commitValue(event, null);
+            applyValue(event, null);
         } else {
             let newDate = toDate(rawValue);
 
@@ -128,9 +128,9 @@ export function useDateInput({
                 newDate = maxDate;
             }
 
-            commitValue(event, newDate);
+            applyValue(event, newDate);
         }
-    }, [minDate, maxDate, commitValue]);
+    }, [minDate, maxDate, applyValue]);
 
     const handleChange = useChainedEventCallback(onChange, event => {
         const newValue = event.target.value;

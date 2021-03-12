@@ -20,6 +20,9 @@ stories()
     .add("when disabled do not autofocus", () =>
         <TextInput disabled autoFocus />
     )
+    .add("when readonly do not autofocus", () =>
+        <TextInput readOnly autoFocus />
+    )
     .add("autofocus with delay", () =>
         <TextInput autoFocus={50} />
     )

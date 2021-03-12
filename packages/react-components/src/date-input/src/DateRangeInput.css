@@ -4,8 +4,11 @@
     --o-ui-background-color: var(--o-ui-background-2);
     display: inline-flex;
     align-items: center;
+    position: relative;
     transition: var(--o-ui-focus-ring-transition);
     padding: 0 var(--o-ui-padding);
+    /* For clear button */
+    padding-right: var(--o-ui-scale-golf);
     border-radius: var(--o-ui-rounded-border-radius);
     border: 1px solid var(--o-ui-border-color);
     color: var(--o-ui-text-1);
@@ -58,6 +61,12 @@
     flex-shrink: 0;
     align-self: auto;
     height: 25px !important;
+}
+
+/* CLEAR BUTTON */
+.o-ui-date-range-input-clear-button {
+    position: absolute;
+    right: var(--o-ui-scale-alpha);
 }
 
 /* GROUP */
