@@ -1,7 +1,7 @@
 import "./Divider.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 
@@ -30,7 +30,7 @@ export function InnerDivider({
     children,
     forwardedRef,
     ...rest
-}: InnerDividerProps): ReactElement {
+}: InnerDividerProps) {
     const labelMarkup = children && (
         <Text className="o-ui-divider-label">
             {children}

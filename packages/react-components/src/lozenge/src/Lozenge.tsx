@@ -41,7 +41,7 @@ export function InnerLozenge({
     children,
     forwardedRef,
     ...rest
-}: InnerLozengeProps): ReactElement {
+}: InnerLozengeProps) {
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, text } = useSlots(children, useMemo(() => ({

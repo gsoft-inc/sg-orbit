@@ -8,7 +8,7 @@ import keyboardKey from "keyboard-key";
 // Sadly, specifying "search" doesn't work for us since it renders the dropdown as a "combolist" instead of a "listbox" and it cause a
 // whole new set of problems.
 export class MonkeyPatchDropdown extends Dropdown {
-    selectItemOnEnter = (e: any): void => {
+    selectItemOnEnter = (e: any) => {
         const { search } = this.props;
 
         if (keyboardKey.getCode(e) !== keyboardKey.Enter) {

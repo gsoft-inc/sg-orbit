@@ -1,15 +1,15 @@
 import { Orientation } from "../../layout";
-import { ReactElement, ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-export interface ToolbarContextProps {
+export interface ToolbarContextType {
     orientation?: Orientation;
     disabled?: boolean;
 }
 
-export const ToolbarContext = createContext<ToolbarContextProps>(null);
+export const ToolbarContext = createContext<ToolbarContextType>(null);
 
-export function useToolbarContext(): [ToolbarContextProps, boolean] {
+export function useToolbarContext(): [ToolbarContextType, boolean] {
     const context = useContext(ToolbarContext);
 
     if (!isNil(context)) {
@@ -19,7 +19,7 @@ export function useToolbarContext(): [ToolbarContextProps, boolean] {
     return [{}, false];
 }
 
-export function useToolbarProps(): [ToolbarContextProps, boolean] {
+export function useToolbarProps() {
     return useToolbarContext();
 }
 
@@ -27,7 +27,7 @@ export interface ClearToolbarProps {
     children?: ReactNode;
 }
 
-export function ClearToolbar({ children }: ClearToolbarProps): ReactElement {
+export function ClearToolbar({ children }: ClearToolbarProps) {
     return (
         <ToolbarContext.Provider value={null}>
             {children}

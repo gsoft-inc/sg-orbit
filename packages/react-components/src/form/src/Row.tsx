@@ -23,7 +23,7 @@ export interface InnerRowProps {
 }
 
 
-export function InnerRow(props: InnerRowProps): ReactElement {
+export function InnerRow(props: InnerRowProps) {
     const [formProps] = useFormContext();
 
     const {

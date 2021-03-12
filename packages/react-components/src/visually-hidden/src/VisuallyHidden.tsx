@@ -1,7 +1,7 @@
 import "./VisuallyHidden.css";
 
 import { Box } from "../../box";
-import { ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ElementType, ForwardedRef, ReactNode } from "react";
 import { forwardRef, mergeProps } from "../../shared";
 
 export interface InnerVisuallyHiddenProps {
@@ -24,7 +24,7 @@ export function InnerVisuallyHidden({
     children,
     forwardedRef,
     ...rest
-}: InnerVisuallyHiddenProps): ReactElement {
+}: InnerVisuallyHiddenProps) {
     return (
         <Box
             {...mergeProps(

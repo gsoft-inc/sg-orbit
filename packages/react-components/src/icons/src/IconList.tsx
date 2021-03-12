@@ -32,7 +32,7 @@ export function InnerIconList({
     as = "span",
     forwardedRef,
     ...rest
-}: InnerIconListProps): ReactElement {
+}: InnerIconListProps) {
     return (
         <Inline
             {...rest}

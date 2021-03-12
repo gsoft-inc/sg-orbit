@@ -1,10 +1,10 @@
 import "./Text.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Size, forwardRef, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export function getTextClass(size: Size): string {
+export function getTextClass(size: Size) {
     return `o-ui-text-${normalizeSize(size)}`;
 }
 
@@ -31,7 +31,7 @@ export interface InnerTextProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerText(props: InnerTextProps): ReactElement {
+export function InnerText(props: InnerTextProps) {
     const [styleProps] = useStyleProps("text");
 
     const {

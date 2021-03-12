@@ -6,7 +6,7 @@ import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
@@ -82,7 +82,7 @@ export function InnerListboxOption({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, {
+    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -105,7 +105,7 @@ export function InnerListboxOption({
             size: "sm",
             className: "o-ui-listbox-option-end-icon"
         }
-    });
+    }), [labelId, descriptionId]));
 
     // TEMP: until useSlots is improved with conditional props based on other slots existence.
     if (!isNil(icon) && isNil(description)) {

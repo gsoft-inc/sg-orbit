@@ -1,7 +1,7 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
 
@@ -52,7 +52,7 @@ export interface InnerCounterProps {
     forwardedRef?: ForwardedRef<any>;
 }
 
-export function InnerCounter(props: InnerCounterProps): ReactElement {
+export function InnerCounter(props: InnerCounterProps) {
     const {
         variant = "pill",
         color,

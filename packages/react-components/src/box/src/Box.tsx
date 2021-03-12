@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { forwardRef, omitProps } from "../../shared";
 
 export interface InnerBoxProps {
@@ -20,7 +20,7 @@ export interface InnerBoxProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerBox(props: InnerBoxProps): ReactElement {
+export function InnerBox(props: InnerBoxProps) {
     const {
         as: As = "div",
         children,

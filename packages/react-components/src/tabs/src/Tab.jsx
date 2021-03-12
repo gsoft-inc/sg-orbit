@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { any, bool, elementType, object, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { useTabsContext } from "./TabsContext";
 
 const propTypes = {
@@ -43,7 +43,7 @@ export function InnerTab({
 }) {
     const { selectedIndex, onSelect, isManual } = useTabsContext();
 
-    const { icon, text, lozenge } = useSlots(children, {
+    const { icon, text, lozenge } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -59,7 +59,7 @@ export function InnerTab({
             size: "sm",
             className: "o-ui-tab-lozenge"
         }
-    });
+    }), []));
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();

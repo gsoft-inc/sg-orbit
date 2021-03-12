@@ -1,7 +1,7 @@
 import "./Flex.css";
 
 import { Box, BoxProps } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { cssModule, forwardRef, isNilOrEmpty, mergeProps } from "../../shared";
 import { isNil, isString } from "lodash";
 
@@ -117,7 +117,7 @@ const Spacing = [
 const isGapSupported: boolean = undefined;
 
 // @supports doesn't work for flexbox-gap.
-function useIsGapSupported(noGap: boolean): boolean {
+function useIsGapSupported(noGap: boolean) {
     return useMemo(() => {
         if (noGap) {
             return false;
@@ -159,7 +159,7 @@ export function InnerFlex({
     children,
     forwardedRef,
     ...rest
-}: InnerFlexProps): ReactElement {
+}: InnerFlexProps) {
     const noGap = isNilOrEmpty(gap) || gap === 0;
     const isGapSupported = useIsGapSupported(noGap);
 

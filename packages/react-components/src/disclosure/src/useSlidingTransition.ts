@@ -24,7 +24,7 @@ interface SlidingTransitionState {
     direction: SlidingDirection;
 }
 
-function reducer(state: SlidingTransitionState, action: ActionType): SlidingTransitionState {
+function reducer(state: SlidingTransitionState, action: ActionType) {
     return match<ActionType, SlidingTransitionState>(action, {
         [ActionType.slideDown]: () => ({
             transitionState: TransitionState.transitioning,

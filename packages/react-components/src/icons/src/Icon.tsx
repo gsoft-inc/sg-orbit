@@ -1,8 +1,8 @@
 import "./Icon.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
-import { OrbitComponent, cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { isNil } from "lodash";
 
 export interface InnerIconProps {
@@ -24,7 +24,7 @@ export interface InnerIconProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export const InnerIcon = ((props: InnerIconProps): ReactElement => {
+export const InnerIcon = ((props: InnerIconProps) => {
     const [styleProps] = useStyleProps("icon");
 
     const {
@@ -70,7 +70,7 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
-export function createIcon(type: ElementType): OrbitComponent<"svg", Omit<InnerIconProps, "type" | "forwardedRef">> {
+export function createIcon(type: ElementType) {
     return slot("icon", forwardRef<Omit<InnerIconProps, "type" | "forwardedRef">, "svg">((props, ref) =>
         <Icon
             {...props}
