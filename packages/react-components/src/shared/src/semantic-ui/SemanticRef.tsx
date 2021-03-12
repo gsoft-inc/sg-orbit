@@ -1,6 +1,6 @@
+import { Ref as InnerRef, ReactElement } from "react";
 import { Ref } from "semantic-ui-react";
 import { isNil } from "lodash";
-import React, { Ref as InnerRef, ReactElement } from "react";
 
 interface SemanticRefProps {
     innerRef: InnerRef<HTMLElement> | null

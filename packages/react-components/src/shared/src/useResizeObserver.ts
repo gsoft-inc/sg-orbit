@@ -9,8 +9,8 @@ let observer: ResizeObserver;
 
 function getResizeObserver() {
     return (observer =
-        observer || new ResizeObserver(entries => {
-            entries.forEach(entry => {
+        observer || new ResizeObserver((entries:any) => {
+            entries.forEach((entry:any) => {
                 const handler = handlersMap.get(entry.target);
 
                 if (isFunction(handler)) {
