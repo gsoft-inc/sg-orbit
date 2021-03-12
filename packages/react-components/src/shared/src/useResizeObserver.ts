@@ -10,7 +10,7 @@ let observer: ResizeObserver;
 function getResizeObserver() {
     return (observer =
         observer || new ResizeObserver((entries: ResizeObserverEntry[]) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 const handler = handlersMap.get(entry.target);
 
                 if (isFunction(handler)) {
