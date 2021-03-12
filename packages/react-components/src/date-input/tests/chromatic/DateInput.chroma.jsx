@@ -107,4 +107,7 @@ stories()
         return (
             <DateInput minDate={new Date(2021, 0, 1)} value={value} onDateChange={handleDateChange} />
         );
-    });
+    })
+    .add("TEMP test value", () =>
+        <DateInput defaultValue={new Date(1970, 0, 5)} />
+    );

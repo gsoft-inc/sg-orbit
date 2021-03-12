@@ -208,6 +208,7 @@ function InnerDateRangeInput({
     );
 
     // TODO: je switch le "rest" selon mon main container
+    // TODO: fluid
 
     return (
         <Box className="o-ui-date-range-input-group">

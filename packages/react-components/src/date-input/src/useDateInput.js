@@ -19,24 +19,37 @@ function toDate(rawValue) {
 
     const year = parseInt(parts[2]);
     const month = parseInt(parts[1]);
+    const adjustedMonth = month > 0 ? month -1 : month;
     const day = parseInt(parts[0]);
 
-    const date = new Date(year, month > 0 ? month -1 : month, day);
+    const date = new Date(year, adjustedMonth, day);
 
     // See https://esganzerla.medium.com/simple-date-validation-with-javascript-caea0f71883c
-    if (date.getDate() !== day) {
+    if (date.getFullYear() !== year ||
+        date.getMonth() !== adjustedMonth ||
+        date.getDate() !== day) {
         return null;
     }
 
     return date;
 }
 
-function toString(date) {
+function toNumericString(date) {
+    if (isNil(date)) {
+        return "";
+    }
+
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString();
     const day = date.getDate().toString();
 
     return `${day.length === 1 ? `0${day}` : day}/${month.length === 1 ? `0${month}` : month}/${year}`;
+}
+
+function toLongString(date) {
+    return !isNil(date)
+        ? date.toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "short", day: "numeric" })
+        : "";
 }
 
 function isTyping(inputValue) {
@@ -54,37 +67,39 @@ export function useDateInput({
 }) {
     const [inputValueRef, setInputValue] = useRefState("");
 
-    const [value, setValue] = useControllableState(valueProp, defaultValue, "", {
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
         onChange: useCallback((newValue, { isInitial, isControlled }) => {
             // Keep input value in sync with the initial or controlled value and keep the value in a string form to faciliate internal manipulation.
+            // Keep input value "mostly" in sync with the initial or controlled value.
             if (isInitial || isControlled) {
-                const rawValue = newValue ? toString(newValue) : "";
+                const rawValue = newValue ? toNumericString(newValue) : "";
 
                 // Do not sync the input value with the value when the user is typing. When in controlled mode, on every keypress the component will be
-                // re-rendered with the NON updated value (since onDateChange will only be called upon date completion) which will prevent the input value
+                // re-rendered with the NON updated value (since onDateChange is only called upon date completion) which will prevent the input value
                 // from being updated in key press.
                 if (!isTyping(inputValueRef.current)) {
                     setInputValue(rawValue);
                 }
-
-                return rawValue;
             }
         }, [inputValueRef, setInputValue])
     });
 
     const [inputElement, setInputElement] = useState();
+    const [hasFocus, setHasFocus] = useState(false);
 
     const ref = useMergedRefs(setInputElement, forwardedRef);
 
     const reset = useCallback(() => {
+        const stringValue = toNumericString(value);
+
         // Reset the value to the last selected one.
-        if (value !== inputValueRef.current) {
-            setInputValue(value ?? "", true);
+        if (stringValue !== inputValueRef.current) {
+            setInputValue(value ? stringValue : "", true);
         }
     }, [value, inputValueRef, setInputValue]);
 
     const commit = useCallback((event, rawValue) => {
-        if (value !== rawValue) {
+        if (toNumericString(value) !== rawValue) {
             let newDate = null;
 
             if (rawValue !== "") {
@@ -101,7 +116,7 @@ export function useDateInput({
                 onDateChange(event, newDate);
             }
 
-            setValue(rawValue);
+            setValue(newDate);
         }
 
         setInputValue(rawValue, true);
@@ -119,9 +134,9 @@ export function useDateInput({
                 const newDate = toDate(newValue);
 
                 if (minDate > newDate) {
-                    adjustedValue = toString(minDate);
+                    adjustedValue = toNumericString(minDate);
                 } else if (maxDate < newDate) {
-                    adjustedValue = toString(maxDate);
+                    adjustedValue = toNumericString(maxDate);
                 }
             }
 
@@ -131,8 +146,13 @@ export function useDateInput({
         }
     });
 
+    const handleFocus = useEventCallback(() => {
+        setHasFocus(true);
+    });
+
     const handleBlur = useEventCallback(() => {
         reset();
+        setHasFocus(false);
     });
 
     const maskProps = useMaskedInput({
@@ -142,8 +162,9 @@ export function useDateInput({
 
     return mergeProps(
         {
-            value: inputValueRef.current,
+            value: hasFocus ? inputValueRef.current: toLongString(value),
             onChange: handleChange,
+            onFocus: handleFocus,
             onBlur: handleBlur,
             ref
         },
