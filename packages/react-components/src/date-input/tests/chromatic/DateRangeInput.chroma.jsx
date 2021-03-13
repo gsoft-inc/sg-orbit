@@ -2,6 +2,7 @@ import { DateRangeInput } from "@react-components/date-input";
 import { Inline, Stack } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { subMonths, subWeeks } from "date-fns";
+import { useCallback, useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/DateRangeInput")
@@ -78,4 +79,56 @@ stories()
             ]}
             placeholder="dd/mm/yyyy"
         />
-    );
+    )
+    .add("validation", () =>
+        <Inline>
+            <DateRangeInput validationState="invalid" placeholder="dd/mm/yyyy" />
+            <DateRangeInput validationState="valid" placeholder="dd/mm/yyyy" />
+        </Inline>
+    )
+    .add("states", () =>
+        <Stack>
+            <Inline verticalAlign="end">
+                <DateRangeInput active placeholder="dd/mm/yyyy" />
+                <DateRangeInput loading active placeholder="dd/mm/yyyy" />
+            </Inline>
+            <Inline verticalAlign="end">
+                <DateRangeInput focus placeholder="dd/mm/yyyy" />
+                <DateRangeInput loading focus placeholder="dd/mm/yyyy" />
+            </Inline>
+            <Inline verticalAlign="end">
+                <DateRangeInput hover placeholder="dd/mm/yyyy" />
+                <DateRangeInput loading hover placeholder="dd/mm/yyyy" />
+            </Inline>
+            <Inline verticalAlign="end">
+                <DateRangeInput focus hover placeholder="dd/mm/yyyy" />
+                <DateRangeInput loading focus hover placeholder="dd/mm/yyyy" />
+            </Inline>
+            <DateRangeInput disabled placeholder="dd/mm/yyyy" />
+            <DateRangeInput readOnly placeholder="dd/mm/yyyy" />
+        </Stack>
+    )
+    .add("styling", () =>
+        <Inline>
+            <DateRangeInput className="bg-red" />
+            <DateRangeInput style={{ backgroundColor: "red" }} />
+        </Inline>
+    )
+    .add("TEMP controlled", () => {
+        const [startDate, setStartDate] = useState(null);
+        const [endDate, setEndDate] = useState(null);
+
+        const handleDatesChange = useCallback((event, newStartDate, newEndDate) => {
+            setStartDate(newStartDate);
+            setEndDate(newEndDate);
+        }, [setStartDate, setEndDate]);
+
+        return (
+            <DateRangeInput
+                startDate={startDate}
+                endDate={endDate}
+                onDatesChange={handleDatesChange}
+                placeholder="dd/mm/yyyy"
+            />
+        );
+    });

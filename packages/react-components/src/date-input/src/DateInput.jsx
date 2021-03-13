@@ -7,8 +7,6 @@ import { forwardRef } from "react";
 import { mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
 
-// TODO: Not working in controlled mode
-
 const propTypes = {
     /**
      * A controlled value.

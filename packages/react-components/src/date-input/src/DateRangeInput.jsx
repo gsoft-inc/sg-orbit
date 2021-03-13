@@ -8,20 +8,19 @@ import { Item } from "../../placeholders";
 import { Menu, MenuTrigger } from "../../menu";
 import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
 import { augmentElement } from "../../../dist";
-import { cssModule, mergeProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { cssModule, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";
+import { useFieldInputProps } from "../../field";
+import { useToolbarProps } from "../../toolbar";
 
 /*
 TODO:
-    - try an inline date range with a button / select for presets
+    - accept a name prop and append "start" and "end"
     - hidden field pour form
-    - required?
-
-    - start date cannot be > end date. When it happens, autofix
     - roving focus
-    - support toolbar
+    - clear inputs on esc??? one at a time?
 */
 
 const PresetShape = {
@@ -104,6 +103,8 @@ const propTypes = {
 const DateInput = forwardRef(({
     value,
     placeholder,
+    required,
+    validationState,
     minDate,
     maxDate,
     onChange,
@@ -141,6 +142,8 @@ const DateInput = forwardRef(({
                     type: "text",
                     disabled,
                     readOnly,
+                    "aria-required": required ? true : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
                     ref: inputRef
                 },
                 dateProps
@@ -149,29 +152,38 @@ const DateInput = forwardRef(({
     );
 });
 
-function InnerDateRangeInput({
-    startDate: startDateProp,
-    endDate: endDateProp,
-    defaultStartDate,
-    defaultEndDate,
-    placeholder,
-    minDate,
-    maxDate,
-    required,
-    validationState,
-    onDatesChange,
-    presets,
-    autoFocus,
-    fluid,
-    disabled,
-    readOnly,
-    active,
-    focus = false,
-    hover,
-    as = "div",
-    forwardedRef,
-    ...rest
-}) {
+function InnerDateRangeInput(props) {
+    const [toolbarProps] = useToolbarProps();
+    const [fieldProps] = useFieldInputProps();
+
+    const {
+        startDate: startDateProp,
+        endDate: endDateProp,
+        defaultStartDate,
+        defaultEndDate,
+        placeholder,
+        minDate,
+        maxDate,
+        required,
+        validationState,
+        onDatesChange,
+        presets,
+        autoFocus,
+        fluid,
+        disabled,
+        readOnly,
+        active,
+        focus = false,
+        hover,
+        as = "div",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps
+    );
+
     const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
@@ -179,7 +191,6 @@ function InnerDateRangeInput({
     const startDateRef = useRef();
     const endDateRef = useRef();
 
-    // TODO: missing something can't call until we have 2 dates
     const applyDates = useCallback((event, newStartDate, newEndDate) => {
         if (startDate !== newStartDate || endDate !== newEndDate) {
             if (!isNil(onDatesChange)) {
@@ -192,6 +203,10 @@ function InnerDateRangeInput({
     }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
 
     const handleStartDateChange = useEventCallback((event, newDate) => {
+        if (!isNil(newDate) && !isNil(endDate) && newDate > endDate) {
+            newDate = endDate;
+        }
+
         applyDates(event, newDate, endDate);
 
         if (!isNil(newDate)) {
@@ -208,6 +223,10 @@ function InnerDateRangeInput({
     });
 
     const handleEndDateChange = useEventCallback((event, newDate) => {
+        if (!isNil(newDate) && !isNil(startDate) && newDate < startDate) {
+            newDate = startDate;
+        }
+
         applyDates(event, startDate, newDate);
     });
 
@@ -229,6 +248,8 @@ function InnerDateRangeInput({
 
     const handleClearDates = useEventCallback(event => {
         applyDates(event, null, null);
+
+        startDateRef?.current.focus();
     });
 
     const hasValue = !isNil(startDate) || !isNil(endDate);
@@ -245,12 +266,14 @@ function InnerDateRangeInput({
                 hasFocus && "focus",
                 hover && "hover"
             )}
-            role="presentation"
+            role="group"
         >
             <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput
                 value={startDate}
                 placeholder={placeholder}
+                required={required}
+                validationState={validationState}
                 minDate={minDate}
                 onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
@@ -264,6 +287,8 @@ function InnerDateRangeInput({
             <DateInput
                 value={endDate}
                 placeholder={placeholder}
+                required={required}
+                validationState={validationState}
                 maxDate={maxDate}
                 onChange={handleEndDateInputValueChange}
                 onDateChange={handleEndDateChange}
