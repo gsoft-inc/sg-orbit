@@ -13,7 +13,7 @@
     border: 1px solid var(--o-ui-border-color);
     color: var(--o-ui-text-1);
     background-color: var(--o-ui-background-1);
-    width: 300px;
+    width: 340px;
 }
 
 /* FLUID */
@@ -42,6 +42,11 @@
 .o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {
     background-color: var(--o-ui-background-color);
     cursor: not-allowed;
+}
+
+/* STATES | INVALID */
+.o-ui-date-range-input-invalid {
+    --o-ui-border-color: var(--o-ui-border-danger-1);
 }
 
 /* ICON */

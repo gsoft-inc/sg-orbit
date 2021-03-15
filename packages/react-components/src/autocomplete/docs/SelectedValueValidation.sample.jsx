@@ -1,5 +1,5 @@
 () => {
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(true);
 
     const handleChange = useCallback((event, selection) => {
         setIsValid(!isNil(selection) && selection.key === "earth");
@@ -8,7 +8,6 @@
 
     return (
         <Autocomplete
-            defaultValue="Mars"
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
             onChange={handleChange}

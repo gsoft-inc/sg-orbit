@@ -1,3 +1,6 @@
+// Must disable it for now because of the react-docgen hack.
+/* eslint-disable react/no-unused-prop-types */
+
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
@@ -144,7 +147,7 @@ const DateInput = forwardRef(({
     );
 });
 
-function InnerDateRangeInput(props) {
+export function InnerDateRangeInput(props) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
@@ -343,13 +346,18 @@ function InnerDateRangeInput(props) {
         </Box>
     ) : inputMarkup;
 
-    return augmentElement(container, mergeProps(
-        rest,
-        {
-            as,
-            ref: forwardedRef
-        }
-    ));
+    // HACK: Returning the augmented element in a fragment to comply with react-docgen.
+    return (
+        <>
+            {augmentElement(container, mergeProps(
+                rest,
+                {
+                    as,
+                    ref: forwardedRef
+                }
+            ))}
+        </>
+    );
 }
 
 InnerDateRangeInput.propTypes = propTypes;
