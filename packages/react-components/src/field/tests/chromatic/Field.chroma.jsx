@@ -1,6 +1,6 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { Checkbox } from "@react-components/checkbox";
-import { DateInput, DateRangeInput } from "@react-components/date-input";
+import { DateInput } from "@react-components/date-input";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";

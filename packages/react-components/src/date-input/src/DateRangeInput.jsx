@@ -5,23 +5,15 @@ import { CalendarIcon, VerticalDotsIcon } from "../../icons";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
 import { Item } from "../../placeholders";
+import { Keys, augmentElement } from "../../../dist";
 import { Menu, MenuTrigger } from "../../menu";
 import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { augmentElement } from "../../../dist";
 import { cssModule, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
-
-/*
-TODO:
-    - accept a name prop and append "start" and "end"
-    - hidden field pour form
-    - roving focus
-    - clear inputs on esc??? one at a time?
-*/
 
 const PresetShape = {
     text: string.isRequired,
@@ -175,6 +167,7 @@ function InnerDateRangeInput(props) {
         active,
         focus = false,
         hover,
+        name,
         as = "div",
         forwardedRef,
         ...rest
@@ -252,10 +245,18 @@ function InnerDateRangeInput(props) {
         startDateRef?.current.focus();
     });
 
+    const handleKeyDown = useEventCallback(event => {
+        if (event.key === Keys.esc) {
+            event.preventDefault();
+            handleClearDates(event);
+        }
+    });
+
     const hasValue = !isNil(startDate) || !isNil(endDate);
 
     const inputMarkup = (
         <Box
+            onKeyDown={handleKeyDown}
             className={cssModule(
                 "o-ui-date-range-input",
                 validationState,
@@ -281,6 +282,7 @@ function InnerDateRangeInput(props) {
                 onBlur={handleDateBlur}
                 disabled={disabled}
                 readOnly={readOnly}
+                name={!isNil(name) ? `${name}-start-date` : undefined}
                 ref={startDateRef}
             />
             <Divider orientation="vertical" className="o-ui-date-range-input-divider" />
@@ -296,6 +298,8 @@ function InnerDateRangeInput(props) {
                 onBlur={handleDateBlur}
                 disabled={disabled}
                 readOnly={readOnly}
+                name={!isNil(name) ? `${name}-end-date` : undefined}
+                tabIndex={hasFocus ? "0" : "-1"}
                 ref={endDateRef}
             />
             {hasValue && !disabled && !readOnly && <CrossButton

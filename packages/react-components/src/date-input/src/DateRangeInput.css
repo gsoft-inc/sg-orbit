@@ -28,6 +28,22 @@
     border-color: var(--o-ui-border-primary-1);
 }
 
+/* STATES | DISABLED */
+.o-ui-date-range-input-disabled {
+    opacity: var(--o-ui-disabled-opacity);
+    background-color: var(--o-ui-background-color);
+    cursor: not-allowed;
+}
+
+.o-ui-date-range-input-disabled .o-ui-date-range-input-divider {
+    border-left-color: var(--o-ui-border-2) !important;
+}
+
+.o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {
+    background-color: var(--o-ui-background-color);
+    cursor: not-allowed;
+}
+
 /* ICON */
 .o-ui-date-range-input .o-ui-date-range-input-icon {
     flex-shrink: 0;

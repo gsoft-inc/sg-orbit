@@ -88,47 +88,17 @@ stories()
     )
     .add("states", () =>
         <Stack>
-            <Inline verticalAlign="end">
-                <DateRangeInput active placeholder="dd/mm/yyyy" />
-                <DateRangeInput loading active placeholder="dd/mm/yyyy" />
-            </Inline>
-            <Inline verticalAlign="end">
-                <DateRangeInput focus placeholder="dd/mm/yyyy" />
-                <DateRangeInput loading focus placeholder="dd/mm/yyyy" />
-            </Inline>
-            <Inline verticalAlign="end">
-                <DateRangeInput hover placeholder="dd/mm/yyyy" />
-                <DateRangeInput loading hover placeholder="dd/mm/yyyy" />
-            </Inline>
-            <Inline verticalAlign="end">
-                <DateRangeInput focus hover placeholder="dd/mm/yyyy" />
-                <DateRangeInput loading focus hover placeholder="dd/mm/yyyy" />
-            </Inline>
+            <DateRangeInput active placeholder="dd/mm/yyyy" />
+            <DateRangeInput focus placeholder="dd/mm/yyyy" />
+            <DateRangeInput hover placeholder="dd/mm/yyyy" />
+            <DateRangeInput focus hover placeholder="dd/mm/yyyy" />
             <DateRangeInput disabled placeholder="dd/mm/yyyy" />
             <DateRangeInput readOnly placeholder="dd/mm/yyyy" />
         </Stack>
     )
     .add("styling", () =>
         <Inline>
-            <DateRangeInput className="bg-red" />
-            <DateRangeInput style={{ backgroundColor: "red" }} />
+            <DateRangeInput className="border-red" />
+            <DateRangeInput style={{ border: "1px solid red" }} />
         </Inline>
-    )
-    .add("TEMP controlled", () => {
-        const [startDate, setStartDate] = useState(null);
-        const [endDate, setEndDate] = useState(null);
-
-        const handleDatesChange = useCallback((event, newStartDate, newEndDate) => {
-            setStartDate(newStartDate);
-            setEndDate(newEndDate);
-        }, [setStartDate, setEndDate]);
-
-        return (
-            <DateRangeInput
-                startDate={startDate}
-                endDate={endDate}
-                onDatesChange={handleDatesChange}
-                placeholder="dd/mm/yyyy"
-            />
-        );
-    });
+    );
