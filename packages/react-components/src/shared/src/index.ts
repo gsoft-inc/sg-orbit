@@ -20,7 +20,6 @@ export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./cssModule";
-export * from "./OLD_resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./omitProps";
 export * from "./arrayify";

@@ -1,6 +1,5 @@
 export * from "./box";
 export * from "./button";
-export * from "./date-picker";
 export * from "./icons";
 export * from "./input";
 export * from "./number-input";
@@ -12,7 +11,6 @@ export * from "./switch";
 export * from "./radio";
 export * from "./tag";
 export * from "./tags-picker";
-export * from "./OLD_popper";
 export * from "./tabs";
 export * from "./badge";
 export * from "./lozenge";
