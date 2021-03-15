@@ -36,10 +36,6 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * The style to use.
-     */
-    variant: oneOf(["outline", "transparent"]),
-    /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
     type: oneOf(["text", "password", "search", "url", "tel", "email"]),
@@ -92,7 +88,6 @@ export function InnerTextInput(props) {
         placeholder,
         required,
         validationState,
-        variant = "outline",
         type = "text",
         autoFocus,
         icon,
@@ -128,7 +123,6 @@ export function InnerTextInput(props) {
         required,
         validationState,
         onChange: handleChange,
-        variant,
         type,
         autoFocus,
         disabled,

@@ -68,9 +68,6 @@ stories()
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
     )
-    .add("transparent", () =>
-        <NumberInput variant="transparent" placeholder="Age" />
-    )
     .add("autofocus", () =>
         <NumberInput autoFocus placeholder="Age" />
     )

@@ -9,7 +9,6 @@ export function useInput({
     required,
     validationState,
     onChange,
-    variant,
     type,
     autoFocus,
     disabled,
@@ -34,7 +33,8 @@ export function useInput({
                 module,
                 cssModule(
                     "o-ui-input",
-                    variant,
+                    // TODO: remove once CSS perf improvement has been merged
+                    "outline",
                     validationState,
                     fluid && "fluid",
                     loading && "loading",

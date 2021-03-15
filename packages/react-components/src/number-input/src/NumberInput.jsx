@@ -52,10 +52,6 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * The style to use.
-     */
-    variant: oneOf(["outline", "transparent"]),
-    /**
      * Whether or not the input should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
@@ -175,7 +171,6 @@ export function InnerNumberInput(props) {
         required,
         validationState,
         onChange,
-        variant = "outline",
         autoFocus,
         icon,
         disabled,
@@ -288,7 +283,6 @@ export function InnerNumberInput(props) {
         required,
         validationState: !isInRange ? "invalid" : validationState,
         onChange: handleChange,
-        variant,
         type: "number",
         autoFocus,
         disabled,
