@@ -51,19 +51,19 @@
     padding: 0;
     margin: 0;
     border: 0;
-    border-left: 1px solid var(--o-ui-border-color);
+    border-left: 1px solid var(--o-ui-input-border-color);
     outline: none;
     cursor: pointer;
     background-color: var(--o-ui-alias-background-4);
 }
 
 .o-ui-number-input-spinner-increment {
-    border-top-right-radius: var(--o-ui-border-radius);
-    border-bottom: 1px solid var(--o-ui-border-color);
+    border-top-right-radius: var(--o-ui-input-border-radius);
+    border-bottom: 1px solid var(--o-ui-input-border-color);
 }
 
 .o-ui-number-input-spinner-decrement {
-    border-bottom-right-radius: var(--o-ui-border-radius);
+    border-bottom-right-radius: var(--o-ui-input-border-radius);
 }
 
 /* SPINNER | VISIBLE */

@@ -75,16 +75,16 @@ stories()
                      <div className="pa4 bg-apricot-900" />
                  </Inline>
                  <Inline gap={0}>
-                     <div className="pa4 bg-beetle=-50" />
-                     <div className="pa4 bg-beetle=-100" />
-                     <div className="pa4 bg-beetle=-200" />
-                     <div className="pa4 bg-beetle=-300" />
-                     <div className="pa4 bg-beetle=-400" />
-                     <div className="pa4 bg-beetle=-500" />
-                     <div className="pa4 bg-beetle=-600" />
-                     <div className="pa4 bg-beetle=-700" />
-                     <div className="pa4 bg-beetle=-800" />
-                     <div className="pa4 bg-beetle=-900" />
+                     <div className="pa4 bg-beetle-50" />
+                     <div className="pa4 bg-beetle-100" />
+                     <div className="pa4 bg-beetle-200" />
+                     <div className="pa4 bg-beetle-300" />
+                     <div className="pa4 bg-beetle-400" />
+                     <div className="pa4 bg-beetle-500" />
+                     <div className="pa4 bg-beetle-600" />
+                     <div className="pa4 bg-beetle-700" />
+                     <div className="pa4 bg-beetle-800" />
+                     <div className="pa4 bg-beetle-900" />
                      <div className="pa4 bg-botanic-50" />
                      <div className="pa4 bg-botanic-100" />
                      <div className="pa4 bg-botanic-200" />

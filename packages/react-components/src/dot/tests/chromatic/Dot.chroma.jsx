@@ -17,8 +17,8 @@ stories()
     )
     .add("color", () =>
         <Stack>
-            <Dot color="positive-500"></Dot>
-            <Dot color="negative-500">Habitable</Dot>
+            <Dot color="botanic-500"></Dot>
+            <Dot color="beetle-500">Habitable</Dot>
         </Stack>
     )
     .add("disabled", () =>

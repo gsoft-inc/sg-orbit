@@ -4,6 +4,7 @@
     --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);
     --o-ui-input-padding-loading: var(--o-ui-global-scale-golf);
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
+    --o-ui-input-border-radius: var(--o-ui-alias-rounded-border-radius);
     --o-ui-input-background-color: var(--o-ui-alias-background-2);
 }
 
@@ -24,7 +25,7 @@
 .o-ui-input textarea {
     font-size: var(--o-ui-global-type-scale-7);
     padding: 0 var(--o-ui-input-padding);
-    border-radius: var(--o-ui-alias-rounded-border-radius);
+    border-radius: var(--o-ui-input-border-radius);
     border: 1px solid var(--o-ui-input-border-color);
     color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);

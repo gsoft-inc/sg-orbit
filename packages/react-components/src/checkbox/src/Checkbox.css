@@ -55,7 +55,7 @@
     height: var(--o-ui-global-scale-echo);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
-    background-color: var(--o-ui-global-alias-white);
+    background-color: var(--o-ui-alias-static-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
     transition: all .125s ease-in .125s;
     border-radius: var(--o-ui-alias-rounded-border-radius);

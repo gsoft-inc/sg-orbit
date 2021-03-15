@@ -487,7 +487,7 @@ a.o-ui-button {
 
 /* CIRCULAR */
 .o-ui-button-circular {
-    border-radius: var(--o-ui-global-circular-border-radius);
+    border-radius: var(--o-ui-alias-circular-border-radius);
 }
 
 /* CIRCULAR | SIZES */
@@ -540,7 +540,7 @@ a.o-ui-button {
 
 .o-ui-button:active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text,
 .o-ui-button-active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text {
-    color: var(--o-ui-white);
+    color: var(--o-ui-global-white);
 }
 
 .o-ui-button-inherit.o-ui-button-loading.o-ui-button-outline::before {
@@ -590,7 +590,7 @@ a.o-ui-button {
 
 .o-ui-button-inherit.o-ui-button-loading.o-ui-button-solid::before {
     border-color: rgba(255, 255, 255, 0.1);
-    border-top-color: var(--o-ui-white);
+    border-top-color: var(--o-ui-global-white);
 }
 
 /* WITH ICON */

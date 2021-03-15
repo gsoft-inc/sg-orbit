@@ -1,9 +1,9 @@
 .o-ui-theme {
-    --o-ui-flex-gap: normal;
 }
 
 /* FLEX */
 .o-ui-flex {
+    --o-ui-flex-gap: normal;
     display: flex;
     gap: var(--o-ui-flex-gap);
 }

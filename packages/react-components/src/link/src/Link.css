@@ -264,11 +264,11 @@ button.o-ui-link-hover {
 
 /* SHAPE | CIRCULAR */
 .o-ui-link-circular {
-    border-radius: var(--o-ui-global-circular-border-radius);
+    border-radius: var(--o-ui-alias-circular-border-radius);
 }
 
 .o-ui-link.o-ui-link-circular:after {
-    border-radius: var(--o-ui-global-circular-border-radius);
+    border-radius: var(--o-ui-alias-circular-border-radius);
 }
 
 /* SHAPE | BOX */

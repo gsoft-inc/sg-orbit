@@ -33,7 +33,7 @@
     background-color: var(--o-ui-global-background-1);
     cursor: pointer;
     border: 0;
-    border-top: 1px solid var(--o-ui-global-border-2);
+    border-top: 1px solid var(--o-ui-alias-border-2);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
     color: var(--o-ui-global-text-1);
@@ -118,5 +118,5 @@
 
 .o-ui-accordion-trigger:focus::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--o-ui-global-border-primary-1);
+    border-color: var(--o-ui-alias-border-primary-1);
 }
