@@ -209,7 +209,7 @@
 }
 
 .sbdocs.sbdocs-a:focus {
-    border-radius: var(--o-ui-alias-rounded-border-radius);
+    border-radius: var(--o-ui-global-rounded-border-radius);
     background-color: rgba(0, 0, 0, 0.04);
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
 }

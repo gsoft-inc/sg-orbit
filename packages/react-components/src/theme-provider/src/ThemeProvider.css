@@ -3,8 +3,8 @@
 .o-ui-theme {
     /* Radiuses */
     --o-ui-global-pill-border-radius: 999px;
-    --o-ui-alias-circular-border-radius: 100%;
-    --o-ui-alias-rounded-border-radius: var(--o-ui-global-scale-alpha);
+    --o-ui-global-circular-border-radius: 100%;
+    --o-ui-global-rounded-border-radius: var(--o-ui-global-scale-alpha);
     /* STATES | Disabled */
     --o-ui-global-disabled-opacity: 0.4;
     /* FOCUS RING */

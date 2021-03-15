@@ -22,7 +22,7 @@
     content: "";
     display: inline-block;
     background-color: var(--o-ui-alias-background-1);
-    border-radius: var(--o-ui-alias-circular-border-radius);
+    border-radius: var(--o-ui-global-circular-border-radius);
     position: absolute;
     transform: translate(2px, 2px);
     transition: transform .1875s ease-in;

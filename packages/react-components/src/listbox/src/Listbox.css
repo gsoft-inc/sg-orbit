@@ -10,7 +10,7 @@
     overflow-y: auto;
     background-color: var(--o-ui-alias-background-1);
     outline: none;
-    border-radius: var(--o-ui-alias-rounded-border-radius);
+    border-radius: var(--o-ui-global-rounded-border-radius);
     box-shadow: var(--o-ui-global-shadow-100);
     border: 1px solid var(--o-ui-alias-border-2);
 }

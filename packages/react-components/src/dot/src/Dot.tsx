@@ -53,8 +53,9 @@ export function InnerDot(props: InnerDotProps) {
                         "o-ui-dot",
                         children && "has-label"
                     ),
-                    style:
-                        useColorStyle(color),
+                    style: {
+                        "--o-ui-dot-color": useColor(color)
+                    },
                     as,
                     ref: forwardedRef
                 }
@@ -65,27 +66,19 @@ export function InnerDot(props: InnerDotProps) {
     );
 }
 
-function useColorStyle(color: string) {
+function useColor(color: string) {
     return useMemo(() => {
-        let dotCSSDeclaration = {};
-
         if (color) {
             if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": color
-                };
+                return color;
             } else if (color.startsWith("--")) {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": `var(${color})`
-                };
+                return `var(${color})`;
             } else {
-                dotCSSDeclaration = {
-                    "--o-ui-dot-color": `var(--o-ui-global-${color})`
-                };
+                return `var(--o-ui-global-${color})`;
             }
+        } else {
+            return;
         }
-
-        return dotCSSDeclaration;
     }, [color]);
 }
 

@@ -104,7 +104,7 @@
     right: var(--o-ui-global-scale-bravo);
     bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
     border: var(--o-ui-global-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-alias-rounded-border-radius);
+    border-radius: var(--o-ui-global-rounded-border-radius);
     pointer-events: none;
     height: var(--o-ui-global-scale-golf);
     transform: translateY(-50%);

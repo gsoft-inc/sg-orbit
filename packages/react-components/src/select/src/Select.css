@@ -12,7 +12,7 @@
     min-height: var(--o-ui-global-scale-hotel);
     overflow: hidden;
     padding: 0 var(--o-ui-global-scale-charlie) 0;
-    border-radius: var(--o-ui-alias-rounded-border-radius);
+    border-radius: var(--o-ui-global-rounded-border-radius);
 }
 
 /* TRIGGER | ICON ARROW */

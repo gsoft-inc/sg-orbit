@@ -11,7 +11,7 @@
 
 /* SHAPE | CIRCULAR */
 .o-ui-image-circular {
-    border-radius: var(--o-ui-alias-circular-border-radius);
+    border-radius: var(--o-ui-global-circular-border-radius);
 }
 
 /* DARK MODE */

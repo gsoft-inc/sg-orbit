@@ -4,7 +4,7 @@
     --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);
     --o-ui-input-padding-loading: var(--o-ui-global-scale-golf);
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
-    --o-ui-input-border-radius: var(--o-ui-alias-rounded-border-radius);
+    --o-ui-input-border-radius: var(--o-ui-global-rounded-border-radius);
     --o-ui-input-background-color: var(--o-ui-alias-background-2);
 }
 
@@ -80,15 +80,15 @@
     width: 100%;
 }
 
+.o-ui-input-fluid input,
+.o-ui-input-fluid textarea {
+    width: 100%;
+}
+
 /* INVALID */
 .o-ui-input-invalid input,
 .o-ui-input-invalid textarea {
     --o-ui-input-border-color: var(--o-ui-alias-border-negative-1);
-}
-
-.o-ui-input-fluid input,
-.o-ui-input-fluid textarea {
-    width: 100%;
 }
 
 /* INVALID */

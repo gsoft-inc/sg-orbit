@@ -12,7 +12,7 @@
 .o-ui-radio-button {
     display: inline-block;
     background-color: var(--o-ui-alias-background-1);
-    border-radius: var(--o-ui-alias-circular-border-radius);
+    border-radius: var(--o-ui-global-circular-border-radius);
     border: 1px solid var(--o-ui-alias-border-1);
     position: relative;
     width: var(--o-ui-global-scale-echo);
@@ -23,7 +23,7 @@
     content: "";
     display: block;
     background-color: var(--o-ui-alias-background-primary-1);
-    border-radius: var(--o-ui-alias-circular-border-radius);
+    border-radius: var(--o-ui-global-circular-border-radius);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
     width: var(--o-ui-global-scale-echo);
