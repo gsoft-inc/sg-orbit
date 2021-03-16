@@ -3,7 +3,7 @@ import { Field, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { NotificationIcon } from "@react-components/icons";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/text-input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";

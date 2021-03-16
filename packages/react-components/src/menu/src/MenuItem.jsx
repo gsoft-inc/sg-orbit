@@ -1,8 +1,8 @@
 import { Box } from "../../box";
+import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
@@ -43,6 +43,16 @@ export function InnerMenuItem({
     const handleClick = useEventCallback(event => {
         if (!disabled) {
             onSelect(event, key);
+        }
+    });
+
+    const handleKeyDown = useEventCallback(event => {
+        switch(event.key) {
+            case Keys.enter:
+            case Keys.space:
+                event.preventDefault();
+                onSelect(event, key);
+                break;
         }
     });
 
@@ -92,6 +102,7 @@ export function InnerMenuItem({
                 {
                     id,
                     onClick: !disabled ? handleClick : undefined,
+                    onKeyDown: handleKeyDown,
                     onMouseEnter: handleMouseEnter,
                     className: cssModule(
                         "o-ui-menu-item",

@@ -1,4 +1,4 @@
-import { TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/text-input";
 import { augmentElement } from "@react-components/shared";
 
 describe("augmentElement", () => {

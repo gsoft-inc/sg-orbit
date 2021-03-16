@@ -1,11 +1,14 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { Checkbox } from "@react-components/checkbox";
+import { DateInput } from "@react-components/date-input";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/placeholders";
-import { NumberInput, TextArea, TextInput } from "@react-components/input";
+import { NumberInput } from "@react-components/number-input";
+import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
+import { TextArea } from "@react-components/text-area";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -106,6 +109,13 @@ stories()
             <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
         </Field>
     )
+    .add("password input", () =>
+        <Field>
+            <Label>Where to?</Label>
+            <PasswordInput />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
+    )
     .add("number input", () =>
         <Field>
             <Label>Age</Label>
@@ -113,11 +123,18 @@ stories()
             <HelpMessage>How long ago are you born?</HelpMessage>
         </Field>
     )
-    .add("textarea", () =>
+    .add("text area", () =>
         <Field>
             <Label>Where to?</Label>
             <TextArea placeholder="Ex. Mars" />
             <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
+    )
+    .add("date input", () =>
+        <Field>
+            <Label>When?</Label>
+            <DateInput placeholder="dd/mm/yyyy" />
+            <HelpMessage>When do you leave?</HelpMessage>
         </Field>
     )
     .add("checkbox", () =>

@@ -1,4 +1,5 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
+import { DateRangeInput } from "@react-components/date-input";
 import { GroupField, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
@@ -76,6 +77,13 @@ stories()
                 <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
             </GroupField>
         </Inline>
+    )
+    .add("date range input", () =>
+        <GroupField>
+            <Label>When?</Label>
+            <DateRangeInput placeholder="dd/mm/yyyy" />
+            <HelpMessage>When do you leave?</HelpMessage>
+        </GroupField>
     )
     .add("styling", () =>
         <Inline>

@@ -1,0 +1,101 @@
+.o-ui-date-range-input {
+    --o-ui-padding: var(--o-ui-scale-charlie);
+    --o-ui-border-color: var(--o-ui-border-1);
+    --o-ui-background-color: var(--o-ui-background-2);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: var(--o-ui-focus-ring-transition);
+    padding: 0 var(--o-ui-padding);
+    /* For clear button */
+    padding-right: var(--o-ui-scale-golf);
+    border-radius: var(--o-ui-rounded-border-radius);
+    border: 1px solid var(--o-ui-border-color);
+    color: var(--o-ui-text-1);
+    background-color: var(--o-ui-background-1);
+    width: 340px;
+}
+
+/* FLUID */
+.o-ui-date-range-input-fluid {
+    width: 100%;
+}
+
+/* STATES */
+/* STATES | FOCUS */
+.o-ui-date-range-input-focus {
+    box-shadow: var(--o-ui-focus-ring-inset-sm);
+    border-color: var(--o-ui-border-primary-1);
+}
+
+/* STATES | DISABLED */
+.o-ui-date-range-input-disabled {
+    opacity: var(--o-ui-disabled-opacity);
+    background-color: var(--o-ui-background-color);
+    cursor: not-allowed;
+}
+
+.o-ui-date-range-input-disabled .o-ui-date-range-input-divider {
+    border-left-color: var(--o-ui-border-2) !important;
+}
+
+.o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {
+    background-color: var(--o-ui-background-color);
+    cursor: not-allowed;
+}
+
+/* STATES | INVALID */
+.o-ui-date-range-input-invalid {
+    --o-ui-border-color: var(--o-ui-border-danger-1);
+}
+
+/* ICON */
+.o-ui-date-range-input .o-ui-date-range-input-icon {
+    flex-shrink: 0;
+}
+
+/* DATE INPUT */
+.o-ui-date-range-input-date-input {
+    font-size: var(--o-ui-type-scale-7);
+    color: var(--o-ui-text-1);
+    padding-left: var(--o-ui-scale-alpha);
+    border: none;
+    outline: none;
+    transition: all .12s ease-in, padding 0s linear;
+    width: 100%;
+    min-height: calc(var(--o-ui-scale-hotel) - 2px);
+}
+
+/* DATE INPUT | PLACEHOLDER */
+.o-ui-date-range-input-date-input::placeholder {
+    color: var(--o-ui-text-input-placeholder);
+}
+
+/* DATE INPUT | SELECTION */
+.o-ui-date-range-input-date-input::selection {
+    background-color: var(--o-ui-background-input-selection);
+    color: var(--o-ui-text-input-selection);
+}
+
+/* DIVIDER */
+.o-ui-date-range-input-divider[aria-orientation="vertical"] {
+    flex-shrink: 0;
+    align-self: auto;
+    height: 25px !important;
+}
+
+/* CLEAR BUTTON */
+.o-ui-date-range-input-clear-button {
+    position: absolute;
+    right: var(--o-ui-scale-alpha);
+}
+
+/* GROUP */
+.o-ui-date-range-input-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.o-ui-date-range-input-group .o-ui-date-range-input {
+    margin-right: var(--o-ui-scale-alpha);
+}
