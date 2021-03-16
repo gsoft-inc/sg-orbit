@@ -62,7 +62,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: var(--o-ui-global-focus-ring-inset-md);
+    box-shadow: 0 var(--o-ui-global-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-primary-1);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
