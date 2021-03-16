@@ -3,7 +3,7 @@ import { mergeProps, useChainedEventCallback, useControllableState, useEventCall
 import { useCallback, useState } from "react";
 import { useMaskedInput } from "./useMaskedInput";
 
-const InputMask = [/[0-3]/, /[0-9]/, "/", /[0-1]/, /[0-9]/, "/", /\d/, /\d/, /\d/, /\d/];
+const InputMask = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/];
 
 // Date.parse() implementation is inconsistent accross browsers. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse.
 function toDate(rawValue) {
