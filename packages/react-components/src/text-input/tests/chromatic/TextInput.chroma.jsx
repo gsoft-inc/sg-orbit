@@ -140,4 +140,10 @@ stories()
             <TextInput wrapperProps={{ className: "border-red" }} />
             <TextInput wrapperProps={{ style: { border: "1px solid red" } }} />
         </Inline>
+    )
+    .add("search", () =>
+        <Inline>
+            <TextInput type="search" />
+            <TextInput defaultValue="Mars" type="search" />
+        </Inline>
     );
