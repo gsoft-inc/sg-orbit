@@ -4,6 +4,8 @@ import { CrossButton } from "../../button";
 import { Keys, forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { TextInput } from "../../text-input";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { isNil } from "lodash";
+import { useCallback } from "react";
 
 const propTypes = {
     /**
@@ -29,6 +31,7 @@ const propTypes = {
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {string} value - The new input value.
      * @returns {void}
      */
     onChange: func,
@@ -45,6 +48,10 @@ const propTypes = {
      */
     fluid: bool,
     /**
+     * Whether or not to render a loader.
+     */
+    loading: bool,
+    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps: object,
@@ -57,6 +64,8 @@ const propTypes = {
 export function InnerSearchInput({
     value: valueProp,
     defaultValue,
+    onChange,
+    onKeyDown,
     wrapperProps,
     as = "input",
     forwardedRef,
@@ -64,19 +73,37 @@ export function InnerSearchInput({
 }) {
     const [value, setValue] = useControllableState(valueProp, defaultValue, "");
 
+    const updateValue = useCallback((event, newValue) => {
+        if (!isNil(onChange)) {
+            onChange(event, newValue);
+        }
+
+        setValue(newValue);
+    }, [onChange, setValue]);
+
+    const clear = useCallback(event => {
+        updateValue(event, "");
+    }, [updateValue]);
+
     const handleChange = useEventCallback(event => {
-        setValue(event.target.value);
+        updateValue(event, event.target.value);
     });
 
     const handleKeyDown = useEventCallback(event => {
-        if (event.key === Keys.esc) {
-            event.preventDefault();
-            setValue("");
+        if (!isNil(onKeyDown)) {
+            onKeyDown(event);
+        }
+
+        if (!event.isPropagationStopped()) {
+            if (event.key === Keys.esc) {
+                event.preventDefault();
+                clear(event);
+            }
         }
     });
 
-    const handleClearButtonClick = useEventCallback(() => {
-        setValue("");
+    const handleClearButtonClick = useEventCallback(event => {
+        clear(event);
     });
 
     const clearButtonMarkup = !isNilOrEmpty(value) && (
@@ -102,6 +129,9 @@ export function InnerSearchInput({
                         className: "o-ui-search-input"
                     }),
                     type: "search",
+                    autoCorrect: "off",
+                    spellCheck: "false",
+                    autoComplete: "off",
                     as,
                     ref: forwardedRef
                 }

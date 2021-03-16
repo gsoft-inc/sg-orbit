@@ -70,6 +70,7 @@ stories()
         <Stack>
             <TextInput icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" />
+            <TextInput loading icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput readOnly icon={<MagnifierIcon />} placeholder="Where to?" />
             <div>
