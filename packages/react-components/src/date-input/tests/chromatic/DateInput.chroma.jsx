@@ -40,18 +40,18 @@ stories()
     )
     .add("value", () =>
         <Stack>
-            <DateInput defaultValue={new Date(1970, 0, 5)} placeholder="dd/mm/yyyy" />
-            <DateInput disabled defaultValue={new Date(1970, 0, 5)} placeholder="dd/mm/yyyy" />
-            <DateInput readOnly defaultValue={new Date(1970, 0, 5)} placeholder="dd/mm/yyyy" />
+            <DateInput defaultValue={new Date(1970, 0, 5)} />
+            <DateInput disabled defaultValue={new Date(1970, 0, 5)} />
+            <DateInput readOnly defaultValue={new Date(1970, 0, 5)} />
             <Inline>
-                <DateInput defaultValue={new Date(1970, 0, 5)} placeholder="dd/mm/yyyy" />
+                <DateInput defaultValue={new Date(1970, 0, 5)} />
                 <DateInput value={new Date(1970, 0, 5)} />
             </Inline>
             <div>
-                <DateInput fluid placeholder="dd/mm/yyyy" defaultValue={new Date(1970, 0, 5)}></DateInput>
+                <DateInput fluid defaultValue={new Date(1970, 0, 5)}></DateInput>
             </div>
             <div className="w-10">
-                <DateInput fluid placeholder="dd/mm/yyyy" defaultValue={new Date(1970, 0, 5)}></DateInput>
+                <DateInput fluid defaultValue={new Date(1970, 0, 5)}></DateInput>
             </div>
         </Stack>
     )
