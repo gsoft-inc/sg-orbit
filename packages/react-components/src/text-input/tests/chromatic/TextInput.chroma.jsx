@@ -52,17 +52,17 @@ stories()
             <TextInput disabled defaultValue="SpaceX will win the race!" />
             <TextInput readOnly defaultValue="SpaceX will win the race!" />
             <Inline>
-                <TextInput placeholder="Where to?" defaultValue="SpaceX will win the race!" />
+                <TextInput defaultValue="SpaceX will win the race!" />
                 <TextInput value="SpaceX will win the race!" />
             </Inline>
             <div>
-                <TextInput fluid placeholder="Where to?"></TextInput>
+                <TextInput fluid defaultValue="SpaceX will win the race!"></TextInput>
             </div>
             <div className="w-10">
-                <TextInput fluid placeholder="Where to?"></TextInput>
+                <TextInput fluid defaultValue="SpaceX will win the race!"></TextInput>
             </div>
             <div>
-                <TextInput loading fluid placeholder="Where to?"></TextInput>
+                <TextInput loading fluid defaultValue="SpaceX will win the race!"></TextInput>
             </div>
         </Stack>
     )
@@ -133,17 +133,17 @@ stories()
     .add("autofocus with delay", () =>
         <TextInput autoFocus={50} />
     )
+    .add("search", () =>
+        <Inline>
+            <TextInput type="search" />
+            <TextInput defaultValue="Mars" type="search" />
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <TextInput className="bg-red" />
             <TextInput style={{ backgroundColor: "red" }} />
             <TextInput wrapperProps={{ className: "border-red" }} />
             <TextInput wrapperProps={{ style: { border: "1px solid red" } }} />
-        </Inline>
-    )
-    .add("search", () =>
-        <Inline>
-            <TextInput type="search" />
-            <TextInput defaultValue="Mars" type="search" />
         </Inline>
     );
