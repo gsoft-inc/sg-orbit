@@ -10,7 +10,6 @@ export * from "./checkbox";
 export * from "./switch";
 export * from "./radio";
 export * from "./tag";
-export * from "./tags-picker";
 export * from "./tabs";
 export * from "./badge";
 export * from "./lozenge";
