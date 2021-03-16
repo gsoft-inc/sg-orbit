@@ -5,6 +5,7 @@
     --o-ui-input-padding-loading: var(--o-ui-global-scale-golf);
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
     --o-ui-input-border-radius: var(--o-ui-global-rounded-border-radius);
+    --o-ui-input-focus-color: var(--o-ui-alias-border-primary-1);
     --o-ui-input-background-color: var(--o-ui-alias-background-2);
 }
 
@@ -61,7 +62,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 var(--o-ui-global-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-primary-1);
+    box-shadow: var(--o-ui-global-focus-ring-inset-md);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
@@ -91,14 +92,9 @@
     --o-ui-input-border-color: var(--o-ui-alias-border-negative-1);
 }
 
-/* INVALID */
-.o-ui-input-invalid {
-    --o-ui-focus-ring-color: var(--o-ui-global-beetle-500);
-}
-
 .o-ui-input.o-ui-input-invalid input:focus,
 .o-ui-input.o-ui-input-invalid-focus {
-    box-shadow: var(--o-ui-global-focus-ring-inset-sm);
+    box-shadow: var(--o-ui-global-focus-ring-inset-sm-negative);
     border-color: var(--o-ui-alias-border-negative-1);
 }
 
