@@ -81,14 +81,6 @@ const propTypes = {
      */
     fluid: bool,
     /**
-     * Whether or not the input is disabled.
-     */
-    disabled: bool,
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly: bool,
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as: oneOfType([string, elementType])

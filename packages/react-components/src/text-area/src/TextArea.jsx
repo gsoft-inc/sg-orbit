@@ -60,14 +60,6 @@ const propTypes = {
      */
     loading: bool,
     /**
-     * Whether or not the input is disabled.
-     */
-    disabled: bool,
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly: bool,
-    /**
      * The number of visible text lines.
      */
     rows: number,
