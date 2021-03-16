@@ -516,6 +516,7 @@ export function InnerAutocomplete(props) {
                         focus,
                         hover,
                         className: "o-ui-autocomplete-trigger",
+                        type: "text",
                         role: "combobox",
                         autoCorrect: "off",
                         spellCheck: "false",
