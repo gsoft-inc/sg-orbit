@@ -1,6 +1,6 @@
 import "./CheckeredBackground.css";
 
-import { mergeClasses } from "@react-components/shared/src";
+import { mergeClasses } from "@react-components/shared";
 
 export function CheckeredBackground({ className, children, ...rest }) {
     return (

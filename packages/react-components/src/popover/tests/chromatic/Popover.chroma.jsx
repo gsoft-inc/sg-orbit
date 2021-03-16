@@ -6,7 +6,7 @@ import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
 import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
-import { TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/text-input";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 /*

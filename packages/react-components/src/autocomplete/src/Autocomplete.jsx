@@ -17,7 +17,7 @@ import {
 } from "../../shared";
 import { NodeType, useCollection, useCollectionItems } from "../../collection";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { TextInput } from "../../input";
+import { TextInput } from "../../text-input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
@@ -244,7 +244,7 @@ export function InnerAutocomplete(props) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: { style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
         children,
         forwardedRef,
@@ -267,7 +267,7 @@ export function InnerAutocomplete(props) {
     });
 
     const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
-        id,
+        id: menuId,
         open: openProp,
         defaultOpen,
         onOpenChange,

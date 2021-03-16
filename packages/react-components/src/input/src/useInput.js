@@ -3,13 +3,12 @@ import { isNumber } from "lodash";
 
 export function useInput({
     cssModule: module,
-    value,
     id,
+    value,
     placeholder,
     required,
     validationState,
     onChange,
-    variant,
     type,
     autoFocus,
     disabled,
@@ -24,7 +23,7 @@ export function useInput({
     const inputRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(inputRef, {
-        isDisabled: !autoFocus,
+        isDisabled: !autoFocus || disabled || readOnly,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
@@ -34,7 +33,8 @@ export function useInput({
                 module,
                 cssModule(
                     "o-ui-input",
-                    variant,
+                    // TODO: remove once CSS perf improvement has been merged
+                    "outline",
                     validationState,
                     fluid && "fluid",
                     loading && "loading",

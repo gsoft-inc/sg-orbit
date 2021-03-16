@@ -1,7 +1,7 @@
 import { Field } from "@react-components/field";
 import { Inline } from "@react-components/layout";
 import { Row } from "@react-components/form";
-import { TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

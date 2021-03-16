@@ -1,15 +1,6 @@
-/*
-TO REMOVE:
-    - legacy stuff
-    - match
-*/
-
-// Legacy stuff to review
-export * from "./auto-controlled-state";
-export * from "./DomEventListener";
-export * from "./OLD_env";
+// TODO: Legacy stuff to review & possibly remove.
 export * from "./assertion";
-export * from "./semantic-ui";
+export * from "./match";
 
 // Constants
 export * from "./keys";
@@ -20,12 +11,10 @@ export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./cssModule";
-export * from "./OLD_resolvePopperPosition";
 export * from "./augmentElement";
 export * from "./omitProps";
 export * from "./arrayify";
 export * from "./resolveChildren";
-export * from "./match";
 export * from "./focusableTreeWalker";
 export * from "./forwardRef";
 
