@@ -62,7 +62,7 @@ const propTypes = {
 };
 
 export function InnerSearchInput({
-    value: valueProp,
+    value,
     defaultValue,
     onChange,
     onKeyDown,
@@ -71,7 +71,7 @@ export function InnerSearchInput({
     forwardedRef,
     ...rest
 }) {
-    const [value, setValue] = useControllableState(valueProp, defaultValue, "");
+    const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const updateValue = useCallback((event, newValue) => {
         if (!isNil(onChange)) {
@@ -102,16 +102,17 @@ export function InnerSearchInput({
         }
     });
 
-    const handleClearButtonClick = useEventCallback(event => {
+    const handleClear = useEventCallback(event => {
         clear(event);
     });
 
-    const clearButtonMarkup = !isNilOrEmpty(value) && (
+    const clearButtonMarkup = !isNilOrEmpty(inputValue) && (
         <CrossButton
-            onClick={handleClearButtonClick}
+            onClick={handleClear}
             size="xs"
             condensed
             className="o-ui-search-input-clear-button"
+            title="Clear value"
             aria-label="Clear value"
         />
     );
@@ -121,7 +122,7 @@ export function InnerSearchInput({
             {...mergeProps(
                 rest,
                 {
-                    value,
+                    value: inputValue,
                     button: clearButtonMarkup || undefined,
                     onChange: handleChange,
                     onKeyDown: handleKeyDown,

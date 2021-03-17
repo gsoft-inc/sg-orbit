@@ -1,9 +1,11 @@
+import "./PasswordInput.css";
+
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput } from "./TextInput";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
-import { useEventCallback } from "../../shared";
+import { isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
 
 const propTypes = {
@@ -42,10 +44,6 @@ const propTypes = {
      */
     onChange: func,
     /**
-     * The style to use.
-     */
-    variant: oneOf(["outline", "transparent"]),
-    /**
      * Whether or not the input should autofocus on render.
      */
     autoFocus: oneOfType([bool, number]),
@@ -80,32 +78,50 @@ const propTypes = {
 };
 
 export function InnerPasswordInput({
-    variant = "outline",
+    value,
+    defaultValue,
+    wrapperProps,
     forwardedRef,
     ...rest
 }) {
+    const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);
 
-    const handleClick = useEventCallback(() => {
+    const handleChange = useEventCallback(event => {
+        setValue(event.target.value);
+    });
+
+    const handleShowValue = useEventCallback(() => {
         setIsHidden(x => !x);
     });
 
+    const showButtonMarkup = !isNilOrEmpty(inputValue) && (
+        <IconButton
+            variant="ghost"
+            onClick={handleShowValue}
+            className="o-ui-password-input-show-button"
+            title="Toggle password visibility"
+            aria-label="Toggle password visibility"
+        >
+            {isHidden ? <EyeIcon /> : <PrivacyIcon />}
+        </IconButton>
+    );
+
     return (
         <TextInput
-            {...rest}
-            variant={variant}
-            type={isHidden ? "password" : "text"}
-            button={
-                <IconButton
-                    variant="ghost"
-                    onClick={handleClick}
-                    title="Toggle password visibility"
-                    aria-label="Toggle password visibility"
-                >
-                    {isHidden ? <EyeIcon /> : <PrivacyIcon />}
-                </IconButton>
-            }
-            ref={forwardedRef}
+            {...mergeProps(
+                rest,
+                {
+                    value: inputValue,
+                    onChange: handleChange,
+                    wrapperProps: mergeProps(wrapperProps ?? {}, {
+                        className: "o-ui-password-input"
+                    }),
+                    type: isHidden ? "password" : "text",
+                    button: showButtonMarkup || undefined,
+                    ref: forwardedRef
+                }
+            )}
         />
     );
 }
