@@ -1,5 +1,5 @@
 () => {
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(true);
 
     const handleChange = useCallback((event, newValue) => {
         setIsValid(newValue === "earth");
@@ -8,7 +8,6 @@
 
     return (
         <Select
-            defaultSelectedKey="mars"
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
             onChange={handleChange}

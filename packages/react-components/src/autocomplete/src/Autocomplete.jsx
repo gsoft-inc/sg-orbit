@@ -50,11 +50,6 @@ const propTypes = {
      */
     items: arrayOf(object),
     /**
-     * Called when the input query change and new search results are expected.
-     * @param {string} - The search query.
-     */
-    onSearch: func,
-    /**
      * Whether or not the autocomplete should display a loading state.
      */
     loading: bool,
@@ -78,6 +73,13 @@ const propTypes = {
      * Whether or not the autocomplete should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
+    /**
+     * Called when the input query change and new search results are expected.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {string} query - The search query.
+     * @returns {void}
+     */
+    onSearch: func,
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -342,7 +344,7 @@ export function InnerAutocomplete(props) {
     const search = useDebouncedCallback((event, query) => {
         if (query.trim().length >= minCharacters) {
             if (!isNil(onSearch)) {
-                onSearch(query);
+                onSearch(event, query);
             } else {
                 searchInNodes(query);
             }
