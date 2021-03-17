@@ -1,4 +1,4 @@
-.o-ui-theme {
+.o-ui {
     --o-ui-listbox-option-height: var(--o-ui-global-scale-golf);
     --o-ui-listbox-option-checkmark-size: var(--o-ui-global-scale-charlie);
 }

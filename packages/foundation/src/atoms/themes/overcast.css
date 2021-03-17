@@ -1,4 +1,4 @@
-.o-ui-theme {
+.o-ui {
     --o-ui-global-hue-overcast: 208;
     --o-ui-global-opacity-overcast: 1;
     --o-ui-global-overcast-50: hsla(209, 100%, 95%, var(--o-ui-global-opacity-overcast));

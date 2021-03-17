@@ -1,6 +1,6 @@
 /* stylelint-disable max-line-length */
 /* GLOBAL */
-.o-ui-theme {
+.o-ui {
     /* Radiuses */
     --o-ui-global-pill-border-radius: 999px;
     --o-ui-global-circular-border-radius: 100%;
@@ -26,7 +26,7 @@
 }
 
 /* LIGHT */
-.o-ui-light-color-scheme {
+.o-ui-light {
     /* FOUNDATIONS */
     --o-ui-alias-background: var(--o-ui-alias-background-light);
     --o-ui-alias-background-1: var(--o-ui-alias-background-1-light);
@@ -129,7 +129,7 @@
 }
 
 /* DARK */
-.o-ui-dark-color-scheme {
+.o-ui-dark {
     /* FOUNDATIONS */
     --o-ui-alias-background: var(--o-ui-alias-background-dark);
     --o-ui-alias-background-1: var(--o-ui-alias-background-1-dark);
@@ -233,7 +233,7 @@
 }
 
 /* APRICOT */
-.o-ui-apricot-theme {
+.o-ui-apricot {
     --o-ui-alias-primary-50: var(--o-ui-global-apricot-50);
     --o-ui-alias-primary-100: var(--o-ui-global-apricot-100);
     --o-ui-alias-primary-200: var(--o-ui-global-apricot-200);
@@ -247,7 +247,7 @@
 }
 
 /* OVERCAST */
-.o-ui-overcast-theme {
+.o-ui-overcast {
     --o-ui-alias-primary-50: var(--o-ui-global-overcast-50);
     --o-ui-alias-primary-100: var(--o-ui-global-overcast-100);
     --o-ui-alias-primary-200: var(--o-ui-global-overcast-200);
@@ -261,7 +261,7 @@
 }
 
 /* DESKTOP */
-.o-ui-desktop-theme {
+.o-ui-desktop {
     --o-ui-alias-primary-50: var(--o-ui-global-desktop-50);
     --o-ui-alias-primary-100: var(--o-ui-global-desktop-100);
     --o-ui-alias-primary-200: var(--o-ui-global-desktop-200);

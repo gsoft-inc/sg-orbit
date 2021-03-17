@@ -1,4 +1,4 @@
-.o-ui-theme {
+.o-ui {
     --o-ui-global-hue-apricot: 172;
     --o-ui-global-opacity-apricot: 1;
     --o-ui-global-apricot-50: hsla(174, 61%, 94%, var(--o-ui-global-opacity-apricot));

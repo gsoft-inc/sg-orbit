@@ -1,6 +1,6 @@
 @import "./Button.css";
 
-.o-ui-theme {
+.o-ui {
     --o-ui-icon-button-height-2xs: var(--o-ui-global-scale-echo);
     --o-ui-icon-button-height-xs: var(--o-ui-global-scale-foxtrot);
 }

@@ -2,6 +2,7 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { isNil } from "lodash";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
@@ -68,7 +69,7 @@ export function InnerDot(props: InnerDotProps) {
 
 function useColor(color: string) {
     return useMemo(() => {
-        if (color) {
+        if (!isNil(color)) {
             if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
                 return color;
             } else if (color.startsWith("--")) {
@@ -76,8 +77,6 @@ function useColor(color: string) {
             } else {
                 return `var(--o-ui-global-${color})`;
             }
-        } else {
-            return;
         }
     }, [color]);
 }

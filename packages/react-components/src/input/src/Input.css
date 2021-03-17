@@ -1,4 +1,4 @@
-.o-ui-theme {
+.o-ui {
     --o-ui-input-padding: var(--o-ui-global-scale-charlie);
     --o-ui-input-padding-with-icon: var(--o-ui-global-scale-golf);
     --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);

@@ -1,4 +1,4 @@
-.o-ui-theme {
+.o-ui {
     /* Marine */
     --o-ui-global-opacity-marine: 1;
     --o-ui-global-marine-50: hsla(222, 100%, 96%, var(--o-ui-global-opacity-marine));
