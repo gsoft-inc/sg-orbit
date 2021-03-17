@@ -3,7 +3,7 @@ import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
 import { useCallback, useEffect, useState } from "react";
 
-export function useAsyncItems(fetch) {
+export function useAsyncSearch(fetch) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);
     const [promise, setPromise] = useRefState();

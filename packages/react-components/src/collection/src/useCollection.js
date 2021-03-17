@@ -1,10 +1,10 @@
 import { Children, useMemo } from "react";
-import { Divider } from "../divider";
-import { Item, Section } from "../placeholders";
-import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
+import { Divider } from "../../divider";
+import { Item, Section } from "../../placeholders";
+import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { any, array, arrayOf, number, object, oneOfType, element as reactElement, elementType as reactElementType, string } from "prop-types";
 import { isNil } from "lodash";
-import { resolveChildren } from "../shared";
+import { resolveChildren } from "../../shared";
 
 // ALEX: With TS would be nice to seggregate this shape into multiple interface like CollectionItem, CollectionSection, CollectionDivider.
 export const NodeShape = {

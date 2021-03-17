@@ -1,5 +1,5 @@
 import { NodeType, useCollection } from "./useCollection";
-import { getRawSlots } from "../shared";
+import { getRawSlots } from "../../shared";
 import { isNil } from "lodash";
 import { useCallback, useState } from "react";
 

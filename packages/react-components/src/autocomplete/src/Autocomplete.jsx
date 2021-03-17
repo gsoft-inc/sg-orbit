@@ -45,7 +45,7 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * The items to render.
+     * Items to render.
      */
     items: arrayOf(object),
     /**
@@ -357,6 +357,7 @@ export function InnerAutocomplete(props) {
                     // Do not remove otherwise the SearchInput will clear the input on esc.
                     event.stopPropagation();
                     event.preventDefault();
+
                     close(event);
                 }
                 break;

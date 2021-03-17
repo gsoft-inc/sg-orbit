@@ -6,6 +6,7 @@ import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { arrayOf } from "prop-types";
 import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
@@ -33,6 +34,10 @@ const propTypes = {
      * Temporary text that occupies the select trigger when no value is selected.
      */
     placeholder: string,
+    /**
+     * Items to render.
+     */
+    items: arrayOf(object),
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -119,6 +124,7 @@ export function InnerSelect(props) {
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
+        items,
         required,
         validationState,
         onChange,
@@ -157,6 +163,7 @@ export function InnerSelect(props) {
         defaultOpen,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
+        items,
         onChange,
         onOpenChange,
         direction,

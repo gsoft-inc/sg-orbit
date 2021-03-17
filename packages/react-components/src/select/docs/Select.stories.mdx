@@ -285,6 +285,30 @@ A select items can be rendered with an array map.
     </Story>
 </Preview>
 
+### Dynamic items
+
+An autocomplete items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="dynamic items">
+        <Select
+            items={[
+                { key: "earth", value: "Earth" },
+                { key: "jupiter", value: "Jupiter" },
+                { key: "mars", value: "Mars" }
+            ]}
+            placeholder="Planets"
+            aria-label="Planets"
+        >
+            {({ items }) => items.map((x => (
+                <Item key={x.key}>{x.value}</Item>
+            )))}
+        </Select>
+    </Story>
+</Preview>
+
 ### Controlled
 
 The selected key and open state can be handled in controlled mode.
