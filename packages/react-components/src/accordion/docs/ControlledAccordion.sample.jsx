@@ -1,13 +1,13 @@
 () => {
-    const [openedIndexes, setOpenedIndexes] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(null);
 
     const handleChange = useCallback((event, index) => {
-        setOpenedIndexes(index);
+        setSelectedIndex(index);
         console.log(index);
-    }, [setOpenedIndexes]);
+    }, [setSelectedIndex]);
 
     return (
-        <Accordion index={openedIndexes} onChange={handleChange}>
+        <Accordion index={selectedIndex} onChange={handleChange}>
             <Item>
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
