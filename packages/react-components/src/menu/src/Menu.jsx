@@ -20,13 +20,17 @@ import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { NodeType, useCollection } from "../../collection";
-import { any, bool, elementType, func, number, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, elementType, func, number, object, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const KeyProp = "data-o-ui-key";
 
 const propTypes = {
+    /**
+     * Items to render.
+     */
+    items: arrayOf(object),
     /**
      * Called when a menu item is selected.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -58,6 +62,7 @@ const propTypes = {
 
 export function InnerMenu({
     id,
+    items,
     onSelect,
     autoFocus,
     defaultFocusTarget,
@@ -137,7 +142,7 @@ export function InnerMenu({
         })
     });
 
-    const nodes = useCollection(children);
+    const nodes = useCollection(children, { items });
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 
