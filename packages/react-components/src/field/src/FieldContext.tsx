@@ -49,7 +49,7 @@ export interface UseFieldLabelProps {
     as?: ElementType;
 }
 
-export type UseFieldLabelReturn = [{
+export type UseFieldLabelPropsReturn = [{
     id?: string;
     required?: boolean;
     size?: "sm" | "md";
@@ -58,7 +58,7 @@ export type UseFieldLabelReturn = [{
     as?: ElementType;
 }, boolean]
 
-export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseFieldLabelReturn {
+export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseFieldLabelPropsReturn {
     const [{ isGroupField, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
@@ -117,7 +117,7 @@ export function useFieldInputProps(): UseFieldInputPropsReturn {
     return [props || {}, isInField];
 }
 
-export type UseFieldMessageProps = [{
+export type UseFieldMessagePropsReturn = [{
     id?: string;
     size?: "sm" | "md";
     fluid?: boolean;
@@ -126,7 +126,7 @@ export type UseFieldMessageProps = [{
     "aria-live"?: "polite";
 }, boolean]
 
-export function useFieldMessageProps(): UseFieldMessageProps {
+export function useFieldMessageProps(): UseFieldMessagePropsReturn {
     const [{
         messageId,
         size,
@@ -135,13 +135,13 @@ export function useFieldMessageProps(): UseFieldMessageProps {
         messageClassName
     }, isInField] = useFieldContext();
 
-    const props = isInField && {
+    const props: UseFieldMessagePropsReturn[0] = isInField && {
         id: messageId,
         size,
         fluid,
         validationState,
         className: cssModule(messageClassName, normalizeSize(size)),
-        "aria-live": "polite" as const
+        "aria-live": "polite"
     };
 
     return [props || {}, isInField];
@@ -153,7 +153,7 @@ interface ClearFieldContextProps {
 
 export function ClearFieldContext({ children }: ClearFieldContextProps) {
     return (
-        <FieldContext.Provider value={null} >
+        <FieldContext.Provider value={null}>
             { children}
         </FieldContext.Provider>
     );

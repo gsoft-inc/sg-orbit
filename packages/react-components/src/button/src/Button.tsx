@@ -1,7 +1,7 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
 import { createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
@@ -52,10 +52,8 @@ interface InnerButtonProps {
     type?: "button" | "submit" | "reset";
     /**
     * Called when the button is click.
-    * @param {SyntheticEvent} event - React's original SyntheticEvent.
-    * @returns {void}
     */
-    onClick?: (event: SyntheticEvent) => void
+    onClick?: MouseEventHandler<HTMLElement>
     /**
      * An HTML element type or a custom React element type to render as.
      */

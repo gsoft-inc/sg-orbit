@@ -52,18 +52,18 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
     return useMemo(() => getRawSlots(children, slots), [children, slots]);
 }
 
-interface RequiredDefaultSlot {
+interface SlotOptions {
     _: {
         defaultWrapper?: ComponentType;
         required?: string[];
     }
 }
 
-type SlotElements<T extends RequiredDefaultSlot> = {
+type SlotElements<T extends SlotOptions> = {
     [key in keyof Omit<T, "_">]?: ReactElement;
 } & Record<string, ReactElement>
 
-export function getSlots<T extends RequiredDefaultSlot>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
+export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
     if (isNil(children)) {
         return {};
     }
@@ -119,6 +119,6 @@ export function getSlots<T extends RequiredDefaultSlot>(children: ReactNode, { _
     return slotElements as SlotElements<T>;
 }
 
-export function useSlots<T extends RequiredDefaultSlot>(children: ReactNode, slots: T) {
+export function useSlots<T extends SlotOptions>(children: ReactNode, slots: T) {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

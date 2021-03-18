@@ -8,8 +8,10 @@ export function augmentElement(element: ReactElement & RefAttributes<any>, newPr
     return cloneElement(element, augmentedProps);
 }
 
+type RecordWithSize = { size: Size } & Record<string, any>;
+
 export function createEmbeddableAdapter<T extends Size>(sizeAdapter: SizeAdapter<T>) {
-    return <Props extends { size: Size } & Record<string, any>>(element: ReactElement<Props, any>, { size, ...props }: Props) => {
+    return <Props extends RecordWithSize>(element: ReactElement<Props, any>, { size, ...props }: Props) => {
         const newProps = {
             ...props,
             size: sizeAdapter[normalizeSize(size)]

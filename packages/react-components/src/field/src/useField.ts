@@ -2,7 +2,7 @@ import { ForwardedRef } from "react";
 import { MergedRef, cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
 import type { CommonFieldContextType } from "./FieldContext";
 
-interface UseFieldProps {
+export interface UseFieldProps {
     id?: string;
     validationState?: "valid" | "invalid";
     required?: boolean;
