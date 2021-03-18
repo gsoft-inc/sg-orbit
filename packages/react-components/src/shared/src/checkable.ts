@@ -1,9 +1,9 @@
-import { SyntheticEvent, createContext, useContext } from "react";
+import { ChangeEvent, createContext, useContext } from "react";
 import { isNil } from "lodash";
 
 interface CheckableContextType {
     checkedValue?: boolean | string | number;
-    onCheck?(event: SyntheticEvent, newValue: boolean | string | number): void;
+    onCheck?(event: ChangeEvent, newValue: boolean | string | number): void;
 }
 
 export const CheckableContext = createContext<CheckableContextType>(undefined);
