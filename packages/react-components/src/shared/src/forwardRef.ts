@@ -8,6 +8,7 @@ type PropsWithoutChildren<P> =
     ? Pick<P, Exclude<keyof P, "children">>
     : P;
 
+// Use PropsWithoutChildren here since in some cases, we didn't want to allow the children props but the As property's properties were bringing it back
 type PropsOf<T> = PropsWithoutChildren<
     T extends ElementType ? HTMLProps<AsRef<T>> & ComponentProps<T> & RefAttributes<AsRef<T>> :
     T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :

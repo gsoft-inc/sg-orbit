@@ -222,7 +222,7 @@ export interface AlertTemplateProps {
 // Dummy component for documentation purpose.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function AlertTemplate(_props: AlertTemplateProps) {
-    // When returning null, react-docgen doesn't ignore the component.
+    // When returning null, react-docgen ignore the component.
     return <></>;
 }
 
