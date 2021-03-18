@@ -2,7 +2,7 @@ import { ElementType, ReactNode, createContext, useContext } from "react";
 import { cssModule, normalizeSize } from "../../shared";
 import { isNil } from "lodash";
 
-export interface CommonFieldContextType {
+export interface FieldContextType {
     inputId?: string;
     labelId?: string;
     messageId?: string
@@ -16,27 +16,20 @@ export interface CommonFieldContextType {
     labelClassName?: string;
     inputClassName?: string;
     messageClassName?: string;
-}
-
-export interface FieldContextType extends CommonFieldContextType {
     isGroup?: boolean;
-}
-
-export interface UseFieldContextType extends CommonFieldContextType {
-    isGroupField?: boolean;
 }
 
 export const FieldContext = createContext<FieldContextType>(null);
 
-export function useFieldContext(): [UseFieldContextType, boolean] {
+export function useFieldContext(): [FieldContextType, boolean] {
     const context = useContext(FieldContext);
 
     if (!isNil(context)) {
-        const { isGroup: isGroupField = false, ...rest } = context;
+        const { isGroup = false, ...rest } = context;
 
         const props = {
             ...rest,
-            isGroupField
+            isGroup
         };
 
         return [props, true];
@@ -59,10 +52,10 @@ export type UseFieldLabelPropsReturn = [{
 }, boolean]
 
 export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseFieldLabelPropsReturn {
-    const [{ isGroupField, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
+    const [{ isGroup, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
-        ? isGroupField ? "span" : "label"
+        ? isGroup ? "span" : "label"
         : asProp;
 
     const props = isInField && {

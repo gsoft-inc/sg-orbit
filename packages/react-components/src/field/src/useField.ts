@@ -1,6 +1,6 @@
 import { ForwardedRef } from "react";
 import { MergedRef, cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
-import type { CommonFieldContextType } from "./FieldContext";
+import type { FieldContextType } from "./FieldContext";
 
 export interface UseFieldProps {
     id?: string;
@@ -19,7 +19,7 @@ export interface UseFieldReturn {
         role: string;
         ref: MergedRef<any>;
     };
-    fieldContext: CommonFieldContextType
+    fieldContext: FieldContextType
 }
 
 export function useField({
