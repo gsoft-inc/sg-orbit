@@ -2,9 +2,9 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { isNil } from "lodash";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { isNil } from "lodash";
 import { useMemo } from "react";
 
 export interface InnerDotProps {
