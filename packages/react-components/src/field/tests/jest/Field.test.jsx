@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { Field, GroupField, Label } from "@react-components/field";
-import { TextInput } from "@react-components/input";
+import { TextInput } from "@react-components/text-input";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 

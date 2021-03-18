@@ -1,6 +1,5 @@
 import "./Autocomplete.css";
 
-import { CrossButton } from "../../button";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { KeyProp, Listbox } from "../../listbox";
 import {
@@ -17,7 +16,7 @@ import {
 } from "../../shared";
 import { NodeType, useCollection, useCollectionItems } from "../../collection";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { TextInput } from "../../input";
+import { SearchInput } from "../../text-input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil } from "lodash";
@@ -51,11 +50,6 @@ const propTypes = {
      */
     items: arrayOf(object),
     /**
-     * Called when the input query change and new search results are expected.
-     * @param {string} - The search query.
-     */
-    onSearch: func,
-    /**
      * Whether or not the autocomplete should display a loading state.
      */
     loading: bool,
@@ -79,6 +73,13 @@ const propTypes = {
      * Whether or not the autocomplete should display as "valid" or "invalid".
      */
     validationState: oneOf(["valid", "invalid"]),
+    /**
+     * Called when the input query change and new search results are expected.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {string} query - The search query.
+     * @returns {void}
+     */
+    onSearch: func,
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -244,7 +245,7 @@ export function InnerAutocomplete(props) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: { style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
         children,
         forwardedRef,
@@ -267,7 +268,7 @@ export function InnerAutocomplete(props) {
     });
 
     const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
-        id,
+        id: menuId,
         open: openProp,
         defaultOpen,
         onOpenChange,
@@ -343,7 +344,7 @@ export function InnerAutocomplete(props) {
     const search = useDebouncedCallback((event, query) => {
         if (query.trim().length >= minCharacters) {
             if (!isNil(onSearch)) {
-                onSearch(query);
+                onSearch(event, query);
             } else {
                 searchInNodes(query);
             }
@@ -427,12 +428,11 @@ export function InnerAutocomplete(props) {
                 }
                 break;
             case Keys.esc:
-                event.preventDefault();
-
                 if (isOpen) {
+                    // Do not remove otherwise the SearchInput will clear the input on esc.
+                    event.stopPropagation();
+                    event.preventDefault();
                     close(event);
-                } else {
-                    clear(event);
                 }
                 break;
             case Keys.enter:
@@ -444,16 +444,9 @@ export function InnerAutocomplete(props) {
         }
     });
 
-    const handleTriggerChange = useEventCallback(event => {
-        const query = event.target.value;
-
+    const handleTriggerChange = useEventCallback((event, query) => {
         setQuery(query, true);
         search(event, query);
-    });
-
-    const handleTriggerClear = useEventCallback(event => {
-        clear(event);
-        triggerElement.focus();
     });
 
     const handleListboxChange = useEventCallback((event, newKey) => {
@@ -473,17 +466,6 @@ export function InnerAutocomplete(props) {
         className: "o-ui-autocomplete-icon",
         size: "sm"
     });
-
-    const clearButtonMarkup = !isNilOrEmpty(queryRef.current)
-        ? (
-            <CrossButton
-                onClick={handleTriggerClear}
-                size="xs"
-                condensed
-                aria-label="Clear value"
-            />
-        )
-        : undefined;
 
     const listboxMarkup = (
         <Listbox
@@ -517,7 +499,7 @@ export function InnerAutocomplete(props) {
                 validationState={validationState}
                 disabled={disabled}
             />
-            <TextInput
+            <SearchInput
                 {...mergeProps(
                     rest,
                     {
@@ -525,7 +507,6 @@ export function InnerAutocomplete(props) {
                         value: queryRef.current,
                         placeholder,
                         icon: iconMarkup,
-                        button: clearButtonMarkup,
                         onChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,
@@ -537,6 +518,7 @@ export function InnerAutocomplete(props) {
                         focus,
                         hover,
                         className: "o-ui-autocomplete-trigger",
+                        type: "text",
                         role: "combobox",
                         autoCorrect: "off",
                         spellCheck: "false",

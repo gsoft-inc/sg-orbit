@@ -48,10 +48,6 @@ ref) => {
             {...mergeProps(
                 rest,
                 {
-                    // style: {
-                    //     padding: "100px 250px",
-                    //     position: "relative"
-                    // },
                     ref: containerRef
                 }
             )}

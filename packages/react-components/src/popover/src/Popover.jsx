@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
 import { any, bool, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { mergeProps, useEventCallback, useSlots } from "../../shared";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
@@ -36,7 +36,7 @@ export function InnerPopover({
         close(event);
     });
 
-    const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, {
+    const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
@@ -61,7 +61,7 @@ export function InnerPopover({
             className: "o-ui-popover-button-group",
             size: "sm"
         }
-    });
+    }), []));
 
     const closeButtonMarkup = !hideCloseButton && (
         <CrossButton

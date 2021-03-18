@@ -1,0 +1,121 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { DateRangeInput, InnerDateRangeInput } from "@react-components/date-input";
+import { subMonths, subWeeks } from "date-fns";
+
+<Meta
+    title="Components/DateRangeInput"
+    id="date-range-input"
+/>
+
+# DateRangeInput
+
+<Tagline>An specialized input to enter a range of dates.</Tagline>
+
+<ComponentInfo
+    usage={"import { DateRangeInput } from \"@orbit-ui/react-components\""}
+    githubPath="/packages/react-components/src/date-input/src"
+/>
+
+## Usage
+
+### Default
+
+A default date range input.
+
+<Preview>
+    <Story name="default">
+        <DateRangeInput placeholder="dd/mm/yyyy" />
+    </Story>
+</Preview>
+
+### Value
+
+A date range input can have values.
+
+<Preview>
+    <Story name="value">
+        <DateRangeInput defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(2021, 0, 5)} placeholder="dd/mm/yyyy" />
+    </Story>
+</Preview>
+
+### Presets
+
+A date range input can offer a predefined set of frequently used ranges.
+
+<Preview scope={{ subMonths, subWeeks }}>
+    <Story name="presets">
+        <DateRangeInput
+            presets={[
+                { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+            ]}
+            placeholder="dd/mm/yyyy"
+        />
+    </Story>
+</Preview>
+
+### Disabled
+
+A date range input can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <DateRangeInput disabled placeholder="dd/mm/yyyy" />
+    </Story>
+</Preview>
+
+### Readonly
+
+A date range input can be readonly.
+
+<Preview>
+    <Story name="readonly">
+        <DateRangeInput readOnly placeholder="dd/mm/yyyy" />
+    </Story>
+</Preview>
+
+### Fluid
+
+A date range input can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <DateRangeInput fluid placeholder="dd/mm/yyyy" />
+    </Story>
+</Preview>
+
+### Validation
+
+A date range input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if the date is between *05/01/1970* and *05/01/2021*.
+
+<Preview filePath="/date-input/docs/DateRangeValidation" />
+
+### Form
+
+A date range input can be used in a form by providing a `name` prop. When doing so, the `name` attribute of each inputs will be prefixed by the specified `name` prop and will respectively be suffixed by `"-start-date"` and `"-end-date"`.
+
+For example, if the provided `name` prop is "filter" the start date input `name` attribute will be `"filter-start-date"` and the end date input `name` attribute will be `"filter-end-date"`.
+
+<Preview>
+    <Story name="form">
+        <form>
+            <DateRangeInput name="filter" placeholder="dd/mm/yyyy" />
+        </form>
+    </Story>
+</Preview>
+
+## API
+
+### DateRangeInput
+
+<ComponentInfo
+    usage={"import { DateRangeInput } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerDateRangeInput} />

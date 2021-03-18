@@ -16,22 +16,184 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Autocomplete placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="uranus">Uranus</Item>
-        </Autocomplete>
+        <Stack>
+            <Autocomplete aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <Autocomplete loading aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <Autocomplete disabled aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <div>
+                <Autocomplete fluid aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+            <div className="w-10">
+                <Autocomplete fluid aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+            <div>
+                <Autocomplete loading fluid aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+        </Stack>
+    )
+    .add("placeholder", () =>
+        <Stack>
+            <Autocomplete placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <Autocomplete loading placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <Autocomplete disabled placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Autocomplete>
+            <div>
+                <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+            <div className="w-10">
+                <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+            <div>
+                <Autocomplete loading fluid placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Autocomplete>
+            </div>
+        </Stack>
     )
     .add("default value", () =>
-        <Autocomplete defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
+        <Stack>
+            <Autocomplete defaultValue="Mars" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
+            <Autocomplete loading defaultValue="Mars" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
+            <Autocomplete disabled defaultValue="Mars" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
+            <Inline>
+                <Autocomplete defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete value="Mars" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+            <div>
+                <Autocomplete fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
+            <div className="w-10">
+                <Autocomplete fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
+            <div>
+                <Autocomplete loading fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
+        </Stack>
     )
     .add("default value not matching any item", () =>
         <Autocomplete defaultValue="Toto" placeholder="Select a planet" aria-label="Planets">
@@ -41,35 +203,31 @@ stories()
         </Autocomplete>
     )
     .add("trigger icon", () =>
-        <Autocomplete icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
-    .add("without placeholder", () =>
-        <Autocomplete aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
-    .add("can clear value", () =>
-        <Autocomplete defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
-    .add("fluid", () =>
         <Stack>
-            <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
+            <Autocomplete defaultValue="Mars" icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
+            <Autocomplete disabled icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Autocomplete>
+            <div>
+                <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
             <div className="w-10">
-                <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
+                <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
@@ -77,8 +235,8 @@ stories()
             </div>
         </Stack>
     )
-    .add("loading", () =>
-        <Autocomplete loading placeholder="Select a planet" aria-label="Planets">
+    .add("can clear value", () =>
+        <Autocomplete defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -141,23 +299,39 @@ stories()
         </Stack>
     )
     .add("no results", () =>
-        <Inline>
-            <Autocomplete defaultOpen placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Autocomplete>
-            <Autocomplete defaultOpen noResultsMessage="Custom no results message" placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Autocomplete>
-            <Autocomplete defaultOpen noResultsMessage="Custom no results message, this is as custom as can be" placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Autocomplete>
-        </Inline>
+        <Stack gap={13}>
+            <Inline>
+                <Autocomplete defaultOpen placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete defaultOpen noResultsMessage="Custom no results message" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete defaultOpen noResultsMessage="Custom no results message, this is as custom as can be" placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+            <div>
+                <Autocomplete fluid defaultOpen placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
+            <div className="w-10">
+                <Autocomplete fluid defaultOpen placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </div>
+        </Stack>
     )
     .add("custom trigger width", () =>
         <Autocomplete style={{ width: "500px" }} placeholder="Select a planet" aria-label="Planets">

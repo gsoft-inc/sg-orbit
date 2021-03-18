@@ -5,7 +5,7 @@ import { Heading } from "../../heading";
 import { Text } from "../../text";
 import { adaptSize, cssModule, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -44,7 +44,7 @@ export function InnerAccordionHeader(props) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }
 
-    const { icon, text } = useSlots(children, {
+    const { icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -56,7 +56,7 @@ export function InnerAccordionHeader(props) {
             size: "inherit",
             className: "o-ui-accordion-title"
         }
-    });
+    }), [size]));
 
     return (
         <Heading

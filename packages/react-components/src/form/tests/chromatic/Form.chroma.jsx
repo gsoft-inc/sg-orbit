@@ -4,7 +4,8 @@ import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-comp
 import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { TextArea, TextInput } from "@react-components/input";
+import { TextArea } from "@react-components/text-area";
+import { TextInput } from "@react-components/text-input";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 

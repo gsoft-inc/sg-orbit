@@ -47,8 +47,6 @@ html .o-ui-dark-color-scheme * {
 @keyframes o-ui-fade-in-animation {
     0% {
         opacity: 0;
-    }0% {
-        opacity: 0;
     }
     100% {
         opacity: 1;

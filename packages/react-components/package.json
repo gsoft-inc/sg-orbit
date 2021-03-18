@@ -31,7 +31,6 @@
         "@orbit-ui/semantic-ui-theme": "*",
         "@orbit-ui/tachyons": "*",
         "lodash": "*",
-        "moment": "*",
         "react": "*",
         "react-dom": "*"
     },
@@ -40,9 +39,8 @@
         "@popperjs/core": "2.5.4",
         "@reach/auto-id": "0.11.2",
         "prop-types": "*",
-        "react-dates": "21.8.0",
+        "text-mask-core": "5.1.2",
         "react-is": "17.0.1",
-        "react-moment-proptypes": "*",
         "react-popper": "2.2.4",
         "semantic-ui-react": "2.0.1",
         "use-debounce": "5.2.1"

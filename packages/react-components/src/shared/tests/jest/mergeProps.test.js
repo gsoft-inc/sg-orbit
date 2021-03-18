@@ -36,7 +36,7 @@ describe("CompositeKeyWeakMap", () => {
         expect(map.get([key1, key4])).toBe("3");
     });
 
-    test("a key can be be used in multiple branch", () => {
+    test("a key can be used in multiple branch", () => {
         const map = new CompositeKeyWeakMap();
         const key1 = {};
         const key2 = {};

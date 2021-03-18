@@ -115,7 +115,7 @@ export function InnerAccordion({
         if (!isNil(onChange)) {
             onChange(
                 event,
-                expandMode === ExpandMode.single ? newIndexes[0] : newIndexes
+                expandMode === ExpandMode.single ? newIndexes[0] ?? null : newIndexes
             );
         }
     });
