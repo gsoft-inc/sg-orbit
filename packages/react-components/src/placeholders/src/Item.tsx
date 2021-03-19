@@ -22,8 +22,7 @@ export interface InnerItemProps {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function InnerItem(_props: InnerItemProps) {
-    // When returning null, react-docgen doesn't ignore the component.
-    return <></>;
+    return null;
 }
 
 export const Item = forwardRef<InnerItemProps>((props, ref) => (

@@ -18,8 +18,7 @@ export interface InnerSectionProps {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function InnerSection(_props: InnerSectionProps) {
-    // When returning null, react-docgen doesn't ignore the component.
-    return <></>;
+    return null;
 }
 
 export const Section = forwardRef<InnerSectionProps>((props, ref) => (
