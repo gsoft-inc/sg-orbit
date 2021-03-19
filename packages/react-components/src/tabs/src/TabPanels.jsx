@@ -9,9 +9,7 @@ export function TabPanels({ panels, ...rest }) {
             className="o-ui-tab-panels"
         >
             {panels.map(({
-                // id,
                 key,
-                // position,
                 elementType: ElementType = TabPanel,
                 ref,
                 tabId,

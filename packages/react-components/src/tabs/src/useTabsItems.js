@@ -35,10 +35,7 @@ export class TabsBuilder {
             const panelId = this._makeId(content, "panel", key);
 
             tabs.push({
-                // id: tabId,
-                // key: index.toString(),
                 key,
-                // position,
                 index: index++,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
@@ -51,10 +48,7 @@ export class TabsBuilder {
             index++;
 
             panels.push({
-                // id: panelId,
-                // key: index.toString(),
                 key,
-                // position,
                 index: index++,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: content.type !== Content ? content.type : undefined,

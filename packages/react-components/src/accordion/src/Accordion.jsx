@@ -17,35 +17,35 @@ import {
     useMergedRefs
 } from "../../shared";
 import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export const SelectionMode = {
+export const ExpansionMode = {
     single: "single",
     multiple: "multiple"
 };
 
 const propTypes = {
     /**
-     * The index(es) of the selected accordion item(s).
+     * The keys of the expanded accordion items.
      */
-    index: oneOfType([number, arrayOf(number)]),
+    expandedKeys: arrayOf(string),
     /**
-     * The index(es) of the initially selected accordion item(s).
+     * The keys of the initially selected accordion items.
      */
-    defaultIndex: oneOfType([number, arrayOf(number)]),
+    defaultIndex: arrayOf(string),
     /**
-     * Called when an accordion is selected.
+     * Called when an accordion is expanded.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number | Number[]} selectedIndex - The index(es) of the selected accordion item(s).
+     * @param {Number | Number[]} selectedIndex - The keys of the expanded accordion items.
      * @returns {void}
      */
-    onSelectionChange: func,
+    onExpansionChange: func,
     /**
-     * The type of selection that is allowed.
+     * The type of expansion that is allowed.
      */
-    selectionMode: oneOf(["single", "multiple"]),
+    expansionMode: oneOf(["single", "multiple"]),
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
@@ -62,24 +62,21 @@ const propTypes = {
 
 export function InnerAccordion({
     id,
-    index,
-    defaultIndex,
-    onSelectionChange,
-    selectionMode = SelectionMode.single,
+    expandedKeys: expandedKeysProp,
+    defaultExpandedKeys,
+    onExpansionChange,
+    expansionMode = ExpansionMode.single,
     autoFocus,
     as = "div",
     children,
     forwardedRef,
     ...rest
 }) {
-    const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
+    const [expandedKeys, setExpandedKeys] = useControllableState(expandedKeysProp, defaultExpandedKeys, []);
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoSelectedIndexes = useMemo(() => arrayify(selectedIndex), [JSON.stringify(selectedIndex)]);
 
     const items = useAccordionItems(children, useId(id, id ? null : "o-ui-accordion"));
 
@@ -97,27 +94,24 @@ export function InnerAccordion({
         last: [Keys.end]
     });
 
-    const handleToggle = useEventCallback((event, toggledIndex) => {
-        let newIndexes;
+    const handleToggle = useEventCallback((event, toggledKey) => {
+        let newKeys;
 
-        if (!memoSelectedIndexes.includes(toggledIndex)) {
-            if (selectionMode === SelectionMode.multiple) {
-                newIndexes = [...memoSelectedIndexes, toggledIndex];
+        if (!expandedKeys.includes(toggledKey)) {
+            if (expansionMode === ExpansionMode.multiple) {
+                newKeys = [...expandedKeys, toggledKey];
             } else {
-                newIndexes = [toggledIndex];
+                newKeys = [toggledKey];
             }
         } else {
-            newIndexes = memoSelectedIndexes.filter(x => x !== toggledIndex);
+            newKeys = expandedKeys.filter(x => x !== toggledKey);
         }
 
-        setSelectedIndex(newIndexes);
-
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(
-                event,
-                selectionMode === SelectionMode.single ? newIndexes[0] ?? null : newIndexes
-            );
+        if (!isNil(onExpansionChange)) {
+            onExpansionChange(event, newKeys);
         }
+
+        setExpandedKeys(newKeys);
     });
 
     return (
@@ -134,26 +128,25 @@ export function InnerAccordion({
         >
             <AccordionContext.Provider
                 value={{
-                    selectedIndexes: memoSelectedIndexes,
+                    expandedKeys: expandedKeys,
                     onToggle: handleToggle
                 }}
             >
                 {items.map(({
                     id: itemId,
                     key,
-                    position,
+                    // position,
                     header,
                     panel
                 }) => (
                     <AccordionItem
                         item={{
-                            index: position,
+                            id: itemId,
+                            key,
                             header,
                             panel
                         }}
-                        id={itemId}
                         key={key}
-
                     />
                 ))}
             </AccordionContext.Provider>

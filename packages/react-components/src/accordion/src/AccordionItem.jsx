@@ -7,13 +7,13 @@ import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
 export function AccordionItem({
-    item: { index, header, panel },
+    item: { id, key, header, panel },
     ...rest
 }) {
-    const { selectedIndexes, onToggle } = useAccordionContext();
+    const { expandedKeys, onToggle } = useAccordionContext();
 
     const handleChange = useEventCallback(event => {
-        onToggle(event, index);
+        onToggle(event, key);
     });
 
     const {
@@ -33,7 +33,8 @@ export function AccordionItem({
             {...mergeProps(
                 rest,
                 {
-                    open: selectedIndexes.includes(index),
+                    id,
+                    open: expandedKeys.includes(key),
                     onChange: handleChange
                 }
             )}
@@ -41,14 +42,14 @@ export function AccordionItem({
             <HeaderType
                 {...headerProps}
                 header={{
-                    index
+                    key
                 }}
                 ref={headerRef}
             />
             <PanelType
                 {...panelProps}
                 panel={{
-                    index
+                    key
                 }}
                 ref={panelRef}
             />

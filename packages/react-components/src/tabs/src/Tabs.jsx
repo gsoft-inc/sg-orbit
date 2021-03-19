@@ -70,36 +70,9 @@ export function InnerTabs({
     forwardedRef,
     ...rest
 }) {
-    // const [selectedKey, setSelectedKey, isControlledIndex] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
     const [tabs, panels] = useTabsItems(children, selectedKey, useId(id, id ? null : "o-ui-tabs"));
-
-    // const isInitialRender = useIsInitialRender();
-
-    // // Give an heads up to the consumer if he doesn't manage correctly the selected key & the disabled state.
-    // if (isControlledIndex) {
-    //     if (isNil(setSelectedKey)) {
-    //         throw new Error("The selected key cannot be null when in controlled mode.");
-    //     }
-
-    //     const selectedTab = tabs.find(x => x.key === selectedKey);
-
-    //     // if (isNil(selectedTab)) {
-    //     //     throw new Error("The selected key doesn't match any tab.");
-    //     // }
-
-    //     if (selectedTab?.disabled) {
-    //         throw new Error("The selected key cannot match a disabled tab.");
-    //     }
-    // } else if (isInitialRender) {
-    //     const selectedTab = tabs.find(x => x.key === selectedKey);
-
-    //     // When uncontrolled, ensure the initially selected tab is not a disabled one.
-    //     if (selectedTab?.props?.disabled) {
-    //         setSelectedKey(tabs.find(x => !x.props?.disabled)?.position ?? tabs[0].key);
-    //     }
-    // }
 
     const handleSelect = useEventCallback((event, newKey) => {
         if (!isNil(onSelectionChange)) {

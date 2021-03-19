@@ -120,37 +120,133 @@ stories()
             </Accordion>
         </Stack>
     )
-    .add("default index", () =>
-        <Accordion defaultIndex={1}>
-            <Item>
-                <Header as="h3">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Accordion>
+    .add("expanded keys with manual keys", () =>
+        <Stack>
+            <Accordion defaultExpandedKeys={["jupiter"]}>
+                <Item key="mars">
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+            <Accordion expandedKeys={["jupiter"]}>
+                <Item key="mars">
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        </Stack>
     )
-    .add("multiple", () =>
-        <Accordion selectionMode="multiple" defaultIndex={[0, 2]}>
-            <Item>
-                <Header as="h3">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Accordion>
+    .add("expanded keys with generated keys", () =>
+        <Stack>
+            <Accordion defaultExpandedKeys={["1"]}>
+                <Item>
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+            <Accordion expandedKeys={["1"]}>
+                <Item>
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        </Stack>
+    )
+    .add("multiple expanded keys with manual keys", () =>
+        <Stack>
+            <Accordion expansionMode="multiple" defaultExpandedKeys={["mars", "venus"]}>
+                <Item key="mars">
+                    <Header as="h3" key="mars">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header as="h3" key="jupiter">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header as="h3" key="venus">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+            <Accordion expansionMode="multiple" expandedKeys={["mars", "venus"]}>
+                <Item key="mars">
+                    <Header as="h3" key="mars">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header as="h3" key="jupiter">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header as="h3" key="venus">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        </Stack>
+    )
+    .add("multiple expanded keys with generated keys", () =>
+        <Stack>
+            <Accordion expansionMode="multiple" defaultExpandedKeys={["0", "2"]}>
+                <Item>
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+            <Accordion expansionMode="multiple" expandedKeys={["0", "2"]}>
+                <Item>
+                    <Header as="h3">Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header as="h3">Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Accordion>
+        </Stack>
     )
     .add("narrow container", () =>
         <div style={{ width: "200px" }}>
@@ -197,7 +293,7 @@ stories()
     .add("array map", () =>
         <Stack>
             <Accordion>
-                {[1, 2, 3].map(x => (
+                {["1", "2", "3"].map(x => (
                     <Item key={x}>
                         <Header as="h3">{`Header ${x}`}</Header>
                         <Content>{`Content ${x}`}</Content>
@@ -208,14 +304,14 @@ stories()
     )
     .add("custom component", () => {
         const ActiveHeader = ({ header, children, ...rest }) => {
-            const { selectedIndexes } = useAccordionContext();
-            const { index } = header;
+            const { expandedKeys } = useAccordionContext();
+            const { key } = header;
 
             return (
                 <AccordionHeader
                     {...rest}
                     header={header}
-                    style={{ backgroundColor: selectedIndexes.includes(index) ? "blue" : "red" }}
+                    style={{ backgroundColor: expandedKeys.includes(key) ? "blue" : "red" }}
                 >
                     {children}
                 </AccordionHeader>
@@ -223,7 +319,7 @@ stories()
         };
 
         return (
-            <Accordion defaultIndex={1}>
+            <Accordion defaultExpandedKeys={["1"]}>
                 <Item>
                     <ActiveHeader as="h3">Mars</ActiveHeader>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
@@ -254,7 +350,7 @@ stories()
         };
 
         return (
-            <Accordion defaultIndex={1}>
+            <Accordion defaultExpandedKeys={["1"]}>
                 <Item>
                     <Header as={ActiveHeader}>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

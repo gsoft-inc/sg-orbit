@@ -56,9 +56,7 @@ export function TabList({
             )}
         >
             {tabs.map(({
-                // id,
                 key,
-                // position,
                 elementType: ElementType = Tab,
                 ref,
                 tabId,
@@ -72,7 +70,6 @@ export function TabList({
                         tabId,
                         panelId
                     }}
-                    // id={tabId}
                     key={key}
                     ref={ref}
                 />
