@@ -5,7 +5,6 @@ import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import {
     Keys,
-    arrayify,
     mergeProps,
     useAutoFocusChild,
     useControllableState,

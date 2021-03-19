@@ -26,7 +26,7 @@ export interface InnerDisclosureProps {
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -41,12 +41,11 @@ export interface InnerDisclosureProps {
     forwardedRef: ForwardedRef<any>
 }
 
-
 export function InnerDisclosure({
     id,
     open,
     defaultOpen,
-    onChange,
+    onOpenChange,
     as = "div",
     children,
     forwardedRef,
@@ -67,10 +66,10 @@ export function InnerDisclosure({
     const toggle = useCallback(event => {
         setIsOpen(!isOpen);
 
-        if (!isNil(onChange)) {
-            onChange(event, !isOpen);
+        if (!isNil(onOpenChange)) {
+            onOpenChange(event, !isOpen);
         }
-    }, [isOpen, setIsOpen, onChange]);
+    }, [isOpen, setIsOpen, onOpenChange]);
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();

@@ -12,7 +12,7 @@ export function AccordionItem({
 }) {
     const { expandedKeys, onToggle } = useAccordionContext();
 
-    const handleChange = useEventCallback(event => {
+    const handleOpenChange = useEventCallback(event => {
         onToggle(event, key);
     });
 
@@ -35,7 +35,7 @@ export function AccordionItem({
                 {
                     id,
                     open: expandedKeys.includes(key),
-                    onChange: handleChange
+                    onOpenChange: handleOpenChange
                 }
             )}
         >
