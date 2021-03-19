@@ -68,13 +68,15 @@ export function useSelect(children, {
         keyProp: KeyProp
     });
 
-    const updateSelectedKey = useCallback((event, newValue) => {
-        if (newValue !== selectedKey) {
+    const updateSelectedKey = useCallback((event, newKeys) => {
+        const newKey = newKeys[0] ?? null;
+
+        if (newKeys !== selectedKey) {
             if (!isNil(onSelectionChange)) {
-                onSelectionChange(event, newValue);
+                onSelectionChange(event, newKey);
             }
 
-            setSelectedKey(newValue);
+            setSelectedKey(newKey);
         }
     }, [selectedKey, setSelectedKey, onSelectionChange]);
 
@@ -161,7 +163,7 @@ export function useSelect(children, {
         ),
         listboxProps: {
             nodes,
-            selectedKey,
+            selectedKeys: useMemo(() => [selectedKey], [selectedKey]),
             onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.

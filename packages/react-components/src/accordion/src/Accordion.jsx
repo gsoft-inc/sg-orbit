@@ -27,17 +27,17 @@ export const ExpansionMode = {
 
 const propTypes = {
     /**
-     * The keys of the expanded accordion items.
+     * A controlled set of expanded item keys.
      */
     expandedKeys: arrayOf(string),
     /**
-     * The keys of the initially selected accordion items.
+     * The initial value of `expandedKeys` when uncontrolled.
      */
     defaultIndex: arrayOf(string),
     /**
-     * Called when an accordion is expanded.
+     * Called when an accordion item is toggled.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number | Number[]} selectedIndex - The keys of the expanded accordion items.
+     * @param {String[]} keys - The keys of the expanded items.
      * @returns {void}
      */
     onExpansionChange: func,

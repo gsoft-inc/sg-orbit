@@ -136,7 +136,7 @@ stories()
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
-            <Accordion expandedKeys={["jupiter"]}>
+            <Accordion expansionMode="multiple" expandedKeys={["mars", "venus"]}>
                 <Item key="mars">
                     <Header as="h3">Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
@@ -155,70 +155,6 @@ stories()
     .add("expanded keys with generated keys", () =>
         <Stack>
             <Accordion defaultExpandedKeys={["1"]}>
-                <Item>
-                    <Header as="h3">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </Accordion>
-            <Accordion expandedKeys={["1"]}>
-                <Item>
-                    <Header as="h3">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as="h3">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </Accordion>
-        </Stack>
-    )
-    .add("multiple expanded keys with manual keys", () =>
-        <Stack>
-            <Accordion expansionMode="multiple" defaultExpandedKeys={["mars", "venus"]}>
-                <Item key="mars">
-                    <Header as="h3" key="mars">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item key="jupiter">
-                    <Header as="h3" key="jupiter">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item key="venus">
-                    <Header as="h3" key="venus">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </Accordion>
-            <Accordion expansionMode="multiple" expandedKeys={["mars", "venus"]}>
-                <Item key="mars">
-                    <Header as="h3" key="mars">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item key="jupiter">
-                    <Header as="h3" key="jupiter">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item key="venus">
-                    <Header as="h3" key="venus">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </Accordion>
-        </Stack>
-    )
-    .add("multiple expanded keys with generated keys", () =>
-        <Stack>
-            <Accordion expansionMode="multiple" defaultExpandedKeys={["0", "2"]}>
                 <Item>
                     <Header as="h3">Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>

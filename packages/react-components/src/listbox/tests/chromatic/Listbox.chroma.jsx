@@ -67,7 +67,7 @@ stories()
             <Item key="uranus">Uranus</Item>
         </Listbox>
     )
-    .add("without keys", () =>
+    .add("generated keys", () =>
         <Listbox aria-label="Planets">
             <Item>Earth</Item>
             <Item>Jupiter</Item>
@@ -102,9 +102,9 @@ stories()
             </Section>
         </Listbox>
     )
-    .add("selected key", () =>
+    .add("selected keys", () =>
         <Inline>
-            <Listbox defaultSelectedKey="mars" aria-label="Planets">
+            <Listbox defaultSelectedKeys={["mars"]} aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
@@ -113,7 +113,7 @@ stories()
                 <Item key="saturn">Saturn</Item>
                 <Item key="uranus">Uranus</Item>
             </Listbox>
-            <Listbox defaultSelectedKey={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
+            <Listbox selectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
@@ -304,12 +304,12 @@ stories()
     )
     .add("states", () =>
         <Inline>
-            <Listbox selectedKey="earth" aria-label="Planets">
+            <Listbox selectedKeys={["earth"]} aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Listbox>
-            <Listbox selectedKey={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+            <Listbox selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

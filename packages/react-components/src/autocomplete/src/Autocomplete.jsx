@@ -375,8 +375,8 @@ export function InnerAutocomplete(props) {
         search(event, query);
     });
 
-    const handleListboxSelectionChange = useEventCallback((event, newKey) => {
-        selectItem(event, newKey);
+    const handleListboxSelectionChange = useEventCallback((event, newKeys) => {
+        selectItem(event, newKeys[0] ?? null);
     });
 
     const handleListboxFocusChange = useEventCallback((event, newKey, activeElement) => {
@@ -396,8 +396,8 @@ export function InnerAutocomplete(props) {
     const listboxMarkup = (
         <Listbox
             nodes={results}
-            // An autocomplete doesn't support a selected key.
-            selectedKey={null}
+            // An autocomplete doesn't support any persisting selected keys.
+            selectedKeys={[]}
             onSelectionChange={handleListboxSelectionChange}
             onFocusChange={handleListboxFocusChange}
             focusOnHover

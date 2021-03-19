@@ -4,7 +4,6 @@ import { Box } from "../../box";
 import {
     Keys,
     appendEventKey,
-    arrayify,
     cssModule,
     mergeProps,
     useAutoFocusChild,
@@ -35,17 +34,17 @@ export const SelectionMode = {
 
 const propTypes = {
     /**
-     * A controlled array holding the currently selected key(s).
+     * A controlled set of the selected item keys.
      */
-    selectedKey: oneOfType([string, arrayOf(string)]),
+    selectedKeys: arrayOf(string),
     /**
-     * The initial value of `selectedKey` when uncontrolled.
+     * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKey: oneOfType([string, arrayOf(string)]),
+    defaultSelectedKeys: arrayOf(string),
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {String | String[]} key - The selected key(s).
+     * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
     onSelectionChange: func,
@@ -97,10 +96,8 @@ function useCollectionNodes(children, nodes) {
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items, { selectedKey }) {
+function useSelectionManager(items, { selectedKeys }) {
     return useMemo(() => {
-        const selectedKeys = arrayify(selectedKey);
-
         const toggleKey = key => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         };
@@ -139,13 +136,13 @@ function useSelectionManager(items, { selectedKey }) {
             replaceSelection,
             extendSelection
         };
-    }, [selectedKey, items]);
+    }, [selectedKeys, items]);
 }
 
 export function InnerListbox({
     id,
-    selectedKey: selectedKeyProp,
-    defaultSelectedKey,
+    selectedKeys: selectedKeysProp,
+    defaultSelectedKeys,
     onSelectionChange,
     onFocusChange,
     selectionMode = "single",
@@ -164,7 +161,7 @@ export function InnerListbox({
     forwardedRef,
     ...rest
 }) {
-    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, []);
+    const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -174,7 +171,7 @@ export function InnerListbox({
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
 
-    const selectionManager = useSelectionManager(items, { selectedKey });
+    const selectionManager = useSelectionManager(items, { selectedKeys });
 
     const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: KeyProp });
 
@@ -187,12 +184,12 @@ export function InnerListbox({
         return element;
     });
 
-    const updateSelectedKeys = (event, newValue) => {
+    const updateSelectedKeys = (event, newKeys) => {
         if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, selectionMode === SelectionMode.multiple ? newValue : newValue[0]);
+            onSelectionChange(event, newKeys);
         }
 
-        setSelectedKey(newValue);
+        setSelectedKeys(newKeys);
     };
 
     const handleSelectOption = useEventCallback((event, key) => {
