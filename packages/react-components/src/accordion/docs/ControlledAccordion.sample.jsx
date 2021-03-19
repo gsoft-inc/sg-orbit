@@ -1,13 +1,16 @@
 () => {
     const [selectedIndex, setSelectedIndex] = useState(null);
 
-    const handleChange = useCallback((event, index) => {
+    const handleSelectionChange = useCallback((event, index) => {
         setSelectedIndex(index);
         console.log(index);
     }, [setSelectedIndex]);
 
     return (
-        <Accordion index={selectedIndex} onChange={handleChange}>
+        <Accordion
+            index={selectedIndex}
+            onSelectionChange={handleSelectionChange}
+        >
             <Item>
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

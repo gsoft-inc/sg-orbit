@@ -3,7 +3,7 @@ import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
 import { useCallback, useEffect, useState } from "react";
 
-export function useAsyncSearch(fetch) {
+export function useAsyncSearch(load) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);
     const [promise, setPromise] = useRefState();
@@ -19,13 +19,13 @@ export function useAsyncSearch(fetch) {
         cancelRequest();
         setIsLoading(true);
 
-        const fetchPromise = fetch(query);
+        const loadPromise = load(query);
 
-        if (!isPromise(fetchPromise)) {
-            throw new Error("Fetch function must return a valid promise.");
+        if (!isPromise(loadPromise)) {
+            throw new Error("LOad function must return a valid promise.");
         }
 
-        const wrappedPromise = cancellablePromise(fetchPromise);
+        const wrappedPromise = cancellablePromise(loadPromise);
 
         setPromise(wrappedPromise);
 
@@ -41,7 +41,7 @@ export function useAsyncSearch(fetch) {
                     setIsLoading(false);
                 }
             });
-    }, [fetch, setIsLoading, setItems, setPromise, cancelRequest]);
+    }, [load, setIsLoading, setItems, setPromise, cancelRequest]);
 
     useEffect(() => {
         return () => {

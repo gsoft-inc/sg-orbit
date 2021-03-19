@@ -1,7 +1,7 @@
 () => {
     const [selectedKey, setSelectedKey] = useState(null);
 
-    const handleChange = useCallback((event, newValue) => {
+    const handleSelectionChange = useCallback((event, newValue) => {
         setSelectedKey(newValue);
         console.log(newValue);
     }, [setSelectedKey]);
@@ -10,7 +10,7 @@
         <Listbox
             selectedKey={selectedKey}
             aria-label="Planets"
-            onChange={handleChange}
+            onSelectionChange={handleSelectionChange}
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>

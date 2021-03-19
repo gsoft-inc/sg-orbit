@@ -1,10 +1,10 @@
-function AsyncText({ isActive, children, ...rest }) {
+function AsyncText({ isSelected, children, ...rest }) {
     const [text, setText] = useState(null);
 
     useEffect(() => {
         let timeoutId;
 
-        if (isActive) {
+        if (isSelected) {
             timeoutId = setTimeout(() => {
                 setText(children);
             }, 2000);
@@ -17,7 +17,7 @@ function AsyncText({ isActive, children, ...rest }) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [isActive, children]);
+    }, [isSelected, children]);
 
     return (
         <Box {...rest}>
@@ -36,17 +36,17 @@ render(() => {
     return (
         <Tabs manual aria-label="Planets">
             {[
-                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
-                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
-                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+                { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { id: "jupiter", header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { id: "venus", header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
             ]
-                .map(({ header, content }) =>
-                    <Item key={header}>
-                        {({ isActive }) => (
+                .map(({ id, header, content }) =>
+                    <Item key={id}>
+                        {({ isSelected }) => (
                             <>
                                 <Header>{header}</Header>
                                 <Content>
-                                    <AsyncText isActive={isActive}>
+                                    <AsyncText isSelected={isSelected}>
                                         {content}
                                     </AsyncText>
                                 </Content>

@@ -2,23 +2,23 @@
     const [isOpen, setIsOpen] = useState(false);
     const [selectedKey, setSelectedKey] = useState("earth");
 
+    const handleSelectionChange = useCallback((event, newValue) => {
+        setSelectedKey(newValue);
+        console.log(newValue);
+    }, [setSelectedKey]);
+
     const handleOpenChange = useCallback((event, newValue) => {
         setIsOpen(newValue);
         console.log(newValue);
     }, [setIsOpen]);
-
-    const handleChange = useCallback((event, newValue) => {
-        setSelectedKey(newValue);
-        console.log(newValue);
-    }, [setSelectedKey]);
 
     return (
         <Select
             open={isOpen}
             selectedKey={selectedKey}
             placeholder="Planets"
+            onSelectionChange={handleSelectionChange}
             onOpenChange={handleOpenChange}
-            onChange={handleChange}
             aria-label="Planets"
         >
             <Item key="earth">Earth</Item>

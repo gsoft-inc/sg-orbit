@@ -7,6 +7,8 @@ import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { useTabsContext } from "./TabsContext";
 
+export const KeyProp = "data-o-ui-key";
+
 const propTypes = {
     /**
      * Matching tab item.
@@ -31,7 +33,7 @@ const propTypes = {
 };
 
 export function InnerTab({
-    tab: { index, panelId },
+    tab: { key, tabId, panelId },
     disabled,
     active,
     focus,
@@ -41,7 +43,7 @@ export function InnerTab({
     forwardedRef,
     ...rest
 }) {
-    const { selectedIndex, onSelect, isManual } = useTabsContext();
+    const { selectedKey, onSelect, isManual } = useTabsContext();
 
     const { icon, text, lozenge } = useSlots(children, useMemo(() => ({
         _: {
@@ -63,11 +65,11 @@ export function InnerTab({
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();
-        onSelect(event, index);
+        onSelect(event, key);
     });
 
     const handleFocus = useEventCallback(event => {
-        onSelect(event, index);
+        onSelect(event, key);
     });
 
     const handleKeyDown = useEventCallback(event => {
@@ -75,7 +77,7 @@ export function InnerTab({
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
-                onSelect(event, index);
+                onSelect(event, key);
                 break;
         }
     });
@@ -92,6 +94,7 @@ export function InnerTab({
             {...mergeProps(
                 rest,
                 {
+                    id: tabId,
                     onClick: handleClick,
                     onFocus: !isManual ? handleFocus : undefined,
                     onKeyDown: isManual ? handleKeyDown : undefined,
@@ -105,8 +108,8 @@ export function InnerTab({
                     ),
                     disabled,
                     role: "tab",
-                    "data-o-ui-index": index,
-                    "aria-selected": index === selectedIndex,
+                    [KeyProp]: key,
+                    "aria-selected": key === selectedKey,
                     "aria-controls": panelId,
                     as,
                     ref: forwardedRef

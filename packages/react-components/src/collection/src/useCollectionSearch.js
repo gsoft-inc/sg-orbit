@@ -1,26 +1,19 @@
-import { NodeType, useCollection } from "./useCollection";
-import { getRawSlots } from "../../shared";
+import { getItemText } from "./getItemText";
 import { isNil } from "lodash";
+import { reduceCollection } from "./reduceCollection";
 import { useCallback, useState } from "react";
+import { useCollection } from "./useCollection";
 
-export function getItemText(item) {
-    const { text, stringValue } = getRawSlots(item?.content, ["text"]);
-
-    return !isNil(text)
-        ? text.props?.children ?? ""
-        : stringValue ?? "";
-}
-
-function isQueryMatchItem(query, item) {
+function isQueryMatchingItem(query, item) {
     const itemText = getItemText(item);
 
     return itemText.toLowerCase().startsWith(query);
 }
 
-function useNodeSearch(nodes) {
+function useNodeFilter(nodes) {
     const [results, setResults] = useState([]);
 
-    const search = useCallback(query => {
+    const filter = useCallback(query => {
         const cache = {};
 
         query = query.toLowerCase();
@@ -28,59 +21,32 @@ function useNodeSearch(nodes) {
         if (!isNil(cache[query])) {
             setResults(cache[query]);
         } else {
-            const reducedNodes = nodes.reduce((acc, node) => {
-                if (node.type === NodeType.section) {
-                    const items = node.items.reduce((sectionItems, item) => {
-                        if (isQueryMatchItem(query, item)) {
-                            sectionItems.push(item);
-                        }
+            const filteredNodes = reduceCollection(nodes, item => {
+                return isQueryMatchingItem(query, item);
+            });
 
-                        return sectionItems;
-                    }, []);
-
-                    if (items.length > 0) {
-                        // eslint-disable-next-line no-unused-vars
-                        const { items: _, ...sectionProps } = node;
-
-                        acc.push({
-                            ...sectionProps,
-                            items
-                        });
-                    }
-                } else if (node.type === NodeType.item) {
-                    if (isQueryMatchItem(query, node)) {
-                        acc.push(node);
-                    }
-                } else {
-                    acc.push(node);
-                }
-
-                return acc;
-            }, []);
-
-            setResults(reducedNodes);
+            setResults(filteredNodes);
         }
     }, [nodes, setResults]);
 
-    return [results, search];
+    return [results, filter];
 }
 
 export function useCollectionSearch(children, { items, onSearch }) {
     const nodes = useCollection(children, { items });
 
-    const [searchResults, searchNodes] = useNodeSearch(nodes);
+    const [filterResults, filterNodes] = useNodeFilter(nodes);
 
-    // If a search function is provided, offload the search to the caller and use the nodes computed from the items
-    // otherwise use the node search results.
-    const results = !isNil(onSearch) ? nodes : searchResults;
+    // If a search function is provided, offload the search to the caller otherwise use the local filter function.
+    const results = !isNil(onSearch) ? nodes : filterResults;
 
     const search = useCallback((event, query) => {
         if (!isNil(onSearch)) {
             onSearch(event, query);
         } else {
-            searchNodes(query);
+            filterNodes(query);
         }
-    }, [onSearch, searchNodes]);
+    }, [onSearch, filterNodes]);
 
     return [results, search];
 }

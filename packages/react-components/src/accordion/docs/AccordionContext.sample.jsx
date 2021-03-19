@@ -1,4 +1,4 @@
-function ActiveHeader({ header, children, ...rest }) {
+function SelectedHeader({ header, children, ...rest }) {
     const { selectedIndexes } = useAccordionContext();
     const { index } = header;
 
@@ -17,15 +17,15 @@ render(() => {
     return (
         <Accordion aria-label="Planets">
             <Item>
-                <ActiveHeader as="h3">Mars</ActiveHeader>
+                <SelectedHeader as="h3">Mars</SelectedHeader>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Item>
             <Item>
-                <ActiveHeader as="h3">Jupiter</ActiveHeader>
+                <SelectedHeader as="h3">Jupiter</SelectedHeader>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
             <Item>
-                <ActiveHeader as="h3">Venus</ActiveHeader>
+                <SelectedHeader as="h3">Venus</SelectedHeader>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Accordion>

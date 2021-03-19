@@ -307,7 +307,7 @@ export function InnerDateRangeInput(props) {
     );
 
     const presetsMarkup = !isNil(presets) && (
-        <MenuTrigger onSelect={handleSelectPreset}>
+        <MenuTrigger onSelectionChange={handleSelectPreset}>
             <IconButton
                 shape="rounded"
                 color="secondary"

@@ -1,8 +1,8 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
+import { KeyProp, Tab } from "./Tab";
 import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
-import { Tab } from "./Tab";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
@@ -21,23 +21,21 @@ const NavigationKeyBinding = {
     }
 };
 
-const KeyProp = "data-o-ui-index";
-
 export function TabList({
     tabs,
     autoFocus,
     ...rest
 }) {
-    const { selectedIndex, orientation } = useTabsContext();
+    const { selectedKey, orientation } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    useKeyedRovingFocus(focusScope, selectedIndex, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectedKey, { keyProp: KeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: selectedIndex,
+        target: selectedKey,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
@@ -58,21 +56,23 @@ export function TabList({
             )}
         >
             {tabs.map(({
-                id,
+                // id,
                 key,
-                position,
+                // position,
                 elementType: ElementType = Tab,
                 ref,
+                tabId,
                 panelId,
                 props
             }) =>
                 <ElementType
                     {...props}
                     tab={{
-                        index: position,
+                        key,
+                        tabId,
                         panelId
                     }}
-                    id={id}
+                    // id={tabId}
                     key={key}
                     ref={ref}
                 />

@@ -71,7 +71,7 @@ test("when single, call onChange when the expanded tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Accordion expandMode="single" onChange={handler}>
+        <Accordion selectionMode="single" onSelectionChange={handler}>
             <Item data-testid="item-1">
                 <Header as="h3">Header</Header>
                 <Content>Content</Content>
@@ -104,7 +104,7 @@ test("when multiple, call onChange when the expanded tabs change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Accordion expandMode="multiple" onChange={handler}>
+        <Accordion selectionMode="multiple" onSelectionChange={handler}>
             <Item data-testid="item-1">
                 <Header as="h3">Header</Header>
                 <Content>Content</Content>

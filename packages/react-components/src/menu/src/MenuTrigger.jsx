@@ -21,7 +21,7 @@ const propTypes = {
      * @param {boolean} key - The menu item key.
      * @returns {void}
      */
-    onSelect: func,
+    onSelectionChange: func,
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -63,7 +63,7 @@ export function InnerMenuTrigger({
     id,
     open: openProp,
     defaultOpen,
-    onSelect,
+    onSelectionChange,
     onOpenChange,
     direction = "bottom",
     align = "start",
@@ -133,8 +133,8 @@ export function InnerMenuTrigger({
     });
 
     const handleSelect = useEventCallback((event, key) => {
-        if (!isNil(onSelect)) {
-            onSelect(event, key);
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, key);
         }
 
         close();

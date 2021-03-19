@@ -1,13 +1,13 @@
-function ActiveHeader({ tab, children, ...rest }) {
-    const { selectedIndex } = useTabsContext();
-    const { index } = tab;
+function SelectedHeader({ tab, children, ...rest }) {
+    const { selectedKey } = useTabsContext();
+    const { key } = tab;
 
     return (
         <Tab
             {...rest}
             tab={tab}
         >
-            {index === selectedIndex ? <LightbulbIcon /> : <NotificationIcon />}
+            {key === selectedKey ? <CheckIcon /> : <NotificationIcon />}
             <Text>{children}</Text>
         </Tab>
     );
@@ -16,16 +16,16 @@ function ActiveHeader({ tab, children, ...rest }) {
 render(() => {
     return (
         <Tabs aria-label="Planets">
-            <Item>
-                <ActiveHeader>Mars</ActiveHeader>
+            <Item key="mars">
+                <SelectedHeader>Mars</SelectedHeader>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Item>
-            <Item>
-                <Header>Jupiter</Header>
+            <Item key="jupiter">
+                <SelectedHeader>Jupiter</SelectedHeader>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
-            <Item>
-                <Header>Venus</Header>
+            <Item key="venus">
+                <SelectedHeader>Venus</SelectedHeader>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>

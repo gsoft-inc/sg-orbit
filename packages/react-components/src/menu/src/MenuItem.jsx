@@ -84,7 +84,7 @@ export function InnerMenuItem({
         },
         "end-icon": {
             size: "sm",
-            className: "o-ui-listbox-option-end-icon"
+            className: "o-ui-menu-item-end-icon"
         }
     }), [labelId, descriptionId]));
 

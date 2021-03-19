@@ -5,27 +5,27 @@ import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 import { useTabsItems } from "./useTabsItems";
 
 const propTypes = {
     /**
-     * The index of the active tab.
+     * A controlled selected key.
      */
-    index: number,
+    selectedKey: string,
     /**
-     * The index of the initially active tab.
+     * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultIndex: number,
+    defaultSelectedKey: string,
     /**
-     * Called when the active tab change.
+     * Called when the selected tab change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {number} index - The newly active tab index.
+     * @param {string} key - The selected tab key.
      * @returns {void}
      */
-    onChange: func,
+    onSelectionChange: func,
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
@@ -58,9 +58,9 @@ const propTypes = {
 
 export function InnerTabs({
     id,
-    index,
-    defaultIndex,
-    onChange,
+    selectedKey: selectedKeyProp,
+    defaultSelectedKey,
+    onSelectionChange,
     manual,
     autoFocus,
     fluid,
@@ -70,37 +70,59 @@ export function InnerTabs({
     forwardedRef,
     ...rest
 }) {
-    const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
+    // const [selectedKey, setSelectedKey, isControlledIndex] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
+    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
-    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? null : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, selectedKey, useId(id, id ? null : "o-ui-tabs"));
 
-    const isInitialRender = useIsInitialRender();
+    // const isInitialRender = useIsInitialRender();
 
-    // Give an heads up to the consumer if he doesn't manage correctly the selected tab index & the disabled state.
-    if (isControlledIndex) {
-        if (isNil(selectedIndex)) {
-            throw new Error("The selected tab index cannot be null.");
+    // // Give an heads up to the consumer if he doesn't manage correctly the selected key & the disabled state.
+    // if (isControlledIndex) {
+    //     if (isNil(setSelectedKey)) {
+    //         throw new Error("The selected key cannot be null when in controlled mode.");
+    //     }
+
+    //     const selectedTab = tabs.find(x => x.key === selectedKey);
+
+    //     // if (isNil(selectedTab)) {
+    //     //     throw new Error("The selected key doesn't match any tab.");
+    //     // }
+
+    //     if (selectedTab?.disabled) {
+    //         throw new Error("The selected key cannot match a disabled tab.");
+    //     }
+    // } else if (isInitialRender) {
+    //     const selectedTab = tabs.find(x => x.key === selectedKey);
+
+    //     // When uncontrolled, ensure the initially selected tab is not a disabled one.
+    //     if (selectedTab?.props?.disabled) {
+    //         setSelectedKey(tabs.find(x => !x.props?.disabled)?.position ?? tabs[0].key);
+    //     }
+    // }
+
+    const handleSelect = useEventCallback((event, newKey) => {
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKey);
         }
 
-        if (tabs[selectedIndex].disabled) {
-            throw new Error("The selected tab index cannot match a disabled tab.");
-        }
-    } else {
-        if (isInitialRender) {
-            // When uncontrolled, ensure the initial selected tab is not a disabled one.
-            if (tabs[selectedIndex]?.props?.disabled) {
-                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.position ?? 0);
-            }
-        }
-    }
-
-    const handleSelect = useEventCallback((event, newIndex) => {
-        if (!isNil(onChange)) {
-            onChange(event, newIndex);
-        }
-
-        setSelectedIndex(newIndex);
+        setSelectedKey(newKey);
     });
+
+    // Ensure the selected key match a valid tab which is not disabled.
+    const currentKey = useMemo(() => {
+        const selectedTab = tabs.find(x => x.key === selectedKey);
+
+        if (isNil(selectedTab)) {
+            return tabs[0].key;
+        }
+
+        if (selectedTab.props?.disabled) {
+            return tabs.find(x => !x.props?.disabled)?.key ?? tabs[0].key;
+        }
+
+        return selectedKey;
+    }, [selectedKey, tabs]);
 
     return (
         <Box
@@ -119,7 +141,7 @@ export function InnerTabs({
         >
             <TabsContext.Provider
                 value={{
-                    selectedIndex,
+                    selectedKey: currentKey,
                     onSelect: handleSelect,
                     isManual: manual,
                     orientation

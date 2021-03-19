@@ -2,7 +2,10 @@ function ColorSchemePicker() {
     const { colorScheme, setColorScheme } = useThemeContext();
 
     return (
-        <Inline gap={0}>
+        <Inline
+            gap={0}
+            className={cx({ "bg-marine-900": colorScheme === "dark" })}
+        >
             <TextLink
                 onClick={() => setColorScheme("light")}
                 className={cx({ "b": colorScheme === "light" })}

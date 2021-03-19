@@ -6,7 +6,7 @@
         console.log(newOpen);
     }, [setIsOpen]);
 
-    const handleSelect = useCallback((event, newKey) => {
+    const handleSelectionChange = useCallback((event, newKey) => {
         console.log(newKey);
     }, []);
 
@@ -14,7 +14,7 @@
         <MenuTrigger
             open={isOpen}
             onOpenChange={handleOpenChange}
-            onSelect={handleSelect}
+            onSelectionChange={handleSelectionChange}
         >
             <Button>Trigger</Button>
             <Menu>

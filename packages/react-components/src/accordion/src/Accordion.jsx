@@ -21,31 +21,31 @@ import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export const ExpandMode = {
+export const SelectionMode = {
     single: "single",
     multiple: "multiple"
 };
 
 const propTypes = {
     /**
-     * The index(es) of the expanded accordion item.
+     * The index(es) of the selected accordion item(s).
      */
     index: oneOfType([number, arrayOf(number)]),
     /**
-     * The index(es) of the initially expanded accordion item.
+     * The index(es) of the initially selected accordion item(s).
      */
     defaultIndex: oneOfType([number, arrayOf(number)]),
     /**
-     * Called when an accordion is expanded / collapsed.
+     * Called when an accordion is selected.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number | Number[]} selectedIndex - The index(es) of the expanded accordion item.
+     * @param {Number | Number[]} selectedIndex - The index(es) of the selected accordion item(s).
      * @returns {void}
      */
-    onChange: func,
+    onSelectionChange: func,
     /**
-     * The type of expand that is allowed.
+     * The type of selection that is allowed.
      */
-    expandMode: oneOf(["single", "multiple"]),
+    selectionMode: oneOf(["single", "multiple"]),
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
@@ -64,8 +64,8 @@ export function InnerAccordion({
     id,
     index,
     defaultIndex,
-    onChange,
-    expandMode = ExpandMode.single,
+    onSelectionChange,
+    selectionMode = SelectionMode.single,
     autoFocus,
     as = "div",
     children,
@@ -101,7 +101,7 @@ export function InnerAccordion({
         let newIndexes;
 
         if (!memoSelectedIndexes.includes(toggledIndex)) {
-            if (expandMode === ExpandMode.multiple) {
+            if (selectionMode === SelectionMode.multiple) {
                 newIndexes = [...memoSelectedIndexes, toggledIndex];
             } else {
                 newIndexes = [toggledIndex];
@@ -112,10 +112,10 @@ export function InnerAccordion({
 
         setSelectedIndex(newIndexes);
 
-        if (!isNil(onChange)) {
-            onChange(
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(
                 event,
-                expandMode === ExpandMode.single ? newIndexes[0] ?? null : newIndexes
+                selectionMode === SelectionMode.single ? newIndexes[0] ?? null : newIndexes
             );
         }
     });

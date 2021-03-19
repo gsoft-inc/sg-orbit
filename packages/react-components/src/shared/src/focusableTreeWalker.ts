@@ -45,6 +45,7 @@ export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: Focus
     return walker;
 }
 
+// TODO: rename to "iterateFocusableElements" ?
 export function walkFocusableElements(root: HTMLElement, onElement: (element: Element, index?: number) => void): void {
     root.querySelectorAll(FocusableElementSelector).forEach((x, index) => onElement(x, index));
 }

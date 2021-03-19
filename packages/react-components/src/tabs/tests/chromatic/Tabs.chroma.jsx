@@ -75,21 +75,69 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("default index", () =>
-        <Tabs defaultIndex={1} aria-label="Planets">
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
+    .add("selected key with manual keys", () =>
+        <Stack>
+            <Tabs defaultSelectedKey="jupiter" aria-label="Planets">
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Tabs>
+            <Tabs selectedKey="jupiter" aria-label="Planets">
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Tabs>
+        </Stack>
+    )
+    .add("selected key with generated keys", () =>
+        <Stack>
+            <Tabs defaultSelectedKey="1" aria-label="Planets">
+                <Item>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Tabs>
+            <Tabs selectedKey="1" aria-label="Planets">
+                <Item>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+            </Tabs>
+        </Stack>
     )
     .add("tab with icon", () =>
         <Tabs aria-label="Planets">
@@ -225,8 +273,23 @@ stories()
             </Tabs>
         </Stack>
     )
-    .add("disabled tab is not tabbable", () =>
+    .add("disabled tab is not the default tab", () =>
         <Tabs aria-label="Planets">
+            <Item disabled>
+                <Header>
+                    <NotificationIcon />
+                    <Text>Mars</Text>
+                </Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item>
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+        </Tabs>
+    )
+    .add("disabled selected tab is not the default tab", () =>
+        <Tabs selectedKey="0" aria-label="Planets">
             <Item disabled>
                 <Header>
                     <NotificationIcon />
@@ -243,10 +306,10 @@ stories()
     .add("render props", () =>
         <Tabs aria-label="Planets">
             <Item>
-                {({ isActive }) => (
+                {({ isSelected }) => (
                     <>
                         <Header>
-                            {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                            {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
                             <Text>Mars</Text>
                         </Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -254,10 +317,10 @@ stories()
                 )}
             </Item>
             <Item>
-                {({ isActive }) => (
+                {({ isSelected }) => (
                     <>
                         <Header>
-                            {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                            {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
                             <Text>Jupiter</Text>
                         </Header>
                         <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
@@ -269,7 +332,7 @@ stories()
     .add("array map", () =>
         <Stack>
             <Tabs aria-label="Planets">
-                {[1, 2, 3].map(x => (
+                {["1", "2", "3"].map(x => (
                     <Item key={x}>
                         <Header>{`Header ${x}`}</Header>
                         <Content>{`Content ${x}`}</Content>
@@ -277,7 +340,7 @@ stories()
                 ))}
             </Tabs>
             <Tabs aria-label="Planets">
-                {[1, 2, 3].map(x => (
+                {["1", "2", "3"].map(x => (
                     <Item key={x}>
                         {({ isActive }) => (
                             <>
@@ -295,15 +358,15 @@ stories()
     )
     .add("custom components", () => {
         const ActiveHeader = ({ tab, children, ...rest }) => {
-            const { selectedIndex } = useTabsContext();
-            const { index } = tab;
+            const { seleckedKey } = useTabsContext();
+            const { key } = tab;
 
             return (
                 <Tab
                     {...rest}
                     tab={tab}
                 >
-                    {index === selectedIndex ? <CheckCircleIcon /> : <CrossIcon />}
+                    {key === seleckedKey ? <CheckCircleIcon /> : <CrossIcon />}
                     <Text>{children}</Text>
                 </Tab>
             );
@@ -318,14 +381,14 @@ stories()
         };
 
         const ColoredContent = ({ panel, children, ...rest }) => {
-            const { selectedIndex } = useTabsContext();
-            const { index } = panel;
+            const { selectedKey } = useTabsContext();
+            const { key } = panel;
 
             return (
                 <TabPanel
                     {...rest}
                     panel={panel}
-                    style={index === selectedIndex ? { backgroundColor: "red" } : undefined}
+                    style={key === selectedKey ? { backgroundColor: "red" } : undefined}
                 >
                     {children}
                 </TabPanel>
@@ -437,8 +500,8 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("autofocus + default index", () =>
-        <Tabs autoFocus defaultIndex={1} aria-label="Planets">
+    .add("autofocus + selected key", () =>
+        <Tabs autoFocus defaultSelectedKey="1" aria-label="Planets">
             <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

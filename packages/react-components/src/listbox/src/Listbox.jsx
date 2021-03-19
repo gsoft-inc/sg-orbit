@@ -21,8 +21,8 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { NodeShape, NodeType, useCollection, useCollectionItems } from "../../collection";
-import { arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
+import { NodeShape, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
 import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
@@ -48,7 +48,7 @@ const propTypes = {
      * @param {String | String[]} key - The selected key(s).
      * @returns {void}
      */
-    onChange: func,
+    onSelectionChange: func,
     /**
      * The type of selection that is allowed.
      */
@@ -84,10 +84,14 @@ const propTypes = {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
+    as: oneOfType([string, elementType]),
+    /**
+     * React children.
+     */
+    children: oneOfType([any, func])
 };
 
-function useListboxItems(children, nodes) {
+function useCollectionNodes(children, nodes) {
     const collectionNodes = useCollection(children);
 
     return nodes ?? collectionNodes;
@@ -142,7 +146,7 @@ export function InnerListbox({
     id,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
-    onChange,
+    onSelectionChange,
     onFocusChange,
     selectionMode = "single",
     nodes: nodesProp,
@@ -167,8 +171,8 @@ export function InnerListbox({
 
     const containerRef = useMergedRefs(setFocusRef);
 
-    const nodes = useListboxItems(children, nodesProp);
-    const items = useCollectionItems(nodes);
+    const nodes = useCollectionNodes(children, nodesProp);
+    const items = useOnlyCollectionItems(nodes);
 
     const selectionManager = useSelectionManager(items, { selectedKey });
 
@@ -184,8 +188,8 @@ export function InnerListbox({
     });
 
     const updateSelectedKeys = (event, newValue) => {
-        if (!isNil(onChange)) {
-            onChange(event, selectionMode === SelectionMode.multiple ? newValue : newValue[0]);
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, selectionMode === SelectionMode.multiple ? newValue : newValue[0]);
         }
 
         setSelectedKey(newValue);

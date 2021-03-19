@@ -1,0 +1,10 @@
+.o-ui-tag-list {
+    display: inline-flex;
+    align-items: center;
+}
+
+.o-ui-tag-list-item,
+.o-ui-tag-list-clear-button {
+    margin-right: var(--o-ui-scale-bravo);
+    margin-bottom: var(--o-ui-scale-bravo);
+}

@@ -1,9 +1,15 @@
 import "./ThemeProvider.css";
 
-import { ElementType, ForwardedRef, ReactNode, useCallback, useEffect, useState } from "react";
+import { ElementType, ForwardedRef, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
-import { isNil } from "lodash";
-import { mergeClasses, mergeProps, useMediaQuery } from "../../shared";
+import { mergeClasses, mergeProps } from "../../shared";
+import { useColorScheme } from "./useColorScheme";
+
+export enum Theme {
+    apricot = "apricot",
+    overcast = "overcast",
+    desktop = "desktop"
+}
 
 export enum ColorScheme {
     light = "light",
@@ -15,7 +21,7 @@ export interface ThemeProviderProps {
     /**
      * The theme to use.
      */
-    theme: "apricot" | "overcast" | "desktop";
+    theme: Theme;
     /**
      * The color scheme to use.
      */
@@ -36,31 +42,6 @@ export interface ThemeProviderProps {
     * @ignore
     */
     forwardedRef: ForwardedRef<any>
-}
-
-export function useColorScheme(colorScheme: ColorScheme, defaultColorScheme: ColorScheme.dark | ColorScheme.light): ColorScheme {
-    const matchesLight = useMediaQuery("(prefers-color-scheme: light)");
-    const matchesDark = useMediaQuery("(prefers-color-scheme: dark)");
-
-    useEffect(() => {
-        if (colorScheme === ColorScheme.system && isNil(defaultColorScheme)) {
-            throw new Error("When using a \"system\" \"colorSchema\" with the ThemeProvider you must also provide a \"defaultColorScheme\" prop in case user preference is not available.");
-        }
-    }, [colorScheme, defaultColorScheme]);
-
-    if (colorScheme === ColorScheme.system) {
-        if (matchesLight) {
-            return ColorScheme.light;
-        }
-
-        if (matchesDark) {
-            return ColorScheme.dark;
-        }
-
-        return defaultColorScheme;
-    }
-
-    return colorScheme;
 }
 
 export function ThemeProvider({

@@ -28,16 +28,16 @@ export const KeyProp = "data-o-ui-key";
 
 const propTypes = {
     /**
-     * Items to render.
-     */
-    items: arrayOf(object),
-    /**
      * Called when a menu item is selected.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} key - The menu item key.
      * @returns {void}
      */
-    onSelect: func,
+    onSelectionChange: func,
+    /**
+     * Items to render.
+     */
+    items: arrayOf(object),
     /**
      * Whether or not the menu should autofocus on render.
      */
@@ -55,15 +55,15 @@ const propTypes = {
      */
     as: oneOfType([string, elementType]),
     /**
-     * React children
+     * React children.
      */
-    children: any.isRequired
+    children: oneOfType([any, func])
 };
 
 export function InnerMenu({
     id,
     items,
-    onSelect,
+    onSelectionChange,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -83,8 +83,8 @@ export function InnerMenu({
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
     const handleSelect = useEventCallback((event, key) => {
-        if (!isNil(onSelect)) {
-            onSelect(event, key);
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, key);
         }
     });
 

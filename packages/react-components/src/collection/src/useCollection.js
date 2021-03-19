@@ -121,7 +121,7 @@ export class CollectionBuilder {
 
         let index = 0;
 
-        const elements = resolveChildren(children, { items });
+        const elements = resolveChildren(children, { items: items ?? [] });
 
         const nextIndex = () => {
             return index++;

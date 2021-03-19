@@ -49,10 +49,10 @@ const propTypes = {
     /**
      * Called when the select value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} selectedKey - The new selected key.
+     * @param {string} selectedKey - The new selected key.
      * @returns {void}
      */
-    onChange: func,
+    onSelectionChange: func,
     /**
      * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -127,7 +127,7 @@ export function InnerSelect(props) {
         items,
         required,
         validationState,
-        onChange,
+        onSelectionChange,
         onOpenChange,
         variant = "outline",
         icon,
@@ -164,7 +164,7 @@ export function InnerSelect(props) {
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
         items,
-        onChange,
+        onSelectionChange,
         onOpenChange,
         direction,
         align,
