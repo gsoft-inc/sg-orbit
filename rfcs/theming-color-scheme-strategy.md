@@ -6,7 +6,7 @@ Orbit has been, in it's infancy, a monolitich piece of CSS, the only theming opt
 
 ## Motivation
 
-Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-danger` has a semantic meaning while `border-red-500` has none and could be used in many situations. This make our intefaces more cohesive and gives intention to our design choices. As Adobe Spectrum sums it up:
+Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-negative` has a semantic meaning while `border-red-500` has none and could be used in many situations. This make our intefaces more cohesive and gives intention to our design choices. As Adobe Spectrum sums it up:
 
 > Too much color can create cognitive overload, affecting users’ ability to efficiently interact with products.
 
@@ -14,7 +14,7 @@ Being able to quickly add design tokens, and semantic variables, without questio
 
 Design tokens are the values needed to construct and maintain our design system, from spacing, color, typograghy, to shadows. These values are reflected in the form of CSS Custom Properties(variables). These are prefixed with `o-ui-global`. Design tokens are not affected by a theme. or color scheme, they are what one could call a constant.
 
-On top of design tokens lives *semantic variables*, these have an assigned meaning and expedite design decisions. One example of a semantic variable would be a `border-danger` variable, this variable would use the `beetle-500` color behind the scene. When in need of a border that represent a negative state one designer wouldn't need to reinvent the wheel and should use this abstraction : `border-danger`.  These are prefixed with `o-ui-alias`.
+On top of design tokens lives *semantic variables*, these have an assigned meaning and expedite design decisions. One example of a semantic variable would be a `border-negative` variable, this variable would use the `beetle-500` color behind the scene. When in need of a border that represent a negative state one designer wouldn't need to reinvent the wheel and should use this abstraction : `border-negative`.  These are prefixed with `o-ui-alias`.
 
 Here is an example on how semantic variables work at a core level: 
 
