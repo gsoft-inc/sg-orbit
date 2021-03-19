@@ -17,7 +17,7 @@ export interface InnerSectionProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function InnerSection(_props: InnerSectionProps) {
+export function InnerSection(_props: InnerSectionProps): JSX.Element {
     return null;
 }
 

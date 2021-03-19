@@ -21,7 +21,7 @@ export interface InnerItemProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function InnerItem(_props: InnerItemProps) {
+export function InnerItem(_props: InnerItemProps): JSX.Element {
     return null;
 }
 
