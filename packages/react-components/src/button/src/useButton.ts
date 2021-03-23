@@ -1,5 +1,27 @@
-import { cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { AriaAttributes, ForwardedRef } from "react";
+import { InteractionStatesProps, MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
+
+export interface UseButtonProps extends InteractionStatesProps {
+    cssModule?: string;
+    variant?: "solid" | "outline" | "ghost";
+    color?: "primary" | "secondary" | "danger" | "inherit";
+    shape?: "pill" | "rounded" | "circular";
+    autoFocus?: boolean | number;
+    fluid?: boolean;
+    loading?: boolean;
+    size?: Size;
+    type?: "button" | "submit" | "reset";
+    forwardedRef?: ForwardedRef<any>;
+}
+
+export interface UseButtonReturn {
+    className: string;
+    type: UseButtonProps["type"];
+    "aria-live": AriaAttributes["aria-live"];
+    "aria-busy": boolean;
+    ref: MergedRef<any>;
+}
 
 export function useButton({
     cssModule: module,
@@ -15,7 +37,7 @@ export function useButton({
     hover,
     type,
     forwardedRef
-}) {
+}: UseButtonProps): UseButtonReturn {
     const buttonRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(buttonRef, {

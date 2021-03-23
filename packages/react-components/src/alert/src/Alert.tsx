@@ -1,39 +1,13 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, cssModule, mergeProps, useMergedRefs, useSlots } from "../../shared";
-import { Text } from "../../text";
+import { StyleProvider, cssModule, forwardRef, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { Text, TextProps } from "../../text";
 import { Transition } from "../../transition";
-import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
-
-const propTypes = {
-    /**
-     * A controlled show value.
-     */
-    show: bool,
-    /**
-     * The style to use.
-     */
-    tone: oneOf(["info", "success", "warning", "critical"]),
-    /**
-     * Called when the dismiss button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @returns {void}
-     */
-    onDismiss: func,
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as: oneOfType([string, elementType]),
-    /**
-     * React children.
-     */
-    children: any.isRequired
-};
 
 const Role = {
     info: "status",
@@ -42,7 +16,9 @@ const Role = {
     critical: "alert"
 };
 
-const AlertContent = forwardRef(({
+type InnerAlertContentProps = TextProps;
+
+const AlertContent = forwardRef<InnerAlertContentProps>(({
     as = "div",
     children,
     ...rest
@@ -71,6 +47,39 @@ const AlertContent = forwardRef(({
     );
 });
 
+export interface InnerAlertProps {
+    /**
+     * A controlled show value.
+     */
+    show?: boolean;
+    /**
+     * The style to use.
+     */
+    tone?: "info" | "success" | "warning" | "critical";
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @returns {void}
+     */
+    onDismiss?(event: SyntheticEvent): void;
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as?: ElementType;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    role?: string;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
+
 export function InnerAlert({
     show = true,
     tone = "info",
@@ -80,7 +89,7 @@ export function InnerAlert({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerAlertProps) {
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, content, button } = useSlots(children, useMemo(() => ({
@@ -142,9 +151,7 @@ export function InnerAlert({
     );
 }
 
-InnerAlert.propTypes = propTypes;
-
-export const Alert = forwardRef((props, ref) => (
+export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 
@@ -152,7 +159,7 @@ Alert.displayName = "Alert";
 
 ////////
 
-const variations = [
+const variations: { tone: keyof typeof Role, icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
     { tone: "success", icon: <CheckIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
@@ -165,7 +172,7 @@ const [
     WarningAlert,
     CriticalAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
-    return forwardRef(({
+    return forwardRef<InnerAlertProps>(({
         children,
         ...rest
     }, ref) => {
@@ -191,41 +198,44 @@ const [
     });
 });
 
-// Dummy component for documentation purpose.
-export function AlertTemplate() {
-    // When returning null, react-docgen doesn't ignore the component.
-    return <></>;
-}
-
-AlertTemplate.propTypes = {
+export interface AlertTemplateProps {
     /**
      * A controlled show value.
      */
-    // eslint-disable-next-line react/no-unused-prop-types
-    show: bool,
+    show?: boolean;
     /**
      * Called when the dismiss button is clicked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    // eslint-disable-next-line react/no-unused-prop-types
-    onDismiss: func,
+    onDismiss?(event: SyntheticEvent): void,
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    // eslint-disable-next-line react/no-unused-prop-types
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    // eslint-disable-next-line react/no-unused-prop-types
-    children: any.isRequired
-};
+    children: ReactNode
+}
+
+// Dummy component for documentation purpose.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function AlertTemplate(_props: AlertTemplateProps) {
+    // When returning null, react-docgen ignore the component.
+    return <></>;
+}
 
 InfoAlert.displayName = "InfoAlert";
 SuccessAlert.displayName = "SuccessAlert";
 WarningAlert.displayName = "WarningAlert";
 CriticalAlert.displayName = "CriticalAlert";
+
+
+export type InfoAlertProps = ComponentProps<typeof InfoAlert>;
+export type SuccessAlertProps = ComponentProps<typeof SuccessAlert>;
+export type WarningAlertProps = ComponentProps<typeof WarningAlert>;
+export type CriticalAlertProps = ComponentProps<typeof CriticalAlert>;
 
 export {
     InfoAlert,

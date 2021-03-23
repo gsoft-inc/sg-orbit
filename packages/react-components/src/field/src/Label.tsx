@@ -1,29 +1,32 @@
 import "./Label.css";
 
+import { ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { createSizeAdapter, cssModule, mergeProps, normalizeSize } from "../../shared";
-import { forwardRef } from "react";
+import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
-const propTypes = {
+export interface InnerLabelProps {
     /**
      * Whether or not the label show a required state.
      */
-    required: bool,
+    required?: boolean;
     /**
      * A label can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 const adaptSize = createSizeAdapter({
     "sm": "xs",
@@ -32,11 +35,11 @@ const adaptSize = createSizeAdapter({
 
 function RequiredIndicator() {
     return (
-        <span className="o-ui-field-label-required" focusable="false" aria-hidden="true">*</span>
+        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
     );
 }
 
-export function InnerLabel(props) {
+export function InnerLabel(props: InnerLabelProps) {
     const [fieldProps] = useFieldLabelProps(props);
 
     const {
@@ -72,9 +75,7 @@ export function InnerLabel(props) {
     );
 }
 
-InnerLabel.propTypes = propTypes;
-
-export const Label = forwardRef((props, ref) => (
+export const Label = forwardRef<InnerLabelProps>((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));
 

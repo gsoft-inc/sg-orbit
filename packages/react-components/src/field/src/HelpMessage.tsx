@@ -1,25 +1,28 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-const propTypes = {
+interface InnerHelpMessageProps {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerHelpMessage(props) {
+export function InnerHelpMessage(props: InnerHelpMessageProps) {
     const [{ validationState, ...messageProps }, isInField] = useFieldMessageProps();
 
     const { isHelp } = getValidationProps(validationState);
@@ -45,10 +48,10 @@ export function InnerHelpMessage(props) {
     );
 }
 
-InnerHelpMessage.propTypes = propTypes;
-
-export const HelpMessage = forwardRef((props, ref) => (
+export const HelpMessage = forwardRef<InnerHelpMessageProps>((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />
 ));
+
+export type HelpMessageProps = ComponentProps<typeof HelpMessage>
 
 HelpMessage.displayName = "HelpMessage";
