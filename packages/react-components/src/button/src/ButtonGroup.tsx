@@ -1,38 +1,41 @@
-import { Children, forwardRef } from "react";
-import { Group } from "../../group";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, normalizeSize, slot } from "../../shared";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { Group, GroupProps } from "../../group";
+import { augmentElement, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
 
-const propTypes = {
+export interface InnerButtonGroupProps {
     /**
      * The orientation of the buttons.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * The horizontal alignment of the buttons.
      */
-    align: oneOf(["start", "end", "center"]),
+    align?: "start" | "end" | "center";
     /**
      * The buttons size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the buttons are disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Whether or not the group take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactElement<any, any>;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 const Gap = {
     "horizontal": {
@@ -43,9 +46,9 @@ const Gap = {
         "sm": 2,
         "md": 3
     }
-};
+} as const;
 
-export function InnerButtonGroup(props) {
+export function InnerButtonGroup(props: InnerButtonGroupProps) {
     const {
         orientation = "horizontal",
         align,
@@ -59,7 +62,7 @@ export function InnerButtonGroup(props) {
 
     return (
         <Group
-            {...mergeProps(
+            {...mergeProps<Partial<GroupProps>[]>(
                 rest,
                 {
                     orientation,
@@ -83,10 +86,10 @@ export function InnerButtonGroup(props) {
     );
 }
 
-InnerButtonGroup.propTypes = propTypes;
-
-export const ButtonGroup = slot("button-group", forwardRef((props, ref) => (
+export const ButtonGroup = slot("button-group", forwardRef<InnerButtonGroupProps>((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));
+
+export type ButtonGroupProps = ComponentProps<typeof ButtonGroup>
 
 ButtonGroup.displayName = "ButtonGroup";
