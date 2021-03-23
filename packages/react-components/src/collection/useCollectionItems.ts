@@ -1,13 +1,13 @@
-import { NodeType } from "./useCollection";
+import { CollectionItem, CollectionSection, NodeType } from "./useCollection";
 import { useMemo } from "react";
 
 // Extracts all the nodes of "item" type.
 // Loop through sections to find nested items.
-export function useCollectionItems(nodes) {
+export function useCollectionItems(nodes: CollectionItem[]) {
     return useMemo(() => {
         return nodes.reduce((acc, x) => {
             if (x.type === NodeType.section) {
-                x.items
+                (x as CollectionSection).items
                     .filter(y => y.type === NodeType.item)
                     .forEach(z => {
                         acc.push(z);
