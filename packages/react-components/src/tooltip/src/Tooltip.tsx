@@ -1,27 +1,30 @@
 import "./Tooltip.css";
 
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
-import { any, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+interface InnerTooltipProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode | Function
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerTooltip({
     as = "div",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTooltipProps) {
     return (
         <Text
             {...mergeProps(
@@ -39,10 +42,10 @@ export function InnerTooltip({
     );
 }
 
-InnerTooltip.propTypes = propTypes;
-
-export const Tooltip = forwardRef((props, ref) => (
+export const Tooltip = forwardRef<InnerTooltipProps>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));
+
+export type TooltipProps = ComponentProps<typeof Tooltip>
 
 Tooltip.displayName = "Tooltip";
