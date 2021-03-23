@@ -15,7 +15,7 @@ export function useAsyncItems(fetch) {
         }
     }, [promise, setPromise]);
 
-    const search = useCallback(async query => {
+    const search = useCallback(async (event, query) => {
         cancelRequest();
         setIsLoading(true);
 

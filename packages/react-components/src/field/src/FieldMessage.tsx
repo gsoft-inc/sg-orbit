@@ -1,31 +1,34 @@
 import "./FieldMessage.css";
 
-import { StyleProvider, createSizeAdapter, cssModule, mergeProps, normalizeSize } from "../../shared";
+import { ComponentProps, ElementType, ReactNode } from "react";
+import { StyleProvider, createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
 import { Text } from "../../text";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef } from "react";
 
-const propTypes = {
+interface InnerFieldMessageProps {
     /**
      * The style to use.
      */
-    tone: oneOf(["neutral", "success", "error"]).isRequired,
+    tone: "neutral" | "success" | "error";
     /**
      * A message can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
+    /**
+     * Whether or not the field take up the width of its container.
+     */
+    fluid?: boolean;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+}
 
-export function getValidationProps(validationState) {
+export function getValidationProps(validationState: string) {
     const isValid = validationState === "valid";
     const isError = validationState === "invalid";
 
@@ -41,7 +44,7 @@ const textSize = createSizeAdapter({
     "md": "sm"
 });
 
-export const FieldMessage = forwardRef(({
+export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
     tone,
     fluid,
     size,
@@ -97,5 +100,6 @@ export const FieldMessage = forwardRef(({
     );
 });
 
-FieldMessage.propTypes = propTypes;
+export type FieldMessageProps = ComponentProps<typeof FieldMessage>;
+
 FieldMessage.displayName = "FieldMessage";

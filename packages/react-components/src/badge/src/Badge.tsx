@@ -1,28 +1,31 @@
 import "./Badge.css";
 
 import { Box } from "../../box";
-import { Children, forwardRef } from "react";
-import { StyleProvider, cssModule, mergeProps } from "../../shared";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerBadgeProps {
     /**
      * The style to use.
      */
-    variant: oneOf(["count", "dot", "icon"]),
+    variant?: "count" | "dot" | "icon";
     /**
      * The shape of the element being overlap by the badge.
      */
-    overlap: oneOf(["circle", "icon"]),
+    overlap?: "circle" | "icon";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerBadge({
     variant = "count",
@@ -31,7 +34,7 @@ export function InnerBadge({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerBadgeProps) {
     // Not using slots because the overlapped content could also be an icon and thinks get complicated.
     let [badgeContent, overlappedElement] = Children.toArray(children);
 
@@ -71,10 +74,10 @@ export function InnerBadge({
     );
 }
 
-InnerBadge.propTypes = propTypes;
-
-export const Badge = forwardRef((props, ref) => (
+export const Badge = forwardRef<InnerBadgeProps>((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
+
+export type BadgeProps = ComponentProps<typeof Badge>
 
 Badge.displayName = "Badge";

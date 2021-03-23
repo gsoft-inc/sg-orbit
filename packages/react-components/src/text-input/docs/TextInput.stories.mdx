@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { CrossButton } from "@react-components/button";
 import { EditIcon } from "@react-components/icons";
-import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@react-components/text-input";
+import { InnerPasswordInput, InnerSearchInput, InnerTextInput, PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 
 <Meta
     title="Components/TextInput"
@@ -14,7 +14,7 @@ import { InnerPasswordInput, InnerTextInput, PasswordInput, TextInput } from "@r
 <Tagline>A text input allow a user to enter and edit a text.</Tagline>
 
 <ComponentInfo
-    usage={"import { TextInput } from \"@orbit-ui/react-components\""}
+    usage={"import { TextInput, SearchInput, PasswordInput } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/text-input/src"
 />
 
@@ -108,13 +108,23 @@ The example below illustrates how one would validate if the user has entered a v
 
 <Preview filePath="/text-input/docs/EmailValidation" />
 
+## SearchInput
+
+A specialized text input for [search input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search).
+
+<Preview>
+    <Story name="search">
+        <SearchInput placeholder="Where to?" />
+    </Story>
+</Preview>
+
 ## PasswordInput
 
 A specialized text input which show / hide a password.
 
 <Preview>
     <Story name="password">
-        <PasswordInput />
+        <PasswordInput placeholder="What's your secret?" />
     </Story>
 </Preview>
 
@@ -128,6 +138,15 @@ A specialized text input which show / hide a password.
 />
 
 <ArgsTable of={InnerTextInput} />
+
+### SearchInput
+
+<ComponentInfo
+    usage={"import { SearchInput } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerSearchInput} />
 
 ### PasswordInput
 
