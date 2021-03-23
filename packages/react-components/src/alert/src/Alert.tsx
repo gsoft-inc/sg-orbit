@@ -1,7 +1,7 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { StyleProvider, cssModule, forwardRef, mergeProps, useMergedRefs, useSlots } from "../../shared";
@@ -159,12 +159,12 @@ Alert.displayName = "Alert";
 
 ////////
 
-const variations = [
+const variations: { tone: keyof typeof Role, icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
     { tone: "success", icon: <CheckIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
     { tone: "critical", icon: <InfoIcon /> }
-] as const;
+];
 
 const [
     InfoAlert,

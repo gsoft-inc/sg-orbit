@@ -2,14 +2,14 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
+import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
 
-interface InnerButtonProps {
+interface InnerButtonProps extends InteractionStatesProps {
     /**
      * The button style to use.
      */
@@ -62,18 +62,6 @@ interface InnerButtonProps {
      * Default slot override.
      */
     slot?: string;
-    /**
-     * @ignore
-     */
-    active?: boolean;
-    /**
-     * @ignore
-     */
-    focus?: boolean;
-    /**
-     * @ignore
-     */
-    hover?: boolean;
     /**
      * React children.
      */

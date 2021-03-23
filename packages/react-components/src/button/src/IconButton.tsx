@@ -3,11 +3,11 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
+import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerIconButtonProps {
+export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * The icon button style to use.
      */
@@ -66,18 +66,6 @@ export interface InnerIconButtonProps {
      * Whether or not the button take up the width of its container.
      */
     fluid?: boolean;
-    /**
-     * @ignore
-     */
-    active?: boolean;
-    /**
-     * @ignore
-     */
-    focus?: boolean;
-    /**
-     * @ignore
-     */
-    hover?: boolean;
     /**
     * @ignore
     */

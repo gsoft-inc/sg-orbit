@@ -1,8 +1,8 @@
 import { AriaAttributes, ForwardedRef } from "react";
-import { MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
 
-export interface UseButtonProps {
+export interface UseButtonProps extends InteractionStatesProps {
     cssModule?: string;
     variant?: "solid" | "outline" | "ghost";
     color?: "primary" | "secondary" | "danger" | "inherit";
@@ -11,9 +11,6 @@ export interface UseButtonProps {
     fluid?: boolean;
     loading?: boolean;
     size?: Size;
-    active?: boolean;
-    focus?: boolean;
-    hover?: boolean;
     type?: "button" | "submit" | "reset";
     forwardedRef?: ForwardedRef<any>;
 }

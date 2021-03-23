@@ -14,9 +14,9 @@ export interface UseToggleButtonProps<Shape> {
     forwardedRef?: ForwardedRef<any>;
 }
 
-export function useToggleButton<
-    Shape extends "pill" | "rounded" | "circular"
->({
+//TODO: TS We had to have a shape be generic, since Toggle Button and ToggleIconButton don't have the same shape allowed.
+// We want to preserve in the output type the same type as the one in the input props.
+export function useToggleButton<Shape>({
     variant,
     shape,
     checked,

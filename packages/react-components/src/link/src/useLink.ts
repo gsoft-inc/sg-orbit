@@ -1,8 +1,8 @@
 import { ForwardedRef } from "react";
-import { Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
 
-export interface UseLinkProps {
+export interface UseLinkProps extends InteractionStatesProps {
     cssModule?: string;
     omitSize?: boolean;
     color?: string;
@@ -11,9 +11,6 @@ export interface UseLinkProps {
     external?: boolean;
     autoFocus?: boolean | number;
     size?: Size;
-    active?: boolean;
-    focus?: boolean;
-    hover?: boolean;
     visited?: boolean;
     target?: string;
     rel?: string;
