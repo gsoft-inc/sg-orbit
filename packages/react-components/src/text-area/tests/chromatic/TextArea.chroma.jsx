@@ -54,17 +54,17 @@ stories()
             <TextArea disabled defaultValue="SpaceX will win the race!" />
             <TextArea readOnly defaultValue="SpaceX will win the race!" />
             <Inline>
-                <TextArea placeholder="Where to?" defaultValue="SpaceX will win the race!" />
+                <TextArea defaultValue="SpaceX will win the race!" />
                 <TextArea value="SpaceX will win the race!" />
             </Inline>
             <div>
-                <TextArea fluid placeholder="Where to?"></TextArea>
+                <TextArea fluid defaultValue="SpaceX will win the race!"></TextArea>
             </div>
             <div className="w-10">
-                <TextArea fluid placeholder="Where to?"></TextArea>
+                <TextArea fluid defaultValue="SpaceX will win the race!"></TextArea>
             </div>
             <div>
-                <TextArea loading fluid placeholder="Where to?"></TextArea>
+                <TextArea loading fluid defaultValue="SpaceX will win the race!"></TextArea>
             </div>
         </Stack>
     )

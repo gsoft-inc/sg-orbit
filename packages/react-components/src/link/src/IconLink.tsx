@@ -2,10 +2,10 @@ import "./Link.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
+import { InteractionStatesProps, augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
-export interface InnerIconLinkProps {
+export interface InnerIconLinkProps extends InteractionStatesProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -58,18 +58,6 @@ export interface InnerIconLinkProps {
     * @ignore
     */
     title?: string;
-    /**
-    * @ignore
-    */
-    active?: boolean;
-    /**
-    * @ignore
-    */
-    focus?: boolean;
-    /**
-    * @ignore
-    */
-    hover?: boolean;
     /**
     * @ignore
     */

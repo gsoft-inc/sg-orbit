@@ -11,7 +11,7 @@ const Planets = [
 () => {
     const [selectedPlanets, setSelectedPlanets] = useState(Planets);
 
-    const handleSearch = useCallback(query => {
+    const handleSearch = useCallback((event, query) => {
         setSelectedPlanets(Planets.filter(x => x.value.toLowerCase().startsWith(query.toLowerCase()) && x.canShow));
     }, []);
 
