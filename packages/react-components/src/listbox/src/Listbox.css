@@ -10,7 +10,7 @@
     overflow-y: auto;
     background-color: var(--o-ui-alias-background-1);
     outline: none;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-global-shadow-100);
     border: 1px solid var(--o-ui-alias-border-2);
 }
@@ -60,7 +60,7 @@
 
 /* OPTION | SELECTED */
 .o-ui-listbox-option[aria-disabled="true"] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* OPTION | DESCRIPTION */

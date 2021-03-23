@@ -68,7 +68,7 @@
 
 /* ARROW | STATE | FOCUS */
 .o-ui-overlay:focus .o-ui-overlay-arrow {
-    --o-ui-overlay-arrow-border-color: var(--o-ui-global-focus-ring-color);
+    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
 }
 
 /* BORDER OFFSET */

@@ -8,7 +8,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
     width: max-content;
     min-width: 200px;
     max-width: 325px;
@@ -71,7 +71,7 @@
 
 /* ITEM | STATE | DISABLED */
 .o-ui-menu-item[aria-disabled="true"] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 

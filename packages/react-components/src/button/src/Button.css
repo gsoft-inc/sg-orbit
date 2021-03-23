@@ -28,15 +28,15 @@
 .o-ui-button:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-md) var(--o-ui-global-focus-ring-color);
-    border-radius: var(--o-ui-global-pill-border-radius);
-    transition: var(--o-ui-global-focus-ring-transition);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-shape-pill);
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 /* ANCHOR */
@@ -58,7 +58,7 @@ a.o-ui-button {
 
 /* SOLID */
 .o-ui-button-solid {
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
     background-color: var(--o-ui-alias-background-5);
 }
 
@@ -147,13 +147,13 @@ a.o-ui-button {
 .o-ui-button-solid.o-ui-button-secondary:active,
 .o-ui-button-solid.o-ui-button-secondary.o-ui-button-active {
     background-color: var(--o-ui-alias-background-2-active);
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
 }
 
 /* SOLID | DANGER */
 .o-ui-button-solid.o-ui-button-danger {
     background-color: var(--o-ui-alias-background-negative-1);
-    --o-ui-global-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* SOLID | DANGER | HOVER */
@@ -178,7 +178,7 @@ a.o-ui-button {
 
 /* OUTLINE | ROUNDED */
 .o-ui-button-outline.o-ui-button-rounded {
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* OUTLINE | HOVER */
@@ -204,7 +204,7 @@ a.o-ui-button {
 .o-ui-button-outline:active,
 .o-ui-button-outline.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-4) inset;
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
     background-color: var(--o-ui-alias-background-5);
 }
 
@@ -235,7 +235,7 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-primary:active,
 .o-ui-button-outline.o-ui-button-primary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-primary-1) inset;
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
     background-color: var(--o-ui-alias-background-primary-1);
 }
 
@@ -256,14 +256,14 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
     background-color: var(--o-ui-alias-background-2-active);
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
 }
 
 /* OUTLINE | DANGER */
 .o-ui-button-outline.o-ui-button-danger {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-negative-1) inset;
     color: var(--o-ui-alias-text-negative-1);
-    --o-ui-global-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* OUTLINE | DANGER | HOVER */
@@ -276,7 +276,7 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-danger:active,
 .o-ui-button-outline.o-ui-button-danger.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-negative-1) inset;
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
     background-color: var(--o-ui-alias-border-negative-1);
 }
 
@@ -311,10 +311,10 @@ a.o-ui-button {
 
 /* GHOST | FOCUS */
 .o-ui-button-ghost:after {
-    top: calc(var(--o-ui-global-focus-ring-outset-inner-offset));
-    left: calc(var(--o-ui-global-focus-ring-outset-inner-offset));
-    right: calc(var(--o-ui-global-focus-ring-outset-inner-offset));
-    bottom: calc(var(--o-ui-global-focus-ring-outset-inner-offset));
+    top: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    left: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    right: calc(var(--o-ui-focus-ring-outset-inner-offset));
+    bottom: calc(var(--o-ui-focus-ring-outset-inner-offset));
 }
 
 .o-ui-button-ghost:focus:after,
@@ -349,17 +349,17 @@ a.o-ui-button {
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
     color: var(--o-ui-alias-text-negative-1);
-    --o-ui-global-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* GHOST | INHERIT */
 .o-ui-button.o-ui-button-inherit.o-ui-button-ghost {
-    --o-ui-global-focus-ring-color: currentColor;
+    --o-ui-focus-ring-color: currentColor;
 }
 
 /* DANGER */
 .o-ui-button-danger {
-    --o-ui-global-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* FLUID */
@@ -379,7 +379,7 @@ a.o-ui-button {
     left: 50%;
     border-radius: 50px;
     border: 2px solid var(--o-ui-global-marine-200);
-    border-top-color: var(--o-ui-alias-static-white);
+    border-top-color: var(--o-ui-global-white);
     animation: o-ui-button-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);
 }
@@ -412,7 +412,7 @@ a.o-ui-button {
 /* SOLID | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-primary:before {
     border: 2px solid var(--o-ui-button-loading-spinner-background);
-    border-top-color: var(--o-ui-alias-static-white);
+    border-top-color: var(--o-ui-global-white);
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
@@ -422,7 +422,7 @@ a.o-ui-button {
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-danger:before {
     border: 2px solid var(--o-ui-button-loading-spinner-background);
-    border-top-color: var(--o-ui-alias-static-white);
+    border-top-color: var(--o-ui-global-white);
 }
 
 /* OUTLINE | LOADING | PRIMARY */
@@ -476,18 +476,18 @@ a.o-ui-button {
 /* DISABLED */
 .o-ui-button-disabled,
 .o-ui-button[disabled] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
 /* PILL */
 .o-ui-button-pill {
-    border-radius: var(--o-ui-global-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
 }
 
 /* CIRCULAR */
 .o-ui-button-circular {
-    border-radius: var(--o-ui-global-circular-border-radius);
+    border-radius: var(--o-ui-shape-circular);
 }
 
 /* CIRCULAR | SIZES */
@@ -503,11 +503,11 @@ a.o-ui-button {
 
 /* ROUNDED */
 .o-ui-button-rounded {
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 .o-ui-button-rounded:after {
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* INHERIT */
@@ -523,7 +523,7 @@ a.o-ui-button {
 
 /* OUTLINE */
 .o-ui-button-inherit.o-ui-button-outline {
-    --o-ui-global-focus-ring-color: currentColor;
+    --o-ui-focus-ring-color: currentColor;
     color: inherit;
     box-shadow: 0 0 0 1px currentColor inset;
 }
@@ -556,16 +556,16 @@ a.o-ui-button {
 
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
-    fill: var(--o-ui-alias-static-white);
+    fill: var(--o-ui-global-white);
     opacity: .9;
 }
 
 .o-ui-button.o-ui-button-inherit.o-ui-button-solid {
-    --o-ui-global-focus-ring-color: currentColor;
+    --o-ui-focus-ring-color: currentColor;
 }
 
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-text {
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
     opacity: .9;
 }
 

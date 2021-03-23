@@ -13,7 +13,7 @@
     display: inline-block;
     /* was cloud 200 now 300 because too much similar colors */
     background-color: var(--o-ui-alias-background-2);
-    border-radius: var(--o-ui-global-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     position: relative;
     flex-shrink: 0;
 }
@@ -22,7 +22,7 @@
     content: "";
     display: inline-block;
     background-color: var(--o-ui-alias-background-1);
-    border-radius: var(--o-ui-global-circular-border-radius);
+    border-radius: var(--o-ui-shape-circular);
     position: absolute;
     transform: translate(2px, 2px);
     transition: transform .1875s ease-in;
@@ -88,15 +88,15 @@
 .o-ui-switch-control:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-global-focus-ring-color);
-    border-radius: var(--o-ui-global-pill-border-radius);
-    transition: var(--o-ui-global-focus-ring-transition);
+    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-shape-pill);
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 .o-ui-switch input[type="checkbox"]:focus + .o-ui-switch-control:after,
@@ -112,7 +112,7 @@
 /* STATE | DISABLED */
 .o-ui-switch[disabled],
 .o-ui-switch-disabled {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 

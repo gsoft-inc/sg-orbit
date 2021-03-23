@@ -11,7 +11,7 @@
 .o-ui-dot:before {
     content: "";
     display: inline-block;
-    border-radius: var(--o-ui-global-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     background-color: var(--o-ui-dot-color);
     min-width: 0.5em;
     min-height: 0.5em;
@@ -26,5 +26,5 @@
 /* DISABLED */
 .o-ui-dot[disabled],
 .o-ui-dot[disabled]:before {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }

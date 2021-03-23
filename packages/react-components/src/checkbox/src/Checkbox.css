@@ -25,7 +25,7 @@
     width: var(--o-ui-global-scale-echo);
     height: var(--o-ui-global-scale-echo);
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1);
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
     transition: all .125s ease-in;
     flex-shrink: 0;
     z-index: 2;
@@ -35,15 +35,15 @@
 .o-ui-checkbox-box:before {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-global-focus-ring-outset-outer-offset));
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-md) var(--o-ui-global-focus-ring-color);
-    border-radius: var(--o-ui-global-rounded-border-radius);
-    transition: var(--o-ui-global-focus-ring-transition);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-shape-rounded);
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 .o-ui-checkbox-box:after {
@@ -55,10 +55,10 @@
     height: var(--o-ui-global-scale-echo);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
-    background-color: var(--o-ui-alias-static-white);
+    background-color: var(--o-ui-global-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
     transition: all .125s ease-in .125s;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
@@ -155,7 +155,7 @@
 /* STATE | DISABLED */
 .o-ui-checkbox-disabled,
 .o-ui-checkbox[disabled] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -194,7 +194,7 @@
 .o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:focus + .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
-    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-md) var(--o-ui-alias-border-primary-1);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-primary-1);
 }
 
 /* STATE | HOVER | DISABLED */
@@ -238,13 +238,13 @@
 }
 
 .o-ui-checkbox-sm input {
-    width: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-global-focus-ring-thickness-md) * 2) * 2);
-    height: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-global-focus-ring-thickness-md) * 2) * 2);
+    width: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
+    height: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
 }
 
 .o-ui-checkbox-sm .o-ui-checkbox-box:before {
-    width: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-global-focus-ring-thickness-md) * 2));
-    height: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-global-focus-ring-thickness-md) * 2));
+    width: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-focus-ring-thickness-md) * 2));
+    height: calc(var(--o-ui-global-scale-delta) + (var(--o-ui-focus-ring-thickness-md) * 2));
 }
 
 /* SIZING | SMALL | BOX | CHECKED */
@@ -256,8 +256,8 @@
 
 /* SIZING | MEDIUM */
 .o-ui-checkbox-md .o-ui-checkbox-box:before {
-    width: calc(var(--o-ui-global-scale-echo) + (var(--o-ui-global-focus-ring-thickness-md) * 2));
-    height: calc(var(--o-ui-global-scale-echo) + (var(--o-ui-global-focus-ring-thickness-md) * 2));
+    width: calc(var(--o-ui-global-scale-echo) + (var(--o-ui-focus-ring-thickness-md) * 2));
+    height: calc(var(--o-ui-global-scale-echo) + (var(--o-ui-focus-ring-thickness-md) * 2));
 }
 
 /* IN FIELD */

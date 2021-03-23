@@ -1241,7 +1241,7 @@
 
 .ui.selection.dropdown.transparent:hover > .text,
 .ui.selection.dropdown.transparent.hover > .text {
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
 }
 
 .ui.active.selection.dropdown.error:focus,

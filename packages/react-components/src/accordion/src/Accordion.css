@@ -36,7 +36,7 @@
     border-top: 1px solid var(--o-ui-alias-border-2);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
-    color: var(--o-ui-global-text-1);
+    color: var(--o-ui-alias-text-1);
     line-height: inherit;
     font-weight: inherit;
 }
@@ -81,7 +81,7 @@
 
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* HOVER */
@@ -103,8 +103,8 @@
     left: var(--o-ui-global-scale-bravo);
     right: var(--o-ui-global-scale-bravo);
     bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
-    border: var(--o-ui-global-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border: var(--o-ui-focus-ring-thickness-md) transparent solid;
+    border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
     height: var(--o-ui-global-scale-golf);
     transform: translateY(-50%);

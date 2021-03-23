@@ -35,11 +35,11 @@
 /* PRIMARY */
 .o-ui-lozenge.o-ui-lozenge-primary {
     background-color: var(--o-ui-alias-background-primary-1);
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
 }
 
 .o-ui-lozenge.o-ui-lozenge-primary .o-ui-lozenge-text {
-    color: var(--o-ui-alias-static-white);
+    color: var(--o-ui-global-white);
 }
 
 .o-ui-lozenge.o-ui-lozenge-primary .o-ui-lozenge-icon {

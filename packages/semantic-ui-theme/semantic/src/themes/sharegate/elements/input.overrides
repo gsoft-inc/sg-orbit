@@ -5,7 +5,7 @@
     height: var(--o-ui-global-scale-hotel);
     line-height: var(--o-ui-global-scale-hotel);
     min-width: 325px;
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
 }
 
 /* STATE | Focus */

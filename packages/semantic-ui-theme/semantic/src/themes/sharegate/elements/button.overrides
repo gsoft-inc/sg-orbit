@@ -319,7 +319,7 @@ a.ui.button {
 .ui.button:focus:hover,
 .ui.button.focus.hover,
 .ui.button.focus.active {
-    background-color: var(--o-ui-marine-900);
+    background-color: var(--o-ui-global-marine-900);
 }
 
 .ui.button.naked:focus:active,
@@ -361,7 +361,7 @@ a.ui.button {
 .ui.button.basic:focus:hover,
 .ui.button.basic.hover,
 .ui.button.basic.focus.hover {
-    box-shadow: 0px 0px 0px 1px var(--o-ui-marine-900) inset!important;
+    box-shadow: 0px 0px 0px 1px var(--o-ui-global-marine-900) inset!important;
 }
 
 .ui.button.basic:active,
@@ -377,13 +377,13 @@ a.ui.button {
 
 .ui.button.basic:focus:hover,
 .ui.button.basic.focus.hover {
-    box-shadow: 0px 0px 0px 1px var(--o-ui-marine-900) inset, 0px 0px 0px 2px var(--o-ui-primary-200)!important;
+    box-shadow: 0px 0px 0px 1px var(--o-ui-global-marine-900) inset, 0px 0px 0px 2px var(--o-ui-primary-200)!important;
 }
 
 .ui.button.basic.secondary:active,
 .ui.button.basic.secondary.active {
-    box-shadow: 0px 0px 0px 1px var(--o-ui-marine-900) inset!important;
-    color: var(--o-ui-marine-900)!important;
+    box-shadow: 0px 0px 0px 1px var(--o-ui-global-marine-900) inset!important;
+    color: var(--o-ui-global-marine-900)!important;
 }
 
 /* SKIN | Negative */
@@ -431,7 +431,7 @@ a.ui.button {
 .ui.button.basic:focus,
 .ui.button.basic.focus {
     background-color: var(--o-ui-white)!important;
-    color: var(--o-ui-marine-900)!important;
+    color: var(--o-ui-global-marine-900)!important;
 }
 
 .ui.button.primary.basic:focus:hover,
@@ -449,13 +449,13 @@ a.ui.button {
 .ui.button.secondary.basic:focus:hover,
 .ui.button.secondary.basic.focus.hover {
     color: var(-marine--900)!important;
-    box-shadow: 0px 0px 0px 1px var(--o-ui-marine-900) inset, 0px 0px 0px 2px var(--o-ui-primary-200)!important;
+    box-shadow: 0px 0px 0px 1px var(--o-ui-global-marine-900) inset, 0px 0px 0px 2px var(--o-ui-primary-200)!important;
 }
 
 .ui.button.secondary.basic:focus,
 .ui.button.secondary.basic.focus {
     background-color: var(--o-ui-white)!important;
-    color: var(--o-ui-marine-900)!important;
+    color: var(--o-ui-global-marine-900)!important;
 }
 
 .ui.secondary.buttons .button:focus,
@@ -796,7 +796,7 @@ a.ui.button {
 .ui.ghost.button:active,
 .ui.buttons.ghost .button:active {
     background-color: var(--o-ui-cloud-50);
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
 }
 
 /* SKIN | Ghost | Primary */
@@ -876,7 +876,7 @@ a.ui.button {
 /* SKIN | Basic | Secondary */
 .ui.basic.secondary.buttons .button,
 .ui.basic.secondary.button {
-    color: var(--o-ui-marine-900) !important;
+    color: var(--o-ui-global-marine-900) !important;
 }
 
 /* SKIN | Basic/Secondary | State */
@@ -891,7 +891,7 @@ a.ui.button {
 .ui.basic.secondary.button.active,
 .ui.basic.secondary.buttons.active .button {
     background-color: @white!important;
-    color: var(--o-ui-marine-900)!important;
+    color: var(--o-ui-global-marine-900)!important;
     box-shadow: 0px 0px 0px 1px var(--o-ui-cloud-900) inset !important;
 }
 
@@ -899,7 +899,7 @@ a.ui.button {
 .ui.basic.secondary.button.focus,
 .ui.basic.secondary.buttons .button:focus,
 .ui.basic.secondary.buttons .button.focus {
-    color: var(--o-ui-marine-900)!important;
+    color: var(--o-ui-global-marine-900)!important;
 }
 
 .ui.basic.secondary.buttons .button:focus,
@@ -913,7 +913,7 @@ a.ui.button {
 .ui.basic.secondary.buttons .button.focus.hover,
 .ui.basic.secondary.button:focus:hover,
 .ui.basic.secondary.button.focus.hover {
-    color: var(--o-ui-marine-900)!important;
+    color: var(--o-ui-global-marine-900)!important;
 }
 
 /* SKIN | STATES */
@@ -1314,7 +1314,7 @@ a.ui.button {
 .ui.buttons.basic .button.with-icon:focus .icon,
 .ui.buttons.basic .button.with-icon.focus .icon,
 .ui.buttons.basic .button.with-icon.active .icon {
-    fill: var(--o-ui-marine-900);
+    fill: var(--o-ui-global-marine-900);
 }
 
 /* CONTENT | Icon | STATE | Active | SKIN | Positive/Ghost */
@@ -1648,7 +1648,7 @@ a.ui.button {
 /* SKIN | Link */
 .ui.button.link {
     background: none;
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
     font-weight: 400;
     padding: 0;
     min-height: auto;
@@ -1703,7 +1703,7 @@ a.ui.button {
 .ui.button.link:active.focus,
 .ui.button.link.active:focus,
 .ui.button.link.active.focus {
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
     background-color: var(--o-ui-marine-50);
     text-decoration: underline;
 }
@@ -1726,7 +1726,7 @@ a.ui.button {
 
 /* SKIN | Link | Secondary */
 .ui.button.link.secondary {
-    color: var(--o-ui-marine-900);
+    color: var(--o-ui-global-marine-900);
     box-shadow: none !important;
 }
 

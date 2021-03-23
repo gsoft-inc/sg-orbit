@@ -4,7 +4,7 @@
     --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);
     --o-ui-input-padding-loading: var(--o-ui-global-scale-golf);
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
-    --o-ui-input-border-radius: var(--o-ui-global-rounded-border-radius);
+    --o-ui-input-border-radius: var(--o-ui-shape-rounded);
     --o-ui-input-focus-color: var(--o-ui-alias-border-primary-1);
     --o-ui-input-background-color: var(--o-ui-alias-background-2);
 }
@@ -12,7 +12,7 @@
 .o-ui-input {
     display: inline-block;
     position: relative;
-    transition: var(--o-ui-global-focus-ring-transition);
+    transition: var(--o-ui-focus-ring-transition);
     color: var(--o-ui-alias-text-1);
     width: 325px;
 }
@@ -62,7 +62,7 @@
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 var(--o-ui-global-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-primary-1);
+    box-shadow: 0 var(--o-ui-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-primary-1);
 }
 
 /* TRANSPARENT | STATE | DISABLED */
@@ -94,7 +94,7 @@
 
 .o-ui-input.o-ui-input-invalid input:focus,
 .o-ui-input.o-ui-input-invalid-focus {
-    box-shadow: var(--o-ui-global-focus-ring-inset-sm-negative);
+    box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
     border-color: var(--o-ui-alias-border-negative-1);
 }
 
@@ -109,7 +109,7 @@
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus input,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
 .o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 var(--o-ui-global-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-negative-1);
+    box-shadow: 0 var(--o-ui-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-negative-1);
 }
 
 /* ICON */
@@ -168,14 +168,14 @@
 .o-ui-input textarea:focus,
 .o-ui-input-focus textarea {
     outline: none;
-    box-shadow: var(--o-ui-global-focus-ring-inset-sm);
+    box-shadow: var(--o-ui-focus-ring-inset-sm);
     border-color: var(--o-ui-alias-border-primary-1);
 }
 
 /* STATES | DISABLED */
 .o-ui-input input:disabled,
 .o-ui-input textarea:disabled {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     background-color: var(--o-ui-input-background-color);
     cursor: not-allowed;
 }

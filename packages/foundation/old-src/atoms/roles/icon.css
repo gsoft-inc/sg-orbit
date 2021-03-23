@@ -11,7 +11,7 @@
     --o-ui-alias-icon-warning-2-light: var(--o-ui-global-sunray-900);
     --o-ui-alias-icon-info-1-light: var(--o-ui-global-marine-500);
     /* DARK */
-    --o-ui-alias-icon-1-dark: var(--o-ui-alias-static-white);
+    --o-ui-alias-icon-1-dark: var(--o-ui-global-white);
     --o-ui-alias-icon-2-dark: var(--o-ui-global-cloud-500);
     --o-ui-alias-icon-primary-1-dark: var(--o-ui-alias-primary-700);
     --o-ui-alias-icon-negative-1-dark: var(--o-ui-global-beetle-700);

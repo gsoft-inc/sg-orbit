@@ -55,7 +55,7 @@
     transform: translateY(-50%);
     bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
     border: 2px transparent solid;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
     height: calc(var(--o-ui-global-scale-echo) + var(--o-ui-global-scale-alpha));
 }
@@ -92,7 +92,7 @@
 
 /* TAB | STATE | DISABLED */
 .o-ui-tab[disabled] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 

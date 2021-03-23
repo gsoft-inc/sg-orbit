@@ -1,5 +1,9 @@
-@import "./atoms/core/index.css";
-@import "./atoms/roles/index.css";
-@import "./atoms/themes/apricot.css";
-@import "./atoms/themes/overcast.css";
-@import "./atoms/themes/desktop.css";
+@import "./background.css";
+@import "./border.css";
+@import "./box-shadow.css";
+@import "./colors.css";
+@import "./elevation.css";
+@import "./icon.css";
+@import "./spacing-scale.css";
+@import "./text.css";
+@import "./type-scale.css";

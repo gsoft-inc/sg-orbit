@@ -41,5 +41,5 @@
 
 /* DISABLED */
 .o-ui-icon-disabled {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }

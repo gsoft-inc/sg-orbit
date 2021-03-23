@@ -62,7 +62,7 @@
 
 /* INHERIT */
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
-    fill: var(--o-ui-alias-static-white);
+    fill: var(--o-ui-global-white);
     opacity: .9;
 }
 

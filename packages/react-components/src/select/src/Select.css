@@ -12,7 +12,7 @@
     min-height: var(--o-ui-global-scale-hotel);
     overflow: hidden;
     padding: 0 var(--o-ui-global-scale-charlie) 0;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* TRIGGER | ICON ARROW */
@@ -34,7 +34,7 @@
 /* TRIGGER | STATE | DISABLED */
 .o-ui-select-trigger-ghost[disabled],
 .o-ui-select-trigger-outline[disabled] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
 }
 
@@ -54,7 +54,7 @@
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus:not(:hover){
     background: var(--o-ui-alias-background-3);
-    box-shadow: 0 0 0 var(--o-ui-global-focus-ring-thickness-md) var(--o-ui-global-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
@@ -122,14 +122,14 @@
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-outline:not([disabled]):focus:not(:hover) {
-    box-shadow: 0 0 0 1px var(--o-ui-global-focus-ring-color);
+    box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
     border: 1px solid var(--o-ui-alias-border-primary-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus {
     border: 1px solid var(--o-ui-alias-border-primary-1);
-    box-shadow: 0 0 0 1px var(--o-ui-global-focus-ring-color);
+    box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */

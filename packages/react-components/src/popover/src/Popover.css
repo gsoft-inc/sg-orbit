@@ -2,7 +2,7 @@
     background-color: var(--o-ui-alias-background-1);
     padding: var(--o-ui-global-scale-foxtrot);
     padding-top: var(--o-ui-global-scale-echo);
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-global-shadow-200);
     /* Must keep a max width. */
     width: 325px;
@@ -12,7 +12,7 @@
 
 /* OVERLAY */
 .o-ui-popover-overlay:focus > *:first-child {
-    border: var(--o-ui-global-focus-ring-thickness-sm) solid var(--o-ui-global-focus-ring-color);
+    border: var(--o-ui-focus-ring-thickness-sm) solid var(--o-ui-focus-ring-color);
 }
 
 /* CLOSE BUTTON */

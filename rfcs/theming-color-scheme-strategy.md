@@ -65,7 +65,7 @@ Sometimes a component needs reusable values through it's UI while not explicitly
 // Input.css
 .o-ui {
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
-    --o-ui-input-border-radius: var(--o-ui-rounded-border-radius);
+    --o-ui-input-border-radius: var(--o-ui-shape-rounded);
 }
 
 .o-ui-input {
@@ -82,13 +82,13 @@ Utility variables are variables that helps crafting experiences, while being uti
 
 ```css
 .o-ui {
-  --o-ui-circular-border-radius: 100%;
+  --o-ui-shape-circular: 100%;
 }
 
 // ...
 
 .circle {
-    border-radius: var(--o-ui-circular-border-radius);
+    border-radius: var(--o-ui-shape-circular);
 }
 ```
 

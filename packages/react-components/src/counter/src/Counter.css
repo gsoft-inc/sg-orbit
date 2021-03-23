@@ -7,7 +7,7 @@
     display: inline-flex;
     background-color: var(--o-ui-alias-background-2);
     color: var(--o-ui-alias-text-1);
-    border-radius: var(--o-ui-global-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     line-height: 1;
     align-items: center;
     justify-content: center;
@@ -76,5 +76,5 @@
 
 /* DISABLED */
 .o-ui-counter[disabled] {
-    opacity: var(--o-ui-global-disabled-opacity);
+    opacity: var(--o-ui-disabled-opacity);
 }

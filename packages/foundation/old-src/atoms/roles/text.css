@@ -31,9 +31,9 @@
     --o-ui-alias-text-input-selection-light: var(--o-ui-global-marine-500);
     --o-ui-alias-text-input-placeholder-light: var(--o-ui-global-marine-200);
     /* DARK */
-    --o-ui-alias-text-1-dark: var(--o-ui-alias-static-white);
-    --o-ui-alias-text-1-hover-dark: var(--o-ui-alias-static-white);
-    --o-ui-alias-text-1-active-dark: var(--o-ui-alias-static-white);
+    --o-ui-alias-text-1-dark: var(--o-ui-global-white);
+    --o-ui-alias-text-1-hover-dark: var(--o-ui-global-white);
+    --o-ui-alias-text-1-active-dark: var(--o-ui-global-white);
     --o-ui-alias-text-2-dark: var(--o-ui-global-cloud-300);
     --o-ui-alias-text-2-hover-dark: var(--o-ui-global-cloud-100);
     --o-ui-alias-text-2-active-dark: var(--o-ui-global-cloud-50);
@@ -59,6 +59,6 @@
     --o-ui-alias-text-info-1-dark: var(--o-ui-global-marine-100);
     --o-ui-alias-text-info-1-hover-dark: var(--o-ui-global-marine-300);
     --o-ui-alias-text-info-1-active-dark: var(--o-ui-global-marine-400);
-    --o-ui-alias-text-input-selection-dark: var(--o-ui-alias-static-white);
+    --o-ui-alias-text-input-selection-dark: var(--o-ui-global-white);
     --o-ui-alias-text-input-placeholder-dark: var(--o-ui-global-marine-200);
 }

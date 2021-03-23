@@ -111,7 +111,7 @@
 @veryWideWidth: 550px;
 
 /* Inverted */
-@invertedBackground: var(--o-ui-marine-900);
+@invertedBackground: var(--o-ui-global-marine-900);
 @invertedColor: @white;
 @invertedBorder: none;
 @invertedBoxShadow: none;

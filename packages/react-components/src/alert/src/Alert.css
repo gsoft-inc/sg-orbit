@@ -4,7 +4,7 @@
     padding: var(--o-ui-global-scale-charlie);
     width: 100%;
     height: max-content;
-    border-radius: var(--o-ui-global-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* LAYOUT */
