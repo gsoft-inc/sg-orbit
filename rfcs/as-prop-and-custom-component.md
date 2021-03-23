@@ -24,7 +24,7 @@ This RFC propose a way to handle this property in TypeScript, providing type saf
 The decision to convert the Orbit codebase in Typescript was surely to gain the benefits of the static typings, but also to provide rich and accurate types to the library's consumers.
 Given that statement, we quickly noticed the issue with the as property. We looked at different options, and found out that @chakra-ui had a great way of handling it. This RFC details what those patterns are and how we implemented them in Orbit.
 
-## Different way of having static typings
+## Different way of having static typings on the `As` property
 
 Before we dive into how our the implementation is done, let's have a look on how the end result looks like to our consumers. 
 There is 2 approaches: Using the base implementation which give generic typings, useable in most situations, and a custom approach to implement exact typings of the as property.
@@ -101,37 +101,54 @@ The type property could be one of the following :
 
 ## Concrete Implementation of the OrbitComponent
 
+The `OrbitComponent` uses a bunch of Typescript utils function. This section will detail the role of each of those helper functions.
 
+>  Note ⚠️: This section won't be updated with each changes in those types. This section is used to document decisions taken at this point in time.
 
+Starting with the OrbitComponent Type.
 
+```tsx
+import { ForwardRefExoticComponent, ForwardRefRenderFunction, WeakValidationMap, forwardRef as reactForwardRef } from "react";
 
-
-
-
-
-
-
-
-type PropsOf<T> =
-    T extends ElementType ? HTMLProps<UnwrapElementType<T>> & ComponentProps<T> & RefAttributes<UnwrapElementType<T>> :
-    T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
-    never;
-
-export type RightJoinProps<
-    SourceProps extends Record<string, any> = Record<string, never>,
-    OverrideProps extends Record<string, any> = Record<string, never>
-    > = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps
-
-export type OmitCommonProps<
-    Target,
-    OmitAdditionalProps extends keyof any = never
-    > = Omit<Target, "forwardedRef" | OmitAdditionalProps>
-
-type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>> & {
-    [key: string]: any;
-};
+export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<AsRef<T>, P>) {
+    return (reactForwardRef(render) as unknown) as OrbitComponent<T, P>;
+}
 
 export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
     defaultProps?: Partial<any>;
     propTypes?: WeakValidationMap<any>;
 }
+```
+
+Orbit's `forwardRef` function returns an OrbitComponent, and override its prop to return an ForwardRefExoticComponent while merging the component's props with the props of the type passed as the As : 
+`ForwardRefExoticComponent<MergeWithAs<T, P>>`
+
+If we take a look at the merge function : 
+
+```tsx
+type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>> & {
+    [key: string]: any;
+};
+```
+
+`MergeWithAs` does a couple of things : 
+- Get the props of the As Type : `PropsOf<T>`
+- Omit the common props of our inner interface, like "forwardedRef" which is an internal typed used to forward refs : `OmitCommonProps<P>`
+- Merge those 2 props, prioritizing the type on the right : `RightJoinProps<PropsOf<T>, OmitCommonProps<P>>`
+- Finally, we took the decision that our component accept ALL extra props : `[key: string]: any;`. This allow the consumer to pass forward any props to the DOM element underneath.
+
+
+Finally, we have `PropsOf`, which is the helper type that gives the props of the as property
+
+```tsx
+type PropsOf<T> =
+    T extends ElementType ? HTMLProps<UnwrapElementType<T>> & ComponentProps<T> & RefAttributes<UnwrapElementType<T>> :
+    T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
+    never;
+```
+
+If `T` is an ElementType, so a string or a React Component : 
+- Adds all the default props of an generic html element : `HTMLProps<UnwrapElementType<T>>` --- This decision has been made "to be safe". We want to make sure that the generic html props are valid on our component. However, since we know exactly what props the type expects, we could remove this part and everything would still work properly.
+- Adds the props of that component : `ComponentProps<T>`
+- Adds a ref property to that element : `RefAttributes<UnwrapElementType<T>>`
+
