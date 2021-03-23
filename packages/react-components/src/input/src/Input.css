@@ -2,7 +2,7 @@
     --o-ui-input-padding: var(--o-ui-global-scale-charlie);
     --o-ui-input-padding-with-icon: var(--o-ui-global-scale-golf);
     --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);
-    --o-ui-input-padding-loading: var(--o-ui-global-scale-golf);
+    --o-ui-input-padding-loading: var(--o-ui-global-scale-hotel);
     --o-ui-input-border-color: var(--o-ui-alias-border-1);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
     --o-ui-input-focus-color: var(--o-ui-alias-border-primary-1);
@@ -38,6 +38,12 @@
 .o-ui-input textarea::selection {
     background-color: var(--o-ui-alias-background-input-selection);
     color: var(--o-ui-alias-text-input-selection);
+}
+
+/* STATE | HOVER */
+.o-ui-input:hover input:not([disabled]):not(:focus),
+.o-ui-input:hover textarea:not([disabled]):not(:focus) {
+    border-color: var(--o-ui-alias-border-1-hover);
 }
 
 /* PLACEHOLDER */
@@ -209,7 +215,7 @@
 .o-ui-input-loading.o-ui-input::before {
     width: 1.25rem;
     height: 1.25rem;
-    right: calc((var(--o-ui-input-padding-loading) - 1.25rem) / 2);
+    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-global-scale-echo)) / 2 );
 }
 
 .o-ui-input-loading.o-ui-input input {
