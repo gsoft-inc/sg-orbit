@@ -6,10 +6,25 @@ import { Disclosure } from "../../disclosure";
 import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
+export interface AccordionItemProps {
+    /**
+     * @ignore
+     */
+    id?: string;
+    /**
+     * @ignore
+     */
+    item: {
+        index: number;
+        header: any;
+        panel: any;
+    };
+}
+
 export function AccordionItem({
     item: { index, header, panel },
     ...rest
-}) {
+}: AccordionItemProps) {
     const { selectedIndexes, onToggle } = useAccordionContext();
 
     const handleChange = useEventCallback(event => {

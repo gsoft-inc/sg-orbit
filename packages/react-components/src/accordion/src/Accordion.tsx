@@ -3,9 +3,11 @@ import "./Accordion.css";
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import {
     Keys,
     arrayify,
+    forwardRef,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -16,49 +18,54 @@ import {
     useKeyboardNavigation,
     useMergedRefs
 } from "../../shared";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export const ExpandMode = {
-    single: "single",
-    multiple: "multiple"
-};
+export enum ExpandMode {
+    single = "single",
+    multiple = "multiple"
+}
 
-const propTypes = {
+export interface InnerAccordionProps {
     /**
-     * The index(es) of the expanded accordion item.
+     * @ignore
      */
-    index: oneOfType([number, arrayOf(number)]),
+    id?: string;
+    /**
+    * The index(es) of the expanded accordion item.
+    */
+    index?: number | number[];
     /**
      * The index(es) of the initially expanded accordion item.
      */
-    defaultIndex: oneOfType([number, arrayOf(number)]),
+    defaultIndex?: number | number[];
     /**
      * Called when an accordion is expanded / collapsed.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {Number | Number[]} selectedIndex - The index(es) of the expanded accordion item.
-     * @returns {void}
+     * @param event - React's original SyntheticEvent.
+     * @param selectedIndex - The index(es) of the expanded accordion item.
      */
-    onChange: func,
+    onChange?: (event: SyntheticEvent, selectedIndex: number | number[]) => void;
     /**
      * The type of expand that is allowed.
      */
-    expandMode: oneOf(["single", "multiple"]),
+    expandMode?: ExpandMode;
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerAccordion({
     id,
@@ -71,7 +78,7 @@ export function InnerAccordion({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerAccordionProps) {
     const [selectedIndex, setSelectedIndex] = useControllableState(index, defaultIndex, []);
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -97,7 +104,7 @@ export function InnerAccordion({
         last: [Keys.end]
     });
 
-    const handleToggle = useEventCallback((event, toggledIndex) => {
+    const handleToggle = useEventCallback((event: SyntheticEvent<Element, Event>, toggledIndex: number) => {
         let newIndexes;
 
         if (!memoSelectedIndexes.includes(toggledIndex)) {
@@ -161,10 +168,10 @@ export function InnerAccordion({
     );
 }
 
-InnerAccordion.propTypes = propTypes;
-
-export const Accordion = forwardRef((props, ref) => (
+export const Accordion = forwardRef<InnerAccordionProps>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
+
+export type AccordionProps = ComponentProps<typeof Accordion>
 
 Accordion.displayName = "Accordion";
