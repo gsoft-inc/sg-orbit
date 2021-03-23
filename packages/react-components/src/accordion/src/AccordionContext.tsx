@@ -1,6 +1,11 @@
-import { createContext, useContext } from "react";
+import { SyntheticEvent, createContext, useContext } from "react";
 
-export const AccordionContext = createContext({});
+export interface AccordionContextType {
+    selectedIndexes?: number[];
+    onToggle?: (event: SyntheticEvent, toggledIndex: number) => void
+}
+
+export const AccordionContext = createContext<AccordionContextType>({});
 
 export function useAccordionContext() {
     return useContext(AccordionContext);
