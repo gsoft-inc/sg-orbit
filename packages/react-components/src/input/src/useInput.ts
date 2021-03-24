@@ -1,5 +1,26 @@
+import { ForwardedRef, SyntheticEvent } from "react";
 import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
+
+export interface UseInputProps {
+    cssModule?: string,
+    id?: string;
+    value?: string;
+    placeholder?: string;
+    required?: boolean;
+    validationState?: "valid" | "invalid";
+    onChange?(event: SyntheticEvent): void
+    type?: "text" | "password" | "search" | "url" | "tel" | "email";
+    autoFocus?: boolean | number;
+    disabled?: boolean;
+    readOnly?: boolean;
+    fluid?: boolean;
+    loading?: boolean;
+    active?: boolean;
+    focus?: boolean;
+    hover?: boolean;
+    forwardedRef: ForwardedRef<any>
+}
 
 export function useInput({
     cssModule: module,
@@ -19,7 +40,7 @@ export function useInput({
     focus,
     hover,
     forwardedRef
-}) {
+}: UseInputProps) {
     const inputRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(inputRef, {

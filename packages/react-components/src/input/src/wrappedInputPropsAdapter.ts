@@ -10,10 +10,10 @@ export function useFieldWrappedInput() {
         }
     };
 
-    return [props, isInField];
+    return [props, isInField] as const;
 }
 
-export function wrappedInputPropsAdapter({ className, ...rest }) {
+export function wrappedInputPropsAdapter({ className, ...rest }: Record<string, any>) {
     return {
         ...rest,
         wrapperProps: {

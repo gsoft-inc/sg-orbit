@@ -1,3 +1,4 @@
+import { Ref } from "react";
 import { cssModule, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
@@ -12,6 +13,20 @@ const Gap = {
     }
 };
 
+export interface UseGroupInputProps {
+    role?: "group",
+    cssModule?: string;
+    required?: boolean;
+    validationState?: "valid" | "invalid";
+    orientation?: "horizontal" | "vertical";
+    gap?: number
+    wrap?: boolean;
+    size?: "sm" | "md";
+    reverse?: boolean;
+    disabled?: boolean;
+    groupRef: Ref<any>
+}
+
 export function useGroupInput({
     role = "group",
     cssModule: module,
@@ -24,7 +39,7 @@ export function useGroupInput({
     reverse,
     disabled,
     groupRef
-}) {
+}: UseGroupInputProps) {
     const [{ hasLabel, hasMessage }] = useFieldContext();
 
     return {
