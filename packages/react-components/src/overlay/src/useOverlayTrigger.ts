@@ -1,5 +1,5 @@
+import { KeyboardEvent, SyntheticEvent } from "react";
 import { Keys, useEventCallback } from "../../shared";
-import { SyntheticEvent } from "react";
 import { isNil } from "lodash";
 
 export interface UseOverlayTriggerProps {
@@ -28,12 +28,12 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
         }
     };
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: SyntheticEvent) => {
         event.preventDefault();
         toggle(event);
     });
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.enter:
             case Keys.space:
