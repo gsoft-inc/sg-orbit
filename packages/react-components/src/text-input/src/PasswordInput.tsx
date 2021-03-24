@@ -1,89 +1,94 @@
 import "./PasswordInput.css";
 
+import { BoxProps } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { TextInput } from "./TextInput";
-import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { TextInput, TextInputProps } from "./TextInput";
+import { forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
 
-const propTypes = {
+export interface InnerPasswordInputProps {
     /**
      * A controlled value.
      */
-    value: string,
+    value?: string,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: string,
+    defaultValue?: string,
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * Label identifying the input.
      */
-    label: node,
+    label?: ReactNode,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Additional text to describe the input.
      */
-    description: string,
+    description?: string,
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the text input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void;
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon: element,
+    icon?: ReactElement;
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not to render a loader.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * Whether or not the input is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Whether or not the input is readonly.
      */
-    readOnly: bool,
+    readOnly?: boolean;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>,
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerPasswordInput({
     value,
     defaultValue,
     wrapperProps,
     forwardedRef,
+    label, // TODO: TS: TextInput does not support label
     ...rest
-}) {
+}: InnerPasswordInputProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);
 
@@ -109,7 +114,7 @@ export function InnerPasswordInput({
 
     return (
         <TextInput
-            {...mergeProps(
+            {...mergeProps<Partial<TextInputProps>[]>(
                 rest,
                 {
                     value: inputValue,
@@ -126,10 +131,10 @@ export function InnerPasswordInput({
     );
 }
 
-InnerPasswordInput.propTypes = propTypes;
-
-export const PasswordInput = forwardRef((props, ref) => (
+export const PasswordInput = forwardRef<InnerPasswordInputProps>((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));
+
+export type PasswordInputProps = ComponentProps<typeof PasswordInput>
 
 PasswordInput.displayName = "PasswordInput";

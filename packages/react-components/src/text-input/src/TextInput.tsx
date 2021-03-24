@@ -1,75 +1,86 @@
 import "./TextInput.css";
 
-import { Box } from "../../box";
-import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
-import { forwardRef } from "react";
+import { Box, BoxProps } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+export interface InnerTextInputProps extends InteractionStatesProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * A controlled value.
      */
-    value: string,
+    value?: string,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: string,
+    defaultValue?: string,
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void,
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
-    type: oneOf(["text", "password", "search", "url", "tel", "email"]),
+    type?: "text" | "password" | "search" | "url" | "tel" | "email";
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon: element,
+    icon?: ReactElement,
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
-    button: element,
+    button?: ReactElement,
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly?: boolean;
     /**
      * Whether or not to render a loader.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerTextInput(props) {
+export function InnerTextInput(props: InnerTextInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
@@ -163,10 +174,10 @@ export function InnerTextInput(props) {
     );
 }
 
-InnerTextInput.propTypes = propTypes;
-
-export const TextInput = forwardRef((props, ref) => (
+export const TextInput = forwardRef<InnerTextInputProps>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
+
+export type TextInputProps = ComponentProps<typeof TextInput>
 
 TextInput.displayName = "TextInput";
