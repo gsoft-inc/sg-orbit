@@ -1,11 +1,12 @@
-import { createContext, useContext } from "react";
+import { FocusManager } from "../../shared";
+import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface ListboxContextType {
-    selectedKeys?: any;
-    onSelect?: any;
-    onFocus?: any;
-    focusManager?: any;
-    focusOnHover?: any;
+    selectedKeys?: string[];
+    onSelect?(event: SyntheticEvent, key: string): void;
+    onFocus?(event: SyntheticEvent, key: string | string[], activeElement: HTMLElement): void
+    focusManager?: FocusManager;
+    focusOnHover?: boolean;
 }
 
 export const ListboxContext = createContext<ListboxContextType>({});

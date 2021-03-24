@@ -215,7 +215,7 @@ export function InnerListbox({
         setSelectedKey(newValue);
     };
 
-    const handleSelectOption = useEventCallback((event, key) => {
+    const handleSelectOption = useEventCallback((event: SyntheticEvent, key: string) => {
         let newKeys;
 
         if (selectionMode === SelectionMode.multiple) {
@@ -227,7 +227,7 @@ export function InnerListbox({
         updateSelectedKeys(event, newKeys);
     });
 
-    const handleFocusOption = useEventCallback((event, key, activeElement) => {
+    const handleFocusOption = useEventCallback((event: SyntheticEvent, key: string | string[], activeElement: HTMLElement) => {
         if (!isNil(onFocusChange)) {
             onFocusChange(event, key, activeElement);
         }
