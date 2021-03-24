@@ -4,6 +4,7 @@ import {
     CheckableContext,
     Keys,
     augmentElement,
+    forwardRef,
     mergeProps,
     omitProps,
     useAutoFocusChild,
@@ -16,75 +17,78 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, ElementType, ReactNode, SyntheticEvent } from "react";
 import { Group } from "../../group";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+export interface InnerRadioGroupProps {
     /**
      * The value of the radio group.
      */
-    value: oneOfType([string, number]),
+    value?: string | number;
     /**
      * The initial value of `value`.
      */
-    defaultValue: oneOfType([string, number]),
+    defaultValue?: string | number;
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether the group should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Radio group name.
      */
-    name: string,
+    name?: string;
     /**
      * Called when any of the group elements is checked or unchecked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string | number} value - The new value.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, value: string | number): void;
     /**
      * Whether or not the radio group should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * The orientation of the group elements.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * The space between the group elements.
      */
-    gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
      * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
-    wrap: bool,
+    wrap?: boolean;
     /**
      * Invert the order of the radio button and his label.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
      * Whether or not the radio group is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 const NavigationKeyBinding = {
     default: {
@@ -101,7 +105,7 @@ const NavigationKeyBinding = {
 
 const KeyProp = "value";
 
-export function InnerRadioGroup(props) {
+export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
@@ -211,7 +215,7 @@ export function InnerRadioGroup(props) {
 InnerRadioGroup.propTypes = propTypes;
 
 export const RadioGroup = forwardRef((props, ref) => (
-    <InnerRadioGroup { ...props } forwardedRef={ref} />
+    <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
 
 RadioGroup.displayName = "RadioGroup";
