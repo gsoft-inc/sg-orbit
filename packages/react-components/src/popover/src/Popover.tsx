@@ -1,27 +1,30 @@
 import "./Popover.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
-import { any, bool, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
-import { mergeProps, useEventCallback, useSlots } from "../../shared";
+import { forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
-const propTypes = {
+export interface InnerPopoverProps {
     /**
      * Whether or not to hide the close button.
      */
-    hideCloseButton: bool,
+    hideCloseButton?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode | Function
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerPopover({
     hideCloseButton,
@@ -29,10 +32,10 @@ export function InnerPopover({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerPopoverProps) {
     const { close } = usePopoverTriggerContext();
 
-    const handleCloseButtonClick = useEventCallback(event => {
+    const handleCloseButtonClick = useEventCallback((event: SyntheticEvent) => {
         close(event);
     });
 
@@ -65,7 +68,7 @@ export function InnerPopover({
 
     const closeButtonMarkup = !hideCloseButton && (
         <CrossButton
-        // Used to prevent autoFocusing the close button.
+            // Used to prevent autoFocusing the close button.
             id="o-ui-popover-close-button"
             onClick={handleCloseButtonClick}
             condensed
@@ -108,10 +111,10 @@ export function InnerPopover({
     );
 }
 
-InnerPopover.propTypes = propTypes;
-
-export const Popover = forwardRef((props, ref) => (
+export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
+
+export type PopoverProps = ComponentProps<typeof Popover>
 
 Popover.displayName = "Popover";
