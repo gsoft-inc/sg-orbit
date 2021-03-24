@@ -17,16 +17,18 @@ export interface CollectionItem {
 }
 
 export interface CollectionSection extends CollectionItem {
-    items: CollectionItem[]
+    items?: CollectionItem[]
 }
 
 export type CollectionDivider = CollectionItem
 
+export interface CollectionOptionTooltip {
+    props: Record<string, any>;
+    content: ReactElement;
+}
+
 export interface CollectionOption extends CollectionItem {
-    tooltip: {
-        props: Record<string, any>,
-        content: ReactElement
-    },
+    tooltip?: CollectionOptionTooltip;
 }
 
 export enum NodeType {

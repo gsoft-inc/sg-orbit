@@ -1,30 +1,38 @@
 import { Box } from "../../box";
-import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { CollectionOption } from "../../collection";
+import { ElementType, ForwardedRef, KeyboardEvent, ReactNode, useMemo } from "react";
+import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { TooltipTrigger } from "../../tooltip";
-import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
 
-const propTypes = {
+export interface InnerMenuItemProps extends InteractionStatesProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * Matching collection item.
      */
-    item: object.isRequired,
+    item: Pick<CollectionOption, "key" | "tooltip">;
     /**
      * Whether or not the item is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode | Function
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerMenuItem({
     item: { key, tooltip },
@@ -37,7 +45,7 @@ export function InnerMenuItem({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerMenuItemProps) {
     const { onSelect } = useMenuContext();
 
     const handleClick = useEventCallback(event => {
@@ -46,8 +54,8 @@ export function InnerMenuItem({
         }
     });
 
-    const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent<HTMLElement>) => {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -112,7 +120,7 @@ export function InnerMenuItem({
                         hover && "hover"
                     ),
                     role: "menuitem",
-                    tabIndex: "-1",
+                    tabIndex: -1,
                     "data-o-ui-key": key,
                     "aria-disabled": disabled,
                     as,
@@ -133,7 +141,7 @@ export function InnerMenuItem({
 
         return (
             <TooltipTrigger
-                {...mergeProps(
+                {...mergeProps<Partial<TooltipTriggerProps>[]>(
                     tooltipProps,
                     {
                         position: "left"
@@ -149,9 +157,7 @@ export function InnerMenuItem({
     return itemMarkup;
 }
 
-InnerMenuItem.propTypes = propTypes;
-
-export const MenuItem = forwardRef((props, ref) => (
+export const MenuItem = forwardRef<InnerMenuItemProps>((props, ref) => (
     <InnerMenuItem {...props} forwardedRef={ref} />
 ));
 

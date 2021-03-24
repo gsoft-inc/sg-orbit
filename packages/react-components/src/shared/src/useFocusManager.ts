@@ -226,7 +226,7 @@ export class FocusManager {
         }
     }
 
-    search(query: string, options: FocusOptions) {
+    search(query: string, options?: FocusOptions) {
         const { elements } = this.scope;
 
         return this.focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);

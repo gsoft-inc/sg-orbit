@@ -1,10 +1,14 @@
 import "./Menu.css";
 
 import { Box } from "../../box";
+import { CollectionItem, CollectionOption, CollectionSection, NodeType, useCollection } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    FocusTarget,
     Keys,
     appendEventKey,
     cssModule,
+    forwardRef,
     mergeProps,
     useAutoFocusChild,
     useDisposables,
@@ -19,42 +23,55 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { NodeType, useCollection } from "../../collection";
-import { any, bool, elementType, func, number, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const KeyProp = "data-o-ui-key";
 
-const propTypes = {
+export interface InnerMenuProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * Called when a menu item is selected.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} key - The menu item key.
      * @returns {void}
      */
-    onSelect: func,
+    onSelect?(event: SyntheticEvent, key: boolean): void,
     /**
      * Whether or not the menu should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Default focus target when enabling autofocus.
      */
-    defaultFocusTarget: string,
+    defaultFocusTarget?: FocusTarget;
     /**
      * Whether or not the listbox take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    "aria-label"?: string;
+    /**
+     * @ignore
+     */
+    "aria-labelledby"?: string;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerMenu({
     id,
@@ -68,7 +85,7 @@ export function InnerMenu({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerMenuProps) {
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -144,13 +161,13 @@ export function InnerMenu({
     const renderOption = ({
         key,
         index,
-        elementType: ElementType = MenuItem,
+        elementType: As = MenuItem,
         ref,
         content,
         props,
         tooltip
-    }) => (
-        <ElementType
+    }: Omit<CollectionOption, "type">) => (
+        <As
             {...props}
             id={`${rootId}-item-${index}`}
             key={key}
@@ -158,41 +175,41 @@ export function InnerMenu({
             item={{ key, tooltip }}
         >
             {content}
-        </ElementType>
+        </As>
     );
 
     const renderSection = ({
         key,
         index,
-        elementType: ElementType = MenuSection,
+        elementType: As = MenuSection,
         ref,
         props,
         items: sectionItems
-    }) => {
+    }: Omit<CollectionSection, "type">) => {
         if (sectionItems.length === 0) {
             return null;
         }
 
         return (
-            <ElementType
+            <As
                 {...props}
                 id={`${rootId}-section-${index}`}
                 key={key}
                 ref={ref}
             >
                 {sectionItems.map(x => renderOption(x))}
-            </ElementType>
+            </As>
         );
     };
 
     const renderDivider = ({
         key,
-        elementType: ElementType,
+        elementType: As,
         ref,
         content,
         props
-    }) => (
-        <ElementType
+    }: Omit<CollectionItem, "type">) => (
+        <As
             {...mergeProps(
                 props,
                 {
@@ -204,7 +221,7 @@ export function InnerMenu({
             ref={ref}
         >
             {content}
-        </ElementType>
+        </As>
     );
 
     return (
@@ -219,7 +236,7 @@ export function InnerMenu({
                     ),
                     onKeyDown: handleKeyDown,
                     role: "menu",
-                    "aria-orientation": "vertical",
+                    "aria-orientation": "vertical" as const,
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     as,
@@ -249,10 +266,10 @@ export function InnerMenu({
     );
 }
 
-InnerMenu.propTypes = propTypes;
-
-export const Menu = forwardRef((props, ref) => (
+export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));
+
+export type MenuProps = ComponentProps<typeof Menu>
 
 Menu.displayName = "Menu";
