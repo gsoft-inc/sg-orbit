@@ -8,6 +8,7 @@ export interface PanelType {
     key: string
     position: any
     index: number;
+    disabled?: boolean;
     elementType?: ReactElement["type"];
     ref: Ref<any>
     tabId: string
@@ -19,6 +20,7 @@ export interface TabType {
     key: string
     position: any
     index: number;
+    disabled?: boolean;
     elementType?: ReactElement["type"];
     ref: Ref<any>
     panelId: string
