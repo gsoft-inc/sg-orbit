@@ -8,7 +8,7 @@ import { usePopper } from "react-popper";
 export interface UseOverlayPositionProps {
     arrowElement?: ReactElement;
     position?: Placement
-    offset?: any;
+    offset?: number[];
     allowFlip?: boolean
     allowPreventOverflow?: boolean;
     boundaryElement?: HTMLElement

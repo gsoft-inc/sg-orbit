@@ -1,4 +1,4 @@
-import { Children, ElementType, ReactElement, ReactNode, RefAttributes, useMemo } from "react";
+import { Children, ElementType, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Divider } from "../divider";
 import { Item, Section } from "../placeholders";
 import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
@@ -11,19 +11,19 @@ export interface CollectionItem {
     index: number;
     type: NodeType;
     elementType?: ElementType | string;
-    ref: any,
+    ref: Ref<any>,
     content: ElementType | ReactElement[];
     props: Record<string, any>,
 }
 
 export interface CollectionSection extends CollectionItem {
-    items: any[]
+    items: CollectionItem[]
 }
 
 export type CollectionDivider = CollectionItem
 
 export interface CollectionOption extends CollectionItem {
-    tooltip: any, // option only
+    tooltip: any,
 }
 
 export enum NodeType {
@@ -152,8 +152,8 @@ export class CollectionBuilder {
     }
 }
 
-interface Collection {
-    items?: any[];
+export interface Collection {
+    items?: CollectionItem[];
 }
 
 export function useCollection(children: ReactNode, { items }: Collection = {}) {
