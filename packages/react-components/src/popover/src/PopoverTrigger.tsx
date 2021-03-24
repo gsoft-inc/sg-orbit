@@ -74,7 +74,7 @@ export interface InnerPopoverTriggerProps {
     /**
      * React children.
      */
-    children: ReactNode | Function
+    children: ReactNode
     /**
      * @ignore
      */
