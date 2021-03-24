@@ -205,7 +205,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusKey(key: string, options: FocusOptions) {
+    focusKey(key: string | number, options: FocusOptions) {
         const { elements } = this.scope;
 
         if (isNil(this.keyProp)) {
@@ -215,7 +215,7 @@ export class FocusManager {
         return this.focusElement(elements.find(x => x.getAttribute(this.keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target: FocusTarget, options: FocusOptions) {
+    focusTarget(target: FocusTarget | number, options: FocusOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);

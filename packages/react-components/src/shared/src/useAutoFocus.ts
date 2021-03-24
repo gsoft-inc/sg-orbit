@@ -49,7 +49,7 @@ export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { i
 }
 
 export interface AutoFocusChildOptions extends FocusOptions {
-    target?: FocusTarget,
+    target?: FocusTarget | number,
     isDisabled?: boolean,
     delay?: number,
 }
