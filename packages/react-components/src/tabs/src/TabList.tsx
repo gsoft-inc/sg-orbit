@@ -24,7 +24,8 @@ const NavigationKeyBinding = {
 
 const KeyProp = "data-o-ui-index";
 
-export interface TabListProps extends BoxProps {
+export interface TabListProps extends Omit<BoxProps, "autofocus"> {
+    autoFocus?: boolean | number;
     tabs?: TabType[];
 }
 
