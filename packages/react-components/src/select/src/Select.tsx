@@ -1,115 +1,131 @@
 import "./Select.css";
 
+import { CSSProperties } from "aphrodite";
 import { ChevronIcon } from "../../icons";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { HiddenSelect } from "./HiddenSelect";
+import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeClasses, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
-import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
-import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
 
-const propTypes = {
+export interface InnerSelectProps extends InteractionStatesProps {
+    /**
+     * @ignore
+     */
+    name?: string;
+    /**
+     * @ignore
+     */
+    "aria-label"?: string;
     /**
      * Whether or not to open the select element.
      */
-    open: bool,
+    open?: boolean;
     /**
      * The initial value of open when in auto controlled mode.
      */
-    defaultOpen: bool,
+    defaultOpen?: boolean;
     /**
      * A controlled selected key.
      */
-    selectedKey: string,
+    selectedKey?: string,
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultSelectedKey: string,
+    defaultSelectedKey?: string,
     /**
      * Temporary text that occupies the select trigger when no value is selected.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the select should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the select value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} selectedKey - The new selected key.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, selectedKey: string): void;
     /**
      * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onOpenChange: func,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * The style to use.
      */
-    variant: oneOf(["outline", "ghost"]),
+    variant?: "outline" | "ghost";
     /**
      * A trigger icon.
      */
-    icon: element,
+    icon?: ReactElement
     /**
      * The direction the select menu will open relative to the input.
      */
-    direction: oneOf(["bottom", "top"]),
+    direction?: "bottom" | "top";
     /**
      * The horizontal alignment of the select menu relative to the input.
      */
-    align: oneOf(["start", "end"]),
+    align?: "start" | "end";
     /**
      * Whether or not the select should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the select take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not the select is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
-    allowFlip: bool,
+    allowFlip?: boolean;
     /**
      * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
-    allowPreventOverflow: bool,
+    allowPreventOverflow?: boolean;
     /**
      * z-index of the overlay element.
      */
-    zIndex: number,
+    zIndex?: number;
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps: object,
+    menuProps?: {
+        id?: string,
+        style?: CSSProperties,
+        [x: string]: any
+    };
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
-export function InnerSelect(props) {
+export function InnerSelect(props: InnerSelectProps) {
     const [fieldProps] = useFieldInputProps();
 
     const {
@@ -252,10 +268,10 @@ export function InnerSelect(props) {
     );
 }
 
-InnerSelect.propTypes = propTypes;
-
-export const Select = forwardRef((props, ref) => (
+export const Select = forwardRef<InnerSelectProps>((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));
+
+export type SelectProps = ComponentProps<typeof Select>
 
 Select.displayName = "Select";
