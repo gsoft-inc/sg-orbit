@@ -1,7 +1,7 @@
 import "./PasswordInput.css";
 
 import { BoxProps } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";
@@ -24,7 +24,7 @@ export interface InnerPasswordInputProps {
     /**
      * Label identifying the input.
      */
-    label?: ReactNode,
+    label?: string,
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -86,7 +86,6 @@ export function InnerPasswordInput({
     defaultValue,
     wrapperProps,
     forwardedRef,
-    label, // TODO: TS: TextInput does not support label
     ...rest
 }: InnerPasswordInputProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
