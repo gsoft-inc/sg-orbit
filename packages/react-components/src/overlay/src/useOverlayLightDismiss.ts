@@ -1,25 +1,34 @@
 import { Keys, useEventCallback, useRefState } from "../../shared";
+import { RefObject } from "react";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { isFunction, isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 
-export function useOverlayLightDismiss(overlayRef, {
+export interface UseOverlayLightDismissProps {
+    trigger?: "hover" | "click";
+    onHide?(event: Event): void;
+    hideOnEscape?(event: Event): void;
+    hideOnLeave?(event: Event): void;
+    hideOnOutsideClick?(event: Event): void;
+}
+
+export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     trigger,
     onHide,
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick
-}) {
+}: UseOverlayLightDismissProps) {
     const [isHandled, setIsHandled] = useRefState(false);
 
-    const hide = event => {
+    const hide = (event: Event) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleKeyDown = event => {
+    const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === Keys.esc) {
             if (hideOnEscape) {
                 event.preventDefault();
@@ -32,7 +41,7 @@ export function useOverlayLightDismiss(overlayRef, {
         }
     };
 
-    const handleBlur = useEventCallback(event => {
+    const handleBlur = useEventCallback((event: Event) => {
         // Sad hack, I am not sure why but keydown event occurs after blur event.
         setTimeout(() => {
             if (!isHandled.current) {
@@ -45,11 +54,11 @@ export function useOverlayLightDismiss(overlayRef, {
         }, 0);
     });
 
-    const handleMouseLeave = useEventCallback(event => {
+    const handleMouseLeave = useEventCallback((event: Event) => {
         hide(event);
     });
 
-    const handleInteractOutside = useEventCallback(event => {
+    const handleInteractOutside = useEventCallback((event: Event) => {
         if (!isFunction(hideOnOutsideClick) || hideOnOutsideClick(event)) {
             hide(event);
         }

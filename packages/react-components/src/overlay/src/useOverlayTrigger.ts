@@ -1,20 +1,27 @@
 import { Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
-export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide } = {}) {
-    const toggle = event => {
+export interface UseOverlayTriggerProps {
+    trigger?: "click" | "hover";
+    onToggle?(event: Event): void;
+    onShow?(event: Event): void;
+    onHide?(event: Event): void;
+}
+
+export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide }: UseOverlayTriggerProps = {}) {
+    const toggle = (event: Event) => {
         if (!isNil(onToggle)) {
             onToggle(event);
         }
     };
 
-    const show = event => {
+    const show = (event: Event) => {
         if (!isNil(onShow)) {
             onShow(event);
         }
     };
 
-    const hide = event => {
+    const hide = (event: Event) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
@@ -26,7 +33,7 @@ export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide 
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 if (trigger === "click") {

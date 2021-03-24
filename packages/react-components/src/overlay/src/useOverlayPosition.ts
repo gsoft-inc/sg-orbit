@@ -1,16 +1,29 @@
+import { Modifier } from "@popperjs/core";
+import { Placement } from "@popperjs/core";
+import { ReactElement } from "react";
 import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-export function useOverlayPosition(triggerElement, overlayElement, {
+export interface UseOverlayPositionProps {
+    arrowElement?: ReactElement;
+    position?: Placement
+    offset?: any;
+    allowFlip?: boolean
+    allowPreventOverflow?: boolean;
+    boundaryElement?: HTMLElement
+}
+
+export function useOverlayPosition(triggerElement: Element, overlayElement: HTMLElement, {
     arrowElement,
     position = "bottom",
     offset,
     allowFlip = false,
     allowPreventOverflow = false,
     boundaryElement = document.body
-}) {
-    const popperModifiers = [];
+}: UseOverlayPositionProps) {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    const popperModifiers: Partial<Modifier<string, object>>[] = [];
 
     if (!isNil(offset)) {
         popperModifiers.push({

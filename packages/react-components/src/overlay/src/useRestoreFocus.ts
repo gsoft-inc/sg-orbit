@@ -1,12 +1,16 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
-import { Keys, createFocusableTreeWalker, useEventCallback, useRefState } from "../../shared";
+import { DomScope, Keys, createFocusableTreeWalker, useEventCallback, useRefState } from "../../shared";
 import { isNil } from "lodash";
 import { useLayoutEffect } from "react";
 
+export interface UseRestoreFocusProps {
+    isDisabled?: boolean;
+}
+
 // Restore focus feature doesn't work when clicking outside, this is by design.
-export function useRestoreFocus(scope, { isDisabled } = {}) {
-    const [elementToRestoreRef, setElementToRestore] = useRefState();
+export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusProps = {}) {
+    const [elementToRestoreRef, setElementToRestore] = useRefState<Element>();
 
     useLayoutEffect(() => {
         setElementToRestore(document.activeElement);
@@ -23,11 +27,11 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
             walker.currentNode = focusedElement;
 
             const next = () => {
-                return event.shiftKey ? walker.previousNode() : walker.nextNode();
+                return event.shiftKey ? walker.previousNode() : walker.nextNode() as HTMLElement;
             };
 
             // Find the next tabbable element after the currently focused element.
-            let nextElement = next();
+            let nextElement = next() as HTMLElement;
 
             // If there is no next element, or it is outside the current scope, move focus to the
             // next element after the node to restore to instead.
@@ -39,7 +43,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
 
                     // Skip over elements within the scope, in case the scope immediately follows the node to restore.
                     do {
-                        nextElement = next();
+                        nextElement = next() as HTMLElement;
                     } while (nextElement === event.currentTarget || scope.isInScope(nextElement));
 
                     event.preventDefault();
@@ -49,7 +53,7 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
                     } else {
                         // If there is no next element, blur the focused element to move focus to the element to restore.
                         // focusedElement.blur();
-                        elementToRestore.focus();
+                        (elementToRestore as HTMLElement).focus();
                     }
                 }
             }
@@ -59,14 +63,14 @@ export function useRestoreFocus(scope, { isDisabled } = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
             return () => {
-                if (scope.isInScope(document.activeElement)) {
+                if (scope.isInScope(document.activeElement as HTMLElement)) {
                     // Don't move this line inside the frame.
                     // eslint-disable-next-line react-hooks/exhaustive-deps
                     const elementToRestore = elementToRestoreRef.current;
 
                     requestAnimationFrame(() => {
                         if (document.body.contains(elementToRestore)) {
-                            elementToRestore.focus();
+                            (elementToRestore as HTMLElement).focus();
                         }
                     });
                 }
