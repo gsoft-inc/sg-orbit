@@ -72,7 +72,7 @@ export class CollectionBuilder {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        const items = Children.map(resolveChildren(children), (x, childPosition) => that._parseItem(x, childPosition, nextIndex));
+        const items = Children.map(resolveChildren(children), (x: ReactElement, childPosition) => that._parseItem(x, childPosition, nextIndex));
 
         return {
             key: index.toString(),

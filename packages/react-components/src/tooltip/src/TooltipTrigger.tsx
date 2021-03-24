@@ -1,6 +1,6 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
+import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { augmentElement, forwardRef, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
@@ -61,7 +61,7 @@ interface InnerTooltipTriggerProps {
     /**
      * React children.
      */
-    children: ReactNode | Function;
+    children: ReactNode | ((...args: any) => JSX.Element);
     /**
      * @ignore
      */
@@ -100,7 +100,7 @@ export function InnerTooltipTrigger({
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
-    const [arrowElement, setArrowElement] = useState();
+    const [arrowElement, setArrowElement] = useState<ReactElement>();
 
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
@@ -122,9 +122,9 @@ export function InnerTooltipTrigger({
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus or mouse goes to an element of the overlay.
-            if (!isTargetParent(event.relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -132,9 +132,9 @@ export function InnerTooltipTrigger({
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         trigger: "hover",
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent<HTMLElement, Event>) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && event.relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -194,7 +194,7 @@ export function InnerTooltipTrigger({
                 {tooltipMarkup}
                 <OverlayArrow
                     style={arrowStyles}
-                    ref={setArrowElement}
+                    ref={setArrowElement as any}
                 />
             </Overlay>
         </TooltipTriggerContext.Provider>

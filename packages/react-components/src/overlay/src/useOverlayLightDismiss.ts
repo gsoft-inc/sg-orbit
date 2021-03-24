@@ -1,5 +1,5 @@
+import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
 import { Keys, useEventCallback, useRefState } from "../../shared";
-import { RefObject } from "react";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { isFunction, isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
@@ -7,10 +7,10 @@ import { useInteractOutside } from "./useInteractOutside";
 
 export interface UseOverlayLightDismissProps {
     trigger?: "hover" | "click";
-    onHide?(event: Event): void;
-    hideOnEscape?(event: Event): void;
-    hideOnLeave?(event: Event): void;
-    hideOnOutsideClick?(event: Event): void;
+    onHide?(event: SyntheticEvent<HTMLElement, Event>): void;
+    hideOnEscape?: boolean;
+    hideOnLeave?: boolean;
+    hideOnOutsideClick?: boolean;
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
@@ -22,13 +22,13 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
 }: UseOverlayLightDismissProps) {
     const [isHandled, setIsHandled] = useRefState(false);
 
-    const hide = (event: Event) => {
+    const hide = (event: SyntheticEvent<HTMLElement, Event>) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         if (event.key === Keys.esc) {
             if (hideOnEscape) {
                 event.preventDefault();
@@ -41,7 +41,7 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         }
     };
 
-    const handleBlur = useEventCallback((event: Event) => {
+    const handleBlur = useEventCallback((event: FocusEvent<HTMLElement>) => {
         // Sad hack, I am not sure why but keydown event occurs after blur event.
         setTimeout(() => {
             if (!isHandled.current) {
@@ -54,11 +54,11 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         }, 0);
     });
 
-    const handleMouseLeave = useEventCallback((event: Event) => {
+    const handleMouseLeave = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
         hide(event);
     });
 
-    const handleInteractOutside = useEventCallback((event: Event) => {
+    const handleInteractOutside = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
         if (!isFunction(hideOnOutsideClick) || hideOnOutsideClick(event)) {
             hide(event);
         }

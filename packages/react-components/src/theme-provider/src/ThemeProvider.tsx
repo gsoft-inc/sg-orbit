@@ -1,4 +1,4 @@
-import { ElementType, ForwardedRef, ReactNode, useCallback, useEffect, useState } from "react";
+import { ElementType, ReactNode, useCallback, useEffect, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { isNil } from "lodash";
 import { mergeClasses, mergeProps, useMediaQuery } from "../../shared";

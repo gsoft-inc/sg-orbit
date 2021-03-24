@@ -1,27 +1,28 @@
 import { Keys, useEventCallback } from "../../shared";
+import { SyntheticEvent } from "react";
 import { isNil } from "lodash";
 
 export interface UseOverlayTriggerProps {
     trigger?: "click" | "hover";
-    onToggle?(event: Event): void;
-    onShow?(event: Event): void;
-    onHide?(event: Event): void;
+    onToggle?(event: SyntheticEvent): void;
+    onShow?(event: SyntheticEvent): void;
+    onHide?(event: SyntheticEvent): void;
 }
 
 export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide }: UseOverlayTriggerProps = {}) {
-    const toggle = (event: Event) => {
+    const toggle = (event: SyntheticEvent) => {
         if (!isNil(onToggle)) {
             onToggle(event);
         }
     };
 
-    const show = (event: Event) => {
+    const show = (event: SyntheticEvent) => {
         if (!isNil(onShow)) {
             onShow(event);
         }
     };
 
-    const hide = (event: Event) => {
+    const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
