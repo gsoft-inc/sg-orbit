@@ -1,62 +1,73 @@
 import "./Switch.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
-import { mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+export interface InnerSwitchProps extends InteractionStatesProps {
+    /**
+     * @ignore
+     */
+    name?: string
+    /**
+     * @ignore
+     */
+    tabIndex?: number;
     /**
      * A controlled checked state value.
      */
-    checked: bool,
+    checked?: boolean;
     /**
      * The initial value of `checked` when uncontrolled.
      */
-    defaultChecked: bool,
+    defaultChecked?: boolean;
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the checkbox should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Invert the order the checkmark box and the label.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
      * Called when the switch checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func])
-};
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerSwitch(props) {
+export function InnerSwitch(props: InnerSwitchProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
 
@@ -148,10 +159,11 @@ export function InnerSwitch(props) {
     );
 }
 
-InnerSwitch.propTypes = propTypes;
 
-export const Switch = forwardRef((props, ref) => (
+export const Switch = forwardRef<InnerSwitchProps>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
+
+export type SwitchProps = ComponentProps<typeof Switch>
 
 Switch.displayName = "Switch";
