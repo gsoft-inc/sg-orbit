@@ -14,7 +14,7 @@ const Gap = {
 } as const;
 
 export interface UseGroupInputProps {
-    role?: "group",
+    role?: "group" | "radio-group",
     cssModule?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
@@ -35,7 +35,7 @@ export interface UseGroupInputReturn {
         gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
         wrap?: boolean;
         className?: string;
-        role?: "group",
+        role?: "group" | "radio-group",
         "aria-required"?: boolean;
         "aria-invalid"?: boolean;
         "aria-orientation"?: "horizontal" | "vertical",

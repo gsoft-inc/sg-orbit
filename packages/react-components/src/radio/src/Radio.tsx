@@ -1,11 +1,11 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { Text } from "../../text";
-import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo, useRef } from "react";
 import {
+    InteractionStatesProps,
     cssModule,
+    forwardRef,
     mergeProps,
     omitProps,
     resolveChildren,
@@ -17,51 +17,68 @@ import {
     useForwardInputApi,
     useSlots
 } from "../../shared";
-import { forwardRef, useImperativeHandle, useMemo, useRef } from "react";
+import { Text } from "../../text";
+import { VisuallyHidden } from "../../visually-hidden";
 import { isNil, isNumber } from "lodash";
 
-const propTypes = {
+export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * A controlled checked state value.
      */
-    checked: bool,
+    checked?: boolean;
     /**
      * The initial value of `checked` when uncontrolled.
      */
-    defaultChecked: bool,
+    defaultChecked?: boolean;
     /**
      * The value to associate with when in a group.
      */
-    value: oneOfType([string, number]).isRequired,
+    value: string | number
     /**
      * Whether or not the radio should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the radio should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
+    /**
+     * Whether or not the radio is disabled.
+     */
+    disabled?: boolean;
     /**
      * Called when the radio checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void
     /**
      * Invert the order of the checkmark box and the label.
      */
-    reverse: bool,
+    reverse?: boolean;
+    /**
+     * @ignore
+     */
+    tabIndex?: number;
+    /**
+     * Radio name.
+     */
+    name?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerRadio(props) {
+export function InnerRadio(props: InnerRadioProps) {
     const [checkableProps] = useCheckableProps(props);
 
     const {
@@ -161,7 +178,7 @@ export function InnerRadio(props) {
                 onChange={!isNil(onCheck) ? handleCheck : handleChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
-                data-type={typeof(value)}
+                data-type={typeof (value)}
                 aria-invalid={validationState === "invalid"}
                 ref={inputRef}
             />
@@ -173,10 +190,10 @@ export function InnerRadio(props) {
     );
 }
 
-InnerRadio.propTypes = propTypes;
-
-export const Radio = forwardRef((props, ref) => (
+export const Radio = forwardRef<InnerRadioProps>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));
+
+export type RadioProps = ComponentProps<typeof Radio>
 
 Radio.displayName = "Radio";

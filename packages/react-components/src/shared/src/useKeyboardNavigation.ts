@@ -9,10 +9,10 @@ interface KeyboardNavigationOptions {
 }
 
 interface KeyboardNavigationBindings {
-    previous: Keys[];
-    next: Keys[];
-    first: Keys[];
-    last: Keys[];
+    previous?: Keys[];
+    next?: Keys[];
+    first?: Keys[];
+    last?: Keys[];
 }
 
 export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}) {

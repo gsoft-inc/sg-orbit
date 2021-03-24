@@ -17,7 +17,7 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ElementType, ReactNode, SyntheticEvent } from "react";
+import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { Group } from "../../group";
 import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -124,6 +124,9 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         disabled,
         children,
         forwardedRef,
+        // we don't want size passed down to Group, since
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        size,
         ...rest
     } = mergeProps(
         props,
@@ -137,7 +140,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const groupRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const handleArrowSelect = useEventCallback((event, element) => {
+    const handleArrowSelect = useEventCallback((_event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
         const newValue = element.dataset.type === "number"
             ? parseInt(element.value)
@@ -162,12 +165,12 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radio-group",
-        keyProp: KeyProp,
-        value,
-        defaultValue,
+        // keyProp: KeyProp, //TODO: why is this passed but not used?
+        // value, //TODO: why is this passed but not used?
+        // defaultValue, //TODO: why is this passed but not used?
         required,
         validationState,
-        autoFocus,
+        // autoFocus, //TODO: why is this passed but not used?
         orientation,
         gap,
         wrap,
@@ -200,7 +203,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
                     checkedValue
                 }}
             >
-                {Children.map(children, x => {
+                {Children.map(children, (x: ReactElement) => {
                     return augmentElement(x, {
                         ...itemProps,
                         role: "radio",
@@ -212,9 +215,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     );
 }
 
-InnerRadioGroup.propTypes = propTypes;
-
-export const RadioGroup = forwardRef((props, ref) => (
+export const RadioGroup = forwardRef<InnerRadioGroupProps>((props, ref) => (
     <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
 
