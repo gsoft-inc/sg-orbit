@@ -1,12 +1,11 @@
 import { Modifier } from "@popperjs/core";
 import { Placement } from "@popperjs/core";
-import { ReactElement } from "react";
 import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
 export interface UseOverlayPositionProps {
-    arrowElement?: ReactElement;
+    arrowElement?: HTMLElement;
     position?: Placement
     offset?: number[];
     allowFlip?: boolean
