@@ -194,7 +194,7 @@ export function InnerTooltipTrigger({
                 {tooltipMarkup}
                 <OverlayArrow
                     style={arrowStyles}
-                    ref={ref => setArrowElement(ref)}
+                    ref={setArrowElement}
                 />
             </Overlay>
         </TooltipTriggerContext.Provider>
