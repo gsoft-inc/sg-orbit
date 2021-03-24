@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { CollectionOption } from "../../collection";
-import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
+import { ElementType, ForwardedRef, KeyboardEvent, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
