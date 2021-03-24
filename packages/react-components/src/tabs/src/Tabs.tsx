@@ -1,60 +1,67 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
 import { isNil } from "lodash";
 import { useTabsItems } from "./useTabsItems";
 
-const propTypes = {
+export interface InnerTabsProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * The index of the active tab.
      */
-    index: number,
+    index?: number;
     /**
      * The index of the initially active tab.
      */
-    defaultIndex: number,
+    defaultIndex?: number;
     /**
      * Called when the active tab change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {number} index - The newly active tab index.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, index: number): void;
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
-    manual: bool,
+    manual?: boolean;
     /**
      * Whether or not the first focusable tab should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number
     /**
      * Whether or not the tabs take up the width of the container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * The orientation of the tabs elements.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Tabs title for screen readers.
      */
-    "aria-label": string.isRequired,
+    "aria-label": string;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerTabs({
     id,
@@ -69,7 +76,7 @@ export function InnerTabs({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTabsProps) {
     const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
 
     const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? null : "o-ui-tabs"));
@@ -136,10 +143,10 @@ export function InnerTabs({
     );
 }
 
-InnerTabs.propTypes = propTypes;
-
-export const Tabs = forwardRef((props, ref) => (
+export const Tabs = forwardRef<InnerTabsProps>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
+
+export type TabsProps = ComponentProps<typeof Tabs>
 
 Tabs.displayName = "Tabs";

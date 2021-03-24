@@ -1,29 +1,51 @@
-import { Children, useMemo } from "react";
+import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 
+export interface PanelType {
+    id: string
+    key: string
+    position: any
+    index: number;
+    elementType?: ReactElement["type"];
+    ref: Ref<any>
+    tabId: string
+    props: Record<string, any>
+}
+
+export interface TabType {
+    id: string
+    key: string
+    position: any
+    index: number;
+    elementType?: ReactElement["type"];
+    ref: Ref<any>
+    panelId: string
+    props: Record<string, any>
+}
+
 export class TabsBuilder {
     _rootId;
 
-    constructor(rootId) {
+    constructor(rootId: string) {
         this._rootId = rootId;
     }
 
-    build(children, selectedIndex) {
+    build(children: ReactNode, selectedIndex: number) {
         if (isNil(children)) {
             throw new Error("A tabs component must have children.");
         }
 
-        const tabs = [];
-        const panels = [];
+        const tabs: TabType[] = [];
+        const panels: PanelType[] = [];
 
         let index = 0;
 
-        Children.forEach(children, (element, position) => {
+        Children.forEach(children, (element: ReactElement, position) => {
             const [header, content] = Children.toArray(resolveChildren(element.props.children, {
                 isActive: selectedIndex === position
-            }));
+            })) as [ReactElement & RefAttributes<any>, ReactElement & RefAttributes<any>];
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("A tabs item must have an <Header> and a <Content>.");
@@ -61,15 +83,15 @@ export class TabsBuilder {
             });
         });
 
-        return [tabs, panels];
+        return [tabs, panels] as const;
     }
 
-    _makeId({ props: { id } }, type, index) {
+    _makeId({ props: { id } }: Record<string, any>, type: "tab" | "panel", index: number) {
         return id ?? `${this._rootId}-${type}-${index}`;
     }
 }
 
-export function useTabsItems(children, selectedIndex, rootId) {
+export function useTabsItems(children: ReactNode, selectedIndex: number, rootId: string) {
     const builder = useMemo(() => new TabsBuilder(rootId), [rootId]);
 
     return useMemo(() => builder.build(children, selectedIndex), [builder, children, selectedIndex]);

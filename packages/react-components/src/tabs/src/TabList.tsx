@@ -1,8 +1,9 @@
 import "./Tabs.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
 import { Tab } from "./Tab";
+import { TabType } from "./useTabsItems";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
@@ -23,11 +24,15 @@ const NavigationKeyBinding = {
 
 const KeyProp = "data-o-ui-index";
 
+export interface TabListProps extends BoxProps {
+    tabs?: TabType[];
+}
+
 export function TabList({
     tabs,
     autoFocus,
     ...rest
-}) {
+}: TabListProps) {
     const { selectedIndex, orientation } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();

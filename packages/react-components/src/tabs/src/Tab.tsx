@@ -1,34 +1,38 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { TabType } from "./useTabsItems";
 import { Text } from "../../text";
-import { any, bool, elementType, object, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
 import { useTabsContext } from "./TabsContext";
 
-const propTypes = {
+export interface InnerTabProps extends InteractionStatesProps {
     /**
      * Matching tab item.
      */
-    tab: object.isRequired,
+    tab: TabType;
     /**
      * Whether or not the tab is selected.
      */
-    selected: bool,
+    selected?: boolean;
     /**
      * Whether or not the tab is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerTab({
     tab: { index, panelId },
@@ -40,7 +44,7 @@ export function InnerTab({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTabProps) {
     const { selectedIndex, onSelect, isManual } = useTabsContext();
 
     const { icon, text, lozenge } = useSlots(children, useMemo(() => ({
@@ -71,7 +75,7 @@ export function InnerTab({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -120,10 +124,10 @@ export function InnerTab({
     );
 }
 
-InnerTab.propTypes = propTypes;
-
-export const Tab = forwardRef((props, ref) => (
+export const Tab = forwardRef<InnerTabProps>((props, ref) => (
     <InnerTab {...props} forwardedRef={ref} />
 ));
+
+export type TabProps = ComponentProps<typeof Tab>;
 
 Tab.displayName = "Tab";
