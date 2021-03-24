@@ -1,9 +1,11 @@
 import { ChangeEvent, createContext, useContext } from "react";
 import { isNil } from "lodash";
 
+type CheckableValueType = boolean | string | number | CheckableValueType[]
+
 interface CheckableContextType {
-    checkedValue?: boolean | string | number;
-    onCheck?(event: ChangeEvent, newValue: boolean | string | number): void;
+    checkedValue?: CheckableValueType;
+    onCheck?(event: ChangeEvent, newValue: CheckableValueType): void;
 }
 
 export const CheckableContext = createContext<CheckableContextType>(undefined);

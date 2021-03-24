@@ -1,79 +1,90 @@
 import "./Checkbox.css";
 
 import { Box } from "../../box";
+import { ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
-import { mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
-     * A controlled checked state value.
+     * @ignore
      */
-    checked: bool,
+    name?: string;
+    /**
+     * @ignore
+     */
+    tabIndex?: number;
+    /**
+    * A controlled checked state value.
+    */
+    checked?: boolean;
     /**
      * The initial value of `checked` when uncontrolled.
      */
-    defaultChecked: bool,
+    defaultChecked?: boolean;
     /**
      * A controlled indeterminate state value.
      */
-    indeterminate: bool,
+    indeterminate?: boolean;
     /**
      * The initial value of `indeterminate`.
      */
-    defaultIndeterminate: bool,
+    defaultIndeterminate?: boolean;
     /**
      * The value to associate with when in a group.
      */
-    value: oneOfType([string, number]),
+    value?: string | number;
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the checkbox should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the checkbox is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Invert the order the checkmark box and the label.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
      * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func])
-};
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerCheckbox(props) {
+export function InnerCheckbox(props: InnerCheckboxProps) {
     const [checkableProps] = useCheckableProps(props);
     const [fieldProps, isInField] = useFieldInputProps();
     const [toolbarProps] = useToolbarProps();
@@ -182,9 +193,7 @@ export function InnerCheckbox(props) {
     );
 }
 
-InnerCheckbox.propTypes = propTypes;
-
-export const Checkbox = forwardRef((props, ref) => (
+export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
 

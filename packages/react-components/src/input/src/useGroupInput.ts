@@ -11,7 +11,7 @@ const Gap = {
         "sm": 2,
         "md": 3
     }
-};
+} as const;
 
 export interface UseGroupInputProps {
     role?: "group",
@@ -19,12 +19,35 @@ export interface UseGroupInputProps {
     required?: boolean;
     validationState?: "valid" | "invalid";
     orientation?: "horizontal" | "vertical";
-    gap?: number
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     wrap?: boolean;
     size?: "sm" | "md";
     reverse?: boolean;
     disabled?: boolean;
     groupRef: Ref<any>
+}
+
+export interface UseGroupInputReturn {
+    groupProps: {
+        inline?: boolean;
+        orientation?: "horizontal" | "vertical";
+        align?: "end" | "start"
+        gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
+        wrap?: boolean;
+        className?: string;
+        role?: "group",
+        "aria-required"?: boolean;
+        "aria-invalid"?: boolean;
+        "aria-orientation"?: "horizontal" | "vertical",
+        "aria-disabled"?: boolean;
+        ref?: Ref<any>
+    },
+    itemProps: {
+        size?: "sm" | "md";
+        reverse?: boolean;
+        validationState?: "valid" | "invalid";
+        disabled?: boolean;
+    }
 }
 
 export function useGroupInput({
@@ -39,7 +62,7 @@ export function useGroupInput({
     reverse,
     disabled,
     groupRef
-}: UseGroupInputProps) {
+}: UseGroupInputProps): UseGroupInputReturn {
     const [{ hasLabel, hasMessage }] = useFieldContext();
 
     return {
