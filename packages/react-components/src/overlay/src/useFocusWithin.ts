@@ -1,7 +1,13 @@
 import { isNil } from "lodash";
 import { useEventCallback, useRefState } from "../../shared";
 
-export function useFocusWithin({ onFocus, onBlur, isDisabled }) {
+export interface UseFocusWithinProps {
+    onFocus?: any;
+    onBlur?: any;
+    isDisabled?: boolean;
+}
+
+export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinProps) {
     const [isFocusWithinRef, setIsFocusWithin] = useRefState(false);
 
     const handleFocus = useEventCallback(event => {

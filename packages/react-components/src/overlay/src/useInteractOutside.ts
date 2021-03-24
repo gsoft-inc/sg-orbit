@@ -1,7 +1,13 @@
+import { RefObject } from "react";
 import { isNil } from "lodash";
 import { useDocumentListener, useEventCallback } from "../../shared";
 
-export function useInteractOutside(rootRef, { isDisabled, onInteractOutside } = {}) {
+export interface UseInteractOutsideProps {
+    isDisabled?: boolean,
+    onInteractOutside?(e: Event): void
+}
+
+export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideProps = {}) {
     const handleDocumentClick = useEventCallback(event => {
         if (!rootRef.current?.contains(event.target)) {
             if (!isNil(onInteractOutside)) {
@@ -12,5 +18,5 @@ export function useInteractOutside(rootRef, { isDisabled, onInteractOutside } = 
 
     // If "capture" is removed, test the popover component to make sure it still works.
     // https://reactjs.org/blog/2020/08/10/react-v17-rc.html#fixing-potential-issues
-    useDocumentListener("click", handleDocumentClick, !isDisabled, { capture: true });
+    useDocumentListener("click", handleDocumentClick, !isDisabled, true);
 }

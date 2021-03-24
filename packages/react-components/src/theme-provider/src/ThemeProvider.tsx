@@ -30,10 +30,6 @@ export interface ThemeProviderProps {
     * @ignore
     */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>
 }
 
 export function useColorScheme(colorScheme: ColorScheme, defaultColorScheme: ColorScheme.dark | ColorScheme.light): ColorScheme {
