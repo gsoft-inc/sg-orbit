@@ -23,7 +23,10 @@ export interface CollectionSection extends CollectionItem {
 export type CollectionDivider = CollectionItem
 
 export interface CollectionOption extends CollectionItem {
-    tooltip: any,
+    tooltip: {
+        props: Record<string, any>,
+        content: ReactElement
+    },
 }
 
 export enum NodeType {
@@ -46,7 +49,7 @@ export function createCollectionItem({ key, position, index, elementType, ref, c
 }
 
 export class CollectionBuilder {
-    _parseItem(element: ReactElement & RefAttributes<any>, position: number, nextIndex: () => number): CollectionItem {
+    _parseItem(element: ReactElement, position: number, nextIndex: () => number): CollectionItem {
         const { children, ...props } = element.props;
 
         const index = nextIndex();
@@ -58,13 +61,13 @@ export class CollectionBuilder {
             type: NodeType.item,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Item ? element.type : undefined,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: children,
             props
         };
     }
 
-    _parseSection(element: ReactElement & RefAttributes<any>, position: number, nextIndex: () => number): CollectionSection {
+    _parseSection(element: ReactElement, position: number, nextIndex: () => number): CollectionSection {
         const { children, ...props } = element.props;
 
         const index = nextIndex();
@@ -81,14 +84,14 @@ export class CollectionBuilder {
             type: NodeType.section,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Section ? element.type : undefined,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: null,
             props,
             items
         };
     }
 
-    _parseDivider(element: ReactElement & RefAttributes<any>, position: number, nextIndex: () => number): CollectionDivider {
+    _parseDivider(element: ReactElement, position: number, nextIndex: () => number): CollectionDivider {
         const { children, ...props } = element.props;
 
         const index = nextIndex();
@@ -100,13 +103,13 @@ export class CollectionBuilder {
             type: NodeType.divider,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: Divider,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: children,
             props
         };
     }
 
-    _parseTooltip(element: ReactElement & RefAttributes<any>, position: number, nextIndex: () => number): CollectionOption {
+    _parseTooltip(element: ReactElement, position: number, nextIndex: () => number): CollectionOption {
         const { children, ...props } = element.props;
 
         const [item, tooltip] = parseTooltipTrigger(children);

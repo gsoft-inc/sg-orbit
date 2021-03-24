@@ -10,7 +10,7 @@ export interface UseOverlayLightDismissProps {
     onHide?(event: SyntheticEvent<HTMLElement, Event>): void;
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
-    hideOnOutsideClick?: boolean;
+    hideOnOutsideClick?: boolean | ((event: MouseEvent<HTMLElement, Event>) => void);
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {

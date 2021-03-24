@@ -65,7 +65,7 @@ interface InnerTooltipTriggerProps {
     /**
      * @ignore
      */
-    containerElement?: any;
+    containerElement?: HTMLElement;
     /**
      * @ignore
      */

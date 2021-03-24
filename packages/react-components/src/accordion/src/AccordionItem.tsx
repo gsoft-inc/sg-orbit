@@ -1,5 +1,6 @@
 import "./Accordion.css";
 
+import { AccordionBuilderHeaderProps, AccordionBuilderPanelProps } from "./useAccordionItems";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
@@ -16,8 +17,8 @@ export interface AccordionItemProps {
      */
     item: {
         index: number;
-        header: any;
-        panel: any;
+        header: AccordionBuilderHeaderProps;
+        panel: AccordionBuilderPanelProps;
     };
 }
 
