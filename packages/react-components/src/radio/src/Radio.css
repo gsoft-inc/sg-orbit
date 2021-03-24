@@ -11,77 +11,77 @@
 /* BUTTON */
 .o-ui-radio-button {
     display: inline-block;
-    background-color: var(--o-ui-background-1);
-    border-radius: var(--o-ui-circular-border-radius);
-    border: 1px solid var(--o-ui-border-1);
+    background-color: var(--o-ui-alias-background-1);
+    border-radius: var(--o-ui-shape-circular);
+    border: 1px solid var(--o-ui-alias-border-1);
     position: relative;
-    width: var(--o-ui-scale-echo);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-radio-button::before {
     content: "";
     display: block;
-    background-color: var(--o-ui-background-primary-1);
-    border-radius: var(--o-ui-circular-border-radius);
+    background-color: var(--o-ui-alias-background-primary-1);
+    border-radius: var(--o-ui-shape-circular);
     transform: scale(0) translate(-2px, -2px);
     transition: transform .125s ease-in;
-    width: var(--o-ui-scale-echo);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 /* CONTENT | LABEL */
 .o-ui-radio-label {
     line-height: 1;
-    margin-left: var(--o-ui-scale-bravo);
-    color: var(--o-ui-text-1);
+    margin-left: var(--o-ui-global-scale-bravo);
+    color: var(--o-ui-alias-text-1);
 }
 
 /* CONTENT | LABEL | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-label {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* CONTENT | ICON */
 .o-ui-radio-icon {
-    margin-left: var(--o-ui-scale-bravo);
-    fill: var(--o-ui-icon-1);
+    margin-left: var(--o-ui-global-scale-bravo);
+    fill: var(--o-ui-alias-icon-1);
 }
 
 /* CONTENT | ICON | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* CONTENT | COUNTER */
 .o-ui-radio-counter {
-    margin-left: var(--o-ui-scale-bravo);
-    color: var(--o-ui-text-1);
+    margin-left: var(--o-ui-global-scale-bravo);
+    color: var(--o-ui-alias-text-1);
 }
 
 /* CONTENT | COUNTER | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-counter {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* VALIDATION */
 .o-ui-radio-invalid .o-ui-radio-label {
-    color: var(--o-ui-text-danger-1);
+    color: var(--o-ui-alias-text-negative-1);
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-2);
+    border-color: var(--o-ui-alias-border-negative-2);
 }
 
 .o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-2);
+    border-color: var(--o-ui-alias-border-negative-2);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--o-ui-background-danger-1);
+    background-color: var(--o-ui-alias-background-negative-1);
 }
 
 /* STATE | CHECKED */
@@ -90,15 +90,15 @@
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-1);
+    border-color: var(--o-ui-alias-border-negative-1);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-border-danger-1);
+    border-color: var(--o-ui-alias-border-negative-1);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
-    background-color: var(--o-ui-background-danger-1);
+    background-color: var(--o-ui-alias-background-negative-1);
 }
 
 /* STATES | FOCUS | FOCUS RING */
@@ -112,7 +112,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
-    border-radius: var(--o-ui-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -124,13 +124,13 @@
 /* STATE | HOVER */
 .o-ui-radio:hover .o-ui-radio-button,
 .o-ui-radio-hover .o-ui-radio-button {
-    border: 1px solid var(--o-ui-border-1-hover);
+    border: 1px solid var(--o-ui-alias-border-1-hover);
 }
 
 /* STATE | HOVER | DISABLED */
 .o-ui-radio-disabled:hover .o-ui-radio-button,
 .o-ui-radio-disabled-hover .o-ui-radio-button {
-    border: 1px solid var(--o-ui-border-1);
+    border: 1px solid var(--o-ui-alias-border-1);
 }
 
 /* STATE | DISABLED */

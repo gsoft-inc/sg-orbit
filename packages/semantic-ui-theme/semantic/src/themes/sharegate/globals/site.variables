@@ -227,7 +227,7 @@
 @marine600: var(--o-ui-marine-600);
 @marine700: var(--o-ui-marine-700);
 @marine800: var(--o-ui-marine-800);
-@marine900: var(--o-ui-marine-900);
+@marine900: var(--o-ui-global-marine-900);
 
 /*--- Success --*/
 @success50: var(--o-ui-success-50);
@@ -478,55 +478,55 @@
 
 /* Spacing */
 /* 4px */
-@scaleAlpha: var(--o-ui-scale-alpha);
+@scaleAlpha: var(--o-ui-global-scale-alpha);
 /* 8px */
-@scaleBravo: var(--o-ui-scale-bravo);
+@scaleBravo: var(--o-ui-global-scale-bravo);
 /* 12px */
-@scaleCharlie: var(--o-ui-scale-charlie);
+@scaleCharlie: var(--o-ui-global-scale-charlie);
 /* 16px */
-@scaleDelta: var(--o-ui-scale-delta);
+@scaleDelta: var(--o-ui-global-scale-delta);
 /* 20px */
-@scaleEcho: var(--o-ui-scale-echo);
+@scaleEcho: var(--o-ui-global-scale-echo);
 /* 24px */
-@scaleFoxtrot: var(--o-ui-scale-foxtrot);
+@scaleFoxtrot: var(--o-ui-global-scale-foxtrot);
 /* 32px */
-@scaleGolf: var(--o-ui-scale-golf);
+@scaleGolf: var(--o-ui-global-scale-golf);
 /* 40px */
-@scaleHotel: var(--o-ui-scale-hotel);
+@scaleHotel: var(--o-ui-global-scale-hotel);
 /* 48px */
-@scaleIndia: var(--o-ui-scale-india);
+@scaleIndia: var(--o-ui-global-scale-india);
 /* 56px */
-@scaleJuliett: var(--o-ui-scale-juliett);
+@scaleJuliett: var(--o-ui-global-scale-juliett);
 /* 64px */
-@scaleKilo: var(--o-ui-scale-kilo);
+@scaleKilo: var(--o-ui-global-scale-kilo);
 /* 72px */
-@scaleLima: var(--o-ui-scale-lima);
+@scaleLima: var(--o-ui-global-scale-lima);
 /* 80px */
-@scaleMike: var(--o-ui-scale-mike);
+@scaleMike: var(--o-ui-global-scale-mike);
 
 /* Type Scale */
 /* 96px */
-@typeScaleHeadline: var(--o-ui-type-scale-headline);
+@typeScaleHeadline: var(--o-ui-global-type-scale-headline);
 /* 80px */
-@typeScaleSubheadline: var(--o-ui-type-scale-subheadline);
+@typeScaleSubheadline: var(--o-ui-global-type-scale-subheadline);
 /* 48px */
-@typeScale1: var(--o-ui-type-scale-1);
+@typeScale1: var(--o-ui-global-type-scale-1);
 /* 40px */
-@typeScale2: var(--o-ui-type-scale-2);
+@typeScale2: var(--o-ui-global-type-scale-2);
 /* 32px */
-@typeScale3: var(--o-ui-type-scale-3);
+@typeScale3: var(--o-ui-global-type-scale-3);
 /* 24px */
-@typeScale4: var(--o-ui-type-scale-4);
+@typeScale4: var(--o-ui-global-type-scale-4);
 /* 20px */
-@typeScale5: var(--o-ui-type-scale-5);
+@typeScale5: var(--o-ui-global-type-scale-5);
 /* 18px */
-@typeScale6: var(--o-ui-type-scale-6);
+@typeScale6: var(--o-ui-global-type-scale-6);
 /* 16px */
-@typeScale7: var(--o-ui-type-scale-7);
+@typeScale7: var(--o-ui-global-type-scale-7);
 /* 14px */
-@typeScale8: var(--o-ui-type-scale-8);
+@typeScale8: var(--o-ui-global-type-scale-8);
 /* 12px */
-@typeScale9: var(--o-ui-type-scale-9);
+@typeScale9: var(--o-ui-global-type-scale-9);
 
 /* Line Height */
 @lh1: 1;
@@ -599,8 +599,8 @@
 
 @unselectedTextColor         : var(--o-ui-marine-300);
 @hoveredTextColor            : var(--o-ui-marine-700);
-@pressedTextColor            : var(--o-ui-marine-900);
-@selectedTextColor           : var(--o-ui-marine-900);
+@pressedTextColor            : var(--o-ui-global-marine-900);
+@selectedTextColor           : var(--o-ui-global-marine-900);
 @disabledTextColor           : var(--o-ui-marine-50);
 
 @invertedTextColor           : rgba(255, 255, 255, 0.9);

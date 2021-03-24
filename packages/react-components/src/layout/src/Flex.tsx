@@ -99,26 +99,32 @@ export interface InnerFlexProps {
 
 
 const Spacing = [
-    "--o-ui-scale-alpha",
-    "--o-ui-scale-bravo",
-    "--o-ui-scale-charlie",
-    "--o-ui-scale-delta",
-    "--o-ui-scale-echo",
-    "--o-ui-scale-foxtrot",
-    "--o-ui-scale-golf",
-    "--o-ui-scale-hotel",
-    "--o-ui-scale-india",
-    "--o-ui-scale-juliett",
-    "--o-ui-scale-kilo",
-    "--o-ui-scale-lima",
-    "--o-ui-scale-mike"
+    "--o-ui-global-scale-alpha",
+    "--o-ui-global-scale-bravo",
+    "--o-ui-global-scale-charlie",
+    "--o-ui-global-scale-delta",
+    "--o-ui-global-scale-echo",
+    "--o-ui-global-scale-foxtrot",
+    "--o-ui-global-scale-golf",
+    "--o-ui-global-scale-hotel",
+    "--o-ui-global-scale-india",
+    "--o-ui-global-scale-juliett",
+    "--o-ui-global-scale-kilo",
+    "--o-ui-global-scale-lima",
+    "--o-ui-global-scale-mike"
 ];
+
+let globalIsGapSupported: boolean = undefined;
 
 // @supports doesn't work for flexbox-gap.
 function useIsGapSupported(noGap: boolean) {
     return useMemo(() => {
         if (noGap) {
             return false;
+        }
+
+        if (!isNil(globalIsGapSupported)) {
+            return globalIsGapSupported;
         }
 
         const element = document.createElement("DIV");
@@ -136,7 +142,9 @@ function useIsGapSupported(noGap: boolean) {
 
         document.body.removeChild(element);
 
-        return width === 3;
+        globalIsGapSupported = width === 3;
+
+        return globalIsGapSupported;
     }, [noGap]);
 }
 
@@ -179,7 +187,7 @@ export function InnerFlex({
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
                         justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
-                        ["--o-ui-gap" as any]: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
+                        ["--o-ui-flex-gap" as any]: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
                     },
                     ref: forwardedRef
                 }

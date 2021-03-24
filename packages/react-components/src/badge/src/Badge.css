@@ -1,7 +1,7 @@
 .o-ui-badge {
     position: relative;
     width: max-content;
-    color: var(--o-ui-text-1);
+    color: var(--o-ui-alias-text-1);
 }
 
 /* ANCHOR */
@@ -26,9 +26,9 @@
 
 /* COUNT */
 .o-ui-badge-count .o-ui-badge-anchor {
-    background-color: var(--o-ui-background-2);
-    color: var(--o-ui-text-1);
-    border-radius: var(--o-ui-pill-border-radius);
+    background-color: var(--o-ui-alias-background-2);
+    color: var(--o-ui-alias-text-1);
+    border-radius: var(--o-ui-shape-pill);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,11 +39,11 @@
 
 /* DOT */
 .o-ui-badge-dot .o-ui-badge-anchor {
-    background-color: var(--o-ui-background-2);
-    border-radius: var(--o-ui-pill-border-radius);
+    background-color: var(--o-ui-alias-background-2);
+    border-radius: var(--o-ui-shape-pill);
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--o-ui-type-scale-4);
+    font-size: var(--o-ui-global-type-scale-4);
 }
 
 /* ICON */

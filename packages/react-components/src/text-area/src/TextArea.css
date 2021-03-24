@@ -1,16 +1,13 @@
 @import "../../input/src/Input.css";
 
-:root {
-    --o-ui-resize: vertical;
-    --o-ui-textarea-padding: var(--o-ui-scale-charlie);
-}
-
 .o-ui-text-area textarea {
+    --o-ui-resize: vertical;
+    --o-ui-textarea-padding: var(--o-ui-global-scale-charlie);
     resize: var(--o-ui-resize);
     /* Fixes a bug where Firefox adds one more row than the one specified. */
     overflow-x: hidden;
-    padding: var(--o-ui-scale-bravo) var(--o-ui-textarea-padding);
-    min-height: var(--o-ui-scale-mike);
+    padding: var(--o-ui-global-scale-bravo) var(--o-ui-textarea-padding);
+    min-height: var(--o-ui-global-scale-mike);
 }
 
 /* TRANSPARENT */

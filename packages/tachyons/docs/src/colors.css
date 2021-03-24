@@ -65,14 +65,14 @@
 /*
  * ALERT
  */
-@import "../../src/ui/alert/_background.css";
-@import "../../src/ui/alert/_text.css";
-@import "../../src/ui/alert/_fill.css";
+@import "../../src/ui/beetle/_background.css";
+@import "../../src/ui/beetle/_text.css";
+@import "../../src/ui/beetle/_fill.css";
 
 /* SUCCESS */
-@import "../../src/ui/success/_background.css";
-@import "../../src/ui/success/_text.css";
-@import "../../src/ui/success/_fill.css";
+@import "../../src/ui/botanic/_background.css";
+@import "../../src/ui/botanic/_text.css";
+@import "../../src/ui/botanic/_fill.css";
 
 /*
  * WHITE

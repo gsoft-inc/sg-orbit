@@ -1,7 +1,6 @@
 /*******************************
     Site Overrides
 *******************************/
-.ui,
-.o-ui {
-    color: var(--o-ui-marine-900);
+.ui {
+    color: var(--o-ui-global-marine-900);
 }

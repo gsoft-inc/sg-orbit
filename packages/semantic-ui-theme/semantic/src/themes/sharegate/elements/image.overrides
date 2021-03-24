@@ -49,8 +49,8 @@
 .ui.avatar.micro.image img,
 .ui.avatar.micro.image svg,
 .ui.avatar.micro.image {
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .ui.avatar.image {

@@ -4,6 +4,8 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { isNil } from "lodash";
+import { useMemo } from "react";
 
 export interface InnerDotProps {
     /**
@@ -53,7 +55,7 @@ export function InnerDot(props: InnerDotProps) {
                         children && "has-label"
                     ),
                     style: {
-                        "--o-ui-dot-color": color && `var(--o-ui-${color})`
+                        "--o-ui-dot-color": useColor(color)
                     },
                     as,
                     ref: forwardedRef
@@ -63,6 +65,20 @@ export function InnerDot(props: InnerDotProps) {
             {labelMarkup}
         </Box>
     );
+}
+
+function useColor(color: string) {
+    return useMemo(() => {
+        if (!isNil(color)) {
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                return color;
+            } else if (color.startsWith("--")) {
+                return `var(${color})`;
+            } else {
+                return `var(--o-ui-global-${color})`;
+            }
+        }
+    }, [color]);
 }
 
 export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (

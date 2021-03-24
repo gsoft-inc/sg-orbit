@@ -3,55 +3,55 @@
 }
 
 .ma1 {
-    margin: var(--o-ui-scale-alpha);
+    margin: var(--o-ui-global-scale-alpha);
 }
 
 .ma2 {
-    margin: var(--o-ui-scale-bravo);
+    margin: var(--o-ui-global-scale-bravo);
 }
 
 .ma3 {
-    margin: var(--o-ui-scale-charlie);
+    margin: var(--o-ui-global-scale-charlie);
 }
 
 .ma4 {
-    margin: var(--o-ui-scale-delta);
+    margin: var(--o-ui-global-scale-delta);
 }
 
 .ma5 {
-    margin: var(--o-ui-scale-echo);
+    margin: var(--o-ui-global-scale-echo);
 }
 
 .ma6 {
-    margin: var(--o-ui-scale-foxtrot);
+    margin: var(--o-ui-global-scale-foxtrot);
 }
 
 .ma7 {
-    margin: var(--o-ui-scale-golf);
+    margin: var(--o-ui-global-scale-golf);
 }
 
 .ma8 {
-    margin: var(--o-ui-scale-hotel);
+    margin: var(--o-ui-global-scale-hotel);
 }
 
 .ma9 {
-    margin: var(--o-ui-scale-india);
+    margin: var(--o-ui-global-scale-india);
 }
 
 .ma10 {
-    margin: var(--o-ui-scale-juliett);
+    margin: var(--o-ui-global-scale-juliett);
 }
 
 .ma11 {
-    margin: var(--o-ui-scale-kilo);
+    margin: var(--o-ui-global-scale-kilo);
 }
 
 .ma12 {
-    margin: var(--o-ui-scale-lima);
+    margin: var(--o-ui-global-scale-lima);
 }
 
 .ma13 {
-    margin: var(--o-ui-scale-mike);
+    margin: var(--o-ui-global-scale-mike);
 }
 
 .ma-auto {
@@ -63,55 +63,55 @@
 }
 
 .ml1 {
-    margin-left: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
 }
 
 .ml2 {
-    margin-left: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
 }
 
 .ml3 {
-    margin-left: var(--o-ui-scale-charlie);
+    margin-left: var(--o-ui-global-scale-charlie);
 }
 
 .ml4 {
-    margin-left: var(--o-ui-scale-delta);
+    margin-left: var(--o-ui-global-scale-delta);
 }
 
 .ml5 {
-    margin-left: var(--o-ui-scale-echo);
+    margin-left: var(--o-ui-global-scale-echo);
 }
 
 .ml6 {
-    margin-left: var(--o-ui-scale-foxtrot);
+    margin-left: var(--o-ui-global-scale-foxtrot);
 }
 
 .ml7 {
-    margin-left: var(--o-ui-scale-golf);
+    margin-left: var(--o-ui-global-scale-golf);
 }
 
 .ml8 {
-    margin-left: var(--o-ui-scale-hotel);
+    margin-left: var(--o-ui-global-scale-hotel);
 }
 
 .ml9 {
-    margin-left: var(--o-ui-scale-india);
+    margin-left: var(--o-ui-global-scale-india);
 }
 
 .ml10 {
-    margin-left: var(--o-ui-scale-juliett);
+    margin-left: var(--o-ui-global-scale-juliett);
 }
 
 .ml11 {
-    margin-left: var(--o-ui-scale-kilo);
+    margin-left: var(--o-ui-global-scale-kilo);
 }
 
 .ml12 {
-    margin-left: var(--o-ui-scale-lima);
+    margin-left: var(--o-ui-global-scale-lima);
 }
 
 .ml13 {
-    margin-left: var(--o-ui-scale-mike);
+    margin-left: var(--o-ui-global-scale-mike);
 }
 
 .ml-auto {
@@ -123,55 +123,55 @@
 }
 
 .mr1 {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 .mr2 {
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 .mr3 {
-    margin-right: var(--o-ui-scale-charlie);
+    margin-right: var(--o-ui-global-scale-charlie);
 }
 
 .mr4 {
-    margin-right: var(--o-ui-scale-delta);
+    margin-right: var(--o-ui-global-scale-delta);
 }
 
 .mr5 {
-    margin-right: var(--o-ui-scale-echo);
+    margin-right: var(--o-ui-global-scale-echo);
 }
 
 .mr6 {
-    margin-right: var(--o-ui-scale-foxtrot);
+    margin-right: var(--o-ui-global-scale-foxtrot);
 }
 
 .mr7 {
-    margin-right: var(--o-ui-scale-golf);
+    margin-right: var(--o-ui-global-scale-golf);
 }
 
 .mr8 {
-    margin-right: var(--o-ui-scale-hotel);
+    margin-right: var(--o-ui-global-scale-hotel);
 }
 
 .mr9 {
-    margin-right: var(--o-ui-scale-india);
+    margin-right: var(--o-ui-global-scale-india);
 }
 
 .mr10 {
-    margin-right: var(--o-ui-scale-juliett);
+    margin-right: var(--o-ui-global-scale-juliett);
 }
 
 .mr11 {
-    margin-right: var(--o-ui-scale-kilo);
+    margin-right: var(--o-ui-global-scale-kilo);
 }
 
 .mr12 {
-    margin-right: var(--o-ui-scale-lima);
+    margin-right: var(--o-ui-global-scale-lima);
 }
 
 .mr13 {
-    margin-right: var(--o-ui-scale-mike);
+    margin-right: var(--o-ui-global-scale-mike);
 }
 
 .mr-auto {
@@ -183,55 +183,55 @@
 }
 
 .mb1 {
-    margin-bottom: var(--o-ui-scale-alpha);
+    margin-bottom: var(--o-ui-global-scale-alpha);
 }
 
 .mb2 {
-    margin-bottom: var(--o-ui-scale-bravo);
+    margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
 .mb3 {
-    margin-bottom: var(--o-ui-scale-charlie);
+    margin-bottom: var(--o-ui-global-scale-charlie);
 }
 
 .mb4 {
-    margin-bottom: var(--o-ui-scale-delta);
+    margin-bottom: var(--o-ui-global-scale-delta);
 }
 
 .mb5 {
-    margin-bottom: var(--o-ui-scale-echo);
+    margin-bottom: var(--o-ui-global-scale-echo);
 }
 
 .mb6 {
-    margin-bottom: var(--o-ui-scale-foxtrot);
+    margin-bottom: var(--o-ui-global-scale-foxtrot);
 }
 
 .mb7 {
-    margin-bottom: var(--o-ui-scale-golf);
+    margin-bottom: var(--o-ui-global-scale-golf);
 }
 
 .mb8 {
-    margin-bottom: var(--o-ui-scale-hotel);
+    margin-bottom: var(--o-ui-global-scale-hotel);
 }
 
 .mb9 {
-    margin-bottom: var(--o-ui-scale-india);
+    margin-bottom: var(--o-ui-global-scale-india);
 }
 
 .mb10 {
-    margin-bottom: var(--o-ui-scale-juliett);
+    margin-bottom: var(--o-ui-global-scale-juliett);
 }
 
 .mb11 {
-    margin-bottom: var(--o-ui-scale-kilo);
+    margin-bottom: var(--o-ui-global-scale-kilo);
 }
 
 .mb12 {
-    margin-bottom: var(--o-ui-scale-lima);
+    margin-bottom: var(--o-ui-global-scale-lima);
 }
 
 .mb13 {
-    margin-bottom: var(--o-ui-scale-mike);
+    margin-bottom: var(--o-ui-global-scale-mike);
 }
 
 .mb-auto {
@@ -243,55 +243,55 @@
 }
 
 .mt1 {
-    margin-top: var(--o-ui-scale-alpha);
+    margin-top: var(--o-ui-global-scale-alpha);
 }
 
 .mt2 {
-    margin-top: var(--o-ui-scale-bravo);
+    margin-top: var(--o-ui-global-scale-bravo);
 }
 
 .mt3 {
-    margin-top: var(--o-ui-scale-charlie);
+    margin-top: var(--o-ui-global-scale-charlie);
 }
 
 .mt4 {
-    margin-top: var(--o-ui-scale-delta);
+    margin-top: var(--o-ui-global-scale-delta);
 }
 
 .mt5 {
-    margin-top: var(--o-ui-scale-echo);
+    margin-top: var(--o-ui-global-scale-echo);
 }
 
 .mt6 {
-    margin-top: var(--o-ui-scale-foxtrot);
+    margin-top: var(--o-ui-global-scale-foxtrot);
 }
 
 .mt7 {
-    margin-top: var(--o-ui-scale-golf);
+    margin-top: var(--o-ui-global-scale-golf);
 }
 
 .mt8 {
-    margin-top: var(--o-ui-scale-hotel);
+    margin-top: var(--o-ui-global-scale-hotel);
 }
 
 .mt9 {
-    margin-top: var(--o-ui-scale-india);
+    margin-top: var(--o-ui-global-scale-india);
 }
 
 .mt10 {
-    margin-top: var(--o-ui-scale-juliett);
+    margin-top: var(--o-ui-global-scale-juliett);
 }
 
 .mt11 {
-    margin-top: var(--o-ui-scale-kilo);
+    margin-top: var(--o-ui-global-scale-kilo);
 }
 
 .mt12 {
-    margin-top: var(--o-ui-scale-lima);
+    margin-top: var(--o-ui-global-scale-lima);
 }
 
 .mt13 {
-    margin-top: var(--o-ui-scale-mike);
+    margin-top: var(--o-ui-global-scale-mike);
 }
 
 .mt-auto {
@@ -304,68 +304,68 @@
 }
 
 .mv1 {
-    margin-top: var(--o-ui-scale-alpha);
-    margin-bottom: var(--o-ui-scale-alpha);
+    margin-top: var(--o-ui-global-scale-alpha);
+    margin-bottom: var(--o-ui-global-scale-alpha);
 }
 
 .mv2 {
-    margin-top: var(--o-ui-scale-bravo);
-    margin-bottom: var(--o-ui-scale-bravo);
+    margin-top: var(--o-ui-global-scale-bravo);
+    margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
 .mv3 {
-    margin-top: var(--o-ui-scale-charlie);
-    margin-bottom: var(--o-ui-scale-charlie);
+    margin-top: var(--o-ui-global-scale-charlie);
+    margin-bottom: var(--o-ui-global-scale-charlie);
 }
 
 .mv4 {
-    margin-top: var(--o-ui-scale-delta);
-    margin-bottom: var(--o-ui-scale-delta);
+    margin-top: var(--o-ui-global-scale-delta);
+    margin-bottom: var(--o-ui-global-scale-delta);
 }
 
 .mv5 {
-    margin-top: var(--o-ui-scale-echo);
-    margin-bottom: var(--o-ui-scale-echo);
+    margin-top: var(--o-ui-global-scale-echo);
+    margin-bottom: var(--o-ui-global-scale-echo);
 }
 
 .mv6 {
-    margin-top: var(--o-ui-scale-foxtrot);
-    margin-bottom: var(--o-ui-scale-foxtrot);
+    margin-top: var(--o-ui-global-scale-foxtrot);
+    margin-bottom: var(--o-ui-global-scale-foxtrot);
 }
 
 .mv7 {
-    margin-top: var(--o-ui-scale-golf);
-    margin-bottom: var(--o-ui-scale-golf);
+    margin-top: var(--o-ui-global-scale-golf);
+    margin-bottom: var(--o-ui-global-scale-golf);
 }
 
 .mv8 {
-    margin-top: var(--o-ui-scale-hotel);
-    margin-bottom: var(--o-ui-scale-hotel);
+    margin-top: var(--o-ui-global-scale-hotel);
+    margin-bottom: var(--o-ui-global-scale-hotel);
 }
 
 .mv9 {
-    margin-top: var(--o-ui-scale-india);
-    margin-bottom: var(--o-ui-scale-india);
+    margin-top: var(--o-ui-global-scale-india);
+    margin-bottom: var(--o-ui-global-scale-india);
 }
 
 .mv10 {
-    margin-top: var(--o-ui-scale-juliett);
-    margin-bottom: var(--o-ui-scale-juliett);
+    margin-top: var(--o-ui-global-scale-juliett);
+    margin-bottom: var(--o-ui-global-scale-juliett);
 }
 
 .mv11 {
-    margin-top: var(--o-ui-scale-kilo);
-    margin-bottom: var(--o-ui-scale-kilo);
+    margin-top: var(--o-ui-global-scale-kilo);
+    margin-bottom: var(--o-ui-global-scale-kilo);
 }
 
 .mv12 {
-    margin-top: var(--o-ui-scale-lima);
-    margin-bottom: var(--o-ui-scale-lima);
+    margin-top: var(--o-ui-global-scale-lima);
+    margin-bottom: var(--o-ui-global-scale-lima);
 }
 
 .mv13 {
-    margin-top: var(--o-ui-scale-mike);
-    margin-bottom: var(--o-ui-scale-mike);
+    margin-top: var(--o-ui-global-scale-mike);
+    margin-bottom: var(--o-ui-global-scale-mike);
 }
 
 .mv-auto {
@@ -379,68 +379,68 @@
 }
 
 .mh1 {
-    margin-left: var(--o-ui-scale-alpha);
-    margin-right: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 .mh2 {
-    margin-left: var(--o-ui-scale-bravo);
-    margin-right: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 .mh3 {
-    margin-left: var(--o-ui-scale-charlie);
-    margin-right: var(--o-ui-scale-charlie);
+    margin-left: var(--o-ui-global-scale-charlie);
+    margin-right: var(--o-ui-global-scale-charlie);
 }
 
 .mh4 {
-    margin-left: var(--o-ui-scale-delta);
-    margin-right: var(--o-ui-scale-delta);
+    margin-left: var(--o-ui-global-scale-delta);
+    margin-right: var(--o-ui-global-scale-delta);
 }
 
 .mh5 {
-    margin-left: var(--o-ui-scale-echo);
-    margin-right: var(--o-ui-scale-echo);
+    margin-left: var(--o-ui-global-scale-echo);
+    margin-right: var(--o-ui-global-scale-echo);
 }
 
 .mh6 {
-    margin-left: var(--o-ui-scale-foxtrot);
-    margin-right: var(--o-ui-scale-foxtrot);
+    margin-left: var(--o-ui-global-scale-foxtrot);
+    margin-right: var(--o-ui-global-scale-foxtrot);
 }
 
 .mh7 {
-    margin-left: var(--o-ui-scale-golf);
-    margin-right: var(--o-ui-scale-golf);
+    margin-left: var(--o-ui-global-scale-golf);
+    margin-right: var(--o-ui-global-scale-golf);
 }
 
 .mh8 {
-    margin-left: var(--o-ui-scale-hotel);
-    margin-right: var(--o-ui-scale-hotel);
+    margin-left: var(--o-ui-global-scale-hotel);
+    margin-right: var(--o-ui-global-scale-hotel);
 }
 
 .mh9 {
-    margin-left: var(--o-ui-scale-india);
-    margin-right: var(--o-ui-scale-india);
+    margin-left: var(--o-ui-global-scale-india);
+    margin-right: var(--o-ui-global-scale-india);
 }
 
 .mh10 {
-    margin-left: var(--o-ui-scale-juliett);
-    margin-right: var(--o-ui-scale-juliett);
+    margin-left: var(--o-ui-global-scale-juliett);
+    margin-right: var(--o-ui-global-scale-juliett);
 }
 
 .mh11 {
-    margin-left: var(--o-ui-scale-kilo);
-    margin-right: var(--o-ui-scale-kilo);
+    margin-left: var(--o-ui-global-scale-kilo);
+    margin-right: var(--o-ui-global-scale-kilo);
 }
 
 .mh12 {
-    margin-left: var(--o-ui-scale-lima);
-    margin-right: var(--o-ui-scale-lima);
+    margin-left: var(--o-ui-global-scale-lima);
+    margin-right: var(--o-ui-global-scale-lima);
 }
 
 .mh13 {
-    margin-left: var(--o-ui-scale-mike);
-    margin-right: var(--o-ui-scale-mike);
+    margin-left: var(--o-ui-global-scale-mike);
+    margin-right: var(--o-ui-global-scale-mike);
 }
 
 .mh-auto {
@@ -453,43 +453,43 @@
         margin: 0;
     }
     .ma1-ns {
-        margin: var(--o-ui-scale-alpha);
+        margin: var(--o-ui-global-scale-alpha);
     }
     .ma2-ns {
-        margin: var(--o-ui-scale-bravo);
+        margin: var(--o-ui-global-scale-bravo);
     }
     .ma3-ns {
-        margin: var(--o-ui-scale-charlie);
+        margin: var(--o-ui-global-scale-charlie);
     }
     .ma4-ns {
-        margin: var(--o-ui-scale-delta);
+        margin: var(--o-ui-global-scale-delta);
     }
     .ma5-ns {
-        margin: var(--o-ui-scale-echo);
+        margin: var(--o-ui-global-scale-echo);
     }
     .ma6-ns {
-        margin: var(--o-ui-scale-foxtrot);
+        margin: var(--o-ui-global-scale-foxtrot);
     }
     .ma7-ns {
-        margin: var(--o-ui-scale-golf);
+        margin: var(--o-ui-global-scale-golf);
     }
     .ma8-ns {
-        margin: var(--o-ui-scale-hotel);
+        margin: var(--o-ui-global-scale-hotel);
     }
     .ma9-ns {
-        margin: var(--o-ui-scale-india);
+        margin: var(--o-ui-global-scale-india);
     }
     .ma10-ns {
-        margin: var(--o-ui-scale-juliett);
+        margin: var(--o-ui-global-scale-juliett);
     }
     .ma11-ns {
-        margin: var(--o-ui-scale-kilo);
+        margin: var(--o-ui-global-scale-kilo);
     }
     .ma12-ns {
-        margin: var(--o-ui-scale-lima);
+        margin: var(--o-ui-global-scale-lima);
     }
     .ma13-ns {
-        margin: var(--o-ui-scale-mike);
+        margin: var(--o-ui-global-scale-mike);
     }
     .ma-auto-ns {
         margin: auto;
@@ -498,43 +498,43 @@
         margin-left: 0;
     }
     .ml1-ns {
-        margin-left: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
     }
     .ml2-ns {
-        margin-left: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
     }
     .ml3-ns {
-        margin-left: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
     }
     .ml4-ns {
-        margin-left: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
     }
     .ml5-ns {
-        margin-left: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
     }
     .ml6-ns {
-        margin-left: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
     }
     .ml7-ns {
-        margin-left: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
     }
     .ml8-ns {
-        margin-left: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
     }
     .ml9-ns {
-        margin-left: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
     }
     .ml10-ns {
-        margin-left: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
     }
     .ml11-ns {
-        margin-left: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
     }
     .ml12-ns {
-        margin-left: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
     }
     .ml13-ns {
-        margin-left: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
     }
     .ml-auto-ns {
         margin-left: auto;
@@ -543,43 +543,43 @@
         margin-right: 0;
     }
     .mr1-ns {
-        margin-right: var(--o-ui-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mr2-ns {
-        margin-right: var(--o-ui-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mr3-ns {
-        margin-right: var(--o-ui-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mr4-ns {
-        margin-right: var(--o-ui-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mr5-ns {
-        margin-right: var(--o-ui-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mr6-ns {
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mr7-ns {
-        margin-right: var(--o-ui-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mr8-ns {
-        margin-right: var(--o-ui-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mr9-ns {
-        margin-right: var(--o-ui-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mr10-ns {
-        margin-right: var(--o-ui-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mr11-ns {
-        margin-right: var(--o-ui-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mr12-ns {
-        margin-right: var(--o-ui-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mr13-ns {
-        margin-right: var(--o-ui-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mr-auto-ns {
         margin-right: auto;
@@ -588,43 +588,43 @@
         margin-bottom: 0;
     }
     .mb1-ns {
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mb2-ns {
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mb3-ns {
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mb4-ns {
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mb5-ns {
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mb6-ns {
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mb7-ns {
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mb8-ns {
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mb9-ns {
-        margin-bottom: var(--o-ui-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mb10-ns {
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mb11-ns {
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mb12-ns {
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mb13-ns {
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mb-auto-ns {
         margin-bottom: auto;
@@ -633,43 +633,43 @@
         margin-top: 0;
     }
     .mt1-ns {
-        margin-top: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
     }
     .mt2-ns {
-        margin-top: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
     }
     .mt3-ns {
-        margin-top: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
     }
     .mt4-ns {
-        margin-top: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
     }
     .mt5-ns {
-        margin-top: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
     }
     .mt6-ns {
-        margin-top: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
     }
     .mt7-ns {
-        margin-top: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
     }
     .mt8-ns {
-        margin-top: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
     }
     .mt9-ns {
-        margin-top: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
     }
     .mt10-ns {
-        margin-top: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
     }
     .mt11-ns {
-        margin-top: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
     }
     .mt12-ns {
-        margin-top: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
     }
     .mt13-ns {
-        margin-top: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
     }
     .mt-auto-ns {
         margin-top: auto;
@@ -679,56 +679,56 @@
         margin-bottom: 0;
     }
     .mv1-ns {
-        margin-top: var(--o-ui-scale-alpha);
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mv2-ns {
-        margin-top: var(--o-ui-scale-bravo);
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mv3-ns {
-        margin-top: var(--o-ui-scale-charlie);
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mv4-ns {
-        margin-top: var(--o-ui-scale-delta);
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mv5-ns {
-        margin-top: var(--o-ui-scale-echo);
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mv6-ns {
-        margin-top: var(--o-ui-scale-foxtrot);
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mv7-ns {
-        margin-top: var(--o-ui-scale-golf);
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mv8-ns {
-        margin-top: var(--o-ui-scale-hotel);
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mv9-ns {
-        margin-top: var(--o-ui-scale-india);
-        margin-bottom: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mv10-ns {
-        margin-top: var(--o-ui-scale-juliett);
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mv11-ns {
-        margin-top: var(--o-ui-scale-kilo);
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mv12-ns {
-        margin-top: var(--o-ui-scale-lima);
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mv13-ns {
-        margin-top: var(--o-ui-scale-mike);
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mv-auto-ns {
         margin-top: auto;
@@ -739,56 +739,56 @@
         margin-right: 0;
     }
     .mh1-ns {
-        margin-left: var(--o-ui-scale-alpha);
-        margin-right: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mh2-ns {
-        margin-left: var(--o-ui-scale-bravo);
-        margin-right: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mh3-ns {
-        margin-left: var(--o-ui-scale-charlie);
-        margin-right: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mh4-ns {
-        margin-left: var(--o-ui-scale-delta);
-        margin-right: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mh5-ns {
-        margin-left: var(--o-ui-scale-echo);
-        margin-right: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mh6-ns {
-        margin-left: var(--o-ui-scale-foxtrot);
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mh7-ns {
-        margin-left: var(--o-ui-scale-golf);
-        margin-right: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mh8-ns {
-        margin-left: var(--o-ui-scale-hotel);
-        margin-right: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mh9-ns {
-        margin-left: var(--o-ui-scale-india);
-        margin-right: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mh10-ns {
-        margin-left: var(--o-ui-scale-juliett);
-        margin-right: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mh11-ns {
-        margin-left: var(--o-ui-scale-kilo);
-        margin-right: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mh12-ns {
-        margin-left: var(--o-ui-scale-lima);
-        margin-right: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mh13-ns {
-        margin-left: var(--o-ui-scale-mike);
-        margin-right: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mh-auto-ns {
         margin-left: auto;
@@ -801,43 +801,43 @@
         margin: 0;
     }
     .ma1-m {
-        margin: var(--o-ui-scale-alpha);
+        margin: var(--o-ui-global-scale-alpha);
     }
     .ma2-m {
-        margin: var(--o-ui-scale-bravo);
+        margin: var(--o-ui-global-scale-bravo);
     }
     .ma3-m {
-        margin: var(--o-ui-scale-charlie);
+        margin: var(--o-ui-global-scale-charlie);
     }
     .ma4-m {
-        margin: var(--o-ui-scale-delta);
+        margin: var(--o-ui-global-scale-delta);
     }
     .ma5-m {
-        margin: var(--o-ui-scale-echo);
+        margin: var(--o-ui-global-scale-echo);
     }
     .ma6-m {
-        margin: var(--o-ui-scale-foxtrot);
+        margin: var(--o-ui-global-scale-foxtrot);
     }
     .ma7-m {
-        margin: var(--o-ui-scale-golf);
+        margin: var(--o-ui-global-scale-golf);
     }
     .ma8-m {
-        margin: var(--o-ui-scale-hotel);
+        margin: var(--o-ui-global-scale-hotel);
     }
     .ma9-m {
-        margin: var(--o-ui-scale-india);
+        margin: var(--o-ui-global-scale-india);
     }
     .ma10-m {
-        margin: var(--o-ui-scale-juliett);
+        margin: var(--o-ui-global-scale-juliett);
     }
     .ma11-m {
-        margin: var(--o-ui-scale-kilo);
+        margin: var(--o-ui-global-scale-kilo);
     }
     .ma12-m {
-        margin: var(--o-ui-scale-lima);
+        margin: var(--o-ui-global-scale-lima);
     }
     .ma13-m {
-        margin: var(--o-ui-scale-mike);
+        margin: var(--o-ui-global-scale-mike);
     }
     .ma-auto-m {
         margin: auto;
@@ -846,43 +846,43 @@
         margin-left: 0;
     }
     .ml1-m {
-        margin-left: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
     }
     .ml2-m {
-        margin-left: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
     }
     .ml3-m {
-        margin-left: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
     }
     .ml4-m {
-        margin-left: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
     }
     .ml5-m {
-        margin-left: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
     }
     .ml6-m {
-        margin-left: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
     }
     .ml7-m {
-        margin-left: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
     }
     .ml8-m {
-        margin-left: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
     }
     .ml9-m {
-        margin-left: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
     }
     .ml10-m {
-        margin-left: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
     }
     .ml11-m {
-        margin-left: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
     }
     .ml12-m {
-        margin-left: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
     }
     .ml13-m {
-        margin-left: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
     }
     .ml-auto-m {
         margin-left: auto;
@@ -891,43 +891,43 @@
         margin-right: 0;
     }
     .mr1-m {
-        margin-right: var(--o-ui-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mr2-m {
-        margin-right: var(--o-ui-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mr3-m {
-        margin-right: var(--o-ui-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mr4-m {
-        margin-right: var(--o-ui-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mr5-m {
-        margin-right: var(--o-ui-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mr6-m {
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mr7-m {
-        margin-right: var(--o-ui-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mr8-m {
-        margin-right: var(--o-ui-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mr9-m {
-        margin-right: var(--o-ui-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mr10-m {
-        margin-right: var(--o-ui-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mr11-m {
-        margin-right: var(--o-ui-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mr12-m {
-        margin-right: var(--o-ui-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mr13-m {
-        margin-right: var(--o-ui-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mr-auto-m {
         margin-right: auto;
@@ -936,43 +936,43 @@
         margin-bottom: 0;
     }
     .mb1-m {
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mb2-m {
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mb3-m {
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mb4-m {
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mb5-m {
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mb6-m {
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mb7-m {
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mb8-m {
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mb9-m {
-        margin-bottom: var(--o-ui-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mb10-m {
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mb11-m {
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mb12-m {
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mb13-m {
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mb-auto-m {
         margin-bottom: auto;
@@ -981,43 +981,43 @@
         margin-top: 0;
     }
     .mt1-m {
-        margin-top: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
     }
     .mt2-m {
-        margin-top: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
     }
     .mt3-m {
-        margin-top: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
     }
     .mt4-m {
-        margin-top: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
     }
     .mt5-m {
-        margin-top: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
     }
     .mt6-m {
-        margin-top: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
     }
     .mt7-m {
-        margin-top: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
     }
     .mt8-m {
-        margin-top: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
     }
     .mt9-m {
-        margin-top: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
     }
     .mt10-m {
-        margin-top: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
     }
     .mt11-m {
-        margin-top: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
     }
     .mt12-m {
-        margin-top: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
     }
     .mt13-m {
-        margin-top: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
     }
     .mt-auto-m {
         margin-top: auto;
@@ -1027,56 +1027,56 @@
         margin-bottom: 0;
     }
     .mv1-m {
-        margin-top: var(--o-ui-scale-alpha);
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mv2-m {
-        margin-top: var(--o-ui-scale-bravo);
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mv3-m {
-        margin-top: var(--o-ui-scale-charlie);
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mv4-m {
-        margin-top: var(--o-ui-scale-delta);
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mv5-m {
-        margin-top: var(--o-ui-scale-echo);
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mv6-m {
-        margin-top: var(--o-ui-scale-foxtrot);
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mv7-m {
-        margin-top: var(--o-ui-scale-golf);
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mv8-m {
-        margin-top: var(--o-ui-scale-hotel);
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mv9-m {
-        margin-top: var(--o-ui-scale-india);
-        margin-bottom: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mv10-m {
-        margin-top: var(--o-ui-scale-juliett);
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mv11-m {
-        margin-top: var(--o-ui-scale-kilo);
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mv12-m {
-        margin-top: var(--o-ui-scale-lima);
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mv13-m {
-        margin-top: var(--o-ui-scale-mike);
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mv-auto-m {
         margin-top: auto;
@@ -1087,56 +1087,56 @@
         margin-right: 0;
     }
     .mh1-m {
-        margin-left: var(--o-ui-scale-alpha);
-        margin-right: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mh2-m {
-        margin-left: var(--o-ui-scale-bravo);
-        margin-right: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mh3-m {
-        margin-left: var(--o-ui-scale-charlie);
-        margin-right: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mh4-m {
-        margin-left: var(--o-ui-scale-delta);
-        margin-right: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mh5-m {
-        margin-left: var(--o-ui-scale-echo);
-        margin-right: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mh6-m {
-        margin-left: var(--o-ui-scale-foxtrot);
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mh7-m {
-        margin-left: var(--o-ui-scale-golf);
-        margin-right: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mh8-m {
-        margin-left: var(--o-ui-scale-hotel);
-        margin-right: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mh9-m {
-        margin-left: var(--o-ui-scale-india);
-        margin-right: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mh10-m {
-        margin-left: var(--o-ui-scale-juliett);
-        margin-right: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mh11-m {
-        margin-left: var(--o-ui-scale-kilo);
-        margin-right: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mh12-m {
-        margin-left: var(--o-ui-scale-lima);
-        margin-right: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mh13-m {
-        margin-left: var(--o-ui-scale-mike);
-        margin-right: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mh-auto-m {
         margin-left: auto;
@@ -1149,43 +1149,43 @@
         margin: 0;
     }
     .ma1-l {
-        margin: var(--o-ui-scale-alpha);
+        margin: var(--o-ui-global-scale-alpha);
     }
     .ma2-l {
-        margin: var(--o-ui-scale-bravo);
+        margin: var(--o-ui-global-scale-bravo);
     }
     .ma3-l {
-        margin: var(--o-ui-scale-charlie);
+        margin: var(--o-ui-global-scale-charlie);
     }
     .ma4-l {
-        margin: var(--o-ui-scale-delta);
+        margin: var(--o-ui-global-scale-delta);
     }
     .ma5-l {
-        margin: var(--o-ui-scale-echo);
+        margin: var(--o-ui-global-scale-echo);
     }
     .ma6-l {
-        margin: var(--o-ui-scale-foxtrot);
+        margin: var(--o-ui-global-scale-foxtrot);
     }
     .ma7-l {
-        margin: var(--o-ui-scale-golf);
+        margin: var(--o-ui-global-scale-golf);
     }
     .ma8-l {
-        margin: var(--o-ui-scale-hotel);
+        margin: var(--o-ui-global-scale-hotel);
     }
     .ma9-l {
-        margin: var(--o-ui-scale-india);
+        margin: var(--o-ui-global-scale-india);
     }
     .ma10-l {
-        margin: var(--o-ui-scale-juliett);
+        margin: var(--o-ui-global-scale-juliett);
     }
     .ma11-l {
-        margin: var(--o-ui-scale-kilo);
+        margin: var(--o-ui-global-scale-kilo);
     }
     .ma12-l {
-        margin: var(--o-ui-scale-lima);
+        margin: var(--o-ui-global-scale-lima);
     }
     .ma13-l {
-        margin: var(--o-ui-scale-mike);
+        margin: var(--o-ui-global-scale-mike);
     }
     .ma-auto-l {
         margin: auto;
@@ -1194,43 +1194,43 @@
         margin-left: 0;
     }
     .ml1-l {
-        margin-left: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
     }
     .ml2-l {
-        margin-left: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
     }
     .ml3-l {
-        margin-left: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
     }
     .ml4-l {
-        margin-left: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
     }
     .ml5-l {
-        margin-left: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
     }
     .ml6-l {
-        margin-left: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
     }
     .ml7-l {
-        margin-left: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
     }
     .ml8-l {
-        margin-left: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
     }
     .ml9-l {
-        margin-left: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
     }
     .ml10-l {
-        margin-left: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
     }
     .ml11-l {
-        margin-left: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
     }
     .ml12-l {
-        margin-left: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
     }
     .ml13-l {
-        margin-left: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
     }
     .ml-auto-l {
         margin-left: auto;
@@ -1239,43 +1239,43 @@
         margin-right: 0;
     }
     .mr1-l {
-        margin-right: var(--o-ui-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mr2-l {
-        margin-right: var(--o-ui-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mr3-l {
-        margin-right: var(--o-ui-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mr4-l {
-        margin-right: var(--o-ui-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mr5-l {
-        margin-right: var(--o-ui-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mr6-l {
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mr7-l {
-        margin-right: var(--o-ui-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mr8-l {
-        margin-right: var(--o-ui-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mr9-l {
-        margin-right: var(--o-ui-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mr10-l {
-        margin-right: var(--o-ui-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mr11-l {
-        margin-right: var(--o-ui-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mr12-l {
-        margin-right: var(--o-ui-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mr13-l {
-        margin-right: var(--o-ui-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mr-auto-l {
         margin-right: auto;
@@ -1284,43 +1284,43 @@
         margin-bottom: 0;
     }
     .mb1-l {
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mb2-l {
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mb3-l {
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mb4-l {
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mb5-l {
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mb6-l {
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mb7-l {
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mb8-l {
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mb9-l {
-        margin-bottom: var(--o-ui-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mb10-l {
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mb11-l {
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mb12-l {
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mb13-l {
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mb-auto-l {
         margin-bottom: auto;
@@ -1329,43 +1329,43 @@
         margin-top: 0;
     }
     .mt1-l {
-        margin-top: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
     }
     .mt2-l {
-        margin-top: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
     }
     .mt3-l {
-        margin-top: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
     }
     .mt4-l {
-        margin-top: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
     }
     .mt5-l {
-        margin-top: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
     }
     .mt6-l {
-        margin-top: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
     }
     .mt7-l {
-        margin-top: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
     }
     .mt8-l {
-        margin-top: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
     }
     .mt9-l {
-        margin-top: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
     }
     .mt10-l {
-        margin-top: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
     }
     .mt11-l {
-        margin-top: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
     }
     .mt12-l {
-        margin-top: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
     }
     .mt13-l {
-        margin-top: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
     }
     .mt-auto-l {
         margin-top: auto;
@@ -1375,56 +1375,56 @@
         margin-bottom: 0;
     }
     .mv1-l {
-        margin-top: var(--o-ui-scale-alpha);
-        margin-bottom: var(--o-ui-scale-alpha);
+        margin-top: var(--o-ui-global-scale-alpha);
+        margin-bottom: var(--o-ui-global-scale-alpha);
     }
     .mv2-l {
-        margin-top: var(--o-ui-scale-bravo);
-        margin-bottom: var(--o-ui-scale-bravo);
+        margin-top: var(--o-ui-global-scale-bravo);
+        margin-bottom: var(--o-ui-global-scale-bravo);
     }
     .mv3-l {
-        margin-top: var(--o-ui-scale-charlie);
-        margin-bottom: var(--o-ui-scale-charlie);
+        margin-top: var(--o-ui-global-scale-charlie);
+        margin-bottom: var(--o-ui-global-scale-charlie);
     }
     .mv4-l {
-        margin-top: var(--o-ui-scale-delta);
-        margin-bottom: var(--o-ui-scale-delta);
+        margin-top: var(--o-ui-global-scale-delta);
+        margin-bottom: var(--o-ui-global-scale-delta);
     }
     .mv5-l {
-        margin-top: var(--o-ui-scale-echo);
-        margin-bottom: var(--o-ui-scale-echo);
+        margin-top: var(--o-ui-global-scale-echo);
+        margin-bottom: var(--o-ui-global-scale-echo);
     }
     .mv6-l {
-        margin-top: var(--o-ui-scale-foxtrot);
-        margin-bottom: var(--o-ui-scale-foxtrot);
+        margin-top: var(--o-ui-global-scale-foxtrot);
+        margin-bottom: var(--o-ui-global-scale-foxtrot);
     }
     .mv7-l {
-        margin-top: var(--o-ui-scale-golf);
-        margin-bottom: var(--o-ui-scale-golf);
+        margin-top: var(--o-ui-global-scale-golf);
+        margin-bottom: var(--o-ui-global-scale-golf);
     }
     .mv8-l {
-        margin-top: var(--o-ui-scale-hotel);
-        margin-bottom: var(--o-ui-scale-hotel);
+        margin-top: var(--o-ui-global-scale-hotel);
+        margin-bottom: var(--o-ui-global-scale-hotel);
     }
     .mv9-l {
-        margin-top: var(--o-ui-scale-india);
-        margin-bottom: var(--o-ui-scale-india);
+        margin-top: var(--o-ui-global-scale-india);
+        margin-bottom: var(--o-ui-global-scale-india);
     }
     .mv10-l {
-        margin-top: var(--o-ui-scale-juliett);
-        margin-bottom: var(--o-ui-scale-juliett);
+        margin-top: var(--o-ui-global-scale-juliett);
+        margin-bottom: var(--o-ui-global-scale-juliett);
     }
     .mv11-l {
-        margin-top: var(--o-ui-scale-kilo);
-        margin-bottom: var(--o-ui-scale-kilo);
+        margin-top: var(--o-ui-global-scale-kilo);
+        margin-bottom: var(--o-ui-global-scale-kilo);
     }
     .mv12-l {
-        margin-top: var(--o-ui-scale-lima);
-        margin-bottom: var(--o-ui-scale-lima);
+        margin-top: var(--o-ui-global-scale-lima);
+        margin-bottom: var(--o-ui-global-scale-lima);
     }
     .mv13-l {
-        margin-top: var(--o-ui-scale-mike);
-        margin-bottom: var(--o-ui-scale-mike);
+        margin-top: var(--o-ui-global-scale-mike);
+        margin-bottom: var(--o-ui-global-scale-mike);
     }
     .mv-auto-l {
         margin-top: auto;
@@ -1435,56 +1435,56 @@
         margin-right: 0;
     }
     .mh1-l {
-        margin-left: var(--o-ui-scale-alpha);
-        margin-right: var(--o-ui-scale-alpha);
+        margin-left: var(--o-ui-global-scale-alpha);
+        margin-right: var(--o-ui-global-scale-alpha);
     }
     .mh2-l {
-        margin-left: var(--o-ui-scale-bravo);
-        margin-right: var(--o-ui-scale-bravo);
+        margin-left: var(--o-ui-global-scale-bravo);
+        margin-right: var(--o-ui-global-scale-bravo);
     }
     .mh3-l {
-        margin-left: var(--o-ui-scale-charlie);
-        margin-right: var(--o-ui-scale-charlie);
+        margin-left: var(--o-ui-global-scale-charlie);
+        margin-right: var(--o-ui-global-scale-charlie);
     }
     .mh4-l {
-        margin-left: var(--o-ui-scale-delta);
-        margin-right: var(--o-ui-scale-delta);
+        margin-left: var(--o-ui-global-scale-delta);
+        margin-right: var(--o-ui-global-scale-delta);
     }
     .mh5-l {
-        margin-left: var(--o-ui-scale-echo);
-        margin-right: var(--o-ui-scale-echo);
+        margin-left: var(--o-ui-global-scale-echo);
+        margin-right: var(--o-ui-global-scale-echo);
     }
     .mh6-l {
-        margin-left: var(--o-ui-scale-foxtrot);
-        margin-right: var(--o-ui-scale-foxtrot);
+        margin-left: var(--o-ui-global-scale-foxtrot);
+        margin-right: var(--o-ui-global-scale-foxtrot);
     }
     .mh7-l {
-        margin-left: var(--o-ui-scale-golf);
-        margin-right: var(--o-ui-scale-golf);
+        margin-left: var(--o-ui-global-scale-golf);
+        margin-right: var(--o-ui-global-scale-golf);
     }
     .mh8-l {
-        margin-left: var(--o-ui-scale-hotel);
-        margin-right: var(--o-ui-scale-hotel);
+        margin-left: var(--o-ui-global-scale-hotel);
+        margin-right: var(--o-ui-global-scale-hotel);
     }
     .mh9-l {
-        margin-left: var(--o-ui-scale-india);
-        margin-right: var(--o-ui-scale-india);
+        margin-left: var(--o-ui-global-scale-india);
+        margin-right: var(--o-ui-global-scale-india);
     }
     .mh10-l {
-        margin-left: var(--o-ui-scale-juliett);
-        margin-right: var(--o-ui-scale-juliett);
+        margin-left: var(--o-ui-global-scale-juliett);
+        margin-right: var(--o-ui-global-scale-juliett);
     }
     .mh11-l {
-        margin-left: var(--o-ui-scale-kilo);
-        margin-right: var(--o-ui-scale-kilo);
+        margin-left: var(--o-ui-global-scale-kilo);
+        margin-right: var(--o-ui-global-scale-kilo);
     }
     .mh12-l {
-        margin-left: var(--o-ui-scale-lima);
-        margin-right: var(--o-ui-scale-lima);
+        margin-left: var(--o-ui-global-scale-lima);
+        margin-right: var(--o-ui-global-scale-lima);
     }
     .mh13-l {
-        margin-left: var(--o-ui-scale-mike);
-        margin-right: var(--o-ui-scale-mike);
+        margin-left: var(--o-ui-global-scale-mike);
+        margin-right: var(--o-ui-global-scale-mike);
     }
     .mh-auto-l {
         margin-left: auto;

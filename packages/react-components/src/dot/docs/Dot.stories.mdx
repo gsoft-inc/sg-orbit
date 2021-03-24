@@ -41,11 +41,14 @@ A dot can have a label.
 
 A dot can have a color.
 
+You can use a color name from our foundations(e.g. `sunray-50`), an hexadecimal color code `#c5cac8`, an `hsl`, an `hsla`, a `rgb` or a `rgba` color code. Alias are also accepted as a full var declarations (e.g. `--o-ui-alias-primary-500`).
+
 <Preview>
     <Story name="color">
         <Inline>
-            <Dot color="green-500">Habitable</Dot>
-            <Dot color="alert-500">Uninhabitable</Dot>
+            <Dot color="botanic-500">Habitable</Dot>
+            <Dot color="hsl(25, 69%, 41%)">Uninhabitable</Dot>
+            <Dot color="--o-ui-alias-primary-500">Clean</Dot>
         </Inline>
     </Story>
 </Preview>

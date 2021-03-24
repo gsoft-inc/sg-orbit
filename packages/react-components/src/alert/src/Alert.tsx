@@ -11,7 +11,7 @@ import { isNil } from "lodash";
 
 const Role = {
     info: "status",
-    success: "status",
+    positive: "status",
     warning: "alert",
     critical: "alert"
 };
@@ -55,7 +55,7 @@ export interface InnerAlertProps {
     /**
      * The style to use.
      */
-    tone?: "info" | "success" | "warning" | "critical";
+    tone?: "info" | "positive" | "warning" | "critical";
     /**
      * Called when the dismiss button is clicked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -161,14 +161,14 @@ Alert.displayName = "Alert";
 
 const variations: { tone: keyof typeof Role, icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
-    { tone: "success", icon: <CheckIcon /> },
+    { tone: "positive", icon: <CheckIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
     { tone: "critical", icon: <InfoIcon /> }
 ];
 
 const [
     InfoAlert,
-    SuccessAlert,
+    PositiveAlert,
     WarningAlert,
     CriticalAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
@@ -221,25 +221,24 @@ export interface AlertTemplateProps {
 
 // Dummy component for documentation purpose.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function AlertTemplate(_props: AlertTemplateProps) {
-    // When returning null, react-docgen ignore the component.
-    return <></>;
+export function AlertTemplate(_props: AlertTemplateProps): JSX.Element {
+    return null;
 }
 
 InfoAlert.displayName = "InfoAlert";
-SuccessAlert.displayName = "SuccessAlert";
+PositiveAlert.displayName = "PositiveAlert";
 WarningAlert.displayName = "WarningAlert";
 CriticalAlert.displayName = "CriticalAlert";
 
 
 export type InfoAlertProps = ComponentProps<typeof InfoAlert>;
-export type SuccessAlertProps = ComponentProps<typeof SuccessAlert>;
+export type PositiveAlertProps = ComponentProps<typeof PositiveAlert>;
 export type WarningAlertProps = ComponentProps<typeof WarningAlert>;
 export type CriticalAlertProps = ComponentProps<typeof CriticalAlert>;
 
 export {
     InfoAlert,
-    SuccessAlert,
+    PositiveAlert,
     WarningAlert,
     CriticalAlert
 };

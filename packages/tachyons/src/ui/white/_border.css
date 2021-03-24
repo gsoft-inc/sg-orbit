@@ -1,11 +1,11 @@
 .b--white {
-    border-color: var(--o-ui-white);
+    border-color: var(--o-ui-global-white);
 }
 
 .hover-b--white:hover {
-    border-color: var(--o-ui-white);
+    border-color: var(--o-ui-global-white);
 }
 
 .focus-b--white:focus {
-    border-color: var(--o-ui-white);
+    border-color: var(--o-ui-global-white);
 }

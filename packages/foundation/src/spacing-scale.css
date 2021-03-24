@@ -1,0 +1,28 @@
+.o-ui {
+    /* 4px */
+    --o-ui-global-scale-alpha: .25rem;
+    /* 8px */
+    --o-ui-global-scale-bravo: .5rem;
+    /* 12px */
+    --o-ui-global-scale-charlie: .75rem;
+    /* 16px */
+    --o-ui-global-scale-delta: 1rem;
+    /* 20px */
+    --o-ui-global-scale-echo: 1.25rem;
+    /* 24px */
+    --o-ui-global-scale-foxtrot: 1.5rem;
+    /* 32px */
+    --o-ui-global-scale-golf: 2rem;
+    /* 40px */
+    --o-ui-global-scale-hotel: 2.5rem;
+    /* 48px */
+    --o-ui-global-scale-india: 3rem;
+    /* 56px */
+    --o-ui-global-scale-juliett: 3.5rem;
+    /* 64px */
+    --o-ui-global-scale-kilo: 4rem;
+    /* 72px */
+    --o-ui-global-scale-lima: 4.5rem;
+    /* 80px */
+    --o-ui-global-scale-mike: 5rem;
+}

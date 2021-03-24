@@ -20,11 +20,11 @@
 }
 
 .o-ui-field .o-ui-field-label-sm {
-    padding-bottom: var(--o-ui-scale-alpha);
+    padding-bottom: var(--o-ui-global-scale-alpha);
 }
 
 .o-ui-field .o-ui-field-label-md {
-    padding-bottom: var(--o-ui-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
 }
 
 /* INPUT */
@@ -38,9 +38,9 @@
 }
 
 .o-ui-field .o-ui-field-message-sm {
-    padding-top: var(--o-ui-scale-alpha);
+    padding-top: var(--o-ui-global-scale-alpha);
 }
 
 .o-ui-field .o-ui-field-message-md {
-    padding-top: var(--o-ui-scale-bravo);
+    padding-top: var(--o-ui-global-scale-bravo);
 }

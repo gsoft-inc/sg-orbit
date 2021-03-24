@@ -1,18 +1,18 @@
 .o-ui-date-range-input {
-    --o-ui-padding: var(--o-ui-scale-charlie);
-    --o-ui-border-color: var(--o-ui-border-1);
-    --o-ui-background-color: var(--o-ui-background-2);
+    --o-ui-date-range-input-padding: var(--o-ui-global-scale-charlie);
+    --o-ui-date-range-input-border-color: var(--o-ui-alias-border-1);
+    --o-ui-date-range-input-background-color: var(--o-ui-alias-background-2);
     display: inline-flex;
     align-items: center;
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
-    padding: 0 var(--o-ui-padding);
+    padding: 0 var(--o-ui-date-range-input-padding);
     /* For clear button */
-    padding-right: var(--o-ui-scale-golf);
-    border-radius: var(--o-ui-rounded-border-radius);
-    border: 1px solid var(--o-ui-border-color);
-    color: var(--o-ui-text-1);
-    background-color: var(--o-ui-background-1);
+    padding-right: var(--o-ui-global-scale-golf);
+    border-radius: var(--o-ui-shape-rounded);
+    border: 1px solid var(--o-ui-date-range-input-border-color);
+    color: var(--o-ui-alias-text-1);
+    background-color: var(--o-ui-alias-background-1);
     width: 340px;
 }
 
@@ -25,28 +25,39 @@
 /* STATES | FOCUS */
 .o-ui-date-range-input-focus {
     box-shadow: var(--o-ui-focus-ring-inset-sm);
-    border-color: var(--o-ui-border-primary-1);
+    border-color: var(--o-ui-alias-border-primary-1);
+}
+
+/* STATES | FOCUS / INVALID */
+.o-ui-date-range-input-focus.o-ui-date-range-input-invalid {
+    box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
+    border-color: var(--o-ui-alias-border-negative-1);
+}
+
+/* STATES | HOVER */
+.o-ui-date-range-input:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
+    border-color: var(--o-ui-alias-border-1-hover);
 }
 
 /* STATES | DISABLED */
 .o-ui-date-range-input-disabled {
     opacity: var(--o-ui-disabled-opacity);
-    background-color: var(--o-ui-background-color);
+    background-color: var(--o-ui-date-range-input-background-color);
     cursor: not-allowed;
 }
 
 .o-ui-date-range-input-disabled .o-ui-date-range-input-divider {
-    border-left-color: var(--o-ui-border-2) !important;
+    border-left-color: var(--o-ui-alias-border-2) !important;
 }
 
 .o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {
-    background-color: var(--o-ui-background-color);
+    background-color: var(--o-ui-date-range-input-background-color);
     cursor: not-allowed;
 }
 
 /* STATES | INVALID */
 .o-ui-date-range-input-invalid {
-    --o-ui-border-color: var(--o-ui-border-danger-1);
+    --o-ui-date-range-input-border-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* ICON */
@@ -56,25 +67,26 @@
 
 /* DATE INPUT */
 .o-ui-date-range-input-date-input {
-    font-size: var(--o-ui-type-scale-7);
-    color: var(--o-ui-text-1);
-    padding-left: var(--o-ui-scale-alpha);
+    font-size: var(--o-ui-global-type-scale-7);
+    color: var(--o-ui-alias-text-1);
+    padding-left: var(--o-ui-global-scale-alpha);
     border: none;
     outline: none;
     transition: all .12s ease-in, padding 0s linear;
     width: 100%;
-    min-height: calc(var(--o-ui-scale-hotel) - 2px);
+    min-height: calc(var(--o-ui-global-scale-hotel) - 2px);
+    background-color: transparent;
 }
 
 /* DATE INPUT | PLACEHOLDER */
 .o-ui-date-range-input-date-input::placeholder {
-    color: var(--o-ui-text-input-placeholder);
+    color: var(--o-ui-alias-text-input-placeholder);
 }
 
 /* DATE INPUT | SELECTION */
 .o-ui-date-range-input-date-input::selection {
-    background-color: var(--o-ui-background-input-selection);
-    color: var(--o-ui-text-input-selection);
+    background-color: var(--o-ui-alias-background-input-selection);
+    color: var(--o-ui-alias-text-input-selection);
 }
 
 /* DIVIDER */
@@ -87,7 +99,7 @@
 /* CLEAR BUTTON */
 .o-ui-date-range-input-clear-button {
     position: absolute;
-    right: var(--o-ui-scale-alpha);
+    right: var(--o-ui-global-scale-alpha);
 }
 
 /* GROUP */
@@ -97,5 +109,5 @@
 }
 
 .o-ui-date-range-input-group .o-ui-date-range-input {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-bravo);
 }

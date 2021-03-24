@@ -15,7 +15,7 @@
 
 /* CONTENT */
 .o-ui-disclosure-content-inner {
-    padding-top: var(--o-ui-scale-echo);
-    padding-bottom: var(--o-ui-scale-echo);
-    color: var(--o-ui-text-1);
+    padding-top: var(--o-ui-global-scale-echo);
+    padding-bottom: var(--o-ui-global-scale-echo);
+    color: var(--o-ui-alias-text-1);
 }

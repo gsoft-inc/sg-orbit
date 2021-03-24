@@ -1,5 +1,5 @@
-html * {
-    --o-ui-dot-color: var(--o-ui-background-2);
+.o-ui {
+    --o-ui-dot-color: var(--o-ui-alias-background-2);
 }
 
 .o-ui-dot {
@@ -11,16 +11,16 @@ html * {
 .o-ui-dot:before {
     content: "";
     display: inline-block;
-    border-radius: var(--o-ui-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     background-color: var(--o-ui-dot-color);
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--o-ui-type-scale-8);
+    font-size: var(--o-ui-global-type-scale-8);
 }
 
 /* CONTENT | LABEL */
 .o-ui-dot-has-label.o-ui-dot:before {
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* DISABLED */
