@@ -1,42 +1,50 @@
 import "./Tag.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
+import { InteractionStatesProps, cssModule, forwardRef, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { any, bool, elementType, func, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
-const propTypes = {
+export interface InnerTagProps extends InteractionStatesProps {
     /**
      * The tag style to use.
      */
-    variant: oneOf(["solid", "outline"]),
+    variant?: "solid" | "outline";
     /**
      * Called when the remove button is clicked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onRemove: func,
+    onRemove?(event: SyntheticEvent): void;
+    /**
+     * Whether or not the tag is disabled.
+     */
+    disabled?: boolean;
     /**
      * Whether the tag take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * A tag can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * @ignore
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
+
 
 export function InnerTag({
     variant = "solid",
@@ -51,7 +59,7 @@ export function InnerTag({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTagProps) {
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, dot, text, counter } = useSlots(children, useMemo(() => ({
@@ -119,11 +127,11 @@ export function InnerTag({
     );
 }
 
-InnerTag.propTypes = propTypes;
-
-export const Tag = forwardRef((props, ref) => (
+export const Tag = forwardRef<InnerTagProps>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
+
+export type TagProps = ComponentProps<typeof Tag>
 
 Tag.displayName = "Tag";
 
