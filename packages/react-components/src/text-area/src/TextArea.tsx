@@ -1,87 +1,102 @@
 import "./TextArea.css";
 
-import { Box } from "../../box";
-import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useControllableState, useEventCallback } from "../../shared";
-import { forwardRef, useCallback, useLayoutEffect, useState } from "react";
+import { Box, BoxProps } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback, useLayoutEffect, useState } from "react";
+import { InteractionStatesProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
-const propTypes = {
+export interface InnerTextAreaProps extends InteractionStatesProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * A controlled value.
      */
-    value: string,
+    value?: string,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: string,
+    defaultValue?: string,
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * Whether or not an element is resizable, and if so, in which directions. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/resize).
      */
-    resize: oneOf(["vertical", "none"]),
+    resize?: "vertical" | "none";
     /**
      * Whether a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
-    type: oneOf(["text", "password", "search", "url", "tel", "email"]),
+    type?: "text" | "password" | "search" | "url" | "tel" | "email";
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: number | boolean;
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
-    button: element,
+    button?: ReactElement
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not to render a loader.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * The number of visible text lines.
      */
-    rows: number,
+    rows?: number,
     /**
      * The maximum number of visible text lines before displaying a scrollbar.
      */
-    maxRows: number,
+    maxRows?: number,
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>,
+    /**
+     * Whether or not the text area is disabled.
+     */
+    disabled?: boolean;
+    /**
+     * Whether or not the text area is readonly.
+     */
+    readOnly?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-const pxToInt = value => {
+const pxToInt = (value?: string) => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
 
-export function InnerTextArea(props) {
+export function InnerTextArea(props: InnerTextAreaProps) {
     const [fieldProps] = useFieldInputProps();
 
     const {
@@ -169,7 +184,7 @@ export function InnerTextArea(props) {
                     {
                         rows,
                         style: {
-                            "--o-ui-resize": resize
+                            ["--o-ui-resize" as any]: resize
                         }
                     },
                     inputProps
@@ -198,10 +213,10 @@ export function InnerTextArea(props) {
     );
 }
 
-InnerTextArea.propTypes = propTypes;
-
-export const TextArea = forwardRef((props, ref) => (
+export const TextArea = forwardRef<InnerTextAreaProps>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
+
+export type TextAreaProps = ComponentProps<typeof TextArea>
 
 TextArea.displayName = "TextArea";
