@@ -100,7 +100,7 @@ export function InnerTooltipTrigger({
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState();
     const [overlayElement, setOverlayElement] = useState();
-    const [arrowElement, setArrowElement] = useState<ReactElement>();
+    const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
@@ -194,7 +194,7 @@ export function InnerTooltipTrigger({
                 {tooltipMarkup}
                 <OverlayArrow
                     style={arrowStyles}
-                    ref={setArrowElement as any}
+                    ref={ref => setArrowElement(ref)}
                 />
             </Overlay>
         </TooltipTriggerContext.Provider>

@@ -52,7 +52,7 @@ export function usePopup(type: boolean | "menu" | "listbox" | "tree" | "grid" | 
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState<HTMLElement>();
     const [overlayElement, setOverlayElement] = useState<HTMLElement>();
-    const [arrowElement, setArrowElement] = useState();
+    const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -135,7 +135,7 @@ export function usePopup(type: boolean | "menu" | "listbox" | "tree" | "grid" | 
         focusManager,
         triggerProps: mergeProps(
             {
-                tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
+                tabIndex: !restoreFocus && isOpen ? -1 : undefined,
                 "aria-haspopup": type,
                 "aria-expanded": isOpen ? true : undefined,
                 "aria-controls": isOpen ? overlayId : undefined,
@@ -148,7 +148,7 @@ export function usePopup(type: boolean | "menu" | "listbox" | "tree" | "grid" | 
                 id: overlayId,
                 show: isOpen,
                 style: overlayStyles,
-                tabIndex: "-1",
+                tabIndex: -1,
                 ref: overlayRef
             },
             overlayDismissProps,
