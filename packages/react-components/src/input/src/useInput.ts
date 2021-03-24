@@ -5,12 +5,12 @@ import { isNumber } from "lodash";
 export interface UseInputProps {
     cssModule?: string,
     id?: string;
-    value?: string;
+    value?: string | number;
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
     onChange?(event: SyntheticEvent): void
-    type?: "text" | "password" | "search" | "url" | "tel" | "email";
+    type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;
     readOnly?: boolean;
