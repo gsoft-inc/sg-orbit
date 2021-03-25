@@ -264,16 +264,19 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        menuProps: menuPropsTemp = {}, //TODO: TS i can't find the proper synthax to deconstruct the object here
         as = "input",
         children,
         forwardedRef,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         size, // TODO: TS can't pass this property to searchInput
         ...rest
     } = mergeProps(
         props,
         fieldProps
     );
+
+    const { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = menuPropsTemp;
 
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
