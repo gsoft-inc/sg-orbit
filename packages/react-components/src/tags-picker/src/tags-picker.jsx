@@ -50,6 +50,10 @@ export class TagsPicker extends AutoControlledPureComponent {
          */
         items: arrayOf(shape(ITEM_SHAPE)).isRequired,
         /**
+         * Default available items.
+         */
+        defaultItems: arrayOf(shape(ITEM_SHAPE)),
+        /**
          * A controlled array of selected values.
          */
         values: arrayOf(string),
@@ -147,10 +151,11 @@ export class TagsPicker extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <TagsPickerSelectedItems />,
         clearButton: <TagsPickerClearButton />,
-        size: DEFAULT_SIZE
+        size: DEFAULT_SIZE,
+        defaultItems: []
     };
 
-    static autoControlledProps = ["values", "open"];
+    static autoControlledProps = ["values", "open", "items"];
 
     // Expose sub-components.
     static Dropdown = TagsPickerDropdown;
