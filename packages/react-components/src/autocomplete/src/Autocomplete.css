@@ -3,7 +3,7 @@
     align-items: center;
     border: 1px solid var(--o-ui-alias-border-2);
     border-radius: var(--o-ui-global-scale-alpha);
-    box-shadow: var(--o-ui-global-shadow-100);
+    box-shadow: var(--o-ui-global-shadow-300);
     background-color: var(--o-ui-alias-background-1);
     padding-right: var(--o-ui-global-scale-hotel);
     padding-left: var(--o-ui-global-scale-charlie);

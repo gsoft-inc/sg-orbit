@@ -2,7 +2,7 @@
 .o-ui-sb-preview {
     margin: var(--o-ui-global-scale-golf) 0 var(--o-ui-global-scale-hotel);
     border-radius: 4px;
-    box-shadow: var(--o-ui-glboal-shadow-100);
+    box-shadow: var(--o-ui-glboal-shadow-200);
 }
 
 /* STORY */
