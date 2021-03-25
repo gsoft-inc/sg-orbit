@@ -1,9 +1,0 @@
-.o-ui-dark-color-scheme {
-    --o-ui-global-shadow-100: 0 4px 12px 0 hsla(223, 13%, 3%, 1);
-    --o-ui-global-shadow-200: 0 8px 24px 0 hsla(223, 13%, 3%, 1);
-}
-
-.o-ui-light-color-scheme {
-    --o-ui-global-shadow-100: 0 4px 12px 0 hsla(223, 13%, 56%, .32);
-    --o-ui-global-shadow-200: 0 8px 24px 0 hsla(223, 13%, 56%, .32);
-}
