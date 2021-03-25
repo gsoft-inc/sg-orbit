@@ -28,6 +28,12 @@
     border-color: var(--o-ui-alias-border-primary-1);
 }
 
+/* STATES | FOCUS / INVALID */
+.o-ui-date-range-input-focus.o-ui-date-range-input-invalid {
+    box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
+    border-color: var(--o-ui-alias-border-negative-1);
+}
+
 /* STATES | HOVER */
 .o-ui-date-range-input:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
     border-color: var(--o-ui-alias-border-1-hover);

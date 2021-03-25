@@ -2,23 +2,23 @@ Theming Strategy in Orbit
 
 ## Summary
 
-Orbit has been, in it's infancy, a monolitich piece of CSS, the only theming options were to modify the primary colors in order to adapt to each products in the Sharegate ecosystem. With Orbit 2.0 we aim to support, among things, a dark theme, while opening the door for future theming possibilitiess. In this RFC we propose a new architecture for CSS Custom Properties and a way to organize them.
+Orbit has been, in it's infancy, a monolitich piece of CSS, the only theming options were to modify the primary colors in order to adapt to each products in the Sharegate ecosystem. With Orbit 2.0 we aim to support, among things, a dark theme, while opening the door for future theming possibilities. In this RFC we propose a new architecture for CSS Custom Properties and a way to organize them.
 
 ## Motivation
 
-Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-negative` has a semantic meaning while `border-red-500` has none and could be used in many situations. This make our intefaces more cohesive and gives intention to our design choices. As Adobe Spectrum sums it up:
+Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-negative` has a semantic meaning while `border-beetle-500` has none and could be used in many situations. This make our intefaces more cohesive, our codebase easier to maintain and gives intention to our design choices. As Adobe Spectrum sums it up:
 
 > Too much color can create cognitive overload, affecting users’ ability to efficiently interact with products.
 
-### Design Tokens
+### CSS Variables
 
-Design tokens are the values needed to construct and maintain our design system, from spacing, color, typograghy, to shadows. These values are reflected in the form of CSS Custom Properties(variables). These are prefixed with `o-ui-global`. Design tokens are not affected by a theme. or color scheme, they are what one could call a constant.
+CSS Variables are the values needed to construct and maintain our design system, from spacing, color, typograghy, to shadows. Think of CSS Variables as Design Tokens or constants. These values are reflected in the form of CSS Custom Properties(variables). These are prefixed with `o-ui-global`. CSS Variables are not affected by a theme. or color scheme, they are what one could call a constant.
 
 On top of design tokens lives *semantic variables*, these have an assigned meaning and expedite design decisions. One example of a semantic variable would be a `border-negative` variable, this variable would use the `beetle-500` color behind the scene. When in need of a border that represent a negative state one designer wouldn't need to reinvent the wheel and should use this abstraction : `border-negative`.  These are prefixed with `o-ui-alias`.
 
 Here is an example on how semantic variables work at a core level: 
 
-`--o-ui-alias-text-primary` is a semantic variable who uses `--o-ui-global-marine-900` when in a *light* theme and `--o-ui-global-marine-500` when in a *dark* theme.
+`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-global-beetle-500` when in a *light* theme and `--o-ui-global-beetle-700` when in a *dark* theme.
 
 ### Supported Themes
 
@@ -94,11 +94,9 @@ Utility variables are variables that helps crafting experiences, while being uti
 
 ### Implementation in Orbit
 
-The *Theme Provider* componen is responsible of adding the 3 needed classes: `-o-ui o-ui-{theme} -o-ui-{color-scheme}) in order to benefit from the complete Orbit UI experience.
+Orbit's utility variables, these are unprefixed, are declared at the root CSS file `react-components/src/index.css` as well as generic CSS declarations like the app default font-color.
 
-Orbit's utility variables are declared at the root CSS file `react-components/src/index.css` as well as generic CSS declarations like the app default font-color.
-
-Global variables, alias variables as well as alias CSS classes are declared at the foundation level, grouped by what they affect:  background, color, spacing, etc. Each of these files contains global declarations as well as theme and color scheme declarations. Here's is an example of the structure of a CSS file.
+Global variables, alias variables as well as alias CSS classes are declared at the foundation level, grouped by what they affect: background, color, spacing, etc. Each of these files contains global declarations as well as theme and color scheme declarations. Here's is an example of the structure of a CSS file.
 
 ```css
 // background.css
@@ -144,6 +142,8 @@ In order to be able to benefits from themes, an app need some setup. Apart from 
 - `o-ui-apricot` `o-ui-desktop` gives you access to brand related semantic tokens, e.g. `--o-ui-primary-50`
 
 Once setup you can refer to these variables in your CSS, as well as use their utility classes counterpart.
+
+The *Theme Provider* component is responsible of adding the 3 needed classes: `-o-ui o-ui-{theme} -o-ui-{color-scheme}) in order to benefit from the complete Orbit UI experience.
 
 Using a semantic token in your CSS
 

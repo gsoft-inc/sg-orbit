@@ -144,6 +144,16 @@
     overflow: hidden;
 }
 
+/* PLACEHOLDER */
+.o-ui-select-placeholder {
+    color: var(--o-ui-alias-text-input-placeholder);
+}
+
+/* PLACEHOLDER | INVALID */
+.o-ui-select-trigger-invalid .o-ui-select-placeholder {
+    color: var(--o-ui-alias-text-negative-1);
+}
+
 /* SELECT VALUE & PLACEHOLDER */
 .o-ui-select-value,
 .o-ui-select-placeholder {

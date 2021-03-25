@@ -242,7 +242,10 @@ stories()
                 <Text>Mars</Text>
                 <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
             </Item>
-            <Item key="mercury">Mercury</Item>
+            <Item key="mercury">
+                <Text>Mercury</Text>
+                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+            </Item>
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
