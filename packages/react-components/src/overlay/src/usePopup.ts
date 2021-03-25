@@ -58,7 +58,7 @@ export function usePopup(type: boolean | "menu" | "listbox" | "tree" | "grid" | 
 
     const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
 
-    const updateIsOpen = useCallback((event, newValue) => {
+    const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
             if (!isNil(onOpenChange)) {
                 onOpenChange(event, newValue);

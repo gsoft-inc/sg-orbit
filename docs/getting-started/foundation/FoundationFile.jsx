@@ -13,7 +13,7 @@ export function FoundationFile({ relativeFilePath }) {
     const [content, setContent] = useState();
 
     if (isNil(content)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/foundation/src/atoms${relativeFilePath}`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/foundation/src${relativeFilePath}`)
             .then(module => {
                 const parsingResult = parse(module.default);
                 const declarations = parsingResult.stylesheet.rules[0].declarations.filter(x => x.type === "declaration");

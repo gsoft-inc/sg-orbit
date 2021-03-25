@@ -25,58 +25,58 @@ export interface InnerCheckboxGroupProps {
     /**
    * The value of the checkbox group.
    */
-    value: (string | number)[];
+    value?: (string | number)[];
     /**
      * The initial value of `value`.
      */
-    defaultValue: (string | number)[];
+    defaultValue?: (string | number)[];
     /**
      * Whether a user input is required before form submission.
      */
-    required: boolean;
+    required?: boolean;
     /**
      * Whether the group should display as "valid" or "invalid".
      */
-    validationState: "valid" | "invalid";
+    validationState?: "valid" | "invalid";
     /**
      * Called when any of the children is checked or unchecked..
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string[] | number[]} value - The new value.
      * @returns {void}
      */
-    onChange(event: SyntheticEvent, value: (string | number)[]): void;
+    onChange?(event: SyntheticEvent, value: (string | number)[]): void;
     /**
      * Whether or not the first checkbox of the group should autoFocus on render.
      */
-    autoFocus: boolean | number;
+    autoFocus?: boolean | number;
     /**
      * The orientation of the group elements.
      */
-    orientation: "horizontal" | "vertical";
+    orientation?: "horizontal" | "vertical";
     /**
      * The space between the group elements.
      */
-    gap: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
      * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
-    wrap: boolean;
+    wrap?: boolean;
     /**
      * The group elements size.
      */
-    size: "sm" | "md";
+    size?: "sm" | "md";
     /**
      * Whether or not the group elements are disabled.
      */
-    disabled: boolean;
+    disabled?: boolean;
     /**
      * Invert the order of the checkbox and his label.
      */
-    reverse: boolean;
+    reverse?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: ElementType;
+    as?: ElementType;
     /**
      * React children.
      */

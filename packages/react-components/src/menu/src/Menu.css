@@ -17,7 +17,7 @@
 
 /* ITEM */
 .o-ui-menu-item {
-    height: var(--o-ui-menu-item-height);
+    min-height: var(--o-ui-menu-item-height);
     list-style: none;
     padding: 0 var(--o-ui-global-scale-charlie);
     margin: 0;
@@ -35,6 +35,7 @@
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
     padding-top: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
@@ -79,9 +80,6 @@
 .o-ui-menu-item-description {
     grid-area: description;
     color: var(--o-ui-alias-text-2);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     justify-self: start;
     width: 100%;
 }

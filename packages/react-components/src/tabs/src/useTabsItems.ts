@@ -6,7 +6,7 @@ import { mergeProps, resolveChildren } from "../../shared";
 export interface PanelType {
     id: string
     key: string
-    position: any
+    position: number
     index: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
@@ -18,7 +18,7 @@ export interface PanelType {
 export interface TabType {
     id: string
     key: string
-    position: any
+    position: number
     index: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
