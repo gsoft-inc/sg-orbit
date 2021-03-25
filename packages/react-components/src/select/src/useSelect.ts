@@ -37,7 +37,7 @@ export interface UseSelectProps {
     ariaLabel?: string;
     ariaLabelledBy?: string;
     ariaDescribedBy?: string
-    menuProps: {
+    menuProps?: {
         id?: string,
         style?: CSSProperties,
         [x: string]: any

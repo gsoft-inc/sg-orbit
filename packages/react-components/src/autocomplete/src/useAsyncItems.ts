@@ -1,12 +1,12 @@
-import { cancellablePromise } from "./cancellablePromise";
+import { CancellablePromise, cancellablePromise } from "./cancellablePromise";
+import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
-import { useCallback, useEffect, useState } from "react";
 
-export function useAsyncItems(fetch) {
+export function useAsyncItems<T>(fetch: (query: string) => Promise<T[]>) {
     const [isLoading, setIsLoading] = useState(false);
-    const [items, setItems] = useState([]);
-    const [promise, setPromise] = useRefState();
+    const [items, setItems] = useState<T[]>([]);
+    const [promise, setPromise] = useRefState<CancellablePromise<T[]>>();
 
     const cancelRequest = useCallback(() => {
         if (!isNil(promise.current)) {
@@ -15,7 +15,7 @@ export function useAsyncItems(fetch) {
         }
     }, [promise, setPromise]);
 
-    const search = useCallback(async (event, query) => {
+    const search = useCallback(async (_event: SyntheticEvent, query: string) => {
         cancelRequest();
         setIsLoading(true);
 
@@ -25,7 +25,7 @@ export function useAsyncItems(fetch) {
             throw new Error("Fetch function must return a valid promise.");
         }
 
-        const wrappedPromise = cancellablePromise(fetchPromise);
+        const wrappedPromise = cancellablePromise<T[]>(fetchPromise);
 
         setPromise(wrappedPromise);
 

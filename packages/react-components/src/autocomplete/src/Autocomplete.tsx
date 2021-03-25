@@ -1,10 +1,14 @@
 import "./Autocomplete.css";
 
+import { CSSProperties } from "aphrodite";
+import { CollectionItem, CollectionSection, NodeType, useCollection, useCollectionItems } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { KeyProp, Listbox } from "../../listbox";
 import {
+    InteractionStatesProps,
     Keys,
     augmentElement,
+    forwardRef,
     getRawSlots,
     isNilOrEmpty,
     mergeProps,
@@ -14,72 +18,79 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { NodeType, useCollection, useCollectionItems } from "../../collection";
+import { KeyProp, Listbox } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { SearchInput } from "../../text-input";
-import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useCallback, useRef, useState } from "react";
+import { Placement } from "@popperjs/core";
+import { SearchInput, SearchInputProps } from "../../text-input";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
-const propTypes = {
+export interface InnerAutocompleteProps extends InteractionStatesProps {
     /**
      * Whether or not to open the autocomplete element.
      */
-    open: bool,
+    open?: boolean,
     /**
      * The initial value of open when in auto controlled mode.
      */
-    defaultOpen: bool,
+    defaultOpen?: boolean,
     /**
      * A controlled autocomplete value.
      */
-    value: string,
+    value?: string,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: string,
+    defaultValue?: string,
     /**
      * Temporary text that occupies the autocomplete trigger when no value is selected.
      */
-    placeholder: string,
+    placeholder?: string,
+    /**
+    * @ignore
+    */
+    name?: string;
+    /**
+     * @ignore
+     */
+    "aria-label"?: string;
     /**
      * The items to render.
      */
-    items: arrayOf(object),
+    items?: CollectionItem[],
     /**
      * Whether or not the autocomplete should display a loading state.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * Whether or not the query should be cleared when a result is selected.
      */
-    clearOnSelect: bool,
+    clearOnSelect?: boolean;
     /**
      * Message to display when there are no results matching the query.
      */
-    noResultsMessage: string,
+    noResultsMessage?: string,
     /**
      * Minimum characters to query for results.
      */
-    minCharacters: number,
+    minCharacters?: number,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the autocomplete should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input query change and new search results are expected.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string} query - The search query.
      * @returns {void}
      */
-    onSearch: func,
+    onSearch?(event: SyntheticEvent, query: string): void,
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -88,65 +99,73 @@ const propTypes = {
      * @param {string} selection.value - The selected value.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, selection: { key?: string, value?: string }): void,
     /**
      * Called when the autocomplete open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onOpenChange: func,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void,
     /**
      * A trigger icon.
      */
-    icon: element,
+    icon?: ReactElement,
     /**
      * The direction the autocomplete menu will open relative to the input.
      */
-    direction: oneOf(["bottom", "top"]),
+    direction?: "bottom" | "top";
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */
-    align: oneOf(["start", "end"]),
+    align?: "start" | "end"
     /**
      * Whether or not the autocomplete should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number
     /**
      * Whether or not the autocomplete take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean,
     /**
      * Whether or not the autocomplete is disabled.
      */
-    disabled: bool,
+    disabled?: boolean,
     /**
      * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
-    allowFlip: bool,
+    allowFlip?: boolean;
     /**
      * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
-    allowPreventOverflow: bool,
+    allowPreventOverflow?: boolean;
     /**
      * z-index of the overlay element.
      */
-    zIndex: number,
+    zIndex?: number,
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps: object,
+    menuProps?: {
+        id?: string;
+        style?: CSSProperties,
+        [x: string]: any
+    };
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
-function getItemText(item) {
+function getItemText(item: CollectionItem) {
     const { text, stringValue } = getRawSlots(item?.content, ["text"]);
 
     return !isNil(text)
@@ -154,17 +173,17 @@ function getItemText(item) {
         : stringValue ?? "";
 }
 
-function isQueryMatchItem(query, item) {
+function isQueryMatchItem(query: string, item: CollectionItem) {
     const itemText = getItemText(item);
 
     return itemText.toLowerCase().startsWith(query);
 }
 
-function useLocalSearch(nodes) {
+function useLocalSearch(nodes: CollectionItem[]) {
     const [results, setResults] = useState([]);
 
     const search = useCallback(query => {
-        const cache = {};
+        const cache: Record<string, any> = {}; // TODO: TS la cache est jamais écrite dedans?
 
         query = query.toLowerCase();
 
@@ -173,7 +192,7 @@ function useLocalSearch(nodes) {
         } else {
             const reducedNodes = nodes.reduce((acc, node) => {
                 if (node.type === NodeType.section) {
-                    const items = node.items.reduce((sectionItems, item) => {
+                    const items = (node as CollectionSection).items.reduce((sectionItems, item) => {
                         if (isQueryMatchItem(query, item)) {
                             sectionItems.push(item);
                         }
@@ -182,8 +201,8 @@ function useLocalSearch(nodes) {
                     }, []);
 
                     if (items.length > 0) {
-                        // eslint-disable-next-line no-unused-vars
-                        const { items: _, ...sectionProps } = node;
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                        const { items: _, ...sectionProps } = (node as CollectionSection);
 
                         acc.push({
                             ...sectionProps,
@@ -205,10 +224,10 @@ function useLocalSearch(nodes) {
         }
     }, [nodes, setResults]);
 
-    return [results, search];
+    return [results, search] as const;
 }
 
-export function InnerAutocomplete(props) {
+export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
 
     const {
@@ -249,6 +268,7 @@ export function InnerAutocomplete(props) {
         as = "input",
         children,
         forwardedRef,
+        size, // TODO: TS can't pass this property to searchInput
         ...rest
     } = mergeProps(
         props,
@@ -264,6 +284,8 @@ export function InnerAutocomplete(props) {
             if (isInitial || isControlled) {
                 setQuery(newValue ?? "");
             }
+
+            return undefined; // TODO: TS // this method only return undefined or T
         }, [setQuery])
     });
 
@@ -273,18 +295,18 @@ export function InnerAutocomplete(props) {
         defaultOpen,
         onOpenChange,
         hideOnEscape: true,
-        hideOLeave: true,
+        hideOnLeave: true,
         restoreFocus: true,
         autoFocus,
         // An autocomplete take care of his own trigger logic.
         trigger: null,
-        position: `${direction}-${align}`,
+        position: `${direction}-${align}` as Placement,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow
     });
 
-    const listboxRef = useRef();
+    const listboxRef = useRef<HTMLElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
     const nodes = useCollection(children, { items: itemsProp });
@@ -383,7 +405,7 @@ export function InnerAutocomplete(props) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = listboxRef.current?.focusManager.focusNext();
+                    const activeElement = (listboxRef.current as any)?.focusManager.focusNext();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -395,7 +417,7 @@ export function InnerAutocomplete(props) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = listboxRef.current?.focusManager.focusPrevious();
+                    const activeElement = (listboxRef.current as any)?.focusManager.focusPrevious();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -407,7 +429,7 @@ export function InnerAutocomplete(props) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = listboxRef.current?.focusManager.focusFirst();
+                    const activeElement = (listboxRef.current as any)?.focusManager.focusFirst();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -419,7 +441,7 @@ export function InnerAutocomplete(props) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = listboxRef.current?.focusManager.focusLast();
+                    const activeElement = (listboxRef.current as any)?.focusManager.focusLast();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -453,7 +475,7 @@ export function InnerAutocomplete(props) {
         selectItem(event, newKey);
     });
 
-    const handleListboxFocusChange = useEventCallback((event, newKey, activeElement) => {
+    const handleListboxFocusChange = useEventCallback((_event, newKey, activeElement) => {
         setFocusedItem({
             id: activeElement.id,
             key: newKey
@@ -500,7 +522,7 @@ export function InnerAutocomplete(props) {
                 disabled={disabled}
             />
             <SearchInput
-                {...mergeProps(
+                {...mergeProps<Partial<SearchInputProps>[]>(
                     rest,
                     {
                         id: triggerId,
@@ -556,11 +578,11 @@ export function InnerAutocomplete(props) {
     );
 }
 
-InnerAutocomplete.propTypes = propTypes;
-
-export const Autocomplete = forwardRef((props, ref) => (
+export const Autocomplete = forwardRef<InnerAutocompleteProps, "input">((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));
+
+export type AutocompleteProps = ComponentProps<typeof Autocomplete>
 
 Autocomplete.displayName = "Autocomplete";
 
