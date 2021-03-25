@@ -174,7 +174,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     );
 }
 
-export const TextInput = forwardRef<InnerTextInputProps>((props, ref) => (
+export const TextInput = forwardRef<InnerTextInputProps, "input">((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
 

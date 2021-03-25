@@ -150,7 +150,7 @@ export function InnerSearchInput({
     );
 }
 
-export const SearchInput = forwardRef<InnerSearchInputProps>((props, ref) => (
+export const SearchInput = forwardRef<InnerSearchInputProps, "input">((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));
 

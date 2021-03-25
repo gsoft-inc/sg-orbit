@@ -5,61 +5,63 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { CalendarIcon, VerticalDotsIcon } from "../../icons";
+import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
+import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { Item } from "../../placeholders";
-import { Keys, augmentElement, cssModule, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { Menu, MenuTrigger } from "../../menu";
-import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
-import { forwardRef, useCallback, useRef, useState } from "react";
 import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-const PresetShape = {
-    text: string.isRequired,
-    startDate: object.isRequired,
-    endDate: object.isRequired
-};
+interface Preset {
+    text: string;
+    startDate: Date
+    endDate: Date;
+}
 
-const propTypes = {
+export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
+     * @ignore
+     */
+    name?: string;
     /**
      * A controlled start date value.
      */
-    startDate: object,
+    startDate?: Date,
     /**
      * A controlled end date value.
      */
-    endDate: object,
+    endDate?: Date,
     /**
      * The initial value of start date.
      */
-    defaultStartDate: object,
+    defaultStartDate?: Date,
     /**
      * The initial value of end date.
      */
-    defaultEndDate: object,
+    defaultEndDate?: Date,
     /**
      * Temporary text that occupies both date inputs when they are empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * The minimum (inclusive) date.
      */
-    minDate: object,
+    minDate?: Date,
     /**
      * The maximum (inclusive) date.
      */
-    maxDate: object,
+    maxDate?: Date,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the date(s) are / is applied.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -67,26 +69,34 @@ const propTypes = {
      * @param {Object} endDate - Selected end date.
      * @returns {void}
      */
-    onDatesChange: func,
+    onDatesChange?(event: SyntheticEvent, startDate: Date, endDate: Date): void,
     /**
      * Array of pre-determined dates range.
      */
-    presets: arrayOf(shape(PresetShape)),
+    presets?: Preset[]
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly?: boolean;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
-const DateInput = forwardRef(({
+const DateInput = forwardRef<any, "input">(({
     value,
     placeholder,
     required,
@@ -109,12 +119,12 @@ const DateInput = forwardRef(({
 
     const dateProps = useDateInput({
         value,
-        placeholder,
+        //placeholder, // TODO: TS useDateInput doesnt use this property
         minDate,
         maxDate,
         onChange,
         onDateChange,
-        autoFocus,
+        //autoFocus, // TODO: TS useDateInput doesnt use this property
         forwardedRef: inputRef
     });
 
@@ -138,7 +148,7 @@ const DateInput = forwardRef(({
     );
 });
 
-export function InnerDateRangeInput(props) {
+export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
@@ -175,8 +185,8 @@ export function InnerDateRangeInput(props) {
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
 
-    const startDateRef = useRef();
-    const endDateRef = useRef();
+    const startDateRef = useRef<HTMLElement>();
+    const endDateRef = useRef<HTMLElement>();
 
     const applyDates = useCallback((event, newStartDate, newEndDate) => {
         if (startDate !== newStartDate || endDate !== newEndDate) {
@@ -319,7 +329,7 @@ export function InnerDateRangeInput(props) {
             <Menu>
                 {presets.map((x, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <Item key={index}>
+                    <Item key={`${index}`}>
                         {x.text}
                     </Item>
                 ))}
@@ -351,10 +361,10 @@ export function InnerDateRangeInput(props) {
     );
 }
 
-InnerDateRangeInput.propTypes = propTypes;
-
-export const DateRangeInput = forwardRef((props, ref) => (
+export const DateRangeInput = forwardRef<InnerDateRangeInputProps>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));
+
+export type DateRangeInputProps = ComponentProps<typeof DateRangeInput>
 
 DateRangeInput.displayName = "DateRangeInput";

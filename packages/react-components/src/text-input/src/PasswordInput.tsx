@@ -130,7 +130,7 @@ export function InnerPasswordInput({
     );
 }
 
-export const PasswordInput = forwardRef<InnerPasswordInputProps>((props, ref) => (
+export const PasswordInput = forwardRef<InnerPasswordInputProps, "input">((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));
 
