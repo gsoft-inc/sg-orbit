@@ -1,6 +1,8 @@
+import "./ButtonGroup.css";
+
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { Group, GroupProps } from "../../group";
-import { augmentElement, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 export interface InnerButtonGroupProps {
@@ -76,7 +78,10 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     verticalAlign: orientation === "horizontal" ? "center" : undefined,
                     fluid,
                     gap: Gap[orientation][normalizeSize(size)],
-                    className: "o-ui-button-group",
+                    className: cssModule(
+                        "o-ui-button-group",
+                        isInField && "as-field"
+                    ),
                     role: !isInField ? "group" : undefined,
                     ref: forwardedRef
                 }

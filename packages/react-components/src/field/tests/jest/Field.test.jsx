@@ -44,15 +44,7 @@ test("when an id is provided, it is assigned to the input", async () => {
 
     const input = await waitFor(() => getByTestId("text-input"));
 
-    expect(input.getAttribute("id")).toBe("foo");
-});
-
-test("when an id is provided, it is assigned to the group field", async () => {
-    const { getByTestId } = render(<LabelledGroupInputField id="foo" />);
-
-    const field = await waitFor(() => getByTestId("field"));
-
-    expect(field.getAttribute("id")).toBe("foo");
+    expect(input.getAttribute("id")).toBe("foo-input");
 });
 
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
