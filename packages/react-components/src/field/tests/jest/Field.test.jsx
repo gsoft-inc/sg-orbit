@@ -6,7 +6,7 @@ import { render, waitFor } from "@testing-library/react";
 
 function LabelledInputField(props) {
     return (
-        <Field {...props}>
+        <Field {...props} data-testid="field">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
@@ -15,7 +15,7 @@ function LabelledInputField(props) {
 
 function LabelledGroupInputField(props) {
     return (
-        <GroupField {...props}>
+        <GroupField {...props} data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup data-testid="checkbox-group">
                 <Checkbox value="milky-way" >Milky Way</Checkbox>
@@ -47,12 +47,12 @@ test("when an id is provided, it is assigned to the input", async () => {
     expect(input.getAttribute("id")).toBe("foo");
 });
 
-test("when an id is provided, it is assigned to the group input", async () => {
+test("when an id is provided, it is assigned to the group field", async () => {
     const { getByTestId } = render(<LabelledGroupInputField id="foo" />);
 
-    const input = await waitFor(() => getByTestId("checkbox-group"));
+    const field = await waitFor(() => getByTestId("field"));
 
-    expect(input.getAttribute("id")).toBe("foo");
+    expect(field.getAttribute("id")).toBe("foo");
 });
 
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
@@ -76,37 +76,37 @@ test("when an id is provided, the label for attribute and the input id are match
 test("when the id is auto generated, the input aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledInputField />);
 
-    const input = await waitFor(() => getByTestId("text-input"));
+    const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
-test("when the id is auto generated, the group input aria-labelledby attribute match the label id", async () => {
+test("when the id is auto generated, the group field aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledGroupInputField />);
 
-    const input = await waitFor(() => getByTestId("checkbox-group"));
+    const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 test("when an id is provided, the input aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledInputField id="foo" />);
 
-    const input = await waitFor(() => getByTestId("text-input"));
+    const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
-test("when an id is provided, the group input aria-labelledby attribute match the label id", async () => {
+test("when an id is provided, the group field aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(<LabelledGroupInputField id="foo" />);
 
-    const input = await waitFor(() => getByTestId("checkbox-group"));
+    const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 // ***** Refs *****

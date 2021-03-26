@@ -33,7 +33,7 @@ const propTypes = {
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */
-    defaultIndex: arrayOf(string),
+    defaultExpandedKeys: arrayOf(string),
     /**
      * Called when an accordion item is toggled.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.

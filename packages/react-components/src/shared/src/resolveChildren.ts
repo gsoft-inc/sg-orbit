@@ -1,10 +1,11 @@
-import { Fragment, ReactElement, ReactNode } from "react";
-import { isFunction, isNil } from "lodash";
+import { ReactNode } from "react";
+import { isFragment } from "react-is";
+import { isFunction } from "lodash";
 
 // Support first level fragment: https://github.com/facebook/react/issues/11859.
 export function resolveFragment(children: ReactNode): ReactNode {
-    if (!isNil(children) && (children as ReactElement).type === Fragment) {
-        return (children as ReactElement).props.children;
+    if (isFragment(children)) {
+        return children.props.children;
     }
 
     return children;

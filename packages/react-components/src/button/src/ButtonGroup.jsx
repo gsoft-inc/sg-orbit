@@ -1,7 +1,8 @@
 import { Children, forwardRef } from "react";
 import { Group } from "../../group";
 import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, normalizeSize, slot } from "../../shared";
+import { augmentElement, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { useFieldInputProps } from "../../field";
 
 const propTypes = {
     /**
@@ -46,6 +47,8 @@ const Gap = {
 };
 
 export function InnerButtonGroup(props) {
+    const [fieldProps, isInField] = useFieldInputProps();
+
     const {
         orientation = "horizontal",
         align,
@@ -55,7 +58,10 @@ export function InnerButtonGroup(props) {
         children,
         forwardedRef,
         ...rest
-    } = props;
+    } = mergeProps(
+        props,
+        omitProps(fieldProps, ["fluid"])
+    );
 
     return (
         <Group
@@ -68,6 +74,7 @@ export function InnerButtonGroup(props) {
                     fluid,
                     gap: Gap[orientation][normalizeSize(size)],
                     className: "o-ui-button-group",
+                    role: !isInField ? "group" : undefined,
                     ref: forwardedRef
                 }
             )}

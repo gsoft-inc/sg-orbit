@@ -22,7 +22,7 @@ export function useFieldContext() {
 }
 
 export function useFieldLabelProps({ as: asProp }) {
-    const [{ isGroupField, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
+    const [{ isGroupField, fieldId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroupField ? "span" : "label"
@@ -32,7 +32,7 @@ export function useFieldLabelProps({ as: asProp }) {
         id: labelId,
         required,
         size,
-        htmlFor: as === "label" ? inputId : undefined,
+        htmlFor: as === "label" ? fieldId : undefined,
         className: cssModule(labelClassName, normalizeSize(size)),
         as
     };
@@ -42,10 +42,9 @@ export function useFieldLabelProps({ as: asProp }) {
 
 export function useFieldInputProps() {
     const [{
+        isGroupField,
         validationState,
-        inputId,
-        labelId,
-        messageId,
+        fieldId,
         required,
         fluid,
         size,
@@ -55,14 +54,12 @@ export function useFieldInputProps() {
 
     const props = isInField && {
         validationState,
-        id: inputId,
+        id: !isGroupField ? fieldId : undefined,
         required,
         disabled,
         fluid,
         size,
-        className: inputClassName,
-        "aria-labelledby": !isNil(labelId) ? labelId : undefined,
-        "aria-describedby": !isNil(messageId) ? messageId : undefined
+        className: inputClassName
     };
 
     return [props || {}, isInField];

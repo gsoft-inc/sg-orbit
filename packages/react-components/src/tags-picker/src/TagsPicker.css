@@ -1,9 +1,0 @@
-.o-ui-tags-picker {
-    display: inline-flex;
-    align-items: center;
-}
-
-.o-ui-tags-picker-trigger {
-    margin-right: var(--o-ui-scale-bravo);
-    margin-bottom: var(--o-ui-scale-bravo);
-}

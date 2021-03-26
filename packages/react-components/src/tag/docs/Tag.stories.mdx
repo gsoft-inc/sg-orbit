@@ -4,7 +4,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { Inline } from "@react-components/layout";
-import { InnerTag, Tag } from "@react-components/tag";
+import { InnerTag, InnerTagList, Tag, TagList } from "@react-components/tag";
 import { Text } from "@react-components/text";
 import CustomColorHover from "./CustomColorHover.mdx";
 
@@ -18,7 +18,7 @@ import CustomColorHover from "./CustomColorHover.mdx";
 <Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
 
 <ComponentInfo
-    usage={"import { Tag } from \"@orbit-ui/react-components\""}
+    usage={"import { Tag, TagList } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/tag/src"
 />
 
@@ -140,6 +140,10 @@ Custom colors can be applied to a tag.
 
 <CustomColorHover />
 
+## TagList
+
+
+
 ## API
 
 ### Tag
@@ -151,6 +155,15 @@ Custom colors can be applied to a tag.
 />
 
 <ArgsTable of={InnerTag} />
+
+### TagList
+
+<ComponentInfo
+    usage={"import { TagList } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTagList} />
 
 
 

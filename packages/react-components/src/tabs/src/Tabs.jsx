@@ -83,7 +83,7 @@ export function InnerTabs({
     });
 
     // Ensure the selected key match a valid tab which is not disabled.
-    const currentKey = useMemo(() => {
+    const adjustedKey = useMemo(() => {
         const selectedTab = tabs.find(x => x.key === selectedKey);
 
         if (isNil(selectedTab)) {
@@ -114,7 +114,7 @@ export function InnerTabs({
         >
             <TabsContext.Provider
                 value={{
-                    selectedKey: currentKey,
+                    selectedKey: adjustedKey,
                     onSelect: handleSelect,
                     isManual: manual,
                     orientation

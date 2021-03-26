@@ -103,7 +103,7 @@ const KeyProp = "value";
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
-    const [fieldProps] = useFieldInputProps();
+    const [fieldProps, isInField] = useFieldInputProps();
 
     const {
         value,
@@ -157,7 +157,7 @@ export function InnerRadioGroup(props) {
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
-        role: "radio-group",
+        role: "radiogroup",
         keyProp: KeyProp,
         value,
         defaultValue,
@@ -169,6 +169,7 @@ export function InnerRadioGroup(props) {
         wrap,
         reverse,
         disabled,
+        isInField,
         groupRef
     });
 

@@ -9,7 +9,7 @@ function Tag({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createTestSuite(element, stories) {
+export function createTagTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>

@@ -62,7 +62,7 @@ export function InnerGroupField(props) {
         toolbarProps
     );
 
-    const { fieldProps, fieldContext } = useField({
+    const { fieldId, fieldProps, fieldContext } = useField({
         id,
         validationState,
         required,
@@ -78,6 +78,7 @@ export function InnerGroupField(props) {
             {...mergeProps(
                 rest,
                 {
+                    id: fieldId,
                     as
                 },
                 fieldProps

@@ -15,11 +15,6 @@
     border-radius: var(--o-ui-rounded-border-radius);
 }
 
-/* TRIGGER | ICON ARROW */
-.o-ui-select-icon-arrow {
-    flex-shrink: 0;
-}
-
 /* TRIGGER | FLUID */
 .o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
 .o-ui-select-trigger-outline.o-ui-select-trigger-fluid {

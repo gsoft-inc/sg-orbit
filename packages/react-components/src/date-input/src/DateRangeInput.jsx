@@ -140,7 +140,7 @@ const DateInput = forwardRef(({
 
 export function InnerDateRangeInput(props) {
     const [toolbarProps] = useToolbarProps();
-    const [fieldProps] = useFieldInputProps();
+    const [fieldProps, isInField] = useFieldInputProps();
 
     const {
         startDate: startDateProp,
@@ -261,7 +261,7 @@ export function InnerDateRangeInput(props) {
                 hasFocus && "focus",
                 hover && "hover"
             )}
-            role="group"
+            role={!isInField ? "group" : undefined}
         >
             <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput

@@ -1,6 +1,7 @@
 import "./Select.css";
 
 import { ChevronIcon } from "../../icons";
+import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
@@ -157,7 +158,7 @@ export function InnerSelect(props) {
         fieldProps
     );
 
-    const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+    const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
         id,
         open,
         defaultOpen,
@@ -241,11 +242,8 @@ export function InnerSelect(props) {
             >
                 {iconMarkup}
                 {valueMarkup}
-                <ChevronIcon
-                    className={mergeClasses(
-                        "o-ui-select-icon-arrow",
-                        direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"
-                    )}
+                <DisclosureArrow
+                    open={isOpen}
                     size="sm"
                 />
             </TriggerType>

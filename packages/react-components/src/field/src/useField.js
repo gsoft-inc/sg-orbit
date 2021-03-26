@@ -1,4 +1,5 @@
 import { cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { isNil } from "lodash";
 
 export function useField({
     id,
@@ -12,17 +13,19 @@ export function useField({
 }) {
     const ref = useMergedRefs(forwardedRef);
 
-    const inputId = useId(id, id ? null : "o-ui-field");
+    const fieldId = useId(id, id ? null : "o-ui-field");
 
-    const { hasLabel, hasMessage } = useHasChildren({
+    const { hasLabel, hasMessage, hasRadio } = useHasChildren({
         hasLabel: ".o-ui-field-label",
-        hasMessage: ".o-ui-field-message"
+        hasMessage: ".o-ui-field-message",
+        hasRadio: "[type=\"radio\"]"
     }, ref);
 
-    const labelId = hasLabel ? `${inputId}-label` : undefined;
-    const messageId = hasMessage ? `${inputId}-message` : undefined;
+    const labelId = hasLabel ? `${fieldId}-label` : undefined;
+    const messageId = hasMessage ? `${fieldId}-message` : undefined;
 
     return {
+        fieldId,
         fieldProps: {
             className: mergeClasses(
                 cssModule(
@@ -32,11 +35,13 @@ export function useField({
                 ),
                 className
             ),
-            role: "group",
+            role: hasRadio ? "radiogroup" : "group",
+            "aria-labelledby": !isNil(labelId) ? labelId : undefined,
+            "aria-describedby": !isNil(messageId) ? messageId : undefined,
             ref
         },
         fieldContext: {
-            inputId,
+            fieldId,
             labelId,
             messageId,
             required,

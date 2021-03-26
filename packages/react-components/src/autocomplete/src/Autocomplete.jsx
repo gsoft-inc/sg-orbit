@@ -396,7 +396,7 @@ export function InnerAutocomplete(props) {
     const listboxMarkup = (
         <Listbox
             nodes={results}
-            // An autocomplete doesn't support any persisting selected keys.
+            // An autocomplete doesn't support any persisted selected keys.
             selectedKeys={[]}
             onSelectionChange={handleListboxSelectionChange}
             onFocusChange={handleListboxFocusChange}

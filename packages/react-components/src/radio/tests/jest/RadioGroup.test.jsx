@@ -185,7 +185,7 @@ test("ref is a DOM element", async () => {
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
-    expect(ref.current.getAttribute("role")).toBe("radio-group");
+    expect(ref.current.getAttribute("role")).toBe("radiogroup");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -207,7 +207,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
-    expect(refNode.getAttribute("role")).toBe("radio-group");
+    expect(refNode.getAttribute("role")).toBe("radiogroup");
 });
 
 test("set ref once", async () => {
