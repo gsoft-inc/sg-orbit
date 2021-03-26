@@ -1,10 +1,11 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { CheckCircleIcon } from "@react-components/icons";
+import { CheckCircleIcon, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { InnerTag, InnerTagList, Tag, TagList } from "@react-components/tag";
+import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
 import CustomColorHover from "./CustomColorHover.mdx";
 
@@ -18,7 +19,7 @@ import CustomColorHover from "./CustomColorHover.mdx";
 <Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
 
 <ComponentInfo
-    usage={"import { Tag, TagList } from \"@orbit-ui/react-components\""}
+    usage={"import { Tag, TagList, Item } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/tag/src"
 />
 
@@ -140,9 +141,82 @@ Custom colors can be applied to a tag.
 
 <CustomColorHover />
 
-## TagList
+## Tag list
 
+Related tags can be grouped together.
 
+<Preview>
+    <Story name="tag list">
+        <TagList>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Clearable
+
+A tag list can have a clear button.
+
+<Preview>
+    <Story name="tag list clearable">
+        <TagList onClear={() => {}}>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Size
+
+A tag list can vary in size.
+
+<Preview>
+    <Story name="tag list size">
+        <Stack>
+            <TagList size="sm">
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+            <TagList>
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+        </Stack>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+A tag list items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="tag list dynamic items">
+        <TagList
+            items={[
+                { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> },
+                { key: "gemini", value: "Gemini Program" },
+                { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
+                { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
+            ]}
+        >
+            {({ items }) => items.map(x => <Item key={x.key}>
+                {x.icon}
+                <Text>{x.value}</Text>
+            </Item>)}
+        </TagList>
+    </Story>
+</Preview>
 
 ## API
 

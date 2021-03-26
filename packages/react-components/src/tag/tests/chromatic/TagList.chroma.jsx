@@ -108,6 +108,42 @@ stories()
             </TagList>
         </Stack>
     )
+    .add("multiple rows", () =>
+        <Stack>
+            <div style={{ width: "600px" }}>
+                <TagList>
+                    <Item key="mercury">Mercury Program</Item>
+                    <Item key="gemini">Gemini Program</Item>
+                    <Item key="apollo">Apollo Program</Item>
+                    <Item key="skylab">Skylab</Item>
+                    <Item key="soyuz">Apollo–Soyuz Test Project</Item>
+                    <Item key="artemis">Artemis Program</Item>
+                    <Item key="mercury-2">Mercury Program</Item>
+                    <Item key="gemini-2">Gemini Program</Item>
+                    <Item key="apollo-3">Apollo Program</Item>
+                    <Item key="skylab-4">Skylab</Item>
+                    <Item key="soyuz-5">Apollo–Soyuz Test Project</Item>
+                    <Item key="artemis-6">Artemis Program</Item>
+                </TagList>
+            </div>
+            <div style={{ width: "600px" }}>
+                <TagList onClear={() => {}}>
+                    <Item key="mercury">Mercury Program</Item>
+                    <Item key="gemini">Gemini Program</Item>
+                    <Item key="apollo">Apollo Program</Item>
+                    <Item key="skylab">Skylab</Item>
+                    <Item key="soyuz">Apollo–Soyuz Test Project</Item>
+                    <Item key="artemis">Artemis Program</Item>
+                    <Item key="mercury-2">Mercury Program</Item>
+                    <Item key="gemini-2">Gemini Program</Item>
+                    <Item key="apollo-2">Apollo Program</Item>
+                    <Item key="skylab-2">Skylab</Item>
+                    <Item key="soyuz-2">Apollo–Soyuz Test Project</Item>
+                    <Item key="artemis-2">Artemis Program</Item>
+                </TagList>
+            </div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <TagList className="border-red">

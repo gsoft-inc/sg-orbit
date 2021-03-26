@@ -140,7 +140,7 @@
 }
 
 /* PLACEHOLDER */
-.o-ui-select-placeholder {
+.o-ui-select-trigger-outline .o-ui-select-placeholder {
     color: var(--o-ui-alias-text-input-placeholder);
 }
 

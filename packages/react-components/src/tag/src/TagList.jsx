@@ -38,7 +38,7 @@ const propTypes = {
     /**
      * React children.
      */
-    children: oneOfType([any, func])
+    children: oneOfType([any, func]).isRequired
 };
 
 function TagItem({
