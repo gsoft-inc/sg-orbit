@@ -151,8 +151,7 @@ export class TagsPicker extends AutoControlledPureComponent {
         placeholder: "Search",
         selectedItemsComponent: <TagsPickerSelectedItems />,
         clearButton: <TagsPickerClearButton />,
-        size: DEFAULT_SIZE,
-        defaultItems: []
+        size: DEFAULT_SIZE
     };
 
     static autoControlledProps = ["values", "open", "items"];
