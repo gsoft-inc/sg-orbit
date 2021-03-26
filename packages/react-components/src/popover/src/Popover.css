@@ -1,17 +1,13 @@
-[class^="o-ui-popover"] {
-    --o-ui-popover-offset: var(--o-ui-scale-alpha);
-}
-
 .o-ui-popover {
-    background-color: var(--o-ui-background-1);
-    padding: var(--o-ui-scale-foxtrot);
-    padding-top: var(--o-ui-scale-echo);
-    border-radius: var(--o-ui-rounded-border-radius);
-    box-shadow: var(--o-ui-shadow-200);
+    background-color: var(--o-ui-alias-background-1);
+    padding: var(--o-ui-global-scale-foxtrot);
+    padding-top: var(--o-ui-global-scale-echo);
+    border-radius: var(--o-ui-shape-rounded);
+    box-shadow: var(--o-ui-global-shadow-200);
     /* Must keep a max width. */
     width: 325px;
     position: relative;
-    border: 1px solid var(--o-ui-border-2);
+    border: 1px solid var(--o-ui-alias-border-2);
 }
 
 /* OVERLAY */
@@ -22,18 +18,18 @@
 /* CLOSE BUTTON */
 .o-ui-popover-close-button {
     position: absolute;
-    top: var(--o-ui-scale-bravo);
-    right: var(--o-ui-scale-bravo);
+    top: var(--o-ui-global-scale-bravo);
+    right: var(--o-ui-global-scale-bravo);
 }
 
 /* HEADER */
 .o-ui-popover-header {
-    margin-bottom: var(--o-ui-scale-bravo);
+    margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
 /* FOOTER */
 .o-ui-popover-footer {
-    margin-top: var(--o-ui-scale-delta);
+    margin-top: var(--o-ui-global-scale-delta);
     display: grid;
     align-items: center;
     grid-template-columns: max-content auto;
@@ -43,12 +39,12 @@
 /* FOOTER | TEXT */
 .o-ui-popover-footer-text {
     grid-area: text;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* IMAGE */
 .o-ui-popover img {
-    border-radius: var(--o-ui-border-radius-pill);
+    border-radius: var(--o-ui-global-border-radius-pill);
 }
 
 /* BUTTONS */

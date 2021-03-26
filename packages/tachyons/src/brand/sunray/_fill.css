@@ -1,120 +1,120 @@
 .fill-sunray-50 {
-    fill: var(--o-ui-sunray-50);
+    fill: var(--o-ui-global-sunray-50);
 }
 
 .fill-sunray-100 {
-    fill: var(--o-ui-sunray-100);
+    fill: var(--o-ui-global-sunray-100);
 }
 
 .fill-sunray-200 {
-    fill: var(--o-ui-sunray-200);
+    fill: var(--o-ui-global-sunray-200);
 }
 
 .fill-sunray-300 {
-    fill: var(--o-ui-sunray-300);
+    fill: var(--o-ui-global-sunray-300);
 }
 
 .fill-sunray-400 {
-    fill: var(--o-ui-sunray-400);
+    fill: var(--o-ui-global-sunray-400);
 }
 
 .fill-sunray-500 {
-    fill: var(--o-ui-sunray-500);
+    fill: var(--o-ui-global-sunray-500);
 }
 
 .fill-sunray-600 {
-    fill: var(--o-ui-sunray-600);
+    fill: var(--o-ui-global-sunray-600);
 }
 
 .fill-sunray-700 {
-    fill: var(--o-ui-sunray-700);
+    fill: var(--o-ui-global-sunray-700);
 }
 
 .fill-sunray-800 {
-    fill: var(--o-ui-sunray-800);
+    fill: var(--o-ui-global-sunray-800);
 }
 
 .fill-sunray-900 {
-    fill: var(--o-ui-sunray-900);
+    fill: var(--o-ui-global-sunray-900);
 }
 
 .hover-fill-sunray-50:hover {
-    fill: var(--o-ui-sunray-50);
+    fill: var(--o-ui-global-sunray-50);
 }
 
 .hover-fill-sunray-100:hover {
-    fill: var(--o-ui-sunray-100);
+    fill: var(--o-ui-global-sunray-100);
 }
 
 .hover-fill-sunray-200:hover {
-    fill: var(--o-ui-sunray-200);
+    fill: var(--o-ui-global-sunray-200);
 }
 
 .hover-fill-sunray-300:hover {
-    fill: var(--o-ui-sunray-300);
+    fill: var(--o-ui-global-sunray-300);
 }
 
 .hover-fill-sunray-400:hover {
-    fill: var(--o-ui-sunray-400);
+    fill: var(--o-ui-global-sunray-400);
 }
 
 .hover-fill-sunray-500:hover {
-    fill: var(--o-ui-sunray-500);
+    fill: var(--o-ui-global-sunray-500);
 }
 
 .hover-fill-sunray-600:hover {
-    fill: var(--o-ui-sunray-600);
+    fill: var(--o-ui-global-sunray-600);
 }
 
 .hover-fill-sunray-700:hover {
-    fill: var(--o-ui-sunray-700);
+    fill: var(--o-ui-global-sunray-700);
 }
 
 .hover-fill-sunray-800:hover {
-    fill: var(--o-ui-sunray-800);
+    fill: var(--o-ui-global-sunray-800);
 }
 
 .hover-fill-sunray-900:hover {
-    fill: var(--o-ui-sunray-900);
+    fill: var(--o-ui-global-sunray-900);
 }
 
 .focus-fill-sunray-50:focus {
-    fill: var(--o-ui-sunray-50);
+    fill: var(--o-ui-global-sunray-50);
 }
 
 .focus-fill-sunray-100:focus {
-    fill: var(--o-ui-sunray-100);
+    fill: var(--o-ui-global-sunray-100);
 }
 
 .focus-fill-sunray-200:focus {
-    fill: var(--o-ui-sunray-200);
+    fill: var(--o-ui-global-sunray-200);
 }
 
 .focus-fill-sunray-300:focus {
-    fill: var(--o-ui-sunray-300);
+    fill: var(--o-ui-global-sunray-300);
 }
 
 .focus-fill-sunray-400:focus {
-    fill: var(--o-ui-sunray-400);
+    fill: var(--o-ui-global-sunray-400);
 }
 
 .focus-fill-sunray-500:focus {
-    fill: var(--o-ui-sunray-500);
+    fill: var(--o-ui-global-sunray-500);
 }
 
 .focus-fill-sunray-600:focus {
-    fill: var(--o-ui-sunray-600);
+    fill: var(--o-ui-global-sunray-600);
 }
 
 .focus-fill-sunray-700:focus {
-    fill: var(--o-ui-sunray-700);
+    fill: var(--o-ui-global-sunray-700);
 }
 
 .focus-fill-sunray-800:focus {
-    fill: var(--o-ui-sunray-800);
+    fill: var(--o-ui-global-sunray-800);
 }
 
 .focus-fill-sunray-900:focus {
-    fill: var(--o-ui-sunray-900);
+    fill: var(--o-ui-global-sunray-900);
 }
 

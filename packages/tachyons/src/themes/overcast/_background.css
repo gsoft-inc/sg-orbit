@@ -1,119 +1,119 @@
 .bg-overcast-50 {
-    background-color: var(--o-ui-overcast-50);
+    background-color: var(--o-ui-global-overcast-50);
 }
 
 .bg-overcast-100 {
-    background-color: var(--o-ui-overcast-100);
+    background-color: var(--o-ui-global-overcast-100);
 }
 
 .bg-overcast-200 {
-    background-color: var(--o-ui-overcast-200);
+    background-color: var(--o-ui-global-overcast-200);
 }
 
 .bg-overcast-300 {
-    background-color: var(--o-ui-overcast-300);
+    background-color: var(--o-ui-global-overcast-300);
 }
 
 .bg-overcast-400 {
-    background-color: var(--o-ui-overcast-400);
+    background-color: var(--o-ui-global-overcast-400);
 }
 
 .bg-overcast-500 {
-    background-color: var(--o-ui-overcast-500);
+    background-color: var(--o-ui-global-overcast-500);
 }
 
 .bg-overcast-600 {
-    background-color: var(--o-ui-overcast-600);
+    background-color: var(--o-ui-global-overcast-600);
 }
 
 .bg-overcast-700 {
-    background-color: var(--o-ui-overcast-700);
+    background-color: var(--o-ui-global-overcast-700);
 }
 
 .bg-overcast-800 {
-    background-color: var(--o-ui-overcast-800);
+    background-color: var(--o-ui-global-overcast-800);
 }
 
 .bg-overcast-900 {
-    background-color: var(--o-ui-overcast-900);
+    background-color: var(--o-ui-global-overcast-900);
 }
 
 .hover-bg-overcast-50:hover {
-    background-color: var(--o-ui-overcast-50);
+    background-color: var(--o-ui-global-overcast-50);
 }
 
 .hover-bg-overcast-100:hover {
-    background-color: var(--o-ui-overcast-100);
+    background-color: var(--o-ui-global-overcast-100);
 }
 
 .hover-bg-overcast-200:hover {
-    background-color: var(--o-ui-overcast-200);
+    background-color: var(--o-ui-global-overcast-200);
 }
 
 .hover-bg-overcast-300:hover {
-    background-color: var(--o-ui-overcast-300);
+    background-color: var(--o-ui-global-overcast-300);
 }
 
 .hover-bg-overcast-400:hover {
-    background-color: var(--o-ui-overcast-400);
+    background-color: var(--o-ui-global-overcast-400);
 }
 
 .hover-bg-overcast-500:hover {
-    background-color: var(--o-ui-overcast-500);
+    background-color: var(--o-ui-global-overcast-500);
 }
 
 .hover-bg-overcast-600:hover {
-    background-color: var(--o-ui-overcast-600);
+    background-color: var(--o-ui-global-overcast-600);
 }
 
 .hover-bg-overcast-700:hover {
-    background-color: var(--o-ui-overcast-700);
+    background-color: var(--o-ui-global-overcast-700);
 }
 
 .hover-bg-overcast-800:hover {
-    background-color: var(--o-ui-overcast-800);
+    background-color: var(--o-ui-global-overcast-800);
 }
 
 .hover-bg-overcast-900:hover {
-    background-color: var(--o-ui-overcast-900);
+    background-color: var(--o-ui-global-overcast-900);
 }
 
 .focus-bg-overcast-50:focus {
-    background-color: var(--o-ui-overcast-50);
+    background-color: var(--o-ui-global-overcast-50);
 }
 
 .focus-bg-overcast-100:focus {
-    background-color: var(--o-ui-overcast-100);
+    background-color: var(--o-ui-global-overcast-100);
 }
 
 .focus-bg-overcast-200:focus {
-    background-color: var(--o-ui-overcast-200);
+    background-color: var(--o-ui-global-overcast-200);
 }
 
 .focus-bg-overcast-300:focus {
-    background-color: var(--o-ui-overcast-300);
+    background-color: var(--o-ui-global-overcast-300);
 }
 
 .focus-bg-overcast-400:focus {
-    background-color: var(--o-ui-overcast-400);
+    background-color: var(--o-ui-global-overcast-400);
 }
 
 .focus-bg-overcast-500:focus {
-    background-color: var(--o-ui-overcast-500);
+    background-color: var(--o-ui-global-overcast-500);
 }
 
 .focus-bg-overcast-600:focus {
-    background-color: var(--o-ui-overcast-600);
+    background-color: var(--o-ui-global-overcast-600);
 }
 
 .focus-bg-overcast-700:focus {
-    background-color: var(--o-ui-overcast-700);
+    background-color: var(--o-ui-global-overcast-700);
 }
 
 .focus-bg-overcast-800:focus {
-    background-color: var(--o-ui-overcast-800);
+    background-color: var(--o-ui-global-overcast-800);
 }
 
 .focus-bg-overcast-900:focus {
-    background-color: var(--o-ui-overcast-900);
+    background-color: var(--o-ui-global-overcast-900);
 }

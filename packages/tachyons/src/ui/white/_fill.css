@@ -1,11 +1,11 @@
 .fill-white {
-    fill: var(--o-ui-white);
+    fill: var(--o-ui-global-white);
 }
 
 .hover-fill-white:hover {
-    fill: var(--o-ui-white);
+    fill: var(--o-ui-global-white);
 }
 
 .focus-fill-white:focus {
-    fill: var(--o-ui-white);
+    fill: var(--o-ui-global-white);
 }

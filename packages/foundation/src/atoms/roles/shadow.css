@@ -1,8 +1,0 @@
-html * {
-    /* LIGHT */
-    --o-ui-shadow-lightness-light: 56%;
-    --o-ui-shadow-opacity-light: .32;
-    /* DARK */
-    --o-ui-shadow-lightness-dark: 3%;
-    --o-ui-shadow-opacity-dark: 1;
-}

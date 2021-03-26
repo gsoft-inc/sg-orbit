@@ -1,25 +1,25 @@
 .o-ui-alert {
     display: flex;
     align-items: flex-start;
-    padding: var(--o-ui-scale-charlie);
+    padding: var(--o-ui-global-scale-charlie);
     width: 100%;
     height: max-content;
-    border-radius: var(--o-ui-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* LAYOUT */
 .o-ui-alert-has-icon,
 .o-ui-alert-has-action,
 .o-ui-alert-has-dismiss {
-    padding-top: var(--o-ui-scale-bravo);
-    padding-bottom: var(--o-ui-scale-bravo);
+    padding-top: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
 }
 
 /* ICON */
 .o-ui-alert-icon {
-    margin-top: calc(var(--o-ui-scale-bravo) / 2);
-    margin-bottom: calc(var(--o-ui-scale-bravo) / 2);
-    margin-right: var(--o-ui-scale-bravo);
+    margin-top: calc(var(--o-ui-global-scale-bravo) / 2);
+    margin-bottom: calc(var(--o-ui-global-scale-bravo) / 2);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 .o-ui-alert-content {
@@ -29,57 +29,57 @@
 .o-ui-alert-has-icon .o-ui-alert-content,
 .o-ui-alert-has-action .o-ui-alert-content,
 .o-ui-alert-has-dismiss .o-ui-alert-content {
-    padding-top: calc(var(--o-ui-scale-charlie) / 2);
-    padding-bottom: calc(var(--o-ui-scale-charlie) / 2);
+    padding-top: calc(var(--o-ui-global-scale-charlie) / 2);
+    padding-bottom: calc(var(--o-ui-global-scale-charlie) / 2);
 }
 /* ACTION */
 .o-ui-alert-action {
-    margin-left: var(--o-ui-scale-charlie);
+    margin-left: var(--o-ui-global-scale-charlie);
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
 }
 
 /* DISMISS */
 .o-ui-alert-dismiss {
-    margin-left: var(--o-ui-scale-bravo);
+    margin-left: var(--o-ui-global-scale-bravo);
 }
 
 /* TONE | INFO */
 .o-ui-alert-info {
-    background-color: var(--o-ui-background-info-1);
-    color: var(--o-ui-text-info-1);
+    background-color: var(--o-ui-alias-background-info-1);
+    color: var(--o-ui-alias-text-info-1);
 }
 
 .o-ui-alert-info .o-ui-alert-icon {
-    fill: var(--o-ui-icon-info-1);
+    fill: var(--o-ui-alias-icon-info-1);
 }
 
-/* TONE | SUCCESS */
-.o-ui-alert-success {
-    background-color: var(--o-ui-background-positive-2);
-    color: var(--o-ui-text-positive-2);
+/* TONE | POSITIVE */
+.o-ui-alert-positive {
+    background-color: var(--o-ui-alias-background-positive-2);
+    color: var(--o-ui-alias-text-positive-2);
 }
 
-.o-ui-alert-success .o-ui-alert-icon {
-    fill: var(--o-ui-icon-positive-2);
+.o-ui-alert-positive .o-ui-alert-icon {
+    fill: var(--o-ui-alias-icon-positive-2);
 }
 
 /* TONE | WARNING */
 .o-ui-alert-warning {
-    background-color: var(--o-ui-background-warning-2);
-    color: var(--o-ui-text-warning-2);
+    background-color: var(--o-ui-alias-background-warning-2);
+    color: var(--o-ui-alias-text-warning-2);
 }
 
 .o-ui-alert-warning .o-ui-alert-icon {
-    fill: var(--o-ui-icon-warning-2);
+    fill: var(--o-ui-alias-icon-warning-2);
 }
 
 /* TONE | CRITICAL */
 .o-ui-alert-critical {
-    background-color: var(--o-ui-background-danger-2);
-    color: var(--o-ui-text-danger-2);
+    background-color: var(--o-ui-alias-background-negative-2);
+    color: var(--o-ui-alias-text-negative-2);
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    fill: var(--o-ui-icon-danger-2);
+    fill: var(--o-ui-alias-icon-negative-2);
 }

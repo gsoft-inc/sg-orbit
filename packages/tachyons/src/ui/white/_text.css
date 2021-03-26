@@ -1,11 +1,11 @@
 .white {
-    color: var(--o-ui-white);
+    color: var(--o-ui-global-white);
 }
 
 .hover-white:hover {
-    color: var(--o-ui-white);
+    color: var(--o-ui-global-white);
 }
 
 .focus-white:focus {
-    color: var(--o-ui-white);
+    color: var(--o-ui-global-white);
 }

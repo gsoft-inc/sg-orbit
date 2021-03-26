@@ -20,24 +20,19 @@ You will find below an exhaustive list of all the variables available in Orbit U
 
 ### Colors
 
-<FoundationFile relativeFilePath="/core/colors/brand.css" />
-<FoundationFile relativeFilePath="/core/colors/ui.css" />
-<FoundationFile relativeFilePath="/core/colors/primary.css" />
-<FoundationFile relativeFilePath="/themes/apricot.css" />
-<FoundationFile relativeFilePath="/themes/overcast.css" />
-<FoundationFile relativeFilePath="/themes/desktop.css" />
+<FoundationFile relativeFilePath="/colors.css" />
 
 ### Spacing scale
 
-<FoundationFile relativeFilePath="/core/spacing-scale.css" />
+<FoundationFile relativeFilePath="/spacing-scale.css" />
 
 ### Type scale
 
-<FoundationFile relativeFilePath="/core/type-scale.css" />
+<FoundationFile relativeFilePath="/type-scale.css" />
 
 ### Shadows
 
-<FoundationFile relativeFilePath="/core/shadows.css" />
+<FoundationFile relativeFilePath="/box-shadow.css" />
 
 ## Use variables
 
@@ -45,14 +40,14 @@ A foundation CSS variable can be accessed in a CSS class:
 
 ```css
 .button {
-    color: var(--o-ui-primary-50);
+    color: var(--o-ui-global-sunray-50);
 }
 ```
 
 In a `style` attribute:
 
 ```html
-<button style="color: var(--o-ui-primary-50)" type="button">
+<button style="color: var(--o-ui-global-sunray-50)" type="button">
     Click me!
 </button>
 ```
@@ -60,26 +55,25 @@ In a `style` attribute:
 In JavaScript (the computed variable value is available as a string):
 
 ```javascript
-window.getComputedStyle(document.documentElement).getPropertyValue("--o-ui-primary-50");
+window.getComputedStyle(document.documentElement).getPropertyValue("--o-ui-global-sunray-50");
 ```
 
 ## Override variables
 
-Once installed the default values of the CSS foundation can be customized to your needs by simply redeclaring the variables in a `:root` CSS class:
+Once installed the default values of the CSS foundation can be customized to your needs by simply redeclaring the variables at the `.o-ui` class or lower in the cascade needed :
 
 ```css
-:root {
-    --o-ui-primary-50: #c63a0c;
-    --o-ui-apricot-50: #c63a0c;
-    --o-ui-overcast-50: #c63a0c;
-    --o-ui-desktop-50: #c63a0c;
+.o-ui {
+    --o-ui-alias-primary-50: #c63a0c;
+    --o-ui-global-apricot-50: #c63a0c;
+    --o-ui-global-desktop-50: #c63a0c;
 }
 ```
 
 If you need to use a dynamic value or to scope an update to a specific element you can override a variable with a `style` attribute:
 
 ```html
-<button style="--o-ui-primary-50: #c63a0c" type="button">
+<button style="--o-ui-sunray-50: #c63a0c" type="button">
     Click me!
 </button>
 ```
@@ -87,7 +81,7 @@ If you need to use a dynamic value or to scope an update to a specific element y
 At last resort, you can override a variable in JavaScript. However, we strongly encourage using a CSS class or a `style` attribute.
 
 ```javascript
-document.body.style.setProperty("--o-ui-primary-50", "#c63a0c");
+document.body.style.setProperty("--o-ui-sunray-50", "#c63a0c");
 ```
 
-> Please be aware that customization would no longuer benefinits from updates and could break.
+> Please be aware that customization would no longuer benefits from updates and could break.

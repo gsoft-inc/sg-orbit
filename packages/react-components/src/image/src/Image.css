@@ -6,12 +6,12 @@
 
 /* SHAPE | ROUNDED */
 .o-ui-image-rounded {
-    border-radius: var(--o-ui-rounded-border-radius);
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* SHAPE | CIRCULAR */
 .o-ui-image-circular {
-    border-radius: var(--o-ui-circular-border-radius);
+    border-radius: var(--o-ui-shape-circular);
 }
 
 /* DARK MODE */

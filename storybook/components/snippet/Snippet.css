@@ -4,7 +4,7 @@
 }
 
 .o-ui-sb-snippet pre.prism-code {
-    padding: var(--o-ui-scale-echo) !important;
+    padding: var(--o-ui-global-scale-echo) !important;
     font-size: 15px;
     border-radius: 4px;
     margin: 0;

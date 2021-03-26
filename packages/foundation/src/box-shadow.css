@@ -1,0 +1,18 @@
+.o-ui-light {
+    --o-ui-global-shadow-100: 0 4px 12px 0 hsla(223, 13%,56%, .32);
+    --o-ui-global-shadow-200: 0 8px 24px 0 hsla(223, 13%, 56%, .32);
+}
+
+.o-ui-dark {
+    --o-ui-global-shadow-100: 0 4px 12px 0 hsla(223, 13%, 3%, 1);
+    --o-ui-global-shadow-200: 0 8px 24px 0 hsla(223, 13%, 3%, 1);
+}
+
+/* Utility classes */
+.o-ui-global-shadow-100 {
+    box-shadow: var(--o-ui-global-shadow-100);
+}
+
+.o-ui-global-shadow-200 {
+    box-shadow: var(--o-ui-global-shadow-200);
+}

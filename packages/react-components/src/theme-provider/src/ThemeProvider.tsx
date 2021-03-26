@@ -1,5 +1,3 @@
-import "./ThemeProvider.css";
-
 import { ElementType, ForwardedRef, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
@@ -73,8 +71,9 @@ export function ThemeProvider({
                     rest,
                     {
                         className: mergeClasses(
-                            `o-ui-${theme}-theme`,
-                            `o-ui-${colorScheme}-color-scheme`
+                            "o-ui",
+                            `o-ui-${theme}`,
+                            `o-ui-${colorScheme}`
                         )
                     }
                 )}

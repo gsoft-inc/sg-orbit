@@ -12,8 +12,8 @@
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
     /* was cloud 200 now 300 because too much similar colors */
-    background-color: var(--o-ui-background-2);
-    border-radius: var(--o-ui-pill-border-radius);
+    background-color: var(--o-ui-alias-background-2);
+    border-radius: var(--o-ui-shape-pill);
     position: relative;
     flex-shrink: 0;
 }
@@ -21,8 +21,8 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--o-ui-background-1);
-    border-radius: var(--o-ui-circular-border-radius);
+    background-color: var(--o-ui-alias-background-1);
+    border-radius: var(--o-ui-shape-circular);
     position: absolute;
     transform: translate(2px, 2px);
     transition: transform .1875s ease-in;
@@ -31,8 +31,8 @@
 /* LABEL */
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
-    margin-left: var(--o-ui-scale-bravo);
-    color: var(--o-ui-text-1);
+    margin-left: var(--o-ui-global-scale-bravo);
+    color: var(--o-ui-alias-text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -42,18 +42,18 @@
 /* LABEL | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-label {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    margin-left: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
 }
 
 /* ICON | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
 }
 
 /* REVERSE */
@@ -63,25 +63,25 @@
 
 /* INVALID */
 .o-ui-switch-invalid .o-ui-switch-label {
-    color: var(--o-ui-text-danger-1);
+    color: var(--o-ui-alias-text-negative-1);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-background-danger-2);
+    background-color: var(--o-ui-alias-background-negative-2);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-background-danger-1);
+    background-color: var(--o-ui-alias-background-negative-1);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--o-ui-background-primary-1);
+    background-color: var(--o-ui-alias-background-primary-1);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-global-scale-hotel) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
@@ -95,7 +95,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
-    border-radius: var(--o-ui-pill-border-radius);
+    border-radius: var(--o-ui-shape-pill);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -106,7 +106,7 @@
 
 /* STATE | FOCUS | INVALID */
 .o-ui-switch-invalid .o-ui-switch-control:after {
-    --o-ui-focus-ring-color: var(--o-ui-border-danger);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* STATE | DISABLED */
@@ -119,30 +119,30 @@
 /* SIZING */
 /* SMALL */
 .o-ui-switch-sm .o-ui-switch-control {
-    width: var(--o-ui-scale-golf);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-golf);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .o-ui-switch-sm .o-ui-switch-control::before {
-    width: var(--o-ui-scale-charlie);
-    height: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
+    height: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-scale-golf) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-global-scale-golf) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
 .o-ui-switch-md .o-ui-switch-control {
-    width: var(--o-ui-scale-hotel);
-    height: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-hotel);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
-    width: var(--o-ui-scale-delta);
-    height: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
+    height: var(--o-ui-global-scale-delta);
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-scale-hotel) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-global-scale-hotel) / 2 + 2px), 2px);
 }

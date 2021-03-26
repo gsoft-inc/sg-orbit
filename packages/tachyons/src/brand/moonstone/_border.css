@@ -1,119 +1,119 @@
 .b--moonstone-50 {
-    border-color: var(--o-ui-moonstone-50);
+    border-color: var(--o-ui-global-moonstone-50);
 }
 
 .b--moonstone-100 {
-    border-color: var(--o-ui-moonstone-100);
+    border-color: var(--o-ui-global-moonstone-100);
 }
 
 .b--moonstone-200 {
-    border-color: var(--o-ui-moonstone-200);
+    border-color: var(--o-ui-global-moonstone-200);
 }
 
 .b--moonstone-300 {
-    border-color: var(--o-ui-moonstone-300);
+    border-color: var(--o-ui-global-moonstone-300);
 }
 
 .b--moonstone-400 {
-    border-color: var(--o-ui-moonstone-400);
+    border-color: var(--o-ui-global-moonstone-400);
 }
 
 .b--moonstone-500 {
-    border-color: var(--o-ui-moonstone-500);
+    border-color: var(--o-ui-global-moonstone-500);
 }
 
 .b--moonstone-600 {
-    border-color: var(--o-ui-moonstone-600);
+    border-color: var(--o-ui-global-moonstone-600);
 }
 
 .b--moonstone-700 {
-    border-color: var(--o-ui-moonstone-700);
+    border-color: var(--o-ui-global-moonstone-700);
 }
 
 .b--moonstone-800 {
-    border-color: var(--o-ui-moonstone-800);
+    border-color: var(--o-ui-global-moonstone-800);
 }
 
 .b--moonstone-900 {
-    border-color: var(--o-ui-moonstone-900);
+    border-color: var(--o-ui-global-moonstone-900);
 }
 
 .hover-b--moonstone-50:hover {
-    border-color: var(--o-ui-moonstone-50);
+    border-color: var(--o-ui-global-moonstone-50);
 }
 
 .hover-b--moonstone-100:hover {
-    border-color: var(--o-ui-moonstone-100);
+    border-color: var(--o-ui-global-moonstone-100);
 }
 
 .hover-b--moonstone-200:hover {
-    border-color: var(--o-ui-moonstone-200);
+    border-color: var(--o-ui-global-moonstone-200);
 }
 
 .hover-b--moonstone-300:hover {
-    border-color: var(--o-ui-moonstone-300);
+    border-color: var(--o-ui-global-moonstone-300);
 }
 
 .hover-b--moonstone-400:hover {
-    border-color: var(--o-ui-moonstone-400);
+    border-color: var(--o-ui-global-moonstone-400);
 }
 
 .hover-b--moonstone-500:hover {
-    border-color: var(--o-ui-moonstone-500);
+    border-color: var(--o-ui-global-moonstone-500);
 }
 
 .hover-b--moonstone-600:hover {
-    border-color: var(--o-ui-moonstone-600);
+    border-color: var(--o-ui-global-moonstone-600);
 }
 
 .hover-b--moonstone-700:hover {
-    border-color: var(--o-ui-moonstone-700);
+    border-color: var(--o-ui-global-moonstone-700);
 }
 
 .hover-b--moonstone-800:hover {
-    border-color: var(--o-ui-moonstone-800);
+    border-color: var(--o-ui-global-moonstone-800);
 }
 
 .hover-b--moonstone-900:hover {
-    border-color: var(--o-ui-moonstone-900);
+    border-color: var(--o-ui-global-moonstone-900);
 }
 
 .focus-b--moonstone-50:focus {
-    border-color: var(--o-ui-moonstone-50);
+    border-color: var(--o-ui-global-moonstone-50);
 }
 
 .focus-b--moonstone-100:focus {
-    border-color: var(--o-ui-moonstone-100);
+    border-color: var(--o-ui-global-moonstone-100);
 }
 
 .focus-b--moonstone-200:focus {
-    border-color: var(--o-ui-moonstone-200);
+    border-color: var(--o-ui-global-moonstone-200);
 }
 
 .focus-b--moonstone-300:focus {
-    border-color: var(--o-ui-moonstone-300);
+    border-color: var(--o-ui-global-moonstone-300);
 }
 
 .focus-b--moonstone-400:focus {
-    border-color: var(--o-ui-moonstone-400);
+    border-color: var(--o-ui-global-moonstone-400);
 }
 
 .focus-b--moonstone-500:focus {
-    border-color: var(--o-ui-moonstone-500);
+    border-color: var(--o-ui-global-moonstone-500);
 }
 
 .focus-b--moonstone-600:focus {
-    border-color: var(--o-ui-moonstone-600);
+    border-color: var(--o-ui-global-moonstone-600);
 }
 
 .focus-b--moonstone-700:focus {
-    border-color: var(--o-ui-moonstone-700);
+    border-color: var(--o-ui-global-moonstone-700);
 }
 
 .focus-b--moonstone-800:focus {
-    border-color: var(--o-ui-moonstone-800);
+    border-color: var(--o-ui-global-moonstone-800);
 }
 
 .focus-b--moonstone-900:focus {
-    border-color: var(--o-ui-moonstone-900);
+    border-color: var(--o-ui-global-moonstone-900);
 }

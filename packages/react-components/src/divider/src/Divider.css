@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: var(--o-ui-text-2);
+    color: var(--o-ui-alias-text-2);
 }
 
 .o-ui-divider {
@@ -11,12 +11,12 @@
 
 /* HORIZONTAL */
 .o-ui-divider[aria-orientation="horizontal"] {
-    margin: var(--o-ui-scale-delta) 0;
+    margin: var(--o-ui-global-scale-delta) 0;
     height: 0;
 }
 
 .o-ui-divider[aria-orientation="horizontal"]:not(.o-ui-divider-has-label) {
-    border-bottom: 1px solid var(--o-ui-border-3);
+    border-bottom: 1px solid var(--o-ui-alias-border-3);
 }
 
 /* LABELLED */
@@ -29,27 +29,27 @@
 .o-ui-divider-has-label[aria-orientation="horizontal"]::after {
     content: "";
     flex: 1;
-    border-bottom: 1px solid var(--o-ui-border-3);
+    border-bottom: 1px solid var(--o-ui-alias-border-3);
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::before {
-    margin-right: var(--o-ui-scale-charlie);
+    margin-right: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::after {
-    margin-left: var(--o-ui-scale-charlie);
+    margin-left: var(--o-ui-global-scale-charlie);
 }
 
 /* VERTICAL */
 .o-ui-divider[aria-orientation="vertical"] {
-    margin: 0 var(--o-ui-scale-bravo);
+    margin: 0 var(--o-ui-global-scale-bravo);
     width: max-content;
     height: auto;
     min-height: 100%;
 }
 
 .o-ui-divider[aria-orientation="vertical"]:not(.o-ui-divider-has-label) {
-    border-left: 1px solid var(--o-ui-border-3);
+    border-left: 1px solid var(--o-ui-alias-border-3);
 }
 
 /* VERTICAL | LABELLED */
@@ -61,13 +61,13 @@
 .o-ui-divider-has-label[aria-orientation="vertical"]::after {
     content: "";
     flex: 1;
-    border-left: 1px solid var(--o-ui-border-3);
+    border-left: 1px solid var(--o-ui-alias-border-3);
 }
 
 .o-ui-divider-has-label[aria-orientation="vertical"]::before {
-    margin-bottom: var(--o-ui-scale-bravo);
+    margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
 .o-ui-divider-has-label[aria-orientation="vertical"]::after {
-    margin-top: var(--o-ui-scale-bravo);
+    margin-top: var(--o-ui-global-scale-bravo);
 }

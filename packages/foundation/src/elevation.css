@@ -1,0 +1,13 @@
+.o-ui {
+    --o-ui-alias-elevation-1: var(--o-ui-global-shadow-100);
+    --o-ui-alias-elevation-2: var(--o-ui-global-shadow-200);
+}
+
+/* Utility classes */
+.o-ui-alias-elevation-1 {
+    box-shadow: var(--o-ui-alias-elevation-1);
+}
+
+.o-ui-alias-elevation-2 {
+    box-shadow: var(--o-ui-alias-elevation-2);
+}

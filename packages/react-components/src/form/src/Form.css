@@ -4,7 +4,7 @@
 
 /* FIELD */
 .o-ui-form .o-ui-field {
-    margin-bottom: var(--o-ui-scale-echo);
+    margin-bottom: var(--o-ui-global-scale-echo);
 }
 
 /* FLUID */
@@ -20,9 +20,9 @@
 }
 
 .o-ui-form fieldset legend {
-    margin-bottom: var(--o-ui-scale-alpha);
-    font-size: var(--o-ui-type-scale-6);
-    color: var(--o-ui-text-1);
+    margin-bottom: var(--o-ui-global-scale-alpha);
+    font-size: var(--o-ui-global-type-scale-6);
+    color: var(--o-ui-alias-text-1);
 }
 
 .o-ui-form fieldset .o-ui-form-field:last-child {

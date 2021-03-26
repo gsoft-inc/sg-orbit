@@ -1,4 +1,4 @@
-import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
@@ -104,16 +104,16 @@ Use an info alert to notify a user of a change that's relevant for them to achie
     </Story>
 </Preview>
 
-### Success
+### Positive
 
-Use a success alert to inform a user that an action has completed successfuly.
+Use a positive alert to inform a user that an action has completed successfuly.
 
 <Preview>
-    <Story name="success">
-        <SuccessAlert onDismiss={() => {}}>
+    <Story name="positive">
+        <PositiveAlert onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </SuccessAlert>
+        </PositiveAlert>
     </Story>
 </Preview>
 
@@ -171,10 +171,10 @@ An alert can handle `show` state in controlled mode.
 
 <ArgsTable of={AlertTemplate} />
 
-### SuccessAlert
+### PositiveAlert
 
 <ComponentInfo
-    usage={"import { SuccessAlert } from \"@orbit-ui/react-components\""}
+    usage={"import { PositiveAlert } from \"@orbit-ui/react-components\""}
     slots={["content", "button"]}
     compact
 />

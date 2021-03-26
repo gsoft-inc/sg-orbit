@@ -1,6 +1,6 @@
-:root {
-    --o-ui-listbox-option-height: var(--o-ui-scale-golf);
-    --o-ui-listbox-option-checkmark-size: var(--o-ui-scale-charlie);
+.o-ui {
+    --o-ui-listbox-option-height: var(--o-ui-global-scale-golf);
+    --o-ui-listbox-option-checkmark-size: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-listbox {
@@ -8,11 +8,11 @@
     max-width: 325px;
     max-height: calc(12 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
-    background-color: var(--o-ui-background-1);
+    background-color: var(--o-ui-alias-background-1);
     outline: none;
-    border-radius: var(--o-ui-rounded-border-radius);
-    box-shadow: var(--o-ui-shadow-100);
-    border: 1px solid var(--o-ui-border-2);
+    border-radius: var(--o-ui-shape-rounded);
+    box-shadow: var(--o-ui-global-shadow-100);
+    border: 1px solid var(--o-ui-alias-border-2);
 }
 
 /* FLUID */
@@ -24,8 +24,8 @@
 /* OPTION */
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
-    padding-right: var(--o-ui-scale-hotel);
-    padding-left: var(--o-ui-scale-charlie);
+    padding-right: var(--o-ui-global-scale-hotel);
+    padding-left: var(--o-ui-global-scale-charlie);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -34,13 +34,13 @@
 
 /* WITH DESCRIPTION */
 .o-ui-listbox-option.o-ui-listbox-option-has-description {
-    --o-ui-listbox-option-height: var(--o-ui-scale-india);
+    --o-ui-listbox-option-height: var(--o-ui-global-scale-india);
     display: grid;
     overflow-x: hidden;
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
-    padding-top: var(--o-ui-scale-bravo);
+    padding-top: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
@@ -53,7 +53,7 @@
     height: var(--o-ui-listbox-option-checkmark-size);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
-    background-color: var(--o-ui-background-primary-1);
+    background-color: var(--o-ui-alias-background-primary-1);
     position: absolute;
     right: 1rem;
 }
@@ -65,7 +65,7 @@
 
 /* OPTION | DESCRIPTION */
 .o-ui-listbox-option-description {
-    color: var(--o-ui-text-2);
+    color: var(--o-ui-alias-text-2);
     cursor: default;
     white-space: nowrap;
     overflow: hidden;
@@ -79,7 +79,7 @@
 .o-ui-listbox-option:focus,
 .o-ui-listbox-option-focus,
 .o-ui-listbox-option.o-ui-focus {
-    background-color: var(--o-ui-background-4);
+    background-color: var(--o-ui-alias-background-4);
     outline: none;
 }
 
@@ -93,19 +93,19 @@
     left: 0;
     height: var(--o-ui-listbox-option-height);
     width: 2px;
-    background-color: var(--o-ui-border-primary-1);
+    background-color: var(--o-ui-alias-border-primary-1);
 }
 
 /* OPTION | STATE | HOVER */
 .o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
 .o-ui-listbox-option-hover {
-    background-color: var(--o-ui-background-4);
+    background-color: var(--o-ui-alias-background-4);
 }
 
 /* OPTION | ICONS */
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {
-    margin-right: var(--o-ui-scale-alpha);
+    margin-right: var(--o-ui-global-scale-alpha);
     grid-area: aside;
 }
 
@@ -116,20 +116,20 @@
 
 /* OPTION | ICONS | END ICON */
 .o-ui-listbox-option-end-icon {
-    margin-left: var(--o-ui-scale-alpha);
+    margin-left: var(--o-ui-global-scale-alpha);
 }
 
 /* SECTION */
 .o-ui-listbox-section {
     display: flex;
     font-weight: 500;
-    padding-left: var(--o-ui-scale-charlie);
+    padding-left: var(--o-ui-global-scale-charlie);
     cursor: default;
     line-height: 1;
     height: var(--o-ui-listbox-option-height);
-    color: var(--o-ui-text-3);
+    color: var(--o-ui-alias-text-3);
     text-transform: uppercase;
-    font-size: var(--o-ui-type-scale-8);
+    font-size: var(--o-ui-global-type-scale-8);
     align-items: center;
 }
 
@@ -150,6 +150,6 @@
 
 /* AVATAR */
 .o-ui-listbox-option-avatar {
-    margin-right: var(--o-ui-scale-bravo);
+    margin-right: var(--o-ui-global-scale-bravo);
     grid-area: aside;
 }

@@ -1,53 +1,53 @@
 .w1 {
-    width: var(--o-ui-scale-alpha);
+    width: var(--o-ui-global-scale-alpha);
 }
 
 .w2 {
-    width: var(--o-ui-scale-bravo);
+    width: var(--o-ui-global-scale-bravo);
 }
 
 .w3 {
-    width: var(--o-ui-scale-charlie);
+    width: var(--o-ui-global-scale-charlie);
 }
 
 .w4 {
-    width: var(--o-ui-scale-delta);
+    width: var(--o-ui-global-scale-delta);
 }
 
 .w5 {
-    width: var(--o-ui-scale-echo);
+    width: var(--o-ui-global-scale-echo);
 }
 
 .w6 {
-    width: var(--o-ui-scale-foxtrot);
+    width: var(--o-ui-global-scale-foxtrot);
 }
 
 .w7 {
-    width: var(--o-ui-scale-golf);
+    width: var(--o-ui-global-scale-golf);
 }
 
 .w8 {
-    width: var(--o-ui-scale-hotel);
+    width: var(--o-ui-global-scale-hotel);
 }
 
 .w9 {
-    width: var(--o-ui-scale-india);
+    width: var(--o-ui-global-scale-india);
 }
 
 .w10 {
-    width: var(--o-ui-scale-juliett);
+    width: var(--o-ui-global-scale-juliett);
 }
 
 .w11 {
-    width: var(--o-ui-scale-kilo);
+    width: var(--o-ui-global-scale-kilo);
 }
 
 .w12 {
-    width: var(--o-ui-scale-lima);
+    width: var(--o-ui-global-scale-lima);
 }
 
 .w13 {
-    width: var(--o-ui-scale-mike);
+    width: var(--o-ui-global-scale-mike);
 }
 
 .w-10 {
@@ -120,43 +120,43 @@
 
 @media (--breakpoint-not-small) {
     .w1-ns {
-        width: var(--o-ui-scale-alpha);
+        width: var(--o-ui-global-scale-alpha);
     }
     .w2-ns {
-        width: var(--o-ui-scale-bravo);
+        width: var(--o-ui-global-scale-bravo);
     }
     .w3-ns {
-        width: var(--o-ui-scale-charlie);
+        width: var(--o-ui-global-scale-charlie);
     }
     .w4-ns {
-        width: var(--o-ui-scale-delta);
+        width: var(--o-ui-global-scale-delta);
     }
     .w5-ns {
-        width: var(--o-ui-scale-echo);
+        width: var(--o-ui-global-scale-echo);
     }
     .w6-ns {
-        width: var(--o-ui-scale-foxtrot);
+        width: var(--o-ui-global-scale-foxtrot);
     }
     .w7-ns {
-        width: var(--o-ui-scale-golf);
+        width: var(--o-ui-global-scale-golf);
     }
     .w8-ns {
-        width: var(--o-ui-scale-hotel);
+        width: var(--o-ui-global-scale-hotel);
     }
     .w9-ns {
-        width: var(--o-ui-scale-india);
+        width: var(--o-ui-global-scale-india);
     }
     .w10-ns {
-        width: var(--o-ui-scale-juliett);
+        width: var(--o-ui-global-scale-juliett);
     }
     .w11-ns {
-        width: var(--o-ui-scale-kilo);
+        width: var(--o-ui-global-scale-kilo);
     }
     .w12-ns {
-        width: var(--o-ui-scale-lima);
+        width: var(--o-ui-global-scale-lima);
     }
     .w13-ns {
-        width: var(--o-ui-scale-mike);
+        width: var(--o-ui-global-scale-mike);
     }
     .w-10-ns {
         width: 10%;
@@ -213,43 +213,43 @@
 
 @media (--breakpoint-medium) {
     .w1-m {
-        width: var(--o-ui-scale-alpha);
+        width: var(--o-ui-global-scale-alpha);
     }
     .w2-m {
-        width: var(--o-ui-scale-bravo);
+        width: var(--o-ui-global-scale-bravo);
     }
     .w3-m {
-        width: var(--o-ui-scale-charlie);
+        width: var(--o-ui-global-scale-charlie);
     }
     .w4-m {
-        width: var(--o-ui-scale-delta);
+        width: var(--o-ui-global-scale-delta);
     }
     .w5-m {
-        width: var(--o-ui-scale-echo);
+        width: var(--o-ui-global-scale-echo);
     }
     .w6-m {
-        width: var(--o-ui-scale-foxtrot);
+        width: var(--o-ui-global-scale-foxtrot);
     }
     .w7-m {
-        width: var(--o-ui-scale-golf);
+        width: var(--o-ui-global-scale-golf);
     }
     .w8-m {
-        width: var(--o-ui-scale-hotel);
+        width: var(--o-ui-global-scale-hotel);
     }
     .w9-m {
-        width: var(--o-ui-scale-india);
+        width: var(--o-ui-global-scale-india);
     }
     .w10-m {
-        width: var(--o-ui-scale-juliett);
+        width: var(--o-ui-global-scale-juliett);
     }
     .w11-m {
-        width: var(--o-ui-scale-kilo);
+        width: var(--o-ui-global-scale-kilo);
     }
     .w12-m {
-        width: var(--o-ui-scale-lima);
+        width: var(--o-ui-global-scale-lima);
     }
     .w13-m {
-        width: var(--o-ui-scale-mike);
+        width: var(--o-ui-global-scale-mike);
     }
     .w-10-m {
         width: 10%;
@@ -306,43 +306,43 @@
 
 @media (--breakpoint-large) {
     .w1-l {
-        width: var(--o-ui-scale-alpha);
+        width: var(--o-ui-global-scale-alpha);
     }
     .w2-l {
-        width: var(--o-ui-scale-bravo);
+        width: var(--o-ui-global-scale-bravo);
     }
     .w3-l {
-        width: var(--o-ui-scale-charlie);
+        width: var(--o-ui-global-scale-charlie);
     }
     .w4-l {
-        width: var(--o-ui-scale-delta);
+        width: var(--o-ui-global-scale-delta);
     }
     .w5-l {
-        width: var(--o-ui-scale-echo);
+        width: var(--o-ui-global-scale-echo);
     }
     .w6-l {
-        width: var(--o-ui-scale-foxtrot);
+        width: var(--o-ui-global-scale-foxtrot);
     }
     .w7-l {
-        width: var(--o-ui-scale-golf);
+        width: var(--o-ui-global-scale-golf);
     }
     .w8-l {
-        width: var(--o-ui-scale-hotel);
+        width: var(--o-ui-global-scale-hotel);
     }
     .w9-l {
-        width: var(--o-ui-scale-india);
+        width: var(--o-ui-global-scale-india);
     }
     .w10-l {
-        width: var(--o-ui-scale-juliett);
+        width: var(--o-ui-global-scale-juliett);
     }
     .w11-l {
-        width: var(--o-ui-scale-kilo);
+        width: var(--o-ui-global-scale-kilo);
     }
     .w12-l {
-        width: var(--o-ui-scale-lima);
+        width: var(--o-ui-global-scale-lima);
     }
     .w13-l {
-        width: var(--o-ui-scale-mike);
+        width: var(--o-ui-global-scale-mike);
     }
     .w-10-l {
         width: 10%;

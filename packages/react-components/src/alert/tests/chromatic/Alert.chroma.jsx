@@ -1,4 +1,4 @@
-import { Alert, CriticalAlert, InfoAlert, SuccessAlert, WarningAlert } from "@react-components/alert";
+import { Alert, CriticalAlert, InfoAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
@@ -122,7 +122,7 @@ stories()
 
 [
     { name: "info", ElementType: InfoAlert },
-    { name: "success", ElementType: SuccessAlert },
+    { name: "success", ElementType: PositiveAlert },
     { name: "warning", ElementType: WarningAlert },
     { name: "critical", ElementType: CriticalAlert }
 ]

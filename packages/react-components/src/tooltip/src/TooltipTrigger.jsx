@@ -172,7 +172,7 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         show: !disabled && isOpen,
-                        borderOffset: "var(--o-ui-scale-bravo)",
+                        borderOffset: "var(--o-ui-global-scale-bravo)",
                         zIndex,
                         style: overlayStyles,
                         role: "tooltip",

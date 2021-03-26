@@ -1,119 +1,119 @@
 .overcast-50 {
-    color: var(--o-ui-overcast-50);
+    color: var(--o-ui-global-overcast-50);
 }
 
 .overcast-100 {
-    color: var(--o-ui-overcast-100);
+    color: var(--o-ui-global-overcast-100);
 }
 
 .overcast-200 {
-    color: var(--o-ui-overcast-200);
+    color: var(--o-ui-global-overcast-200);
 }
 
 .overcast-300 {
-    color: var(--o-ui-overcast-300);
+    color: var(--o-ui-global-overcast-300);
 }
 
 .overcast-400 {
-    color: var(--o-ui-overcast-400);
+    color: var(--o-ui-global-overcast-400);
 }
 
 .overcast-500 {
-    color: var(--o-ui-overcast-500);
+    color: var(--o-ui-global-overcast-500);
 }
 
 .overcast-600 {
-    color: var(--o-ui-overcast-600);
+    color: var(--o-ui-global-overcast-600);
 }
 
 .overcast-700 {
-    color: var(--o-ui-overcast-700);
+    color: var(--o-ui-global-overcast-700);
 }
 
 .overcast-800 {
-    color: var(--o-ui-overcast-800);
+    color: var(--o-ui-global-overcast-800);
 }
 
 .overcast-900 {
-    color: var(--o-ui-overcast-900);
+    color: var(--o-ui-global-overcast-900);
 }
 
 .hover-overcast-50:hover {
-    color: var(--o-ui-overcast-50);
+    color: var(--o-ui-global-overcast-50);
 }
 
 .hover-overcast-100:hover {
-    color: var(--o-ui-overcast-100);
+    color: var(--o-ui-global-overcast-100);
 }
 
 .hover-overcast-200:hover {
-    color: var(--o-ui-overcast-200);
+    color: var(--o-ui-global-overcast-200);
 }
 
 .hover-overcast-300:hover {
-    color: var(--o-ui-overcast-300);
+    color: var(--o-ui-global-overcast-300);
 }
 
 .hover-overcast-400:hover {
-    color: var(--o-ui-overcast-400);
+    color: var(--o-ui-global-overcast-400);
 }
 
 .hover-overcast-500:hover {
-    color: var(--o-ui-overcast-500);
+    color: var(--o-ui-global-overcast-500);
 }
 
 .hover-overcast-600:hover {
-    color: var(--o-ui-overcast-600);
+    color: var(--o-ui-global-overcast-600);
 }
 
 .hover-overcast-700:hover {
-    color: var(--o-ui-overcast-700);
+    color: var(--o-ui-global-overcast-700);
 }
 
 .hover-overcast-800:hover {
-    color: var(--o-ui-overcast-800);
+    color: var(--o-ui-global-overcast-800);
 }
 
 .hover-overcast-900:hover {
-    color: var(--o-ui-overcast-900);
+    color: var(--o-ui-global-overcast-900);
 }
 
 .focus-overcast-50:focus {
-    color: var(--o-ui-overcast-50);
+    color: var(--o-ui-global-overcast-50);
 }
 
 .focus-overcast-100:focus {
-    color: var(--o-ui-overcast-100);
+    color: var(--o-ui-global-overcast-100);
 }
 
 .focus-overcast-200:focus {
-    color: var(--o-ui-overcast-200);
+    color: var(--o-ui-global-overcast-200);
 }
 
 .focus-overcast-300:focus {
-    color: var(--o-ui-overcast-300);
+    color: var(--o-ui-global-overcast-300);
 }
 
 .focus-overcast-400:focus {
-    color: var(--o-ui-overcast-400);
+    color: var(--o-ui-global-overcast-400);
 }
 
 .focus-overcast-500:focus {
-    color: var(--o-ui-overcast-500);
+    color: var(--o-ui-global-overcast-500);
 }
 
 .focus-overcast-600:focus {
-    color: var(--o-ui-overcast-600);
+    color: var(--o-ui-global-overcast-600);
 }
 
 .focus-overcast-700:focus {
-    color: var(--o-ui-overcast-700);
+    color: var(--o-ui-global-overcast-700);
 }
 
 .focus-overcast-800:focus {
-    color: var(--o-ui-overcast-800);
+    color: var(--o-ui-global-overcast-800);
 }
 
 .focus-overcast-900:focus {
-    color: var(--o-ui-overcast-900);
+    color: var(--o-ui-global-overcast-900);
 }
