@@ -307,7 +307,7 @@ export function InnerDateRangeInput(props) {
     );
 
     const presetsMarkup = !isNil(presets) && (
-        <MenuTrigger onSelectionChange={handleSelectPreset}>
+        <MenuTrigger>
             <IconButton
                 shape="rounded"
                 color="secondary"
@@ -316,7 +316,7 @@ export function InnerDateRangeInput(props) {
             >
                 <VerticalDotsIcon />
             </IconButton>
-            <Menu>
+            <Menu onSelectionChange={handleSelectPreset}>
                 {presets.map((x, index) => (
                     // eslint-disable-next-line react/no-array-index-key
                     <Item key={index}>

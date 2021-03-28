@@ -27,7 +27,8 @@ import { isNil, isNumber } from "lodash";
 
 export const KeyProp = "data-o-ui-key";
 
-export const SelectionMode = {
+const SelectionMode = {
+    none: "none",
     single: "single",
     multiple: "multiple"
 };
@@ -148,7 +149,7 @@ export function InnerListbox({
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus?
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     defaultFocusTarget,
     focusOnHover,
     useVirtualFocus,
@@ -189,7 +190,9 @@ export function InnerListbox({
             onSelectionChange(event, newKeys);
         }
 
-        setSelectedKeys(newKeys);
+        if (selectionMode !== SelectionMode.none) {
+            setSelectedKeys(newKeys);
+        }
     };
 
     const handleSelectOption = useEventCallback((event, key) => {
@@ -309,7 +312,7 @@ export function InnerListbox({
     });
 
     useAutoFocusChild(focusManager, {
-        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
+        target: (selectionMode !== SelectionMode.none ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });

@@ -1,5 +1,6 @@
 import { Box } from "../../box";
 import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
@@ -26,6 +27,12 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
+const Role = {
+    [SelectionMode.none]: "menuitem",
+    [SelectionMode.single]: "menuitemradio",
+    [SelectionMode.multiple]: "menuitemcheckbox"
+};
+
 export function InnerMenuItem({
     item: { key, tooltip },
     id,
@@ -38,7 +45,7 @@ export function InnerMenuItem({
     forwardedRef,
     ...rest
 }) {
-    const { onSelect } = useMenuContext();
+    const { selectedKeys, selectionMode, onSelect } = useMenuContext();
 
     const handleClick = useEventCallback(event => {
         if (!disabled) {
@@ -111,10 +118,13 @@ export function InnerMenuItem({
                         focus && "focus",
                         hover && "hover"
                     ),
-                    role: "menuitem",
+                    role: Role[selectionMode],
                     tabIndex: "-1",
                     "data-o-ui-key": key,
+                    "aria-checked": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
+                    "aria-labelledby": labelId,
+                    "aria-describedby": description && descriptionId,
                     as,
                     ref: forwardedRef
                 }

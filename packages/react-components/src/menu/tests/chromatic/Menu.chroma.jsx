@@ -9,6 +9,11 @@ import { Text } from "@react-components/text";
 import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
+/*
+INTERACTION TEST:
+    - Do not persist selectedKeys when selectionMode is "none" (can test for aria-selected="false")
+*/
+
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Menu")
         .segment(segment)
@@ -57,7 +62,7 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Menu>
     )
-    .add("without keys", () =>
+    .add("generated keys", () =>
         <Menu aria-label="Planets">
             <Item>Earth</Item>
             <Item>Mars</Item>
@@ -105,6 +110,28 @@ stories()
                 <Item key="uranus">Uranus</Item>
             </Section>
         </Menu>
+    )
+    .add("selected keys", () =>
+        <Inline>
+            <Menu defaultSelectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+            <Menu selectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+        </Inline>
     )
     .add("item with start icon", () =>
         <Menu aria-label="Planets">
@@ -224,32 +251,94 @@ stories()
         </Menu>
     )
     .add("item overflow", () =>
-        <Menu style={{ width: "150px" }} aria-label="Planets">
-            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-            <Item>Jupiter</Item>
-            <Item>Mars</Item>
-        </Menu>
+        <Inline>
+            <Menu style={{ width: "150px" }} aria-label="Planets">
+                <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                <Item>Jupiter</Item>
+                <Item>Mars</Item>
+            </Menu>
+            <Menu defaultSelectedKeys={["0"]} style={{ width: "150px" }} aria-label="Planets">
+                <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                <Item>Jupiter</Item>
+                <Item>Mars</Item>
+            </Menu>
+        </Inline>
     )
     .add("item with description overflow", () =>
-        <Menu aria-label="Planets">
-            <Item key="earth">
-                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
-                <Text>Mars</Text>
-                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-            </Item>
-            <Item key="mercury">
-                <Text>Mercury</Text>
-                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-            </Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Menu>
+        <Inline>
+            <Menu aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">
+                    <Text>Mercury</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+            <Menu defaultSelectedKeys={["earth", "mars", "mercury"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">
+                    <Text>Mercury</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+        </Inline>
+    )
+    .add("item with description overflow when fluid", () =>
+        <Inline>
+            <Menu fluid style={{ width: "400px" }} aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+            <Menu defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid style={{ width: "400px" }} aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+        </Inline>
     )
     .add("fluid", () =>
         <Menu fluid aria-label="Planets">
@@ -259,14 +348,26 @@ stories()
         </Menu>
     )
     .add("states", () =>
-        <Menu aria-label="Planets">
-            <Item active key="earth">Earth</Item>
-            <Item focus key="jupiter">Jupiter</Item>
-            <Item hover key="mars">Mars</Item>
-            <Item focus hover key="mercury">Mercury</Item>
-            <Item disabled key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-        </Menu>
+        <Inline>
+            <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+            <Menu selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+            <Menu aria-label="Planets">
+                <Item active key="earth">Earth</Item>
+                <Item focus key="jupiter">Jupiter</Item>
+                <Item hover key="mars">Mars</Item>
+                <Item focus hover key="mercury">Mercury</Item>
+                <Item disabled key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </Inline>
     )
     .add("array map", () =>
         <Menu aria-label="Planets">
@@ -335,6 +436,20 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Section>
+        </Menu>
+    )
+    .add("autofocus + selected key", () =>
+        <Menu autoFocus defaultSelectedKeys={["jupiter"]} selectionMode="single" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    )
+    .add("autofocus + multiple selected key", () =>
+        <Menu autoFocus defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
         </Menu>
     )
     .add("autofocus with delay", () =>

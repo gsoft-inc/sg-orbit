@@ -262,6 +262,14 @@ A menu item can be disabled.
     </Story>
 </Preview>
 
+### Selection
+
+A menu supports multiple selection modes. By default, selection is disabled, however this can be changed by settings the `selectionMode` property to `single` or `multiple`.
+
+> When using selection with a `<Menu>` component wraped inside a `<MenuTrigger>`, you must handled the selected keys in controlled mode with the `selectedKeys` property otherwise the selected keys won't be persisted through openings.
+
+<Preview filePath="/menu/docs/Selection" />
+
 ### Custom trigger
 
 A menu trigger can update is appareance based on the `isOpen` value by using `useMenuTriggerContext`.

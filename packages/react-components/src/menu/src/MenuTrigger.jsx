@@ -16,19 +16,16 @@ const propTypes = {
      */
     defaultOpen: bool,
     /**
-     * Called when a menu item is selected.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} key - The menu item key.
-     * @returns {void}
-     */
-    onSelectionChange: func,
-    /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
     onOpenChange: func,
+    /**
+     * Whether or not the menu should close when an item is selected.
+     */
+    closeOnSelect: bool,
     /**
      * The direction the menu will open relative to the trigger.
      */
@@ -63,8 +60,8 @@ export function InnerMenuTrigger({
     id,
     open: openProp,
     defaultOpen,
-    onSelectionChange,
     onOpenChange,
+    closeOnSelect = true,
     direction = "bottom",
     align = "start",
     allowFlip,
@@ -132,12 +129,10 @@ export function InnerMenuTrigger({
         }
     });
 
-    const handleSelect = useEventCallback((event, key) => {
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, key);
+    const handleSelectionChange = useEventCallback(event => {
+        if (closeOnSelect) {
+            close(event);
         }
-
-        close();
     });
 
     const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
@@ -151,7 +146,7 @@ export function InnerMenuTrigger({
     ));
 
     const menuMarkup = augmentElement(menu, {
-        onSelect: handleSelect,
+        onSelectionChange: handleSelectionChange,
         // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,

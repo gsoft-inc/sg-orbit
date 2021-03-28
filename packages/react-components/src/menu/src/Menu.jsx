@@ -20,20 +20,34 @@ import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { NodeType, useCollection } from "../../collection";
-import { any, arrayOf, bool, elementType, func, number, object, oneOfType, string } from "prop-types";
+import { SelectionMode } from "./selectionMode";
+import { any, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
+import { useControllableState } from "../../../dist";
 
 export const KeyProp = "data-o-ui-key";
 
 const propTypes = {
     /**
-     * Called when a menu item is selected.
+     * A controlled set of the selected item keys.
+     */
+    selectedKeys: arrayOf(string),
+    /**
+     * The initial value of `selectedKeys` when uncontrolled.
+     */
+    defaultSelectedKeys: arrayOf(string),
+    /**
+     * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} key - The menu item key.
+     * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */
     onSelectionChange: func,
+    /**
+     * The type of selection that is allowed.
+     */
+    selectionMode: oneOf(["none", "single", "multiple"]),
     /**
      * Items to render.
      */
@@ -62,8 +76,11 @@ const propTypes = {
 
 export function InnerMenu({
     id,
-    items,
+    selectedKeys: selectedKeysProp,
+    defaultSelectedKeys,
     onSelectionChange,
+    selectionMode = "none",
+    items,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -74,6 +91,7 @@ export function InnerMenu({
     forwardedRef,
     ...rest
 }) {
+    const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -82,9 +100,21 @@ export function InnerMenu({
 
     const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
 
-    const handleSelect = useEventCallback((event, key) => {
+    const handleSelectItem = useEventCallback((event, key) => {
+        let newKeys;
+
+        if (selectionMode === SelectionMode.multiple) {
+            newKeys = selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
+        } else {
+            newKeys = selectedKeys.includes(key) ? [] : [key];
+        }
+
         if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, key);
+            onSelectionChange(event, newKeys);
+        }
+
+        if (selectionMode !== SelectionMode.none) {
+            setSelectedKeys(newKeys);
         }
     });
 
@@ -133,7 +163,7 @@ export function InnerMenu({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        target: defaultFocusTarget,
+        target: (selectionMode !== SelectionMode.none ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
@@ -234,7 +264,9 @@ export function InnerMenu({
         >
             <MenuContext.Provider
                 value={{
-                    onSelect: handleSelect
+                    selectedKeys,
+                    selectionMode,
+                    onSelect: handleSelectItem
                 }}
             >
                 {nodes.map(({ type, ...nodeProps }) => {

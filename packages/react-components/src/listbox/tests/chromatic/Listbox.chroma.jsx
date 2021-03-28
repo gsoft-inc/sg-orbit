@@ -14,6 +14,7 @@ INTERACTION TESTS:
 - when listbox receive focus
      focus the first focusable item
 - roving focus
+- do not update selectedKeys when selectionMode = "none"
 */
 
 function stories(segment) {
@@ -254,46 +255,88 @@ stories()
         </Listbox>
     )
     .add("item overflow", () =>
-        <Listbox aria-label="Planets">
-            <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-            <Item>Jupiter</Item>
-            <Item>Mars</Item>
-        </Listbox>
+        <Inline>
+            <Listbox aria-label="Planets">
+                <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                <Item>Jupiter</Item>
+                <Item>Mars</Item>
+            </Listbox>
+            <Listbox defaultSelectedKeys={["0"]} aria-label="Planets">
+                <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                <Item>Jupiter</Item>
+                <Item>Mars</Item>
+            </Listbox>
+        </Inline>
     )
     .add("item with description overflow", () =>
-        <Listbox aria-label="Planets">
-            <Item key="earth">
-                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
-                <Text>Mars</Text>
-                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-            </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Listbox>
+        <Inline>
+            <Listbox aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+            <Listbox defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+        </Inline>
     )
-    .add("item with description overflow fluid", () =>
-        <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
-            <Item key="earth">
-                <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                <Text slot="description">Home sweet home!</Text>
-            </Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">
-                <Text>Mars</Text>
-                <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-            </Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Listbox>
+    .add("item with description overflow when fluid", () =>
+        <Inline>
+            <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+            <Listbox defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid style={{ width: "400px" }} aria-label="Planets">
+                <Item key="earth">
+                    <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+                </Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+            </Listbox>
+        </Inline>
     )
     .add("fluid", () =>
         <Listbox fluid aria-label="Planets">
@@ -404,14 +447,14 @@ stories()
         </Listbox>
     )
     .add("autofocus + selected key", () =>
-        <Listbox autoFocus defaultSelectedKey="jupiter" aria-label="Planets">
+        <Listbox autoFocus defaultSelectedKeys={["jupiter"]} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     )
     .add("autofocus + multiple selected key", () =>
-        <Listbox autoFocus defaultSelectedKey={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
+        <Listbox autoFocus defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -457,7 +500,7 @@ stories()
         </Listbox>
     )
     .add("do not autofocus selected item when disabled", () =>
-        <Listbox autoFocus defaultSelectedKey="earth" aria-label="Planets">
+        <Listbox autoFocus defaultSelectedKeys={["earth"]} aria-label="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

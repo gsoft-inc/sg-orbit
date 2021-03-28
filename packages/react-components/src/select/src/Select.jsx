@@ -1,6 +1,5 @@
 import "./Select.css";
 
-import { ChevronIcon } from "../../icons";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
@@ -8,7 +7,7 @@ import { Overlay } from "../../overlay";
 import { Text } from "../../text";
 import { any, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { arrayOf } from "prop-types";
-import { augmentElement, cssModule, mergeClasses, mergeProps } from "../../shared";
+import { augmentElement, cssModule, mergeProps } from "../../shared";
 import { forwardRef } from "react";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
