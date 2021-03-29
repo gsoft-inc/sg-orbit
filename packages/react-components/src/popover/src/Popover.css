@@ -3,7 +3,7 @@
     padding: var(--o-ui-global-scale-foxtrot);
     padding-top: var(--o-ui-global-scale-echo);
     border-radius: var(--o-ui-shape-rounded);
-    box-shadow: var(--o-ui-alias-elevation-skim);
+    box-shadow: var(--o-ui-alias-elevation-raised);
     /* Must keep a max width. */
     width: 325px;
     position: relative;

@@ -10,7 +10,9 @@ stories()
     .add("default",
          () =>
              <Inline gap={12}>
-                 <div className="w13 h13 shadow-200 background-1 mb8" />
-                 <div className="w13 h13 shadow-400 background-1" />
+                 <div className="w13 h13 br2 shadow-100 bg-white mb8" />
+                 <div className="w13 h13 br2 shadow-200 bg-white mb8" />
+                 <div className="w13 h13 br2 shadow-300 bg-white mb8" />
+                 <div className="w13 h13 br2 shadow-400 bg-white" />
              </Inline>
     );

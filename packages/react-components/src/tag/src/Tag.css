@@ -267,7 +267,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 }
 
 /* CONTENT | ICON */
-.o-ui-tag-icon {
+.o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-icon {
     margin-right: var(--o-ui-global-scale-alpha);
 }
 

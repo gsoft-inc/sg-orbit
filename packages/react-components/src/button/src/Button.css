@@ -39,6 +39,16 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
+/* TEXT */
+.o-ui-button-text {
+    flex-grow: 1;
+}
+
+/* ICON */
+.o-ui-button:not(.o-ui-button-fluid) .o-ui-button-icon {
+    margin-right: var(--o-ui-global-scale-alpha);
+}
+
 /* ANCHOR */
 a.o-ui-button {
     -webkit-appearance: none;
