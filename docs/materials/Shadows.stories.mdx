@@ -10,7 +10,25 @@ import { Table, TachyonsFile, Tagline } from "@stories/components";
 
 <Tagline>Shadows are used to make content appear elevated.</Tagline>
 
-A system of 6 layers of shadows is used in order to have silky smooth shadows, the values shown below can be used [here](https://shadows.brumm.af/) in order to regenerate or modify the shadows.
+## Utilities
+
+All Tachyons shadows utilities have been replaced to match Orbit Design values.
+
+<Table
+    columns={[
+        { title: "Class", headerStyle: { width: "200px" } },
+        { title: "Variable", headerStyle: { width: "300px" } },
+        { title: "Sample", headerStyle: { width: "350px" } } ]}
+    rows={[
+        [{ value: "shadow-100", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-100", className: "code f8 o-90" }, <div className="shadow-100 br2 bg-white h9 ma3"></div>],
+        [{ value: "shadow-200", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-200", className: "code f8 o-90" }, <div className="shadow-200 br2 bg-white h9 ma3"></div>],
+        [{ value: "shadow-300", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-300", className: "code f8 o-90" }, <div className="shadow-300 br2 bg-white h9 ma3"></div>],
+        [{ value: "shadow-400", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-400", className: "code f8 o-90" }, <div className="shadow-400 br2 bg-white h9 ma3"></div>]
+    ]}
+    rowClassName="background-1"
+/>
+
+CSS shadows are made using a system of 6 layers in order to provide silky smooth shadows, the values below can be used [here](https://shadows.brumm.af/) in order to preview and play with the shadows.
 
 #### Shadow 100
 - Layers of shadows: 6
@@ -35,24 +53,6 @@ A system of 6 layers of shadows is used in order to have silky smooth shadows, t
 - Final transparency: 0.08
 - Final vertical distance: 25
 - Final blur strength: 80
-
-## Utilities
-
-All Tachyons shadows utilities have been replaced to match Orbit Design values.
-
-<Table
-    columns={[
-        { title: "Class", headerStyle: { width: "200px" } },
-        { title: "Variable", headerStyle: { width: "300px" } },
-        { title: "Sample", headerStyle: { width: "350px" } } ]}
-    rows={[
-        [{ value: "shadow-100", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-100", className: "code f8 o-90" }, <div className="shadow-100 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-200", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-200", className: "code f8 o-90" }, <div className="shadow-200 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-300", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-300", className: "code f8 o-90" }, <div className="shadow-300 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-400", className: "code f8 o-90" }, { value: "--o-ui-global-shadow-400", className: "code f8 o-90" }, <div className="shadow-400 br2 bg-white h9 ma3"></div>]
-    ]}
-    rowClassName="background-1"
-/>
 
 ## Tachyons
 
