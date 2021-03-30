@@ -169,8 +169,8 @@ export function InnerButton(props: InnerButtonProps) {
         >
             {icon}
             {text}
-            {endIcon}
             {counter}
+            {endIcon}
         </Box>
     );
 }

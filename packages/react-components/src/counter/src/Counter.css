@@ -66,6 +66,7 @@
 /* DIVIDER | COLOR | INHERIT */
 .o-ui-counter-divider.o-ui-counter-inherit-color {
     color: inherit;
+    border-color: inherit;
 }
 
 /* PUSHED */
