@@ -1,10 +1,11 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { embeddedIconSize } from "../../icons";
+import { isNil } from "lodash";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
@@ -87,6 +88,7 @@ export function InnerButton(props: InnerButtonProps) {
         shape = "pill",
         condensed,
         autoFocus,
+        disabled,
         fluid,
         loading,
         size,
@@ -120,7 +122,7 @@ export function InnerButton(props: InnerButtonProps) {
         forwardedRef
     });
 
-    const { icon, text, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, text, "end-icon": endIcon, counter } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -136,14 +138,24 @@ export function InnerButton(props: InnerButtonProps) {
         "end-icon": {
             size: condensed ? size : embeddedIconSize(size),
             className: "o-ui-button-end-icon"
+        },
+        counter: (element?: ReactElement) => {
+            return {
+                size: condensed ? condensedTextSize(size) : size,
+                color: element?.props?.variant === "divider" ? "inherit" : "bold",
+                disabled,
+                pushed: true,
+                className: "o-ui-button-counter"
+            };
         }
-    }), [size, condensed, loading]));
+    }), [size, disabled, condensed, loading]));
 
     return (
         <Box
             {...mergeProps(
                 rest,
                 {
+                    disabled,
                     className: cssModule(
                         "o-ui-button",
                         icon && "has-start-icon",
@@ -158,6 +170,7 @@ export function InnerButton(props: InnerButtonProps) {
             {icon}
             {text}
             {endIcon}
+            {counter}
         </Box>
     );
 }

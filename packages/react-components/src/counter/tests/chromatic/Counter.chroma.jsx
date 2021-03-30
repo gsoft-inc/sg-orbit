@@ -21,22 +21,31 @@ stories()
                 <Counter>2</Counter>
                 <Counter>9999+</Counter>
             </Inline>
+            <Inline>
+                <Counter size="lg">2</Counter>
+                <Counter size="lg">9999+</Counter>
+            </Inline>
         </Stack>
     )
     .add("divider", () =>
-        <Stack>
-            <Counter size="sm" variant="divider">15</Counter>
-            <Counter variant="divider">15</Counter>
-            <Text size="sm" className="flex">
-                <Counter size="inherit" variant="divider">15</Counter>
-            </Text>
-            <Text className="flex">
-                <Counter size="inherit" variant="divider">15</Counter>
-            </Text>
-            <Text size="lg" className="flex">
-                <Counter size="inherit" variant="divider">15</Counter>
-            </Text>
-        </Stack>
+        <Inline gap={13}>
+            <Stack>
+                <Counter size="sm" variant="divider">15</Counter>
+                <Counter variant="divider">15</Counter>
+                <Counter size="lg" variant="divider">15</Counter>
+            </Stack>
+            <Stack>
+                <Text size="sm" className="flex">
+                    <Counter size="inherit" variant="divider">15</Counter>
+                </Text>
+                <Text className="flex">
+                    <Counter size="inherit" variant="divider">15</Counter>
+                </Text>
+                <Text size="lg" className="flex">
+                    <Counter size="inherit" variant="divider">15</Counter>
+                </Text>
+            </Stack>
+        </Inline>
     )
     .add("pushed", () =>
         <Stack>
@@ -62,21 +71,15 @@ stories()
             </Box>
         </Stack>
     )
-    .add("light", () =>
-        <Inline verticalAlign="center">
-            <Counter color="light">15</Counter>
-            <Counter variant="divider" color="light">15</Counter>
-        </Inline>
-    )
-    .add("highlight", () =>
+    .add("color", () =>
         <Stack>
             <Inline verticalAlign="center">
-                <Counter highlight>15</Counter>
-                <Counter variant="divider" highlight>15</Counter>
+                <Counter color="light">15</Counter>
+                <Counter variant="divider" color="light">15</Counter>
             </Inline>
             <Inline verticalAlign="center">
-                <Counter color="light" highlight>15</Counter>
-                <Counter variant="divider" color="light" highlight>15</Counter>
+                <Counter color="bold">15</Counter>
+                <Counter variant="divider" color="bold">15</Counter>
             </Inline>
         </Stack>
     )

@@ -69,7 +69,6 @@ export function InnerLink(props: InnerLinkProps) {
     );
 
     const linkProps = useLink({
-        omitSize: true,
         external,
         shape,
         autoFocus,

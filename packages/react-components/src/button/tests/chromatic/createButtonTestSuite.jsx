@@ -1,3 +1,4 @@
+import { Counter } from "@react-components/counter";
 import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
@@ -152,6 +153,86 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </div>
+            </Stack>
+        )
+        .add("counter", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button loading size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button loading size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button loading element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button loading element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button condensed size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button condensed element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button condensed element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline>
+                    <Button disabled element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button disabled element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
             </Stack>
         )
         .add("primary", () =>

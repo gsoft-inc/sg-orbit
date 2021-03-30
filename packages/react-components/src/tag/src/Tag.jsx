@@ -73,9 +73,8 @@ export function InnerTag({
         counter: {
             size,
             disabled,
-            highlight: true,
-            pushed: true,
-            className: "o-ui-tag-counter"
+            color: "bold",
+            pushed: true
         }
     }), [size, disabled]));
 

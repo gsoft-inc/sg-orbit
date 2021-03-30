@@ -11,7 +11,7 @@ import {
     useRawSlots,
     useRefState
 } from "../../shared";
-import { KeyProp } from "../../listbox";
+import { OptionKeyProp } from "../../listbox";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo } from "react";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
@@ -65,7 +65,7 @@ export function useSelect(children, {
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        keyProp: KeyProp
+        keyProp: OptionKeyProp
     });
 
     const updateSelectedKey = useCallback((event, newKeys) => {

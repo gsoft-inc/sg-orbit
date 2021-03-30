@@ -99,7 +99,7 @@ const NavigationKeyBinding = {
     }
 };
 
-const KeyProp = "value";
+const RadioKeyProp = "value";
 
 export function InnerRadioGroup(props) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
@@ -142,9 +142,9 @@ export function InnerRadioGroup(props) {
         setCheckedValue(newValue);
     });
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: RadioKeyProp });
 
-    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: RadioKeyProp });
 
     useAutoFocusChild(focusManager, {
         target: value ?? defaultValue,
@@ -158,7 +158,7 @@ export function InnerRadioGroup(props) {
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radiogroup",
-        keyProp: KeyProp,
+        keyProp: RadioKeyProp,
         value,
         defaultValue,
         required,

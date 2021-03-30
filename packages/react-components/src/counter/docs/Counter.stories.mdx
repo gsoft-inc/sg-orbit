@@ -35,27 +35,29 @@ A default counter.
 
 ### Pill
 
-A counter can be rendered as a pill.
+A counter can be rendered as a pill. A pill counter support `"sm"`, `"md"` and `"lg"` sizes.
 
 <Preview>
     <Story name="pill">
         <Inline verticalAlign="center">
             <Counter size="sm">15</Counter>
             <Counter>15</Counter>
+            <Counter size="lg">15</Counter>
         </Inline>
     </Story>
 </Preview>
 
 ### Divider
 
-A counter can be rendered as a divider.
+A counter can be rendered as a divider. A divider counter support `"sm"`, `"md"`, `"lg"` and `"inherit"` sizes.
 
 <Preview>
     <Story name="divider">
-        <Inline verticalAlign="end">
+        <Inline verticalAlign="center">
             <Counter size="sm" variant="divider">100+</Counter>
             <Counter variant="divider">100+</Counter>
-            <Text size="lg">
+            <Counter size="lg" variant="divider">100+</Counter>
+            <Text size="xl">
                 <Counter size="inherit" variant="divider">100+</Counter>
             </Text>
         </Inline>
@@ -71,19 +73,8 @@ A counter can use a different color accent.
         <Inline verticalAlign="center">
             <Counter color="light">15</Counter>
             <Counter color="light" variant="divider">100+</Counter>
-        </Inline>
-    </Story>
-</Preview>
-
-### Highlight
-
-A counter value can be highlighted.
-
-<Preview>
-    <Story name="highlight">
-        <Inline verticalAlign="center">
-            <Counter highlight color="light">15</Counter>
-            <Counter highlight color="light" variant="divider">100+</Counter>
+            <Counter color="bold">15</Counter>
+            <Counter color="bold" variant="divider">100+</Counter>
         </Inline>
     </Story>
 </Preview>

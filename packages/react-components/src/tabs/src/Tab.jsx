@@ -7,7 +7,7 @@ import { any, bool, elementType, object, oneOfType, string } from "prop-types";
 import { forwardRef, useMemo } from "react";
 import { useTabsContext } from "./TabsContext";
 
-export const KeyProp = "data-o-ui-key";
+export const TabKeyProp = "data-o-ui-key";
 
 const propTypes = {
     /**
@@ -108,7 +108,7 @@ export function InnerTab({
                     ),
                     disabled,
                     role: "tab",
-                    [KeyProp]: key,
+                    [TabKeyProp]: key,
                     "aria-selected": key === selectedKey,
                     "aria-controls": panelId,
                     as,

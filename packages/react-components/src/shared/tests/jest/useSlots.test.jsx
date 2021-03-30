@@ -99,8 +99,7 @@ test("do not throw an exception when a required slot is fulfilled", () => {
 
 test("do not wrap when there are no children", () => {
     const { queryByTestId } = render(
-        <DefaultedCard>
-        </DefaultedCard>
+        <DefaultedCard />
     );
 
     expect(queryByTestId("wrapper")).toBeNull();

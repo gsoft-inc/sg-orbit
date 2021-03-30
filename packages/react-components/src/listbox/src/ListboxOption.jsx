@@ -1,8 +1,8 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { KeyProp } from "./Listbox";
-import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
 import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
@@ -75,19 +75,22 @@ export function InnerListboxOption({
         const activeElement = focusManager.focusKey(key);
 
         if (!isNil(onFocus)) {
-            onFocus(event, activeElement.getAttribute(KeyProp), activeElement);
+            onFocus(event, activeElement.getAttribute(OptionKeyProp), activeElement);
         }
     });
 
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            className: "o-ui-listbox-option-start-icon"
+        icon: (element, allElements) => {
+            return {
+                className: "o-ui-listbox-option-start-icon",
+                size: isNil(allElements.description) ? "sm" : undefined
+            };
         },
         avatar: {
             className: "o-ui-listbox-option-avatar"
@@ -106,13 +109,6 @@ export function InnerListboxOption({
             className: "o-ui-listbox-option-end-icon"
         }
     }), [labelId, descriptionId]));
-
-    // TEMP: until useSlots is improved with conditional props based on other slots existence.
-    if (!isNil(icon) && isNil(description)) {
-        icon = augmentElement(icon, {
-            size: "sm"
-        });
-    }
 
     const optionMarkup = (
         <Box

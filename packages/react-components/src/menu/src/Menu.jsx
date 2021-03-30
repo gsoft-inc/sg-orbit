@@ -7,6 +7,7 @@ import {
     cssModule,
     mergeProps,
     useAutoFocusChild,
+    useControllableState,
     useDisposables,
     useEventCallback,
     useFocusManager,
@@ -24,9 +25,8 @@ import { SelectionMode } from "./selectionMode";
 import { any, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
-import { useControllableState } from "../../../dist";
 
-export const KeyProp = "data-o-ui-key";
+export const ItemKeyProp = "data-o-ui-key";
 
 const propTypes = {
     /**
@@ -98,7 +98,7 @@ export function InnerMenu({
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: ItemKeyProp });
 
     const handleSelectItem = useEventCallback((event, key) => {
         let newKeys;

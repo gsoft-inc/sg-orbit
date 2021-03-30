@@ -28,13 +28,13 @@
     padding: 0 0.625rem 0 0.625rem;
 }
 
-/* PILL | COLOR */
+/* PILL | COLOR | LIGHT */
 .o-ui-counter-pill.o-ui-counter-light {
     background-color: var(--o-ui-alias-background-3);
 }
 
-/* PILL | HIGHLIGHT */
-.o-ui-counter-pill.o-ui-counter-highlight {
+/* PILL | COLOR | BOLD */
+.o-ui-counter-pill.o-ui-counter-bold {
     font-weight: 500;
 }
 
@@ -58,9 +58,14 @@
     color: var(--o-ui-alias-text-3);
 }
 
-/* DIVIDER | HIGHLIGHT */
-.o-ui-counter-divider.o-ui-counter-highlight {
+/* DIVIDER | COLOR | BOLD */
+.o-ui-counter-divider.o-ui-counter-bold {
     font-weight: 500;
+}
+
+/* DIVIDER | COLOR | INHERIT */
+.o-ui-counter-divider.o-ui-counter-inherit-color {
+    color: inherit;
 }
 
 /* PUSHED */

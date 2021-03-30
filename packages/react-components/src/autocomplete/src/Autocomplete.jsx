@@ -1,7 +1,6 @@
 import "./Autocomplete.css";
 
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { KeyProp, Listbox } from "../../listbox";
 import {
     Keys,
     augmentElement,
@@ -13,6 +12,7 @@ import {
     useId,
     useRefState
 } from "../../shared";
+import { Listbox, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
@@ -312,7 +312,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -324,7 +324,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -336,7 +336,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -348,7 +348,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;

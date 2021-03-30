@@ -13,11 +13,7 @@ export interface InnerCounterProps {
     /**
      * The color accent.
      */
-    color?: "light";
-    /**
-     * Whether or not to add emphasis on the count value.
-     */
-    highlight?: boolean;
+    color?: "light" | "bold" | "inherit";
     /**
      * Whether or not to reverse counter elements order.
      */
@@ -25,7 +21,7 @@ export interface InnerCounterProps {
     /**
      * A counter can vary in size.
      */
-    size?: "sm" | "md" | "inherit";
+    size?: "sm" | "md" | "lg" | "inherit";
     /**
      * Whether or not the counter is disabled.
      */
@@ -56,7 +52,6 @@ export function InnerCounter(props: InnerCounterProps) {
     const {
         variant = "pill",
         color,
-        highlight,
         reverse,
         size,
         pushed,
@@ -78,8 +73,7 @@ export function InnerCounter(props: InnerCounterProps) {
                     className: cssModule(
                         "o-ui-counter",
                         variant,
-                        color && color,
-                        highlight && "highlight",
+                        color && color === "inherit" ? "inherit-color" : color,
                         reverse && "reverse",
                         pushed && "pushed",
                         normalizeSize(size)

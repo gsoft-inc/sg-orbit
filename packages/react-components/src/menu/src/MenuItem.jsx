@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { Keys, augmentElement, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
@@ -70,12 +70,15 @@ export function InnerMenuItem({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            className: "o-ui-menu-item-start-icon"
+        icon: (element, allElements) => {
+            return {
+                className: "o-ui-menu-item-start-icon",
+                size: isNil(allElements.description) ? "sm" : undefined
+            };
         },
         avatar: {
             className: "o-ui-menu-item-option-avatar"
@@ -94,13 +97,6 @@ export function InnerMenuItem({
             className: "o-ui-menu-item-end-icon"
         }
     }), [labelId, descriptionId]));
-
-    // TEMP: until useSlots is improved with conditional props based on other slots existence.
-    if (!isNil(icon) && isNil(description)) {
-        icon = augmentElement(icon, {
-            size: "sm"
-        });
-    }
 
     const itemMarkup = (
         <Box

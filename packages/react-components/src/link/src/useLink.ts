@@ -1,16 +1,14 @@
 import { ForwardedRef } from "react";
-import { InteractionStatesProps, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNumber } from "lodash";
 
 export interface UseLinkProps extends InteractionStatesProps {
     cssModule?: string;
-    omitSize?: boolean;
     color?: string;
     underline?: string;
     shape?: string;
     external?: boolean;
     autoFocus?: boolean | number;
-    size?: Size;
     visited?: boolean;
     target?: string;
     rel?: string;
@@ -19,13 +17,11 @@ export interface UseLinkProps extends InteractionStatesProps {
 
 export function useLink({
     cssModule: module,
-    omitSize,
     color,
     underline,
     shape,
     external,
     autoFocus,
-    size,
     active,
     focus,
     hover,
@@ -48,14 +44,13 @@ export function useLink({
             module,
             cssModule(
                 "o-ui-link",
-                color,
+                color && color === "inherit" ? "inherit-color" : color,
                 underline,
                 shape,
                 active && "active",
                 focus && "focus",
                 hover && "hover",
-                visited && "visited",
-                !omitSize && normalizeSize(size)
+                visited && "visited"
             )
         ),
         ref: linkRef

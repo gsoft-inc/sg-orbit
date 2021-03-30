@@ -25,7 +25,7 @@ import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape,
 import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
-export const KeyProp = "data-o-ui-key";
+export const OptionKeyProp = "data-o-ui-key";
 
 const SelectionMode = {
     none: "none",
@@ -52,7 +52,7 @@ const propTypes = {
     /**
      * The type of selection that is allowed.
      */
-    selectionMode: oneOf(["single", "multiple"]),
+    selectionMode: oneOf(["none", "single", "multiple"]),
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
@@ -174,7 +174,7 @@ export function InnerListbox({
 
     const selectionManager = useSelectionManager(items, { selectedKeys });
 
-    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: OptionKeyProp });
 
     // Would be nice to find a better way to give control over the focused item to the parent.
     useImperativeHandle(forwardedRef, () => {
@@ -223,7 +223,7 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusNext();
-                const key = activeElement.getAttribute(KeyProp);
+                const key = activeElement.getAttribute(OptionKeyProp);
 
                 if (!isNil(onFocusChange)) {
                     onFocusChange(event, key, activeElement);
@@ -242,7 +242,7 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
-                const key = activeElement.getAttribute(KeyProp);
+                const key = activeElement.getAttribute(OptionKeyProp);
 
                 if (!isNil(onFocusChange)) {
                     onFocusChange(event, key, activeElement);
@@ -263,7 +263,7 @@ export function InnerListbox({
                 const activeElement = focusManager.focusFirst();
 
                 if (!isNil(onFocusChange)) {
-                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                    onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;
             }
@@ -273,7 +273,7 @@ export function InnerListbox({
                 const activeElement = focusManager.focusLast();
 
                 if (!isNil(onFocusChange)) {
-                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                    onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;
             }
@@ -282,7 +282,7 @@ export function InnerListbox({
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(OptionKeyProp));
 
                         updateSelectedKeys(event, newKeys);
                     }
@@ -307,7 +307,7 @@ export function InnerListbox({
     });
 
     useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
-        keyProp: KeyProp,
+        keyProp: OptionKeyProp,
         isDisabled: !tabbable
     });
 

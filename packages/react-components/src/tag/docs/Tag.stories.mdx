@@ -210,13 +210,21 @@ The item object structure can be wathever you prefer, it doesn't have to be `key
                 { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
             ]}
         >
-            {({ items }) => items.map(x => <Item key={x.key}>
-                {x.icon}
-                <Text>{x.value}</Text>
-            </Item>)}
+            {({ items }) => items.map(x =>
+                <Item key={x.key}>
+                    {x.icon}
+                    <Text>{x.value}</Text>
+                </Item>
+            )}
         </TagList>
     </Story>
 </Preview>
+
+### Tags picker
+
+The following example show how a TagList can be compose with one of Orbit's picker to build a basic tags picker.
+
+<Preview filePath="/tag/docs/TagsPicker" />
 
 ## API
 
