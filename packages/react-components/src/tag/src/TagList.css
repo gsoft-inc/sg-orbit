@@ -2,6 +2,7 @@
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: calc(-1 * var(--o-ui-global-scale-bravo));
 }
 
 .o-ui-tag-list-item,

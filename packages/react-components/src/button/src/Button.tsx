@@ -6,6 +6,7 @@ import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, merge
 import { Text } from "../../text";
 import { embeddedIconSize } from "../../icons";
 import { isNil } from "lodash";
+import { mergeClasses } from "../../../dist";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
@@ -128,7 +129,7 @@ export function InnerButton(props: InnerButtonProps) {
         },
         icon: {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-icon o-ui-button-left-icon"
+            className: "o-ui-button-icon o-ui-button-start-icon"
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
@@ -142,7 +143,8 @@ export function InnerButton(props: InnerButtonProps) {
         counter: (element?: ReactElement) => {
             return {
                 size: condensed ? condensedTextSize(size) : size,
-                color: element?.props?.variant === "divider" ? "inherit" : "bold",
+                color: element?.props?.variant === "divider" ? (color !== "inherit" ? "inherit" : undefined) : "bold",
+                // color: color === "inherit" ?
                 disabled,
                 pushed: true,
                 className: "o-ui-button-counter"

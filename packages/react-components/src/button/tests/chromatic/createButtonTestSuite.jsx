@@ -178,6 +178,28 @@ export function createButtonTestSuite(element, stories) {
                     </Button>
                 </Inline>
                 <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
                         <Counter>15</Counter>

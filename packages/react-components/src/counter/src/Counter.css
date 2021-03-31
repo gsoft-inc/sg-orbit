@@ -41,16 +41,31 @@
 /* DIVIDER */
 .o-ui-counter-divider {
     display: inline-block;
-    border-left: 1px solid var(--o-ui-alias-border-1);
+    position: relative;
     padding-left: var(--o-ui-global-scale-bravo);
+}
+
+/* Using a before element for the border to add an opacity to the border color when it's inherited. */
+.o-ui-counter-divider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    border-left: 1px solid var(--o-ui-alias-border-1);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
-    border-left: 0;
-    border-right: 1px solid var(--o-ui-alias-border-1);
     padding-left: 0;
     padding-right: var(--o-ui-global-scale-bravo);
+}
+
+.o-ui-counter-divider.o-ui-counter-reverse::before {
+    border-left: 0;
+    border-right: 1px solid var(--o-ui-alias-border-1);
 }
 
 /* DIVIDER | COLOR | LIGHT */
@@ -66,7 +81,11 @@
 /* DIVIDER | COLOR | INHERIT */
 .o-ui-counter-divider.o-ui-counter-inherit-color {
     color: inherit;
+}
+
+.o-ui-counter-divider.o-ui-counter-inherit-color::before {
     border-color: inherit;
+    opacity: 0.3;
 }
 
 /* PUSHED */

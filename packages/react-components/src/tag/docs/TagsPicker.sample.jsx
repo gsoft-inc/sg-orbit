@@ -54,11 +54,11 @@ function TagsPicker() {
 
     return (
         <div className="flex">
-            <MenuTrigger>
+            <MenuTrigger closeOnSelect={false}>
                 <Button color="secondary" className="mr2">
-                    <Text>Programs</Text>
+                    <Text>{selectedKeys.length > 0 ? "Programs" : "All programs"}</Text>
                     <DisclosureArrow slot="end-icon" />
-                    <Counter variant="divider">{selectedKeys.length}</Counter>
+                    {selectedKeys.length > 0 && <Counter variant="divider">{selectedKeys.length}</Counter>}
                 </Button>
                 <Menu
                     items={Tags}
