@@ -74,7 +74,6 @@ export function InnerTag({
         counter: {
             color: "inherit",
             size,
-            highlight: true,
             pushed: true,
             disabled
         }

@@ -1,7 +1,7 @@
 .o-ui-popover {
     background-color: var(--o-ui-alias-background-1);
     padding: var(--o-ui-global-scale-foxtrot);
-    padding-top: var(--o-ui-global-scale-echo);
+    padding-top: var(--o-ui-global-scale-delta);
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-alias-elevation-raised);
     /* Must keep a max width. */
@@ -13,13 +13,6 @@
 /* OVERLAY */
 .o-ui-popover-overlay:focus > *:first-child {
     border: var(--o-ui-focus-ring-thickness-sm) solid var(--o-ui-focus-ring-color);
-}
-
-/* CLOSE BUTTON */
-.o-ui-popover-close-button {
-    position: absolute;
-    top: var(--o-ui-global-scale-bravo);
-    right: var(--o-ui-global-scale-bravo);
 }
 
 /* HEADER */

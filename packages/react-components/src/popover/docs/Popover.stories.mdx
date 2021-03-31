@@ -83,22 +83,6 @@ A popper can have footer text.
     </Story>
 </Preview>
 
-### Hide close button
-
-A popper can hide his default close button.
-
-<Preview>
-    <Story name="hide close button">
-        <PopoverTrigger>
-            <Button>Trigger</Button>
-            <Popover hideCloseButton>
-                <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-            </Popover>
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
 ### Trigger
 
 A popover can be triggered on *hover* instead of on *click*.
@@ -160,6 +144,27 @@ A popover can update is content based on the `isOpen` value and optionally use t
 A similar result could also be achieve by using `usePopoverTriggerContext`.
 
 <Preview filePath="/popover/docs/PopoverContext" />
+
+### Persistent
+
+A popover can requires an explicit action to close.
+
+<Preview>
+    <Story name="persistent">
+        <PopoverTrigger persistent>
+            {({ close }) => (
+                <>
+                    <Button>Trigger</Button>
+                    <Popover>
+                        <Heading>WikiSpace</Heading>
+                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                        <Button onClick={event => close(event)} color="primary">Close</Button>
+                    </Popover>
+                </>
+            )}
+        </PopoverTrigger>
+    </Story>
+</Preview>
 
 ### Controlled
 
