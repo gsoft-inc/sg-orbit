@@ -69,7 +69,6 @@ export function useField({
         },
         fieldContext: {
             inputId,
-            inputId,
             labelId,
             messageId,
             required,

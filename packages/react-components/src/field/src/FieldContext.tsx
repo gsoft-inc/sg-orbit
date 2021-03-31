@@ -4,7 +4,6 @@ import { isNil } from "lodash";
 
 export interface FieldContextType {
     inputId?: string;
-    inputId?: string,
     labelId?: string;
     messageId?: string
     required?: boolean;
