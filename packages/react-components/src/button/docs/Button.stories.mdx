@@ -13,6 +13,7 @@ import {
     ToggleIconButton
 } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
 
@@ -65,6 +66,19 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
         <Button>
             <Text>Cutoff</Text>
             <LightbulbIcon slot="end-icon" />
+        </Button>
+    </Story>
+</Preview>
+
+### Counter
+
+A button can have a [counter](?path=/docs/counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Button>
+            <Text>Cutoff</Text>
+            <Counter variant="divider">60</Counter>
         </Button>
     </Story>
 </Preview>

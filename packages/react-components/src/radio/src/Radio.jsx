@@ -119,6 +119,7 @@ export function InnerRadio(props) {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             className: "o-ui-radio-label"
         },
         icon: {
@@ -126,6 +127,8 @@ export function InnerRadio(props) {
             className: "o-ui-radio-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             reverse,
             pushed: true,
             className: "o-ui-radio-counter"

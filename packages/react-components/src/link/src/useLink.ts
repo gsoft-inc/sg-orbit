@@ -44,7 +44,7 @@ export function useLink({
             module,
             cssModule(
                 "o-ui-link",
-                color && color === "inherit" ? "inherit-color" : color,
+                color === "inherit" ? "inherit-color" : color,
                 underline,
                 shape,
                 active && "active",

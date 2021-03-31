@@ -33,48 +33,27 @@ A default counter.
     </Story>
 </Preview>
 
-### Pill
-
-A counter can be rendered as a pill. A pill counter support `"sm"`, `"md"` and `"lg"` sizes.
-
-<Preview>
-    <Story name="pill">
-        <Inline verticalAlign="center">
-            <Counter size="sm">15</Counter>
-            <Counter>15</Counter>
-            <Counter size="lg">15</Counter>
-        </Inline>
-    </Story>
-</Preview>
-
 ### Divider
 
-A counter can be rendered as a divider. A divider counter support `"sm"`, `"md"`, `"lg"` and `"inherit"` sizes.
+A counter can be rendered as a divider.
 
 <Preview>
     <Story name="divider">
         <Inline verticalAlign="center">
-            <Counter size="sm" variant="divider">100+</Counter>
             <Counter variant="divider">100+</Counter>
-            <Counter size="lg" variant="divider">100+</Counter>
-            <Text size="xl">
-                <Counter size="inherit" variant="divider">100+</Counter>
-            </Text>
         </Inline>
     </Story>
 </Preview>
 
-### Color
+### Highlight
 
-A counter can use a different color accent.
+A counter value can be highlighted.
 
 <Preview>
-    <Story name="color">
-        <Inline verticalAlign="center">
-            <Counter color="light">15</Counter>
-            <Counter color="light" variant="divider">100+</Counter>
-            <Counter color="bold">15</Counter>
-            <Counter color="bold" variant="divider">100+</Counter>
+    <Story name="highlight">
+        <Inline gap={10} verticalAlign="center">
+            <Counter highlight>15</Counter>
+            <Counter highlight variant="divider">100+</Counter>
         </Inline>
     </Story>
 </Preview>
@@ -85,12 +64,12 @@ A counter can pushed itself away from content.
 
 <Preview>
     <Story name="pushed">
-        <Inline verticalAlign="center">
-            <Box className="flex">
-                Satellites <Counter pushed color="light">15</Counter>
+        <Inline gap={10} verticalAlign="center">
+            <Box>
+                <Text>Satellites</Text> <Counter pushed>15</Counter>
             </Box>
-            <Box className="flex">
-                Satellites <Counter pushed color="light" variant="divider">100+</Counter>
+            <Box>
+                <Text>Satellites</Text> <Counter pushed variant="divider">100+</Counter>
             </Box>
         </Inline>
     </Story>

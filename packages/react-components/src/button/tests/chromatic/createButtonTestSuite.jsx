@@ -160,16 +160,6 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
-                    <Button element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Button size="sm" element={element}>
-                        <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                     <Button element={element}>
@@ -180,17 +170,7 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                    <Button size="sm" element={element}>
-                        <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                    <Button element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
@@ -202,15 +182,7 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
-                    <Button loading size="sm" element={element}>
-                        <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
-                    </Button>
-                    <Button loading element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
                     </Button>
                     <Button loading element={element}>
                         <Text>Button</Text>
@@ -220,41 +192,25 @@ export function createButtonTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Button condensed size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
-                    <Button condensed size="sm" element={element}>
-                        <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                     <Button condensed element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
-                    <Button condensed element={element}>
-                        <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </Inline>
-                <Inline>
-                    <Button disabled element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
+                <div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </Inline>
-                <Inline>
+                </div>
+                <div>
                     <Button fluid element={element}>
                         <Text>Button</Text>
                         <Counter>15</Counter>
                     </Button>
-                    <Button fluid element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("primary", () =>
@@ -273,16 +229,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline>
-                    <Button color="primary" element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
+                <div>
                     <Button color="primary" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </Inline>
+                </div>
                 <Inline>
                     <Button active color="primary" element={element}>Button</Button>
                     <Button focus color="primary" element={element}>Button</Button>
@@ -308,16 +260,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline>
-                    <Button color="secondary" element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
+                <div>
                     <Button color="secondary" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </Inline>
+                </div>
                 <Inline>
                     <Button active color="secondary" element={element}>Button</Button>
                     <Button focus color="secondary" element={element}>Button</Button>
@@ -343,16 +291,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline>
-                    <Button color="danger" element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
+                <div>
                     <Button color="danger" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </Inline>
+                </div>
                 <Inline>
                     <Button active color="danger" element={element}>Button</Button>
                     <Button focus color="danger" element={element}>Button</Button>
@@ -378,16 +322,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline>
-                    <Button color="inherit" element={element}>
-                        <Text>Button</Text>
-                        <Counter>15</Counter>
-                    </Button>
+                <div>
                     <Button color="inherit" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </Inline>
+                </div>
                 <Inline>
                     <Button active color="inherit" element={element}>Button</Button>
                     <Button focus color="inherit" element={element}>Button</Button>
@@ -433,16 +373,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline>
+                <div>
                     <Button shape="rounded" element={element}>
                         <Text>Button</Text>
                         <Counter>15</Counter>
                     </Button>
-                    <Button shape="rounded" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Inline>
+                </div>
                 <Inline verticalAlign="end">
                     <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="rounded" element={element}>Aa</Button>

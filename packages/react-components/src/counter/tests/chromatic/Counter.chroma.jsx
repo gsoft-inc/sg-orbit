@@ -13,75 +13,83 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline verticalAlign="center">
                 <Counter size="sm">15</Counter>
                 <Counter>15</Counter>
             </Inline>
-            <Inline>
-                <Counter>2</Counter>
-                <Counter>9999+</Counter>
-            </Inline>
-            <Inline>
-                <Counter size="lg">2</Counter>
-                <Counter size="lg">9999+</Counter>
+            <Inline verticalAlign="center">
+                <Text size="sm">
+                    <Counter size="inherit">15</Counter>
+                </Text>
+                <Text>
+                    <Counter size="inherit">15</Counter>
+                </Text>
+                <Text size="lg">
+                    <Counter size="inherit">15</Counter>
+                </Text>
+                <Text size="xl">
+                    <Counter size="inherit">15</Counter>
+                </Text>
             </Inline>
         </Stack>
     )
     .add("divider", () =>
-        <Inline gap={13}>
-            <Stack>
+        <Stack>
+            <Inline verticalAlign="center">
                 <Counter size="sm" variant="divider">15</Counter>
                 <Counter variant="divider">15</Counter>
-                <Counter size="lg" variant="divider">15</Counter>
-            </Stack>
-            <Stack>
-                <Text size="sm" className="flex">
+            </Inline>
+            <Inline verticalAlign="center">
+                <Text size="sm">
                     <Counter size="inherit" variant="divider">15</Counter>
                 </Text>
-                <Text className="flex">
+                <Text>
                     <Counter size="inherit" variant="divider">15</Counter>
                 </Text>
-                <Text size="lg" className="flex">
+                <Text size="lg">
                     <Counter size="inherit" variant="divider">15</Counter>
                 </Text>
-            </Stack>
-        </Inline>
+                <Text size="xl">
+                    <Counter size="inherit" variant="divider">15</Counter>
+                </Text>
+            </Inline>
+        </Stack>
     )
     .add("pushed", () =>
         <Stack>
-            <Box className="flex">
+            <Box>
                 <Text>Planets Visited</Text>
                 <Counter pushed>15</Counter>
             </Box>
-            <Box className="flex">
+            <Box>
                 <Text>Planets Visited</Text>
-                <Counter pushed size="inherit" variant="divider">15</Counter>
+                <Counter pushed variant="divider">15</Counter>
             </Box>
         </Stack>
     )
     .add("reverse", () =>
         <Stack>
-            <Box className="flex">
+            <Box>
                 <Counter reverse pushed>15</Counter>
                 <Text>Planets Visited</Text>
             </Box>
-            <Box className="flex">
+            <Box>
                 <Counter reverse pushed variant="divider">15</Counter>
                 <Text>Planets Visited</Text>
             </Box>
         </Stack>
     )
     .add("color", () =>
-        <Stack>
-            <Inline verticalAlign="center">
-                <Counter color="light">15</Counter>
-                <Counter variant="divider" color="light">15</Counter>
-            </Inline>
-            <Inline verticalAlign="center">
-                <Counter color="bold">15</Counter>
-                <Counter variant="divider" color="bold">15</Counter>
-            </Inline>
-        </Stack>
+        <Inline className="bg-sunray-50 sunray-900" verticalAlign="center">
+            <Counter color="inherit">15</Counter>
+            <Counter variant="divider" color="inherit">15</Counter>
+        </Inline>
+    )
+    .add("highlight", () =>
+        <Inline verticalAlign="center">
+            <Counter highlight>15</Counter>
+            <Counter variant="divider" highlight>15</Counter>
+        </Inline>
     )
     .add("disabled", () =>
         <Inline verticalAlign="center">
@@ -91,11 +99,11 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Inline>
+            <Inline verticalAlign="center">
                 <Counter className="bg-red">15</Counter>
                 <Counter style={{ backgroundColor: "red" }}>15</Counter>
             </Inline>
-            <Inline>
+            <Inline verticalAlign="center">
                 <Counter className="bg-red" variant="divider">15</Counter>
                 <Counter style={{ backgroundColor: "red" }} variant="divider">15</Counter>
             </Inline>

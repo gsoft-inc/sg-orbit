@@ -64,15 +64,15 @@ stories()
         <TagList>
             <Item key="mercury">
                 <Text>Mercury Program</Text>
-                <Counter>60</Counter>
+                <Counter variant="divider">60</Counter>
             </Item>
             <Item key="gemini">
                 <Text>Gemini Program</Text>
-                <Counter>60</Counter>
+                <Counter variant="divider">60</Counter>
             </Item>
             <Item key="apollo">
                 <Text>Apollo Program</Text>
-                <Counter>60</Counter>
+                <Counter variant="divider">60</Counter>
             </Item>
         </TagList>
     )

@@ -1,12 +1,10 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { embeddedIconSize } from "../../icons";
-import { isNil } from "lodash";
-import { mergeClasses } from "../../../dist";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useToolbarProps } from "../../toolbar";
@@ -140,14 +138,12 @@ export function InnerButton(props: InnerButtonProps) {
             size: condensed ? size : embeddedIconSize(size),
             className: "o-ui-button-end-icon"
         },
-        counter: (element?: ReactElement) => {
-            return {
-                size: condensed ? condensedTextSize(size) : size,
-                color: element?.props?.variant === "divider" ? "inherit" : "bold",
-                disabled,
-                pushed: true,
-                className: "o-ui-button-counter"
-            };
+        counter: {
+            size: condensed ? condensedTextSize(size) : size,
+            color: "inherit",
+            pushed: true,
+            disabled,
+            className: "o-ui-button-counter"
         }
     }), [size, disabled, condensed, loading]));
 

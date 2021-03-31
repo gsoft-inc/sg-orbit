@@ -114,6 +114,7 @@ export function InnerSwitch(props) {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             size,
             className: "o-ui-switch-label"
         },
@@ -122,6 +123,8 @@ export function InnerSwitch(props) {
             className: "o-ui-switch-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             size,
             reverse,
             pushed: true,

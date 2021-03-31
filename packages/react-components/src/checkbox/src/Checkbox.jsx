@@ -148,6 +148,7 @@ export function InnerCheckbox(props) {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             size,
             className: "o-ui-checkbox-label"
         },
@@ -156,6 +157,8 @@ export function InnerCheckbox(props) {
             className: "o-ui-checkbox-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             size,
             reverse,
             pushed: true,
