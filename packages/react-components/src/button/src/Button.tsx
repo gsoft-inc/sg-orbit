@@ -143,8 +143,7 @@ export function InnerButton(props: InnerButtonProps) {
         counter: (element?: ReactElement) => {
             return {
                 size: condensed ? condensedTextSize(size) : size,
-                color: element?.props?.variant === "divider" ? (color !== "inherit" ? "inherit" : undefined) : "bold",
-                // color: color === "inherit" ?
+                color: element?.props?.variant === "divider" ? "inherit" : "bold",
                 disabled,
                 pushed: true,
                 className: "o-ui-button-counter"

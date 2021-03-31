@@ -602,7 +602,7 @@ a.o-ui-button {
 /* WITH COUNTER */
 /* TODO:  remove the ".o-ui-counter-divider" once */
 .o-ui-button-inherit-color .o-ui-counter-divider.o-ui-button-counter {
-    color: var(--o-ui-global-white);
+    color: var(--o-ui-global-white) !important;
     opacity: .9;
 }
 
