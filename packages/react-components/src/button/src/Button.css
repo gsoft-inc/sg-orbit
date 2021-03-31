@@ -39,6 +39,11 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
+/* TEXT */
+.o-ui-button-text {
+    flex-grow: 1;
+}
+
 /* ANCHOR */
 a.o-ui-button {
     -webkit-appearance: none;

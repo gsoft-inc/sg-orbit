@@ -12,7 +12,7 @@
     width: max-content;
     min-width: 200px;
     max-width: 325px;
-    box-shadow: var(--o-ui-global-shadow-100);
+    box-shadow: var(--o-ui-alias-elevation-lifted);
 }
 
 /* ITEM */
