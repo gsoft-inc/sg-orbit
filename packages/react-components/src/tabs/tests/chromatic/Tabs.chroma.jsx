@@ -342,10 +342,10 @@ stories()
             <Tabs aria-label="Planets">
                 {["1", "2", "3"].map(x => (
                     <Item key={x}>
-                        {({ isActive }) => (
+                        {({ isSelected }) => (
                             <>
                                 <Header>
-                                    {isActive ? <CheckCircleIcon /> : <CrossIcon />}
+                                    {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
                                     <Text>{`Header ${x}`}</Text>
                                 </Header>
                                 <Content>{`Content ${x}`}</Content>

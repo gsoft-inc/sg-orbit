@@ -42,10 +42,11 @@ const Card = forwardRef(({ children, ...rest }, ref) => {
     );
 });
 
-const Title = slot("title", forwardRef(({ className, children }, ref) => {
+const Title = slot("title", forwardRef(({ className, style, children }, ref) => {
     return (
         <Box
             className={className}
+            style={style}
             ref={ref}
         >
             {children}
@@ -53,10 +54,11 @@ const Title = slot("title", forwardRef(({ className, children }, ref) => {
     );
 }));
 
-const Content = slot("content", forwardRef(({ className, children }, ref) => {
+const Content = slot("content", forwardRef(({ className, style, children }, ref) => {
     return (
         <Box
             className={className}
+            style={style}
             ref={ref}
         >
             {children}

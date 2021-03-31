@@ -376,7 +376,7 @@ export function createButtonTestSuite(element, stories) {
                 <div>
                     <Button shape="rounded" element={element}>
                         <Text>Button</Text>
-                        <Counter>15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                 </div>
                 <Inline verticalAlign="end">

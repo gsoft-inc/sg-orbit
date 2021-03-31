@@ -365,13 +365,13 @@ stories()
                 </Accordion>
             </Inline>
             <Inline>
-                <Accordion index={0}>
+                <Accordion expandedKeys={["0"]}>
                     <Item>
                         <Header as="h3">Mars</Header>
                         <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                     </Item>
                 </Accordion>
-                <Accordion index={0}>
+                <Accordion expandedKeys={["0"]}>
                     <Item>
                         <Header as="h3">Mars</Header>
                         <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
