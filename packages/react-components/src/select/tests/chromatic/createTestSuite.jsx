@@ -250,62 +250,62 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("trigger states", () =>
-            <Inline>
-                <Select active placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select focus placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select hover placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select focus hover placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select disabled placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            </Inline>
-        )
-        .add("trigger states invalid", () =>
-            <Inline>
-                <Select active placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select focus placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select hover placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select focus hover placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select disabled placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
-                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            </Inline>
+            <Stack>
+                <Inline>
+                    <Select active placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select focus placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select hover placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select focus hover placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select disabled placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </Inline>
+                <Inline>
+                    <Select active placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select focus placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select hover placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select focus hover placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select disabled placeholder="Select a planet" aria-label="Planets" validationState="invalid" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </Inline>
+            </Stack>
         )
         .add("scrolling", () =>
             <Select defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>

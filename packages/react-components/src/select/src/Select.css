@@ -97,8 +97,8 @@
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS */
-.o-ui-select-trigger-outline.o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
-.o-ui-select-trigger-invalid.o-ui-select-trigger-outline:focus:not(:hover) {
+.o-ui-select-trigger-outline.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus:not(:hover) {
     --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
     border: 1px solid var(--o-ui-alias-border-negative-1);
 }
