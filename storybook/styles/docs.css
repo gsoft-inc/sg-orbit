@@ -117,7 +117,7 @@
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--o-ui-global-shadow-300);
+    box-shadow: var(--o-ui-alias-elevation-raised);
 }
 
 .sbdocs.sbdocs-preview,

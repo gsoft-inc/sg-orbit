@@ -473,8 +473,8 @@
 /*-------------------
         Shadows
 --------------------*/
-@shadow100                : var(--shadow-200);
-@shadow200                : var(--shadow-400);
+@shadow100                : var(--shadow-100);
+@shadow200                : var(--shadow-200);
 
 /* Spacing */
 /* 4px */

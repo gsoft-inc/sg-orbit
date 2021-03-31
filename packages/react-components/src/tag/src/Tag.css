@@ -262,7 +262,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
 }
 
 /* CONTENT | DOT */
-.o-ui-tag-dot {
+.o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-dot {
     margin-right: var(--o-ui-global-scale-bravo);
 }
 

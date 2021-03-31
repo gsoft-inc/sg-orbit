@@ -14,12 +14,12 @@
 }
 
 /* CONTENT | ICON | START */
-.o-ui-text-button .o-ui-button-start-icon + .o-ui-button-text {
+.o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-start-icon + .o-ui-button-text {
     margin-left: var(--o-ui-global-scale-alpha);
 }
 
 /* CONTENT | ICON | END */
-.o-ui-text-button .o-ui-button-end-icon {
+.o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-end-icon {
     margin-left: var(--o-ui-global-scale-alpha);
 }
 
