@@ -593,19 +593,20 @@ a.o-ui-button {
     border-top-color: var(--o-ui-global-white);
 }
 
-/* WITH ICON */
-.o-ui-button .o-ui-button-right-icon,
-.o-ui-button .o-ui-button-left-icon {
-    color: inherit;
-}
-
-/* WITH COUNTER */
+/* INHERIT | SOLID | COUNTER */
 /* TODO:  remove the ".o-ui-counter-divider" once */
-.o-ui-button-inherit-color .o-ui-counter-divider.o-ui-button-counter {
+.o-ui-button-inherit-color.o-ui-button-solid .o-ui-counter-divider.o-ui-button-counter {
     color: var(--o-ui-global-white) !important;
     opacity: .9;
 }
 
-.o-ui-button:hover .o-ui-button-counter {
+.o-ui-button:hover.o-ui-button-solid .o-ui-button-counter,
+.o-ui-button-hover.o-ui-button-solid .o-ui-button-counter {
     opacity: 1;
+}
+
+/* WITH ICON */
+.o-ui-button .o-ui-button-right-icon,
+.o-ui-button .o-ui-button-left-icon {
+    color: inherit;
 }

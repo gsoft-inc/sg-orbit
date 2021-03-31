@@ -432,7 +432,7 @@ export function InnerAutocomplete(props) {
                         id: triggerId,
                         value: queryRef.current,
                         placeholder,
-                        icon: iconMarkup,
+                        icon: iconMarkup ?? null,
                         onChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,
