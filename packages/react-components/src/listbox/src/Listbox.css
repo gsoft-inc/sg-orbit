@@ -11,7 +11,7 @@
     background-color: var(--o-ui-alias-background-1);
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
-    box-shadow: var(--o-ui-global-shadow-100);
+    box-shadow: var(--o-ui-alias-elevation-lifted);
     border: 1px solid var(--o-ui-alias-border-2);
 }
 
