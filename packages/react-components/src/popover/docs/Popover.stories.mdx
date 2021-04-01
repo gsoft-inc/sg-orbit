@@ -118,36 +118,17 @@ A popover can open at different positions.
     </Story>
 </Preview>
 
-### Render props
-
-A popover can update is content based on the `isOpen` value and optionally use the `close` function by providing a render prop function:
-
-<Preview>
-    <Story name="render props">
-        <PopoverTrigger>
-            {({ isOpen, close }) => (
-                <>
-                    <Button color={isOpen ? "primary" : undefined}>Trigger</Button>
-                    <Popover>
-                        <Heading>WikiSpace</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                        <Button onClick={event => close(event)}>Close</Button>
-                    </Popover>
-                </>
-            )}
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
 ### Popover context
 
-A similar result could also be achieve by using `usePopoverTriggerContext`.
+A popover component can update update his content based on the `isOpen` value of `usePopoverTriggerContext` or access a `close` function.
 
 <Preview filePath="/popover/docs/PopoverContext" />
 
-### Persistent
+### Persistent mode
 
-A popover can requires an explicit action to close.
+A popover can be rendered in *persistent mode* which will force the user to explicitly dismiss the popover with a targeted call to action.
+
+The call to action can dismiss the popover by calling a `close` function which can be retrieved from either `usePopoverTriggerContext` or the render props.
 
 <Preview>
     <Story name="persistent">
@@ -158,7 +139,7 @@ A popover can requires an explicit action to close.
                     <Popover>
                         <Heading>WikiSpace</Heading>
                         <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                        <Button onClick={event => close(event)} color="primary">Close</Button>
+                        <Button onClick={close} color="primary">Close</Button>
                     </Popover>
                 </>
             )}

@@ -270,22 +270,6 @@ A toggle button content can be a single icon. An accessible name must be provide
     </Story>
 </Preview>
 
-### Render props
-
-A toggle button can update is content based on the `isChecked` value by providing a render prop function.
-
-<Preview>
-    <Story name="toggle icon render props">
-        <ToggleButton aria-label="Activate">
-            {
-                ({ isChecked }) => {
-                    return isChecked ? "On" : "Off"
-                }
-            }
-        </ToggleButton>
-    </Story>
-</Preview>
-
 ### Controlled
 
 A toggle button can handle `checked` state in controlled mode.

@@ -1,10 +1,12 @@
-function AsyncText({ isSelected, children, ...rest }) {
+function AsyncText({ id, children, ...rest }) {
     const [text, setText] = useState(null);
+
+    const { selectedKey } = useTabsContext();
 
     useEffect(() => {
         let timeoutId;
 
-        if (isSelected) {
+        if (id === selectedKey) {
             timeoutId = setTimeout(() => {
                 setText(children);
             }, 2000);
@@ -17,7 +19,7 @@ function AsyncText({ isSelected, children, ...rest }) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [isSelected, children]);
+    }, [id, selectedKey, children]);
 
     return (
         <Box {...rest}>
@@ -42,16 +44,12 @@ render(() => {
             ]
                 .map(({ id, header, content }) =>
                     <Item key={id}>
-                        {({ isSelected }) => (
-                            <>
-                                <Header>{header}</Header>
-                                <Content>
-                                    <AsyncText isSelected={isSelected}>
-                                        {content}
-                                    </AsyncText>
-                                </Content>
-                            </>
-                        )}
+                        <Header>{header}</Header>
+                        <Content>
+                            <AsyncText id={id}>
+                                {content}
+                            </AsyncText>
+                        </Content>
                     </Item>
                 )}
         </Tabs>

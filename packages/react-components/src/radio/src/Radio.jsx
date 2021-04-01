@@ -112,7 +112,7 @@ export function InnerRadio(props) {
         onCheck(event, value);
     });
 
-    const content = resolveChildren(children, { isChecked });
+    const content = resolveChildren(children);
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {

@@ -10,7 +10,7 @@ export class TabsBuilder {
         this._rootId = rootId;
     }
 
-    build(children, selectedKey) {
+    build(children) {
         if (isNil(children)) {
             throw new Error("A tabs component must have children.");
         }
@@ -23,9 +23,7 @@ export class TabsBuilder {
         Children.forEach(children, (element, position) => {
             const key = !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : position.toString();
 
-            const [header, content] = Children.toArray(resolveChildren(element.props.children, {
-                isSelected: selectedKey === key
-            }));
+            const [header, content] = Children.toArray(resolveChildren(element.props.children));
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("A tabs item must have an <Header> and a <Content>.");
@@ -67,8 +65,8 @@ export class TabsBuilder {
     }
 }
 
-export function useTabsItems(children, selectedKey, rootId) {
+export function useTabsItems(children, rootId) {
     const builder = useMemo(() => new TabsBuilder(rootId), [rootId]);
 
-    return useMemo(() => builder.build(children, selectedKey), [builder, children, selectedKey]);
+    return useMemo(() => builder.build(children), [builder, children]);
 }

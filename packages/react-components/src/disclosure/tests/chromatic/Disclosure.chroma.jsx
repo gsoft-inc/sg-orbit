@@ -73,36 +73,6 @@ stories()
             </Stack>
         );
     })
-    .add("render props", () =>
-        <Stack>
-            <div>
-                <Disclosure>
-                    {({ isOpen }) => (
-                        <>
-                            <Button>
-                                <Text>Mars</Text>
-                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
-                            </Button>
-                            <Box>Mars is the fourth planet from the Sun and the second-smallest planet.</Box>
-                        </>
-                    )}
-                </Disclosure>
-            </div>
-            <div>
-                <Disclosure defaultOpen>
-                    {({ isOpen }) => (
-                        <>
-                            <Button>
-                                <Text>Mars</Text>
-                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
-                            </Button>
-                            <Box>Mars is the fourth planet from the Sun and the second-smallest planet.</Box>
-                        </>
-                    )}
-                </Disclosure>
-            </div>
-        </Stack>
-    )
     .add("text link", () =>
         <Disclosure>
             <TextLink as="button">Mars</TextLink>

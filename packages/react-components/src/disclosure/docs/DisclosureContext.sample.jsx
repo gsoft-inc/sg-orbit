@@ -1,4 +1,4 @@
-function CustomTrigger({ children, ...rest }) {
+function HighlightedTrigger({ children, ...rest }) {
     const { isOpen } = useDisclosureContext();
 
     return (
@@ -14,7 +14,7 @@ function CustomTrigger({ children, ...rest }) {
 render(() => {
     return (
         <Disclosure>
-            <CustomTrigger>EVE Online</CustomTrigger>
+            <HighlightedTrigger>EVE Online</HighlightedTrigger>
             <Box>
                 Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games.
                 Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading,

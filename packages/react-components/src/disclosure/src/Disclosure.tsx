@@ -55,14 +55,6 @@ export function InnerDisclosure({
 
     const contentRef = useMergedRefs(forwardedRef);
 
-    const [trigger, content] = Children.toArray(resolveChildren(children, {
-        isOpen
-    })) as ReactElement[];
-
-    if (isNil(trigger) || isNil(content)) {
-        throw new Error("A disclosure component must have a trigger and a content element.");
-    }
-
     const toggle = useCallback(event => {
         setIsOpen(!isOpen);
 
@@ -70,6 +62,18 @@ export function InnerDisclosure({
             onOpenChange(event, !isOpen);
         }
     }, [isOpen, setIsOpen, onOpenChange]);
+
+    const close = useCallback(event => {
+        if (isOpen) {
+            toggle(event);
+        }
+    }, [isOpen, toggle]);
+
+    const [trigger, content] = Children.toArray(resolveChildren(children, { close })) as ReactElement[];
+
+    if (isNil(trigger) || isNil(content)) {
+        throw new Error("A disclosure component must have a trigger and a content element.");
+    }
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();
@@ -116,7 +120,8 @@ export function InnerDisclosure({
     return (
         <DisclosureContext.Provider
             value={{
-                isOpen
+                isOpen,
+                close
             }}
         >
             {triggerMarkup}

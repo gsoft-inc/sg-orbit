@@ -303,58 +303,15 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("render props", () =>
-        <Tabs aria-label="Planets">
-            <Item>
-                {({ isSelected }) => (
-                    <>
-                        <Header>
-                            {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
-                            <Text>Mars</Text>
-                        </Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </>
-                )}
-            </Item>
-            <Item>
-                {({ isSelected }) => (
-                    <>
-                        <Header>
-                            {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
-                            <Text>Jupiter</Text>
-                        </Header>
-                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                    </>
-                )}
-            </Item>
-        </Tabs>
-    )
     .add("array map", () =>
-        <Stack>
-            <Tabs aria-label="Planets">
-                {["1", "2", "3"].map(x => (
-                    <Item key={x}>
-                        <Header>{`Header ${x}`}</Header>
-                        <Content>{`Content ${x}`}</Content>
-                    </Item>
-                ))}
-            </Tabs>
-            <Tabs aria-label="Planets">
-                {["1", "2", "3"].map(x => (
-                    <Item key={x}>
-                        {({ isSelected }) => (
-                            <>
-                                <Header>
-                                    {isSelected ? <CheckCircleIcon /> : <CrossIcon />}
-                                    <Text>{`Header ${x}`}</Text>
-                                </Header>
-                                <Content>{`Content ${x}`}</Content>
-                            </>
-                        )}
-                    </Item>
-                ))}
-            </Tabs>
-        </Stack>
+        <Tabs aria-label="Planets">
+            {["1", "2", "3"].map(x => (
+                <Item key={x}>
+                    <Header>{`Header ${x}`}</Header>
+                    <Content>{`Content ${x}`}</Content>
+                </Item>
+            ))}
+        </Tabs>
     )
     .add("custom components", () => {
         const ActiveHeader = ({ tab, children, ...rest }) => {

@@ -17,7 +17,7 @@ import { Text } from "@react-components/text";
 <Tagline>Tabs are used to organize content by grouping similar information on the same page.</Tagline>
 
 <ComponentInfo
-    usage={"import { Tabs, Item, Header, Content, Tab, TabPanel } from \"@orbit-ui/react-components\""}
+    usage={"import { Tabs, Item, Header, Content, Tab, TabPanel, useTabsContext } from \"@orbit-ui/react-components\""}
     ariaPath="#tabpanel"
     githubPath="/packages/react-components/src/tabs/src"
 />
@@ -127,17 +127,11 @@ Tabs items can be rendered with an array map.
     </Story>
 </Preview>
 
-### Render props (Async content)
+### Async content
 
-A tab can update is content based on the `isSelected` value by providing a render prop function. This is particulary usefull when dealing with async content.
+A tab can use `useTabsContext` to load async content when a tab is selected.
 
 <Preview filePath="/tabs/docs/AsyncTabs" />
-
-### Tabs context
-
-The previous [render props](#render-props) example could also be achieve by using `useTabsContext` and the underlying `<Tab>` component.
-
-<Preview filePath="/tabs/docs/TabsContext" />
 
 ### Manually activated tabs
 
@@ -145,7 +139,7 @@ By default, tabs are activated automatically. This means when you use the arrow 
 
 > The content of a tab should ideally be preloaded. However, if switching to a tab panel causes a network request and possibly a page refresh, there might be some notable latency and this might affect the experience for keyboard and screen reader users.
 
-In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing <kbd>Space</kbd> or <kbd>Enter</kbd>.
+<kbd>Space</kbd> or <kbd>Enter</kbd>.
 
 <Preview>
     <Story name="manual">

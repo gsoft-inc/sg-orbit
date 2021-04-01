@@ -118,7 +118,7 @@ export function InnerPopoverTrigger({
         setIsOpen(event, false);
     }, [setIsOpen]);
 
-    const [trigger, popover] = Children.toArray(resolveChildren(children, { isOpen, close }));
+    const [trigger, popover] = Children.toArray(resolveChildren(children, { close }));
 
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");

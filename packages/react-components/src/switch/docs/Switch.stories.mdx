@@ -125,22 +125,6 @@ The example below illustrates how one would validate if the user has checked the
 
 <Preview filePath="/switch/docs/CheckedValidation" />
 
-### Render props
-
-A switch can update is content based on the `isChecked` value by providing a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Switch>
-            {
-                ({ isChecked }) => {
-                    return isChecked ? "On" : "Off"
-                }
-            }
-        </Switch>
-    </Story>
-</Preview>
-
 ### Controlled
 
 A switch can handle `checked` state in controlled mode.

@@ -341,19 +341,6 @@ stories()
             </Popover>
         </PopoverTrigger>
     )
-    .add("render props", () =>
-        <PopoverTrigger>
-            {({ isOpen }) => (
-                <>
-                    <Button color={isOpen ? "secondary" : "primary"}>Toggle</Button>
-                    <Popover>
-                        <Heading>Space News</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                    </Popover>
-                </>
-            )}
-        </PopoverTrigger>
-    )
     .add("custom component", () => {
         const PrimaryPopover = ({ children }) => {
             const { isOpen } = usePopoverTriggerContext();
