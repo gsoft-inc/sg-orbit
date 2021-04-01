@@ -86,7 +86,7 @@ export function InnerSwitch(props) {
         fieldProps
     );
 
-    const { isChecked, wrapperProps, inputProps } = useCheckbox({
+    const { wrapperProps, inputProps } = useCheckbox({
         cssModule: "o-ui-switch",
         isInField,
         id,

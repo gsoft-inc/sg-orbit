@@ -3,7 +3,6 @@ import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Disclosure, useDisclosureContext } from "@react-components/disclosure";
 import { Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 

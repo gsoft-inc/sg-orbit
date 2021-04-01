@@ -315,7 +315,7 @@ stories()
     )
     .add("custom components", () => {
         const ActiveHeader = ({ tab, children, ...rest }) => {
-            const { seleckedKey } = useTabsContext();
+            const { selectedKey } = useTabsContext();
             const { key } = tab;
 
             return (
@@ -323,7 +323,7 @@ stories()
                     {...rest}
                     tab={tab}
                 >
-                    {key === seleckedKey ? <CheckCircleIcon /> : <CrossIcon />}
+                    {key === selectedKey ? <CheckCircleIcon /> : <CrossIcon />}
                     <Text>{children}</Text>
                 </Tab>
             );
