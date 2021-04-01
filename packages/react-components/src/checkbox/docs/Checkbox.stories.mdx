@@ -18,7 +18,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.</Tagline>
 
 <ComponentInfo
-    usage={"import { Checkbox, CheckboxGroup, Text } from \"@orbit-ui/react-components\""}
+    usage={"import { Checkbox, CheckboxGroup, useCheckableProps } from \"@orbit-ui/react-components\""}
     ariaPath="#checkbox"
     githubPath="/packages/react-components/src/checkbox/src"
 />
@@ -94,16 +94,10 @@ A checkbox can have a [counter](?path=/docs/counter--default-story) after his la
 
 <Preview>
     <Story name="counter">
-        <Inline>
-            <Checkbox>
-                <Text>Milky Way</Text>
-                <Counter>6</Counter>
-            </Checkbox>
-            <Checkbox>
-                <Text>Andromeda</Text>
-                <Counter variant="divider">6</Counter>
-            </Checkbox>
-        </Inline>
+        <Checkbox>
+            <Text>Andromeda</Text>
+            <Counter>6</Counter>
+        </Checkbox>
     </Story>
 </Preview>
 
@@ -143,22 +137,6 @@ Implement your own validation logic in your app and pass either `"valid"` or `"i
 The example below illustrates how one would validate if the user has checked the checkbox.
 
 <Preview filePath="/checkbox/docs/CheckedValidation" />
-
-### Render props
-
-A checkbox can update is content based on the `isChecked` value by providing a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Checkbox>
-            {
-                ({ isChecked }) => {
-                    return isChecked ? "On" : "Off";
-                }
-            }
-        </Checkbox>
-    </Story>
-</Preview>
 
 ### Controlled
 
@@ -258,28 +236,6 @@ Checkable components can be wrap on multiple lines.
                 <ToggleButton value="8" variant="outline" shape="circular">8</ToggleButton>
             </CheckboxGroup>
         </div>
-    </Story>
-</Preview>
-
-### Render props
-
-A checkbox groups can render his items with a render prop function.
-
-<Preview>
-    <Story name="group render props">
-        <CheckboxGroup>
-            {
-                ({ checkedValue }) =>
-                    ["Milky Way", "Andromeda", "Medusa"].map(x =>
-                        <Checkbox
-                            className={checkedValue && checkedValue.includes(x) ? "primary-500" : undefined}
-                            value={x}
-                        >
-                            {x}
-                        </Checkbox>
-                    )
-            }
-        </CheckboxGroup>
     </Story>
 </Preview>
 

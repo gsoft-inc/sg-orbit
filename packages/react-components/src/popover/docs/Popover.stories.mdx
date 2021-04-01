@@ -83,22 +83,6 @@ A popper can have footer text.
     </Story>
 </Preview>
 
-### Hide close button
-
-A popper can hide his default close button.
-
-<Preview>
-    <Story name="hide close button">
-        <PopoverTrigger>
-            <Button>Trigger</Button>
-            <Popover hideCloseButton>
-                <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-            </Popover>
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
 ### Trigger
 
 A popover can be triggered on *hover* instead of on *click*.
@@ -134,32 +118,34 @@ A popover can open at different positions.
     </Story>
 </Preview>
 
-### Render props
+### Popover context
 
-A popover can update is content based on the `isOpen` value and optionally use the `close` function by providing a render prop function:
+A popover component can update update his content based on the `isOpen` value of `usePopoverTriggerContext` or access a `close` function.
+
+<Preview filePath="/popover/docs/PopoverContext" />
+
+### Persistent mode
+
+A popover can be rendered in *persistent mode* which will force the user to explicitly dismiss the popover with a targeted call to action.
+
+The call to action can dismiss the popover by calling a `close` function which can be retrieved from either `usePopoverTriggerContext` or the render props.
 
 <Preview>
-    <Story name="render props">
-        <PopoverTrigger>
-            {({ isOpen, close }) => (
+    <Story name="persistent">
+        <PopoverTrigger persistent>
+            {({ close }) => (
                 <>
-                    <Button color={isOpen ? "primary" : undefined}>Trigger</Button>
+                    <Button>Trigger</Button>
                     <Popover>
                         <Heading>WikiSpace</Heading>
                         <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                        <Button onClick={event => close(event)}>Close</Button>
+                        <Button onClick={close} color="primary">Close</Button>
                     </Popover>
                 </>
             )}
         </PopoverTrigger>
     </Story>
 </Preview>
-
-### Popover context
-
-A similar result could also be achieve by using `usePopoverTriggerContext`.
-
-<Preview filePath="/popover/docs/PopoverContext" />
 
 ### Controlled
 

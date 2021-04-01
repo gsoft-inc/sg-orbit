@@ -1,13 +1,12 @@
 import { Children, ElementType, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
-import { Divider } from "../divider";
-import { Item, Section } from "../placeholders";
-import { TooltipTrigger, parseTooltipTrigger } from "../tooltip";
+import { Divider } from "../../divider";
+import { Item, Section } from "../../placeholders";
+import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { isNil } from "lodash";
-import { resolveChildren } from "../shared";
+import { resolveChildren } from "../../shared";
 
 export interface CollectionItem {
     key: string;
-    position: number;
     index: number;
     type: NodeType;
     elementType?: ElementType | string;
@@ -35,10 +34,9 @@ export enum NodeType {
     divider = "divider"
 }
 
-export function createCollectionItem({ key, position, index, elementType, ref, content, props }: CollectionItem) {
+export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
     return {
         key,
-        position,
         index,
         type: NodeType.item,
         elementType,
@@ -49,14 +47,13 @@ export function createCollectionItem({ key, position, index, elementType, ref, c
 }
 
 export class CollectionBuilder {
-    _parseItem(element: ReactElement, position: number, nextIndex: () => number): CollectionItem {
+    _parseItem(element: ReactElement, incrementIndex: () => number) {
         const { children, ...props } = element.props;
 
-        const index = nextIndex();
+        const index = incrementIndex();
 
         return {
             key: !isNil(element.key) ? (element.key as string).replace(".", "").replace("$", "") : index.toString(),
-            position,
             index,
             type: NodeType.item,
             // Use a custom type if available otherwise let the final component choose his type.
@@ -67,19 +64,18 @@ export class CollectionBuilder {
         };
     }
 
-    _parseSection(element: ReactElement, position: number, nextIndex: () => number): CollectionSection {
+    _parseSection(element: ReactElement, incrementIndex: () => number): CollectionSection {
         const { children, ...props } = element.props;
 
-        const index = nextIndex();
+        const index = incrementIndex();
 
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        const items = Children.map(resolveChildren(children), (x: ReactElement, childPosition) => that._parseItem(x, childPosition, nextIndex));
+        const items = Children.map(resolveChildren(children), (x: ReactElement) => that._parseItem(x, incrementIndex));
 
         return {
             key: index.toString(),
-            position,
             index,
             type: NodeType.section,
             // Use a custom type if available otherwise let the final component choose his type.
@@ -91,14 +87,13 @@ export class CollectionBuilder {
         };
     }
 
-    _parseDivider(element: ReactElement, position: number, nextIndex: () => number): CollectionDivider {
+    _parseDivider(element: ReactElement, incrementIndex: () => number): CollectionDivider {
         const { children, ...props } = element.props;
 
-        const index = nextIndex();
+        const index = incrementIndex();
 
         return {
             key: index.toString(),
-            position,
             index,
             type: NodeType.divider,
             // Use a custom type if available otherwise let the final component choose his type.
@@ -109,12 +104,12 @@ export class CollectionBuilder {
         };
     }
 
-    _parseTooltip(element: ReactElement, position: number, nextIndex: () => number): CollectionOption {
+    _parseTooltip(element: ReactElement, incrementIndex: () => number) {
         const { children, ...props } = element.props;
 
         const [item, tooltip] = parseTooltipTrigger(children);
 
-        const parsedItem = this._parseItem(item, position, nextIndex) as CollectionOption;
+        const parsedItem = this._parseItem(item, incrementIndex) as CollectionOption;
 
         parsedItem.tooltip = {
             props,
@@ -131,25 +126,25 @@ export class CollectionBuilder {
 
         let index = 0;
 
-        const elements = resolveChildren(children, { items });
+        const elements = resolveChildren(children, { items: items ?? [] });
 
-        const nextIndex = () => {
+        const incrementIndex = () => {
             return index++;
         };
 
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        return Children.map(elements, (element: ReactElement, position) => {
+        return Children.map(elements, (element: ReactElement) => {
             switch (element.type) {
                 case Section:
-                    return that._parseSection(element, position, nextIndex);
+                    return that._parseSection(element, incrementIndex);
                 case Divider:
-                    return that._parseDivider(element, position, nextIndex);
+                    return that._parseDivider(element, incrementIndex);
                 case TooltipTrigger:
-                    return that._parseTooltip(element, position, nextIndex);
+                    return that._parseTooltip(element, incrementIndex);
                 default:
-                    return that._parseItem(element, position, nextIndex);
+                    return that._parseItem(element, incrementIndex);
             }
         });
     }

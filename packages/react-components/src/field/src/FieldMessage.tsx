@@ -89,8 +89,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
                         color: "inherit"
                     },
                     icon: {
-                        size: embeddedIconSize(size),
-                        color: "inherit"
+                        size: embeddedIconSize(size)
                     }
                 }}
             >

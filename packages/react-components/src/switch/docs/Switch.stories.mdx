@@ -83,16 +83,10 @@ A switch can have a [counter](?path=/docs/counter--default-story) after his text
 
 <Preview>
     <Story name="counter">
-        <Inline>
-            <Switch>
-                <Text>Pressurization</Text>
-                <Counter>6</Counter>
-            </Switch>
-            <Switch>
-                <Text>Engines</Text>
-                <Counter variant="divider">6</Counter>
-            </Switch>
-        </Inline>
+        <Switch>
+            <Text>Engines</Text>
+            <Counter>6</Counter>
+        </Switch>
     </Story>
 </Preview>
 
@@ -130,22 +124,6 @@ A switch can display a validation state to communicate to the user whether the c
 The example below illustrates how one would validate if the user has checked the switch.
 
 <Preview filePath="/switch/docs/CheckedValidation" />
-
-### Render props
-
-A switch can update is content based on the `isChecked` value by providing a render prop function.
-
-<Preview>
-    <Story name="render props">
-        <Switch>
-            {
-                ({ isChecked }) => {
-                    return isChecked ? "On" : "Off"
-                }
-            }
-        </Switch>
-    </Story>
-</Preview>
 
 ### Controlled
 

@@ -23,6 +23,7 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
+    isInField,
     groupRef
 }) {
     const [{ hasLabel, hasMessage }] = useFieldContext();
@@ -42,7 +43,7 @@ export function useGroupInput({
                 hasMessage && "has-message"
 
             ),
-            role,
+            role: !isInField ? role : undefined,
             "aria-required": required ? true : undefined,
             "aria-invalid": validationState === "invalid" ? true : undefined,
             "aria-orientation": orientation,

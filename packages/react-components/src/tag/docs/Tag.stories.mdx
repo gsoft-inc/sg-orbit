@@ -1,10 +1,11 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { CheckCircleIcon } from "@react-components/icons";
+import { CheckCircleIcon, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
-import { Inline } from "@react-components/layout";
-import { InnerTag, Tag } from "@react-components/tag";
+import { Inline, Stack } from "@react-components/layout";
+import { InnerTag, InnerTagList, Tag, TagList } from "@react-components/tag";
+import { Item } from "@react-components/placeholders";
 import { Text } from "@react-components/text";
 import CustomColorHover from "./CustomColorHover.mdx";
 
@@ -18,7 +19,7 @@ import CustomColorHover from "./CustomColorHover.mdx";
 <Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
 
 <ComponentInfo
-    usage={"import { Tag } from \"@orbit-ui/react-components\""}
+    usage={"import { Tag, TagList, Item } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/tag/src"
 />
 
@@ -68,7 +69,7 @@ A tag can contain a [counter](?path=/docs/counter--default-story).
     <Story name="counter">
         <Tag>
             <Text>Falcon 9</Text>
-            <Counter>6</Counter>
+            <Counter variant="divider">6</Counter>
         </Tag>
     </Story>
 </Preview>
@@ -140,6 +141,91 @@ Custom colors can be applied to a tag.
 
 <CustomColorHover />
 
+## Tag list
+
+Related tags can be grouped together.
+
+<Preview>
+    <Story name="tag list">
+        <TagList>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Clearable
+
+A tag list can have a clear button.
+
+<Preview>
+    <Story name="tag list clearable">
+        <TagList onClear={() => {}}>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Size
+
+A tag list can vary in size.
+
+<Preview>
+    <Story name="tag list size">
+        <Stack>
+            <TagList size="sm">
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+            <TagList>
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+        </Stack>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+A tag list items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="tag list dynamic items">
+        <TagList
+            items={[
+                { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> },
+                { key: "gemini", value: "Gemini Program" },
+                { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
+                { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
+            ]}
+        >
+            {({ items }) => items.map(x =>
+                <Item key={x.key}>
+                    {x.icon}
+                    <Text>{x.value}</Text>
+                </Item>
+            )}
+        </TagList>
+    </Story>
+</Preview>
+
+### Tags picker
+
+The following example show how a TagList can be compose with one of Orbit's picker to build a basic tags picker.
+
+<Preview filePath="/tag/docs/TagsPicker" />
+
 ## API
 
 ### Tag
@@ -151,6 +237,15 @@ Custom colors can be applied to a tag.
 />
 
 <ArgsTable of={InnerTag} />
+
+### TagList
+
+<ComponentInfo
+    usage={"import { TagList } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerTagList} />
 
 
 

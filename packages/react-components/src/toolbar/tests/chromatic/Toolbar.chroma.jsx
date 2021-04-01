@@ -262,13 +262,7 @@ stories()
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
             <TextInput />
-            <ToggleButton>
-                {
-                    ({ isChecked }) => {
-                        return isChecked ? "On" : "Off";
-                    }
-                }
-            </ToggleButton>
+            <ToggleButton>On</ToggleButton>
             <RadioGroup>
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>

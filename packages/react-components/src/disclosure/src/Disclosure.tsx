@@ -26,7 +26,7 @@ export interface InnerDisclosureProps {
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -41,12 +41,11 @@ export interface InnerDisclosureProps {
     forwardedRef: ForwardedRef<any>
 }
 
-
 export function InnerDisclosure({
     id,
     open,
     defaultOpen,
-    onChange,
+    onOpenChange,
     as = "div",
     children,
     forwardedRef,
@@ -56,21 +55,25 @@ export function InnerDisclosure({
 
     const contentRef = useMergedRefs(forwardedRef);
 
-    const [trigger, content] = Children.toArray(resolveChildren(children, {
-        isOpen
-    })) as ReactElement[];
+    const toggle = useCallback(event => {
+        setIsOpen(!isOpen);
+
+        if (!isNil(onOpenChange)) {
+            onOpenChange(event, !isOpen);
+        }
+    }, [isOpen, setIsOpen, onOpenChange]);
+
+    const close = useCallback(event => {
+        if (isOpen) {
+            toggle(event);
+        }
+    }, [isOpen, toggle]);
+
+    const [trigger, content] = Children.toArray(resolveChildren(children, { close })) as ReactElement[];
 
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A disclosure component must have a trigger and a content element.");
     }
-
-    const toggle = useCallback(event => {
-        setIsOpen(!isOpen);
-
-        if (!isNil(onChange)) {
-            onChange(event, !isOpen);
-        }
-    }, [isOpen, setIsOpen, onChange]);
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();
@@ -117,7 +120,8 @@ export function InnerDisclosure({
     return (
         <DisclosureContext.Provider
             value={{
-                isOpen
+                isOpen,
+                close
             }}
         >
             {triggerMarkup}

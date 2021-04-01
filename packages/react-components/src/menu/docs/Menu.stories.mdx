@@ -5,7 +5,7 @@ import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon, VerticalDotsIcon } from "@react-components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
-import { InnerMenu, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
+import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -262,6 +262,14 @@ A menu item can be disabled.
     </Story>
 </Preview>
 
+### Selection
+
+A menu supports multiple selection modes. By default, selection is disabled, however this can be changed by settings the `selectionMode` property to `single` or `multiple`.
+
+> When using selection with a `<Menu>` component wraped inside a `<MenuTrigger>`, you must handled the selected keys in controlled mode with the `selectedKeys` property otherwise the selected keys won't be persisted through openings.
+
+<Preview filePath="/menu/docs/Selection" />
+
 ### Custom trigger
 
 A menu trigger can update is appareance based on the `isOpen` value by using `useMenuTriggerContext`.
@@ -287,6 +295,54 @@ You can use a [disclosure arrow](?path=/docs/disclosure-arrow--context) componen
                 <Item key="land">Land...</Item>
                 <Item key="help">Help</Item>
                 <Item key="exit">Exit</Item>
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
+### Array map
+
+A menu items can be rendered with an array map.
+
+<Preview>
+    <Story name="array map">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
+                {["Launch", "Eject", "Land", "Help", "Exit"].map(x => (
+                    <Item key={x.toLowerCase()}>{x}</Item>
+                ))}
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+A menu items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="dynamic items">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu
+                items={[
+                    { key: "launch", value: "Launch..." },
+                    { key: "eject", value: "Eject..." },
+                    { key: "land", value: "Land..." },
+                    { key: "help", value: "Help" },
+                    { key: "exit", value: "Exit" }
+                ]}
+            >
+                {({ items }) => items.map((x => (
+                    <Item key={x.key}>{x.value}</Item>
+                )))}
             </Menu>
         </MenuTrigger>
     </Story>
@@ -345,4 +401,23 @@ The open state can be handled in controlled mode.
 />
 
 <ArgsTable of={InnerDivider} />
+
+### MenuItem
+
+<ComponentInfo
+    usage={"import { MenuItem } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerMenuItem} />
+
+### MenuSection
+
+<ComponentInfo
+    usage={"import { MenuSection } from \"@orbit-ui/react-components\""}
+    compact
+/>
+
+<ArgsTable of={InnerMenuSection} />
+
 

@@ -84,10 +84,9 @@ export type UseFieldInputPropsReturn = [{
 
 export function useFieldInputProps(): UseFieldInputPropsReturn {
     const [{
+        isGroup,
         validationState,
         inputId,
-        labelId,
-        messageId,
         required,
         fluid,
         size,
@@ -97,14 +96,12 @@ export function useFieldInputProps(): UseFieldInputPropsReturn {
 
     const props = isInField && {
         validationState,
-        id: inputId,
+        id: !isGroup ? inputId : undefined,
         required,
         disabled,
         fluid,
         size,
-        className: inputClassName,
-        "aria-labelledby": !isNil(labelId) ? labelId : undefined,
-        "aria-describedby": !isNil(messageId) ? messageId : undefined
+        className: inputClassName
     };
 
     return [props || {}, isInField];

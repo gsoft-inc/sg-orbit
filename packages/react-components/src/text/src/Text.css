@@ -44,8 +44,12 @@
     line-height: 1;
 }
 
-.o-ui-text-inherit {
+.o-ui-text-inherit-size {
     font-size: inherit;
     line-height: inherit;
     font-weight: inherit;
+}
+
+.o-ui-text-inherit-color {
+    color: inherit;
 }

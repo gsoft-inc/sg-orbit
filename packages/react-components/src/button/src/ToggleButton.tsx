@@ -86,7 +86,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         checkableProps
     );
 
-    const { isChecked, buttonProps } = useToggleButton({
+    const { buttonProps } = useToggleButton({
         variant,
         shape,
         checked,
@@ -98,7 +98,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         forwardedRef
     });
 
-    const content = resolveChildren(children, { isChecked });
+    const content = resolveChildren(children);
 
     return (
         <Button

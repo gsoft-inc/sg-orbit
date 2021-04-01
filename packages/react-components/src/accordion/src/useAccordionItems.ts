@@ -6,7 +6,6 @@ import { mergeProps } from "../../shared";
 export interface AccordionBuilderItem {
     id: string;
     key: string;
-    position: number;
     index: number;
     header: AccordionBuilderHeaderProps;
     panel: AccordionBuilderPanelProps;
@@ -24,8 +23,6 @@ export interface AccordionBuilderPanelProps {
     ref: Ref<any>;
     props: any;
 }
-
-
 
 export class AccordionBuilder {
     _rootId;
@@ -46,6 +43,8 @@ export class AccordionBuilder {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
             }
 
+            const key = !isNil(element.key) ? (element.key as string).replace(".", "").replace("$", "") : index.toString();
+
             const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
@@ -61,9 +60,8 @@ export class AccordionBuilder {
             };
 
             return {
-                id: `${this._rootId}-${index}`,
-                key: index.toString(),
-                position: index,
+                id: `${this._rootId}-${key}`,
+                key,
                 index,
                 header: headerProps,
                 panel: panelProps

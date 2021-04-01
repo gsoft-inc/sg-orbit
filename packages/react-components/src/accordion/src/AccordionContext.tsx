@@ -1,8 +1,8 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface AccordionContextType {
-    selectedIndexes?: number[];
-    onToggle?: (event: SyntheticEvent, toggledIndex: number) => void
+    expandedKeys?: string[];
+    onToggle?: (event: SyntheticEvent, toggledIndex: string) => void
 }
 
 export const AccordionContext = createContext<AccordionContextType>({});
