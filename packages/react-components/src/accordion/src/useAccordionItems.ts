@@ -7,18 +7,17 @@ export interface AccordionBuilderItem {
     id: string;
     key: string;
     index: number;
-    header: AccordionBuilderHeaderProps;
-    panel: AccordionBuilderPanelProps;
+    header: AccordionBuilderHeader;
+    panel: AccordionBuilderPanel;
 }
 
-export interface AccordionBuilderHeaderProps {
+export interface AccordionBuilderHeader {
     elementType: ReactElement["type"];
     ref: Ref<any>;
     props: Record<string, any>;
 }
 
-
-export interface AccordionBuilderPanelProps {
+export interface AccordionBuilderPanel {
     elementType: ReactElement["type"];
     ref: Ref<any>;
     props: Record<string, any>;
@@ -43,7 +42,7 @@ export class AccordionBuilder {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
             }
 
-            const key = !isNil(element.key) ? (element.key as string).replace(".", "").replace("$", "") : index.toString();
+            const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString();
 
             const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
