@@ -1,5 +1,6 @@
 .o-ui {
     --o-ui-menu-item-height: var(--o-ui-global-scale-golf);
+    --o-ui-menu-item-checkmark-size: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-menu {
@@ -19,12 +20,14 @@
 .o-ui-menu-item {
     min-height: var(--o-ui-menu-item-height);
     list-style: none;
-    padding: 0 var(--o-ui-global-scale-charlie);
+    padding-right: var(--o-ui-global-scale-hotel);
+    padding-left: var(--o-ui-global-scale-charlie);
     margin: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: var(--o-ui-global-type-scale-7);
+    position: relative;
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description {
@@ -51,6 +54,18 @@
 /* ITEM | ICON | END  */
 .o-ui-menu-item-end-icon {
     margin-left: var(--o-ui-global-scale-alpha);
+}
+
+/* ITEM | STATE | SELECTED */
+.o-ui-menu-item[aria-checked="true"]::before {
+    content: "";
+    width: var(--o-ui-menu-item-checkmark-size);
+    height: var(--o-ui-menu-item-checkmark-size);
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
+    background-color: var(--o-ui-alias-background-primary-1);
+    position: absolute;
+    right: 1rem;
 }
 
 /* ITEM | STATE | FOCUS */

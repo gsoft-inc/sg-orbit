@@ -358,7 +358,7 @@ a.o-ui-button {
 }
 
 /* GHOST | INHERIT */
-.o-ui-button.o-ui-button-inherit.o-ui-button-ghost {
+.o-ui-button.o-ui-button-inherit-color.o-ui-button-ghost {
     --o-ui-focus-ring-color: currentColor;
 }
 
@@ -516,90 +516,95 @@ a.o-ui-button {
 }
 
 /* INHERIT */
-/* GHOST */
-.o-ui-button-inherit.o-ui-button-ghost {
+/* INHERIT | GHOST */
+.o-ui-button-inherit-color.o-ui-button-ghost {
     color: inherit;
 }
 
-.o-ui-button-inherit.o-ui-button-loading.o-ui-button-ghost::before {
+.o-ui-button-inherit-color.o-ui-button-loading.o-ui-button-ghost::before {
     border-color: hsla(0, 0%, 0%, 0.25);
     border-top-color: currentColor;
 }
 
-/* OUTLINE */
-.o-ui-button-inherit.o-ui-button-outline {
+/* INHERIT | OUTLINE */
+.o-ui-button-inherit-color.o-ui-button-outline {
     --o-ui-focus-ring-color: currentColor;
     color: inherit;
     box-shadow: 0 0 0 1px currentColor inset;
 }
 
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-outline,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-outline {
+.o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-outline,
+.o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-outline {
     background-color: rgba(0, 0, 0, 0.04);
 }
 
-.o-ui-button:active.o-ui-button-inherit.o-ui-button-outline,
-.o-ui-button-active.o-ui-button-inherit.o-ui-button-outline {
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline {
     background-color: currentColor;
 }
 
-.o-ui-button:active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text,
-.o-ui-button-active.o-ui-button-inherit.o-ui-button-outline .o-ui-button-text {
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-text,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-text {
     color: var(--o-ui-global-white);
 }
 
-.o-ui-button-inherit.o-ui-button-loading.o-ui-button-outline::before {
+.o-ui-button-inherit-color.o-ui-button-loading.o-ui-button-outline::before {
     border-color: rgba(0, 0, 0, 0.25);
     border-top-color: currentColor;
 }
 
-/* SOLID */
-.o-ui-button-inherit.o-ui-button-solid {
+/* INHERIT | SOLID */
+.o-ui-button-inherit-color.o-ui-button-solid {
     color: inherit;
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
+.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-end-icon {
     fill: var(--o-ui-global-white);
     opacity: .9;
 }
 
-.o-ui-button.o-ui-button-inherit.o-ui-button-solid {
-    --o-ui-focus-ring-color: currentColor;
-}
-
-.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text {
+.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-text {
     color: var(--o-ui-global-white);
     opacity: .9;
 }
 
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid {
+.o-ui-button.o-ui-button-inherit-color.o-ui-button-solid {
+    --o-ui-focus-ring-color: currentColor;
+}
+
+.o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-solid,
+.o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-solid {
     background-color: currentColor;
 }
 
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-text,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-start-icon,
-.o-ui-button:hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon,
-.o-ui-button-hover.o-ui-button-inherit.o-ui-button-solid .o-ui-button-end-icon {
+.o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-text,
+.o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-text,
+.o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-start-icon,
+.o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-end-icon,
+.o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-end-icon {
     opacity: 1;
 }
 
-.o-ui-button:active.o-ui-button-inherit.o-ui-button-solid,
-.o-ui-button-active.o-ui-button-inherit.o-ui-button-solid {
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-solid,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-solid {
     background-color: currentColor;
 }
 
-.o-ui-button-inherit.o-ui-button-loading.o-ui-button-solid::before {
+.o-ui-button-inherit-color.o-ui-button-loading.o-ui-button-solid::before {
     border-color: rgba(255, 255, 255, 0.1);
     border-top-color: var(--o-ui-global-white);
 }
 
-/* WITH ICON */
-.o-ui-button .o-ui-button-right-icon,
-.o-ui-button .o-ui-button-left-icon {
-    color: inherit;
+/* INHERIT | SOLID | COUNTER */
+.o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-counter {
+    color: var(--o-ui-global-white) !important;
+    opacity: .9;
+}
+
+.o-ui-button:hover.o-ui-button-solid .o-ui-button-counter,
+.o-ui-button-hover.o-ui-button-solid .o-ui-button-counter {
+    opacity: 1;
 }

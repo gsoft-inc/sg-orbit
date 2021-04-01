@@ -75,20 +75,6 @@ stories()
             </ToggleButton>
         </Inline>
     )
-    .add("render props", () =>
-        <Inline>
-            <ToggleButton>
-                {
-                    () => "Cutoff"
-                }
-            </ToggleButton>
-            <ToggleButton defaultChecked>
-                {
-                    ({ isChecked }) => isChecked ? "Checked" : "Cutoff"
-                }
-            </ToggleButton>
-        </Inline>
-    )
     .add("styling", () =>
         <Inline>
             <ToggleButton className="bg-red">Cutoff</ToggleButton>

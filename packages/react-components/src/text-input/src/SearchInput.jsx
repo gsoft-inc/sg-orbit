@@ -2,9 +2,10 @@ import "./SearchInput.css";
 
 import { CrossButton } from "../../button";
 import { Keys, forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { isNil } from "lodash";
+import { isNil, isUndefined } from "lodash";
 import { useCallback } from "react";
 
 const propTypes = {
@@ -66,6 +67,7 @@ export function InnerSearchInput({
     defaultValue,
     onChange,
     onKeyDown,
+    icon,
     wrapperProps,
     as = "input",
     forwardedRef,
@@ -126,6 +128,7 @@ export function InnerSearchInput({
                     button: clearButtonMarkup || undefined,
                     onChange: handleChange,
                     onKeyDown: handleKeyDown,
+                    icon: isUndefined(icon) ? <MagnifierIcon /> : icon,
                     wrapperProps: mergeProps(wrapperProps ?? {}, {
                         className: "o-ui-search-input"
                     }),

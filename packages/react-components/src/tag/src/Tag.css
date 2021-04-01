@@ -286,17 +286,6 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
     flex-grow: 1;
 }
 
-/* CONTENT | COUNTER */
-/* CONTENT | COUNTER | SMALL */
-.o-ui-tag-has-counter.o-ui-tag-sm {
-    padding-right: calc(var(--o-ui-padding-sm) / 1.5);
-}
-
-/* CONTENT | COUNTER | MEDIUM */
-.o-ui-tag-has-counter.o-ui-tag-md {
-    padding-right: calc(var(--o-ui-padding-md) / 1.5);
-}
-
 /* CONTENT | REMOVE BUTTON */
 .o-ui-tag-remove-button {
     margin-left: var(--o-ui-global-scale-alpha);

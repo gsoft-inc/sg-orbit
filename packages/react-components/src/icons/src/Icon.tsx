@@ -47,7 +47,7 @@ export const InnerIcon = ((props: InnerIconProps) => {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        normalizeSize(size)
+                        size && size === "inherit" ? "inherit-size" : normalizeSize(size)
                     ),
                     focusable: false,
                     as: type,

@@ -9,7 +9,7 @@ function Tag({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createTestSuite(element, stories) {
+export function createTagTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
@@ -96,11 +96,11 @@ export function createTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
-                        <Counter>60</Counter>
+                        <Counter variant="divider">60</Counter>
                     </Tag>
                     <Tag element={element}>
                         <Text>Falcon 9</Text>
-                        <Counter>60</Counter>
+                        <Counter variant="divider">60</Counter>
                     </Tag>
                 </Inline>
                 <Inline>
@@ -112,7 +112,7 @@ export function createTestSuite(element, stories) {
                 <Inline className="w-10">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
-                        <Counter>60</Counter>
+                        <Counter variant="divider">60</Counter>
                     </Tag>
                 </Inline>
             </Stack>

@@ -4,7 +4,7 @@ function CustomSelect({
     children,
     ...rest
 }) {
-    const { selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+    const { selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
         ariaLabel
     });
 
@@ -16,7 +16,12 @@ function CustomSelect({
                 color="secondary"
                 className="w-20"
             >
-                {!isNil(selectedItem) ? selectedItem.text : placeholder}
+                <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>
+                <DisclosureArrow
+                    open={isOpen}
+                    slot="end-icon"
+                    size="sm"
+                />
             </Button>
             <Overlay {...overlayProps}>
                 <Listbox {...listboxProps} />

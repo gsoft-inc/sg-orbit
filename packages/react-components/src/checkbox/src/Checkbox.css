@@ -85,7 +85,6 @@
 /* CONTENT | LABEL */
 .o-ui-checkbox-label {
     margin-left: var(--o-ui-global-scale-bravo);
-    color: var(--o-ui-alias-text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -115,7 +114,7 @@
 }
 
 /* INVALID */
-.o-ui-checkbox-invalid .o-ui-checkbox-label {
+.o-ui-checkbox-invalid {
     color: var(--o-ui-alias-text-negative-1);
 }
 

@@ -13,6 +13,7 @@ import {
     ToggleIconButton
 } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@react-components/counter";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
 
@@ -65,6 +66,19 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
         <Button>
             <Text>Cutoff</Text>
             <LightbulbIcon slot="end-icon" />
+        </Button>
+    </Story>
+</Preview>
+
+### Counter
+
+A button can have a [counter](?path=/docs/counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Button>
+            <Text>Cutoff</Text>
+            <Counter variant="divider">60</Counter>
         </Button>
     </Story>
 </Preview>
@@ -188,7 +202,7 @@ A button content can be a single icon. An accessible name must be provided throu
 
 ## Button group
 
-Related buttons whose actions are related to each other can be group together.
+Buttons whose actions are related to each other can be grouped together.
 
 <Preview>
     <Story name="button group">
@@ -253,22 +267,6 @@ A toggle button content can be a single icon. An accessible name must be provide
         <ToggleIconButton variant="outline" shape="circular" aria-label="Activate">
             <CheckIcon />
         </ToggleIconButton>
-    </Story>
-</Preview>
-
-### Render props
-
-A toggle button can update is content based on the `isChecked` value by providing a render prop function.
-
-<Preview>
-    <Story name="toggle icon render props">
-        <ToggleButton aria-label="Activate">
-            {
-                ({ isChecked }) => {
-                    return isChecked ? "On" : "Off"
-                }
-            }
-        </ToggleButton>
     </Story>
 </Preview>
 

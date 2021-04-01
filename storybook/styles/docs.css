@@ -191,6 +191,15 @@
     max-width: 75ch;
 }
 
+/* ELEMENTS | CODE | IN PARAGRAPH */
+.sbdocs .sbdocs-p code {
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    font-size: 14px !important;
+}
+
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
     font-size: var(--o-ui-global-type-scale-6);
@@ -295,7 +304,6 @@
     white-space: nowrap;
     border-radius: 3px;
     font-size: 13px;
-    font-weight: 600;
     border: 1px solid #EEE;
     color: rgba(51,51,51,0.9);
     background-color: #F8F8F8;

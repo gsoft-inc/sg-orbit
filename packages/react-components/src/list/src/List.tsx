@@ -7,7 +7,7 @@ export interface InnerListProps {
      */
     size?: "inherit";
     /**
-     * A list can vary in color.
+     * A list can inherit it's parent color.
      */
     color?: "inherit";
     /**
@@ -30,7 +30,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     const {
         size,
         color,
-        as: As,
+        as: As = "ul",
         children,
         ...rest
     } = mergeProps(
@@ -45,7 +45,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                 {
                     className: cssModule(
                         "o-ui-list",
-                        size,
+                        size && "inherit-size",
                         color ? `color-${color}` : ""
                     ),
                     ref

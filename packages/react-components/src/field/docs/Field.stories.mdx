@@ -70,12 +70,6 @@ When the input is a group, use a `GroupField` instead of a `Field`.
     </Story>
 </Preview>
 
-### Custom input
-
-Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInputProps` hook.
-
-<Preview filePath="/field/docs/CustomInput" />
-
 ### Required
 
 A field can show a required state.
@@ -148,6 +142,12 @@ When valid or invalid, a field can display a specific message by declaring eithe
 The example below illustrates how one would validate if the user has entered a valid email and display a message matching the current validation state.
 
 <Preview filePath="/field/docs/EmailValidation" />
+
+### Custom input
+
+Any input implementing the `FieldContext` can integrate with a field component. This is usually done by using the `useFieldInputProps` hook.
+
+<Preview filePath="/field/docs/CustomInput" />
 
 ## API
 

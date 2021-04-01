@@ -15,11 +15,6 @@
     border-radius: var(--o-ui-shape-rounded);
 }
 
-/* TRIGGER | ICON ARROW */
-.o-ui-select-icon-arrow {
-    flex-shrink: 0;
-}
-
 /* TRIGGER | FLUID */
 .o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
 .o-ui-select-trigger-outline.o-ui-select-trigger-fluid {
@@ -145,7 +140,7 @@
 }
 
 /* PLACEHOLDER */
-.o-ui-select-placeholder {
+.o-ui-select-trigger-outline .o-ui-select-placeholder {
     color: var(--o-ui-alias-text-input-placeholder);
 }
 

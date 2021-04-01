@@ -112,13 +112,14 @@ export function InnerRadio(props) {
         onCheck(event, value);
     });
 
-    const content = resolveChildren(children, { isChecked });
+    const content = resolveChildren(children);
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             className: "o-ui-radio-label"
         },
         icon: {
@@ -126,6 +127,8 @@ export function InnerRadio(props) {
             className: "o-ui-radio-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             reverse,
             pushed: true,
             className: "o-ui-radio-counter"
