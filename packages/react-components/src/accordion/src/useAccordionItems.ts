@@ -1,4 +1,4 @@
-import { Children, JSXElementConstructor, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
+import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps } from "../../shared";
@@ -12,14 +12,14 @@ export interface AccordionBuilderItem {
 }
 
 export interface AccordionBuilderHeaderProps {
-    elementType: string | JSXElementConstructor<any>;
+    elementType: ReactElement["type"];
     ref: Ref<any>;
     props: Record<string, any>;
 }
 
 
 export interface AccordionBuilderPanelProps {
-    elementType: string | JSXElementConstructor<any>;
+    elementType: ReactElement["type"];
     ref: Ref<any>;
     props: any;
 }
