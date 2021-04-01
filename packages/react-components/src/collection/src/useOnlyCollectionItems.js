@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 // Extracts all the nodes of "item" type.
 // Loop through sections to find nested items.
-export function useCollectionItems(nodes) {
+export function useOnlyCollectionItems(nodes) {
     return useMemo(() => {
         return nodes.reduce((acc, x) => {
             if (x.type === NodeType.section) {

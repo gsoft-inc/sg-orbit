@@ -21,7 +21,7 @@ import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
     githubPath="/packages/react-components/src/select/src"
 />
 
-A select is a combination of a [Button](?path=/docs/button--default-story), an [Overlay](?path=/docs/overlay--default-story) and a [Listbox](?path=/docs/listbox--default-story) to form a collapsible dropdown listbox. You can find a detailed example on [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html).
+A select is a combination of a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button), an [Overlay](?path=/docs/overlay--default-story) and a [Listbox](?path=/docs/listbox--default-story) to form a collapsible dropdown listbox. You can find a detailed example on [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html).
 
 ## Usage
 
@@ -281,6 +281,30 @@ A select items can be rendered with an array map.
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
+        </Select>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+A select items can be dynamic.
+
+The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+
+<Preview>
+    <Story name="dynamic items">
+        <Select
+            items={[
+                { key: "earth", value: "Earth" },
+                { key: "jupiter", value: "Jupiter" },
+                { key: "mars", value: "Mars" }
+            ]}
+            placeholder="Planets"
+            aria-label="Planets"
+        >
+            {({ items }) => items.map((x => (
+                <Item key={x.key}>{x.value}</Item>
+            )))}
         </Select>
     </Story>
 </Preview>

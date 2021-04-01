@@ -9,15 +9,15 @@ export interface InnerCounterProps {
     /**
      * The style to use.
      */
-    variant?: "pill" | "divider";
+    variant?: "basic" | "divider";
     /**
      * The color accent.
      */
-    color?: "light";
+    color?: "inherit";
     /**
-     * Whether or not to add emphasis on the count value.
+     * Whether or not to add emphasis to the counter.
      */
-    highlight?: boolean;
+    highlight?: boolean,
     /**
      * Whether or not to reverse counter elements order.
      */
@@ -25,13 +25,13 @@ export interface InnerCounterProps {
     /**
      * A counter can vary in size.
      */
-    size?: "sm" | "md" | "inherit";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
     /**
      * Whether or not the counter is disabled.
      */
     disabled?: boolean;
     /**
-     * Whether or not the counter push itself away from leading sibling element.
+     * Whether or not the counter push itself away from the leading sibling element.
      */
     pushed?: boolean;
     /**
@@ -54,7 +54,7 @@ export interface InnerCounterProps {
 
 export function InnerCounter(props: InnerCounterProps) {
     const {
-        variant = "pill",
+        variant = "basic",
         color,
         highlight,
         reverse,
@@ -66,10 +66,6 @@ export function InnerCounter(props: InnerCounterProps) {
         ...rest
     } = props;
 
-    const content = variant === "divider"
-        ? <Text size={size} color="inherit">{children}</Text>
-        : children;
-
     return (
         <Box
             {...mergeProps(
@@ -78,7 +74,7 @@ export function InnerCounter(props: InnerCounterProps) {
                     className: cssModule(
                         "o-ui-counter",
                         variant,
-                        color && color,
+                        color === "inherit" ? "inherit-color" : color,
                         highlight && "highlight",
                         reverse && "reverse",
                         pushed && "pushed",
@@ -89,7 +85,7 @@ export function InnerCounter(props: InnerCounterProps) {
                 }
             )}
         >
-            {content}
+            <Text size={size} color="inherit">{children}</Text>
         </Box>
     );
 }

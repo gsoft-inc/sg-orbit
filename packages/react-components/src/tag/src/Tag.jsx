@@ -67,15 +67,15 @@ export function InnerTag({
             className: "o-ui-tag-dot"
         },
         text: {
+            color: "inherit",
             size,
             className: "o-ui-tag-text"
         },
         counter: {
+            color: "inherit",
             size,
-            disabled,
-            highlight: true,
             pushed: true,
-            className: "o-ui-tag-counter"
+            disabled
         }
     }), [size, disabled]));
 
@@ -96,7 +96,6 @@ export function InnerTag({
                         "o-ui-tag",
                         variant,
                         icon && "has-icon",
-                        counter && "has-counter",
                         removeMarkup && "has-remove-button",
                         fluid && "fluid",
                         active && "active",

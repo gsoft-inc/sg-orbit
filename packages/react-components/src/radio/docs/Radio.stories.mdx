@@ -16,7 +16,7 @@ import { ToggleButton } from "@react-components/button";
 <Tagline>A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.</Tagline>
 
 <ComponentInfo
-    usage={"import { RadioGroup, Radio, CheckableContext, useCheckableProps } from \"@orbit-ui/react-components\""}
+    usage={"import { RadioGroup, Radio, useCheckableProps } from \"@orbit-ui/react-components\""}
     ariaPath="#radiobutton"
     githubPath="/packages/react-components/src/radio/src"
 />
@@ -108,7 +108,7 @@ A radio can have a [counter](?path=/docs/counter--default-story) after his text.
             <Radio value="jupiter">Jupiter</Radio>
             <Radio value="pluto">
                 <Text>Pluto</Text>
-                <Counter variant="divider">6</Counter>
+                <Counter>6</Counter>
             </Radio>
         </RadioGroup>
     </Story>
@@ -168,26 +168,6 @@ A radio group can display a validation state to communicate to the user whether 
 The example below illustrates how one would validate if a specific value of the radio group has been selected.
 
 <Preview filePath="/radio/docs/ValueSelectedValidation" />
-
-### Render props
-
-A radio can update is content based on the `isChecked` value by providing a render prop function:
-
-<Preview>
-    <Story name="radio render props">
-        <RadioGroup>
-            <Radio value="mars">Mars</Radio>
-            <Radio value="jupiter">
-                {
-                    ({ isChecked }) => {
-                        return isChecked ? "Selected" : "Jupiter";
-                    }
-                }
-            </Radio>
-            <Radio value="pluto">Pluto</Radio>
-        </RadioGroup>
-    </Story>
-</Preview>
 
 ### Toggle buttons
 

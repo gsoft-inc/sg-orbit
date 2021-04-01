@@ -1,11 +1,9 @@
 import "./Autocomplete.css";
 
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { KeyProp, Listbox } from "../../listbox";
 import {
     Keys,
     augmentElement,
-    getRawSlots,
     isNilOrEmpty,
     mergeProps,
     useCommittedRef,
@@ -14,11 +12,12 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { NodeType, useCollection, useCollectionItems } from "../../collection";
+import { Listbox, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { any, arrayOf, bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useCallback, useRef, useState } from "react";
+import { getItemText, useCollectionSearch } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
@@ -46,7 +45,7 @@ const propTypes = {
      */
     placeholder: string,
     /**
-     * The items to render.
+     * Items to render.
      */
     items: arrayOf(object),
     /**
@@ -146,68 +145,6 @@ const propTypes = {
     children: oneOfType([any, func]).isRequired
 };
 
-function getItemText(item) {
-    const { text, stringValue } = getRawSlots(item?.content, ["text"]);
-
-    return !isNil(text)
-        ? text.props?.children ?? ""
-        : stringValue ?? "";
-}
-
-function isQueryMatchItem(query, item) {
-    const itemText = getItemText(item);
-
-    return itemText.toLowerCase().startsWith(query);
-}
-
-function useLocalSearch(nodes) {
-    const [results, setResults] = useState([]);
-
-    const search = useCallback(query => {
-        const cache = {};
-
-        query = query.toLowerCase();
-
-        if (!isNil(cache[query])) {
-            setResults(cache[query]);
-        } else {
-            const reducedNodes = nodes.reduce((acc, node) => {
-                if (node.type === NodeType.section) {
-                    const items = node.items.reduce((sectionItems, item) => {
-                        if (isQueryMatchItem(query, item)) {
-                            sectionItems.push(item);
-                        }
-
-                        return sectionItems;
-                    }, []);
-
-                    if (items.length > 0) {
-                        // eslint-disable-next-line no-unused-vars
-                        const { items: _, ...sectionProps } = node;
-
-                        acc.push({
-                            ...sectionProps,
-                            items
-                        });
-                    }
-                } else if (node.type === NodeType.item) {
-                    if (isQueryMatchItem(query, node)) {
-                        acc.push(node);
-                    }
-                } else {
-                    acc.push(node);
-                }
-
-                return acc;
-            }, []);
-
-            setResults(reducedNodes);
-        }
-    }, [nodes, setResults]);
-
-    return [results, search];
-}
-
 export function InnerAutocomplete(props) {
     const [fieldProps] = useFieldInputProps();
 
@@ -218,7 +155,7 @@ export function InnerAutocomplete(props) {
         value: valueProp,
         defaultValue,
         placeholder,
-        items: itemsProp,
+        items,
         onSearch,
         loading,
         clearOnSelect,
@@ -287,14 +224,7 @@ export function InnerAutocomplete(props) {
     const listboxRef = useRef();
     const triggerRef = useCommittedRef(triggerElement);
 
-    const nodes = useCollection(children, { items: itemsProp });
-    const items = useCollectionItems(nodes);
-
-    const [localSearchResults, searchInNodes] = useLocalSearch(nodes);
-
-    // If a search function is provided, offload the search to the caller and use the nodes computed from the items
-    // otherwise use our local search results.
-    const results = !isNil(onSearch) ? nodes : localSearchResults;
+    const [results, searchCollection] = useCollectionSearch(children, { items, onSearch });
 
     const open = useCallback(event => {
         setIsOpen(event, true);
@@ -309,7 +239,7 @@ export function InnerAutocomplete(props) {
         let newValue = null;
 
         if (!isNil(newKey)) {
-            const selectedItem = items.find(x => x.key === newKey);
+            const selectedItem = results.find(x => x.key === newKey);
 
             if (!isNil(selectedItem)) {
                 newValue = getItemText(selectedItem);
@@ -328,7 +258,7 @@ export function InnerAutocomplete(props) {
         }
 
         setQuery(clearOnSelect ? "" : newValue ?? "", true);
-    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
+    }, [results, onChange, clearOnSelect, value, setValue, setQuery]);
 
     const clear = useCallback(event => {
         setSelection(event, null);
@@ -343,12 +273,7 @@ export function InnerAutocomplete(props) {
 
     const search = useDebouncedCallback((event, query) => {
         if (query.trim().length >= minCharacters) {
-            if (!isNil(onSearch)) {
-                onSearch(event, query);
-            } else {
-                searchInNodes(query);
-            }
-
+            searchCollection(event, query);
             open(event);
         } else if (isNilOrEmpty(query)) {
             clear(event);
@@ -387,7 +312,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -399,7 +324,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -411,7 +336,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -423,7 +348,7 @@ export function InnerAutocomplete(props) {
 
                     setFocusedItem({
                         id: activeElement.id,
-                        key: activeElement.getAttribute(KeyProp)
+                        key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
                 break;
@@ -432,6 +357,7 @@ export function InnerAutocomplete(props) {
                     // Do not remove otherwise the SearchInput will clear the input on esc.
                     event.stopPropagation();
                     event.preventDefault();
+
                     close(event);
                 }
                 break;
@@ -449,8 +375,8 @@ export function InnerAutocomplete(props) {
         search(event, query);
     });
 
-    const handleListboxChange = useEventCallback((event, newKey) => {
-        selectItem(event, newKey);
+    const handleListboxSelectionChange = useEventCallback((event, newKeys) => {
+        selectItem(event, newKeys[0] ?? null);
     });
 
     const handleListboxFocusChange = useEventCallback((event, newKey, activeElement) => {
@@ -470,9 +396,9 @@ export function InnerAutocomplete(props) {
     const listboxMarkup = (
         <Listbox
             nodes={results}
-            // An autocomplete doesn't support a selected key.
-            selectedKey={null}
-            onChange={handleListboxChange}
+            // An autocomplete doesn't support any persisted selected keys.
+            selectedKeys={[]}
+            onSelectionChange={handleListboxSelectionChange}
             onFocusChange={handleListboxFocusChange}
             focusOnHover
             useVirtualFocus
@@ -506,7 +432,7 @@ export function InnerAutocomplete(props) {
                         id: triggerId,
                         value: queryRef.current,
                         placeholder,
-                        icon: iconMarkup,
+                        icon: iconMarkup ?? null,
                         onChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,

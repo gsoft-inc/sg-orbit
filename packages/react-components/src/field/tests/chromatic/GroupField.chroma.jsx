@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { DateRangeInput } from "@react-components/date-input";
 import { GroupField, HelpMessage, Label } from "@react-components/field";
@@ -24,7 +25,7 @@ stories()
                     </CheckboxGroup>
                     <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
                 </GroupField>
-                <GroupField size="sm">
+                <GroupField>
                     <Label>Select your packages</Label>
                     <CheckboxGroup>
                         <Checkbox value="1">1</Checkbox>
@@ -77,6 +78,50 @@ stories()
                 <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
             </GroupField>
         </Inline>
+    )
+    .add("button group", () =>
+        <Stack gap={13}>
+            <Inline gap={13} verticalAlign="end">
+                <GroupField size="sm">
+                    <Label>Would you like to rate your experience?</Label>
+                    <ButtonGroup>
+                        <Button variant="outline">No, thanks</Button>
+                        <Button variant="outline">Remind me later</Button>
+                        <Button>Rate Now</Button>
+                    </ButtonGroup>
+                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
+                </GroupField>
+                <GroupField>
+                    <Label>Would you like to rate your experience?</Label>
+                    <ButtonGroup>
+                        <Button variant="outline">No, thanks</Button>
+                        <Button variant="outline">Remind me later</Button>
+                        <Button>Rate Now</Button>
+                    </ButtonGroup>
+                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
+                </GroupField>
+            </Inline>
+            <Inline gap={13} verticalAlign="end">
+                <GroupField size="sm">
+                    <Label>Would you like to rate your experience?</Label>
+                    <ButtonGroup orientation="vertical">
+                        <Button variant="outline">No, thanks</Button>
+                        <Button variant="outline">Remind me later</Button>
+                        <Button>Rate Now</Button>
+                    </ButtonGroup>
+                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
+                </GroupField>
+                <GroupField>
+                    <Label>Would you like to rate your experience?</Label>
+                    <ButtonGroup orientation="vertical">
+                        <Button variant="outline">No, thanks</Button>
+                        <Button variant="outline">Remind me later</Button>
+                        <Button>Rate Now</Button>
+                    </ButtonGroup>
+                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
+                </GroupField>
+            </Inline>
+        </Stack>
     )
     .add("date range input", () =>
         <GroupField>

@@ -49,20 +49,6 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch disabled element={element}>
-                        <Text>Engines</Text>
-                        <Counter>60</Counter>
-                    </Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
-                        <Text>Engines</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch element={element}>
-                        <Text>Engines</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
@@ -74,18 +60,6 @@ export function createTestSuite(element, stories) {
                         <Text>Engines</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
-                    </Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
-                        <Text>Engines</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch element={element}>
-                        <Text>Engines</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
                     </Switch>
                 </Inline>
             </Stack>
@@ -122,30 +96,12 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch element={element}>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
-                    </Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch element={element}>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
                     </Switch>
                 </Inline>
             </Stack>
@@ -176,13 +132,6 @@ export function createTestSuite(element, stories) {
                     <Switch reverse element={element}>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch reverse element={element}>
-                        <Text>Engines</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch reverse element={element}>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
                 </Inline>
                 <Inline>
                     <Switch reverse element={element}>
@@ -198,27 +147,26 @@ export function createTestSuite(element, stories) {
                         </IconList>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch reverse element={element}>
-                        <Text>Engines</Text>
-                        <IconList>
-                            <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconList>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
-                    <Switch reverse element={element}>
-                        <IconList>
-                            <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconList>
-                        <Counter variant="divider">60</Counter>
-                    </Switch>
                 </Inline>
             </Stack>
         )
         .add("validation", () =>
-            <Inline>
-                <Switch validationState="invalid" element={element}>Engines</Switch>
-                <Switch validationState="valid" active element={element}>Engines</Switch>
-            </Inline>
+            <Stack>
+                <Inline>
+                    <Switch validationState="invalid" element={element}>Engines</Switch>
+                    <Switch validationState="valid" active element={element}>Engines</Switch>
+                </Inline>
+                <Inline>
+                    <Switch validationState="invalid" element={element}>
+                        <Text>Engines</Text>
+                        <EmailIcon />
+                    </Switch>
+                    <Switch validationState="invalid" element={element}>
+                        <Text>Engines</Text>
+                        <Counter>60</Counter>
+                    </Switch>
+                </Inline>
+            </Stack>
         )
         .add("states", () =>
             <Stack>
@@ -255,12 +203,6 @@ export function createTestSuite(element, stories) {
                         <IconList>
                             <EmailIcon /><EmailIcon />
                         </IconList>
-                    </Switch>
-                </div>
-                <div className="mw5">
-                    <Switch element={element}>
-                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
-                        <Counter variant="divider">60</Counter>
                     </Switch>
                 </div>
                 <div className="mw5">

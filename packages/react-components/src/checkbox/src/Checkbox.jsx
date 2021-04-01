@@ -113,12 +113,7 @@ export function InnerCheckbox(props) {
         onCheck(event, value);
     });
 
-    const {
-        isChecked,
-        isIndeterminate,
-        wrapperProps,
-        inputProps
-    } = useCheckbox({
+    const { wrapperProps, inputProps } = useCheckbox({
         cssModule: "o-ui-checkbox",
         isInField,
         id,
@@ -141,13 +136,14 @@ export function InnerCheckbox(props) {
         forwardedRef
     });
 
-    const content = resolveChildren(children, { isChecked, isIndeterminate });
+    const content = resolveChildren(children);
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             size,
             className: "o-ui-checkbox-label"
         },
@@ -156,6 +152,8 @@ export function InnerCheckbox(props) {
             className: "o-ui-checkbox-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             size,
             reverse,
             pushed: true,

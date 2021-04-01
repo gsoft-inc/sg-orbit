@@ -41,6 +41,7 @@ INTERACTION TEST:
 - when in field, focus when clicking on label
 - aria props (aria-expanded, aria-controls, aria-labelledby, ...)
 - calling .focus on the select ref will focus the select.
+- dynamic items
 */
 
 function stories(segment) {

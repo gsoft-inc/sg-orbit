@@ -110,16 +110,6 @@ stories()
             </Popover>
         </PopoverTrigger>
     )
-    .add("hide close button", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover hideCloseButton>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-
-            </Popover>
-        </PopoverTrigger>
-    )
     .add("form", () =>
         <PopoverTrigger defaultOpen>
             <Button>Toggle</Button>
@@ -349,19 +339,6 @@ stories()
                     <Button color="primary">Save</Button>
                 </ButtonGroup>
             </Popover>
-        </PopoverTrigger>
-    )
-    .add("render props", () =>
-        <PopoverTrigger>
-            {({ isOpen }) => (
-                <>
-                    <Button color={isOpen ? "secondary" : "primary"}>Toggle</Button>
-                    <Popover>
-                        <Heading>Space News</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                    </Popover>
-                </>
-            )}
         </PopoverTrigger>
     )
     .add("custom component", () => {

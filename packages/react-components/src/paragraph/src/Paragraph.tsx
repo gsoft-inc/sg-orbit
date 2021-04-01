@@ -8,9 +8,9 @@ export interface InnerParagraphProps {
     /**
      * A paragraph can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit";
     /**
-     * A paragraph can change inherit it's parent color.
+     * A paragraph can inherit it's parent color.
      */
     color?: "inherit";
     /**
@@ -49,7 +49,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
                     size,
                     className: cssModule(
                         "o-ui-p",
-                        normalizeSize(size)
+                        size && size === "inherit" ? "inherit-size" : normalizeSize(size)
                     ),
                     as,
                     ref: forwardedRef
