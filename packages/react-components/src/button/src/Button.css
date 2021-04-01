@@ -608,9 +608,3 @@ a.o-ui-button {
 .o-ui-button-hover.o-ui-button-solid .o-ui-button-counter {
     opacity: 1;
 }
-
-/* WITH ICON */
-.o-ui-button .o-ui-button-right-icon,
-.o-ui-button .o-ui-button-left-icon {
-    color: inherit;
-}
