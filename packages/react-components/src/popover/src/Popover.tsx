@@ -1,17 +1,11 @@
 import "./Popover.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
-import { CrossButton } from "../../button";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
-import { forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { usePopoverTriggerContext } from "./PopoverTriggerContext";
+import { forwardRef, mergeProps, useSlots } from "../../shared";
 
 export interface InnerPopoverProps {
-    /**
-     * Whether or not to hide the close button.
-     */
-    hideCloseButton?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -27,18 +21,11 @@ export interface InnerPopoverProps {
 }
 
 export function InnerPopover({
-    hideCloseButton,
     as = "section",
     children,
     forwardedRef,
     ...rest
 }: InnerPopoverProps) {
-    const { close } = usePopoverTriggerContext();
-
-    const handleCloseButtonClick = useEventCallback((event: SyntheticEvent) => {
-        close(event);
-    });
-
     const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
@@ -66,18 +53,6 @@ export function InnerPopover({
         }
     }), []));
 
-    const closeButtonMarkup = !hideCloseButton && (
-        <CrossButton
-            // Used to prevent autoFocusing the close button.
-            id="o-ui-popover-close-button"
-            onClick={handleCloseButtonClick}
-            condensed
-            size="xs"
-            className="o-ui-popover-close-button"
-            aria-label="Close"
-        />
-    );
-
     const headerMarkup = heading && (
         <header className="o-ui-popover-header">
             {heading}
@@ -103,7 +78,6 @@ export function InnerPopover({
                 }
             )}
         >
-            {closeButtonMarkup}
             {headerMarkup}
             {content}
             {footerMarkup}

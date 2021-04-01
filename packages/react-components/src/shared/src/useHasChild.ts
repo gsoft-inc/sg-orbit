@@ -21,7 +21,7 @@ export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElemen
  * @example
  * const { hasIcon } = useHasChildren({ hasIcon: ".o-ui-lozenge-icon" }, ref);
  */
-export function useHasChildren<T extends string>(querySelectors: Record<T, string>, rootRef: RefObject<HTMLElement>) {
+export function useHasChildren(querySelectors: Record<string, string>, rootRef: RefObject<HTMLElement>) {
     const [queryResults, setResults] = useState<Record<string, boolean>>({});
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
@@ -32,8 +32,9 @@ export function useHasChildren<T extends string>(querySelectors: Record<T, strin
         if (!isNil(element)) {
             let isDirty = false;
 
-            const newResults = (Object.keys(querySelectors) as T[]).reduce((results: Record<string, boolean>, x) => {
-                const result = !isNil(element.querySelector(`:scope > ${querySelectors[x]}`));
+            const newResults = Object.keys(querySelectors).reduce((results: Record<string, boolean>, x) => {
+                // const result = !isNil(element.querySelector(`:scope > ${querySelectors[x]}`));
+                const result = !isNil(element.querySelector(querySelectors[x]));
 
                 isDirty = isDirty || queryResults[x] !== result;
                 results[x] = result;
@@ -47,6 +48,6 @@ export function useHasChildren<T extends string>(querySelectors: Record<T, strin
         }
     });
 
-    return queryResults as Record<T, boolean>;
+    return queryResults;
 }
 

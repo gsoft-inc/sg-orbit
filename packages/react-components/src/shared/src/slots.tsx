@@ -1,6 +1,6 @@
 import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
 import { augmentElement, resolveChildren } from "../../shared";
-import { isNil, isString, isUndefined } from "lodash";
+import { isFunction, isNil, isString, isUndefined } from "lodash";
 
 const SlotKey = "__slot__";
 
@@ -60,7 +60,9 @@ interface SlotOptions {
 }
 
 type SlotElements<T extends SlotOptions> = {
-    [key in keyof Omit<T, "_">]?: ReactElement;
+    [key in keyof Omit<T, "_">]?:
+    T[key] extends (...args: any) => any
+    ? ((element: ReactElement, allElements: T) => ReactElement) : ReactElement
 } & Record<string, ReactElement>
 
 export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
@@ -109,7 +111,11 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
     }
 
     Object.keys(slotElements).forEach(x => {
-        const slotProps = (slots as Record<string, any>)[x];
+        let slotProps = (slots as Record<string, any>)[x];
+
+        if (isFunction(slotProps)) {
+            slotProps = slotProps(slotElements[x], slotElements);
+        }
 
         if (!isNil(slotProps)) {
             slotElements[x] = augmentElement(slotElements[x], slotProps);

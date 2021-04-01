@@ -1,10 +1,12 @@
-function AsyncText({ isActive, children, ...rest }) {
+function AsyncText({ id, children, ...rest }) {
     const [text, setText] = useState(null);
+
+    const { selectedKey } = useTabsContext();
 
     useEffect(() => {
         let timeoutId;
 
-        if (isActive) {
+        if (id === selectedKey) {
             timeoutId = setTimeout(() => {
                 setText(children);
             }, 2000);
@@ -17,7 +19,7 @@ function AsyncText({ isActive, children, ...rest }) {
                 clearTimeout(timeoutId);
             }
         };
-    }, [isActive, children]);
+    }, [id, selectedKey, children]);
 
     return (
         <Box {...rest}>
@@ -36,22 +38,18 @@ render(() => {
     return (
         <Tabs manual aria-label="Planets">
             {[
-                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
-                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
-                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+                { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { id: "jupiter", header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { id: "venus", header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
             ]
-                .map(({ header, content }) =>
-                    <Item key={header}>
-                        {({ isActive }) => (
-                            <>
-                                <Header>{header}</Header>
-                                <Content>
-                                    <AsyncText isActive={isActive}>
-                                        {content}
-                                    </AsyncText>
-                                </Content>
-                            </>
-                        )}
+                .map(({ id, header, content }) =>
+                    <Item key={id}>
+                        <Header>{header}</Header>
+                        <Content>
+                            <AsyncText id={id}>
+                                {content}
+                            </AsyncText>
+                        </Content>
                     </Item>
                 )}
         </Tabs>

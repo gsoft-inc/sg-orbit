@@ -6,6 +6,7 @@
     max-width: 100%;
     width: max-content;
     height: max-content;
+    color: var(--o-ui-alias-text-1);
 }
 
 /* SWITCH */
@@ -32,7 +33,6 @@
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
     margin-left: var(--o-ui-global-scale-bravo);
-    color: var(--o-ui-alias-text-1);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -62,7 +62,7 @@
 }
 
 /* INVALID */
-.o-ui-switch-invalid .o-ui-switch-label {
+.o-ui-switch-invalid {
     color: var(--o-ui-alias-text-negative-1);
 }
 

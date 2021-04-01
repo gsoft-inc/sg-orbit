@@ -90,7 +90,6 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         underline,
         external,
         autoFocus,
-        size,
         active,
         focus,
         hover,
@@ -115,7 +114,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         icon: null
     }), [size]));
 
-    const iconElement = external ? <ArrowIcon /> : icon;
+    const iconElement = external ? <ArrowIcon /> : icon as ReactElement;
 
     const iconMarkup = iconElement && augmentElement(iconElement, {
         size: embeddedIconSize(size),

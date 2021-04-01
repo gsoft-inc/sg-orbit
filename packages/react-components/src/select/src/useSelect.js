@@ -11,10 +11,10 @@ import {
     useRawSlots,
     useRefState
 } from "../../shared";
-import { KeyProp } from "../../listbox";
+import { OptionKeyProp } from "../../listbox";
 import { isNil, isNumber } from "lodash";
 import { useCallback, useMemo } from "react";
-import { useCollection, useCollectionItems } from "../../collection";
+import { useCollection, useOnlyCollectionItems } from "../../collection";
 import { usePopup, useTriggerWidth } from "../../overlay";
 
 export function useSelect(children, {
@@ -23,7 +23,8 @@ export function useSelect(children, {
     defaultOpen,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
-    onChange,
+    items: itemsProp,
+    onSelectionChange,
     onOpenChange,
     direction = "bottom",
     align = "start",
@@ -64,18 +65,20 @@ export function useSelect(children, {
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
-        keyProp: KeyProp
+        keyProp: OptionKeyProp
     });
 
-    const updateSelectedKey = useCallback((event, newValue) => {
-        if (newValue !== selectedKey) {
-            if (!isNil(onChange)) {
-                onChange(event, newValue);
+    const updateSelectedKey = useCallback((event, newKeys) => {
+        const newKey = newKeys[0] ?? null;
+
+        if (newKeys !== selectedKey) {
+            if (!isNil(onSelectionChange)) {
+                onSelectionChange(event, newKey);
             }
 
-            setSelectedKey(newValue);
+            setSelectedKey(newKey);
         }
-    }, [selectedKey, setSelectedKey, onChange]);
+    }, [selectedKey, setSelectedKey, onSelectionChange]);
 
     const open = useCallback((event, focusTarget) => {
         setFocusTarget(focusTarget);
@@ -101,7 +104,7 @@ export function useSelect(children, {
     });
 
     // Keep the selected key in sync with the listbox.
-    const handleListboxChange = useEventCallback((event, newValue) => {
+    const handleListboxSelectionChange = useEventCallback((event, newValue) => {
         updateSelectedKey(event, newValue);
         close(event);
     });
@@ -113,8 +116,8 @@ export function useSelect(children, {
 
     const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
-    const nodes = useCollection(children);
-    const items = useCollectionItems(nodes);
+    const nodes = useCollection(children, { items: itemsProp });
+    const items = useOnlyCollectionItems(nodes);
 
     const selectedItem = useMemo(() => items.find(x => x.key === selectedKey), [items, selectedKey]);
 
@@ -160,8 +163,8 @@ export function useSelect(children, {
         ),
         listboxProps: {
             nodes,
-            selectedKey,
-            onChange: handleListboxChange,
+            selectedKeys: useMemo(() => [selectedKey], [selectedKey]),
+            onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,

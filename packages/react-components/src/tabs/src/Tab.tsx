@@ -7,6 +7,8 @@ import { TabType } from "./useTabsItems";
 import { Text } from "../../text";
 import { useTabsContext } from "./TabsContext";
 
+export const TabKeyProp = "data-o-ui-key";
+
 export interface InnerTabProps extends InteractionStatesProps {
     /**
      * Matching tab item.
@@ -35,7 +37,7 @@ export interface InnerTabProps extends InteractionStatesProps {
 }
 
 export function InnerTab({
-    tab: { index, panelId },
+    tab: { key, tabId, panelId },
     disabled,
     active,
     focus,
@@ -45,7 +47,7 @@ export function InnerTab({
     forwardedRef,
     ...rest
 }: InnerTabProps) {
-    const { selectedIndex, onSelect, isManual } = useTabsContext();
+    const { selectedKey, onSelect, isManual } = useTabsContext();
 
     const { icon, text, lozenge } = useSlots(children, useMemo(() => ({
         _: {
@@ -67,11 +69,11 @@ export function InnerTab({
 
     const handleClick = useEventCallback(event => {
         event.preventDefault();
-        onSelect(event, index);
+        onSelect(event, key);
     });
 
     const handleFocus = useEventCallback(event => {
-        onSelect(event, index);
+        onSelect(event, key);
     });
 
     const handleKeyDown = useEventCallback(event => {
@@ -79,7 +81,7 @@ export function InnerTab({
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
-                onSelect(event, index);
+                onSelect(event, key);
                 break;
         }
     });
@@ -96,6 +98,7 @@ export function InnerTab({
             {...mergeProps(
                 rest,
                 {
+                    id: tabId,
                     onClick: handleClick,
                     onFocus: !isManual ? handleFocus : undefined,
                     onKeyDown: isManual ? handleKeyDown : undefined,
@@ -109,8 +112,8 @@ export function InnerTab({
                     ),
                     disabled,
                     role: "tab",
-                    "data-o-ui-index": index,
-                    "aria-selected": index === selectedIndex,
+                    [TabKeyProp]: key,
+                    "aria-selected": key === selectedKey,
                     "aria-controls": panelId,
                     as,
                     ref: forwardedRef

@@ -19,20 +19,6 @@ createCheckboxTestSuite(<Checkbox defaultChecked />, stories("/checked"));
 createCheckboxTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
 
 stories()
-    .add("render props", () =>
-        <Inline>
-            <Checkbox>
-                {
-                    () => "Milky Way"
-                }
-            </Checkbox>
-            <Checkbox defaultChecked>
-                {
-                    ({ isChecked }) => isChecked ? "Checked" : "Milky Way"
-                }
-            </Checkbox>
-        </Inline>
-    )
     .add("styling", () =>
         <Inline>
             <Checkbox className="bg-red">Milky Way</Checkbox>

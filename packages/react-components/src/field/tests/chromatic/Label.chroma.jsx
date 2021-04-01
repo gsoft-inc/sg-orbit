@@ -22,7 +22,7 @@ stories()
                 <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
             </Label>
             <Label>
-                <span>Where to? ( <TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
+                <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
             </Label>
         </Inline>
     )

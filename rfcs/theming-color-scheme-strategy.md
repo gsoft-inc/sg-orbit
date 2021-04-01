@@ -116,10 +116,6 @@ Global variables, alias variables as well as alias CSS classes are declared at t
   --o-ui-alias...: value;
 }
 
-.o-ui-alias-... {
-  background-color: var(--o-ui-alias...);
-}
-
 ...
 ```
 

@@ -1,7 +1,7 @@
 .o-ui-accordion {
     display: flex;
     flex-direction: column;
-    box-shadow: var(--o-ui-global-shadow-100);
+    box-shadow: var(--o-ui-alias-elevation-skim);
     border-radius: var(--o-ui-global-scale-bravo);
     overflow-anchor: none;
     width: 100%;

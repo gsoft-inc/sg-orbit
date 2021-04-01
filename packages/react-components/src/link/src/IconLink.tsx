@@ -99,7 +99,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         color,
         external,
         autoFocus,
-        size,
         active,
         focus,
         hover,

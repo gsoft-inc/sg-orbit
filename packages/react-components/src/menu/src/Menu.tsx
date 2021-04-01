@@ -11,6 +11,7 @@ import {
     forwardRef,
     mergeProps,
     useAutoFocusChild,
+    useControllableState,
     useDisposables,
     useEventCallback,
     useFocusManager,
@@ -23,9 +24,10 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
+import { SelectionMode } from "./selectionMode";
 import { isNil, isNumber } from "lodash";
 
-export const KeyProp = "data-o-ui-key";
+export const ItemKeyProp = "data-o-ui-key";
 
 export interface InnerMenuProps {
     /**
@@ -33,12 +35,28 @@ export interface InnerMenuProps {
      */
     id?: string;
     /**
-     * Called when a menu item is selected.
+     * A controlled set of the selected item keys.
+     */
+    selectedKeys?: string[]
+    /**
+     * The initial value of `selectedKeys` when uncontrolled.
+     */
+    defaultSelectedKeys?: string[]
+    /**
+     * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} key - The menu item key.
+     * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */
-    onSelect?(event: SyntheticEvent, key: boolean): void,
+    onSelectionChange?(event: SyntheticEvent, keys: string[]): void
+    /**
+     * The type of selection that is allowed.
+     */
+    selectionMode?: SelectionMode;
+    /**
+     * Items to render.
+     */
+    items?: CollectionItem[],
     /**
      * Whether or not the menu should autofocus on render.
      */
@@ -56,7 +74,7 @@ export interface InnerMenuProps {
      */
     as?: ElementType;
     /**
-     * React children
+     * React children.
      */
     children: ReactNode;
     /**
@@ -75,7 +93,11 @@ export interface InnerMenuProps {
 
 export function InnerMenu({
     id,
-    onSelect,
+    selectedKeys: selectedKeysProp,
+    defaultSelectedKeys,
+    onSelectionChange,
+    selectionMode = SelectionMode.none,
+    items,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -86,17 +108,30 @@ export function InnerMenu({
     forwardedRef,
     ...rest
 }: InnerMenuProps) {
+    const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: ItemKeyProp });
 
-    const handleSelect = useEventCallback((event, key) => {
-        if (!isNil(onSelect)) {
-            onSelect(event, key);
+    const handleSelectItem = useEventCallback((event, key) => {
+        let newKeys;
+
+        if (selectionMode === SelectionMode.multiple) {
+            newKeys = selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
+        } else {
+            newKeys = selectedKeys.includes(key) ? [] : [key];
+        }
+
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKeys);
+        }
+
+        if (selectionMode !== SelectionMode.none) {
+            setSelectedKeys(newKeys);
         }
     });
 
@@ -145,7 +180,7 @@ export function InnerMenu({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        target: defaultFocusTarget,
+        target: (selectionMode !== SelectionMode.none ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
@@ -154,7 +189,7 @@ export function InnerMenu({
         })
     });
 
-    const nodes = useCollection(children);
+    const nodes = useCollection(children, { items });
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 
@@ -246,7 +281,9 @@ export function InnerMenu({
         >
             <MenuContext.Provider
                 value={{
-                    onSelect: handleSelect
+                    selectedKeys,
+                    selectionMode,
+                    onSelect: handleSelectItem
                 }}
             >
                 {nodes.map(({ type, ...nodeProps }) => {

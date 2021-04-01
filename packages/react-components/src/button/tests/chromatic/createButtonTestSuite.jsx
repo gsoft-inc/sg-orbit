@@ -1,3 +1,4 @@
+import { Counter } from "@react-components/counter";
 import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
@@ -154,6 +155,64 @@ export function createButtonTestSuite(element, stories) {
                 </div>
             </Stack>
         )
+        .add("counter", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                    <Button element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button loading size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button loading element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <Button condensed size="sm" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                    <Button condensed element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </Inline>
+                <div>
+                    <Button disabled element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
+                <div>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                        <Counter>15</Counter>
+                    </Button>
+                </div>
+            </Stack>
+        )
         .add("primary", () =>
             <Stack>
                 <Inline verticalAlign="end">
@@ -170,6 +229,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
+                <div>
+                    <Button color="primary" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
                 <Inline>
                     <Button active color="primary" element={element}>Button</Button>
                     <Button focus color="primary" element={element}>Button</Button>
@@ -195,6 +260,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
+                <div>
+                    <Button color="secondary" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
                 <Inline>
                     <Button active color="secondary" element={element}>Button</Button>
                     <Button focus color="secondary" element={element}>Button</Button>
@@ -220,6 +291,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
+                <div>
+                    <Button color="danger" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
                 <Inline>
                     <Button active color="danger" element={element}>Button</Button>
                     <Button focus color="danger" element={element}>Button</Button>
@@ -245,6 +322,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
+                <div>
+                    <Button color="inherit" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
                 <Inline>
                     <Button active color="inherit" element={element}>Button</Button>
                     <Button focus color="inherit" element={element}>Button</Button>
@@ -280,6 +363,22 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button loading shape="rounded" element={element}>Aa</Button>
                 </Inline>
+                <Inline>
+                    <Button shape="rounded" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button shape="rounded" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <div>
+                    <Button shape="rounded" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
                 <Inline verticalAlign="end">
                     <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="rounded" element={element}>Aa</Button>

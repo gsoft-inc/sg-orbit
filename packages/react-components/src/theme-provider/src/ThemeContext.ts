@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
-import type { ColorScheme } from "./ThemeProvider";
+import type { ColorScheme, Theme } from "./ThemeProvider";
 
 export interface ThemeContextType {
-    theme?: "apricot" | "overcast" | "desktop";
+    theme?: Theme;
     colorScheme?: ColorScheme;
     setColorScheme?: (newColorScheme: ColorScheme) => void
 }
