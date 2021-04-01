@@ -41,7 +41,6 @@ export class AccordionBuilder {
             return {
                 id: `${this._rootId}-${key}`,
                 key,
-                // position: index,
                 index,
                 header: headerProps,
                 panel: panelProps
