@@ -6,8 +6,8 @@ import { useMemo } from "react";
 export function useOnlyCollectionItems(nodes: CollectionItem[]) {
     return useMemo(() => {
         return nodes.reduce((acc, x) => {
-            if (x.type === NodeType.section) {
-                (x as CollectionSection).items
+            if (isSection(x)) {
+                x.items
                     .filter(y => y.type === NodeType.item)
                     .forEach(z => {
                         acc.push(z);
@@ -19,4 +19,8 @@ export function useOnlyCollectionItems(nodes: CollectionItem[]) {
             return acc;
         }, []);
     }, [nodes]);
+}
+
+function isSection(node: CollectionItem): node is CollectionSection {
+    return node.type === NodeType.section;
 }

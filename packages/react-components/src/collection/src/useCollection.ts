@@ -16,10 +16,13 @@ export interface CollectionItem {
 }
 
 export interface CollectionSection extends CollectionItem {
+    type: NodeType.section;
     items: CollectionItem[]
 }
 
-export type CollectionDivider = CollectionItem
+export interface CollectionDivider extends CollectionItem {
+    type: NodeType.divider;
+}
 
 export interface CollectionOption extends CollectionItem {
     tooltip: {

@@ -21,7 +21,7 @@ export interface AccordionBuilderHeaderProps {
 export interface AccordionBuilderPanelProps {
     elementType: ReactElement["type"];
     ref: Ref<any>;
-    props: any;
+    props: Record<string, any>;
 }
 
 export class AccordionBuilder {
