@@ -102,9 +102,6 @@ export function InnerPopoverTrigger({
         hideOLeave: !persistent,
         hideOnOutsideClick: !persistent,
         autoFocus,
-        autoFocusOptions: {
-            canFocus: useCallback(element => element.id !== "o-ui-popover-close-button", [])
-        },
         restoreFocus: true,
         trigger: triggerProp,
         hasArrow: true,

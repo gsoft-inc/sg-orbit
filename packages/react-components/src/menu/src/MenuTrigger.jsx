@@ -159,6 +159,7 @@ export function InnerMenuTrigger({
         <MenuTriggerContext.Provider
             value={{
                 isOpen,
+                open,
                 close
             }}
         >

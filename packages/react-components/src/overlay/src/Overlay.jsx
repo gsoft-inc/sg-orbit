@@ -66,7 +66,6 @@ export function InnerOverlay({
                             "--o-ui-overlay-border-offset": borderOffset,
                             zIndex
                         },
-                        role: "presentation",
                         as,
                         ref: forwardedRef
                     }
