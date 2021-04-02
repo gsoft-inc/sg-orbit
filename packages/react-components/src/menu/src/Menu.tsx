@@ -1,6 +1,6 @@
 import "./Menu.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
@@ -261,7 +261,7 @@ export function InnerMenu({
 
     return (
         <Box
-            {...mergeProps(
+            {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
                     id: rootId,
@@ -271,7 +271,7 @@ export function InnerMenu({
                     ),
                     onKeyDown: handleKeyDown,
                     role: "menu",
-                    "aria-orientation": "vertical" as const,
+                    "aria-orientation": "vertical",
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     as,
