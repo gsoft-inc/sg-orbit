@@ -59,14 +59,9 @@ interface SlotOptions {
     }
 }
 
-type GetSlotReturnType<TSlotType, AllElementsType> =
-    null extends TSlotType ? ReactElement : // if we don't have any extra props to add, the return type is a ReactElement
-    TSlotType extends (...args: any) => any ? ((element: ReactElement, allElements: AllElementsType) => ReactElement) : // if the slot input is a function, the output is a function as well
-    ReactElement // if the input is a collection of props, return a react element
-
 type SlotElements<T extends SlotOptions> = {
-    [key in keyof Omit<T, "_">]?: GetSlotReturnType<T[key], T>
-} & Record<string, ReactElement>
+    [key in keyof Omit<T, "_">]?: ReactElement;
+}
 
 export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
     if (isNil(children)) {
