@@ -2,7 +2,7 @@ import "./Menu.css";
 
 import { Box, BoxProps } from "../../box";
 import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, Ref, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
     Keys,
     appendEventKey,
@@ -55,19 +55,7 @@ export interface InnerMenuProps {
     /**
      * Items to render.
      */
-    items?: {
-        key: string;
-        index: number;
-        type: NodeType;
-        elementType?: ElementType | string;
-        ref: Ref<any>,
-        content: ElementType | ReactElement[];
-        props: Record<string, any>,
-        tooltip?: {
-            props: Record<string, any>;
-            content: ReactElement;
-        },
-    }[],
+    items?: Record<string, any>[];
     /**
      * Whether or not the menu should autofocus on render.
      */
