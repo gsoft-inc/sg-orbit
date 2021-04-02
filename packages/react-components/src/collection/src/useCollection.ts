@@ -13,6 +13,10 @@ export interface CollectionItem {
     ref: Ref<any>,
     content: ElementType | ReactElement[];
     props: Record<string, any>,
+    tooltip?: {
+        props: Record<string, any>;
+        content: ReactElement;
+    },
 }
 
 export interface CollectionSection extends CollectionItem {
@@ -24,19 +28,14 @@ export interface CollectionDivider extends CollectionItem {
     type: NodeType.divider;
 }
 
-export interface CollectionOptionTooltip {
-    props: Record<string, any>;
-    content: ReactElement;
-}
-
-export interface CollectionOption extends CollectionItem {
-    tooltip?: CollectionOptionTooltip;
-}
-
 export enum NodeType {
     item = "item",
     section = "section",
     divider = "divider"
+}
+
+export function isSection(node: CollectionItem): node is CollectionSection {
+    return node.type === NodeType.section;
 }
 
 export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
@@ -52,13 +51,13 @@ export function createCollectionItem({ key, index, elementType, ref, content, pr
 }
 
 export class CollectionBuilder {
-    _parseItem(element: ReactElement, incrementIndex: () => number) {
+    _parseItem(element: ReactElement, incrementIndex: () => number): CollectionItem {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
 
         return {
-            key: !isNil(element.key) ? (element.key as string).replace(".", "").replace("$", "") : index.toString(),
+            key: !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString(),
             index,
             type: NodeType.item,
             // Use a custom type if available otherwise let the final component choose his type.
@@ -114,7 +113,7 @@ export class CollectionBuilder {
 
         const [item, tooltip] = parseTooltipTrigger(children);
 
-        const parsedItem = this._parseItem(item, incrementIndex) as CollectionOption;
+        const parsedItem = this._parseItem(item, incrementIndex);
 
         parsedItem.tooltip = {
             props,

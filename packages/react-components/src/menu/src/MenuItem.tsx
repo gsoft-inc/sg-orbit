@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { CollectionOption } from "../../collection";
+import { CollectionItem } from "../../collection";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { SelectionMode } from "./selectionMode";
@@ -16,7 +16,7 @@ export interface InnerMenuItemProps extends InteractionStatesProps {
     /**
      * Matching collection item.
      */
-    item: Pick<CollectionOption, "key" | "tooltip">;
+    item: Pick<CollectionItem, "key" | "tooltip">;
     /**
      * Whether or not the item is disabled.
      */

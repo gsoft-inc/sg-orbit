@@ -1,7 +1,7 @@
 import "./Menu.css";
 
 import { Box } from "../../box";
-import { CollectionItem, CollectionOption, CollectionSection, NodeType, useCollection } from "../../collection";
+import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
     FocusTarget,
@@ -201,7 +201,7 @@ export function InnerMenu({
         content,
         props,
         tooltip
-    }: Omit<CollectionOption, "type">) => (
+    }: Omit<CollectionItem, "type">) => (
         <As
             {...props}
             id={`${rootId}-item-${index}`}

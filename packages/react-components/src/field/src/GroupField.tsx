@@ -10,7 +10,7 @@ import { useFormField } from "../../form";
 
 interface InnerGroupFieldProps {
     /**
-     * A field id.
+     * @ignore
      */
     id?: string,
     /**
