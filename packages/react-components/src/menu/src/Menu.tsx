@@ -4,7 +4,6 @@ import { Box, BoxProps } from "../../box";
 import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
-    FocusTarget,
     Keys,
     appendEventKey,
     cssModule,
@@ -64,7 +63,7 @@ export interface InnerMenuProps {
     /**
      * Default focus target when enabling autofocus.
      */
-    defaultFocusTarget?: FocusTarget;
+    defaultFocusTarget?: string;
     /**
      * Whether or not the listbox take up the width of its container.
      */
