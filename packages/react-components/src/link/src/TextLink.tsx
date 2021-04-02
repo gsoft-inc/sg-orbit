@@ -114,7 +114,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         icon: null
     }), [size]));
 
-    const iconElement = external ? <ArrowIcon /> : icon as ReactElement;
+    const iconElement = external ? <ArrowIcon /> : icon;
 
     const iconMarkup = iconElement && augmentElement(iconElement, {
         size: embeddedIconSize(size),
