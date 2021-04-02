@@ -34,6 +34,10 @@ export enum NodeType {
     divider = "divider"
 }
 
+export function isSection(node: CollectionItem): node is CollectionSection {
+    return node.type === NodeType.section;
+}
+
 export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
     return {
         key,

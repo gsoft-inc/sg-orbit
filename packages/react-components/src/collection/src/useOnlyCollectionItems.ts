@@ -1,4 +1,4 @@
-import { CollectionItem, CollectionSection, NodeType } from "./useCollection";
+import { CollectionItem, NodeType, isSection } from "./useCollection";
 import { useMemo } from "react";
 
 // Extracts all the nodes of "item" type.
@@ -19,8 +19,4 @@ export function useOnlyCollectionItems(nodes: CollectionItem[]) {
             return acc;
         }, []);
     }, [nodes]);
-}
-
-function isSection(node: CollectionItem): node is CollectionSection {
-    return node.type === NodeType.section;
 }
