@@ -14,8 +14,8 @@
 }
 
 /* INHERIT | STATE | HOVER */
-.o-ui-link-inherit:hover,
-.o-ui-link-inherit-hover {
+.o-ui-link-inherit-color:hover,
+.o-ui-link-inherit-color-hover {
     color: inherit;
 }
 

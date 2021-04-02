@@ -3,7 +3,6 @@ import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Disclosure, useDisclosureContext } from "@react-components/disclosure";
 import { Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -73,36 +72,6 @@ stories()
             </Stack>
         );
     })
-    .add("render props", () =>
-        <Stack>
-            <div>
-                <Disclosure>
-                    {({ isOpen }) => (
-                        <>
-                            <Button>
-                                <Text>Mars</Text>
-                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
-                            </Button>
-                            <Box>Mars is the fourth planet from the Sun and the second-smallest planet.</Box>
-                        </>
-                    )}
-                </Disclosure>
-            </div>
-            <div>
-                <Disclosure defaultOpen>
-                    {({ isOpen }) => (
-                        <>
-                            <Button>
-                                <Text>Mars</Text>
-                                <ArrowIcon slot="end-icon" className={isOpen ? "rotate-90" : undefined} />
-                            </Button>
-                            <Box>Mars is the fourth planet from the Sun and the second-smallest planet.</Box>
-                        </>
-                    )}
-                </Disclosure>
-            </div>
-        </Stack>
-    )
     .add("text link", () =>
         <Disclosure>
             <TextLink as="button">Mars</TextLink>

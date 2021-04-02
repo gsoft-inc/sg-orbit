@@ -26,22 +26,23 @@ export interface InnerTabPanelProps {
 }
 
 export function InnerTabPanel({
-    panel: { index, tabId },
+    panel: { key, tabId, panelId },
     as = "div",
     children,
     forwardedRef,
     ...rest
 }: InnerTabPanelProps) {
-    const { selectedIndex } = useTabsContext();
+    const { selectedKey } = useTabsContext();
 
     return (
         <Text
             {...mergeProps(
                 rest,
                 {
+                    id: panelId,
                     className: "o-ui-tab-panel",
                     role: "tabpanel",
-                    hidden: index !== selectedIndex,
+                    hidden: key !== selectedKey,
                     "aria-labelledby": tabId,
                     as,
                     ref: forwardedRef

@@ -90,7 +90,6 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         underline,
         external,
         autoFocus,
-        size,
         active,
         focus,
         hover,

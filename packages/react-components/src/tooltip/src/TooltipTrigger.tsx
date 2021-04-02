@@ -1,6 +1,6 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
+import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { augmentElement, forwardRef, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
@@ -61,7 +61,7 @@ interface InnerTooltipTriggerProps {
     /**
      * React children.
      */
-    children: ReactNode | ((...args: any) => JSX.Element);
+    children: ReactNode;
     /**
      * @ignore
      */
@@ -98,8 +98,8 @@ export function InnerTooltipTrigger({
     ...rest
 }: InnerTooltipTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
-    const [triggerElement, setTriggerElement] = useState();
-    const [overlayElement, setOverlayElement] = useState();
+    const [triggerElement, setTriggerElement] = useState<HTMLElement>();
+    const [overlayElement, setOverlayElement] = useState<HTMLElement>();
     const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
@@ -124,7 +124,7 @@ export function InnerTooltipTrigger({
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus or mouse goes to an element of the overlay.
-            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent<HTMLElement> | MouseEvent<HTMLElement>).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -134,7 +134,7 @@ export function InnerTooltipTrigger({
         trigger: "hover",
         onHide: useEventCallback((event: SyntheticEvent<HTMLElement, Event>) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement> | MouseEvent<HTMLElement>).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),

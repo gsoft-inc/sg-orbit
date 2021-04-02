@@ -97,7 +97,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         fieldProps
     );
 
-    const { isChecked, wrapperProps, inputProps } = useCheckbox({
+    const { wrapperProps, inputProps } = useCheckbox({
         cssModule: "o-ui-switch",
         isInField,
         id,
@@ -118,13 +118,14 @@ export function InnerSwitch(props: InnerSwitchProps) {
         forwardedRef
     });
 
-    const content = resolveChildren(children, { isChecked });
+    const content = resolveChildren(children);
 
     const { text, icon, counter } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         text: {
+            color: "inherit",
             size,
             className: "o-ui-switch-label"
         },
@@ -133,6 +134,8 @@ export function InnerSwitch(props: InnerSwitchProps) {
             className: "o-ui-switch-icon"
         },
         counter: {
+            variant: "divider",
+            color: "inherit",
             size,
             reverse,
             pushed: true,

@@ -1,6 +1,7 @@
 import { Box } from "@react-components/box";
 import { TextLink } from "@react-components/link";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useCallback, useMemo } from "react";
+import { isNil } from "lodash";
 import { slot, useSlots } from "@react-components/shared";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -41,10 +42,11 @@ const Card = forwardRef(({ children, ...rest }, ref) => {
     );
 });
 
-const Title = slot("title", forwardRef(({ children, ...rest }, ref) => {
+const Title = slot("title", forwardRef(({ className, style, children }, ref) => {
     return (
         <Box
-            {...rest}
+            className={className}
+            style={style}
             ref={ref}
         >
             {children}
@@ -52,10 +54,11 @@ const Title = slot("title", forwardRef(({ children, ...rest }, ref) => {
     );
 }));
 
-const Content = slot("content", forwardRef(({ children, ...rest }, ref) => {
+const Content = slot("content", forwardRef(({ className, style, children }, ref) => {
     return (
         <Box
-            {...rest}
+            className={className}
+            style={style}
             ref={ref}
         >
             {children}
@@ -123,4 +126,53 @@ stories()
                 <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
             </>
         </Card>
-    );
+    )
+    .add("support functional slots", () => {
+        function FunctionalCard({ children, ...rest }) {
+            const { content } = useSlots(children, {
+                title: null,
+                content: useCallback(slotElement => {
+                    return {
+                        className: !isNil(slotElement.props.blue) ? "bg-blue" : "bg-red"
+                    };
+                }, [])
+            });
+
+            return (
+                <Box {...rest}>
+                    {content}
+                </Box>
+            );
+        }
+
+        return (
+            <FunctionalCard>
+                <Content blue>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+            </FunctionalCard>
+        );
+    })
+    .add("support conditional slots", () => {
+        function ConditionalCard({ children, ...rest }) {
+            const { content } = useSlots(children, {
+                title: null,
+                content: useCallback((slotElement, allSlotElements) => {
+                    return {
+                        className: !isNil(allSlotElements.title) ? "bg-blue" : "bg-red"
+                    };
+                }, [])
+            });
+
+            return (
+                <Box {...rest}>
+                    {content}
+                </Box>
+            );
+        }
+
+        return (
+            <ConditionalCard>
+                <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
+                <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+            </ConditionalCard>
+        );
+    });

@@ -1,10 +1,10 @@
 import "./Select.css";
 
 import { CSSProperties } from "aphrodite";
-import { ChevronIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeClasses, mergeProps } from "../../shared";
+import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
@@ -42,6 +42,10 @@ export interface InnerSelectProps extends InteractionStatesProps {
      */
     placeholder?: string,
     /**
+     * Items to render.
+     */
+    items: Record<string, any>[]
+    /**
      * Whether or not a user input is required before form submission.
      */
     required?: boolean;
@@ -52,10 +56,10 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Called when the select value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} selectedKey - The new selected key.
+     * @param {string} selectedKey - The new selected key.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, selectedKey: string): void;
+    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void;
     /**
      * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -135,9 +139,10 @@ export function InnerSelect(props: InnerSelectProps) {
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
+        items,
         required,
         validationState,
-        onChange,
+        onSelectionChange,
         onOpenChange,
         variant = "outline",
         icon,
@@ -167,13 +172,14 @@ export function InnerSelect(props: InnerSelectProps) {
         fieldProps
     );
 
-    const { selectedKey, selectedItem, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+    const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
         id,
         open,
         defaultOpen,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
-        onChange,
+        items,
+        onSelectionChange,
         onOpenChange,
         direction,
         align,
@@ -250,11 +256,8 @@ export function InnerSelect(props: InnerSelectProps) {
             >
                 {iconMarkup}
                 {valueMarkup}
-                <ChevronIcon
-                    className={mergeClasses(
-                        "o-ui-select-icon-arrow",
-                        direction === "bottom" ? "o-ui-rotate-90" : "o-ui-rotate-270"
-                    )}
+                <DisclosureArrow
+                    open={isOpen}
                     size="sm"
                 />
             </TriggerType>

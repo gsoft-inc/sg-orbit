@@ -1,7 +1,7 @@
 () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleChange = useCallback((event, newValue) => {
+    const handleOpenChange = useCallback((event, newValue) => {
         setIsOpen(newValue);
         console.log(newValue);
     }, [setIsOpen]);
@@ -9,7 +9,7 @@
     return (
         <Disclosure
             open={isOpen}
-            onChange={handleChange}
+            onOpenChange={handleOpenChange}
         >
             <TextLink as="button">
                 <Text>EVE Online</Text>

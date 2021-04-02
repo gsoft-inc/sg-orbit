@@ -1,8 +1,8 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface TabsContextType {
-    selectedIndex?: number;
-    onSelect?(event: SyntheticEvent, newIndex: number): void;
+    selectedKey?: string;
+    onSelect?(event: SyntheticEvent, newKey: string): void;
     isManual?: boolean;
     orientation?: "horizontal" | "vertical";
 }

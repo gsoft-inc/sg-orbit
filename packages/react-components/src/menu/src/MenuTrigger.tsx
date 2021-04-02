@@ -3,7 +3,6 @@ import { DisclosureContext } from "../../disclosure";
 import { FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { Placement } from "@popperjs/core";
 import { isNil } from "lodash";
 
 export interface InnerMenuTriggerProps {
@@ -20,19 +19,16 @@ export interface InnerMenuTriggerProps {
      */
     defaultOpen?: boolean;
     /**
-     * Called when a menu item is selected.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {boolean} key - The menu item key.
-     * @returns {void}
-     */
-    onSelect?(event: SyntheticEvent, key: boolean): void,
-    /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
     onOpenChange?(event: SyntheticEvent, isOpen: boolean): void,
+    /**
+     * Whether or not the menu should close when an item is selected.
+     */
+    closeOnSelect?: boolean;
     /**
      * The direction the menu will open relative to the trigger.
      */
@@ -71,8 +67,8 @@ export function InnerMenuTrigger({
     id,
     open: openProp,
     defaultOpen,
-    onSelect,
     onOpenChange,
+    closeOnSelect = true,
     direction = "bottom",
     align = "start",
     allowFlip,
@@ -104,7 +100,7 @@ export function InnerMenuTrigger({
         hideOnOutsideClick: true,
         autoFocus: false,
         restoreFocus: true,
-        position: `${direction}-${align}` as Placement,
+        position: `${direction}-${align}` as const,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow
@@ -140,12 +136,10 @@ export function InnerMenuTrigger({
         }
     });
 
-    const handleSelect = useEventCallback((event, key) => {
-        if (!isNil(onSelect)) {
-            onSelect(event, key);
+    const handleSelectionChange = useEventCallback(event => {
+        if (closeOnSelect) {
+            close(event);
         }
-
-        close(event);
     });
 
     const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
@@ -159,7 +153,7 @@ export function InnerMenuTrigger({
     ));
 
     const menuMarkup = augmentElement(menu, {
-        onSelect: handleSelect,
+        onSelectionChange: handleSelectionChange,
         // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,

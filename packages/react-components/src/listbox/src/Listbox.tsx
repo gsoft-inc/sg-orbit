@@ -1,12 +1,11 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { CollectionItem, CollectionOption, CollectionSection, NodeType, useCollection, useCollectionItems } from "../../collection";
+import { CollectionItem, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import {
     Keys,
     appendEventKey,
-    arrayify,
     cssModule,
     forwardRef,
     mergeProps,
@@ -26,9 +25,10 @@ import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
 import { isNil, isNumber } from "lodash";
 
-export const KeyProp = "data-o-ui-key";
+export const OptionKeyProp = "data-o-ui-key";
 
-export const SelectionMode = {
+const SelectionMode = {
+    none: "none",
     single: "single",
     multiple: "multiple"
 };
@@ -51,24 +51,24 @@ export interface InnerListboxProps {
      */
     onFocusChange?(event: SyntheticEvent, key: string | string[], activeElement: HTMLElement): void;
     /**
-     * A controlled array holding the currently selected key(s).
+     * A controlled set of the selected item keys.
      */
-    selectedKey?: string | string[]
+    selectedKeys?: string[]
     /**
-     * The initial value of `selectedKey` when uncontrolled.
+     * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKey?: string | string[]
+    defaultSelectedKeys?: string[]
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {String | String[]} key - The selected key(s).
+     * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, key: string | string[]): void,
+    onSelectionChange?(event: SyntheticEvent, key: string[]): void;
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: "single" | "multiple";
+    selectionMode?: "none" | "single" | "multiple";
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
@@ -111,16 +111,14 @@ export interface InnerListboxProps {
     forwardedRef: ForwardedRef<any>
 }
 
-function useListboxItems(children: ReactNode, nodes: CollectionItem[]) {
+function useCollectionNodes(children: ReactNode, nodes: CollectionItem[]) {
     const collectionNodes = useCollection(children);
 
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items: CollectionItem[], { selectedKey }: { selectedKey?: string | string[] }) {
+function useSelectionManager(items: CollectionItem[], { selectedKeys }: { selectedKeys?: string[] }) {
     return useMemo(() => {
-        const selectedKeys = arrayify(selectedKey);
-
         const toggleKey = (key: string) => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         };
@@ -159,19 +157,19 @@ function useSelectionManager(items: CollectionItem[], { selectedKey }: { selecte
             replaceSelection,
             extendSelection
         };
-    }, [selectedKey, items]);
+    }, [selectedKeys, items]);
 }
 
 export function InnerListbox({
     id,
-    selectedKey: selectedKeyProp,
-    defaultSelectedKey,
-    onChange,
+    selectedKeys: selectedKeysProp,
+    defaultSelectedKeys,
+    onSelectionChange,
     onFocusChange,
     selectionMode = "single",
     nodes: nodesProp,
     autoFocus,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus?
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     defaultFocusTarget,
     focusOnHover,
     useVirtualFocus,
@@ -184,19 +182,19 @@ export function InnerListbox({
     forwardedRef,
     ...rest
 }: InnerListboxProps) {
-    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, []);
+    const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef);
 
-    const nodes = useListboxItems(children, nodesProp);
-    const items = useCollectionItems(nodes);
+    const nodes = useCollectionNodes(children, nodesProp);
+    const items = useOnlyCollectionItems(nodes);
 
-    const selectionManager = useSelectionManager(items, { selectedKey });
+    const selectionManager = useSelectionManager(items, { selectedKeys });
 
-    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: OptionKeyProp });
 
     // Would be nice to find a better way to give control over the focused item to the parent.
     useImperativeHandle(forwardedRef, () => {
@@ -207,12 +205,14 @@ export function InnerListbox({
         return element;
     });
 
-    const updateSelectedKeys = (event: SyntheticEvent, newValue: string | string[]) => {
-        if (!isNil(onChange)) {
-            onChange(event, selectionMode === SelectionMode.multiple ? newValue : newValue[0]);
+    const updateSelectedKeys = (event: SyntheticEvent, newKeys: string[]) => {
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKeys);
         }
 
-        setSelectedKey(newValue);
+        if (selectionMode !== SelectionMode.none) {
+            setSelectedKeys(newKeys);
+        }
     };
 
     const handleSelectOption = useEventCallback((event: SyntheticEvent, key: string) => {
@@ -243,7 +243,7 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusNext();
-                const key = activeElement.getAttribute(KeyProp);
+                const key = activeElement.getAttribute(OptionKeyProp);
 
                 if (!isNil(onFocusChange)) {
                     onFocusChange(event, key, activeElement);
@@ -262,7 +262,7 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
-                const key = activeElement.getAttribute(KeyProp);
+                const key = activeElement.getAttribute(OptionKeyProp);
 
                 if (!isNil(onFocusChange)) {
                     onFocusChange(event, key, activeElement);
@@ -283,7 +283,7 @@ export function InnerListbox({
                 const activeElement = focusManager.focusFirst();
 
                 if (!isNil(onFocusChange)) {
-                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                    onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;
             }
@@ -293,7 +293,7 @@ export function InnerListbox({
                 const activeElement = focusManager.focusLast();
 
                 if (!isNil(onFocusChange)) {
-                    onFocusChange(event, activeElement.getAttribute(KeyProp), activeElement);
+                    onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;
             }
@@ -302,7 +302,7 @@ export function InnerListbox({
 
                 if (selectionMode === SelectionMode.multiple) {
                     if (event.shiftKey) {
-                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(KeyProp));
+                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(OptionKeyProp));
 
                         updateSelectedKeys(event, newKeys);
                     }
@@ -327,12 +327,12 @@ export function InnerListbox({
     });
 
     useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
-        keyProp: KeyProp,
+        keyProp: OptionKeyProp,
         isDisabled: !tabbable
     });
 
     useAutoFocusChild(focusManager, {
-        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
+        target: (selectionMode !== SelectionMode.none ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
@@ -347,7 +347,7 @@ export function InnerListbox({
         content,
         props = {},
         tooltip
-    }: CollectionOption) => (
+    }: Omit<CollectionItem, "type">) => (
         <As
             {...props}
             id={`${rootId}-option-${index}`}
@@ -366,7 +366,7 @@ export function InnerListbox({
         ref,
         props = {},
         items: sectionItems
-    }: CollectionSection) => {
+    }: Omit<CollectionSection, "type">) => {
         if (sectionItems.length === 0) {
             return null;
         }
@@ -415,7 +415,7 @@ export function InnerListbox({
                 {nodes.map(({ type, ...nodeProps }) => {
                     switch (type) {
                         case NodeType.item:
-                            return renderOption(nodeProps as CollectionOption);
+                            return renderOption(nodeProps);
                         case NodeType.section:
                             return renderSection(nodeProps as CollectionSection);
                         default:

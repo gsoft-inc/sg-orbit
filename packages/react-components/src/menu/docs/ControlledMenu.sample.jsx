@@ -1,4 +1,5 @@
 () => {
+    const [selectedKey, setSelectedKey] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpenChange = useCallback((event, newOpen) => {
@@ -6,18 +7,22 @@
         console.log(newOpen);
     }, [setIsOpen]);
 
-    const handleSelect = useCallback((event, newKey) => {
-        console.log(newKey);
+    const handleSelectionChange = useCallback((event, newKeys) => {
+        setSelectedKey(newKeys);
+        console.log(newKeys);
     }, []);
 
     return (
         <MenuTrigger
             open={isOpen}
             onOpenChange={handleOpenChange}
-            onSelect={handleSelect}
         >
             <Button>Trigger</Button>
-            <Menu>
+            <Menu
+                selectionMode="single"
+                selectedKeys={selectedKey}
+                onSelectionChange={handleSelectionChange}
+            >
                 <Item key="launch">Launch...</Item>
                 <Item key="eject">Eject...</Item>
                 <Item key="land">Land...</Item>

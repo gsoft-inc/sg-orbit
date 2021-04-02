@@ -73,7 +73,7 @@ export function useCheckbox({
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);
 
-    const wrapperRef = useRef();
+    const wrapperRef = useRef<any>();
     const inputRef = useRef<HTMLInputElement>();
 
     useAutoFocus(inputRef, {

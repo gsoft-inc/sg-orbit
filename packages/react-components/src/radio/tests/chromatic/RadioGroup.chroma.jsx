@@ -171,7 +171,7 @@ stories()
                     <Radio value="2">2</Radio>
                     <Radio value="3">
                         <Text>3</Text>
-                        <Counter variant="divider">60</Counter>
+                        <Counter>60</Counter>
                     </Radio>
                 </RadioGroup>
                 <div style={{ border: "1px solid #000", width: "100%", height: "50px" }}></div>

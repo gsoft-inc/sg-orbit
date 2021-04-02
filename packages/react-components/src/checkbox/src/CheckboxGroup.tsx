@@ -105,8 +105,8 @@ function arrayToggleValue<T>(array: T[], value: T) {
 }
 
 export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
-    const [fieldProps] = useFieldInputProps();
     const [toolbarProps] = useToolbarProps();
+    const [fieldProps, isInField] = useFieldInputProps();
 
     const {
         value,
@@ -153,6 +153,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         size,
         reverse,
         disabled,
+        isInField,
         groupRef
     });
 
