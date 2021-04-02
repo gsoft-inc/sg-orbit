@@ -36,7 +36,7 @@ export interface InnerTagProps extends InteractionStatesProps {
      */
     as?: ElementType;
     /**
-     * @ignore
+     * React children.
      */
     children: ReactNode;
     /**

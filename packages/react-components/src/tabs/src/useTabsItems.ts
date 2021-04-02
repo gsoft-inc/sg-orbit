@@ -32,7 +32,7 @@ export class TabsBuilder {
         this._rootId = rootId;
     }
 
-    build(children: ReactNode) {
+    build(children: ReactNode): [TabType[], PanelType[]] {
         if (isNil(children)) {
             throw new Error("A tabs component must have children.");
         }
@@ -43,7 +43,7 @@ export class TabsBuilder {
         let index = 0;
 
         Children.forEach(children, (element: ReactElement, position) => {
-            const key = !isNil(element.key) ? (element.key as string).replace(".", "").replace("$", "") : position.toString();
+            const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : position.toString();
 
             const [header, content] = Children.toArray(resolveChildren(element.props.children)) as [ReactElement & RefAttributes<any>, ReactElement & RefAttributes<any>];
 
@@ -79,7 +79,7 @@ export class TabsBuilder {
             });
         });
 
-        return [tabs, panels] as const;
+        return [tabs, panels];
     }
 
     _makeId({ props: { id } }: Record<string, any>, type: "tab" | "panel", key: string): string {
