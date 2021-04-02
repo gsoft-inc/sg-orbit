@@ -1,15 +1,28 @@
 import "./Accordion.css";
 
+import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionItems";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
 import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
+export interface AccordionItemProps {
+    /**
+     * @ignore
+     */
+    item: {
+        id: string;
+        key: string;
+        header: AccordionBuilderHeader;
+        panel: AccordionBuilderPanel;
+    };
+}
+
 export function AccordionItem({
     item: { id, key, header, panel },
     ...rest
-}) {
+}: AccordionItemProps) {
     const { expandedKeys, onToggle } = useAccordionContext();
 
     const handleOpenChange = useEventCallback(event => {

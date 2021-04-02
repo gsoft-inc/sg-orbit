@@ -1,22 +1,25 @@
 import "./Accordion.css";
 
 import { Box } from "../../box";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps, omitProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { forwardRef, mergeProps, omitProps } from "../../shared";
 
-const propTypes = {
+export interface InnerAccordionPanelProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerAccordionPanel(props) {
+export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     const {
         as = "div",
         children,
@@ -40,10 +43,10 @@ export function InnerAccordionPanel(props) {
     );
 }
 
-InnerAccordionPanel.propTypes = propTypes;
-
-export const AccordionPanel = forwardRef((props, ref) => (
+export const AccordionPanel = forwardRef<InnerAccordionPanelProps>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));
+
+export type AccordionPanelProps = ComponentProps<typeof AccordionPanel>
 
 AccordionPanel.displayName = "AccordionPanel";

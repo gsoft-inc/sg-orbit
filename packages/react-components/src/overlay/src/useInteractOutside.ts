@@ -1,7 +1,13 @@
+import { RefObject, SyntheticEvent } from "react";
 import { isNil } from "lodash";
 import { useDocumentListener, useEventCallback } from "../../shared";
 
-export function useInteractOutside(rootRef, { isDisabled, onInteractOutside } = {}) {
+export interface UseInteractOutsideProps {
+    isDisabled?: boolean,
+    onInteractOutside?(e: SyntheticEvent<HTMLElement, Event>): void
+}
+
+export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideProps = {}) {
     const handleDocumentClick = useEventCallback(event => {
         if (!rootRef.current?.contains(event.target)) {
             if (!isNil(onInteractOutside)) {

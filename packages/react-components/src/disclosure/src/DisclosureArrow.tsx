@@ -1,8 +1,8 @@
 import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
-import { ComponentProps, ForwardedRef, forwardRef } from "react";
-import { cssModule, mergeProps, slot } from "../../shared";
+import { ComponentProps, ForwardedRef } from "react";
+import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 import { isNil } from "lodash";
 import { useDisclosureContext } from "./DisclosureContext";
 
@@ -50,7 +50,7 @@ export function InnerDisclosureArrow({
     );
 }
 
-export const DisclosureArrow = slot("icon", forwardRef((props, ref) => (
+export const DisclosureArrow = slot("icon", forwardRef<InnerDisclosureArrowProps>((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));
 

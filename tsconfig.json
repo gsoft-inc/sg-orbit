@@ -4,11 +4,19 @@
     "moduleResolution": "node",
     "skipLibCheck": true, // Skip type checking of all declaration files
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
-    "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
     "noUnusedLocals": true, // Report errors on unused locals
     "noUnusedParameters": true, // Report errors on unused parameters
+    "noImplicitReturns": false, // 6 errors, but i don't like the synthax in the hooks. not gonna turn this on for now
     // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
+
+    // preparing for strict mode
+    "noImplicitAny": true, // Raise error on expressions and declarations with an implied any type.
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": false, // 144 errors
+    "strictPropertyInitialization": false, // passes, but needs null checks
+    "strictFunctionTypes": false, // 14 errors
 
     //  the bare minimum for our project
     "jsx": "react-jsx",

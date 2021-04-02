@@ -1,33 +1,36 @@
 import "./Accordion.css";
 
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
+import { InteractionStatesProps, adaptSize, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { adaptSize, cssModule, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
-import { any, bool, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
 
-const propTypes = {
+export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**
      * An accordion header can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the tab is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerAccordionHeader(props) {
+export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     const {
         size,
         disabled,
@@ -98,10 +101,10 @@ export function InnerAccordionHeader(props) {
     );
 }
 
-InnerAccordionHeader.propTypes = propTypes;
-
-export const AccordionHeader = forwardRef((props, ref) => (
+export const AccordionHeader = forwardRef<InnerAccordionHeaderProps>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));
+
+export type AccordionHeaderProps = ComponentProps<typeof AccordionHeader>
 
 AccordionHeader.displayName = "AccordionHeader";

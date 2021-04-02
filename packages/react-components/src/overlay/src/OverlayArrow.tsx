@@ -1,20 +1,23 @@
 import { Box } from "../../box";
-import { elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+interface InnerOverlayArrowProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerOverlayArrow({
     as = "div",
     forwardedRef,
     ...rest
-}) {
+}: InnerOverlayArrowProps) {
     return (
         <Box
             {...mergeProps(
@@ -29,11 +32,11 @@ export function InnerOverlayArrow({
     );
 }
 
-InnerOverlayArrow.propTypes = propTypes;
-
-export const OverlayArrow = forwardRef((props, ref) => (
+export const OverlayArrow = forwardRef<InnerOverlayArrowProps>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));
+
+export type OverlayArrowProps = ComponentProps<typeof OverlayArrow>
 
 OverlayArrow.displayName = "OverlayArrow";
 
