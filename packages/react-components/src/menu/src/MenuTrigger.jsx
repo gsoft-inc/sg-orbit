@@ -66,7 +66,7 @@ export function InnerMenuTrigger({
     align = "start",
     allowFlip,
     allowPreventOverflow,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,

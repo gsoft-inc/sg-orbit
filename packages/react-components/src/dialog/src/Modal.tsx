@@ -5,7 +5,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, u
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
-import { cssModule, forwardRef, mergeProps, useEventCallback, useId, useRefState, useResizeObserver, useSlots } from "../../shared";
+import { cssModule, forwardRef, mergeProps, useAutoFocus, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver, useSlots } from "../../shared";
 import { isNil } from "lodash";
 import { useModalTriggerContext } from "./ModalTriggerContext";
 
@@ -18,6 +18,10 @@ interface InnerModalProps {
      * Whether or not the modal should close on outside interactions.
      */
     dismissable?: boolean;
+    /**
+     * z-index of the modal.
+     */
+    zIndex?: number;
     /**
      * @ignore
      */
@@ -91,6 +95,7 @@ function useElementHasVerticalScrollbar(element: HTMLElement) {
 export function InnerModal({
     id,
     dismissable,
+    zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "div",
@@ -101,11 +106,15 @@ export function InnerModal({
 }: InnerModalProps) {
     const [wrapperElement, setWrapperElement] = useState<HTMLElement>();
 
+    const modalRef = useMergedRefs(forwardedRef);
+
     const { close } = useModalTriggerContext();
 
     useHideBodyScrollbar();
 
     const wrapperHasVerticalScrollbar = useElementHasVerticalScrollbar(wrapperElement);
+
+    useAutoFocus(modalRef);
 
     const handleCloseButtonClick = useEventCallback((event: SyntheticEvent) => {
         close(event);
@@ -139,7 +148,7 @@ export function InnerModal({
 
     return (
         <>
-            <Underlay />
+            <Underlay zIndex={zIndex} />
             <Box
                 {...mergeProps(
                     wrapperProps ?? {},
@@ -148,10 +157,10 @@ export function InnerModal({
                             "o-ui-modal-wrapper",
                             wrapperHasVerticalScrollbar && "scrolling"
                         ),
+                        style: {
+                            zIndex: zIndex + 1
+                        },
                         as,
-                        "aria-modal": true,
-                        "aria-label": ariaLabel,
-                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
                         ref: setWrapperElement
                     }
                 )}
@@ -161,8 +170,12 @@ export function InnerModal({
                         rest,
                         {
                             className: "o-ui-modal",
+                            tabIndex: -1,
                             role: "dialog",
-                            ref: forwardedRef
+                            "aria-modal": true,
+                            "aria-label": ariaLabel,
+                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
+                            ref: modalRef
                         }
                     )}
                 >

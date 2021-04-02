@@ -91,7 +91,7 @@ export function InnerTooltipTrigger({
     disabled,
     allowFlip = true,
     containerElement,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,

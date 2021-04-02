@@ -25,6 +25,7 @@
     padding: 1.5rem;
     background-color: var(--o-ui-global-white);
     position: relative;
+    outline: none;
 }
 
 /* CLOSE BUTTON */

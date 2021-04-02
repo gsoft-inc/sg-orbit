@@ -87,7 +87,7 @@ export function InnerPopoverTrigger({
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,

@@ -41,7 +41,7 @@ export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { i
         isDisabled,
         delay,
         onFocus: useChainedEventCallback(onFocus, () => {
-            if (!isNil(targetRef.current) && !targetRef.current.hasAttribute("disabled")) {
+            if (!targetRef.current?.hasAttribute("disabled") && !targetRef.current?.contains(document.activeElement)) {
                 targetRef.current.focus();
             }
         })

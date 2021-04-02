@@ -53,7 +53,7 @@ export function InnerModalTrigger({
     defaultOpen,
     onOpenChange,
     dismissable,
-    zIndex,
+    zIndex = 1,
     as = "div",
     children,
     forwardedRef,
@@ -85,7 +85,7 @@ export function InnerModalTrigger({
         throw new Error("A modal trigger must have exactly 2 children.");
     }
 
-    // @ts-ignore
+    // TODO: not sure it should use this hook, it's been designed for popups.
     const triggerProps = useOverlayTrigger({
         onToggle: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, !isOpen);
@@ -95,6 +95,7 @@ export function InnerModalTrigger({
         })
     });
 
+    // TODO: not sure it should use this hook, it's been designed for popups.
     const overlayDismissProps = useOverlayLightDismiss(modalRef, {
         onHide: useEventCallback(event => {
             updateIsOpen(event, false);
@@ -108,6 +109,7 @@ export function InnerModalTrigger({
 
     const modalMarkup = augmentElement(modal, {
         dismissable,
+        zIndex: zIndex + 1,
         ref: modalRef
     });
 

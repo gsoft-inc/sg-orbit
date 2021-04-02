@@ -6,6 +6,10 @@ import { forwardRef, mergeProps } from "../../shared";
 
 interface InnerUnderlayProps {
     /**
+     * z-index of the underlay.
+     */
+    zIndex?: number,
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -16,6 +20,7 @@ interface InnerUnderlayProps {
 }
 
 export function InnerUnderlay({
+    zIndex,
     as = "div",
     forwardedRef,
     ...rest
@@ -26,6 +31,9 @@ export function InnerUnderlay({
                 rest,
                 {
                     className: "o-ui-underlay",
+                    style: {
+                        zIndex
+                    },
                     as,
                     "aria-hidden": true,
                     ref: forwardedRef
