@@ -3,7 +3,6 @@ import { DisclosureContext } from "../../disclosure";
 import { FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { Placement } from "@popperjs/core";
 import { isNil } from "lodash";
 
 export interface InnerMenuTriggerProps {
@@ -101,7 +100,7 @@ export function InnerMenuTrigger({
         hideOnOutsideClick: true,
         autoFocus: false,
         restoreFocus: true,
-        position: `${direction}-${align}` as Placement,
+        position: `${direction}-${align}` as const,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow
