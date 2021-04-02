@@ -61,7 +61,7 @@ interface InnerTooltipTriggerProps {
     /**
      * React children.
      */
-    children: ReactNode | ((...args: any) => JSX.Element);
+    children: ReactNode;
     /**
      * @ignore
      */
