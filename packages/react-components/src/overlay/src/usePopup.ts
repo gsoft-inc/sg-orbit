@@ -1,10 +1,9 @@
 import { AutoFocusChildOptions, mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
-import { Placement } from "@popperjs/core";
+import { Placement, useOverlayPosition } from "./useOverlayPosition";
 import { isNil, isNumber } from "lodash";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
-import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
@@ -29,7 +28,7 @@ export interface UsePopupProps {
     keyProp?: string;
 }
 
-export function usePopup(type: boolean | "menu" | "listbox" | "tree" | "grid" | "dialog", {
+export function usePopup(type: "menu" | "listbox" | "dialog", {
     id,
     open,
     defaultOpen,

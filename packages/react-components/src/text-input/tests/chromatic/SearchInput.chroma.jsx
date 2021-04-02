@@ -1,5 +1,5 @@
+import { EmailIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { MagnifierIcon } from "@react-components/icons";
 import { SearchInput } from "@react-components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -65,18 +65,33 @@ stories()
             </div>
         </Stack>
     )
-    .add("icon", () =>
+    .add("custom icon", () =>
         <Stack>
-            <SearchInput icon={<MagnifierIcon />} placeholder="Where to?" />
-            <SearchInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" />
-            <SearchInput loading icon={<MagnifierIcon />} placeholder="Where to?" />
-            <SearchInput disabled icon={<MagnifierIcon />} placeholder="Where to?" />
-            <SearchInput readOnly icon={<MagnifierIcon />} placeholder="Where to?" />
+            <SearchInput icon={<EmailIcon />} placeholder="Where to?" />
+            <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" />
+            <SearchInput loading icon={<EmailIcon />} placeholder="Where to?" />
+            <SearchInput disabled icon={<EmailIcon />} placeholder="Where to?" />
+            <SearchInput readOnly icon={<EmailIcon />} placeholder="Where to?" />
             <div>
-                <SearchInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
+                <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
             </div>
             <div className="w-10">
-                <SearchInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
+                <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+            </div>
+        </Stack>
+    )
+    .add("no icon", () =>
+        <Stack>
+            <SearchInput icon={null} placeholder="Where to?" />
+            <SearchInput icon={null} defaultValue="SpaceX will win the race!" />
+            <SearchInput loading icon={null} placeholder="Where to?" />
+            <SearchInput disabled icon={null} placeholder="Where to?" />
+            <SearchInput readOnly icon={null} placeholder="Where to?" />
+            <div>
+                <SearchInput fluid icon={null} placeholder="Where to?" />
+            </div>
+            <div className="w-10">
+                <SearchInput fluid icon={null} placeholder="Where to?" />
             </div>
         </Stack>
     )

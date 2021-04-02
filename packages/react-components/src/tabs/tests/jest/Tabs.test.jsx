@@ -135,12 +135,12 @@ test("first tab is tabbable", async () => {
 
 test("selected tab is tabbable", async () => {
     const { getByTestId } = render(
-        <Tabs defaultIndex={1} aria-label="Tabs">
-            <Item data-testid="tab-1">
+        <Tabs defaultSelectedKey="tab-2" aria-label="Tabs">
+            <Item key="tab-1" data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
             </Item>
-            <Item data-testid="tab-2">
+            <Item key="tab-2" data-testid="tab-2">
                 <Header>Header 2</Header>
                 <Content>Content 2</Content>
             </Item>
@@ -372,11 +372,11 @@ test("when vertical, up arrow keypress select the next tab", async () => {
 
 // ***** API *****
 
-test("call onChange when the active tab change", async () => {
+test("call onSelectionChange when the active tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler} aria-label="Tabs">
+        <Tabs onSelectionChange={handler} aria-label="Tabs">
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -392,14 +392,14 @@ test("call onChange when the active tab change", async () => {
         fireEvent.click(getByTestId("tab-2"));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
 });
 
-test("dont call onChange when a tab is disabled", async () => {
+test("dont call onSelectionChange when a tab is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Tabs onChange={handler} aria-label="Tabs">
+        <Tabs onSelectionChange={handler} aria-label="Tabs">
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>

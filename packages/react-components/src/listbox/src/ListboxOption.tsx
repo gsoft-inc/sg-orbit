@@ -1,10 +1,10 @@
 import "./Listbox.css";
 
 import { Box, BoxProps } from "../../box";
-import { CollectionOption } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { KeyProp } from "./Listbox";
+import { CollectionItem } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
@@ -18,7 +18,7 @@ export interface InnerListboxOptionProps extends InteractionStatesProps {
     /**
     * Matching collection item.
     */
-    item: CollectionOption;
+    item: CollectionItem;
     /**
      * Whether or not the option is disabled.
      */
@@ -83,19 +83,22 @@ export function InnerListboxOption({
         const activeElement = focusManager.focusKey(key);
 
         if (!isNil(onFocus)) {
-            onFocus(event, activeElement.getAttribute(KeyProp), activeElement);
+            onFocus(event, activeElement.getAttribute(OptionKeyProp), activeElement);
         }
     });
 
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            className: "o-ui-listbox-option-start-icon"
+        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+            return {
+                className: "o-ui-listbox-option-start-icon",
+                size: isNil(allElements.description) ? "sm" : undefined
+            };
         },
         avatar: {
             className: "o-ui-listbox-option-avatar"
@@ -114,13 +117,6 @@ export function InnerListboxOption({
             className: "o-ui-listbox-option-end-icon"
         }
     }), [labelId, descriptionId]));
-
-    // TEMP: until useSlots is improved with conditional props based on other slots existence.
-    if (!isNil(icon) && isNil(description)) {
-        icon = augmentElement(icon, {
-            size: "sm"
-        });
-    }
 
     const optionMarkup = (
         <Box

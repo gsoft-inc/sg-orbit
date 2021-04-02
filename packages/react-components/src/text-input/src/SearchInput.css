@@ -10,3 +10,7 @@
 .o-ui-search-input-clear-button:focus {
     visibility: visible;
 }
+
+.o-ui-search-input input::-webkit-search-cancel-button {
+    display: none;
+}

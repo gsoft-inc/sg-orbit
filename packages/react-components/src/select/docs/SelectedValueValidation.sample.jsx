@@ -1,7 +1,7 @@
 () => {
     const [isValid, setIsValid] = useState(true);
 
-    const handleChange = useCallback((event, newValue) => {
+    const handleSelectionChange = useCallback((event, newValue) => {
         setIsValid(newValue === "earth");
         console.log(newValue);
     }, [setIsValid]);
@@ -10,7 +10,7 @@
         <Select
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
-            onChange={handleChange}
+            onSelectionChange={handleSelectionChange}
             aria-label="Planets"
         >
             <Item key="earth">Earth</Item>

@@ -2,64 +2,8 @@
     color: var(--o-ui-alias-text-1);
 }
 
-/* PILL */
-.o-ui-counter-pill {
-    display: inline-flex;
-    background-color: var(--o-ui-alias-background-2);
-    color: var(--o-ui-alias-text-1);
-    border-radius: var(--o-ui-shape-pill);
-    line-height: 1;
-    align-items: center;
-    justify-content: center;
-}
-
-/* PILL | SIZES */
-.o-ui-counter-pill.o-ui-counter-sm {
-    min-height: 1rem;
-    min-width: 1rem;
-    font-size: var(--o-ui-global-type-scale-9);
-    padding: 0 var(--o-ui-global-scale-bravo) 0 var(--o-ui-global-scale-bravo);
-}
-
-.o-ui-counter-pill.o-ui-counter-md {
-    min-height: 1.25rem;
-    min-width: 1.25rem;
-    font-size: var(--o-ui-global-type-scale-8);
-    padding: 0 0.625rem 0 0.625rem;
-}
-
-/* PILL | COLOR */
-.o-ui-counter-pill.o-ui-counter-light {
-    background-color: var(--o-ui-alias-background-3);
-}
-
-/* PILL | HIGHLIGHT */
-.o-ui-counter-pill.o-ui-counter-highlight {
-    font-weight: 500;
-}
-
-/* DIVIDER */
-.o-ui-counter-divider {
-    display: inline-block;
-    border-left: 1px solid var(--o-ui-alias-border-1);
-    padding-left: var(--o-ui-global-scale-bravo);
-}
-
-/* DIVIDER | REVERSE */
-.o-ui-counter-divider.o-ui-counter-reverse {
-    border-left: 0;
-    border-right: 1px solid var(--o-ui-alias-border-1);
-    padding-left: 0;
-    padding-right: var(--o-ui-global-scale-bravo);
-}
-
-/* DIVIDER | COLOR | LIGHT */
-.o-ui-counter-divider.o-ui-counter-light {
-    color: var(--o-ui-alias-text-3);
-}
-
-/* DIVIDER | HIGHLIGHT */
-.o-ui-counter-divider.o-ui-counter-highlight {
+/* HIGHLIGHT */
+.o-ui-counter-highlight {
     font-weight: 500;
 }
 
@@ -77,4 +21,50 @@
 /* DISABLED */
 .o-ui-counter[disabled] {
     opacity: var(--o-ui-disabled-opacity);
+}
+
+/* COLOR | INHERIT */
+.o-ui-counter-inherit-color {
+    color: inherit;
+}
+
+/* BASIC */
+.o-ui-counter-basic {
+    display: inline-block;
+}
+
+/* DIVIDER */
+.o-ui-counter-divider {
+    display: inline-block;
+    position: relative;
+    padding-left: var(--o-ui-global-scale-bravo);
+}
+
+/* Using a before element for the border to add an opacity to the border color when it's inherited. */
+.o-ui-counter-divider::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 80%;
+    border-left: 1px solid var(--o-ui-alias-border-1);
+}
+
+/* DIVIDER | REVERSE */
+.o-ui-counter-divider.o-ui-counter-reverse {
+    padding-left: 0;
+    padding-right: var(--o-ui-global-scale-bravo);
+}
+
+.o-ui-counter-divider.o-ui-counter-reverse::before {
+    border-left: 0;
+    border-right: 1px solid var(--o-ui-alias-border-1);
+}
+
+/* DIVIDER | COLOR | INHERIT */
+.o-ui-counter-divider.o-ui-counter-inherit-color::before {
+    border-color: inherit;
+    opacity: 0.3;
 }

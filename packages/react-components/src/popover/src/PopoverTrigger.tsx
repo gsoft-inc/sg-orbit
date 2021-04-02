@@ -52,6 +52,10 @@ export interface InnerPopoverTriggerProps {
      */
     autoFocus?: boolean | number;
     /**
+     * Whether or not the popover should close on outside interactions or `esc` keypress.
+     */
+    persistent: boolean,
+    /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
     allowFlip?: boolean;
@@ -89,6 +93,7 @@ export function InnerPopoverTrigger({
     position: positionProp = "bottom",
     onOpenChange,
     autoFocus,
+    persistent,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
@@ -103,9 +108,9 @@ export function InnerPopoverTrigger({
         open,
         defaultOpen,
         onOpenChange,
-        hideOnEscape: true,
-        hideOnLeave: true,
-        hideOnOutsideClick: true,
+        hideOnEscape: !persistent,
+        hideOnLeave: !persistent,
+        hideOnOutsideClick: !persistent,
         autoFocus,
         autoFocusOptions: {
             canFocus: useCallback(element => element.id !== "o-ui-popover-close-button", [])
@@ -123,7 +128,7 @@ export function InnerPopoverTrigger({
         setIsOpen(event, false);
     }, [setIsOpen]);
 
-    const [trigger, popover] = Children.toArray(resolveChildren(children, { isOpen, close }));
+    const [trigger, popover] = Children.toArray(resolveChildren(children, { close }));
 
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");

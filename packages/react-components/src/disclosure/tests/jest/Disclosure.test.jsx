@@ -90,11 +90,11 @@ test("enter keypress toggles content visibility", async () => {
 
 // ***** API *****
 
-test("call onChange when expand", async () => {
+test("call onOpenChange when expand", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Disclosure onChange={handler}>
+        <Disclosure onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>
@@ -107,11 +107,11 @@ test("call onChange when expand", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
-test("call onChange when close", async () => {
+test("call onOpenChange when close", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Disclosure defaultOpen onChange={handler}>
+        <Disclosure defaultOpen onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>

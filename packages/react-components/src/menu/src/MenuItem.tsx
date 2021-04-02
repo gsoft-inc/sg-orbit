@@ -1,7 +1,7 @@
 import { Box } from "../../box";
-import { CollectionOption } from "../../collection";
-import { ElementType, ForwardedRef, KeyboardEvent, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
+import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
@@ -15,7 +15,13 @@ export interface InnerMenuItemProps extends InteractionStatesProps {
     /**
      * Matching collection item.
      */
-    item: Pick<CollectionOption, "key" | "tooltip">;
+    item: {
+        key: string;
+        tooltip?: {
+            props: Record<string, any>;
+            content: ReactElement;
+        },
+    };
     /**
      * Whether or not the item is disabled.
      */
@@ -34,6 +40,12 @@ export interface InnerMenuItemProps extends InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+const Role = {
+    [SelectionMode.none]: "menuitem",
+    [SelectionMode.single]: "menuitemradio",
+    [SelectionMode.multiple]: "menuitemcheckbox"
+};
+
 export function InnerMenuItem({
     item: { key, tooltip },
     id,
@@ -46,7 +58,7 @@ export function InnerMenuItem({
     forwardedRef,
     ...rest
 }: InnerMenuItemProps) {
-    const { onSelect } = useMenuContext();
+    const { selectedKeys, selectionMode, onSelect } = useMenuContext();
 
     const handleClick = useEventCallback(event => {
         if (!disabled) {
@@ -71,12 +83,15 @@ export function InnerMenuItem({
     const labelId = `${id}-label`;
     const descriptionId = `${id}-description`;
 
-    let { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            className: "o-ui-menu-item-start-icon"
+        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+            return {
+                className: "o-ui-menu-item-start-icon",
+                size: isNil(allElements.description) ? "sm" : undefined
+            };
         },
         avatar: {
             className: "o-ui-menu-item-option-avatar"
@@ -92,16 +107,9 @@ export function InnerMenuItem({
         },
         "end-icon": {
             size: "sm",
-            className: "o-ui-listbox-option-end-icon"
+            className: "o-ui-menu-item-end-icon"
         }
     }), [labelId, descriptionId]));
-
-    // TEMP: until useSlots is improved with conditional props based on other slots existence.
-    if (!isNil(icon) && isNil(description)) {
-        icon = augmentElement(icon, {
-            size: "sm"
-        });
-    }
 
     const itemMarkup = (
         <Box
@@ -119,10 +127,13 @@ export function InnerMenuItem({
                         focus && "focus",
                         hover && "hover"
                     ),
-                    role: "menuitem",
+                    role: Role[selectionMode],
                     tabIndex: -1,
                     "data-o-ui-key": key,
+                    "aria-checked": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
+                    "aria-labelledby": labelId,
+                    "aria-describedby": description && descriptionId,
                     as,
                     ref: forwardedRef
                 }

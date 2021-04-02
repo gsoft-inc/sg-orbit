@@ -3,7 +3,7 @@ import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
 
-export function useAsyncItems<T>(fetch: (query: string) => Promise<T[]>) {
+export function useAsyncSearch<T>(load: (query: string) => Promise<T[]>) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState<T[]>([]);
     const [promise, setPromise] = useRefState<CancellablePromise<T[]>>();
@@ -19,13 +19,13 @@ export function useAsyncItems<T>(fetch: (query: string) => Promise<T[]>) {
         cancelRequest();
         setIsLoading(true);
 
-        const fetchPromise = fetch(query);
+        const loadPromise = load(query);
 
-        if (!isPromise(fetchPromise)) {
-            throw new Error("Fetch function must return a valid promise.");
+        if (!isPromise(loadPromise)) {
+            throw new Error("LOad function must return a valid promise.");
         }
 
-        const wrappedPromise = cancellablePromise<T[]>(fetchPromise);
+        const wrappedPromise = cancellablePromise<T[]>(loadPromise);
 
         setPromise(wrappedPromise);
 
@@ -34,14 +34,14 @@ export function useAsyncItems<T>(fetch: (query: string) => Promise<T[]>) {
                 setItems(result ?? []);
                 setIsLoading(false);
             })
-            .catch(error => {
+            .catch((error: any) => {
                 // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
                 if (isNil(error) || error?.isCancelled !== true) {
                     setItems([]);
                     setIsLoading(false);
                 }
             });
-    }, [fetch, setIsLoading, setItems, setPromise, cancelRequest]);
+    }, [load, setIsLoading, setItems, setPromise, cancelRequest]);
 
     useEffect(() => {
         return () => {

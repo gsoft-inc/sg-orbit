@@ -150,7 +150,7 @@ const DateInput = forwardRef<any, "input">(({
 
 export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
-    const [fieldProps] = useFieldInputProps();
+    const [fieldProps, isInField] = useFieldInputProps();
 
     const {
         startDate: startDateProp,
@@ -271,7 +271,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 hasFocus && "focus",
                 hover && "hover"
             )}
-            role="group"
+            role={!isInField ? "group" : undefined}
         >
             <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput
@@ -317,7 +317,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     );
 
     const presetsMarkup = !isNil(presets) && (
-        <MenuTrigger onSelect={handleSelectPreset}>
+        <MenuTrigger>
             <IconButton
                 shape="rounded"
                 color="secondary"
@@ -326,7 +326,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             >
                 <VerticalDotsIcon />
             </IconButton>
-            <Menu>
+            <Menu onSelectionChange={handleSelectPreset}>
                 {presets.map((x, index) => (
                     // eslint-disable-next-line react/no-array-index-key
                     <Item key={`${index}`}>

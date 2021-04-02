@@ -51,7 +51,7 @@ export function useButton({
             cssModule(
                 "o-ui-button",
                 variant,
-                color && color,
+                color === "inherit" ? "inherit-color" : color,
                 shape && shape,
                 fluid && "fluid",
                 loading && "loading",

@@ -28,7 +28,7 @@
     margin-bottom: calc(var(--o-ui-global-type-scale-4) * .75);
 }
 
-.o-ui-p-inherit {
+.o-ui-p-inherit-size {
     font-weight: inherit;
     margin-bottom: .75em;
 }

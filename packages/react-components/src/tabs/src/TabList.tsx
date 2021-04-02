@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box, BoxProps } from "../../box";
 import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
-import { Tab } from "./Tab";
+import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
 import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
@@ -22,7 +22,6 @@ const NavigationKeyBinding = {
     }
 };
 
-const KeyProp = "data-o-ui-index";
 
 export interface TabListProps extends Omit<BoxProps, "autofocus"> {
     autofocus?: boolean | number;
@@ -34,16 +33,16 @@ export function TabList({
     autoFocus,
     ...rest
 }: TabListProps) {
-    const { selectedIndex, orientation } = useTabsContext();
+    const { selectedKey, orientation } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: TabKeyProp });
 
-    useKeyedRovingFocus(focusScope, selectedIndex, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, selectedKey, { keyProp: TabKeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: selectedIndex,
+        target: selectedKey,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
@@ -64,21 +63,20 @@ export function TabList({
             )}
         >
             {tabs.map(({
-                id,
                 key,
-                position,
                 elementType: ElementType = Tab,
                 ref,
+                tabId,
                 panelId,
                 props
             }) =>
                 <ElementType
                     {...props}
                     tab={{
-                        index: position,
+                        key,
+                        tabId,
                         panelId
                     }}
-                    id={id}
                     key={key}
                     ref={ref}
                 />

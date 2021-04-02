@@ -43,28 +43,11 @@ export function createRadioTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
-                <Inline verticalAlign="end">
-                    <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                    <Radio disabled value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                </Inline>
                 <div>
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
                         <Counter>60</Counter>
-                    </Radio>
-                </div>
-                <div>
-                    <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter variant="divider">60</Counter>
                     </Radio>
                 </div>
             </Stack>
@@ -82,17 +65,13 @@ export function createRadioTestSuite(element, stories) {
                         </IconList>
                     </Radio>
                 </div>
-                <Inline>
+                <div>
                     <Radio reverse value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
                     </Radio>
-                    <Radio reverse value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                </Inline>
-                <Inline>
+                </div>
+                <div>
                     <Radio reverse value="any" element={element}>
                         <Text>Milky Way</Text>
                         <IconList>
@@ -100,21 +79,26 @@ export function createRadioTestSuite(element, stories) {
                         </IconList>
                         <Counter>60</Counter>
                     </Radio>
-                    <Radio reverse value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconList>
-                        <Counter variant="divider">60</Counter>
-                    </Radio>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("validation", () =>
-            <Inline>
-                <Radio validationState="invalid" value="any" element={element}>Milky Way</Radio>
-                <Radio validationState="valid" value="any" element={element}>Milky Way</Radio>
-            </Inline>
+            <Stack>
+                <Inline>
+                    <Radio validationState="invalid" value="any" element={element}>Milky Way</Radio>
+                    <Radio validationState="valid" value="any" element={element}>Milky Way</Radio>
+                </Inline>
+                <Inline>
+                    <Radio validationState="invalid" value="any" element={element}>
+                        <Text>Milky Way</Text>
+                        <EmailIcon />
+                    </Radio>
+                    <Radio validationState="invalid" value="any" element={element}>
+                        <Text>Milky Way</Text>
+                        <Counter>60</Counter>
+                    </Radio>
+                </Inline>
+            </Stack>
         )
         .add("states", () =>
             <Stack>
@@ -146,12 +130,6 @@ export function createRadioTestSuite(element, stories) {
                         <IconList>
                             <EmailIcon /><EmailIcon />
                         </IconList>
-                    </Radio>
-                </div>
-                <div className="flex items-end mw5">
-                    <Radio value="any" element={element}>
-                        <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
-                        <Counter variant="divider">60</Counter>
                     </Radio>
                 </div>
                 <div className="flex items-end mw5">
