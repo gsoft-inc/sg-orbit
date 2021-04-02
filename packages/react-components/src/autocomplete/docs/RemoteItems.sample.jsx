@@ -1,5 +1,5 @@
 () => {
-    const fetcher = useAsyncItems(async query => {
+    const fetcher = useAsyncSearch(async query => {
         const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries?namePrefix=${query}`, {
             method: "GET",
             headers: {

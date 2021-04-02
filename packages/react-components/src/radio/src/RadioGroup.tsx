@@ -103,11 +103,11 @@ const NavigationKeyBinding = {
     }
 };
 
-const KeyProp = "value";
+const RadioKeyProp = "value";
 
 export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const [toolbarProps, isInToolbar] = useToolbarProps();
-    const [fieldProps] = useFieldInputProps();
+    const [fieldProps, isInField] = useFieldInputProps();
 
     const {
         value,
@@ -149,9 +149,9 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         setCheckedValue(newValue);
     });
 
-    const focusManager = useFocusManager(focusScope, { keyProp: KeyProp });
+    const focusManager = useFocusManager(focusScope, { keyProp: RadioKeyProp });
 
-    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: KeyProp });
+    useKeyedRovingFocus(focusScope, checkedValue, { keyProp: RadioKeyProp });
 
     useAutoFocusChild(focusManager, {
         target: value ?? defaultValue,
@@ -164,8 +164,8 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
-        role: "radio-group",
-        // keyProp: KeyProp, //TODO: why is this passed but not used?
+        role: "radiogroup",
+        // keyProp: RadioKeyProp, //TODO: why is this passed but not used?
         // value, //TODO: why is this passed but not used?
         // defaultValue, //TODO: why is this passed but not used?
         required,
@@ -176,6 +176,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         wrap,
         reverse,
         disabled,
+        isInField,
         groupRef
     });
 

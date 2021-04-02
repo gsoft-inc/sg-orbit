@@ -39,10 +39,6 @@ export interface InnerOverlayProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const propTypes = {
-
-};
-
 export function InnerOverlay({
     show,
     borderOffset,
@@ -87,8 +83,6 @@ export function InnerOverlay({
     // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
     return <>{createPortal(content, containerElement || document.body)}</>;
 }
-
-InnerOverlay.propTypes = propTypes;
 
 export const Overlay = forwardRef<InnerOverlayProps>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />

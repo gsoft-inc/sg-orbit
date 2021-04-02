@@ -6,6 +6,7 @@
     max-width: 100%;
     width: max-content;
     height: max-content;
+    color: var(--o-ui-alias-text-1);
 }
 
 /* BUTTON */
@@ -34,7 +35,6 @@
 .o-ui-radio-label {
     line-height: 1;
     margin-left: var(--o-ui-global-scale-bravo);
-    color: var(--o-ui-alias-text-1);
 }
 
 /* CONTENT | LABEL | REVERSE */
@@ -46,7 +46,6 @@
 /* CONTENT | ICON */
 .o-ui-radio-icon {
     margin-left: var(--o-ui-global-scale-bravo);
-    fill: var(--o-ui-alias-icon-1);
 }
 
 /* CONTENT | ICON | REVERSE */
@@ -68,7 +67,7 @@
 }
 
 /* VALIDATION */
-.o-ui-radio-invalid .o-ui-radio-label {
+.o-ui-radio-invalid {
     color: var(--o-ui-alias-text-negative-1);
 }
 

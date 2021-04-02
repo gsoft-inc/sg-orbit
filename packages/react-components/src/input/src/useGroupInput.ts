@@ -14,7 +14,7 @@ const Gap = {
 } as const;
 
 export interface UseGroupInputProps {
-    role?: "group" | "radio-group",
+    role?: "group" | "radiogroup",
     cssModule?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
@@ -25,6 +25,7 @@ export interface UseGroupInputProps {
     reverse?: boolean;
     disabled?: boolean;
     groupRef: Ref<any>
+    isInField?: boolean;
 }
 
 export interface UseGroupInputReturn {
@@ -35,7 +36,7 @@ export interface UseGroupInputReturn {
         gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
         wrap?: boolean;
         className?: string;
-        role?: "group" | "radio-group",
+        role?: "group" | "radiogroup",
         "aria-required"?: boolean;
         "aria-invalid"?: boolean;
         "aria-orientation"?: "horizontal" | "vertical",
@@ -61,6 +62,7 @@ export function useGroupInput({
     size,
     reverse,
     disabled,
+    isInField,
     groupRef
 }: UseGroupInputProps): UseGroupInputReturn {
     const [{ hasLabel, hasMessage }] = useFieldContext();
@@ -80,7 +82,7 @@ export function useGroupInput({
                 hasMessage && "has-message"
 
             ),
-            role,
+            role: !isInField ? role : undefined,
             "aria-required": required ? true : undefined,
             "aria-invalid": validationState === "invalid" ? true : undefined,
             "aria-orientation": orientation,

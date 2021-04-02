@@ -1,4 +1,4 @@
-import { Children, JSXElementConstructor, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
+import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps } from "../../shared";
@@ -6,26 +6,22 @@ import { mergeProps } from "../../shared";
 export interface AccordionBuilderItem {
     id: string;
     key: string;
-    position: number;
     index: number;
-    header: AccordionBuilderHeaderProps;
-    panel: AccordionBuilderPanelProps;
+    header: AccordionBuilderHeader;
+    panel: AccordionBuilderPanel;
 }
 
-export interface AccordionBuilderHeaderProps {
-    elementType: string | JSXElementConstructor<any>;
+export interface AccordionBuilderHeader {
+    elementType: ReactElement["type"];
     ref: Ref<any>;
     props: Record<string, any>;
 }
 
-
-export interface AccordionBuilderPanelProps {
-    elementType: string | JSXElementConstructor<any>;
+export interface AccordionBuilderPanel {
+    elementType: ReactElement["type"];
     ref: Ref<any>;
-    props: any;
+    props: Record<string, any>;
 }
-
-
 
 export class AccordionBuilder {
     _rootId;
@@ -46,6 +42,8 @@ export class AccordionBuilder {
                 throw new Error("An accordion item must have an <Header> and a <Content>.");
             }
 
+            const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString();
+
             const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
@@ -61,9 +59,8 @@ export class AccordionBuilder {
             };
 
             return {
-                id: `${this._rootId}-${index}`,
-                key: index.toString(),
-                position: index,
+                id: `${this._rootId}-${key}`,
+                key,
                 index,
                 header: headerProps,
                 panel: panelProps

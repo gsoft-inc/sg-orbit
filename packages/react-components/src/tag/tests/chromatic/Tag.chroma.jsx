@@ -1,6 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
-import { createTestSuite } from "./createTestSuite";
+import { createTagTestSuite } from "./createTagTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -9,9 +9,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Tag variant="solid" />, stories("/solid"));
+createTagTestSuite(<Tag variant="solid" />, stories("/solid"));
 
-createTestSuite(<Tag variant="outline" />, stories("/outline"));
+createTagTestSuite(<Tag variant="outline" />, stories("/outline"));
 
 stories()
     .add("styling", () =>

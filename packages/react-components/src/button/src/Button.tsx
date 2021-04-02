@@ -87,6 +87,7 @@ export function InnerButton(props: InnerButtonProps) {
         shape = "pill",
         condensed,
         autoFocus,
+        disabled,
         fluid,
         loading,
         size,
@@ -120,13 +121,13 @@ export function InnerButton(props: InnerButtonProps) {
         forwardedRef
     });
 
-    const { icon, text, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { icon, text, "end-icon": endIcon, counter } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         icon: {
             size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-icon o-ui-button-left-icon"
+            className: "o-ui-button-icon o-ui-button-start-icon"
         },
         text: {
             size: condensed ? condensedTextSize(size) : size,
@@ -136,14 +137,22 @@ export function InnerButton(props: InnerButtonProps) {
         "end-icon": {
             size: condensed ? size : embeddedIconSize(size),
             className: "o-ui-button-end-icon"
+        },
+        counter: {
+            size: condensed ? condensedTextSize(size) : size,
+            color: "inherit",
+            pushed: true,
+            disabled,
+            className: "o-ui-button-counter"
         }
-    }), [size, condensed, loading]));
+    }), [size, disabled, condensed, loading]));
 
     return (
         <Box
             {...mergeProps(
                 rest,
                 {
+                    disabled,
                     className: cssModule(
                         "o-ui-button",
                         icon && "has-start-icon",
@@ -157,6 +166,7 @@ export function InnerButton(props: InnerButtonProps) {
         >
             {icon}
             {text}
+            {counter}
             {endIcon}
         </Box>
     );

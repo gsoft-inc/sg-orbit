@@ -10,10 +10,10 @@ export interface UseRestoreFocusProps {
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
 export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusProps = {}) {
-    const [elementToRestoreRef, setElementToRestore] = useRefState<Element>();
+    const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
     useLayoutEffect(() => {
-        setElementToRestore(document.activeElement);
+        setElementToRestore(document.activeElement as HTMLElement);
     }, [isDisabled, setElementToRestore]);
 
     // Handle the tab key so that tabbing out of the scope goes to the next element after the node that had focus when the scope mounted.
@@ -53,7 +53,7 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
                     } else {
                         // If there is no next element, blur the focused element to move focus to the element to restore.
                         // focusedElement.blur();
-                        (elementToRestore as HTMLElement).focus();
+                        elementToRestore.focus();
                     }
                 }
             }
@@ -70,7 +70,7 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
 
                     requestAnimationFrame(() => {
                         if (document.body.contains(elementToRestore)) {
-                            (elementToRestore as HTMLElement).focus();
+                            elementToRestore.focus();
                         }
                     });
                 }

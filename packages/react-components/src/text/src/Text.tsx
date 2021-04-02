@@ -2,17 +2,17 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Size, forwardRef, mergeClasses, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
-
-export function getTextClass(size: Size) {
-    return `o-ui-text-${normalizeSize(size)}`;
-}
+import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export interface InnerTextProps {
     /**
      * A text can vary in size.
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
+    /**
+     * A text can inherit it's parent color.
+     */
+    color?: "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -36,6 +36,7 @@ export function InnerText(props: InnerTextProps) {
 
     const {
         size,
+        color,
         as = "span",
         children,
         forwardedRef,
@@ -50,7 +51,11 @@ export function InnerText(props: InnerTextProps) {
             {...mergeProps(
                 rest,
                 {
-                    className: mergeClasses(getTextClass(size), "o-ui-text"),
+                    className: cssModule(
+                        "o-ui-text",
+                        size && size === "inherit" ? "inherit-size" : normalizeSize(size),
+                        color && "inherit-color"
+                    ),
                     as,
                     ref: forwardedRef
                 }

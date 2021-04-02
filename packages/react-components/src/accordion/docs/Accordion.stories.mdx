@@ -17,7 +17,7 @@ import { Text } from "@react-components/text";
 <Tagline>Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.</Tagline>
 
 <ComponentInfo
-    usage={"import { Accordion, Item, Header, Content, CheckableContext, useCheckableProps } from \"@orbit-ui/react-components\""}
+    usage={"import { Accordion, Item, Header, Content, useCheckableProps, AccordionHeader, AccordionItem } from \"@orbit-ui/react-components\""}
     ariaPath="#accordion"
     githubPath="/packages/react-components/src/accordion/src"
 />
@@ -30,6 +30,8 @@ That heading element should have a level that is appropriate for the information
 
 ## Usage
 
+We do recommend that you specify a unique `key` prop for every `<Item>`. If you choose to omit the `key` prop, a key matching the `<Item>` position will be generated. For example, `"0"` would be the generated key for the first `<Item>` of an `<Accordion>` component without keys.
+
 ### Default
 
 A default accordion.
@@ -37,15 +39,15 @@ A default accordion.
 <Preview>
     <Story name="default">
         <Accordion>
-            <Item>
+            <Item key="mars">
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="jupiter">
                 <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="venus">
                 <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
@@ -60,21 +62,21 @@ An accordion item can contain [icons](?path=/docs/icon-gallery--page).
 <Preview>
     <Story name="icon">
         <Accordion>
-            <Item>
+            <Item key="mars">
                 <Header as="h3">
                     <NotificationIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="jupiter">
                 <Header as="h3">
                     <InfoIcon />
                     <Text>Jupiter</Text>
                 </Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="venus">
                 <Header as="h3">
                     <HelpIcon />
                     <Text>Venus</Text>
@@ -91,16 +93,16 @@ An accordion can allow multiple items to be expanded at once.
 
 <Preview>
     <Story name="multiple">
-        <Accordion expandMode="multiple">
-            <Item>
+        <Accordion expansionMode="multiple">
+            <Item key="mars">
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="jupiter">
                 <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="venus">
                 <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
@@ -116,12 +118,12 @@ An accordion items can be rendered with an array map.
     <Story name="data render">
         <Accordion aria-label="Planets">
             {[
-                { header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
-                { header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
-                { header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+                { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { id: "jupiter", header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { id: "venus", header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
             ]
-                .map(({ header, content }) =>
-                    <Item key={header}>
+                .map(({ id, header, content }) =>
+                    <Item key={id}>
                         <Header as="h3">{header}</Header>
                         <Content>{content}</Content>
                     </Item>
@@ -132,7 +134,7 @@ An accordion items can be rendered with an array map.
 
 ### Accordion context
 
-The previous [render props](#render-props) example could also be achieve by using `useAccordionContext`.
+The previous [render props](#render-props) example could also be achieve by using `useAccordionContext` and the underlying `<AccordionHeader>` component.
 
 <Preview filePath="/accordion/docs/AccordionContext" />
 
@@ -143,15 +145,15 @@ An accordion item can be disabled.
 <Preview>
     <Story name="disabled item">
         <Accordion>
-            <Item>
+            <Item key="mars">
                 <Header as="h3">Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
             </Item>
-            <Item disabled>
+            <Item disabled key="jupiter">
                 <Header as="h3">Jupiter</Header>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
-            <Item>
+            <Item key="venus">
                 <Header as="h3">Venus</Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
@@ -167,29 +169,29 @@ An accordion header can vary in size.
     <Story name="size">
         <Stack>
             <Accordion>
-                <Item>
+                <Item key="mars">
                     <Header size="sm" as="h3">Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Item>
-                <Item>
+                <Item key="jupiter">
                     <Header size="sm" as="h3">Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
-                <Item>
+                <Item key="venus">
                     <Header size="sm" as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
             </Accordion>
             <Accordion>
-                <Item>
+                <Item key="mars">
                     <Header as="h3">Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Item>
-                <Item>
+                <Item key="jupiter">
                     <Header as="h3">Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
-                <Item>
+                <Item key="venus">
                     <Header as="h3">Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
@@ -200,7 +202,7 @@ An accordion header can vary in size.
 
 ### Controlled
 
-The selected `index` can be handled in controlled mode.
+The `expandedKeys` state can be handled in controlled mode.
 
 <Preview filePath="/accordion/docs/ControlledAccordion" />
 

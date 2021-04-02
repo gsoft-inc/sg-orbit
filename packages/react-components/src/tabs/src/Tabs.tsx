@@ -5,8 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
-import { cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId, useIsInitialRender } from "../../shared";
+import { cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { isNil } from "lodash";
+import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
 export interface InnerTabsProps {
@@ -15,20 +16,20 @@ export interface InnerTabsProps {
      */
     id?: string;
     /**
-     * The index of the active tab.
+     * A controlled selected key.
      */
-    index?: number;
+    selectedKey: string,
     /**
-     * The index of the initially active tab.
+     * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultIndex?: number;
+    defaultSelectedKey: string,
     /**
-     * Called when the active tab change.
+     * Called when the selected tab change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {number} index - The newly active tab index.
+     * @param {string} key - The selected tab key.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, index: number): void;
+    onSelectionChange?(event: SyntheticEvent, key: string): void;
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
@@ -65,9 +66,9 @@ export interface InnerTabsProps {
 
 export function InnerTabs({
     id,
-    index,
-    defaultIndex,
-    onChange,
+    selectedKey: selectedKeyProp,
+    defaultSelectedKey,
+    onSelectionChange,
     manual,
     autoFocus,
     fluid,
@@ -77,37 +78,32 @@ export function InnerTabs({
     forwardedRef,
     ...rest
 }: InnerTabsProps) {
-    const [selectedIndex, setSelectedIndex, isControlledIndex] = useControllableState(index, defaultIndex, 0);
+    const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
-    const [tabs, panels] = useTabsItems(children, selectedIndex, useId(id, id ? null : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, useId(id, id ? null : "o-ui-tabs"));
 
-    const isInitialRender = useIsInitialRender();
-
-    // Give an heads up to the consumer if he doesn't manage correctly the selected tab index & the disabled state.
-    if (isControlledIndex) {
-        if (isNil(selectedIndex)) {
-            throw new Error("The selected tab index cannot be null.");
+    const handleSelect = useEventCallback((event, newKey) => {
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKey);
         }
 
-        if (tabs[selectedIndex].disabled) {
-            throw new Error("The selected tab index cannot match a disabled tab.");
-        }
-    } else {
-        if (isInitialRender) {
-            // When uncontrolled, ensure the initial selected tab is not a disabled one.
-            if (tabs[selectedIndex]?.props?.disabled) {
-                setSelectedIndex(tabs.find(x => !x.props?.disabled)?.position ?? 0);
-            }
-        }
-    }
-
-    const handleSelect = useEventCallback((event, newIndex) => {
-        if (!isNil(onChange)) {
-            onChange(event, newIndex);
-        }
-
-        setSelectedIndex(newIndex);
+        setSelectedKey(newKey);
     });
+
+    // Ensure the selected key match a valid tab which is not disabled.
+    const adjustedKey = useMemo(() => {
+        const selectedTab = tabs.find(x => x.key === selectedKey);
+
+        if (isNil(selectedTab)) {
+            return tabs[0].key;
+        }
+
+        if (selectedTab.props?.disabled) {
+            return tabs.find(x => !x.props?.disabled)?.key ?? tabs[0].key;
+        }
+
+        return selectedKey;
+    }, [selectedKey, tabs]);
 
     return (
         <Box
@@ -126,7 +122,7 @@ export function InnerTabs({
         >
             <TabsContext.Provider
                 value={{
-                    selectedIndex,
+                    selectedKey: adjustedKey,
                     onSelect: handleSelect,
                     isManual: manual,
                     orientation

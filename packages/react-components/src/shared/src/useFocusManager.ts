@@ -215,7 +215,7 @@ export class FocusManager {
         return this.focusElement(elements.find(x => x.getAttribute(this.keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target: FocusTarget | string | number, options: FocusOptions) {
+    focusTarget(target: number | string, options: FocusOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
