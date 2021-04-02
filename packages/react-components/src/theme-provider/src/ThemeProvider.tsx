@@ -1,4 +1,4 @@
-import { ElementType, ForwardedRef, ReactNode, useCallback, useState } from "react";
+import { ElementType, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
 import { useColorScheme } from "./useColorScheme";
@@ -36,10 +36,6 @@ export interface ThemeProviderProps {
     * @ignore
     */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>
 }
 
 export function ThemeProvider({

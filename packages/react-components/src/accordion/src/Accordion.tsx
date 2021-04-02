@@ -3,8 +3,10 @@ import "./Accordion.css";
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
     Keys,
+    forwardRef,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -15,49 +17,55 @@ import {
     useKeyboardNavigation,
     useMergedRefs
 } from "../../shared";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export const ExpansionMode = {
-    single: "single",
-    multiple: "multiple"
-};
+export enum ExpansionMode {
+    single = "single",
+    multiple = "multiple"
+}
 
-const propTypes = {
+export interface InnerAccordionProps {
+    /**
+     * @ignore
+     */
+    id?: string;
     /**
      * A controlled set of expanded item keys.
      */
-    expandedKeys: arrayOf(string),
+    expandedKeys?: string[],
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */
-    defaultExpandedKeys: arrayOf(string),
+    defaultExpandedKeys?: string[]
     /**
      * Called when an accordion item is toggled.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the expanded items.
      * @returns {void}
      */
-    onExpansionChange: func,
+    onExpansionChange?(event: SyntheticEvent, keys: string[]): void;
     /**
      * The type of expansion that is allowed.
      */
-    expansionMode: oneOf(["single", "multiple"]),
+    expansionMode: ExpansionMode;
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerAccordion({
     id,
@@ -70,7 +78,7 @@ export function InnerAccordion({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerAccordionProps) {
     const [expandedKeys, setExpandedKeys] = useControllableState(expandedKeysProp, defaultExpandedKeys, []);
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -93,7 +101,7 @@ export function InnerAccordion({
         last: [Keys.end]
     });
 
-    const handleToggle = useEventCallback((event, toggledKey) => {
+    const handleToggle = useEventCallback((event: SyntheticEvent, toggledKey: string) => {
         let newKeys;
 
         if (!expandedKeys.includes(toggledKey)) {
@@ -153,10 +161,10 @@ export function InnerAccordion({
     );
 }
 
-InnerAccordion.propTypes = propTypes;
-
-export const Accordion = forwardRef((props, ref) => (
+export const Accordion = forwardRef<InnerAccordionProps>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
+
+export type AccordionProps = ComponentProps<typeof Accordion>
 
 Accordion.displayName = "Accordion";

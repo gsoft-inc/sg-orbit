@@ -1,32 +1,40 @@
+import { KeyboardEvent, SyntheticEvent } from "react";
 import { Keys, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 
-export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide } = {}) {
-    const toggle = event => {
+export interface UseOverlayTriggerProps {
+    trigger?: "click" | "hover";
+    onToggle?(event: SyntheticEvent): void;
+    onShow?(event: SyntheticEvent): void;
+    onHide?(event: SyntheticEvent): void;
+}
+
+export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide }: UseOverlayTriggerProps = {}) {
+    const toggle = (event: SyntheticEvent) => {
         if (!isNil(onToggle)) {
             onToggle(event);
         }
     };
 
-    const show = event => {
+    const show = (event: SyntheticEvent) => {
         if (!isNil(onShow)) {
             onShow(event);
         }
     };
 
-    const hide = event => {
+    const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: SyntheticEvent) => {
         event.preventDefault();
         toggle(event);
     });
 
-    const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 if (trigger === "click") {

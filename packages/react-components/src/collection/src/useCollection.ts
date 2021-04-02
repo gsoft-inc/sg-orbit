@@ -1,31 +1,44 @@
-import { Children, useMemo } from "react";
+import { Children, ElementType, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Divider } from "../../divider";
 import { Item, Section } from "../../placeholders";
 import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
-import { any, array, arrayOf, number, object, oneOfType, element as reactElement, elementType as reactElementType, string } from "prop-types";
 import { isNil } from "lodash";
 import { resolveChildren } from "../../shared";
 
-// ALEX: With TS would be nice to seggregate this shape into multiple interface like CollectionItem, CollectionSection, CollectionDivider.
-export const NodeShape = {
-    key: string.isRequired,
-    index: number.isRequired,
-    type: string.isRequired,
-    elementType: reactElementType,
-    ref: any,
-    content: oneOfType([reactElement, arrayOf(reactElement), string]),
-    props: object,
-    tooltip: object, // option only
-    items: array // Sections only
-};
+export interface CollectionItem {
+    key: string;
+    index: number;
+    type: NodeType;
+    elementType?: ElementType | string;
+    ref: Ref<any>,
+    content: ElementType | ReactElement[];
+    props: Record<string, any>,
+    tooltip?: {
+        props: Record<string, any>,
+        content: ReactElement
+    },
+}
 
-export const NodeType = {
-    item: "item",
-    section: "section",
-    divider: "divider"
-};
+export interface CollectionSection extends CollectionItem {
+    type: NodeType.section;
+    items: CollectionItem[]
+}
 
-export function createCollectionItem({ key, index, elementType, ref, content, props }) {
+export interface CollectionDivider extends CollectionItem {
+    type: NodeType.divider;
+}
+
+export enum NodeType {
+    item = "item",
+    section = "section",
+    divider = "divider"
+}
+
+export function isSection(node: CollectionItem): node is CollectionSection {
+    return node.type === NodeType.section;
+}
+
+export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
     return {
         key,
         index,
@@ -38,31 +51,32 @@ export function createCollectionItem({ key, index, elementType, ref, content, pr
 }
 
 export class CollectionBuilder {
-    _parseItem(element, incrementIndex) {
+    _parseItem(element: ReactElement, incrementIndex: () => number): CollectionItem {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
 
         return {
-            key: !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : index.toString(),
+            key: !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString(),
             index,
             type: NodeType.item,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Item ? element.type : undefined,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: children,
             props
         };
     }
 
-    _parseSection(element, incrementIndex) {
+    _parseSection(element: ReactElement, incrementIndex: () => number): CollectionSection {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
 
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        const items = Children.map(resolveChildren(children), x => that._parseItem(x, incrementIndex));
+        const items = Children.map(resolveChildren(children), (x: ReactElement) => that._parseItem(x, incrementIndex));
 
         return {
             key: index.toString(),
@@ -70,14 +84,14 @@ export class CollectionBuilder {
             type: NodeType.section,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Section ? element.type : undefined,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: null,
             props,
             items
         };
     }
 
-    _parseDivider(element, incrementIndex) {
+    _parseDivider(element: ReactElement, incrementIndex: () => number): CollectionDivider {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
@@ -88,13 +102,13 @@ export class CollectionBuilder {
             type: NodeType.divider,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: Divider,
-            ref: element.ref,
+            ref: (element as RefAttributes<any>).ref,
             content: children,
             props
         };
     }
 
-    _parseTooltip(element, incrementIndex) {
+    _parseTooltip(element: ReactElement, incrementIndex: () => number) {
         const { children, ...props } = element.props;
 
         const [item, tooltip] = parseTooltipTrigger(children);
@@ -109,7 +123,7 @@ export class CollectionBuilder {
         return parsedItem;
     }
 
-    build(children, { items }) {
+    build(children: ReactNode, { items }: Collection) {
         if (isNil(children)) {
             return [];
         }
@@ -122,9 +136,10 @@ export class CollectionBuilder {
             return index++;
         };
 
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        return Children.map(elements, element => {
+        return Children.map(elements, (element: ReactElement) => {
             switch (element.type) {
                 case Section:
                     return that._parseSection(element, incrementIndex);
@@ -139,7 +154,11 @@ export class CollectionBuilder {
     }
 }
 
-export function useCollection(children, { items } = {}) {
+export interface Collection {
+    items?: CollectionItem[];
+}
+
+export function useCollection(children: ReactNode, { items }: Collection = {}) {
     const builder = useMemo(() => new CollectionBuilder(), []);
 
     return useMemo(() => builder.build(children, { items }), [builder, children, items]);

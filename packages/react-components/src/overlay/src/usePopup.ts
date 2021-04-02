@@ -1,13 +1,34 @@
+import { AutoFocusChildOptions, mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
+import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
+import { Placement, useOverlayPosition } from "./useOverlayPosition";
 import { isNil, isNumber } from "lodash";
 import { isTargetParent } from "./isTargetParent";
-import { mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
-import { useCallback, useState } from "react";
 import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
-import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
-export function usePopup(type, {
+export interface UsePopupProps {
+    id?: string;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
+    hideOnEscape?: boolean;
+    hideOnLeave?: boolean;
+    hideOnOutsideClick?: boolean;
+    restoreFocus?: boolean;
+    autoFocus?: boolean | number;
+    autoFocusOptions?: AutoFocusChildOptions;
+    trigger?: "click" | "hover";
+    hasArrow?: boolean;
+    position?: Placement;
+    offset?: number[];
+    allowFlip?: boolean;
+    allowPreventOverflow?: boolean;
+    boundaryElement?: HTMLElement,
+    keyProp?: string;
+}
+
+export function usePopup(type: "menu" | "listbox" | "dialog", {
     id,
     open,
     defaultOpen,
@@ -26,11 +47,11 @@ export function usePopup(type, {
     allowPreventOverflow = true,
     boundaryElement,
     keyProp
-}) {
+}: UsePopupProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
-    const [triggerElement, setTriggerElement] = useState();
-    const [overlayElement, setOverlayElement] = useState();
-    const [arrowElement, setArrowElement] = useState();
+    const [triggerElement, setTriggerElement] = useState<HTMLElement>();
+    const [overlayElement, setOverlayElement] = useState<HTMLElement>();
+    const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -56,7 +77,7 @@ export function usePopup(type, {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay when opening.
-            if (!isTargetParent(event.relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -71,7 +92,7 @@ export function usePopup(type, {
         trigger,
         onHide: useEventCallback(event => {
             // Ignore events related to the trigger to prevent double toggle.
-            if (event.relatedTarget !== triggerElement) {
+            if ((event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -113,7 +134,7 @@ export function usePopup(type, {
         focusManager,
         triggerProps: mergeProps(
             {
-                tabIndex: !restoreFocus && isOpen ? "-1" : undefined,
+                tabIndex: !restoreFocus && isOpen ? -1 : undefined,
                 "aria-haspopup": type,
                 "aria-expanded": isOpen ? true : undefined,
                 "aria-controls": isOpen ? overlayId : undefined,
@@ -126,7 +147,7 @@ export function usePopup(type, {
                 id: overlayId,
                 show: isOpen,
                 style: overlayStyles,
-                tabIndex: "-1",
+                tabIndex: -1,
                 ref: overlayRef
             },
             overlayDismissProps,

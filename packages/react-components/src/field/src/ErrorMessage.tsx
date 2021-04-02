@@ -1,21 +1,28 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-const propTypes = {
+export interface InnerErrorMessageProps {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+     * @ignore
+     */
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerErrorMessage(props) {
+export function InnerErrorMessage(props: InnerErrorMessageProps) {
     const [{ validationState, ...messageProps }, isInField] = useFieldMessageProps();
 
     const { isError } = getValidationProps(validationState);
@@ -41,10 +48,10 @@ export function InnerErrorMessage(props) {
     );
 }
 
-InnerErrorMessage.propTypes = propTypes;
-
-export const ErrorMessage = forwardRef((props, ref) => (
+export const ErrorMessage = forwardRef<InnerErrorMessageProps>((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));
+
+export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>
 
 ErrorMessage.displayName = "ErrorMessage";

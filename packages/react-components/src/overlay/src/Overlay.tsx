@@ -1,40 +1,43 @@
 import "./Overlay.css";
 
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
-import { any, bool, elementType, instanceOf, number, oneOfType, string } from "prop-types";
 import { createPortal } from "react-dom";
-import { cssModule, mergeProps } from "../../shared";
-import { forwardRef } from "react";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
-const propTypes = {
+export interface InnerOverlayProps {
     /**
      * Whether or not to show the overlay element.
      */
-    show: bool.isRequired,
+    show: boolean;
     /**
      * Hacky offset utility to apply a transparent CSS border to the overlay.
      * It's usefull to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
      */
-    borderOffset: oneOfType([string, number]),
+    borderOffset?: string | number;
     /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
-    containerElement: instanceOf(HTMLElement),
+    containerElement?: HTMLElement
     /**
      * z-index of the overlay.
      */
-    zIndex: number,
+    zIndex?: number,
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerOverlay({
     show,
@@ -45,7 +48,7 @@ export function InnerOverlay({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerOverlayProps) {
     // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
     const { theme, colorScheme } = useThemeContext();
 
@@ -80,10 +83,10 @@ export function InnerOverlay({
     return <>{createPortal(content, containerElement || document.body)}</>;
 }
 
-InnerOverlay.propTypes = propTypes;
-
-export const Overlay = forwardRef((props, ref) => (
+export const Overlay = forwardRef<InnerOverlayProps>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />
 ));
+
+export type OverlayProps = ComponentProps<typeof Overlay>
 
 Overlay.displayName = "Overlay";

@@ -1,25 +1,28 @@
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { any, elementType, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-const propTypes = {
+export interface InnerValidMessageProps {
     /**
      * A message can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerValidMessage(props) {
+export function InnerValidMessage(props: InnerValidMessageProps) {
     const [{ validationState, ...messageProps }, isInField] = useFieldMessageProps();
 
     const { isValid } = getValidationProps(validationState);
@@ -45,10 +48,10 @@ export function InnerValidMessage(props) {
     );
 }
 
-InnerValidMessage.propTypes = propTypes;
-
-export const ValidMessage = forwardRef((props, ref) => (
+export const ValidMessage = forwardRef<InnerValidMessageProps>((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />
 ));
+
+export type ValidMessageProps = ComponentProps<typeof ValidMessage>
 
 ValidMessage.displayName = "ValidMessage";
