@@ -54,7 +54,7 @@ export interface InnerPopoverTriggerProps {
     /**
      * Whether or not the popover should close on outside interactions or `esc` keypress.
      */
-    persistent: boolean,
+    persistent?: boolean,
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
