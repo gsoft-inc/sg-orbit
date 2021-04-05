@@ -50,6 +50,10 @@ export function createCollectionItem({ key, index, elementType, ref, content, pr
     };
 }
 
+export interface CollectionBuilderOptions {
+    items?: Record<string, any>[];
+}
+
 export class CollectionBuilder {
     _parseItem(element: ReactElement, incrementIndex: () => number): CollectionItem {
         const { children, ...props } = element.props;
@@ -123,7 +127,7 @@ export class CollectionBuilder {
         return parsedItem;
     }
 
-    build(children: ReactNode, { items }: UseCollectionOptions) {
+    build(children: ReactNode, { items }: CollectionBuilderOptions) {
         if (isNil(children)) {
             return [];
         }
@@ -154,11 +158,7 @@ export class CollectionBuilder {
     }
 }
 
-export interface UseCollectionOptions {
-    items?: Record<string, any>[];
-}
-
-export function useCollection(children: ReactNode, { items }: UseCollectionOptions = {}) {
+export function useCollection(children: ReactNode, { items }: CollectionBuilderOptions = {}) {
     const builder = useMemo(() => new CollectionBuilder(), []);
 
     return useMemo(() => builder.build(children, { items }), [builder, children, items]);
