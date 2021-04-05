@@ -201,7 +201,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: menuPropsTemp = {}, //TODO: TS i can't find the proper synthax to deconstruct the object here
+        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = { width: undefined }, ...menuProps } = { id: undefined },
         as = "input",
         children,
         forwardedRef,
@@ -212,8 +212,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         props,
         fieldProps
     );
-
-    const { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = menuPropsTemp;
 
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
