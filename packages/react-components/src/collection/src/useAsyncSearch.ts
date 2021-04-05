@@ -1,4 +1,4 @@
-import { CancellablePromise, cancellablePromise } from "./cancellablePromise";
+import { CancellablePromise, CancellablePromiseError, cancellablePromise } from "./cancellablePromise";
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
@@ -34,9 +34,9 @@ export function useAsyncSearch<T>(load: (query: string) => Promise<T[]>) {
                 setItems(result ?? []);
                 setIsLoading(false);
             })
-            .catch((error: any) => {
+            .catch((error: unknown) => {
                 // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
-                if (isNil(error) || error?.isCancelled !== true) {
+                if (isNil(error) || (error as CancellablePromiseError)?.isCancelled !== true) {
                     setItems([]);
                     setIsLoading(false);
                 }

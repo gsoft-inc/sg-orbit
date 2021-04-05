@@ -3,13 +3,17 @@ export interface CancellablePromise<T> {
     cancel(): void;
 }
 
+export interface CancellablePromiseError {
+    isCancelled: boolean;
+}
+
 export function cancellablePromise<T>(promise: Promise<T>): CancellablePromise<T> {
     let isCancelled = false;
 
     const wrappedPromise = new Promise<T>((resolve, reject) => {
         promise.then(
-            value => isCancelled ? reject({ isCancelled: true }) : resolve(value),
-            error => isCancelled ? reject({ isCancelled: true }) : reject(error)
+            value => isCancelled ? reject(<CancellablePromiseError>{ isCancelled: true }) : resolve(value),
+            error => isCancelled ? reject(<CancellablePromiseError>{ isCancelled: true }) : reject(error)
         );
     });
 
