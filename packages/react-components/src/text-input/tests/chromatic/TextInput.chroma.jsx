@@ -134,12 +134,6 @@ stories()
     .add("autofocus with delay", () =>
         <TextInput autoFocus={50} />
     )
-    .add("search", () =>
-        <Inline>
-            <TextInput type="search" />
-            <TextInput defaultValue="Mars" type="search" />
-        </Inline>
-    )
     .add("styling", () =>
         <Inline>
             <TextInput className="bg-red" />

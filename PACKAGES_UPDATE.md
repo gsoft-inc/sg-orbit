@@ -1,5 +1,7 @@
 # Packages Update
 
+## Babel
+
 We currently cannot update babel package to version *> 7.13*. When doing so Storybook throw transpilation errors at compile time.
 
 Exemple:
@@ -37,4 +39,16 @@ You may need an additional loader to handle the result of these loaders.
  @ ./components/index.js
  @ ../packages/icons/docs/icons.stories.mdx
  @ ../packages/icons/docs sync ^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.mdx)$
+```
+
+## PostCSS
+
+We currently cannot upgrade to postcss 8 because `tachyons-build-css` has a dependency on `postcss-rtl` which doesn't works with postcss 8
+
+```
+@orbit-ui/tachyons: C:\Dev\gsoft\sg-orbit\node_modules\postcss-rtl\lib\keyframes.js:5
+@orbit-ui/tachyons: const unprefixed = postcss.vendor.unprefixed;
+@orbit-ui/tachyons:                                   ^
+@orbit-ui/tachyons: TypeError: Cannot read property 'unprefixed' of undefined
+@orbit-ui/tachyons:     at Object.<anonymous> (C:\Dev\gsoft\sg-orbit\node_modules\postcss-rtl\lib\keyframes.js:5:35)
 ```

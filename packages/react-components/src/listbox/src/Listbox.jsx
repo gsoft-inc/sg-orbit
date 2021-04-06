@@ -20,8 +20,8 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { NodeShape, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, shape, string } from "prop-types";
+import { NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { any, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
@@ -56,7 +56,7 @@ const propTypes = {
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
-    nodes: arrayOf(shape(NodeShape)),
+    nodes: arrayOf(object),
     /**
      * Whether or not the listbox should autofocus on render.
      */

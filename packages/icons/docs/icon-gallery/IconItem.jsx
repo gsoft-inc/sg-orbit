@@ -1,10 +1,8 @@
 import "./IconItem.css";
 
-import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Content, Heading, Modal, ModalTrigger } from "@react-components";
 import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
-import { Modal, ModalTrigger } from "@react-components/dialog";
 import { PreviewIcon } from "./PreviewIcon";
 import { arrayOf, shape, string } from "prop-types";
 import { useCallback, useState } from "react";

@@ -147,6 +147,7 @@
 .sbdocs.sbdocs-h4,
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6 {
+    font-weight: 500;
     /* fixing the default position relative on all titles in shared.tsx */
     position: initial;
 }
