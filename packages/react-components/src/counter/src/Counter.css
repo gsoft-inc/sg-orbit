@@ -1,3 +1,7 @@
+.o-ui {
+    --o-ui-counter-divider-inherit-opacity: 0.3;
+}
+
 .o-ui-counter {
     color: var(--o-ui-alias-text-1);
 }
@@ -45,8 +49,8 @@
     content: "";
     position: absolute;
     top: 10%;
-    right: 0;
     left: 0;
+    right: 0;
     bottom: 0;
     height: 80%;
     border-left: 1px solid var(--o-ui-alias-border-1);
@@ -66,5 +70,5 @@
 /* DIVIDER | COLOR | INHERIT */
 .o-ui-counter-divider.o-ui-counter-inherit-color::before {
     border-color: inherit;
-    opacity: 0.3;
+    opacity: var(--o-ui-counter-divider-inherit-opacity);
 }

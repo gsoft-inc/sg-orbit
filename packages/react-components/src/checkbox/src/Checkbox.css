@@ -164,6 +164,12 @@
     opacity: 1;
 }
 
+/* STATE | ACTIVE */
+.o-ui-checkbox input[type="checkbox"]:active + .o-ui-checkbox-box,
+.o-ui-checkbox.o-ui-checkbox-active .o-ui-checkbox-box {
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active);
+}
+
 /* STATE | HOVER */
 .o-ui-checkbox:hover .o-ui-checkbox-box,
 .o-ui-checkbox-hover .o-ui-checkbox-box {

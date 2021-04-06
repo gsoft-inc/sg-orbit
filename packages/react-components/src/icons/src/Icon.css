@@ -42,4 +42,5 @@
 /* DISABLED */
 .o-ui-icon-disabled {
     opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
 }

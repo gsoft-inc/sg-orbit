@@ -24,7 +24,7 @@ stories()
     .add("disabled", () =>
         <Stack>
             <Dot disabled></Dot>
-            <Dot disabled>Habitable</Dot>
+            <Dot color="hsl(25, 69%, 41%)" disabled>Habitable</Dot>
         </Stack>
     )
     .add("styling", () =>
