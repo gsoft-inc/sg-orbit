@@ -2,7 +2,6 @@ import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
 import { RefObject, useEffect } from "react";
 import { disposables } from "./useDisposables";
-import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
