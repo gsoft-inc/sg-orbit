@@ -1,7 +1,0 @@
-/*******************************
-        Site Overrides
-*******************************/
-
-.ui.modal.basic .header {
-    border-bottom: none;
-}

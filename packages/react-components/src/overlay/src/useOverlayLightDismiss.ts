@@ -14,7 +14,7 @@ export interface UseOverlayLightDismissProps {
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
-    trigger,
+    trigger = "click",
     onHide,
     hideOnEscape,
     hideOnLeave,

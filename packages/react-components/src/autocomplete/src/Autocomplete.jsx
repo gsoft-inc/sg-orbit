@@ -174,7 +174,7 @@ export function InnerAutocomplete(props) {
         disabled,
         allowFlip = true,
         allowPreventOverflow = true,
-        zIndex,
+        zIndex = 10000,
         active,
         focus,
         hover,

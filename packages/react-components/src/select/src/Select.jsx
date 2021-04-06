@@ -139,7 +139,7 @@ export function InnerSelect(props) {
         disabled,
         allowFlip = true,
         allowPreventOverflow = true,
-        zIndex,
+        zIndex = 10000,
         active,
         focus,
         hover,
