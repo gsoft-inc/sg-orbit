@@ -46,13 +46,9 @@ const propTypes = {
      */
     onOpenChange: func,
     /**
-     * Whether or not the focus should be transferred to the first interactive element of the popover element when it opens.
+     * Whether or not the popover should close on outside interactions.
      */
-    autoFocus: oneOfType([bool, number]),
-    /**
-     * Whether or not the popover should close on outside interactions or `esc` keypress.
-     */
-    persistent: bool,
+    dismissable: bool,
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
@@ -82,8 +78,7 @@ export function InnerPopoverTrigger({
     trigger: triggerProp = "click",
     position: positionProp = "bottom",
     onOpenChange,
-    autoFocus,
-    persistent,
+    dismissable = true,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
@@ -98,10 +93,9 @@ export function InnerPopoverTrigger({
         open,
         defaultOpen,
         onOpenChange,
-        hideOnEscape: !persistent,
-        hideOLeave: !persistent,
-        hideOnOutsideClick: !persistent,
-        autoFocus,
+        hideOnEscape: true,
+        hideOnLeave: triggerProp === "hover" && dismissable,
+        hideOnOutsideClick: dismissable,
         restoreFocus: true,
         trigger: triggerProp,
         hasArrow: true,

@@ -116,9 +116,7 @@ export function InnerTooltipTrigger({
 
     const triggerProps = useOverlayTrigger({
         trigger: "hover",
-        onToggle: useEventCallback(event => {
-            updateIsOpen(event, !isOpen);
-        }),
+        isOpen,
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),

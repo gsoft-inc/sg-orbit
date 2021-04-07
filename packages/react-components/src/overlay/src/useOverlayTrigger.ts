@@ -4,15 +4,17 @@ import { isNil } from "lodash";
 
 export interface UseOverlayTriggerProps {
     trigger?: "click" | "hover";
-    onToggle?(event: SyntheticEvent): void;
+    isOpen: boolean;
     onShow?(event: SyntheticEvent): void;
     onHide?(event: SyntheticEvent): void;
 }
 
-export function useOverlayTrigger({ trigger = "click", onToggle, onShow, onHide }: UseOverlayTriggerProps = {}) {
+export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }: UseOverlayTriggerProps) {
     const toggle = (event: SyntheticEvent) => {
-        if (!isNil(onToggle)) {
-            onToggle(event);
+        if (isOpen) {
+            hide(event);
+        } else {
+            show(event);
         }
     };
 

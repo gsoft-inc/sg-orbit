@@ -3,8 +3,8 @@ import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
 import { Placement, useOverlayPosition } from "./useOverlayPosition";
 import { isNil, isNumber } from "lodash";
 import { isTargetParent } from "./isTargetParent";
-import { useOverlayLightDismiss } from "./useOverlayLightDismiss";
 import { useOverlayTrigger } from "./useOverlayTrigger";
+import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export interface UsePopupProps {
@@ -69,36 +69,28 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
 
     const triggerProps = useOverlayTrigger({
         trigger,
-        onToggle: useEventCallback(event => {
-            updateIsOpen(event, !isOpen);
-        }),
+        isOpen,
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
         onHide: useEventCallback(event => {
-            // Prevent from closing when the focus goes to an element of the overlay when opening.
+            // Prevent from closing when the focus goes to an element of the overlay on opening.
             if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
+                console.log("closing from trigger");
+
                 updateIsOpen(event, false);
             }
         })
     });
 
-    // Usefull for component enabling hide on outside click like the Popover.
-    const canHideOnInteractOutside = useCallback(event => {
-        return !isTargetParent(event.target, triggerElement);
-    }, [triggerElement]);
-
-    const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
+    const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {
         trigger,
         onHide: useEventCallback(event => {
-            // Ignore events related to the trigger to prevent double toggle.
-            if ((event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
-                updateIsOpen(event, false);
-            }
+            updateIsOpen(event, false);
         }),
         hideOnEscape: isOpen && hideOnEscape,
         hideOnLeave: isOpen && hideOnLeave,
-        hideOnOutsideClick: isOpen && hideOnOutsideClick ? canHideOnInteractOutside : false
+        hideOnOutsideClick: isOpen && hideOnOutsideClick
     });
 
     const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
