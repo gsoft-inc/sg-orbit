@@ -1,7 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Heading, InnerHeading } from "@react-components/heading";
-import { paramsBuilder } from "@stories/utils";
+import { H1, H2, H3, H4, H5, H6, Heading, InnerHeading } from "@react-components/heading";
 
 <Meta
     title="Components/Heading"
@@ -13,7 +12,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>Heading is used to create various levels of typographic hierarchies.</Tagline>
 
 <ComponentInfo
-    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    usage={"import { Heading, H1, H2, H3, H4, H5, H6 } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/heading/src"
 />
 
@@ -42,12 +41,29 @@ You can alter the size of the heading by specifying a `size` prop. The available
     </Story>
 </Preview>
 
+### Aliases
+
+Convience aliases are available for standard HTML headers.
+
+<Preview>
+    <Story name="aliases">
+        <>
+            <H1>Migrate, adapt, and control the cloud.</H1>
+            <H2>Migrate, adapt, and control the cloud.</H2>
+            <H3>Migrate, adapt, and control the cloud.</H3>
+            <H4>Migrate, adapt, and control the cloud.</H4>
+            <H5>Migrate, adapt, and control the cloud.</H5>
+            <H6>Migrate, adapt, and control the cloud.</H6>
+        </>
+    </Story>
+</Preview>
+
 ## API
 
 ### Heading
 
 <ComponentInfo
-    usage={"import { Heading } from \"@orbit-ui/react-components\""}
+    usage={"import { Heading, H1, H2, H3, H4, H5, H6 } from \"@orbit-ui/react-components\""}
     compact
 />
 
