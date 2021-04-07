@@ -32,7 +32,7 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("alias", () =>
+    .add("aliases", () =>
         <>
             <H1>Migrate, adapt, and<br />control the cloud.</H1>
             <H2>Migrate, adapt, and<br />control the cloud.</H2>
