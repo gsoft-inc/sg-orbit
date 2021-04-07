@@ -79,3 +79,7 @@ export type ParagraphProps = ComponentProps<typeof Paragraph>
 
 Paragraph.displayName = "Paragraph";
 
+// Alias
+export const P = Paragraph;
+
+

@@ -53,12 +53,12 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 ////////
 
 export function createMultiVariantIcon(type24: ElementType, type32: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32" | "forwardedRef">, "svg">((props, ref) =>
-        <MultiVariantIcon
+    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32">, "svg">((props, ref) =>
+        <InnerMultiVariantIcon
             {...props}
             type24={type24}
             type32={type32}
-            ref={ref}
+            forwardedRef={ref}
         />
     ));
 }
