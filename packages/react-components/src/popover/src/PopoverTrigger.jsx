@@ -151,6 +151,7 @@ export function InnerPopoverTrigger({
     );
 }
 
+InnerPopoverTrigger.propTypes = propTypes;
 
 export const PopoverTrigger = forwardRef((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
