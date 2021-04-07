@@ -25,9 +25,9 @@ function AsyncText({ id, children, ...rest }) {
         <Box {...rest}>
             {isNil(text) ? (
                 <div className="pa10 relative">
-                    <Dimmer active>
-                        <Loader />
-                    </Dimmer>
+                    <div className="loading">
+                        <span></span>
+                    </div>
                 </div>
             ) : text}
         </Box>
