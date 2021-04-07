@@ -32,8 +32,8 @@ function useNodeFilter(nodes) {
     return [results, filter];
 }
 
-export function useCollectionSearch(children, { items, onSearch }) {
-    const nodes = useCollection(children, { items });
+export function useCollectionSearch(children, { onSearch }) {
+    const nodes = useCollection(children);
 
     const [filterResults, filterNodes] = useNodeFilter(nodes);
 

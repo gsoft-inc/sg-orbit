@@ -22,7 +22,7 @@ import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { NodeType, useCollection } from "../../collection";
 import { SelectionMode } from "./selectionMode";
-import { any, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
 
@@ -48,10 +48,6 @@ const propTypes = {
      * The type of selection that is allowed.
      */
     selectionMode: oneOf(["none", "single", "multiple"]),
-    /**
-     * Items to render.
-     */
-    items: arrayOf(object),
     /**
      * Whether or not the menu should autofocus on render.
      */
@@ -80,7 +76,6 @@ export function InnerMenu({
     defaultSelectedKeys,
     onSelectionChange,
     selectionMode = "none",
-    items,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -172,7 +167,7 @@ export function InnerMenu({
         })
     });
 
-    const nodes = useCollection(children, { items });
+    const nodes = useCollection(children);
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 

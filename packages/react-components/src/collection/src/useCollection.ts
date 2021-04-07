@@ -123,14 +123,14 @@ export class CollectionBuilder {
         return parsedItem;
     }
 
-    build(children: ReactNode, { items }: Collection) {
+    build(children: ReactNode) {
         if (isNil(children)) {
             return [];
         }
 
         let index = 0;
 
-        const elements = resolveChildren(children, { items: items ?? [] });
+        const elements = resolveChildren(children);
 
         const incrementIndex = () => {
             return index++;
@@ -154,12 +154,8 @@ export class CollectionBuilder {
     }
 }
 
-export interface Collection {
-    items?: CollectionItem[];
-}
-
-export function useCollection(children: ReactNode, { items }: Collection = {}) {
+export function useCollection(children: ReactNode) {
     const builder = useMemo(() => new CollectionBuilder(), []);
 
-    return useMemo(() => builder.build(children, { items }), [builder, children, items]);
+    return useMemo(() => builder.build(children), [builder, children]);
 }
