@@ -2,7 +2,7 @@ import { Children, forwardRef, useCallback } from "react";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren } from "../../shared";
+import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -88,6 +88,8 @@ export function InnerPopoverTrigger({
     forwardedRef,
     ...rest
 }) {
+    const overlayRef = useMergedRefs(forwardedRef);
+
     const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
         id,
         open,
@@ -103,6 +105,10 @@ export function InnerPopoverTrigger({
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement
+    });
+
+    useAutoFocus(overlayRef, {
+        isDisabled: !isOpen || triggerProp !== "click"
     });
 
     const close = useCallback(event => {
@@ -133,7 +139,7 @@ export function InnerPopoverTrigger({
                         zIndex,
                         className: "o-ui-popover-overlay",
                         as,
-                        ref: forwardedRef
+                        ref: overlayRef
                     },
                     overlayProps
                 )}
@@ -145,7 +151,6 @@ export function InnerPopoverTrigger({
     );
 }
 
-InnerPopoverTrigger.propTypes = propTypes;
 
 export const PopoverTrigger = forwardRef((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />

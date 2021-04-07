@@ -1,5 +1,5 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
-import { ModalTriggerContext } from "./ModalTriggerContext";
+import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 import { augmentElement, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
@@ -10,7 +10,7 @@ TODO:
     - I believe we need some way to hide the elements behind the underlay from screen readers.. See spectrum.
 */
 
-interface InnerModalTriggerProps {
+interface InnerDialogTriggerProps {
     /**
      * Whether or not to show the modal element.
      */
@@ -48,7 +48,7 @@ interface InnerModalTriggerProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerModalTrigger({
+export function InnerDialogTrigger({
     open: openProp,
     defaultOpen,
     onOpenChange,
@@ -58,7 +58,7 @@ export function InnerModalTrigger({
     children,
     forwardedRef,
     ...rest
-}: InnerModalTriggerProps) {
+}: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
     const modalRef = useMergedRefs(forwardedRef);
@@ -114,7 +114,7 @@ export function InnerModalTrigger({
     });
 
     return (
-        <ModalTriggerContext.Provider
+        <DialogTriggerContext.Provider
             value={{
                 isOpen,
                 open,
@@ -135,14 +135,14 @@ export function InnerModalTrigger({
             >
                 {modalMarkup}
             </Overlay>
-        </ModalTriggerContext.Provider>
+        </DialogTriggerContext.Provider>
     );
 }
 
-export const ModalTrigger = forwardRef<InnerModalTriggerProps>((props, ref) => (
-    <InnerModalTrigger {...props} forwardedRef={ref} />
+export const DialogTrigger = forwardRef<InnerDialogTriggerProps>((props, ref) => (
+    <InnerDialogTrigger {...props} forwardedRef={ref} />
 ));
 
-export type ModalProps = ComponentProps<typeof ModalTrigger>;
+export type DialogTriggerProps = ComponentProps<typeof DialogTrigger>;
 
-ModalTrigger.displayName = "ModalTrigger";
+DialogTrigger.displayName = "DialogTrigger";

@@ -7,7 +7,7 @@ import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
 import { cssModule, forwardRef, mergeProps, useAutoFocus, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver, useSlots } from "../../shared";
 import { isNil } from "lodash";
-import { useModalTriggerContext } from "./ModalTriggerContext";
+import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 interface InnerModalProps {
     /**
@@ -108,7 +108,7 @@ export function InnerModal({
 
     const modalRef = useMergedRefs(forwardedRef);
 
-    const { close } = useModalTriggerContext();
+    const { close } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
