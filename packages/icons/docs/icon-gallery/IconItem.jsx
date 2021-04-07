@@ -1,6 +1,6 @@
 import "./IconItem.css";
 
-import { Content, Heading, Modal, ModalTrigger } from "@react-components";
+import { Content, DialogTrigger, Heading, Modal } from "@react-components";
 import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";
@@ -31,7 +31,7 @@ export function IconItem({ name, multiVariant, variants }) {
     const displayName = getDisplayName(name);
 
     return (
-        <ModalTrigger
+        <DialogTrigger
             open={isModalOpen}
             onOpenChange={handleModalOpenChange}
             dismissable
@@ -54,7 +54,7 @@ export function IconItem({ name, multiVariant, variants }) {
                     />
                 </Content>
             </Modal>
-        </ModalTrigger>
+        </DialogTrigger>
     );
 }
 
