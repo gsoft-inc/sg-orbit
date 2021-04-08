@@ -1,18 +1,14 @@
 import { Box } from "../../box";
 import { CollectionItem } from "../../collection";
+import { DOMProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
 
-export interface InnerMenuItemProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerMenuItemProps extends DOMProps, InteractionStatesProps {
     /**
      * Matching collection item.
      */

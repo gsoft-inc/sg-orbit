@@ -4,7 +4,7 @@ import { isFunction, isNil, isString, isUndefined } from "lodash";
 
 const SlotKey = "__slot__";
 
-interface SlottableType {
+interface SlotableType {
     [SlotKey]?: string;
 }
 
@@ -21,7 +21,7 @@ function findSlots(children: ReactNode, slots: string[]) {
         .toArray(children)
         .reduce((acc: Record<string, any>, x: ReactElement) => {
             if (!isNil(x)) {
-                const slotKey = (x.props && x.props["slot"]) ?? (x.type && (x.type as SlottableType)[SlotKey]);
+                const slotKey = (x.props && x.props["slot"]) ?? (x.type && (x.type as SlotableType)[SlotKey]);
 
                 if (!isNil(slotKey) && slots.includes(slotKey)) {
                     acc[slotKey] = x;
@@ -94,7 +94,7 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
 
     if (!isNil(Wrapper)) {
         if (Object.keys(slotElements).length === 0 && !isNil(children)) {
-            const wrapperSlot = (Wrapper as SlottableType)[SlotKey];
+            const wrapperSlot = (Wrapper as SlotableType)[SlotKey];
 
             if (isNil(wrapperSlot)) {
                 throw new Error("A default wrapper should have a slot key.");

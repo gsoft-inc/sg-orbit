@@ -4,6 +4,7 @@ import { Box, BoxProps } from "../../box";
 import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    DOMProps,
     Keys,
     appendEventKey,
     cssModule,
@@ -28,11 +29,7 @@ import { isNil, isNumber } from "lodash";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-export interface InnerMenuProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerMenuProps extends DOMProps {
     /**
      * A controlled set of the selected item keys.
      */

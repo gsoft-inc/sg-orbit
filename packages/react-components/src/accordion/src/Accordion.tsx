@@ -5,6 +5,7 @@ import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    DOMProps,
     Keys,
     forwardRef,
     mergeProps,
@@ -25,11 +26,7 @@ export enum ExpansionMode {
     multiple = "multiple"
 }
 
-export interface InnerAccordionProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerAccordionProps extends DOMProps {
     /**
      * A controlled set of expanded item keys.
      */
