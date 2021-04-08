@@ -13,7 +13,7 @@
     border: 1px solid var(--o-ui-date-range-input-border-color);
     color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);
-    width: 340px;
+    width: 325px;
 }
 
 /* FLUID */
@@ -35,8 +35,13 @@
 }
 
 /* STATES | HOVER */
-.o-ui-date-range-input:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
+.o-ui-date-range-input:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled),
+.o-ui-date-range-input-hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
     border-color: var(--o-ui-alias-border-1-hover);
+}
+
+.o-ui-date-range-input.o-ui-date-range-input-invalid:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
+    border-color: var(--o-ui-alias-border-negative-1-hover);
 }
 
 /* STATES | DISABLED */

@@ -14,6 +14,7 @@
     min-width: 200px;
     max-width: 325px;
     box-shadow: var(--o-ui-alias-elevation-lifted);
+    overflow-y: auto;
 }
 
 /* ITEM */

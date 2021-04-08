@@ -30,13 +30,13 @@
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--o-ui-global-background-1);
+    background-color: var(--o-ui-alias-background-1);
     cursor: pointer;
     border: 0;
     border-top: 1px solid var(--o-ui-alias-border-2);
     transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
     width: 100%;
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-alias-text-2);
     line-height: inherit;
     font-weight: inherit;
 }
@@ -70,7 +70,7 @@
     color: var(--o-ui-text-1);
     padding-left: var(--o-ui-global-scale-echo);
     padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-foxtrot));
-    background-color: var(--o-ui-global-background-1);
+    background-color: var(--o-ui-alias-background-1);
 }
 
 /* STATES */
@@ -85,14 +85,15 @@
 }
 
 /* HOVER */
-.o-ui-accordion-trigger:hover ,
-.o-ui-accordion-trigger-hover {
-    background-color: var( --o-ui-global-background-3);
+.o-ui-accordion-trigger:not([disabled]):hover ,
+.o-ui-accordion-trigger-hover:not([disabled]) {
+    color: var(--o-ui-alias-text-2-hover);
 }
 
-/* HOVER | DISABLED */
-.o-ui-accordion-trigger[disabled]:hover {
-    background-color: var(--o-ui-global-background-1);
+/* FOCUR */
+.o-ui-accordion-trigger:not([disabled]):active,
+.o-ui-accordion-trigger-active:not([disabled]) {
+    color: var(--o-ui-alias-text-2-active);
 }
 
 /* FOCUS */

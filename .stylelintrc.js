@@ -15,8 +15,6 @@ module.exports = {
             "vw",
             "s",
             "ch"
-        ],
-        // "block-opening-brace-newline-before": "never-multi-line",
-        // "block-opening-brace-space-before": "always",
+        ]
     }
 };

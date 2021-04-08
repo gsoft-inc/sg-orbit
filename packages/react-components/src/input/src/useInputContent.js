@@ -21,5 +21,3 @@ export function useInputButton(button, isActive, props = {}) {
         className: "o-ui-input-button"
     });
 }
-
-
