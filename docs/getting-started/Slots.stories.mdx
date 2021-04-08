@@ -1,3 +1,4 @@
+import { Figure } from "@stories/components";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@stories/utils";
 
@@ -11,4 +12,73 @@ import { paramsBuilder } from "@stories/utils";
 
 # Slots
 
-TBD
+Slots solve a variety of use cases by allowing a component to offer multiple layouts in a declarative way.
+
+It's done by giving a component the ability to offer *named placeholders* which could then be filled by the component consumer to achieve the final layout.
+
+For more information about the *concept of slots*, have a look at web component slots on [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots).
+
+In Orbit, slots are defined [implicitly](#) or [explicitly](#) and are fulfilled through the component children.
+
+In the following example, the `<Text>` component implicitly fulfill the `text` slot and the `<LightbulbIcon>` component explicitly fulfill the `end-icon` slot.
+
+```jsx
+<Button>
+    <Text>Cutoff</Text>
+    <LightbulbIcon slot="end-icon" />
+</Button>
+```
+
+To identify which slots are available for a component, view the API section of the component. [Have a look at the button component slots](?path=/docs/button--default-story#button-1).
+
+<Figure url="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/docs/getting-started/assets/vertical-rythm-in-action.png" caption="Button api" width="524" height="196" />
+
+## Implicit slots
+
+Most *slotables* Orbit components come with a default slot name.
+
+For example, an `<Icon>` component will implicitly fulfill an `icon` slot and a `<Button>` component will implicitly fulfill a `button` slot.
+
+To use an implicit slot, all you have to do is declare a component having a default slot as a children of a component accepting the given slot.
+
+```jsx
+<Button>
+    <LightbulbIcon />
+    <Text>Cutoff</Text>
+</Button>
+```
+
+You can define an implicit slot on a custom component by using the `slot` function.
+
+```js
+import { slot } from "@orbit-ui/react-components";
+
+export const MyComponent = slot("the-slot-name-to-fulfill", (
+    <div>A custom component</div>
+));
+```
+
+## Explicit slots
+
+An explicit slot is defined by specifying the `slot` prop on a component declaration.
+
+```jsx
+<Button>
+    <Text>Cutoff</Text>
+    <LightbulbIcon slot="end-icon" />
+</Button>
+```
+
+For native HTML elements, instead of specifying an explicit slot directly on the element, we do recommend you use the [`<Box>`](?path=/docs/box--default-story) component to ensure no `slot` attributes are rendered on the element.
+
+```jsx
+<Card>
+    <H1>SpaceX delays launch of South Korean military satellite</H1>
+    <Box slot="content">SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.</Box>
+    <Box slot="footer">Copyright @2021</Box>
+</Card>
+```
+
+> A component default slot can be overrided by defining an explicit slot.
+
+

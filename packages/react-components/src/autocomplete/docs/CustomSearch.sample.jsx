@@ -17,12 +17,11 @@ const Planets = [
 
     return (
         <Autocomplete
-            items={selectedPlanets}
             onSearch={handleSearch}
             placeholder="Planets"
             aria-label="Planets"
         >
-            {({ items }) => items.map((x => (
+            {selectedPlanets.map((x => (
                 <Item key={x.key}>{x.value}</Item>
             )))}
         </Autocomplete>
