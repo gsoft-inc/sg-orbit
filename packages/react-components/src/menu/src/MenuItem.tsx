@@ -1,4 +1,5 @@
 import { Box } from "../../box";
+import { CollectionItem } from "../../collection";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { SelectionMode } from "./selectionMode";
@@ -15,13 +16,7 @@ export interface InnerMenuItemProps extends InteractionStatesProps {
     /**
      * Matching collection item.
      */
-    item: {
-        key: string;
-        tooltip?: {
-            props: Record<string, any>;
-            content: ReactElement;
-        },
-    };
+    item: CollectionItem;
     /**
      * Whether or not the item is disabled.
      */
@@ -87,10 +82,10 @@ export function InnerMenuItem({
         _: {
             defaultWrapper: Text
         },
-        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+        icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-menu-item-start-icon",
-                size: isNil(allElements.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : undefined
             };
         },
         avatar: {
