@@ -198,7 +198,6 @@ export function InnerTextArea(props) {
     );
 }
 
-InnerTextArea.propTypes = propTypes;
 
 export const TextArea = forwardRef((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />

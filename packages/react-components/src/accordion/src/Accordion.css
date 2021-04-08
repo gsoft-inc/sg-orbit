@@ -85,20 +85,15 @@
 }
 
 /* HOVER */
-.o-ui-accordion-trigger:hover ,
-.o-ui-accordion-trigger-hover {
+.o-ui-accordion-trigger:not([disabled]):hover ,
+.o-ui-accordion-trigger-hover:not([disabled]) {
     color: var(--o-ui-alias-text-2-hover);
 }
 
 /* FOCUR */
-.o-ui-accordion-trigger:active ,
-.o-ui-accordion-trigger-ac:active {
+.o-ui-accordion-trigger:not([disabled]):active,
+.o-ui-accordion-trigger-active:not([disabled]) {
     color: var(--o-ui-alias-text-2-active);
-}
-
-/* HOVER | DISABLED */
-.o-ui-accordion-trigger[disabled]:hover {
-    background-color: var(--o-ui-alias-background-1);
 }
 
 /* FOCUS */

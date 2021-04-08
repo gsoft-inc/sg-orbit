@@ -49,8 +49,8 @@
     content: "";
     position: absolute;
     top: 10%;
-    left: 0;
     right: 0;
+    left: 0;
     bottom: 0;
     height: 80%;
     border-left: 1px solid var(--o-ui-alias-border-1);

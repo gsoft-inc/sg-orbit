@@ -203,6 +203,10 @@
     cursor: not-allowed;
 }
 
+.o-ui-input-disabled > * {
+    cursor: not-allowed;
+}
+
 /* STATES | LOADING */
 @keyframes o-ui-input-spinner {
     0% {
