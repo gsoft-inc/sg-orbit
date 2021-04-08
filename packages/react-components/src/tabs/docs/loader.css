@@ -1,4 +1,4 @@
-.loading {
+.o-ui-sb-loading {
     position: absolute;
     background-color: var(--o-ui-alias-background-2);
     top: 0;
@@ -7,7 +7,7 @@
     bottom: 0;
 }
 
-.loading:before {
+.o-ui-sb-loading:before {
     width: 1.5rem;
     height: 1.5rem;
     content: "";
