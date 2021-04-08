@@ -20,6 +20,7 @@ INTERACTION TESTS:
         - close on blur
         - close on esc when focus on overlay
         - close on esc when focus on trigger
+    - dismissable
 */
 
 function stories(segment) {
@@ -281,39 +282,6 @@ stories()
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("autofocus first focusable element", () =>
-        <PopoverTrigger autoFocus open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>
-                    <Form fluid>
-                        <Field>
-                            <Label>First Name</Label>
-                            <TextInput name="first-name" />
-                        </Field>
-                        <Field>
-                            <Label>Last Name</Label>
-                            <TextInput name="last-name" />
-                        </Field>
-                    </Form>
-                </Content>
-                <ButtonGroup>
-                    <Button color="secondary">Cancel</Button>
-                    <Button color="primary">Save</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("autofocus with only close button", () =>
-        <PopoverTrigger autoFocus defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
     )

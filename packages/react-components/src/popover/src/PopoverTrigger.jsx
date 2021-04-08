@@ -2,7 +2,7 @@ import { Children, forwardRef, useCallback } from "react";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren } from "../../shared";
+import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
 const propTypes = {
@@ -46,13 +46,9 @@ const propTypes = {
      */
     onOpenChange: func,
     /**
-     * Whether or not the focus should be transferred to the first interactive element of the popover element when it opens.
+     * Whether or not the popover should close on outside interactions.
      */
-    autoFocus: oneOfType([bool, number]),
-    /**
-     * Whether or not the popover should close on outside interactions or `esc` keypress.
-     */
-    persistent: bool,
+    dismissable: bool,
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
@@ -82,29 +78,26 @@ export function InnerPopoverTrigger({
     trigger: triggerProp = "click",
     position: positionProp = "bottom",
     onOpenChange,
-    autoFocus,
-    persistent,
+    dismissable = true,
     allowFlip = true,
     allowPreventOverflow = true,
     containerElement,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
     ...rest
 }) {
+    const overlayRef = useMergedRefs(forwardedRef);
+
     const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
         id,
         open,
         defaultOpen,
         onOpenChange,
-        hideOnEscape: !persistent,
-        hideOLeave: !persistent,
-        hideOnOutsideClick: !persistent,
-        autoFocus,
-        autoFocusOptions: {
-            canFocus: useCallback(element => element.id !== "o-ui-popover-close-button", [])
-        },
+        hideOnEscape: true,
+        hideOnLeave: triggerProp === "hover" && dismissable,
+        hideOnOutsideClick: dismissable,
         restoreFocus: true,
         trigger: triggerProp,
         hasArrow: true,
@@ -112,6 +105,10 @@ export function InnerPopoverTrigger({
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement
+    });
+
+    useAutoFocus(overlayRef, {
+        isDisabled: !isOpen || triggerProp !== "click"
     });
 
     const close = useCallback(event => {
@@ -142,7 +139,7 @@ export function InnerPopoverTrigger({
                         zIndex,
                         className: "o-ui-popover-overlay",
                         as,
-                        ref: forwardedRef
+                        ref: overlayRef
                     },
                     overlayProps
                 )}

@@ -226,7 +226,7 @@ stories()
             </Item>
         </Accordion>
     )
-    .add("array map", () =>
+    .add("dynamic items", () =>
         <Stack>
             <Accordion>
                 {["1", "2", "3"].map(x => (

@@ -2,7 +2,6 @@ import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
 import { RefObject, useEffect } from "react";
 import { disposables } from "./useDisposables";
-import { isNil } from "lodash";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
@@ -41,14 +40,14 @@ export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { i
         isDisabled,
         delay,
         onFocus: useChainedEventCallback(onFocus, () => {
-            if (!isNil(targetRef.current) && !targetRef.current.hasAttribute("disabled")) {
+            if (!targetRef.current?.hasAttribute("disabled") && !targetRef.current?.contains(document.activeElement)) {
                 targetRef.current.focus();
             }
         })
     });
 }
 
-interface AutoFocusChildOptions extends FocusOptions {
+export interface AutoFocusChildOptions extends FocusOptions {
     target?: FocusTarget,
     isDisabled?: boolean,
     delay?: number,
