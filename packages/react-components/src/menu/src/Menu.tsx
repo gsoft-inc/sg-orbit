@@ -24,8 +24,8 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { SelectionMode } from "./selectionMode";
 import { isNil, isNumber } from "lodash";
+import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";
 
@@ -88,7 +88,7 @@ export function InnerMenu({
     selectedKeys: selectedKeysProp,
     defaultSelectedKeys,
     onSelectionChange,
-    selectionMode = SelectionMode.none,
+    selectionMode = "none",
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -111,7 +111,7 @@ export function InnerMenu({
     const handleSelectItem = useEventCallback((event, key) => {
         let newKeys;
 
-        if (selectionMode === SelectionMode.multiple) {
+        if (selectionMode === "multiple") {
             newKeys = selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         } else {
             newKeys = selectedKeys.includes(key) ? [] : [key];
@@ -121,7 +121,7 @@ export function InnerMenu({
             onSelectionChange(event, newKeys);
         }
 
-        if (selectionMode !== SelectionMode.none) {
+        if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
         }
     });
@@ -171,7 +171,7 @@ export function InnerMenu({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== SelectionMode.none ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: (selectionMode !== "none" ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {

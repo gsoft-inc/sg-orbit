@@ -2,11 +2,11 @@ import { Box } from "../../box";
 import { CollectionItem } from "../../collection";
 import { DOMProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
-import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
+import type { SelectionMode } from "./selectionMode";
 
 export interface InnerMenuItemProps extends DOMProps, InteractionStatesProps {
     /**
@@ -31,10 +31,10 @@ export interface InnerMenuItemProps extends DOMProps, InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const Role = {
-    [SelectionMode.none]: "menuitem",
-    [SelectionMode.single]: "menuitemradio",
-    [SelectionMode.multiple]: "menuitemcheckbox"
+const Role: Record<SelectionMode, string> = {
+    none: "menuitem",
+    single: "menuitemradio",
+    multiple: "menuitemcheckbox"
 };
 
 export function InnerMenuItem({
