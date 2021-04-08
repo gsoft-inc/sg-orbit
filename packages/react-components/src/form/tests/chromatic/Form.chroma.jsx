@@ -131,7 +131,7 @@ stories()
             <div>
                 <Field>
                     <Label>Departure date</Label>
-                    <DateInput fluid placeholder="dd/mm/yyyy" />
+                    <DateInput placeholder="dd/mm/yyyy" />
                 </Field>
                 <div>
                     <Field>
