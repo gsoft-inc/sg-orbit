@@ -1,5 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-@loaderFillColor: @cloud100;
-@shapeBorderColor: @cloud500 @transparent @transparent;

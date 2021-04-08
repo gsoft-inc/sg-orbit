@@ -53,10 +53,6 @@ export interface InnerMenuProps {
      */
     selectionMode?: SelectionMode;
     /**
-     * Items to render.
-     */
-    items?: Record<string, any>[];
-    /**
      * Whether or not the menu should autofocus on render.
      */
     autoFocus?: boolean | number;
@@ -96,7 +92,6 @@ export function InnerMenu({
     defaultSelectedKeys,
     onSelectionChange,
     selectionMode = SelectionMode.none,
-    items,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -188,7 +183,7 @@ export function InnerMenu({
         })
     });
 
-    const nodes = useCollection(children, { items });
+    const nodes = useCollection(children);
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 

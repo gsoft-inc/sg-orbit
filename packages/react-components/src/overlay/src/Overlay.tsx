@@ -43,7 +43,7 @@ export function InnerOverlay({
     show,
     borderOffset,
     containerElement,
-    zIndex = 10000,
+    zIndex,
     as = "div",
     children,
     forwardedRef,
@@ -69,7 +69,6 @@ export function InnerOverlay({
                             "--o-ui-overlay-border-offset": borderOffset,
                             zIndex
                         },
-                        role: "presentation",
                         as,
                         ref: forwardedRef
                     }

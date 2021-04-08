@@ -1,6 +1,7 @@
 import "./Snippet.css";
 
 import { isNil } from "lodash";
+import { mergeClasses } from "@react-components/shared";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
 import { useState } from "react";
@@ -15,12 +16,19 @@ const propTypes = {
 
 export const CodeTheme = theme;
 
-function CodeBlock({ code, language }) {
+function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
     const formattedCode = useFormattedCode(code, language);
 
     return (
-        <div className="o-ui-sb-snippet docblock-source">
+        <div
+            className={mergeClasses(
+                "o-ui-sb-snippet",
+                "docblock-source",
+                wrapperClassName
+            )}
+        >
             <Highlight
+                {...rest}
                 {...defaultProps}
                 code={formattedCode}
                 language={language}
@@ -42,7 +50,7 @@ function CodeBlock({ code, language }) {
     );
 }
 
-function FileSnippet({ filePath, language }) {
+function FileSnippet({ filePath, language, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -54,17 +62,16 @@ function FileSnippet({ filePath, language }) {
         return null;
     }
 
-    return <CodeBlock code={code} language={language} />;
+    return <CodeBlock code={code} language={language} {...rest} />;
 }
 
-export function Snippet({ code, filePath, language = "jsx" }) {
+export function Snippet({ code, filePath, language = "jsx", ...rest }) {
     if (!isNil(filePath)) {
-        return <FileSnippet filePath={filePath} language={language} />;
+        return <FileSnippet filePath={filePath} language={language} {...rest} />;
     }
 
-    return <CodeBlock code={code} language={language} />;
+    return <CodeBlock code={code} language={language} {...rest} />;
 }
 
 Snippet.propTypes = propTypes;
-
 

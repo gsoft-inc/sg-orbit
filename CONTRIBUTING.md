@@ -261,8 +261,6 @@ Install the npm dependencies for every packages of the monorepo and Storybook. O
 
 Depending of the packages / Storybook, the setup step will perform a number of required additional installation tasks.
 
-As an example, the *semantic-ui-theme* package must be **build once** before it can be **watch**.
-
 ```bash
 yarn bootstrap
 ```
@@ -544,10 +542,6 @@ Example:
 ```
 
 ## Gotchas to remember
-
-### --ignore-scripts
-
-The `bootstrap` command specify `--ignore-scripts` to yarn install because otherwise semantic-ui will try to reinstall everytime a `yarn install` is executed. I haven't found any other way to prevent it.
 
 ### Chromatic QA & custom font
 

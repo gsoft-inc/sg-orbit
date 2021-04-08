@@ -124,15 +124,15 @@ A popover component can update update his content based on the `isOpen` value of
 
 <Preview filePath="/popover/docs/PopoverContext" />
 
-### Persistent mode
+### Dismissable
 
-A popover can be rendered in *persistent mode* which will force the user to explicitly dismiss the popover with a targeted call to action.
+By default, a popover will dismiss *on outside interactions*. However, in some cases, you might want to force the user to explicitly dismiss the popover with a targeted call to action. This is what the `dismissable` prop is for.
 
-The call to action can dismiss the popover by calling a `close` function which can be retrieved from either `usePopoverTriggerContext` or the render props.
+A call to action can dismiss the popover by calling a `close` function which can be retrieved from either `usePopoverTriggerContext` or the render props.
 
 <Preview>
-    <Story name="persistent">
-        <PopoverTrigger persistent>
+    <Story name="dismissable">
+        <PopoverTrigger dismissable={false}>
             {({ close }) => (
                 <>
                     <Button>Trigger</Button>
@@ -143,6 +143,23 @@ The call to action can dismiss the popover by calling a `close` function which c
                     </Popover>
                 </>
             )}
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Autofocus
+
+A *focusable element* of a popover can be autofocused on open. To do so, ensure your component *support autofocus* and add the `autoFocus` prop to the component.
+
+<Preview>
+    <Story name="autofocus">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button autoFocus color="primary">Accept</Button>
+            </Popover>
         </PopoverTrigger>
     </Story>
 </Preview>

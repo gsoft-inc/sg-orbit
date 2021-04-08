@@ -73,7 +73,7 @@ export function InnerMenuTrigger({
     align = "start",
     allowFlip,
     allowPreventOverflow,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
@@ -166,6 +166,7 @@ export function InnerMenuTrigger({
         <MenuTriggerContext.Provider
             value={{
                 isOpen,
+                open,
                 close
             }}
         >

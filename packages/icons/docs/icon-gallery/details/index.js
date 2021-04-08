@@ -1,1 +1,1 @@
-export * from "./IconModal";
+export * from "./IconDetail";

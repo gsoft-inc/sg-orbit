@@ -91,7 +91,7 @@ export function InnerTooltipTrigger({
     disabled,
     allowFlip = true,
     containerElement,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
@@ -116,9 +116,7 @@ export function InnerTooltipTrigger({
 
     const triggerProps = useOverlayTrigger({
         trigger: "hover",
-        onToggle: useEventCallback(event => {
-            updateIsOpen(event, !isOpen);
-        }),
+        isOpen,
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
