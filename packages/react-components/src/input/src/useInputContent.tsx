@@ -1,7 +1,11 @@
-import { EmbeddedIcon } from "../../icons";
+import { EmbeddedIcon, EmbeddedIconProps } from "../../icons";
+import { ReactElement, ReactNode } from "react";
 import { embedIconButton } from "../../button";
 
-export function useInputIcon(icon, props = {}) {
+
+type UseInputIconProps = Omit<EmbeddedIconProps, "className" | "children">
+
+export function useInputIcon(icon: ReactNode, props: UseInputIconProps = {}) {
     return icon && (
         <EmbeddedIcon
             {...props}
@@ -12,7 +16,7 @@ export function useInputIcon(icon, props = {}) {
     );
 }
 
-export function useInputButton(button, isActive, props = {}) {
+export function useInputButton(button: ReactElement, isActive: boolean, props: Record<string, any> = {}) {
     return button && isActive && embedIconButton(button, {
         ...props,
         variant: "ghost",

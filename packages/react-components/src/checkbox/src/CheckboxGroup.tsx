@@ -3,6 +3,7 @@ import "./CheckboxGroup.css";
 import {
     CheckableContext,
     augmentElement,
+    forwardRef,
     mergeProps,
     omitProps,
     resolveChildren,
@@ -13,77 +14,80 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { Children, forwardRef } from "react";
+import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil, isNumber } from "lodash";
 import { useGroupInput } from "../../input";
 
-const propTypes = {
+export interface InnerCheckboxGroupProps {
     /**
    * The value of the checkbox group.
    */
-    value: oneOfType([arrayOf(string), arrayOf(number)]),
+    value?: (string | number)[];
     /**
      * The initial value of `value`.
      */
-    defaultValue: oneOfType([arrayOf(string), arrayOf(number)]),
+    defaultValue?: (string | number)[];
     /**
      * Whether a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether the group should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when any of the children is checked or unchecked..
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string[] | number[]} value - The new value.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, value: (string | number)[]): void;
     /**
      * Whether or not the first checkbox of the group should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * The orientation of the group elements.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * The space between the group elements.
      */
-    gap: oneOfType([oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]), string]),
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
      * Whether the group elements are forced onto one line or can wrap onto multiple lines
      */
-    wrap: bool,
+    wrap?: boolean;
     /**
      * The group elements size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Whether or not the group elements are disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * Invert the order of the checkbox and his label.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-function arrayToggleValue(array, value) {
+function arrayToggleValue<T>(array: T[], value: T) {
     if (isNil(array)) {
         return [value];
     }
@@ -100,7 +104,7 @@ function arrayToggleValue(array, value) {
     return [...array, value];
 }
 
-export function InnerCheckboxGroup(props) {
+export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
 
@@ -153,7 +157,7 @@ export function InnerCheckboxGroup(props) {
         groupRef
     });
 
-    const handleCheck = useEventCallback((event, newValue) => {
+    const handleCheck = useEventCallback((event, newValue: string | number) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
         setCheckedValue(newCheckedValue);
@@ -180,7 +184,7 @@ export function InnerCheckboxGroup(props) {
                             checkedValue
                         }}
                     >
-                        {Children.map(items, x => {
+                        {Children.map(items, (x: ReactElement) => {
                             return augmentElement(x, {
                                 ...itemProps,
                                 role: "checkbox"
@@ -193,9 +197,7 @@ export function InnerCheckboxGroup(props) {
     );
 }
 
-InnerCheckboxGroup.propTypes = propTypes;
-
-export const CheckboxGroup = forwardRef((props, ref) => (
+export const CheckboxGroup = forwardRef<InnerCheckboxGroupProps>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
 

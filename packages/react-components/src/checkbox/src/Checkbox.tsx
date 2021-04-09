@@ -1,73 +1,106 @@
-import "./Switch.css";
+import "./Checkbox.css";
 
 import { Box } from "../../box";
+import { ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { embeddedIconSize } from "../../icons";
-import { forwardRef, useMemo } from "react";
-import { mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
-import { useCheckbox } from "../../checkbox";
+import { isNil } from "lodash";
+import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
-     * A controlled checked state value.
+     * @ignore
      */
-    checked: bool,
+    name?: string;
+    /**
+     * @ignore
+     */
+    tabIndex?: number;
+    /**
+    * A controlled checked state value.
+    */
+    checked?: boolean;
     /**
      * The initial value of `checked` when uncontrolled.
      */
-    defaultChecked: bool,
+    defaultChecked?: boolean;
+    /**
+     * A controlled indeterminate state value.
+     */
+    indeterminate?: boolean;
+    /**
+     * The initial value of `indeterminate`.
+     */
+    defaultIndeterminate?: boolean;
+    /**
+     * The value to associate with when in a group.
+     */
+    value?: string | number;
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the checkbox should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * A checkbox can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
+    /**
+     * Whether or not the checkbox is disabled.
+     */
+    disabled?: boolean;
     /**
      * Invert the order the checkmark box and the label.
      */
-    reverse: bool,
+    reverse?: boolean;
     /**
-     * Called when the switch checked state change.
+     * Called when the checkbox checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func])
-};
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function InnerSwitch(props) {
-    const [toolbarProps] = useToolbarProps();
+export function InnerCheckbox(props: InnerCheckboxProps) {
+    const [checkableProps] = useCheckableProps(props);
     const [fieldProps, isInField] = useFieldInputProps();
+    const [toolbarProps] = useToolbarProps();
 
     const {
         id,
         checked,
         defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
+        value,
         autoFocus,
         required,
         validationState,
         onChange,
+        onCheck,
         size,
         reverse,
         name,
@@ -81,21 +114,28 @@ export function InnerSwitch(props) {
         forwardedRef,
         ...rest
     } = mergeProps(
-        props,
+        omitProps(props, ["role"]),
+        checkableProps,
         omitProps(toolbarProps, ["orientation"]),
-        fieldProps
+        omitProps(fieldProps, ["fluid"])
     );
 
+    const handleCheck = useEventCallback(event => {
+        onCheck(event, value);
+    });
+
     const { wrapperProps, inputProps } = useCheckbox({
-        cssModule: "o-ui-switch",
+        cssModule: "o-ui-checkbox",
         isInField,
         id,
         checked,
         defaultChecked,
+        indeterminate,
+        defaultIndeterminate,
         autoFocus,
         required,
         validationState,
-        onChange,
+        onChange: !isNil(onCheck) ? handleCheck : onChange,
         size,
         reverse,
         name,
@@ -116,11 +156,11 @@ export function InnerSwitch(props) {
         text: {
             color: "inherit",
             size,
-            className: "o-ui-switch-label"
+            className: "o-ui-checkbox-label"
         },
         icon: {
             size: embeddedIconSize(size),
-            className: "o-ui-switch-icon"
+            className: "o-ui-checkbox-icon"
         },
         counter: {
             variant: "divider",
@@ -128,7 +168,7 @@ export function InnerSwitch(props) {
             size,
             reverse,
             pushed: true,
-            className: "o-ui-switch-counter"
+            className: "o-ui-checkbox-counter"
         }
     }), [size, reverse]));
 
@@ -143,7 +183,7 @@ export function InnerSwitch(props) {
             )}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-switch-control" />
+            <span className="o-ui-checkbox-box" />
             {text}
             {icon}
             {counter}
@@ -151,10 +191,8 @@ export function InnerSwitch(props) {
     );
 }
 
-InnerSwitch.propTypes = propTypes;
-
-export const Switch = forwardRef((props, ref) => (
-    <InnerSwitch {...props} forwardedRef={ref} />
+export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
+    <InnerCheckbox {...props} forwardedRef={ref} />
 ));
 
-Switch.displayName = "Switch";
+Checkbox.displayName = "Checkbox";

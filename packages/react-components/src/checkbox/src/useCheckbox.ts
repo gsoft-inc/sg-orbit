@@ -1,6 +1,52 @@
+import { ElementType, ForwardedRef, Ref, SyntheticEvent, useImperativeHandle, useLayoutEffect, useRef } from "react";
 import { cssModule, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 import { isNil, isNumber } from "lodash";
-import { useImperativeHandle, useLayoutEffect, useRef } from "react";
+
+export interface UseCheckboxProps {
+    cssModule?: string;
+    isInField?: boolean;
+    id?: string;
+    checked?: boolean;
+    defaultChecked?: boolean;
+    indeterminate?: boolean;
+    defaultIndeterminate?: boolean;
+    autoFocus?: boolean | number;
+    required?: boolean;
+    validationState?: "invalid" | "valid";
+    onChange?(event: SyntheticEvent): void;
+    size?: "sm" | "md"
+    reverse?: boolean;
+    name?: string;
+    tabIndex?: number;
+    active?: boolean;
+    focus?: boolean;
+    hover?: boolean;
+    disabled?: boolean;
+    forwardedRef?: ForwardedRef<any>
+}
+
+export interface UseCheckboxReturn {
+    isChecked: boolean;
+    isIndeterminate?: boolean;
+    wrapperProps: {
+        className?: string;
+        ref?: Ref<any>;
+    },
+    inputProps: {
+        id?: string;
+        as?: ElementType;
+        type?: "checkbox",
+        checked?: boolean;
+        onChange?(event: SyntheticEvent): void;
+        disabled?: boolean;
+        name?: string;
+        tabIndex?: number;
+        "aria-checked": boolean | "mixed";
+        "aria-required": boolean;
+        "aria-invalid": boolean;
+        ref: Ref<any>
+    }
+}
 
 export function useCheckbox({
     cssModule: module,
@@ -23,12 +69,12 @@ export function useCheckbox({
     hover,
     disabled,
     forwardedRef
-}) {
+}: UseCheckboxProps): UseCheckboxReturn {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);
 
-    const wrapperRef = useRef();
-    const inputRef = useRef();
+    const wrapperRef = useRef<any>();
+    const inputRef = useRef<HTMLInputElement>();
 
     useAutoFocus(inputRef, {
         isDisabled: !autoFocus,
@@ -41,8 +87,8 @@ export function useCheckbox({
         return forwardInputApi(wrapperRef);
     });
 
-    const handleChange = useEventCallback(event => {
-        setIsChecked(event.target.checked);
+    const handleChange = useEventCallback((event: SyntheticEvent) => {
+        setIsChecked((event.target as HTMLInputElement).checked);
         setIsIndeterminate(false);
 
         if (!isNil(onChange)) {
