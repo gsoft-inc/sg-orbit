@@ -21,11 +21,6 @@ import {
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export enum ExpansionMode {
-    single = "single",
-    multiple = "multiple"
-}
-
 export interface InnerAccordionProps extends DOMProps {
     /**
      * A controlled set of expanded item keys.
@@ -45,7 +40,7 @@ export interface InnerAccordionProps extends DOMProps {
     /**
      * The type of expansion that is allowed.
      */
-    expansionMode: ExpansionMode;
+    expansionMode: "single" | "multiple";
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
@@ -69,7 +64,7 @@ export function InnerAccordion({
     expandedKeys: expandedKeysProp,
     defaultExpandedKeys,
     onExpansionChange,
-    expansionMode = ExpansionMode.single,
+    expansionMode = "single",
     autoFocus,
     as = "div",
     children,
@@ -102,7 +97,7 @@ export function InnerAccordion({
         let newKeys;
 
         if (!expandedKeys.includes(toggledKey)) {
-            if (expansionMode === ExpansionMode.multiple) {
+            if (expansionMode === "multiple") {
                 newKeys = [...expandedKeys, toggledKey];
             } else {
                 newKeys = [toggledKey];
