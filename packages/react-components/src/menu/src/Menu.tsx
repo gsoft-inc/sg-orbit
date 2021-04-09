@@ -192,7 +192,7 @@ export function InnerMenu({
         content,
         props,
         tooltip
-    }: Omit<CollectionItem, "type">) => (
+    }: CollectionItem) => (
         <As
             {...props}
             id={`${rootId}-item-${index}`}
@@ -211,7 +211,7 @@ export function InnerMenu({
         ref,
         props,
         items: sectionItems
-    }: Omit<CollectionSection, "type">) => {
+    }: CollectionSection) => {
         if (sectionItems.length === 0) {
             return null;
         }
@@ -234,7 +234,7 @@ export function InnerMenu({
         ref,
         content,
         props
-    }: Omit<CollectionItem, "type">) => (
+    }: CollectionItem) => (
         <As
             {...mergeProps(
                 props,
@@ -277,14 +277,14 @@ export function InnerMenu({
                     onSelect: handleSelectItem
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) => {
-                    switch (type) {
+                {nodes.map(node => {
+                    switch (node.type) {
                         case NodeType.item:
-                            return renderOption(nodeProps);
+                            return renderOption(node);
                         case NodeType.section:
-                            return renderSection(nodeProps);
+                            return renderSection(node as CollectionSection);
                         case NodeType.divider:
-                            return renderDivider(nodeProps);
+                            return renderDivider(node);
                         default:
                             return null;
                     }
