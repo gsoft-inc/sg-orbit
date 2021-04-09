@@ -1,8 +1,8 @@
 import "./Variants.css";
 
+import { Content, Header, Item, Tabs } from "@react-components";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
-import { Tab } from "semantic-ui-react";
 import { VARIANT_SHAPE } from "../shapes";
 import { arrayOf, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
@@ -41,8 +41,7 @@ function CssBackground({ iconFileName, iconDisplayName }) {
     background: url("~@orbit-ui/icons/${iconFileName}");
     width: var(--o-ui-global-scale-foxtrot);
     height: var(--o-ui-global-scale-foxtrot);
-}
-    `;
+}`;
 
     return (
         <details>
@@ -69,7 +68,19 @@ export function Variants({ iconDisplayName, variants }) {
     return (
         <>
             <H2>Variants</H2>
-            <Tab menu={{ secondary: true, pointing: true }} panes={variants.map(x => ({ menuItem: x.name, render: () => <Variant iconDisplayName={iconDisplayName} {...x} /> }))} />
+            <Tabs aria-label="Icon variants">
+                {variants.map(x => (
+                    <Item>
+                        <Header>{x.name}</Header>
+                        <Content>
+                            <Variant
+                                iconDisplayName={iconDisplayName}
+                                {...x}
+                            />
+                        </Content>
+                    </Item>
+                ))}
+            </Tabs>
         </>
     );
 }

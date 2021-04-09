@@ -23,7 +23,6 @@ export function useSelect(children, {
     defaultOpen,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
-    items: itemsProp,
     onSelectionChange,
     onOpenChange,
     direction = "bottom",
@@ -116,7 +115,7 @@ export function useSelect(children, {
 
     const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
-    const nodes = useCollection(children, { items: itemsProp });
+    const nodes = useCollection(children);
     const items = useOnlyCollectionItems(nodes);
 
     const selectedItem = useMemo(() => items.find(x => x.key === selectedKey), [items, selectedKey]);

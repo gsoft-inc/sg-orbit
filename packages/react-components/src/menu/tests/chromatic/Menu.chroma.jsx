@@ -369,7 +369,7 @@ stories()
             </Menu>
         </Inline>
     )
-    .add("array map", () =>
+    .add("dynamic items", () =>
         <Menu aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>

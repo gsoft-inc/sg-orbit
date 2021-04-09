@@ -42,4 +42,5 @@ export * from "./select";
 export * from "./menu";
 export * from "./tooltip";
 export * from "./autocomplete";
+export * from "./dialog";
 export * from "./shared";
