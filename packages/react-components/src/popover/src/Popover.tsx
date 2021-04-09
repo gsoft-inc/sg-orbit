@@ -1,28 +1,31 @@
 import "./Popover.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
-import { any, elementType, func, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
-import { mergeProps, useSlots } from "../../shared";
+import { forwardRef, mergeProps, useSlots } from "../../shared";
 
-const propTypes = {
+export interface InnerPopoverProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerPopover({
     as = "section",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerPopoverProps) {
     const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
@@ -82,10 +85,10 @@ export function InnerPopover({
     );
 }
 
-InnerPopover.propTypes = propTypes;
-
-export const Popover = forwardRef((props, ref) => (
+export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
+
+export type PopoverProps = ComponentProps<typeof Popover>
 
 Popover.displayName = "Popover";

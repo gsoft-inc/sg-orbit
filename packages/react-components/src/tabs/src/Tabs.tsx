@@ -1,16 +1,16 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { DomProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
-import { forwardRef, useMemo } from "react";
 import { isNil } from "lodash";
+import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-const propTypes = {
+export interface InnerTabsProps extends DomProps {
     /**
      * A controlled selected key.
      */
@@ -25,36 +25,40 @@ const propTypes = {
      * @param {string} key - The selected tab key.
      * @returns {void}
      */
-    onSelectionChange: func,
+    onSelectionChange?(event: SyntheticEvent, key: string): void;
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
-    manual: bool,
+    manual?: boolean;
     /**
      * Whether or not the first focusable tab should autoFocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number
     /**
      * Whether or not the tabs take up the width of the container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * The orientation of the tabs elements.
      */
-    orientation: oneOf(["horizontal", "vertical"]),
+    orientation?: "horizontal" | "vertical";
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * Tabs title for screen readers.
      */
-    "aria-label": string.isRequired,
+    "aria-label": string;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerTabs({
     id,
@@ -69,7 +73,7 @@ export function InnerTabs({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTabsProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
     const [tabs, panels] = useTabsItems(children, useId(id, id ? null : "o-ui-tabs"));
@@ -131,10 +135,10 @@ export function InnerTabs({
     );
 }
 
-InnerTabs.propTypes = propTypes;
-
-export const Tabs = forwardRef((props, ref) => (
+export const Tabs = forwardRef<InnerTabsProps>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
+
+export type TabsProps = ComponentProps<typeof Tabs>
 
 Tabs.displayName = "Tabs";

@@ -1,10 +1,14 @@
 import "./Menu.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
+import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    DomProps,
     Keys,
     appendEventKey,
     cssModule,
+    forwardRef,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -20,55 +24,64 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { NodeType, useCollection } from "../../collection";
-import { SelectionMode } from "./selectionMode";
-import { any, arrayOf, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
 import { isNil, isNumber } from "lodash";
+import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-const propTypes = {
+export interface InnerMenuProps extends DomProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys: arrayOf(string),
+    selectedKeys?: string[]
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKeys: arrayOf(string),
+    defaultSelectedKeys?: string[]
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */
-    onSelectionChange: func,
+    onSelectionChange?(event: SyntheticEvent, keys: string[]): void
     /**
      * The type of selection that is allowed.
      */
-    selectionMode: oneOf(["none", "single", "multiple"]),
+    selectionMode?: SelectionMode;
     /**
      * Whether or not the menu should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Default focus target when enabling autofocus.
      */
-    defaultFocusTarget: string,
+    defaultFocusTarget?: string;
     /**
      * Whether or not the listbox take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func])
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    "aria-label"?: string;
+    /**
+     * @ignore
+     */
+    "aria-labelledby"?: string;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerMenu({
     id,
@@ -85,7 +98,7 @@ export function InnerMenu({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerMenuProps) {
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
@@ -98,7 +111,7 @@ export function InnerMenu({
     const handleSelectItem = useEventCallback((event, key) => {
         let newKeys;
 
-        if (selectionMode === SelectionMode.multiple) {
+        if (selectionMode === "multiple") {
             newKeys = selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         } else {
             newKeys = selectedKeys.includes(key) ? [] : [key];
@@ -108,7 +121,7 @@ export function InnerMenu({
             onSelectionChange(event, newKeys);
         }
 
-        if (selectionMode !== SelectionMode.none) {
+        if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
         }
     });
@@ -158,7 +171,7 @@ export function InnerMenu({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== SelectionMode.none ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: (selectionMode !== "none" ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
@@ -174,13 +187,13 @@ export function InnerMenu({
     const renderOption = ({
         key,
         index,
-        elementType: ElementType = MenuItem,
+        elementType: As = MenuItem,
         ref,
         content,
         props,
         tooltip
-    }) => (
-        <ElementType
+    }: CollectionItem) => (
+        <As
             {...props}
             id={`${rootId}-item-${index}`}
             key={key}
@@ -188,41 +201,41 @@ export function InnerMenu({
             item={{ key, tooltip }}
         >
             {content}
-        </ElementType>
+        </As>
     );
 
     const renderSection = ({
         key,
         index,
-        elementType: ElementType = MenuSection,
+        elementType: As = MenuSection,
         ref,
         props,
         items: sectionItems
-    }) => {
+    }: CollectionSection) => {
         if (sectionItems.length === 0) {
             return null;
         }
 
         return (
-            <ElementType
+            <As
                 {...props}
                 id={`${rootId}-section-${index}`}
                 key={key}
                 ref={ref}
             >
                 {sectionItems.map(x => renderOption(x))}
-            </ElementType>
+            </As>
         );
     };
 
     const renderDivider = ({
         key,
-        elementType: ElementType,
+        elementType: As,
         ref,
         content,
         props
-    }) => (
-        <ElementType
+    }: CollectionDivider) => (
+        <As
             {...mergeProps(
                 props,
                 {
@@ -234,12 +247,12 @@ export function InnerMenu({
             ref={ref}
         >
             {content}
-        </ElementType>
+        </As>
     );
 
     return (
         <Box
-            {...mergeProps(
+            {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
                     id: rootId,
@@ -264,14 +277,14 @@ export function InnerMenu({
                     onSelect: handleSelectItem
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) => {
-                    switch (type) {
+                {nodes.map(node => {
+                    switch (node.type) {
                         case NodeType.item:
-                            return renderOption(nodeProps);
+                            return renderOption(node);
                         case NodeType.section:
-                            return renderSection(nodeProps);
+                            return renderSection(node as CollectionSection);
                         case NodeType.divider:
-                            return renderDivider(nodeProps);
+                            return renderDivider(node as CollectionDivider);
                         default:
                             return null;
                     }
@@ -281,10 +294,10 @@ export function InnerMenu({
     );
 }
 
-InnerMenu.propTypes = propTypes;
-
-export const Menu = forwardRef((props, ref) => (
+export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));
+
+export type MenuProps = ComponentProps<typeof Menu>
 
 Menu.displayName = "Menu";

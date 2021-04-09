@@ -1,75 +1,81 @@
-import { Children, forwardRef, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { DomProps, augmentElement, forwardRef, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
-import { augmentElement, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
 import { isNil } from "lodash";
 
-const propTypes = {
+export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * Whether or not to show the popover.
      */
-    open: bool,
+    open?: boolean;
     /**
      * The initial value of `open` when in auto controlled mode.
      */
-    defaultOpen: bool,
+    defaultOpen?: boolean;
     /**
      * The interaction that triggers the popover.
      */
-    trigger: oneOf(["click", "hover"]),
+    trigger?: "click" | "hover";
     /**
      * Position of the popover element related to the trigger.
      */
-    position: oneOf([
-        "auto",
-        "auto-start",
-        "auto-end",
-        "top",
-        "top-start",
-        "top-end",
-        "bottom",
-        "bottom-start",
-        "bottom-end",
-        "right",
-        "right-start",
-        "right-end",
-        "left",
-        "left-start",
-        "left-end"
-    ]),
+    position?: (
+        "auto"
+        | "auto-start"
+        | "auto-end"
+        | "top"
+        | "top-start"
+        | "top-end"
+        | "bottom"
+        | "bottom-start"
+        | "bottom-end"
+        | "right"
+        | "right-start"
+        | "right-end"
+        | "left"
+        | "left-start"
+        | "left-end");
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the popover is visible.
      * @returns {void}
      */
-    onOpenChange: func,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * Whether or not the popover should close on outside interactions.
      */
-    dismissable: bool,
+    dismissable?: boolean
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
-    allowFlip: bool,
+    allowFlip?: boolean;
     /**
      * Whether or not the popover element position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
-    allowPreventOverflow: bool,
+    allowPreventOverflow?: boolean;
     /**
      * z-index of the popover element.
      */
-    zIndex: number,
+    zIndex?: number,
+    /**
+     * A DOM element in which the overlay element will be appended via a React portal.
+     */
+    containerElement?: HTMLElement
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerPopoverTrigger({
     id,
@@ -87,7 +93,7 @@ export function InnerPopoverTrigger({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerPopoverTriggerProps) {
     const overlayRef = useMergedRefs(forwardedRef);
 
     const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
@@ -121,7 +127,7 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const triggerMarkup = augmentElement(trigger, triggerProps);
+    const triggerMarkup = augmentElement(trigger as ReactElement, triggerProps);
 
     return (
         <PopoverTriggerContext.Provider
@@ -151,10 +157,10 @@ export function InnerPopoverTrigger({
     );
 }
 
-InnerPopoverTrigger.propTypes = propTypes;
-
-export const PopoverTrigger = forwardRef((props, ref) => (
+export const PopoverTrigger = forwardRef<InnerPopoverTriggerProps>((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));
+
+export type PopoverTriggerProps = ComponentProps<typeof PopoverTrigger>
 
 PopoverTrigger.displayName = "PopoverTrigger";

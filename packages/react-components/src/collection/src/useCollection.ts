@@ -14,14 +14,14 @@ export interface CollectionItem {
     content: ElementType | ReactElement[];
     props: Record<string, any>,
     tooltip?: {
-        props: Record<string, any>,
-        content: ReactElement
+        props: Record<string, any>;
+        content: ReactElement;
     },
 }
 
 export interface CollectionSection extends CollectionItem {
     type: NodeType.section;
-    items: CollectionItem[]
+    items?: CollectionItem[]
 }
 
 export interface CollectionDivider extends CollectionItem {

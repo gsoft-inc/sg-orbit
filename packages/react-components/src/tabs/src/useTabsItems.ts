@@ -1,29 +1,51 @@
-import { Children, useMemo } from "react";
+import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 
+export interface PanelType {
+    key: string
+    index: number;
+    disabled?: boolean;
+    elementType?: ReactElement["type"];
+    ref: Ref<any>
+    panelId: string
+    tabId: string
+    props: Record<string, any>
+}
+
+export interface TabType {
+    key: string
+    index: number;
+    disabled?: boolean;
+    elementType?: ReactElement["type"];
+    ref: Ref<any>
+    tabId: string
+    panelId: string
+    props: Record<string, any>
+}
+
 export class TabsBuilder {
     _rootId;
 
-    constructor(rootId) {
+    constructor(rootId: string) {
         this._rootId = rootId;
     }
 
-    build(children) {
+    build(children: ReactNode): [TabType[], PanelType[]] {
         if (isNil(children)) {
             throw new Error("A tabs component must have children.");
         }
 
-        const tabs = [];
-        const panels = [];
+        const tabs: TabType[] = [];
+        const panels: PanelType[] = [];
 
         let index = 0;
 
-        Children.forEach(children, (element, position) => {
-            const key = !isNil(element.key) ? element.key.replace(".", "").replace("$", "") : position.toString();
+        Children.forEach(children, (element: ReactElement, position) => {
+            const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : position.toString();
 
-            const [header, content] = Children.toArray(resolveChildren(element.props.children));
+            const [header, content] = Children.toArray(resolveChildren(element.props.children)) as [ReactElement & RefAttributes<any>, ReactElement & RefAttributes<any>];
 
             if (isNil(header) || isNil(content)) {
                 throw new Error("A tabs item must have an <Header> and a <Content>.");
@@ -60,12 +82,12 @@ export class TabsBuilder {
         return [tabs, panels];
     }
 
-    _makeId({ props: { id } }, type, key) {
+    _makeId({ props: { id } }: Record<string, any>, type: "tab" | "panel", key: string): string {
         return id ?? `${this._rootId}-${type}-${key}`;
     }
 }
 
-export function useTabsItems(children, rootId) {
+export function useTabsItems(children: ReactNode, rootId: string) {
     const builder = useMemo(() => new TabsBuilder(rootId), [rootId]);
 
     return useMemo(() => builder.build(children), [builder, children]);

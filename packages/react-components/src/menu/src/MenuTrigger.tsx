@@ -1,60 +1,63 @@
-import { Children, forwardRef, useCallback } from "react";
+import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
-import { FocusTarget, Keys, augmentElement, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
+import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { any, bool, elementType, func, number, oneOf, oneOfType, string } from "prop-types";
 import { isNil } from "lodash";
 
-const propTypes = {
+export interface InnerMenuTriggerProps extends DomProps {
     /**
      * Whether or not to show the menu.
      */
-    open: bool,
+    open?: boolean;
     /**
      * The initial value of open when in auto controlled mode.
      */
-    defaultOpen: bool,
+    defaultOpen?: boolean;
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
-    onOpenChange: func,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void,
     /**
      * Whether or not the menu should close when an item is selected.
      */
-    closeOnSelect: bool,
+    closeOnSelect?: boolean;
     /**
      * The direction the menu will open relative to the trigger.
      */
-    direction: oneOf(["bottom", "top"]),
+    direction?: "bottom" | "top";
     /**
      * The horizontal alignment of the menu relative to the trigger.
      */
-    align: oneOf(["start", "end"]),
+    align?: "start" | "end";
     /**
      * Whether or not the menu can flip when it will overflow it's boundary area.
      */
-    allowFlip: bool,
+    allowFlip?: boolean;
     /**
      * Whether or not the menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
-    allowPreventOverflow: bool,
+    allowPreventOverflow?: boolean;
     /**
      * z-index of the menu.
      */
-    zIndex: number,
+    zIndex?: number;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerMenuTrigger({
     id,
@@ -71,10 +74,10 @@ export function InnerMenuTrigger({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerMenuTriggerProps) {
     const [focusTargetRef, setFocusTarget] = useRefState(null);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, isVisible) => {
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event, isVisible) => {
         if (isVisible) {
             // Focusing the first item on open if nore are already set to be focused.
             if (isNil(focusTargetRef.current)) {
@@ -93,13 +96,13 @@ export function InnerMenuTrigger({
         hideOnOutsideClick: true,
         autoFocus: false,
         restoreFocus: true,
-        position: `${direction}-${align}`,
+        position: `${direction}-${align}` as const,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow
     });
 
-    const [trigger, menu] = Children.toArray(resolveChildren(children));
+    const [trigger, menu] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(menu)) {
         throw new Error("A menu trigger must have exactly 2 children.");
@@ -118,11 +121,11 @@ export function InnerMenuTrigger({
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback(event => {
         switch (event.key) {
-            case Keys.down:
+            case Keys.arrowDown:
                 event.preventDefault();
                 open(event, FocusTarget.first);
                 break;
-            case Keys.up:
+            case Keys.arrowUp:
                 event.preventDefault();
                 open(event, FocusTarget.last);
                 break;
@@ -187,9 +190,7 @@ export function InnerMenuTrigger({
     );
 }
 
-InnerMenuTrigger.propTypes = propTypes;
-
-export const MenuTrigger = forwardRef((props, ref) => (
+export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
 

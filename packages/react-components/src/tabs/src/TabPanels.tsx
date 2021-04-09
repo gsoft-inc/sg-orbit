@@ -1,8 +1,13 @@
 import "./Tabs.css";
 
+import { PanelType } from "./useTabsItems";
 import { TabPanel } from "./TabPanel";
 
-export function TabPanels({ panels, ...rest }) {
+export interface TabPanelsProps {
+    panels: PanelType[]
+}
+
+export function TabPanels({ panels, ...rest }: TabPanelsProps) {
     return (
         <div
             {...rest}

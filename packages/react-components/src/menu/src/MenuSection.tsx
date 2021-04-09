@@ -1,22 +1,25 @@
 import { Box } from "../../box";
-import { any, elementType, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { DomProps, forwardRef, mergeProps } from "../../shared";
 
-const propTypes = {
+export interface InnerMenuSectionProps extends DomProps {
     /**
      * The section name.
      */
-    title: string,
+    title?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerMenuSection({
     id,
@@ -25,7 +28,7 @@ export function InnerMenuSection({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerMenuSectionProps) {
     return (
         <>
             <Box
@@ -52,10 +55,10 @@ export function InnerMenuSection({
     );
 }
 
-InnerMenuSection.propTypes = propTypes;
-
-export const MenuSection = forwardRef((props, ref) => (
+export const MenuSection = forwardRef<InnerMenuSectionProps>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));
+
+export type MenuSectionProps = ComponentProps<typeof MenuSection>
 
 MenuSection.displayName = "MenuSection";

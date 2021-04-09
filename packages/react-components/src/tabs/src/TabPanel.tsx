@@ -1,25 +1,29 @@
 import "./Tabs.css";
 
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { PanelType } from "./useTabsItems";
 import { Text } from "../../text";
-import { any, elementType, object, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
-const propTypes = {
+export interface InnerTabPanelProps {
     /**
      * Matching panel item.
      */
-    panel: object.isRequired,
+    panel: PanelType
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: any.isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
 
 export function InnerTabPanel({
     panel: { key, tabId, panelId },
@@ -27,7 +31,7 @@ export function InnerTabPanel({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerTabPanelProps) {
     const { selectedKey } = useTabsContext();
 
     return (
@@ -50,10 +54,10 @@ export function InnerTabPanel({
     );
 }
 
-InnerTabPanel.propTypes = propTypes;
-
-export const TabPanel = forwardRef((props, ref) => (
+export const TabPanel = forwardRef<InnerTabPanelProps>((props, ref) => (
     <InnerTabPanel {...props} forwardedRef={ref} />
 ));
+
+export type TabPanelProps = ComponentProps<typeof TabPanel>
 
 TabPanel.displayName = "TabPanel";
