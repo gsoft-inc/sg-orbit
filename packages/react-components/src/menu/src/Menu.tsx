@@ -1,7 +1,7 @@
 import "./Menu.css";
 
 import { Box, BoxProps } from "../../box";
-import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
+import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
     DomProps,
@@ -234,7 +234,7 @@ export function InnerMenu({
         ref,
         content,
         props
-    }: CollectionItem) => (
+    }: CollectionDivider) => (
         <As
             {...mergeProps(
                 props,
@@ -284,7 +284,7 @@ export function InnerMenu({
                         case NodeType.section:
                             return renderSection(node as CollectionSection);
                         case NodeType.divider:
-                            return renderDivider(node);
+                            return renderDivider(node as CollectionDivider);
                         default:
                             return null;
                     }
