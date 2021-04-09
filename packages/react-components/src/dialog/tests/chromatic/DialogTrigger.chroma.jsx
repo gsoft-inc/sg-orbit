@@ -4,7 +4,7 @@ import { Paragraph } from "@react-components/paragraph";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/ModalTrigger")
+    return storiesOfBuilder(module, "Chromatic/DialogTrigger")
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)

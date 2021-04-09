@@ -51,7 +51,7 @@ export const globalTypes = {
         defaultValue: "apricot",
         toolbar: {
             icon: "photo",
-            items: ["apricot", "overcast", "desktop"]
+            items: ["apricot", "desktop"]
         }
     },
     colorScheme: {

@@ -43,38 +43,6 @@ stories()
                      <div className="pa4 bg-marine-900" />
                  </Inline>
                  <Inline gap={0}>
-                     <div className="pa4 bg-desktop-50" />
-                     <div className="pa4 bg-desktop-100" />
-                     <div className="pa4 bg-desktop-200" />
-                     <div className="pa4 bg-desktop-300" />
-                     <div className="pa4 bg-desktop-400" />
-                     <div className="pa4 bg-desktop-500" />
-                     <div className="pa4 bg-desktop-600" />
-                     <div className="pa4 bg-desktop-700" />
-                     <div className="pa4 bg-desktop-800" />
-                     <div className="pa4 bg-desktop-900" />
-                     <div className="pa4 bg-overcast-50" />
-                     <div className="pa4 bg-overcast-100" />
-                     <div className="pa4 bg-overcast-200" />
-                     <div className="pa4 bg-overcast-300" />
-                     <div className="pa4 bg-overcast-400" />
-                     <div className="pa4 bg-overcast-500" />
-                     <div className="pa4 bg-overcast-600" />
-                     <div className="pa4 bg-overcast-700" />
-                     <div className="pa4 bg-overcast-800" />
-                     <div className="pa4 bg-overcast-900" />
-                     <div className="pa4 bg-apricot-50" />
-                     <div className="pa4 bg-apricot-100" />
-                     <div className="pa4 bg-apricot-200" />
-                     <div className="pa4 bg-apricot-300" />
-                     <div className="pa4 bg-apricot-400" />
-                     <div className="pa4 bg-apricot-500" />
-                     <div className="pa4 bg-apricot-600" />
-                     <div className="pa4 bg-apricot-700" />
-                     <div className="pa4 bg-apricot-800" />
-                     <div className="pa4 bg-apricot-900" />
-                 </Inline>
-                 <Inline gap={0}>
                      <div className="pa4 bg-beetle-50" />
                      <div className="pa4 bg-beetle-100" />
                      <div className="pa4 bg-beetle-200" />
@@ -105,6 +73,28 @@ stories()
                      <div className="pa4 bg-cloud-700" />
                      <div className="pa4 bg-cloud-800" />
                      <div className="pa4 bg-cloud-900" />
+                 </Inline>
+                 <Inline gap={0}>
+                     <div className="pa4 bg-desktop-50" style={{ backgroundColor: "var(--o-ui-global-desktop-50)" }} />
+                     <div className="pa4 bg-desktop-100" style={{ backgroundColor: "var(--o-ui-global-desktop-100)" }} />
+                     <div className="pa4 bg-desktop-200" style={{ backgroundColor: "var(--o-ui-global-desktop-200)" }} />
+                     <div className="pa4 bg-desktop-300" style={{ backgroundColor: "var(--o-ui-global-desktop-300)" }} />
+                     <div className="pa4 bg-desktop-400" style={{ backgroundColor: "var(--o-ui-global-desktop-400)" }} />
+                     <div className="pa4 bg-desktop-500" style={{ backgroundColor: "var(--o-ui-global-desktop-500)" }} />
+                     <div className="pa4 bg-desktop-600" style={{ backgroundColor: "var(--o-ui-global-desktop-600)" }} />
+                     <div className="pa4 bg-desktop-700" style={{ backgroundColor: "var(--o-ui-global-desktop-700)" }} />
+                     <div className="pa4 bg-desktop-800" style={{ backgroundColor: "var(--o-ui-global-desktop-800)" }} />
+                     <div className="pa4 bg-desktop-900" style={{ backgroundColor: "var(--o-ui-global-desktop-900)" }} />
+                     <div className="pa4 bg-apricot-50" style={{ backgroundColor: "var(--o-ui-global-apricot-50)" }} />
+                     <div className="pa4 bg-apricot-100" style={{ backgroundColor: "var(--o-ui-global-apricot-100)" }} />
+                     <div className="pa4 bg-apricot-200" style={{ backgroundColor: "var(--o-ui-global-apricot-200)" }} />
+                     <div className="pa4 bg-apricot-300" style={{ backgroundColor: "var(--o-ui-global-apricot-300)" }} />
+                     <div className="pa4 bg-apricot-400" style={{ backgroundColor: "var(--o-ui-global-apricot-400)" }} />
+                     <div className="pa4 bg-apricot-500" style={{ backgroundColor: "var(--o-ui-global-apricot-500)" }} />
+                     <div className="pa4 bg-apricot-600" style={{ backgroundColor: "var(--o-ui-global-apricot-600)" }} />
+                     <div className="pa4 bg-apricot-700" style={{ backgroundColor: "var(--o-ui-global-apricot-700)" }} />
+                     <div className="pa4 bg-apricot-800" style={{ backgroundColor: "var(--o-ui-global-apricot-800)" }} />
+                     <div className="pa4 bg-apricot-900" style={{ backgroundColor: "var(--o-ui-global-apricot-900)" }} />
                  </Inline>
                  <Inline gap={0}>
                      <div className="pa4 bg-neutral-50" />
