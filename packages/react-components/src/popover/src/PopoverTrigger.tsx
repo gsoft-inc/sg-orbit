@@ -1,10 +1,10 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
-import { DOMProps, augmentElement, forwardRef, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
+import { DomProps, augmentElement, forwardRef, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { isNil } from "lodash";
 
-export interface InnerPopoverTriggerProps extends DOMProps {
+export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * Whether or not to show the popover.
      */

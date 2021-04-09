@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
-import { DOMProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { DomProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
@@ -10,7 +10,7 @@ import { isNil } from "lodash";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-export interface InnerTabsProps extends DOMProps {
+export interface InnerTabsProps extends DomProps {
     /**
      * A controlled selected key.
      */

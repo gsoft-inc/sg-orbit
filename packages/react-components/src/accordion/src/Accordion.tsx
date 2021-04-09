@@ -5,7 +5,7 @@ import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
-    DOMProps,
+    DomProps,
     Keys,
     forwardRef,
     mergeProps,
@@ -21,7 +21,7 @@ import {
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export interface InnerAccordionProps extends DOMProps {
+export interface InnerAccordionProps extends DomProps {
     /**
      * A controlled set of expanded item keys.
      */
