@@ -51,7 +51,7 @@ You can define an implicit slot on a custom component by using the `slot` functi
 ```js
 import { slot } from "@orbit-ui/react-components";
 
-export const MyComponent = slot("the-slot-name-to-fulfill", (
+export const MyComponent = slot("the-slot-name-to-fulfill", () => (
     <div>A custom component</div>
 ));
 ```
