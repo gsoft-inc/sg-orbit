@@ -94,10 +94,10 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+        icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(allElements.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : undefined
             };
         },
         avatar: {
