@@ -1,0 +1,22 @@
+.o-ui-sb-loading {
+    position: absolute;
+    background-color: var(--o-ui-alias-background-2);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.o-ui-sb-loading:before {
+    width: 1.5rem;
+    height: 1.5rem;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50px;
+    border: 2px solid var(--o-ui-global-marine-200);
+    border-top-color: var(--o-ui-global-white);
+    animation: o-ui-button-spinner 1s linear infinite;
+    transform: translate(-50%, -50%) rotate(0deg);
+}

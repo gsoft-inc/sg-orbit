@@ -1,5 +1,6 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
+import { DateInput, DateRangeInput } from "@react-components/date-input";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
@@ -110,7 +111,7 @@ stories()
                 <legend>Trip</legend>
                 <Field>
                     <Label>Departure date</Label>
-                    <TextInput placeholder="AAAA/MM/DD" />
+                    <DateRangeInput name="filter" placeholder="dd/mm/yyyy" />
                 </Field>
                 <Field>
                     <Label>Where to?</Label>
@@ -130,7 +131,7 @@ stories()
             <div>
                 <Field>
                     <Label>Departure date</Label>
-                    <TextInput placeholder="AAAA/MM/DD" />
+                    <DateInput placeholder="dd/mm/yyyy" />
                 </Field>
                 <div>
                     <Field>
