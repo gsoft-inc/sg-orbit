@@ -16,7 +16,7 @@ Slots solve a variety of use cases by allowing a component to offer multiple lay
 
 It's done by giving a component the ability to offer *named placeholders* which could then be filled by the component consumer to achieve the final layout.
 
-For more information about the *concept of slots*, have a look at web component slots on [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots).
+For more information about the *concept of slots*, have a look at web components slots on [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots).
 
 In Orbit, slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) and are fulfilled through the component children.
 
@@ -29,17 +29,17 @@ In the following example, the `<Text>` component implicitly fulfill the `text` s
 </Button>
 ```
 
-To identify which slots are available for a component, view the API section of the component. [Have a look at the button component slots](?path=/docs/button--default-story#button-1).
+To identify which slots are available for a component, refer to the API section of the component. [Have a look at the button component slots](?path=/docs/button--default-story#button-1).
 
 <Figure url="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/docs/getting-started/assets/vertical-rythm-in-action.png" caption="Button api" width="524" height="196" />
 
 ## Implicit slots
 
-Most *slotables* Orbit components come with a default slot name.
+*Slotables* Orbit components come with a default slot name.
 
-For example, an `<Icon>` component will implicitly fulfill an `icon` slot and a `<Button>` component will implicitly fulfill a `button` slot.
+An `<Icon>` component will implicitly fulfill an `icon` slot and a `<Button>` component will implicitly fulfill a `button` slot, etc..
 
-To use an implicit slot, all you have to do is declare a component having a default slot as a children of a component accepting the given slot.
+To use an implicit slot, declare a component having a default slot as a children of a component accepting the given slot.
 
 ```jsx
 <Button>
