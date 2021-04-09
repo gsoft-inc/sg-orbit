@@ -3,17 +3,9 @@ import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
 import { useColorScheme } from "./useColorScheme";
 
-export enum Theme {
-    apricot = "apricot",
-    overcast = "overcast",
-    desktop = "desktop"
-}
-
-export enum ColorScheme {
-    light = "light",
-    dark = "dark",
-    system = "system"
-}
+export type Theme = "apricot" | "desktop";
+export type ColorScheme = "light" | "dark";
+export type ColorSchemeOrSystem = ColorScheme | "system";
 
 export interface ThemeProviderProps {
     /**
@@ -23,11 +15,11 @@ export interface ThemeProviderProps {
     /**
      * The color scheme to use.
      */
-    colorScheme: ColorScheme
+    colorScheme: ColorSchemeOrSystem;
     /**
      * Default color scheme to use when a user prefered color scheme (system) is not available.
      */
-    defaultColorScheme?: ColorScheme.dark | ColorScheme.light
+    defaultColorScheme?: ColorScheme;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -39,7 +31,7 @@ export interface ThemeProviderProps {
 }
 
 export function ThemeProvider({
-    theme,
+    theme = "apricot",
     colorScheme,
     defaultColorScheme,
     children,
