@@ -124,14 +124,11 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         disabled,
         children,
         forwardedRef,
-        // we don't want size passed down to Group, since
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        size,
         ...rest
     } = mergeProps(
         props,
         toolbarProps,
-        omitProps(fieldProps, ["fluid"])
+        omitProps(fieldProps, ["fluid", "size"])
     );
 
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
@@ -165,12 +162,8 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         role: "radiogroup",
-        // keyProp: RadioKeyProp, //TODO: why is this passed but not used?
-        // value, //TODO: why is this passed but not used?
-        // defaultValue, //TODO: why is this passed but not used?
         required,
         validationState,
-        // autoFocus, //TODO: why is this passed but not used?
         orientation,
         gap,
         wrap,
