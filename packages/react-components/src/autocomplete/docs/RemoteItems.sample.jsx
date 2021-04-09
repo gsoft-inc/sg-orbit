@@ -24,7 +24,7 @@
             placeholder="Select a country"
             aria-label="Countries"
         >
-            {() => fetcher.items.map((x => (
+            {fetcher.items.map((x => (
                 <Item key={x.key}>{x.value}</Item>
             )))}
         </Autocomplete>

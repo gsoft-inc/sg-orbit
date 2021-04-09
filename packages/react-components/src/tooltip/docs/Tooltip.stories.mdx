@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
 import { Button, IconButton } from "@react-components/button"
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { EmailIcon, LightbulbIcon } from "@react-components/icons";
@@ -66,12 +67,12 @@ A tooltip can contains [icons](?path=/docs/icon-gallery--page) and rich content 
         <TooltipTrigger>
             <Button>Trigger</Button>
             <Tooltip>
-                <div className="flex">
+                <Box className="flex">
                     <EmailIcon />
-                    <div>
+                    <Box>
                         Your email have been sent to the <TextLink href="https://en.wikipedia.org/wiki/Space_station">orbital space station</TextLink>.
-                    </div>
-                </div>
+                    </Box>
+                </Box>
             </Tooltip>
         </TooltipTrigger>
     </Story>
