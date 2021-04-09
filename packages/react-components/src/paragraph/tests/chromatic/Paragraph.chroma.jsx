@@ -1,4 +1,4 @@
-import { Paragraph } from "@react-components/paragraph";
+import { P, Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -43,5 +43,15 @@ stories()
         <div>
             <Paragraph className="bg-red">If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
             <Paragraph style={{ backgroundColor: "red" }}>If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
+        </div>
+    )
+    .add("alias", () =>
+        <div>
+            <P size="2xl">If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
+            <P size="xl">If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
+            <P size="lg">If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
+            <P>If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
+            <P size="sm">If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
+            <P size="xs">If two pieces of the same type of metal touch<br />in space they will permanently bond.</P>
         </div>
     );

@@ -18,13 +18,19 @@ stories()
     .add("color", () =>
         <Stack>
             <Dot color="botanic-500"></Dot>
-            <Dot color="beetle-500">Habitable</Dot>
+            <Dot color="beetle-500"></Dot>
+            <Dot color="hsl(25, 69%, 41%)"></Dot>
+            <Dot color="hsla(25, 69%, 41%, 0.5)"></Dot>
+            <Dot color="#a4b5dd"></Dot>
+            <Dot color="rgb(128,0,0)"></Dot>
+            <Dot color="rgb(128,0,0,0.5)"></Dot>
+            <Dot color="var(--o-ui-alias-background-1)"></Dot>
         </Stack>
     )
     .add("disabled", () =>
         <Stack>
             <Dot disabled></Dot>
-            <Dot disabled>Habitable</Dot>
+            <Dot color="hsl(25, 69%, 41%)" disabled>Habitable</Dot>
         </Stack>
     )
     .add("styling", () =>

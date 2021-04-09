@@ -1,19 +1,20 @@
-import { useFieldInputProps } from "../../field";
+import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 
-export function useFieldWrappedInput() {
-    const [{ className, ...fieldProps }, isInField] = useFieldInputProps();
-
-    const props = {
-        ...fieldProps,
-        wrapperProps: {
-            className
-        }
+export interface FieldWrappedInputProps extends Omit<UseFieldInputPropsReturn, "className"> {
+    wrapperProps: {
+        className: string;
     };
-
-    return [props, isInField] as const;
 }
 
-export function wrappedInputPropsAdapter({ className, ...rest }: Record<string, any>) {
+export function useFieldWrappedInput(): [FieldWrappedInputProps, boolean] {
+    const [fieldProps, isInField] = useFieldInputProps();
+
+    const props = wrappedInputPropsAdapter(fieldProps);
+
+    return [props, isInField];
+}
+
+export function wrappedInputPropsAdapter({ className, ...rest }: UseFieldInputPropsReturn): FieldWrappedInputProps {
     return {
         ...rest,
         wrapperProps: {

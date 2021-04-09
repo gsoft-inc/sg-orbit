@@ -4,21 +4,6 @@
 @import "../../src/primary/_border.css";
 
 /*
- * APRICOT
- */
-@import "../../src/themes/apricot/_border.css";
-
-/*
- * DESKTOP
- */
-@import "../../src/themes/desktop/_border.css";
-
-/*
- * OVERCAST
- */
-@import "../../src/themes/overcast/_border.css";
-
-/*
  * MOONSTONE
  */
 @import "../../src/brand/moonstone/_border.css";

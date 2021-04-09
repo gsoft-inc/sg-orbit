@@ -71,11 +71,11 @@ export type IconProps = ComponentProps<typeof Icon>;
 ////////
 
 export function createIcon(type: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerIconProps, "type" | "forwardedRef">, "svg">((props, ref) =>
-        <Icon
+    return slot("icon", forwardRef<Omit<InnerIconProps, "type">, "svg">((props, ref) =>
+        <InnerIcon
             {...props}
             type={type}
-            ref={ref}
+            forwardedRef={ref}
         />
     ));
 }

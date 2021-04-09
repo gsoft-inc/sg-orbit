@@ -6,27 +6,6 @@
 @import "../../src/primary/_fill.css";
 
 /*
- * APRICOT
- */
-@import "../../src/themes/apricot/_background.css";
-@import "../../src/themes/apricot/_text.css";
-@import "../../src/themes/apricot/_fill.css";
-
-/*
- * DESKTOP
- */
-@import "../../src/themes/desktop/_background.css";
-@import "../../src/themes/desktop/_text.css";
-@import "../../src/themes/desktop/_fill.css";
-
-/*
- * OVERCAST
- */
-@import "../../src/themes/overcast/_background.css";
-@import "../../src/themes/overcast/_text.css";
-@import "../../src/themes/overcast/_fill.css";
-
-/*
  * MOONSTONE
  */
 @import "../../src/brand/moonstone/_background.css";

@@ -5,7 +5,7 @@
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
     "license": "Apache-2.0",
-    "main": "index.css",
+    "main": "apricot.css",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
@@ -20,7 +20,6 @@
     },
     "peerDependencies": {
         "lodash": "*",
-        "moment": "*",
         "react": "*",
         "react-dom": "*"
     },
@@ -30,8 +29,6 @@
         "@orbit-ui/foundation": "4.0.0",
         "@orbit-ui/icons": "7.0.0",
         "@orbit-ui/react-components": "11.0.1",
-        "@orbit-ui/semantic-ui-theme": "7.0.2",
-        "@orbit-ui/tachyons": "4.1.0",
-        "semantic-ui-react": "0.88.1"
+        "@orbit-ui/tachyons": "4.1.0"
     }
 }

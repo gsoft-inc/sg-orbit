@@ -152,6 +152,7 @@ export function InnerTextInput(props) {
                     className: cssModule(
                         "o-ui-input",
                         iconMarkup && "has-icon",
+                        disabled && "disabled",
                         buttonMarkup && "has-button"
                     )
                 },

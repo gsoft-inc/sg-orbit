@@ -25,5 +25,3 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
         className: "o-ui-input-button"
     });
 }
-
-

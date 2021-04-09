@@ -19,13 +19,12 @@
 
     return (
         <Autocomplete
-            items={fetcher.items}
             loading={fetcher.isLoading}
             onSearch={fetcher.search}
             placeholder="Select a country"
             aria-label="Countries"
         >
-            {({ items }) => items.map((x => (
+            {fetcher.items.map((x => (
                 <Item key={x.key}>{x.value}</Item>
             )))}
         </Autocomplete>

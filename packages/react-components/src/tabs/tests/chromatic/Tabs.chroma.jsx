@@ -303,7 +303,7 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("array map", () =>
+    .add("dynamic tabs", () =>
         <Tabs aria-label="Planets">
             {["1", "2", "3"].map(x => (
                 <Item key={x}>

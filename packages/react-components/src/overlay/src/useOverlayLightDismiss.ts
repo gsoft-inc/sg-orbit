@@ -1,11 +1,11 @@
 import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, useEventCallback, useRefState } from "../../shared";
+import { Keys, useEventCallback } from "../../shared";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
-import { isFunction, isNil } from "lodash";
+import { isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 
-export interface UseOverlayLightDismissProps {
+export interface UseOverlayLightDismissOptions {
     trigger?: "hover" | "click";
     onHide?(event: SyntheticEvent<HTMLElement, Event>): void;
     hideOnEscape?: boolean;
@@ -14,44 +14,31 @@ export interface UseOverlayLightDismissProps {
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
-    trigger,
+    trigger = "click",
     onHide,
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick
-}: UseOverlayLightDismissProps) {
-    const [isHandled, setIsHandled] = useRefState(false);
-
+}: UseOverlayLightDismissOptions) {
     const hide = (event: SyntheticEvent<HTMLElement, Event>) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent<HTMLElement>) => {
         if (event.key === Keys.esc) {
             if (hideOnEscape) {
                 event.preventDefault();
                 hide(event);
             }
-        } else if (event.key === Keys.tab) {
-            // Must handle tab out this way to be able to differiante them from trigger click.
-            setIsHandled(true);
-            hide(event);
         }
-    };
+    });
 
     const handleBlur = useEventCallback((event: FocusEvent<HTMLElement>) => {
-        // Sad hack, I am not sure why but keydown event occurs after blur event.
-        setTimeout(() => {
-            if (!isHandled.current) {
-                if (!isDevToolsBlurEvent(overlayRef)) {
-                    hide(event);
-                }
-            }
-
-            setIsHandled(false);
-        }, 0);
+        if (!isDevToolsBlurEvent(overlayRef)) {
+            hide(event);
+        }
     });
 
     const handleMouseLeave = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
@@ -59,9 +46,7 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     });
 
     const handleInteractOutside = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
-        if (!isFunction(hideOnOutsideClick) || hideOnOutsideClick(event)) {
-            hide(event);
-        }
+        hide(event);
     });
 
     useInteractOutside(overlayRef, {

@@ -1,27 +1,18 @@
 import { Box } from "../../box";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { SelectionMode } from "./selectionMode";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
+import type { CollectionItem } from "../../collection";
+import type { SelectionMode } from "./selectionMode";
 
-export interface InnerMenuItemProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
     /**
      * Matching collection item.
      */
-    item: {
-        key: string;
-        tooltip?: {
-            props: Record<string, any>;
-            content: ReactElement;
-        },
-    };
+    item: CollectionItem;
     /**
      * Whether or not the item is disabled.
      */
@@ -40,10 +31,10 @@ export interface InnerMenuItemProps extends InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const Role = {
-    [SelectionMode.none]: "menuitem",
-    [SelectionMode.single]: "menuitemradio",
-    [SelectionMode.multiple]: "menuitemcheckbox"
+const Role: Record<SelectionMode, string> = {
+    none: "menuitem",
+    single: "menuitemradio",
+    multiple: "menuitemcheckbox"
 };
 
 export function InnerMenuItem({
@@ -87,10 +78,10 @@ export function InnerMenuItem({
         _: {
             defaultWrapper: Text
         },
-        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+        icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-menu-item-start-icon",
-                size: isNil(allElements.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : undefined
             };
         },
         avatar: {

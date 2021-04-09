@@ -1,9 +1,10 @@
 import "./Menu.css";
 
 import { Box, BoxProps } from "../../box";
-import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
+import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    DomProps,
     Keys,
     appendEventKey,
     cssModule,
@@ -23,16 +24,12 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { SelectionMode } from "./selectionMode";
 import { isNil, isNumber } from "lodash";
+import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-export interface InnerMenuProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerMenuProps extends DomProps {
     /**
      * A controlled set of the selected item keys.
      */
@@ -52,10 +49,6 @@ export interface InnerMenuProps {
      * The type of selection that is allowed.
      */
     selectionMode?: SelectionMode;
-    /**
-     * Items to render.
-     */
-    items?: Record<string, any>[];
     /**
      * Whether or not the menu should autofocus on render.
      */
@@ -95,8 +88,7 @@ export function InnerMenu({
     selectedKeys: selectedKeysProp,
     defaultSelectedKeys,
     onSelectionChange,
-    selectionMode = SelectionMode.none,
-    items,
+    selectionMode = "none",
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -119,7 +111,7 @@ export function InnerMenu({
     const handleSelectItem = useEventCallback((event, key) => {
         let newKeys;
 
-        if (selectionMode === SelectionMode.multiple) {
+        if (selectionMode === "multiple") {
             newKeys = selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         } else {
             newKeys = selectedKeys.includes(key) ? [] : [key];
@@ -129,7 +121,7 @@ export function InnerMenu({
             onSelectionChange(event, newKeys);
         }
 
-        if (selectionMode !== SelectionMode.none) {
+        if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
         }
     });
@@ -179,7 +171,7 @@ export function InnerMenu({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== SelectionMode.none ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: (selectionMode !== "none" ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
@@ -188,7 +180,7 @@ export function InnerMenu({
         })
     });
 
-    const nodes = useCollection(children, { items });
+    const nodes = useCollection(children);
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 
@@ -200,7 +192,7 @@ export function InnerMenu({
         content,
         props,
         tooltip
-    }: Omit<CollectionItem, "type">) => (
+    }: CollectionItem) => (
         <As
             {...props}
             id={`${rootId}-item-${index}`}
@@ -219,7 +211,7 @@ export function InnerMenu({
         ref,
         props,
         items: sectionItems
-    }: Omit<CollectionSection, "type">) => {
+    }: CollectionSection) => {
         if (sectionItems.length === 0) {
             return null;
         }
@@ -242,7 +234,7 @@ export function InnerMenu({
         ref,
         content,
         props
-    }: Omit<CollectionItem, "type">) => (
+    }: CollectionDivider) => (
         <As
             {...mergeProps(
                 props,
@@ -285,14 +277,14 @@ export function InnerMenu({
                     onSelect: handleSelectItem
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) => {
-                    switch (type) {
+                {nodes.map(node => {
+                    switch (node.type) {
                         case NodeType.item:
-                            return renderOption(nodeProps);
+                            return renderOption(node);
                         case NodeType.section:
-                            return renderSection(nodeProps);
+                            return renderSection(node as CollectionSection);
                         case NodeType.divider:
-                            return renderDivider(nodeProps);
+                            return renderDivider(node as CollectionDivider);
                         default:
                             return null;
                     }

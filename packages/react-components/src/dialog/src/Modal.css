@@ -1,0 +1,36 @@
+/* WRAPPER */
+.o-ui-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 1em;
+}
+
+/* WRAPPER | SCROLLING */
+.o-ui-modal-wrapper-scrolling {
+    align-items: flex-start;
+}
+
+/* MODAL */
+/* TEMP until we develop an actual modal */
+.o-ui-modal {
+    width: 720px;
+    padding: 1.5rem;
+    background-color: var(--o-ui-global-white);
+    position: relative;
+    outline: none;
+}
+
+/* CLOSE BUTTON */
+.o-ui-modal-close-button {
+    position: absolute;
+    top: var(--o-ui-global-scale-bravo);
+    right: var(--o-ui-global-scale-bravo);
+}
