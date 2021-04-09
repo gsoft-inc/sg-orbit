@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
 import { CheckboxGroup } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { InnerToolbar, Toolbar } from "@react-components/toolbar";
@@ -127,7 +128,7 @@ Toolbar controls can be wrap on multiple lines.
 
 <Preview>
     <Story name="wrap">
-        <div style={{ width: "700px" }}>
+        <Box style={{ width: "700px" }}>
             <Toolbar wrap>
                 <TextInput placeholder="Destination" />
                 <RadioGroup>
@@ -139,7 +140,7 @@ Toolbar controls can be wrap on multiple lines.
                     <ToggleButton variant="outline" value="one-way">One way</ToggleButton>
                 </CheckboxGroup>
             </Toolbar>
-        </div>
+        </Box>
     </Story>
 </Preview>
 

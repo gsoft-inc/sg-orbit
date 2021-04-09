@@ -74,15 +74,24 @@ stories()
         </Inline>
     )
     .add("states", () =>
-        <Stack>
-            <DateInput active placeholder="Where to?" />
-            <DateInput focus placeholder="Where to?" />
-            <DateInput hover placeholder="Where to?" />
-            <DateInput focus hover placeholder="Where to?" />
-            <DateInput disabled placeholder="Where to?" />
-            <DateInput readOnly placeholder="Where to?" />
-        </Stack>
-    )
+        <Inline>
+            <Stack>
+                <DateInput active placeholder="Where to?" />
+                <DateInput focus placeholder="Where to?" />
+                <DateInput hover placeholder="Where to?" />
+                <DateInput focus hover placeholder="Where to?" />
+                <DateInput disabled placeholder="Where to?" />
+                <DateInput readOnly placeholder="Where to?" />
+            </Stack>
+            <Stack>
+                <DateInput validationState="invalid" active placeholder="Where to?" />
+                <DateInput validationState="invalid" focus placeholder="Where to?" />
+                <DateInput validationState="invalid" hover placeholder="Where to?" />
+                <DateInput validationState="invalid" focus hover placeholder="Where to?" />
+                <DateInput validationState="invalid" disabled placeholder="Where to?" />
+                <DateInput validationState="invalid" readOnly placeholder="Where to?" />
+            </Stack>
+        </Inline> )
     .add("styling", () =>
         <Inline>
             <DateInput className="bg-red" />

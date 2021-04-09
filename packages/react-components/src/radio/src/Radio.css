@@ -35,6 +35,9 @@
 .o-ui-radio-label {
     line-height: 1;
     margin-left: var(--o-ui-global-scale-bravo);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* CONTENT | LABEL | REVERSE */
