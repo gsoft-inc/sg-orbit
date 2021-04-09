@@ -4,7 +4,7 @@ import { Box, BoxProps } from "../../box";
 import { CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
-    DOMProps,
+    DomProps,
     Keys,
     appendEventKey,
     cssModule,
@@ -29,7 +29,7 @@ import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-export interface InnerMenuProps extends DOMProps {
+export interface InnerMenuProps extends DomProps {
     /**
      * A controlled set of the selected item keys.
      */

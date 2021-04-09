@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { DOMProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
@@ -8,7 +8,7 @@ import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./selectionMode";
 
-export interface InnerMenuItemProps extends DOMProps, InteractionStatesProps {
+export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
     /**
      * Matching collection item.
      */

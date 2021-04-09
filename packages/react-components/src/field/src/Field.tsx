@@ -3,12 +3,12 @@ import "./Field.css";
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DOMProps, forwardRef, mergeProps } from "../../shared";
+import { DomProps, forwardRef, mergeProps } from "../../shared";
 import { FieldContext } from "./FieldContext";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
-interface InnerFieldProps extends DOMProps {
+interface InnerFieldProps extends DomProps {
     /**
      * Whether the field should display as "valid" or "invalid".
      */

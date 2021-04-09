@@ -1,8 +1,8 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DOMProps, forwardRef, mergeProps } from "../../shared";
+import { DomProps, forwardRef, mergeProps } from "../../shared";
 
-export interface InnerMenuSectionProps extends DOMProps {
+export interface InnerMenuSectionProps extends DomProps {
     /**
      * The section name.
      */
