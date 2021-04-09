@@ -227,7 +227,7 @@ export function InnerListbox({
         updateSelectedKeys(event, newKeys);
     });
 
-    const handleFocusOption = useEventCallback((event: SyntheticEvent, key: string | string[], activeElement: HTMLElement) => {
+    const handleFocusOption = useEventCallback((event: SyntheticEvent, key: string, activeElement: HTMLElement) => {
         if (!isNil(onFocusChange)) {
             onFocusChange(event, key, activeElement);
         }
