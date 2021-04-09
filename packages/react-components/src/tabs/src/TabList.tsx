@@ -1,7 +1,8 @@
 import "./Tabs.css";
 
-import { Box, BoxProps } from "../../box";
-import { Keys, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus } from "../../shared";
+import { Box } from "../../box";
+import { ComponentProps, ForwardedRef } from "react";
+import { Keys, forwardRef, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
 import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
 import { isNumber } from "lodash";
@@ -22,20 +23,22 @@ const NavigationKeyBinding = {
     }
 };
 
-
-export interface TabListProps extends Omit<BoxProps, "autofocus"> {
+export interface InnerTabListProps {
     autoFocus?: boolean | number;
     tabs?: TabType[];
+    forwardedRef: ForwardedRef<any>
 }
 
-export function TabList({
+export function InnerTabList({
     tabs,
     autoFocus,
+    forwardedRef,
     ...rest
-}: TabListProps) {
+}: InnerTabListProps) {
     const { selectedKey, orientation } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
+    const tabRef = useMergedRefs(setFocusRef, forwardedRef);
 
     const focusManager = useFocusManager(focusScope, { keyProp: TabKeyProp });
 
@@ -57,7 +60,7 @@ export function TabList({
                     className: "o-ui-tab-list",
                     role: "tablist",
                     "aria-orientation": orientation,
-                    ref: setFocusRef
+                    ref: tabRef
                 },
                 navigationProps
             )}
@@ -84,5 +87,12 @@ export function TabList({
         </Box>
     );
 }
+
+export const TabList = forwardRef<InnerTabListProps>((props, ref) => (
+    <InnerTabList {...props} forwardedRef={ref} />
+));
+
+export type TabListProps = ComponentProps<typeof TabList>
+
 
 
