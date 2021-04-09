@@ -1,7 +1,7 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { GroupIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

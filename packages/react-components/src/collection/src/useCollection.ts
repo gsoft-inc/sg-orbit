@@ -1,6 +1,6 @@
 import { Children, ElementType, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Divider } from "../../divider";
-import { Item, Section } from "../../placeholders";
+import { Item, Section } from "../../collection";
 import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { isNil } from "lodash";
 import { resolveChildren } from "../../shared";

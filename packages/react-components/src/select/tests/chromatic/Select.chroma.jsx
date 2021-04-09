@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Inline } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { Listbox } from "@react-components/listbox";
 import { Overlay } from "@react-components/overlay";
 import { Select, useSelect } from "@react-components/select";
