@@ -37,6 +37,7 @@ export function InnerBox(props: InnerBoxProps) {
         </As>
     );
 }
+
 export const Box = forwardRef<InnerBoxProps>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
