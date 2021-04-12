@@ -1,5 +1,6 @@
 import "./Variants.css";
 
+import { Box, Disclosure, DisclosureArrow, Text } from "@react-components";
 import { Content, Header, Item, Tabs } from "@react-components";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
@@ -10,29 +11,45 @@ import { components } from "@storybook/components/html";
 const H2 = components.h2;
 const H4 = components.h4;
 
+function VariantSection({ name, children }) {
+    return (
+        <Disclosure>
+            <button className="o-ui-sb-gallery-item-variant-section-toggle" type="button">
+                <Text size="lg" className="o-ui-sb-gallery-item-variant-section-toggle-text">{name}</Text>
+                <DisclosureArrow />
+            </button>
+            <Box className="o-ui-sb-gallery-item-variant-section-content">
+                {children}
+            </Box>
+        </Disclosure>
+    );
+}
+
 function IconComponent({ componentType }) {
     return (
-        <details>
-            <summary className="text-1">Use as a component</summary>
-            <H4>Import</H4>
-            <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} className="mv2" />
-            <H4>Usage</H4>
-            <Snippet language="jsx" code={`<${componentType} />`} className="mv2" />
-            <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
-        </details>
+        <VariantSection name="Use as a component">
+            <>
+                <H4>Import</H4>
+                <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} />
+                <H4>Usage</H4>
+                <Snippet language="jsx" code={`<${componentType} />`} />
+                <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
+            </>
+        </VariantSection>
     );
 }
 
 function ImageSource({ componentType, iconFileName, iconDisplayName }) {
     return (
-        <details>
-            <summary className="text-1">As an image source</summary>
-            <H4>Import</H4>
-            <Snippet language="javascript" code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} className="mv2" />
-            <H4>Usage</H4>
-            <Snippet language="jsx" code={`<img src={${componentType}} alt="${iconDisplayName}" className="w6 h6" />`} className="mv2" />
-            <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
-        </details>
+        <VariantSection name="As an image source">
+            <>
+                <H4>Import</H4>
+                <Snippet language="javascript" code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} />
+                <H4>Usage</H4>
+                <Snippet language="jsx" code={`<img src={${componentType}} alt="${iconDisplayName}" className="w6 h6" />`} />
+                <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
+            </>
+        </VariantSection>
     );
 }
 
@@ -44,11 +61,12 @@ function CssBackground({ iconFileName, iconDisplayName }) {
 }`;
 
     return (
-        <details>
-            <summary className="text-1">As a CSS background</summary>
-            <Snippet language="css" code={code} className="mv2" />
-            <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
-        </details>
+        <VariantSection name="As a CSS background">
+            <>
+                <Snippet language="css" code={code} />
+                <LearnUsageLink />
+            </>
+        </VariantSection>
     );
 }
 
@@ -70,7 +88,7 @@ export function Variants({ iconDisplayName, variants }) {
             <H2>Variants</H2>
             <Tabs aria-label="Icon variants">
                 {variants.map(x => (
-                    <Item>
+                    <Item key={x.name}>
                         <Header>{x.name}</Header>
                         <Content>
                             <Variant

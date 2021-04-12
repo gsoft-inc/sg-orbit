@@ -12,7 +12,7 @@ class Scope {
     }
 
     isInScope(element) {
-        return this.elements.some(x => x.contains(element));
+        return this._elements.some(x => x.contains(element));
     }
 }
 
