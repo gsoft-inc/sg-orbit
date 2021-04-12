@@ -19,7 +19,7 @@ import {
 } from "../../shared";
 import { Listbox, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { SearchInput, SearchInputProps } from "../../text-input";
+import { SearchInput } from "../../text-input";
 import { getItemText, useCollectionSearch } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
@@ -55,10 +55,6 @@ export interface InnerAutocompleteProps extends InteractionStatesProps {
      * @ignore
      */
     "aria-label"?: string;
-    /**
-     * Items to render.
-     */
-    items?: CollectionItem[],
     /**
      * Whether or not the autocomplete should display a loading state.
      */
@@ -174,7 +170,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         value: valueProp,
         defaultValue,
         placeholder,
-        items,
         onSearch,
         loading,
         clearOnSelect,
@@ -193,7 +188,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         disabled,
         allowFlip = true,
         allowPreventOverflow = true,
-        zIndex,
+        zIndex = 10000,
         active,
         focus,
         hover,
@@ -247,7 +242,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const listboxRef = useRef<HTMLElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
-    const [results, searchCollection] = useCollectionSearch(children, { items, onSearch });
+    const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
     const open = useCallback(event => {
         setIsOpen(event, true);

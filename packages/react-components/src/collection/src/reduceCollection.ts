@@ -1,6 +1,6 @@
-import { CollectionItem, NodeType, isSection } from "./useCollection";
+import { CollectionItem, CollectionNode, isItem, isSection } from "./useCollection";
 
-export function reduceCollection(nodes: CollectionItem[], acceptItem: (item: CollectionItem) => boolean): CollectionItem[] {
+export function reduceCollection(nodes: CollectionNode[], acceptItem: (item: CollectionItem) => boolean): CollectionItem[] {
     return nodes.reduce((acc, node) => {
         if (isSection(node)) {
             const items = node.items.reduce((sectionItems, item) => {
@@ -20,7 +20,7 @@ export function reduceCollection(nodes: CollectionItem[], acceptItem: (item: Col
                     items
                 });
             }
-        } else if (node.type === NodeType.item) {
+        } else if (isItem(node)) {
             if (acceptItem(node)) {
                 acc.push(node);
             }

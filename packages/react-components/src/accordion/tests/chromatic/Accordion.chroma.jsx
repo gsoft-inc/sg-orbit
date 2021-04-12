@@ -3,7 +3,7 @@ import { Box } from "@react-components/box";
 import { Content, Header } from "@react-components/placeholders";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { Text } from "@react-components/text";
 import { augmentElement } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -226,7 +226,7 @@ stories()
             </Item>
         </Accordion>
     )
-    .add("array map", () =>
+    .add("dynamic items", () =>
         <Stack>
             <Accordion>
                 {["1", "2", "3"].map(x => (

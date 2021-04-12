@@ -1,4 +1,4 @@
-import { CollectionItem, useCollection } from "./useCollection";
+import { CollectionItem, CollectionNode, useCollection } from "./useCollection";
 import { ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { getItemText } from "./getItemText";
 import { isNil } from "lodash";
@@ -10,7 +10,7 @@ function isQueryMatchingItem(query: string, item: CollectionItem) {
     return itemText.toLowerCase().startsWith(query);
 }
 
-function useNodeFilter(nodes: CollectionItem[]): [CollectionItem[], (query: string) => void] {
+function useNodeFilter(nodes: CollectionNode[]): [CollectionItem[], (query: string) => void] {
     const [results, setResults] = useState<CollectionItem[]>([]);
 
     const filter = useCallback((query: string) => {
@@ -31,14 +31,12 @@ function useNodeFilter(nodes: CollectionItem[]): [CollectionItem[], (query: stri
 
     return [results, filter];
 }
-
 interface UseCollectionSearchOptions {
-    items?: CollectionItem[];
     onSearch?: any;
 }
 
-export function useCollectionSearch(children: ReactNode, { items, onSearch }: UseCollectionSearchOptions): [CollectionItem[], (event: SyntheticEvent, query: string) => void] {
-    const nodes = useCollection(children, { items });
+export function useCollectionSearch(children: ReactNode, { onSearch }: UseCollectionSearchOptions): [CollectionNode[], (event: SyntheticEvent, query: string) => void] {
+    const nodes = useCollection(children);
 
     const [filterResults, filterNodes] = useNodeFilter(nodes);
 

@@ -1,7 +1,6 @@
 import "./Select.css";
 
-import { CSSProperties } from "aphrodite";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
@@ -11,6 +10,12 @@ import { Text } from "../../text";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
+
+export interface SelectMenuProps {
+    id?: string,
+    style?: CSSProperties,
+    [x: string]: any
+}
 
 export interface InnerSelectProps extends InteractionStatesProps {
     /**
@@ -41,10 +46,6 @@ export interface InnerSelectProps extends InteractionStatesProps {
      * Temporary text that occupies the select trigger when no value is selected.
      */
     placeholder?: string,
-    /**
-     * Items to render.
-     */
-    items: Record<string, any>[]
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -110,11 +111,7 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps?: {
-        id?: string,
-        style?: CSSProperties,
-        [x: string]: any
-    };
+    menuProps?: SelectMenuProps;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -139,7 +136,6 @@ export function InnerSelect(props: InnerSelectProps) {
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
         placeholder,
-        items,
         required,
         validationState,
         onSelectionChange,
@@ -154,7 +150,7 @@ export function InnerSelect(props: InnerSelectProps) {
         disabled,
         allowFlip = true,
         allowPreventOverflow = true,
-        zIndex,
+        zIndex = 10000,
         active,
         focus,
         hover,
@@ -178,7 +174,6 @@ export function InnerSelect(props: InnerSelectProps) {
         defaultOpen,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
-        items,
         onSelectionChange,
         onOpenChange,
         direction,

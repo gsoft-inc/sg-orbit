@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
 import { HiddenSelect, InnerSelect, Select } from "@react-components/select";
-import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -271,40 +271,16 @@ A select can be part of a form. To submit the value of a select, make sure you s
     </Story>
 </Preview>
 
-### Array map
+### Dynamic items
 
-A select items can be rendered with an array map.
+A select items can be rendered dynamically.
 
 <Preview>
-    <Story name="array map">
+    <Story name="dynamic items">
         <Select placeholder="Planets" aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
-        </Select>
-    </Story>
-</Preview>
-
-### Dynamic items
-
-A select items can be dynamic.
-
-The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
-
-<Preview>
-    <Story name="dynamic items">
-        <Select
-            items={[
-                { key: "earth", value: "Earth" },
-                { key: "jupiter", value: "Jupiter" },
-                { key: "mars", value: "Mars" }
-            ]}
-            placeholder="Planets"
-            aria-label="Planets"
-        >
-            {({ items }) => items.map((x => (
-                <Item key={x.key}>{x.value}</Item>
-            )))}
         </Select>
     </Story>
 </Preview>

@@ -1,10 +1,11 @@
 import "./IconItem.css";
 
-import { IconModal } from "./details";
+import { Content, DialogTrigger, Heading, Modal } from "@react-components";
+import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";
 import { arrayOf, shape, string } from "prop-types";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 const propTypes = {
     name: string.isRequired,
@@ -17,20 +18,24 @@ function getDisplayName(name) {
 }
 
 export function IconItem({ name, multiVariant, variants }) {
-    const [isModalOpen, showModal] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleShowDetail = () => {
-        showModal(true);
-    };
+    const handleShowDetail = useCallback(() => {
+        setIsModalOpen(true);
+    }, [setIsModalOpen]);
 
-    const handleCloseModal = () => {
-        showModal(false);
-    };
+    const handleModalOpenChange = useCallback((event, isOpen) => {
+        setIsModalOpen(isOpen);
+    }, [setIsModalOpen]);
 
     const displayName = getDisplayName(name);
 
     return (
-        <>
+        <DialogTrigger
+            open={isModalOpen}
+            onOpenChange={handleModalOpenChange}
+            dismissable
+        >
             <div className="o-ui-sb-gallery-item flex flex-column">
                 <div className="pa3 tc f7">{displayName.toLowerCase()}</div>
                 <div className="flex justify-center">
@@ -39,16 +44,17 @@ export function IconItem({ name, multiVariant, variants }) {
                     </div>
                 </div>
             </div>
-
-            <IconModal
-                open={isModalOpen}
-                iconName={name}
-                iconDisplayName={displayName}
-                multiVariant={multiVariant}
-                variants={variants}
-                onClose={handleCloseModal}
-            />
-        </>
+            <Modal>
+                <Heading>{displayName}</Heading>
+                <Content>
+                    <IconDetail
+                        iconDisplayName={displayName}
+                        multiVariant={multiVariant}
+                        variants={variants}
+                    />
+                </Content>
+            </Modal>
+        </DialogTrigger>
     );
 }
 

@@ -7,7 +7,6 @@ import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContaine
 import "@orbit-ui/css-normalize";
 import "@orbit-ui/foundation";
 import "@orbit-ui/react-components/dist/index.css";
-import "@orbit-ui/semantic-ui-theme";
 import "@orbit-ui/tachyons";
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
@@ -52,7 +51,7 @@ export const globalTypes = {
         defaultValue: "apricot",
         toolbar: {
             icon: "photo",
-            items: ["apricot", "overcast", "desktop"]
+            items: ["apricot", "desktop"]
         }
     },
     colorScheme: {

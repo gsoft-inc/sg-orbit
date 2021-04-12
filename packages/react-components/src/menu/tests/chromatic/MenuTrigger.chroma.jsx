@@ -1,6 +1,6 @@
 import { Button, IconButton } from "@react-components/button";
 import { DisclosureArrow } from "@react-components/disclosure";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { VerticalDotsIcon } from "@react-components/icons";

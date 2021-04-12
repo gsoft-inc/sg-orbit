@@ -3,7 +3,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
-import { InnerItem, Item } from "@react-components/placeholders";
+import { InnerItem, Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 
@@ -17,7 +17,7 @@ import { Text } from "@react-components/text";
 <Tagline>Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.</Tagline>
 
 <ComponentInfo
-    usage={"import { Accordion, Item, Header, Content, useCheckableProps, AccordionHeader, AccordionItem } from \"@orbit-ui/react-components\""}
+    usage={"import { Accordion, Item, Header, Content, useCheckableProps, AccordionHeader, AccordionPanel } from \"@orbit-ui/react-components\""}
     ariaPath="#accordion"
     githubPath="/packages/react-components/src/accordion/src"
 />
@@ -110,12 +110,12 @@ An accordion can allow multiple items to be expanded at once.
     </Story>
 </Preview>
 
-### Array map
+### Dynamic items
 
-An accordion items can be rendered with an array map.
+An accordion items can be rendered dynamically.
 
 <Preview>
-    <Story name="data render">
+    <Story name="dynamic items">
         <Accordion aria-label="Planets">
             {[
                 { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },

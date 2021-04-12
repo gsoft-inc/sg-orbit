@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@react-components/radio";
@@ -197,7 +198,7 @@ Checkable components can be wrap on multiple lines.
 
 <Preview>
     <Story name="wrap toggle buttons">
-        <div style={{ width: "200px" }}>
+        <Box style={{ width: "200px" }}>
             <RadioGroup wrap gap={2} orientation="horizontal">
                 <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
                 <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
@@ -208,7 +209,7 @@ Checkable components can be wrap on multiple lines.
                 <ToggleButton value="7" variant="outline" shape="circular">7</ToggleButton>
                 <ToggleButton value="8" variant="outline" shape="circular">8</ToggleButton>
             </RadioGroup>
-        </div>
+        </Box>
     </Story>
 </Preview>
 

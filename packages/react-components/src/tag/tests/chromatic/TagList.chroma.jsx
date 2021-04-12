@@ -2,7 +2,7 @@ import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { HelpIcon, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { TagList } from "@react-components/tag";
 import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";

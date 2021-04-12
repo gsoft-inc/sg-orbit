@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { InnerParagraph, Paragraph } from "@react-components/paragraph";
+import { InnerParagraph, P, Paragraph } from "@react-components/paragraph";
 
 <Meta
     title="Components/Paragraph"
@@ -12,7 +12,7 @@ import { InnerParagraph, Paragraph } from "@react-components/paragraph";
 <Tagline>A paragraph is used to render blocks of text.</Tagline>
 
 <ComponentInfo
-    usage={"import { Paragraph } from \"@orbit-ui/react-components\""}
+    usage={"import { Paragraph, P } from \"@orbit-ui/react-components\""}
     githubPath="/packages/react-components/src/paragraph/src"
 />
 
@@ -31,11 +31,21 @@ You can alter the size of the paragraph by specifying a `size` prop. The availab
     </Story>
 </Preview>
 
+### Alias
+
+A convenience alias is available as `<P>`.
+
+<Preview>
+    <Story name="alias">
+        <P>If two pieces of the same type of metal touch in space they will permanently bond.</P>
+    </Story>
+</Preview>
+
 ## API
 
 <ArgsTable of={InnerParagraph} />
 
 <ComponentInfo
-    usage={"import { Paragraph } from \"@orbit-ui/react-components\""}
+    usage={"import { Paragraph, P } from \"@orbit-ui/react-components\""}
     compact
 />

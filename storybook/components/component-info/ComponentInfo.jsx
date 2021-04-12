@@ -9,7 +9,6 @@ const propTypes = {
         string,
         shape({
             apricot: string.isRequired,
-            overcast: string.isRequired,
             desktop: string.isRequired
         })
     ]),

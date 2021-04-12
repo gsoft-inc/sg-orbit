@@ -3,7 +3,7 @@ import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
-import { Item, Section } from "@react-components/placeholders";
+import { Item, Section } from "@react-components/collection";
 import { Menu, MenuItem } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { mergeProps } from "@react-components/shared";
@@ -369,7 +369,7 @@ stories()
             </Menu>
         </Inline>
     )
-    .add("array map", () =>
+    .add("dynamic items", () =>
         <Menu aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>

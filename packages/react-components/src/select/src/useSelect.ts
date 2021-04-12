@@ -1,4 +1,4 @@
-import { CSSProperties } from "aphrodite";
+import { CSSProperties, ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import {
     FocusTarget,
     Keys,
@@ -13,7 +13,6 @@ import {
     useRefState
 } from "../../shared";
 import { OptionKeyProp } from "../../listbox";
-import { ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
 import { usePopup, useTriggerWidth } from "../../overlay";
@@ -27,7 +26,6 @@ export interface UseSelectProps {
     onChange?(event: SyntheticEvent, selectedKey: string): void
     onOpenChange?(event: SyntheticEvent, isOpen: boolean): void
     onSelectionChange?(event: SyntheticEvent, selectedKey: string): void
-    items: Record<string, any>[]
     direction: "bottom" | "top";
     align?: "start" | "end";
     autoFocus?: boolean | number;
@@ -52,7 +50,6 @@ export function useSelect(children: ReactNode, {
     defaultOpen,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
-    items: itemsProp,
     onSelectionChange,
     onOpenChange,
     direction = "bottom",
@@ -145,7 +142,7 @@ export function useSelect(children: ReactNode, {
 
     const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
-    const nodes = useCollection(children, { items: itemsProp });
+    const nodes = useCollection(children);
     const items = useOnlyCollectionItems(nodes);
 
     const selectedItem = useMemo(() => items.find(x => x.key === selectedKey), [items, selectedKey]);

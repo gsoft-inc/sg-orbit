@@ -9,7 +9,7 @@ import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent, useCallback,
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
 import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
-import { Item } from "../../placeholders";
+import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
 import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";

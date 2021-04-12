@@ -1,20 +1,21 @@
 import "./Listbox.css";
 
 import { Box, BoxProps } from "../../box";
-import { CollectionItem } from "../../collection";
+import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
-export interface InnerListboxOptionProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+// used to generate CollectionItem instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CollectionItem extends CollectionItemAliasForDocumentation {
+}
+
+export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
     /**
     * Matching collection item.
     */
@@ -94,10 +95,10 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (_element: ReactElement, allElements: Record<string, any>) => {
+        icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(allElements.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : undefined
             };
         },
         avatar: {

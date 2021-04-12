@@ -1,11 +1,11 @@
 import { ChangeEvent, createContext, useContext } from "react";
 import { isNil } from "lodash";
 
-type CheckableValueType = boolean | string | number | CheckableValueType[]
+type CheckableValue = boolean | string | number | CheckableValue[]
 
 interface CheckableContextType {
-    checkedValue?: CheckableValueType;
-    onCheck?(event: ChangeEvent, newValue: CheckableValueType): void;
+    checkedValue?: CheckableValue;
+    onCheck?(event: ChangeEvent, newValue: CheckableValue): void;
 }
 
 export const CheckableContext = createContext<CheckableContextType>(undefined);
@@ -20,11 +20,11 @@ export function useCheckableContext(): [CheckableContextType, boolean] {
     return [context, false];
 }
 
-type CheckableProps = Omit<CheckableContextType, "checkedValue"> & {
+type UseCheckablePropsReturn = Omit<CheckableContextType, "checkedValue"> & {
     checked?: boolean;
 }
 
-export function useCheckableProps({ value }: { value?: boolean | string | number }): [CheckableProps, boolean] {
+export function useCheckableProps({ value }: { value?: boolean | string | number }): [UseCheckablePropsReturn, boolean] {
     const [context, isCheckable] = useCheckableContext();
 
     if (isCheckable) {

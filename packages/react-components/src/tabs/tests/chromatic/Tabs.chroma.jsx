@@ -2,7 +2,7 @@ import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs } from "@react-components/tabs";
 import { Text } from "@react-components/text";
@@ -303,7 +303,7 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("array map", () =>
+    .add("dynamic tabs", () =>
         <Tabs aria-label="Planets">
             {["1", "2", "3"].map(x => (
                 <Item key={x}>

@@ -70,7 +70,7 @@ export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseField
     return [props || {}, isInField];
 }
 
-export type UseFieldInputPropsReturn = [{
+export type UseFieldInputPropsReturn = {
     validationState?: "valid" | "invalid";
     id?: string;
     required?: boolean;
@@ -80,9 +80,9 @@ export type UseFieldInputPropsReturn = [{
     className?: string;
     "aria-labelledby"?: string;
     "aria-describedby"?: string;
-}, boolean];
+};
 
-export function useFieldInputProps(): UseFieldInputPropsReturn {
+export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const [{
         isGroup,
         validationState,
@@ -107,16 +107,16 @@ export function useFieldInputProps(): UseFieldInputPropsReturn {
     return [props || {}, isInField];
 }
 
-export type UseFieldMessagePropsReturn = [{
+export type UseFieldMessagePropsReturn = {
     id?: string;
     size?: "sm" | "md";
     fluid?: boolean;
     validationState?: "valid" | "invalid";
     className?: string;
     "aria-live"?: "polite";
-}, boolean]
+}
 
-export function useFieldMessageProps(): UseFieldMessagePropsReturn {
+export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
     const [{
         messageId,
         size,
@@ -125,7 +125,7 @@ export function useFieldMessageProps(): UseFieldMessagePropsReturn {
         messageClassName
     }, isInField] = useFieldContext();
 
-    const props: UseFieldMessagePropsReturn[0] = isInField && {
+    const props: UseFieldMessagePropsReturn = isInField && {
         id: messageId,
         size,
         fluid,

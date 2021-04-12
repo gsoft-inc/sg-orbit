@@ -2,7 +2,7 @@ import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
-import { Item, Section } from "@react-components/placeholders";
+import { Item, Section } from "@react-components/collection";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
 import { mergeProps } from "@react-components/shared";

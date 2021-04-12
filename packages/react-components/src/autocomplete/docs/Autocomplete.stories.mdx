@@ -3,7 +3,7 @@ import { Autocomplete, InnerAutocomplete } from "@react-components/autocomplete"
 import { Avatar } from "./Avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
-import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -254,40 +254,16 @@ An autocomplete can be part of a form. To submit the value of a select, make sur
     </Story>
 </Preview>
 
-### Array map
+### Dynamic items
 
-An autocomplete items can be rendered with an array map.
+An autocomplete items can be rendered dynamically.
 
 <Preview>
-    <Story name="array map">
+    <Story name="dynamic items">
         <Autocomplete placeholder="Planets" aria-label="Planets">
             {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
                 <Item key={x.toLowerCase()}>{x}</Item>
             ))}
-        </Autocomplete>
-    </Story>
-</Preview>
-
-### Dynamic items
-
-An autocomplete items can be dynamic.
-
-The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
-
-<Preview>
-    <Story name="dynamic items">
-        <Autocomplete
-            items={[
-                { key: "earth", value: "Earth" },
-                { key: "jupiter", value: "Jupiter" },
-                { key: "mars", value: "Mars" }
-            ]}
-            placeholder="Planets"
-            aria-label="Planets"
-        >
-            {({ items }) => items.map((x => (
-                <Item key={x.key}>{x.value}</Item>
-            )))}
         </Autocomplete>
     </Story>
 </Preview>

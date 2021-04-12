@@ -101,7 +101,7 @@ a.o-ui-tag:hover {
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | ACTIVE */
 button.o-ui-tag-solid:active,
-a.o-ui-tag-solid:active
+a.o-ui-tag-solid:active,
 button.o-ui-tag-solid.o-ui-tag-active,
 a.o-ui-tag-solid.o-ui-tag-active {
     background-color: var(--o-ui-alias-background-2-hover);

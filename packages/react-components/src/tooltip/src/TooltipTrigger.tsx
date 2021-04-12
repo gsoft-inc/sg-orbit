@@ -1,6 +1,6 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
+import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { augmentElement, forwardRef, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
@@ -91,7 +91,7 @@ export function InnerTooltipTrigger({
     disabled,
     allowFlip = true,
     containerElement,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
@@ -116,15 +116,13 @@ export function InnerTooltipTrigger({
 
     const triggerProps = useOverlayTrigger({
         trigger: "hover",
-        onToggle: useEventCallback(event => {
-            updateIsOpen(event, !isOpen);
-        }),
+        isOpen,
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
-            // Prevent from closing when the focus or mouse goes to an element of the overlay.
-            if (!isTargetParent((event as FocusEvent<HTMLElement> | MouseEvent<HTMLElement>).relatedTarget, overlayElement)) {
+            // Prevent from closing when the focus goes to an element of the overlay on opening.
+            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -134,7 +132,7 @@ export function InnerTooltipTrigger({
         trigger: "hover",
         onHide: useEventCallback((event: SyntheticEvent<HTMLElement, Event>) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement> | MouseEvent<HTMLElement>).relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -148,7 +146,7 @@ export function InnerTooltipTrigger({
         position: positionProp,
         allowFlip,
         boundaryElement: containerElement,
-        // Not accepting prevent overflow feature because the tooltip big enough and it cause arrow render issue sometime when the position if left or right.
+        // Not accepting prevent overflow feature because when the tooltip is big enough, it cause arrow render issue sometimes when the position is left or right.
         allowPreventOverflow: false
     });
 
@@ -180,7 +178,7 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         show: !disabled && isOpen,
-                        borderOffset: "var(--o-ui-global-scale-bravo)",
+                        borderOffset: "var(--o-ui-global-scale-charlie)",
                         zIndex,
                         style: overlayStyles,
                         role: "tooltip",

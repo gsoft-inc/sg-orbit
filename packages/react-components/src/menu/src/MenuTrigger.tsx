@@ -1,15 +1,11 @@
 import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
-import { FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
+import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
 import { isNil } from "lodash";
 
-export interface InnerMenuTriggerProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerMenuTriggerProps extends DomProps {
     /**
      * Whether or not to show the menu.
      */
@@ -73,7 +69,7 @@ export function InnerMenuTrigger({
     align = "start",
     allowFlip,
     allowPreventOverflow,
-    zIndex,
+    zIndex = 10000,
     as = "div",
     children,
     forwardedRef,
@@ -166,6 +162,7 @@ export function InnerMenuTrigger({
         <MenuTriggerContext.Provider
             value={{
                 isOpen,
+                open,
                 close
             }}
         >

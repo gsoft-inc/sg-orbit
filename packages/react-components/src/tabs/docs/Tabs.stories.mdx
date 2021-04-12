@@ -1,7 +1,9 @@
+import "./loader.css";
+
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { InnerItem, Item } from "@react-components/placeholders";
+import { InnerItem, Item } from "@react-components/collection";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@react-components/tabs";
 import { Lozenge } from "@react-components/lozenge";
 import { NotificationIcon } from "@react-components/icons";
@@ -105,12 +107,12 @@ A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
     </Story>
 </Preview>
 
-### Array map
+### Dynamic tabs
 
-Tabs items can be rendered with an array map.
+Tabs items can be rendered dynamically.
 
 <Preview>
-    <Story name="data tabs">
+    <Story name="dynamic tabs">
         <Tabs aria-label="Planets">
             {[
                 { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },

@@ -61,3 +61,23 @@ export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref
 export type HeadingProps = ComponentProps<typeof Heading>
 
 Heading.displayName = "Heading";
+
+// Aliases
+
+function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
+    return slot("heading", forwardRef<Omit<InnerHeadingProps, "size" | "as">, typeof as>((props, ref) => (
+        <InnerHeading
+            {...props}
+            size={size}
+            as={as}
+            forwardedRef={ref}
+        />
+    )));
+}
+
+export const H1 = createAlias("h1", "xl");
+export const H2 = createAlias("h2", "lg");
+export const H3 = createAlias("h3", "md");
+export const H4 = createAlias("h4", "sm");
+export const H5 = createAlias("h5", "xs");
+export const H6 = createAlias("h6", "2xs");
