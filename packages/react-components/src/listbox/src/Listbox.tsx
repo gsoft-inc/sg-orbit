@@ -1,9 +1,9 @@
 import "./Listbox.css";
 
-import { Box } from "../../box";
-import { CollectionItem, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import {
+    AriaLabelingProps,
+    DomProps,
+    FocusManager,
     Keys,
     appendEventKey,
     cssModule,
@@ -20,6 +20,9 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { Box } from "../../box";
+import { CollectionItem, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -33,23 +36,14 @@ const SelectionMode = {
     multiple: "multiple"
 };
 
-export interface InnerListboxProps {
+export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
-     * @ignore
+     * Called when the focus change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {String[]} keys - The keys of the selected items.
+     * @returns {void}
      */
-    id?: string;
-    /**
-     * @ignore
-     */
-    "arial-label"?: string;
-    /**
-     * @ignore
-     */
-    "aria-labelledby"?: string;
-    /**
-     * @ignore
-     */
-    onFocusChange?(event: SyntheticEvent, key: string | string[], activeElement: HTMLElement): void;
+    onFocusChange?(event: SyntheticEvent, key: string, activeElement: HTMLElement): void;
     /**
      * A controlled set of the selected item keys.
      */
@@ -160,6 +154,7 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
     }, [selectedKeys, items]);
 }
 
+
 export function InnerListbox({
     id,
     selectedKeys: selectedKeysProp,
@@ -175,7 +170,7 @@ export function InnerListbox({
     useVirtualFocus,
     tabbable = true,
     fluid,
-    "arial-label": ariaLabel,
+    "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "div",
     children,
@@ -187,7 +182,7 @@ export function InnerListbox({
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs(setFocusRef);
+    const containerRef = useMergedRefs<ListboxHTMLElement>(setFocusRef);
 
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
@@ -200,7 +195,7 @@ export function InnerListbox({
     useImperativeHandle(forwardedRef, () => {
         const element = containerRef.current;
 
-        (element as any).focusManager = focusManager;
+        element.focusManager = focusManager;
 
         return element;
     });
@@ -347,7 +342,7 @@ export function InnerListbox({
         content,
         props = {},
         tooltip
-    }: Omit<CollectionItem, "type">) => (
+    }: CollectionItem) => (
         <As
             {...props}
             id={`${rootId}-option-${index}`}
@@ -366,7 +361,7 @@ export function InnerListbox({
         ref,
         props = {},
         items: sectionItems
-    }: Omit<CollectionSection, "type">) => {
+    }: CollectionSection) => {
         if (sectionItems.length === 0) {
             return null;
         }
@@ -412,12 +407,12 @@ export function InnerListbox({
                     focusOnHover
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) => {
-                    switch (type) {
+                {nodes.map(node => {
+                    switch (node.type) {
                         case NodeType.item:
-                            return renderOption(nodeProps);
+                            return renderOption(node);
                         case NodeType.section:
-                            return renderSection(nodeProps as CollectionSection);
+                            return renderSection(node as CollectionSection);
                         default:
                             return null;
                     }
@@ -427,7 +422,11 @@ export function InnerListbox({
     );
 }
 
-export const Listbox = forwardRef<InnerListboxProps>((props, ref) => (
+export type ListboxHTMLElement = HTMLElement & {
+    focusManager?: FocusManager;
+}
+
+export const Listbox = forwardRef<InnerListboxProps, ListboxHTMLElement>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 

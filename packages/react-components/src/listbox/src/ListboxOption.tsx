@@ -3,18 +3,14 @@ import "./Listbox.css";
 import { Box, BoxProps } from "../../box";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
-export interface InnerListboxOptionProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
     /**
     * Matching collection item.
     */
