@@ -16,7 +16,7 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { Listbox, OptionKeyProp } from "../../listbox";
+import { Listbox, ListboxHTMLElement, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { getItemText, useCollectionSearch } from "../../collection";
@@ -236,7 +236,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         allowPreventOverflow
     });
 
-    const listboxRef = useRef<HTMLElement>();
+    const listboxRef = useRef<ListboxHTMLElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
@@ -323,7 +323,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = (listboxRef.current as any)?.focusManager.focusNext();
+                    const activeElement = listboxRef.current?.focusManager.focusNext();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -335,7 +335,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = (listboxRef.current as any)?.focusManager.focusPrevious();
+                    const activeElement = listboxRef.current?.focusManager.focusPrevious();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -347,7 +347,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = (listboxRef.current as any)?.focusManager.focusFirst();
+                    const activeElement = listboxRef.current?.focusManager.focusFirst();
 
                     setFocusedItem({
                         id: activeElement.id,
@@ -359,7 +359,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 if (isOpen) {
                     event.preventDefault();
 
-                    const activeElement = (listboxRef.current as any)?.focusManager.focusLast();
+                    const activeElement = listboxRef.current?.focusManager.focusLast();
 
                     setFocusedItem({
                         id: activeElement.id,

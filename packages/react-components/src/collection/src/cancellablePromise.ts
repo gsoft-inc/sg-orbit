@@ -25,3 +25,6 @@ export function cancellablePromise<T>(promise: Promise<T>): CancellablePromise<T
     };
 }
 
+export function isCancellablePromiseError(error: unknown): error is CancellablePromiseError {
+    return (error as CancellablePromiseError)?.isCancelled !== undefined;
+}

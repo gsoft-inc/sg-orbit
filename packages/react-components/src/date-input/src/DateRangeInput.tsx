@@ -16,7 +16,7 @@ import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-interface Preset {
+export interface DatePreset {
     text: string;
     startDate: Date
     endDate: Date;
@@ -73,7 +73,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * Array of pre-determined dates range.
      */
-    presets?: Preset[]
+    presets?: DatePreset[]
     /**
      * Whether or not the input should autofocus on render.
      */
