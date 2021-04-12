@@ -1,4 +1,3 @@
-import { CSSProperties, ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import {
     FocusTarget,
     Keys,
@@ -13,9 +12,10 @@ import {
     useRefState
 } from "../../shared";
 import { OptionKeyProp } from "../../listbox";
+import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
+import { ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
-import { usePopup, useTriggerWidth } from "../../overlay";
 
 export interface UseSelectProps {
     id?: string;
@@ -36,11 +36,7 @@ export interface UseSelectProps {
     ariaLabel?: string;
     ariaLabelledBy?: string;
     ariaDescribedBy?: string
-    overlayProps?: {
-        id?: string,
-        style?: CSSProperties,
-        [x: string]: any
-    },
+    overlayProps?: Partial<OverlayProps>,
     ref: Ref<HTMLElement>
 }
 

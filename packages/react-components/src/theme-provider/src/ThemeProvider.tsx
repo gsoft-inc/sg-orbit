@@ -11,7 +11,7 @@ export interface ThemeProviderProps {
     /**
      * The theme to use.
      */
-    theme: Theme;
+    theme?: Theme;
     /**
      * The color scheme to use.
      */

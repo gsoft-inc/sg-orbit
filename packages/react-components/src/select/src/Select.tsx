@@ -1,20 +1,19 @@
 import "./Select.css";
 
 import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
-import { Overlay } from "../../overlay";
+import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
 
-export interface OverlayProps {
-    id?: string,
-    style?: CSSProperties,
-    [x: string]: any
+// used to generate OverlayProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface OverlayProps extends Partial<OverlayPropsForDocumentation> {
 }
 
 export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps {

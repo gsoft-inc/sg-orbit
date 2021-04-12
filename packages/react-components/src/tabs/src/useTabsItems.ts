@@ -26,10 +26,10 @@ export interface TabType {
 }
 
 export class TabsBuilder {
-    _rootId;
+    private rootId;
 
     constructor(rootId: string) {
-        this._rootId = rootId;
+        this.rootId = rootId;
     }
 
     build(children: ReactNode): [TabType[], PanelType[]] {
@@ -51,8 +51,8 @@ export class TabsBuilder {
                 throw new Error("A tabs item must have an <Header> and a <Content>.");
             }
 
-            const tabId = this._makeId(header, "tab", key);
-            const panelId = this._makeId(content, "panel", key);
+            const tabId = this.makeId(header, "tab", key);
+            const panelId = this.makeId(content, "panel", key);
 
             tabs.push({
                 key,
@@ -82,8 +82,8 @@ export class TabsBuilder {
         return [tabs, panels];
     }
 
-    _makeId({ props: { id } }: Record<string, any>, type: "tab" | "panel", key: string): string {
-        return id ?? `${this._rootId}-${type}-${key}`;
+    private makeId({ props: { id } }: Record<string, any>, type: "tab" | "panel", key: string): string {
+        return id ?? `${this.rootId}-${type}-${key}`;
     }
 }
 
