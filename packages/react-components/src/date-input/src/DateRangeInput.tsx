@@ -119,12 +119,10 @@ const DateInput = forwardRef<any, "input">(({
 
     const dateProps = useDateInput({
         value,
-        //placeholder, // TODO: TS useDateInput doesnt use this property
         minDate,
         maxDate,
         onChange,
         onDateChange,
-        //autoFocus, // TODO: TS useDateInput doesnt use this property
         forwardedRef: inputRef
     });
 
@@ -329,7 +327,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             <Menu onSelectionChange={handleSelectPreset}>
                 {presets.map((x, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <Item key={`${index}`}>
+                    <Item key={index.toString()}>
                         {x.text}
                     </Item>
                 ))}

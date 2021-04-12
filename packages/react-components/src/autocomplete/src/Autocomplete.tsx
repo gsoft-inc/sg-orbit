@@ -93,7 +93,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps {
      * @param {string} selection.value - The selected value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, selection: { key?: string, value?: string }): void,
+    onChange?(event: SyntheticEvent, selection: { key: string, value: string }): void,
     /**
      * Called when the autocomplete open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -215,7 +215,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 setQuery(newValue ?? "");
             }
 
-            return undefined; // TODO: TS // this method only return undefined or T
+            return undefined;
         }, [setQuery])
     });
 

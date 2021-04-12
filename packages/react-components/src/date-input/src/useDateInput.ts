@@ -92,7 +92,7 @@ export function useDateInput({
                 }
             }
 
-            return undefined; // TODO: TS useControllableState takes a function that returns T or undefined,  not void
+            return undefined;
         }, [inputValueRef, setInputValue])
     });
 
