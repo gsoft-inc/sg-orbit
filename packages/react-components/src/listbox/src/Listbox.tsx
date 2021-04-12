@@ -21,7 +21,7 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, isItem, isSection, useCollection, useOnlyCollectionItems } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
@@ -412,13 +412,12 @@ export function InnerListbox({
                 }}
             >
                 {nodes.map(node => {
-                    switch (node.type) {
-                        case NodeType.item:
-                            return renderOption(node as CollectionItem);
-                        case NodeType.section:
-                            return renderSection(node as CollectionSection);
-                        default:
-                            return null;
+                    if (isItem(node)) {
+                        return renderOption(node);
+                    } else if (isSection(node)) {
+                        return renderSection(node);
+                    } else {
+                        return null;
                     }
                 })}
             </ListboxContext.Provider>
