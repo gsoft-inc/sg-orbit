@@ -5,11 +5,14 @@ import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
-import { Overlay, OverlayProps } from "../../overlay";
+import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
+
+interface OverlayProps extends Partial<OverlayPropsForDocumentation> {
+}
 
 export interface InnerSelectProps extends InteractionStatesProps {
     /**
@@ -105,7 +108,7 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Additional props to render on the menu of options.
      */
-    overlayProps?: Partial<OverlayProps>;
+    overlayProps?: OverlayProps;
     /**
      * An HTML element type or a custom React element type to render as.
      */
