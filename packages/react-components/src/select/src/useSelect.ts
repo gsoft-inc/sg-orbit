@@ -36,7 +36,7 @@ export interface UseSelectProps {
     ariaLabel?: string;
     ariaLabelledBy?: string;
     ariaDescribedBy?: string
-    menuProps: {
+    overlayProps: {
         id?: string,
         style?: CSSProperties,
         [x: string]: any
@@ -62,7 +62,7 @@ export function useSelect(children: ReactNode, {
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
-    menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+    overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
     ref
 }: UseSelectProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
