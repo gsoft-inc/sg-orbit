@@ -24,10 +24,10 @@ export interface AccordionBuilderPanel {
 }
 
 export class AccordionBuilder {
-    _rootId;
+    private rootId;
 
     constructor(rootId: string) {
-        this._rootId = rootId;
+        this.rootId = rootId;
     }
 
     build(children: ReactNode): AccordionBuilderItem[] {
@@ -59,7 +59,7 @@ export class AccordionBuilder {
             };
 
             return {
-                id: `${this._rootId}-${key}`,
+                id: `${this.rootId}-${key}`,
                 key,
                 index,
                 header: headerProps,
