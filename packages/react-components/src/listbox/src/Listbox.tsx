@@ -21,7 +21,7 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
-import { CollectionItem, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
@@ -35,6 +35,10 @@ const SelectionMode = {
     single: "single",
     multiple: "multiple"
 };
+
+// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
@@ -66,7 +70,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
-    nodes?: CollectionItem[]
+    nodes?: CollectionNode[]
     /**
      * Whether or not the listbox should autofocus on render.
      */
@@ -105,13 +109,13 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     forwardedRef: ForwardedRef<any>
 }
 
-function useCollectionNodes(children: ReactNode, nodes: CollectionItem[]) {
+function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items: CollectionItem[], { selectedKeys }: { selectedKeys?: string[] }) {
+function useSelectionManager(items: CollectionNode[], { selectedKeys }: { selectedKeys?: string[] }) {
     return useMemo(() => {
         const toggleKey = (key: string) => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
@@ -410,7 +414,7 @@ export function InnerListbox({
                 {nodes.map(node => {
                     switch (node.type) {
                         case NodeType.item:
-                            return renderOption(node);
+                            return renderOption(node as CollectionItem);
                         case NodeType.section:
                             return renderSection(node as CollectionSection);
                         default:
