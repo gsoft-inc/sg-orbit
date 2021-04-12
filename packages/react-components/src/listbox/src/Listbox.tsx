@@ -1,10 +1,13 @@
 import "./Listbox.css";
 
-import { Box } from "../../box";
 import {
+    AriaLabelingProps,
+    DomProps,
+    FocusManager,
     Keys,
     appendEventKey,
     cssModule,
+    forwardRef,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -17,12 +20,12 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { Box } from "../../box";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { any, arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef, useImperativeHandle, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
 
 export const OptionKeyProp = "data-o-ui-key";
@@ -33,81 +36,96 @@ const SelectionMode = {
     multiple: "multiple"
 };
 
-const propTypes = {
+// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface CollectionNode extends CollectionNodeAliasForDocumentation { }
+
+export interface InnerListboxProps extends DomProps, AriaLabelingProps {
+    /**
+     * Called when the focus change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {String[]} keys - The keys of the selected items.
+     * @returns {void}
+     */
+    onFocusChange?(event: SyntheticEvent, key: string, activeElement: HTMLElement): void;
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys: arrayOf(string),
+    selectedKeys?: string[]
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKeys: arrayOf(string),
+    defaultSelectedKeys?: string[]
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
-    onSelectionChange: func,
+    onSelectionChange?(event: SyntheticEvent, key: string[]): void;
     /**
      * The type of selection that is allowed.
      */
-    selectionMode: oneOf(["none", "single", "multiple"]),
+    selectionMode?: "none" | "single" | "multiple";
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
-    nodes: arrayOf(object),
+    nodes?: CollectionNode[]
     /**
      * Whether or not the listbox should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Default focus target when enabling autofocus.
      */
-    defaultFocusTarget: string,
+    defaultFocusTarget?: string;
     /**
      * Whether or not to focus the hovered item.
      */
-    focusOnHover: bool,
+    focusOnHover?: boolean;
     /**
      * Whether or not focus should be virtual (add a CSS class instead of switching the active element).
      */
-    useVirtualFocus: bool,
+    useVirtualFocus?: boolean;
     /**
      * Whether or not the listbox option should be reachable with tabs.
      */
-    tabbable: bool,
+    tabbable?: boolean;
     /**
      * Whether or not the listbox take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
-     * React children.
+     * @ignore
      */
-    children: oneOfType([any, func])
-};
+    children?: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
-function useCollectionNodes(children, nodes) {
+function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items, { selectedKeys }) {
+function useSelectionManager(items: CollectionItem[], { selectedKeys }: { selectedKeys?: string[] }) {
     return useMemo(() => {
-        const toggleKey = key => {
+        const toggleKey = (key: string) => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         };
 
-        const replaceSelection = key => {
+        const replaceSelection = (key: string) => {
             return [key];
         };
 
-        const extendSelection = toKey => {
+        const extendSelection = (toKey: string) => {
             if (selectedKeys.length > 0) {
                 const lastKey = selectedKeys[selectedKeys.length - 1];
 
@@ -140,6 +158,7 @@ function useSelectionManager(items, { selectedKeys }) {
     }, [selectedKeys, items]);
 }
 
+
 export function InnerListbox({
     id,
     selectedKeys: selectedKeysProp,
@@ -155,19 +174,19 @@ export function InnerListbox({
     useVirtualFocus,
     tabbable = true,
     fluid,
-    "arial-label": ariaLabel,
+    "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "div",
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerListboxProps) {
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs(setFocusRef);
+    const containerRef = useMergedRefs<ListboxHTMLElement>(setFocusRef);
 
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
@@ -185,7 +204,7 @@ export function InnerListbox({
         return element;
     });
 
-    const updateSelectedKeys = (event, newKeys) => {
+    const updateSelectedKeys = (event: SyntheticEvent, newKeys: string[]) => {
         if (!isNil(onSelectionChange)) {
             onSelectionChange(event, newKeys);
         }
@@ -195,7 +214,7 @@ export function InnerListbox({
         }
     };
 
-    const handleSelectOption = useEventCallback((event, key) => {
+    const handleSelectOption = useEventCallback((event: SyntheticEvent, key: string) => {
         let newKeys;
 
         if (selectionMode === SelectionMode.multiple) {
@@ -207,7 +226,7 @@ export function InnerListbox({
         updateSelectedKeys(event, newKeys);
     });
 
-    const handleFocusOption = useEventCallback((event, key, activeElement) => {
+    const handleFocusOption = useEventCallback((event: SyntheticEvent, key: string, activeElement: HTMLElement) => {
         if (!isNil(onFocusChange)) {
             onFocusChange(event, key, activeElement);
         }
@@ -322,13 +341,13 @@ export function InnerListbox({
     const renderOption = ({
         key,
         index,
-        elementType: ElementType = ListboxOption,
+        elementType: As = ListboxOption,
         ref,
         content,
         props = {},
         tooltip
-    }) => (
-        <ElementType
+    }: CollectionItem) => (
+        <As
             {...props}
             id={`${rootId}-option-${index}`}
             key={key}
@@ -336,30 +355,30 @@ export function InnerListbox({
             item={{ key: key, tooltip }}
         >
             {content}
-        </ElementType>
+        </As>
     );
 
     const renderSection = ({
         key,
         index,
-        elementType: ElementType = ListboxSection,
+        elementType: As = ListboxSection,
         ref,
         props = {},
         items: sectionItems
-    }) => {
+    }: CollectionSection) => {
         if (sectionItems.length === 0) {
             return null;
         }
 
         return (
-            <ElementType
+            <As
                 {...props}
                 id={`${rootId}-section-${index}`}
                 key={key}
                 ref={ref}
             >
                 {sectionItems.map(x => renderOption(x))}
-            </ElementType>
+            </As>
         );
     };
 
@@ -392,12 +411,12 @@ export function InnerListbox({
                     focusOnHover
                 }}
             >
-                {nodes.map(({ type, ...nodeProps }) => {
-                    switch (type) {
+                {nodes.map(node => {
+                    switch (node.type) {
                         case NodeType.item:
-                            return renderOption(nodeProps);
+                            return renderOption(node as CollectionItem);
                         case NodeType.section:
-                            return renderSection(nodeProps);
+                            return renderSection(node as CollectionSection);
                         default:
                             return null;
                     }
@@ -407,10 +426,14 @@ export function InnerListbox({
     );
 }
 
-InnerListbox.propTypes = propTypes;
+export type ListboxHTMLElement = HTMLElement & {
+    focusManager?: FocusManager;
+}
 
-export const Listbox = forwardRef((props, ref) => (
+export const Listbox = forwardRef<InnerListboxProps, ListboxHTMLElement>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
+
+export type ListboxProps = ComponentProps<typeof Listbox>
 
 Listbox.displayName = "Listbox";

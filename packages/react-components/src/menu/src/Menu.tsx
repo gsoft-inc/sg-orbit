@@ -1,9 +1,7 @@
 import "./Menu.css";
 
-import { Box, BoxProps } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    AriaLabelingProps,
     DomProps,
     Keys,
     appendEventKey,
@@ -21,6 +19,9 @@ import {
     useRefState,
     useRovingFocus
 } from "../../shared";
+import { Box, BoxProps } from "../../box";
+import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -29,7 +30,7 @@ import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-export interface InnerMenuProps extends DomProps {
+export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
@@ -69,14 +70,6 @@ export interface InnerMenuProps extends DomProps {
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    "aria-label"?: string;
-    /**
-     * @ignore
-     */
-    "aria-labelledby"?: string;
     /**
      * @ignore
      */
@@ -280,7 +273,7 @@ export function InnerMenu({
                 {nodes.map(node => {
                     switch (node.type) {
                         case NodeType.item:
-                            return renderOption(node);
+                            return renderOption(node as CollectionItem);
                         case NodeType.section:
                             return renderSection(node as CollectionSection);
                         case NodeType.divider:

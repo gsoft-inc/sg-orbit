@@ -12,12 +12,35 @@ import {
     useRefState
 } from "../../shared";
 import { OptionKeyProp } from "../../listbox";
+import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
+import { ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { isNil, isNumber } from "lodash";
-import { useCallback, useMemo } from "react";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
-import { usePopup, useTriggerWidth } from "../../overlay";
 
-export function useSelect(children, {
+export interface UseSelectProps {
+    id?: string;
+    open?: boolean;
+    defaultOpen?: boolean;
+    selectedKey?: string;
+    defaultSelectedKey?: string
+    onChange?(event: SyntheticEvent, selectedKey: string): void
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void
+    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void
+    direction: "bottom" | "top";
+    align?: "start" | "end";
+    autoFocus?: boolean | number;
+    disabled?: boolean;
+    allowFlip?: boolean;
+    allowPreventOverflow?: boolean;
+    allowResponsiveMenuWidth?: boolean;
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
+    ariaDescribedBy?: string
+    overlayProps: Partial<OverlayProps>,
+    ref: Ref<HTMLElement>
+}
+
+export function useSelect(children: ReactNode, {
     id,
     open: openProp,
     defaultOpen,
@@ -35,15 +58,15 @@ export function useSelect(children, {
     ariaLabel,
     ariaLabelledBy,
     ariaDescribedBy,
-    menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+    overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
     ref
-}) {
+}: UseSelectProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (event, isVisible) => {
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
             setFocusTarget(FocusTarget.first);
@@ -60,7 +83,7 @@ export function useSelect(children, {
         restoreFocus: true,
         autoFocus: false,
         trigger: "click",
-        position: `${direction}-${align}`,
+        position: `${direction}-${align}` as const,
         offset: [0, 4],
         allowFlip,
         allowPreventOverflow,
@@ -95,7 +118,7 @@ export function useSelect(children, {
                 event.preventDefault();
                 open(event, FocusTarget.first);
                 break;
-            case Keys.arrownUp:
+            case Keys.arrowUp:
                 event.preventDefault();
                 open(event, FocusTarget.last);
                 break;

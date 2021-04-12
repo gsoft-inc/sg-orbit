@@ -75,7 +75,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
      */
     as?: ElementType;
     /**
-     * React children.
+     * @ignore
      */
     children?: ReactNode;
     /**

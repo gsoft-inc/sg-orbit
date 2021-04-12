@@ -5,27 +5,32 @@ import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { isNil } from "lodash";
 import { resolveChildren } from "../../shared";
 
-export interface CollectionItem {
+export interface CollectionNode {
     key: string;
     index: number;
     type: NodeType;
     elementType?: ElementType | string;
     ref: Ref<any>,
-    content: ElementType | ReactElement[];
     props: Record<string, any>,
+}
+
+export interface CollectionItem extends CollectionNode {
+    type: NodeType.item;
+    content: ElementType | ReactElement[];
     tooltip?: {
         props: Record<string, any>;
         content: ReactElement;
     },
 }
 
-export interface CollectionSection extends CollectionItem {
+export interface CollectionSection extends CollectionNode {
     type: NodeType.section;
     items?: CollectionItem[]
 }
 
-export interface CollectionDivider extends CollectionItem {
+export interface CollectionDivider extends CollectionNode {
     type: NodeType.divider;
+    content: ElementType | ReactElement[];
 }
 
 export enum NodeType {
@@ -34,8 +39,16 @@ export enum NodeType {
     divider = "divider"
 }
 
-export function isSection(node: CollectionItem): node is CollectionSection {
+export function isSection(node: CollectionNode): node is CollectionSection {
     return node.type === NodeType.section;
+}
+
+export function isDivider(node: CollectionNode): node is CollectionDivider {
+    return node.type === NodeType.divider;
+}
+
+export function isItem(node: CollectionNode): node is CollectionItem {
+    return node.type === NodeType.item;
 }
 
 export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
@@ -85,7 +98,6 @@ export class CollectionBuilder {
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Section ? element.type : undefined,
             ref: (element as RefAttributes<any>).ref,
-            content: null,
             props,
             items
         };
@@ -123,7 +135,7 @@ export class CollectionBuilder {
         return parsedItem;
     }
 
-    build(children: ReactNode) {
+    build(children: ReactNode): CollectionNode[] {
         if (isNil(children)) {
             return [];
         }

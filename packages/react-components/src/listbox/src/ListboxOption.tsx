@@ -1,33 +1,42 @@
 import "./Listbox.css";
 
-import { Box } from "../../box";
-import { Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { Box, BoxProps } from "../../box";
+import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
-import { TooltipTrigger } from "../../tooltip";
-import { any, bool, elementType, func, object, oneOfType, string } from "prop-types";
-import { forwardRef, useMemo } from "react";
+import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { isNil } from "lodash";
 import { useListboxContext } from "./ListboxContext";
 
-const propTypes = {
+// used to generate CollectionItem instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CollectionItem extends CollectionItemAliasForDocumentation {
+}
+
+export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
     /**
-     * Matching collection item.
-     */
-    item: object.isRequired,
+    * Matching collection item.
+    */
+    item: CollectionItem;
     /**
      * Whether or not the option is disabled.
      */
-    disabled: bool,
+    disabled?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType]),
+    as?: ElementType;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerListboxOption({
     item: { key, tooltip },
@@ -40,7 +49,7 @@ export function InnerListboxOption({
     children,
     forwardedRef,
     ...rest
-}) {
+}: InnerListboxOptionProps) {
     const {
         selectedKeys,
         onSelect,
@@ -54,7 +63,7 @@ export function InnerListboxOption({
     });
 
     const handleKeyDown = useEventCallback(event => {
-        switch(event.key) {
+        switch (event.key) {
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
@@ -86,10 +95,10 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (element, allElements) => {
+        icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(allElements.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : undefined
             };
         },
         avatar: {
@@ -112,7 +121,7 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
-            {...mergeProps(
+            {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
                     id,
@@ -129,7 +138,7 @@ export function InnerListboxOption({
                         hover && "hover"
                     ),
                     role: "option",
-                    tabIndex: !disabled ? "-1" : undefined,
+                    tabIndex: !disabled ? -1 : undefined,
                     "data-o-ui-key": key,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
@@ -153,7 +162,7 @@ export function InnerListboxOption({
 
         return (
             <TooltipTrigger
-                {...mergeProps(
+                {...mergeProps<Partial<TooltipTriggerProps>[]>(
                     tooltipProps,
                     {
                         position: "left"
@@ -169,10 +178,10 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
-InnerListboxOption.propTypes = propTypes;
-
-export const ListboxOption = forwardRef((props, ref) => (
+export const ListboxOption = forwardRef<InnerListboxOptionProps>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));
+
+export type ListboxOptionProps = ComponentProps<typeof ListboxOption>
 
 ListboxOption.displayName = "ListboxOption";

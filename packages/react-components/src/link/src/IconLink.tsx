@@ -1,11 +1,11 @@
 import "./Link.css";
 
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
-export interface InnerIconLinkProps extends InteractionStatesProps {
+export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
