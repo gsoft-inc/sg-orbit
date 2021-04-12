@@ -9,6 +9,7 @@ import {
     forwardRef,
     isNilOrEmpty,
     mergeProps,
+    omitProps,
     useCommittedRef,
     useControllableState,
     useEventCallback,
@@ -198,12 +199,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         as = "input",
         children,
         forwardedRef,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        size, // TODO: TS can't pass this property to searchInput
         ...rest
     } = mergeProps(
         props,
-        fieldProps
+        omitProps(fieldProps, ["size"])
     );
 
     const [focusedItem, setFocusedItem] = useState(null);
