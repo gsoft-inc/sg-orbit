@@ -201,7 +201,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        wrappedInputPropsAdapter(fieldProps)
+        omitProps(wrappedInputPropsAdapter(fieldProps), ["size"])
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);

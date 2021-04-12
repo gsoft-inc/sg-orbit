@@ -1,8 +1,6 @@
 import "./Autocomplete.css";
 
-import { CSSProperties } from "aphrodite";
-import { CollectionItem } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
     InteractionStatesProps,
@@ -19,7 +17,7 @@ import {
 } from "../../shared";
 import { Listbox, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
-import { SearchInput } from "../../text-input";
+import { SearchInput, SearchInputProps } from "../../text-input";
 import { getItemText, useCollectionSearch } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
