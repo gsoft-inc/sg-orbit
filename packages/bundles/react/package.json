@@ -5,7 +5,6 @@
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
     "license": "Apache-2.0",
-    "main": "apricot.css",
     "publishConfig": {
         "access": "public",
         "directory": "dist"
