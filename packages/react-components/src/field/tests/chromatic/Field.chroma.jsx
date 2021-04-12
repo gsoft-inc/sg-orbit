@@ -3,7 +3,7 @@ import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";

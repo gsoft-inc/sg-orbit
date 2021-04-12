@@ -2,7 +2,6 @@ import { EmbeddedIcon, EmbeddedIconProps } from "../../icons";
 import { ReactElement, ReactNode } from "react";
 import { embedIconButton } from "../../button";
 
-
 type UseInputIconProps = Omit<EmbeddedIconProps, "className" | "children">
 
 export function useInputIcon(icon: ReactNode, props: UseInputIconProps = {}) {

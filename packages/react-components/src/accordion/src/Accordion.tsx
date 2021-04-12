@@ -134,7 +134,6 @@ export function InnerAccordion({
                 {items.map(({
                     id: itemId,
                     key,
-                    // position,
                     header,
                     panel
                 }) => (

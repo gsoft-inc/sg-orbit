@@ -8,9 +8,6 @@ import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
 export interface AccordionItemProps {
-    /**
-     * @ignore
-     */
     item: {
         id: string;
         key: string;

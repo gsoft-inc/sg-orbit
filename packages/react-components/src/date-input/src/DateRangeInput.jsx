@@ -7,7 +7,7 @@ import { Box } from "../../box";
 import { CalendarIcon, VerticalDotsIcon } from "../../icons";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
-import { Item } from "../../placeholders";
+import { Item } from "../../collection";
 import { Keys, augmentElement, cssModule, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { Menu, MenuTrigger } from "../../menu";
 import { arrayOf, bool, elementType, func, number, object, oneOf, oneOfType, shape, string } from "prop-types";
