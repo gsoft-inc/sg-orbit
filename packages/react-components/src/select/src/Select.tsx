@@ -1,9 +1,9 @@
 import "./Select.css";
 
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
 import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay } from "../../overlay";
 import { Text } from "../../text";
@@ -17,15 +17,11 @@ export interface OverlayProps {
     [x: string]: any
 }
 
-export interface InnerSelectProps extends InteractionStatesProps {
+export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * @ignore
      */
     name?: string;
-    /**
-     * @ignore
-     */
-    "aria-label"?: string;
     /**
      * Whether or not to open the select element.
      */

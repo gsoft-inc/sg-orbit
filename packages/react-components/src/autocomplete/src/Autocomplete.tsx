@@ -1,8 +1,7 @@
 import "./Autocomplete.css";
 
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
-import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
+    AriaLabelingProps,
     InteractionStatesProps,
     Keys,
     augmentElement,
@@ -16,6 +15,8 @@ import {
     useId,
     useRefState
 } from "../../shared";
+import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxHTMLElement, OptionKeyProp } from "../../listbox";
 import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
@@ -25,7 +26,7 @@ import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
-export interface InnerAutocompleteProps extends InteractionStatesProps {
+export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * Whether or not to open the autocomplete element.
      */
@@ -50,10 +51,6 @@ export interface InnerAutocompleteProps extends InteractionStatesProps {
     * @ignore
     */
     name?: string;
-    /**
-     * @ignore
-     */
-    "aria-label"?: string;
     /**
      * Whether or not the autocomplete should display a loading state.
      */
