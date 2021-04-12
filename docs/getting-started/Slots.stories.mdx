@@ -1,4 +1,3 @@
-import { Figure } from "@stories/components";
 import { Meta } from "@storybook/addon-docs/blocks";
 import { paramsBuilder } from "@stories/utils";
 
@@ -51,7 +50,7 @@ You can define an implicit slot on a custom component by using the `slot` functi
 ```js
 import { slot } from "@orbit-ui/react-components";
 
-export const MyComponent = slot("the-slot-name-to-fulfill", () => (
+export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => (
     <div>A custom component</div>
 ));
 ```
@@ -67,7 +66,7 @@ An explicit slot is defined by specifying the `slot` prop on a component declara
 </Button>
 ```
 
-For native HTML elements, instead of specifying an explicit slot directly on the element, we do recommend you use the [`<Box>`](?path=/docs/box--default-story) component to ensure no `slot` attributes are rendered on the element.
+For native HTML elements, instead of specifying an explicit slot directly on the native element, we do recommend you use the [`<Box>`](?path=/docs/box--default-story) component to prevent rendering a `slot` attribute on the element.
 
 ```jsx
 <Card>
