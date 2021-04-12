@@ -1,3 +1,29 @@
-.o-ui-sb-gallery-item-variant-usage {
-    margin-top: -11px;
+.o-ui-sb-gallery-item-variant-section-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--o-ui-global-moonstone-50);
+    cursor: pointer;
+    border: 0;
+    margin-top: var(--o-ui-global-scale-delta);
+}
+
+.o-ui-sb-gallery-item-variant-section-toggle:first-child {
+    margin-top: 0;
+}
+
+.o-ui-sb-gallery-item-variant-section-toggle-text {
+    text-align: start;
+    flex-grow: 1;
+}
+
+.o-ui-sb-gallery-item-variant-section-content .docblock-source {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.o-ui-sb-gallery-item-variant-section-content .sbdocs-h4:first-child {
+    margin-top: 0;
 }

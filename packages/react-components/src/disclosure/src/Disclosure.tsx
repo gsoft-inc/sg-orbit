@@ -126,7 +126,6 @@ export function InnerDisclosure({
                     rest,
                     {
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
-                        role: "presentation",
                         as,
                         ref: contentRef
                     },
