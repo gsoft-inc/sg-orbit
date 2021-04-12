@@ -41,7 +41,7 @@ export interface InnerTextInputProps extends InteractionStatesProps {
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
-    type?: "text" | "password" | "search" | "url" | "tel" | "email";
+    type?: "text" | "password" | "url" | "tel" | "email";
     /**
      * Whether or not the input should autofocus on render.
      */

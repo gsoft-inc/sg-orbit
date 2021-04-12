@@ -30,10 +30,6 @@ export interface InnerPasswordInputProps {
      */
     required?: boolean;
     /**
-     * Additional text to describe the input.
-     */
-    description?: string,
-    /**
      * Whether or not the input should display as "valid" or "invalid".
      */
     validationState?: "valid" | "invalid";

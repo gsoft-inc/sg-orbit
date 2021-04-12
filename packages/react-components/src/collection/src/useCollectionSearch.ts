@@ -32,7 +32,7 @@ function useNodeFilter(nodes: CollectionNode[]): [CollectionItem[], (query: stri
     return [results, filter];
 }
 interface UseCollectionSearchOptions {
-    onSearch?: any;
+    onSearch?(event: SyntheticEvent, query: string): void;
 }
 
 export function useCollectionSearch(children: ReactNode, { onSearch }: UseCollectionSearchOptions): [CollectionNode[], (event: SyntheticEvent, query: string) => void] {
