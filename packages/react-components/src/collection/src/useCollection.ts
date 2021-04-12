@@ -9,6 +9,7 @@ export interface CollectionNode {
     key: string;
     index: number;
     type: NodeType;
+    content: ElementType | ReactElement[];
     elementType?: ElementType | string;
     ref: Ref<any>,
     props: Record<string, any>,
@@ -16,7 +17,6 @@ export interface CollectionNode {
 
 export interface CollectionItem extends CollectionNode {
     type: NodeType.item;
-    content: ElementType | ReactElement[];
     tooltip?: {
         props: Record<string, any>;
         content: ReactElement;
