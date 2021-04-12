@@ -11,6 +11,12 @@ import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
 
+export interface SelectMenuProps {
+    id?: string,
+    style?: CSSProperties,
+    [x: string]: any
+}
+
 export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * @ignore
@@ -105,11 +111,7 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps?: {
-        id?: string,
-        style?: CSSProperties,
-        [x: string]: any
-    };
+    menuProps?: SelectMenuProps;
     /**
      * An HTML element type or a custom React element type to render as.
      */
