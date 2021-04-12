@@ -11,7 +11,7 @@ import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
 
-export interface SelectMenuProps {
+export interface OverlayProps {
     id?: string,
     style?: CSSProperties,
     [x: string]: any
@@ -111,7 +111,7 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps?: SelectMenuProps;
+    overlayProps?: OverlayProps;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -158,7 +158,7 @@ export function InnerSelect(props: InnerSelectProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps,
+        overlayProps: overlayPropsProp,
         as: TriggerType = "button",
         children,
         forwardedRef,
@@ -186,7 +186,7 @@ export function InnerSelect(props: InnerSelectProps) {
         ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,
-        menuProps,
+        overlayProps: overlayPropsProp,
         ref: forwardedRef
     });
 

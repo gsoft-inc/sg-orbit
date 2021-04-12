@@ -20,7 +20,7 @@ import {
     useRovingFocus
 } from "../../shared";
 import { Box, BoxProps } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionSection, isDivider, isItem, isSection, useCollection } from "../../collection";
+import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
@@ -271,14 +271,15 @@ export function InnerMenu({
                 }}
             >
                 {nodes.map(node => {
-                    if (isItem(node)) {
-                        return renderOption(node);
-                    } else if (isSection(node)) {
-                        return renderSection(node);
-                    } else if (isDivider(node)) {
-                        return renderDivider(node);
-                    } else {
-                        return null;
+                    switch (node.type) {
+                        case NodeType.item:
+                            return renderOption(node as CollectionItem);
+                        case NodeType.section:
+                            return renderSection(node as CollectionSection);
+                        case NodeType.divider:
+                            return renderDivider(node as CollectionDivider);
+                        default:
+                            return null;
                     }
                 })}
             </MenuContext.Provider>
