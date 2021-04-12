@@ -1,9 +1,9 @@
+import { AriaLabelingProps, forwardRef, slot } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
-import { forwardRef, slot } from "../../shared";
 
-interface InnerCrossButtonProps {
+interface InnerCrossButtonProps extends AriaLabelingProps {
     /**
      * Whether or not the button content should takes additional space.
      */
