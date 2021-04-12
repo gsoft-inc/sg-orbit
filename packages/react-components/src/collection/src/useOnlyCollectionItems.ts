@@ -1,9 +1,9 @@
-import { CollectionNode, NodeType, isSection } from "./useCollection";
+import { CollectionItem, CollectionNode, NodeType, isSection } from "./useCollection";
 import { useMemo } from "react";
 
 // Extracts all the nodes of "item" type.
 // Loop through sections to find nested items.
-export function useOnlyCollectionItems(nodes: CollectionNode[]) {
+export function useOnlyCollectionItems(nodes: CollectionNode[]): CollectionItem[] {
     return useMemo(() => {
         return nodes.reduce((acc, x) => {
             if (isSection(x)) {
