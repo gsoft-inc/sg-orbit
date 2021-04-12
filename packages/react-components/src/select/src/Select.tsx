@@ -1,21 +1,15 @@
 import "./Select.css";
 
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
-import { Overlay } from "../../overlay";
+import { Overlay, OverlayProps } from "../../overlay";
 import { Text } from "../../text";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
-
-export interface OverlayProps {
-    id?: string,
-    style?: CSSProperties,
-    [x: string]: any
-}
 
 export interface InnerSelectProps extends InteractionStatesProps {
     /**
@@ -111,7 +105,7 @@ export interface InnerSelectProps extends InteractionStatesProps {
     /**
      * Additional props to render on the menu of options.
      */
-    overlayProps?: OverlayProps;
+    overlayProps?: Partial<OverlayProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
