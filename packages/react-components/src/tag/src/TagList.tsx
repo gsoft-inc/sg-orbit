@@ -66,10 +66,10 @@ function TagItem({
 
     return (
         <Tag
-            {...mergeProps(
+            {...mergeProps<Partial<TagProps>[]>(
                 rest,
                 {
-                    variant: "outline" as const,
+                    variant: "outline",
                     size,
                     className: "o-ui-tag-list-item",
                     onRemove: !readOnly ? handleRemove : undefined
