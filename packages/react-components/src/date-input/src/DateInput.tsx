@@ -1,71 +1,79 @@
 import "./DateInput.css";
 
+import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CalendarIcon } from "../../icons";
+import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent } from "react";
 import { TextInput } from "../../text-input";
-import { bool, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
 
-const propTypes = {
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
+
+export interface InnerDateInputProps {
     /**
      * A controlled value.
      */
-    value: object,
+    value?: Date,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: object,
+    defaultValue?: Date,
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * The minimum (inclusive) date.
      */
-    minDate: object,
+    minDate?: Date,
     /**
      * The maximum (inclusive) date.
      */
-    maxDate: object,
+    maxDate?: Date,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent): void,
     /**
      * Called when the date change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {object} date - The new date value.
      * @returns {void}
      */
-    onDateChange: func,
+    onDateChange?(event: SyntheticEvent, date: Date): void,
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>,
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerDateInput({
     value,
@@ -78,7 +86,7 @@ export function InnerDateInput({
     as = "input",
     forwardedRef,
     ...rest
-}) {
+}: InnerDateInputProps) {
 
     const dateProps = useDateInput({
         value,
@@ -110,10 +118,10 @@ export function InnerDateInput({
     );
 }
 
-InnerDateInput.propTypes = propTypes;
-
-export const DateInput = forwardRef((props, ref) => (
+export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));
+
+export type DateInputProps = ComponentProps<typeof DateInput>
 
 DateInput.displayName = "DateInput";

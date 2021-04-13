@@ -1,12 +1,12 @@
-import { cancellablePromise } from "./cancellablePromise";
+import { CancellablePromise, cancellablePromise, isPromiseStatus } from "./cancellablePromise";
+import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { isNil } from "lodash";
 import { isPromise, useRefState } from "../../shared";
-import { useCallback, useEffect, useState } from "react";
 
-export function useAsyncSearch(load) {
+export function useAsyncSearch<T>(load: (query: string) => Promise<T[]>) {
     const [isLoading, setIsLoading] = useState(false);
-    const [items, setItems] = useState([]);
-    const [promise, setPromise] = useRefState();
+    const [items, setItems] = useState<T[]>([]);
+    const [promise, setPromise] = useRefState<CancellablePromise<T[]>>();
 
     const cancelRequest = useCallback(() => {
         if (!isNil(promise.current)) {
@@ -15,17 +15,17 @@ export function useAsyncSearch(load) {
         }
     }, [promise, setPromise]);
 
-    const search = useCallback(async (event, query) => {
+    const search = useCallback(async (_event: SyntheticEvent, query: string) => {
         cancelRequest();
         setIsLoading(true);
 
         const loadPromise = load(query);
 
         if (!isPromise(loadPromise)) {
-            throw new Error("LOad function must return a valid promise.");
+            throw new Error("Load function must return a valid promise.");
         }
 
-        const wrappedPromise = cancellablePromise(loadPromise);
+        const wrappedPromise = cancellablePromise<T[]>(loadPromise);
 
         setPromise(wrappedPromise);
 
@@ -34,9 +34,9 @@ export function useAsyncSearch(load) {
                 setItems(result ?? []);
                 setIsLoading(false);
             })
-            .catch(error => {
+            .catch((error: unknown) => {
                 // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
-                if (isNil(error) || error?.isCancelled !== true) {
+                if (isNil(error) || (isPromiseStatus(error) && error.isCancelled !== true)) {
                     setItems([]);
                     setIsLoading(false);
                 }

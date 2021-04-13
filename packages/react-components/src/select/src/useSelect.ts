@@ -36,7 +36,7 @@ export interface UseSelectProps {
     ariaLabel?: string;
     ariaLabelledBy?: string;
     ariaDescribedBy?: string
-    overlayProps: Partial<OverlayProps>,
+    overlayProps?: Partial<OverlayProps>,
     ref: Ref<HTMLElement>
 }
 

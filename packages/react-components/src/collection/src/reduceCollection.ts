@@ -1,8 +1,8 @@
-import { NodeType } from "./useCollection";
+import { CollectionItem, CollectionNode, isItem, isSection } from "./useCollection";
 
-export function reduceCollection(nodes, acceptItem) {
+export function reduceCollection(nodes: CollectionNode[], acceptItem: (item: CollectionItem) => boolean): CollectionItem[] {
     return nodes.reduce((acc, node) => {
-        if (node.type === NodeType.section) {
+        if (isSection(node)) {
             const items = node.items.reduce((sectionItems, item) => {
                 if (acceptItem(item)) {
                     sectionItems.push(item);
@@ -12,7 +12,7 @@ export function reduceCollection(nodes, acceptItem) {
             }, []);
 
             if (items.length > 0) {
-                // eslint-disable-next-line no-unused-vars
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { items: _, ...sectionProps } = node;
 
                 acc.push({
@@ -20,7 +20,7 @@ export function reduceCollection(nodes, acceptItem) {
                     items
                 });
             }
-        } else if (node.type === NodeType.item) {
+        } else if (isItem(node)) {
             if (acceptItem(node)) {
                 acc.push(node);
             }

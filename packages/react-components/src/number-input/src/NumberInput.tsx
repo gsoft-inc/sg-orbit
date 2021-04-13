@@ -1,89 +1,111 @@
 import "./NumberInput.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CarretIcon } from "../../icons";
-import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
-import { cssModule, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
-import { forwardRef, useCallback } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useMemo } from "react";
 import { useToolbarProps } from "../../toolbar";
 
-const propTypes = {
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
+
+export interface InnerNumberInputProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value: number,
+    value?: number,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: number,
+    defaultValue?: number,
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly?: boolean;
+    /**
+     * Whether or not a user input is required before form submission.
+     */
+    required?: boolean;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    min: number,
+    min?: number,
     /**
      * The maximum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    max: number,
+    max?: number,
     /**
      * The step used to increment or decrement the value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    step: number,
+    step?: number,
     /**
      * Clamps the input value between min & max boundaries.
      */
-    clampValue: bool,
+    clampValue?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {number} value - The new value.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, value: number): void;
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon: element,
+    icon?: ReactElement,
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not to render a loader.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>,
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
+}
 
-export function Spinner({
+interface SpinnerProps extends ComponentProps<"div"> {
+    onIncrement?(event: SyntheticEvent): void;
+    onDecrement?(event: SyntheticEvent): void;
+    onFocus?(event: SyntheticEvent): void;
+    disabled?: boolean;
+}
+
+function Spinner({
     onIncrement,
     onDecrement,
     onFocus,
     disabled,
     ...rest
-}) {
+}: SpinnerProps) {
     const handleIncrement = useEventCallback(event => {
         onIncrement(event);
     });
@@ -106,7 +128,7 @@ export function Spinner({
                 onClick={handleIncrement}
                 className="o-ui-number-input-spinner-increment"
                 type="button"
-                tabIndex="-1"
+                tabIndex={-1}
                 disabled={disabled}
                 onFocus={onFocus}
             >
@@ -116,7 +138,7 @@ export function Spinner({
                 onClick={handleDecrement}
                 className="o-ui-number-input-spinner-decrement"
                 type="button"
-                tabIndex="-1"
+                tabIndex={-1}
                 disabled={disabled}
                 onFocus={onFocus}
             >
@@ -129,11 +151,11 @@ export function Spinner({
     );
 }
 
-function countDecimalPlaces(value) {
+function countDecimalPlaces(value: number) {
     return (value.toString().split(".")[1] || []).length;
 }
 
-function toNumber(value) {
+function toNumber(value: string) {
     const result = parseFloat(value);
 
     if (isNaN(result)) {
@@ -143,11 +165,11 @@ function toNumber(value) {
     return result;
 }
 
-function toFixed(value, precision) {
+function toFixed(value: number, precision: number) {
     return parseFloat(value.toFixed(precision));
 }
 
-export function InnerNumberInput(props) {
+export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
@@ -179,12 +201,12 @@ export function InnerNumberInput(props) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        wrappedInputPropsAdapter(fieldProps)
+        omitProps(wrappedInputPropsAdapter(fieldProps), ["size"])
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
-    const updateValue = (event, newValue) => {
+    const updateValue = (event: SyntheticEvent, newValue: number) => {
         setValue(newValue);
 
         if (!isNil(onChange)) {
@@ -211,9 +233,9 @@ export function InnerNumberInput(props) {
         };
     }, [min, max]);
 
-    const isInRange = useMemo(() => validateRange(inputValue, min , max).isInRange, [inputValue, min, max, validateRange]);
+    const isInRange = useMemo(() => validateRange(inputValue).isInRange, [inputValue, validateRange]);
 
-    const clamp = event => {
+    const clamp = (event: SyntheticEvent) => {
         const { isAboveMax, isBelowMin } = validateRange(inputValue);
 
         if (isBelowMin) {
@@ -223,7 +245,7 @@ export function InnerNumberInput(props) {
         }
     };
 
-    const applyStep = (event, factor) => {
+    const applyStep = (event: SyntheticEvent, factor: number) => {
         if (!isNil(inputValue)) {
             const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
             const newValue = toFixed(inputValue + factor * step, precision);
@@ -330,10 +352,10 @@ export function InnerNumberInput(props) {
     );
 }
 
-InnerNumberInput.propTypes = propTypes;
-
-export const NumberInput = forwardRef((props, ref) => (
+export const NumberInput = forwardRef<InnerNumberInputProps>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));
+
+export type NumberInputProps = ComponentProps<typeof NumberInput>;
 
 NumberInput.displayName = "NumberInput";

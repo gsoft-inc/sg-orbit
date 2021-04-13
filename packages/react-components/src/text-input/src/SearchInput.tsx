@@ -1,66 +1,79 @@
 import "./SearchInput.css";
 
+import { BoxProps as BoxPropsForDocumentation } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
 import { Keys, forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
-import { bool, element, elementType, func, number, object, oneOf, oneOfType, string } from "prop-types";
+import { TextInputProps } from "./TextInput";
 import { isNil, isUndefined } from "lodash";
-import { useCallback } from "react";
 
-const propTypes = {
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
+
+export interface InnerSearchInputProps {
     /**
      * A controlled value.
      */
-    value: string,
+    value?: string,
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue: string,
+    defaultValue?: string,
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder: string,
+    placeholder?: string,
     /**
      * Whether or not a user input is required before form submission.
      */
-    required: bool,
+    required?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
-    validationState: oneOf(["valid", "invalid"]),
+    validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string} value - The new input value.
      * @returns {void}
      */
-    onChange: func,
+    onChange?(event: SyntheticEvent, value: string): void;
+    /**
+     * @ignore
+     */
+    onKeyDown?(event: SyntheticEvent): void;
     /**
      * Whether or not the input should autofocus on render.
      */
-    autoFocus: oneOfType([bool, number]),
+    autoFocus?: boolean | number;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon: element,
+    icon?: ReactElement
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid: bool,
+    fluid?: boolean;
     /**
      * Whether or not to render a loader.
      */
-    loading: bool,
+    loading?: boolean;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps: object,
+    wrapperProps?: Partial<BoxProps>
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as: oneOfType([string, elementType])
-};
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>
+}
 
 export function InnerSearchInput({
     value,
@@ -72,7 +85,7 @@ export function InnerSearchInput({
     as = "input",
     forwardedRef,
     ...rest
-}) {
+}: InnerSearchInputProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const updateValue = useCallback((event, newValue) => {
@@ -121,7 +134,7 @@ export function InnerSearchInput({
 
     return (
         <TextInput
-            {...mergeProps(
+            {...mergeProps<Partial<TextInputProps>[]>(
                 rest,
                 {
                     value: inputValue,
@@ -144,10 +157,10 @@ export function InnerSearchInput({
     );
 }
 
-InnerSearchInput.propTypes = propTypes;
-
-export const SearchInput = forwardRef((props, ref) => (
+export const SearchInput = forwardRef<InnerSearchInputProps, "input">((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));
+
+export type SearchInputProps = ComponentProps<typeof SearchInput>
 
 SearchInput.displayName = "SearchInput";

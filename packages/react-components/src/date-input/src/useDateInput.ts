@@ -1,12 +1,12 @@
+import { ForwardedRef, SyntheticEvent, useCallback, useState } from "react";
 import { isNil } from "lodash";
 import { mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
-import { useCallback, useState } from "react";
 import { useMaskedInput } from "./useMaskedInput";
 
 const InputMask = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/];
 
 // Date.parse() implementation is inconsistent accross browsers. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse.
-function toDate(rawValue) {
+function toDate(rawValue: string) {
     if (rawValue.length !== InputMask.length) {
         return null;
     }
@@ -19,7 +19,7 @@ function toDate(rawValue) {
 
     const year = parseInt(parts[2]);
     const month = parseInt(parts[1]);
-    const adjustedMonth = month > 0 ? month -1 : month;
+    const adjustedMonth = month > 0 ? month - 1 : month;
     const day = parseInt(parts[0]);
 
     const date = new Date(year, adjustedMonth, day);
@@ -34,7 +34,7 @@ function toDate(rawValue) {
     return date;
 }
 
-function toNumericString(date) {
+function toNumericString(date: Date) {
     if (isNil(date)) {
         return "";
     }
@@ -46,14 +46,24 @@ function toNumericString(date) {
     return `${day.length === 1 ? `0${day}` : day}/${month.length === 1 ? `0${month}` : month}/${year}`;
 }
 
-function toLongString(date) {
+function toLongString(date: Date) {
     return !isNil(date)
         ? date.toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "short", day: "numeric" })
         : "";
 }
 
-function isTyping(inputValue) {
+function isTyping(inputValue: string) {
     return inputValue.length > 0 && inputValue.length < InputMask.length;
+}
+
+export interface UseDateInputProps {
+    value?: Date
+    defaultValue?: Date,
+    minDate?: Date,
+    maxDate?: Date,
+    onChange?(event: SyntheticEvent): void;
+    onDateChange?(event: SyntheticEvent, date: Date): void;
+    forwardedRef: ForwardedRef<any>
 }
 
 export function useDateInput({
@@ -64,7 +74,7 @@ export function useDateInput({
     onChange,
     onDateChange,
     forwardedRef
-}) {
+}: UseDateInputProps) {
     const [inputValueRef, setInputValue] = useRefState("");
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
@@ -81,6 +91,8 @@ export function useDateInput({
                     setInputValue(rawValue);
                 }
             }
+
+            return undefined;
         }, [inputValueRef, setInputValue])
     });
 
@@ -124,7 +136,7 @@ export function useDateInput({
                 newDate = minDate;
             }
 
-            if ( !isNil(maxDate) && maxDate < newDate) {
+            if (!isNil(maxDate) && maxDate < newDate) {
                 newDate = maxDate;
             }
 
@@ -132,8 +144,8 @@ export function useDateInput({
         }
     }, [minDate, maxDate, applyValue]);
 
-    const handleChange = useChainedEventCallback(onChange, event => {
-        const newValue = event.target.value;
+    const handleChange = useChainedEventCallback(onChange, (event: SyntheticEvent) => {
+        const newValue = (event.target as HTMLInputElement).value;
 
         if (newValue === "") {
             commit(event, newValue);
@@ -160,7 +172,7 @@ export function useDateInput({
 
     return mergeProps(
         {
-            value: hasFocus ? inputValueRef.current: toLongString(value),
+            value: hasFocus ? inputValueRef.current : toLongString(value),
             onChange: handleChange,
             onFocus: handleFocus,
             onBlur: handleBlur,
