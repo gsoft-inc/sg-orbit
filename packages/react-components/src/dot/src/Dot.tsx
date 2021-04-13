@@ -1,6 +1,6 @@
 import "./Dot.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
@@ -47,7 +47,7 @@ export function InnerDot(props: InnerDotProps) {
 
     return (
         <Box
-            {...mergeProps(
+            {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
                     className: cssModule(
@@ -55,7 +55,7 @@ export function InnerDot(props: InnerDotProps) {
                         children && "has-label"
                     ),
                     style: {
-                        "--o-ui-dot-color": useColor(color)
+                        ["--o-ui-dot-color" as any]: useColor(color)
                     },
                     as,
                     ref: forwardedRef
