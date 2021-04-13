@@ -46,10 +46,7 @@ module.exports = {
                 "@typescript-eslint/no-explicit-any": "off",
 
                 "jsx-control-statements/jsx-jcs-no-undef": "off",
-                "@typescript-eslint/ban-ts-comment": "off",
-
-                "@typescript-eslint/member-delimiter-style": ["warn"]
-
+                "@typescript-eslint/ban-ts-comment": "off"
             }
         }
     ],

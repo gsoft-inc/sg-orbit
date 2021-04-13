@@ -64,7 +64,7 @@ export function createCollectionItem({ key, index, elementType, ref, content, pr
 }
 
 export class CollectionBuilder {
-    _parseItem(element: ReactElement, incrementIndex: () => number): CollectionItem {
+    private parseItem(element: ReactElement, incrementIndex: () => number): CollectionItem {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
@@ -81,7 +81,7 @@ export class CollectionBuilder {
         };
     }
 
-    _parseSection(element: ReactElement, incrementIndex: () => number): CollectionSection {
+    private parseSection(element: ReactElement, incrementIndex: () => number): CollectionSection {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
@@ -89,7 +89,7 @@ export class CollectionBuilder {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        const items = Children.map(resolveChildren(children), (x: ReactElement) => that._parseItem(x, incrementIndex));
+        const items = Children.map(resolveChildren(children), (x: ReactElement) => that.parseItem(x, incrementIndex));
 
         return {
             key: index.toString(),
@@ -103,7 +103,7 @@ export class CollectionBuilder {
         };
     }
 
-    _parseDivider(element: ReactElement, incrementIndex: () => number): CollectionDivider {
+    private parseDivider(element: ReactElement, incrementIndex: () => number): CollectionDivider {
         const { children, ...props } = element.props;
 
         const index = incrementIndex();
@@ -120,12 +120,12 @@ export class CollectionBuilder {
         };
     }
 
-    _parseTooltip(element: ReactElement, incrementIndex: () => number) {
+    private parseTooltip(element: ReactElement, incrementIndex: () => number) {
         const { children, ...props } = element.props;
 
         const [item, tooltip] = parseTooltipTrigger(children);
 
-        const parsedItem = this._parseItem(item, incrementIndex);
+        const parsedItem = this.parseItem(item, incrementIndex);
 
         parsedItem.tooltip = {
             props,
@@ -154,13 +154,13 @@ export class CollectionBuilder {
         return Children.map(elements, (element: ReactElement) => {
             switch (element.type) {
                 case Section:
-                    return that._parseSection(element, incrementIndex);
+                    return that.parseSection(element, incrementIndex);
                 case Divider:
-                    return that._parseDivider(element, incrementIndex);
+                    return that.parseDivider(element, incrementIndex);
                 case TooltipTrigger:
-                    return that._parseTooltip(element, incrementIndex);
+                    return that.parseTooltip(element, incrementIndex);
                 default:
-                    return that._parseItem(element, incrementIndex);
+                    return that.parseItem(element, incrementIndex);
             }
         });
     }
