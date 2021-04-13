@@ -49,7 +49,10 @@ module.exports = {
                 "@typescript-eslint/ban-ts-comment": "off",
 
                 "@typescript-eslint/member-delimiter-style": ["warn"],
-                "@typescript-eslint/consistent-type-definitions": ["warn"]
+                "@typescript-eslint/consistent-type-definitions": ["warn"],
+                "@typescript-eslint/no-implicit-any-catch": ["warn"],
+                "@typescript-eslint/no-inferrable-types": ["warn"],
+                "@typescript-eslint/explicit-member-accessibility": ["warn", { accessibility: "no-public" }]
             }
         }
     ],
