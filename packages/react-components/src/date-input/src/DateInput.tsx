@@ -1,11 +1,15 @@
 import "./DateInput.css";
 
-import { BoxProps } from "../../box";
+import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CalendarIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent } from "react";
 import { TextInput } from "../../text-input";
 import { forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
+
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface InnerDateInputProps {
     /**

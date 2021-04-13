@@ -1,6 +1,6 @@
 import "./NumberInput.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CarretIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
 import { InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
@@ -9,6 +9,10 @@ import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useMemo } from "react";
 import { useToolbarProps } from "../../toolbar";
+
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface InnerNumberInputProps extends InteractionStatesProps {
     /**

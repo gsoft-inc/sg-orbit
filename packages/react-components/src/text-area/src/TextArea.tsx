@@ -1,11 +1,15 @@
 import "./TextArea.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback, useLayoutEffect, useState } from "react";
 import { InteractionStatesProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
+
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface InnerTextAreaProps extends InteractionStatesProps {
     /**

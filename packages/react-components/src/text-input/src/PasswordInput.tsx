@@ -1,12 +1,16 @@
 import "./PasswordInput.css";
 
-import { BoxProps } from "../../box";
+import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";
 import { forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
+
+// used to generate BoxProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface InnerPasswordInputProps {
     /**

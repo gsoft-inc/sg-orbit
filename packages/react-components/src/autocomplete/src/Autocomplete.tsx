@@ -15,16 +15,20 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxHTMLElement, OptionKeyProp } from "../../listbox";
-import { Overlay, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { getItemText, useCollectionSearch } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
+
+// used to generate OverlayProps instead of any in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabelingProps {
     /**
@@ -137,11 +141,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Additional props to render on the menu of options.
      */
-    menuProps?: {
-        id?: string;
-        style?: CSSProperties,
-        [x: string]: any
-    };
+    overlayProps?: OverlayProps;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -192,7 +192,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        menuProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = { width: undefined }, ...menuProps } = { id: undefined },
+        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = { width: undefined }, ...menuProps } = { id: undefined },
         as = "input",
         children,
         forwardedRef,
