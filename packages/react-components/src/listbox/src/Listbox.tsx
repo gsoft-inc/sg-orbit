@@ -186,7 +186,7 @@ export function InnerListbox({
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs<ListboxHtmlElement>(setFocusRef);
+    const containerRef = useMergedRefs<ListboxElement>(setFocusRef);
 
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
@@ -426,11 +426,11 @@ export function InnerListbox({
     );
 }
 
-export type ListboxHtmlElement = HTMLElement & {
+export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 }
 
-export const Listbox = forwardRef<InnerListboxProps, ListboxHtmlElement>((props, ref) => (
+export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 

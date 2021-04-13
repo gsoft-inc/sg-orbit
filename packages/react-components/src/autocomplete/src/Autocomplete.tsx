@@ -17,10 +17,10 @@ import {
 } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { Listbox, ListboxHtmlElement, OptionKeyProp } from "../../listbox";
+import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
-import { getItemText, useCollectionSearch } from "../../collection";
+import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
@@ -233,10 +233,13 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         allowPreventOverflow
     });
 
-    const listboxRef = useRef<ListboxHtmlElement>();
+    const listboxRef = useRef<ListboxElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
+
+    // Required to support selection when there are sections.
+    const items = useOnlyCollectionItems(results);
 
     const open = useCallback(event => {
         setIsOpen(event, true);
@@ -251,7 +254,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         let newValue = null;
 
         if (!isNil(newKey)) {
-            const selectedItem = results.find(x => x.key === newKey);
+            const selectedItem = items.find(x => x.key === newKey);
 
             if (!isNil(selectedItem)) {
                 newValue = getItemText(selectedItem);
@@ -270,7 +273,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
 
         setQuery(clearOnSelect ? "" : newValue ?? "", true);
-    }, [results, onChange, clearOnSelect, value, setValue, setQuery]);
+    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
 
     const clear = useCallback(event => {
         setSelection(event, null);
@@ -376,7 +379,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             case Keys.enter:
                 if (isOpen) {
                     event.preventDefault();
-                    selectItem(event, focusedItem.key);
+
+                    if (!isNil(focusedItem)) {
+                        selectItem(event, focusedItem.key);
+                    }
                 }
                 break;
         }
