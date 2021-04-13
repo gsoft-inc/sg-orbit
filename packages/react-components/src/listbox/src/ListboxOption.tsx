@@ -121,6 +121,7 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
+            data-o-ui-key={key}
             {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
@@ -139,7 +140,6 @@ export function InnerListboxOption({
                     ),
                     role: "option",
                     tabIndex: !disabled ? -1 : undefined,
-                    "data-o-ui-key": key,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
