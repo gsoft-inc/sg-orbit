@@ -14,7 +14,7 @@ export interface UseCheckboxProps {
     required?: boolean;
     validationState?: "invalid" | "valid";
     onChange?(event: SyntheticEvent): void;
-    size?: "sm" | "md"
+    size?: "sm" | "md";
     reverse?: boolean;
     name?: string;
     tabIndex?: number;
@@ -22,7 +22,7 @@ export interface UseCheckboxProps {
     focus?: boolean;
     hover?: boolean;
     disabled?: boolean;
-    forwardedRef?: ForwardedRef<any>
+    forwardedRef?: ForwardedRef<any>;
 }
 
 export interface UseCheckboxReturn {
@@ -31,11 +31,11 @@ export interface UseCheckboxReturn {
     wrapperProps: {
         className?: string;
         ref?: Ref<any>;
-    },
+    };
     inputProps: {
         id?: string;
         as?: ElementType;
-        type?: "checkbox",
+        type?: "checkbox";
         checked?: boolean;
         onChange?(event: SyntheticEvent): void;
         disabled?: boolean;
@@ -44,8 +44,8 @@ export interface UseCheckboxReturn {
         "aria-checked": boolean | "mixed";
         "aria-required": boolean;
         "aria-invalid": boolean;
-        ref: Ref<any>
-    }
+        ref: Ref<any>;
+    };
 }
 
 export function useCheckbox({

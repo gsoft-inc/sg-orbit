@@ -3,8 +3,8 @@ import { isNil } from "lodash";
 import { useCallback, useEffect, useRef } from "react";
 
 export interface UseMaskedInputProps {
-    inputElement?: HTMLInputElement
-    mask?: (string | RegExp)[]
+    inputElement?: HTMLInputElement;
+    mask?: (string | RegExp)[];
 }
 
 export function useMaskedInput({

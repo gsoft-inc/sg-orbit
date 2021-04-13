@@ -15,23 +15,23 @@ export interface InnerDateInputProps {
     /**
      * A controlled value.
      */
-    value?: Date,
+    value?: Date;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: Date,
+    defaultValue?: Date;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * The minimum (inclusive) date.
      */
-    minDate?: Date,
+    minDate?: Date;
     /**
      * The maximum (inclusive) date.
      */
-    maxDate?: Date,
+    maxDate?: Date;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -45,14 +45,14 @@ export interface InnerDateInputProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void,
+    onChange?(event: SyntheticEvent): void;
     /**
      * Called when the date change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {object} date - The new date value.
      * @returns {void}
      */
-    onDateChange?(event: SyntheticEvent, date: Date): void,
+    onDateChange?(event: SyntheticEvent, date: Date): void;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -64,15 +64,15 @@ export interface InnerDateInputProps {
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>,
+    wrapperProps?: Partial<BoxProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as?: ElementType
+    as?: ElementType;
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerDateInput({

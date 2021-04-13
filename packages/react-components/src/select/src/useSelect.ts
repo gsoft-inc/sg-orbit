@@ -22,10 +22,10 @@ export interface UseSelectProps {
     open?: boolean;
     defaultOpen?: boolean;
     selectedKey?: string;
-    defaultSelectedKey?: string
-    onChange?(event: SyntheticEvent, selectedKey: string): void
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void
-    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void
+    defaultSelectedKey?: string;
+    onChange?(event: SyntheticEvent, selectedKey: string): void;
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void;
     direction: "bottom" | "top";
     align?: "start" | "end";
     autoFocus?: boolean | number;
@@ -35,9 +35,9 @@ export interface UseSelectProps {
     allowResponsiveMenuWidth?: boolean;
     ariaLabel?: string;
     ariaLabelledBy?: string;
-    ariaDescribedBy?: string
-    overlayProps?: Partial<OverlayProps>,
-    ref: Ref<HTMLElement>
+    ariaDescribedBy?: string;
+    overlayProps?: Partial<OverlayProps>;
+    ref: Ref<HTMLElement>;
 }
 
 export function useSelect(children: ReactNode, {

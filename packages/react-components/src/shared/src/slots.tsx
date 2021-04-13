@@ -56,7 +56,7 @@ interface SlotOptions {
     _: {
         defaultWrapper?: ComponentType;
         required?: string[];
-    }
+    };
 }
 
 type SlotElements<T extends SlotOptions> = {

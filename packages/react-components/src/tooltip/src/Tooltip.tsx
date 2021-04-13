@@ -12,7 +12,7 @@ interface InnerTooltipProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * @ignore
      */

@@ -17,7 +17,7 @@ export interface InnerDividerProps {
     /**
      * @ignore
      */
-    children?: any
+    children?: any;
     /**
      * @ignore
      */

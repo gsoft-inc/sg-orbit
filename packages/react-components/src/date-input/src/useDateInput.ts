@@ -57,13 +57,13 @@ function isTyping(inputValue: string) {
 }
 
 export interface UseDateInputProps {
-    value?: Date
-    defaultValue?: Date,
-    minDate?: Date,
-    maxDate?: Date,
+    value?: Date;
+    defaultValue?: Date;
+    minDate?: Date;
+    maxDate?: Date;
     onChange?(event: SyntheticEvent): void;
     onDateChange?(event: SyntheticEvent, date: Date): void;
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function useDateInput({

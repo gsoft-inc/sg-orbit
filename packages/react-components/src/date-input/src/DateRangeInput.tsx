@@ -18,7 +18,7 @@ import { useToolbarProps } from "../../toolbar";
 
 export interface DatePreset {
     text: string;
-    startDate: Date
+    startDate: Date;
     endDate: Date;
 }
 
@@ -29,31 +29,31 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * A controlled start date value.
      */
-    startDate?: Date,
+    startDate?: Date;
     /**
      * A controlled end date value.
      */
-    endDate?: Date,
+    endDate?: Date;
     /**
      * The initial value of start date.
      */
-    defaultStartDate?: Date,
+    defaultStartDate?: Date;
     /**
      * The initial value of end date.
      */
-    defaultEndDate?: Date,
+    defaultEndDate?: Date;
     /**
      * Temporary text that occupies both date inputs when they are empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * The minimum (inclusive) date.
      */
-    minDate?: Date,
+    minDate?: Date;
     /**
      * The maximum (inclusive) date.
      */
-    maxDate?: Date,
+    maxDate?: Date;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -69,11 +69,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
      * @param {Object} endDate - Selected end date.
      * @returns {void}
      */
-    onDatesChange?(event: SyntheticEvent, startDate: Date, endDate: Date): void,
+    onDatesChange?(event: SyntheticEvent, startDate: Date, endDate: Date): void;
     /**
      * Array of pre-determined dates range.
      */
-    presets?: DatePreset[]
+    presets?: DatePreset[];
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -93,7 +93,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 const DateInput = forwardRef<any, "input">(({

@@ -6,15 +6,15 @@ export interface HiddenAutocompleteProps extends ComponentProps<"input"> {
     /**
      * Name of the element. Used by the server to identify the fields in form submits. View [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes).
      */
-    name?: string,
+    name?: string;
     /**
      * A controlled selected key.
      */
-    selectedKey?: string,
+    selectedKey?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
-    required?: boolean,
+    required?: boolean;
     /**
      * Whether or not the select should display as "valid" or "invalid".
      */

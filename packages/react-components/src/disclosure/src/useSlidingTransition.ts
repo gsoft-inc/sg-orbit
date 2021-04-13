@@ -44,7 +44,7 @@ function reducer(state: SlidingTransitionState, action: ActionType) {
 interface SlidingTransition {
     transitionClasses: string;
     transitionProps: {
-        onTransitionEnd?(): void
+        onTransitionEnd?(): void;
     };
 }
 

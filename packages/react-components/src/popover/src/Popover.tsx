@@ -13,7 +13,7 @@ export interface InnerPopoverProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * @ignore
      */

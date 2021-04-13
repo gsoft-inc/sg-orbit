@@ -33,7 +33,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * The value to associate with when in a group.
      */
-    value: string | number
+    value: string | number;
     /**
      * Whether or not the radio should autoFocus on render.
      */
@@ -51,7 +51,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void
+    onChange?(event: SyntheticEvent): void;
     /**
      * Invert the order of the checkmark box and the label.
      */

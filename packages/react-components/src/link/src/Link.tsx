@@ -44,7 +44,7 @@ export interface InnerLinkProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerLink(props: InnerLinkProps) {

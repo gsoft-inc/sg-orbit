@@ -17,7 +17,7 @@ export interface InnerItemProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

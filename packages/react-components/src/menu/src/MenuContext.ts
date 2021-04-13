@@ -4,7 +4,7 @@ import type { SelectionMode } from "./selectionMode";
 interface MenuContextType {
     onSelect?(event: SyntheticEvent, key: string): void;
     selectionMode?: SelectionMode;
-    selectedKeys?: string[]
+    selectedKeys?: string[];
 }
 
 export const MenuContext = createContext<MenuContextType>({});

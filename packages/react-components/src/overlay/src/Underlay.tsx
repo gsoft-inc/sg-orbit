@@ -8,7 +8,7 @@ interface InnerUnderlayProps {
     /**
      * z-index of the underlay.
      */
-    zIndex?: number,
+    zIndex?: number;
     /**
      * An HTML element type or a custom React element type to render as.
      */

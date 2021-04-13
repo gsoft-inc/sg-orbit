@@ -19,7 +19,7 @@ interface InnerHelpMessageProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHelpMessage(props: InnerHelpMessageProps) {

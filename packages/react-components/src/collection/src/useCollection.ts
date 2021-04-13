@@ -10,8 +10,8 @@ export interface CollectionNode {
     index: number;
     type: NodeType;
     elementType?: ElementType | string;
-    ref: Ref<any>,
-    props: Record<string, any>,
+    ref: Ref<any>;
+    props: Record<string, any>;
 }
 
 export interface CollectionItem extends CollectionNode {
@@ -20,12 +20,12 @@ export interface CollectionItem extends CollectionNode {
     tooltip?: {
         props: Record<string, any>;
         content: ReactElement;
-    },
+    };
 }
 
 export interface CollectionSection extends CollectionNode {
     type: NodeType.section;
-    items?: CollectionItem[]
+    items?: CollectionItem[];
 }
 
 export interface CollectionDivider extends CollectionNode {

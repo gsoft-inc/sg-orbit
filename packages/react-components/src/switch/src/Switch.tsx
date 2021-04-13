@@ -14,7 +14,7 @@ export interface InnerSwitchProps extends InteractionStatesProps {
     /**
      * @ignore
      */
-    name?: string
+    name?: string;
     /**
      * @ignore
      */

@@ -34,18 +34,18 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys?: string[]
+    selectedKeys?: string[];
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKeys?: string[]
+    defaultSelectedKeys?: string[];
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */
-    onSelectionChange?(event: SyntheticEvent, keys: string[]): void
+    onSelectionChange?(event: SyntheticEvent, keys: string[]): void;
     /**
      * The type of selection that is allowed.
      */

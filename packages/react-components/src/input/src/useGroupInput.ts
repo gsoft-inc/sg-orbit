@@ -14,7 +14,7 @@ const Gap = {
 } as const;
 
 export interface UseGroupInputProps {
-    role?: "group" | "radiogroup",
+    role?: "group" | "radiogroup";
     cssModule?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
@@ -24,7 +24,7 @@ export interface UseGroupInputProps {
     size?: "sm" | "md";
     reverse?: boolean;
     disabled?: boolean;
-    groupRef: Ref<any>
+    groupRef: Ref<any>;
     isInField?: boolean;
 }
 
@@ -32,23 +32,23 @@ export interface UseGroupInputReturn {
     groupProps: {
         inline?: boolean;
         orientation?: "horizontal" | "vertical";
-        align?: "end" | "start"
+        align?: "end" | "start";
         gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
         wrap?: boolean;
         className?: string;
-        role?: "group" | "radiogroup",
+        role?: "group" | "radiogroup";
         "aria-required"?: boolean;
         "aria-invalid"?: boolean;
-        "aria-orientation"?: "horizontal" | "vertical",
+        "aria-orientation"?: "horizontal" | "vertical";
         "aria-disabled"?: boolean;
-        ref?: Ref<any>
-    },
+        ref?: Ref<any>;
+    };
     itemProps: {
         size?: "sm" | "md";
         reverse?: boolean;
         validationState?: "valid" | "invalid";
         disabled?: boolean;
-    }
+    };
 }
 
 export function useGroupInput({

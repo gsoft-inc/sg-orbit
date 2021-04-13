@@ -10,7 +10,7 @@ export interface InnerTabPanelProps {
     /**
      * Matching panel item.
      */
-    panel: PanelType
+    panel: PanelType;
     /**
      * An HTML element type or a custom React element type to render as.
      */

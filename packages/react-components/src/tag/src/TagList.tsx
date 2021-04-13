@@ -19,13 +19,13 @@ export interface InnerTagListProps {
      * @param {string} key - The item key.
      * @returns {void}
      */
-    onRemove?(event: SyntheticEvent, key: string): void
+    onRemove?(event: SyntheticEvent, key: string): void;
     /**
      * Called when all items are cleared from the list.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClear?(event: SyntheticEvent): void
+    onClear?(event: SyntheticEvent): void;
     /**
      * Whether or not tag items should be render as readonly.
      */
@@ -33,7 +33,7 @@ export interface InnerTagListProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -45,10 +45,10 @@ export interface InnerTagListProps {
 }
 
 export interface TagItemProps extends Omit<TagProps, "children"> {
-    item?: CollectionItem,
-    size: "sm" | "md",
-    onRemove: any,
-    readOnly: boolean,
+    item?: CollectionItem;
+    size: "sm" | "md";
+    onRemove: any;
+    readOnly: boolean;
 }
 
 function TagItem({

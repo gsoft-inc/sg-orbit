@@ -3,13 +3,13 @@ import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shar
 import { isNumber } from "lodash";
 
 export interface UseInputProps {
-    cssModule?: string,
+    cssModule?: string;
     id?: string;
     value?: string | number;
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
-    onChange?(event: SyntheticEvent): void
+    onChange?(event: SyntheticEvent): void;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;
@@ -19,7 +19,7 @@ export interface UseInputProps {
     active?: boolean;
     focus?: boolean;
     hover?: boolean;
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function useInput({

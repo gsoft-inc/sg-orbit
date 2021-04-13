@@ -35,7 +35,7 @@ export interface InnerListboxOptionProps extends DomProps, InteractionStatesProp
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListboxOption({

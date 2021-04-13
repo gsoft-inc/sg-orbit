@@ -24,7 +24,7 @@ export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * @ignore
      */

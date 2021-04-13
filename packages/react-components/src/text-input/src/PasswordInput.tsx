@@ -16,19 +16,19 @@ export interface InnerPasswordInputProps {
     /**
      * A controlled value.
      */
-    value?: string,
+    value?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: string,
+    defaultValue?: string;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * Label identifying the input.
      */
-    label?: string,
+    label?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -70,15 +70,15 @@ export interface InnerPasswordInputProps {
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>,
+    wrapperProps?: Partial<BoxProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as?: ElementType
+    as?: ElementType;
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPasswordInput({

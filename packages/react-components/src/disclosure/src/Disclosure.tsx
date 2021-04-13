@@ -34,7 +34,7 @@ export interface InnerDisclosureProps extends DomProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerDisclosure({

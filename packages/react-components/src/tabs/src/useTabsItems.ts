@@ -4,25 +4,25 @@ import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 
 export interface PanelType {
-    key: string
+    key: string;
     index: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>
-    panelId: string
-    tabId: string
-    props: Record<string, any>
+    ref: Ref<any>;
+    panelId: string;
+    tabId: string;
+    props: Record<string, any>;
 }
 
 export interface TabType {
-    key: string
+    key: string;
     index: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>
-    tabId: string
-    panelId: string
-    props: Record<string, any>
+    ref: Ref<any>;
+    tabId: string;
+    panelId: string;
+    props: Record<string, any>;
 }
 
 export class TabsBuilder {

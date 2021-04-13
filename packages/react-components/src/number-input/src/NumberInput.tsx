@@ -18,11 +18,11 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * A controlled value.
      */
-    value?: number,
+    value?: number;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: number,
+    defaultValue?: number;
     /**
      * Whether or not the input is readonly.
      */
@@ -34,19 +34,19 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    min?: number,
+    min?: number;
     /**
      * The maximum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    max?: number,
+    max?: number;
     /**
      * The step used to increment or decrement the value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
-    step?: number,
+    step?: number;
     /**
      * Clamps the input value between min & max boundaries.
      */
@@ -69,7 +69,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon?: ReactElement,
+    icon?: ReactElement;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -81,11 +81,11 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>,
+    wrapperProps?: Partial<BoxProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
-    as?: ElementType
+    as?: ElementType;
     /**
     * @ignore
     */
