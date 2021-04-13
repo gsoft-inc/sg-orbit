@@ -26,7 +26,7 @@ import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useFieldInputProps } from "../../field";
 
-// used to generate OverlayProps instead of any in the auto-generated documentation
+// Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
