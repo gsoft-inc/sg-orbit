@@ -28,11 +28,11 @@ export interface InnerRadioGroupProps {
     /**
      * The value of the radio group.
      */
-    value?: string | number;
+    value?: string;
     /**
      * The initial value of `value`.
      */
-    defaultValue?: string | number;
+    defaultValue?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -48,10 +48,10 @@ export interface InnerRadioGroupProps {
     /**
      * Called when any of the group elements is checked or unchecked.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {string | number} value - The new value.
+     * @param {string} value - The new value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, value: string | number): void;
+    onChange?(event: SyntheticEvent, value: string): void;
     /**
      * Whether or not the radio group should autoFocus on render.
      */
