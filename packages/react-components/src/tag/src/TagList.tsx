@@ -2,44 +2,54 @@ import "./TagList.css";
 
 import { Box } from "../../box";
 import { Button } from "../../button";
-import { Tag } from "./Tag";
-import { any, arrayOf, bool, func, object, oneOf, oneOfType } from "prop-types";
-import { forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { Tag, TagProps } from "./Tag";
+import { forwardRef, mergeProps, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { mergeProps, useEventCallback } from "../../shared";
-import { useCollection } from "../../collection";
+import { useCollection, useOnlyCollectionItems } from "../../collection";
 
-const propTypes = {
-    /**
-     * Items to render.
-     */
-    items: arrayOf(object),
+export interface InnerTagListProps {
     /**
      * A tag list can vary in size.
      */
-    size: oneOf(["sm", "md"]),
+    size?: "sm" | "md";
     /**
      * Called when an item is removed from the list.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {string} key - The item key.
      * @returns {void}
      */
-    onRemove: func,
+    onRemove?(event: SyntheticEvent, key: string): void
     /**
      * Called when all items are cleared from the list.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClear: func,
+    onClear?(event: SyntheticEvent): void
     /**
      * Whether or not tag items should be render as readonly.
      */
-    readOnly: bool,
+    readOnly?: boolean;
     /**
      * React children.
      */
-    children: oneOfType([any, func]).isRequired
-};
+    children: ReactNode
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as?: ElementType;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
+}
+
+export interface TagItemProps extends Omit<TagProps, "children"> {
+    item?: any,
+    size: "sm" | "md",
+    onRemove: any,
+    readOnly: boolean,
+}
 
 function TagItem({
     item,
@@ -47,7 +57,7 @@ function TagItem({
     onRemove,
     readOnly,
     ...rest
-}) {
+}: TagItemProps) {
     const handleRemove = useEventCallback(event => {
         if (!isNil(onRemove)) {
             onRemove(event, item.key);
@@ -59,7 +69,7 @@ function TagItem({
             {...mergeProps(
                 rest,
                 {
-                    variant: "outline",
+                    variant: "outline" as const,
                     size,
                     className: "o-ui-tag-list-item",
                     onRemove: !readOnly ? handleRemove : undefined
@@ -72,7 +82,6 @@ function TagItem({
 }
 
 export function InnerTagList({
-    items,
     size,
     onRemove,
     onClear,
@@ -81,8 +90,9 @@ export function InnerTagList({
     forwardedRef,
     children,
     ...rest
-}) {
-    const nodes = useCollection(children, { items });
+}: InnerTagListProps) {
+    const nodes = useCollection(children);
+    const items = useOnlyCollectionItems(nodes);
 
     const clearButtonMarkup = !isNil(onClear) && !readOnly && nodes.length > 0 && (
         <Button
@@ -106,7 +116,7 @@ export function InnerTagList({
                 }
             )}
         >
-            {nodes.map(x => (
+            {items.map(x => (
                 <TagItem
                     key={x.key}
                     item={x}
@@ -120,10 +130,10 @@ export function InnerTagList({
     );
 }
 
-InnerTagList.propTypes = propTypes;
-
-export const TagList = forwardRef((props, ref) => (
+export const TagList = forwardRef<InnerTagListProps>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));
+
+export type TagListProps = ComponentProps<typeof TagList>
 
 TagList.displayName = "TagList";
