@@ -21,7 +21,7 @@
     "build-sb-for-chroma": "cd storybook && yarn build-sb-for-chroma",
     "chromatic": "cd storybook && yarn chromatic",
     "chromatic-ci": "cd storybook && yarn chromatic-ci",
-    "check-types": "tsc --noEmit",
+    "check-types": "tsc",
     "clean": "run-p -c clean:*",
     "clean:pkg": "lerna run clean --parallel",
     "clean:storybook": "cd storybook && yarn clean",

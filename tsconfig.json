@@ -20,14 +20,14 @@
 
     //  the bare minimum for our project
     "jsx": "react-jsx",
-    "outDir": "./dist",
     "allowJs": true,
     "esModuleInterop": true,
 
-    // Ensure that .d.ts files are created by tsc, but not .js files
-    "declaration": true,
     // Ensure that Babel can safely transpile files in the TypeScript project
-    "isolatedModules": true
+    "isolatedModules": true,
+
+    // we don't create declaration files when linting
+    "noEmit": true
   },
   "include": ["packages", "typings"],
 }
