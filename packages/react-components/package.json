@@ -19,7 +19,7 @@
         "start": "yarn watch",
         "prebuild": "yarn clean",
         "build": "run-s build:*",
-        "build:types": "tsc src/index.ts --declaration --emitDeclarationOnly --outDir dist --jsx react-jsx",
+        "build:types": "tsc -p ./tsconfig.types.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
