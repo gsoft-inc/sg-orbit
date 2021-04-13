@@ -2,11 +2,11 @@ import "./TagList.css";
 
 import { Box } from "../../box";
 import { Button } from "../../button";
+import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { Tag, TagProps } from "./Tag";
 import { forwardRef, mergeProps, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
-import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface InnerTagListProps {
     /**
@@ -45,7 +45,7 @@ export interface InnerTagListProps {
 }
 
 export interface TagItemProps extends Omit<TagProps, "children"> {
-    item?: any,
+    item?: CollectionItem,
     size: "sm" | "md",
     onRemove: any,
     readOnly: boolean,
@@ -92,7 +92,6 @@ export function InnerTagList({
     ...rest
 }: InnerTagListProps) {
     const nodes = useCollection(children);
-    const items = useOnlyCollectionItems(nodes);
 
     const clearButtonMarkup = !isNil(onClear) && !readOnly && nodes.length > 0 && (
         <Button
@@ -116,7 +115,7 @@ export function InnerTagList({
                 }
             )}
         >
-            {items.map(x => (
+            {nodes.map((x: CollectionItem) => (
                 <TagItem
                     key={x.key}
                     item={x}
