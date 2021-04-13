@@ -4,7 +4,6 @@
   "compilerOptions": {
     "outDir": "./dist",
     "declaration": true,
-    "declarationMap": true,
     "isolatedModules": false,
     "noEmit": false,
     "allowJs": false,
