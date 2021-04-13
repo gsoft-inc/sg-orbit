@@ -121,7 +121,6 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
-            data-o-ui-key={key}
             {...mergeProps<Partial<BoxProps>[]>(
                 rest,
                 {
@@ -139,6 +138,7 @@ export function InnerListboxOption({
                         hover && "hover"
                     ),
                     role: "option",
+                    ["data-o-ui-key" as any]: key,
                     tabIndex: !disabled ? -1 : undefined,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
