@@ -452,7 +452,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         disabled,
                         validationState,
                         fluid,
-                        active,
+                        active, //TODO: TS active doesnt exist on search input
                         focus,
                         hover,
                         className: "o-ui-autocomplete-trigger",
