@@ -1,5 +1,4 @@
 {
-    // Unfortunately, the include and outDir options can’t be hoisted in the root config because they are resolved relatively to the config they’re in.
   "extends": "../../tsconfig",
   "compilerOptions": {
     "outDir": "./dist",
