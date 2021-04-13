@@ -1,6 +1,6 @@
 import "./Dot.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
@@ -47,7 +47,7 @@ export function InnerDot(props: InnerDotProps) {
 
     return (
         <Box
-            {...mergeProps<Partial<BoxProps>[]>(
+            {...mergeProps(
                 rest,
                 {
                     className: cssModule(
