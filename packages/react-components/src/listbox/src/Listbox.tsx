@@ -51,11 +51,11 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys?: string[]
+    selectedKeys?: string[];
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
-    defaultSelectedKeys?: string[]
+    defaultSelectedKeys?: string[];
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -70,7 +70,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
-    nodes?: CollectionNode[]
+    nodes?: CollectionNode[];
     /**
      * Whether or not the listbox should autofocus on render.
      */
@@ -106,7 +106,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {

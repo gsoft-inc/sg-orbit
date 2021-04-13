@@ -53,7 +53,7 @@ interface InnerButtonProps extends InteractionStatesProps {
     /**
     * Called when the button is click.
     */
-    onClick?: MouseEventHandler<HTMLElement>
+    onClick?: MouseEventHandler<HTMLElement>;
     /**
      * An HTML element type or a custom React element type to render as.
      */

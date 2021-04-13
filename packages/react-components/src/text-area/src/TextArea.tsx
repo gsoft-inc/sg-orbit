@@ -15,15 +15,15 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string,
+    value?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: string,
+    defaultValue?: string;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * Whether or not an element is resizable, and if so, in which directions. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/resize).
      */
@@ -53,7 +53,7 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
-    button?: ReactElement
+    button?: ReactElement;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -65,15 +65,15 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * The number of visible text lines.
      */
-    rows?: number,
+    rows?: number;
     /**
      * The maximum number of visible text lines before displaying a scrollbar.
      */
-    maxRows?: number,
+    maxRows?: number;
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>,
+    wrapperProps?: Partial<BoxProps>;
     /**
      * @ignore
      */
@@ -89,7 +89,7 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 const pxToInt = (value?: string) => {

@@ -26,7 +26,7 @@ const NavigationKeyBinding = {
 export interface InnerTabListProps {
     autoFocus?: boolean | number;
     tabs?: TabType[];
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTabList({

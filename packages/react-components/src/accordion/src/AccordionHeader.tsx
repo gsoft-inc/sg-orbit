@@ -23,7 +23,7 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * @ignore
      */

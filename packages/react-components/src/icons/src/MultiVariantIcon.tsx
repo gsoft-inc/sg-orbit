@@ -10,7 +10,7 @@ export interface InnerMultiVariantIconProps {
     /**
      * Default slot override.
      */
-    slot?: string
+    slot?: string;
     /**
      * An icon as a React component for the 24px variant.
      */

@@ -65,7 +65,7 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {

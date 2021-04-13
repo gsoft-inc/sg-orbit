@@ -15,15 +15,15 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string,
+    value?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: string,
+    defaultValue?: string;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -37,7 +37,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void,
+    onChange?(event: SyntheticEvent): void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -49,11 +49,11 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon?: ReactElement,
+    icon?: ReactElement;
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
-    button?: ReactElement,
+    button?: ReactElement;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -69,7 +69,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>
+    wrapperProps?: Partial<BoxProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -77,7 +77,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextInput(props: InnerTextInputProps) {

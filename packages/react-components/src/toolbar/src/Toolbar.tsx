@@ -48,7 +48,7 @@ export interface InnerToolbarProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 

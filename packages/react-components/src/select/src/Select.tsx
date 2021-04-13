@@ -32,15 +32,15 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * A controlled selected key.
      */
-    selectedKey?: string,
+    selectedKey?: string;
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultSelectedKey?: string,
+    defaultSelectedKey?: string;
     /**
      * Temporary text that occupies the select trigger when no value is selected.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -70,7 +70,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * A trigger icon.
      */
-    icon?: ReactElement
+    icon?: ReactElement;
     /**
      * The direction the select menu will open relative to the input.
      */
@@ -118,7 +118,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSelect(props: InnerSelectProps) {

@@ -14,11 +14,11 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled selected key.
      */
-    selectedKey: string,
+    selectedKey: string;
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultSelectedKey: string,
+    defaultSelectedKey: string;
     /**
      * Called when the selected tab change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -33,7 +33,7 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
     /**
      * Whether or not the first focusable tab should autoFocus on render.
      */
-    autoFocus?: boolean | number
+    autoFocus?: boolean | number;
     /**
      * Whether or not the tabs take up the width of the container.
      */

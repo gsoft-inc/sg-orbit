@@ -40,11 +40,11 @@ export interface InnerStackProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 

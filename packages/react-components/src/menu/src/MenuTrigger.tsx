@@ -20,7 +20,7 @@ export interface InnerMenuTriggerProps extends DomProps {
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * Whether or not the menu should close when an item is selected.
      */

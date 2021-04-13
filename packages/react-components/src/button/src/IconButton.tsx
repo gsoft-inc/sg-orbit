@@ -27,7 +27,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * Whether or not the icon button should autoFocus on render.
      */
-    autoFocus?: boolean | number
+    autoFocus?: boolean | number;
     /**
      * An icon button can show a loading indicator.
      */
@@ -53,7 +53,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * A label providing an accessible name to the icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
-    "aria-label": string,
+    "aria-label": string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -61,7 +61,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * Default slot override.
      */
-    slot?: string,
+    slot?: string;
     /**
      * Whether or not the button take up the width of its container.
      */

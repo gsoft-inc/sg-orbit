@@ -7,11 +7,11 @@ export type { Placement };
 
 export interface UseOverlayPositionProps {
     arrowElement?: HTMLElement;
-    position?: Placement
+    position?: Placement;
     offset?: number[];
-    allowFlip?: boolean
+    allowFlip?: boolean;
     allowPreventOverflow?: boolean;
-    boundaryElement?: HTMLElement
+    boundaryElement?: HTMLElement;
 }
 
 export function useOverlayPosition(triggerElement: Element, overlayElement: HTMLElement, {

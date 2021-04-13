@@ -4,8 +4,8 @@ import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
 interface CompositeKeyWeakMapNode<T> {
-    value?: T,
-    map: WeakMap<any, any>
+    value?: T;
+    map: WeakMap<any, any>;
 }
 
 // Useful to compose a weak map key with multiple objects.

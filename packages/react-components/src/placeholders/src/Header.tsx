@@ -18,7 +18,7 @@ export interface InnerHeaderProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHeader({

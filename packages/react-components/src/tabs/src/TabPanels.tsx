@@ -4,7 +4,7 @@ import { PanelType } from "./useTabsItems";
 import { TabPanel } from "./TabPanel";
 
 export interface TabPanelsProps {
-    panels: PanelType[]
+    panels: PanelType[];
 }
 
 export function TabPanels({ panels, ...rest }: TabPanelsProps) {

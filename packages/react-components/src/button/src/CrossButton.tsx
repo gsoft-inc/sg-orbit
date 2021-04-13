@@ -25,7 +25,7 @@ interface InnerCrossButtonProps extends AriaLabelingProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClick?(event: SyntheticEvent): void,
+    onClick?(event: SyntheticEvent): void;
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

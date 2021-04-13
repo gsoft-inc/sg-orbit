@@ -44,7 +44,7 @@ export interface InnerInlineProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerInline({

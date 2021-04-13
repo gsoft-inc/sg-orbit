@@ -15,16 +15,16 @@ export interface UseFieldProps {
 }
 
 export interface UseFieldReturn {
-    fieldId: string,
+    fieldId: string;
     fieldProps: {
         className: string;
         role: string;
         ref: MergedRef<any>;
-        "aria-labelledby": string,
-        "aria-describedby": string
+        "aria-labelledby": string;
+        "aria-describedby": string;
 
     };
-    fieldContext: Partial<FieldContextType>
+    fieldContext: Partial<FieldContextType>;
 }
 
 export function useField({

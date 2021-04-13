@@ -25,7 +25,7 @@ export interface InnerFormProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerForm(props: InnerFormProps) {

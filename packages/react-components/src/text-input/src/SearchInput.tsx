@@ -17,15 +17,15 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string,
+    value?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: string,
+    defaultValue?: string;
     /**
      * Temporary text that occupies the input when it is empty.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -52,7 +52,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    icon?: ReactElement
+    icon?: ReactElement;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -64,7 +64,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * Additional props to render on the wrapper element.
      */
-    wrapperProps?: Partial<BoxProps>
+    wrapperProps?: Partial<BoxProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -72,7 +72,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSearchInput({

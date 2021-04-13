@@ -40,13 +40,13 @@ export class ElementIterator<T> {
 }
 
 interface FocusManagerOptions {
-    isVirtual?: boolean,
+    isVirtual?: boolean;
     keyProp?: string;
 }
 
 export interface FocusOptions {
-    onFocus?(element?: HTMLElement): void
-    onNotFound?(): void
+    onFocus?(element?: HTMLElement): void;
+    onNotFound?(): void;
     canFocus?(element: HTMLElement): boolean;
 }
 

@@ -36,7 +36,7 @@ interface InnerFieldProps extends DomProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerField(props: InnerFieldProps) {

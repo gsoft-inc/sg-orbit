@@ -4,7 +4,7 @@ import type { ColorScheme, Theme } from "./ThemeProvider";
 export interface ThemeContextType {
     theme?: Theme;
     colorScheme?: ColorScheme;
-    setColorScheme?: (newColorScheme: ColorScheme) => void
+    setColorScheme?: (newColorScheme: ColorScheme) => void;
 }
 
 export const ThemeContext = createContext<ThemeContextType>({});

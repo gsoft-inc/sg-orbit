@@ -24,7 +24,7 @@ export interface UsePopupProps {
     offset?: number[];
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
-    boundaryElement?: HTMLElement,
+    boundaryElement?: HTMLElement;
     keyProp?: string;
 }
 

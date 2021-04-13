@@ -13,7 +13,7 @@ export interface EmbeddedIconProps {
     /**
      * Allow any extra props
      */
-    [key: string]: any
+    [key: string]: any;
 }
 
 export const embeddedIconSize = createSizeAdapter({

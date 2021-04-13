@@ -16,7 +16,7 @@ interface InnerGroupFieldProps extends DomProps {
     /**
      * Whether or not the field show a required state.
      */
-    required?: boolean
+    required?: boolean;
     /**
      * Whether or not the field take up the width of its container.
      */

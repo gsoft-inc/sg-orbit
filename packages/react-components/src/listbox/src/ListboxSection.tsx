@@ -18,7 +18,7 @@ export interface InnerListboxSectionProps extends DomProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListboxSection({

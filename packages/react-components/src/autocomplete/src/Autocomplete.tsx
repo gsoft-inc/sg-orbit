@@ -34,23 +34,23 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Whether or not to open the autocomplete element.
      */
-    open?: boolean,
+    open?: boolean;
     /**
      * The initial value of open when in auto controlled mode.
      */
-    defaultOpen?: boolean,
+    defaultOpen?: boolean;
     /**
      * A controlled autocomplete value.
      */
-    value?: string,
+    value?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
-    defaultValue?: string,
+    defaultValue?: string;
     /**
      * Temporary text that occupies the autocomplete trigger when no value is selected.
      */
-    placeholder?: string,
+    placeholder?: string;
     /**
     * @ignore
     */
@@ -66,11 +66,11 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Message to display when there are no results matching the query.
      */
-    noResultsMessage?: string,
+    noResultsMessage?: string;
     /**
      * Minimum characters to query for results.
      */
-    minCharacters?: number,
+    minCharacters?: number;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -85,7 +85,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      * @param {string} query - The search query.
      * @returns {void}
      */
-    onSearch?(event: SyntheticEvent, query: string): void,
+    onSearch?(event: SyntheticEvent, query: string): void;
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -94,18 +94,18 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      * @param {string} selection.value - The selected value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, selection: { key: string, value: string }): void,
+    onChange?(event: SyntheticEvent, selection: { key: string; value: string }): void;
     /**
      * Called when the autocomplete open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void,
+    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
     /**
      * A trigger icon.
      */
-    icon?: ReactElement,
+    icon?: ReactElement;
     /**
      * The direction the autocomplete menu will open relative to the input.
      */
@@ -113,19 +113,19 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */
-    align?: "start" | "end"
+    align?: "start" | "end";
     /**
      * Whether or not the autocomplete should autofocus on render.
      */
-    autoFocus?: boolean | number
+    autoFocus?: boolean | number;
     /**
      * Whether or not the autocomplete take up the width of its container.
      */
-    fluid?: boolean,
+    fluid?: boolean;
     /**
      * Whether or not the autocomplete is disabled.
      */
-    disabled?: boolean,
+    disabled?: boolean;
     /**
      * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
@@ -137,7 +137,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * z-index of the overlay element.
      */
-    zIndex?: number,
+    zIndex?: number;
     /**
      * Additional props to render on the menu of options.
      */
@@ -153,7 +153,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {

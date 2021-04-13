@@ -46,7 +46,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * Whether or not the popover should close on outside interactions.
      */
-    dismissable?: boolean
+    dismissable?: boolean;
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
@@ -58,11 +58,11 @@ export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * z-index of the popover element.
      */
-    zIndex?: number,
+    zIndex?: number;
     /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
-    containerElement?: HTMLElement
+    containerElement?: HTMLElement;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -70,7 +70,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * @ignore
      */

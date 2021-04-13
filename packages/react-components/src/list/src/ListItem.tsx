@@ -6,7 +6,7 @@ export interface InnerListItemProps {
     /**
      * A list item can vary in size.
      */
-    size?: "inherit",
+    size?: "inherit";
     /**
      * An HTML element type or a custom React element type to render as.
      */

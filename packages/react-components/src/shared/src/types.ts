@@ -5,29 +5,29 @@ export interface DomProps {
     /**
      * The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id).
      */
-    id?: string
+    id?: string;
 }
 
 export interface AriaLabelingProps {
     /**
      * Defines a string value that labels the current element.
      */
-    "aria-label"?: string,
+    "aria-label"?: string;
 
     /**
      * Identifies the element (or elements) that labels the current element.
      */
-    "aria-labelledby"?: string,
+    "aria-labelledby"?: string;
 
     /**
      * Identifies the element (or elements) that describes the object.
      */
-    "aria-describedby"?: string,
+    "aria-describedby"?: string;
 
     /**
      * Identifies the element (or elements) that provide a detailed, extended description for the object.
      */
-    "aria-details"?: string
+    "aria-details"?: string;
 }
 
 export interface InteractionStatesProps {
