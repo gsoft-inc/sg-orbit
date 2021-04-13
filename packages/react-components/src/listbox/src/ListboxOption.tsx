@@ -138,8 +138,8 @@ export function InnerListboxOption({
                         hover && "hover"
                     ),
                     role: "option",
+                    ["data-o-ui-key" as any]: key,
                     tabIndex: !disabled ? -1 : undefined,
-                    "data-o-ui-key": key,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,

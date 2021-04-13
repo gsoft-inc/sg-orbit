@@ -55,7 +55,7 @@ export function InnerDot(props: InnerDotProps) {
                         children && "has-label"
                     ),
                     style: {
-                        "--o-ui-dot-color": useColor(color)
+                        ["--o-ui-dot-color" as any]: useColor(color)
                     },
                     as,
                     ref: forwardedRef
