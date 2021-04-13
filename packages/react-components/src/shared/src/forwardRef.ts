@@ -35,9 +35,7 @@ export type OmitCommonProps<
     OmitAdditionalProps extends keyof any = never
     > = Omit<Target, "forwardedRef" | OmitAdditionalProps>
 
-type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>> & {
-    [key: string]: any;
-};
+type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>>;
 
 export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
     defaultProps?: Partial<any>;
