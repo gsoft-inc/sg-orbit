@@ -2,7 +2,7 @@ import "./TextInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -11,11 +11,7 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextInputProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
@@ -63,7 +59,7 @@ export interface InnerTextInputProps extends InteractionStatesProps {
      */
     fluid?: boolean;
     /**
-     * Whether or not the input is readonly.
+     * @ignore
      */
     readOnly?: boolean;
     /**

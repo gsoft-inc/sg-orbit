@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CarretIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -14,11 +14,7 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerNumberInputProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerNumberInputProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
@@ -96,14 +92,14 @@ export interface InnerNumberInputProps extends InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export interface SpinnerProps extends ComponentProps<"div"> {
+interface SpinnerProps extends ComponentProps<"div"> {
     onIncrement?(event: SyntheticEvent): void;
     onDecrement?(event: SyntheticEvent): void;
     onFocus?(event: SyntheticEvent): void;
     disabled?: boolean;
 }
 
-export function Spinner({
+function Spinner({
     onIncrement,
     onDecrement,
     onFocus,

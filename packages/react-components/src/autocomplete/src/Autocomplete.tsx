@@ -17,7 +17,7 @@ import {
 } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { Listbox, ListboxHTMLElement, OptionKeyProp } from "../../listbox";
+import { Listbox, ListboxHtmlElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { getItemText, useCollectionSearch } from "../../collection";
@@ -233,7 +233,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         allowPreventOverflow
     });
 
-    const listboxRef = useRef<ListboxHTMLElement>();
+    const listboxRef = useRef<ListboxHtmlElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });

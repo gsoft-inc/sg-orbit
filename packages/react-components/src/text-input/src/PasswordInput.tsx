@@ -60,11 +60,11 @@ export interface InnerPasswordInputProps {
      */
     loading?: boolean;
     /**
-     * Whether or not the input is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
-     * Whether or not the input is readonly.
+     * @ignore
      */
     readOnly?: boolean;
     /**

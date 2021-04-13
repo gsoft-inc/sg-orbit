@@ -2,7 +2,7 @@ import "./TextArea.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback, useLayoutEffect, useState } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
@@ -11,11 +11,7 @@ import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input"
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextAreaProps extends InteractionStatesProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
@@ -79,11 +75,11 @@ export interface InnerTextAreaProps extends InteractionStatesProps {
      */
     wrapperProps?: Partial<BoxProps>,
     /**
-     * Whether or not the text area is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
-     * Whether or not the text area is readonly.
+     * @ignore
      */
     readOnly?: boolean;
     /**
