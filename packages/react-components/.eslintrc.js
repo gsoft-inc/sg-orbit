@@ -48,8 +48,8 @@ module.exports = {
                 "jsx-control-statements/jsx-jcs-no-undef": "off",
                 "@typescript-eslint/ban-ts-comment": "off",
 
-                "@typescript-eslint/member-delimiter-style": ["warn"]
-
+                "@typescript-eslint/member-delimiter-style": ["warn"],
+                "@typescript-eslint/consistent-type-definitions": ["warn"]
             }
         }
     ],

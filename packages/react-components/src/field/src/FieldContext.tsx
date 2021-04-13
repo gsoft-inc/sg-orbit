@@ -70,7 +70,7 @@ export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseField
     return [props || {}, isInField];
 }
 
-export type UseFieldInputPropsReturn = {
+export interface UseFieldInputPropsReturn {
     validationState?: "valid" | "invalid";
     id?: string;
     required?: boolean;
@@ -80,7 +80,7 @@ export type UseFieldInputPropsReturn = {
     className?: string;
     "aria-labelledby"?: string;
     "aria-describedby"?: string;
-};
+}
 
 export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const [{
@@ -107,7 +107,7 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     return [props || {}, isInField];
 }
 
-export type UseFieldMessagePropsReturn = {
+export interface UseFieldMessagePropsReturn {
     id?: string;
     size?: "sm" | "md";
     fluid?: boolean;
