@@ -5,14 +5,6 @@ import {
     AddIcon32,
     AddUserIcon,
     AddUserIcon32,
-    ArchiveCompleteIcon,
-    ArchiveCompleteIcon32,
-    ArchiveDeletedIcon,
-    ArchiveDeletedIcon32,
-    ArchiveIcon,
-    ArchiveIcon32,
-    ArchiveRestoreIcon,
-    ArchiveRestoreIcon32,
     ArrowDownIcon,
     ArrowDownIcon32,
     ArrowDownLeftIcon,
@@ -183,10 +175,6 @@ stories()
     .add("add", () => <TestSuite icon32={AddIcon32} multiIcon={AddIcon} />)
     .add("addUser", () => <TestSuite icon32={AddUserIcon32} multiIcon={AddUserIcon} />)
     .add("addGuest", () => <TestSuite icon32={AddGuestIcon32} multiIcon={AddGuestIcon} />)
-    .add("archiveComplete", () => <TestSuite icon32={ArchiveCompleteIcon32} multiIcon={ArchiveCompleteIcon} />)
-    .add("archiveDeleted", () => <TestSuite icon32={ArchiveDeletedIcon32} multiIcon={ArchiveDeletedIcon} />)
-    .add("archive", () => <TestSuite icon32={ArchiveIcon32} multiIcon={ArchiveIcon} />)
-    .add("archiveRestore", () => <TestSuite icon32={ArchiveRestoreIcon32} multiIcon={ArchiveRestoreIcon} />)
     .add("arrow", () => <TestSuite icon32={ArrowIcon32} multiIcon={ArrowIcon} />)
     .add("arrowDown", () => <TestSuite icon32={ArrowDownIcon32} multiIcon={ArrowDownIcon} />)
     .add("arrowDownLeft", () => <TestSuite icon32={ArrowDownLeftIcon32} multiIcon={ArrowDownLeftIcon} />)

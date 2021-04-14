@@ -16,10 +16,6 @@ function createOrbitIcon(source: ElementType, displayName: string) {
 import { ReactComponent as InnerAddGuestIcon32 } from "@orbit-ui/icons/dist/icon-add-guest-32.svg";
 import { ReactComponent as InnerAddIcon32 } from "@orbit-ui/icons/dist/icon-add-32.svg";
 import { ReactComponent as InnerAddUserIcon32 } from "@orbit-ui/icons/dist/icon-add-user-32.svg";
-import { ReactComponent as InnerArchiveCompleteIcon32 } from "@orbit-ui/icons/dist/icon-archive-complete-32.svg";
-import { ReactComponent as InnerArchiveDeletedIcon32 } from "@orbit-ui/icons/dist/icon-archive-deleted-32.svg";
-import { ReactComponent as InnerArchiveIcon32 } from "@orbit-ui/icons/dist/icon-archive-32.svg";
-import { ReactComponent as InnerArchiveRestoreIcon32 } from "@orbit-ui/icons/dist/icon-archive-restore-32.svg";
 import { ReactComponent as InnerArrowDownIcon32 } from "@orbit-ui/icons/dist/icon-arrow-down-32.svg";
 import { ReactComponent as InnerArrowDownLeftIcon32 } from "@orbit-ui/icons/dist/icon-arrow-down-left-32.svg";
 import { ReactComponent as InnerArrowDownRightIcon32 } from "@orbit-ui/icons/dist/icon-arrow-down-right-32.svg";
@@ -103,10 +99,6 @@ import { ReactComponent as InnerWarningIcon32 } from "@orbit-ui/icons/dist/icon-
 export const AddIcon32 = createOrbitIcon(InnerAddIcon32, "AddIcon32");
 export const AddGuestIcon32 = createOrbitIcon(InnerAddGuestIcon32, "AddGuestIcon32");
 export const AddUserIcon32 = createOrbitIcon(InnerAddUserIcon32, "AddUserIcon32");
-export const ArchiveIcon32 = createOrbitIcon(InnerArchiveIcon32, "ArchiveIcon32");
-export const ArchiveCompleteIcon32 = createOrbitIcon(InnerArchiveCompleteIcon32, "ArchiveCompleteIcon32");
-export const ArchiveDeletedIcon32 = createOrbitIcon(InnerArchiveDeletedIcon32, "ArchiveDeletedIcon32");
-export const ArchiveRestoreIcon32 = createOrbitIcon(InnerArchiveRestoreIcon32, "ArchiveRestoreIcon32");
 export const ArrowIcon32 = createOrbitIcon(InnerArrowIcon32, "ArrowIcon32");
 export const ArrowDownIcon32 = createOrbitIcon(InnerArrowDownIcon32, "ArrowDownIcon32");
 export const ArrowDownLeftIcon32 = createOrbitIcon(InnerArrowDownLeftIcon32, "ArrowDownLeftIcon32");
@@ -190,10 +182,6 @@ export const WarningIcon32 = createOrbitIcon(InnerWarningIcon32, "WarningIcon32"
 export const AddIcon = createOrbitIcon(InnerAddIcon32, "AddIcon");
 export const AddGuestIcon = createOrbitIcon(InnerAddGuestIcon32, "AddGuestIcon");
 export const AddUserIcon = createOrbitIcon(InnerAddUserIcon32, "AddUserIcon");
-export const ArchiveIcon = createOrbitIcon(InnerArchiveIcon32, "ArchiveIcon");
-export const ArchiveCompleteIcon = createOrbitIcon(InnerArchiveCompleteIcon32, "ArchiveCompleteIcon");
-export const ArchiveDeletedIcon = createOrbitIcon(InnerArchiveDeletedIcon32, "ArchiveDeletedIcon");
-export const ArchiveRestoreIcon = createOrbitIcon(InnerArchiveRestoreIcon32, "ArchiveRestoreIcon");
 export const ArrowIcon = createOrbitIcon(InnerArrowIcon32, "ArrowIcon");
 export const ArrowDownIcon = createOrbitIcon(InnerArrowDownIcon32, "ArrowDownIcon");
 export const ArrowDownLeftIcon = createOrbitIcon(InnerArrowDownLeftIcon32, "ArrowDownLeftIcon");

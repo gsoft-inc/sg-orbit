@@ -62,12 +62,12 @@
 
 /* INHERIT */
 .o-ui-button-inherit.o-ui-button-solid .o-ui-button-icon {
-    fill: var(--o-ui-global-white);
+    stroke: var(--o-ui-global-white);
     opacity: .9;
 }
 
 .o-ui-icon-button .o-ui-button-icon,
 .o-ui-icon-button .o-ui-button-icon .o-ui-icon {
     color: inherit;
-    fill: currentColor;
+    stroke: currentColor;
 }

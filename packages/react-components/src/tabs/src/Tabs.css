@@ -159,7 +159,7 @@
 
 .o-ui-tab .o-ui-tab-icon {
     color: inherit;
-    fill: currentColor;
+    stroke: currentColor;
 }
 
 .o-ui-tab-icon + .o-ui-tab-text {
