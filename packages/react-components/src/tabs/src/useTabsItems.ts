@@ -1,7 +1,5 @@
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
-import { TabPanelProps } from "./TabPanel";
-import { TabProps } from "./Tab";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 
