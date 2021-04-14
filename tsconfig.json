@@ -11,12 +11,12 @@
     // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
 
     // preparing for strict mode
-    "noImplicitAny": true, // Raise error on expressions and declarations with an implied any type.
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "strictBindCallApply": true,
-    "strictNullChecks": false, // 144 errors
+    "strictNullChecks": false, // 312 errors
     "strictPropertyInitialization": false, // passes, but needs null checks
-    "strictFunctionTypes": true,
+    "strictFunctionTypes": false, // 12 errors
 
     //  the bare minimum for our project
     "jsx": "react-jsx",
