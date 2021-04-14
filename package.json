@@ -86,7 +86,7 @@
     "@sharegate/eslint-config-react": "2.1.0",
     "@sharegate/eslint-config-recommended": "1.1.1",
     "@sharegate/eslint-config-sort-imports": "1.0.3",
-    "@sharegate/eslint-config-typescript": "1.4.0",
+    "@sharegate/eslint-config-typescript": "1.5.0",
     "@sharegate/stylelint-config-recommended": "2.1.1",
     "@types/lodash": "4.14.168",
     "@types/react-dom": "17.0.3",

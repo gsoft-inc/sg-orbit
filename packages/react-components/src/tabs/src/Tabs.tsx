@@ -25,7 +25,7 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      * @param {string} key - The selected tab key.
      * @returns {void}
      */
-    onSelectionChange?(event: SyntheticEvent, key: string): void;
+    onSelectionChange?: (event: SyntheticEvent, key: string) => void;
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */

@@ -22,7 +22,7 @@ export interface InnerDisclosureProps extends DomProps {
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

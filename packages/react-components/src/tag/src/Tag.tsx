@@ -18,7 +18,7 @@ export interface InnerTagProps extends InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onRemove?(event: SyntheticEvent): void;
+    onRemove?: (event: SyntheticEvent) => void;
     /**
      * Whether or not the tag is disabled.
      */

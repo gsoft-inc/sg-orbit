@@ -61,7 +61,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
      * @param {number} value - The new value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, value: number): void;
+    onChange?: (event: SyntheticEvent, value: number) => void;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -93,9 +93,9 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
 }
 
 interface SpinnerProps extends ComponentProps<"div"> {
-    onIncrement?(event: SyntheticEvent): void;
-    onDecrement?(event: SyntheticEvent): void;
-    onFocus?(event: SyntheticEvent): void;
+    onIncrement?: (event: SyntheticEvent) => void;
+    onDecrement?: (event: SyntheticEvent) => void;
+    onFocus?: (event: SyntheticEvent) => void;
     disabled?: boolean;
 }
 

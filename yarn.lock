@@ -3185,10 +3185,10 @@
   dependencies:
     eslint-plugin-sort-imports-es6-autofix "0.5.0"
 
-"@sharegate/eslint-config-typescript@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-1.4.0.tgz#c1b47ca12b13b938b026c4fe3d32566711d72f94"
-  integrity sha512-d75mrLlrpPfU71RYNyeJhaLieNodFD4r7GylW/TUUFOexdwGSwItMGwTCnScHgUsAYudfkblGxWghzj94zIRtw==
+"@sharegate/eslint-config-typescript@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-1.5.0.tgz#ee047caba42008f5cd96ee4bd93f1531d8687c64"
+  integrity sha512-EgUzoMya6XbcYnvjm2LM+/cBYSMzdx9kIfuYhp97HEgBNWKVRWDKdjLk3ZJdzOkX5f61dUHGxSUjz/a1F5JaQg==
   dependencies:
     "@sharegate/eslint-config-recommended" "*"
     "@sharegate/eslint-config-sort-imports" "*"

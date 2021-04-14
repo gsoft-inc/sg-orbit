@@ -41,7 +41,7 @@ interface InnerTooltipTriggerProps {
      * @param {boolean} isOpen - Indicate if the tooltip is visible.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * Whether or not the tooltip should be disabled, independent from the trigger.
      */

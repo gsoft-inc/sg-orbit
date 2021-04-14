@@ -42,7 +42,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
      * @param {boolean} isOpen - Indicate if the popover is visible.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * Whether or not the popover should close on outside interactions.
      */
