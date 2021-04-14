@@ -13,7 +13,7 @@ export interface PanelType {
     ref?: Ref<any>;
     panelId: string;
     tabId: string;
-    props?: TabProps;
+    props?: Record<string, any>;
 }
 
 export interface TabType {
@@ -24,7 +24,7 @@ export interface TabType {
     ref?: Ref<any>;
     tabId: string;
     panelId: string;
-    props?: TabPanelProps;
+    props?: Record<string, any>;
 }
 
 export class TabsBuilder {

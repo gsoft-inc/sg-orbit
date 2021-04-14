@@ -9,7 +9,7 @@ import { isNil } from "lodash";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**
-    * @ignore
+    * The header item props
     */
     header?: {
         key: string;

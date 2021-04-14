@@ -6,7 +6,7 @@ import { forwardRef, mergeProps, omitProps } from "../../shared";
 
 export interface InnerAccordionPanelProps {
     /**
-     * @ignore
+     * The panel item props
      */
     panel?: {
         key: string;
