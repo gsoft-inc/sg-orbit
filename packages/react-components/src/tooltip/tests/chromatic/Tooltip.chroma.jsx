@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
-import { MailIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
+import { MailIcon } from "@react-components/icons";
 import { TextLink } from "@react-components/link";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
