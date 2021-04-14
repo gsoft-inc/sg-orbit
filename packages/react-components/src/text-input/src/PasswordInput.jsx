@@ -1,7 +1,7 @@
 import "./PasswordInput.css";
 
-import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
+import { PrivacyIcon, ViewIcon } from "../../icons";
 import { TextInput } from "./TextInput";
 import { bool, element, elementType, func, node, number, object, oneOf, oneOfType, string } from "prop-types";
 import { forwardRef } from "react";
@@ -103,7 +103,7 @@ export function InnerPasswordInput({
             title="Toggle password visibility"
             aria-label="Toggle password visibility"
         >
-            {isHidden ? <EyeIcon /> : <PrivacyIcon />}
+            {isHidden ? <ViewIcon /> : <PrivacyIcon />}
         </IconButton>
     );
 

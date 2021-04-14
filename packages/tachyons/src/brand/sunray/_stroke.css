@@ -1,0 +1,120 @@
+.stoke-sunray-50 {
+    stoke: var(--o-ui-global-sunray-50);
+}
+
+.stoke-sunray-100 {
+    stoke: var(--o-ui-global-sunray-100);
+}
+
+.stoke-sunray-200 {
+    stoke: var(--o-ui-global-sunray-200);
+}
+
+.stoke-sunray-300 {
+    stoke: var(--o-ui-global-sunray-300);
+}
+
+.stoke-sunray-400 {
+    stoke: var(--o-ui-global-sunray-400);
+}
+
+.stoke-sunray-500 {
+    stoke: var(--o-ui-global-sunray-500);
+}
+
+.stoke-sunray-600 {
+    stoke: var(--o-ui-global-sunray-600);
+}
+
+.stoke-sunray-700 {
+    stoke: var(--o-ui-global-sunray-700);
+}
+
+.stoke-sunray-800 {
+    stoke: var(--o-ui-global-sunray-800);
+}
+
+.stoke-sunray-900 {
+    stoke: var(--o-ui-global-sunray-900);
+}
+
+.hover-stoke-sunray-50:hover {
+    stoke: var(--o-ui-global-sunray-50);
+}
+
+.hover-stoke-sunray-100:hover {
+    stoke: var(--o-ui-global-sunray-100);
+}
+
+.hover-stoke-sunray-200:hover {
+    stoke: var(--o-ui-global-sunray-200);
+}
+
+.hover-stoke-sunray-300:hover {
+    stoke: var(--o-ui-global-sunray-300);
+}
+
+.hover-stoke-sunray-400:hover {
+    stoke: var(--o-ui-global-sunray-400);
+}
+
+.hover-stoke-sunray-500:hover {
+    stoke: var(--o-ui-global-sunray-500);
+}
+
+.hover-stoke-sunray-600:hover {
+    stoke: var(--o-ui-global-sunray-600);
+}
+
+.hover-stoke-sunray-700:hover {
+    stoke: var(--o-ui-global-sunray-700);
+}
+
+.hover-stoke-sunray-800:hover {
+    stoke: var(--o-ui-global-sunray-800);
+}
+
+.hover-stoke-sunray-900:hover {
+    stoke: var(--o-ui-global-sunray-900);
+}
+
+.focus-stoke-sunray-50:focus {
+    stoke: var(--o-ui-global-sunray-50);
+}
+
+.focus-stoke-sunray-100:focus {
+    stoke: var(--o-ui-global-sunray-100);
+}
+
+.focus-stoke-sunray-200:focus {
+    stoke: var(--o-ui-global-sunray-200);
+}
+
+.focus-stoke-sunray-300:focus {
+    stoke: var(--o-ui-global-sunray-300);
+}
+
+.focus-stoke-sunray-400:focus {
+    stoke: var(--o-ui-global-sunray-400);
+}
+
+.focus-stoke-sunray-500:focus {
+    stoke: var(--o-ui-global-sunray-500);
+}
+
+.focus-stoke-sunray-600:focus {
+    stoke: var(--o-ui-global-sunray-600);
+}
+
+.focus-stoke-sunray-700:focus {
+    stoke: var(--o-ui-global-sunray-700);
+}
+
+.focus-stoke-sunray-800:focus {
+    stoke: var(--o-ui-global-sunray-800);
+}
+
+.focus-stoke-sunray-900:focus {
+    stroke: var(--o-ui-global-sunray-900);
+}
+

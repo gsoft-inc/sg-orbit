@@ -53,7 +53,7 @@
     left: 50%;
     width: var(--o-ui-global-scale-echo);
     height: var(--o-ui-global-scale-echo);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-checkmark-32.svg") center center no-repeat;
     mask-size: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
     background-color: var(--o-ui-global-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
@@ -62,7 +62,7 @@
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-checkmark-32.svg") center center no-repeat;
     transform: translate(-50%, -50%) scale(1) rotate(2deg);
 }
 

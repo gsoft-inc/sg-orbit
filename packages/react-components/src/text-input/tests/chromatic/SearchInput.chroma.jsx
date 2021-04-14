@@ -1,5 +1,5 @@
-import { EmailIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { MailIcon } from "@react-components/icons";
 import { SearchInput } from "@react-components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -67,16 +67,16 @@ stories()
     )
     .add("custom icon", () =>
         <Stack>
-            <SearchInput icon={<EmailIcon />} placeholder="Where to?" />
-            <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" />
-            <SearchInput loading icon={<EmailIcon />} placeholder="Where to?" />
-            <SearchInput disabled icon={<EmailIcon />} placeholder="Where to?" />
-            <SearchInput readOnly icon={<EmailIcon />} placeholder="Where to?" />
+            <SearchInput icon={<MailIcon />} placeholder="Where to?" />
+            <SearchInput icon={<MailIcon />} defaultValue="SpaceX will win the race!" />
+            <SearchInput loading icon={<MailIcon />} placeholder="Where to?" />
+            <SearchInput disabled icon={<MailIcon />} placeholder="Where to?" />
+            <SearchInput readOnly icon={<MailIcon />} placeholder="Where to?" />
             <div>
-                <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+                <SearchInput fluid icon={<MailIcon />} placeholder="Where to?" />
             </div>
             <div className="w-10">
-                <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+                <SearchInput fluid icon={<MailIcon />} placeholder="Where to?" />
             </div>
         </Stack>
     )

@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
+import { CheckCircleIcon, MailIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";
@@ -38,7 +38,7 @@ function IconBadge({ children, ...rest }) {
             overlap="icon"
         >
             {children}
-            <EmailIcon size="lg" />
+            <MailIcon size="lg" />
         </Badge>
     );
 }

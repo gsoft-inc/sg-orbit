@@ -1,6 +1,6 @@
 import "./Alert.css";
 
-import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckmarkIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
@@ -161,7 +161,7 @@ Alert.displayName = "Alert";
 
 const variations: { tone: keyof typeof Role, icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
-    { tone: "positive", icon: <CheckIcon /> },
+    { tone: "positive", icon: <CheckmarkIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
     { tone: "critical", icon: <InfoIcon /> }
 ];

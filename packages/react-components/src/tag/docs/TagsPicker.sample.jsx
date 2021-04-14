@@ -8,7 +8,7 @@ const Tags = [
     {
         title: "1960",
         items: [
-            { key: "gemini", value: "Gemini Program", icon: <EmailIcon /> }
+            { key: "gemini", value: "Gemini Program", icon: <MailIcon /> }
         ]
     },
     {

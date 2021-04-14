@@ -1,0 +1,119 @@
+.stroke-botanic-50 {
+    stroke: var(--o-ui-global-botanic-50);
+}
+
+.stroke-botanic-100 {
+    stroke: var(--o-ui-global-botanic-100);
+}
+
+.stroke-botanic-200 {
+    stroke: var(--o-ui-global-botanic-200);
+}
+
+.stroke-botanic-300 {
+    stroke: var(--o-ui-global-botanic-300);
+}
+
+.stroke-botanic-400 {
+    stroke: var(--o-ui-global-botanic-400);
+}
+
+.stroke-botanic-500 {
+    stroke: var(--o-ui-global-botanic-500);
+}
+
+.stroke-botanic-600 {
+    stroke: var(--o-ui-global-botanic-600);
+}
+
+.stroke-botanic-700 {
+    stroke: var(--o-ui-global-botanic-700);
+}
+
+.stroke-botanic-800 {
+    stroke: var(--o-ui-global-botanic-800);
+}
+
+.stroke-botanic-900 {
+    stroke: var(--o-ui-global-botanic-900);
+}
+
+.hover-stroke-botanic-50:hover {
+    stroke: var(--o-ui-global-botanic-50);
+}
+
+.hover-stroke-botanic-100:hover {
+    stroke: var(--o-ui-global-botanic-100);
+}
+
+.hover-stroke-botanic-200:hover {
+    stroke: var(--o-ui-global-botanic-200);
+}
+
+.hover-stroke-botanic-300:hover {
+    stroke: var(--o-ui-global-botanic-300);
+}
+
+.hover-stroke-botanic-400:hover {
+    stroke: var(--o-ui-global-botanic-400);
+}
+
+.hover-stroke-botanic-500:hover {
+    stroke: var(--o-ui-global-botanic-500);
+}
+
+.hover-stroke-botanic-600:hover {
+    stroke: var(--o-ui-global-botanic-600);
+}
+
+.hover-stroke-botanic-700:hover {
+    stroke: var(--o-ui-global-botanic-700);
+}
+
+.hover-stroke-botanic-800:hover {
+    stroke: var(--o-ui-global-botanic-800);
+}
+
+.hover-stroke-botanic-900:hover {
+    stroke: var(--o-ui-global-botanic-900);
+}
+
+.focus-stroke-botanic-50:focus {
+    stroke: var(--o-ui-global-botanic-50);
+}
+
+.focus-stroke-botanic-100:focus {
+    stroke: var(--o-ui-global-botanic-100);
+}
+
+.focus-stroke-botanic-200:focus {
+    stroke: var(--o-ui-global-botanic-200);
+}
+
+.focus-stroke-botanic-300:focus {
+    stroke: var(--o-ui-global-botanic-300);
+}
+
+.focus-stroke-botanic-400:focus {
+    stroke: var(--o-ui-global-botanic-400);
+}
+
+.focus-stroke-botanic-500:focus {
+    stroke: var(--o-ui-global-botanic-500);
+}
+
+.focus-stroke-botanic-600:focus {
+    stroke: var(--o-ui-global-botanic-600);
+}
+
+.focus-stroke-botanic-700:focus {
+    stroke: var(--o-ui-global-botanic-700);
+}
+
+.focus-stroke-botanic-800:focus {
+    stroke: var(--o-ui-global-botanic-800);
+}
+
+.focus-stroke-botanic-900:focus {
+    stroke: var(--o-ui-global-botanic-900);
+}
