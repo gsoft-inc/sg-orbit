@@ -12,8 +12,7 @@ import { useListboxContext } from "./ListboxContext";
 
 // used to generate CollectionItem instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CollectionItem extends CollectionItemAliasForDocumentation {
-}
+interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
     /**

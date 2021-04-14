@@ -20,11 +20,11 @@ import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
+import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
-import { useFieldInputProps } from "../../field";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -141,7 +141,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Additional props to render on the menu of options.
      */
-    overlayProps?: OverlayProps;
+    overlayProps?: Partial<OverlayProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -192,12 +192,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = { width: undefined }, ...menuProps } = { id: undefined },
+        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(
+    }: AutocompleteProps & UseFieldInputPropsReturn = mergeProps(
         props,
         omitProps(fieldProps, ["size"])
     );

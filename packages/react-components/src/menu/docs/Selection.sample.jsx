@@ -11,11 +11,15 @@
                 <VerticalDotsIcon />
             </IconButton>
             <Menu selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={handleSelectionChange}>
-                <Item key="launch">Launch...</Item>
-                <Item key="eject">Eject...</Item>
-                <Item key="land">Land...</Item>
-                <Item key="help">Help</Item>
-                <Item key="exit">Exit</Item>
+                <Section title="Actions">
+                    <Item key="launch">Launch...</Item>
+                    <Item key="eject">Eject...</Item>
+                    <Item key="land">Land...</Item>
+                </Section>
+                <Section title="Others">
+                    <Item key="help">Help</Item>
+                    <Item key="exit">Exit</Item>
+                </Section>
             </Menu>
         </MenuTrigger>
     );

@@ -106,7 +106,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * Additional props to render on the menu of options.
      */
-    overlayProps?: OverlayProps;
+    overlayProps?: Partial<OverlayProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
