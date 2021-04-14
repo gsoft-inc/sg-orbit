@@ -45,7 +45,7 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
      * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */
-    onSelectionChange?(event: SyntheticEvent, keys: string[]): void;
+    onSelectionChange?: (event: SyntheticEvent, keys: string[]) => void;
     /**
      * The type of selection that is allowed.
      */

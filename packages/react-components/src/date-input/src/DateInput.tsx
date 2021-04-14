@@ -45,14 +45,14 @@ export interface InnerDateInputProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     /**
      * Called when the date change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {object} date - The new date value.
      * @returns {void}
      */
-    onDateChange?(event: SyntheticEvent, date: Date): void;
+    onDateChange?: (event: SyntheticEvent, date: Date) => void;
     /**
      * Whether or not the input should autofocus on render.
      */

@@ -5,8 +5,8 @@ import { isNil } from "lodash";
 export interface UseOverlayTriggerProps {
     trigger?: "click" | "hover";
     isOpen: boolean;
-    onShow?(event: SyntheticEvent): void;
-    onHide?(event: SyntheticEvent): void;
+    onShow?: (event: SyntheticEvent) => void;
+    onHide?: (event: SyntheticEvent) => void;
 }
 
 export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }: UseOverlayTriggerProps) {

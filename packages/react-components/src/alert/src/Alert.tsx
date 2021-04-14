@@ -61,7 +61,7 @@ export interface InnerAlertProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onDismiss?(event: SyntheticEvent): void;
+    onDismiss?: (event: SyntheticEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -208,7 +208,7 @@ export interface AlertTemplateProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onDismiss?(event: SyntheticEvent): void;
+    onDismiss?: (event: SyntheticEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

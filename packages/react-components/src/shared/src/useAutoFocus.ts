@@ -8,7 +8,7 @@ import { useEventCallback } from "./useEventCallback";
 interface AbstractAutoFocusProps {
     isDisabled?: boolean;
     delay?: number;
-    onFocus?(element?: HTMLElement): void;
+    onFocus?: (element?: HTMLElement) => void;
 }
 
 function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusProps) {
@@ -32,7 +32,7 @@ function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusP
 interface AutoFocusOptions {
     isDisabled?: boolean;
     delay?: number;
-    onFocus?(element?: HTMLElement): void;
+    onFocus?: (element?: HTMLElement) => void;
 }
 
 export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {

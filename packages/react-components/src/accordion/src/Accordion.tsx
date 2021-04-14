@@ -36,7 +36,7 @@ export interface InnerAccordionProps extends DomProps {
      * @param {String[]} keys - The keys of the expanded items.
      * @returns {void}
      */
-    onExpansionChange?(event: SyntheticEvent, keys: string[]): void;
+    onExpansionChange?: (event: SyntheticEvent, keys: string[]) => void;
     /**
      * The type of expansion that is allowed.
      */

@@ -51,7 +51,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     /**
      * Invert the order of the checkmark box and the label.
      */

@@ -69,7 +69,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

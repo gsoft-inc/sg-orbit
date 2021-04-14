@@ -45,6 +45,8 @@ import {
     CaretUpIcon32,
     CheckCircleIcon,
     CheckCircleIcon32,
+    CheckmarkFillIcon,
+    CheckmarkFillIcon32,
     CheckmarkIcon,
     CheckmarkIcon32,
     ChevronDownIcon,
@@ -109,8 +111,6 @@ import {
     MagnifierIcon32,
     MailIcon,
     MailIcon32,
-    MismatchIcon,
-    MismatchIcon32,
     MusicFileIcon,
     MusicFileIcon32,
     NotificationIcon,
@@ -121,12 +121,6 @@ import {
     PictureIcon32,
     PrinterIcon,
     PrinterIcon32,
-    PrivacyChangedIcon,
-    PrivacyChangedIcon32,
-    PrivacyEditIcon,
-    PrivacyEditIcon32,
-    PrivacyIcon,
-    PrivacyIcon32,
     PrivateGroupIcon,
     PrivateGroupIcon32,
     PublicGroupIcon,
@@ -135,8 +129,6 @@ import {
     RemoveGuestIcon32,
     RemoveUserIcon,
     RemoveUserIcon32,
-    RestoreIcon,
-    RestoreIcon32,
     SecurityIcon,
     SecurityIcon32,
     SettingsIcon,
@@ -196,6 +188,7 @@ stories()
     .add("caretUpDown", () => <TestSuite icon32={CaretUpDownIcon32} multiIcon={CaretUpDownIcon} />)
     .add("checkCircle", () => <TestSuite icon32={CheckCircleIcon32} multiIcon={CheckCircleIcon} />)
     .add("checkmark", () => <TestSuite icon32={CheckmarkIcon32} multiIcon={CheckmarkIcon} />)
+    .add("checkmarkFill", () => <TestSuite icon32={CheckmarkFillIcon32} multiIcon={CheckmarkFillIcon} />)
     .add("chevron", () => <TestSuite icon32={ChevronIcon32} multiIcon={ChevronIcon} />)
     .add("chevronUp", () => <TestSuite icon32={ChevronUpIcon32} multiIcon={ChevronUpIcon} />)
     .add("chevronUpDown", () => <TestSuite icon32={ChevronUpDownIcon32} multiIcon={ChevronUpDownIcon} />)
@@ -227,20 +220,15 @@ stories()
     .add("link", () => <TestSuite icon32={LinkIcon32} multiIcon={LinkIcon} />)
     .add("magnifier", () => <TestSuite icon32={MagnifierIcon32} multiIcon={MagnifierIcon} />)
     .add("mail", () => <TestSuite icon32={MailIcon32} multiIcon={MailIcon} />)
-    .add("mismatch", () => <TestSuite icon32={MismatchIcon32} multiIcon={MismatchIcon} />)
     .add("musicFile", () => <TestSuite icon32={MusicFileIcon32} multiIcon={MusicFileIcon} />)
     .add("notification", () => <TestSuite icon32={NotificationIcon32} multiIcon={NotificationIcon} />)
     .add("pdfFile", () => <TestSuite icon32={PdfFileIcon32} multiIcon={PdfFileIcon} />)
     .add("picture", () => <TestSuite icon32={PictureIcon32} multiIcon={PictureIcon} />)
     .add("printer", () => <TestSuite icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
-    .add("privacyChanged", () => <TestSuite icon32={PrivacyChangedIcon32} multiIcon={PrivacyChangedIcon} />)
-    .add("privacyEdit", () => <TestSuite icon32={PrivacyEditIcon32} multiIcon={PrivacyEditIcon} />)
-    .add("privacy", () => <TestSuite icon32={PrivacyIcon32} multiIcon={PrivacyIcon} />)
     .add("privateGroup", () => <TestSuite icon32={PrivateGroupIcon32} multiIcon={PrivateGroupIcon} />)
     .add("publicGroup", () => <TestSuite icon32={PublicGroupIcon32} multiIcon={PublicGroupIcon} />)
     .add("removeGuest", () => <TestSuite icon32={RemoveGuestIcon32} multiIcon={RemoveGuestIcon} />)
     .add("removeUser", () => <TestSuite icon32={RemoveUserIcon32} multiIcon={RemoveUserIcon} />)
-    .add("restore", () => <TestSuite icon32={RestoreIcon32} multiIcon={RestoreIcon} />)
     .add("security", () => <TestSuite icon32={SecurityIcon32} multiIcon={SecurityIcon} />)
     .add("settings", () => <TestSuite icon32={SettingsIcon32} multiIcon={SettingsIcon} />)
     .add("share", () => <TestSuite icon32={ShareIcon32} multiIcon={ShareIcon} />)

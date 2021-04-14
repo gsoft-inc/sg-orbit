@@ -13,7 +13,7 @@ export interface UseCheckboxProps {
     autoFocus?: boolean | number;
     required?: boolean;
     validationState?: "invalid" | "valid";
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     size?: "sm" | "md";
     reverse?: boolean;
     name?: string;
@@ -37,7 +37,7 @@ export interface UseCheckboxReturn {
         as?: ElementType;
         type?: "checkbox";
         checked?: boolean;
-        onChange?(event: SyntheticEvent): void;
+        onChange?: (event: SyntheticEvent) => void;
         disabled?: boolean;
         name?: string;
         tabIndex?: number;

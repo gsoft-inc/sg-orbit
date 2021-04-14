@@ -9,7 +9,7 @@ export interface UseInputProps {
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;

@@ -2474,7 +2474,7 @@
     path-exists "^4.0.0"
     readdirp "^3.4.0"
 
-"@netlify/config@^5.1.0", "@netlify/config@^5.11.0":
+"@netlify/config@^5.1.0", "@netlify/config@^5.11.0", "@netlify/config@^5.12.0":
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/@netlify/config/-/config-5.12.0.tgz#22cb393419d4e73274937c0e866d5dc2d19574de"
   integrity sha512-PSe3lwRhchP4IuLdR9Csi98dHf2fvzn9zlywuWpdftWEflNhpwySZ/cV8sy8YJ3Xz6aAKT4wxwc0Tb5DV10Y9g==
@@ -2492,33 +2492,6 @@
     is-plain-obj "^2.1.0"
     js-yaml "^4.0.0"
     netlify "^6.1.17"
-    omit.js "^2.0.2"
-    p-locate "^4.1.0"
-    path-exists "^4.0.0"
-    path-type "^4.0.0"
-    toml "^3.0.0"
-    tomlify-j0.4 "^3.0.0"
-    validate-npm-package-name "^3.0.0"
-    yargs "^15.3.0"
-
-"@netlify/config@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-6.0.1.tgz#4ce60ff0cde84d7fabbccd84b1888098130b9320"
-  integrity sha512-rytv9UUW0QkBqwd0OkNF9SyEZLbGIbLmSms6h2Ob6pGiMUQd1wUwuX0PyS3ueIF/ZFB3PVKE8gUHNBC4wxyUrg==
-  dependencies:
-    "@ungap/from-entries" "^0.2.1"
-    array-flat-polyfill "^1.0.1"
-    chalk "^3.0.0"
-    deepmerge "^4.2.2"
-    execa "^3.4.0"
-    fast-safe-stringify "^2.0.7"
-    figures "^3.2.0"
-    filter-obj "^2.0.1"
-    find-up "^4.1.0"
-    indent-string "^4.0.0"
-    is-plain-obj "^2.1.0"
-    js-yaml "^4.0.0"
-    netlify "^6.1.18"
     omit.js "^2.0.2"
     p-locate "^4.1.0"
     path-exists "^4.0.0"
@@ -3212,10 +3185,10 @@
   dependencies:
     eslint-plugin-sort-imports-es6-autofix "0.5.0"
 
-"@sharegate/eslint-config-typescript@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-1.4.0.tgz#c1b47ca12b13b938b026c4fe3d32566711d72f94"
-  integrity sha512-d75mrLlrpPfU71RYNyeJhaLieNodFD4r7GylW/TUUFOexdwGSwItMGwTCnScHgUsAYudfkblGxWghzj94zIRtw==
+"@sharegate/eslint-config-typescript@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-1.5.0.tgz#ee047caba42008f5cd96ee4bd93f1531d8687c64"
+  integrity sha512-EgUzoMya6XbcYnvjm2LM+/cBYSMzdx9kIfuYhp97HEgBNWKVRWDKdjLk3ZJdzOkX5f61dUHGxSUjz/a1F5JaQg==
   dependencies:
     "@sharegate/eslint-config-recommended" "*"
     "@sharegate/eslint-config-sort-imports" "*"
@@ -5516,9 +5489,9 @@ autoprefixer@^9.8.6:
     postcss-value-parser "^4.1.0"
 
 aws-sdk@^2.689.0:
-  version "2.887.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.887.0.tgz#53839921124b024d24005dbb83b372efdf2fe9b6"
-  integrity sha512-jFRVrdyvBEYmSSrriA92dXDn1VgCXnz6Rax6wRGQDhyCWH+9NzZ7ZvIag2Yy2SLpvoRU7IaiEmiBLbNe/BksgA==
+  version "2.886.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.886.0.tgz#a3c17ead366eb05d3c1bd3f0efc7b4cdf4daab54"
+  integrity sha512-GK2TiijM/sX3PMOvPbZFPBeL7hW5S0RstwgplEABVxCMPXLkk8ws5ENOwS/c74nrTQKSxZMn/3sThNEtb3J7Ew==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
@@ -14521,11 +14494,11 @@ netlify-cli@3.17.1:
     write-file-atomic "^3.0.0"
 
 netlify-redirect-parser@^3.0.12:
-  version "3.0.15"
-  resolved "https://registry.yarnpkg.com/netlify-redirect-parser/-/netlify-redirect-parser-3.0.15.tgz#95e3fa35fceaa035d715f5e69fd45644c9543ef2"
-  integrity sha512-AWciaJpE83idl6VRPkZBW0TIOUZIPL30poFfruo/xMUJJuvgHw+wfExBnEpgXQ1sAdIWcZajhfKeLEXl1jWDLw==
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/netlify-redirect-parser/-/netlify-redirect-parser-3.0.14.tgz#dc3ef91803c5e1d0193588b4ce36695e5438cd86"
+  integrity sha512-6/y5A7mLQAzmKdyj+nVKvZIwhj4j4xjkzEz8FlX0khBw6Vm4LYh2xnyhsrMz3K+FlDSDxx4TU58hIJBwQD98uQ==
   dependencies:
-    "@netlify/config" "^6.0.1"
+    "@netlify/config" "^5.12.0"
     lodash.isplainobject "^4.0.6"
 
 netlify-redirector@^0.2.1:
@@ -14533,7 +14506,7 @@ netlify-redirector@^0.2.1:
   resolved "https://registry.yarnpkg.com/netlify-redirector/-/netlify-redirector-0.2.1.tgz#efdb761ea2c52edb3ecb5f237db0e10861f2ff0e"
   integrity sha512-17vDR9p1Loanp+vd57y+b6WlKb5X+qb0LZ44oTYsKJbdonz4Md+Ybv1lzH1w1aKm5YWWXHR8LMpWyY9bjlAJKw==
 
-netlify@^6.1.16, netlify@^6.1.17, netlify@^6.1.18:
+netlify@^6.1.16, netlify@^6.1.17:
   version "6.1.18"
   resolved "https://registry.yarnpkg.com/netlify/-/netlify-6.1.18.tgz#27dc48486175ed8005a7d1b20d5c0c5f4d775c0a"
   integrity sha512-hVOf6l67ldiVfJPsMp4Ztunvv81hbGr5RGw2WUlR6b7Hp1bM1oaydEx/MrsLtVVDwy2KEYxkwcMY3m7CiHnh5g==
