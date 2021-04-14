@@ -41,8 +41,8 @@ export function InnerIconList({
             aria-hidden="true"
             ref={forwardedRef}
         >
-            {Children.map(children, (x: ReactElement) => {
-                return cloneElement(x, {
+            {Children.map(children, x => {
+                return cloneElement(x as ReactElement, {
                     size,
                     disabled
                 });

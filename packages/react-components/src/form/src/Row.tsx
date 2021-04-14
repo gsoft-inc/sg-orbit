@@ -48,8 +48,8 @@ export function InnerRow(props: InnerRowProps) {
                 }
             )}
         >
-            {Children.map(children, (x: ReactElement) => {
-                return augmentElement(x, {
+            {Children.map(children, x => {
+                return augmentElement(x as ReactElement, {
                     fluid
                 });
             })}

@@ -2,7 +2,7 @@ import "./TagList.css";
 
 import { Box } from "../../box";
 import { Button } from "../../button";
-import { CollectionItem, useCollection } from "../../collection";
+import { CollectionItem, CollectionNode, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { Tag, TagProps } from "./Tag";
 import { forwardRef, mergeProps, useEventCallback } from "../../shared";
@@ -115,10 +115,10 @@ export function InnerTagList({
                 }
             )}
         >
-            {nodes.map((x: CollectionItem) => (
+            {nodes.map((x: CollectionNode) => (
                 <TagItem
                     key={x.key}
-                    item={x}
+                    item={x as CollectionItem}
                     size={size}
                     onRemove={onRemove}
                     readOnly={readOnly}

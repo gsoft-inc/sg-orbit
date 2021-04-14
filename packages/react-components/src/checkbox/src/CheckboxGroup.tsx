@@ -184,8 +184,8 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                             checkedValue
                         }}
                     >
-                        {Children.map(items, (x: ReactElement) => {
-                            return augmentElement(x, {
+                        {Children.map(items, x => {
+                            return augmentElement(x as ReactElement, {
                                 ...itemProps,
                                 role: "checkbox"
                             });
