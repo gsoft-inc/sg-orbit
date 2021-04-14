@@ -17,14 +17,14 @@ import {
 } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
-import { Listbox, ListboxHtmlElement, OptionKeyProp } from "../../listbox";
+import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
-import { getItemText, useCollectionSearch } from "../../collection";
+import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
+import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
-import { useFieldInputProps } from "../../field";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -141,7 +141,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Additional props to render on the menu of options.
      */
-    overlayProps?: OverlayProps;
+    overlayProps?: Partial<OverlayProps>;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -192,12 +192,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = { width: undefined }, ...menuProps } = { id: undefined },
+        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
         children,
         forwardedRef,
         ...rest
-    } = mergeProps(
+    }: AutocompleteProps & UseFieldInputPropsReturn = mergeProps(
         props,
         omitProps(fieldProps, ["size"])
     );
@@ -233,10 +233,13 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         allowPreventOverflow
     });
 
-    const listboxRef = useRef<ListboxHtmlElement>();
+    const listboxRef = useRef<ListboxElement>();
     const triggerRef = useCommittedRef(triggerElement);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
+
+    // Required to support selection when there are sections.
+    const items = useOnlyCollectionItems(results);
 
     const open = useCallback(event => {
         setIsOpen(event, true);
@@ -251,7 +254,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         let newValue = null;
 
         if (!isNil(newKey)) {
-            const selectedItem = results.find(x => x.key === newKey);
+            const selectedItem = items.find(x => x.key === newKey);
 
             if (!isNil(selectedItem)) {
                 newValue = getItemText(selectedItem);
@@ -270,7 +273,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
 
         setQuery(clearOnSelect ? "" : newValue ?? "", true);
-    }, [results, onChange, clearOnSelect, value, setValue, setQuery]);
+    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
 
     const clear = useCallback(event => {
         setSelection(event, null);
@@ -376,7 +379,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             case Keys.enter:
                 if (isOpen) {
                     event.preventDefault();
-                    selectItem(event, focusedItem.key);
+
+                    if (!isNil(focusedItem)) {
+                        selectItem(event, focusedItem.key);
+                    }
                 }
                 break;
         }

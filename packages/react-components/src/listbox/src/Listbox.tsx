@@ -186,7 +186,7 @@ export function InnerListbox({
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const containerRef = useMergedRefs<ListboxHtmlElement>(setFocusRef);
+    const containerRef = useMergedRefs<ListboxElement>(setFocusRef);
 
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
@@ -348,11 +348,15 @@ export function InnerListbox({
         tooltip
     }: CollectionItem) => (
         <As
-            {...props}
-            id={`${rootId}-option-${index}`}
-            key={key}
-            ref={ref}
-            item={{ key: key, tooltip }}
+            {...mergeProps(
+                props,
+                {
+                    id: `${rootId}-option-${index}`,
+                    key,
+                    ref,
+                    item: { key: key, tooltip }
+                }
+            )}
         >
             {content}
         </As>
@@ -372,10 +376,14 @@ export function InnerListbox({
 
         return (
             <As
-                {...props}
-                id={`${rootId}-section-${index}`}
-                key={key}
-                ref={ref}
+                {...mergeProps(
+                    props,
+                    {
+                        id: `${rootId}-section-${index}`,
+                        key,
+                        ref
+                    }
+                )}
             >
                 {sectionItems.map(x => renderOption(x))}
             </As>
@@ -426,11 +434,11 @@ export function InnerListbox({
     );
 }
 
-export type ListboxHtmlElement = HTMLElement & {
+export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 }
 
-export const Listbox = forwardRef<InnerListboxProps, ListboxHtmlElement>((props, ref) => (
+export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 
