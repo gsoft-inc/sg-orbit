@@ -157,7 +157,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         groupRef
     });
 
-    const handleCheck = useEventCallback((event, newValue: string) => {
+    const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
         setCheckedValue(newCheckedValue);

@@ -57,7 +57,7 @@ export function InnerMenuItem({
         }
     });
 
-    const handleKeyDown = useEventCallback((event: KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.enter:
             case Keys.space:
