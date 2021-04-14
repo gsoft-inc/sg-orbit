@@ -97,8 +97,6 @@ import {
     HelpIcon32,
     HorizontalDotsIcon,
     HorizontalDotsIcon32,
-    InactiveIcon,
-    InactiveIcon32,
     InfoIcon,
     InfoIcon32,
     KeyIcon,
@@ -215,7 +213,6 @@ stories()
     .add("guest", () => <TestSuite icon32={GuestIcon32} multiIcon={GuestIcon} />)
     .add("help", () => <TestSuite icon32={HelpIcon32} multiIcon={HelpIcon} />)
     .add("horizontalDots", () => <TestSuite icon32={HorizontalDotsIcon32} multiIcon={HorizontalDotsIcon} />)
-    .add("inactive", () => <TestSuite icon32={InactiveIcon32} multiIcon={InactiveIcon} />)
     .add("info", () => <TestSuite icon32={InfoIcon32} multiIcon={InfoIcon} />)
     .add("key", () => <TestSuite icon32={KeyIcon32} multiIcon={KeyIcon} />)
     .add("lightbulb", () => <TestSuite icon32={LightbulbIcon32} multiIcon={LightbulbIcon} />)
