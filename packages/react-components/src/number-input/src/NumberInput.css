@@ -1,7 +1,10 @@
 @import "../../input/src/Input.css";
 
-.o-ui-number-input {
+.o-ui {
     --o-ui-spinner-width: var(--o-ui-global-scale-foxtrot);
+}
+
+.o-ui-number-input {
     /* 150px @ 16px */
     width: 9.365rem;
 }

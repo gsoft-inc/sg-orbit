@@ -187,11 +187,15 @@ export function InnerMenu({
         tooltip
     }: CollectionItem) => (
         <As
-            {...props}
-            id={`${rootId}-item-${index}`}
-            key={key}
-            ref={ref}
-            item={{ key, tooltip }}
+            {...mergeProps(
+                props,
+                {
+                    id: `${rootId}-item-${index}`,
+                    key,
+                    ref,
+                    item: { key, tooltip }
+                }
+            )}
         >
             {content}
         </As>
@@ -211,10 +215,14 @@ export function InnerMenu({
 
         return (
             <As
-                {...props}
-                id={`${rootId}-section-${index}`}
-                key={key}
-                ref={ref}
+                {...mergeProps(
+                    props,
+                    {
+                        id: `${rootId}-section-${index}`,
+                        key,
+                        ref
+                    }
+                )}
             >
                 {sectionItems.map(x => renderOption(x))}
             </As>
@@ -233,11 +241,11 @@ export function InnerMenu({
                 props,
                 {
                     className: "o-ui-menu-divider",
-                    as: "li"
+                    as: "li",
+                    key,
+                    ref
                 }
             )}
-            key={key}
-            ref={ref}
         >
             {content}
         </As>

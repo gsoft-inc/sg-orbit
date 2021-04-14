@@ -10,7 +10,7 @@ function isQueryMatchingItem(query: string, item: CollectionItem) {
     return itemText.toLowerCase().startsWith(query);
 }
 
-function useNodeFilter(nodes: CollectionNode[]): [CollectionItem[], (query: string) => void] {
+function useNodesFiltering(nodes: CollectionNode[]): [CollectionItem[], (query: string) => void] {
     const [results, setResults] = useState<CollectionItem[]>([]);
 
     const filter = useCallback((query: string) => {
@@ -25,6 +25,8 @@ function useNodeFilter(nodes: CollectionNode[]): [CollectionItem[], (query: stri
                 return isQueryMatchingItem(query, item);
             });
 
+            cache[query] = filteredNodes;
+
             setResults(filteredNodes);
         }
     }, [nodes, setResults]);
@@ -38,10 +40,10 @@ interface UseCollectionSearchOptions {
 export function useCollectionSearch(children: ReactNode, { onSearch }: UseCollectionSearchOptions): [CollectionNode[], (event: SyntheticEvent, query: string) => void] {
     const nodes = useCollection(children);
 
-    const [filterResults, filterNodes] = useNodeFilter(nodes);
+    const [filteredNodes, filterNodes] = useNodesFiltering(nodes);
 
     // If a search function is provided, offload the search to the caller otherwise use the local filter function.
-    const results = !isNil(onSearch) ? nodes : filterResults;
+    const results = !isNil(onSearch) ? nodes : filteredNodes;
 
     const search = useCallback((event: SyntheticEvent, query: string) => {
         if (!isNil(onSearch)) {
