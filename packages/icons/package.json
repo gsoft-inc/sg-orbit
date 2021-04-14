@@ -1,13 +1,15 @@
 {
     "name": "@orbit-ui/icons",
-    "version": "8.0.3-alpha.0",
+    "version": "8.0.4-alpha.0",
     "description": "ShareGate Orbit Icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
+    "files": [
+        "/dist"
+    ],
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "scripts": {
         "start": "yarn copy-to-dist",
