@@ -48,8 +48,8 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
         const parseElements = () => {
             const scope: HTMLElement[] = [];
 
-            walkFocusableElements(rootElement, x => {
-                scope.push(x as HTMLElement);
+            walkFocusableElements(rootElement, (x: HTMLElement) => {
+                scope.push(x);
             });
 
             setElements(scope);
