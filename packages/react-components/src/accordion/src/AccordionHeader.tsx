@@ -11,7 +11,7 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**
     * @ignore
     */
-    header: {
+    header?: {
         key: string;
     };
     /**

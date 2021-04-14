@@ -8,7 +8,7 @@ export interface InnerAccordionPanelProps {
     /**
      * @ignore
      */
-    panel: {
+    panel?: {
         key: string;
     };
     /**
