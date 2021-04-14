@@ -96,7 +96,7 @@ export function useDateInput({
         }, [inputValueRef, setInputValue])
     });
 
-    const [inputElement, setInputElement] = useState();
+    const [inputElement, setInputElement] = useState<HTMLInputElement>();
     const [hasFocus, setHasFocus] = useState(false);
 
     const ref = useMergedRefs(setInputElement, forwardedRef);

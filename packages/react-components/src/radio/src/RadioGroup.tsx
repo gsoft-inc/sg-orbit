@@ -1,5 +1,6 @@
 import "./RadioGroup.css";
 
+import { ChangeEvent, Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
     CheckableContext,
     Keys,
@@ -17,7 +18,6 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { Group } from "../../group";
 import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
@@ -173,7 +173,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         groupRef
     });
 
-    const handleCheck = useEventCallback((event, newValue) => {
+    const handleCheck = useEventCallback((event: ChangeEvent, newValue: string) => {
         setCheckedValue(newValue);
 
         if (!isNil(onChange)) {

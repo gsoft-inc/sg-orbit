@@ -17,8 +17,8 @@ function slotDecorator<P>(slotName: string, ElementType: P) {
 export { slotDecorator as slot };
 
 function findSlots(children: ReactNode, slots: string[]) {
-    return Children
-        .toArray(children)
+    return (Children
+        .toArray(children) as ReactElement[])
         .reduce((acc: Record<string, any>, x: ReactElement) => {
             if (!isNil(x)) {
                 const slotKey = (x.props && x.props["slot"]) ?? (x.type && (x.type as SlotableType)[SlotKey]);
@@ -54,7 +54,7 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
 
 interface SlotOptions {
     _: {
-        defaultWrapper?: ComponentType;
+        defaultWrapper?: ComponentType<any>;
         required?: string[];
     };
 }

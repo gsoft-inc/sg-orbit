@@ -75,7 +75,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         }),
         onHide: useEventCallback(event => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })

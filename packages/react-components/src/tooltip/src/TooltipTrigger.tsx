@@ -122,7 +122,7 @@ export function InnerTooltipTrigger({
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent<HTMLElement>).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
         })
@@ -130,9 +130,9 @@ export function InnerTooltipTrigger({
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
         trigger: "hover",
-        onHide: useEventCallback((event: SyntheticEvent<HTMLElement, Event>) => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent<HTMLElement>).relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),

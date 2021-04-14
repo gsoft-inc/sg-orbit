@@ -1,3 +1,5 @@
+import { AccordionHeaderProps } from "./AccordionHeader";
+import { AccordionPanelProps } from "./AccordionPanel";
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
 import { isNil } from "lodash";
@@ -14,13 +16,13 @@ export interface AccordionBuilderItem {
 export interface AccordionBuilderHeader {
     elementType: ReactElement["type"];
     ref: Ref<any>;
-    props: Record<string, any>;
+    props: AccordionHeaderProps;
 }
 
 export interface AccordionBuilderPanel {
     elementType: ReactElement["type"];
     ref: Ref<any>;
-    props: Record<string, any>;
+    props: AccordionPanelProps;
 }
 
 export class AccordionBuilder {

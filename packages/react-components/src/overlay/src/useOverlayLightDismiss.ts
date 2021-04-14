@@ -7,10 +7,10 @@ import { useInteractOutside } from "./useInteractOutside";
 
 export interface UseOverlayLightDismissOptions {
     trigger?: "hover" | "click";
-    onHide?: (event: SyntheticEvent<HTMLElement, Event>) => void;
+    onHide?: (event: SyntheticEvent) => void;
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
-    hideOnOutsideClick?: boolean | ((event: MouseEvent<HTMLElement, Event>) => void);
+    hideOnOutsideClick?: boolean | ((event: MouseEvent) => void);
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
@@ -20,13 +20,13 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     hideOnLeave,
     hideOnOutsideClick
 }: UseOverlayLightDismissOptions) {
-    const hide = (event: SyntheticEvent<HTMLElement, Event>) => {
+    const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleKeyDown = useEventCallback((event: KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.esc) {
             if (hideOnEscape) {
                 event.preventDefault();
@@ -35,17 +35,17 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         }
     });
 
-    const handleBlur = useEventCallback((event: FocusEvent<HTMLElement>) => {
+    const handleBlur = useEventCallback((event: FocusEvent) => {
         if (!isDevToolsBlurEvent(overlayRef)) {
             hide(event);
         }
     });
 
-    const handleMouseLeave = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
+    const handleMouseLeave = useEventCallback((event: MouseEvent) => {
         hide(event);
     });
 
-    const handleInteractOutside = useEventCallback((event: MouseEvent<HTMLElement, Event>) => {
+    const handleInteractOutside = useEventCallback((event: MouseEvent) => {
         hide(event);
     });
 

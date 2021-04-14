@@ -1,28 +1,30 @@
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
+import { TabPanelProps } from "./TabPanel";
+import { TabProps } from "./Tab";
 import { isNil } from "lodash";
 import { mergeProps, resolveChildren } from "../../shared";
 
 export interface PanelType {
     key: string;
-    index: number;
+    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>;
+    ref?: Ref<any>;
     panelId: string;
     tabId: string;
-    props: Record<string, any>;
+    props?: TabProps;
 }
 
 export interface TabType {
     key: string;
-    index: number;
+    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>;
+    ref?: Ref<any>;
     tabId: string;
     panelId: string;
-    props: Record<string, any>;
+    props?: TabPanelProps;
 }
 
 export class TabsBuilder {
