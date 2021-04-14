@@ -1,10 +1,10 @@
-import { MouseEvent, RefObject } from "react";
+import { RefObject, SyntheticEvent } from "react";
 import { isNil } from "lodash";
 import { useDocumentListener, useEventCallback } from "../../shared";
 
 export interface UseInteractOutsideProps {
     isDisabled?: boolean;
-    onInteractOutside?: (e: MouseEvent) => void;
+    onInteractOutside?: (e: SyntheticEvent) => void;
 }
 
 export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideProps = {}) {

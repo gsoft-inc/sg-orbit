@@ -1,4 +1,4 @@
-import { ChangeEvent, ForwardedRef } from "react";
+import { ForwardedRef, SyntheticEvent } from "react";
 import { isNil } from "lodash";
 import { useControllableState, useEventCallback } from "../../shared";
 
@@ -9,8 +9,8 @@ export interface UseToggleButtonProps<Shape> {
     checked?: boolean;
     defaultChecked?: boolean;
     value?: string;
-    onChange?: (event: ChangeEvent, isChecked: boolean) => void;
-    onCheck?: (event: ChangeEvent, value: string) => void;
+    onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
+    onCheck?: (event: SyntheticEvent, value: string) => void;
     forwardedRef?: ForwardedRef<any>;
 }
 

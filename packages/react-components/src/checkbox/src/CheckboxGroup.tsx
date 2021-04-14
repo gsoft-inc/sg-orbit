@@ -1,6 +1,5 @@
 import "./CheckboxGroup.css";
 
-import { ChangeEvent, Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
     CheckableContext,
     augmentElement,
@@ -15,6 +14,7 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
+import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
@@ -157,7 +157,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         groupRef
     });
 
-    const handleCheck = useEventCallback((event: ChangeEvent, newValue: string) => {
+    const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
         setCheckedValue(newCheckedValue);
