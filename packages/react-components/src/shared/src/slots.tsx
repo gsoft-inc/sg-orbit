@@ -54,7 +54,7 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
 
 interface SlotOptions {
     _: {
-        defaultWrapper?: ComponentType;
+        defaultWrapper?: ComponentType<any>;
         required?: string[];
     };
 }
