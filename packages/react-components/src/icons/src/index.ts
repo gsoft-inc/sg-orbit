@@ -50,6 +50,7 @@ import { ReactComponent as InnerChevronUpIcon32 } from "@orbit-ui/icons/dist/ico
 import { ReactComponent as InnerClearFilterIcon32 } from "@orbit-ui/icons/dist/icon-clear-filter-32.svg";
 import { ReactComponent as InnerCloseIcon32 } from "@orbit-ui/icons/dist/icon-close-32.svg";
 import { ReactComponent as InnerCrossIcon32 } from "@orbit-ui/icons/dist/icon-cross-32.svg";
+import { ReactComponent as InnerCsvFileIcon32 } from "@orbit-ui/icons/dist/icon-csv-file-32.svg";
 import { ReactComponent as InnerDeleteLinkIcon32 } from "@orbit-ui/icons/dist/icon-delete-link-32.svg";
 import { ReactComponent as InnerDoNotDisturbIcon32 } from "@orbit-ui/icons/dist/icon-do-not-disturb-32.svg";
 import { ReactComponent as InnerDownloadIcon32 } from "@orbit-ui/icons/dist/icon-download-32.svg";
@@ -136,6 +137,7 @@ export const ChevronRightIcon32 = createOrbitIcon(InnerChevronRightIcon32, "Chev
 export const ClearFilterIcon32 = createOrbitIcon(InnerClearFilterIcon32, "ClearFilterIcon32");
 export const CloseIcon32 = createOrbitIcon(InnerCloseIcon32, "CloseIcon32");
 export const CrossIcon32 = createOrbitIcon(InnerCrossIcon32, "CrossIcon32");
+export const CsvFileIcon32 = createOrbitIcon(InnerCsvFileIcon32, "CsvFileIcon32");
 export const DeleteLinkIcon32 = createOrbitIcon(InnerDeleteLinkIcon32, "DeleteLinkIcon32");
 export const DoNotDisturbIcon32 = createOrbitIcon(InnerDoNotDisturbIcon32, "DoNotDisturbIcon32");
 export const DownloadIcon32 = createOrbitIcon(InnerDownloadIcon32, "DownloadIcon32");
@@ -222,6 +224,7 @@ export const ChevronRightIcon = createOrbitIcon(InnerChevronRightIcon32, "Chevro
 export const ClearFilterIcon = createOrbitIcon(InnerClearFilterIcon32, "ClearFilterIcon");
 export const CloseIcon = createOrbitIcon(InnerCloseIcon32, "CloseIcon");
 export const CrossIcon = createOrbitIcon(InnerCrossIcon32, "CrossIcon");
+export const CsvFileIcon = createOrbitIcon(InnerCsvFileIcon32, "CsvFileIcon");
 export const DeleteLinkIcon = createOrbitIcon(InnerDeleteLinkIcon32, "DeleteLinkIcon");
 export const DoNotDisturbIcon = createOrbitIcon(InnerDoNotDisturbIcon32, "DoNotDisturbIcon");
 export const DownloadIcon = createOrbitIcon(InnerDownloadIcon32, "DownloadIcon");

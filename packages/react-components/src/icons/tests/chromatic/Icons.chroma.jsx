@@ -73,6 +73,8 @@ import {
     CloseIcon32,
     CrossIcon,
     CrossIcon32,
+    CsvFileIcon,
+    CsvFileIcon32,
     DeleteLinkIcon,
     DeleteLinkIcon32,
     DoNotDisturbIcon,
@@ -215,6 +217,7 @@ stories()
     .add("clearFilter", () => <TestSuite icon32={ClearFilterIcon32} multiIcon={ClearFilterIcon} />)
     .add("close", () => <TestSuite icon32={CloseIcon32} multiIcon={CloseIcon} />)
     .add("cross", () => <TestSuite icon32={CrossIcon32} multiIcon={CrossIcon} />)
+    .add("csvFile", () => <TestSuite icon32={CsvFileIcon32} multiIcon={CsvFileIcon} />)
     .add("deleteLink", () => <TestSuite icon32={DeleteLinkIcon32} multiIcon={DeleteLinkIcon} />)
     .add("doNotDisturb", () => <TestSuite icon32={DoNotDisturbIcon32} multiIcon={DoNotDisturbIcon} />)
     .add("download", () => <TestSuite icon32={DownloadIcon32} multiIcon={DownloadIcon} />)
