@@ -40,11 +40,11 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
      * @param {string} value - The new input value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, value: string): void;
+    onChange?: (event: SyntheticEvent, value: string) => void;
     /**
      * @ignore
      */
-    onKeyDown?(event: SyntheticEvent): void;
+    onKeyDown?: (event: SyntheticEvent) => void;
     /**
      * Whether or not the input should autofocus on render.
      */

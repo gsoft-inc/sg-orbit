@@ -23,9 +23,9 @@ export interface UseSelectProps {
     defaultOpen?: boolean;
     selectedKey?: string;
     defaultSelectedKey?: string;
-    onChange?(event: SyntheticEvent, selectedKey: string): void;
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
-    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void;
+    onChange?: (event: SyntheticEvent, selectedKey: string) => void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     direction: "bottom" | "top";
     align?: "start" | "end";
     autoFocus?: boolean | number;

@@ -5,7 +5,7 @@ import { useEventCallback } from "./useEventCallback";
 import type { FocusManager } from "./useFocusManager";
 
 interface KeyboardNavigationOptions {
-    onSelect?(event: KeyboardEvent, element: Element): void;
+    onSelect?: (event: KeyboardEvent, element: Element) => void;
 }
 
 interface KeyboardNavigationBindings {

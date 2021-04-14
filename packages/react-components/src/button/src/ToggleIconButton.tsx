@@ -22,7 +22,7 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
      * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, isChecked: boolean): void;
+    onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
     /**
      * The style to use.
      */

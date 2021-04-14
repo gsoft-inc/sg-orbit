@@ -25,7 +25,7 @@ interface InnerDialogTriggerProps {
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * Whether or not the modal should close on outside interactions.
      */
