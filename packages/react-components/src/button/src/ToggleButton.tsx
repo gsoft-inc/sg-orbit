@@ -15,7 +15,7 @@ interface InnerToggleButtonProps {
     /**
      * The value to associate with when in a group.
      */
-    value?: string | number;
+    value?: string;
     /**
      * Called when the toggle button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.

@@ -25,11 +25,11 @@ export interface InnerCheckboxGroupProps {
     /**
    * The value of the checkbox group.
    */
-    value?: (string | number)[];
+    value?: string[];
     /**
      * The initial value of `value`.
      */
-    defaultValue?: (string | number)[];
+    defaultValue?: string[];
     /**
      * Whether a user input is required before form submission.
      */
@@ -41,10 +41,10 @@ export interface InnerCheckboxGroupProps {
     /**
      * Called when any of the children is checked or unchecked..
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {string[] | number[]} value - The new value.
+     * @param {string[]} value - The new value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, value: (string | number)[]): void;
+    onChange?(event: SyntheticEvent, value: string[]): void;
     /**
      * Whether or not the first checkbox of the group should autoFocus on render.
      */
@@ -157,7 +157,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         groupRef
     });
 
-    const handleCheck = useEventCallback((event, newValue: string | number) => {
+    const handleCheck = useEventCallback((event, newValue: string) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
         setCheckedValue(newCheckedValue);

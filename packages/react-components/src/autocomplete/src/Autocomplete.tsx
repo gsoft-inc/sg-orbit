@@ -197,7 +197,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         children,
         forwardedRef,
         ...rest
-    }: AutocompleteProps & UseFieldInputPropsReturn = mergeProps(
+    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
         omitProps(fieldProps, ["size"])
     );

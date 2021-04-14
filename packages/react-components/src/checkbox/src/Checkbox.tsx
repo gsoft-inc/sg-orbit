@@ -39,7 +39,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
      * The value to associate with when in a group.
      */
-    value?: string | number;
+    value?: string;
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
