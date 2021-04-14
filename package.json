@@ -149,5 +149,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "tsd": {
+    "directory": "my-test-dir"
   }
 }
