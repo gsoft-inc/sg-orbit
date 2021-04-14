@@ -13,17 +13,21 @@ import { ThemeProvider } from "@react-components/theme-provider";
 <Tagline>Container for Orbit UI applications used to define the theme and color scheme to use.</Tagline>
 
 <ComponentInfo
-    usage={"import { ThemeProvider, ThemeContext, useThemeContext } from \"@orbit-ui/react-components\""}
+    usage={"import { ThemeProvider, ThemeContext, useThemeContext } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/theme-provider/src"
 />
 
 ## Usage
 
-A Provider must be the root component of your application. All other Orbit UI components rely on the `ThemeProvider` to define the theme and color scheme they need to render accurately.
+Orbit UI components rely on the `ThemeProvider` to define the theme and color scheme they need to render accurately. We do recommended you declare a `ThemeProvider` at the root of your application but if you prefer, you can declare them as needed instead.
 
-If you need to access the current theme you can do so, by using the `useThemeContext` hook.
+> The default theme is *apricot*. The *desktop* theme is only available to showcase how multi-theme works in Orbit.
 
-> The default theme is *apricot*, *desktop* theme is only available to showcase how multi-theme works in Orbit.
+You can access or update the current color scheme from any React components by using the `useThemeContext` hook.
+
+```jsx
+const { colorScheme, setColorScheme } = useThemeContext();
+```
 
 ### Default
 
@@ -76,7 +80,7 @@ The closest `ThemeContext` can be accessed with the `useThemeContext` hook. Once
 ### ThemeProvider
 
 <ComponentInfo
-    usage={"import { ThemeProvider } from \"@orbit-ui/react-components\""}
+    usage={"import { ThemeProvider } from \"@orbit-ui/react-components\";"}
     compact
 />
 
