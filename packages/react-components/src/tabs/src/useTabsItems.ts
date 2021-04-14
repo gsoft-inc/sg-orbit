@@ -5,24 +5,24 @@ import { mergeProps, resolveChildren } from "../../shared";
 
 export interface PanelType {
     key: string;
-    index: number;
+    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>;
+    ref?: Ref<any>;
     panelId: string;
     tabId: string;
-    props: Record<string, any>;
+    props?: Record<string, any>;
 }
 
 export interface TabType {
     key: string;
-    index: number;
+    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref: Ref<any>;
+    ref?: Ref<any>;
     tabId: string;
     panelId: string;
-    props: Record<string, any>;
+    props?: Record<string, any>;
 }
 
 export class TabsBuilder {

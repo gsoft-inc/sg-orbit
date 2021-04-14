@@ -14,13 +14,13 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
 }: UseOverlayLightDismissOptions) {
     const [isHandled, setIsHandled] = useRefState(false);
 
-    const hide = (event: SyntheticEvent<HTMLElement, Event>) => {
+    const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {
             onHide(event);
         }
     };
 
-    const handleKeyDown = useEventCallback((event: KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
             // When the popup doesn't have any focusable siblings, tabbing out from the overlay the focus will go back to the trigger.
             // Without this hack, the overlay would not close because we have code which prevent the overlay from closing when the focus move to the trigger.
@@ -35,7 +35,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
 
     const props = useOverlayLightDismiss(overlayRef, {
         trigger,
-        onHide: useEventCallback((event: SyntheticEvent<HTMLElement, Event>) => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             switch (event.type) {
                 case "click": {
                     // Ignore events related to the trigger to prevent double toggle.
@@ -53,7 +53,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
                         if (!isHandled.current) {
                             if (!isDevToolsBlurEvent(overlayRef)) {
                                 // Ignore events related to the trigger to prevent double toggle.
-                                if ((event as FocusEvent<HTMLElement>).relatedTarget !== triggerRef.current) {
+                                if ((event as FocusEvent).relatedTarget !== triggerRef.current) {
                                     hide(event);
                                 }
                             }

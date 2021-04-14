@@ -9,6 +9,12 @@ import { isNil } from "lodash";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**
+    * The header item props
+    */
+    header?: {
+        key: string;
+    };
+    /**
      * An accordion header can vary in size.
      */
     size?: "sm" | "md";
