@@ -16,7 +16,7 @@
     "strictBindCallApply": true,
     "strictNullChecks": false, // 144 errors
     "strictPropertyInitialization": false, // passes, but needs null checks
-    "strictFunctionTypes": false, // 14 errors
+    "strictFunctionTypes": true,
 
     //  the bare minimum for our project
     "jsx": "react-jsx",

@@ -6,6 +6,12 @@ import { forwardRef, mergeProps, omitProps } from "../../shared";
 
 export interface InnerAccordionPanelProps {
     /**
+     * @ignore
+     */
+    panel: {
+        key: string;
+    };
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
