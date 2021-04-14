@@ -44,7 +44,8 @@ export class TabsBuilder {
 
         let index = 0;
 
-        Children.forEach(children, (element: ReactElement, position) => {
+        Children.forEach(children, (node, position) => {
+            const element = node as ReactElement;
             const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : position.toString();
 
             const [header, content] = Children.toArray(resolveChildren(element.props.children)) as [ReactElement & RefAttributes<any>, ReactElement & RefAttributes<any>];

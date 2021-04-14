@@ -37,7 +37,8 @@ export class AccordionBuilder {
             throw new Error("An accordion must have children.");
         }
 
-        return Children.map(children, (element: ReactElement, index) => {
+        return Children.map(children, (node, index) => {
+            const element = node as ReactElement;
             const [header, content] = Children.toArray(element.props.children) as ReactElement[];
 
             if (isNil(header) || isNil(content)) {
