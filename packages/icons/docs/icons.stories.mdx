@@ -1,141 +1,158 @@
 import {
+    AddGuestIcon,
+    AddGuestIcon32,
     AddIcon,
-    AddIcon24,
     AddIcon32,
+    AddUserIcon,
+    AddUserIcon32,
+    ArrowDownIcon,
+    ArrowDownIcon32,
+    ArrowDownLeftIcon,
+    ArrowDownLeftIcon32,
+    ArrowDownRightIcon,
+    ArrowDownRightIcon32,
     ArrowIcon,
-    ArrowIcon24,
     ArrowIcon32,
+    ArrowLeftIcon,
+    ArrowLeftIcon32,
+    ArrowLineUpIcon,
+    ArrowLineUpIcon32,
+    ArrowRightIcon,
+    ArrowRightIcon32,
+    ArrowUpIcon,
+    ArrowUpIcon32,
+    ArrowUpLeftIcon,
+    ArrowUpLeftIcon32,
+    ArrowUpRightIcon,
+    ArrowUpRightIcon32,
+    ArrowsUpDownIcon,
+    ArrowsUpDownIcon32,
     CalendarIcon,
-    CalendarIcon24,
     CalendarIcon32,
-    CarretIcon,
-    CarretIcon24,
-    CarretIcon32,
+    CalendarPresetIcon,
+    CalendarPresetIcon32,
+    CaretDownIcon,
+    CaretDownIcon32,
+    CaretIcon,
+    CaretIcon32,
+    CaretLeftIcon,
+    CaretLeftIcon32,
+    CaretRightIcon,
+    CaretRightIcon32,
+    CaretUpDownIcon,
+    CaretUpDownIcon32,
+    CaretUpIcon,
+    CaretUpIcon32,
     CheckCircleIcon,
-    CheckCircleIcon24,
     CheckCircleIcon32,
-    CheckIcon,
-    CheckIcon24,
-    CheckIcon32,
+    CheckmarkIcon,
+    CheckmarkIcon32,
+    ChevronDownIcon,
+    ChevronDownIcon32,
     ChevronIcon,
-    ChevronIcon24,
     ChevronIcon32,
+    ChevronLeftIcon,
+    ChevronLeftIcon32,
+    ChevronRightIcon,
+    ChevronRightIcon32,
+    ChevronUpDownIcon,
+    ChevronUpDownIcon32,
+    ChevronUpIcon,
+    ChevronUpIcon32,
     ClearFilterIcon,
-    ClearFilterIcon24,
     ClearFilterIcon32,
+    CloseIcon,
+    CloseIcon32,
     CrossIcon,
-    CrossIcon24,
     CrossIcon32,
-    CsvIcon,
-    CsvIcon24,
-    CsvIcon32,
-    DashIcon,
-    DashIcon24,
-    DashIcon32,
+    CsvFileIcon,
+    CsvFileIcon32,
+    DeleteLinkIcon,
+    DeleteLinkIcon32,
+    DoNotDisturbIcon,
+    DoNotDisturbIcon32,
     DownloadIcon,
-    DownloadIcon24,
     DownloadIcon32,
     EditIcon,
-    EditIcon24,
     EditIcon32,
-    EmailIcon,
-    EmailIcon24,
-    EmailIcon32,
-    EmailReminderIcon,
-    EmailReminderIcon24,
-    EmailReminderIcon32,
-    EyeIcon,
-    EyeIcon24,
-    EyeIcon32,
     FileIcon,
-    FileIcon24,
     FileIcon32,
     FilterIcon,
-    FilterIcon24,
     FilterIcon32,
     FlagIcon,
-    FlagIcon24,
     FlagIcon32,
     FolderIcon,
-    FolderIcon24,
     FolderIcon32,
     GearIcon,
-    GearIcon24,
     GearIcon32,
     GroupIcon,
-    GroupIcon24,
     GroupIcon32,
-    GuestAddIcon,
-    GuestAddIcon24,
-    GuestAddIcon32,
-    GuestRemoveIcon,
-    GuestRemoveIcon24,
-    GuestRemoveIcon32,
+    GroupSettingIcon,
+    GroupSettingIcon32,
+    GuestIcon,
+    GuestIcon32,
     HelpIcon,
-    HelpIcon24,
     HelpIcon32,
     HorizontalDotsIcon,
     HorizontalDotsIcon32,
-    ImageIcon,
-    ImageIcon24,
-    ImageIcon32,
     InfoIcon,
-    InfoIcon24,
     InfoIcon32,
+    KeyIcon,
+    KeyIcon32,
     LightbulbIcon,
-    LightbulbIcon24,
     LightbulbIcon32,
+    LinkIcon,
+    LinkIcon32,
     MagnifierIcon,
-    MagnifierIcon24,
     MagnifierIcon32,
-    MusicIcon,
-    MusicIcon24,
-    MusicIcon32,
+    MailIcon,
+    MailIcon32,
+    MusicFileIcon,
+    MusicFileIcon32,
+    NoGuestIcon,
+    NoGuestIcon32,
     NotificationIcon,
-    NotificationIcon24,
     NotificationIcon32,
-    NotificationOffIcon,
-    NotificationOffIcon24,
-    NotificationOffIcon32,
-    PdfIcon,
-    PdfIcon24,
-    PdfIcon32,
+    PdfFileIcon,
+    PdfFileIcon32,
+    PictureIcon,
+    PictureIcon32,
     PrinterIcon,
-    PrinterIcon24,
     PrinterIcon32,
     PrivacyIcon,
-    PrivacyIcon24,
     PrivacyIcon32,
+    PrivateGroupIcon,
+    PrivateGroupIcon32,
+    PublicGroupIcon,
+    PublicGroupIcon32,
+    RemoveGuestIcon,
+    RemoveGuestIcon32,
+    RemoveUserIcon,
+    RemoveUserIcon32,
+    SecurityIcon,
+    SecurityIcon32,
+    SettingsIcon,
+    SettingsIcon32,
+    ShareIcon,
+    ShareIcon32,
+    SigninIcon,
+    SigninIcon32,
     SignoutIcon,
-    SignoutIcon24,
     SignoutIcon32,
-    SlashIcon,
-    SlashIcon24,
-    SlashIcon32,
-    SortIcon,
-    SortIcon24,
-    SortIcon32,
-    TrashIcon,
-    TrashIcon24,
-    TrashIcon32,
-    UserAddIcon,
-    UserAddIcon24,
-    UserAddIcon32,
-    UserRemoveIcon,
-    UserRemoveIcon24,
-    UserRemoveIcon32,
+    TrashboxIcon,
+    TrashboxIcon32,
+    UploadIcon,
+    UploadIcon32,
+    UserIcon,
+    UserIcon32,
     VerticalDotsIcon,
-    VerticalDotsIcon24,
     VerticalDotsIcon32,
-    VideoIcon,
-    VideoIcon24,
-    VideoIcon32,
+    VideoFileIcon,
+    VideoFileIcon32,
+    ViewIcon,
+    ViewIcon32,
     WarningIcon,
-    WarningIcon24,
-    WarningIcon32,
-    ZipIcon,
-    ZipIcon24,
-    ZipIcon32
+    WarningIcon32
 } from "@react-components/icons";
 import { CheckeredBackground, ExternalLink, Preview, Tagline } from "@stories/components";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./icon-gallery";
@@ -151,7 +168,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Tagline>Orbit Design provide a set of SVG icons built specifically for ShareGate products.</Tagline>
 
-All official icons **includes their padding** and are generally available in two variants, `24px` and `32px`. If an icon is only available in `32px`, he is considered universal.
+All official icons **includes their padding** and are available in `32px`.
 
 Orbit UI make those icons available for products in two ways, *React components* and *static files*.
 
@@ -160,52 +177,83 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
 ## Gallery
 
 <IconGallery>
-    {renderItem("Add", createMultiVariant(<AddIcon />), [createVariant("24x24", <AddIcon24 />, "icon-add-24.svg"), createVariant("32x32", <AddIcon32 />, "icon-add-32.svg")])}
-    {renderItem("Arrow", createMultiVariant(<ArrowIcon />), [createVariant("24x24", <ArrowIcon24 />, "icon-arrow-24.svg"), createVariant("32x32", <ArrowIcon32 />, "icon-arrow-32.svg")])}
-    {renderItem("Calendar", createMultiVariant(<CalendarIcon />), [createVariant("24x24", <CalendarIcon24 />, "icon-calendar-24.svg"), createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
-    {renderItem("Carret", createMultiVariant(<CarretIcon />), [createVariant("24x24", <CarretIcon24 />, "icon-carret-24.svg"), createVariant("32x32", <CarretIcon32 />, "icon-carret-32.svg")])}
-    {renderItem("Check", createMultiVariant(<CheckIcon />), [createVariant("24x24", <CheckIcon24 />, "icon-check-24.svg"), createVariant("32x32", <CheckIcon32 />, "icon-check-32.svg")])}
-    {renderItem("Check Circle", createMultiVariant(<CheckCircleIcon />), [createVariant("24x24", <CheckCircleIcon24 />, "icon-check-circle-24.svg"), createVariant("32x32", <CheckCircleIcon32 />, "icon-check-circle-32.svg")])}
-    {renderItem("Chevron", createMultiVariant(<ChevronIcon />), [createVariant("24x24", <ChevronIcon24 />, "icon-chevron-24.svg"), createVariant("32x32", <ChevronIcon32 />, "icon-chevron-32.svg")])}
-    {renderItem("ClearFilter", createMultiVariant(<ClearFilterIcon />), [createVariant("24x24", <ClearFilterIcon24 />, "icon-clearfilter-24.svg"), createVariant("32x32", <ClearFilterIcon32 />, "icon-clearfilter-32.svg")])}
-    {renderItem("Cross", createMultiVariant(<CrossIcon />), [createVariant("24x24", <CrossIcon24 />, "icon-cross-24.svg"), createVariant("32x32", <CrossIcon32 />, "icon-cross-32.svg")])}
-    {renderItem("Csv", createMultiVariant(<CsvIcon />), [createVariant("24x24", <CsvIcon24 />, "icon-csv-24.svg"), createVariant("32x32", <CsvIcon32 />, "icon-csv-32.svg")])}
-    {renderItem("Dash", createMultiVariant(<DashIcon />), [createVariant("24x24", <DashIcon24 />, "icon-dash-24.svg"), createVariant("32x32", <DashIcon32 />, "icon-dash-32.svg")])}
-    {renderItem("Download", createMultiVariant(<DownloadIcon />), [createVariant("24x24", <DownloadIcon24 />, "icon-download-24.svg"), createVariant("32x32", <DownloadIcon32 />, "icon-download-32.svg")])}
-    {renderItem("Edit", createMultiVariant(<EditIcon />), [createVariant("24x24", <EditIcon24 />, "icon-edit-24.svg"), createVariant("32x32", <EditIcon32 />, "icon-edit-32.svg")])}
-    {renderItem("Email", createMultiVariant(<EmailIcon />), [createVariant("24x24", <EmailIcon24 />, "icon-email-24.svg"), createVariant("32x32", <EmailIcon32 />, "icon-email-32.svg")])}
-    {renderItem("EmailReminder", createMultiVariant(<EmailReminderIcon />), [createVariant("24x24", <EmailReminderIcon24 />, "icon-email-reminder-24.svg"), createVariant("32x32", <EmailReminderIcon32 />, "icon-email-reminder-32.svg")])}
-    {renderItem("Eye", createMultiVariant(<EyeIcon />), [createVariant("24x24", <EyeIcon24 />, "icon-eye-24.svg"), createVariant("32x32", <EyeIcon32 />, "icon-eye-32.svg")])}
-    {renderItem("File", createMultiVariant(<FileIcon />), [createVariant("24x24", <FileIcon24 />, "icon-file-24.svg"), createVariant("32x32", <FileIcon32 />, "icon-file-32.svg")])}
-    {renderItem("Filter", createMultiVariant(<FilterIcon />), [createVariant("24x24", <FilterIcon24 />, "icon-filter-24.svg"), createVariant("32x32", <FilterIcon32 />, "icon-filter-32.svg")])}
-    {renderItem("Flag", createMultiVariant(<FlagIcon />), [createVariant("24x24", <FlagIcon24 />, "icon-flag-24.svg"), createVariant("32x32", <FlagIcon32 />, "icon-flag-32.svg")])}
-    {renderItem("Folder", createMultiVariant(<FolderIcon />), [createVariant("24x24", <FolderIcon24 />, "icon-folder-24.svg"), createVariant("32x32", <FolderIcon32 />, "icon-folder-32.svg")])}
-    {renderItem("Trash", createMultiVariant(<TrashIcon />), [createVariant("24x24", <TrashIcon24 />, "icon-trash-24.svg"), createVariant("32x32", <TrashIcon32 />, "icon-trash-32.svg")])}
-    {renderItem("Gear", createMultiVariant(<GearIcon />), [createVariant("24x24", <GearIcon24 />, "icon-gear-24.svg"), createVariant("32x32", <GearIcon32 />, "icon-gear-32.svg")])}
-    {renderItem("Group", createMultiVariant(<GroupIcon />), [createVariant("24x24", <GroupIcon24 />, "icon-group-24.svg"), createVariant("32x32", <GroupIcon32 />, "icon-group-32.svg")])}
-    {renderItem("GuestAdd", createMultiVariant(<GuestAddIcon />), [createVariant("24x24", <GuestAddIcon24 />, "icon-guest-add-24.svg"), createVariant("32x32", <GuestAddIcon32 />, "icon-guest-add-32.svg")])}
-    {renderItem("GuestRemove", createMultiVariant(<GuestRemoveIcon />), [createVariant("24x24", <GuestRemoveIcon24 />, "icon-guest-remove-24.svg"), createVariant("32x32", <GuestRemoveIcon32 />, "icon-guest-remove-32.svg")])}
-    {renderItem("Help", createMultiVariant(<HelpIcon />), [createVariant("24x24", <HelpIcon24 />, "icon-help-24.svg"), createVariant("32x32", <HelpIcon32 />, "icon-help-32.svg")])}
-    {renderItem("HorizontalDots", createMultiVariant(<HorizontalDotsIcon />), [createVariant("32x32", <HorizontalDotsIcon32 />, "icon-horizontaldots-32.svg")])}
-    {renderItem("Image", createMultiVariant(<ImageIcon />), [createVariant("24x24", <ImageIcon24 />, "icon-image-24.svg"), createVariant("32x32", <ImageIcon32 />, "icon-image-32.svg")])}
-    {renderItem("Info", createMultiVariant(<InfoIcon />), [createVariant("24x24", <InfoIcon24 />, "icon-info-24.svg"), createVariant("32x32", <InfoIcon32 />, "icon-info-32.svg")])}
-    {renderItem("Lightbulb", createMultiVariant(<LightbulbIcon />), [createVariant("24x24", <LightbulbIcon24 />, "icon-lightbulb-24.svg"), createVariant("32x32", <LightbulbIcon32 />, "icon-lightbulb-32.svg")])}
-    {renderItem("Magnifier", createMultiVariant(<MagnifierIcon />), [createVariant("24x24", <MagnifierIcon24 />, "icon-magnifier-24.svg"), createVariant("32x32", <MagnifierIcon32 />, "icon-magnifier-32.svg")])}
-    {renderItem("Music", createMultiVariant(<MusicIcon />), [createVariant("24x24", <MusicIcon24 />, "icon-music-24.svg"), createVariant("32x32", <MusicIcon32 />, "icon-music-32.svg")])}
-    {renderItem("Notification", createMultiVariant(<NotificationIcon />), [createVariant("24x24", <NotificationIcon24 />, "icon-notification-24.svg"), createVariant("32x32", <NotificationIcon32 />, "icon-notification-32.svg")])}
-    {renderItem("NotificationOff", createMultiVariant(<NotificationOffIcon />), [createVariant("24x24", <NotificationOffIcon24 />, "icon-notification-off-24.svg"), createVariant("32x32", <NotificationOffIcon32 />, "icon-notification-off-32.svg")])}
-    {renderItem("Pdf", createMultiVariant(<PdfIcon />), [createVariant("24x24", <PdfIcon24 />, "icon-pdf-24.svg"), createVariant("32x32", <PdfIcon32 />, "icon-pdf-32.svg")])}
-    {renderItem("Printer", createMultiVariant(<PrinterIcon />), [createVariant("24x24", <PrinterIcon24 />, "icon-printer-24.svg"), createVariant("32x32", <PrinterIcon32 />, "icon-printer-32.svg")])}
-    {renderItem("Privacy", createMultiVariant(<PrivacyIcon />), [createVariant("24x24", <PrivacyIcon24 />, "icon-privacy-24.svg"), createVariant("32x32", <PrivacyIcon32 />, "icon-privacy-32.svg")])}
-    {renderItem("Signout", createMultiVariant(<SignoutIcon />), [createVariant("24x24", <SignoutIcon24 />, "icon-signout-24.svg"), createVariant("32x32", <SignoutIcon32 />, "icon-signout-32.svg")])}
-    {renderItem("Slash", createMultiVariant(<SlashIcon />), [createVariant("24x24", <SlashIcon24 />, "icon-slash-24.svg"), createVariant("32x32", <SlashIcon32 />, "icon-slash-32.svg")])}
-    {renderItem("Sort", createMultiVariant(<SortIcon />), [createVariant("24x24", <SortIcon24 />, "icon-sort-24.svg"), createVariant("32x32", <SortIcon32 />, "icon-sort-32.svg")])}
-    {renderItem("UserAdd", createMultiVariant(<UserAddIcon />), [createVariant("24x24", <UserAddIcon24 />, "icon-user-add-24.svg"), createVariant("32x32", <UserAddIcon32 />, "icon-user-add-32.svg")])}
-    {renderItem("UserRemove", createMultiVariant(<UserRemoveIcon />), [createVariant("24x24", <UserRemoveIcon24 />, "icon-user-remove-24.svg"), createVariant("32x32", <UserRemoveIcon32 />, "icon-user-remove-32.svg")])}
-    {renderItem("VerticalDots", createMultiVariant(<VerticalDotsIcon />), [createVariant("24x24", <VerticalDotsIcon24 />, "icon-vertical-dots-24.svg"), createVariant("32x32", <VerticalDotsIcon32 />, "icon-vertical-dots-32.svg")])}
-    {renderItem("Video", createMultiVariant(<VideoIcon />), [createVariant("24x24", <VideoIcon24 />, "icon-video-24.svg"), createVariant("32x32", <VideoIcon32 />, "icon-video-32.svg")])}
-    {renderItem("Warning", createMultiVariant(<WarningIcon />), [createVariant("24x24", <WarningIcon24 />, "icon-warning-24.svg"), createVariant("32x32", <WarningIcon32 />, "icon-warning-32.svg")])}
-    {renderItem("Zip", createMultiVariant(<ZipIcon />), [createVariant("24x24", <ZipIcon24 />, "icon-zip-24.svg"), createVariant("32x32", <ZipIcon32 />, "icon-zip-32.svg")])}
+    {renderItem("Add", createMultiVariant(<AddIcon />), [createVariant("32x32", <AddIcon32 />, "icon-add-32.svg")])}
+    {renderItem("AddGuest", createMultiVariant(<AddGuestIcon />), [createVariant("32x32", <AddGuestIcon32 />, "icon-add-guest-32.svg")])}
+    {renderItem("AddUser", createMultiVariant(<AddUserIcon />), [createVariant("32x32", <AddUserIcon32 />, "icon-add-user-32.svg")])}
+    {renderItem("Arrow", createMultiVariant(<ArrowIcon/>), [createVariant("32x32", <ArrowIcon32 />, "icon-arrow-32.svg")])}
+    {renderItem("ArrowDown", createMultiVariant(<ArrowDownIcon/>), [createVariant("32x32", <ArrowDownIcon32 />, "icon-arrow-down-32.svg")])}
+    {renderItem("ArrowDownLeft", createMultiVariant(<ArrowDownLeftIcon/>), [createVariant("32x32", <ArrowDownLeftIcon32 />, "icon-arrow-down-left-32.svg")])}
+    {renderItem("ArrowDownRight", createMultiVariant(<ArrowDownRightIcon/>), [createVariant("32x32", <ArrowDownRightIcon32 />, "icon-arrow-down-right-32.svg")])}
+    {renderItem("ArrowUpLeft", createMultiVariant(<ArrowUpLeftIcon/>), [createVariant("32x32", <ArrowUpLeftIcon32 />, "icon-arrow-up-left-32.svg")])}
+    {renderItem("ArrowUpRight", createMultiVariant(<ArrowUpRightIcon/>), [createVariant("32x32", <ArrowUpRightIcon32 />, "icon-arrow-up-right-32.svg")])}
+    {renderItem("ArrowLeft", createMultiVariant(<ArrowLeftIcon/>), [createVariant("32x32", <ArrowLeftIcon32 />, "icon-arrow-left-32.svg")])}
+    {renderItem("ArrowRight", createMultiVariant(<ArrowRightIcon/>), [createVariant("32x32", <ArrowRightIcon32 />, "icon-arrow-right-32.svg")])}
+    {renderItem("ArrowLineUp", createMultiVariant(<ArrowLineUpIcon/>), [createVariant("32x32", <ArrowLineUpIcon32 />, "icon-arrow-line-up-32.svg")])}
+    {renderItem("ArrowUp", createMultiVariant(<ArrowUpIcon/>), [createVariant("32x32", <ArrowUpIcon32 />, "icon-arrow-up-32.svg")])}
+    {renderItem("ArrowsUpDown", createMultiVariant(<ArrowsUpDownIcon/>), [createVariant("32x32", <ArrowsUpDownIcon32 />, "icon-arrows-up-down-32.svg")])}
+    {renderItem("Calendar", createMultiVariant(<CalendarIcon/>), [createVariant("32x32", <CalendarIcon32 />, "icon-calendar-32.svg")])}
+    {renderItem("CalendarPreset", createMultiVariant(<CalendarPresetIcon/>), [createVariant("32x32", <CalendarPresetIcon32 />, "icon-calendar-preset-32.svg")])}
+    {renderItem("Caret", createMultiVariant(<CaretIcon/>), [createVariant("32x32", <CaretIcon32 />, "icon-caret-32.svg")])}
+    {renderItem("CaretDown", createMultiVariant(<CaretDownIcon/>), [createVariant("32x32", <CaretDownIcon32 />, "icon-caret-down-32.svg")])}
+    {renderItem("CaretUp", createMultiVariant(<CaretUpIcon/>), [createVariant("32x32", <CaretUpIcon32 />, "icon-caret-up-32.svg")])}
+    {renderItem("CaretLeft", createMultiVariant(<CaretLeftIcon/>), [createVariant("32x32", <CaretLeftIcon32 />, "icon-caret-left-32.svg")])}
+    {renderItem("CaretRight", createMultiVariant(<CaretRightIcon/>), [createVariant("32x32", <CaretRightIcon32 />, "icon-caret-right-32.svg")])}
+    {renderItem("CaretUpDown", createMultiVariant(<CaretUpDownIcon/>), [createVariant("32x32", <CaretUpDownIcon32 />, "icon-caret-up-down-32.svg")])}
+    {renderItem("CheckCircle", createMultiVariant(<CheckCircleIcon/>), [createVariant("32x32", <CheckCircleIcon32 />, "icon-check-circle-32.svg")])}
+    {renderItem("Checkmark", createMultiVariant(<CheckmarkIcon/>), [createVariant("32x32", <CheckmarkIcon32 />, "icon-checkmark-32.svg")])}
+    {renderItem("Chevron", createMultiVariant(<ChevronIcon/>), [createVariant("32x32", <ChevronIcon32 />, "icon-chevron-32.svg")])}
+    {renderItem("ChevronUp", createMultiVariant(<ChevronUpIcon/>), [createVariant("32x32", <ChevronUpIcon32 />, "icon-chevron-up-32.svg")])}
+    {renderItem("ChevronDown", createMultiVariant(<ChevronDownIcon/>), [createVariant("32x32", <ChevronDownIcon32 />, "icon-chevron-down-32.svg")])}
+    {renderItem("ChevronLeft", createMultiVariant(<ChevronLeftIcon/>), [createVariant("32x32", <ChevronLeftIcon32 />, "icon-chevron-left-32.svg")])}
+    {renderItem("ChevronRight", createMultiVariant(<ChevronRightIcon/>), [createVariant("32x32", <ChevronRightIcon32 />, "icon-chevron-right-32.svg")])}
+    {renderItem("ChevronUpDown", createMultiVariant(<ChevronUpDownIcon/>), [createVariant("32x32", <ChevronUpDownIcon32 />, "icon-chevron-up-down-32.svg")])}
+    {renderItem("ClearFilter", createMultiVariant(<ClearFilterIcon/>), [createVariant("32x32", <ClearFilterIcon32 />, "icon-clear-filter-32.svg")])}
+    {renderItem("Close", createMultiVariant(<CloseIcon/>), [createVariant("32x32", <CloseIcon32 />, "icon-close-32.svg")])}
+    {renderItem("Cross", createMultiVariant(<CrossIcon/>), [createVariant("32x32", <CrossIcon32 />, "icon-cross-32.svg")])}
+    {renderItem("CsvFile", createMultiVariant(<CsvFileIcon/>), [createVariant("32x32", <CsvFileIcon32 />, "icon-csv-file-32.svg")])}
+    {renderItem("DeleteLink", createMultiVariant(<DeleteLinkIcon/>), [createVariant("32x32", <DeleteLinkIcon32 />, "icon-delete-link-32.svg")])}
+    {renderItem("DoNotDisturb", createMultiVariant(<DoNotDisturbIcon/>), [createVariant("32x32", <DoNotDisturbIcon32 />, "icon-do-not-disturb-32.svg")])}
+    {renderItem("Download", createMultiVariant(<DownloadIcon/>), [createVariant("32x32", <DownloadIcon32 />, "icon-download-32.svg")])}
+    {renderItem("Edit", createMultiVariant(<EditIcon/>), [createVariant("32x32", <EditIcon32 />, "icon-edit-32.svg")])}
+    {renderItem("File", createMultiVariant(<FileIcon/>), [createVariant("32x32", <FileIcon32 />, "icon-file-32.svg")])}
+    {renderItem("Filter", createMultiVariant(<FilterIcon/>), [createVariant("32x32", <FilterIcon32 />, "icon-filter-32.svg")])}
+    {renderItem("Flag", createMultiVariant(<FlagIcon/>), [createVariant("32x32", <FlagIcon32 />, "icon-flag-32.svg")])}
+    {renderItem("Folder", createMultiVariant(<FolderIcon/>), [createVariant("32x32", <FolderIcon32 />, "icon-folder-32.svg")])}
+    {renderItem("Gear", createMultiVariant(<GearIcon/>), [createVariant("32x32", <GearIcon32 />, "icon-gear-32.svg")])}
+    {renderItem("Group", createMultiVariant(<GroupIcon/>), [createVariant("32x32", <GroupIcon32 />, "icon-group-32.svg")])}
+    {renderItem("GroupSetting", createMultiVariant(<GroupSettingIcon/>), [createVariant("32x32", <GroupSettingIcon32 />, "icon-group-setting-32.svg")])}
+    {renderItem("Guest", createMultiVariant(<GuestIcon/>), [createVariant("32x32", <GuestIcon32 />, "icon-guest-32.svg")])}
+    {renderItem("Help", createMultiVariant(<HelpIcon/>), [createVariant("32x32", <HelpIcon32 />, "icon-help-32.svg")])}
+    {renderItem("HorizontalDots", createMultiVariant(<HorizontalDotsIcon/>), [createVariant("32x32", <HorizontalDotsIcon32 />, "icon-horizontal-dots-32.svg")])}
+    {renderItem("Info", createMultiVariant(<InfoIcon/>), [createVariant("32x32", <InfoIcon32 />, "icon-info-32.svg")])}
+    {renderItem("Key", createMultiVariant(<KeyIcon/>), [createVariant("32x32", <KeyIcon32 />, "icon-key-32.svg")])}
+    {renderItem("Lightbulb", createMultiVariant(<LightbulbIcon/>), [createVariant("32x32", <LightbulbIcon32 />, "icon-lightbulb-32.svg")])}
+    {renderItem("Link", createMultiVariant(<LinkIcon/>), [createVariant("32x32", <LinkIcon32 />, "icon-link-32.svg")])}
+    {renderItem("Magnifier", createMultiVariant(<MagnifierIcon/>), [createVariant("32x32", <MagnifierIcon32 />, "icon-magnifier-32.svg")])}
+    {renderItem("Mail", createMultiVariant(<MailIcon/>), [createVariant("32x32", <MailIcon32 />, "icon-mail-32.svg")])}
+    {renderItem("MusicFile", createMultiVariant(<MusicFileIcon/>), [createVariant("32x32", <MusicFileIcon32 />, "icon-music-file-32.svg")])}
+    {renderItem("NoGuest", createMultiVariant(<NoGuestIcon/>), [createVariant("32x32", <NoGuestIcon32 />, "icon-no-guest-32.svg")])}
+    {renderItem("Notification", createMultiVariant(<NotificationIcon/>), [createVariant("32x32", <NotificationIcon32 />, "icon-notification-32.svg")])}
+    {renderItem("PdfFile", createMultiVariant(<PdfFileIcon/>), [createVariant("32x32", <PdfFileIcon32 />, "icon-pdf-file-32.svg")])}
+    {renderItem("Picture", createMultiVariant(<PictureIcon/>), [createVariant("32x32", <PictureIcon32 />, "icon-picture-32.svg")])}
+    {renderItem("Printer", createMultiVariant(<PrinterIcon/>), [createVariant("32x32", <PrinterIcon32 />, "icon-printer-32.svg")])}
+    {renderItem("Privacy", createMultiVariant(<PrivacyIcon/>), [createVariant("32x32", <PrivacyIcon32 />, "icon-privacy-32.svg")])}
+    {renderItem("PrivateGroup", createMultiVariant(<PrivateGroupIcon/>), [createVariant("32x32", <PrivateGroupIcon32 />, "icon-private-group-32.svg")])}
+    {renderItem("PublicGroup", createMultiVariant(<PublicGroupIcon/>), [createVariant("32x32", <PublicGroupIcon32 />, "icon-public-group-32.svg")])}
+    {renderItem("RemoveGuest", createMultiVariant(<RemoveGuestIcon/>), [createVariant("32x32", <RemoveGuestIcon32 />, "icon-remove-guest-32.svg")])}
+    {renderItem("RemoveUser", createMultiVariant(<RemoveUserIcon/>), [createVariant("32x32", <RemoveUserIcon32 />, "icon-remove-user-32.svg")])}
+    {renderItem("Security", createMultiVariant(<SecurityIcon/>), [createVariant("32x32", <SecurityIcon32 />, "icon-security-32.svg")])}
+    {renderItem("Settings", createMultiVariant(<SettingsIcon/>), [createVariant("32x32", <SettingsIcon32 />, "icon-settings-32.svg")])}
+    {renderItem("Share", createMultiVariant(<ShareIcon/>), [createVariant("32x32", <ShareIcon32 />, "icon-share-32.svg")])}
+    {renderItem("Signin", createMultiVariant(<SigninIcon/>), [createVariant("32x32", <SigninIcon32 />, "icon-signin-32.svg")])}
+    {renderItem("Signout", createMultiVariant(<SignoutIcon/>), [createVariant("32x32", <SignoutIcon32 />, "icon-signout-32.svg")])}
+    {renderItem("Trashbox", createMultiVariant(<TrashboxIcon/>), [createVariant("32x32", <TrashboxIcon32 />, "icon-trashbox-32.svg")])}
+    {renderItem("Upload", createMultiVariant(<UploadIcon/>), [createVariant("32x32", <UploadIcon32 />, "icon-upload-32.svg")])}
+    {renderItem("User", createMultiVariant(<UserIcon/>), [createVariant("32x32", <UserIcon32 />, "icon-user-32.svg")])}
+    {renderItem("VerticalDots", createMultiVariant(<VerticalDotsIcon/>), [createVariant("32x32", <VerticalDotsIcon32 />, "icon-vertical-dots-32.svg")])}
+    {renderItem("VideoFile", createMultiVariant(<VideoFileIcon/>), [createVariant("32x32", <VideoFileIcon32 />, "icon-video-file-32.svg")])}
+    {renderItem("View", createMultiVariant(<ViewIcon/>), [createVariant("32x32", <ViewIcon32 />, "icon-view-32.svg")])}
+    {renderItem("Warning", createMultiVariant(<WarningIcon/>), [createVariant("32x32", <WarningIcon32 />, "icon-warning-32.svg")])}
 </IconGallery>
 
 ## Dimensions
@@ -232,7 +280,7 @@ function render() {
 
 #### Variants
 
-Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
+Variants components let you decide at import time which variant of an icon to use. Use a variant component, where available, to pair an icon variant with any dimensions.
 
 ```jsx
 import { CalendarIcon24 } from "@orbit-ui/react-components";
@@ -274,40 +322,40 @@ You can customize an icon dimensions with either [Tachyons dimensions classes](?
 #### Image source
 
 ```jsx
-import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
+import CalendarIcon32 from "@orbit-ui/icons/icon-calendar-32.svg";
 
 function render() {
-    return <img src={CalendarIcon24} alt="Calendar" className="w6 h6" />;
+    return <img src={CalendarIcon32} alt="Calendar" className="w7 h7 stroke-marine-900" />;
 }
 ```
 
 #### CSS background
 
 ```css
-.calendar-24 {
-    background: url("~@orbit-ui/icons/icon-calendar-24.svg");
-    width: var(--o-ui-global-scale-foxtrot);
-    height: var(--o-ui-global-scale-foxtrot);
+.calendar-32 {
+    background: url("~@orbit-ui/icons/icon-calendar-32.svg");
+    width: var(--o-ui-global-scale-golf);
+    height: var(--o-ui-global-scale-golf);
 }
 ```
 
 ## Color
 
-An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
+An SVG object get it's color from the [stroke attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `stroke` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `stroke` property.
 
-This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/foundation--page#colors).
+This means that you can alter the color of an icon by specifying a new `stroke` value with either [Tachyons stroke classes](?path=/docs/colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/foundation--page#colors).
 
->If you apply a fill color to an icon and the color doesn't change, you should validate that the definition of the SVG doesn't contains any <code>fill</code> attribute. If the SVG contains a <code>fill</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.
+<code>stroke</code> attribute. If the SVG contains a <code>stroke</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.
 
 ### React components
 
-To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop:
+To set the color of an icon component, you can add [Tachyons stroke classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop:
 
 ```jsx
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon className="fill-marine-900" aria-label="Calendar" />
+    return <CalendarIcon className="stroke-marine-900" aria-label="Calendar" />
 }
 ```
 
@@ -317,30 +365,30 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon style={{ fill: "var(--o-ui-global-marine-900)" }} aria-label="Calendar" />;
+    return <CalendarIcon style={{ stroke: "var(--o-ui-global-marine-900)" }} aria-label="Calendar" />;
 }
 ```
 
 ### Image source
 
-To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/colors--page#colors) to set a dynamic color:
+To set the color of an image icon you can add [Tachyons stroke classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/colors--page#colors) to set a dynamic color:
 
 ```jsx
-import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
+import CalendarIcon32 from "@orbit-ui/icons/icon-calendar-32.svg";
 
 function render() {
-    return <img src={CalendarIcon24} alt="calendar" className="fill-marine-900" />;
+    return <img src={CalendarIcon32} alt="calendar" className="stroke-marine-900" />;
 }
 ```
 
 ### CSS background
 
-You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/foundation--page#colors) to the `fill` property of the class:
+You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/foundation--page#colors) to the `stroke` property of the class:
 
 ```css
-.calendar-24 {
-    background: url("~@orbit-ui/icons/icon-calendar-24.svg");
-    fill: var(--o-ui-global-marine-900);
+.calendar-32 {
+    background: url("~@orbit-ui/icons/icon-calendar-32.svg");
+    stroke: var(--o-ui-global-marine-900);
 }
 ```
 

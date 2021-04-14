@@ -561,7 +561,7 @@ a.o-ui-button {
 
 .o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-start-icon,
 .o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-end-icon {
-    fill: var(--o-ui-global-white);
+    stroke: var(--o-ui-global-white);
     opacity: .9;
 }
 

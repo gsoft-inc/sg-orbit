@@ -8,7 +8,7 @@ const CustomTrigger = forwardRef((props, ref) => {
             aria-label="Email"
             ref={ref}
         >
-            <EmailIcon />
+            <MailIcon />
         </IconButton>
     );
 });

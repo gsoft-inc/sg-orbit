@@ -2,9 +2,9 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box } from "@react-components/box";
 import { Button, IconButton } from "@react-components/button"
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { EmailIcon, LightbulbIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerTooltip, InnerTooltipTrigger, Tooltip, TooltipTrigger } from "@react-components/tooltip";
+import { LightbulbIcon, MailIcon } from "@react-components/icons";
 import { TextLink } from "@react-components/link";
 
 <Meta
@@ -51,7 +51,7 @@ A tooltip trigger can be anything.
                 <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
             </TooltipTrigger>
             <TooltipTrigger>
-                <EmailIcon />
+                <MailIcon />
                 <Tooltip>Send an email to the orbital space station.</Tooltip>
             </TooltipTrigger>
         </Inline>
@@ -68,7 +68,7 @@ A tooltip can contains [icons](?path=/docs/icon-gallery--page) and rich content 
             <Button>Trigger</Button>
             <Tooltip>
                 <Box className="flex">
-                    <EmailIcon />
+                    <MailIcon />
                     <Box>
                         Your email have been sent to the <TextLink href="https://en.wikipedia.org/wiki/Space_station">orbital space station</TextLink>.
                     </Box>

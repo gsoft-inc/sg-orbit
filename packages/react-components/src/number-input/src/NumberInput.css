@@ -78,7 +78,7 @@
 }
 
 .o-ui-number-input-spinner .o-ui-icon {
-    fill: var(--icon-1);
+    stroke: var(--o-ui-alias-icon-1);
 }
 
 /* SPINNER | ACTIVE */
@@ -86,13 +86,13 @@
 .o-ui-number-input-spinner-decrement:active,
 .o-ui-number-input-spinner-increment:hover:active,
 .o-ui-number-input-spinner-decrement:hover:active {
-    background-color: var(--o-ui-background-4-active);
+    background-color: var(--o-ui-alias-background-4-active);
 }
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-background-4-hover);
+    background-color: var(--o-ui-alias-background-4-hover);
 }
 
 .o-ui-number-input-spinner-increment:disabled,

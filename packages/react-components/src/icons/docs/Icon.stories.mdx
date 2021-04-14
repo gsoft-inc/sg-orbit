@@ -90,15 +90,15 @@ An icon can vary in size.
 
 ### Color
 
-An icon color can be altered by specifying a fill value with [Tachyons fill classes](?path=/docs/materials-colors--page#tachyons):
+An icon color can be altered by specifying a stroke value with [Tachyons stroke classes](?path=/docs/materials-colors--page#tachyons):
 
 <Preview scope={{ AzureIcon32 }}>
     <Story name="color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
-                <Icon type={AzureIcon32} size="lg" className="fill-primary-100" />
-                <Icon type={AzureIcon32} size="lg" className="fill-primary-500" />
-                <Icon type={AzureIcon32} size="lg" className="fill-primary-900" />
+                <Icon type={AzureIcon32} size="lg" className="stroke-primary-100" />
+                <Icon type={AzureIcon32} size="lg" className="stroke-primary-500" />
+                <Icon type={AzureIcon32} size="lg" className="stroke-primary-900" />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -110,9 +110,9 @@ If your color is dynamic, you can use the `style` prop and [Orbit UI color varia
     <Story name="dynamic-color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
-                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--o-ui-alias-primary-100)" }} />
-                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--o-ui-alias-primary-500)" }} />
-                <Icon type={AzureIcon32} size="lg" style={{ fill: "var(--o-ui-alias-primary-900)" }} />
+                <Icon type={AzureIcon32} size="lg" style={{ stroke: "var(--o-ui-alias-primary-100)" }} />
+                <Icon type={AzureIcon32} size="lg" style={{ stroke: "var(--o-ui-alias-primary-500)" }} />
+                <Icon type={AzureIcon32} size="lg" style={{ stroke: "var(--o-ui-alias-primary-900)" }} />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -147,9 +147,9 @@ A multi variants icon support the same props as `<Icon />`.
     <Story name="multi-variants color">
         <CheckeredBackground>
             <Inline verticalAlign="end" gap={2}>
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-100" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-500" />
-                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="fill-primary-900" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="stroke-primary-100" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="stroke-primary-500" />
+                <MultiVariantIcon type24={FilterIcon24} type32={FilterIcon32} size="lg" className="stroke-primary-900" />
             </Inline>
         </CheckeredBackground>
     </Story>

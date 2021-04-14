@@ -1,7 +1,7 @@
 import "./NumberInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { CarretIcon } from "../../icons";
+import { CaretIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { isNil } from "lodash";
@@ -132,7 +132,7 @@ function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon size="xs" />
+                <CaretIcon size="xs" />
             </button>
             <button
                 onClick={handleDecrement}
@@ -142,7 +142,7 @@ function Spinner({
                 disabled={disabled}
                 onFocus={onFocus}
             >
-                <CarretIcon
+                <CaretIcon
                     size="xs"
                     className="o-ui-rotate-180"
                 />

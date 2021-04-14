@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
-import { EmailIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
+import { MailIcon } from "@react-components/icons";
 import { TextLink } from "@react-components/link";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -53,14 +53,14 @@ stories()
     )
     .add("icon trigger", () =>
         <TooltipTrigger open>
-            <EmailIcon />
+            <MailIcon />
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>
     )
     .add("icon button trigger", () =>
         <TooltipTrigger open>
             <IconButton aria-label="Email">
-                <EmailIcon />
+                <MailIcon />
             </IconButton>
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>

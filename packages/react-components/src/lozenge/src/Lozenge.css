@@ -43,6 +43,6 @@
 }
 
 .o-ui-lozenge.o-ui-lozenge-primary .o-ui-lozenge-icon {
-    fill: currentColor;
+    stroke: currentColor;
     color: inherit;
 }
