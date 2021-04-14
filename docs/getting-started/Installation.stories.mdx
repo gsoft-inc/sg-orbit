@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs/blocks";
-import { PackageInstallationSnippet, ThemedSnippet } from "@stories/components";
+import { PackageInstallationSnippet } from "@stories/components";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
@@ -30,12 +30,9 @@ import { Button, DateRangePicker, MultiSelect, AddIcon } from "@orbit-ui/react-c
 
 #### Import styles
 
-<ThemedSnippet
-    apricot={"@import \"~@orbit-ui/react/apricot.css\";"}
-    overcast={"@import \"~@orbit-ui/react/overcast.css\";"}
-    desktop={"@import \"~@orbit-ui/react/desktop.css\";"}
-    language="css"
-/>
+```css
+@import "~@orbit-ui/react/index.css";
+```
 
 #### Apply font
 
@@ -64,27 +61,12 @@ npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/fo
 
 #### Import styles
 
-<ThemedSnippet
-    apricot={`
-        @import "~@orbit-ui/fonts";
-        @import "~@orbit-ui/css-normalize";
-        @import "~@orbit-ui/foundation";
-        @import "~@orbit-ui/tachyons/apricot.css";
-    `}
-    overcast={`
-        @import "~@orbit-ui/fonts";
-        @import "~@orbit-ui/css-normalize";
-        @import "~@orbit-ui/foundation";
-        @import "~@orbit-ui/tachyons/overcast.css";
-    `}
-    desktop={`
-        @import "~@orbit-ui/fonts";
-        @import "~@orbit-ui/css-normalize";
-        @import "~@orbit-ui/foundation";
-        @import "~@orbit-ui/tachyons/desktop.css";
-    `}
-    language="css"
-/>
+```css
+@import "~@orbit-ui/fonts";
+@import "~@orbit-ui/css-normalize";
+@import "~@orbit-ui/foundation";
+@import "~@orbit-ui/tachyons";
+```
 
 #### Apply font
 
@@ -111,7 +93,7 @@ import { Button, DateRangePicker, MultiSelect, AddIcon } from "@orbit-ui/react-c
 
 ## Theme provider
 
-Once installed, for Orbit UI components to use your product theme, you must declare a [`ThemeProvider`](?path=/docs/theme-provider--default-story) at the root of your application.
+Once installed, for Orbit UI components to Apricot style or any other theme styles, you must declare a [`ThemeProvider`](?path=/docs/theme-provider--default-story) at the root of your application.
 
 ```jsx
 // index.jsx
@@ -121,7 +103,7 @@ import { render } from "react-dom";
 import App from "./App";
 
 render(
-    <ThemeProvider theme="apricot" colorScheme="light">
+    <ThemeProvider colorScheme="light">
         <App />
     </ThemeProvider>,
     document.getElementById("root")

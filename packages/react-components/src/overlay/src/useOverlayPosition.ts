@@ -3,15 +3,15 @@ import { isNil } from "lodash";
 import { useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
-export type { Placement };
+export type OverlayPosition = Placement;
 
 export interface UseOverlayPositionProps {
     arrowElement?: HTMLElement;
-    position?: Placement
+    position?: OverlayPosition;
     offset?: number[];
-    allowFlip?: boolean
+    allowFlip?: boolean;
     allowPreventOverflow?: boolean;
-    boundaryElement?: HTMLElement
+    boundaryElement?: HTMLElement;
 }
 
 export function useOverlayPosition(triggerElement: Element, overlayElement: HTMLElement, {

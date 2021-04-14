@@ -20,11 +20,11 @@ export interface InnerOverlayProps {
     /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
-    containerElement?: HTMLElement
+    containerElement?: HTMLElement;
     /**
      * z-index of the overlay.
      */
-    zIndex?: number,
+    zIndex?: number;
     /**
      * An HTML element type or a custom React element type to render as.
      */

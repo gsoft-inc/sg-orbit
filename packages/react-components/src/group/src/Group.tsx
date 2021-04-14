@@ -51,7 +51,7 @@ export interface InnerGroupProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 export function InnerGroup({
     orientation,

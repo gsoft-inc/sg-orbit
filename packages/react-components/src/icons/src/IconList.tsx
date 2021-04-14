@@ -18,7 +18,7 @@ interface InnerIconListProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
     * @ignore
     */

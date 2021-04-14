@@ -1,5 +1,16 @@
 // Idea and naming based off Chakra UI. https://github.com/chakra-ui/chakra-ui/blob/main/packages/system/src/system.types.tsx
-import { ComponentProps, ElementRef, ElementType, ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes, WeakValidationMap, forwardRef as reactForwardRef } from "react";
+
+import {
+    ComponentProps,
+    ElementRef,
+    ElementType,
+    ForwardRefExoticComponent,
+    ForwardRefRenderFunction,
+    HTMLProps,
+    RefAttributes,
+    WeakValidationMap,
+    forwardRef as reactForwardRef
+} from "react";
 
 type AsRef<T> = T extends ElementType ? ElementRef<T> : T;
 
@@ -24,9 +35,7 @@ export type OmitCommonProps<
     OmitAdditionalProps extends keyof any = never
     > = Omit<Target, "forwardedRef" | OmitAdditionalProps>
 
-type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>> & {
-    [key: string]: any;
-};
+type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>>;
 
 export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
     defaultProps?: Partial<any>;

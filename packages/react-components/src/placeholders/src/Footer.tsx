@@ -18,7 +18,7 @@ export interface InnerFooterProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerFooter({

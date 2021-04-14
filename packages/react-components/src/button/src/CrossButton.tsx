@@ -1,9 +1,9 @@
+import { AriaLabelingProps, forwardRef, slot } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
-import { forwardRef, slot } from "../../shared";
 
-interface InnerCrossButtonProps {
+interface InnerCrossButtonProps extends AriaLabelingProps {
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -25,7 +25,7 @@ interface InnerCrossButtonProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClick?(event: SyntheticEvent): void,
+    onClick?(event: SyntheticEvent): void;
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

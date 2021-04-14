@@ -2,16 +2,12 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { Keys, augmentElement, cssModule, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { DomProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
 import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-export interface InnerDisclosureProps {
-    /**
-    * @ignore
-     */
-    id?: string;
+export interface InnerDisclosureProps extends DomProps {
     /**
      * A controlled open value.
      */
@@ -38,7 +34,7 @@ export interface InnerDisclosureProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerDisclosure({
@@ -130,7 +126,6 @@ export function InnerDisclosure({
                     rest,
                     {
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
-                        role: "presentation",
                         as,
                         ref: contentRef
                     },

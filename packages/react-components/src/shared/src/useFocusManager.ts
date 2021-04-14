@@ -40,13 +40,13 @@ export class ElementIterator<T> {
 }
 
 interface FocusManagerOptions {
-    isVirtual?: boolean,
+    isVirtual?: boolean;
     keyProp?: string;
 }
 
 export interface FocusOptions {
-    onFocus?(element?: HTMLElement): void
-    onNotFound?(): void
+    onFocus?(element?: HTMLElement): void;
+    onNotFound?(): void;
     canFocus?(element: HTMLElement): boolean;
 }
 
@@ -205,7 +205,7 @@ export class FocusManager {
         return this.focusElement(target, options);
     }
 
-    focusKey(key: string, options: FocusOptions) {
+    focusKey(key: string, options?: FocusOptions) {
         const { elements } = this.scope;
 
         if (isNil(this.keyProp)) {
@@ -215,7 +215,7 @@ export class FocusManager {
         return this.focusElement(elements.find(x => x.getAttribute(this.keyProp) === key?.toString()), options);
     }
 
-    focusTarget(target: FocusTarget, options: FocusOptions) {
+    focusTarget(target: string, options?: FocusOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
@@ -226,7 +226,7 @@ export class FocusManager {
         }
     }
 
-    search(query: string, options: FocusOptions) {
+    search(query: string, options?: FocusOptions) {
         const { elements } = this.scope;
 
         return this.focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);

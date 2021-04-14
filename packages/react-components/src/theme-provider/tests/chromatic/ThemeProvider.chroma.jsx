@@ -31,40 +31,30 @@ function PrimaryColors() {
 
 stories()
     .add("nesting", () =>
-        <ThemeProvider theme="apricot" colorScheme="light">
-            <ThemeProvider theme="desktop" colorScheme="dark">
+        <ThemeProvider theme="apricot">
+            <ThemeProvider theme="desktop">
                 <PrimaryColors />
             </ThemeProvider>
         </ThemeProvider>
     )
-    .add("apricot light", () =>
-        <ThemeProvider theme="apricot" colorScheme="light">
+    .add("apricot", () =>
+        <ThemeProvider theme="apricot">
             <PrimaryColors />
         </ThemeProvider>
     )
-    .add("apricot dark", () =>
-        <ThemeProvider theme="apricot" colorScheme="dark">
+    .add("desktop", () =>
+        <ThemeProvider theme="desktop">
             <PrimaryColors />
         </ThemeProvider>
     )
-    .add("overcast light", () =>
-        <ThemeProvider theme="overcast" colorScheme="light">
-            <PrimaryColors />
+    .add("light", () =>
+        <ThemeProvider colorScheme="light">
+            <div className="pa4 background-2"></div>
         </ThemeProvider>
     )
-    .add("overcast dark", () =>
-        <ThemeProvider theme="overcast" colorScheme="dark">
-            <PrimaryColors />
-        </ThemeProvider>
-    )
-    .add("desktop light", () =>
-        <ThemeProvider theme="desktop" colorScheme="light">
-            <PrimaryColors />
-        </ThemeProvider>
-    )
-    .add("desktop dark", () =>
-        <ThemeProvider theme="desktop" colorScheme="dark">
-            <PrimaryColors />
+    .add("dark", () =>
+        <ThemeProvider colorScheme="dark">
+            <div className="pa4 background-2"></div>
         </ThemeProvider>
     )
     .add("set color scheme with api", () => {

@@ -5,7 +5,7 @@ const IGNORE_LIST = [
     "dropdown"
 ];
 
-const indexJs = fs.readFileSync(path.resolve(__dirname, "../src/index.js"), "utf-8");
+const indexJs = fs.readFileSync(path.resolve(__dirname, "../src/index.ts"), "utf-8");
 
 const directories = fs.readdirSync(path.resolve(__dirname, "../src"), { withFileTypes: true })
     .filter(x => x.isDirectory())

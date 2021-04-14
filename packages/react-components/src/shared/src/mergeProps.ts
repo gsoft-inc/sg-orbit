@@ -4,8 +4,8 @@ import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
 interface CompositeKeyWeakMapNode<T> {
-    value?: T,
-    map: WeakMap<any, any>
+    value?: T;
+    map: WeakMap<any, any>;
 }
 
 // Useful to compose a weak map key with multiple objects.
@@ -59,7 +59,7 @@ export class CompositeKeyWeakMap<T> {
 
 const cache = new CompositeKeyWeakMap<any>();
 
-function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSecond, x: TFirst) => TOutput) {
+function memoMerge<X, Y, Output>(x: X, y: Y, fct: (y: Y, x: X) => Output) {
     if (isNil(x) && isNil(y)) {
         return undefined;
     }
@@ -73,7 +73,7 @@ function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSe
     }
 
     const key = [x, y];
-    const value = cache.get(key) as TOutput;
+    const value = cache.get(key) as Output;
 
     if (!isUndefined(value)) {
         return value;
@@ -86,7 +86,7 @@ function memoMerge<TFirst, TSecond, TOutput>(x: TFirst, y: TSecond, fct: (y: TSe
     return mergeResult;
 }
 
-function merge(props: any, newProps: any) {
+function merge(props: Record<string, any>, newProps: Record<string, any>) {
     Object
         .keys(newProps)
         .forEach(x => {
@@ -113,7 +113,7 @@ function merge(props: any, newProps: any) {
     return props;
 }
 
-// taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379
+// Taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379.
 type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 

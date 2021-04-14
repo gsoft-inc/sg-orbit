@@ -5,6 +5,7 @@ import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import {
+    DomProps,
     Keys,
     forwardRef,
     mergeProps,
@@ -20,24 +21,15 @@ import {
 import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
-export enum ExpansionMode {
-    single = "single",
-    multiple = "multiple"
-}
-
-export interface InnerAccordionProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerAccordionProps extends DomProps {
     /**
      * A controlled set of expanded item keys.
      */
-    expandedKeys?: string[],
+    expandedKeys?: string[];
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */
-    defaultExpandedKeys?: string[]
+    defaultExpandedKeys?: string[];
     /**
      * Called when an accordion item is toggled.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -48,7 +40,7 @@ export interface InnerAccordionProps {
     /**
      * The type of expansion that is allowed.
      */
-    expansionMode: ExpansionMode;
+    expansionMode: "single" | "multiple";
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
@@ -72,7 +64,7 @@ export function InnerAccordion({
     expandedKeys: expandedKeysProp,
     defaultExpandedKeys,
     onExpansionChange,
-    expansionMode = ExpansionMode.single,
+    expansionMode = "single",
     autoFocus,
     as = "div",
     children,
@@ -105,7 +97,7 @@ export function InnerAccordion({
         let newKeys;
 
         if (!expandedKeys.includes(toggledKey)) {
-            if (expansionMode === ExpansionMode.multiple) {
+            if (expansionMode === "multiple") {
                 newKeys = [...expandedKeys, toggledKey];
             } else {
                 newKeys = [toggledKey];
@@ -142,7 +134,6 @@ export function InnerAccordion({
                 {items.map(({
                     id: itemId,
                     key,
-                    // position,
                     header,
                     panel
                 }) => (

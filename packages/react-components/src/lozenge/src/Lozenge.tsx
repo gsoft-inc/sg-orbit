@@ -26,7 +26,7 @@ export interface InnerLozengeProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 const textSize = createSizeAdapter({

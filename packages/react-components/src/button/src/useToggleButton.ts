@@ -8,9 +8,9 @@ export interface UseToggleButtonProps<Shape> {
     active?: boolean;
     checked?: boolean;
     defaultChecked?: boolean;
-    value?: string | number;
+    value?: string;
     onChange?(event: SyntheticEvent, isChecked: boolean): void;
-    onCheck?(event: SyntheticEvent, value: string | number): void;
+    onCheck?(event: SyntheticEvent, value: string): void;
     forwardedRef?: ForwardedRef<any>;
 }
 

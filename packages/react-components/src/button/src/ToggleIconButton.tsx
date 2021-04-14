@@ -1,9 +1,9 @@
+import { AriaLabelingProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
-import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-interface InnerToggleIconButtonProps {
+interface InnerToggleIconButtonProps extends AriaLabelingProps {
     /**
      * A controlled checked value.
      */
@@ -15,7 +15,7 @@ interface InnerToggleIconButtonProps {
     /**
      * 	The value to associate with when in a group.
      */
-    value?: string | number;
+    value?: string;
     /**
      * Called when the toggle icon button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.

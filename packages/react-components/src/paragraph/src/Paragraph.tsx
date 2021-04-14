@@ -24,7 +24,7 @@ export interface InnerParagraphProps {
     /**
     * @ignore
     */
-    forwardedRef: ForwardedRef<any>
+    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {

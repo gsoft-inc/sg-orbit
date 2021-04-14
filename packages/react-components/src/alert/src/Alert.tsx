@@ -159,7 +159,7 @@ Alert.displayName = "Alert";
 
 ////////
 
-const variations: { tone: keyof typeof Role, icon: ReactElement }[] = [
+const variations: { tone: keyof typeof Role; icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
     { tone: "positive", icon: <CheckmarkIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
@@ -208,7 +208,7 @@ export interface AlertTemplateProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onDismiss?(event: SyntheticEvent): void,
+    onDismiss?(event: SyntheticEvent): void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -216,7 +216,7 @@ export interface AlertTemplateProps {
     /**
      * React children.
      */
-    children: ReactNode
+    children: ReactNode;
 }
 
 // Dummy component for documentation purpose.

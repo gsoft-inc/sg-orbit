@@ -17,7 +17,7 @@ export interface InnerCounterProps {
     /**
      * Whether or not to add emphasis to the counter.
      */
-    highlight?: boolean,
+    highlight?: boolean;
     /**
      * Whether or not to reverse counter elements order.
      */

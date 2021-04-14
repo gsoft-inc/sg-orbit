@@ -18,6 +18,8 @@ import { InnerBox } from "@react-components/box";
 
 ## Usage
 
+As the design system evolve, we plan on adding more features which will justify using a box component instead of a native DOM element. Therefore, we do recommend you start using it as early as possible even if it currently only helps with [slots](?path=/docs/slots--page).
+
 ### Default
 
 A default box.
@@ -25,6 +27,16 @@ A default box.
 <Preview>
     <Story name="default">
         <Box>Enjoy space like never before.</Box>
+    </Story>
+</Preview>
+
+### As DOM element
+
+A box component will render as a `div` element by default. You can change this by using the `as` prop.
+
+<Preview>
+    <Story name="dom element">
+        <Box as="span">Enjoy space like never before.</Box>
     </Story>
 </Preview>
 

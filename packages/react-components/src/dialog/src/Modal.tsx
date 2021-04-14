@@ -1,19 +1,15 @@
 import "./Modal.css";
 
+import { AriaLabelingProps, DomProps, cssModule, forwardRef, mergeProps, useAutoFocus, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver, useSlots } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useEffect, useMemo, useState } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
-import { cssModule, forwardRef, mergeProps, useAutoFocus, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver, useSlots } from "../../shared";
 import { isNil } from "lodash";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-interface InnerModalProps {
-    /**
-     * @ignore
-     */
-    id?: string;
+export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
      * Whether or not the modal should close on outside interactions.
      */
@@ -22,14 +18,6 @@ interface InnerModalProps {
      * z-index of the modal.
      */
     zIndex?: number;
-    /**
-     * @ignore
-     */
-    "aria-label"?: string;
-    /**
-     * @ignore
-     */
-    "aria-labelledby"?: string;
     /**
      * Additional props to render on the wrapper element.
      */

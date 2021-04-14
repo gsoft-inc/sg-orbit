@@ -1,7 +1,7 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { GroupIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Item } from "@react-components/placeholders";
+import { Item } from "@react-components/collection";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -341,7 +341,7 @@ stories()
         </Autocomplete>
     )
     .add("custom menu width", () =>
-        <Autocomplete menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -362,7 +362,7 @@ stories()
         </Autocomplete>
     )
     .add("align start", () =>
-        <Autocomplete align="start" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="start" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -374,7 +374,7 @@ stories()
          }
     )
     .add("align end", () =>
-        <Autocomplete align="end" menuProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="end" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>

@@ -19,9 +19,11 @@ import { ThemeProvider } from "@react-components/theme-provider";
 
 ## Usage
 
-A Provider must be the root component of your application. All other Orbit UI components rely on the `ThemeProvider` to define the theme and color scheme that they need in order to render.
+A Provider must be the root component of your application. All other Orbit UI components rely on the `ThemeProvider` to define the theme and color scheme they need to render accurately.
 
 If you need to access the current theme you can do so, by using the `useThemeContext` hook.
+
+> The default theme is *apricot*, *desktop* theme is only available to showcase how multi-theme works in Orbit.
 
 ### Default
 
@@ -29,7 +31,7 @@ A default theme provider.
 
 <Preview>
     <Story name="default">
-        <ThemeProvider theme="desktop" colorScheme="light">
+        <ThemeProvider colorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>
@@ -41,8 +43,8 @@ Theme providers can be nested.
 
 <Preview>
     <Story name="nesting">
-        <ThemeProvider theme="desktop" colorScheme="light">
-            <ThemeProvider theme="overcast" colorScheme="light">
+        <ThemeProvider colorScheme="light">
+            <ThemeProvider theme="desktop" colorScheme="light">
                 <Button color="primary">Cutoff</Button>
             </ThemeProvider>
         </ThemeProvider>
@@ -57,7 +59,7 @@ To enable this feature, you must pass the `system` value to `colorScheme` and an
 
 <Preview>
     <Story name="system">
-        <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
+        <ThemeProvider colorScheme="system" defaultColorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>

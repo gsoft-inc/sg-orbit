@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "11.0.1",
+    "version": "12.0.0-alpha.0",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -18,8 +18,8 @@
     "scripts": {
         "start": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "yarn build:js",
-        "build:types": "tsc --emitDeclarationOnly",
+        "build": "run-s build:*",
+        "build:types": "tsc -p ./tsconfig.types.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "prewatch": "yarn clean",
         "watch": "run-p \"build --watch\"",
@@ -35,13 +35,13 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@popperjs/core": "2.5.4",
-        "@reach/auto-id": "0.11.2",
+        "@popperjs/core": "2.9.2",
+        "@reach/auto-id": "0.15.0",
         "prop-types": "*",
+        "react-is": "17.0.2",
+        "react-popper": "2.2.5",
         "text-mask-core": "5.1.2",
-        "react-is": "17.0.1",
-        "react-popper": "2.2.4",
-        "use-debounce": "5.2.1"
+        "use-debounce": "6.0.1"
     },
     "gitHead": "12c3852000398fe0e93b8ebc2548bcb026478bfa"
 }

@@ -3,8 +3,8 @@ function ColorSchemePicker() {
 
     return (
         <Inline
-            gap={0}
-            className={cx({ "bg-marine-900": colorScheme === "dark" })}
+            gap={1}
+            className="background-1"
         >
             <TextLink
                 onClick={() => setColorScheme("light")}
@@ -25,7 +25,7 @@ function ColorSchemePicker() {
 
 render(() => {
     return (
-        <ThemeProvider theme="apricot" colorScheme="system" defaultColorScheme="light">
+        <ThemeProvider colorScheme="system" defaultColorScheme="light">
             <Stack>
                 <Button color="primary">Cutoff</Button>
                 <ColorSchemePicker />

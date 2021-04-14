@@ -3,7 +3,7 @@ import { Autocomplete, InnerAutocomplete } from "@react-components/autocomplete"
 import { Avatar } from "./Avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
-import { InnerItem, InnerSection, Item, Section } from "@react-components/placeholders";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
 import { Text } from "@react-components/text";
 
 <Meta
@@ -272,7 +272,7 @@ An autocomplete items can be rendered dynamically.
 
 An autocomplete items can be fetch from a remote source.
 
-The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+We provide an utility hook called `useAsyncSearch` which accept an *async* function responsible of fetching the data. You could roll your own utility hook as long as it returns a *loading indicator* and provide a function to handle *search* requests.
 
 <Preview filePath="/autocomplete/docs/RemoteItems" scope={{ ApiKey: "8aa06f2e50msh9ff37516b3c0282p1e8624jsn81c867aa0d74" }} />
 

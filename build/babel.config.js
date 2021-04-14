@@ -48,6 +48,8 @@ module.exports = {
                 useESModules: !IS_TEST
             }
         ],
+        "@babel/plugin-proposal-nullish-coalescing-operator",
+        "@babel/plugin-proposal-optional-chaining",
         "babel-plugin-jsx-control-statements",
         IS_PRODUCTION && "babel-plugin-jsx-remove-data-test-id",
         !IS_TEST && [
