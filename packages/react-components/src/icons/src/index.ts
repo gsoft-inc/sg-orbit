@@ -74,6 +74,7 @@ import { ReactComponent as InnerNotificationIcon32 } from "@orbit-ui/icons/dist/
 import { ReactComponent as InnerPdfFileIcon32 } from "@orbit-ui/icons/dist/icon-pdf-file-32.svg";
 import { ReactComponent as InnerPictureIcon32 } from "@orbit-ui/icons/dist/icon-picture-32.svg";
 import { ReactComponent as InnerPrinterIcon32 } from "@orbit-ui/icons/dist/icon-printer-32.svg";
+import { ReactComponent as InnerPrivacyIcon32 } from "@orbit-ui/icons/dist/icon-privacy-32.svg";
 import { ReactComponent as InnerPrivateGroupIcon32 } from "@orbit-ui/icons/dist/icon-private-group-32.svg";
 import { ReactComponent as InnerPublicGroupIcon32 } from "@orbit-ui/icons/dist/icon-public-group-32.svg";
 import { ReactComponent as InnerRemoveGuestIcon32 } from "@orbit-ui/icons/dist/icon-remove-guest-32.svg";
@@ -152,6 +153,7 @@ export const NotificationIcon32 = createOrbitIcon(InnerNotificationIcon32, "Noti
 export const PdfFileIcon32 = createOrbitIcon(InnerPdfFileIcon32, "PdfFileIcon32");
 export const PictureIcon32 = createOrbitIcon(InnerPictureIcon32, "PictureIcon32");
 export const PrinterIcon32 = createOrbitIcon(InnerPrinterIcon32, "PrinterIcon32");
+export const PrivacyIcon32 = createOrbitIcon(InnerPrivacyIcon32, "PrivacyIcon32");
 export const PrivateGroupIcon32 = createOrbitIcon(InnerPrivateGroupIcon32, "PrivateGroupIcon32");
 export const PublicGroupIcon32 = createOrbitIcon(InnerPublicGroupIcon32, "PublicGroupIcon32");
 export const RemoveGuestIcon32 = createOrbitIcon(InnerRemoveGuestIcon32, "RemoveGuestIcon32");
@@ -230,6 +232,7 @@ export const NotificationIcon = createOrbitIcon(InnerNotificationIcon32, "Notifi
 export const PdfFileIcon = createOrbitIcon(InnerPdfFileIcon32, "PdfFileIcon");
 export const PictureIcon = createOrbitIcon(InnerPictureIcon32, "PictureIcon");
 export const PrinterIcon = createOrbitIcon(InnerPrinterIcon32, "PrinterIcon");
+export const PrivacyIcon = createOrbitIcon(InnerPrivacyIcon32, "PrivacyIcon");
 export const PrivateGroupIcon = createOrbitIcon(InnerPrivateGroupIcon32, "PrivateGroupIcon");
 export const PublicGroupIcon = createOrbitIcon(InnerPublicGroupIcon32, "PublicGroupIcon");
 export const RemoveGuestIcon = createOrbitIcon(InnerRemoveGuestIcon32, "RemoveGuestIcon");

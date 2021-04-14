@@ -121,6 +121,8 @@ import {
     PictureIcon32,
     PrinterIcon,
     PrinterIcon32,
+    PrivacyIcon,
+    PrivacyIcon32,
     PrivateGroupIcon,
     PrivateGroupIcon32,
     PublicGroupIcon,
@@ -225,6 +227,7 @@ stories()
     .add("pdfFile", () => <TestSuite icon32={PdfFileIcon32} multiIcon={PdfFileIcon} />)
     .add("picture", () => <TestSuite icon32={PictureIcon32} multiIcon={PictureIcon} />)
     .add("printer", () => <TestSuite icon32={PrinterIcon32} multiIcon={PrinterIcon} />)
+    .add("privacy", () => <TestSuite icon32={PrivacyIcon32} multiIcon={PrivacyIcon} />)
     .add("privateGroup", () => <TestSuite icon32={PrivateGroupIcon32} multiIcon={PrivateGroupIcon} />)
     .add("publicGroup", () => <TestSuite icon32={PublicGroupIcon32} multiIcon={PublicGroupIcon} />)
     .add("removeGuest", () => <TestSuite icon32={RemoveGuestIcon32} multiIcon={RemoveGuestIcon} />)
