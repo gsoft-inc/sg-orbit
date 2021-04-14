@@ -3,8 +3,8 @@ import { isNil } from "lodash";
 import { useEventCallback, useRefState } from "../../shared";
 
 export interface UseFocusWithinProps {
-    onFocus?(event: FocusEvent): void;
-    onBlur?(event: FocusEvent): void;
+    onFocus?: (event: FocusEvent) => void;
+    onBlur?: (event: FocusEvent) => void;
     isDisabled?: boolean;
 }
 

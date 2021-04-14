@@ -55,14 +55,14 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      * @param {string} selectedKey - The new selected key.
      * @returns {void}
      */
-    onSelectionChange?(event: SyntheticEvent, selectedKey: string): void;
+    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     /**
      * Called when the select open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * The style to use.
      */

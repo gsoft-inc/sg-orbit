@@ -51,7 +51,7 @@ export interface InnerRadioGroupProps {
      * @param {string} value - The new value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, value: string): void;
+    onChange?: (event: SyntheticEvent, value: string) => void;
     /**
      * Whether or not the radio group should autoFocus on render.
      */

@@ -19,13 +19,13 @@ export interface InnerTagListProps {
      * @param {string} key - The item key.
      * @returns {void}
      */
-    onRemove?(event: SyntheticEvent, key: string): void;
+    onRemove?: (event: SyntheticEvent, key: string) => void;
     /**
      * Called when all items are cleared from the list.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClear?(event: SyntheticEvent): void;
+    onClear?: (event: SyntheticEvent) => void;
     /**
      * Whether or not tag items should be render as readonly.
      */

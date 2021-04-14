@@ -42,7 +42,7 @@ export interface InnerPasswordInputProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent): void;
+    onChange?: (event: SyntheticEvent) => void;
     /**
      * Whether or not the input should autofocus on render.
      */

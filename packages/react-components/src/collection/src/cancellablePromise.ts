@@ -1,6 +1,6 @@
 export interface CancellablePromise<T> {
     promise: Promise<T>;
-    cancel(): void;
+    cancel: () => void;
 }
 
 export interface PromiseStatus {

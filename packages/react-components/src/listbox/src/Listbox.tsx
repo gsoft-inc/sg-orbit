@@ -47,7 +47,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
-    onFocusChange?(event: SyntheticEvent, key: string, activeElement: HTMLElement): void;
+    onFocusChange?: (event: SyntheticEvent, key: string, activeElement: HTMLElement) => void;
     /**
      * A controlled set of the selected item keys.
      */
@@ -62,7 +62,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
-    onSelectionChange?(event: SyntheticEvent, key: string[]): void;
+    onSelectionChange?: (event: SyntheticEvent, key: string[]) => void;
     /**
      * The type of selection that is allowed.
      */

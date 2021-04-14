@@ -85,7 +85,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      * @param {string} query - The search query.
      * @returns {void}
      */
-    onSearch?(event: SyntheticEvent, query: string): void;
+    onSearch?: (event: SyntheticEvent, query: string) => void;
     /**
      * Called when the autocomplete value change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -94,14 +94,14 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      * @param {string} selection.value - The selected value.
      * @returns {void}
      */
-    onChange?(event: SyntheticEvent, selection: { key: string; value: string }): void;
+    onChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
     /**
      * Called when the autocomplete open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
-    onOpenChange?(event: SyntheticEvent, isOpen: boolean): void;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * A trigger icon.
      */

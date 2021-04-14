@@ -61,8 +61,8 @@ export interface UseDateInputProps {
     defaultValue?: Date;
     minDate?: Date;
     maxDate?: Date;
-    onChange?(event: SyntheticEvent): void;
-    onDateChange?(event: SyntheticEvent, date: Date): void;
+    onChange?: (event: SyntheticEvent) => void;
+    onDateChange?: (event: SyntheticEvent, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
 }
 

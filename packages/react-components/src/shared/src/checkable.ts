@@ -5,7 +5,7 @@ type CheckableValue = boolean | string | CheckableValue[]
 
 interface CheckableContextType {
     checkedValue?: CheckableValue;
-    onCheck?(event: ChangeEvent, newValue: CheckableValue): void;
+    onCheck?: (event: ChangeEvent, newValue: CheckableValue) => void;
 }
 
 export const CheckableContext = createContext<CheckableContextType>(undefined);

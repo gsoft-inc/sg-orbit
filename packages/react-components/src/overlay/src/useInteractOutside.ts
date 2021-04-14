@@ -4,7 +4,7 @@ import { useDocumentListener, useEventCallback } from "../../shared";
 
 export interface UseInteractOutsideProps {
     isDisabled?: boolean;
-    onInteractOutside?(e: SyntheticEvent<HTMLElement, Event>): void;
+    onInteractOutside?: (e: SyntheticEvent<HTMLElement, Event>) => void;
 }
 
 export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideProps = {}) {

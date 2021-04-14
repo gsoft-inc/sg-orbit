@@ -69,7 +69,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
      * @param {Object} endDate - Selected end date.
      * @returns {void}
      */
-    onDatesChange?(event: SyntheticEvent, startDate: Date, endDate: Date): void;
+    onDatesChange?: (event: SyntheticEvent, startDate: Date, endDate: Date) => void;
     /**
      * Array of pre-determined dates range.
      */

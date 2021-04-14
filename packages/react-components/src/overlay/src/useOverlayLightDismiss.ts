@@ -7,7 +7,7 @@ import { useInteractOutside } from "./useInteractOutside";
 
 export interface UseOverlayLightDismissOptions {
     trigger?: "hover" | "click";
-    onHide?(event: SyntheticEvent<HTMLElement, Event>): void;
+    onHide?: (event: SyntheticEvent<HTMLElement, Event>) => void;
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
     hideOnOutsideClick?: boolean | ((event: MouseEvent<HTMLElement, Event>) => void);
