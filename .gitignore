@@ -1,5 +1,6 @@
 node_modules
 dist
+dist-types
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*

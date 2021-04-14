@@ -21,6 +21,7 @@
         "build": "yarn build:types && yarn build:js",
         "build:types": "tsc -p ./tsconfig.types.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
+        "test:types": "tsc -p ./tsconfig.test-types.json",
         "prewatch": "yarn clean",
         "watch": "yarn build:js --watch",
         "clean": "rimraf dist"

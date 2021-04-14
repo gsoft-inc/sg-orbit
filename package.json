@@ -63,6 +63,7 @@
     "jest-watch": "yarn jest --watch",
     "jest-ci": "yarn jest --runInBand",
     "jest": "jest --config=jest/jest.config.js",
+    "test-types": "cd ./packages/react-components/ && yarn run test:types",
     "update": "run-s install:pkg install:sb",
     "diff": "lerna changed && lerna diff",
     "deploy-sb-preview": "run-s build:sb netlify-deploy-sb-preview",
@@ -141,6 +142,7 @@
     "stylelint": "13.12.0",
     "tachyons-cli": "1.3.3",
     "tachyons-modules": "1.1.10",
+    "tsd": "0.14.0",
     "typescript": "4.2.4",
     "watch": "1.0.2",
     "webpack-filter-warnings-plugin": "1.2.1"
