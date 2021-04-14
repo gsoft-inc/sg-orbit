@@ -1,6 +1,6 @@
 import { AutoFocusChildOptions, mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
-import { Placement, useOverlayPosition } from "./useOverlayPosition";
+import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
 import { isNil, isNumber } from "lodash";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayTrigger } from "./useOverlayTrigger";
@@ -20,7 +20,7 @@ export interface UsePopupProps {
     autoFocusOptions?: AutoFocusChildOptions;
     trigger?: "click" | "hover";
     hasArrow?: boolean;
-    position?: Placement;
+    position?: OverlayPosition;
     offset?: number[];
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
