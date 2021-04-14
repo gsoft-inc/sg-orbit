@@ -89,7 +89,7 @@ export class CollectionBuilder {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        const items = Children.map(resolveChildren(children), x => that.parseItem(x as ReactElement, incrementIndex));
+        const items = Children.map(resolveChildren(children), (x: ReactElement) => that.parseItem(x, incrementIndex));
 
         return {
             key: index.toString(),
@@ -151,8 +151,7 @@ export class CollectionBuilder {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const that = this;
 
-        return Children.map(elements, node => {
-            const element = node as ReactElement;
+        return Children.map(elements, (element: ReactElement) => {
             switch (element.type) {
                 case Section:
                     return that.parseSection(element, incrementIndex);
