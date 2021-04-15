@@ -59,6 +59,10 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
      */
     as?: ElementType;
     /**
+     * Default slot override.
+     */
+    slot?: string;
+    /**
      * Whether or not the button take up the width of its container.
      */
     fluid?: boolean;

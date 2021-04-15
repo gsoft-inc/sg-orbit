@@ -15,6 +15,10 @@ export interface InnerIconProps {
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
     /**
+     * Default slot override.
+     */
+    slot?: string;
+    /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
