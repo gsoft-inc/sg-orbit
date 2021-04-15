@@ -1,6 +1,3 @@
-// Must disable it for now because of the react-docgen hack.
-/* eslint-disable react/no-unused-prop-types */
-
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
