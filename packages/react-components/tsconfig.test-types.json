@@ -3,5 +3,9 @@
   "compilerOptions": {
     "outDir": "./dist-types",
   },
-  "path": { "alex/*": ["./dist-types/*"] }
+  "include": [
+    "src/index.ts",
+    "../../typings/*"
+  ],
+  "exclude": [],
 }

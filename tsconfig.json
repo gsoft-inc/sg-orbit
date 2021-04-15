@@ -27,7 +27,9 @@
     "isolatedModules": true,
 
     // we don't create declaration files when linting
-    "noEmit": true
+    "noEmit": true,
+    "traceResolution": false
   },
   "include": ["packages", "typings"],
+  "exclude": ["**/dist-types/*", "**/*.test-d.ts"],
 }

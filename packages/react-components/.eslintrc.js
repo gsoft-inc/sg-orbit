@@ -56,4 +56,5 @@ module.exports = {
         "react/destructuring-assignment": "off",
         "jsx-control-statements/jsx-use-if-tag": "off"
     }
+
 };

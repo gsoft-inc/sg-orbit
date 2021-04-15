@@ -1,4 +1,4 @@
-import { arrayify } from "../../../../dist-types";
+import { arrayify } from ".";
 import { expectType } from "tsd";
 
-expectType<string[]>(arrayify("foo"));
+expectType<boolean[]>(arrayify("foo"));
