@@ -280,7 +280,7 @@ function render() {
 
 #### Variants
 
-Variants components let you decide at import time which variant of an icon to use. Use a variant component, where available, to pair an icon variant with any dimensions.
+Variants components let you decide at import time which variant of an icon to use, if a variant exist. Use a variant component, where available, to pair an icon variant with any dimensions.
 
 ```jsx
 import { CalendarIcon32 } from "@orbit-ui/react-components";
@@ -313,9 +313,9 @@ To alter the dimensions of an icon, you can specify any of the following sizes: 
 
 ### Static files
 
-Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
+Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are useful for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-Orbit Design provide icons with default dimensions, e.g. a `24px` variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
+Orbit Design provide icons with default dimensions, e.g. a `32px` variant will have a default viewport of 32x32 and a viewbox of `0 0 32 32`.
 
 You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/spacing--page#tachyons) (e.g. `w6 h6` for a `24px` variant icon or `w7 h7` for a `32px` variant icon) or CSS and Orbit UI [CSS spacing variables](?path=/docs/materials-spacing--page#values).
 
@@ -378,17 +378,6 @@ import CalendarIcon32 from "@orbit-ui/icons/icon-calendar-32.svg";
 
 function render() {
     return <img src={CalendarIcon32} alt="calendar" className="stroke-marine-900" />;
-}
-```
-
-### CSS background
-
-You can set the color of a CSS background icon by setting an [Orbit UI color variables](?path=/docs/foundation--page#colors) to the `stroke` property of the class:
-
-```css
-.calendar-32 {
-    background: url("~@orbit-ui/icons/icon-calendar-32.svg");
-    stroke: var(--o-ui-global-marine-900);
 }
 ```
 

@@ -11,12 +11,12 @@ import { paramsBuilder } from "@stories/utils";
 
 # Tachyons
 
-[Tachyons](https://github.com/tachyons-css/tachyons) is a widely adopted [Atomic CSS library](https://acss.io/) ([also called Functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)) that aims to break down CSS rules into small, reusable and single-purpose classes. These classes helps write _composable_, _readable_ and _consistant_ CSS code.
+[Tachyons](https://github.com/tachyons-css/tachyons) is an [Atomic CSS library](https://acss.io/) ([also called Functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/)) that aims to break down CSS rules into small, reusable and single-purpose classes. These classes helps write _composable_, _readable_ and _consistant_ CSS code.
 
 ### Composable
 
 _Composability_ and _reusability_ eliminates the need to adopt a methodology like [BEM](http//getbem.com/) to mitigate the effect of CSS global-mutable-stateful classes. Methodologies like BEM are
-complex and hard to grasp for most full stack developers and should be avoid.
+complex and hard to grasp for most full stack developers and should be avoided.
 
 Composable and reusable CSS classes eliminate the need to write most of the features related custom CSS classes (which is pretty cool since you don't need to name classes anymore!)
 and therefore the need to adopt a methodology.
@@ -78,6 +78,9 @@ For any [brand](?path=/docs/colors--page#brand) or [feedback and UI](?path=/docs
 - `fill-[color-name]-[50-900]` (ex. `fill-sunray-50`)
 - `hover-fill-[color-name]-[50-900]` (ex. `hover-fill-sunray-50`)
 - `focus-fill-[color-name]-[50-900]` (ex. `focus-fill-sunray-50`)
+- `stroke-[color-name]-[50-900]` (ex. `stroke-sunray-50`)
+- `hover-stroke-[color-name]-[50-900]` (ex. `hover-stroke-sunray-50`)
+- `focus-stroke-[color-name]-[50-900]` (ex. `focus-stroke-sunray-50`)
 
 For any [products](?path=/docs/colors--page#products) colors the same classes are available but with a `[product-name]` instead of a `[color-name]`:
 
@@ -112,6 +115,7 @@ Primary classes are available for colors and borders:
 - `primary-[50-900]` (ex. `primary-50`)
 - `bg-primary-[50-900]` (ex. `bg-primary-50`)
 - `fill-primary-[50-900]` (ex. `fill-primary-50`)
+- `stroke-primary-[50-900]` (ex. `stroke-primary-50`)
 - `b--primary-[50-900]` (ex. `b--primary-50`)
 
 Please refer to the [colors](?path=/docs/mcolors--page#tachyons) and [borders](?path=/docs/borders--page#tachyons) pages for an exhaustive list of all available classes:
@@ -133,7 +137,7 @@ Tachyons box shadows classes have been rewrited to match Orbit UI foundation var
 Once installed, read [Tachyons documentation](https://github.com/tachyons-css/tachyons) and start composing your style with Tachyons reusable CSS classes.
 
 ```jsx
-<p>Let's use <span className="f2 sunray-400">Tachyons!</span></p>
+<Paragraph>Let's use <span className="f2 sunray-400">Tachyons!</span></Paragraph>
 ```
 
 ### Common use cases
@@ -143,42 +147,42 @@ Here's a few common use cases to get you started.
 #### Align a list of items horizontally
 
 ```jsx
-<div className="flex">
-    <div>To</div>
-    <div>the</div>
-    <div>moon!</div>
-</div>
+<Box className="flex">
+    <Box>To</Box>
+    <Box>the</Box>
+    <Box>moon!</Box>
+</Box>
 ```
 
 #### Add a margin-right between each elements
 
 ```jsx
-<div className="flex">
-    <div className="mr2">To</div>
-    <div className="mr2">the</div>
-    <div>moon!</div>
-</div>
+<Box className="flex">
+    <Box className="mr2">To</Box>
+    <Box className="mr2">the</Box>
+    <Box>moon!</Box>
+</Box>
 ```
 
 #### Align a text with an icon
 
 ```jsx
-<span className="flex items-center">
+<Box as="span" className="flex items-center">
     Check
     <CheckmarkIcon className="ml1 fill-botanic-500" />
-</span>
+</Box>
 ```
 
 #### Add padding on each sides of an element
 
 ```jsx
-<div className="pa4">Im padded!</div>
+<Box className="pa4">Im padded!</Box>
 ```
 
 #### Set the background and text color of an element
 
 ```jsx
-<div className="bg-moonstone-100 marine-500">The Sun also emits X-rays</div>
+<Box className="bg-moonstone-100 marine-500">The Sun also emits X-rays</Box>
 ```
 
 ### Dynamic styles
@@ -190,9 +194,9 @@ import cx from "classnames";
 
 function Button({ text, disabled, tall }) {
     return (
-        <div className={cx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
+        <Box className={cx("button", { "bg-cloud-100": disabled, "h7": tall, "f3": tall })}>
             {text}
-        </div>
+        </Box>
     );
 }
 

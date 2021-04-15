@@ -3027,11 +3027,6 @@
   dependencies:
     "@octokit/openapi-types" "^6.0.0"
 
-"@orbit-ui/icons@7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@orbit-ui/icons/-/icons-7.0.0.tgz#895e3dde1e126343627d9bd5c7ab4427c2514131"
-  integrity sha512-0oTADI7RWOQJQvmL/9DLVJi19LZ9a8aJzpcwUSsVrr6OY5EjnfmuKlR9KfmKdYJRy6PWDNtBu/vIaR7RTJv4AA==
-
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
