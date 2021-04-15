@@ -8,10 +8,6 @@ export interface InnerMultiVariantIconProps {
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * An icon as a React component for the 24px variant.
      */
     type24: ElementType;

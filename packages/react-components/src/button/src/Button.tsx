@@ -59,10 +59,6 @@ interface InnerButtonProps extends InteractionStatesProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;

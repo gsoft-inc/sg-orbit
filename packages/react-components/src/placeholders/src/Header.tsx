@@ -8,10 +8,6 @@ export interface InnerHeaderProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;

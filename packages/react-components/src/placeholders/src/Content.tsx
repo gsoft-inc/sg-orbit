@@ -8,10 +8,6 @@ export interface InnerContentProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;

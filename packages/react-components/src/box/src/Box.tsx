@@ -7,10 +7,6 @@ export interface InnerBoxProps {
     */
     as?: ElementType;
     /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
-    /**
     * @ignore
     */
     children?: ReactNode;

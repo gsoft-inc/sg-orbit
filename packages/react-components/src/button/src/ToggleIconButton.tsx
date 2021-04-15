@@ -60,10 +60,6 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * @ignore
      */
     active?: boolean;

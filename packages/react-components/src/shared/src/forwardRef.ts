@@ -35,7 +35,12 @@ export type OmitCommonProps<
     OmitAdditionalProps extends keyof any = never
     > = Omit<Target, "forwardedRef" | OmitAdditionalProps>
 
-type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P>>;
+type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P> & {
+    /**
+     * Default slot override. Added to every orbit component
+     */
+    slot?: string;
+}>;
 
 export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
     defaultProps?: Partial<any>;

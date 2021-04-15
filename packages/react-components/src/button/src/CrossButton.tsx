@@ -35,10 +35,6 @@ interface InnerCrossButtonProps extends AriaLabelingProps {
      */
     as?: ElementType;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * @ignore
      */
     forwardedRef: ForwardedRef<any>;
