@@ -132,6 +132,7 @@
     "postcss-safe-important": "1.2.0",
     "prettier": "2.2.1",
     "prism-react-renderer": "1.2.0",
+    "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",

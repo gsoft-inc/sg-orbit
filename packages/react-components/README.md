@@ -157,9 +157,9 @@ function MyComponent({ className, children ...rest }) {
 
 ### Developer experience
 
-#### Props
+#### Props and Typings
 
-All available props should be defined in the root component with [prop-types](https://github.com/facebook/prop-types). For most required props, instead of defining the prop as required with prop-types, you should instead provide a default value.
+Every component and functions should provide static typings with [TypeScript](https://www.typescriptlang.org/). For most required props, instead of defining the prop as required, you should instead provide a default value.
 
 ### Naming
 
