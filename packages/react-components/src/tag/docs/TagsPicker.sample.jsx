@@ -61,12 +61,11 @@ function TagsPicker() {
                     {selectedKeys.length > 0 && <Counter variant="divider">{selectedKeys.length}</Counter>}
                 </Button>
                 <Menu
-                    items={Tags}
                     selectionMode="multiple"
                     selectedKeys={selectedKeys}
                     onSelectionChange={handleSelectionChange}
                 >
-                    {({ items }) => items.map(x =>
+                    {Tags.map(x =>
                         <Section key={x.title} title={x.title}>
                             {x.items.map(y =>
                                 <Item key={y.key}>
