@@ -6,11 +6,9 @@
     "license": "Apache-2.0",
     "main": "dist/tachyons.css",
     "style": "dist/tachyons.css",
-    "files": [
-        "/dist"
-    ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     },
     "scripts": {
         "setup": "yarn create-dist",
