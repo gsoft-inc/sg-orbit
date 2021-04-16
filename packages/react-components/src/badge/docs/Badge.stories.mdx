@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Badge, InnerBadge } from "@react-components/badge";
-import { CheckCircleIcon, MailIcon } from "@react-components/icons";
+import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
 import { Circle } from "./Circle.jsx";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Inline } from "@react-components/layout";
@@ -61,7 +61,7 @@ A badge can be rendered as a dot. A single digit is supported.
                 <Circle />
             </Badge>
             <Badge variant="dot" overlap="icon">
-                <MailIcon size="lg" />
+                <EmailIcon size="lg" />
             </Badge>
             <Badge variant="dot">
                 Notifications
@@ -119,14 +119,14 @@ A badge can overlap over elements with different shape.
             <Inline gap={8}>
                 <Badge overlap="icon">
                     <Text>100</Text>
-                    <MailIcon size="lg" />
+                    <EmailIcon size="lg" />
                 </Badge>
                 <Badge variant="dot" overlap="icon">
-                    <MailIcon size="lg" />
+                    <EmailIcon size="lg" />
                 </Badge>
                 <Badge variant="icon" overlap="icon">
                     <CheckCircleIcon />
-                    <MailIcon size="lg" />
+                    <EmailIcon size="lg" />
                 </Badge>
             </Inline>
         </Inline>

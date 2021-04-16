@@ -3,7 +3,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
-import { MailIcon } from "@react-components/icons";
+import { EmailIcon } from "@react-components/icons";
 import { Heading } from "@react-components/heading";
 import { TextLink } from "@react-components/link";
 
@@ -41,7 +41,7 @@ An alert can have an [icon](?path=/docs/icon-gallery--page).
 <Preview>
     <Story name="icon">
         <Alert>
-            <MailIcon />
+            <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
         </Alert>
     </Story>
@@ -54,7 +54,7 @@ An alert can also accept rich content.
 <Preview>
     <Story name="rich content">
         <Alert>
-            <MailIcon />
+            <EmailIcon />
             <Content>
                 <Heading>booking@spacetravel.com</Heading>
                 Your email has been sent! Tracking info available <TextLink href="#">here</TextLink>.
@@ -70,7 +70,7 @@ An alert can accept an accept [button](?path=/docs/button--default-story).
 <Preview>
     <Story name="action">
         <Alert>
-            <MailIcon />
+            <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </Alert>
@@ -84,7 +84,7 @@ An alert can be dismissible by specifying an `onDismiss` handler.
 <Preview>
     <Story name="dismissible">
         <Alert onDismiss={() => {}}>
-            <MailIcon />
+            <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </Alert>
