@@ -1,6 +1,6 @@
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
-import { isChromatic } from "./env";
+import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
@@ -44,6 +44,12 @@ export const parameters = {
         page: null
     }
 };
+
+// HACKS: temporary hacks until SB natively support tools when in docs mode.
+if (isDocs) {
+    parameters.options.initialActive = "docs";
+    parameters.options.isToolshown = true;
+}
 
 export const globalTypes = {
     theme: {
