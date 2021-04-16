@@ -196,26 +196,22 @@ A tag list can vary in size.
 
 ### Dynamic items
 
-A tag list items can be dynamic.
-
-The item object structure can be wathever you prefer, it doesn't have to be `key` and `value`.
+A tag list items can be rendered dynamically.
 
 <Preview>
     <Story name="tag list dynamic items">
-        <TagList
-            items={[
+        <TagList>
+            {[
                 { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> },
                 { key: "gemini", value: "Gemini Program" },
                 { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
                 { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
-            ]}
-        >
-            {({ items }) => items.map(x =>
+            ].map(x => (
                 <Item key={x.key}>
                     {x.icon}
                     <Text>{x.value}</Text>
                 </Item>
-            )}
+            ))}
         </TagList>
     </Story>
 </Preview>
