@@ -1,5 +1,5 @@
 import { Counter } from "@react-components/counter";
-import { IconList, InfoIcon, MailIcon, WarningIcon } from "@react-components/icons";
+import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
