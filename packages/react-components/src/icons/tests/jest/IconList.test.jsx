@@ -1,4 +1,4 @@
-import { CheckmarkIcon, IconList } from "@react-components/icons";
+import { CheckIcon, IconList } from "@react-components/icons";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -8,8 +8,8 @@ const Icons = forwardRef((props, ref) => {
             {...props}
             ref={ref}
         >
-            <CheckmarkIcon />
-            <CheckmarkIcon />
+            <CheckIcon />
+            <CheckIcon />
         </IconList>
     );
 });

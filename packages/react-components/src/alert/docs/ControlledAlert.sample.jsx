@@ -18,7 +18,7 @@
                 show={show}
                 onDismiss={toggleAlert}
             >
-                <MailIcon />
+                <EmailIcon />
                 <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
                 <Button>Undo</Button>
             </Alert>

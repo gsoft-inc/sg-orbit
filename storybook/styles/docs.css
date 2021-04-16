@@ -51,7 +51,7 @@
 }
 
 .docblock-argstable-head button svg path {
-    stroke: var(--o-ui-global-white) !important;
+    fill: var(--o-ui-global-white) !important;
 }
 
 /* ARGS TABLE | BODY  */

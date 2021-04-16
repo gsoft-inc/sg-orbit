@@ -1,5 +1,5 @@
 import { Counter } from "@react-components/counter";
-import { IconList, InfoIcon, MailIcon, WarningIcon } from "@react-components/icons";
+import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { cloneElement } from "react";
@@ -19,25 +19,25 @@ export function createTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                     <Switch element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                     <Switch disabled element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
-                        <IconList><MailIcon /><MailIcon /><MailIcon /></IconList>
+                        <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                     <Switch element={element}>
                         <Text>Engines</Text>
-                        <IconList><MailIcon /><MailIcon /><MailIcon /></IconList>
+                        <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
@@ -53,12 +53,12 @@ export function createTestSuite(element, stories) {
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
@@ -72,18 +72,18 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                     <Switch element={element}>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
-                        <IconList><MailIcon /><MailIcon /><MailIcon /></IconList>
+                        <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                     <Switch element={element}>
-                        <IconList><MailIcon /><MailIcon /><MailIcon /></IconList>
+                        <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
@@ -96,11 +96,11 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline verticalAlign="end">
                     <Switch size="sm" element={element}>
-                        <MailIcon />
+                        <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                     <Switch element={element}>
-                        <MailIcon />
+                        <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
@@ -115,12 +115,12 @@ export function createTestSuite(element, stories) {
                     <Switch reverse element={element}>
                         <Text>Engines</Text>
                         <IconList>
-                            <MailIcon /><InfoIcon /><WarningIcon />
+                            <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconList>
                     </Switch>
                     <Switch reverse element={element}>
                         <IconList>
-                            <MailIcon /><InfoIcon /><WarningIcon />
+                            <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconList>
                     </Switch>
                 </Inline>
@@ -137,13 +137,13 @@ export function createTestSuite(element, stories) {
                     <Switch reverse element={element}>
                         <Text>Engines</Text>
                         <IconList>
-                            <MailIcon /><InfoIcon /><WarningIcon />
+                            <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconList>
                         <Counter>60</Counter>
                     </Switch>
                     <Switch reverse element={element}>
                         <IconList>
-                            <MailIcon /><InfoIcon /><WarningIcon />
+                            <EmailIcon /><InfoIcon /><WarningIcon />
                         </IconList>
                         <Counter>60</Counter>
                     </Switch>
@@ -159,7 +159,7 @@ export function createTestSuite(element, stories) {
                 <Inline>
                     <Switch validationState="invalid" element={element}>
                         <Text>Engines</Text>
-                        <MailIcon />
+                        <EmailIcon />
                     </Switch>
                     <Switch validationState="invalid" element={element}>
                         <Text>Engines</Text>
@@ -201,7 +201,7 @@ export function createTestSuite(element, stories) {
                     <Switch element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconList>
-                            <MailIcon /><MailIcon />
+                            <EmailIcon /><EmailIcon />
                         </IconList>
                     </Switch>
                 </div>

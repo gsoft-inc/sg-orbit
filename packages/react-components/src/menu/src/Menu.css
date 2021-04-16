@@ -62,7 +62,7 @@
     content: "";
     width: var(--o-ui-menu-item-checkmark-size);
     height: var(--o-ui-menu-item-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-checkmark-fill-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-32.svg") center center no-repeat;
     mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
     background-color: var(--o-ui-alias-background-primary-1);
     position: absolute;
