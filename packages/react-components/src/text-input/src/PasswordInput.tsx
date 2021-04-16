@@ -2,8 +2,8 @@ import "./PasswordInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { PrivacyIcon, ViewIcon } from "../../icons";
 import { TextInput, TextInputProps } from "./TextInput";
 import { forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
@@ -107,7 +107,7 @@ export function InnerPasswordInput({
             title="Toggle password visibility"
             aria-label="Toggle password visibility"
         >
-            {isHidden ? <ViewIcon /> : <PrivacyIcon />}
+            {isHidden ? <EyeIcon /> : <PrivacyIcon />}
         </IconButton>
     );
 

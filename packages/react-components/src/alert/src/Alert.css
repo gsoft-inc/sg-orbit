@@ -51,7 +51,7 @@
 }
 
 .o-ui-alert-info .o-ui-alert-icon {
-    stroke: var(--o-ui-alias-icon-info-1);
+    fill: var(--o-ui-alias-icon-info-1);
 }
 
 /* TONE | POSITIVE */
@@ -61,7 +61,7 @@
 }
 
 .o-ui-alert-positive .o-ui-alert-icon {
-    stroke: var(--o-ui-alias-icon-positive-2);
+    fill: var(--o-ui-alias-icon-positive-2);
 }
 
 /* TONE | WARNING */
@@ -71,7 +71,7 @@
 }
 
 .o-ui-alert-warning .o-ui-alert-icon {
-    stroke: var(--o-ui-alias-icon-warning-2);
+    fill: var(--o-ui-alias-icon-warning-2);
 }
 
 /* TONE | CRITICAL */
@@ -81,5 +81,5 @@
 }
 
 .o-ui-alert-critical .o-ui-alert-icon {
-    stroke: var(--o-ui-alias-icon-negative-2);
+    fill: var(--o-ui-alias-icon-negative-2);
 }

@@ -78,7 +78,7 @@
 }
 
 .o-ui-number-input-spinner .o-ui-icon {
-    stroke: var(--o-ui-alias-icon-1);
+    fill: var(--o-ui-alias-icon-1);
 }
 
 /* SPINNER | ACTIVE */
