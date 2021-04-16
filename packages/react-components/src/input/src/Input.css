@@ -108,7 +108,8 @@
 }
 
 .o-ui-input.o-ui-input-invalid input:focus,
-.o-ui-input-focus.o-ui-input-invalid input {
+.o-ui-input-focus.o-ui-input-invalid input,
+.o-ui-input.o-ui-input-invalid textarea:focus {
     box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
     border-color: var(--o-ui-alias-border-negative-1);
 }

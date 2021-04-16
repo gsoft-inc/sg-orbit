@@ -14,7 +14,7 @@ export interface InnerOverlayProps {
     show: boolean;
     /**
      * Hacky offset utility to apply a transparent CSS border to the overlay.
-     * It's usefull to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
+     * It's useful to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
      */
     borderOffset?: string | number;
     /**

@@ -381,7 +381,7 @@ For more information about interaction testing:
 
 ### API testing
 
-API testing is usefull to tests the properties of a component that can hardly be tested with visual testing.
+API testing is useful to tests the properties of a component that can hardly be tested with visual testing.
 
 Visual testing can easily assert that the `disabled` property of a component visually work as expected. Asserting that the `onChange` handler has been only called once when the user type a value in a textbox is harder.
 
