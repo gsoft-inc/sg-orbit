@@ -46,7 +46,7 @@ A default toolbar.
 
 ### Disabled
 
-A toolbar control can be disabled.
+A toolbar can have a few disabled controls.
 
 <Preview>
     <Story name="disabled control">
@@ -64,7 +64,7 @@ A toolbar control can be disabled.
     </Story>
 </Preview>
 
-Or all the controls.
+Or disabled all the controls.
 
 <Preview>
     <Story name="disabled toolbar">
@@ -84,7 +84,7 @@ Or all the controls.
 
 ### Gap
 
-The gap between a toolbar controls can be configured.
+The gap between a toolbar controls is configurable.
 
 <Preview>
     <Story name="gap">
@@ -124,7 +124,7 @@ A toolbar can change his orientation to `vertical` to render his controls horizo
 
 ### Wrapped
 
-Toolbar controls can be wrap on multiple lines.
+Toolbar controls can wrap on multiple lines.
 
 <Preview>
     <Story name="wrap">
@@ -146,7 +146,7 @@ Toolbar controls can be wrap on multiple lines.
 
 ### Custom components
 
-Any component can be added to a toolbar and behave as an element of the group. However to benefit from state propagation features, a component must implement the `ToolbarContext`. This is usually done by using the `useToolbarProps` hook.
+Any component can be added to a toolbar. However to benefit from the toolbar behaviors, a component must implement the `ToolbarContext`. This is done by using the `useToolbarProps` hook.
 
 <Preview filePath="/toolbar/docs/CustomComponent" />
 
