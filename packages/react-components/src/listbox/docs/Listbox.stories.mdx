@@ -267,6 +267,26 @@ A listbox item can have a basic tooltip.
     </Story>
 </Preview>
 
+### Array map
+
+A listbox items can be rendered with an array map.
+
+<Preview>
+    <Story name="array map">
+        <Listbox aria-label="Planets">
+            {["Earth", "Jupiter", "Mars"].map(x => (
+                <Item key={x.toLowerCase()}>{x}</Item>
+            ))}
+        </Listbox>
+    </Story>
+</Preview>
+
+### Listbox context
+
+The `selectedKeys` state can be retrieved from `useListboxContext`.
+
+<Preview filePath="/listbox/docs/ListboxContext" />
+
 ### Disabled item
 
 A listbox item can be disabled.
@@ -302,26 +322,6 @@ A listbox can take the width of it's container.
         </Listbox>
     </Story>
 </Preview>
-
-### Array map
-
-A listbox items can be rendered with an array map.
-
-<Preview>
-    <Story name="array map">
-        <Listbox aria-label="Planets">
-            {["Earth", "Jupiter", "Mars"].map(x => (
-                <Item key={x.toLowerCase()}>{x}</Item>
-            ))}
-        </Listbox>
-    </Story>
-</Preview>
-
-### Listbox context
-
-The previous render props example could also be achieve by using `useListboxContext`.
-
-<Preview filePath="/listbox/docs/ListboxContext" />
 
 ### Controlled
 
