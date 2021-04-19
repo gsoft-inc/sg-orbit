@@ -1,8 +1,8 @@
 ---
-name: "💭 Proposition"
-about: Any proposition to improve Orbit.
-title: "💭 <TITLE>"
-labels: "proposition"
+name: "💡 Idea"
+about: Any idea to improve Orbit.
+title: "💡 <TITLE>"
+labels: "idea"
 ---
 
 <!-- Please provide a clear and concise description of the problem to solve. -->
@@ -11,6 +11,6 @@ labels: "proposition"
 
 <!-- fill this out -->
 
-## Proposition
+## Idea
 
 <!-- fill this out -->

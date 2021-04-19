@@ -1,6 +1,6 @@
 ---
 name: "🐛 Bug Report"
-about: Report a possible bug or regression
+about: Report a possible bug or regression.
 title: "🐛 <TITLE>"
 labels: "bug:unconfirmed"
 ---
