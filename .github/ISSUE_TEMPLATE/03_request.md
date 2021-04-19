@@ -1,6 +1,6 @@
 ---
 name: "❗ Request"
-about: A request for a new component, update a design asset, ...
+about: A request for a component, design asset, ...
 title: "❗ <TITLE>"
 labels: "request"
 ---

@@ -1,6 +1,6 @@
 ---
 name: "☂️ Umbrella"
-about: Discuss and track high level goals for a collection of other issues. Should only be opened with prior discussion.
+about: Discuss and track high level goals for a collection of other issues. Only create an umbrella if you are an Orbit maintainer.
 title: "☂️ <TITLE>"
 labels: "umbrella"
 ---
