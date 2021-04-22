@@ -11,25 +11,25 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack gap="0">
-            <Text size="5xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="4xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="3xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="2xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="xl">Migrate, adapt, and control the cloud.</Text>
-            <Text size="lg">Migrate, adapt, and control the cloud.</Text>
-            <Text>Migrate, adapt, and control the cloud.</Text>
-            <Text size="sm">Migrate, adapt, and control the cloud.</Text>
-            <Text size="xs">Migrate, adapt, and control the cloud.</Text>
+            <Text size="5xl">There are no passengers on spaceship earth.</Text>
+            <Text size="4xl">There are no passengers on spaceship earth.</Text>
+            <Text size="3xl">There are no passengers on spaceship earth.</Text>
+            <Text size="2xl">There are no passengers on spaceship earth.</Text>
+            <Text size="xl">There are no passengers on spaceship earth.</Text>
+            <Text size="lg">There are no passengers on spaceship earth.</Text>
+            <Text>There are no passengers on spaceship earth.</Text>
+            <Text size="sm">There are no passengers on spaceship earth.</Text>
+            <Text size="xs">There are no passengers on spaceship earth.</Text>
         </Stack>
     )
     .add("inherit", () =>
         <div className="f1">
-            <Text size="inherit">Migrate, adapt, and control the cloud.</Text>
+            <Text size="inherit">There are no passengers on spaceship earth.</Text>
         </div>
     )
     .add("styling", () =>
         <Stack>
-            <Text className="bg-red">Migrate, adapt, and control the cloud.</Text>
-            <Text style={{ backgroundColor: "red" }}>Migrate, adapt, and control the cloud.</Text>
+            <Text className="bg-red">There are no passengers on spaceship earth.</Text>
+            <Text style={{ backgroundColor: "red" }}>There are no passengers on spaceship earth.</Text>
         </Stack>
     );

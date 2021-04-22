@@ -11,34 +11,34 @@ function stories(segment) {
 stories()
     .add("size", () =>
         <>
-            <Heading as="div" size="xl">Migrate, adapt, and<br />control the cloud.</Heading>
-            <Heading as="div" size="lg">Migrate, adapt, and<br />control the cloud.</Heading>
-            <Heading as="div">Migrate, adapt, and<br />control the cloud.</Heading>
-            <Heading as="div" size="sm">Migrate, adapt, and<br />control the cloud.</Heading>
-            <Heading as="div" size="xs">Migrate, adapt, and<br />control the cloud.</Heading>
+            <Heading as="div" size="xl">I see Earth!<br /> It is so beautiful!</Heading>
+            <Heading as="div" size="lg">I see Earth!<br /> It is so beautiful!</Heading>
+            <Heading as="div">I see Earth!<br /> It is so beautiful!</Heading>
+            <Heading as="div" size="sm">I see Earth!<br /> It is so beautiful!</Heading>
+            <Heading as="div" size="xs">I see Earth!<br /> It is so beautiful!</Heading>
         </>
     )
     .add("as header element", () =>
         <Stack>
             <Inline verticalAlign="end">
-                <Heading as="h1">Migrate, adapt, and<br />control the cloud.</Heading>
-                <Heading as="h2">Migrate, adapt, and<br />control the cloud.</Heading>
-                <Heading as="h3">Migrate, adapt, and<br />control the cloud.</Heading>
+                <Heading as="h1">I see Earth!<br /> It is so beautiful!</Heading>
+                <Heading as="h2">I see Earth!<br /> It is so beautiful!</Heading>
+                <Heading as="h3">I see Earth!<br /> It is so beautiful!</Heading>
             </Inline>
             <Inline verticalAlign="end">
-                <Heading as="h4">Migrate, adapt, and<br />control the cloud.</Heading>
-                <Heading as="h5">Migrate, adapt, and<br />control the cloud.</Heading>
-                <Heading as="h6">Migrate, adapt, and<br />control the cloud.</Heading>
+                <Heading as="h4">I see Earth!<br /> It is so beautiful!</Heading>
+                <Heading as="h5">I see Earth!<br /> It is so beautiful!</Heading>
+                <Heading as="h6">I see Earth!<br /> It is so beautiful!</Heading>
             </Inline>
         </Stack>
     )
     .add("aliases", () =>
         <>
-            <H1>Migrate, adapt, and<br />control the cloud.</H1>
-            <H2>Migrate, adapt, and<br />control the cloud.</H2>
-            <H3>Migrate, adapt, and<br />control the cloud.</H3>
-            <H4>Migrate, adapt, and<br />control the cloud.</H4>
-            <H5>Migrate, adapt, and<br />control the cloud.</H5>
-            <H6>Migrate, adapt, and<br />control the cloud.</H6>
+            <H1>I see Earth!<br /> It is so beautiful!</H1>
+            <H2>I see Earth!<br /> It is so beautiful!</H2>
+            <H3>I see Earth!<br /> It is so beautiful!</H3>
+            <H4>I see Earth!<br /> It is so beautiful!</H4>
+            <H5>I see Earth!<br /> It is so beautiful!</H5>
+            <H6>I see Earth!<br /> It is so beautiful!</H6>
         </>
     );
