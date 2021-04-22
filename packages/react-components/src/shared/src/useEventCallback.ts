@@ -1,6 +1,6 @@
 // Copied from https://github.com/react-restart/hooks/blob/master/src/useEventCallback.ts.
 
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 import { useCallback } from "react";
 import { useCommittedRef } from "./useCommittedRef";
 

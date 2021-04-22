@@ -1,12 +1,25 @@
 import "./Modal.css";
 
-import { AriaLabelingProps, DomProps, cssModule, forwardRef, mergeProps, useAutoFocus, useEventCallback, useId, useMergedRefs, useRefState, useResizeObserver, useSlots } from "../../shared";
+import {
+    AriaLabelingProps,
+    DomProps,
+    cssModule,
+    forwardRef,
+    isNil,
+    mergeProps,
+    useAutoFocus,
+    useEventCallback,
+    useId,
+    useMergedRefs,
+    useRefState,
+    useResizeObserver,
+    useSlots
+} from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useEffect, useMemo, useState } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
-import { isNil } from "lodash";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {

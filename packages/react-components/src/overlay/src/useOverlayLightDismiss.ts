@@ -1,7 +1,6 @@
 import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, useEventCallback } from "../../shared";
+import { Keys, isNil, useEventCallback } from "../../shared";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
-import { isNil } from "lodash";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 

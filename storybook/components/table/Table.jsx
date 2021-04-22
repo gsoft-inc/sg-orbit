@@ -3,8 +3,7 @@
 import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
 import { components } from "@storybook/components/html";
 import { isElement } from "react-is";
-import { isPlainObject, isString } from "lodash";
-import { mergeClasses } from "@react-components/shared";
+import { isPlainObject, isString, mergeClasses } from "@react-components/shared";
 
 const MdxTable = components.table;
 

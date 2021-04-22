@@ -8,6 +8,8 @@ import {
     DomProps,
     Keys,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -18,7 +20,6 @@ import {
     useKeyboardNavigation,
     useMergedRefs
 } from "../../shared";
-import { isNil, isNumber } from "lodash";
 import { useAccordionItems } from "./useAccordionItems";
 
 export interface InnerAccordionProps extends DomProps {

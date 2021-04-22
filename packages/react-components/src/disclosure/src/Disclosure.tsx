@@ -2,9 +2,8 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { DomProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { DomProps, Keys, augmentElement, cssModule, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
-import { isNil } from "lodash";
 import { useSlidingTransition } from "./useSlidingTransition";
 
 export interface InnerDisclosureProps extends DomProps {

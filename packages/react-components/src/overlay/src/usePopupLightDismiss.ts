@@ -1,8 +1,7 @@
 import { FocusEvent, KeyboardEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, mergeProps, useEventCallback, useRefState } from "../../shared";
+import { Keys, isNil, mergeProps, useEventCallback, useRefState } from "../../shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "./useOverlayLightDismiss";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
-import { isNil } from "lodash";
 import { isTargetParent } from "./isTargetParent";
 
 export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlayRef: RefObject<HTMLElement>, {

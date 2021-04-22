@@ -1,6 +1,6 @@
 import { DomScope } from "./useFocusScope";
 import { FocusTarget } from "./focusTarget";
-import { isFunction, isNil } from "lodash";
+import { isFunction, isNil } from "./assertions";
 import { useMemo } from "react";
 
 export const VirtualFocusCssClass = "o-ui-focus";

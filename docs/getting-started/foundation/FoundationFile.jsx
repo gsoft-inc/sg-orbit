@@ -1,6 +1,6 @@
 import { FileLink } from "./FileLink";
 import { VariablesTable } from "./variables-table";
-import { isNil } from "lodash";
+import { isNil } from "@react-components/shared";
 import { parse } from "css";
 import { string } from "prop-types";
 import { useState } from "react";

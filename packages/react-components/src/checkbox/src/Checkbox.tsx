@@ -2,11 +2,10 @@ import "./Checkbox.css";
 
 import { Box } from "../../box";
 import { ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
-import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
-import { isNil } from "lodash";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";

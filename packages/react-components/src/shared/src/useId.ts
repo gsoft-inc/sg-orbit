@@ -1,4 +1,4 @@
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 import { useId as useAutoId } from "@reach/auto-id";
 
 // This utility will initially trigger a re-render.

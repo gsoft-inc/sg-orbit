@@ -5,7 +5,7 @@ import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
 import { defaultDecorateStory } from "@storybook/client-api";
-import { isNil } from "lodash";
+import { isNil } from "@react-components/shared";
 import { object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
 import { useContext, useState } from "react";

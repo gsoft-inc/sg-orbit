@@ -13,7 +13,7 @@ const Planets = [
 
     const handleSearch = useCallback((event, query) => {
         setSelectedPlanets(Planets.filter(x => x.value.toLowerCase().startsWith(query.toLowerCase()) && x.canShow));
-    }, []);
+    }, [setSelectedPlanets]);
 
     return (
         <Autocomplete

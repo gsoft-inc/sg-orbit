@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 
 type StyleContextType = Record<string, any>;
 

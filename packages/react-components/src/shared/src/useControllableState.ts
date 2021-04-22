@@ -1,4 +1,4 @@
-import { isFunction, isUndefined } from "lodash";
+import { isFunction, isUndefined } from "./assertions";
 import { useCallback, useRef } from "react";
 import { useRefState } from "./useRefState";
 

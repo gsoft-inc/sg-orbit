@@ -1,4 +1,4 @@
-import { isFunction } from "lodash";
+import { isFunction } from "./assertions";
 import { useEffect, useState } from "react";
 
 // Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/useMediaQuery.ts

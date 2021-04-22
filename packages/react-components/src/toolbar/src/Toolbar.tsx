@@ -1,8 +1,7 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, forwardRef, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { Keys, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
-import { isNil, isNumber } from "lodash";
 
 export interface InnerToolbarProps {
     /**

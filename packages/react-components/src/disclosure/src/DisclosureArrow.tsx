@@ -2,8 +2,7 @@ import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
 import { ComponentProps, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
-import { isNil } from "lodash";
+import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
 import { useDisclosureContext } from "./DisclosureContext";
 
 export interface InnerDisclosureArrowProps {

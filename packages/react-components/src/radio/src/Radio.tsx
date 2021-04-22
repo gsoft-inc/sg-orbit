@@ -6,6 +6,8 @@ import {
     InteractionStatesProps,
     cssModule,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     omitProps,
     resolveChildren,
@@ -19,7 +21,6 @@ import {
 } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
-import { isNil, isNumber } from "lodash";
 
 export interface InnerRadioProps extends InteractionStatesProps {
     /**

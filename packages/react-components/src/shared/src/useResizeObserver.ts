@@ -1,6 +1,6 @@
 // Strongly inspired by https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
 
-import { isFunction, isNil } from "lodash";
+import { isFunction, isNil } from "./assertions";
 import { useEffect } from "react";
 
 const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>();

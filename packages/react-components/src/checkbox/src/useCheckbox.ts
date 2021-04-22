@@ -1,6 +1,5 @@
 import { ElementType, ForwardedRef, Ref, SyntheticEvent, useImperativeHandle, useLayoutEffect, useRef } from "react";
-import { cssModule, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
-import { isNil, isNumber } from "lodash";
+import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 
 export interface UseCheckboxProps {
     cssModule?: string;

@@ -1,5 +1,5 @@
 import { createTextMaskInputElement } from "text-mask-core";
-import { isNil } from "lodash";
+import { isNil } from "../../shared";
 import { useCallback, useEffect, useRef } from "react";
 
 export interface UseMaskedInputProps {

@@ -1,5 +1,5 @@
 import { ForwardedRef, MutableRefObject, RefCallback, RefObject, useCallback } from "react";
-import { isFunction, isNil } from "lodash";
+import { isFunction, isNil } from "./assertions";
 
 export function assignRef<T>(ref: ForwardedRef<T>, node: T) {
     if (!isNil(ref)) {

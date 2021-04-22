@@ -7,6 +7,8 @@ import {
     appendEventKey,
     cssModule,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -25,7 +27,6 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { isNil, isNumber } from "lodash";
 import type { SelectionMode } from "./selectionMode";
 
 export const ItemKeyProp = "data-o-ui-key";

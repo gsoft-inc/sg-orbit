@@ -1,6 +1,6 @@
 import { KeyboardEvent, KeyboardEventHandler } from "react";
 import { Keys } from "./keys";
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 import { useEventCallback } from "./useEventCallback";
 import type { FocusManager } from "./useFocusManager";
 

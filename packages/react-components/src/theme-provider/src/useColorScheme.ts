@@ -1,6 +1,5 @@
-import { isNil } from "lodash";
+import { isNil, useMediaQuery } from "../../shared";
 import { useEffect } from "react";
-import { useMediaQuery } from "../../shared";
 import type { ColorScheme, ColorSchemeOrSystem } from "./ThemeProvider";
 
 export function useColorScheme(colorScheme: ColorSchemeOrSystem, defaultColorScheme: ColorScheme): ColorScheme {
