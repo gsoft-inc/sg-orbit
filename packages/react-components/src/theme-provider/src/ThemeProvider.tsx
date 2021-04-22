@@ -38,11 +38,11 @@ export function ThemeProvider({
     as: TriggerType = "div",
     ...rest
 }: ThemeProviderProps) {
-    const [remoteColorScheme, setRemoteColorScheme] = useState();
+    const [remoteColorScheme, setRemoteColorScheme] = useState<ColorSchemeOrSystem>();
 
     colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
-    const setColorScheme = useCallback(newColorScheme => {
+    const setColorScheme = useCallback((newColorScheme: ColorSchemeOrSystem) => {
         setRemoteColorScheme(newColorScheme);
     }, [setRemoteColorScheme]);
 
