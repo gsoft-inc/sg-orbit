@@ -1,6 +1,5 @@
 import { RefObject, SyntheticEvent } from "react";
-import { isNil } from "lodash";
-import { useDocumentListener, useEventCallback } from "../../shared";
+import { isNil, useDocumentListener, useEventCallback } from "../../shared";
 
 export interface UseInteractOutsideProps {
     isDisabled?: boolean;

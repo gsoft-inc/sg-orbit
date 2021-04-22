@@ -29,7 +29,6 @@
         "@orbit-ui/css-normalize": "*",
         "@orbit-ui/icons": "*",
         "@orbit-ui/tachyons": "*",
-        "lodash": "*",
         "react": "*",
         "react-dom": "*"
     },

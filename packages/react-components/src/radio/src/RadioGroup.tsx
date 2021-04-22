@@ -5,6 +5,8 @@ import {
     Keys,
     augmentElement,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     omitProps,
     useAutoFocusChild,
@@ -19,7 +21,6 @@ import {
 } from "../../shared";
 import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { Group } from "../../group";
-import { isNil, isNumber } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";

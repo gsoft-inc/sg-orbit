@@ -1,6 +1,5 @@
 import { FocusEvent } from "react";
-import { isNil } from "lodash";
-import { useEventCallback, useRefState } from "../../shared";
+import { isNil, useEventCallback, useRefState } from "../../shared";
 
 export interface UseFocusWithinProps {
     onFocus?: (event: FocusEvent) => void;

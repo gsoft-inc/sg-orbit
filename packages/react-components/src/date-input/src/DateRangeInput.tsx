@@ -5,10 +5,23 @@ import { CalendarIcon, VerticalDotsIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
-import { InteractionStatesProps, Keys, augmentElement, cssModule, forwardRef, mergeProps, omitProps, useAutoFocus, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import {
+    InteractionStatesProps,
+    Keys,
+    augmentElement,
+    cssModule,
+    forwardRef,
+    isNil,
+    isNumber,
+    mergeProps,
+    omitProps,
+    useAutoFocus,
+    useControllableState,
+    useEventCallback,
+    useMergedRefs
+} from "../../shared";
 import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
-import { isNil, isNumber } from "lodash";
 import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";

@@ -1,6 +1,5 @@
 import { ForwardedRef, SyntheticEvent, useCallback, useState } from "react";
-import { isNil } from "lodash";
-import { mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
+import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
 const InputMask = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/];

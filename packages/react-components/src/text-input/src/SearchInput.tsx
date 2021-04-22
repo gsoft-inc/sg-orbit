@@ -3,11 +3,10 @@ import "./SearchInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { TextInputProps } from "./TextInput";
-import { isNil, isUndefined } from "lodash";
 
 // used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

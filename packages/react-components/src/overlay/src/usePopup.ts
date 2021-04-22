@@ -1,7 +1,19 @@
-import { AutoFocusChildOptions, mergeProps, useAutoFocusChild, useCommittedRef, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
+import {
+    AutoFocusChildOptions,
+    isNil,
+    isNumber,
+    mergeProps,
+    useAutoFocusChild,
+    useCommittedRef,
+    useControllableState,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useId,
+    useMergedRefs
+} from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
-import { isNil, isNumber } from "lodash";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";

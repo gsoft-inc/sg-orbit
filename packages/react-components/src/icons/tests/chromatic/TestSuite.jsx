@@ -1,5 +1,5 @@
 import { Inline, Stack } from "@react-components/layout";
-import { isNil } from "lodash";
+import { isNil } from "@react-components/shared";
 
 export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon }) {
     return (

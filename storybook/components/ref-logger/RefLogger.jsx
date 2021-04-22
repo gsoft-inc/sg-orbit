@@ -1,6 +1,6 @@
 import { any } from "prop-types";
 import { cloneElement, useCallback } from "react";
-import { isNil } from "lodash";
+import { isNil } from "@react-components/shared";
 
 const propTypes = {
     children: any.isRequired

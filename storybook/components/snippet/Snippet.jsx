@@ -1,7 +1,6 @@
 import "./Snippet.css";
 
-import { isNil } from "lodash";
-import { mergeClasses } from "@react-components/shared";
+import { isNil, mergeClasses } from "@react-components/shared";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
 import { useState } from "react";

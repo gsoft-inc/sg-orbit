@@ -1,12 +1,11 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, DomProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { AriaLabelingProps, DomProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
-import { isNil } from "lodash";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 

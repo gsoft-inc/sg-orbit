@@ -1,6 +1,8 @@
 import {
     FocusTarget,
     Keys,
+    isNil,
+    isNumber,
     mergeProps,
     useAutoFocus,
     useChainedEventCallback,
@@ -14,7 +16,6 @@ import {
 import { OptionKeyProp } from "../../listbox";
 import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
 import { ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
-import { isNil, isNumber } from "lodash";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {

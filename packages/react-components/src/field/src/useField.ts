@@ -1,6 +1,5 @@
 import { ForwardedRef } from "react";
-import { MergedRef, cssModule, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
-import { isNil } from "lodash";
+import { MergedRef, cssModule, isNil, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
 import type { FieldContextType } from "./FieldContext";
 
 export interface UseFieldProps {

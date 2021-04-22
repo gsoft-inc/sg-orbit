@@ -11,7 +11,7 @@ labels: "task:development"
 
 ## Checklist
 
-Every items might not be applicable to your task. When an item is not applicable, please ✔️ the item.
+<!-- Every items might not be applicable to your task. -->
 
 - [ ] Chromatic tests
 - [ ] Jest tests

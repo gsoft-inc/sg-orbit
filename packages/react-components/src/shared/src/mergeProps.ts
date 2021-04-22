@@ -1,5 +1,5 @@
 import { createChainedFunction } from "./useChainedEventCallback";
-import { isFunction, isNil, isUndefined } from "lodash";
+import { isFunction, isNil, isUndefined } from "./assertions";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 

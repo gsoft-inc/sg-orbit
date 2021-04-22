@@ -1,9 +1,8 @@
 import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
-import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
+import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { isNil } from "lodash";
 
 export interface InnerMenuTriggerProps extends DomProps {
     /**

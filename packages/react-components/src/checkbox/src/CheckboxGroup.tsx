@@ -4,6 +4,8 @@ import {
     CheckableContext,
     augmentElement,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     omitProps,
     resolveChildren,
@@ -18,7 +20,6 @@ import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, Synthetic
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
-import { isNil, isNumber } from "lodash";
 import { useGroupInput } from "../../input";
 
 export interface InnerCheckboxGroupProps {

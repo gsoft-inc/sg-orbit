@@ -2,8 +2,7 @@ import { Children, ElementType, ReactElement, ReactNode, Ref, RefAttributes, use
 import { Divider } from "../../divider";
 import { Item, Section } from "../../collection";
 import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
-import { isNil } from "lodash";
-import { resolveChildren } from "../../shared";
+import { isNil, resolveChildren } from "../../shared";
 
 export interface CollectionNode {
     key: string;

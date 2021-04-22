@@ -1,5 +1,5 @@
 import { ChangeEvent, createContext, useContext } from "react";
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 
 interface CheckableContextType {
     checkedValue?: string | string[];

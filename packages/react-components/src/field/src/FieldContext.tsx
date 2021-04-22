@@ -1,6 +1,5 @@
 import { ElementType, ReactNode, createContext, useContext } from "react";
-import { cssModule, normalizeSize } from "../../shared";
-import { isNil } from "lodash";
+import { cssModule, isNil, normalizeSize } from "../../shared";
 
 export interface FieldContextType {
     inputId?: string;

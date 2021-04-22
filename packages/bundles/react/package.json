@@ -18,7 +18,6 @@
         "copy-license-to-dist": "node ../../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
-        "lodash": "*",
         "react": "*",
         "react-dom": "*"
     },

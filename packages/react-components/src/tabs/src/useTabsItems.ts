@@ -1,7 +1,6 @@
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
-import { isNil } from "lodash";
-import { mergeProps, resolveChildren } from "../../shared";
+import { isNil, mergeProps, resolveChildren } from "../../shared";
 
 export interface PanelType {
     key: string;

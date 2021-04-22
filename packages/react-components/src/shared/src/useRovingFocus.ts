@@ -1,4 +1,4 @@
-import { isNil } from "lodash";
+import { isNil } from "./assertions";
 import { useLayoutEffect } from "react";
 import type { ChangeEventHandler, DomScope } from "./useFocusScope";
 

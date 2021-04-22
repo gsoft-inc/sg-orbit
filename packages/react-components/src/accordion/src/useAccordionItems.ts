@@ -1,7 +1,6 @@
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
 import { Content, Header } from "../../placeholders";
-import { isNil } from "lodash";
-import { mergeProps } from "../../shared";
+import { isNil, mergeProps } from "../../shared";
 
 export interface AccordionBuilderItem {
     id: string;

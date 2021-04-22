@@ -3,10 +3,9 @@ import "./Tag.css";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { embeddedIconSize } from "../../icons";
-import { isNil } from "lodash";
 
 export interface InnerTagProps extends InteractionStatesProps {
     /**

@@ -1,6 +1,5 @@
 import { ForwardedRef } from "react";
-import { InteractionStatesProps, cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
-import { isNumber } from "lodash";
+import { InteractionStatesProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseLinkProps extends InteractionStatesProps {
     cssModule?: string;

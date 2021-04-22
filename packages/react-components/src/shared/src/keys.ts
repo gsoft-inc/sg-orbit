@@ -1,4 +1,4 @@
-import { isNilOrEmpty } from "./assertion";
+import { isNilOrEmpty } from "./assertions";
 
 // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values
 export enum Keys {

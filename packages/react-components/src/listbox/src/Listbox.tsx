@@ -8,6 +8,8 @@ import {
     appendEventKey,
     cssModule,
     forwardRef,
+    isNil,
+    isNumber,
     mergeProps,
     useAutoFocusChild,
     useControllableState,
@@ -26,7 +28,6 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, u
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { isNil, isNumber } from "lodash";
 
 export const OptionKeyProp = "data-o-ui-key";
 

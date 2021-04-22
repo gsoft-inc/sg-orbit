@@ -4,10 +4,9 @@ import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons"
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, cssModule, forwardRef, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { StyleProvider, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../text";
 import { Transition } from "../../transition";
-import { isNil } from "lodash";
 
 const Role = {
     info: "status",

@@ -1,9 +1,8 @@
 import { Box } from "../../box";
-import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
-import { isNil } from "lodash";
 import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./selectionMode";

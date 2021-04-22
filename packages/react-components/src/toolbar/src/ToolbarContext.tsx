@@ -1,6 +1,6 @@
 import { Orientation } from "../../layout";
 import { ReactNode, createContext, useContext } from "react";
-import { isNil } from "lodash";
+import { isNil } from "../../shared";
 
 export interface ToolbarContextType {
     orientation?: Orientation;

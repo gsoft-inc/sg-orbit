@@ -1,7 +1,7 @@
 import { CollectionItem, CollectionNode, useCollection } from "./useCollection";
 import { ReactNode, SyntheticEvent, useCallback, useState } from "react";
 import { getItemText } from "./getItemText";
-import { isNil } from "lodash";
+import { isNil } from "../../shared";
 import { reduceCollection } from "./reduceCollection";
 
 function isQueryMatchingItem(query: string, item: CollectionItem) {

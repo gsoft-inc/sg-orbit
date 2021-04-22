@@ -1,6 +1,5 @@
 import { ForwardedRef, SyntheticEvent } from "react";
-import { isNil } from "lodash";
-import { useControllableState, useEventCallback } from "../../shared";
+import { isNil, useControllableState, useEventCallback } from "../../shared";
 
 export interface UseToggleButtonProps<Shape> {
     variant?: "solid" | "outline" | "ghost";
