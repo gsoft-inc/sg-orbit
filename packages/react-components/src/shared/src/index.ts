@@ -1,5 +1,5 @@
 // TODO: Legacy stuff to review & possibly remove.
-export * from "./assertion";
+export * from "./assertions";
 export * from "./match";
 
 // Constants

@@ -1,4 +1,4 @@
-import { isNil, isNumber } from "lodash";
+import { isNil, isNumber } from "@react-components/shared";
 
 class ParamsBuilder {
     _canvasLayout = {}

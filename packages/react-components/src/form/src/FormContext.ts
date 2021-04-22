@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { isNil } from "lodash";
+import { isNil } from "../../shared";
 
 export interface FormContextType {
     fluid?: boolean;

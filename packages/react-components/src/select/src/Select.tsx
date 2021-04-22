@@ -1,13 +1,12 @@
 import "./Select.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, mergeProps } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, isNil, mergeProps } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
-import { isNil } from "lodash";
 import { useFieldInputProps } from "../../field";
 import { useSelect } from "./useSelect";
 

@@ -1,4 +1,4 @@
-import { isNil } from "lodash";
+import { isNil } from "@react-components/shared";
 import { string } from "prop-types";
 import { useState } from "react";
 

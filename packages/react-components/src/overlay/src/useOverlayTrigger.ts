@@ -1,6 +1,5 @@
 import { KeyboardEvent, SyntheticEvent } from "react";
-import { Keys, useEventCallback } from "../../shared";
-import { isNil } from "lodash";
+import { Keys, isNil, useEventCallback } from "../../shared";
 
 export interface UseOverlayTriggerProps {
     trigger?: "click" | "hover";

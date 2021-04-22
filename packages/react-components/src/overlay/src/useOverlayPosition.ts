@@ -1,6 +1,5 @@
 import { Modifier, Placement } from "@popperjs/core";
-import { isNil } from "lodash";
-import { useEventCallback, useResizeObserver } from "../../shared";
+import { isNil, useEventCallback, useResizeObserver } from "../../shared";
 import { usePopper } from "react-popper";
 
 export type OverlayPosition = Placement;

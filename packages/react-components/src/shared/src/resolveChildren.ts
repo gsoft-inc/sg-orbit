@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { isFragment } from "react-is";
-import { isFunction } from "lodash";
+import { isFunction } from "./assertions";
 
 // Support first level fragment: https://github.com/facebook/react/issues/11859.
 export function resolveFragment(children: ReactNode): ReactNode {

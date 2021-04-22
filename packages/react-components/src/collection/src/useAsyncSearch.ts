@@ -1,7 +1,6 @@
 import { CancellablePromise, cancellablePromise, isPromiseStatus } from "./cancellablePromise";
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
-import { isNil } from "lodash";
-import { isPromise, useRefState } from "../../shared";
+import { isNil, isPromise, useRefState } from "../../shared";
 
 export function useAsyncSearch<T>(load: (query: string) => Promise<T[]>) {
     const [isLoading, setIsLoading] = useState(false);

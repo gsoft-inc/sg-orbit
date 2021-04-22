@@ -1,6 +1,5 @@
 import { ForwardedRef, SyntheticEvent } from "react";
-import { cssModule, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
-import { isNumber } from "lodash";
+import { cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseInputProps {
     cssModule?: string;

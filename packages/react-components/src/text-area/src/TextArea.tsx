@@ -2,8 +2,7 @@ import "./TextArea.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback, useLayoutEffect, useState } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
-import { isNil } from "lodash";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 

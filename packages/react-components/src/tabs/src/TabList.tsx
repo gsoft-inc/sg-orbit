@@ -2,10 +2,9 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ForwardedRef } from "react";
-import { Keys, forwardRef, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
+import { Keys, forwardRef, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
 import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
-import { isNumber } from "lodash";
 import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {

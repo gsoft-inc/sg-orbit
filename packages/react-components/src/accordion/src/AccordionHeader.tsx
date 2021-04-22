@@ -3,9 +3,8 @@ import "./Accordion.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
-import { InteractionStatesProps, adaptSize, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
+import { InteractionStatesProps, adaptSize, cssModule, forwardRef, isNil, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
 import { Text } from "../../text";
-import { isNil } from "lodash";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**

@@ -6,6 +6,7 @@ import {
     Keys,
     augmentElement,
     forwardRef,
+    isNil,
     isNilOrEmpty,
     mergeProps,
     omitProps,
@@ -22,7 +23,6 @@ import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEv
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
-import { isNil } from "lodash";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 

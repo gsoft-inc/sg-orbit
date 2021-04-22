@@ -1,8 +1,7 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
-import { augmentElement, forwardRef, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
-import { isNil } from "lodash";
+import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 
 /*
 TODO:

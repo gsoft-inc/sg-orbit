@@ -2,8 +2,7 @@ import "./Flex.css";
 
 import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { cssModule, forwardRef, isNilOrEmpty, mergeProps } from "../../shared";
-import { isNil, isString } from "lodash";
+import { cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 export interface InnerFlexProps {
     /**

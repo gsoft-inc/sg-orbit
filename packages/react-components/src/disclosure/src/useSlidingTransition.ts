@@ -1,6 +1,5 @@
 import { RefObject, useCallback, useReducer } from "react";
-import { isNil } from "lodash";
-import { match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
+import { isNil, match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
 import { useEffect } from "react";
 
 enum ActionType {

@@ -1,6 +1,5 @@
 import { ComponentProps } from "react";
-import { isNil } from "lodash";
-import { mergeProps } from "../../shared";
+import { isNil, mergeProps } from "../../shared";
 
 interface HiddenSelectProps extends ComponentProps<"input"> {
     /**

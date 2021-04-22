@@ -1,4 +1,4 @@
-import { isFunction, isNil } from "lodash";
+import { isFunction, isNil } from "./assertions";
 import { useCallback, useEffect } from "react";
 
 export function useEventListener(eventTarget: EventTarget | (() => EventTarget), eventName: string, listener: EventListenerOrEventListenerObject | null, active = true, options?: boolean | EventListenerOptions) {

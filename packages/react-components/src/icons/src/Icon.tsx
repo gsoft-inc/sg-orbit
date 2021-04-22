@@ -2,8 +2,7 @@ import "./Icon.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
-import { isNil } from "lodash";
+import { cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 export interface InnerIconProps {
     /**

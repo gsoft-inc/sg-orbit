@@ -1,8 +1,7 @@
 import { Box } from "@react-components/box";
 import { TextLink } from "@react-components/link";
 import { forwardRef, useCallback, useMemo } from "react";
-import { isNil } from "lodash";
-import { slot, useSlots } from "@react-components/shared";
+import { isNil, slot, useSlots } from "@react-components/shared";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

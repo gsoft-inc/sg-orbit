@@ -1,7 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Flex, FlexProps } from "./Flex";
-import { forwardRef, mergeProps } from "../../shared";
-import { isNil } from "lodash";
+import { forwardRef, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 export interface InnerInlineProps {

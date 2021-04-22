@@ -1,6 +1,5 @@
 import { AriaAttributes, ForwardedRef } from "react";
-import { InteractionStatesProps, MergedRef, Size, cssModule, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
-import { isNumber } from "lodash";
+import { InteractionStatesProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseButtonProps extends InteractionStatesProps {
     cssModule?: string;

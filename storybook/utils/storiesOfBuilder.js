@@ -1,4 +1,4 @@
-import { isNil, isPlainObject } from "lodash";
+import { isNil, isPlainObject } from "@react-components/shared";
 import { storiesOf } from "@storybook/react";
 
 class StoriesOfConfigurationBuilder {

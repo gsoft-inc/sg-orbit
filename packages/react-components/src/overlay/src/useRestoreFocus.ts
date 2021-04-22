@@ -1,7 +1,6 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
-import { DomScope, Keys, createFocusableTreeWalker, useEventCallback, useRefState } from "../../shared";
-import { isNil } from "lodash";
+import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { useLayoutEffect } from "react";
 
 export interface UseRestoreFocusProps {
