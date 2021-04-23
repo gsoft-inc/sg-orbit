@@ -39,7 +39,7 @@ test("clear value on esc", async () => {
     expect(getByTestId("input").value).toBe("");
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("can focus the input with the focus api", async () => {
     let refNode = null;

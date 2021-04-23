@@ -7,6 +7,7 @@ import {
     appendEventKey,
     cssModule,
     forwardRef,
+    isEmptyArray,
     isNil,
     isNumber,
     mergeProps,
@@ -17,9 +18,9 @@ import {
     useFocusManager,
     useFocusScope,
     useId,
+    useKeyedRovingFocus,
     useMergedRefs,
-    useRefState,
-    useRovingFocus
+    useRefState
 } from "../../shared";
 import { Box, BoxProps } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
@@ -27,7 +28,8 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import type { SelectionMode } from "./selectionMode";
+
+export type SelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
@@ -144,6 +146,11 @@ export function InnerMenu({
                 event.preventDefault();
                 focusManager.focusLast();
                 break;
+            case Keys.enter:
+            case Keys.space:
+                event.preventDefault();
+                handleSelectItem(event, document.activeElement.getAttribute(ItemKeyProp));
+                break;
             // eslint-disable-next-line no-fallthrough
             default:
                 if (event.key.length === 1) {
@@ -162,10 +169,12 @@ export function InnerMenu({
         }
     });
 
-    useRovingFocus(focusScope);
+    useKeyedRovingFocus(focusScope, selectedKeys[0], {
+        keyProp: ItemKeyProp
+    });
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== "none" ? selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
@@ -178,7 +187,7 @@ export function InnerMenu({
 
     const rootId = useId(id, id ? null : "o-ui-menu");
 
-    const renderOption = ({
+    const renderItem = ({
         key,
         index,
         elementType: As = MenuItem,
@@ -191,7 +200,7 @@ export function InnerMenu({
             {...mergeProps(
                 props,
                 {
-                    id: `${rootId}-item-${index}`,
+                    id: `${rootId}-item-${index + 1}`,
                     key,
                     ref,
                     item: { key, tooltip }
@@ -210,7 +219,7 @@ export function InnerMenu({
         props,
         items: sectionItems
     }: CollectionSection) => {
-        if (sectionItems.length === 0) {
+        if (isEmptyArray(sectionItems)) {
             return null;
         }
 
@@ -219,13 +228,13 @@ export function InnerMenu({
                 {...mergeProps(
                     props,
                     {
-                        id: `${rootId}-section-${index}`,
+                        id: `${rootId}-section-${index + 1}`,
                         key,
                         ref
                     }
                 )}
             >
-                {sectionItems.map(x => renderOption(x))}
+                {sectionItems.map(x => renderItem(x))}
             </As>
         );
     };
@@ -282,7 +291,7 @@ export function InnerMenu({
                 {nodes.map(node => {
                     switch (node.type) {
                         case NodeType.item:
-                            return renderOption(node as CollectionItem);
+                            return renderItem(node as CollectionItem);
                         case NodeType.section:
                             return renderSection(node as CollectionSection);
                         case NodeType.divider:

@@ -1,5 +1,5 @@
 import { ChangeEvent, createContext, useContext } from "react";
-import { isNil } from "./assertions";
+import { isArray, isNil } from "./assertions";
 
 interface CheckableContextType {
     checkedValue?: string | string[];
@@ -29,7 +29,7 @@ export function useCheckableProps({ value }: { value?: string }): [UseCheckableP
         const { checkedValue, ...rest } = context;
 
         const props = {
-            checked: Array.isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value,
+            checked: isArray(checkedValue) ? checkedValue.includes(value) : checkedValue === value,
             ...rest
         };
 

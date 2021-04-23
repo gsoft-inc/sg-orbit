@@ -9,14 +9,6 @@ import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
 
-/*
-INTERACTION TESTS:
-- when listbox receive focus
-     focus the first focusable item
-- roving focus
-- do not update selectedKeys when selectionMode = "none"
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Listbox")
         .segment(segment)
@@ -114,7 +106,7 @@ stories()
                 <Item key="saturn">Saturn</Item>
                 <Item key="uranus">Uranus</Item>
             </Listbox>
-            <Listbox selectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
+            <Listbox defaultSelectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

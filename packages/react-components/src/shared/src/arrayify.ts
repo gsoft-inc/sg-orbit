@@ -1,3 +1,5 @@
+import { isArray } from "./assertions";
+
 export function arrayify<T>(value: T | T[]) {
-    return Array.isArray(value) ? value : [value];
+    return isArray(value) ? value : [value];
 }

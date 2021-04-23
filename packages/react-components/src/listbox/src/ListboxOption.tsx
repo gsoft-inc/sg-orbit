@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box, BoxProps } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
@@ -56,18 +56,11 @@ export function InnerListboxOption({
         focusOnHover
     } = useListboxContext();
 
+    // TODO: should we use debouncing instead?
+    const [hasMouseOverRef, setHasMouseOver] = useRefState(false);
+
     const handleClick = useEventCallback(event => {
         onSelect(event, key);
-    });
-
-    const handleKeyDown = useEventCallback(event => {
-        switch (event.key) {
-            case Keys.enter:
-            case Keys.space:
-                event.preventDefault();
-                onSelect(event, key);
-                break;
-        }
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
@@ -77,13 +70,31 @@ export function InnerListboxOption({
         }
     });
 
+    const handleFocus = useEventCallback(event => {
+        // Mouse over check to ensure we don't call the onFocus handler twice when focusOnHover is on.
+        if (!hasMouseOverRef.current) {
+            // Required for virtual focus.
+            const activeElement = focusManager.focusKey(key);
+
+            if (!isNil(onFocus)) {
+                onFocus(event, key, activeElement);
+            }
+        }
+    });
+
     // Move focus to the option on mouse hover.
     const handleMouseEnter = useEventCallback(event => {
+        setHasMouseOver(true);
+
         const activeElement = focusManager.focusKey(key);
 
         if (!isNil(onFocus)) {
             onFocus(event, activeElement.getAttribute(OptionKeyProp), activeElement);
         }
+    });
+
+    const handleMouseLeave = useEventCallback(() => {
+        setHasMouseOver(false);
     });
 
     const labelId = `${id}-label`;
@@ -124,9 +135,10 @@ export function InnerListboxOption({
                 {
                     id,
                     onClick: !disabled ? handleClick : undefined,
-                    onKeyDown: !disabled ? handleKeyDown : undefined,
                     onKeyUp: !disabled ? handleKeyUp : undefined,
+                    onFocus: !disabled ? handleFocus : undefined,
                     onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
+                    onMouseLeave: !disabled ? handleMouseLeave : undefined,
                     className: cssModule(
                         "o-ui-listbox-option",
                         description && "has-description",
@@ -136,7 +148,7 @@ export function InnerListboxOption({
                         hover && "hover"
                     ),
                     role: "option",
-                    ["data-o-ui-key" as any]: key,
+                    [OptionKeyProp as string]: key,
                     tabIndex: !disabled ? -1 : undefined,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,

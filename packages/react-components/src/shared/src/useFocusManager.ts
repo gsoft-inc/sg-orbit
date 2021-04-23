@@ -251,6 +251,16 @@ export class FocusManager {
 
         return null;
     }
+
+    getActiveKey() {
+        if (isNil(this.keyProp)) {
+            throw new Error("\"getActiveKey\" cannot be called without providing a `keyProp` to the FocusManager.");
+        }
+
+        const activeElement = this.getActiveElement();
+
+        return !isNil(activeElement) ? activeElement.getAttribute(this.keyProp) : null;
+    }
 }
 
 export function useFocusManager(scope: DomScope, { isVirtual, keyProp }: FocusManagerOptions = {}) {

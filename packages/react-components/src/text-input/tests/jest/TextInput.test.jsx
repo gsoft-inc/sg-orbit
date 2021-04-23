@@ -2,7 +2,7 @@ import { TextInput } from "@react-components/text-input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-// ***** API *****
+// ***** Api *****
 
 test("can focus the input with the focus api", async () => {
     let refNode = null;

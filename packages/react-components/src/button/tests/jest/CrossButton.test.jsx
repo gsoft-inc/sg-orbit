@@ -45,7 +45,7 @@ test("set ref once", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("can focus the button with the focus api", async () => {
     let refNode = null;

@@ -8,7 +8,7 @@ function getInput(element) {
     return element.querySelector("input");
 }
 
-// ***** Accessibility *****
+// ***** Behaviors *****
 
 test("first radio is tabbable", async () => {
     const { getByTestId } = render(
@@ -126,7 +126,7 @@ test("up arrow keypress select the next radio", async () => {
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("call onChange when a radio is selected", async () => {
     const handler = jest.fn();

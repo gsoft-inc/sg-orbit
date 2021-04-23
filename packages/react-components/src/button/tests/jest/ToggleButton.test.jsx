@@ -3,7 +3,7 @@ import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@utils/user-event";
 
-// ***** API *****
+// ***** Api *****
 
 test("call onChange when the button is selected", async () => {
     const handler = jest.fn();

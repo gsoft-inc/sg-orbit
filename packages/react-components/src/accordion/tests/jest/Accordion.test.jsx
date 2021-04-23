@@ -5,7 +5,7 @@ import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-// ***** Accessibility *****
+// ***** Behaviors *****
 
 test("down arrow keypress select the next item", async () => {
     const { getByTestId } = render(
@@ -65,7 +65,7 @@ test("up arrow keypress select the next item", async () => {
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("when single, call onExpansionChange when the expanded tab change", async () => {
     const handler = jest.fn();
