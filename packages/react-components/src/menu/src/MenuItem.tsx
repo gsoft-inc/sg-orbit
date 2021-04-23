@@ -108,7 +108,8 @@ export function InnerMenuItem({
                         hover && "hover"
                     ),
                     role: Role[selectionMode],
-                    tabIndex: !disabled ? -1 : undefined,
+                    // Disabled menu item are still focusable.
+                    tabIndex: -1,
                     [ItemKeyProp]: key,
                     "aria-checked": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
