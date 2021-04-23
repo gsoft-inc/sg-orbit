@@ -1,5 +1,4 @@
 // TODO: Legacy stuff to review & possibly remove.
-export * from "./assertions";
 export * from "./match";
 
 // Constants
@@ -7,6 +6,7 @@ export * from "./keys";
 export * from "./focusTarget";
 
 // Utils
+export * from "./assertions";
 export * from "./size";
 export * from "./mergeProps";
 export * from "./mergeClasses";

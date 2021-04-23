@@ -60,16 +60,6 @@ export function InnerListboxOption({
         onSelect(event, key);
     });
 
-    const handleKeyDown = useEventCallback(event => {
-        switch (event.key) {
-            case Keys.enter:
-            case Keys.space:
-                event.preventDefault();
-                onSelect(event, key);
-                break;
-        }
-    });
-
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback(event => {
         if (event.key === Keys.space) {
@@ -124,7 +114,6 @@ export function InnerListboxOption({
                 {
                     id,
                     onClick: !disabled ? handleClick : undefined,
-                    onKeyDown: !disabled ? handleKeyDown : undefined,
                     onKeyUp: !disabled ? handleKeyUp : undefined,
                     onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
                     className: cssModule(
@@ -136,7 +125,7 @@ export function InnerListboxOption({
                         hover && "hover"
                     ),
                     role: "option",
-                    ["data-o-ui-key" as any]: key,
+                    [OptionKeyProp as string]: key,
                     tabIndex: !disabled ? -1 : undefined,
                     "aria-selected": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,

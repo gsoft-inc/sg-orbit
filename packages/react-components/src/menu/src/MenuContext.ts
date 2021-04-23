@@ -1,5 +1,5 @@
 import { SyntheticEvent, createContext, useContext } from "react";
-import type { SelectionMode } from "./selectionMode";
+import type { SelectionMode } from "./Menu";
 
 interface MenuContextType {
     onSelect?: (event: SyntheticEvent, key: string) => void;

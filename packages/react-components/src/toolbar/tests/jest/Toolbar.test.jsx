@@ -3,7 +3,7 @@ import { Toolbar } from "@react-components/toolbar";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-// ***** Accessibility *****
+// ***** Behaviors *****
 
 test("first element is tabbable", async () => {
     const { getByTestId } = render(

@@ -7,7 +7,7 @@ function getInput(element) {
     return element.querySelector("input");
 }
 
-// ***** API *****
+// ***** Api *****
 
 test("call onChange when the radio is checked", async () => {
     const handler = jest.fn();

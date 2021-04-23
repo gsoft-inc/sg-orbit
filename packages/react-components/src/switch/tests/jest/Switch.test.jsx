@@ -7,7 +7,7 @@ function getInput(element) {
     return element.querySelector("input");
 }
 
-// ***** API *****
+// ***** Api *****
 
 test("call onChange when the switch is turned on", async () => {
     const handler = jest.fn();

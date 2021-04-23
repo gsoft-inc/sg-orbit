@@ -1,11 +1,12 @@
 import { Box } from "../../box";
-import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, useMemo } from "react";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { ItemKeyProp } from "./Menu";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
-import type { SelectionMode } from "./selectionMode";
+import type { SelectionMode } from "./Menu";
 
 export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
     /**
@@ -56,16 +57,6 @@ export function InnerMenuItem({
         }
     });
 
-    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
-        switch (event.key) {
-            case Keys.enter:
-            case Keys.space:
-                event.preventDefault();
-                onSelect(event, key);
-                break;
-        }
-    });
-
     const handleMouseEnter = useEventCallback(event => {
         event.target.focus();
     });
@@ -108,7 +99,6 @@ export function InnerMenuItem({
                 {
                     id,
                     onClick: !disabled ? handleClick : undefined,
-                    onKeyDown: handleKeyDown,
                     onMouseEnter: handleMouseEnter,
                     className: cssModule(
                         "o-ui-menu-item",
@@ -118,8 +108,8 @@ export function InnerMenuItem({
                         hover && "hover"
                     ),
                     role: Role[selectionMode],
-                    tabIndex: -1,
-                    "data-o-ui-key": key,
+                    tabIndex: !disabled ? -1 : undefined,
+                    [ItemKeyProp]: key,
                     "aria-checked": !disabled && selectedKeys.includes(key),
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,

@@ -20,7 +20,7 @@ const Group = forwardRef((props, ref) => {
     );
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("call onChange when a single checkbox is selected", async () => {
     const handler = jest.fn();

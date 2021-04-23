@@ -26,12 +26,10 @@ export function isNumber(value: any): value is number {
     return typeof value === "number";
 }
 
-// TODO: Change existing to use this.
 export function isArray<T>(value: any): value is Array<T> {
     return Array.isArray(value);
 }
 
-// TODO: Change existing to use this
 export function isEmptyArray(value: any) {
     return isArray(value) && value.length === 0;
 }

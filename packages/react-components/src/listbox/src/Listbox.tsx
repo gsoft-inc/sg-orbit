@@ -8,6 +8,7 @@ import {
     appendEventKey,
     cssModule,
     forwardRef,
+    isEmptyArray,
     isNil,
     isNumber,
     mergeProps,
@@ -31,11 +32,7 @@ import { ListboxSection } from "./ListboxSection";
 
 export const OptionKeyProp = "data-o-ui-key";
 
-const SelectionMode = {
-    none: "none",
-    single: "single",
-    multiple: "multiple"
-};
+type SelectionMode = "none" | "single" | "multiple";
 
 // used to generate CollectionNode[] instead of any[] in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -67,7 +64,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: "none" | "single" | "multiple";
+    selectionMode?: SelectionMode;
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
      */
@@ -116,7 +113,7 @@ function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items: CollectionItem[], { selectedKeys }: { selectedKeys?: string[] }) {
+function useSelectionManager(items: CollectionItem[], { selectedKeys, selectionMode }: { selectedKeys?: string[]; selectionMode?: SelectionMode }) {
     return useMemo(() => {
         const toggleKey = (key: string) => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
@@ -151,12 +148,12 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
         };
 
         return {
-            selectedKeys: selectedKeys,
+            selectedKeys: selectionMode !== "none" ? selectedKeys : [],
             toggleKey,
             replaceSelection,
             extendSelection
         };
-    }, [selectedKeys, items]);
+    }, [items, selectedKeys, selectionMode]);
 }
 
 
@@ -192,7 +189,7 @@ export function InnerListbox({
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
 
-    const selectionManager = useSelectionManager(items, { selectedKeys });
+    const selectionManager = useSelectionManager(items, { selectedKeys, selectionMode });
 
     const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: OptionKeyProp });
 
@@ -210,7 +207,7 @@ export function InnerListbox({
             onSelectionChange(event, newKeys);
         }
 
-        if (selectionMode !== SelectionMode.none) {
+        if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
         }
     };
@@ -218,7 +215,7 @@ export function InnerListbox({
     const handleSelectOption = useEventCallback((event: SyntheticEvent, key: string) => {
         let newKeys;
 
-        if (selectionMode === SelectionMode.multiple) {
+        if (selectionMode === "multiple") {
             newKeys = selectionManager.toggleKey(key);
         } else {
             newKeys = selectionManager.replaceSelection(key);
@@ -249,7 +246,7 @@ export function InnerListbox({
                     onFocusChange(event, key, activeElement);
                 }
 
-                if (selectionMode === SelectionMode.multiple) {
+                if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
 
@@ -268,7 +265,7 @@ export function InnerListbox({
                     onFocusChange(event, key, activeElement);
                 }
 
-                if (selectionMode === SelectionMode.multiple) {
+                if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
 
@@ -297,17 +294,38 @@ export function InnerListbox({
                 }
                 break;
             }
-            case Keys.space:
+            case Keys.enter: {
                 event.preventDefault();
 
-                if (selectionMode === SelectionMode.multiple) {
-                    if (event.shiftKey) {
-                        const newKeys = selectionManager.extendSelection(document.activeElement.getAttribute(OptionKeyProp));
+                const newKeys = selectionManager.toggleKey(document.activeElement.getAttribute(OptionKeyProp));
 
-                        updateSelectedKeys(event, newKeys);
+                updateSelectedKeys(event, newKeys);
+
+                break;
+            }
+            case Keys.space: {
+                event.preventDefault();
+
+                const key = document.activeElement.getAttribute(OptionKeyProp);
+
+                if (selectionMode === "single") {
+                    const newKeys = selectionManager.toggleKey(key);
+
+                    updateSelectedKeys(event, newKeys);
+                }
+                else if (selectionMode === "multiple") {
+                    let newKeys = [];
+
+                    if (event.shiftKey) {
+                        newKeys = selectionManager.extendSelection(key);
+                    } else {
+                        newKeys = selectionManager.toggleKey(key);
                     }
+
+                    updateSelectedKeys(event, newKeys);
                 }
                 break;
+            }
             // eslint-disable-next-line no-fallthrough
             default:
                 if (event.key.length === 1) {
@@ -332,7 +350,7 @@ export function InnerListbox({
     });
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== SelectionMode.none ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: (selectionMode !== "none" ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
@@ -352,7 +370,7 @@ export function InnerListbox({
             {...mergeProps(
                 props,
                 {
-                    id: `${rootId}-option-${index}`,
+                    id: `${rootId}-option-${index + 1}`,
                     key,
                     ref,
                     item: { key: key, tooltip }
@@ -371,7 +389,7 @@ export function InnerListbox({
         props = {},
         items: sectionItems
     }: CollectionSection) => {
-        if (sectionItems.length === 0) {
+        if (isEmptyArray(sectionItems)) {
             return null;
         }
 
@@ -380,7 +398,7 @@ export function InnerListbox({
                 {...mergeProps(
                     props,
                     {
-                        id: `${rootId}-section-${index}`,
+                        id: `${rootId}-section-${index + 1}`,
                         key,
                         ref
                     }
@@ -405,7 +423,7 @@ export function InnerListbox({
                     role: "listbox",
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
-                    "aria-multiselectable": selectionMode === SelectionMode.multiple ? true : undefined,
+                    "aria-multiselectable": selectionMode === "multiple" ? true : undefined,
                     as,
                     ref: containerRef
                 }

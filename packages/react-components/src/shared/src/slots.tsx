@@ -1,5 +1,5 @@
 import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
-import { augmentElement, isFunction, isNil, isString, isUndefined, resolveChildren } from "../../shared";
+import { augmentElement, isEmptyArray, isFunction, isNil, isString, isUndefined, resolveChildren } from "../../shared";
 
 const SlotKey = "__slot__";
 
@@ -92,7 +92,7 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
     }
 
     if (!isNil(Wrapper)) {
-        if (Object.keys(slotElements).length === 0 && !isNil(children)) {
+        if (isEmptyArray(Object.keys(slotElements)) && !isNil(children)) {
             const wrapperSlot = (Wrapper as SlotableType)[SlotKey];
 
             if (isNil(wrapperSlot)) {

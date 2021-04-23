@@ -5,7 +5,7 @@ import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-// ***** Ids *****
+// ***** Aria *****
 
 test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = render(
@@ -113,7 +113,7 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
     expect(content.getAttribute("id")).toBe("o-ui-tabs-5-panel-0");
 });
 
-// ***** Accessibility *****
+// ***** Behaviors *****
 
 test("first tab is tabbable", async () => {
     const { getByTestId } = render(
@@ -370,7 +370,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
     await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
 });
 
-// ***** API *****
+// ***** Api *****
 
 test("call onSelectionChange when the active tab change", async () => {
     const handler = jest.fn();
