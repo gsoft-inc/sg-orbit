@@ -113,14 +113,14 @@ function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     return nodes ?? collectionNodes;
 }
 
-function useSelectionManager(items: CollectionItem[], { selectedKeys, selectionMode }: { selectedKeys?: string[]; selectionMode?: SelectionMode }) {
+function useSelectionManager(items: CollectionItem[], { selectedKeys }: { selectedKeys?: string[] }) {
     return useMemo(() => {
         const toggleKey = (key: string) => {
             return selectedKeys.includes(key) ? selectedKeys.filter(x => x !== key) : [...selectedKeys, key];
         };
 
-        const replaceSelection = (key: string) => {
-            return [key];
+        const toggleSelection = (key: string) => {
+            return selectedKeys[0] === key ? [] : [key];
         };
 
         const extendSelection = (toKey: string) => {
@@ -148,12 +148,12 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys, selectionM
         };
 
         return {
-            selectedKeys: selectionMode !== "none" ? selectedKeys : [],
+            selectedKeys: selectedKeys,
             toggleKey,
-            replaceSelection,
+            toggleSelection,
             extendSelection
         };
-    }, [items, selectedKeys, selectionMode]);
+    }, [items, selectedKeys]);
 }
 
 
@@ -189,7 +189,7 @@ export function InnerListbox({
     const nodes = useCollectionNodes(children, nodesProp);
     const items = useOnlyCollectionItems(nodes);
 
-    const selectionManager = useSelectionManager(items, { selectedKeys, selectionMode });
+    const selectionManager = useSelectionManager(items, { selectedKeys });
 
     const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: OptionKeyProp });
 
@@ -218,7 +218,11 @@ export function InnerListbox({
         if (selectionMode === "multiple") {
             newKeys = selectionManager.toggleKey(key);
         } else {
-            newKeys = selectionManager.replaceSelection(key);
+            newKeys = selectionManager.toggleSelection(key);
+        }
+
+        if (useVirtualFocus) {
+            focusManager.focusKey(key);
         }
 
         updateSelectedKeys(event, newKeys);
@@ -259,6 +263,7 @@ export function InnerListbox({
                 event.preventDefault();
 
                 const activeElement = focusManager.focusPrevious();
+
                 const key = activeElement.getAttribute(OptionKeyProp);
 
                 if (!isNil(onFocusChange)) {
