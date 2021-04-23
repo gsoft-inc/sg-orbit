@@ -1,7 +1,7 @@
 import "./Link.css";
 
 import { ArrowIcon, embeddedIconSize } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
 import { augmentElement, forwardRef, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { useFormButton } from "../../form";
@@ -51,7 +51,7 @@ export interface InnerTextLinkProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
     * @ignore
     */
