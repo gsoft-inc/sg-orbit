@@ -52,7 +52,7 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
      */
     disabled?: boolean;
     /**
-     * A label providing an accessible name to the toggle icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     * Defines a string value that labels the current element..
      */
     "aria-label": string;
     /**

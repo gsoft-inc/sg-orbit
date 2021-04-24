@@ -3,7 +3,8 @@
 
 export interface DomProps {
     /**
-     * The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id).
+     * The element's unique identifier.
+     * @ignore
      */
     id?: string;
 }
@@ -11,21 +12,22 @@ export interface DomProps {
 export interface AriaLabelingProps {
     /**
      * Defines a string value that labels the current element.
+     * @ignore
      */
     "aria-label"?: string;
-
     /**
      * Identifies the element (or elements) that labels the current element.
+     * @ignore
      */
     "aria-labelledby"?: string;
-
     /**
      * Identifies the element (or elements) that describes the object.
+     * @ignore
      */
     "aria-describedby"?: string;
-
     /**
      * Identifies the element (or elements) that provide a detailed, extended description for the object.
+     * @ignore
      */
     "aria-details"?: string;
 }

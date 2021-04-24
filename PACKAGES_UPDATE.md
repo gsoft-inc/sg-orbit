@@ -1,5 +1,16 @@
 # Packages Update
 
+## Bump NPM packages versions
+
+To udpate our packages use a package called ![npm-check-updates](https://www.npmjs.com/package/npm-check-updates). Dont install it locally, use `npx`.
+
+In a terminal, use the followings commands
+
+- To list the available updates, type `npx npm-check-updates`
+- If you want to proceed with the updates, your must first delete `yarn.lock`
+- Then type `npx npm-check-updates -u` to bump the versions in the `package.json` file
+- Install the new packages with `yarn update`
+
 ## Babel
 
 We currently cannot update babel package to version *> 7.13*. When doing so Storybook throw transpilation errors at compile time.
