@@ -95,8 +95,8 @@ OrderedList.displayName = "OrderedList";
 function InnerUnorderedList({
     as = "ul",
     forwardedRef,
-    ...rest }
-    : InnerListProps) {
+    ...rest
+}: InnerListProps) {
     return (
         <List
             {...rest}
