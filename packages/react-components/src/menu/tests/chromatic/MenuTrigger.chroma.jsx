@@ -28,7 +28,6 @@ INTERACTION TEST:
     - when shift, select previous tabbable element
 - can provide custom name
 - can provide custom id
-- aria props (aria-expanded, aria-controls, aria-labelledby, ...)
 - do not close on select when closeOnSelect is false
 */
 
