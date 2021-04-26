@@ -31,11 +31,6 @@ INTERACTION TEST:
 - do not close on select when closeOnSelect is false
 */
 
-/*
-MISSING JEST TEST:
-- MenuTriggerContext -> Custom menu
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/MenuTrigger")
         .segment(segment)
