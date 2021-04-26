@@ -42,6 +42,6 @@ export const Header = slot("header", forwardRef<InnerHeaderProps>((props, ref) =
     <InnerHeader {...props} forwardedRef={ref} />
 )));
 
-export type HeaderProps = ComponentProps<typeof Header>
+export type HeaderProps = ComponentProps<typeof Header>;
 
 Header.displayName = "Header";

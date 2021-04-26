@@ -132,6 +132,6 @@ export const TagList = forwardRef<InnerTagListProps>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));
 
-export type TagListProps = ComponentProps<typeof TagList>
+export type TagListProps = ComponentProps<typeof TagList>;
 
 TagList.displayName = "TagList";

@@ -48,7 +48,7 @@ export type UseFieldLabelPropsReturn = [{
     htmlFor?: string;
     className?: string;
     as?: ElementType;
-}, boolean]
+}, boolean];
 
 export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseFieldLabelPropsReturn {
     const [{ isGroup, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();

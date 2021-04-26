@@ -179,6 +179,6 @@ export const TextInput = forwardRef<InnerTextInputProps, "input">((props, ref) =
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
 
-export type TextInputProps = ComponentProps<typeof TextInput>
+export type TextInputProps = ComponentProps<typeof TextInput>;
 
 TextInput.displayName = "TextInput";

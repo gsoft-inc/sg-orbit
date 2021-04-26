@@ -94,6 +94,6 @@ export const Counter = slot("counter", forwardRef<InnerCounterProps>((props, ref
     <InnerCounter {...props} forwardedRef={ref} />
 )));
 
-export type CounterProps = ComponentProps<typeof Counter>
+export type CounterProps = ComponentProps<typeof Counter>;
 
 Counter.displayName = "Counter";

@@ -160,6 +160,6 @@ export const PopoverTrigger = forwardRef<InnerPopoverTriggerProps>((props, ref) 
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));
 
-export type PopoverTriggerProps = ComponentProps<typeof PopoverTrigger>
+export type PopoverTriggerProps = ComponentProps<typeof PopoverTrigger>;
 
 PopoverTrigger.displayName = "PopoverTrigger";

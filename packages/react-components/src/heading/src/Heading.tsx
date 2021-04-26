@@ -58,7 +58,7 @@ export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref
     <InnerHeading {...props} forwardedRef={ref} />
 )));
 
-export type HeadingProps = ComponentProps<typeof Heading>
+export type HeadingProps = ComponentProps<typeof Heading>;
 
 Heading.displayName = "Heading";
 
