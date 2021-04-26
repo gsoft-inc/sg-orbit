@@ -111,7 +111,7 @@
 }
 
 /* SECTION */
-.o-ui-menu-section {
+.o-ui-menu-section-title {
     cursor: default;
     display: flex;
     font-weight: 500;
@@ -122,6 +122,10 @@
     text-transform: uppercase;
     font-size: var(--o-ui-global-type-scale-8);
     align-items: center;
+}
+
+.o-ui-menu-section-items {
+    padding: 0;
 }
 
 /* DIVIDER  */

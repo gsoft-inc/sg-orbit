@@ -45,6 +45,7 @@ export function InnerMenuSection({
                 id={id}
                 as="span"
                 aria-hidden="true"
+                className="o-ui-menu-section-title"
             >
                 {title}
             </Box>
@@ -52,6 +53,7 @@ export function InnerMenuSection({
                 role="group"
                 aria-labelledby={id}
                 as="ul"
+                className="o-ui-menu-section-items"
             >
                 {children}
             </Box>
