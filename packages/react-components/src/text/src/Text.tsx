@@ -70,6 +70,6 @@ export const Text = slot("text", forwardRef<InnerTextProps>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
 
-export type TextProps = ComponentProps<typeof Text>
+export type TextProps = ComponentProps<typeof Text>;
 
 Text.displayName = "Text";

@@ -42,6 +42,6 @@ export const Box = forwardRef<InnerBoxProps>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 
-export type BoxProps = ComponentProps<typeof Box>
+export type BoxProps = ComponentProps<typeof Box>;
 
 Box.displayName = "Box";

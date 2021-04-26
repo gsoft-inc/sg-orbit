@@ -202,6 +202,6 @@ export const TooltipTrigger = forwardRef<InnerTooltipTriggerProps>((props, ref) 
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));
 
-export type TooltipTriggerProps = ComponentProps<typeof TooltipTrigger>
+export type TooltipTriggerProps = ComponentProps<typeof TooltipTrigger>;
 
 TooltipTrigger.displayName = "TooltipTrigger";

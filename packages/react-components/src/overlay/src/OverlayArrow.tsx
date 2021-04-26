@@ -36,7 +36,7 @@ export const OverlayArrow = forwardRef<InnerOverlayArrowProps>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));
 
-export type OverlayArrowProps = ComponentProps<typeof OverlayArrow>
+export type OverlayArrowProps = ComponentProps<typeof OverlayArrow>;
 
 OverlayArrow.displayName = "OverlayArrow";
 

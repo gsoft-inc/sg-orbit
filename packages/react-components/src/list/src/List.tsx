@@ -86,7 +86,7 @@ export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
-export type OrderedListProps = ComponentProps<typeof OrderedList>
+export type OrderedListProps = ComponentProps<typeof OrderedList>;
 
 OrderedList.displayName = "OrderedList";
 
@@ -110,6 +110,6 @@ export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
 
-export type UnorderedListProps = ComponentProps<typeof UnorderedList>
+export type UnorderedListProps = ComponentProps<typeof UnorderedList>;
 
 UnorderedList.displayName = "UnorderedList";

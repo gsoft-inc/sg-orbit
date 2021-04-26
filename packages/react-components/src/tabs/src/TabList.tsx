@@ -91,7 +91,7 @@ export const TabList = forwardRef<InnerTabListProps>((props, ref) => (
     <InnerTabList {...props} forwardedRef={ref} />
 ));
 
-export type TabListProps = ComponentProps<typeof TabList>
+export type TabListProps = ComponentProps<typeof TabList>;
 
 
 

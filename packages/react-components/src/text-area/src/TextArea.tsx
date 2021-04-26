@@ -216,6 +216,6 @@ export const TextArea = forwardRef<InnerTextAreaProps>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
 
-export type TextAreaProps = ComponentProps<typeof TextArea>
+export type TextAreaProps = ComponentProps<typeof TextArea>;
 
 TextArea.displayName = "TextArea";

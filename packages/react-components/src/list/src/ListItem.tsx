@@ -49,4 +49,4 @@ export const ListItem = forwardRef<InnerListItemProps>((props, ref) => (
     <InnerListItem {...props} forwardedRef={ref} />
 ));
 
-export type ListItemProps = ComponentProps<typeof ListItem>
+export type ListItemProps = ComponentProps<typeof ListItem>;

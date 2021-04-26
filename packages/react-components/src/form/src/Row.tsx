@@ -61,6 +61,6 @@ export const Row = forwardRef<InnerRowProps>((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
 
-export type RowProps = ComponentProps<typeof Row>
+export type RowProps = ComponentProps<typeof Row>;
 
 Row.displayName = "Row";

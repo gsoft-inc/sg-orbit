@@ -16,24 +16,24 @@ type AsRef<T> = T extends ElementType ? ElementRef<T> : T;
 
 type PropsWithoutChildren<P> =
     "children" extends keyof P
-    ? Pick<P, Exclude<keyof P, "children">>
-    : P;
+        ? Pick<P, Exclude<keyof P, "children">>
+        : P;
 
 // Use PropsWithoutChildren here since in some cases, we didn't want to allow the children props but the As property's properties were bringing it back
 type PropsOf<T> = PropsWithoutChildren<
-    T extends ElementType ? HTMLProps<AsRef<T>> & ComponentProps<T> & RefAttributes<AsRef<T>> :
+T extends ElementType ? HTMLProps<AsRef<T>> & ComponentProps<T> & RefAttributes<AsRef<T>> :
     T extends HTMLElement ? HTMLProps<T> & RefAttributes<T> :
-    never>;
+        never>;
 
 export type RightJoinProps<
     SourceProps extends Record<string, any> = Record<string, never>,
     OverrideProps extends Record<string, any> = Record<string, never>
-    > = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps
+> = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
 
 export type OmitCommonProps<
     Target,
     OmitAdditionalProps extends keyof any = never
-    > = Omit<Target, "forwardedRef" | OmitAdditionalProps>
+> = Omit<Target, "forwardedRef" | OmitAdditionalProps>;
 
 type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P, "slot"> & {
     /**

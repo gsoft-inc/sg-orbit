@@ -59,6 +59,6 @@ export const MenuSection = forwardRef<InnerMenuSectionProps>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));
 
-export type MenuSectionProps = ComponentProps<typeof MenuSection>
+export type MenuSectionProps = ComponentProps<typeof MenuSection>;
 
 MenuSection.displayName = "MenuSection";

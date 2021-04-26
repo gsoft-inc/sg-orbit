@@ -100,6 +100,6 @@ export const GroupField = forwardRef<InnerGroupFieldProps>((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));
 
-export type GroupFieldProps = ComponentProps<typeof GroupField>
+export type GroupFieldProps = ComponentProps<typeof GroupField>;
 
 GroupField.displayName = "GroupField";
