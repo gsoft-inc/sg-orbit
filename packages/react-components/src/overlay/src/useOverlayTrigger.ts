@@ -3,7 +3,6 @@ import { Keys, isNil, useEventCallback } from "../../shared";
 
 export interface UseOverlayTriggerOptions {
     trigger?: "click" | "hover";
-    hideOnEscape?: boolean;
     onShow?: (event: SyntheticEvent) => void;
     onHide?: (event: SyntheticEvent) => void;
 }
@@ -43,12 +42,6 @@ export function useOverlayTrigger(isOpen: boolean, { trigger = "click", onShow, 
                     show(event);
                 }
                 break;
-            // case Keys.esc:
-            //     if (hideOnEscape) {
-            //         event.preventDefault();
-            //         hide(event);
-            //         break;
-            //     }
         }
     });
 
@@ -79,7 +72,6 @@ export function useOverlayTrigger(isOpen: boolean, { trigger = "click", onShow, 
                 onMouseLeave: handleMouseLeave,
                 onFocus: handleFocus,
                 onBlur: handleBlur
-                // onKeyDown: handleKeyDown
             };
         default:
             return {};

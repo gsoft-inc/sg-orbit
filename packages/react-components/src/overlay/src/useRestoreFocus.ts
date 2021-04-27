@@ -62,14 +62,10 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
     useLayoutEffect(() => {
         if (!isDisabled) {
             return () => {
-                // console.log("hello!!", scope.isInScope(document.activeElement as HTMLElement), document.activeElement);
-
                 if (scope.isInScope(document.activeElement as HTMLElement)) {
                     // Don't move this line inside the frame.
                     // eslint-disable-next-line react-hooks/exhaustive-deps
                     const elementToRestore = elementToRestoreRef.current;
-
-                    // console.log(elementToRestore);
 
                     requestAnimationFrame(() => {
                         if (document.body.contains(elementToRestore)) {
