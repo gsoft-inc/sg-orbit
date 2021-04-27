@@ -148,7 +148,7 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
         };
 
         return {
-            selectedKeys: selectedKeys,
+            selectedKeys,
             toggleKey,
             toggleSelection,
             extendSelection
@@ -301,11 +301,7 @@ export function InnerListbox({
             }
             case Keys.enter: {
                 event.preventDefault();
-
-                const newKeys = selectionManager.toggleKey(document.activeElement.getAttribute(OptionKeyProp));
-
-                updateSelectedKeys(event, newKeys);
-
+                handleSelectOption(event, document.activeElement.getAttribute(OptionKeyProp));
                 break;
             }
             case Keys.space: {
@@ -314,7 +310,7 @@ export function InnerListbox({
                 const key = document.activeElement.getAttribute(OptionKeyProp);
 
                 if (selectionMode === "single") {
-                    const newKeys = selectionManager.toggleKey(key);
+                    const newKeys = selectionManager.toggleSelection(key);
 
                     updateSelectedKeys(event, newKeys);
                 }

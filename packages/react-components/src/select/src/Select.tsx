@@ -12,8 +12,7 @@ import { useSelect } from "./useSelect";
 
 // used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface OverlayProps extends Partial<OverlayPropsForDocumentation> {
-}
+interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps {
     /**
@@ -185,8 +184,8 @@ export function InnerSelect(props: InnerSelectProps) {
     });
 
     const iconMarkup = icon && augmentElement(icon, {
-        className: "o-ui-select-icon",
-        size: "sm"
+        size: "sm",
+        className: "o-ui-select-icon"
     });
 
     const selectedIconMarkup = selectedItem?.icon && augmentElement(selectedItem.icon, {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-// we use Function here since we copied the method from another repo and they use this
-// we rename it to DisposableFunction so we don't have to add the @typescript-eslint/ban-types every time we use this type.
+// We use Function here since we copied the method from another repo and they use this.
+// We rename it to DisposableFunction so we don't have to add the @typescript-eslint/ban-types every time we use this type.
 // eslint-disable-next-line @typescript-eslint/ban-types
 type DisposableFunction = Function;
 

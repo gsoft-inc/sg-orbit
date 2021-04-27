@@ -20,7 +20,7 @@ export function useOverlayPosition(triggerElement: Element, overlayElement: HTML
     allowFlip = false,
     allowPreventOverflow = false,
     boundaryElement = document.body
-}: UseOverlayPositionOptions) {
+}: UseOverlayPositionOptions = {}) {
     // eslint-disable-next-line @typescript-eslint/ban-types
     const popperModifiers: Partial<Modifier<string, object>>[] = [];
 

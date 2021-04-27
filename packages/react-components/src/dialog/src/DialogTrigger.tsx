@@ -90,8 +90,7 @@ export function InnerDialogTrigger({
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
-        }),
-        hideOnEscape: isOpen
+        })
     });
 
     // TODO: not sure it should use this hook, it's been designed for popups.

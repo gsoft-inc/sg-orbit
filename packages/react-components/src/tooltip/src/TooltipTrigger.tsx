@@ -114,6 +114,7 @@ export function InnerTooltipTrigger({
     }, [onOpenChange, isOpen, setIsOpen]);
 
     const triggerProps = useOverlayTrigger(isOpen, {
+        trigger: "hover",
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
@@ -122,9 +123,7 @@ export function InnerTooltipTrigger({
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        }),
-        hideOnEscape: true,
-        trigger: "hover"
+        })
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {

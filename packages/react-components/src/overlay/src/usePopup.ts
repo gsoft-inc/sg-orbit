@@ -19,7 +19,7 @@ import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
-export interface UsePopupProps {
+export interface UsePopupOptions {
     id?: string;
     open?: boolean;
     defaultOpen?: boolean;
@@ -59,7 +59,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     allowPreventOverflow = true,
     boundaryElement,
     keyProp
-}: UsePopupProps) {
+}: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState<HTMLElement>();
     const [overlayElement, setOverlayElement] = useState<HTMLElement>();
@@ -80,6 +80,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     }, [onOpenChange, isOpen, setIsOpen]);
 
     const triggerProps = useOverlayTrigger(isOpen, {
+        trigger,
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
@@ -88,9 +89,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        }),
-        trigger,
-        hideOnEscape: isOpen && hideOnEscape
+        })
     });
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {

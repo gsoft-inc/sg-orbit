@@ -18,7 +18,7 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick
-}: UseOverlayLightDismissOptions) {
+}: UseOverlayLightDismissOptions = {}) {
     const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {
             onHide(event);

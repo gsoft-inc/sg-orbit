@@ -3,12 +3,12 @@
 import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { useLayoutEffect } from "react";
 
-export interface UseRestoreFocusProps {
+export interface UseRestoreFocusOptions {
     isDisabled?: boolean;
 }
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
-export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusProps = {}) {
+export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusOptions = {}) {
     const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
     useLayoutEffect(() => {
@@ -62,10 +62,14 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
     useLayoutEffect(() => {
         if (!isDisabled) {
             return () => {
+                // console.log("hello!!", scope.isInScope(document.activeElement as HTMLElement), document.activeElement);
+
                 if (scope.isInScope(document.activeElement as HTMLElement)) {
                     // Don't move this line inside the frame.
                     // eslint-disable-next-line react-hooks/exhaustive-deps
                     const elementToRestore = elementToRestoreRef.current;
+
+                    // console.log(elementToRestore);
 
                     requestAnimationFrame(() => {
                         if (document.body.contains(elementToRestore)) {

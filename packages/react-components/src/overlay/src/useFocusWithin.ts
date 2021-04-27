@@ -1,13 +1,13 @@
 import { FocusEvent } from "react";
 import { isNil, useEventCallback, useRefState } from "../../shared";
 
-export interface UseFocusWithinProps {
+export interface UseFocusWithinOptions {
     onFocus?: (event: FocusEvent) => void;
     onBlur?: (event: FocusEvent) => void;
     isDisabled?: boolean;
 }
 
-export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinProps) {
+export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinOptions = {}) {
     const [isFocusWithinRef, setIsFocusWithin] = useRefState(false);
 
     const handleFocus = useEventCallback(event => {
