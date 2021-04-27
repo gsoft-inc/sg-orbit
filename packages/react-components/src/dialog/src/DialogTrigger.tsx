@@ -84,14 +84,14 @@ export function InnerDialogTrigger({
         throw new Error("A modal trigger must have exactly 2 children.");
     }
 
-    const triggerProps = useOverlayTrigger({
-        isOpen,
+    const triggerProps = useOverlayTrigger(isOpen, {
         onShow: useEventCallback((event: SyntheticEvent) => {
             open(event);
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
-        })
+        }),
+        hideOnEscape: isOpen
     });
 
     // TODO: not sure it should use this hook, it's been designed for popups.

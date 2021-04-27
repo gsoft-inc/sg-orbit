@@ -1,14 +1,20 @@
 import { KeyboardEvent, SyntheticEvent } from "react";
 import { Keys, isNil, useEventCallback } from "../../shared";
 
-export interface UseOverlayTriggerProps {
+// export interface UseOverlayTriggerProps {
+//     trigger?: "click" | "hover";
+//     isOpen: boolean;
+//     options: UseOverlayTriggerOptions;
+// }
+
+export interface UseOverlayTriggerOptions {
     trigger?: "click" | "hover";
-    isOpen: boolean;
+    hideOnEscape?: boolean;
     onShow?: (event: SyntheticEvent) => void;
     onHide?: (event: SyntheticEvent) => void;
 }
 
-export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }: UseOverlayTriggerProps) {
+export function useOverlayTrigger(isOpen: boolean, { onShow, onHide, trigger = "click", hideOnEscape }: UseOverlayTriggerOptions) {
     const toggle = (event: SyntheticEvent) => {
         if (isOpen) {
             hide(event);
@@ -44,9 +50,11 @@ export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }:
                 }
                 break;
             case Keys.esc:
-                event.preventDefault();
-                hide(event);
-                break;
+                if (hideOnEscape) {
+                    event.preventDefault();
+                    hide(event);
+                    break;
+                }
         }
     });
 

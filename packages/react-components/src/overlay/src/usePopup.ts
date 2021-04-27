@@ -79,9 +79,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = useOverlayTrigger({
-        trigger,
-        isOpen,
+    const triggerProps = useOverlayTrigger(isOpen, {
         onShow: useEventCallback(event => {
             updateIsOpen(event, true);
         }),
@@ -90,7 +88,9 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        })
+        }),
+        trigger,
+        hideOnEscape: isOpen && hideOnEscape
     });
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {

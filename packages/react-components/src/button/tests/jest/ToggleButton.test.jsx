@@ -1,7 +1,7 @@
 import { ToggleButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/user-event";
+import userEvent from "@utils/userEvent";
 
 // ***** Api *****
 

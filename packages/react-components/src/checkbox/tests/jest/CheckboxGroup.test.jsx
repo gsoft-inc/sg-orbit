@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef, forwardRef } from "react";
-import userEvent from "@utils/user-event";
+import userEvent from "@utils/userEvent";
 
 function getInput(element) {
     return element.querySelector("input");
