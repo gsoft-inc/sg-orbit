@@ -16,7 +16,7 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
@@ -201,5 +201,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
 export const CheckboxGroup = forwardRef<InnerCheckboxGroupProps>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
+
+export type CheckboxGroupProps = ComponentProps<typeof CheckboxGroup>;
 
 CheckboxGroup.displayName = "CheckboxGroup";
