@@ -64,6 +64,8 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     );
 });
 
+export type ListProps = ComponentProps<typeof List>;
+
 List.displayName = "List";
 
 ////////

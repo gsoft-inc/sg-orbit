@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ElementType, ReactNode, useEffect, useState } from "react";
+import { ComponentProps, ElementType, ReactNode, useEffect, useState } from "react";
 import { forwardRef, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 export interface InnerTransitionProps {
@@ -76,5 +76,7 @@ export const Transition = forwardRef<InnerTransitionProps>(({
         </Box>
     );
 });
+
+export type TransitionProps = ComponentProps<typeof Transition>;
 
 Transition.displayName = "Transition";
