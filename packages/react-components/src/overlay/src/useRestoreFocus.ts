@@ -3,12 +3,12 @@
 import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { KeyboardEvent, useLayoutEffect } from "react";
 
-export interface UseRestoreFocusProps {
+export interface UseRestoreFocusOptions {
     isDisabled?: boolean;
 }
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
-export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusProps = {}) {
+export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusOptions = {}) {
     const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
     useLayoutEffect(() => {

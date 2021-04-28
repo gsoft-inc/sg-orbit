@@ -1,12 +1,12 @@
 import { MouseEvent, RefObject } from "react";
 import { isNil, useDocumentListener, useEventCallback } from "../../shared";
 
-export interface UseInteractOutsideProps {
+export interface UseInteractOutsideOptions {
     isDisabled?: boolean;
     onInteractOutside?: (e: MouseEvent) => void;
 }
 
-export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideProps = {}) {
+export function useInteractOutside(rootRef: RefObject<HTMLElement>, { isDisabled, onInteractOutside }: UseInteractOutsideOptions = {}) {
     const handleDocumentClick = useEventCallback(event => {
         if (!rootRef.current?.contains(event.target as Node)) {
             if (!isNil(onInteractOutside)) {

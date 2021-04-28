@@ -1,6 +1,7 @@
 import {
     FocusTarget,
     Keys,
+    arrayify,
     isNil,
     isNumber,
     mergeProps,
@@ -186,7 +187,7 @@ export function useSelect(children: ReactNode, {
         ),
         listboxProps: {
             nodes,
-            selectedKeys: useMemo(() => [selectedKey], [selectedKey]),
+            selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
             onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.

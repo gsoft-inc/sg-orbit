@@ -1,6 +1,3 @@
-// TODO: Legacy stuff to review & possibly remove.
-export * from "./match";
-
 // Constants
 export * from "./keys";
 export * from "./focusTarget";

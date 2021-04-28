@@ -1,4 +1,4 @@
-import { ErrorBoundary, muteConsoleErrors } from "@utils/error-handling";
+import { ErrorBoundary, muteConsoleErrors } from "@utils/errorHandling";
 import { act, renderHook } from "@testing-library/react-hooks";
 import { useControllableState } from "@react-components/shared";
 

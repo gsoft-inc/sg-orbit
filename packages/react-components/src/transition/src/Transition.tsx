@@ -52,7 +52,11 @@ export const Transition = forwardRef<InnerTransitionProps>(({
         setIsVisible(show);
     });
 
-    if (!isVisible) {
+    // @ts-ignore
+    const isAnimationDisabled = Transition.disableAnimation;
+    const shouldRender = isAnimationDisabled ? show : isVisible;
+
+    if (!shouldRender) {
         return null;
     }
 
@@ -61,7 +65,7 @@ export const Transition = forwardRef<InnerTransitionProps>(({
             {...mergeProps(
                 rest,
                 {
-                    onAnimationEnd: handleAnimationEnd,
+                    onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
                     className: show
                         ? isInitialRender
                             ? animateFirstRender && enter
@@ -78,5 +82,9 @@ export const Transition = forwardRef<InnerTransitionProps>(({
 });
 
 export type TransitionProps = ComponentProps<typeof Transition>;
+
+// Jest tests requires to disable the animation because "onAnimationEnd" is never fired. I can't figure out why.
+// @ts-ignore
+Transition.disableAnimation = false;
 
 Transition.displayName = "Transition";

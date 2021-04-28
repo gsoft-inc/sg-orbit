@@ -24,34 +24,40 @@ export interface InnerMenuSectionProps extends DomProps {
 export function InnerMenuSection({
     id,
     title,
-    as = "div",
+    as = "li",
     children,
     forwardedRef,
     ...rest
 }: InnerMenuSectionProps) {
     return (
-        <>
+        <Box
+            {...mergeProps(
+                rest,
+                {
+                    className: "o-ui-menu-section",
+                    as,
+                    role: "presentation",
+                    ref: forwardedRef
+                }
+            )}
+        >
             <Box
-                {...mergeProps(
-                    rest,
-                    {
-                        id,
-                        className: "o-ui-menu-section",
-                        "aria-hidden": true,
-                        as,
-                        ref: forwardedRef
-                    }
-                )}
+                id={id}
+                as="span"
+                aria-hidden="true"
+                className="o-ui-menu-section-title"
             >
                 {title}
             </Box>
             <Box
                 role="group"
                 aria-labelledby={id}
+                as="ul"
+                className="o-ui-menu-section-items"
             >
                 {children}
             </Box>
-        </>
+        </Box>
     );
 }
 

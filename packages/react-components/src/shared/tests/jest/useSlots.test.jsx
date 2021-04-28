@@ -1,5 +1,5 @@
 import { Box } from "@react-components/box";
-import { ErrorBoundary, muteConsoleErrors } from "@utils/error-handling";
+import { ErrorBoundary, muteConsoleErrors } from "@utils/errorHandling";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 import { slot, useSlots } from "@react-components/shared";

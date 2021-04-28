@@ -113,9 +113,8 @@ export function InnerTooltipTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = useOverlayTrigger({
+    const triggerProps = useOverlayTrigger(isOpen, {
         trigger: "hover",
-        isOpen,
         onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
         }),
