@@ -84,6 +84,6 @@ export const Image = forwardRef<InnerImageProps>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 ));
 
-export type ImageProps = ComponentProps<typeof Image>
+export type ImageProps = ComponentProps<typeof Image>;
 
 Image.displayName = "Image";

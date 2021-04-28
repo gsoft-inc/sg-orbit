@@ -151,7 +151,7 @@ export const IconButton = slot("button", forwardRef<InnerIconButtonProps, "butto
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 
-export type IconButtonProps = ComponentProps<typeof IconButton>
+export type IconButtonProps = ComponentProps<typeof IconButton>;
 
 IconButton.displayName = "IconButton";
 

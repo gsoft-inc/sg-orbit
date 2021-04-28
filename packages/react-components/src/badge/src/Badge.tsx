@@ -78,6 +78,6 @@ export const Badge = forwardRef<InnerBadgeProps>((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
 
-export type BadgeProps = ComponentProps<typeof Badge>
+export type BadgeProps = ComponentProps<typeof Badge>;
 
 Badge.displayName = "Badge";

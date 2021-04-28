@@ -52,6 +52,6 @@ export const ErrorMessage = forwardRef<InnerErrorMessageProps>((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));
 
-export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>
+export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>;
 
 ErrorMessage.displayName = "ErrorMessage";

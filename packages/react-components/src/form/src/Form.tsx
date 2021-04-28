@@ -68,6 +68,6 @@ export const Form = forwardRef<InnerFormProps>((props, ref) => (
     <InnerForm {...props} forwardedRef={ref} />
 ));
 
-export type FormProps = ComponentProps<typeof Form>
+export type FormProps = ComponentProps<typeof Form>;
 
 Form.displayName = "Form";

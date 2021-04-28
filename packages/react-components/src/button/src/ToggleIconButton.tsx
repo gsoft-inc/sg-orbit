@@ -129,6 +129,6 @@ export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonP
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
 
-export type ToggleIconButtonProps = ComponentProps<typeof ToggleIconButton>
+export type ToggleIconButtonProps = ComponentProps<typeof ToggleIconButton>;
 
 ToggleIconButton.displayName = "ToggleIconButton";

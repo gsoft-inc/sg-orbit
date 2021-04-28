@@ -102,6 +102,6 @@ export const ButtonGroup = slot("button-group", forwardRef<InnerButtonGroupProps
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));
 
-export type ButtonGroupProps = ComponentProps<typeof ButtonGroup>
+export type ButtonGroupProps = ComponentProps<typeof ButtonGroup>;
 
 ButtonGroup.displayName = "ButtonGroup";

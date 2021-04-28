@@ -60,7 +60,7 @@ interface SlotOptions {
 
 type SlotElements<T extends SlotOptions> = {
     [key in keyof Omit<T, "_">]?: ReactElement;
-}
+};
 
 export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
     if (isNil(children)) {
