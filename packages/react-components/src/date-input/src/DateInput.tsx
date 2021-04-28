@@ -42,13 +42,13 @@ export interface InnerDateInputProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * Called when the date change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @param {object} date - The new date value.
      * @returns {void}
      */

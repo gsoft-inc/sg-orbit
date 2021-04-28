@@ -65,7 +65,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     reverse?: boolean;
     /**
      * Called when the checkbox checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

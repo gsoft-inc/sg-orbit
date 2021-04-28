@@ -34,7 +34,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

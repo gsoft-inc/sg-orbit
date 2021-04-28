@@ -46,7 +46,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     type?: "button" | "submit" | "reset";
     /**
      * Called when the icon button is click.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onClick?: (event: MouseEvent) => void;
