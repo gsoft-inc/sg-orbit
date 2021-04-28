@@ -1,6 +1,6 @@
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
@@ -152,6 +152,8 @@ export function InnerMenuItem({
 export const MenuItem = forwardRef<InnerMenuItemProps>((props, ref) => (
     <InnerMenuItem {...props} forwardedRef={ref} />
 ));
+
+export type MenuItemProps = ComponentProps<typeof MenuItem>;
 
 MenuItem.displayName = "MenuItem";
 

@@ -75,7 +75,7 @@ export const Paragraph = forwardRef<InnerParagraphProps>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
 
-export type ParagraphProps = ComponentProps<typeof Paragraph>
+export type ParagraphProps = ComponentProps<typeof Paragraph>;
 
 Paragraph.displayName = "Paragraph";
 

@@ -1,4 +1,4 @@
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
@@ -190,5 +190,7 @@ export function InnerMenuTrigger({
 export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
+
+export type MenuTriggerProps = ComponentProps<typeof MenuTrigger>;
 
 MenuTrigger.displayName = "MenuTrigger";

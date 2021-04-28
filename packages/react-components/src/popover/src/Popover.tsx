@@ -89,6 +89,6 @@ export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
 
-export type PopoverProps = ComponentProps<typeof Popover>
+export type PopoverProps = ComponentProps<typeof Popover>;
 
 Popover.displayName = "Popover";

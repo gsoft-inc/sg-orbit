@@ -139,6 +139,6 @@ export const TextLink = forwardRef<InnerTextLinkProps>((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
 
-export type TextLinkProps = ComponentProps<typeof TextLink>
+export type TextLinkProps = ComponentProps<typeof TextLink>;
 
 TextLink.displayName = "TextLink";

@@ -1,4 +1,4 @@
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, cloneElement } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, cloneElement } from "react";
 import { Inline } from "../../layout";
 import { forwardRef, slot } from "../../shared";
 
@@ -54,3 +54,5 @@ export function InnerIconList({
 export const IconList = slot("icon", forwardRef<InnerIconListProps>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));
+
+export type IconListProps = ComponentProps<typeof IconList>;

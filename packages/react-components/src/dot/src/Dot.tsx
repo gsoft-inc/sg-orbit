@@ -84,6 +84,6 @@ export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
 
-export type DotProps = ComponentProps<typeof Dot>
+export type DotProps = ComponentProps<typeof Dot>;
 
 Dot.displayName = "Dot";

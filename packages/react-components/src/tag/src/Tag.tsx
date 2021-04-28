@@ -129,7 +129,7 @@ export const Tag = forwardRef<InnerTagProps>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
 
-export type TagProps = ComponentProps<typeof Tag>
+export type TagProps = ComponentProps<typeof Tag>;
 
 Tag.displayName = "Tag";
 

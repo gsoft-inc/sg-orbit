@@ -20,7 +20,7 @@ export function useCheckableContext(): [CheckableContextType, boolean] {
 
 type UseCheckablePropsReturn = Omit<CheckableContextType, "checkedValue"> & {
     checked?: boolean;
-}
+};
 
 export function useCheckableProps({ value }: { value?: string }): [UseCheckablePropsReturn, boolean] {
     const [context, isCheckable] = useCheckableContext();

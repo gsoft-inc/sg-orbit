@@ -122,6 +122,6 @@ export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) =
     <InnerDateInput {...props} forwardedRef={ref} />
 ));
 
-export type DateInputProps = ComponentProps<typeof DateInput>
+export type DateInputProps = ComponentProps<typeof DateInput>;
 
 DateInput.displayName = "DateInput";

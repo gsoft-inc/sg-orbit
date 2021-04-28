@@ -46,6 +46,6 @@ export const Tooltip = forwardRef<InnerTooltipProps>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));
 
-export type TooltipProps = ComponentProps<typeof Tooltip>
+export type TooltipProps = ComponentProps<typeof Tooltip>;
 
 Tooltip.displayName = "Tooltip";

@@ -95,6 +95,6 @@ export const Field = forwardRef<InnerFieldProps>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
 
-export type FieldProps = ComponentProps<typeof Field>
+export type FieldProps = ComponentProps<typeof Field>;
 
 Field.displayName = "Field";

@@ -456,12 +456,12 @@ export function InnerListbox({
 
 export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
-}
+};
 
 export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 
-export type ListboxProps = ComponentProps<typeof Listbox>
+export type ListboxProps = ComponentProps<typeof Listbox>;
 
 Listbox.displayName = "Listbox";

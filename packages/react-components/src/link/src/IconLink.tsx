@@ -134,6 +134,6 @@ export const IconLink = forwardRef<InnerIconLinkProps>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
 
-export type IconLinkProps = ComponentProps<typeof IconLink>
+export type IconLinkProps = ComponentProps<typeof IconLink>;
 
 IconLink.displayName = "IconLink";

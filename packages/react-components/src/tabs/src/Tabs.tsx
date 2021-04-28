@@ -13,11 +13,11 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled selected key.
      */
-    selectedKey: string;
+    selectedKey?: string;
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
-    defaultSelectedKey: string;
+    defaultSelectedKey?: string;
     /**
      * Called when the selected tab change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -138,6 +138,6 @@ export const Tabs = forwardRef<InnerTabsProps>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
 
-export type TabsProps = ComponentProps<typeof Tabs>
+export type TabsProps = ComponentProps<typeof Tabs>;
 
 Tabs.displayName = "Tabs";

@@ -52,6 +52,6 @@ export const HelpMessage = forwardRef<InnerHelpMessageProps>((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />
 ));
 
-export type HelpMessageProps = ComponentProps<typeof HelpMessage>
+export type HelpMessageProps = ComponentProps<typeof HelpMessage>;
 
 HelpMessage.displayName = "HelpMessage";

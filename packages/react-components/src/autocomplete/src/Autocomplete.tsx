@@ -504,7 +504,7 @@ export const Autocomplete = forwardRef<InnerAutocompleteProps, "input">((props, 
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));
 
-export type AutocompleteProps = ComponentProps<typeof Autocomplete>
+export type AutocompleteProps = ComponentProps<typeof Autocomplete>;
 
 Autocomplete.displayName = "Autocomplete";
 
