@@ -24,7 +24,7 @@ import {
 } from "../../shared";
 import { Box, BoxProps } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -104,7 +104,7 @@ export function InnerMenu({
 
     const focusManager = useFocusManager(focusScope, { keyProp: ItemKeyProp });
 
-    const handleSelectItem = useEventCallback((event, key) => {
+    const handleSelectItem = useEventCallback((event: SyntheticEvent, key: string) => {
         let newKeys;
 
         if (selectionMode === "multiple") {
@@ -124,7 +124,7 @@ export function InnerMenu({
 
     const searchDisposables = useDisposables();
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         searchDisposables.dispose();
 
         switch (event.key) {

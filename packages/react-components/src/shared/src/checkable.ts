@@ -1,9 +1,9 @@
-import { ChangeEvent, createContext, useContext } from "react";
+import { SyntheticEvent, createContext, useContext } from "react";
 import { isArray, isNil } from "./assertions";
 
 interface CheckableContextType {
     checkedValue?: string | string[];
-    onCheck?: (event: ChangeEvent, newValue: string) => void;
+    onCheck?: (event: SyntheticEvent, newValue: string) => void;
 }
 
 export const CheckableContext = createContext<CheckableContextType>(undefined);

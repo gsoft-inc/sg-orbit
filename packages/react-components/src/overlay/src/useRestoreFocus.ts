@@ -1,7 +1,7 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
 import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
-import { useLayoutEffect } from "react";
+import { KeyboardEvent, useLayoutEffect } from "react";
 
 export interface UseRestoreFocusOptions {
     isDisabled?: boolean;
@@ -17,13 +17,13 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
 
     // Handle the tab key so that tabbing out of the scope goes to the next element after the node that had focus when the scope mounted.
     // This is important when using portals for overlays, so that focus goes to the expected element when tabbing out of the overlay.
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
             const focusedElement = event.target;
 
             // Create a DOM tree walker that matches all tabbable elements.
             const walker = createFocusableTreeWalker(document.body, { tabbable: true });
-            walker.currentNode = focusedElement;
+            walker.currentNode = focusedElement as Node;
 
             const next = () => {
                 return event.shiftKey ? walker.previousNode() : walker.nextNode() as HTMLElement;

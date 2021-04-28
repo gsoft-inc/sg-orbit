@@ -1,4 +1,4 @@
-import { ElementType, ForwardedRef, Ref, SyntheticEvent, useImperativeHandle, useLayoutEffect, useRef } from "react";
+import { ChangeEvent, ElementType, ForwardedRef, Ref, useImperativeHandle, useLayoutEffect, useRef } from "react";
 import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 
 export interface UseCheckboxProps {
@@ -12,7 +12,7 @@ export interface UseCheckboxProps {
     autoFocus?: boolean | number;
     required?: boolean;
     validationState?: "invalid" | "valid";
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     size?: "sm" | "md";
     reverse?: boolean;
     name?: string;
@@ -36,7 +36,7 @@ export interface UseCheckboxReturn {
         as?: ElementType;
         type?: "checkbox";
         checked?: boolean;
-        onChange?: (event: SyntheticEvent) => void;
+        onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
         disabled?: boolean;
         name?: string;
         tabIndex?: number;
@@ -86,7 +86,7 @@ export function useCheckbox({
         return forwardInputApi(wrapperRef);
     });
 
-    const handleChange = useEventCallback((event: SyntheticEvent) => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         setIsChecked((event.target as HTMLInputElement).checked);
         setIsIndeterminate(false);
 

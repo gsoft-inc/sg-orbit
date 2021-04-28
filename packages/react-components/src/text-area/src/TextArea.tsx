@@ -1,7 +1,7 @@
 import "./TextArea.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
@@ -40,7 +40,7 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -130,7 +130,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     });
 

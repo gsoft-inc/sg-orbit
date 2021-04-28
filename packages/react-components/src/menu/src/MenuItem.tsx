@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../text";
@@ -51,14 +51,14 @@ export function InnerMenuItem({
 }: InnerMenuItemProps) {
     const { selectedKeys, selectionMode, onSelect } = useMenuContext();
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: MouseEvent) => {
         if (!disabled) {
             onSelect(event, key);
         }
     });
 
-    const handleMouseEnter = useEventCallback(event => {
-        event.target.focus();
+    const handleMouseEnter = useEventCallback((event: MouseEvent) => {
+        (event.target as HTMLElement).focus();
     });
 
     const labelId = `${id}-label`;

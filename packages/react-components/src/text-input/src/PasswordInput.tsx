@@ -1,7 +1,7 @@
 import "./PasswordInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";
@@ -42,7 +42,7 @@ export interface InnerPasswordInputProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -91,7 +91,7 @@ export function InnerPasswordInput({
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     });
 

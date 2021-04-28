@@ -16,7 +16,7 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
@@ -241,16 +241,16 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     // Required to support selection when there are sections.
     const items = useOnlyCollectionItems(results);
 
-    const open = useCallback(event => {
+    const open = useCallback((event: SyntheticEvent) => {
         setIsOpen(event, true);
     }, [setIsOpen]);
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         setIsOpen(event, false);
         setFocusedItem(null);
     }, [setIsOpen, setFocusedItem]);
 
-    const setSelection = useCallback((event, newKey) => {
+    const setSelection = useCallback((event: SyntheticEvent, newKey: string) => {
         let newValue = null;
 
         if (!isNil(newKey)) {
@@ -275,7 +275,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         setQuery(clearOnSelect ? "" : newValue ?? "", true);
     }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
 
-    const clear = useCallback(event => {
+    const clear = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         setSelection(event, null);
     }, [setSelection]);
 
@@ -286,7 +286,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
     }, [value, queryRef, setQuery]);
 
-    const search = useDebouncedCallback((event, query) => {
+    const search = useDebouncedCallback((event: ChangeEvent<HTMLInputElement>, query) => {
         if (query.trim().length >= minCharacters) {
             searchCollection(event, query);
             open(event);
@@ -298,7 +298,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
     }, 200);
 
-    const selectItem = useCallback((event, key) => {
+    const selectItem = useCallback((event: SyntheticEvent, key: string) => {
         setSelection(event, key);
         close(event);
     }, [setSelection, close]);
@@ -306,7 +306,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const triggerWidth = useTriggerWidth(triggerElement);
 
     const triggerFocusWithinProps = useFocusWithin({
-        onBlur: useEventCallback(event => {
+        onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(triggerRef)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
                 if (!isTargetParent(event.relatedTarget, triggerElement) && !isTargetParent(event.relatedTarget, overlayElement)) {
@@ -317,7 +317,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         })
     });
 
-    const handleTriggerKeyDown = useEventCallback(event => {
+    const handleTriggerKeyDown = useEventCallback((event: KeyboardEvent<HTMLInputElement>) => {
         switch (event.key) {
             case Keys.arrowDown:
                 if (isOpen) {
@@ -388,16 +388,16 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
     });
 
-    const handleTriggerChange = useEventCallback((event, query) => {
+    const handleTriggerChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, query) => {
         setQuery(query, true);
         search(event, query);
     });
 
-    const handleListboxSelectionChange = useEventCallback((event, newKeys) => {
+    const handleListboxSelectionChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newKeys) => {
         selectItem(event, newKeys[0] ?? null);
     });
 
-    const handleListboxFocusChange = useEventCallback((_event, newKey, activeElement) => {
+    const handleListboxFocusChange = useEventCallback((_event: FocusEvent, newKey, activeElement) => {
         setFocusedItem({
             id: activeElement.id,
             key: newKey

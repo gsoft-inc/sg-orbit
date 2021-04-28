@@ -10,7 +10,7 @@ export interface UseFocusWithinOptions {
 export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinOptions = {}) {
     const [isFocusWithinRef, setIsFocusWithin] = useRefState(false);
 
-    const handleFocus = useEventCallback(event => {
+    const handleFocus = useEventCallback((event: FocusEvent) => {
         if (!isNil(onFocus)) {
             onFocus(event);
         }

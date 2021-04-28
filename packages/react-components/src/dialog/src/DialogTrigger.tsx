@@ -95,7 +95,7 @@ export function InnerDialogTrigger({
 
     // TODO: not sure it should use this hook, it's been designed for popups.
     const overlayDismissProps = useOverlayLightDismiss(modalRef, {
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
         hideOnEscape: isOpen,

@@ -25,7 +25,7 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -236,7 +236,7 @@ export function InnerListbox({
 
     const searchDisposables = useDisposables();
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         searchDisposables.dispose();
 
         switch (event.key) {

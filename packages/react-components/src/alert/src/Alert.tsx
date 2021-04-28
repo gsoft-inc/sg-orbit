@@ -1,7 +1,7 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { StyleProvider, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
@@ -60,7 +60,7 @@ export interface InnerAlertProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onDismiss?: (event: SyntheticEvent) => void;
+    onDismiss?: (event: MouseEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -209,7 +209,7 @@ export interface AlertTemplateProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onDismiss?: (event: SyntheticEvent) => void;
+    onDismiss?: (event: MouseEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

@@ -2,7 +2,7 @@ import "./Listbox.css";
 
 import { Box, BoxProps } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
@@ -59,18 +59,18 @@ export function InnerListboxOption({
     // TODO: should we use debouncing instead?
     const [hasMouseOverRef, setHasMouseOver] = useRefState(false);
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: MouseEvent) => {
         onSelect(event, key);
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
+    const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    const handleFocus = useEventCallback(event => {
+    const handleFocus = useEventCallback((event: FocusEvent) => {
         // Mouse over check to ensure we don't call the onFocus handler twice when focusOnHover is on.
         if (!hasMouseOverRef.current) {
             // Required for virtual focus.
@@ -83,7 +83,7 @@ export function InnerListboxOption({
     });
 
     // Move focus to the option on mouse hover.
-    const handleMouseEnter = useEventCallback(event => {
+    const handleMouseEnter = useEventCallback((event: MouseEvent) => {
         setHasMouseOver(true);
 
         const activeElement = focusManager.focusKey(key);

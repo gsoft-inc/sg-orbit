@@ -81,10 +81,10 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
 
     const triggerProps = useOverlayTrigger(isOpen, {
         trigger,
-        onShow: useEventCallback(event => {
+        onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
         }),
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
@@ -94,7 +94,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {
         trigger,
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
         hideOnEscape: isOpen && hideOnEscape,

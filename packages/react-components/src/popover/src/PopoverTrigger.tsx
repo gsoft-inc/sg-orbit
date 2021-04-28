@@ -116,7 +116,7 @@ export function InnerPopoverTrigger({
         isDisabled: !isOpen || triggerProp !== "click"
     });
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         setIsOpen(event, false);
     }, [setIsOpen]);
 

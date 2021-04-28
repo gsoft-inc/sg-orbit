@@ -1,4 +1,4 @@
-import { ForwardedRef, SyntheticEvent } from "react";
+import { ChangeEvent, ForwardedRef } from "react";
 import { cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseInputProps {
@@ -8,7 +8,7 @@ export interface UseInputProps {
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;
