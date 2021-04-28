@@ -126,7 +126,7 @@ export function InnerRadio(props: InnerRadioProps) {
         setIsChecked(!isChecked);
     });
 
-    const handleCheck = useEventCallback((event: FormEvent) => {
+    const handleCheck = useEventCallback((event: FormEvent<HTMLInputElement>) => {
         onCheck(event, value);
     });
 

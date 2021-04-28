@@ -8,8 +8,8 @@ export interface UseToggleButtonProps<Shape> {
     checked?: boolean;
     defaultChecked?: boolean;
     value?: string;
-    onChange?: (event: FormEvent, isChecked: boolean) => void;
-    onCheck?: (event: FormEvent, value: string) => void;
+    onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
+    onCheck?: (event: FormEvent<HTMLButtonElement>, value: string) => void;
     forwardedRef?: ForwardedRef<any>;
 }
 
@@ -28,7 +28,7 @@ export function useToggleButton<Shape>({
 }: UseToggleButtonProps<Shape>) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
-    const handleClick = useEventCallback((event: MouseEvent) => {
+    const handleClick = useEventCallback((event: MouseEvent<HTMLButtonElement>) => {
         setIsChecked(!isChecked);
 
         if (!isNil(onCheck)) {
