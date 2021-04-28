@@ -49,7 +49,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
     disabled?: boolean;
     /**
      * Called when the radio checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {FormEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onChange?: (event: FormEvent<HTMLInputElement>) => void;

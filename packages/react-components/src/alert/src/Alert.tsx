@@ -57,7 +57,7 @@ export interface InnerAlertProps {
     tone?: "info" | "positive" | "warning" | "critical";
     /**
      * Called when the dismiss button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onDismiss?: (event: MouseEvent) => void;
@@ -206,7 +206,7 @@ export interface AlertTemplateProps {
     show?: boolean;
     /**
      * Called when the dismiss button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onDismiss?: (event: MouseEvent) => void;

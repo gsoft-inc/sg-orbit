@@ -49,7 +49,7 @@ export interface InnerSwitchProps extends InteractionStatesProps {
     reverse?: boolean;
     /**
      * Called when the switch checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
