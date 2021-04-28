@@ -5,13 +5,13 @@ import { disposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
-interface AbstractAutoFocusProps {
+interface AbstractAutoFocusOptions {
     isDisabled?: boolean;
     delay?: number;
     onFocus?: (element?: HTMLElement) => void;
 }
 
-function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusProps) {
+function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusOptions) {
     useEffect(() => {
         const d = disposables();
 

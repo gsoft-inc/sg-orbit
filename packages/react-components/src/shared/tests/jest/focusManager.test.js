@@ -63,7 +63,7 @@ describe("focusFirst", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusFirst();
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("call onFocus when the first element is focused", () => {
@@ -108,7 +108,7 @@ describe("focusFirst", () => {
             canFocus: () => true
         });
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("skip elements when canFocus return false for the first two elements", () => {
@@ -126,7 +126,7 @@ describe("focusFirst", () => {
             canFocus: x => x !== elements[0] && x !== elements[1]
         });
 
-        expect(document.activeElement).toBe(elements[2]);
+        expect(elements[2]).toHaveFocus();
     });
 
     test("call onNotFound when canFocus returns false for all the elements of the scope", () => {
@@ -164,7 +164,7 @@ describe("focusLast", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusLast();
 
-        expect(document.activeElement).toBe(elements[elements.length - 1]);
+        expect(elements[elements.length - 1]).toHaveFocus();
     });
 
     test("call onFocus when the last element is focused", () => {
@@ -209,7 +209,7 @@ describe("focusLast", () => {
             canFocus: () => true
         });
 
-        expect(document.activeElement).toBe(elements[elements.length - 1]);
+        expect(elements[elements.length - 1]).toHaveFocus();
     });
 
     test("skip elements when canFocus return false for the first and last elements", () => {
@@ -227,7 +227,7 @@ describe("focusLast", () => {
             canFocus: x => x !== elements[0] && x !== elements[2]
         });
 
-        expect(document.activeElement).toBe(elements[1]);
+        expect(elements[1]).toHaveFocus();
     });
 
     test("call onNotFound when canFocus returns false for all the elements of the scope", () => {
@@ -267,7 +267,7 @@ describe("focusNext", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusNext();
 
-        expect(document.activeElement).toBe(elements[1]);
+        expect(elements[1]).toHaveFocus();
     });
 
     test("focus the first element when the active element is out of the scope", () => {
@@ -286,7 +286,7 @@ describe("focusNext", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusNext();
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("can jump from last to first", () => {
@@ -303,7 +303,7 @@ describe("focusNext", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusNext();
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("call onFocus when the next element is focused", () => {
@@ -352,7 +352,7 @@ describe("focusNext", () => {
             canFocus: () => true
         });
 
-        expect(document.activeElement).toBe(elements[1]);
+        expect(elements[1]).toHaveFocus();
     });
 
     test("skips elements when canFocus return false", () => {
@@ -372,7 +372,7 @@ describe("focusNext", () => {
             canFocus: x => x !== elements[1]
         });
 
-        expect(document.activeElement).toBe(elements[2]);
+        expect(elements[2]).toHaveFocus();
     });
 
     test("call onNotFound when canFocus returns false for all the elements of the scope", () => {
@@ -415,7 +415,7 @@ describe("focusNext", () => {
             canFocus: x => x !== elements[elements.length - 1]
         });
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 });
 
@@ -434,7 +434,7 @@ describe("focusPrevious", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("focus the last element when the active element is out of the scope", () => {
@@ -453,7 +453,7 @@ describe("focusPrevious", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
-        expect(document.activeElement).toBe(elements[elements.length - 1]);
+        expect(elements[elements.length - 1]).toHaveFocus();
     });
 
     test("can jump from first to last", () => {
@@ -470,7 +470,7 @@ describe("focusPrevious", () => {
         const focusManager = new FocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
-        expect(document.activeElement).toBe(elements[elements.length - 1]);
+        expect(elements[elements.length - 1]).toHaveFocus();
     });
 
     test("call onFocus when the previous element is focused", () => {
@@ -519,7 +519,7 @@ describe("focusPrevious", () => {
             canFocus: () => true
         });
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("skips elements when canFocus return false", () => {
@@ -539,7 +539,7 @@ describe("focusPrevious", () => {
             canFocus: x => x !== elements[1]
         });
 
-        expect(document.activeElement).toBe(elements[0]);
+        expect(elements[0]).toHaveFocus();
     });
 
     test("call onNotFound when canFocus returns false for all the elements of the scope", () => {
@@ -582,7 +582,7 @@ describe("focusPrevious", () => {
             canFocus: x => x !== elements[0]
         });
 
-        expect(document.activeElement).toBe(elements[elements.length - 1]);
+        expect(elements[elements.length - 1]).toHaveFocus();
     });
 });
 
@@ -601,7 +601,7 @@ describe("focusKey", () => {
         const focusManager = new FocusManager(new Scope(elements), { keyProp: Key });
         focusManager.focusKey("1");
 
-        expect(document.activeElement).toBe(elements[1]);
+        expect(elements[1]).toHaveFocus();
     });
 
     test("can onFocus when the matching element is focused", () => {
@@ -692,7 +692,7 @@ describe("virtual focus", () => {
         const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
         focusManager.focusFirst();
 
-        expect(document.activeElement).not.toBe(elements[0]);
+        expect(elements[0]).not.toHaveFocus();
     });
 
     test("can focus next", () => {
@@ -708,7 +708,7 @@ describe("virtual focus", () => {
         focusManager.focusNext();
         focusManager.focusNext();
 
-        expect(document.activeElement).not.toBe(elements[1]);
+        expect(elements[1]).not.toHaveFocus();
     });
 
     test("can focus previous", () => {
@@ -724,7 +724,7 @@ describe("virtual focus", () => {
         focusManager.focusNext();
         focusManager.focusNext();
 
-        expect(document.activeElement).not.toBe(elements[1]);
+        expect(elements[1]).not.toHaveFocus();
     });
 
     test("hasFocus", () => {

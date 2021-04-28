@@ -8,10 +8,6 @@ import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 /*
-- MIGHT WANT TO DEFER SOME TESTS TO SOME SPECIFIC UTILITIES LIKE:
-    - useRestoreFocus
-    - All list test to the listbox component
-
 INTERACTION TEST:
 - on trigger click
     - if close & no selection, open and focus first

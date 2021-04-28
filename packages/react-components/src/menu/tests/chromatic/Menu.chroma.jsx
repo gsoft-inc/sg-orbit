@@ -9,11 +9,6 @@ import { Text } from "@react-components/text";
 import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-/*
-INTERACTION TEST:
-    - Do not persist selectedKeys when selectionMode is "none" (can test for aria-selected="false")
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Menu")
         .segment(segment)
@@ -122,7 +117,7 @@ stories()
                 <Item key="saturn">Saturn</Item>
                 <Item key="uranus">Uranus</Item>
             </Menu>
-            <Menu selectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
+            <Menu defaultSelectedKeys={["mars", "neptune"]} selectionMode="multiple" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

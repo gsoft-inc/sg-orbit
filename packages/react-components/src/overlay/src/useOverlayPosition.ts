@@ -4,7 +4,7 @@ import { usePopper } from "react-popper";
 
 export type OverlayPosition = Placement;
 
-export interface UseOverlayPositionProps {
+export interface UseOverlayPositionOptions {
     arrowElement?: HTMLElement;
     position?: OverlayPosition;
     offset?: number[];
@@ -20,7 +20,7 @@ export function useOverlayPosition(triggerElement: Element, overlayElement: HTML
     allowFlip = false,
     allowPreventOverflow = false,
     boundaryElement = document.body
-}: UseOverlayPositionProps) {
+}: UseOverlayPositionOptions = {}) {
     // eslint-disable-next-line @typescript-eslint/ban-types
     const popperModifiers: Partial<Modifier<string, object>>[] = [];
 

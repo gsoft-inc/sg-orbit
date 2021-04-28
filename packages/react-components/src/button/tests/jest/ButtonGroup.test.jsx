@@ -14,6 +14,8 @@ const Group = forwardRef((props, ref) => {
     );
 });
 
+// ***** Refs *****
+
 test("ref is a DOM element", async () => {
     const ref = createRef();
 
