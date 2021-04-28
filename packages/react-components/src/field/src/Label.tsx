@@ -1,6 +1,6 @@
 import "./Label.css";
 
-import { ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
 import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
@@ -78,5 +78,7 @@ export function InnerLabel(props: InnerLabelProps) {
 export const Label = forwardRef<InnerLabelProps>((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));
+
+export type LabelProps = ComponentProps<typeof Label>;
 
 Label.displayName = "Label";

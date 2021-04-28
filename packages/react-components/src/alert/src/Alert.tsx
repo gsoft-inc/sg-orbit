@@ -154,6 +154,8 @@ export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 
+export type AlertProps = ComponentProps<typeof Alert>;
+
 Alert.displayName = "Alert";
 
 ////////
