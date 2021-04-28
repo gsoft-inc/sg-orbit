@@ -1,6 +1,6 @@
 import "./Disclosure.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import { DomProps, Keys, augmentElement, cssModule, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../text";
@@ -50,7 +50,7 @@ export function InnerDisclosure({
 
     const contentRef = useMergedRefs(forwardedRef);
 
-    const toggle = useCallback(event => {
+    const toggle = useCallback((event: SyntheticEvent) => {
         setIsOpen(!isOpen);
 
         if (!isNil(onOpenChange)) {
@@ -58,7 +58,7 @@ export function InnerDisclosure({
         }
     }, [isOpen, setIsOpen, onOpenChange]);
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         if (isOpen) {
             toggle(event);
         }
@@ -70,13 +70,13 @@ export function InnerDisclosure({
         throw new Error("A disclosure component must have a trigger and a content element.");
     }
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: MouseEvent) => {
         event.preventDefault();
 
         toggle(event);
     });
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.enter:
             case Keys.space:
@@ -87,7 +87,7 @@ export function InnerDisclosure({
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
+    const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }

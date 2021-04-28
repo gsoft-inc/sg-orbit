@@ -1,7 +1,7 @@
 import "./IconButton.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
@@ -49,7 +49,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onClick?: (event: SyntheticEvent) => void;
+    onClick?: (event: MouseEvent) => void;
     /**
      * A label providing an accessible name to the icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

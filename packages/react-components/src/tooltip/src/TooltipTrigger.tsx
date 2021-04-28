@@ -103,7 +103,7 @@ export function InnerTooltipTrigger({
 
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
-    const updateIsOpen = useCallback((event, newValue) => {
+    const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
             if (!isNil(onOpenChange)) {
                 onOpenChange(event, newValue);
@@ -116,7 +116,7 @@ export function InnerTooltipTrigger({
     const triggerProps = useOverlayTrigger({
         trigger: "hover",
         isOpen,
-        onShow: useEventCallback(event => {
+        onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {

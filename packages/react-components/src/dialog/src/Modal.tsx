@@ -16,7 +16,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useEffect, useMemo, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useEffect, useMemo, useState } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
@@ -117,7 +117,7 @@ export function InnerModal({
 
     useAutoFocus(modalRef);
 
-    const handleCloseButtonClick = useEventCallback((event: SyntheticEvent) => {
+    const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
         close(event);
     });
 

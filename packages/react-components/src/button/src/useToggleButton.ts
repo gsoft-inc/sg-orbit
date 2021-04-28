@@ -1,4 +1,4 @@
-import { ForwardedRef, SyntheticEvent } from "react";
+import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
 export interface UseToggleButtonProps<Shape> {
@@ -8,8 +8,8 @@ export interface UseToggleButtonProps<Shape> {
     checked?: boolean;
     defaultChecked?: boolean;
     value?: string;
-    onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
-    onCheck?: (event: SyntheticEvent, value: string) => void;
+    onChange?: (event: FormEvent, isChecked: boolean) => void;
+    onCheck?: (event: FormEvent, value: string) => void;
     forwardedRef?: ForwardedRef<any>;
 }
 
@@ -28,7 +28,7 @@ export function useToggleButton<Shape>({
 }: UseToggleButtonProps<Shape>) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: MouseEvent) => {
         setIsChecked(!isChecked);
 
         if (!isNil(onCheck)) {

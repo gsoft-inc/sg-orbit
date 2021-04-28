@@ -1,7 +1,7 @@
 import "./TextInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -37,7 +37,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -114,7 +114,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     });
 

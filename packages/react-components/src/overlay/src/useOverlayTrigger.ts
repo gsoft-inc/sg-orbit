@@ -1,4 +1,4 @@
-import { KeyboardEvent, SyntheticEvent } from "react";
+import { FocusEvent, KeyboardEvent, MouseEvent, SyntheticEvent } from "react";
 import { Keys, isNil, useEventCallback } from "../../shared";
 
 export interface UseOverlayTriggerProps {
@@ -51,16 +51,16 @@ export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }:
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
+    const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    const handleMouseEnter = useEventCallback(event => { show(event); });
-    const handleMouseLeave = useEventCallback(event => { hide(event); });
-    const handleFocus = useEventCallback(event => { show(event); });
-    const handleBlur = useEventCallback(event => { hide(event); });
+    const handleMouseEnter = useEventCallback((event: MouseEvent) => { show(event); });
+    const handleMouseLeave = useEventCallback((event: MouseEvent) => { hide(event); });
+    const handleFocus = useEventCallback((event: FocusEvent) => { show(event); });
+    const handleBlur = useEventCallback((event: FocusEvent) => { hide(event); });
 
     switch (trigger) {
         case "click":

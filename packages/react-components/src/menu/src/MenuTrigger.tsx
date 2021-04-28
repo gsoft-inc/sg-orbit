@@ -1,4 +1,4 @@
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
@@ -107,18 +107,18 @@ export function InnerMenuTrigger({
         throw new Error("A menu trigger must have exactly 2 children.");
     }
 
-    const open = useCallback((event, focusTarget) => {
+    const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
         setFocusTarget(focusTarget);
         setIsOpen(event, true);
     }, [setIsOpen, setFocusTarget]);
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         setFocusTarget(null);
         setIsOpen(event, false);
     }, [setIsOpen, setFocusTarget]);
 
     // Open the menu on up & down arrow keydown.
-    const handleTriggerKeyDown = useEventCallback(event => {
+    const handleTriggerKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.arrowDown:
                 event.preventDefault();
@@ -131,7 +131,7 @@ export function InnerMenuTrigger({
         }
     });
 
-    const handleSelectionChange = useEventCallback(event => {
+    const handleSelectionChange = useEventCallback((event: SyntheticEvent) => {
         if (closeOnSelect) {
             close(event);
         }
