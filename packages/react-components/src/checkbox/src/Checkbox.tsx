@@ -1,7 +1,7 @@
 import "./Checkbox.css";
 
 import { Box } from "../../box";
-import { ChangeEvent, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -193,5 +193,8 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
 export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
+
+
+export type CheckboxProps = ComponentProps<typeof Checkbox>;
 
 Checkbox.displayName = "Checkbox";
