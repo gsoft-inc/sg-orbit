@@ -351,7 +351,7 @@ export function InnerListbox({
     });
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== "none" ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });

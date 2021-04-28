@@ -176,11 +176,7 @@ export function InnerMenu({
     useAutoFocusChild(focusManager, {
         target: selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: useEventCallback(() => {
-            // Ensure keyboard navigation is available.
-            containerRef.current?.focus();
-        })
+        delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
     const nodes = useCollection(children);

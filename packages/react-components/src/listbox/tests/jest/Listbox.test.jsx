@@ -65,7 +65,7 @@ test("when a listbox have a single option selected, this option is tabbable", as
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
 });
 
-test("when a listbox have multiple options selected, the first selected option is tabbable", async () => {
+test("when a listbox have multiple selected options, the first selected option is tabbable", async () => {
     const { getByTestId } = render(
         <Listbox defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
             <Item key="earth">Earth</Item>

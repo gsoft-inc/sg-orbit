@@ -1,35 +1,12 @@
 import { Button, IconButton } from "@react-components/button";
 import { DisclosureArrow } from "@react-components/disclosure";
-import { Item } from "@react-components/collection";
+import { Divider } from "@react-components/divider";
+import { Item, Section } from "@react-components/collection";
 import { Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { VerticalDotsIcon } from "@react-components/icons";
 import { forwardRef } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-
-/*
-INTERACTION TEST:
-- on trigger click
-    - if close & no selection, open and focus first
-    - if open, close
-- when close, on space keydown
-- when close, on enter keydown
-    - for both, open and select first item
-- when close, on arrow down keydown
-    - open and focus first item
-- when close, on arrow up keydown
-    - open and focus last item
-- close on esc keydown
-- close on blur
-- on select an item
-    - close menu and focus trigger
-- when open, on tab keydown
-    - select next tabbable element
-    - when shift, select previous tabbable element
-- can provide custom name
-- can provide custom id
-- do not close on select when closeOnSelect is false
-*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/MenuTrigger")
@@ -52,10 +29,63 @@ stories()
             </Menu>
         </MenuTrigger>
     )
-    .add("open", () =>
+    .add("open with items only", () =>
         <MenuTrigger defaultOpen>
             <Button>Trigger</Button>
             <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with sections", () =>
+        <MenuTrigger defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Section title="Visited">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Section>
+                <Section title="Not Visited">
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mercury">Mercury</Item>
+                    <Item key="neptune">Neptune</Item>
+                    <Item key="uranus">Uranus</Item>
+                </Section>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with dividers", () =>
+        <MenuTrigger defaultOpen>
+            <Button>Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Divider />
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with a selected item", () =>
+        <MenuTrigger defaultOpen selectionMode="single">
+            <Button>Trigger</Button>
+            <Menu defaultSelectedKeys={["mars"]}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+    .add("open with multiple selected items", () =>
+        <MenuTrigger defaultOpen selectionMode="multiple">
+            <Button>Trigger</Button>
+            <Menu defaultSelectedKeys={["mars", "saturn"]}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

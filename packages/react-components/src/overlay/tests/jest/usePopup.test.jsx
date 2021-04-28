@@ -448,8 +448,7 @@ test("call onOpenChange when the popup open", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    // Required otherwise "Warning: An update to Popup inside a test was not wrapped in act(...)." because
-    // the test complete before the open state is updated.
+    // Required otherwise a warning is emitted because the test complete before the open state is updated.
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
@@ -474,8 +473,7 @@ test("call onOpenChange when the popup close", async () => {
         fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
     });
 
-    // Required otherwise "Warning: An update to Popup inside a test was not wrapped in act(...)." because
-    // the test complete before the open state is updated.
+    // Required otherwise a warning is emitted because the test complete before the open state is updated.
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
     expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
