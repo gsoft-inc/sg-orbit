@@ -121,7 +121,7 @@ export function InnerModal({
         close(event);
     });
 
-    const modalId = useId(id, id ? null : "o-ui-modal");
+    const modalId = useId(id, "o-ui-modal");
     const headingId = `${modalId}-heading`;
 
     const { heading, content } = useSlots(children, useMemo(() => ({

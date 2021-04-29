@@ -93,7 +93,7 @@ export function InnerDisclosure({
         }
     });
 
-    const rootId = useId(id, id ? undefined : "o-ui-disclosure");
+    const rootId = useId(id, "o-ui-disclosure");
     const contentId = `${rootId}-content`;
 
     const triggerMarkup = augmentElement(trigger, {
