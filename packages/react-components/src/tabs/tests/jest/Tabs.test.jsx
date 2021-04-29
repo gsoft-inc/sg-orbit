@@ -20,10 +20,10 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("id")).toBe("foo-tab-0");
-    expect(header.getAttribute("aria-controls")).toBe("foo-panel-0");
-    expect(content.getAttribute("id")).toBe("foo-panel-0");
-    expect(content.getAttribute("aria-labelledby")).toBe("foo-tab-0");
+    expect(header).toHaveAttribute("id", "foo-tab-0");
+    expect(header).toHaveAttribute("aria-controls", "foo-panel-0");
+    expect(content).toHaveAttribute("id", "foo-panel-0");
+    expect(content).toHaveAttribute("aria-labelledby", "foo-tab-0");
 });
 
 test("when an header id is provided, it is assigned to the tab id", async () => {
@@ -39,8 +39,8 @@ test("when an header id is provided, it is assigned to the tab id", async () => 
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("id")).toBe("tab-header");
-    expect(content.getAttribute("aria-labelledby")).toBe("tab-header");
+    expect(header).toHaveAttribute("id", "tab-header");
+    expect(content).toHaveAttribute("aria-labelledby", "tab-header");
 });
 
 test("when a content id is provided, it is assigned to the content id", async () => {
@@ -56,8 +56,8 @@ test("when a content id is provided, it is assigned to the content id", async ()
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("aria-controls")).toBe("tab-content");
-    expect(content.getAttribute("id")).toBe("tab-content");
+    expect(header).toHaveAttribute("aria-controls", "tab-content");
+    expect(content).toHaveAttribute("id", "tab-content");
 });
 
 test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
@@ -73,10 +73,10 @@ test("when the root id is auto generated, it is used to compose the tab and pane
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("id")).toBe("o-ui-tabs-3-tab-0");
-    expect(header.getAttribute("aria-controls")).toBe("o-ui-tabs-3-panel-0");
-    expect(content.getAttribute("id")).toBe("o-ui-tabs-3-panel-0");
-    expect(content.getAttribute("aria-labelledby")).toBe("o-ui-tabs-3-tab-0");
+    expect(header).toHaveAttribute("id");
+    expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
+    expect(content).toHaveAttribute("id");
+    expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id"));
 });
 
 test("when the header id is auto generated, it is assigned to the tab id", async () => {
@@ -92,8 +92,8 @@ test("when the header id is auto generated, it is assigned to the tab id", async
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("id")).toBe("o-ui-tabs-4-tab-0");
-    expect(content.getAttribute("aria-labelledby")).toBe("o-ui-tabs-4-tab-0");
+    expect(header).toHaveAttribute("id");
+    expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id"));
 });
 
 test("when the content id is auto generated, it is assigned to the tab id", async () => {
@@ -109,8 +109,8 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header.getAttribute("aria-controls")).toBe("o-ui-tabs-5-panel-0");
-    expect(content.getAttribute("id")).toBe("o-ui-tabs-5-panel-0");
+    expect(content).toHaveAttribute("id");
+    expect(header.getAttribute("aria-controls")).toBe(content.getAttribute("id"));
 });
 
 // ***** Behaviors *****
