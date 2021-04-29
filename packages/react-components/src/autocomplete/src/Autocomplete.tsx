@@ -404,7 +404,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         });
     });
 
-    const triggerId = useId(id, id ? null : "o-ui-autocomplete-trigger");
+    const triggerId = useId(id, "o-ui-autocomplete-trigger");
 
     const iconMarkup = icon && augmentElement(icon, {
         className: "o-ui-autocomplete-icon",

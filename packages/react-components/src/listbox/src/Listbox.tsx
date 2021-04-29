@@ -356,7 +356,7 @@ export function InnerListbox({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const rootId = useId(id, id ? null : "o-ui-listbox");
+    const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
         key,

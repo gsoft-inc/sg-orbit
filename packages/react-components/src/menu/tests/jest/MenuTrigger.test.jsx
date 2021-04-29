@@ -13,6 +13,44 @@ beforeAll(() => {
 
 // ***** Behaviors *****
 
+test("when a menu open and there is no selected item, the first item is focused", async () => {
+    const { getByTestId } = render(
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Menu>
+                <Item key="earth" data-testid="earth-item">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+});
+
+test("when a menu open and there is a selected item, the selected item is focused", async () => {
+    const { getByTestId } = render(
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
+                <Item key="earth">Earth</Item>
+                <Item key="mars" data-testid="mars-item">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+});
+
 test("when a menu open with arrow down keypress and there is no selected item, the first item is focused", async () => {
     const { getByTestId } = render(
         <MenuTrigger>
@@ -51,7 +89,7 @@ test("when a menu open with arrow down keypress and there is a selected item, th
     await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
 });
 
-test("when a menu open with arrow up keypress and there is no selected item, the first item is focused", async () => {
+test("when a menu open with arrow up keypress and there is no selected item, the last item is focused", async () => {
     const { getByTestId } = render(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>

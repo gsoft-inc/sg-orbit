@@ -38,7 +38,7 @@ export function useField({
 }: UseFieldProps): UseFieldReturn {
     const ref = useMergedRefs(forwardedRef);
 
-    const fieldId = useId(id, id ? null : "o-ui-field");
+    const fieldId = useId(id, "o-ui-field");
 
     const { hasLabel, hasMessage, hasRadio } = useHasChildren({
         hasLabel: ".o-ui-field-label",

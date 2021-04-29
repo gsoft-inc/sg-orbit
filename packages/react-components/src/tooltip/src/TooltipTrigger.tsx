@@ -150,7 +150,7 @@ export function InnerTooltipTrigger({
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
 
-    const tooltipId = useId(tooltip.props.id, tooltip.props.id ? null : "o-ui-tooltip");
+    const tooltipId = useId(tooltip.props.id, "o-ui-tooltip");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         !disabled ? triggerProps : {},

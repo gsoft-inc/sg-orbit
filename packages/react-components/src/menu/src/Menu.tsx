@@ -181,7 +181,7 @@ export function InnerMenu({
 
     const nodes = useCollection(children);
 
-    const rootId = useId(id, id ? null : "o-ui-menu");
+    const rootId = useId(id, "o-ui-menu");
 
     const renderItem = ({
         key,

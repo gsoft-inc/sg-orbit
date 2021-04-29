@@ -25,7 +25,6 @@ export interface UseSelectProps {
     defaultOpen?: boolean;
     selectedKey?: string;
     defaultSelectedKey?: string;
-    onChange?: (event: SyntheticEvent, selectedKey: string) => void;
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     direction: "bottom" | "top";
@@ -147,7 +146,7 @@ export function useSelect(children: ReactNode, {
 
     const { icon, avatar, text, "end-icon": endIcon, stringValue } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
 
-    const triggerId = useId(id, id ? null : "o-ui-select-trigger");
+    const triggerId = useId(id, "o-ui-select-trigger");
 
     return {
         selectedKey,

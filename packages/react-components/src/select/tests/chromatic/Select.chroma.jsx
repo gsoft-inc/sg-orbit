@@ -7,39 +7,6 @@ import { Select, useSelect } from "@react-components/select";
 import { createTestSuite } from "./createTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-/*
-INTERACTION TEST:
-- on trigger click
-    - if close & no selection, open and focus first
-    - if close & selection, open and focus selected item
-    - if open, close
-- when close, on space keydown
-- when close, on enter keydown
-    - for both, open and select first item
-- when close, on arrow down keydown
-    - if no selection, open and focus first item
-    - if selection, open and focus selection item
-- when close, on arrow up keydown
-    - if no selection, open and focus last item
-    - if selection, open and focus selection item
-- close on esc keydown
-- close on blur
-- on select an item
-    - update selected value
-    - close menu and focus trigger
-- when open, on tab keydown
-    - select next tabbable element
-    - when shift, select previous tabbable element
-- when hover an item
-    - focus the item
-- can provide custom name
-- can provide custom id
-- when in field, focus when clicking on label
-- aria props (aria-expanded, aria-controls, aria-labelledby, ...)
-- calling .focus on the select ref will focus the select.
-- dynamic items
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Select")
         .segment(segment)

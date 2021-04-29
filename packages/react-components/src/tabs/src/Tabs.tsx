@@ -75,7 +75,7 @@ export function InnerTabs({
 }: InnerTabsProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
-    const [tabs, panels] = useTabsItems(children, useId(id, id ? null : "o-ui-tabs"));
+    const [tabs, panels] = useTabsItems(children, useId(id, "o-ui-tabs"));
 
     const handleSelect = useEventCallback((event: SyntheticEvent, newKey: string) => {
         if (!isNil(onSelectionChange)) {

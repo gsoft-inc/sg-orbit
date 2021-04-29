@@ -123,7 +123,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         })
     });
 
-    const overlayId = useId(id, id ? null : "o-ui-overlay");
+    const overlayId = useId(id, "o-ui-overlay");
 
     return {
         isOpen,

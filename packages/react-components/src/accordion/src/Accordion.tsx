@@ -78,7 +78,7 @@ export function InnerAccordion({
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const items = useAccordionItems(children, useId(id, id ? null : "o-ui-accordion"));
+    const items = useAccordionItems(children, useId(id, "o-ui-accordion"));
 
     const focusManager = useFocusManager(focusScope);
 
