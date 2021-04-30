@@ -20,7 +20,7 @@ export function TachyonsFile({ filePath, ...rest }) {
 
     return (
         <pre {...rest}>
-            <code className="f9 o-70">
+            <code className="f8 o-70">
                 {content}
             </code>
         </pre>

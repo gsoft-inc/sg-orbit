@@ -1,41 +1,42 @@
 .o-ui-heading {
     margin-top: 0;
-    font-weight: 500;
+    font-weight: 400;
+    font-variation-settings: "wght" 500;
 }
 
 /* SIZE */
 .o-ui-heading-2xs {
     font-size: var(--o-ui-global-type-scale-6);
-    line-height: 1.11111;
+    line-height: 1.5;
     margin-bottom: calc(var(--o-ui-global-type-scale-6) * .5);
 }
 
 .o-ui-heading-xs {
     font-size: var(--o-ui-global-type-scale-5);
-    line-height: 1.2;
+    line-height: 1.3333333;
     margin-bottom: calc(var(--o-ui-global-type-scale-5) * .5);
 }
 
 .o-ui-heading-sm {
     font-size: var(--o-ui-global-type-scale-4);
-    line-height: 1.3333333;
+    line-height: 1.454595;
     margin-bottom: calc(var(--o-ui-global-type-scale-4) * .5);
 }
 
 .o-ui-heading-md {
     font-size: var(--o-ui-global-type-scale-3);
-    line-height: 1.25;
+    line-height: 1.454595;
     margin-bottom: calc(var(--o-ui-global-type-scale-3) * .5);
 }
 
 .o-ui-heading-lg {
     font-size: var(--o-ui-global-type-scale-2);
-    line-height: 1;
+    line-height: 1.5;
     margin-bottom: calc(var(--o-ui-global-type-scale-2) * .5);
 }
 
 .o-ui-heading-xl {
     font-size: var(--o-ui-global-type-scale-1);
-    line-height: 1;
+    line-height: 1.2;
     margin-bottom: calc(var(--o-ui-global-type-scale-1) * .5);
 }

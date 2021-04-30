@@ -15,7 +15,7 @@
 .o-ui-sb-component-info-title {
     display: inline-block !important;
     color: var(--o-ui-alias-text-2) !important;
-    font-weight: 500 !important;
+    font-variation-settings: "wght" 500 !important;
     font-size: var(--o-ui-global-type-scale-7) !important;
     font-style: normal !important;
     width: var(--o-ui-global-scale-mike) !important;

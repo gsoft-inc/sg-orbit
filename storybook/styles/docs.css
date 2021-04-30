@@ -1,6 +1,6 @@
 :root {
     /* Use this var only when the element is not affected by the font-family specified in Storybook docs theme */
-    --orbit-font-family: "Calibre, Arial, Helvetica, sans-serif";
+    --orbit-font-family: "TT Interphases Variable, Arial, Helvetica, sans-serif";
 }
 
 /* LAYOUT */
@@ -15,7 +15,7 @@
 
 /* STORY */
 .docs-story div + div > button {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
     font-size: var(--o-ui-global-type-scale-8);
 }
 
@@ -32,7 +32,7 @@
 }
 
 .docblock-argstable-head tr th {
-    font-weight: 500 !important;
+    font-variation-settings: "wght" 500 !important;
     color: var(--o-ui-alias-text-1) !important;
 }
 
@@ -56,11 +56,11 @@
 
 /* ARGS TABLE | BODY  */
 .docblock-argstable-body td > span {
-    font-weight: 500 !important;
+    font-variation-settings: "wght" 500 !important;
 }
 
 .docblock-argstable-body td > label > span {
-    font-weight: 500 !important;
+    font-variation-settings: "wght" 500 !important;
 }
 
 .docblock-argstable-body td label input[type=radio] {
@@ -147,19 +147,20 @@
 .sbdocs.sbdocs-h4,
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6 {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
+    font-weight: 400;
     /* fixing the default position relative on all titles in shared.tsx */
     position: initial;
 }
 
 .sbdocs.sbdocs-h1 {
     font-size: var(--o-ui-global-type-scale-1);
-    line-height: 1;
+    line-height: 1.5;
 }
 
 .sbdocs.sbdocs-h1,
 .sbdocs .sbdocs-title {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
 }
 
 .sbdocs.sbdocs-h2 {
@@ -175,10 +176,12 @@
 .sbdocs.sbdocs.sbdocs-h3 {
     margin: var(--o-ui-global-scale-golf) 0 var(--o-ui-global-scale-delta);
     font-size: var(--o-ui-global-type-scale-4);
+    line-height: 1.454595;
 }
 
 .sbdocs.sbdocs.sbdocs-h4 {
     font-size: var(--o-ui-global-type-scale-5);
+    line-height: 1.3333333;
     margin: var(--o-ui-global-scale-foxtrot) 0 var(--o-ui-global-scale-bravo);
 }
 
@@ -232,7 +235,7 @@
 .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-span {
     font-size: var(--o-ui-global-type-scale-6);
-    line-height: 1.2;
+    line-height: 1.5;
     max-width: 90ch;
 }
 
@@ -246,7 +249,8 @@
 }
 
 .sbdocs.sbdocs-table tr th {
-    font-weight: 600;
+    font-weight: 400;
+    font-variation-settings: "wght" 600;
     font-size: var(--o-ui-global-type-scale-6);
 }
 
@@ -261,7 +265,8 @@
 
 .sbdocs.sbdocs-table b,
 .sbdocs.sbdocs-table strong {
-    font-weight: 600;
+    font-variation-settings: "wght" 600;
+    font-weight: 400;
 }
 
 .sbdocs.sbdocs-table .sbdocs.sbdocs-img {
@@ -317,7 +322,8 @@
 
 /* ELEMENTS | STRONG */
 .sbdocs strong {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
+    font-weight: 400;
 }
 
 /* ELEMENTS | LINK ICON */

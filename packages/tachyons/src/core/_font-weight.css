@@ -7,39 +7,48 @@
 }
 
 .fw1 {
-    font-weight: 100;
+    font-variation-settings: "wght" 100;
+    font-weight: 400!important;
 }
 
 .fw2 {
-    font-weight: 200;
+    font-variation-settings: "wght" 200;
+    font-weight: 400!important;
 }
 
 .fw3 {
-    font-weight: 300;
+    font-variation-settings: "wght" 300;
+    font-weight: 400!important;
 }
 
 .fw4 {
-    font-weight: 400;
+    font-variation-settings: "wght" 400;
+    font-weight: 400!important;
 }
 
 .fw5 {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
+    font-weight: 400!important;
 }
 
 .fw6 {
-    font-weight: 600;
+    font-variation-settings: "wght" 600;
+    font-weight: 400!important;
 }
 
 .fw7 {
-    font-weight: 700;
+    font-variation-settings: "wght" 700;
+    font-weight: 400!important;
 }
 
 .fw8 {
-    font-weight: 800;
+    font-variation-settings: "wght" 800;
+    font-weight: 400!important;
 }
 
 .fw9 {
-    font-weight: 900;
+    font-variation-settings: "wght" 900;
+    font-weight: 400!important;
 }
 
 @media (--breakpoint-not-small) {
@@ -50,31 +59,40 @@
         font-weight: bold;
     }
     .fw1-ns {
-        font-weight: 100;
+        font-variation-settings: "wght" 100;
+        font-weight: 400!important;
     }
     .fw2-ns {
-        font-weight: 200;
+        font-variation-settings: "wght" 200;
+        font-weight: 400!important;
     }
     .fw3-ns {
-        font-weight: 300;
+        font-variation-settings: "wght" 300;
+        font-weight: 400!important;
     }
     .fw4-ns {
-        font-weight: 400;
+        font-variation-settings: "wght" 400;
+        font-weight: 400!important;
     }
     .fw5-ns {
-        font-weight: 500;
+        font-variation-settings: "wght" 500;
+        font-weight: 400!important;
     }
     .fw6-ns {
-        font-weight: 600;
+        font-variation-settings: "wght" 600;
+        font-weight: 400!important;
     }
     .fw7-ns {
-        font-weight: 700;
+        font-variation-settings: "wght" 700;
+        font-weight: 400!important;
     }
     .fw8-ns {
-        font-weight: 800;
+        font-variation-settings: "wght" 800;
+        font-weight: 400!important;
     }
     .fw9-ns {
-        font-weight: 900;
+        font-variation-settings: "wght" 900;
+        font-weight: 400!important;
     }
 }
 
@@ -86,31 +104,40 @@
         font-weight: bold;
     }
     .fw1-m {
-        font-weight: 100;
+        font-variation-settings: "wght" 100;
+        font-weight: 400!important;
     }
     .fw2-m {
-        font-weight: 200;
+        font-variation-settings: "wght" 200;
+        font-weight: 400!important;
     }
     .fw3-m {
-        font-weight: 300;
+        font-variation-settings: "wght" 300;
+        font-weight: 400!important;
     }
     .fw4-m {
-        font-weight: 400;
+        font-variation-settings: "wght" 400;
+        font-weight: 400!important;
     }
     .fw5-m {
-        font-weight: 500;
+        font-variation-settings: "wght" 500;
+        font-weight: 400!important;
     }
     .fw6-m {
-        font-weight: 600;
+        font-variation-settings: "wght" 600;
+        font-weight: 400!important;
     }
     .fw7-m {
-        font-weight: 700;
+        font-variation-settings: "wght" 700;
+        font-weight: 400!important;
     }
     .fw8-m {
-        font-weight: 800;
+        font-variation-settings: "wght" 800;
+        font-weight: 400!important;
     }
     .fw9-m {
-        font-weight: 900;
+        font-variation-settings: "wght" 900;
+        font-weight: 400!important;
     }
 }
 
@@ -122,30 +149,39 @@
         font-weight: bold;
     }
     .fw1-l {
-        font-weight: 100;
+        font-variation-settings: "wght" 100;
+        font-weight: 400!important;
     }
     .fw2-l {
-        font-weight: 200;
+        font-variation-settings: "wght" 200;
+        font-weight: 400!important;
     }
     .fw3-l {
-        font-weight: 300;
+        font-variation-settings: "wght" 300;
+        font-weight: 400!important;
     }
     .fw4-l {
-        font-weight: 400;
+        font-variation-settings: "wght" 400;
+        font-weight: 400!important;
     }
     .fw5-l {
-        font-weight: 500;
+        font-variation-settings: "wght" 500;
+        font-weight: 400!important;
     }
     .fw6-l {
-        font-weight: 600;
+        font-variation-settings: "wght" 600;
+        font-weight: 400!important;
     }
     .fw7-l {
-        font-weight: 700;
+        font-variation-settings: "wght" 700;
+        font-weight: 400!important;
     }
     .fw8-l {
-        font-weight: 800;
+        font-variation-settings: "wght" 800;
+        font-weight: 400!important;
     }
     .fw9-l {
-        font-weight: 900;
+        font-variation-settings: "wght" 900;
+        font-weight: 400!important;
     }
 }

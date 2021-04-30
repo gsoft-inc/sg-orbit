@@ -34,19 +34,19 @@
     font-size: var(--o-ui-global-type-scale-9);
 }
 
-.f-6, .f-headline {
+.f-headline {
     font-size: var(--o-ui-global-type-scale-headline);
 }
 
-.f-5, .f-subheadline {
+.f-subheadline {
     font-size: var(--o-ui-global-type-scale-subheadline);
 }
 
 @media (--breakpoint-not-small) {
-    .f-6-ns, .f-headline-ns {
+    .f-headline-ns {
         font-size: var(--o-ui-global-type-scale-subheadline);
     }
-    .f-5-ns, .f-subheadline-ns {
+    .f-subheadline-ns {
         font-size: var(--o-ui-global-type-scale-subheadline);
     }
     .f1-ns {
@@ -79,10 +79,10 @@
 }
 
 @media (--breakpoint-medium) {
-    .f-6-m, .f-headline-m {
+    .f-headline-m {
         font-size: var(--o-ui-global-type-scale-subheadline);
     }
-    .f-5-m, .f-subheadline-m {
+    .f-subheadline-m {
         font-size: var(--o-ui-global-type-scale-subheadline);
     }
     .f1-m {
@@ -115,10 +115,10 @@
 }
 
 @media (--breakpoint-large) {
-    .f-6-l, .f-headline-l {
+    .f-headline-l {
         font-size: var(--o-ui-global-type-scale-headline);
     }
-    .f-5-l, .f-subheadline-l {
+    .f-subheadline-l {
         font-size: var(--o-ui-global-type-scale-subheadline);
     }
     .f1-l {

@@ -32,7 +32,7 @@
 .o-ui-sb-gallery-view-button {
     position: absolute;
     color: #FFF;
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
     font-size: .75rem;
     cursor: pointer;
     width: 100%;

@@ -1,34 +1,34 @@
 /* SIZE */
 .o-ui-text-xs {
     font-size: var(--o-ui-global-type-scale-9);
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .o-ui-text-sm {
     font-size: var(--o-ui-global-type-scale-8);
-    line-height: 1.142857143;
+    line-height: 1.3333333;
 }
 
 .o-ui-text-md {
     font-size: var(--o-ui-global-type-scale-7);
-    line-height: 1.25;
+    line-height: 1.454595;
 }
 
 .o-ui-text-lg {
     font-size: var(--o-ui-global-type-scale-6);
-    line-height: 1.3333333;
+    line-height: 1.5;
 }
 
 .o-ui-text-xl {
     font-size: var(--o-ui-global-type-scale-5);
-    line-height: 1.2;
+    line-height: 1.3333333;
 }
 
 .o-ui-text-2xl {
     font-size: var(--o-ui-global-type-scale-4);
-    line-height: 1.3333333;
+    line-height: 1.454595;
 }
-
+/* todo */
 .o-ui-text-3xl {
     font-size: var(--o-ui-global-type-scale-3);
     line-height: 1.25;
