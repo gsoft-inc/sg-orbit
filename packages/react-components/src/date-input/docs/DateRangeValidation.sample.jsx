@@ -9,7 +9,6 @@
     return (
         <DateRangeInput
             validationState={isValid ? "valid" : "invalid"}
-            placeholder="dd/mm/yyyy"
             startDate={startDate}
             endDate={endDate}
             onDatesChange={(event, newStartDate, newEndDate) => {

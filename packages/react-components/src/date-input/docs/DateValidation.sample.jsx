@@ -6,7 +6,6 @@
     return (
         <DateInput
             validationState={isValid ? "valid" : "invalid"}
-            placeholder="dd/mm/yyyy"
             value={value}
             onDateChange={(event, newDate) => {
                 setValue(newDate);

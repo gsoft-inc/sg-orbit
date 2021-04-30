@@ -466,13 +466,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         hover,
                         className: "o-ui-autocomplete-trigger",
                         type: "text",
-                        wrapperProps: {
-                            ref: triggerWrapperRef
-                        },
+                        wrapperProps: mergeProps(
+                            { ref: triggerWrapperRef },
+                            triggerFocusWithinProps
+                        ),
                         role: "combobox",
-                        autoCorrect: "off",
-                        spellCheck: "false",
-                        autoComplete: "off",
                         "aria-activedescendant": focusedItem?.id,
                         "aria-autocomplete": "list",
                         "aria-label": ariaLabel,
@@ -481,8 +479,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         as,
                         ref: forwardedRef
                     },
-                    triggerProps,
-                    triggerFocusWithinProps
+                    triggerProps
                 )}
             />
             <Overlay

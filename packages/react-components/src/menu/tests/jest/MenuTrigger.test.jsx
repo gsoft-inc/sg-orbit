@@ -5,7 +5,7 @@ import { Menu, MenuTrigger } from "@react-components/menu";
 import { Transition } from "@react-components/transition";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/userEvent";
+import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
     Transition.disableAnimation = true;
@@ -230,7 +230,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.tab });
+        userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -265,7 +265,7 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.tab, shiftKey: true });
+        userEvent.tab({ shift: true });
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -370,16 +370,13 @@ test("call onOpenChange when the menu open", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onOpenChange when the menu close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId } = render(
         <MenuTrigger
             onOpenChange={handler}
             defaultOpen
@@ -401,10 +398,7 @@ test("call onOpenChange when the menu close", async () => {
         fireEvent.keyDown(getByTestId("menu"), { key: Keys.esc });
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 // ***** Refs *****
