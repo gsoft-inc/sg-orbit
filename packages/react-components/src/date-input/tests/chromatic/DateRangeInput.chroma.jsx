@@ -17,7 +17,7 @@ stories()
         <Stack>
             <DateRangeInput />
             <DateRangeInput disabled></DateRangeInput>
-            <DateRangeInput readOnly placeholder="dd/mm/yyyy"></DateRangeInput>
+            <DateRangeInput readOnly></DateRangeInput>
             <div>
                 <DateRangeInput fluid></DateRangeInput>
             </div>
@@ -28,14 +28,14 @@ stories()
     )
     .add("placeholder", () =>
         <Stack>
-            <DateRangeInput placeholder="dd/mm/yyyy" />
-            <DateRangeInput disabled placeholder="dd/mm/yyyy"></DateRangeInput>
-            <DateRangeInput readOnly placeholder="dd/mm/yyyy"></DateRangeInput>
+            <DateRangeInput placeholder="custom" />
+            <DateRangeInput disabled placeholder="dcustom"></DateRangeInput>
+            <DateRangeInput readOnly placeholder="custom"></DateRangeInput>
             <div>
-                <DateRangeInput fluid placeholder="dd/mm/yyyy"></DateRangeInput>
+                <DateRangeInput fluid placeholder="custom"></DateRangeInput>
             </div>
             <div className="w-10">
-                <DateRangeInput fluid placeholder="dd/mm/yyyy"></DateRangeInput>
+                <DateRangeInput fluid placeholder="custom"></DateRangeInput>
             </div>
         </Stack>
     )
@@ -57,7 +57,7 @@ stories()
         </Stack>
     )
     .add("autofocus", () =>
-        <DateRangeInput autoFocus placeholder="dd/mm/yyyy" />
+        <DateRangeInput autoFocus />
     )
     .add("when disabled do not autofocus", () =>
         <DateRangeInput disabled autoFocus />
@@ -76,23 +76,22 @@ stories()
                 { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
                 { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
             ]}
-            placeholder="dd/mm/yyyy"
         />
     )
     .add("validation", () =>
         <Inline>
-            <DateRangeInput validationState="invalid" placeholder="dd/mm/yyyy" />
-            <DateRangeInput validationState="valid" placeholder="dd/mm/yyyy" />
+            <DateRangeInput validationState="invalid" />
+            <DateRangeInput validationState="valid" />
         </Inline>
     )
     .add("states", () =>
         <Stack>
-            <DateRangeInput active placeholder="dd/mm/yyyy" />
-            <DateRangeInput focus placeholder="dd/mm/yyyy" />
-            <DateRangeInput hover placeholder="dd/mm/yyyy" />
-            <DateRangeInput focus hover placeholder="dd/mm/yyyy" />
-            <DateRangeInput disabled placeholder="dd/mm/yyyy" />
-            <DateRangeInput readOnly placeholder="dd/mm/yyyy" />
+            <DateRangeInput active />
+            <DateRangeInput focus />
+            <DateRangeInput hover />
+            <DateRangeInput focus hover />
+            <DateRangeInput disabled />
+            <DateRangeInput readOnly />
         </Stack>
     )
     .add("styling", () =>

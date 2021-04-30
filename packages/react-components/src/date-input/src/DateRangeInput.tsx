@@ -108,7 +108,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
 
 const DateInput = forwardRef<any, "input">(({
     value,
-    placeholder,
+    placeholder = "dd/mm/yyyy",
     required,
     validationState,
     minDate,

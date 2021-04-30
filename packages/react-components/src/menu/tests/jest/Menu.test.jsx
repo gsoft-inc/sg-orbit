@@ -5,7 +5,7 @@ import { Menu } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/userEvent";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 

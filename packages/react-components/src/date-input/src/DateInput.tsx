@@ -78,6 +78,7 @@ export interface InnerDateInputProps {
 export function InnerDateInput({
     value,
     defaultValue,
+    placeholder = "dd/mm/yyyy",
     minDate,
     maxDate,
     onChange,
@@ -103,6 +104,7 @@ export function InnerDateInput({
             {...mergeProps(
                 rest,
                 {
+                    placeholder,
                     icon: <CalendarIcon />,
                     wrapperProps: mergeProps(
                         wrapperProps ?? {},

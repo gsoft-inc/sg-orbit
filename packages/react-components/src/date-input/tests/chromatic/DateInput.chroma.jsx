@@ -27,14 +27,14 @@ stories()
     )
     .add("placeholder", () =>
         <Stack>
-            <DateInput placeholder="dd/mm/yyyy" />
-            <DateInput disabled placeholder="dd/mm/yyyy"></DateInput>
-            <DateInput readOnly placeholder="dd/mm/yyyy"></DateInput>
+            <DateInput placeholder="custom" />
+            <DateInput disabled placeholder="custom"></DateInput>
+            <DateInput readOnly placeholder="custom"></DateInput>
             <div>
-                <DateInput fluid placeholder="dd/mm/yyyy"></DateInput>
+                <DateInput fluid placeholder="custom"></DateInput>
             </div>
             <div className="w-10">
-                <DateInput fluid placeholder="dd/mm/yyyy"></DateInput>
+                <DateInput fluid placeholder="custom"></DateInput>
             </div>
         </Stack>
     )
@@ -69,8 +69,8 @@ stories()
     )
     .add("validation", () =>
         <Inline>
-            <DateInput validationState="invalid" placeholder="dd/mm/yyyy" />
-            <DateInput validationState="valid" placeholder="dd/mm/yyyy" />
+            <DateInput validationState="invalid" />
+            <DateInput validationState="valid" />
         </Inline>
     )
     .add("states", () =>

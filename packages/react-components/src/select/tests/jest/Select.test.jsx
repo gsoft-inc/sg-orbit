@@ -6,7 +6,7 @@ import { Select } from "@react-components/select";
 import { Transition } from "@react-components/transition";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/userEvent";
+import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
     Transition.disableAnimation = true;
@@ -148,7 +148,7 @@ test("selecting an option update the trigger selected value text", async () => {
     await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
 });
 
-test("when open, on tab keydown, close and select the next tabbable element", async () => {
+test("when opened, on tab keydown, close and select the next tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button>Previous</Button>
@@ -175,7 +175,7 @@ test("when open, on tab keydown, close and select the next tabbable element", as
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.tab });
+        userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -183,7 +183,7 @@ test("when open, on tab keydown, close and select the next tabbable element", as
     await waitFor(() => expect(getByTestId("after")).toHaveFocus());
 });
 
-test("when open, on shift+tab keydown, close and select the previous tabbable element", async () => {
+test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button data-testid="previous">Previous</Button>
@@ -210,7 +210,7 @@ test("when open, on shift+tab keydown, close and select the previous tabbable el
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.tab, shiftKey: true });
+        userEvent.tab({ shift: true });
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -341,16 +341,13 @@ test("call onOpenChange when the select open", async () => {
         userEvent.click(getByTestId("select"));
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onOpenChange when the select close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId } = render(
         <Select
             onOpenChange={handler}
             defaultOpen
@@ -371,13 +368,10 @@ test("call onOpenChange when the select close", async () => {
         fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
-test("call onSelectionChange when an option is selected", () => {
+test("call onSelectionChange when an option is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -395,7 +389,7 @@ test("call onSelectionChange when an option is selected", () => {
         userEvent.click(getByTestId("earth-option"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth"));
 });
 
 // ***** Refs *****
@@ -452,7 +446,7 @@ test("set ref once", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("calling the focus function on the select ref will focus the select trigger.", async () => {
+test("calling the focus function on the select ref will focus the select trigger", async () => {
     const ref = createRef();
 
     const { getByTestId } = render(
