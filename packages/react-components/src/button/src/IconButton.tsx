@@ -1,7 +1,7 @@
 import "./IconButton.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
@@ -73,7 +73,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
      * @ignore
      */
@@ -123,7 +123,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         forwardedRef
     });
 
-    const icon = Children.only(children);
+    const icon = Children.only(children) as ReactElement;
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
         size,

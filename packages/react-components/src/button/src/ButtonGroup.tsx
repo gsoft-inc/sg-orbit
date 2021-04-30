@@ -1,6 +1,6 @@
 import "./ButtonGroup.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Group, GroupProps } from "../../group";
 import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
@@ -33,7 +33,7 @@ export interface InnerButtonGroupProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
      * @ignore
      */
@@ -87,7 +87,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                 }
             )}
         >
-            {Children.map(children, x => {
+            {Children.map(children, (x: ReactElement) => {
                 return augmentElement(x, {
                     size,
                     fluid,
