@@ -1,5 +1,5 @@
 import { AriaLabelingProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
@@ -70,7 +70,7 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
      * @ignore
      */
