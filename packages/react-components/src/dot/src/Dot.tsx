@@ -1,7 +1,7 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
 import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
@@ -22,7 +22,7 @@ export interface InnerDotProps {
     /**
      * @ignore
      */
-    children?: any;
+    children?: ReactNode;
     /**
     * @ignore
     */
