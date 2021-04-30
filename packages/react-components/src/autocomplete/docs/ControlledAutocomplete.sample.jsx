@@ -7,7 +7,7 @@
         console.log(newValue);
     }, [setIsOpen]);
 
-    const handleChange = useCallback((event, selection) => {
+    const handleSelectionChange = useCallback((event, selection) => {
         setValue(!isNil(selection) ? selection.value : null);
         console.log(selection);
     }, [setValue]);
@@ -18,7 +18,7 @@
             value={value}
             placeholder="Planets"
             onOpenChange={handleOpenChange}
-            onChange={handleChange}
+            onSelectionChange={handleSelectionChange}
             aria-label="Planets"
         >
             <Item key="earth">Earth</Item>

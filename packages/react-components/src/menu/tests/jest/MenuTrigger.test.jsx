@@ -203,7 +203,7 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 });
 
-test("when open, on tab keydown, close and select the next tabbable element", async () => {
+test("when opened, on tab keydown, close and select the next tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button>Previous</Button>
@@ -238,7 +238,7 @@ test("when open, on tab keydown, close and select the next tabbable element", as
     await waitFor(() => expect(getByTestId("after")).toHaveFocus());
 });
 
-test("when open, on shift+tab keydown close and select the previous tabbable element", async () => {
+test("when opened, on shift+tab keydown close and select the previous tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button data-testid="previous">Previous</Button>

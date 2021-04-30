@@ -1,7 +1,7 @@
 () => {
     const [isValid, setIsValid] = useState(true);
 
-    const handleChange = useCallback((event, selection) => {
+    const handleSelectionChange = useCallback((event, selection) => {
         setIsValid(!isNil(selection) && selection.key === "earth");
         console.log(selection);
     }, [setIsValid]);
@@ -10,7 +10,7 @@
         <Autocomplete
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
-            onChange={handleChange}
+            onSelectionChange={handleSelectionChange}
             aria-label="Planets"
         >
             <Item key="earth">Earth</Item>

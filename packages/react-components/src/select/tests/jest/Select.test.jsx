@@ -148,7 +148,7 @@ test("selecting an option update the trigger selected value text", async () => {
     await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
 });
 
-test("when open, on tab keydown, close and select the next tabbable element", async () => {
+test("when opened, on tab keydown, close and select the next tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button>Previous</Button>
@@ -183,7 +183,7 @@ test("when open, on tab keydown, close and select the next tabbable element", as
     await waitFor(() => expect(getByTestId("after")).toHaveFocus());
 });
 
-test("when open, on shift+tab keydown, close and select the previous tabbable element", async () => {
+test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
     const { getByTestId, queryByTestId } = render(
         <>
             <Button data-testid="previous">Previous</Button>
@@ -452,7 +452,7 @@ test("set ref once", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("calling the focus function on the select ref will focus the select trigger.", async () => {
+test("calling the focus function on the select ref will focus the select trigger", async () => {
     const ref = createRef();
 
     const { getByTestId } = render(
