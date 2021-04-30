@@ -26,7 +26,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * A controlled checked state value.
      */
-    checked?: boolean;
+    checked?: boolean | null;
     /**
      * The initial value of `checked` when uncontrolled.
      */
