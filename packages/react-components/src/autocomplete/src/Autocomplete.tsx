@@ -42,7 +42,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * A controlled autocomplete value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */

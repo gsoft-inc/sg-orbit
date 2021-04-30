@@ -16,7 +16,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */

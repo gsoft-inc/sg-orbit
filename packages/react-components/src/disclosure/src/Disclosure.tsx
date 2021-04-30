@@ -10,7 +10,7 @@ export interface InnerDisclosureProps extends DomProps {
     /**
      * A controlled open value.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of `open` when uncontrolled.
      */

@@ -17,7 +17,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * A controlled value.
      */
-    value?: number;
+    value?: number | null;
     /**
      * The default value of `value` when uncontrolled.
      */

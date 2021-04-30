@@ -39,11 +39,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * A controlled start date value.
      */
-    startDate?: Date;
+    startDate?: Date | null;
     /**
      * A controlled end date value.
      */
-    endDate?: Date;
+    endDate?: Date | null;
     /**
      * The initial value of start date.
      */
