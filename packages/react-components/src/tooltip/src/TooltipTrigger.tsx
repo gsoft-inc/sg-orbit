@@ -123,7 +123,8 @@ export function InnerTooltipTrigger({
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        })
+        }),
+        hideOnLeave: true
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {

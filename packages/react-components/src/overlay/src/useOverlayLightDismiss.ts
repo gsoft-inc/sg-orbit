@@ -3,9 +3,10 @@ import { Keys, isNil, useEventCallback } from "../../shared";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
+import type { OverlayTrigger } from "./useOverlayTrigger";
 
 export interface UseOverlayLightDismissOptions {
-    trigger?: "hover" | "click";
+    trigger?: OverlayTrigger;
     onHide?: (event: SyntheticEvent) => void;
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
@@ -58,11 +59,21 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         isDisabled: !hideOnLeave
     });
 
-    return {
-        ...focusWithinProps,
-        onMouseLeave: trigger === "hover" ? hideOnLeave ? handleMouseLeave : undefined : undefined,
-        onKeyDown: handleKeyDown
-    };
+    switch (trigger) {
+        case "click":
+            return {
+                ...focusWithinProps,
+                onKeyDown: handleKeyDown
+            };
+        case "hover":
+            return {
+                ...focusWithinProps,
+                onMouseLeave: hideOnLeave ? handleMouseLeave : undefined,
+                onKeyDown: handleKeyDown
+            };
+        default:
+            return {};
+    }
 }
 
 // This code aims to solve a bug on Chrome and Edge where no blur event will happen when the focused element becomes disable and that element lose the focus.
