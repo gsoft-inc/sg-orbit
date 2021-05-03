@@ -23,10 +23,11 @@
 .o-ui-link:focus,
 .o-ui-link-focus {
     outline: none;
+    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
 }
 
 /* STATES | FOCUS | FOCUS RING */
-.o-ui-link:after {
+.o-ui-text-link:after {
     opacity: 0;
     content: "";
     top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
@@ -40,8 +41,8 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
-.o-ui-link:focus:after,
-.o-ui-link-focus:after {
+.o-ui-text-link:focus:after,
+.o-ui-text-link-focus:after {
     opacity: 1;
 }
 
@@ -281,9 +282,7 @@ button.o-ui-link-hover {
     display: block;
 }
 
-/* ICON LINK | STATES */
-.o-ui-icon-link:focus,
-.o-ui-icon-link-focus {
-    outline: none;
+/* ICON LINK */
+.o-ui-icon-link {
     border-radius: var(--o-ui-shape-rounded);
 }
