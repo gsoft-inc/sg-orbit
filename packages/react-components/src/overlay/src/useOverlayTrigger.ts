@@ -1,13 +1,21 @@
 import { FocusEvent, KeyboardEvent, MouseEvent, SyntheticEvent } from "react";
 import { Keys, isNil, useEventCallback } from "../../shared";
 
+export type OverlayTrigger = "none" | "click" | "hover";
+
 export interface UseOverlayTriggerOptions {
-    trigger?: "click" | "hover";
+    hideOnLeave?: boolean;
+    trigger?: OverlayTrigger;
     onShow?: (event: SyntheticEvent) => void;
     onHide?: (event: SyntheticEvent) => void;
 }
 
-export function useOverlayTrigger(isOpen: boolean, { trigger = "click", onShow, onHide }: UseOverlayTriggerOptions = {}) {
+export function useOverlayTrigger(isOpen: boolean, {
+    hideOnLeave,
+    trigger = "click",
+    onShow,
+    onHide
+}: UseOverlayTriggerOptions = {}) {
     const toggle = (event: SyntheticEvent) => {
         if (isOpen) {
             hide(event);
@@ -69,9 +77,9 @@ export function useOverlayTrigger(isOpen: boolean, { trigger = "click", onShow, 
             // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
                 onMouseEnter: handleMouseEnter,
-                onMouseLeave: handleMouseLeave,
+                onMouseLeave: hideOnLeave ? handleMouseLeave : undefined,
                 onFocus: handleFocus,
-                onBlur: handleBlur
+                onBlur: hideOnLeave ? handleBlur : undefined
             };
         default:
             return {};

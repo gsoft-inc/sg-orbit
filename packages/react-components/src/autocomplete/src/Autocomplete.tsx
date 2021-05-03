@@ -227,9 +227,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         hideOnLeave: true,
         restoreFocus: true,
         autoFocus,
-        // TODO: should be more explicitly that providing "null". Something like "none" or "custom" ? or "manual" ?
         // An autocomplete take care of his own trigger logic.
-        trigger: null,
+        trigger: "none",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
         allowFlip,

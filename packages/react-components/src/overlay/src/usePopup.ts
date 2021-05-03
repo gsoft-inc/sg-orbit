@@ -14,8 +14,8 @@ import {
 } from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
+import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
 import { isTargetParent } from "./isTargetParent";
-import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
@@ -30,7 +30,7 @@ export interface UsePopupOptions {
     restoreFocus?: boolean;
     autoFocus?: boolean | number;
     autoFocusOptions?: AutoFocusChildOptions;
-    trigger?: "click" | "hover";
+    trigger?: OverlayTrigger;
     hasArrow?: boolean;
     position?: OverlayPosition;
     offset?: number[];
@@ -89,7 +89,8 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        })
+        }),
+        hideOnLeave: isOpen && hideOnLeave
     });
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {

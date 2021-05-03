@@ -1,11 +1,9 @@
-import "./PasswordInput.css";
-
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";
-import { forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
 
 // used to generate BoxProps instead of any in the auto-generated documentation
@@ -99,7 +97,8 @@ export function InnerPasswordInput({
         setIsHidden(x => !x);
     });
 
-    const showButtonMarkup = !isNilOrEmpty(inputValue) && (
+    // Always show the button to play nice with password managers.
+    const showButtonMarkup = (
         <IconButton
             variant="ghost"
             onClick={handleShowValue}
@@ -122,7 +121,7 @@ export function InnerPasswordInput({
                         className: "o-ui-password-input"
                     }),
                     type: isHidden ? "password" : "text",
-                    button: showButtonMarkup || undefined,
+                    button: showButtonMarkup,
                     ref: forwardedRef
                 }
             )}

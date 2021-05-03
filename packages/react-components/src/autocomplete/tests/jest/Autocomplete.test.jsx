@@ -14,7 +14,7 @@ beforeAll(() => {
 
 // ***** Behaviors *****
 
-test("when a query matching existing values is entered, show the overlay with the matching values", async () => {
+test("when a query matching existing values is entered, open the overlay with the matching values", async () => {
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
@@ -39,7 +39,7 @@ test("when a query matching existing values is entered, show the overlay with th
     await waitFor(() => expect(queryByTestId("earth-option")).not.toBeInTheDocument());
 });
 
-test("when a query matching no values is entered, show the overlay with a not found message", async () => {
+test("when a query matching no values is entered, open the overlay with a not found message", async () => {
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
@@ -317,7 +317,7 @@ test("when opened, end keypress virtually focus the last value", async () => {
     await waitFor(() => expect(getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
 });
 
-test("when no value is selected, leaving the autocomplete without selecting a value clear the input", async () => {
+test("when no value is selected, leaving the autocomplete without selecting a new value clear the input", async () => {
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
