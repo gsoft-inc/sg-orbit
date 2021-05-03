@@ -3,7 +3,7 @@ import "./SearchInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { TextInputProps } from "./TextInput";
@@ -16,7 +16,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -87,6 +87,8 @@ export function InnerSearchInput({
 }: InnerSearchInputProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
+    const inputRef = useMergedRefs(forwardedRef);
+
     const updateValue = useCallback((event: SyntheticEvent, newValue: string) => {
         if (!isNil(onChange)) {
             onChange(event, newValue);
@@ -118,6 +120,8 @@ export function InnerSearchInput({
 
     const handleClear = useEventCallback((event: SyntheticEvent) => {
         clear(event);
+
+        inputRef.current.focus();
     });
 
     const clearButtonMarkup = !isNilOrEmpty(inputValue) && (
@@ -149,7 +153,7 @@ export function InnerSearchInput({
                     spellCheck: "false",
                     autoComplete: "off",
                     as,
-                    ref: forwardedRef
+                    ref: inputRef
                 }
             )}
         />

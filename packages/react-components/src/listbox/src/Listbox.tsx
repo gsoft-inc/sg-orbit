@@ -49,7 +49,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys?: string[];
+    selectedKeys?: string[] | null;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */

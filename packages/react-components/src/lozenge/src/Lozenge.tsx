@@ -1,7 +1,7 @@
 import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
 import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
@@ -22,7 +22,7 @@ export interface InnerLozengeProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
     * @ignore
     */

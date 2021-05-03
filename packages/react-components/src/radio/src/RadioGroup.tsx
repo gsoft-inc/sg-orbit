@@ -29,7 +29,7 @@ export interface InnerRadioGroupProps {
     /**
      * The value of the radio group.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The initial value of `value`.
      */

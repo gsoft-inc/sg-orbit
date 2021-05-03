@@ -9,7 +9,7 @@ interface InnerTooltipTriggerProps {
     /**
     * Whether or not to show the tooltip.
     */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of `open` when in auto controlled mode.
      */

@@ -26,7 +26,7 @@ export interface InnerCheckboxGroupProps {
     /**
    * The value of the checkbox group.
    */
-    value?: string[];
+    value?: string[] | null;
     /**
      * The initial value of `value`.
      */

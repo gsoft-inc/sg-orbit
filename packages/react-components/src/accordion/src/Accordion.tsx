@@ -26,7 +26,7 @@ export interface InnerAccordionProps extends DomProps {
     /**
      * A controlled set of expanded item keys.
      */
-    expandedKeys?: string[];
+    expandedKeys?: string[] | null;
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */

@@ -42,7 +42,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * A controlled autocomplete value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -94,7 +94,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      * @param {string} selection.value - The selected value.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
+    onSelectionChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
     /**
      * Called when the autocomplete open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -173,7 +173,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         minCharacters = 1,
         required,
         validationState,
-        onChange,
+        onSelectionChange,
         onOpenChange,
         icon,
         direction = "bottom",
@@ -216,6 +216,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }, [setQuery])
     });
 
+    const triggerWrapperRef = useRef();
+
     const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
@@ -225,6 +227,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         hideOnLeave: true,
         restoreFocus: true,
         autoFocus,
+        // TODO: should be more explicitly that providing "null". Something like "none" or "custom" ? or "manual" ?
         // An autocomplete take care of his own trigger logic.
         trigger: null,
         position: `${direction}-${align}` as const,
@@ -262,8 +265,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
 
         if (value !== newValue) {
-            if (!isNil(onChange)) {
-                onChange(event, isNil(newKey) ? null : {
+            if (!isNil(onSelectionChange)) {
+                onSelectionChange(event, isNil(newKey) ? null : {
                     key: newKey,
                     value: newValue
                 });
@@ -273,7 +276,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
 
         setQuery(clearOnSelect ? "" : newValue ?? "", true);
-    }, [items, onChange, clearOnSelect, value, setValue, setQuery]);
+    }, [items, onSelectionChange, clearOnSelect, value, setValue, setQuery]);
 
     const clear = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         setSelection(event, null);
@@ -309,7 +312,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(triggerRef)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
-                if (!isTargetParent(event.relatedTarget, triggerElement) && !isTargetParent(event.relatedTarget, overlayElement)) {
+                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayElement)) {
                     close(event);
                     reset();
                 }
@@ -463,10 +466,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         hover,
                         className: "o-ui-autocomplete-trigger",
                         type: "text",
+                        wrapperProps: mergeProps(
+                            { ref: triggerWrapperRef },
+                            triggerFocusWithinProps
+                        ),
                         role: "combobox",
-                        autoCorrect: "off",
-                        spellCheck: "false",
-                        autoComplete: "off",
                         "aria-activedescendant": focusedItem?.id,
                         "aria-autocomplete": "list",
                         "aria-label": ariaLabel,
@@ -475,8 +479,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         as,
                         ref: forwardedRef
                     },
-                    triggerProps,
-                    triggerFocusWithinProps
+                    triggerProps
                 )}
             />
             <Overlay

@@ -14,7 +14,7 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * A controlled value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */

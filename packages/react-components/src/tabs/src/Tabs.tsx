@@ -13,7 +13,7 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled selected key.
      */
-    selectedKey?: string;
+    selectedKey?: string | null;
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */

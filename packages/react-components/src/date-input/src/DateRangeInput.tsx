@@ -39,11 +39,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * A controlled start date value.
      */
-    startDate?: Date;
+    startDate?: Date | null;
     /**
      * A controlled end date value.
      */
-    endDate?: Date;
+    endDate?: Date | null;
     /**
      * The initial value of start date.
      */
@@ -108,7 +108,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
 
 const DateInput = forwardRef<any, "input">(({
     value,
-    placeholder,
+    placeholder = "dd/mm/yyyy",
     required,
     validationState,
     minDate,

@@ -3,7 +3,7 @@ import { Keys } from "@react-components/shared";
 import { Overlay, usePopup } from "@react-components/overlay";
 import { Transition } from "@react-components/transition";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import userEvent from "@utils/userEvent";
+import userEvent from "@testing-library/user-event";
 
 function Popup({
     id,
@@ -448,16 +448,13 @@ test("call onOpenChange when the popup open", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onOpenChange when the popup close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId } = render(
         <Popup
             onOpenChange={handler}
             defaultOpen
@@ -473,9 +470,6 @@ test("call onOpenChange when the popup close", async () => {
         fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
     });
 
-    // Required otherwise a warning is emitted because the test complete before the open state is updated.
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
