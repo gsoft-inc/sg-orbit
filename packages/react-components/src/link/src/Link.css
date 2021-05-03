@@ -282,9 +282,7 @@ button.o-ui-link-hover {
     display: block;
 }
 
-/* ICON LINK | STATES */
-.o-ui-icon-link:focus,
-.o-ui-icon-link-focus {
-    outline: none;
+/* ICON LINK */
+.o-ui-icon-link {
     border-radius: var(--o-ui-shape-rounded);
 }
