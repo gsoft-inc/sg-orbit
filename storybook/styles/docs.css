@@ -33,6 +33,7 @@
 
 .docblock-argstable-head tr th {
     font-variation-settings: "wght" 500 !important;
+    font-weight: 400;
     color: var(--o-ui-alias-text-1) !important;
 }
 
@@ -57,10 +58,12 @@
 /* ARGS TABLE | BODY  */
 .docblock-argstable-body td > span {
     font-variation-settings: "wght" 500 !important;
+    font-weight: 400;
 }
 
 .docblock-argstable-body td > label > span {
     font-variation-settings: "wght" 500 !important;
+    font-weight: 400;
 }
 
 .docblock-argstable-body td label input[type=radio] {

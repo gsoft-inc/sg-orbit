@@ -67,7 +67,7 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--o-ui-text-1);
+    color: var(--o-ui-alias-text-1);
     padding-left: var(--o-ui-global-scale-echo);
     padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-foxtrot));
     background-color: var(--o-ui-alias-background-1);

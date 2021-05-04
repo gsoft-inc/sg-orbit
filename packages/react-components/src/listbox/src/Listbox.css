@@ -122,7 +122,7 @@
 /* SECTION */
 .o-ui-listbox-section {
     display: flex;
-    font-variation-settings: "wght" 500;
+    font-variation-settings: "wght" 600;
     padding-left: var(--o-ui-global-scale-charlie);
     cursor: default;
     line-height: 1;

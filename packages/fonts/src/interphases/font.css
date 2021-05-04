@@ -9,3 +9,8 @@
     font-family: "TT Interphases Variable";
     font-style: italic;
 }
+
+b, strong {
+    font-weight: 400;
+    font-variation-settings: "wght" 600;
+}
