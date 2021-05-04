@@ -1,11 +1,9 @@
-import "./PasswordInput.css";
-
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";
-import { forwardRef, isNilOrEmpty, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useState } from "react";
 
 // used to generate BoxProps instead of any in the auto-generated documentation
@@ -16,7 +14,7 @@ export interface InnerPasswordInputProps {
     /**
      * A controlled value.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -39,10 +37,10 @@ export interface InnerPasswordInputProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the text input value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -91,7 +89,7 @@ export function InnerPasswordInput({
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     });
 
@@ -99,7 +97,8 @@ export function InnerPasswordInput({
         setIsHidden(x => !x);
     });
 
-    const showButtonMarkup = !isNilOrEmpty(inputValue) && (
+    // Always show the button to play nice with password managers.
+    const showButtonMarkup = (
         <IconButton
             variant="ghost"
             onClick={handleShowValue}
@@ -122,7 +121,7 @@ export function InnerPasswordInput({
                         className: "o-ui-password-input"
                     }),
                     type: isHidden ? "password" : "text",
-                    button: showButtonMarkup || undefined,
+                    button: showButtonMarkup,
                     ref: forwardedRef
                 }
             )}

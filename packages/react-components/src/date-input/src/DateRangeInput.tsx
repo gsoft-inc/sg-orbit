@@ -2,7 +2,7 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { CalendarIcon, VerticalDotsIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
 import {
@@ -39,11 +39,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * A controlled start date value.
      */
-    startDate?: Date;
+    startDate?: Date | null;
     /**
      * A controlled end date value.
      */
-    endDate?: Date;
+    endDate?: Date | null;
     /**
      * The initial value of start date.
      */
@@ -108,7 +108,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
 
 const DateInput = forwardRef<any, "input">(({
     value,
-    placeholder,
+    placeholder = "dd/mm/yyyy",
     required,
     validationState,
     minDate,
@@ -196,7 +196,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const startDateRef = useRef<HTMLElement>();
     const endDateRef = useRef<HTMLElement>();
 
-    const applyDates = useCallback((event, newStartDate, newEndDate) => {
+    const applyDates = useCallback((event: SyntheticEvent, newStartDate: Date, newEndDate: Date) => {
         if (startDate !== newStartDate || endDate !== newEndDate) {
             if (!isNil(onDatesChange)) {
                 onDatesChange(event, newStartDate, newEndDate);
@@ -207,7 +207,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         }
     }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
 
-    const handleStartDateChange = useEventCallback((event, newDate) => {
+    const handleStartDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
         if (!isNil(newDate) && !isNil(endDate) && newDate > endDate) {
             newDate = endDate;
         }
@@ -220,14 +220,14 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         }
     });
 
-    const handleEndDateInputValueChange = useEventCallback(event => {
+    const handleEndDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.value === "") {
             // Jump to start date.
             startDateRef?.current.focus();
         }
     });
 
-    const handleEndDateChange = useEventCallback((event, newDate) => {
+    const handleEndDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
         if (!isNil(newDate) && !isNil(startDate) && newDate < startDate) {
             newDate = startDate;
         }
@@ -243,21 +243,22 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         setHasFocus(false);
     });
 
-    const handleSelectPreset = useEventCallback((event, key) => {
-        const preset = presets[key];
+    const handleSelectPreset = useEventCallback((event: SyntheticEvent, keys: string[]) => {
+        const index = parseInt(keys[0]);
+        const preset = presets[index];
 
         if (!isNil(preset)) {
             applyDates(event, preset.startDate, preset.endDate);
         }
     });
 
-    const handleClearDates = useEventCallback(event => {
+    const handleClearDates = useEventCallback((event: SyntheticEvent) => {
         applyDates(event, null, null);
 
         startDateRef?.current.focus();
     });
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.esc) {
             event.preventDefault();
             handleClearDates(event);
@@ -311,7 +312,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 disabled={disabled}
                 readOnly={readOnly}
                 name={!isNil(name) ? `${name}-end-date` : undefined}
-                tabIndex={hasFocus ? "0" : "-1"}
+                tabIndex={hasFocus ? 0 : -1}
                 ref={endDateRef}
             />
             {hasValue && !disabled && !readOnly && <CrossButton

@@ -6,10 +6,6 @@ module.exports = {
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": path.resolve("jest/babel-transform.js")
     },
-    // https://github.com/facebook/jest/issues/6229#issuecomment-403539460
-    transformIgnorePatterns: [
-        "/node_modules/(?!(@babel|@juggle)).+\\.js$"
-    ],
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
@@ -17,7 +13,8 @@ module.exports = {
         "@react-components/(.*)$": "<rootDir>/packages/react-components/src/$1"
     },
     setupFilesAfterEnv: [
-        "@testing-library/jest-dom/extend-expect"
+        "@testing-library/jest-dom/extend-expect",
+        "<rootDir>/jest/setup-jest.js"
     ],
     testPathIgnorePatterns: [
         "<rootDir>/packages/react-components/dist"

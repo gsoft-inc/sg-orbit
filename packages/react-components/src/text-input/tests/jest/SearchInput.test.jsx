@@ -3,7 +3,7 @@ import { SearchInput } from "@react-components/text-input";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
-// ***** Interactions *****
+// ***** Behaviors *****
 
 test("clear value on clear button click", async () => {
     const { getByTestId } = render(
@@ -16,13 +16,13 @@ test("clear value on clear button click", async () => {
         />
     );
 
-    expect(getByTestId("input").value).toBe("Mars");
+    await waitFor(() => expect(getByTestId("input").value).toBe("Mars"));
 
     act(() => {
         fireEvent.click(getByTestId("input-wrapper").querySelector(":scope > button"));
     });
 
-    expect(getByTestId("input").value).toBe("");
+    await waitFor(() => expect(getByTestId("input").value).toBe(""));
 });
 
 test("clear value on esc", async () => {
@@ -30,13 +30,31 @@ test("clear value on esc", async () => {
         <SearchInput data-testid="input" defaultValue="Mars" />
     );
 
-    expect(getByTestId("input").value).toBe("Mars");
+    await waitFor(() => expect(getByTestId("input").value).toBe("Mars"));
 
     act(() => {
         fireEvent.keyDown(getByTestId("input"), { key: Keys.esc });
     });
 
-    expect(getByTestId("input").value).toBe("");
+    await waitFor(() => expect(getByTestId("input").value).toBe(""));
+});
+
+test("focus input on clear", async () => {
+    const { getByTestId } = render(
+        <SearchInput
+            data-testid="input"
+            wrapperProps={{
+                "data-testid": "input-wrapper"
+            }}
+            defaultValue="Mars"
+        />
+    );
+
+    act(() => {
+        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope > button"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
 });
 
 // ***** Api *****

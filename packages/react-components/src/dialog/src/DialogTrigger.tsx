@@ -13,7 +13,7 @@ interface InnerDialogTriggerProps {
     /**
      * Whether or not to show the modal element.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of open when in auto controlled mode.
      */
@@ -84,19 +84,19 @@ export function InnerDialogTrigger({
         throw new Error("A modal trigger must have exactly 2 children.");
     }
 
-    const triggerProps = useOverlayTrigger({
-        isOpen,
+    const triggerProps = useOverlayTrigger(isOpen, {
         onShow: useEventCallback((event: SyntheticEvent) => {
             open(event);
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
-        })
+        }),
+        hideOnLeave: false
     });
 
     // TODO: not sure it should use this hook, it's been designed for popups.
     const overlayDismissProps = useOverlayLightDismiss(modalRef, {
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
         hideOnEscape: isOpen,

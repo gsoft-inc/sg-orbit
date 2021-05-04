@@ -45,7 +45,7 @@ export const parameters = {
     }
 };
 
-// HACKS: temporary hacks until SB natively support tools when in docs mode.
+// HACKS: temporary hacks until SB natively support tools with docs mode.
 if (isDocs) {
     parameters.options.initialActive = "docs";
     parameters.options.isToolshown = true;

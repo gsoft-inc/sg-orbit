@@ -61,6 +61,13 @@ export function createTestSuite(element, stories) {
                 </Section>
             </Select>
         )
+        .add("open with a selected item", () =>
+            <Select defaultSelectedKey="mars" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+        )
         .add("selected key", () =>
             <Stack>
                 <Inline>
@@ -237,13 +244,6 @@ export function createTestSuite(element, stories) {
         )
         .add("autofocus trigger", () =>
             <Select autoFocus placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        )
-        .add("autofocus with default open", () =>
-            <Select autoFocus defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

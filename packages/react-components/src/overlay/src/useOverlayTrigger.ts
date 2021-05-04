@@ -1,14 +1,21 @@
-import { KeyboardEvent, SyntheticEvent } from "react";
+import { FocusEvent, KeyboardEvent, MouseEvent, SyntheticEvent } from "react";
 import { Keys, isNil, useEventCallback } from "../../shared";
 
-export interface UseOverlayTriggerProps {
-    trigger?: "click" | "hover";
-    isOpen: boolean;
+export type OverlayTrigger = "none" | "click" | "hover";
+
+export interface UseOverlayTriggerOptions {
+    hideOnLeave?: boolean;
+    trigger?: OverlayTrigger;
     onShow?: (event: SyntheticEvent) => void;
     onHide?: (event: SyntheticEvent) => void;
 }
 
-export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }: UseOverlayTriggerProps) {
+export function useOverlayTrigger(isOpen: boolean, {
+    hideOnLeave,
+    trigger = "click",
+    onShow,
+    onHide
+}: UseOverlayTriggerOptions = {}) {
     const toggle = (event: SyntheticEvent) => {
         if (isOpen) {
             hide(event);
@@ -43,24 +50,20 @@ export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }:
                     show(event);
                 }
                 break;
-            case Keys.esc:
-                event.preventDefault();
-                hide(event);
-                break;
         }
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
+    const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    const handleMouseEnter = useEventCallback(event => { show(event); });
-    const handleMouseLeave = useEventCallback(event => { hide(event); });
-    const handleFocus = useEventCallback(event => { show(event); });
-    const handleBlur = useEventCallback(event => { hide(event); });
+    const handleMouseEnter = useEventCallback((event: MouseEvent) => { show(event); });
+    const handleMouseLeave = useEventCallback((event: MouseEvent) => { hide(event); });
+    const handleFocus = useEventCallback((event: FocusEvent) => { show(event); });
+    const handleBlur = useEventCallback((event: FocusEvent) => { hide(event); });
 
     switch (trigger) {
         case "click":
@@ -74,10 +77,9 @@ export function useOverlayTrigger({ trigger = "click", isOpen, onShow, onHide }:
             // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
                 onMouseEnter: handleMouseEnter,
-                onMouseLeave: handleMouseLeave,
+                onMouseLeave: hideOnLeave ? handleMouseLeave : undefined,
                 onFocus: handleFocus,
-                onBlur: handleBlur,
-                onKeyDown: handleKeyDown
+                onBlur: hideOnLeave ? handleBlur : undefined
             };
         default:
             return {};

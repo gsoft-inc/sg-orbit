@@ -1,4 +1,4 @@
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
@@ -74,14 +74,12 @@ export function InnerMenuTrigger({
     forwardedRef,
     ...rest
 }: InnerMenuTriggerProps) {
-    const [focusTargetRef, setFocusTarget] = useRefState(null);
+    const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event, isVisible) => {
-        if (isVisible) {
-            // Focusing the first item on open if nore are already set to be focused.
-            if (isNil(focusTargetRef.current)) {
-                setFocusTarget(FocusTarget.first);
-            }
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
+        // When the menu is closed because of a blur or outside click event, reset the focus target.
+        if (!isVisible) {
+            setFocusTarget(FocusTarget.first);
         }
     });
 
@@ -107,18 +105,18 @@ export function InnerMenuTrigger({
         throw new Error("A menu trigger must have exactly 2 children.");
     }
 
-    const open = useCallback((event, focusTarget) => {
+    const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
         setFocusTarget(focusTarget);
         setIsOpen(event, true);
     }, [setIsOpen, setFocusTarget]);
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         setFocusTarget(null);
         setIsOpen(event, false);
     }, [setIsOpen, setFocusTarget]);
 
     // Open the menu on up & down arrow keydown.
-    const handleTriggerKeyDown = useEventCallback(event => {
+    const handleTriggerKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.arrowDown:
                 event.preventDefault();
@@ -131,13 +129,13 @@ export function InnerMenuTrigger({
         }
     });
 
-    const handleSelectionChange = useEventCallback(event => {
+    const handleSelectionChange = useEventCallback((event: SyntheticEvent) => {
         if (closeOnSelect) {
             close(event);
         }
     });
 
-    const triggerId = useId(trigger.props.id, trigger.props.id ? null : "o-ui-menu-trigger");
+    const triggerId = useId(trigger.props.id, "o-ui-menu-trigger");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         {
@@ -192,5 +190,7 @@ export function InnerMenuTrigger({
 export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
+
+export type MenuTriggerProps = ComponentProps<typeof MenuTrigger>;
 
 MenuTrigger.displayName = "MenuTrigger";

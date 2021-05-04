@@ -1,5 +1,6 @@
 import { RefObject, useCallback, useReducer } from "react";
-import { isNil, match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
+import { isNil, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
+import { match } from "./match";
 import { useEffect } from "react";
 
 enum ActionType {

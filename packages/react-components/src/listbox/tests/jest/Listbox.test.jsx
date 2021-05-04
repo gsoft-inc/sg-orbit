@@ -1,15 +1,16 @@
 import { Item, Section } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { Listbox } from "@react-components/listbox";
+import { Text } from "@react-components/text";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/user-event";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when a listbox have no selection, the first option is tabbable", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -21,7 +22,7 @@ test("when a listbox have no selection, the first option is tabbable", async () 
 
 test("when a listbox with sections have no selection, the first option is tabbable", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-option">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -41,7 +42,7 @@ test("when a listbox with sections have no selection, the first option is tabbab
 
 test("a disabled option is not tabbable", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -54,7 +55,7 @@ test("a disabled option is not tabbable", async () => {
 
 test("when a listbox have a single option selected, this option is tabbable", async () => {
     const { getByTestId } = render(
-        <Listbox defaultSelectedKeys={["jupiter"]} aria-label="Planets">
+        <Listbox defaultSelectedKeys={["jupiter"]}>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -64,9 +65,9 @@ test("when a listbox have a single option selected, this option is tabbable", as
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
 });
 
-test("when a listbox have multiple options selected, the first selected option is tabbable", async () => {
+test("when a listbox have multiple selected options, the first selected option is tabbable", async () => {
     const { getByTestId } = render(
-        <Listbox defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
+        <Listbox defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -78,7 +79,7 @@ test("when a listbox have multiple options selected, the first selected option i
 
 test("down arrow keypress moves focus to the next option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -98,7 +99,7 @@ test("down arrow keypress moves focus to the next option", async () => {
 
 test("up arrow keypress moves focus to the previous option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -122,7 +123,7 @@ test("up arrow keypress moves focus to the previous option", async () => {
 
 test("home keypress move the focus to the first option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -146,7 +147,7 @@ test("home keypress move the focus to the first option", async () => {
 
 test("end keypress move the focus to the last option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -166,7 +167,7 @@ test("end keypress move the focus to the last option", async () => {
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="none">
+        <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -186,7 +187,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the option 
 
 test("when selectionMode is \"none\", enter keypress don't toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="none">
+        <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -206,7 +207,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the option sel
 
 test("when selectionMode is \"none\", mouse click doesn't toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="none">
+        <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -222,7 +223,7 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the option sele
 
 test("when selectionMode is \"single\", spacebar keypress toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="single">
+        <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -248,7 +249,7 @@ test("when selectionMode is \"single\", spacebar keypress toggle the option sele
 
 test("when selectionMode is \"single\", enter keypress toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="single">
+        <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -274,7 +275,7 @@ test("when selectionMode is \"single\", enter keypress toggle the option selecti
 
 test("when selectionMode is \"single\", mouse click toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="single">
+        <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -296,7 +297,7 @@ test("when selectionMode is \"single\", mouse click toggle the option selection"
 
 test("when selectionMode is \"multiple\", spacebar keypress toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -322,7 +323,7 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the option se
 
 test("when selectionMode is \"multiple\", enter keypress toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -348,7 +349,7 @@ test("when selectionMode is \"multiple\", enter keypress toggle the option selec
 
 test("when selectionMode is \"multiple\", mouse click toggle the option selection", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -370,7 +371,7 @@ test("when selectionMode is \"multiple\", mouse click toggle the option selectio
 
 test("when selectionMode is \"multiple\", shift + down arrow keypress moves focus to and toggles the selected state of the next option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -396,7 +397,7 @@ test("when selectionMode is \"multiple\", shift + down arrow keypress moves focu
 
 test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus to and toggles the selected state of the previous option", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -422,7 +423,7 @@ test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus 
 
 test("when selectionMode is \"multiple\", shift + space keypress selects contiguous options from the most recently selected item to the focused item.", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets" selectionMode="multiple">
+        <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -454,10 +455,7 @@ test("when selectionMode is \"multiple\", shift + space keypress selects contigu
 
 test("when useVirtualFocus is true, a mouse click should render the option as focused", async () => {
     const { getByTestId } = render(
-        <Listbox
-            useVirtualFocus
-            aria-label="Planets"
-        >
+        <Listbox useVirtualFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -473,10 +471,7 @@ test("when useVirtualFocus is true, a mouse click should render the option as fo
 
 test("when useVirtualFocus is true, a programatically focused option should render the as focused", async () => {
     const { getByTestId } = render(
-        <Listbox
-            useVirtualFocus
-            aria-label="Planets"
-        >
+        <Listbox useVirtualFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -495,7 +490,6 @@ test("when useVirtualFocus and focusOnHover are true, a mouse hover should rende
         <Listbox
             useVirtualFocus
             focusOnHover
-            aria-label="Planets"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -510,11 +504,114 @@ test("when useVirtualFocus and focusOnHover are true, a mouse hover should rende
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
 
+test("a letter keypress move the focus to the first option starting with that letter", async () => {
+    const { getByTestId } = render(
+        <Listbox>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("jupiter-option"), { key: "j" });
+    });
+
+    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+});
+
 // ***** Aria *****
+
+test("a listbox role is \"listbox\"", async () => {
+    const { getByTestId } = render(
+        <Listbox data-testid="listbox">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("role", "listbox"));
+});
+
+test("when selectionMode is \"multiple\", aria-multiselectable is \"true\"", async () => {
+    const { getByTestId } = render(
+        <Listbox selectionMode="multiple" data-testid="listbox">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("aria-multiselectable", "true"));
+});
+
+test("a listbox option role is \"option\"", async () => {
+    const { getByTestId } = render(
+        <Listbox>
+            <Item key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("role", "option"));
+});
+
+test("when a listbox option is selected, aria-selected is \"true\"", async () => {
+    const { getByTestId } = render(
+        <Listbox defaultSelectedKeys={["earth"]}>
+            <Item key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when a listbox option is disabled, aria-disabled is \"true\"", async () => {
+    const { getByTestId } = render(
+        <Listbox defaultSelectedKeys={["earth"]}>
+            <Item disabled key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-disabled", "true"));
+});
+
+test("a listbox option aria-labelledby match the listbox option id", async () => {
+    const { getByTestId } = render(
+        <Listbox>
+            <Item id="earth-item" key="earth" data-testid="earth-item">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-labelledby", "earth-item-label"));
+});
+
+test("when a listbox option have a description, the listbox option aria-describedby match the description id", async () => {
+    const { getByTestId } = render(
+        <Listbox>
+            <Item id="earth-item" key="earth" data-testid="earth-item">
+                <Text>Earth</Text>
+                <Text slot="description">Is awesome!</Text>
+            </Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-describedby", "earth-item-description"));
+});
 
 test("when an id is provided to an option, it is used as the option id", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item id="i-am-earth" key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -524,16 +621,16 @@ test("when an id is provided to an option, it is used as the option id", async (
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("id", "i-am-earth"));
 });
 
-test("when an option is autogenerated, it is used as the option id", async () => {
+test("when no option id is provided, an option id is autogenerated", async () => {
     const { getByTestId } = render(
-        <Listbox aria-label="Planets">
+        <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("id", "o-ui-listbox-46-option-1"));
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("id"));
 });
 
 // ***** Api *****
@@ -542,10 +639,7 @@ test("call onSelectionChange when a single option is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Listbox
-            onSelectionChange={handler}
-            aria-label="Planets"
-        >
+        <Listbox onSelectionChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -556,7 +650,7 @@ test("call onSelectionChange when a single option is selected", async () => {
         userEvent.click(getByTestId("earth-option"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
 });
 
 test("call onSelectionChange when multiple options are selected in sequence", async () => {
@@ -566,7 +660,6 @@ test("call onSelectionChange when multiple options are selected in sequence", as
         <Listbox
             onSelectionChange={handler}
             selectionMode="multiple"
-            aria-label="Planets"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -582,7 +675,7 @@ test("call onSelectionChange when multiple options are selected in sequence", as
         userEvent.click(getByTestId("mars-option"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
 });
 
 test("call onSelectionChange when multiple options are selected at once", async () => {
@@ -592,7 +685,6 @@ test("call onSelectionChange when multiple options are selected at once", async 
         <Listbox
             onSelectionChange={handler}
             selectionMode="multiple"
-            aria-label="Planets"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -617,17 +709,14 @@ test("call onSelectionChange when multiple options are selected at once", async 
         fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]));
 });
 
 test("call onFocusChange when an option is programatically focused", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Listbox
-            onFocusChange={handler}
-            aria-label="Planets"
-        >
+        <Listbox onFocusChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -638,17 +727,14 @@ test("call onFocusChange when an option is programatically focused", async () =>
         getByTestId("earth-option").focus();
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
 });
 
 test("dont call onFocusChange when a disabled option is programatically focused", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Listbox
-            onFocusChange={handler}
-            aria-label="Planets"
-        >
+        <Listbox onFocusChange={handler}>
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -659,17 +745,14 @@ test("dont call onFocusChange when a disabled option is programatically focused"
         getByTestId("earth-option").focus();
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("call onFocusChange when an option is focused following an arrow down keypress", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Listbox
-            onFocusChange={handler}
-            aria-label="Planets"
-        >
+        <Listbox onFocusChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -684,17 +767,14 @@ test("call onFocusChange when an option is focused following an arrow down keypr
         fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
 });
 
 test("call onFocusChange when an option is focused following an arrow up keypress", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Listbox
-            onFocusChange={handler}
-            aria-label="Planets"
-        >
+        <Listbox onFocusChange={handler}>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -709,7 +789,7 @@ test("call onFocusChange when an option is focused following an arrow up keypres
         fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
 });
 
 test("when focusOnHover is true, call onFocusChange when an option is hovered with mouse", async () => {
@@ -719,7 +799,6 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
         <Listbox
             focusOnHover
             onFocusChange={handler}
-            aria-label="Planets"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -731,7 +810,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
         fireEvent.mouseOver(getByTestId("earth-option"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
 });
 
 test("when focusOnHover is true, dont call onFocusChange when a disabled option is hovered with mouse", async () => {
@@ -741,7 +820,6 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
         <Listbox
             focusOnHover
             onFocusChange={handler}
-            aria-label="Planets"
         >
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -753,7 +831,7 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
         fireEvent.mouseOver(getByTestId("earth-option"));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("when useVirtualFocus is true, call onFocusChange when an option is focused following an arrow up keypress", async () => {
@@ -763,7 +841,6 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         <Listbox
             useVirtualFocus
             onFocusChange={handler}
-            aria-label="Planets"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -779,7 +856,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
 });
 
 test("when useVirtualFocus is true, call onFocusChange when an option is focused following an arrow down keypress", async () => {
@@ -789,7 +866,6 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         <Listbox
             useVirtualFocus
             onFocusChange={handler}
-            aria-label="Planets"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -805,7 +881,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
 });
 
 // ***** Refs *****

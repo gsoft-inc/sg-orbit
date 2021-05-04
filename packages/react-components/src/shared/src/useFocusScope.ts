@@ -74,7 +74,7 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
         }
     }, [scopeRef, setScope, handlersRef]);
 
-    const scope: DomScope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
+    const scope = useMemo(() => new DomScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
 
     return [scope, setRef];
 }

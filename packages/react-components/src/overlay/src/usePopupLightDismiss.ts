@@ -10,7 +10,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick
-}: UseOverlayLightDismissOptions) {
+}: UseOverlayLightDismissOptions = {}) {
     const [isHandled, setIsHandled] = useRefState(false);
 
     const hide = (event: SyntheticEvent) => {

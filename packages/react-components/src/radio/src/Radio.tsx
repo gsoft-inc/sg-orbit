@@ -1,7 +1,7 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo, useRef } from "react";
+import { ComponentProps, ElementType, FormEvent, ForwardedRef, ReactNode, useImperativeHandle, useMemo, useRef } from "react";
 import {
     InteractionStatesProps,
     cssModule,
@@ -26,7 +26,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * A controlled checked state value.
      */
-    checked?: boolean;
+    checked?: boolean | null;
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -49,10 +49,10 @@ export interface InnerRadioProps extends InteractionStatesProps {
     disabled?: boolean;
     /**
      * Called when the radio checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {FormEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: FormEvent<HTMLInputElement>) => void;
     /**
      * Invert the order of the checkmark box and the label.
      */
@@ -126,7 +126,7 @@ export function InnerRadio(props: InnerRadioProps) {
         setIsChecked(!isChecked);
     });
 
-    const handleCheck = useEventCallback(event => {
+    const handleCheck = useEventCallback((event: FormEvent<HTMLInputElement>) => {
         onCheck(event, value);
     });
 

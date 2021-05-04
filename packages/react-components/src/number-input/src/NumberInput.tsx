@@ -2,7 +2,7 @@ import "./NumberInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent, useCallback } from "react";
+import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -17,7 +17,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * A controlled value.
      */
-    value?: number;
+    value?: number | null;
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -92,9 +92,9 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
 }
 
 interface SpinnerProps extends ComponentProps<"div"> {
-    onIncrement?: (event: SyntheticEvent) => void;
-    onDecrement?: (event: SyntheticEvent) => void;
-    onFocus?: (event: SyntheticEvent) => void;
+    onIncrement?: (event: MouseEvent) => void;
+    onDecrement?: (event: MouseEvent) => void;
+    onFocus?: (event: FocusEvent) => void;
     disabled?: boolean;
 }
 
@@ -105,11 +105,11 @@ function Spinner({
     disabled,
     ...rest
 }: SpinnerProps) {
-    const handleIncrement = useEventCallback(event => {
+    const handleIncrement = useEventCallback((event: MouseEvent) => {
         onIncrement(event);
     });
 
-    const handleDecrement = useEventCallback(event => {
+    const handleDecrement = useEventCallback((event: MouseEvent) => {
         onDecrement(event);
     });
 
@@ -264,23 +264,23 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         }
     };
 
-    const handleChange = useEventCallback(event => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         const newValue = toNumber(event.target.value);
 
         updateValue(event, newValue);
     });
 
-    const handleBlur = useEventCallback(event => {
+    const handleBlur = useEventCallback((event: FocusEvent<HTMLInputElement>) => {
         if (clampValue) {
             clamp(event);
         }
     });
 
-    const handleIncrement = useEventCallback(event => {
+    const handleIncrement = useEventCallback((event: MouseEvent) => {
         applyStep(event, 1);
     });
 
-    const handleDecrement = useEventCallback(event => {
+    const handleDecrement = useEventCallback((event: MouseEvent) => {
         applyStep(event, -1);
     });
 

@@ -1,7 +1,7 @@
 import "./IconButton.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
@@ -46,10 +46,10 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     type?: "button" | "submit" | "reset";
     /**
      * Called when the icon button is click.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onClick?: (event: SyntheticEvent) => void;
+    onClick?: (event: MouseEvent) => void;
     /**
      * A label providing an accessible name to the icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
@@ -73,7 +73,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
     /**
      * React children.
      */
-    children: ReactElement<any, any>;
+    children: ReactNode;
     /**
      * @ignore
      */
@@ -123,7 +123,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         forwardedRef
     });
 
-    const icon = Children.only(children);
+    const icon = Children.only(children) as ReactElement;
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
         size,

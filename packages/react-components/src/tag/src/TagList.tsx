@@ -57,7 +57,7 @@ function TagItem({
     readOnly,
     ...rest
 }: TagItemProps) {
-    const handleRemove = useEventCallback(event => {
+    const handleRemove = useEventCallback((event: SyntheticEvent) => {
         if (!isNil(onRemove)) {
             onRemove(event, item.key);
         }

@@ -1,7 +1,7 @@
 import "./Switch.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -49,10 +49,10 @@ export interface InnerSwitchProps extends InteractionStatesProps {
     reverse?: boolean;
     /**
      * Called when the switch checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

@@ -2,7 +2,7 @@ import { isFunction, isUndefined } from "./assertions";
 import { useCallback, useRef } from "react";
 import { useRefState } from "./useRefState";
 
-function validatePrerequisites(controlledValue: any, initialValue: any) {
+function validatePrerequisites<T>(controlledValue: T, initialValue: T) {
     if (!isUndefined(controlledValue) && !isUndefined(initialValue)) {
         throw new Error(
             "useControllableState - A controllable state value can either have a controlled value or an initial value, but not both."
@@ -10,13 +10,13 @@ function validatePrerequisites(controlledValue: any, initialValue: any) {
     }
 }
 
-function ensureControlledStateHaveNotChanged(controlledValue: any, isControlled: any) {
+function ensureControlledStateHaveNotChanged<T>(controlledValue: T, isControlled: boolean) {
     if ((isControlled && isUndefined(controlledValue)) || (!isControlled && !isUndefined(controlledValue))) {
         throw new Error("useControllableState - A controllable state value cannot switch between controlled and uncontrolled. Did you inadvertently set a default value (defaultProps) for your controlled prop?");
     }
 }
 
-function useComputeInitialState<T>(controlledValue: T, initialValue: T, defaultValue: T) {
+function useComputeInitialState<T>(controlledValue: T | undefined, initialValue: T | undefined, defaultValue: T | undefined) {
     const result = (state: T, isControlled: boolean, isInitialState = false) => ({ state, isControlled, isInitialState });
 
     const hasComputedRef = useRef(false);
@@ -74,7 +74,7 @@ export interface ControllableStateOptions<T> {
  * The goal of this hook is to seemlessly support "controlled" and "uncontrolled" component behaviors.
  * This is achieved by abstracting the state and updating a state value only when a prop is considered "uncontrolled".
  */
-export function useControllableState<T>(controlledValue: T, initialValue: T, defaultValue: T, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
+export function useControllableState<T>(controlledValue: T | undefined, initialValue: T | undefined, defaultValue: T | undefined, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
     validatePrerequisites(controlledValue, initialValue);
 
     let { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);

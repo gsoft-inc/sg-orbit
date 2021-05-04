@@ -24,7 +24,7 @@ import {
 } from "../../shared";
 import { Box, BoxProps } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -37,7 +37,7 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys?: string[];
+    selectedKeys?: string[] | null;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
@@ -104,7 +104,7 @@ export function InnerMenu({
 
     const focusManager = useFocusManager(focusScope, { keyProp: ItemKeyProp });
 
-    const handleSelectItem = useEventCallback((event, key) => {
+    const handleSelectItem = useEventCallback((event: SyntheticEvent, key: string) => {
         let newKeys;
 
         if (selectionMode === "multiple") {
@@ -124,7 +124,7 @@ export function InnerMenu({
 
     const searchDisposables = useDisposables();
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         searchDisposables.dispose();
 
         switch (event.key) {
@@ -176,16 +176,12 @@ export function InnerMenu({
     useAutoFocusChild(focusManager, {
         target: selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: useEventCallback(() => {
-            // Ensure keyboard navigation is available.
-            containerRef.current?.focus();
-        })
+        delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
     const nodes = useCollection(children);
 
-    const rootId = useId(id, id ? null : "o-ui-menu");
+    const rootId = useId(id, "o-ui-menu");
 
     const renderItem = ({
         key,

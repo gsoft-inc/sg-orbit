@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../text";
@@ -67,16 +67,16 @@ export function InnerTab({
         }
     }), []));
 
-    const handleClick = useEventCallback(event => {
+    const handleClick = useEventCallback((event: MouseEvent) => {
         event.preventDefault();
         onSelect(event, key);
     });
 
-    const handleFocus = useEventCallback(event => {
+    const handleFocus = useEventCallback((event: FocusEvent) => {
         onSelect(event, key);
     });
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.enter:
             case Keys.space:
@@ -87,7 +87,7 @@ export function InnerTab({
     });
 
     // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
-    const handleKeyUp = useEventCallback(event => {
+    const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }

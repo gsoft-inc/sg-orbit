@@ -1,7 +1,7 @@
 import { Radio } from "@react-components/radio";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import userEvent from "@utils/user-event";
+import userEvent from "@testing-library/user-event";
 
 function getInput(element) {
     return element.querySelector("input");

@@ -19,7 +19,7 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
@@ -29,7 +29,7 @@ export interface InnerRadioGroupProps {
     /**
      * The value of the radio group.
      */
-    value?: string;
+    value?: string | null;
     /**
      * The initial value of `value`.
      */
@@ -213,6 +213,8 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 export const RadioGroup = forwardRef<InnerRadioGroupProps>((props, ref) => (
     <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
+
+export type RadioGroupProps = ComponentProps<typeof RadioGroup>;
 
 RadioGroup.displayName = "RadioGroup";
 

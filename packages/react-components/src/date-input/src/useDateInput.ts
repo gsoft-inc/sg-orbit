@@ -1,4 +1,4 @@
-import { ForwardedRef, SyntheticEvent, useCallback, useState } from "react";
+import { ChangeEvent, ForwardedRef, useCallback, useState } from "react";
 import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
@@ -60,8 +60,8 @@ export interface UseDateInputProps {
     defaultValue?: Date;
     minDate?: Date;
     maxDate?: Date;
-    onChange?: (event: SyntheticEvent) => void;
-    onDateChange?: (event: SyntheticEvent, date: Date) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
 }
 
@@ -109,7 +109,7 @@ export function useDateInput({
         }
     }, [value, inputValueRef, setInputValue]);
 
-    const applyValue = useCallback((event, newDate) => {
+    const applyValue = useCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
         if (!isNil(onDateChange)) {
             onDateChange(event, newDate);
         }
@@ -121,7 +121,7 @@ export function useDateInput({
         setInputValue(toNumericString(newDate), true);
     }, [onDateChange, value, setValue, setInputValue]);
 
-    const commit = useCallback((event, rawValue) => {
+    const commit = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue) => {
         if (rawValue === "") {
             applyValue(event, null);
         } else {
@@ -143,7 +143,7 @@ export function useDateInput({
         }
     }, [minDate, maxDate, applyValue]);
 
-    const handleChange = useChainedEventCallback(onChange, (event: SyntheticEvent) => {
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;
 
         if (newValue === "") {

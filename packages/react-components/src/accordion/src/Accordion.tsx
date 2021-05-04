@@ -26,7 +26,7 @@ export interface InnerAccordionProps extends DomProps {
     /**
      * A controlled set of expanded item keys.
      */
-    expandedKeys?: string[];
+    expandedKeys?: string[] | null;
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */
@@ -78,7 +78,7 @@ export function InnerAccordion({
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const items = useAccordionItems(children, useId(id, id ? null : "o-ui-accordion"));
+    const items = useAccordionItems(children, useId(id, "o-ui-accordion"));
 
     const focusManager = useFocusManager(focusScope);
 

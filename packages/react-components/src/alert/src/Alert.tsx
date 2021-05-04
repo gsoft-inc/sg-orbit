@@ -1,7 +1,7 @@
 import "./Alert.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { StyleProvider, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
@@ -57,10 +57,10 @@ export interface InnerAlertProps {
     tone?: "info" | "positive" | "warning" | "critical";
     /**
      * Called when the dismiss button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onDismiss?: (event: SyntheticEvent) => void;
+    onDismiss?: (event: MouseEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -154,6 +154,8 @@ export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 
+export type AlertProps = ComponentProps<typeof Alert>;
+
 Alert.displayName = "Alert";
 
 ////////
@@ -204,10 +206,10 @@ export interface AlertTemplateProps {
     show?: boolean;
     /**
      * Called when the dismiss button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
-    onDismiss?: (event: SyntheticEvent) => void;
+    onDismiss?: (event: MouseEvent) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */

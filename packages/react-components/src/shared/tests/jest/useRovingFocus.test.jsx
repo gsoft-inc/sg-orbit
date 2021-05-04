@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { render, waitFor } from "@testing-library/react";
 import { useFocusScope, useRovingFocus } from "@react-components/shared";
-import userEvent from "@utils/user-event";
+import userEvent from "@testing-library/user-event";
 
 function RovingFocus({ children }) {
     const [focusScope, setFocusRef] = useFocusScope();

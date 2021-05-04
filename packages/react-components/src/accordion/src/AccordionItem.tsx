@@ -4,6 +4,7 @@ import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionIte
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
 import { Disclosure } from "../../disclosure";
+import { SyntheticEvent } from "react";
 import { mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
@@ -22,7 +23,7 @@ export function AccordionItem({
 }: AccordionItemProps) {
     const { expandedKeys, onToggle } = useAccordionContext();
 
-    const handleOpenChange = useEventCallback(event => {
+    const handleOpenChange = useEventCallback((event: SyntheticEvent) => {
         onToggle(event, key);
     });
 

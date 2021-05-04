@@ -25,7 +25,7 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -49,7 +49,7 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
     /**
      * A controlled set of the selected item keys.
      */
-    selectedKeys?: string[];
+    selectedKeys?: string[] | null;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
@@ -148,7 +148,7 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
         };
 
         return {
-            selectedKeys: selectedKeys,
+            selectedKeys,
             toggleKey,
             toggleSelection,
             extendSelection
@@ -236,7 +236,7 @@ export function InnerListbox({
 
     const searchDisposables = useDisposables();
 
-    const handleKeyDown = useEventCallback(event => {
+    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         searchDisposables.dispose();
 
         switch (event.key) {
@@ -301,11 +301,7 @@ export function InnerListbox({
             }
             case Keys.enter: {
                 event.preventDefault();
-
-                const newKeys = selectionManager.toggleKey(document.activeElement.getAttribute(OptionKeyProp));
-
-                updateSelectedKeys(event, newKeys);
-
+                handleSelectOption(event, document.activeElement.getAttribute(OptionKeyProp));
                 break;
             }
             case Keys.space: {
@@ -314,7 +310,7 @@ export function InnerListbox({
                 const key = document.activeElement.getAttribute(OptionKeyProp);
 
                 if (selectionMode === "single") {
-                    const newKeys = selectionManager.toggleKey(key);
+                    const newKeys = selectionManager.toggleSelection(key);
 
                     updateSelectedKeys(event, newKeys);
                 }
@@ -355,12 +351,12 @@ export function InnerListbox({
     });
 
     useAutoFocusChild(focusManager, {
-        target: (selectionMode !== "none" ? selectionManager.selectedKeys[0] : undefined) ?? defaultFocusTarget,
+        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
         isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const rootId = useId(id, id ? null : "o-ui-listbox");
+    const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
         key,

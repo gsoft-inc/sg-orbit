@@ -9,7 +9,7 @@ interface InnerTooltipTriggerProps {
     /**
     * Whether or not to show the tooltip.
     */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of `open` when in auto controlled mode.
      */
@@ -103,7 +103,7 @@ export function InnerTooltipTrigger({
 
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
-    const updateIsOpen = useCallback((event, newValue) => {
+    const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
             if (!isNil(onOpenChange)) {
                 onOpenChange(event, newValue);
@@ -113,10 +113,9 @@ export function InnerTooltipTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = useOverlayTrigger({
+    const triggerProps = useOverlayTrigger(isOpen, {
         trigger: "hover",
-        isOpen,
-        onShow: useEventCallback(event => {
+        onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
@@ -124,7 +123,8 @@ export function InnerTooltipTrigger({
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        })
+        }),
+        hideOnLeave: true
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
@@ -151,7 +151,7 @@ export function InnerTooltipTrigger({
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
 
-    const tooltipId = useId(tooltip.props.id, tooltip.props.id ? null : "o-ui-tooltip");
+    const tooltipId = useId(tooltip.props.id, "o-ui-tooltip");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
         !disabled ? triggerProps : {},

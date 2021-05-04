@@ -14,12 +14,12 @@ import {
 } from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
+import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
 import { isTargetParent } from "./isTargetParent";
-import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
-export interface UsePopupProps {
+export interface UsePopupOptions {
     id?: string;
     open?: boolean;
     defaultOpen?: boolean;
@@ -30,7 +30,7 @@ export interface UsePopupProps {
     restoreFocus?: boolean;
     autoFocus?: boolean | number;
     autoFocusOptions?: AutoFocusChildOptions;
-    trigger?: "click" | "hover";
+    trigger?: OverlayTrigger;
     hasArrow?: boolean;
     position?: OverlayPosition;
     offset?: number[];
@@ -59,7 +59,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     allowPreventOverflow = true,
     boundaryElement,
     keyProp
-}: UsePopupProps) {
+}: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
     const [triggerElement, setTriggerElement] = useState<HTMLElement>();
     const [overlayElement, setOverlayElement] = useState<HTMLElement>();
@@ -79,23 +79,23 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = useOverlayTrigger({
+    const triggerProps = useOverlayTrigger(isOpen, {
         trigger,
-        isOpen,
-        onShow: useEventCallback(event => {
+        onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
         }),
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
                 updateIsOpen(event, false);
             }
-        })
+        }),
+        hideOnLeave: isOpen && hideOnLeave
     });
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {
         trigger,
-        onHide: useEventCallback(event => {
+        onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
         hideOnEscape: isOpen && hideOnEscape,
@@ -124,7 +124,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         })
     });
 
-    const overlayId = useId(id, id ? null : "o-ui-overlay");
+    const overlayId = useId(id, "o-ui-overlay");
 
     return {
         isOpen,

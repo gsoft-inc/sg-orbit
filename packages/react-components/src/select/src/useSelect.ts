@@ -1,6 +1,7 @@
 import {
     FocusTarget,
     Keys,
+    arrayify,
     isNil,
     isNumber,
     mergeProps,
@@ -13,9 +14,9 @@ import {
     useRawSlots,
     useRefState
 } from "../../shared";
+import { KeyboardEvent, ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { OptionKeyProp } from "../../listbox";
 import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
-import { ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
@@ -24,7 +25,6 @@ export interface UseSelectProps {
     defaultOpen?: boolean;
     selectedKey?: string;
     defaultSelectedKey?: string;
-    onChange?: (event: SyntheticEvent, selectedKey: string) => void;
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     direction: "bottom" | "top";
@@ -63,7 +63,7 @@ export function useSelect(children: ReactNode, {
     ref
 }: UseSelectProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
-    const [focusTargetRef, setFocusTarget] = useRefState(FocusTarget.first);
+    const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const triggerRef = useMergedRefs(ref);
 
@@ -91,10 +91,10 @@ export function useSelect(children: ReactNode, {
         keyProp: OptionKeyProp
     });
 
-    const updateSelectedKey = useCallback((event, newKeys) => {
+    const updateSelectedKey = useCallback((event: SyntheticEvent, newKeys: string[]) => {
         const newKey = newKeys[0] ?? null;
 
-        if (newKeys !== selectedKey) {
+        if (newKey !== selectedKey) {
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, newKey);
             }
@@ -103,17 +103,17 @@ export function useSelect(children: ReactNode, {
         }
     }, [selectedKey, setSelectedKey, onSelectionChange]);
 
-    const open = useCallback((event, focusTarget) => {
+    const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
         setFocusTarget(focusTarget);
         setIsOpen(event, true);
     }, [setIsOpen, setFocusTarget]);
 
-    const close = useCallback(event => {
+    const close = useCallback((event: SyntheticEvent) => {
         setIsOpen(event, false);
     }, [setIsOpen]);
 
     // Open the menu on up & down arrow keydown.
-    const handleTriggerKeyDown = useEventCallback(event => {
+    const handleTriggerKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.arrowDown:
                 event.preventDefault();
@@ -127,7 +127,7 @@ export function useSelect(children: ReactNode, {
     });
 
     // Keep the selected key in sync with the listbox.
-    const handleListboxSelectionChange = useEventCallback((event, newValue) => {
+    const handleListboxSelectionChange = useEventCallback((event: SyntheticEvent, newValue: string[]) => {
         updateSelectedKey(event, newValue);
         close(event);
     });
@@ -146,7 +146,7 @@ export function useSelect(children: ReactNode, {
 
     const { icon, avatar, text, "end-icon": endIcon, stringValue } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
 
-    const triggerId = useId(id, id ? null : "o-ui-select-trigger");
+    const triggerId = useId(id, "o-ui-select-trigger");
 
     return {
         selectedKey,
@@ -186,7 +186,7 @@ export function useSelect(children: ReactNode, {
         ),
         listboxProps: {
             nodes,
-            selectedKeys: useMemo(() => [selectedKey], [selectedKey]),
+            selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
             onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
