@@ -18,7 +18,9 @@ export function createTagTestSuite(element, stories) {
                     <Tag element={element}>Falcon 9</Tag>
                 </Inline>
                 <Tag fluid element={element}>Falcon 9</Tag>
-                <Tag fluid element={element}>Falcon 9</Tag>
+                <div className="w-10">
+                    <Tag fluid element={element}>Falcon 9</Tag>
+                </div>
             </Stack>
         )
         .add("icon", () =>
@@ -117,10 +119,12 @@ export function createTagTestSuite(element, stories) {
                     <Dot />
                     <Text>Falcon 9</Text>
                 </Tag>
-                <Tag fluid element={element}>
-                    <Dot />
-                    <Text>Falcon 9</Text>
-                </Tag>
+                <div className="w-10">
+                    <Tag fluid element={element}>
+                        <Dot />
+                        <Text>Falcon 9</Text>
+                    </Tag>
+                </div>
             </Stack>
         )
         .add("counter", () =>
