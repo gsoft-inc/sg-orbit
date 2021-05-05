@@ -17,12 +17,10 @@ export function createTagTestSuite(element, stories) {
                     <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
                 </Inline>
-                <Inline>
+                <Tag fluid element={element}>Falcon 9</Tag>
+                <div className="w-10">
                     <Tag fluid element={element}>Falcon 9</Tag>
-                </Inline>
-                <Inline className="w-10">
-                    <Tag fluid element={element}>Falcon 9</Tag>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("icon", () =>
@@ -51,18 +49,58 @@ export function createTagTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
-                <Inline>
+                <Tag fluid element={element}>
+                    <CheckCircleIcon />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <div className="w-10">
                     <Tag fluid element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
-                </Inline>
-                <Inline className="w-10">
-                    <Tag fluid element={element}>
-                        <CheckCircleIcon />
+                </div>
+                <Inline verticalAlign="end">
+                    <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
+                        <IconList slot="end-icon">
+                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        </IconList>
+                    </Tag>
+                    <Tag element={element}>
+                        <Text>Falcon 9</Text>
+                        <IconList slot="end-icon">
+                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        </IconList>
                     </Tag>
                 </Inline>
+                <Tag fluid element={element}>
+                    <Text>Falcon 9</Text>
+                    <IconList slot="end-icon">
+                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                    </IconList>
+                </Tag>
+                <div className="w-10">
+                    <Tag fluid element={element}>
+                        <Text>Falcon 9</Text>
+                        <IconList slot="end-icon">
+                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        </IconList>
+                    </Tag>
+                </div>
+                <Tag element={element}>
+                    <CheckCircleIcon />
+                    <Text>Falcon 9</Text>
+                    <IconList slot="end-icon">
+                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                    </IconList>
+                </Tag>
+                <Tag fluid element={element}>
+                    <CheckCircleIcon />
+                    <Text>Falcon 9</Text>
+                    <IconList slot="end-icon">
+                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                    </IconList>
+                </Tag>
             </Stack>
         )
         .add("dot", () =>
@@ -77,18 +115,16 @@ export function createTagTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
-                <Inline>
+                <Tag fluid element={element}>
+                    <Dot />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <div className="w-10">
                     <Tag fluid element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
-                </Inline>
-                <Inline className="w-10">
-                    <Tag fluid element={element}>
-                        <Dot />
-                        <Text>Falcon 9</Text>
-                    </Tag>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("counter", () =>
@@ -103,18 +139,16 @@ export function createTagTestSuite(element, stories) {
                         <Counter variant="divider">60</Counter>
                     </Tag>
                 </Inline>
-                <Inline>
-                    <Tag fluid element={element}>
-                        <Text>Falcon 9</Text>
-                        <Counter>60</Counter>
-                    </Tag>
-                </Inline>
-                <Inline className="w-10">
+                <Tag fluid element={element}>
+                    <Text>Falcon 9</Text>
+                    <Counter>60</Counter>
+                </Tag>
+                <div className="w-10">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
                         <Counter variant="divider">60</Counter>
                     </Tag>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("remove button", () =>
@@ -127,16 +161,14 @@ export function createTagTestSuite(element, stories) {
                         Falcon 9
                     </Tag>
                 </Inline>
-                <Inline>
+                <Tag fluid onRemove={() => {}} element={element}>
+                        Falcon 9
+                </Tag>
+                <div className="w-10">
                     <Tag fluid onRemove={() => {}} element={element}>
                         Falcon 9
                     </Tag>
-                </Inline>
-                <Inline className="w-10">
-                    <Tag fluid onRemove={() => {}} element={element}>
-                        Falcon 9
-                    </Tag>
-                </Inline>
+                </div>
             </Stack>
         )
         .add("as link", () =>

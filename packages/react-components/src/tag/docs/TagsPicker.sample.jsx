@@ -57,8 +57,8 @@ function TagsPicker() {
             <MenuTrigger closeOnSelect={false}>
                 <Button color="secondary" className="mr2">
                     <Text>{selectedKeys.length > 0 ? "Programs" : "All programs"}</Text>
-                    <DisclosureArrow slot="end-icon" />
                     {selectedKeys.length > 0 && <Counter variant="divider">{selectedKeys.length}</Counter>}
+                    <DisclosureArrow slot="end-icon" />
                 </Button>
                 <Menu
                     selectionMode="multiple"

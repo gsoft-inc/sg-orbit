@@ -61,13 +61,13 @@ export function InnerTag({
 }: InnerTagProps) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { icon, dot, text, counter } = useSlots(children, useMemo(() => ({
+    const { icon, dot, text, "end-icon": endIcon, counter } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         icon: {
             size: embeddedIconSize(size),
-            className: "o-ui-tag-icon"
+            className: "o-ui-tag-start-icon"
         },
         dot: {
             disabled,
@@ -77,6 +77,10 @@ export function InnerTag({
             color: "inherit",
             size,
             className: "o-ui-tag-text"
+        },
+        "end-icon": {
+            size: embeddedIconSize(size),
+            className: "o-ui-tag-end-icon"
         },
         counter: {
             color: "inherit",
@@ -102,7 +106,8 @@ export function InnerTag({
                     className: cssModule(
                         "o-ui-tag",
                         variant,
-                        icon && "has-icon",
+                        icon && "has-start-icon",
+                        endIcon && "has-end-icon",
                         removeMarkup && "has-remove-button",
                         fluid && "fluid",
                         active && "active",
@@ -119,6 +124,7 @@ export function InnerTag({
             {icon}
             {dot}
             {text}
+            {endIcon}
             {counter}
             {removeMarkup}
         </Box>
