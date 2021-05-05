@@ -16,6 +16,7 @@ function Popup({
     autoFocus = false,
     restoreFocus = false,
     trigger,
+    disabled,
     "data-triggertestid": triggerTestId,
     "data-overlaytestid": overlayTestId
 }) {
@@ -29,7 +30,8 @@ function Popup({
         hideOnOutsideClick,
         autoFocus,
         restoreFocus,
-        trigger
+        trigger,
+        disabled
     });
 
     return (
@@ -87,6 +89,54 @@ describe("\"click\" trigger", () => {
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    });
+
+    test("when closed and disabled, do not open on trigger click", async () => {
+        const { getByTestId, queryByTestId } = render(
+            <Popup
+                disabled
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
+
+        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    });
+
+    test("when closed and disabled, do not open on trigger space keypress", async () => {
+        const { getByTestId, queryByTestId } = render(
+            <Popup
+                disabled
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
+        );
+
+        act(() => {
+            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
+        });
+
+        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    });
+
+    test("when closed and disabled, do not open on trigger enter keypress", async () => {
+        const { getByTestId, queryByTestId } = render(
+            <Popup
+                disabled
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
+        );
+
+        act(() => {
+            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
+        });
+
+        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened, close on trigger click", async () => {
