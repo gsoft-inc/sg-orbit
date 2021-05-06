@@ -244,6 +244,21 @@ test("when in a field, clicking on the field label open the select and focus the
 
 // ***** Aria *****
 
+test("a select have an aria-haspopup attribute", async () => {
+    const { getByTestId } = render(
+        <Select
+            defaultOpen
+            data-testid="select"
+        >
+            <Item key="earth">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
+
+    await waitFor(() => expect(getByTestId("select")).toHaveAttribute("aria-haspopup", "listbox"));
+});
+
 test("when an aria-label and an aria-labelledby are provided, do not set aria-labelledby on the trigger", async () => {
     const { getByTestId } = render(
         <Select

@@ -120,13 +120,17 @@ export function InnerPopoverTrigger({
         setIsOpen(event, false);
     }, [setIsOpen]);
 
-    const [trigger, popover] = Children.toArray(resolveChildren(children, { close }));
+    const [trigger, popover] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const triggerMarkup = augmentElement(trigger as ReactElement, triggerProps);
+    const triggerMarkup = augmentElement(
+        trigger,
+        // Since we provide a "close" function to the render function we can't provide a "disabled" prop to usePopup. Therefore, we handle disabled manually.
+        trigger.props.disabled ? {} : triggerProps
+    );
 
     return (
         <PopoverTriggerContext.Provider

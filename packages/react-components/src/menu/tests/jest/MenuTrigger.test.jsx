@@ -275,6 +275,21 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
 
 // ***** Aria *****
 
+test("a menu trigger have an aria-haspopup attribute", async () => {
+    const { getByTestId } = render(
+        <MenuTrigger defaultOpen>
+            <Button data-testid="trigger">Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    );
+
+    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-haspopup", "menu"));
+});
+
 test("when a trigger have an aria-labelledby attribute, the menu aria-labelledby match the trigger aria-labelledby attribute", async () => {
     const { getByTestId } = render(
         <MenuTrigger defaultOpen>

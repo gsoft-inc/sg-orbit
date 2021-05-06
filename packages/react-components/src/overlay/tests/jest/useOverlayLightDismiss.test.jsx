@@ -42,7 +42,11 @@ describe("\"click\" trigger", () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
-            <Overlay onHide={handler} data-testid="overlay" />
+            <Overlay
+                onHide={handler}
+                trigger="click"
+                data-testid="overlay"
+            />
         );
 
         act(() => {
@@ -62,7 +66,11 @@ describe("\"click\" trigger", () => {
         const { getByTestId } = render(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
-                <Overlay onHide={handler} data-testid="overlay" />
+                <Overlay
+                    onHide={handler}
+                    trigger="click"
+                    data-testid="overlay"
+                />
             </>
         );
 
@@ -81,7 +89,11 @@ describe("\"click\" trigger", () => {
         const handler = jest.fn();
 
         render(
-            <Overlay onHide={handler} data-testid="overlay" />
+            <Overlay
+                onHide={handler}
+                trigger="click"
+                data-testid="overlay"
+            />
         );
 
         act(() => {
@@ -98,6 +110,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 hideOnEscape={false}
                 onHide={handler}
+                trigger="click"
                 data-testid="overlay"
             />
         );
@@ -122,6 +135,7 @@ describe("\"click\" trigger", () => {
                 <Overlay
                     hideOnLeave={false}
                     onHide={handler}
+                    trigger="click"
                     data-testid="overlay"
                 />
             </>
@@ -145,6 +159,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 hideOnOutsideClick={false}
                 onHide={handler}
+                trigger="click"
                 data-testid="overlay"
             />
         );
@@ -167,8 +182,8 @@ describe("\"hover\" trigger", () => {
 
         const { getByTestId } = render(
             <Overlay
-                trigger="hover"
                 onHide={handler}
+                trigger="hover"
                 data-testid="overlay"
             />
         );
@@ -189,8 +204,8 @@ describe("\"hover\" trigger", () => {
 
         const { getByTestId } = render(
             <Overlay
-                trigger="hover"
                 onHide={handler}
+                trigger="hover"
                 data-testid="overlay"
             />
         );
@@ -207,8 +222,8 @@ describe("\"hover\" trigger", () => {
 
         render(
             <Overlay
-                trigger="hover"
                 onHide={handler}
+                trigger="hover"
                 data-testid="overlay"
             />
         );
@@ -226,8 +241,8 @@ describe("\"hover\" trigger", () => {
         const { getByTestId } = render(
             <Overlay
                 hideOnEscape={false}
-                trigger="hover"
                 onHide={handler}
+                trigger="hover"
                 data-testid="overlay"
             />
         );
@@ -251,8 +266,8 @@ describe("\"hover\" trigger", () => {
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Overlay
                     hideOnLeave={false}
-                    trigger="hover"
                     onHide={handler}
+                    trigger="hover"
                     data-testid="overlay"
                 />
             </>
@@ -271,8 +286,8 @@ describe("\"hover\" trigger", () => {
         const { getByTestId } = render(
             <Overlay
                 hideOnOutsideClick={false}
-                trigger="hover"
                 onHide={handler}
+                trigger="hover"
                 data-testid="overlay"
             />
         );

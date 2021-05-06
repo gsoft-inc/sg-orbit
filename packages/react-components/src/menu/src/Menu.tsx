@@ -23,7 +23,7 @@ import {
     useRefState
 } from "../../shared";
 import { Box, BoxProps } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionSection, NodeType, useCollection } from "../../collection";
+import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
@@ -32,6 +32,10 @@ import { MenuSection } from "./MenuSection";
 export type SelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
+
+// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     /**
@@ -53,6 +57,10 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
      * The type of selection that is allowed.
      */
     selectionMode?: SelectionMode;
+    /**
+     * A collection of nodes to render instead of children. It should only be used if you embed a Menu inside another component.
+     */
+    nodes?: CollectionNode[];
     /**
      * Whether or not the menu should autofocus on render.
      */
@@ -79,12 +87,19 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
+    const collectionNodes = useCollection(children);
+
+    return nodes ?? collectionNodes;
+}
+
 export function InnerMenu({
     id,
     selectedKeys: selectedKeysProp,
     defaultSelectedKeys,
     onSelectionChange,
     selectionMode = "none",
+    nodes: nodesProp,
     autoFocus,
     defaultFocusTarget,
     fluid,
@@ -179,7 +194,7 @@ export function InnerMenu({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const nodes = useCollection(children);
+    const nodes = useCollectionNodes(children, nodesProp);
 
     const rootId = useId(id, "o-ui-menu");
 
