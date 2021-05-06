@@ -33,59 +33,61 @@ Development stories are written for 2 purposes:
 
 Documentation stories are written... well for documentation purpose!
 
-To define a story once for development and documentation a story must be written with [CSF](https://storybook.js.org/docs/formats/component-story-format/) in an `*.stories.mdx` file.
+To define a story once for development and documentation a story must be written with [CSF](https://storybook.js.org/docs/formats/component-story-format/) in an `*.stories.mdx` file. The name of the file should match the component name.
 
 A story must:
 
-- Be located in the `Components` top level section of the Storybook navigation menu (use `createComponentSection` utility function).
+- Be located in the `Components` top level section of the Storybook navigation menu.
 - The second level segment must be the capitalized name of the component.
 
 Here's an exemple for the date range picker component:
 
 ```jsx
-import { createComponentSection } from "@stories/utils";
+// Button.stories.mdx
 
-<Meta title={createComponentSection("Date Picker/range")} />
+<Meta title="Components/Button" />
 ```
 
-The component stories must provide:
+A component stories must provide:
 
 - A story named *default* that render the component default state.
 
-The stories must be located in a `stories` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/src/*/stories/**.stories.mdx`.
+The stories must be located in a `docs` folder next to the `src` folder of your component. Storybook is configured to load the following component stories: `packages/react-components/src/*/docs/**.stories.mdx`.
 
 ```
 /packages
     /react-components
         /components
-            /date-pickers
+            /buttons
+                /docs
+                    Button.stories.mdx
                 /src
-                /stories
-                    date-range-picker.stories.mdx
 ```
 
 #### Tests
 
-Tests stories are written to validate the specifications of a component with automated visual tests. Every specifications of the component must match at least one story. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
+##### Visual Regression
 
-Storybook is a fantastic tool for visual testing because a story is essentially a test specification.
+Tests stories are written to validate the specifications of a component with automated visual tests. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
+
+Storybook is a fantastic tool for visual testing because a story is essentially a test specification. When it does make sense, multiple specifications can be bundled together to save on snapshots.
 
 Specifications stories must be written with the [storiesOf API](https://storybook.js.org/docs/formats/storiesof-api/) in a `*.chroma.jsx` file.
 
-A story must:
+A specifications story must:
 
-- Be located in the `Chromatic` top level section of the Storybook navigation menu (use `createChromaticSection` utility function).
+- Be located in the `Chromatic` top level section of the Storybook navigation menu.
 - The second level segment must be the capitalized name of the component (same as the development stories).
 
 Here's an example:
 
 ```javascript
-// date-range-picker.chroma.jsx
+// Button.chroma.jsx
 
-import { createChromaticSection, paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, createChromaticSection("Date Picker/range))
+    return storiesOfBuilder(module, "Chromatic/Button")
         .segment(segment)
         .parameters(
             paramsBuilder()
@@ -101,13 +103,52 @@ stories("/segment")
     )
 ```
 
-The stories must be located in `tests/chromatic` folder next to the `stories` folder of the component. Storybook is configured to load the following chromatic stories: `packages/react-components/src/*/tests/chromatic/**.chroma.jsx`.
+The stories must be located in a `tests/chromatic` folder next to the `src` folder of your component. Storybook is configured to load the following tests specifications: `packages/react-components/src/*/tests/chromatic/**.chroma.[jsx|tsx]`.
 
-For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07).
+```
+/packages
+    /react-components
+        /components
+            /buttons
+                /src
+                /tests
+                    /chromatic
+                        Button.chroma.jsx
+```
 
-#### Good to know
+For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07) and the following [introduction to visual testing](https://storybook.js.org/tutorials/visual-testing-handbook/react/en/introduction/).
 
-A stories should always import the Component from the `src` directory of the package. This way, it's possible to break through the source code instead of the *compiled* code. You will also benefits from faster reload time with HMR.
+##### Interaction tests
+
+Sometimes we need to test how a component changes in response to a user interaction. Visual testing tools like Chromatic are awesome to tests known states but can't really help to mock and validate user interactions.
+
+To do so, we rely on [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+
+Interaction tests must:
+
+- Be written  in a `*.test.[jsx|tsx]` file.
+- Be located in a `tests/jest` folder next to the `src` folder of your component.
+
+```
+/packages
+    /react-components
+        /components
+            /buttons
+                /src
+                /tests
+                    /jest
+                        Button.test.jsx
+```
+
+Here's an example:
+
+```javascript
+// Button.test.jsx
+
+test("call onChange when the button is selected", () => {
+    ....
+});
+```
 
 ## Component guidelines
 
