@@ -65,12 +65,6 @@ stories()
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>
     )
-    .add("disabled", () =>
-        <TooltipTrigger disabled open>
-            <Button>Trigger</Button>
-            <Tooltip>Man must rise above the Earth</Tooltip>
-        </TooltipTrigger>
-    )
     .add("very long content", () =>
         <TooltipTrigger open>
             <Button>Trigger</Button>
