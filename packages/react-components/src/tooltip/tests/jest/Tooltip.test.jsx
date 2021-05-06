@@ -6,7 +6,7 @@ import { render, waitFor } from "@testing-library/react";
 
 test("a tooltip have the \"tooltip\" role", async () => {
     const { getByTestId } = render(
-        <Tooltip data-testid="tooltip">Tooltip</Tooltip>
+        <Tooltip data-testid="tooltip">Content</Tooltip>
     );
 
     await waitFor(() => expect(getByTestId("tooltip")).toHaveAttribute("role", "tooltip"));
@@ -18,7 +18,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tooltip ref={ref}>Tooltip</Tooltip>
+        <Tooltip ref={ref}>Content</Tooltip>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -50,7 +50,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Tooltip ref={handler}>Tooltip</Tooltip>
+        <Tooltip ref={handler}>Content</Tooltip>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

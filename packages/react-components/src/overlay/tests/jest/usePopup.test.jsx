@@ -51,7 +51,11 @@ beforeAll(() => {
 describe("\"click\" trigger", () => {
     test("when closed, open on trigger click", async () => {
         const { getByTestId, queryByTestId } = render(
-            <Popup data-triggertestid="trigger" data-overlaytestid="overlay" />
+            <Popup
+                trigger="click"
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
         );
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -65,7 +69,11 @@ describe("\"click\" trigger", () => {
 
     test("when closed, open on trigger space keypress", async () => {
         const { getByTestId, queryByTestId } = render(
-            <Popup data-triggertestid="trigger" data-overlaytestid="overlay" />
+            <Popup
+                trigger="click"
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
         );
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -79,7 +87,11 @@ describe("\"click\" trigger", () => {
 
     test("when closed, open on trigger enter keypress", async () => {
         const { getByTestId, queryByTestId } = render(
-            <Popup data-triggertestid="trigger" data-overlaytestid="overlay" />
+            <Popup
+                trigger="click"
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
         );
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -95,6 +107,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 disabled
+                trigger="click"
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
@@ -111,6 +124,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 disabled
+                trigger="click"
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
@@ -127,6 +141,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 disabled
+                trigger="click"
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
@@ -143,6 +158,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 defaultOpen
+                trigger="click"
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
@@ -161,6 +177,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 defaultOpen
+                trigger="click"
                 data-overlaytestid="overlay"
             />
         );
@@ -183,6 +200,7 @@ describe("\"click\" trigger", () => {
             <Popup
                 hideOnEscape={false}
                 defaultOpen
+                trigger="click"
                 data-overlaytestid="overlay"
             />
         );
@@ -206,6 +224,7 @@ describe("\"click\" trigger", () => {
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
                     defaultOpen
+                    trigger="click"
                     data-overlaytestid="overlay"
                 />
             </>
@@ -231,6 +250,7 @@ describe("\"click\" trigger", () => {
                 <Popup
                     hideOnLeave={false}
                     defaultOpen
+                    trigger="click"
                     data-overlaytestid="overlay"
                 />
             </>
@@ -253,6 +273,7 @@ describe("\"click\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 defaultOpen
+                trigger="click"
                 data-overlaytestid="overlay"
             />
         );
@@ -275,6 +296,7 @@ describe("\"click\" trigger", () => {
             <Popup
                 hideOnOutsideClick={false}
                 defaultOpen
+                trigger="click"
                 data-overlaytestid="overlay"
             />
         );

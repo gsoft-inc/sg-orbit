@@ -42,6 +42,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open={false}
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -60,6 +61,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open={false}
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -78,6 +80,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -96,6 +99,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open={false}
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -114,6 +118,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open={false}
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -133,6 +138,7 @@ describe("\"click\" trigger", () => {
                 open={false}
                 disabled
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -152,6 +158,7 @@ describe("\"click\" trigger", () => {
                 open={false}
                 disabled
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -171,6 +178,7 @@ describe("\"click\" trigger", () => {
                 open={false}
                 disabled
                 onShow={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );
@@ -189,6 +197,7 @@ describe("\"click\" trigger", () => {
             <Overlay
                 open
                 onHide={handler}
+                trigger="click"
                 data-testid="trigger"
             />
         );

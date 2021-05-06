@@ -7,18 +7,6 @@ import { TextLink } from "@react-components/link";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-/*
-INTERACTION TESTS:
-    - open on "hover"
-    - close when leaving trigger
-    - doesn't close when hover overlay
-    - close when leaving overlay
-    - close on blur
-    - close on esc when focus in overlay
-    - don't open when disabled
-    - close on esc when focus on trigger
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tooltip")
         .segment(segment)
