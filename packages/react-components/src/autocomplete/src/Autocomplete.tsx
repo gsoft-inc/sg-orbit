@@ -16,6 +16,7 @@ import {
     useId,
     useRefState
 } from "../../shared";
+import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
@@ -434,11 +435,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 
     const noResultsMarkup = (
-        <div className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</div>
+        <Box className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</Box>
     );
 
     return (
-        <div>
+        <Box>
             <HiddenAutocomplete
                 name={name}
                 value={value}
@@ -499,7 +500,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             >
                 {results.length > 0 ? listboxMarkup : noResultsMarkup}
             </Overlay>
-        </div>
+        </Box>
     );
 }
 

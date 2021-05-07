@@ -211,7 +211,7 @@ describe("\"click\" trigger", () => {
 });
 
 describe("\"hover\" trigger", () => {
-    test("when is closed, call onShow on mouse enter", async () => {
+    test("when is closed, call onShow on hover", async () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
@@ -224,7 +224,7 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -249,7 +249,7 @@ describe("\"hover\" trigger", () => {
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
 
-    test("when is opened, call onHide on mouse leave", async () => {
+    test("when is opened, call onHide on unhover", async () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
@@ -262,11 +262,11 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
+            userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -295,7 +295,7 @@ describe("\"hover\" trigger", () => {
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
 
-    test("when hideOnLeave is false, do not call onHide on mouse leave", async () => {
+    test("when hideOnLeave is false, do not call onHide on unhover", async () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
@@ -309,11 +309,11 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
+            userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -343,7 +343,7 @@ describe("\"hover\" trigger", () => {
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
 
-    test("when is closed and disabled, do not call onShow on mouse enter", async () => {
+    test("when is closed and disabled, do not call onShow on hover", async () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
@@ -357,7 +357,7 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -442,7 +442,7 @@ describe("\"none\" trigger", () => {
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
 
-    test("when is closed, do not call onShow on mouse enter", async () => {
+    test("when is closed, do not call onShow on hover", async () => {
         const handler = jest.fn();
 
         const { getByTestId } = render(
@@ -455,7 +455,7 @@ describe("\"none\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());

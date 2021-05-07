@@ -346,7 +346,7 @@ describe("\"hover\" trigger", () => {
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());

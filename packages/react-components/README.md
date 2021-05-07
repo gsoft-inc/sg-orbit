@@ -8,7 +8,7 @@ Adding a new component package involve a few extra steps. Before you go forward 
 
 - [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
-- [Write tests](../../CONTRIBUTING.md#testing)
+- [Write tests](#tests)
 - [Update the documentation](#update-the-documentation)
 - [Include the component in the bundle](#include-the-component-in-the-bundle)
 
@@ -57,20 +57,21 @@ The stories must be located in a `docs` folder next to the `src` folder of your 
 ```
 /packages
     /react-components
-        /components
-            /buttons
-                /docs
-                    Button.stories.mdx
-                /src
+        /buttons
+            /docs
+                Button.stories.mdx
+            /src
 ```
 
 #### Tests
 
-##### Visual Regression
+Before reading the following sections, please read [our introduction to Orbit testing practices](../../CONTRIBUTING.md#testing).
 
-Tests stories are written to validate the specifications of a component with automated visual tests. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
+##### Visual testing
 
-Storybook is a fantastic tool for visual testing because a story is essentially a test specification. When it does make sense, multiple specifications can be bundled together to save on snapshots.
+Specific stories for Chromatic are written to validate the specifications of a component with automated visual tests. The specifications stories are validated [every night](https://circleci.com/gh/gsoft-inc) with [Chromatic](https://www.chromaticqa.com/) for visual regression issues.
+
+Storybook is a fantastic tool for visual testing because a story is essentially a test specification. When it does make sense, multiple specifications can be bundled together in a story to save on Chromatic snapshots (which are not cheap!).
 
 Specifications stories must be written with the [storiesOf API](https://storybook.js.org/docs/formats/storiesof-api/) in a `*.chroma.jsx` file.
 
@@ -108,21 +109,20 @@ The stories must be located in a `tests/chromatic` folder next to the `src` fold
 ```
 /packages
     /react-components
-        /components
-            /buttons
-                /src
-                /tests
-                    /chromatic
-                        Button.chroma.jsx
+        /buttons
+            /src
+            /tests
+                /chromatic
+                    Button.chroma.jsx
 ```
 
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07) and the following [introduction to visual testing](https://storybook.js.org/tutorials/visual-testing-handbook/react/en/introduction/).
 
-##### Interaction tests
+##### Interaction testing
 
-Sometimes we need to test how a component changes in response to a user interaction. Visual testing tools like Chromatic are awesome to tests known states but can't really help to mock and validate user interactions.
+Since visual testing tools like Chromatic can't help much for interaction testing we rely on Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for those. Similar to visual testing, interaction tests are validated [every night](https://circleci.com/gh/gsoft-inc).
 
-To do so, we rely on [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
+*NOTE: You should always prefer a visual test with Chromatic over an interaction test with Jest and React Testing Library. Chromatic tests are much quicker to write and easier to maintain.*
 
 Interaction tests must:
 
@@ -132,12 +132,11 @@ Interaction tests must:
 ```
 /packages
     /react-components
-        /components
-            /buttons
-                /src
-                /tests
-                    /jest
-                        Button.test.jsx
+        /buttons
+            /src
+            /tests
+                /jest
+                    Button.test.jsx
 ```
 
 Here's an example:
@@ -149,6 +148,8 @@ test("call onChange when the button is selected", () => {
     ....
 });
 ```
+
+Usually, interaction tests are split into 4 distinct regions: *Behaviors*, *Aria*, *Api* and *Refs*.
 
 ## Component guidelines
 
@@ -184,7 +185,7 @@ For more information, read the following [blog post](https://css-tricks.com/dang
 
 #### Spread props
 
-Unhandled props should always be spread on the root element of the component.
+Unhandled props should always be spread on the root element of the component. If it's not practical to spread the props on the root element, consider adding an additional prop for the root element props (like `wrapperProps`) and spread those props on the root element.
 
 ```jsx
 function MyComponent({ className, children ...rest }) {
@@ -240,7 +241,7 @@ Ex:
 
 #### Accessibility
 
-All components should follow [WAI-ARIA practices](https://www.w3.org/TR/wai-aria-practices/).
+All components should follow [WAI-ARIA practices](https://www.w3.org/TR/wai-aria-practices/) when applicable.
 
 ## Babel
 

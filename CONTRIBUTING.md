@@ -359,6 +359,7 @@ For access to our Chromatic QA environment, ask to join the [gsoft-inc](https://
 
 For more information about automated visual testing:
 
+- https://storybook.js.org/tutorials/visual-testing-handbook/react/en/introduction
 - https://storybook.js.org/docs/testing/automated-visual-testing
 - https://www.youtube.com/watch?v=QE-xQxN9Sps
 
@@ -373,7 +374,7 @@ Examples:
 - Ensure that a given element X is visible when the user click on the element Y.
 - Ensure that an handler of the component interface is called when the user on the element Y.
 
-To facilite those tests, we use a combination of [Jest](https://jestjs.io/) and [React testing library](https://testing-library.com).
+To facilite those tests, we use a combination of [Jest](https://jestjs.io/) and [React testing library](https://testing-library.com/docs/react-testing-library/intro).
 
 For more information about interaction testing:
 
