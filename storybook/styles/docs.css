@@ -158,7 +158,7 @@
 
 .sbdocs.sbdocs-h1 {
     font-size: var(--o-ui-global-type-scale-1);
-    line-height: 1.5;
+    line-height: var(--o-ui-global-line-height-6);
 }
 
 .sbdocs.sbdocs-h1,
@@ -179,12 +179,12 @@
 .sbdocs.sbdocs.sbdocs-h3 {
     margin: var(--o-ui-global-scale-golf) 0 var(--o-ui-global-scale-delta);
     font-size: var(--o-ui-global-type-scale-4);
-    line-height: 1.454595;
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .sbdocs.sbdocs.sbdocs-h4 {
     font-size: var(--o-ui-global-type-scale-5);
-    line-height: 1.3333333;
+    line-height: var(--o-ui-global-line-height-4);
     margin: var(--o-ui-global-scale-foxtrot) 0 var(--o-ui-global-scale-bravo);
 }
 
@@ -238,7 +238,7 @@
 .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-span {
     font-size: var(--o-ui-global-type-scale-6);
-    line-height: 1.5;
+    line-height: var(--o-ui-global-line-height-6);
     max-width: 90ch;
 }
 
@@ -280,7 +280,7 @@
 .sb-show-main summary {
     font-size: var(--o-ui-global-type-scale-6);
     cursor: pointer;
-    line-height: 1.3333;
+    line-height: var(--o-ui-global-line-height-4);
 }
 
 .sb-show-main details {
@@ -307,7 +307,7 @@
 
 /* ELEMENTS | KBD */
 .sbdocs kbd {
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
     margin: 0 2px;
     padding: 3px 5px;
     white-space: nowrap;

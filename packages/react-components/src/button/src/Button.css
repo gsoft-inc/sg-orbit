@@ -7,7 +7,7 @@
 /* SHARED */
 .o-ui-button {
     padding: 0;
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
     cursor: pointer;
     outline: none;
     font-variation-settings: "wght" 500;
