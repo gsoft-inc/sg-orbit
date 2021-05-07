@@ -43,6 +43,7 @@ test("a disabled radio is not tabbable", async () => {
     );
 
     expect(getInput(getByTestId("radio-1"))).not.toHaveAttribute("tabindex");
+
     await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
 });
 
@@ -145,7 +146,7 @@ test("call onChange when a radio is selected", async () => {
         userEvent.click(getInput(getByTestId("radio-1")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
 });
 
 test("call onChange with a numeric value when the radio value is numeric", async () => {
@@ -165,7 +166,7 @@ test("call onChange with a numeric value when the radio value is numeric", async
         userEvent.click(getInput(getByTestId("radio-1")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1));
 });
 
 // ***** Refs *****

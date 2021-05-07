@@ -26,6 +26,7 @@ test("a disabled element is not tabbable", async () => {
     );
 
     expect(getByTestId("element-1")).not.toHaveAttribute("tabindex");
+
     await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 

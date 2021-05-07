@@ -20,7 +20,7 @@ test("call onChange when the checkbox is checked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
 
 test("call onChange when the checkbox is unchecked", async () => {
@@ -38,7 +38,7 @@ test("call onChange when the checkbox is unchecked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
 
 test("call onChange when the checkbox goes from indeterminate to checked", async () => {
@@ -52,7 +52,7 @@ test("call onChange when the checkbox goes from indeterminate to checked", async
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
 
 test("dont call onChange when the checkbox is disabled", async () => {
@@ -66,7 +66,7 @@ test("dont call onChange when the checkbox is disabled", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("can focus the checkbox with the focus api", async () => {

@@ -20,7 +20,7 @@ test("call onChange when the radio is checked", async () => {
         userEvent.click(getInput(getByTestId("radio")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
 
 test("call onChange when the radio is unchecked", async () => {
@@ -38,7 +38,7 @@ test("call onChange when the radio is unchecked", async () => {
         userEvent.click(getInput(getByTestId("radio")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
 });
 
 test("dont call onChange when the radio is disabled", async () => {
@@ -52,7 +52,7 @@ test("dont call onChange when the radio is disabled", async () => {
         userEvent.click(getInput(getByTestId("radio")));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("can focus the radio with the focus api", async () => {
