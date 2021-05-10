@@ -4,7 +4,7 @@ Full documentation available at: https://orbit.sharegate.design
 
 ## Add a new component
 
-Adding a new component package involve a few extra steps. Before you go forward with this section, make sure you read and followed the [Add a new packages to the monorepo](../../CONTRIBUTING.md#add-a-new-package-to-the-monorepo) section. 
+Adding a new component package involve a few extra steps:
 
 - [Guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
