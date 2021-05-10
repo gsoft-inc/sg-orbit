@@ -3,7 +3,7 @@ import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { Popover, PopoverTrigger } from "@react-components/popover";
 import { Transition } from "@react-components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
@@ -134,7 +134,7 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -162,7 +162,7 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -174,7 +174,7 @@ describe("\"hover\" trigger", () => {
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
 
-    test("when a popover is dismissable, hide on mouse leave", async () => {
+    test("when a popover is dismissable, hide on unhover", async () => {
         const { getByTestId, queryByTestId } = render(
             <PopoverTrigger
                 dismissable
@@ -190,19 +190,19 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
         act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
+            userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
-    test("when a popover is not dismissable, do not hide on mouse leave", async () => {
+    test("when a popover is not dismissable, do not hide on unhover", async () => {
         const { getByTestId } = render(
             <PopoverTrigger
                 dismissable={false}
@@ -218,13 +218,13 @@ describe("\"hover\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
+            userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
         act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
+            userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());

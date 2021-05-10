@@ -110,11 +110,11 @@ export function useDateInput({
     }, [value, inputValueRef, setInputValue]);
 
     const applyValue = useCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
-        if (!isNil(onDateChange)) {
-            onDateChange(event, newDate);
-        }
-
         if (value !== newDate) {
+            if (!isNil(onDateChange)) {
+                onDateChange(event, newDate);
+            }
+
             setValue(newDate);
         }
 
@@ -128,25 +128,21 @@ export function useDateInput({
             let newDate = toDate(rawValue);
 
             if (isNil(newDate)) {
-                newDate = new Date();
-            }
-
-            if (!isNil(minDate) && minDate > newDate) {
+                newDate = value ?? null;
+            } else if (!isNil(minDate) && minDate > newDate) {
                 newDate = minDate;
-            }
-
-            if (!isNil(maxDate) && maxDate < newDate) {
+            } else if (!isNil(maxDate) && maxDate < newDate) {
                 newDate = maxDate;
             }
 
             applyValue(event, newDate);
         }
-    }, [minDate, maxDate, applyValue]);
+    }, [value, minDate, maxDate, applyValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;
 
-        if (newValue === "") {
+        if (newValue === "" && !isNil(value)) {
             commit(event, newValue);
         } else if (newValue.length === InputMask.length) {
             commit(event, newValue);
