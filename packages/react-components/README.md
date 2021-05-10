@@ -6,15 +6,11 @@ Full documentation available at: https://orbit.sharegate.design
 
 Adding a new component package involve a few extra steps:
 
-- [Guidelines](#component-guidelines)
+- [Understand the components guidelines](#component-guidelines)
 - [Write storybook stories](#write-storybook-stories)
 - [Write tests](#tests)
 - [Update the documentation](#update-the-documentation)
 - [Include the component in the bundle](#include-the-component-in-the-bundle)
-
-### Guidelines
-
-Make sure you read and understand the following [guidelines](#component-guidelines) before writing a component.
 
 ### Write storybook stories
 
