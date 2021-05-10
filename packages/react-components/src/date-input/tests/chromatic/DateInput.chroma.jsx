@@ -12,9 +12,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <DateInput onDateChange={(event, newDate) => { console.log(newDate); }} />
-    )
     .add("default", () =>
         <Stack>
             <DateInput />
