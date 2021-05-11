@@ -122,11 +122,11 @@ export function InnerRadio(props: InnerRadioProps) {
         return forwardInputApi(labelRef);
     });
 
-    const handleChange = useChainedEventCallback(onChange, () => {
+    const handleStateChange = useChainedEventCallback(onChange, () => {
         setIsChecked(!isChecked);
     });
 
-    const handleCheck = useEventCallback((event: FormEvent<HTMLInputElement>) => {
+    const handleCheck = useChainedEventCallback(onChange, (event: FormEvent<HTMLInputElement>) => {
         onCheck(event, value);
     });
 
@@ -179,7 +179,7 @@ export function InnerRadio(props: InnerRadioProps) {
                 value={value}
                 name={name}
                 checked={isChecked}
-                onChange={!isNil(onCheck) ? handleCheck : handleChange}
+                onChange={!isNil(onCheck) ? handleCheck : handleStateChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 data-type={typeof (value)}
