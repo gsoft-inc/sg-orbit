@@ -28,15 +28,20 @@
 .o-ui-button:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    box-shadow: var(--o-ui-focus-ring-color) 0 0 0 var(--o-ui-focus-ring-thickness-md);
+    margin: calc(var(--o-ui-focus-ring-thickness-md) * -1);
     border-radius: var(--o-ui-shape-pill);
     transition: var(--o-ui-focus-ring-transition);
+}
+
+.o-ui-button.o-ui-button-outline:after {
+    margin: calc((var(--o-ui-focus-ring-thickness-md) + 1px ) * -1);
 }
 
 /* TEXT */
@@ -175,10 +180,9 @@ a.o-ui-button {
 
 /* OUTLINE */
 .o-ui-button-outline {
-    border: none;
     background-color: var(--o-ui-global-transparent);
     color: var(--o-ui-alias-text-2);
-    box-shadow: 0 0 0 1px var(--o-ui-alias-border-4) inset;
+    border: 1px solid var(--o-ui-alias-border-4);
 }
 
 /* OUTLINE | ROUNDED */
@@ -189,7 +193,7 @@ a.o-ui-button {
 /* OUTLINE | HOVER */
 .o-ui-button-outline:hover,
 .o-ui-button-outline.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-border-4-hover) inset;
+    border: 1px solid var(--o-ui-alias-border-4-hover);
     color: var(--o-ui-alias-text-2-hover);
 }
 
