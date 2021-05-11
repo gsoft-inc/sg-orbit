@@ -471,7 +471,7 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), new Date(2020, 0, 1), new Date(2020, 0, 7)));
 });
 
-test("programatic focus call should focus the start date input", async () => {
+test("can focus the start date input with the focus api", async () => {
     const ref = createRef();
 
     const { container } = render(

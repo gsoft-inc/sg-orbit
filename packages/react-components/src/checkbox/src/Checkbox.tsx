@@ -2,7 +2,7 @@ import "./Checkbox.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -119,8 +119,10 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         omitProps(fieldProps, ["fluid"])
     );
 
-    const handleCheck = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        onCheck(event, value);
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
+        if (!isNil(onCheck)) {
+            onCheck(event, value);
+        }
     });
 
     const { wrapperProps, inputProps } = useCheckbox({
@@ -134,7 +136,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         autoFocus,
         required,
         validationState,
-        onChange: !isNil(onCheck) ? handleCheck : onChange,
+        onChange: handleChange,
         size,
         reverse,
         name,
