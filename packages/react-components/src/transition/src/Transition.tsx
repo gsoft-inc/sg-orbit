@@ -75,7 +75,7 @@ export function InnerTransition({
                     onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
                     className: show
                         ? isInitialRender
-                            ? animateFirstRender && enter
+                            ? animateFirstRender ? enter : undefined
                             : enter
                         : leave,
                     as,
