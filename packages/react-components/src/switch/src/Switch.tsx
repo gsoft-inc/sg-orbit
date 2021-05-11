@@ -153,7 +153,10 @@ export function InnerSwitch(props: InnerSwitchProps) {
                 wrapperProps
             )}
         >
-            <VisuallyHidden {...inputProps} />
+            <VisuallyHidden
+                {...inputProps}
+                role="switch"
+            />
             <span className="o-ui-switch-control" />
             {text}
             {icon}
