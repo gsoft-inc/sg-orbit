@@ -1,3 +1,4 @@
+import { Field, Label } from "@react-components/field";
 import { Switch } from "@react-components/switch";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -6,6 +7,33 @@ import userEvent from "@testing-library/user-event";
 function getInput(element) {
     return element.querySelector("input");
 }
+
+// ***** Behaviors *****
+
+test("when in a field, clicking on the field label focus the switch", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">I agree</Label>
+            <Switch data-testid="switch" />
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+});
+
+// ***** Aria *****
+
+test("a switch role is \"switch\"", async () => {
+    const { getByTestId } = render(
+        <Switch data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveAttribute("role", "switch"));
+});
 
 // ***** Api *****
 

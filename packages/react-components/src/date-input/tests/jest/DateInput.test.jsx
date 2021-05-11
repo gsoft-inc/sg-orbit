@@ -400,6 +400,25 @@ test("when the input value has a valid date and is focused then blured with the 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
+test("can focus the date input with the focus api", async () => {
+    let refNode = null;
+
+    render(
+        <DateInput
+            ref={node => {
+                refNode = node;
+            }}
+            data-testid="date"
+        />
+    );
+
+    act(() => {
+        refNode.focus();
+    });
+
+    await waitFor(() => expect(refNode).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

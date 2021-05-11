@@ -1,4 +1,5 @@
 import { Checkbox } from "@react-components/checkbox";
+import { Field, Label } from "@react-components/field";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
@@ -6,6 +7,23 @@ import userEvent from "@testing-library/user-event";
 function getInput(element) {
     return element.querySelector("input");
 }
+
+// ***** Behaviors *****
+
+test("when in a field, clicking on the field label focus the checkbox", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">I agree</Label>
+            <Checkbox data-testid="checkbox" />
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+});
 
 // ***** Api *****
 
@@ -99,8 +117,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("LABEL");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("LABEL"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -117,8 +135,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("LABEL");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("LABEL"));
 });
 
 test("set ref once", async () => {
