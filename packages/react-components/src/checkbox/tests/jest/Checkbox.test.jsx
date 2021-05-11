@@ -3,6 +3,12 @@ import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
+/*
+MISSING:
+
+- Test when in a field (also do it for a switch)
+*/
+
 function getInput(element) {
     return element.querySelector("input");
 }

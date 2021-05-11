@@ -7,6 +7,16 @@ function getInput(element) {
     return element.querySelector("input");
 }
 
+// ***** Aria *****
+
+test("a switch role is \"switch\"", async () => {
+    const { getByTestId } = render(
+        <Switch data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveAttribute("role", "switch"));
+});
+
 // ***** Api *****
 
 test("call onChange when the switch is turned on", async () => {
