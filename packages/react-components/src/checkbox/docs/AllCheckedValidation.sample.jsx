@@ -4,8 +4,8 @@
     const isValid = ["milky-way", "andromeda", "medusa"].every(x => value.includes(x));
 
     const handleChange = useCallback((event, newValue) => {
-        setValue(x);
-        console.log(x);
+        setValue(newValue);
+        console.log(newValue);
     }, [setValue]);
 
     return (
