@@ -15,7 +15,6 @@ import {
     useChainedEventCallback,
     useCheckableProps,
     useControllableState,
-    useEventCallback,
     useForwardInputApi,
     useSlots
 } from "../../shared";
