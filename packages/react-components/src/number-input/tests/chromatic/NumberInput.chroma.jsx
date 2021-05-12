@@ -13,6 +13,9 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <NumberInput min={3} placeholder="Age" />
+    )
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />
@@ -28,15 +31,6 @@ stories()
             <div>
                 <NumberInput loading fluid placeholder="Age" />
             </div>
-        </Stack>
-    )
-    .add("min / max", () =>
-        <Stack>
-            <Inline>
-                <NumberInput min={1} max={15} defaultValue={20} placeholder="Age" />
-                <NumberInput min={1} max={15} defaultValue={-20} placeholder="Age" />
-            </Inline>
-            <NumberInput validationState="valid" min={1} max={15} defaultValue={20} placeholder="Age" />
         </Stack>
     )
     .add("integer value", () =>

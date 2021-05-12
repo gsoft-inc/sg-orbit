@@ -167,7 +167,7 @@ test("when the end date is lower than the start date, reset the end date to the 
 test("when the start date is lower than the min date, reset the start date to the min date value", async () => {
     const { container } = render(
         <DateRangeInput
-            minDate={new Date(2020, 0, 1)}
+            min={new Date(2020, 0, 1)}
             name="date-range"
         />
     );
@@ -184,7 +184,7 @@ test("when the start date is lower than the min date, reset the start date to th
 test("when the start date is greater than the max date, reset the start date to the max date value", async () => {
     const { container } = render(
         <DateRangeInput
-            maxDate={new Date(2020, 0, 1)}
+            max={new Date(2020, 0, 1)}
             name="date-range"
         />
     );
@@ -201,7 +201,7 @@ test("when the start date is greater than the max date, reset the start date to 
 test("when the end date is lower than the min date, reset the end date to the min date value", async () => {
     const { container } = render(
         <DateRangeInput
-            minDate={new Date(2020, 0, 1)}
+            min={new Date(2020, 0, 1)}
             name="date-range"
         />
     );
@@ -218,7 +218,7 @@ test("when the end date is lower than the min date, reset the end date to the mi
 test("when the end date is greater than the max date, reset the end date to the max date value", async () => {
     const { container } = render(
         <DateRangeInput
-            maxDate={new Date(2020, 0, 1)}
+            max={new Date(2020, 0, 1)}
             name="date-range"
         />
     );

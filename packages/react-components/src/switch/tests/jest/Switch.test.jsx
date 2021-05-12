@@ -48,7 +48,7 @@ test("call onChange when the switch is turned on", async () => {
         userEvent.click(getInput(getByTestId("switch")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onChange when the switch is turned off", async () => {
@@ -66,7 +66,7 @@ test("call onChange when the switch is turned off", async () => {
         userEvent.click(getInput(getByTestId("switch")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("dont call onChange when the switch is disabled", async () => {

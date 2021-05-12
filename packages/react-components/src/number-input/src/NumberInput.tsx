@@ -6,7 +6,6 @@ import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, Mou
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
-import { useMemo } from "react";
 import { useToolbarProps } from "../../toolbar";
 
 // used to generate BoxProps instead of any in the auto-generated documentation
@@ -49,7 +48,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
     /**
      * Clamps the input value between min & max boundaries.
      */
-    clampValue?: boolean;
+    // clampValue?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
@@ -130,6 +129,7 @@ function Spinner({
                 tabIndex={-1}
                 disabled={disabled}
                 onFocus={onFocus}
+                aria-label="Increment value"
             >
                 <CaretIcon size="xs" />
             </button>
@@ -140,6 +140,7 @@ function Spinner({
                 tabIndex={-1}
                 disabled={disabled}
                 onFocus={onFocus}
+                aria-label="Decrement value"
             >
                 <CaretIcon
                     size="xs"
@@ -180,7 +181,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         min,
         max,
         step = 1,
-        clampValue = true,
         required,
         validationState,
         onChange,
@@ -206,10 +206,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
     const updateValue = (event: SyntheticEvent, newValue: number) => {
-        setValue(newValue);
+        if (newValue !== inputValue) {
+            if (!isNil(onChange)) {
+                onChange(event, newValue);
+            }
 
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
+            setValue(newValue);
         }
     };
 
@@ -232,15 +234,17 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         };
     }, [min, max]);
 
-    const isInRange = useMemo(() => validateRange(inputValue).isInRange, [inputValue, validateRange]);
+    const clampValue = (event: SyntheticEvent, newValue: number) => {
+        const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
 
-    const clamp = (event: SyntheticEvent) => {
-        const { isAboveMax, isBelowMin } = validateRange(inputValue);
-
-        if (isBelowMin) {
-            updateValue(event, min);
-        } else if (isAboveMax) {
-            updateValue(event, max);
+        if (isInRange) {
+            updateValue(event, newValue);
+        } else {
+            if (isBelowMin) {
+                updateValue(event, min);
+            } else if (isAboveMax) {
+                updateValue(event, max);
+            }
         }
     };
 
@@ -249,31 +253,14 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
             const newValue = toFixed(inputValue + factor * step, precision);
 
-            const { isInRange: inRange } = validateRange(newValue);
-
-            if (inRange) {
-                updateValue(event, newValue);
-            }
-            else {
-                if (clampValue) {
-                    clamp(event);
-                }
-            }
+            clampValue(event, newValue);
         } else {
             updateValue(event, factor * step);
         }
     };
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        const newValue = toNumber(event.target.value);
-
-        updateValue(event, newValue);
-    });
-
-    const handleBlur = useEventCallback((event: FocusEvent<HTMLInputElement>) => {
-        if (clampValue) {
-            clamp(event);
-        }
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newValue: string) => {
+        clampValue(event, toNumber(newValue));
     });
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -294,7 +281,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         value: !isNil(inputValue) ? inputValue : "",
         placeholder,
         required,
-        validationState: !isInRange ? "invalid" : validationState,
+        validationState,
         onChange: handleChange,
         type: "number",
         autoFocus,
@@ -316,10 +303,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             <input
                 {...mergeProps(
                     rest,
-                    inputProps,
-                    {
-                        onBlur: handleBlur
-                    }
+                    inputProps
                 )}
             />
             <Spinner

@@ -83,7 +83,7 @@ test("when the input has no value and an invalid date has been entered, clear th
 test("when the entered date is lower than the min date, reset value to min date", async () => {
     const { getByTestId } = render(
         <DateInput
-            minDate={new Date(2021, 0, 1)}
+            min={new Date(2021, 0, 1)}
             data-testid="date"
         />
     );
@@ -100,7 +100,7 @@ test("when the entered date is lower than the min date, reset value to min date"
 test("when the entered date is greater than the max date, reset the date to the max date value", async () => {
     const { getByTestId } = render(
         <DateInput
-            maxDate={new Date(2021, 0, 1)}
+            max={new Date(2021, 0, 1)}
             data-testid="date"
         />
     );
