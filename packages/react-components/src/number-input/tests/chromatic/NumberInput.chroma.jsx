@@ -13,9 +13,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <NumberInput min={3} placeholder="Age" />
-    )
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />
