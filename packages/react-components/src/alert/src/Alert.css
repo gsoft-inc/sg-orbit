@@ -20,6 +20,7 @@
     margin-top: calc(var(--o-ui-global-scale-bravo) / 2);
     margin-bottom: calc(var(--o-ui-global-scale-bravo) / 2);
     margin-right: var(--o-ui-global-scale-bravo);
+    flex-shrink: 0;
 }
 
 .o-ui-alert-content {
