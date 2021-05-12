@@ -25,9 +25,21 @@ test("a disabled element is not tabbable", async () => {
         </Toolbar>
     );
 
-    expect(getByTestId("element-1")).not.toHaveAttribute("tabindex");
-
+    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
     await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+});
+
+// ***** Aria *****
+
+test("a toolbar have the \"toolbar\" role", async () => {
+    const { getByTestId } = render(
+        <Toolbar data-testid="toolbar">
+            <Button>1</Button>
+            <Button>2</Button>
+        </Toolbar>
+    );
+
+    await waitFor(() => expect(getByTestId("toolbar")).toHaveAttribute("role", "toolbar"));
 });
 
 // ***** Refs *****
@@ -41,8 +53,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("DIV"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -60,8 +72,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("DIV"));
 });
 
 test("set ref once", async () => {

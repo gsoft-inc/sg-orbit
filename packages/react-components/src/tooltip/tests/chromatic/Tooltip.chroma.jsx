@@ -12,7 +12,7 @@ function stories(segment) {
         .segment(segment)
         .parameters(paramsBuilder()
             .canvasLayout({
-                padding: "100px 250px"
+                padding: "150px 250px"
             })
             .chromaticDelay(100)
             .chromaticPauseAnimationAtEnd()
