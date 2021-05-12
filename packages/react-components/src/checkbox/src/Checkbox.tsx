@@ -2,7 +2,7 @@ import "./Checkbox.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useCheckableProps, useEventCallback, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -66,9 +66,10 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
      * Called when the checkbox checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
+     * @param {boolean} isChecked - Whether or not the input is checked.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -119,7 +120,11 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         omitProps(fieldProps, ["fluid"])
     );
 
-    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
+        if (!isNil(onChange)) {
+            onChange(event, isChecked);
+        }
+
         if (!isNil(onCheck)) {
             onCheck(event, value);
         }

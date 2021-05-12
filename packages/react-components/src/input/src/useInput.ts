@@ -1,5 +1,5 @@
 import { ChangeEvent, ForwardedRef } from "react";
-import { cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { cssModule, isNil, isNumber, mergeClasses, useAutoFocus, useEventCallback, useMergedRefs } from "../../shared";
 
 export interface UseInputProps {
     cssModule?: string;
@@ -8,7 +8,7 @@ export interface UseInputProps {
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;
@@ -42,6 +42,12 @@ export function useInput({
 }: UseInputProps) {
     const inputRef = useMergedRefs(forwardedRef);
 
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        if (!isNil(onChange)) {
+            onChange(event, event.target.value);
+        }
+    });
+
     useAutoFocus(inputRef, {
         isDisabled: !autoFocus || disabled || readOnly,
         delay: isNumber(autoFocus) ? autoFocus : undefined
@@ -67,9 +73,9 @@ export function useInput({
         },
         inputProps: {
             id,
-            value,
+            value: value ?? "",
             placeholder,
-            onChange,
+            onChange: handleChange,
             type,
             disabled,
             readOnly,

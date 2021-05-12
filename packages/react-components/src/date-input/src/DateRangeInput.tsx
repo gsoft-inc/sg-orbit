@@ -61,11 +61,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     /**
      * The minimum (inclusive) date.
      */
-    minDate?: Date;
+    min?: Date;
     /**
      * The maximum (inclusive) date.
      */
-    maxDate?: Date;
+    max?: Date;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -113,8 +113,8 @@ const DateInput = forwardRef<any, "input">(({
     placeholder = "dd/mm/yyyy",
     required,
     validationState,
-    minDate,
-    maxDate,
+    min,
+    max,
     onChange,
     onDateChange,
     autoFocus,
@@ -131,8 +131,8 @@ const DateInput = forwardRef<any, "input">(({
 
     const dateProps = useDateInput({
         value,
-        minDate,
-        maxDate,
+        min,
+        max,
         onChange,
         onDateChange,
         forwardedRef: inputRef
@@ -168,8 +168,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         defaultStartDate,
         defaultEndDate,
         placeholder,
-        minDate,
-        maxDate,
+        min,
+        max,
         required,
         validationState,
         onDatesChange,
@@ -314,8 +314,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 placeholder={placeholder}
                 required={required}
                 validationState={validationState}
-                minDate={minDate}
-                maxDate={maxDate}
+                min={min}
+                max={max}
                 onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
                 onFocus={handleDateFocus}
@@ -331,8 +331,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 placeholder={placeholder}
                 required={required}
                 validationState={validationState}
-                minDate={minDate}
-                maxDate={maxDate}
+                min={min}
+                max={max}
                 onChange={handleEndDateInputValueChange}
                 onDateChange={handleEndDateChange}
                 onFocus={handleDateFocus}

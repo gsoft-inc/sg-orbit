@@ -1,8 +1,23 @@
 import { TextInput } from "@react-components/text-input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import userEvent from "@testing-library/user-event";
 
 // ***** Api *****
+
+test("call onChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <TextInput onChange={handler} data-testid="input" />
+    );
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+});
 
 test("can focus the input with the focus api", async () => {
     let refNode = null;

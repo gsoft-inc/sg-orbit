@@ -58,8 +58,8 @@ function isTyping(inputValue: string) {
 export interface UseDateInputProps {
     value?: Date;
     defaultValue?: Date;
-    minDate?: Date;
-    maxDate?: Date;
+    min?: Date;
+    max?: Date;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
@@ -68,8 +68,8 @@ export interface UseDateInputProps {
 export function useDateInput({
     value: valueProp,
     defaultValue,
-    minDate,
-    maxDate,
+    min,
+    max,
     onChange,
     onDateChange,
     forwardedRef
@@ -129,15 +129,15 @@ export function useDateInput({
 
             if (isNil(newDate)) {
                 newDate = value ?? null;
-            } else if (!isNil(minDate) && minDate > newDate) {
-                newDate = minDate;
-            } else if (!isNil(maxDate) && maxDate < newDate) {
-                newDate = maxDate;
+            } else if (!isNil(min) && min > newDate) {
+                newDate = min;
+            } else if (!isNil(max) && max < newDate) {
+                newDate = max;
             }
 
             applyValue(event, newDate);
         }
-    }, [value, minDate, maxDate, applyValue]);
+    }, [value, min, max, applyValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;

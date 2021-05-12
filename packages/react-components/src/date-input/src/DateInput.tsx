@@ -27,11 +27,11 @@ export interface InnerDateInputProps {
     /**
      * The minimum (inclusive) date.
      */
-    minDate?: Date;
+    min?: Date;
     /**
      * The maximum (inclusive) date.
      */
-    maxDate?: Date;
+    max?: Date;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -77,8 +77,8 @@ export function InnerDateInput({
     value,
     defaultValue,
     placeholder = "dd/mm/yyyy",
-    minDate,
-    maxDate,
+    min,
+    max,
     onChange,
     onDateChange,
     wrapperProps,
@@ -90,8 +90,8 @@ export function InnerDateInput({
     const dateProps = useDateInput({
         value,
         defaultValue,
-        minDate,
-        maxDate,
+        min,
+        max,
         onChange,
         onDateChange,
         forwardedRef

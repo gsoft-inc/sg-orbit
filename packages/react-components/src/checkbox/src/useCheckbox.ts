@@ -12,7 +12,7 @@ export interface UseCheckboxProps {
     autoFocus?: boolean | number;
     required?: boolean;
     validationState?: "invalid" | "valid";
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     size?: "sm" | "md";
     reverse?: boolean;
     name?: string;
@@ -87,11 +87,13 @@ export function useCheckbox({
     });
 
     const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setIsChecked((event.target as HTMLInputElement).checked);
+        const isInputChecked = (event.target as HTMLInputElement).checked;
+
+        setIsChecked(isInputChecked);
         setIsIndeterminate(false);
 
         if (!isNil(onChange)) {
-            onChange(event);
+            onChange(event, isInputChecked);
         }
     });
 
