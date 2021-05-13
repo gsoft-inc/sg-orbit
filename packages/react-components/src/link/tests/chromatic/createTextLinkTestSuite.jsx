@@ -120,7 +120,12 @@ export function createTextLinkTestSuite(element, stories) {
                 </div>
             </Stack>
         )
-        .add("dotted", () =>
+        .add("solid", () =>
+            <Inline verticalAlign="end">
+                <TextLink underline="solid" size="sm" href="#" element={element}>Flight details</TextLink>
+                <TextLink underline="solid" href="#" element={element}>Flight details</TextLink>
+            </Inline>
+        ).add("dotted", () =>
             <Inline verticalAlign="end">
                 <TextLink underline="dotted" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="dotted" href="#" element={element}>Flight details</TextLink>
