@@ -41,17 +41,12 @@
     font-weight: inherit;
 }
 
-.o-ui-accordion-header-sm .o-ui-accordion-trigger {
-    padding: calc(var(--o-ui-global-scale-charlie) - 1px) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-foxtrot);
-}
-
-.o-ui-accordion-header-md .o-ui-accordion-trigger {
+.o-ui-accordion-header .o-ui-accordion-trigger {
     padding: calc(var(--o-ui-global-scale-delta) - 1px) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-delta) var(--o-ui-global-scale-foxtrot);
 }
 
 /* TRIGGER | ICON */
-.o-ui-accordion-header-md .o-ui-accordion-trigger-has-icon,
-.o-ui-accordion-header-sm .o-ui-accordion-trigger-has-icon{
+.o-ui-accordion-header .o-ui-accordion-trigger-has-icon {
     padding-left: var(--o-ui-global-scale-echo);
 }
 

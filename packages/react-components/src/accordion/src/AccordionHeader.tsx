@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
-import { InteractionStatesProps, adaptSize, cssModule, forwardRef, isNil, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 import { Text } from "../../text";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
@@ -13,10 +13,6 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     header?: {
         key: string;
     };
-    /**
-     * An accordion header can vary in size.
-     */
-    size?: "sm" | "md";
     /**
      * Whether or not the tab is disabled.
      */
@@ -37,7 +33,6 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     const {
-        size,
         disabled,
         active,
         focus,
@@ -57,25 +52,18 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
             defaultWrapper: Text
         },
         icon: {
-            size,
             className: "o-ui-accordion-icon"
         },
         text: {
             size: "inherit",
             className: "o-ui-accordion-title"
         }
-    }), [size]));
+    }), []));
 
     return (
         <Heading
-            size={adaptSize(size, {
-                "sm": "xs",
-                "md": "sm"
-            })}
-            className={cssModule(
-                "o-ui-accordion-header",
-                normalizeSize(size)
-            )}
+            size="sm"
+            className="o-ui-accordion-header"
             as={as}
             ref={forwardedRef}
         >
@@ -97,10 +85,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
             >
                 {icon}
                 {text}
-                <DisclosureArrow
-                    size={size}
-                    className="o-ui-accordion-arrow"
-                />
+                <DisclosureArrow className="o-ui-accordion-arrow" />
             </button>
         </Heading>
     );
