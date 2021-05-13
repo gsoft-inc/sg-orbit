@@ -125,11 +125,15 @@ export function createTextLinkTestSuite(element, stories) {
                 <TextLink underline="solid" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="solid" href="#" element={element}>Flight details</TextLink>
             </Inline>
-        )
-        .add("dotted", () =>
+        ).add("dotted", () =>
             <Inline verticalAlign="end">
                 <TextLink underline="dotted" size="sm" href="#" element={element}>Flight details</TextLink>
                 <TextLink underline="dotted" href="#" element={element}>Flight details</TextLink>
+            </Inline>
+        ).add("none", () =>
+            <Inline verticalAlign="end">
+                <TextLink underline="none" size="sm" href="#" element={element}>Flight details</TextLink>
+                <TextLink underline="none" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("states", () =>
