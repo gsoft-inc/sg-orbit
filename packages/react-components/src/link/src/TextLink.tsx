@@ -27,7 +27,7 @@ export interface InnerTextLinkProps {
     /**
      * The underline style.
      */
-    underline?: "solid" | "dotted";
+    underline?: "solid" | "dotted" | "none";
     /**
      * Whether or not this is an external link.
      */
@@ -66,7 +66,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         target,
         rel,
         color,
-        underline,
+        underline = "solid",
         external,
         autoFocus,
         size,

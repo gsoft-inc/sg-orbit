@@ -118,13 +118,13 @@
 /* TEXT | STATE | DISABLED | HOVER */
 .o-ui-link[disabled]:hover .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | DISABLED | FOCUS */
 .o-ui-link[disabled]:focus .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-focus .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | ACTIVE | FOCUS */
