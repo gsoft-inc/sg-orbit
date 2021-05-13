@@ -47,7 +47,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }
 
-    const { icon, text } = useSlots(children, useMemo(() => ({
+    const { icon, text, counter } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -57,6 +57,11 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         text: {
             size: "inherit",
             className: "o-ui-accordion-title"
+        },
+        counter: {
+            size: "inherit",
+            variant: "divider",
+            pushed: true
         }
     }), []));
 
@@ -83,8 +88,11 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                 )}
                 type="button"
             >
-                {icon}
-                {text}
+                <div className="o-ui-accordion-trigger-content">
+                    {icon}
+                    {text}
+                    {counter}
+                </div>
                 <DisclosureArrow className="o-ui-accordion-arrow" />
             </button>
         </Heading>

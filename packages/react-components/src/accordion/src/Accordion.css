@@ -45,17 +45,17 @@
     padding: calc(var(--o-ui-global-scale-delta) - 1px) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-delta) var(--o-ui-global-scale-foxtrot);
 }
 
-/* TRIGGER | ICON */
+/* TRIGGER | CONTENT */
+.o-ui-accordion-trigger-content {
+    flex-grow: 1;
+}
+
+/* TRIGGER | CONTENT | ICON */
 .o-ui-accordion-header .o-ui-accordion-trigger-has-icon {
     padding-left: var(--o-ui-global-scale-echo);
 }
 
-/* TRIGGER | TITLE */
-.o-ui-accordion-title {
-    flex-grow: 1;
-}
-
-/* TRIGGER | TITLE | ICON */
+/* TRIGGER | CONTENT | TITLE | ICON */
 .o-ui-accordion-icon + .o-ui-accordion-title {
     margin-left: var(--o-ui-global-scale-alpha);
 }

@@ -1,6 +1,7 @@
 import { Accordion, AccordionHeader, useAccordionContext } from "@react-components/accordion";
 import { Box } from "@react-components/box";
 import { Content, Header } from "@react-components/placeholders";
+import { Counter } from "@react-components/counter";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
@@ -64,6 +65,31 @@ stories()
                 <Header as="h3">
                     <InfoIcon />
                     <Text>Venus</Text>
+                </Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    )
+    .add("counter", () =>
+        <Accordion>
+            <Item>
+                <Header as="h3">
+                    <Text>Mars</Text>
+                    <Counter>8</Counter>
+                </Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header as="h3">
+                    <Text>Jupiter</Text>
+                    <Counter>9</Counter>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item>
+                <Header as="h3">
+                    <Text>Venus</Text>
+                    <Counter>10</Counter>
                 </Header>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
