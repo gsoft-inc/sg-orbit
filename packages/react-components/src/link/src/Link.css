@@ -138,7 +138,7 @@
 
 /* TEXT | VARIATIONS */
 /* TEXT | VARIATIONS | UNDERLINE | NONE */
-.o-ui-link-underline-none {
+.o-ui-link-no-underline {
     text-decoration: none;
 }
 
