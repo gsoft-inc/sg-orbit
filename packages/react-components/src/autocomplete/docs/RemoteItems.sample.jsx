@@ -1,12 +1,15 @@
 () => {
-    const fetcher = useAsyncSearch(async query => {
+    const fetcher = useAsyncSearch(async (query, signal) => {
+        console.log("query: ", query);
+
         const response = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/countries?namePrefix=${query}`, {
             method: "GET",
             headers: {
                 "x-rapidapi-key": ApiKey,
                 "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
                 "useQueryString": true
-            }
+            },
+            signal
         });
 
         const json = await response.json();
