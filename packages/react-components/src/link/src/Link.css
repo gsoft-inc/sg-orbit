@@ -5,6 +5,7 @@
     padding: 0;
     position: relative;
     color: inherit;
+    /* direct text is responsible of setting the text decoration style */
     text-decoration: none;
 }
 
@@ -136,6 +137,11 @@
 }
 
 /* TEXT | VARIATIONS */
+/* TEXT | VARIATIONS | UNDERLINE | NONE */
+.o-ui-link-underline-none {
+    text-decoration: none;
+}
+
 /* TEXT | VARIATIONS | UNDERLINE | DOTTED */
 .o-ui-link-dotted .o-ui-link-text {
     text-decoration: underline;
