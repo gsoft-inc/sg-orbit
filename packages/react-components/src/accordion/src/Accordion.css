@@ -98,13 +98,7 @@
 }
 
 /* FOCUS */
-.o-ui-accordion-trigger:focus-visible,
-.o-ui-accordion-trigger-focus {
-    position: relative;
-}
-
-.o-ui-accordion-trigger:focus-visible::before,
-.o-ui-accordion-trigger-focus::before {
+.o-ui-accordion-trigger::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -116,4 +110,14 @@
     pointer-events: none;
     height: var(--o-ui-global-scale-golf);
     transform: translateY(-50%);
+}
+
+.o-ui-accordion-trigger:focus-visible,
+.o-ui-accordion-trigger-focus {
+    position: relative;
+}
+
+.o-ui-accordion-trigger:focus-visible::before,
+.o-ui-accordion-trigger-focus::before {
+    border-color: var(--o-ui-alias-border-primary-1);
 }
