@@ -58,8 +58,8 @@ function isTyping(inputValue: string) {
 export interface UseDateInputProps {
     value?: Date;
     defaultValue?: Date;
-    minDate?: Date;
-    maxDate?: Date;
+    min?: Date;
+    max?: Date;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
@@ -68,8 +68,8 @@ export interface UseDateInputProps {
 export function useDateInput({
     value: valueProp,
     defaultValue,
-    minDate,
-    maxDate,
+    min,
+    max,
     onChange,
     onDateChange,
     forwardedRef
@@ -110,11 +110,11 @@ export function useDateInput({
     }, [value, inputValueRef, setInputValue]);
 
     const applyValue = useCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
-        if (!isNil(onDateChange)) {
-            onDateChange(event, newDate);
-        }
-
         if (value !== newDate) {
+            if (!isNil(onDateChange)) {
+                onDateChange(event, newDate);
+            }
+
             setValue(newDate);
         }
 
@@ -128,25 +128,21 @@ export function useDateInput({
             let newDate = toDate(rawValue);
 
             if (isNil(newDate)) {
-                newDate = new Date();
-            }
-
-            if (!isNil(minDate) && minDate > newDate) {
-                newDate = minDate;
-            }
-
-            if (!isNil(maxDate) && maxDate < newDate) {
-                newDate = maxDate;
+                newDate = value ?? null;
+            } else if (!isNil(min) && min > newDate) {
+                newDate = min;
+            } else if (!isNil(max) && max < newDate) {
+                newDate = max;
             }
 
             applyValue(event, newDate);
         }
-    }, [minDate, maxDate, applyValue]);
+    }, [value, min, max, applyValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;
 
-        if (newValue === "") {
+        if (newValue === "" && !isNil(value)) {
             commit(event, newValue);
         } else if (newValue.length === InputMask.length) {
             commit(event, newValue);

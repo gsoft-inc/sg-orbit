@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { CheckCircleIcon, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { CheckCircleIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
@@ -44,6 +44,23 @@ A tag can contain [icons](?path=/docs/icon-gallery--page).
         <Tag>
             <CheckCircleIcon />
             <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### End icon
+
+*Non standard* end [icons](?path=/docs/icon-gallery--page) can be provided *only if* you have to render a [list of icons](?path=/docs/icon--default-story#icon-list).
+
+<Preview>
+    <Story name="end icon">
+        <Tag>
+            <Text>Falcon 9</Text>
+            <IconList slot="end-icon">
+                <CheckCircleIcon />
+                <LightbulbIcon />
+                <NotificationIcon />
+            </IconList>
         </Tag>
     </Story>
 </Preview>

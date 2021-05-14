@@ -30,15 +30,6 @@ stories()
             </div>
         </Stack>
     )
-    .add("min / max", () =>
-        <Stack>
-            <Inline>
-                <NumberInput min={1} max={15} defaultValue={20} placeholder="Age" />
-                <NumberInput min={1} max={15} defaultValue={-20} placeholder="Age" />
-            </Inline>
-            <NumberInput validationState="valid" min={1} max={15} defaultValue={20} placeholder="Age" />
-        </Stack>
-    )
     .add("integer value", () =>
         <NumberInput defaultValue={12} step={1} placeholder="Age" />
     )

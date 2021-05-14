@@ -50,9 +50,10 @@ export interface InnerSwitchProps extends InteractionStatesProps {
     /**
      * Called when the switch checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
+     * @param {boolean} isChecked - Whether or not the input is checked.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -153,7 +154,10 @@ export function InnerSwitch(props: InnerSwitchProps) {
                 wrapperProps
             )}
         >
-            <VisuallyHidden {...inputProps} />
+            <VisuallyHidden
+                {...inputProps}
+                role="switch"
+            />
             <span className="o-ui-switch-control" />
             {text}
             {icon}

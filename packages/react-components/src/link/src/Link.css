@@ -5,6 +5,7 @@
     padding: 0;
     position: relative;
     color: inherit;
+    /* direct text is responsible of setting the text decoration style */
     text-decoration: none;
 }
 
@@ -118,13 +119,13 @@
 /* TEXT | STATE | DISABLED | HOVER */
 .o-ui-link[disabled]:hover .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | DISABLED | FOCUS */
 .o-ui-link[disabled]:focus .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-focus .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | ACTIVE | FOCUS */
@@ -136,6 +137,11 @@
 }
 
 /* TEXT | VARIATIONS */
+/* TEXT | VARIATIONS | UNDERLINE | NONE */
+.o-ui-link-no-underline {
+    text-decoration: none;
+}
+
 /* TEXT | VARIATIONS | UNDERLINE | DOTTED */
 .o-ui-link-dotted .o-ui-link-text {
     text-decoration: underline;

@@ -34,6 +34,7 @@ export interface UsePopupOptions {
     hasArrow?: boolean;
     position?: OverlayPosition;
     offset?: number[];
+    disabled?: boolean;
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
     boundaryElement?: HTMLElement;
@@ -55,6 +56,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     hasArrow = false,
     position,
     offset,
+    disabled,
     allowFlip = true,
     allowPreventOverflow = true,
     boundaryElement,
@@ -90,7 +92,8 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnLeave: isOpen && hideOnLeave
+        hideOnLeave: isOpen && hideOnLeave,
+        isDisabled: disabled
     });
 
     const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {

@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ReactNode, useEffect, useState } from "react";
-import { forwardRef, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useEffect, useState } from "react";
+import { forwardRef, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 export interface InnerTransitionProps {
     /**
@@ -27,17 +27,22 @@ export interface InnerTransitionProps {
      * @ignore
      */
     children: ReactNode;
+    /**
+     * @ignore
+     */
+    forwardedRef: ForwardedRef<any>;
 }
 
-export const Transition = forwardRef<InnerTransitionProps>(({
+export function InnerTransition({
     show,
     animateFirstRender = false,
     enter,
     leave,
     as = "div",
     children,
+    forwardedRef,
     ...rest
-}, ref) => {
+}: InnerTransitionProps) {
     const [isVisible, setIsVisible] = useState(show);
 
     const isInitialRender = useIsInitialRender();
@@ -45,8 +50,10 @@ export const Transition = forwardRef<InnerTransitionProps>(({
     useEffect(() => {
         if (show) {
             setIsVisible(true);
+        } else if (isNilOrEmpty(leave)) {
+            setIsVisible(false);
         }
-    }, [show]);
+    }, [show, leave]);
 
     const handleAnimationEnd = useEventCallback(() => {
         setIsVisible(show);
@@ -68,18 +75,22 @@ export const Transition = forwardRef<InnerTransitionProps>(({
                     onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
                     className: show
                         ? isInitialRender
-                            ? animateFirstRender && enter
+                            ? animateFirstRender ? enter : undefined
                             : enter
                         : leave,
                     as,
-                    ref
+                    ref: forwardedRef
                 }
             )}
         >
             {children}
         </Box>
     );
-});
+}
+
+export const Transition = forwardRef<InnerTransitionProps>((props, ref) => (
+    <InnerTransition {...props} forwardedRef={ref} />
+));
 
 export type TransitionProps = ComponentProps<typeof Transition>;
 

@@ -124,7 +124,8 @@ export function InnerTooltipTrigger({
                 updateIsOpen(event, false);
             }
         }),
-        hideOnLeave: true
+        hideOnLeave: true,
+        isDisabled: disabled
     });
 
     const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
@@ -154,9 +155,9 @@ export function InnerTooltipTrigger({
     const tooltipId = useId(tooltip.props.id, "o-ui-tooltip");
 
     const triggerMarkup = augmentElement(trigger, mergeProps(
-        !disabled ? triggerProps : {},
+        triggerProps,
         {
-            "aria-describedby": !disabled && isOpen ? tooltipId : undefined,
+            "aria-describedby": isOpen ? tooltipId : undefined,
             ref: setTriggerElement
         }
     ));
@@ -176,11 +177,10 @@ export function InnerTooltipTrigger({
                 {...mergeProps(
                     rest,
                     {
-                        show: !disabled && isOpen,
+                        show: isOpen,
                         borderOffset: "var(--o-ui-global-scale-charlie)",
                         zIndex,
                         style: overlayStyles,
-                        role: "tooltip",
                         as,
                         ref: overlayRef
                     },

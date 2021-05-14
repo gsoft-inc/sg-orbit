@@ -706,6 +706,29 @@ test("call onSelectionChange when a value is selected", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), { key: "earth", value: "Earth" }));
 });
 
+test("calling the focus function on the autocomplete ref will focus the autocomplete", async () => {
+    const ref = createRef();
+
+    const { getByTestId } = render(
+        <Autocomplete
+            defaultOpen
+            ref={ref}
+            data-testid="autocomplete"
+        >
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+        </Autocomplete>
+    );
+
+    act(() => {
+        ref.current.focus();
+    });
+
+    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
@@ -765,28 +788,5 @@ test("set ref once", async () => {
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-});
-
-test("calling the focus function on the autocomplete ref will focus the autocomplete", async () => {
-    const ref = createRef();
-
-    const { getByTestId } = render(
-        <Autocomplete
-            defaultOpen
-            ref={ref}
-            data-testid="autocomplete"
-        >
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-        </Autocomplete>
-    );
-
-    act(() => {
-        ref.current.focus();
-    });
-
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
 });
 

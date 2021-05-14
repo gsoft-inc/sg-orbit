@@ -1,4 +1,5 @@
 import { Checkbox } from "@react-components/checkbox";
+import { Field, Label } from "@react-components/field";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
@@ -6,6 +7,23 @@ import userEvent from "@testing-library/user-event";
 function getInput(element) {
     return element.querySelector("input");
 }
+
+// ***** Behaviors *****
+
+test("when in a field, clicking on the field label focus the checkbox", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">I agree</Label>
+            <Checkbox data-testid="checkbox" />
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+});
 
 // ***** Api *****
 
@@ -20,7 +38,7 @@ test("call onChange when the checkbox is checked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onChange when the checkbox is unchecked", async () => {
@@ -38,7 +56,7 @@ test("call onChange when the checkbox is unchecked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("call onChange when the checkbox goes from indeterminate to checked", async () => {
@@ -52,7 +70,7 @@ test("call onChange when the checkbox goes from indeterminate to checked", async
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("dont call onChange when the checkbox is disabled", async () => {
@@ -66,7 +84,7 @@ test("dont call onChange when the checkbox is disabled", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("can focus the checkbox with the focus api", async () => {
@@ -99,8 +117,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("LABEL");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("LABEL"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -117,8 +135,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("LABEL");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("LABEL"));
 });
 
 test("set ref once", async () => {

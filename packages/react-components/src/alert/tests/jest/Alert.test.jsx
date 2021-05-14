@@ -2,6 +2,40 @@ import { Alert } from "@react-components/alert";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
+// ***** Aria *****
+
+test("when an alert tone is info, role is \"status\"", async () => {
+    const { getByTestId } = render(
+        <Alert tone="info" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+    );
+
+    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+});
+
+test("when an alert tone is positive, role is \"status\"", async () => {
+    const { getByTestId } = render(
+        <Alert tone="positive" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+    );
+
+    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+});
+
+test("when an alert tone is warning, role is \"alert\"", async () => {
+    const { getByTestId } = render(
+        <Alert tone="warning" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+    );
+
+    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+});
+
+test("when an alert tone is critical, role is \"alert\"", async () => {
+    const { getByTestId } = render(
+        <Alert tone="critical" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+    );
+
+    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
@@ -13,8 +47,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("DIV"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -32,8 +66,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("DIV");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("DIV"));
 });
 
 test("set ref once", async () => {

@@ -1,3 +1,4 @@
+import { Field, Label } from "@react-components/field";
 import { Switch } from "@react-components/switch";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -6,6 +7,33 @@ import userEvent from "@testing-library/user-event";
 function getInput(element) {
     return element.querySelector("input");
 }
+
+// ***** Behaviors *****
+
+test("when in a field, clicking on the field label focus the switch", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">I agree</Label>
+            <Switch data-testid="switch" />
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+});
+
+// ***** Aria *****
+
+test("a switch role is \"switch\"", async () => {
+    const { getByTestId } = render(
+        <Switch data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveAttribute("role", "switch"));
+});
 
 // ***** Api *****
 
@@ -20,7 +48,7 @@ test("call onChange when the switch is turned on", async () => {
         userEvent.click(getInput(getByTestId("switch")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
 test("call onChange when the switch is turned off", async () => {
@@ -38,7 +66,7 @@ test("call onChange when the switch is turned off", async () => {
         userEvent.click(getInput(getByTestId("switch")));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
 test("dont call onChange when the switch is disabled", async () => {
@@ -52,7 +80,7 @@ test("dont call onChange when the switch is disabled", async () => {
         userEvent.click(getInput(getByTestId("switch")));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 test("can focus the switch with the focus api", async () => {

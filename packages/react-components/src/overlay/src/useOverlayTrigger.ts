@@ -8,13 +8,15 @@ export interface UseOverlayTriggerOptions {
     trigger?: OverlayTrigger;
     onShow?: (event: SyntheticEvent) => void;
     onHide?: (event: SyntheticEvent) => void;
+    isDisabled?: boolean;
 }
 
 export function useOverlayTrigger(isOpen: boolean, {
     hideOnLeave,
     trigger = "click",
     onShow,
-    onHide
+    onHide,
+    isDisabled
 }: UseOverlayTriggerOptions = {}) {
     const toggle = (event: SyntheticEvent) => {
         if (isOpen) {
@@ -45,10 +47,8 @@ export function useOverlayTrigger(isOpen: boolean, {
         switch (event.key) {
             case Keys.enter:
             case Keys.space:
-                if (trigger === "click") {
-                    event.preventDefault();
-                    show(event);
-                }
+                event.preventDefault();
+                show(event);
                 break;
         }
     });
@@ -65,13 +65,17 @@ export function useOverlayTrigger(isOpen: boolean, {
     const handleFocus = useEventCallback((event: FocusEvent) => { show(event); });
     const handleBlur = useEventCallback((event: FocusEvent) => { hide(event); });
 
+    if (isDisabled) {
+        return {};
+    }
+
     switch (trigger) {
         case "click":
             // The overlay will show on click or on "Enter" or "Space" keydown.
             return {
                 onClick: handleClick,
-                onKeyDown: handleKeyDown,
-                onKeyUp: handleKeyUp
+                onKeyDown: !isOpen ? handleKeyDown : undefined,
+                onKeyUp: !isOpen ? handleKeyUp : undefined
             };
         case "hover":
             // The overlay will show when the trigger is hovered with mouse or focus with keyboard.

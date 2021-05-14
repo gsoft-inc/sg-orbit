@@ -2,7 +2,7 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { CalendarIcon, VerticalDotsIcon } from "../../icons";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
 import {
@@ -12,6 +12,7 @@ import {
     cssModule,
     forwardRef,
     isNil,
+    isNilOrEmpty,
     isNumber,
     mergeProps,
     omitProps,
@@ -32,7 +33,8 @@ export interface DatePreset {
     endDate: Date;
 }
 
-export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
+export interface InnerDateRangeInputProps extends InteractionStatesProps {
+    /**
      * @ignore
      */
     name?: string;
@@ -59,11 +61,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps { /**
     /**
      * The minimum (inclusive) date.
      */
-    minDate?: Date;
+    min?: Date;
     /**
      * The maximum (inclusive) date.
      */
-    maxDate?: Date;
+    max?: Date;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -111,8 +113,8 @@ const DateInput = forwardRef<any, "input">(({
     placeholder = "dd/mm/yyyy",
     required,
     validationState,
-    minDate,
-    maxDate,
+    min,
+    max,
     onChange,
     onDateChange,
     autoFocus,
@@ -129,8 +131,8 @@ const DateInput = forwardRef<any, "input">(({
 
     const dateProps = useDateInput({
         value,
-        minDate,
-        maxDate,
+        min,
+        max,
         onChange,
         onDateChange,
         forwardedRef: inputRef
@@ -166,8 +168,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         defaultStartDate,
         defaultEndDate,
         placeholder,
-        minDate,
-        maxDate,
+        min,
+        max,
         required,
         validationState,
         onDatesChange,
@@ -193,8 +195,19 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
 
-    const startDateRef = useRef<HTMLElement>();
-    const endDateRef = useRef<HTMLElement>();
+    const containerRef = useRef<HTMLElement>();
+    const startDateRef = useRef<HTMLInputElement>();
+    const endDateRef = useRef<HTMLInputElement>();
+
+    useImperativeHandle(forwardedRef, () => {
+        const element = containerRef.current;
+
+        element.focus = () => {
+            startDateRef.current?.focus();
+        };
+
+        return element;
+    });
 
     const applyDates = useCallback((event: SyntheticEvent, newStartDate: Date, newEndDate: Date) => {
         if (startDate !== newStartDate || endDate !== newEndDate) {
@@ -215,15 +228,20 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         applyDates(event, newDate, endDate);
 
         if (!isNil(newDate)) {
-            // Jump to end date.
-            endDateRef?.current.focus();
+            endDateRef.current?.focus();
         }
     });
 
     const handleEndDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        if (event.target.value === "") {
-            // Jump to start date.
-            startDateRef?.current.focus();
+        // @ts-ignore
+        const newCharacter = event.nativeEvent.data;
+
+        // If the new character is not a digit, we don't want to do anything since the new character will be removed by the mask input.
+        // The digit is test with a regex because this is how our mask input third party is doing it and we want to be consistant.
+        if (/\d/.test(newCharacter)) {
+            if (isNilOrEmpty(event.target.value)) {
+                startDateRef.current?.focus();
+            }
         }
     });
 
@@ -258,10 +276,18 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         startDateRef?.current.focus();
     });
 
-    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
+    const handleContainerKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.esc) {
             event.preventDefault();
             handleClearDates(event);
+        }
+    });
+
+    const handleEndDateKeyDown = useEventCallback((event: KeyboardEvent) => {
+        if (event.key === Keys.backspace) {
+            if (isNilOrEmpty(endDateRef.current?.value)) {
+                startDateRef.current?.focus();
+            }
         }
     });
 
@@ -269,7 +295,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const inputMarkup = (
         <Box
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleContainerKeyDown}
             className={cssModule(
                 "o-ui-date-range-input",
                 validationState,
@@ -288,7 +314,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 placeholder={placeholder}
                 required={required}
                 validationState={validationState}
-                minDate={minDate}
+                min={min}
+                max={max}
                 onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
                 onFocus={handleDateFocus}
@@ -304,11 +331,13 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 placeholder={placeholder}
                 required={required}
                 validationState={validationState}
-                maxDate={maxDate}
+                min={min}
+                max={max}
                 onChange={handleEndDateInputValueChange}
                 onDateChange={handleEndDateChange}
                 onFocus={handleDateFocus}
                 onBlur={handleDateBlur}
+                onKeyDown={handleEndDateKeyDown}
                 disabled={disabled}
                 readOnly={readOnly}
                 name={!isNil(name) ? `${name}-end-date` : undefined}
@@ -363,7 +392,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 rest,
                 {
                     as,
-                    ref: forwardedRef
+                    ref: containerRef
                 }
             ))}
         </>

@@ -4,10 +4,9 @@ import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
-import { Tab, TabPanel, Tabs } from "@react-components/tabs";
+import { Tab, TabPanel, Tabs, useTabsContext } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useTabsContext } from "../../src/TabsContext";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tabs")
