@@ -73,9 +73,9 @@ stories()
         </MenuTrigger>
     )
     .add("open with a selected item", () =>
-        <MenuTrigger defaultOpen selectionMode="single">
+        <MenuTrigger defaultOpen>
             <Button>Trigger</Button>
-            <Menu defaultSelectedKeys={["mars"]}>
+            <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -83,9 +83,9 @@ stories()
         </MenuTrigger>
     )
     .add("open with multiple selected items", () =>
-        <MenuTrigger defaultOpen selectionMode="multiple">
+        <MenuTrigger defaultOpen>
             <Button>Trigger</Button>
-            <Menu defaultSelectedKeys={["mars", "saturn"]}>
+            <Menu defaultSelectedKeys={["mars", "saturn"]} selectionMode="multiple">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
