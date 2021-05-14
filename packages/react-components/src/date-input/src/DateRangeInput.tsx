@@ -83,6 +83,14 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
      */
     onDatesChange?: (event: SyntheticEvent, startDate: Date, endDate: Date) => void;
     /**
+     * @ignore
+     */
+    onFocus?: (event: SyntheticEvent) => void;
+    /**
+     * @ignore
+     */
+    onBlur?: (event: SyntheticEvent) => void;
+    /**
      * Array of pre-determined dates range.
      */
     presets?: DatePreset[];
@@ -173,6 +181,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         required,
         validationState,
         onDatesChange,
+        onFocus,
+        onBlur,
         presets,
         autoFocus,
         fluid,
@@ -253,11 +263,19 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         applyDates(event, startDate, newDate);
     });
 
-    const handleDateFocus = useEventCallback(() => {
+    const handleDateFocus = useEventCallback(event => {
+        if (!hasFocus && !isNil(onFocus)) {
+            onFocus(event);
+        }
+
         setHasFocus(true);
     });
 
-    const handleDateBlur = useEventCallback(() => {
+    const handleDateBlur = useEventCallback(event => {
+        if (hasFocus && !isNil(onBlur)) {
+            onBlur(event);
+        }
+
         setHasFocus(false);
     });
 
@@ -303,7 +321,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 disabled && "disabled",
                 readOnly && "readonly",
                 active && "active",
-                hasFocus && "focus",
+                focus && "focus",
                 hover && "hover"
             )}
             role={!isInField ? "group" : undefined}

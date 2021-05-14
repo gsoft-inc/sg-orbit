@@ -3,6 +3,7 @@
 }
 
 .o-ui-checkbox {
+    outline: none;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
@@ -12,10 +13,6 @@
     width: max-content;
     height: max-content;
     position: relative;
-}
-
-.o-ui-checkbox:focus {
-    outline: none;
 }
 
 /* BOX */
@@ -159,7 +156,7 @@
 }
 
 /* STATE | FOCUS */
-.o-ui-checkbox input[type="checkbox"]:focus + .o-ui-checkbox-box::before,
+.o-ui-checkbox input[type="checkbox"]:focus-visible + .o-ui-checkbox-box::before,
 .o-ui-checkbox.o-ui-checkbox-focus .o-ui-checkbox-box::before {
     opacity: 1;
 }
@@ -195,8 +192,8 @@
 }
 
 /* STATE | HOVER | CHECKED | FOCUS | BOX */
-.o-ui-checkbox-checked:hover input[type="checkbox"]:focus + .o-ui-checkbox-box:before,
-.o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:focus + .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked:hover input[type="checkbox"]:focus-visible + .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:focus-visible + .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked.o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-primary-1);

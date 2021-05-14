@@ -6,6 +6,7 @@
 
 /* SHARED */
 .o-ui-button {
+    outline: none;
     padding: 0;
     line-height: 1;
     cursor: pointer;
@@ -18,9 +19,8 @@
 }
 
 /* STATES | FOCUS */
-.o-ui-button:focus,
+.o-ui-button:focus-visible,
 .o-ui-button-focus {
-    outline: none;
     z-index: 2;
 }
 
@@ -82,7 +82,7 @@ a.o-ui-button {
 }
 
 /* SOLID | STATE | FOCUS */
-.o-ui-button-solid:focus:after,
+.o-ui-button-solid:focus-visible:after,
 .o-ui-button-solid.o-ui-button-focus:after {
     opacity: 1;
 }
@@ -113,19 +113,19 @@ a.o-ui-button {
 }
 
 /* SOLID | PRIMARY | FOCUS */
-.o-ui-button-solid.o-ui-button-primary:focus,
+.o-ui-button-solid.o-ui-button-primary:focus-visible,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-focus {
     background-color: var(--o-ui-alias-background-primary-1);
 }
 
 /* SOLID | PRIMARY | HOVER | FOCUS */
-.o-ui-button-solid.o-ui-button-primary:hover:focus,
+.o-ui-button-solid.o-ui-button-primary:hover:focus-visible,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-hover.o-ui-button-focus {
     background-color: var(--o-ui-alias-background-primary-1-hover);
 }
 
 /* SOLID | PRIMARY | ACTIVE | FOCUS */
-.o-ui-button-solid.o-ui-button-primary:active:focus,
+.o-ui-button-solid.o-ui-button-primary:active:focus-visible,
 .o-ui-button-solid.o-ui-button-primary.o-ui-button-active.o-ui-button-focus {
     background-color: var(--o-ui-alias-background-primary-1-active);
 }
@@ -200,7 +200,7 @@ a.o-ui-button {
 }
 
 /* OUTLINE | FOCUS */
-.o-ui-button-outline:focus:after,
+.o-ui-button-outline:focus-visible:after,
 .o-ui-button-outline.o-ui-button-focus:after {
     opacity: 1;
 }
@@ -322,7 +322,7 @@ a.o-ui-button {
     bottom: calc(var(--o-ui-focus-ring-outset-inner-offset));
 }
 
-.o-ui-button-ghost:focus:after,
+.o-ui-button-ghost:focus-visible:after,
 .o-ui-button-ghost.o-ui-button-focus:after {
     opacity: 1;
 }
