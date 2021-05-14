@@ -199,8 +199,11 @@ a.o-ui-button {
 }
 
 /* OUTLINE | FOCUS */
-.o-ui-button-outline.o-ui-button-focus:after,
 .o-ui-button-outline:focus-visible:after {
+    opacity: 1;
+}
+
+.o-ui-button-outline.o-ui-button-focus:after {
     opacity: 1;
 }
 
