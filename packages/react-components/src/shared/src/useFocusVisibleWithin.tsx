@@ -1,4 +1,8 @@
-import { isNil, useDocumentListener, useEventCallback, useFocusWithin, useRefState } from "..";
+import { isNil } from "./assertions";
+import { useDocumentListener } from "./useEventListener";
+import { useEventCallback } from "./useEventCallback";
+import { useFocusWithin } from "./useFocusWithin";
+import { useRefState } from "./useRefState";
 
 export interface UseFocusVisibleWithinOptions {
     onFocus?: (event: FocusEvent) => void;

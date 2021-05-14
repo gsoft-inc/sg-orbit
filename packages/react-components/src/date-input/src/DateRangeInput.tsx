@@ -20,6 +20,7 @@ import {
     useControllableState,
     useEventCallback,
     useFocusVisibleWithin,
+    useFocusWithin,
     useMergedRefs
 } from "../../shared";
 import { Item } from "../../collection";
@@ -205,6 +206,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
+    const [isFocusVisible, setIsFocusVisible] = useState(focus);
 
     const containerRef = useRef<HTMLElement>();
     const startDateRef = useRef<HTMLInputElement>();
@@ -294,7 +296,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         }
     });
 
-    const focusVisibleWithinProps = useFocusVisibleWithin({
+    const focusWithinProps = useFocusWithin({
+        // @ts-ignore
         onFocus: useEventCallback((event: FocusEvent) => {
             if (!isNil(onFocus)) {
                 onFocus(event);
@@ -302,6 +305,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
             setHasFocus(true);
         }),
+        // @ts-ignore
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isNil(onBlur)) {
                 onBlur(event);
@@ -311,11 +315,21 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         })
     });
 
+    const focusVisibleWithinProps = useFocusVisibleWithin({
+        onFocus: useEventCallback(() => {
+            setIsFocusVisible(true);
+        }),
+        onBlur: useEventCallback(() => {
+            setIsFocusVisible(false);
+        })
+    });
+
     const hasValue = !isNil(startDate) || !isNil(endDate);
 
     const inputMarkup = (
         <Box
             {...mergeProps(
+                focusWithinProps,
                 focusVisibleWithinProps,
                 {
                     onKeyDown: handleContainerKeyDown,
@@ -326,7 +340,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         disabled && "disabled",
                         readOnly && "readonly",
                         active && "active",
-                        hasFocus && "focus",
+                        isFocusVisible && "focus",
                         hover && "hover"
                     ),
                     role: !isInField ? "group" : undefined
