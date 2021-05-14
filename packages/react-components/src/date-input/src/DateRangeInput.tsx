@@ -19,6 +19,7 @@ import {
     useAutoFocus,
     useControllableState,
     useEventCallback,
+    useFocusVisibleWithin,
     useMergedRefs
 } from "../../shared";
 import { Item } from "../../collection";
@@ -85,11 +86,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     /**
      * @ignore
      */
-    onFocus?: (event: SyntheticEvent) => void;
+    onFocus?: (event: FocusEvent) => void;
     /**
      * @ignore
      */
-    onBlur?: (event: SyntheticEvent) => void;
+    onBlur?: (event: FocusEvent) => void;
     /**
      * Array of pre-determined dates range.
      */
@@ -263,22 +264,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         applyDates(event, startDate, newDate);
     });
 
-    const handleDateFocus = useEventCallback(event => {
-        if (!hasFocus && !isNil(onFocus)) {
-            onFocus(event);
-        }
-
-        setHasFocus(true);
-    });
-
-    const handleDateBlur = useEventCallback(event => {
-        if (hasFocus && !isNil(onBlur)) {
-            onBlur(event);
-        }
-
-        setHasFocus(false);
-    });
-
     const handleSelectPreset = useEventCallback((event: SyntheticEvent, keys: string[]) => {
         const index = parseInt(keys[0]);
         const preset = presets[index];
@@ -309,22 +294,44 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         }
     });
 
+    const focusVisibleWithinProps = useFocusVisibleWithin({
+        onFocus: useEventCallback((event: FocusEvent) => {
+            if (!isNil(onFocus)) {
+                onFocus(event);
+            }
+
+            setHasFocus(true);
+        }),
+        onBlur: useEventCallback((event: FocusEvent) => {
+            if (!isNil(onBlur)) {
+                onBlur(event);
+            }
+
+            setHasFocus(false);
+        })
+    });
+
     const hasValue = !isNil(startDate) || !isNil(endDate);
 
     const inputMarkup = (
         <Box
-            onKeyDown={handleContainerKeyDown}
-            className={cssModule(
-                "o-ui-date-range-input",
-                validationState,
-                fluid && "fluid",
-                disabled && "disabled",
-                readOnly && "readonly",
-                active && "active",
-                focus && "focus",
-                hover && "hover"
+            {...mergeProps(
+                focusVisibleWithinProps,
+                {
+                    onKeyDown: handleContainerKeyDown,
+                    className: cssModule(
+                        "o-ui-date-range-input",
+                        validationState,
+                        fluid && "fluid",
+                        disabled && "disabled",
+                        readOnly && "readonly",
+                        active && "active",
+                        hasFocus && "focus",
+                        hover && "hover"
+                    ),
+                    role: !isInField ? "group" : undefined
+                }
             )}
-            role={!isInField ? "group" : undefined}
         >
             <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput
@@ -336,8 +343,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 max={max}
                 onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
-                onFocus={handleDateFocus}
-                onBlur={handleDateBlur}
                 disabled={disabled}
                 readOnly={readOnly}
                 name={!isNil(name) ? `${name}-start-date` : undefined}
@@ -353,8 +358,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 max={max}
                 onChange={handleEndDateInputValueChange}
                 onDateChange={handleEndDateChange}
-                onFocus={handleDateFocus}
-                onBlur={handleDateBlur}
                 onKeyDown={handleEndDateKeyDown}
                 disabled={disabled}
                 readOnly={readOnly}

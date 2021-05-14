@@ -44,7 +44,6 @@ export function InnerOverlay({
     borderOffset,
     containerElement,
     zIndex,
-    focus,
     as = "div",
     children,
     forwardedRef,

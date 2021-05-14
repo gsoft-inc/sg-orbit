@@ -36,6 +36,8 @@ export * from "./useMediaQuery";
 export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";
+export * from "./useFocusWithin";
+export * from "./useFocusVisibleWithin";
 
 // Features
 export * from "./slots";
