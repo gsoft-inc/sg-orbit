@@ -167,6 +167,7 @@ export function InnerSelect(props: InnerSelectProps) {
         defaultOpen,
         selectedKey: selectedKeyProp,
         defaultSelectedKey,
+        validationState,
         onSelectionChange,
         onOpenChange,
         direction,

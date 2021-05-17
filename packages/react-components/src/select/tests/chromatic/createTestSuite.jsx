@@ -229,18 +229,32 @@ export function createTestSuite(element, stories) {
             </Stack>
         )
         .add("validation", () =>
-            <Inline>
-                <Select validationState="invalid" placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <Select validationState="valid" placeholder="Select a planet" aria-label="Planets" element={element}>
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-            </Inline>
+            <Stack>
+                <Inline>
+                    <Select validationState="invalid" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select validationState="valid" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </Inline>
+                <Inline>
+                    <Select open defaultSelectedKey="mars" validationState="invalid" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item focus key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select open defaultSelectedKey="mars" validationState="valid" placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Earth</Item>
+                        <Item focus key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </Inline>
+            </Stack>
         )
         .add("trigger states", () =>
             <Stack>

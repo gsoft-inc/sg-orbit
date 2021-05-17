@@ -337,6 +337,34 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Listbox>
     )
+    .add("validation", () =>
+        <Stack>
+            <Inline>
+                <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+                <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+            </Inline>
+            <Inline>
+                <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+                <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+            </Inline>
+        </Stack>
+    )
     .add("states", () =>
         <Inline>
             <Listbox selectedKeys={["earth"]} aria-label="Planets">

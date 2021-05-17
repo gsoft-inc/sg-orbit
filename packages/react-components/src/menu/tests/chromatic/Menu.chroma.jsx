@@ -2,7 +2,7 @@ import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Image } from "@react-components/image";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Menu, MenuItem } from "@react-components/menu";
 import { Text } from "@react-components/text";
@@ -341,6 +341,34 @@ stories()
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
+    )
+    .add("validation state", () =>
+        <Stack>
+            <Inline>
+                <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+            <Inline>
+                <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+        </Stack>
     )
     .add("states", () =>
         <Inline>

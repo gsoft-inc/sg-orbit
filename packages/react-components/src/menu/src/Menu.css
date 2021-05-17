@@ -76,6 +76,18 @@
     background-color: var(--o-ui-alias-background-4-hover);
 }
 
+/* OPTION | STATE | FOCUS | SELECTOR BAR */
+.o-ui-menu-item:focus:after,
+.o-ui-menu-item-focus:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    height: var(--o-ui-menu-item-height);
+    width: 2px;
+    background-color: var(--o-ui-alias-border-primary-1);
+}
+
 /* ITEM | STATE | ACTIVE */
 .o-ui-menu-item-active:not([aria-disabled="true"]),
 .o-ui-menu-item:active:not([aria-disabled="true"]) {
@@ -86,6 +98,21 @@
 .o-ui-menu-item[aria-disabled="true"] {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
+}
+
+/* ITEM | STATE | INVALID */
+.o-ui-menu-invalid {
+    color: var(--o-ui-alias-text-negative-1);
+}
+
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
+    background-color: var(--o-ui-alias-text-negative-1);
+}
+
+/* ITEM | STATE | INVALID | FOCUS | SELECTOR BAR */
+.o-ui-menu-invalid .o-ui-menu-item:focus:after,
+.o-ui-menu-invalid .o-ui-menu-item-focus:after {
+    background-color: var(--o-ui-alias-text-negative-1);
 }
 
 /* ITEM | DESCRIPTION */
