@@ -5,6 +5,7 @@ import { Menu } from "@react-components/menu";
 import { Text } from "@react-components/text";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -381,6 +382,126 @@ test("when selectionMode is \"multiple\", mouse click toggle the item selection"
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+});
+
+test("when autofocus is true, the first menu item is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu autoFocus>
+            <Item key="earth" data-testid="earth-item">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+});
+
+test("when autofocus is true and the menu is disabled, the first item is not focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu disabled autoFocus>
+            <Item key="earth" data-testid="earth-item">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveFocus());
+});
+
+test("when autofocus is true and the menu have sections, the first menu item is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu autoFocus>
+            <Section title="Visited">
+                <Item key="earth" data-testid="earth-item">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="uranus">Uranus</Item>
+            </Section>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+});
+
+test("when autofocus is true and there is a single default key, the menu item matching the default key is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu defaultSelectedKeys={["jupiter"]} autoFocus>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+});
+
+test("when autofocus is true and there are multiple default keys, the menu item matching the first default key is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" autoFocus>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+});
+
+test("when autofocus is true and the default focus target is \"first\", the menu first item is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu defaultFocusTarget="first" autoFocus>
+            <Item key="earth" data-testid="earth-item">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+});
+
+test("when autofocus is true and the default focus target is \"last\", the menu last item is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu defaultFocusTarget="last" autoFocus>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars" data-testid="mars-item">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+});
+
+test("when autofocus is true and the default focus target match an item key, the menu item matching the key is focused on render", async () => {
+    const { getByTestId } = render(
+        <Menu defaultFocusTarget="jupiter" autoFocus>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first menu item is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Menu autoFocus={10}>
+            <Item key="earth" data-testid="earth-item">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });
 
 // ***** Aria *****

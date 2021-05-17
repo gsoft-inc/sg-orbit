@@ -56,18 +56,6 @@ stories()
             </div>
         </Stack>
     )
-    .add("autofocus", () =>
-        <DateRangeInput autoFocus />
-    )
-    .add("when disabled do not autofocus", () =>
-        <DateRangeInput disabled autoFocus />
-    )
-    .add("when readonly do not autofocus", () =>
-        <DateRangeInput readOnly autoFocus />
-    )
-    .add("autofocus with delay", () =>
-        <DateRangeInput autoFocus={50} />
-    )
     .add("presets", () =>
         <DateRangeInput
             presets={[

@@ -2,6 +2,7 @@ import { Field, Label } from "@react-components/field";
 import { Switch } from "@react-components/switch";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element) {
@@ -21,6 +22,34 @@ test("when in a field, clicking on the field label focus the switch", async () =
     act(() => {
         userEvent.click(getByTestId("label"));
     });
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+});
+
+test("when autofocus is true, the switch is focused on render", async () => {
+    const { getByTestId } = render(
+        <Switch autoFocus data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+});
+
+test("when autofocus is true and the switch is disabled, do not focus the switch on render", async () => {
+    const { getByTestId } = render(
+        <Switch disabled autoFocus data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the switch is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Switch autoFocus={10} data-testid="switch" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
+
+    await waitDelay(10);
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
 });

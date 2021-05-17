@@ -24,13 +24,4 @@ stories()
             <Checkbox className="bg-red">Milky Way</Checkbox>
             <Checkbox style={{ backgroundColor: "red" }}>Milky Way</Checkbox>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <Checkbox autoFocus>Milky Way</Checkbox>
-    )
-    .add("when disabled do not autofocus", () =>
-        <Checkbox autoFocus disabled>Milky Way</Checkbox>
-    )
-    .add("autofocus with delay", () =>
-        <Checkbox autoFocus={50}>Milky Way</Checkbox>
     );

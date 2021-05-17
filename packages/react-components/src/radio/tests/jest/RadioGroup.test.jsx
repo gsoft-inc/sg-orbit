@@ -3,6 +3,7 @@ import { Radio, RadioGroup } from "@react-components/radio";
 import { ToggleButton } from "@react-components/button";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element) {
@@ -126,6 +127,70 @@ test("up arrow keypress select the next radio", async () => {
     });
 
     await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
+});
+
+test("when autofocus is true, the first radio is focused on render", async () => {
+    const { getByTestId } = render(
+        <RadioGroup autoFocus>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveFocus());
+});
+
+test("when autofocus is true and the radio group is disabled, the first radio is not focused on render", async () => {
+    const { getByTestId } = render(
+        <RadioGroup disabled autoFocus>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).not.toHaveFocus());
+});
+
+test("when autofocus is true and the first radio is disabled, the next checkbox is focused on render", async () => {
+    const { getByTestId } = render(
+        <RadioGroup autoFocus>
+            <Radio disabled value="1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).not.toHaveFocus());
+});
+
+test("when autofocus is true and there is a default value, the radio matching the default value is focused on render", async () => {
+    const { getByTestId } = render(
+        <RadioGroup defaultValue="2" autoFocus>
+            <Radio value="1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first radio is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <RadioGroup autoFocus={10}>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveFocus());
 });
 
 // ***** Api *****

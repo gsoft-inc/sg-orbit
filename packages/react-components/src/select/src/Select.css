@@ -47,7 +47,7 @@
 
 /* TRIGGER | GHOST | STATE | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
-.o-ui-select-trigger-ghost:not([disabled]):focus{
+.o-ui-select-trigger-ghost:not([disabled]):focus-visible {
     background: var(--o-ui-alias-background-3);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
@@ -64,7 +64,7 @@
 
 /* TRIGGER | GHOST | STATE | INVALID | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
-.o-ui-select-trigger-ghost:not([disabled]):focus.o-ui-select-trigger-invalid {
+.o-ui-select-trigger-ghost:not([disabled]):focus-visible.o-ui-select-trigger-invalid {
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-negative-1);
 }
 
@@ -93,7 +93,7 @@
 
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-focus,
-.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus:not(:hover) {
+.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus-visible:not(:hover) {
     --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
     border: 1px solid var(--o-ui-alias-border-negative-1);
 }
@@ -116,19 +116,19 @@
 
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
-.o-ui-select-trigger-outline:not([disabled]):focus:not(:hover) {
+.o-ui-select-trigger-outline:not([disabled]):focus-visible:not(:hover) {
     box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
     border: 1px solid var(--o-ui-alias-border-primary-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
-.o-ui-select-trigger-outline:not([disabled]):hover:focus {
-    border: 1px solid var(--o-ui-alias-border-primary-1);
+.o-ui-select-trigger-outline:not([disabled]):hover:focus-visible {
     box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
+    border: 1px solid var(--o-ui-alias-border-primary-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
-.o-ui-select-trigger-outline:not([disabled]):hover:focus.o-ui-select-trigger-invalid {
+.o-ui-select-trigger-outline:not([disabled]):hover:focus-visible.o-ui-select-trigger-invalid {
     --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
     border: 1px solid var(--o-ui-alias-border-negative-1);
 }

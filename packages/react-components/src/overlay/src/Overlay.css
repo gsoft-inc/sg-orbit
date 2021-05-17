@@ -66,8 +66,9 @@
     border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
+/* TODO: this arrow focus style should not be here since there are no style for a focus overlay, doesn't make sense... My guess is that it should be moved to popover. */
 /* ARROW | STATE | FOCUS */
-.o-ui-overlay:focus .o-ui-overlay-arrow {
+.o-ui-overlay:focus-visible .o-ui-overlay-arrow {
     --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
 }
 

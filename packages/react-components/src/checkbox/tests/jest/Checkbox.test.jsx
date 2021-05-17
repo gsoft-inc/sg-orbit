@@ -2,6 +2,7 @@ import { Checkbox } from "@react-components/checkbox";
 import { Field, Label } from "@react-components/field";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element) {
@@ -21,6 +22,41 @@ test("when in a field, clicking on the field label focus the checkbox", async ()
     act(() => {
         userEvent.click(getByTestId("label"));
     });
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+});
+
+test("when autofocus is true, the checkbox is focused on render", async () => {
+    const { getByTestId } = render(
+        <Checkbox autoFocus data-testid="checkbox" />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+});
+
+test("when autofocus is true and the checkbox is disabled, the checkbox is not focused on render", async () => {
+    const { getByTestId } = render(
+        <Checkbox
+            disabled
+            autoFocus
+            data-testid="checkbox"
+        />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the checkbox is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Checkbox
+            autoFocus={10}
+            data-testid="checkbox"
+        />
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
+
+    await waitDelay(10);
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });

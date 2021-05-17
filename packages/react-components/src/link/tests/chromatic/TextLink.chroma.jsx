@@ -22,13 +22,4 @@ stories()
             <TextLink className="bg-red" href="#">Flight details</TextLink>
             <TextLink style={{ backgroundColor: "red" }} href="#">Flight details</TextLink>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <TextLink autoFocus href="#">Flight details</TextLink>
-    )
-    .add("when disabled do not autofocus", () =>
-        <TextLink disabled autoFocus href="#">Flight details</TextLink>
-    )
-    .add("autofocus with delay", () =>
-        <TextLink autoFocus={50} href="#">Flight details</TextLink>
     );

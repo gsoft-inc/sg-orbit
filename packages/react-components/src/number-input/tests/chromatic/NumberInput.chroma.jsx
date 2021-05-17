@@ -58,16 +58,4 @@ stories()
             <NumberInput validationState="invalid" placeholder="Age" />
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
-    )
-    .add("autofocus", () =>
-        <NumberInput autoFocus placeholder="Age" />
-    )
-    .add("when disabled do not autofocus", () =>
-        <NumberInput autoFocus disabled placeholder="Age" />
-    )
-    .add("when readonly do not autofocus", () =>
-        <NumberInput autoFocus readOnly placeholder="Age" />
-    )
-    .add("autofocus with delay", () =>
-        <NumberInput autoFocus={50} placeholder="Age" />
     );

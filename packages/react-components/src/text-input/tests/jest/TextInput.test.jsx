@@ -1,7 +1,46 @@
 import { TextInput } from "@react-components/text-input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the input is focused on render", async () => {
+    const { getByTestId } = render(
+        <TextInput autoFocus data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+});
+
+test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
+    const { getByTestId } = render(
+        <TextInput disabled autoFocus data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+});
+
+test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
+    const { getByTestId } = render(
+        <TextInput readOnly autoFocus data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <TextInput autoFocus={10} data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+});
 
 // ***** Api *****
 

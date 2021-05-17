@@ -2,12 +2,12 @@
     visibility: hidden;
 }
 
-.o-ui-search-input input:focus + .o-ui-search-input-clear-button,
+.o-ui-search-input input:focus-visible + .o-ui-search-input-clear-button,
 .o-ui-search-input.o-ui-input-focus .o-ui-search-input-clear-button,
 .o-ui-search-input input:hover + .o-ui-search-input-clear-button,
 .o-ui-search-input.o-ui-input-hover .o-ui-search-input-clear-button,
 .o-ui-search-input-clear-button:hover,
-.o-ui-search-input-clear-button:focus {
+.o-ui-search-input-clear-button:focus-visible {
     visibility: visible;
 }
 

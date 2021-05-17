@@ -2,6 +2,56 @@ import { AddIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the button is focused on render", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            autoFocus
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
+
+test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            disabled
+            autoFocus
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            autoFocus={10}
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
 
 // ***** Api *****
 

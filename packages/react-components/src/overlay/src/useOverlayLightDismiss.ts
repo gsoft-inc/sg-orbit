@@ -1,7 +1,6 @@
 import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, isNil, useEventCallback } from "../../shared";
+import { Keys, isNil, useEventCallback, useFocusWithin } from "../../shared";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
-import { useFocusWithin } from "./useFocusWithin";
 import { useInteractOutside } from "./useInteractOutside";
 import type { OverlayTrigger } from "./useOverlayTrigger";
 

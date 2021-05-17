@@ -2,6 +2,7 @@ import { AddIcon } from "@react-components/icons";
 import { Link } from "@react-components/link";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
+import { waitDelay } from "@utils/waitDelay";
 
 // ***** External *****
 
@@ -12,9 +13,7 @@ test("when external, add target=\"_blank\"", async () => {
         </Link>
     );
 
-    const link = await waitFor(() => getByTestId("link"));
-
-    expect(link.getAttribute("target")).toBe("_blank");
+    await waitFor(() => expect(getByTestId("link")).toHaveAttribute("target", "_blank"));
 });
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
@@ -24,9 +23,52 @@ test("when external, add rel=\"noopener noreferrer\"", async () => {
         </Link>
     );
 
-    const link = await waitFor(() => getByTestId("link"));
+    await waitFor(() => expect(getByTestId("link")).toHaveAttribute("rel", "noopener noreferrer"));
+});
 
-    expect(link.getAttribute("rel")).toBe("noopener noreferrer");
+test("when autofocus is true, the icon link is focused on render", async () => {
+    const { getByTestId } = render(
+        <Link autoFocus href="#" aria-label="Add" data-testid="link">
+            <AddIcon />
+        </Link>
+    );
+
+    await waitFor(() => expect(getByTestId("link")).toHaveFocus());
+});
+
+test("when autofocus is true and the link is disabled, the icon link is not focused on render", async () => {
+    const { getByTestId } = render(
+        <Link
+            disabled
+            autoFocus
+            href="#"
+            aria-label="Add"
+            data-testid="link"
+        >
+            <AddIcon />
+        </Link>
+    );
+
+    await waitFor(() => expect(getByTestId("link")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the link is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Link
+            autoFocus={10}
+            href="#"
+            aria-label="Add"
+            data-testid="link"
+        >
+            <AddIcon />
+        </Link>
+    );
+
+    await waitFor(() => expect(getByTestId("link")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("link")).toHaveFocus());
 });
 
 // ***** Refs *****
@@ -42,8 +84,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("A");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("A"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -63,8 +105,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("A");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("A"));
 });
 
 test("set ref once", async () => {

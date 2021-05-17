@@ -29,6 +29,50 @@ test("a disabled element is not tabbable", async () => {
     await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 
+test("when autofocus is true, the first focusable element is focused on render", async () => {
+    const { getByTestId } = render(
+        <Toolbar autoFocus>
+            <Button data-testid="element-1">1</Button>
+            <Button>2</Button>
+        </Toolbar>
+    );
+
+    await waitFor(() => expect(getByTestId("element-1")).toHaveFocus());
+});
+
+test("when autofocus is true and the toolbar is disabled, do not autofocuus an element on render", async () => {
+    const { getByTestId } = render(
+        <Toolbar disabled autoFocus>
+            <Button data-testid="element-1">1</Button>
+            <Button>2</Button>
+        </Toolbar>
+    );
+
+    await waitFor(() => expect(getByTestId("element-1")).not.toHaveFocus());
+});
+
+test("when autofocus is true and the first focusable element is disabled, the next focusable element is focused on render", async () => {
+    const { getByTestId } = render(
+        <Toolbar autoFocus>
+            <Button disabled>1</Button>
+            <Button data-testid="element-2">2</Button>
+        </Toolbar>
+    );
+
+    await waitFor(() => expect(getByTestId("element-2")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first focusable element is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Toolbar autoFocus={10}>
+            <Button data-testid="element-1">1</Button>
+            <Button>2</Button>
+        </Toolbar>
+    );
+
+    await waitFor(() => expect(getByTestId("element-1")).toHaveFocus());
+});
+
 // ***** Aria *****
 
 test("a toolbar have the \"toolbar\" role", async () => {
