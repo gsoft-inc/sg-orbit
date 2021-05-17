@@ -5,7 +5,7 @@ export interface UseToggleButtonProps<Shape> {
     variant?: "solid" | "outline" | "ghost";
     shape?: Shape;
     active?: boolean;
-    checked?: boolean;
+    checked?: boolean | null;
     defaultChecked?: boolean;
     value?: string;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;

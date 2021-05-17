@@ -21,9 +21,9 @@ import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
     id?: string;
-    open?: boolean;
+    open?: boolean | null;
     defaultOpen?: boolean;
-    selectedKey?: string;
+    selectedKey?: string | null;
     defaultSelectedKey?: string;
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;

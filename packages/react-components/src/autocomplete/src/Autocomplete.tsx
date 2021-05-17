@@ -36,7 +36,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Whether or not to open the autocomplete element.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of open when in auto controlled mode.
      */

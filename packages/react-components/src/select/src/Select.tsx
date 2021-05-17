@@ -22,7 +22,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * Whether or not to open the select element.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of open when in auto controlled mode.
      */
@@ -30,7 +30,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     /**
      * A controlled selected key.
      */
-    selectedKey?: string;
+    selectedKey?: string | null;
     /**
      * The initial value of `selectedKey` when uncontrolled.
      */
