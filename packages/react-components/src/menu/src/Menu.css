@@ -101,7 +101,7 @@
 }
 
 /* ITEM | STATE | INVALID */
-.o-ui-menu-invalid {
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] {
     color: var(--o-ui-alias-text-negative-1);
 }
 
