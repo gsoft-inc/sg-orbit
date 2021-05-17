@@ -23,13 +23,4 @@ stories()
             <IconLink className="bg-red" href="#" aria-label="Add"><AddIcon /></IconLink>
             <IconLink style={{ backgroundColor: "red" }} href="#" aria-label="Add"><AddIcon /></IconLink>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <IconLink autoFocus href="#" aria-label="Add"><AddIcon /></IconLink>
-    )
-    .add("when disabled do not autofocus", () =>
-        <IconLink disabled autoFocus href="#" aria-label="Add"><AddIcon /></IconLink>
-    )
-    .add("autofocus with delay", () =>
-        <IconLink autoFocus={50} href="#" aria-label="Add"><AddIcon /></IconLink>
     );

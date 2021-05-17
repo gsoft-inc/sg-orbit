@@ -64,20 +64,5 @@ stories()
                 <LaunchImage />
             </Link>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <Link autoFocus href="#">
-            <LaunchImage />
-        </Link>
-    )
-    .add("when disabled do not autofocus", () =>
-        <Link disabled autoFocus href="#">
-            <LaunchImage />
-        </Link>
-    )
-    .add("autofocus with delay", () =>
-        <Link autoFocus={50} href="#">
-            <LaunchImage />
-        </Link>
     );
 

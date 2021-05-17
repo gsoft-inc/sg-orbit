@@ -2,11 +2,82 @@ import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
 import { ToggleButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element) {
     return element.querySelector("input");
 }
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the first checkbox is focused on render", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup autoFocus>
+            <Checkbox value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).toHaveFocus());
+});
+
+test("when autofocus is true and the checkbox group is disabled, no checkboxes of the group are focused on render", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup
+            disabled
+            autoFocus
+        >
+            <Checkbox value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).not.toHaveFocus());
+});
+
+test("when autofocus is true and the first checkbox is disabled, the next checkbox is focused on render", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup autoFocus>
+            <Checkbox disabled value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).not.toHaveFocus());
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[1])).toHaveFocus());
+});
+
+test("when autofocus is true and there is a default value, the first checkbox is focused on render", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup defaultValue={["2"]} autoFocus>
+            <Checkbox value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first checkbox is focused after the delay", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup autoFocus={10}>
+            <Checkbox value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).toHaveFocus());
+});
 
 // ***** Api *****
 

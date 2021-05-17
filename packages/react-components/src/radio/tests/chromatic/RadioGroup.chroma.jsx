@@ -177,41 +177,6 @@ stories()
                 <div style={{ border: "1px solid #000", width: "100%", height: "50px" }}></div>
             </Inline>
         </Stack>
-    )
-    .add("autofocus", () =>
-        <RadioGroup autoFocus>
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
-    )
-    .add("when disabled do not autofocus", () =>
-        <RadioGroup autoFocus disabled>
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
-    )
-    .add("do not autofocus disabled checkbox", () =>
-        <RadioGroup autoFocus>
-            <Radio disabled value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
-    )
-    .add("autofocus + default value", () =>
-        <RadioGroup autoFocus defaultValue="2">
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
-    )
-    .add("autofocus with delay", () =>
-        <RadioGroup autoFocus={50}>
-            <Radio value="1">1</Radio>
-            <Radio value="2">2</Radio>
-            <Radio value="3">3</Radio>
-        </RadioGroup>
     );
 
 stories("/horizontal")

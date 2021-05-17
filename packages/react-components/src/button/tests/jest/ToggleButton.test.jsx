@@ -1,7 +1,45 @@
 import { ToggleButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the button is focused on render", async () => {
+    const { getByTestId } = render(
+        <ToggleButton autoFocus data-testid="button">Cutoff</ToggleButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
+
+test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
+    const { getByTestId } = render(
+        <ToggleButton
+            disabled
+            autoFocus
+            data-testid="button"
+        >Cutoff</ToggleButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <ToggleButton
+            autoFocus={10}
+            data-testid="button"
+        >Cutoff</ToggleButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
 
 // ***** Api *****
 

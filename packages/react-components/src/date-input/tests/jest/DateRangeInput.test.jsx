@@ -4,6 +4,7 @@ import { GroupField } from "@react-components/field";
 import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
@@ -340,6 +341,65 @@ test("when a preset is selected, both inputs are filled with the preset dates", 
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
+});
+
+test("when autofocus is true, the date range input is focused on render", async () => {
+    const { container, getByTestId } = render(
+        <DateRangeInput
+            autoFocus
+            name="date-range"
+            data-testid="date-range-input"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("date-range-input")).toHaveClass("o-ui-date-range-input-focus"));
+    await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
+});
+
+test("when autofocus is true and the date range input is disabled, the date range input is not focused on render", async () => {
+    const { container, getByTestId } = render(
+        <DateRangeInput
+            disabled
+            autoFocus
+            name="date-range"
+            data-testid="date-range-input"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("date-range-input")).not.toHaveClass("o-ui-date-range-input-focus"));
+    await waitFor(() => expect(getStartDateInput(container)).not.toHaveFocus());
+});
+
+test("when autofocus is true and the date range input is readonly, the date range input is not focused on render", async () => {
+    const { container, getByTestId } = render(
+        <DateRangeInput
+            readOnly
+            autoFocus
+            name="date-range"
+            data-testid="date-range-input"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("date-range-input")).not.toHaveClass("o-ui-date-range-input-focus"));
+    await waitFor(() => expect(getStartDateInput(container)).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the date range input is focused after the delay", async () => {
+    const { container, getByTestId } = render(
+        <DateRangeInput
+            autoFocus={10}
+            name="date-range"
+            data-testid="date-range-input"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("date-range-input")).not.toHaveClass("o-ui-date-range-input-focus"));
+    await waitFor(() => expect(getStartDateInput(container)).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("date-range-input")).toHaveClass("o-ui-date-range-input-focus"));
+    await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
 });
 
 // ***** Aria *****

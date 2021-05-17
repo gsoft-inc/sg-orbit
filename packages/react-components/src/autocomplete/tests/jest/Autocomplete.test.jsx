@@ -6,6 +6,7 @@ import { Keys } from "@react-components/shared";
 import { Transition } from "@react-components/transition";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -506,6 +507,36 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
     act(() => {
         userEvent.click(getByTestId("label"));
     });
+
+    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+});
+
+test("when autofocus is true, the autocomplete trigger is focused on render", async () => {
+    const { getByTestId } = render(
+        <Autocomplete autoFocus data-testid="autocomplete">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+        </Autocomplete>
+    );
+
+    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the autocomplete trigger is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Autocomplete autoFocus={10} data-testid="autocomplete">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+        </Autocomplete>
+    );
+
+    await waitFor(() => expect(getByTestId("autocomplete")).not.toHaveFocus());
+
+    await waitDelay(10);
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
 });

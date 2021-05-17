@@ -105,7 +105,7 @@
     left: var(--o-ui-global-scale-bravo);
     right: var(--o-ui-global-scale-bravo);
     bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
-    border: var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-primary-1) solid;
+    border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
     height: var(--o-ui-global-scale-golf);
