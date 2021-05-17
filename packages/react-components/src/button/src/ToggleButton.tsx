@@ -7,7 +7,7 @@ interface InnerToggleButtonProps {
     /**
      * A controlled checked value.
      */
-    checked?: boolean;
+    checked?: boolean | null;
     /**
      * The initial value of `checked` when uncontrolled.
      */

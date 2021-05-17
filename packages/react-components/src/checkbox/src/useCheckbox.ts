@@ -5,9 +5,9 @@ export interface UseCheckboxProps {
     cssModule?: string;
     isInField?: boolean;
     id?: string;
-    checked?: boolean;
+    checked?: boolean | null;
     defaultChecked?: boolean;
-    indeterminate?: boolean;
+    indeterminate?: boolean | null;
     defaultIndeterminate?: boolean;
     autoFocus?: boolean | number;
     required?: boolean;

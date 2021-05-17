@@ -21,7 +21,7 @@ import { useRestoreFocus } from "./useRestoreFocus";
 
 export interface UsePopupOptions {
     id?: string;
-    open?: boolean;
+    open?: boolean | null;
     defaultOpen?: boolean;
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     hideOnEscape?: boolean;
