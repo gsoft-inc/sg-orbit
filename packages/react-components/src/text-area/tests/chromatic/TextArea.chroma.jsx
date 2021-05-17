@@ -121,18 +121,6 @@ stories()
     .add("rows", () =>
         <TextArea rows={12} />
     )
-    .add("autofocus", () =>
-        <TextArea autoFocus />
-    )
-    .add("when disabled do not autofocus", () =>
-        <TextArea disabled autoFocus />
-    )
-    .add("when readOnly do not autofocus", () =>
-        <TextArea readOnly autoFocus />
-    )
-    .add("autofocus with delay", () =>
-        <TextArea autoFocus={50} />
-    )
     .add("styling", () =>
         <Inline>
             <TextArea className="bg-red" />

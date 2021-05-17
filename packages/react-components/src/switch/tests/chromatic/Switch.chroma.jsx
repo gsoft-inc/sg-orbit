@@ -14,14 +14,3 @@ function stories(segment) {
 createTestSuite(<Switch />, stories("/unchecked"));
 
 createTestSuite(<Switch defaultChecked />, stories("/checked"));
-
-stories()
-    .add("autofocus", () =>
-        <Switch autoFocus>Engines</Switch>
-    )
-    .add("when disabled do not autofocus", () =>
-        <Switch disabled autoFocus>Engines</Switch>
-    )
-    .add("autofocus with delay", () =>
-        <Switch autoFocus={50}>Engines</Switch>
-    );

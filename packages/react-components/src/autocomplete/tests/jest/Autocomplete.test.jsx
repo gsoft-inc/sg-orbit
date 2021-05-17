@@ -524,6 +524,19 @@ test("when autofocus is true, the autocomplete trigger is focused on render", as
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
 });
 
+test("when autofocus is true and the autocomplete is disabled, the autocomplete trigger is not focused on render", async () => {
+    const { getByTestId } = render(
+        <Autocomplete disabled autoFocus data-testid="autocomplete">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+        </Autocomplete>
+    );
+
+    await waitFor(() => expect(getByTestId("autocomplete")).not.toHaveFocus());
+});
+
 test("when autofocus is specified with a delay, the autocomplete trigger is focused after the delay", async () => {
     const { getByTestId } = render(
         <Autocomplete autoFocus={10} data-testid="autocomplete">

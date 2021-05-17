@@ -122,18 +122,6 @@ stories()
             <TextInput readOnly placeholder="Where to?" />
         </Stack>
     )
-    .add("autofocus", () =>
-        <TextInput autoFocus />
-    )
-    .add("when disabled do not autofocus", () =>
-        <TextInput disabled autoFocus />
-    )
-    .add("when readonly do not autofocus", () =>
-        <TextInput readOnly autoFocus />
-    )
-    .add("autofocus with delay", () =>
-        <TextInput autoFocus={50} />
-    )
     .add("styling", () =>
         <Inline>
             <TextInput className="bg-red" />

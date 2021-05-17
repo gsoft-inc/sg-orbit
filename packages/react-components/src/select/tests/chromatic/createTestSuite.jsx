@@ -242,13 +242,6 @@ export function createTestSuite(element, stories) {
                 </Select>
             </Inline>
         )
-        .add("autofocus trigger", () =>
-            <Select autoFocus placeholder="Select a planet" aria-label="Planets" element={element}>
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-        )
         .add("trigger states", () =>
             <Stack>
                 <Inline>
