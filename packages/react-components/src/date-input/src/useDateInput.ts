@@ -56,7 +56,7 @@ function isTyping(inputValue: string) {
 }
 
 export interface UseDateInputProps {
-    value?: Date;
+    value?: Date | null;
     defaultValue?: Date;
     min?: Date;
     max?: Date;

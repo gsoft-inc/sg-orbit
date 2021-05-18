@@ -22,7 +22,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
     * A controlled checked state value.
     */
-    checked?: boolean;
+    checked?: boolean | null;
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -30,7 +30,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
      * A controlled indeterminate state value.
      */
-    indeterminate?: boolean;
+    indeterminate?: boolean | null;
     /**
      * The initial value of `indeterminate`.
      */

@@ -2,6 +2,7 @@ import { DateInput } from "@react-components/date-input";
 import { Field, Label } from "@react-components/field";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
@@ -204,6 +205,43 @@ test("when in a field, clicking on the field label focus the date input", async 
     act(() => {
         userEvent.click(getByTestId("label"));
     });
+
+    await waitFor(() => expect(getByTestId("date")).toHaveFocus());
+});
+
+test("when autofocus is true, the date input is focused on render", async () => {
+    const { getByTestId } = render(
+        <DateInput autoFocus data-testid="date" />
+    );
+
+    await waitFor(() => expect(getByTestId("date")).toHaveFocus());
+});
+
+
+test("when autofocus is true and the date input is disabled, the date input is not focused on render", async () => {
+    const { getByTestId } = render(
+        <DateInput disabled autoFocus data-testid="date" />
+    );
+
+    await waitFor(() => expect(getByTestId("date")).not.toHaveFocus());
+});
+
+test("when autofocus is true and the date input is readonly, the date input is not focused on render", async () => {
+    const { getByTestId } = render(
+        <DateInput readOnly autoFocus data-testid="date" />
+    );
+
+    await waitFor(() => expect(getByTestId("date")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a de lay, the date input is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <DateInput autoFocus={10} data-testid="date" />
+    );
+
+    await waitFor(() => expect(getByTestId("date")).not.toHaveFocus());
+
+    await waitDelay(10);
 
     await waitFor(() => expect(getByTestId("date")).toHaveFocus());
 });

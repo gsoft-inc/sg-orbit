@@ -242,6 +242,37 @@ test("when in a field, clicking on the field label open the select and focus the
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
 
+test("when autofocus is true, the select trigger is focused on render", async () => {
+    const { getByTestId } = render(
+        <Select
+            autoFocus
+            data-testid="select"
+        >
+            <Item key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
+
+    await waitFor(() => expect(getByTestId("select")).toHaveFocus());
+});
+
+test("when autofocus is true and the select is disabled, the select trigger is not focused on render", async () => {
+    const { getByTestId } = render(
+        <Select
+            disabled
+            autoFocus
+            data-testid="select"
+        >
+            <Item key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
+
+    await waitFor(() => expect(getByTestId("select")).not.toHaveFocus());
+});
+
 // ***** Aria *****
 
 test("a select have an aria-haspopup attribute", async () => {

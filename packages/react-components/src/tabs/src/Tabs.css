@@ -21,6 +21,7 @@
 
 /* TAB */
 .o-ui-tab {
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,18 +98,9 @@
 }
 
 /* TAB | STATE | FOCUS */
-.o-ui-tab:focus:before,
+.o-ui-tab:focus-visible:before,
 .o-ui-tab-focus:before {
     border-color: var(--o-ui-alias-border-primary-1);
-}
-
-.o-ui-tab:focus,
-.o-ui-tab-focus {
-    outline: none;
-}
-
-.o-ui-tab-panel:focus {
-    outline: none;
 }
 
 /* TAB | STATE | HOVER */

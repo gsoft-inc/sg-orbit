@@ -272,7 +272,7 @@ stories()
         </PopoverTrigger>
     )
     .add("manual autofocus", () =>
-        <PopoverTrigger autoFocus open>
+        <PopoverTrigger open>
             <Button>Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>

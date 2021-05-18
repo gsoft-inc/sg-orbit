@@ -7,7 +7,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
     /**
      * Whether or not to show the popover.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of `open` when in auto controlled mode.
      */

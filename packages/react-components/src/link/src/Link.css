@@ -1,10 +1,12 @@
 .o-ui-link {
+    outline: none;
     display: inline-block;
     border: none;
     background-color: var(--o-ui-global-transparent);
     padding: 0;
     position: relative;
     color: inherit;
+    /* direct text is responsible of setting the text decoration style */
     text-decoration: none;
 }
 
@@ -20,9 +22,8 @@
 }
 
 /* STATE | FOCUS */
-.o-ui-link:focus,
+.o-ui-link:focus-visible,
 .o-ui-link-focus {
-    outline: none;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
 }
 
@@ -41,15 +42,15 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
-.o-ui-text-link:focus:after,
+.o-ui-text-link:focus-visible:after,
 .o-ui-text-link-focus:after {
     opacity: 1;
 }
 
 /* STATE | ACTIVE | FOCUS */
-.o-ui-link:active.o-ui-link:focus,
+.o-ui-link:active.o-ui-link:focus-visible,
 .o-ui-link-active.o-ui-link-focus,
-.o-ui-link-active.o-ui-link:focus,
+.o-ui-link-active.o-ui-link:focus-visible,
 .o-ui-link:active.o-ui-link-focus {
     background-color: var(--o-ui-global-transparent);
     box-shadow: none;
@@ -67,7 +68,7 @@
 }
 
 /* STATE | DISABLED | FOCUS */
-.o-ui-link[disabled]:focus,
+.o-ui-link[disabled]:focus-visible,
 .o-ui-link[disabled].o-ui-link-focus {
     background-color: var(--o-ui-global-transparent);
     box-shadow: none;
@@ -88,7 +89,7 @@
 
 /* TEXT | STATES */
 /* TEXT | STATE | FOCUS */
-.o-ui-text-link:focus,
+.o-ui-text-link:focus-visible,
 .o-ui-text-link.o-ui-link-focus {
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
@@ -96,7 +97,7 @@
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) rgba(0, 0, 0, 0.04);
 }
 
-.o-ui-text-link:focus:after,
+.o-ui-text-link:focus-visible:after,
 .o-ui-text-link.o-ui-link-focus:after {
     opacity: 0;
 }
@@ -109,7 +110,7 @@
 }
 
 /* TEXT | STATE | FOCUS */
-.o-ui-link:focus .o-ui-link-text,
+.o-ui-link:focus-visible .o-ui-link-text,
 .o-ui-link-focus .o-ui-link-text {
     text-decoration: underline;
     text-decoration-style: solid;
@@ -118,24 +119,29 @@
 /* TEXT | STATE | DISABLED | HOVER */
 .o-ui-link[disabled]:hover .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-hover .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | DISABLED | FOCUS */
-.o-ui-link[disabled]:focus .o-ui-link-text,
+.o-ui-link[disabled]:focus-visible .o-ui-link-text,
 .o-ui-link[disabled].o-ui-link-focus .o-ui-link-text {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* TEXT | STATE | ACTIVE | FOCUS */
-.o-ui-link:active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link:active.o-ui-link:focus-visible .o-ui-link-text,
 .o-ui-link-active.o-ui-link-focus .o-ui-link-text,
-.o-ui-link-active.o-ui-link:focus .o-ui-link-text,
+.o-ui-link-active.o-ui-link:focus-visible .o-ui-link-text,
 .o-ui-link:active.o-ui-link-focus .o-ui-link-text {
     text-decoration: underline;
 }
 
 /* TEXT | VARIATIONS */
+/* TEXT | VARIATIONS | UNDERLINE | NONE */
+.o-ui-link-no-underline {
+    text-decoration: none;
+}
+
 /* TEXT | VARIATIONS | UNDERLINE | DOTTED */
 .o-ui-link-dotted .o-ui-link-text {
     text-decoration: underline;
@@ -181,7 +187,7 @@
 }
 
 /* PRIMARY | STATE | FOCUS */
-.o-ui-link:focus.o-ui-link-primary,
+.o-ui-link:focus-visible.o-ui-link-primary,
 .o-ui-link-focus.o-ui-link-primary {
     background-color: var(--o-ui-alias-background-primary-1-focus);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-background-primary-1-focus);
@@ -206,7 +212,7 @@
 }
 
 /* DANGER | STATE | FOCUS */
-.o-ui-link:focus.o-ui-link-danger,
+.o-ui-link:focus-visible.o-ui-link-danger,
 .o-ui-link-focus.o-ui-link-danger {
     background-color: var(--o-ui-alias-background-negative-2);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-background-negative-2);
@@ -230,7 +236,7 @@
 }
 
 /* SECONDARY | STATE | FOCUS */
-.o-ui-link:focus.o-ui-link-secondary,
+.o-ui-link:focus-visible.o-ui-link-secondary,
 .o-ui-link-focus.o-ui-link-secondary {
     background-color: var(--o-ui-alias-background-3);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-2);

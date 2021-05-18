@@ -1,46 +1,43 @@
-import { CancellablePromise, cancellablePromise, isPromiseStatus } from "./cancellablePromise";
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { isNil, isPromise, useRefState } from "../../shared";
 
-export function useAsyncSearch<T>(load: (query: string) => Promise<T[]>) {
+export function useAsyncSearch<T>(load: (query: string, signal: AbortSignal) => Promise<T[]>) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState<T[]>([]);
-    const [promise, setPromise] = useRefState<CancellablePromise<T[]>>();
+    const [abortController, setAbortController] = useRefState<AbortController>();
 
     const cancelRequest = useCallback(() => {
-        if (!isNil(promise.current)) {
-            promise.current.cancel();
-            setPromise(null);
+        if (!isNil(abortController.current)) {
+            abortController.current.abort();
+            setAbortController(null);
         }
-    }, [promise, setPromise]);
+    }, [abortController, setAbortController]);
 
     const search = useCallback(async (_event: SyntheticEvent, query: string) => {
         cancelRequest();
+        setAbortController(new AbortController());
+
         setIsLoading(true);
 
-        const loadPromise = load(query);
+        const loadPromise = load(query, abortController.current.signal);
 
         if (!isPromise(loadPromise)) {
             throw new Error("Load function must return a valid promise.");
         }
 
-        const wrappedPromise = cancellablePromise<T[]>(loadPromise);
-
-        setPromise(wrappedPromise);
-
-        wrappedPromise.promise
+        loadPromise
             .then(result => {
                 setItems(result ?? []);
                 setIsLoading(false);
             })
-            .catch((error: unknown) => {
-                // To cancel a promise it must be rejected, ignore it. If it's something else, show no results.
-                if (isNil(error) || (isPromiseStatus(error) && error.isCancelled !== true)) {
+            .catch((error: Error) => {
+                // Do not handle cancelled request.
+                if (isNil(error) || error?.name !== "AbortError") {
                     setItems([]);
                     setIsLoading(false);
                 }
             });
-    }, [load, setIsLoading, setItems, setPromise, cancelRequest]);
+    }, [load, setIsLoading, setItems, abortController, setAbortController, cancelRequest]);
 
     useEffect(() => {
         return () => {

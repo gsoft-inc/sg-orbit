@@ -25,13 +25,4 @@ stories()
             <IconButton className="bg-red" aria-label="Add"><AddIcon /></IconButton>
             <IconButton style={{ backgroundColor: "red" }} aria-label="Add"><AddIcon /></IconButton>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <IconButton autoFocus aria-label="Add"><AddIcon /></IconButton>
-    )
-    .add("when disabled do not autofocus", () =>
-        <IconButton disabled autoFocus aria-label="Add"><AddIcon /></IconButton>
-    )
-    .add("autofocus with delay", () =>
-        <IconButton autoFocus={50} aria-label="Add"><AddIcon /></IconButton>
     );

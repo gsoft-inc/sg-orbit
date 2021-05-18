@@ -1,5 +1,7 @@
 import { FocusEvent } from "react";
-import { isNil, useEventCallback, useRefState } from "../../shared";
+import { isNil } from "./assertions";
+import { useEventCallback } from "./useEventCallback";
+import { useRefState } from "./useRefState";
 
 export interface UseFocusWithinOptions {
     onFocus?: (event: FocusEvent) => void;

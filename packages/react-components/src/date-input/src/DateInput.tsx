@@ -15,7 +15,7 @@ export interface InnerDateInputProps {
     /**
      * A controlled value.
      */
-    value?: Date;
+    value?: Date | null;
     /**
      * The default value of `value` when uncontrolled.
      */

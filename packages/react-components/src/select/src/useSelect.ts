@@ -21,10 +21,11 @@ import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
     id?: string;
-    open?: boolean;
+    open?: boolean | null;
     defaultOpen?: boolean;
-    selectedKey?: string;
+    selectedKey?: string | null;
     defaultSelectedKey?: string;
+    validationState?: "valid" | "invalid";
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     direction: "bottom" | "top";
@@ -47,6 +48,7 @@ export function useSelect(children: ReactNode, {
     defaultOpen,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
+    validationState,
     onSelectionChange,
     onOpenChange,
     direction = "bottom",
@@ -188,6 +190,7 @@ export function useSelect(children: ReactNode, {
         listboxProps: {
             nodes,
             selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
+            validationState,
             onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.

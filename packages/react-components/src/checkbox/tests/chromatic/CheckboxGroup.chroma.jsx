@@ -161,41 +161,6 @@ stories()
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
         </Stack>
-    )
-    .add("autofocus", () =>
-        <CheckboxGroup autoFocus>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
-    .add("when disabled do not autofocus", () =>
-        <CheckboxGroup autoFocus disabled>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
-    .add("do not autofocus disabled checkbox", () =>
-        <CheckboxGroup autoFocus>
-            <Checkbox disabled value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
-    .add("autofocus + default value", () =>
-        <CheckboxGroup autoFocus defaultValue={["2"]}>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
-    )
-    .add("autofocus with delay", () =>
-        <CheckboxGroup autoFocus={50}>
-            <Checkbox value="1">1</Checkbox>
-            <Checkbox value="2">2</Checkbox>
-            <Checkbox value="3">3</Checkbox>
-        </CheckboxGroup>
     );
 
 stories("/vertical")

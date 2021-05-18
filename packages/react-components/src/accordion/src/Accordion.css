@@ -17,6 +17,7 @@
 
 /* TRIGGER */
 .o-ui-accordion-trigger {
+    outline: none;
     display: flex;
     align-items: center;
     text-align: left;
@@ -75,7 +76,7 @@
     color: var(--o-ui-alias-text-2-hover);
 }
 
-/* FOCUR */
+/* ACTIVE */
 .o-ui-accordion-trigger:not([disabled]):active,
 .o-ui-accordion-trigger-active:not([disabled]) {
     color: var(--o-ui-alias-text-2-active);
@@ -94,12 +95,13 @@
     top: 0;
 }
 
-.o-ui-accordion-trigger:focus,
+.o-ui-accordion-trigger:focus-visible,
 .o-ui-accordion-trigger-focus {
     outline: none;
+    position: relative;
 }
 
-.o-ui-accordion-trigger:focus::before,
+.o-ui-accordion-trigger:focus-visible::before,
 .o-ui-accordion-trigger-focus::before {
     border-color: var(--o-ui-alias-border-primary-1);
 }

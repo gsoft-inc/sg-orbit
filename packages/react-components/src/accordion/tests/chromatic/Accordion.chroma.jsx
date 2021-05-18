@@ -277,38 +277,6 @@ stories()
             </Accordion>
         );
     })
-    .add("autofocus", () =>
-        <Accordion autoFocus>
-            <Item>
-                <Header as="h3">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Accordion>
-    )
-    .add("autofocus delay", () =>
-        <Accordion autoFocus={50}>
-            <Item>
-                <Header as="h3">Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header as="h3">Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Accordion>
-    )
     .add("styling", () =>
         <Stack>
             <Inline>

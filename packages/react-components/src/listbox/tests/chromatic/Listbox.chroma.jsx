@@ -337,6 +337,34 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Listbox>
     )
+    .add("validation", () =>
+        <Stack>
+            <Inline>
+                <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+                <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+            </Inline>
+            <Inline>
+                <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+                <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item focus key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+            </Inline>
+        </Stack>
+    )
     .add("states", () =>
         <Inline>
             <Listbox selectedKeys={["earth"]} aria-label="Planets">
@@ -409,95 +437,6 @@ stories()
             </Listbox>
         );
     })
-    .add("autofocus", () =>
-        <Listbox autoFocus aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus when virtual", () =>
-        <Listbox useVirtualFocus autoFocus aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus with sections", () =>
-        <Listbox autoFocus aria-label="Planets">
-            <Section title="Visited">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Section>
-            <Section title="Not Visited">
-                <Item key="jupiter">Jupiter</Item>
-                <Item key="mercury">Mercury</Item>
-                <Item key="neptune">Neptune</Item>
-                <Item key="uranus">Uranus</Item>
-            </Section>
-        </Listbox>
-    )
-    .add("autofocus + selected key", () =>
-        <Listbox autoFocus defaultSelectedKeys={["jupiter"]} aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus + multiple selected key", () =>
-        <Listbox autoFocus defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus first", () =>
-        <Listbox autoFocus defaultFocusTarget="first" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus last", () =>
-        <Listbox autoFocus defaultFocusTarget="last" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus target key", () =>
-        <Listbox autoFocus defaultFocusTarget="jupiter" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("autofocus with delay", () =>
-        <Listbox autoFocus={50} aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
-    .add("do not autofocus first item when disabled", () =>
-        <Listbox autoFocus aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Listbox>
-    )
-    .add("do not autofocus selected item when disabled", () =>
-        <Listbox autoFocus defaultSelectedKeys={["earth"]} aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Listbox>
-    )
     .add("scrolling", () =>
         <Listbox aria-label="Planets">
             <Item key="ceres">Ceres</Item>

@@ -55,18 +55,6 @@ stories()
             </div>
         </Stack>
     )
-    .add("autofocus", () =>
-        <DateInput autoFocus />
-    )
-    .add("when disabled do not autofocus", () =>
-        <DateInput disabled autoFocus />
-    )
-    .add("when readonly do not autofocus", () =>
-        <DateInput readOnly autoFocus />
-    )
-    .add("autofocus with delay", () =>
-        <DateInput autoFocus={50} />
-    )
     .add("validation", () =>
         <Inline>
             <DateInput validationState="invalid" />

@@ -4,6 +4,81 @@ import { Keys } from "@react-components/shared";
 import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the first item header is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item>
+                <Header data-testid="header-1">Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-1")).toHaveFocus());
+});
+
+test("when autofocus is true and the first item is disabled, the next item header is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item disabled>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header data-testid="header-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-2")).toHaveFocus());
+});
+
+test("when autofocus is true and there is a selected key, the header of the item matching the selected key is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs defaultSelectedKey="header-2" autoFocus aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item key="header-2">
+                <Header data-testid="header-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-2")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first item header is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item>
+                <Header data-testid="header-1">Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-1")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("header-1")).toHaveFocus());
+});
 
 // ***** Aria *****
 
