@@ -102,6 +102,22 @@
     background-color: var(--o-ui-alias-background-4);
 }
 
+/* OPTION | STATE | INVALID */
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] {
+    color: var(--o-ui-alias-text-negative-1);
+}
+
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"]::before {
+    background-color: var(--o-ui-alias-text-negative-1);
+}
+
+/* OPTION | STATE | INVALID | FOCUS | SELECTOR BAR */
+.o-ui-listbox-invalid .o-ui-listbox-option:focus:after,
+.o-ui-listbox-invalid .o-ui-listbox-option-focus:after,
+.o-ui-listbox-invalid .o-ui-listbox-option.o-ui-focus:after {
+    background-color: var(--o-ui-alias-text-negative-1);
+}
+
 /* OPTION | ICONS */
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {

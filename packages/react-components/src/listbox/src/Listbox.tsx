@@ -55,6 +55,10 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      */
     defaultSelectedKeys?: string[];
     /**
+     * Whether or not the listbox should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the selected items.
@@ -161,6 +165,7 @@ export function InnerListbox({
     id,
     selectedKeys: selectedKeysProp,
     defaultSelectedKeys,
+    validationState,
     onSelectionChange,
     onFocusChange,
     selectionMode = "single",
@@ -418,13 +423,15 @@ export function InnerListbox({
                     id: rootId,
                     className: cssModule(
                         "o-ui-listbox",
-                        fluid && "fluid"
+                        fluid && "fluid",
+                        validationState
                     ),
                     onKeyDown: handleKeyDown,
                     role: "listbox",
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     "aria-multiselectable": selectionMode === "multiple" ? true : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
                     as,
                     ref: containerRef
                 }

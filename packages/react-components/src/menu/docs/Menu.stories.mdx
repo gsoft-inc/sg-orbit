@@ -262,6 +262,22 @@ A menu item can be disabled.
     </Story>
 </Preview>
 
+### Validation
+
+A menu can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the menu via the `validationState` prop.
+
+<Preview>
+    <Story name="validation">
+        <Menu validationState="invalid" defaultSelectedKeys={["land"]} selectionMode="single" aria-label="View tasks">
+            <Item key="launch">Launch...</Item>
+            <Item key="eject">Eject...</Item>
+            <Item key="land">Land...</Item>
+            <Item key="help">Help</Item>
+            <Item key="exit">Exit</Item>
+        </Menu>
+    </Story>
+</Preview>
+
 ### Selection
 
 A menu supports multiple selection modes. By default, selection is disabled, however this can be changed by settings the `selectionMode` property to `"single"` or `"multiple"`.

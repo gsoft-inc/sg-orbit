@@ -47,6 +47,10 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
      */
     defaultSelectedKeys?: string[];
     /**
+     * Whether or not the menu should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
      * @param {String[]} keys - The keys of the selected items..
@@ -97,6 +101,7 @@ export function InnerMenu({
     id,
     selectedKeys: selectedKeysProp,
     defaultSelectedKeys,
+    validationState,
     onSelectionChange,
     selectionMode = "none",
     nodes: nodesProp,
@@ -280,13 +285,16 @@ export function InnerMenu({
                     id: rootId,
                     className: cssModule(
                         "o-ui-menu",
-                        fluid && "fluid"
+                        fluid && "fluid",
+                        selectionMode !== "none" && "with-selection",
+                        validationState
                     ),
                     onKeyDown: handleKeyDown,
                     role: "menu",
                     "aria-orientation": "vertical",
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
                     as,
                     ref: containerRef
                 }
