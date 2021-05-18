@@ -76,9 +76,9 @@
     background-color: var(--o-ui-alias-background-4-hover);
 }
 
-/* OPTION | STATE | FOCUS | SELECTOR BAR */
-.o-ui-menu-item:focus:after,
-.o-ui-menu-item-focus:after {
+/* OPTION | STATE | FOCUS | WITH SELECTION */
+.o-ui-menu-with-selection .o-ui-menu-item:focus:after,
+.o-ui-menu-with-selection .o-ui-menu-item-focus:after {
     content: "";
     display: block;
     position: absolute;
@@ -109,9 +109,9 @@
     background-color: var(--o-ui-alias-text-negative-1);
 }
 
-/* ITEM | STATE | INVALID | FOCUS | SELECTOR BAR */
-.o-ui-menu-invalid .o-ui-menu-item:focus:after,
-.o-ui-menu-invalid .o-ui-menu-item-focus:after {
+/* ITEM | STATE | INVALID | FOCUS | WITH SELECTION */
+.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item:focus:after,
+.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item-focus:after {
     background-color: var(--o-ui-alias-text-negative-1);
 }
 

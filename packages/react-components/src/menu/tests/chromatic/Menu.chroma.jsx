@@ -371,26 +371,38 @@ stories()
         </Stack>
     )
     .add("states", () =>
-        <Inline>
-            <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-            <Menu selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-            <Menu aria-label="Planets">
-                <Item active key="earth">Earth</Item>
-                <Item focus key="jupiter">Jupiter</Item>
-                <Item hover key="mars">Mars</Item>
-                <Item focus hover key="mercury">Mercury</Item>
-                <Item disabled key="neptune">Neptune</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-        </Inline>
+        <Stack>
+            <Inline>
+                <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+            <Inline>
+                <Menu aria-label="Planets">
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu selectionMode="single" aria-label="Planets">
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+        </Stack>
     )
     .add("dynamic items", () =>
         <Menu aria-label="Planets">

@@ -286,6 +286,7 @@ export function InnerMenu({
                     className: cssModule(
                         "o-ui-menu",
                         fluid && "fluid",
+                        selectionMode !== "none" && "with-selection",
                         validationState
                     ),
                     onKeyDown: handleKeyDown,
