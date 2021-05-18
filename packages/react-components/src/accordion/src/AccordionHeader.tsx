@@ -61,13 +61,14 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         counter: {
             size: "inherit",
             variant: "divider",
+            color: "inherit",
             pushed: true
         }
     }), []));
 
     return (
         <Heading
-            size="sm"
+            size="2xs"
             className="o-ui-accordion-header"
             as={as}
             ref={forwardedRef}
