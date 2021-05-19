@@ -1,6 +1,6 @@
 // Strongly inspired by https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
 
-import { MutableRefObject, RefCallback, RefObject, useCallback, useRef } from "react";
+import { RefCallback, useCallback, useRef } from "react";
 import { isFunction, isNil } from "./assertions";
 
 const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>();
@@ -25,9 +25,7 @@ interface UseResizeObserverOptions extends ResizeObserverOptions {
     isDisabled?: boolean;
 }
 
-export type ResizeRef = RefCallback<HTMLElement> & RefObject<HTMLElement>;
-
-export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}): ResizeRef => {
+export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}): RefCallback<HTMLElement> => {
     const elementRef = useRef<HTMLElement>(null);
 
     const dispose = useCallback(() => {
@@ -47,8 +45,6 @@ export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void
     const resizeRef = ((element: HTMLElement) => {
         dispose();
 
-        (resizeRef as MutableRefObject<HTMLElement>).current = element;
-
         if (!isDisabled) {
             if (!isNil(element)) {
                 elementRef.current = element;
@@ -58,7 +54,7 @@ export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void
                 handlersMap.set(element, onResize);
             }
         }
-    }) as ResizeRef;
+    });
 
     return resizeRef;
 };
