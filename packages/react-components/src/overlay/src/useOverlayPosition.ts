@@ -83,17 +83,17 @@ export function useOverlayPosition({
     }, [position, hasArrow, triggerRef, overlayRef, arrowRef, popperInstanceRef, setPopperInstance, createModifiers]);
 
     return {
-        triggerRef: useMergedRefs((element: HTMLElement) => {
+        triggerRef: useMergedRefs(useCallback((element: HTMLElement) => {
             setTriggerElement(element);
             createPopperInstance();
-        }),
-        overlayRef: useMergedRefs((element: HTMLElement) => {
+        }, [setTriggerElement, createPopperInstance])),
+        overlayRef: useMergedRefs(useCallback((element: HTMLElement) => {
             setOverlayElement(element);
             createPopperInstance();
-        }),
-        arrowRef: useMergedRefs((element: HTMLElement) => {
+        }, [setOverlayElement, createPopperInstance])),
+        arrowRef: useMergedRefs(useCallback((element: HTMLElement) => {
             setArrowElement(element);
             createPopperInstance();
-        })
+        }, [setArrowElement, createPopperInstance]))
     };
 }
