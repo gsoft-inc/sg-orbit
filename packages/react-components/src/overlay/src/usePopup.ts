@@ -11,7 +11,7 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
-import { FocusEvent, SyntheticEvent, useCallback, useState } from "react";
+import { FocusEvent, SyntheticEvent, useCallback } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
 import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
 import { isTargetParent } from "./isTargetParent";
@@ -62,7 +62,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     keyProp
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
-    const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -91,13 +90,13 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         isDisabled: disabled
     });
 
-    const { triggerRef, overlayRef: overlayPositionRef } = useOverlayPosition({
-        arrowElement: hasArrow ? arrowElement : undefined,
+    const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
         position,
         offset,
         allowFlip,
         allowPreventOverflow,
-        boundaryElement
+        boundaryElement,
+        hasArrow
     });
 
     const overlayRef = useMergedRefs(overlayPositionRef, setFocusRef);
@@ -129,7 +128,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     return {
         isOpen,
         setIsOpen: updateIsOpen,
-        arrowElement,
         focusScope,
         focusManager,
         triggerProps: mergeProps(
@@ -154,7 +152,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         ),
         arrowProps: !hasArrow ? {} : {
             className: "o-ui-overlay-arrow",
-            ref: setArrowElement
+            ref: arrowRef
         }
     };
 }
