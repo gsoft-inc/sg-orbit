@@ -25,6 +25,3 @@ stories()
             <Button style={{ backgroundColor: "red" }}>Button</Button>
         </Inline>
     );
-
-
-
