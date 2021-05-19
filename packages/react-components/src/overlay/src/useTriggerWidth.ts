@@ -1,12 +1,11 @@
+import { RefCallback, useState } from "react";
 import { arrayify, useEventCallback, useResizeObserver } from "../../shared";
-import { useState } from "react";
-import type { ResizeRef } from "../../shared";
 
 export interface UseTriggerWidthOptions {
     isDisabled?: boolean;
 }
 
-export function useTriggerWidth({ isDisabled }: UseTriggerWidthOptions = {}): [ResizeRef, string] {
+export function useTriggerWidth({ isDisabled }: UseTriggerWidthOptions = {}): [RefCallback<HTMLElement>, string] {
     const [triggerWidth, setTriggerWidth] = useState<string>();
 
     const handleResize = useEventCallback(entry => {
