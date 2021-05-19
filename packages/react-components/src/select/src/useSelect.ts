@@ -74,7 +74,7 @@ export function useSelect(children: ReactNode, {
         }
     });
 
-    const { isOpen, setIsOpen, focusScope, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, focusScope, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -94,7 +94,7 @@ export function useSelect(children: ReactNode, {
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth({ isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
-    const triggerRef = useMergedRefs(ref, triggerPropsRef, triggerWidthRef);
+    const triggerRef = useMergedRefs(ref, popupTriggerRef, triggerWidthRef);
 
     const updateSelectedKey = useCallback((event: SyntheticEvent, newKeys: string[]) => {
         const newKey = newKeys[0] ?? null;

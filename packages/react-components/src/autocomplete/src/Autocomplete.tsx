@@ -220,7 +220,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -241,7 +241,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [triggerWidthRef, triggerWidth] = useTriggerWidth();
 
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useMergedRefs(forwardedRef, triggerPropsRef, triggerWidthRef);
+    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef, triggerWidthRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
