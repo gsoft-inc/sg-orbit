@@ -4,7 +4,6 @@ import {
     isNumber,
     mergeProps,
     useAutoFocusChild,
-    useCommittedRef,
     useControllableState,
     useEventCallback,
     useFocusManager,
@@ -63,13 +62,9 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     keyProp
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
-    const [triggerElement, setTriggerElement] = useState<HTMLElement>();
-    const [overlayElement, setOverlayElement] = useState<HTMLElement>();
     const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
     const [focusScope, setFocusRef] = useFocusScope();
-
-    const overlayRef = useMergedRefs(setOverlayElement, setFocusRef);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
@@ -88,7 +83,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
@@ -96,7 +91,18 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         isDisabled: disabled
     });
 
-    const overlayDismissProps = usePopupLightDismiss(useCommittedRef(triggerElement), useCommittedRef(overlayElement), {
+    const { triggerRef, overlayRef: overlayPositionRef } = useOverlayPosition({
+        arrowElement: hasArrow ? arrowElement : undefined,
+        position,
+        offset,
+        allowFlip,
+        allowPreventOverflow,
+        boundaryElement
+    });
+
+    const overlayRef = useMergedRefs(overlayPositionRef, setFocusRef);
+
+    const overlayDismissProps = usePopupLightDismiss(triggerRef, overlayRef, {
         trigger,
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
@@ -104,15 +110,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         hideOnEscape: isOpen && hideOnEscape,
         hideOnLeave: isOpen && hideOnLeave,
         hideOnOutsideClick: isOpen && hideOnOutsideClick
-    });
-
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
-        arrowElement: hasArrow ? arrowElement : undefined,
-        position,
-        offset,
-        allowFlip,
-        allowPreventOverflow,
-        boundaryElement
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
@@ -123,7 +120,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         isDisabled: !autoFocus || !isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         onNotFound: useEventCallback(() => {
-            overlayElement?.focus();
+            overlayRef.current?.focus();
         })
     });
 
@@ -132,8 +129,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     return {
         isOpen,
         setIsOpen: updateIsOpen,
-        triggerElement,
-        overlayElement,
         arrowElement,
         focusScope,
         focusManager,
@@ -143,7 +138,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
                 "aria-haspopup": type,
                 "aria-expanded": isOpen ? true : undefined,
                 "aria-controls": isOpen ? overlayId : undefined,
-                ref: setTriggerElement
+                ref: triggerRef
             },
             triggerProps
         ),
@@ -151,17 +146,14 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             {
                 id: overlayId,
                 show: isOpen,
-                style: overlayStyles,
                 tabIndex: -1,
                 ref: overlayRef
             },
             overlayDismissProps,
-            overlayPositionProps,
             restoreFocusProps
         ),
         arrowProps: !hasArrow ? {} : {
             className: "o-ui-overlay-arrow",
-            style: arrowStyles,
             ref: setArrowElement
         }
     };

@@ -35,7 +35,7 @@ interface AutoFocusOptions {
     onFocus?: (element?: HTMLElement) => void;
 }
 
-export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
+export function useAutoFocus(targetRef: RefObject<HTMLElement>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
     useAbstractAutoFocus({
         isDisabled,
         delay,

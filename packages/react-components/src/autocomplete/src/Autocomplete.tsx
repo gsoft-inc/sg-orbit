@@ -10,11 +10,11 @@ import {
     isNilOrEmpty,
     mergeProps,
     omitProps,
-    useCommittedRef,
     useControllableState,
     useEventCallback,
     useFocusWithin,
     useId,
+    useMergedRefs,
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
@@ -25,6 +25,7 @@ import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEv
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
+import { useCommittedRef } from "../../../dist/shared";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 
@@ -220,7 +221,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps: { overlayRef, ...overlayProps } } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -238,8 +239,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         allowPreventOverflow
     });
 
+    const [triggerWidthRef, triggerWidth] = useTriggerWidth();
+
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useCommittedRef(triggerElement);
+    const triggerRef = useMergedRefs(forwardedRef, triggerPropsRef, triggerWidthRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
@@ -308,13 +311,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         close(event);
     }, [setSelection, close]);
 
-    const triggerWidth = useTriggerWidth(triggerElement);
-
     const triggerFocusWithinProps = useFocusWithin({
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(triggerRef)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
-                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayElement)) {
+                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayRef)) {
                     close(event);
                     reset();
                 }
@@ -479,7 +480,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
                         as,
-                        ref: forwardedRef
+                        ref: triggerRef
                     },
                     triggerProps
                 )}

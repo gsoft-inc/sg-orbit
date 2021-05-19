@@ -1,21 +1,22 @@
 import { arrayify, useEventCallback, useResizeObserver } from "../../shared";
 import { useState } from "react";
+import type { ResizeRef } from "../../shared";
 
 export interface UseTriggerWidthOptions {
     isDisabled?: boolean;
 }
 
-export function useTriggerWidth(triggerElement: Element, { isDisabled }: UseTriggerWidthOptions = {}) {
+export function useTriggerWidth({ isDisabled }: UseTriggerWidthOptions = {}): [ResizeRef, string] {
     const [triggerWidth, setTriggerWidth] = useState<string>();
 
     const handleResize = useEventCallback(entry => {
         setTriggerWidth(`${arrayify(entry.borderBoxSize)[0].inlineSize}px`);
     });
 
-    useResizeObserver(triggerElement, handleResize, {
+    const resizeRef = useResizeObserver(handleResize, {
         isDisabled,
         box: "border-box"
     });
 
-    return triggerWidth;
+    return [resizeRef, triggerWidth];
 }

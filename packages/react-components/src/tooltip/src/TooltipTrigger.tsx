@@ -101,6 +101,7 @@ export function InnerTooltipTrigger({
     const [overlayElement, setOverlayElement] = useState<HTMLElement>();
     const [arrowElement, setArrowElement] = useState<HTMLElement>();
 
+    const triggerRef = useCommittedRef(triggerElement);
     const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
@@ -120,7 +121,7 @@ export function InnerTooltipTrigger({
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
@@ -132,7 +133,7 @@ export function InnerTooltipTrigger({
         trigger: "hover",
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent).relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerElement) {
                 updateIsOpen(event, false);
             }
         }),
@@ -141,7 +142,8 @@ export function InnerTooltipTrigger({
         hideOnOutsideClick: false
     });
 
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
+    // TODO: FIX ME
+    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition({
         arrowElement,
         position: positionProp,
         allowFlip,

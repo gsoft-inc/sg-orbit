@@ -67,8 +67,6 @@ export function useSelect(children: ReactNode, {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
-    const triggerRef = useMergedRefs(ref);
-
     const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
@@ -76,7 +74,7 @@ export function useSelect(children: ReactNode, {
         }
     });
 
-    const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, focusScope, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -93,6 +91,10 @@ export function useSelect(children: ReactNode, {
         allowPreventOverflow,
         keyProp: OptionKeyProp
     });
+
+    const [triggerWidthRef, triggerWidth] = useTriggerWidth({ isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
+
+    const triggerRef = useMergedRefs(ref, triggerPropsRef, triggerWidthRef);
 
     const updateSelectedKey = useCallback((event: SyntheticEvent, newKeys: string[]) => {
         const newKey = newKeys[0] ?? null;
@@ -139,8 +141,6 @@ export function useSelect(children: ReactNode, {
         isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
-
-    const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
     const nodes = useCollection(children);
     const items = useOnlyCollectionItems(nodes);
