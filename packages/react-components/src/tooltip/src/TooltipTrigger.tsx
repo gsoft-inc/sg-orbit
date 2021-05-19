@@ -1,9 +1,9 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useState } from "react";
+import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useCommittedRef, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
 interface InnerTooltipTriggerProps {
     /**
@@ -97,11 +97,6 @@ export function InnerTooltipTrigger({
     ...rest
 }: InnerTooltipTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
-    const [triggerElement, setTriggerElement] = useState<HTMLElement>();
-    const [overlayElement, setOverlayElement] = useState<HTMLElement>();
-    const [arrowElement, setArrowElement] = useState<HTMLElement>();
-
-    const overlayRef = useMergedRefs(setOverlayElement, forwardedRef);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
@@ -113,6 +108,17 @@ export function InnerTooltipTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
+    const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
+        hasArrow: true,
+        position: positionProp,
+        allowFlip,
+        boundaryElement: containerElement,
+        // Not accepting prevent overflow feature because when the tooltip is big enough, it cause arrow render issue sometimes when the position is left or right.
+        allowPreventOverflow: false
+    });
+
+    const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef);
+
     const triggerProps = useOverlayTrigger(isOpen, {
         trigger: "hover",
         onShow: useEventCallback((event: SyntheticEvent) => {
@@ -120,7 +126,7 @@ export function InnerTooltipTrigger({
         }),
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayElement)) {
+            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
@@ -128,26 +134,17 @@ export function InnerTooltipTrigger({
         isDisabled: disabled
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(useCommittedRef(overlayElement), {
+    const overlayDismissProps = useOverlayLightDismiss(overlayRef, {
         trigger: "hover",
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerElement) && (event as FocusEvent).relatedTarget !== triggerElement) {
+            if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerRef.current) {
                 updateIsOpen(event, false);
             }
         }),
         hideOnEscape: true,
         hideOnLeave: true,
         hideOnOutsideClick: false
-    });
-
-    const { overlayStyles, overlayProps: overlayPositionProps, arrowStyles } = useOverlayPosition(triggerElement, overlayElement, {
-        arrowElement,
-        position: positionProp,
-        allowFlip,
-        boundaryElement: containerElement,
-        // Not accepting prevent overflow feature because when the tooltip is big enough, it cause arrow render issue sometimes when the position is left or right.
-        allowPreventOverflow: false
     });
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
@@ -158,7 +155,7 @@ export function InnerTooltipTrigger({
         triggerProps,
         {
             "aria-describedby": isOpen ? tooltipId : undefined,
-            ref: setTriggerElement
+            ref: triggerRef
         }
     ));
 
@@ -180,19 +177,14 @@ export function InnerTooltipTrigger({
                         show: isOpen,
                         borderOffset: "var(--o-ui-global-scale-charlie)",
                         zIndex,
-                        style: overlayStyles,
                         as,
                         ref: overlayRef
                     },
-                    overlayDismissProps,
-                    overlayPositionProps
+                    overlayDismissProps
                 )}
             >
                 {tooltipMarkup}
-                <OverlayArrow
-                    style={arrowStyles}
-                    ref={setArrowElement}
-                />
+                <OverlayArrow ref={arrowRef} />
             </Overlay>
         </TooltipTriggerContext.Provider>
     );

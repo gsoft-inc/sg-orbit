@@ -16,7 +16,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useEffect, useMemo, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, Ref, useEffect, useMemo, useState } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
@@ -81,16 +81,20 @@ function useHideBodyScrollbar() {
     }, [stateRef, setState]);
 }
 
-function useElementHasVerticalScrollbar(element: HTMLElement) {
+function useElementHasVerticalScrollbar() {
     const [hasScrollbar, setHasScrollbar] = useState(false);
+    const [elementRef, setElement] = useRefState<HTMLElement>();
 
     const handleElementResize = useEventCallback(() => {
-        setHasScrollbar(element.scrollHeight > element.clientHeight);
+        setHasScrollbar(elementRef.current.scrollHeight > elementRef.current.clientHeight);
     });
 
-    useResizeObserver(element, handleElementResize);
+    const resizeRef = useResizeObserver(handleElementResize);
 
-    return hasScrollbar;
+    return [
+        useMergedRefs(setElement, resizeRef),
+        hasScrollbar
+    ];
 }
 
 export function InnerModal({
@@ -105,15 +109,13 @@ export function InnerModal({
     forwardedRef,
     ...rest
 }: InnerModalProps) {
-    const [wrapperElement, setWrapperElement] = useState<HTMLElement>();
-
     const modalRef = useMergedRefs(forwardedRef);
 
     const { close } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
-    const wrapperHasVerticalScrollbar = useElementHasVerticalScrollbar(wrapperElement);
+    const [wrapperRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
 
     useAutoFocus(modalRef);
 
@@ -162,7 +164,7 @@ export function InnerModal({
                             zIndex: zIndex + 1
                         },
                         as,
-                        ref: setWrapperElement
+                        ref: wrapperRef as Ref<HTMLElement>
                     }
                 )}
             >
