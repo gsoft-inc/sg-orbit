@@ -151,7 +151,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             restoreFocusProps
         ),
         arrowProps: !hasArrow ? {} : {
-            className: "o-ui-overlay-arrow",
             ref: arrowRef
         }
     };

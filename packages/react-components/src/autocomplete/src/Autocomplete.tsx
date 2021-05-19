@@ -25,7 +25,6 @@ import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEv
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
-import { useCommittedRef } from "../../../dist/shared";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 
@@ -221,7 +220,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps: { overlayRef, ...overlayProps } } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerProps: { ref: triggerPropsRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -495,7 +494,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined
-                        }
+                        },
+                        ref: overlayRef
                     },
                     overlayProps
                 )}

@@ -1,6 +1,6 @@
-import { Placement, createPopper } from "@popperjs/core";
+import { Instance, Placement, createPopper } from "@popperjs/core";
 import { isNil, useMergedRefs, useRefState } from "../../shared";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 
 export type OverlayPosition = Placement;
 
@@ -24,7 +24,7 @@ export function useOverlayPosition({
     const [triggerRef, setTriggerElement] = useRefState<HTMLElement>();
     const [overlayRef, setOverlayElement] = useRefState<HTMLElement>();
     const [arrowRef, setArrowElement] = useRefState<HTMLElement>();
-    const [popperInstanceRef, setPopperInstance] = useRefState();
+    const [popperInstanceRef, setPopperInstance] = useRefState<Instance>();
 
     const createModifiers = useCallback(() => {
         const modifiers = [];
@@ -64,12 +64,11 @@ export function useOverlayPosition({
         }
 
         return modifiers;
-    }, []);
+    }, [offset, allowFlip, allowPreventOverflow, boundaryElement, hasArrow, arrowRef]);
 
     const createPopperInstance = useCallback(() => {
         if (!isNil(triggerRef.current) && !isNil(overlayRef.current)) {
             if (!hasArrow || (hasArrow && !isNil(arrowRef.current))) {
-                // @ts-ignore
                 popperInstanceRef.current?.destroy();
 
                 const instance = createPopper(triggerRef.current, overlayRef.current, {

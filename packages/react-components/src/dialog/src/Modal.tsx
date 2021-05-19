@@ -16,7 +16,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useEffect, useMemo, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, Ref, useEffect, useMemo, useState } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { Underlay } from "../../overlay";
@@ -109,8 +109,6 @@ export function InnerModal({
     forwardedRef,
     ...rest
 }: InnerModalProps) {
-    // const [wrapperElement, setWrapperElement] = useState<HTMLElement>();
-
     const modalRef = useMergedRefs(forwardedRef);
 
     const { close } = useDialogTriggerContext();
@@ -166,7 +164,7 @@ export function InnerModal({
                             zIndex: zIndex + 1
                         },
                         as,
-                        ref: wrapperRef
+                        ref: wrapperRef as Ref<HTMLElement>
                     }
                 )}
             >
