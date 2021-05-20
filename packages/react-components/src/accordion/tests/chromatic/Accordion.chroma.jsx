@@ -16,7 +16,7 @@ function stories(segment) {
 
 createAccordionTestSuite(<Accordion variant="borderless" />, stories("/borderless"));
 
-createAccordionTestSuite(<Accordion variant="bordered" />, stories("/bordered"));
+createAccordionTestSuite(<Accordion variant="contained" />, stories("/contained"));
 
 stories()
     .add("styling", () =>
