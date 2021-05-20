@@ -1,28 +1,30 @@
 .o-ui-accordion {
     display: flex;
     flex-direction: column;
-    box-shadow: var(--o-ui-alias-elevation-skim);
-    border-radius: var(--o-ui-global-scale-bravo);
     overflow-anchor: none;
     width: 100%;
 }
 
+/* BORDERED */
+.o-ui-accordion-bordered {
+    box-shadow: var(--o-ui-alias-elevation-skim);
+    border-radius: var(--o-ui-global-scale-bravo);
+    background-color: var(--o-ui-alias-background-1);
+}
+
 /* HEADER */
 .o-ui-accordion-header {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 }
 
-.o-ui-accordion-header:first-of-type,
-.o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
-    border-top: 0;
-    border-top-left-radius: var(--o-ui-global-scale-bravo);
-    border-top-right-radius: var(--o-ui-global-scale-bravo);
+/* HEADER BORDERLESS */
+.o-ui-accordion-borderless .o-ui-accordion-header .o-ui-accordion-trigger {
+    padding-top: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
 }
 
-.o-ui-accordion-header:nth-last-child(2) .o-ui-accordion-trigger[aria-expanded="false"],
-.o-ui-accordion-header:nth-last-child(2) + div .o-ui-accordion-panel {
-    border-bottom-left-radius: var(--o-ui-global-scale-bravo);
-    border-bottom-right-radius: var(--o-ui-global-scale-bravo);
+.o-ui-accordion-header:first-child {
+    margin-top: 0;
 }
 
 /* TRIGGER */
@@ -31,47 +33,69 @@
     display: flex;
     align-items: center;
     text-align: left;
-    background-color: var(--o-ui-alias-background-1);
     cursor: pointer;
+    background-color: transparent;
     border: 0;
-    border-top: 1px solid var(--o-ui-alias-border-2);
-    transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius  5s linear;
+    transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
     width: 100%;
     color: var(--o-ui-alias-text-2);
     line-height: inherit;
     font-weight: inherit;
+    position: relative;
+    padding: 0 var(--o-ui-global-scale-bravo);
 }
 
-.o-ui-accordion-header-sm .o-ui-accordion-trigger {
-    padding: calc(var(--o-ui-global-scale-charlie) - 1px) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-foxtrot);
-}
-
-.o-ui-accordion-header-md .o-ui-accordion-trigger {
+/* TRIGGER | BORDERED */
+.o-ui-accordion-bordered .o-ui-accordion-trigger {
+    background-color: var(--o-ui-alias-background-1);
     padding: calc(var(--o-ui-global-scale-delta) - 1px) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-delta) var(--o-ui-global-scale-foxtrot);
+    border-top: 1px solid var(--o-ui-alias-border-2);
 }
 
-/* TRIGGER | ICON */
-.o-ui-accordion-header-md .o-ui-accordion-trigger-has-icon,
-.o-ui-accordion-header-sm .o-ui-accordion-trigger-has-icon{
-    padding-left: var(--o-ui-global-scale-echo);
+/* TRIGGER | BORDERED | HOVER */
+.o-ui-accordion .o-ui-accordion-trigger:not([disabled]):hover,
+.o-ui-accordion .o-ui-accordion-trigger-hover:not([disabled]) {
+    background-color: var(--o-ui-alias-background-accordion-hover);
 }
 
-/* TRIGGER | TITLE */
-.o-ui-accordion-title {
+/* TRIGGER | CONTENT */
+.o-ui-accordion-trigger-content {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
+    line-height: 1;
 }
 
-/* TRIGGER | TITLE | ICON */
+/* TRIGGER | CONTENT | TITLE */
+.o-ui-accordion-title {
+    line-height: 1;
+}
+
+/* TRIGGER | BORDERED | HAS ICON */
+.o-ui-accordion-bordered .o-ui-accordion-trigger.o-ui-accordion-trigger-has-icon {
+    padding-left: var(--o-ui-global-scale-delta);
+}
+
 .o-ui-accordion-icon + .o-ui-accordion-title {
     margin-left: var(--o-ui-global-scale-alpha);
 }
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--o-ui-text-1);
-    padding-left: var(--o-ui-global-scale-echo);
-    padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-foxtrot));
+    color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);
+}
+
+/* PANEL | BORDERLESS */
+.o-ui-accordion-borderless .o-ui-accordion-panel {
+    padding-left: var(--o-ui-global-scale-bravo);
+    padding-right: var(--o-ui-global-scale-bravo);
+}
+
+/* PANEL | BORDERED */
+.o-ui-accordion-bordered .o-ui-accordion-panel {
+    padding-left: var(--o-ui-global-scale-foxtrot);
+    padding-right: calc(var(--o-ui-global-scale-foxtrot) + var(--o-ui-global-scale-foxtrot));
 }
 
 /* STATES */
@@ -101,23 +125,55 @@
 .o-ui-accordion-trigger::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: var(--o-ui-global-scale-bravo);
-    right: var(--o-ui-global-scale-bravo);
-    bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
-    height: var(--o-ui-global-scale-golf);
-    transform: translateY(-50%);
+}
+
+/* FOCUS | BORDERLESS */
+.o-ui-accordion-borderless .o-ui-accordion-trigger::before {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+/* FOCUS | BORDERED */
+.o-ui-accordion-bordered .o-ui-accordion-trigger::before {
+    left: var(--o-ui-global-scale-delta);
+    right: var(--o-ui-global-scale-delta);
+    bottom: var(--o-ui-global-scale-bravo);
+    top: var(--o-ui-global-scale-bravo);
 }
 
 .o-ui-accordion-trigger:focus-visible,
 .o-ui-accordion-trigger-focus {
+    outline: none;
     position: relative;
 }
 
 .o-ui-accordion-trigger:focus-visible::before,
 .o-ui-accordion-trigger-focus::before {
     border-color: var(--o-ui-alias-border-primary-1);
+}
+
+/* BORDERED | FIRST ITEM | BORDER RADIUS */
+.o-ui-accordion-bordered .o-ui-accordion-header:first-of-type,
+.o-ui-accordion-bordered .o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
+    border-top-left-radius: var(--o-ui-global-scale-bravo);
+    border-top-right-radius: var(--o-ui-global-scale-bravo);
+}
+
+/* BORDERED | LAST ITEM | BORDER RADIUS */
+.o-ui-accordion-bordered .o-ui-accordion-header:last-of-type,
+.o-ui-accordion-bordered .o-ui-accordion-header:last-of-type .o-ui-accordion-trigger {
+    border-bottom-left-radius: var(--o-ui-global-scale-bravo);
+    border-bottom-right-radius: var(--o-ui-global-scale-bravo);
+}
+
+/* BORDERED | LAST PANEL | BORDER RADIUS */
+.o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type,
+.o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type .o-ui-accordion-trigger {
+    border-bottom-left-radius: var(--o-ui-global-scale-bravo);
+    border-bottom-right-radius: var(--o-ui-global-scale-bravo);
 }

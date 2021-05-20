@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading } from "../../heading";
-import { InteractionStatesProps, adaptSize, cssModule, forwardRef, isNil, mergeProps, normalizeSize, omitProps, useSlots } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 import { Text } from "../../text";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
@@ -13,10 +13,6 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     header?: {
         key: string;
     };
-    /**
-     * An accordion header can vary in size.
-     */
-    size?: "sm" | "md";
     /**
      * Whether or not the tab is disabled.
      */
@@ -37,7 +33,6 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     const {
-        size,
         disabled,
         active,
         focus,
@@ -52,30 +47,29 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }
 
-    const { icon, text } = useSlots(children, useMemo(() => ({
+    const { icon, text, counter } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
         icon: {
-            size,
             className: "o-ui-accordion-icon"
         },
         text: {
             size: "inherit",
             className: "o-ui-accordion-title"
+        },
+        counter: {
+            size: "inherit",
+            variant: "divider",
+            color: "inherit",
+            pushed: true
         }
-    }), [size]));
+    }), []));
 
     return (
         <Heading
-            size={adaptSize(size, {
-                "sm": "xs",
-                "md": "sm"
-            })}
-            className={cssModule(
-                "o-ui-accordion-header",
-                normalizeSize(size)
-            )}
+            size="2xs"
+            className="o-ui-accordion-header"
             as={as}
             ref={forwardedRef}
         >
@@ -95,12 +89,12 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                 )}
                 type="button"
             >
-                {icon}
-                {text}
-                <DisclosureArrow
-                    size={size}
-                    className="o-ui-accordion-arrow"
-                />
+                <div className="o-ui-accordion-trigger-content">
+                    {icon}
+                    {text}
+                    {counter}
+                </div>
+                <DisclosureArrow className="o-ui-accordion-arrow" />
             </button>
         </Heading>
     );

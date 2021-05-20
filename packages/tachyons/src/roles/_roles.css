@@ -129,6 +129,9 @@
 .background-input-selection {
     background-color: var(--o-ui-alias-background-input-selection);
 }
+.background-accordion-hover:hover {
+    background-color: var(--o-ui-alias-background-accordion-hover);
+}
 
     /* TEXT */
 .text-1 {

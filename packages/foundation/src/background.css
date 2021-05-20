@@ -32,6 +32,7 @@
     --o-ui-alias-background-info-1-hover: var(--o-ui-global-marine-100);
     --o-ui-alias-background-info-active: var(--o-ui-global-marine-300);
     --o-ui-alias-background-input-selection: var(--o-ui-alias-primary-100);
+    --o-ui-alias-background-accordion-hover: rgba(0, 0, 0, 0.04);
 }
 
 .o-ui-dark {
@@ -68,4 +69,5 @@
     --o-ui-alias-background-info-1-hover: var(--o-ui-global-marine-400);
     --o-ui-alias-background-info-1-active: var(--o-ui-global-marine-300);
     --o-ui-alias-background-input-selection: var(--o-ui-alias-primary-900);
+    --o-ui-alias-background-accordion-hover: rgba(256, 256, 256, 0.04);
 }
