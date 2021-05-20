@@ -2,7 +2,7 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { CalendarIcon, VerticalDotsIcon } from "../../icons";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
 import { CrossButton, IconButton } from "../../button";
 import { Divider } from "../../divider";
 import {
@@ -295,7 +295,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     });
 
     const focusWithinProps = useFocusWithin({
-        // @ts-ignore
         onFocus: useEventCallback((event: FocusEvent) => {
             if (!isNil(onFocus)) {
                 onFocus(event);
@@ -303,7 +302,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
             setHasFocus(true);
         }),
-        // @ts-ignore
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isNil(onBlur)) {
                 onBlur(event);

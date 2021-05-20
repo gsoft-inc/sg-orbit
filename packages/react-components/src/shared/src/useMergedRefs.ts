@@ -1,7 +1,9 @@
-import { ForwardedRef, MutableRefObject, RefCallback, RefObject, useCallback } from "react";
+import { MutableRefObject, RefCallback, RefObject, SetStateAction, useCallback } from "react";
 import { isFunction, isNil } from "./assertions";
 
-export function assignRef<T>(ref: ForwardedRef<T>, node: T) {
+export type AssignableRef<T> = MutableRefObject<T> | RefCallback<T>;
+
+export function assignRef<T>(ref: AssignableRef<T>, node: T) {
     if (!isNil(ref)) {
         if (isFunction(ref)) {
             ref(node);
@@ -11,22 +13,25 @@ export function assignRef<T>(ref: ForwardedRef<T>, node: T) {
     }
 }
 
+export type UnwrapStateType<T> = T extends SetStateAction<infer U> ? U : T;
+
 export type MergedRef<T> = RefCallback<T> & RefObject<T>;
 
-export function mergeRefs<T>(...refs: ForwardedRef<T>[]) {
+export function mergeRefs<T>(...refs: AssignableRef<T>[]) {
     const mergedRef = ((current: T) => {
         (mergedRef as MutableRefObject<T>).current = current;
+
         refs
             .filter(Boolean)
             .forEach(ref => {
-                assignRef(ref, current);
+                assignRef<T>(ref, current);
             });
-    }) as MergedRef<T>;
+    }) as MergedRef<UnwrapStateType<T>>;
 
     return mergedRef;
 }
 
-export function useMergedRefs<T>(...refs: ForwardedRef<T>[]) {
+export function useMergedRefs<T>(...refs: AssignableRef<T>[]) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    return useCallback(mergeRefs(...refs), refs);
+    return useCallback(mergeRefs<T>(...refs), refs);
 }

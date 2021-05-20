@@ -1,6 +1,6 @@
 import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
-import { RefObject, useEffect } from "react";
+import { RefObject, useLayoutEffect } from "react";
 import { disposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
@@ -12,7 +12,7 @@ interface AbstractAutoFocusOptions {
 }
 
 function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusOptions) {
-    useEffect(() => {
+    useLayoutEffect(() => {
         const d = disposables();
 
         if (!isDisabled) {
@@ -35,13 +35,13 @@ interface AutoFocusOptions {
     onFocus?: (element?: HTMLElement) => void;
 }
 
-export function useAutoFocus<T extends HTMLElement>(targetRef: RefObject<T>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
+export function useAutoFocus(targetRef: RefObject<HTMLElement>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
     useAbstractAutoFocus({
         isDisabled,
         delay,
         onFocus: useChainedEventCallback(onFocus, () => {
             if (!targetRef.current?.hasAttribute("disabled") && !targetRef.current?.contains(document.activeElement)) {
-                targetRef.current.focus();
+                targetRef.current?.focus();
             }
         })
     });
