@@ -7,6 +7,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import {
     DomProps,
     Keys,
+    cssModule,
     forwardRef,
     isNil,
     isNumber,
@@ -124,7 +125,10 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
-                    className: `o-ui-accordion o-ui-accordion-${variant}`,
+                    className: cssModule(
+                        "o-ui-accordion",
+                        variant
+                    ),
                     as,
                     ref: containerRef
                 },
