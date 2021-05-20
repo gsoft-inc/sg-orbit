@@ -14,7 +14,7 @@ function stories(segment) {
         .build();
 }
 
-createAccordionTestSuite(<Accordion variant="borderless" />, stories("/default"));
+createAccordionTestSuite(<Accordion variant="borderless" />, stories("/borderless"));
 
 createAccordionTestSuite(<Accordion variant="bordered" />, stories("/bordered"));
 
