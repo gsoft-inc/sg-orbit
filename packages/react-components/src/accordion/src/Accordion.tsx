@@ -46,7 +46,7 @@ export interface InnerAccordionProps extends DomProps {
     /**
      * The type of expansion that is allowed.
      */
-    variant: "bordered" | "borderless";
+    variant: "borderless" | "contained";
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */

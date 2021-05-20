@@ -101,8 +101,14 @@
 }
 
 /* ITEM | STATE | INVALID */
-.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] {
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-label,
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-description {
     color: var(--o-ui-alias-text-negative-1);
+}
+
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-start-icon,
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-end-icon {
+    fill: var(--o-ui-alias-text-negative-1);
 }
 
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {

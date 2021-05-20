@@ -341,26 +341,58 @@ stories()
         <Stack>
             <Inline>
                 <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
                 </Listbox>
                 <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
                 </Listbox>
             </Inline>
             <Inline>
                 <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item focus key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item focus key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
                 </Listbox>
                 <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item focus key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item focus key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
                 </Listbox>
             </Inline>
         </Stack>

@@ -103,8 +103,14 @@
 }
 
 /* OPTION | STATE | INVALID */
-.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] {
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-label,
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-description {
     color: var(--o-ui-alias-text-negative-1);
+}
+
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-start-icon,
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-end-icon {
+    fill: var(--o-ui-alias-text-negative-1);
 }
 
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"]::before {
