@@ -118,7 +118,7 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
-.o-ui-radio input[type="radio"]:focus + .o-ui-radio-button:after,
+.o-ui-radio input[type="radio"]:focus-visible + .o-ui-radio-button:after,
 .o-ui-radio-focus .o-ui-radio-button:after {
     opacity: 1;
 }
@@ -142,7 +142,7 @@
 }
 
 /* STATE | DISABLED | FOCUS | CIRCLE */
-.o-ui-radio-disabled input[type="radio"]:focus + .o-ui-radio-button {
+.o-ui-radio-disabled input[type="radio"]:focus-visible + .o-ui-radio-button {
     box-shadow: none;
 }
 

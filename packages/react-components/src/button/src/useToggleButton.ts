@@ -5,7 +5,7 @@ export interface UseToggleButtonProps<Shape> {
     variant?: "solid" | "outline" | "ghost";
     shape?: Shape;
     active?: boolean;
-    checked?: boolean;
+    checked?: boolean | null;
     defaultChecked?: boolean;
     value?: string;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
@@ -13,8 +13,8 @@ export interface UseToggleButtonProps<Shape> {
     forwardedRef?: ForwardedRef<any>;
 }
 
-//TODO: TS We had to have a shape be generic, since Toggle Button and ToggleIconButton don't have the same shape allowed.
-// We want to preserve in the output type the same type as the one in the input props.
+// The shape is generic since ToggleButton and ToggleIconButton don't allow the same shapes. The output type of useToggleButton
+// must forward the exact shape type as the one received in the parameters.
 export function useToggleButton<Shape>({
     variant,
     shape,

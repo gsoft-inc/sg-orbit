@@ -21,10 +21,11 @@ import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
     id?: string;
-    open?: boolean;
+    open?: boolean | null;
     defaultOpen?: boolean;
-    selectedKey?: string;
+    selectedKey?: string | null;
     defaultSelectedKey?: string;
+    validationState?: "valid" | "invalid";
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     direction: "bottom" | "top";
@@ -47,6 +48,7 @@ export function useSelect(children: ReactNode, {
     defaultOpen,
     selectedKey: selectedKeyProp,
     defaultSelectedKey,
+    validationState,
     onSelectionChange,
     onOpenChange,
     direction = "bottom",
@@ -65,8 +67,6 @@ export function useSelect(children: ReactNode, {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
-    const triggerRef = useMergedRefs(ref);
-
     const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
@@ -74,7 +74,7 @@ export function useSelect(children: ReactNode, {
         }
     });
 
-    const { isOpen, setIsOpen, triggerElement, focusScope, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, focusScope, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -86,10 +86,15 @@ export function useSelect(children: ReactNode, {
         trigger: "click",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
+        disabled,
         allowFlip,
         allowPreventOverflow,
         keyProp: OptionKeyProp
     });
+
+    const [triggerWidthRef, triggerWidth] = useTriggerWidth({ isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
+
+    const triggerRef = useMergedRefs(ref, popupTriggerRef, triggerWidthRef);
 
     const updateSelectedKey = useCallback((event: SyntheticEvent, newKeys: string[]) => {
         const newKey = newKeys[0] ?? null;
@@ -136,8 +141,6 @@ export function useSelect(children: ReactNode, {
         isDisabled: !autoFocus || isOpen,
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
-
-    const triggerWidth = useTriggerWidth(triggerElement, { isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
 
     const nodes = useCollection(children);
     const items = useOnlyCollectionItems(nodes);
@@ -187,6 +190,7 @@ export function useSelect(children: ReactNode, {
         listboxProps: {
             nodes,
             selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
+            validationState,
             onSelectionChange: handleListboxSelectionChange,
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.

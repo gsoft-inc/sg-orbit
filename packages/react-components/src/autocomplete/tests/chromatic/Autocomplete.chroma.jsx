@@ -263,13 +263,6 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
-    .add("autofocus trigger", () =>
-        <Autocomplete autoFocus placeholder="Select a planet" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </Autocomplete>
-    )
     .add("trigger states", () =>
         <Stack>
             <Inline>

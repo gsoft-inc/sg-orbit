@@ -2,7 +2,7 @@ import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Image } from "@react-components/image";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Menu, MenuItem } from "@react-components/menu";
 import { Text } from "@react-components/text";
@@ -342,27 +342,99 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Menu>
     )
+    .add("validation state", () =>
+        <Stack>
+            <Inline>
+                <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
+                </Menu>
+                <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
+                </Menu>
+            </Inline>
+            <Inline>
+                <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item focus key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
+                </Menu>
+                <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">
+                        <LightbulbIcon />
+                        <Text>Earth</Text>
+                        <Text slot="description">Home sweet home!</Text>
+                    </Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item focus key="mars">
+                        <LightbulbIcon />
+                        <Text>Mars</Text>
+                        <Text slot="description">See you in 2026</Text>
+                    </Item>
+                </Menu>
+            </Inline>
+        </Stack>
+    )
     .add("states", () =>
-        <Inline>
-            <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-            <Menu selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-            <Menu aria-label="Planets">
-                <Item active key="earth">Earth</Item>
-                <Item focus key="jupiter">Jupiter</Item>
-                <Item hover key="mars">Mars</Item>
-                <Item focus hover key="mercury">Mercury</Item>
-                <Item disabled key="neptune">Neptune</Item>
-                <Item key="saturn">Saturn</Item>
-            </Menu>
-        </Inline>
+        <Stack>
+            <Inline>
+                <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu selectedKeys={["earth", "mars"]} selectionMode="multiple" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+            <Inline>
+                <Menu aria-label="Planets">
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu selectionMode="single" aria-label="Planets">
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Menu>
+            </Inline>
+        </Stack>
     )
     .add("dynamic items", () =>
         <Menu aria-label="Planets">
@@ -411,81 +483,6 @@ stories()
             </Menu>
         );
     })
-    .add("autofocus", () =>
-        <Menu autoFocus aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus with sections", () =>
-        <Menu autoFocus aria-label="Planets">
-            <Section title="Visited">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Section>
-            <Section title="Not Visited">
-                <Item key="jupiter">Jupiter</Item>
-                <Item key="mercury">Mercury</Item>
-                <Item key="neptune">Neptune</Item>
-                <Item key="uranus">Uranus</Item>
-            </Section>
-        </Menu>
-    )
-    .add("autofocus + selected key", () =>
-        <Menu autoFocus defaultSelectedKeys={["jupiter"]} selectionMode="single" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus + multiple selected key", () =>
-        <Menu autoFocus defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus with delay", () =>
-        <Menu autoFocus={50} aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus first", () =>
-        <Menu autoFocus defaultFocusTarget="first" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus last", () =>
-        <Menu autoFocus defaultFocusTarget="last" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus target key", () =>
-        <Menu autoFocus defaultFocusTarget="jupiter" aria-label="Planets">
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    )
-    .add("autofocus first item when disabled", () =>
-        <Menu autoFocus aria-label="Planets">
-            <Item disabled key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="mercury">Mercury</Item>
-            <Item key="neptune">Neptune</Item>
-            <Item key="saturn">Saturn</Item>
-            <Item key="uranus">Uranus</Item>
-        </Menu>
-    )
     .add("adapt width to largest item", () =>
         <Menu aria-label="Planets">
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>

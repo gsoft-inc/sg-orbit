@@ -2,6 +2,27 @@ import { CrossButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 
+// ***** Api *****
+
+test("can focus the button with the focus api", async () => {
+    let refNode = null;
+
+    render(
+        <CrossButton
+            ref={node => {
+                refNode = node;
+            }}
+            aria-label="Clear"
+        />
+    );
+
+    act(() => {
+        refNode.focus();
+    });
+
+    await waitFor(() => expect(refNode).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
@@ -43,25 +64,4 @@ test("set ref once", async () => {
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-});
-
-// ***** Api *****
-
-test("can focus the button with the focus api", async () => {
-    let refNode = null;
-
-    render(
-        <CrossButton
-            ref={node => {
-                refNode = node;
-            }}
-            aria-label="Clear"
-        />
-    );
-
-    act(() => {
-        refNode.focus();
-    });
-
-    await waitFor(() => expect(refNode).toHaveFocus());
 });

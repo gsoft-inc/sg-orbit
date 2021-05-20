@@ -2,6 +2,79 @@ import { AddIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the button is focused on render", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            autoFocus
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
+
+test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            disabled
+            autoFocus
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <IconButton
+            autoFocus={10}
+            aria-label="Add"
+            data-testid="button"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+});
+
+// ***** Api *****
+
+test("can focus the button with the focus api", async () => {
+    let refNode = null;
+
+    render(
+        <IconButton
+            ref={node => {
+                refNode = node;
+            }}
+            aria-label="Add"
+        >
+            <AddIcon />
+        </IconButton>
+    );
+
+    act(() => {
+        refNode.focus();
+    });
+
+    await waitFor(() => expect(refNode).toHaveFocus());
+});
 
 // ***** Refs *****
 
@@ -50,27 +123,4 @@ test("set ref once", async () => {
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-});
-
-// ***** Api *****
-
-test("can focus the button with the focus api", async () => {
-    let refNode = null;
-
-    render(
-        <IconButton
-            ref={node => {
-                refNode = node;
-            }}
-            aria-label="Add"
-        >
-            <AddIcon />
-        </IconButton>
-    );
-
-    act(() => {
-        refNode.focus();
-    });
-
-    await waitFor(() => expect(refNode).toHaveFocus());
 });

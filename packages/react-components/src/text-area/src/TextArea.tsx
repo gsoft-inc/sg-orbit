@@ -38,9 +38,10 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
     /**
      * Called when the input value change.
      * @param {ChangeEvent} event - React's original synthetic event.
+     * @param {string} value - The input value.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -106,6 +107,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         resize,
         required,
         validationState,
+        onChange,
         type = "text",
         autoFocus,
         button,
@@ -130,8 +132,14 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
+        const newValue = event.target.value;
+
+        if (!isNil(onChange)) {
+            onChange(event, newValue);
+        }
+
+        setValue(newValue);
     });
 
     const { wrapperProps, inputProps, inputRef } = useInput({

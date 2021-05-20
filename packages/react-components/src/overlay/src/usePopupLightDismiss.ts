@@ -41,7 +41,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
                     //
                     // useOverlayTrigger "onHide" already handle most of this logic but still, this case must be handled here to distinguish
                     // "trigger" clicks from other "outside" clicks.
-                    if (!isTargetParent(event.target, triggerRef.current)) {
+                    if (!isTargetParent(event.target, triggerRef)) {
                         hide(event);
                     }
                     break;

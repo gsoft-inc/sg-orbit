@@ -24,16 +24,4 @@ stories()
             <Button className="bg-red">Button</Button>
             <Button style={{ backgroundColor: "red" }}>Button</Button>
         </Inline>
-    )
-    .add("autofocus", () =>
-        <Button autoFocus>Button</Button>
-    )
-    .add("when disabled do not autofocus", () =>
-        <Button disabled autoFocus>Button</Button>
-    )
-    .add("autofocus with delay", () =>
-        <Button autoFocus={50}>Button</Button>
     );
-
-
-

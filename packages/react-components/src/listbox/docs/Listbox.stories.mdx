@@ -323,6 +323,24 @@ A listbox can take the width of it's container.
     </Story>
 </Preview>
 
+### Validation
+
+A listbox can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the listbox via the `validationState` prop.
+
+<Preview>
+    <Story name="validation">
+        <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+        </Listbox>
+    </Story>
+</Preview>
+
 ### Controlled
 
 The `selectedKeys` state can be handled in controlled mode.

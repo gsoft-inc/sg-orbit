@@ -22,7 +22,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
     * A controlled checked state value.
     */
-    checked?: boolean;
+    checked?: boolean | null;
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -30,7 +30,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
      * A controlled indeterminate state value.
      */
-    indeterminate?: boolean;
+    indeterminate?: boolean | null;
     /**
      * The initial value of `indeterminate`.
      */
@@ -66,9 +66,10 @@ export interface InnerCheckboxProps extends InteractionStatesProps {
     /**
      * Called when the checkbox checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
+     * @param {boolean} isChecked - Whether or not the input is checked.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -119,8 +120,14 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         omitProps(fieldProps, ["fluid"])
     );
 
-    const handleCheck = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
-        onCheck(event, value);
+    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
+        if (!isNil(onChange)) {
+            onChange(event, isChecked);
+        }
+
+        if (!isNil(onCheck)) {
+            onCheck(event, value);
+        }
     });
 
     const { wrapperProps, inputProps } = useCheckbox({
@@ -134,7 +141,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         autoFocus,
         required,
         validationState,
-        onChange: !isNil(onCheck) ? handleCheck : onChange,
+        onChange: handleChange,
         size,
         reverse,
         name,

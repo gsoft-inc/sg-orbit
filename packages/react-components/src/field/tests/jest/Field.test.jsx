@@ -1,46 +1,17 @@
-import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
-import { Field, GroupField, Label } from "@react-components/field";
+import { Field, HelpMessage, Label } from "@react-components/field";
 import { TextInput } from "@react-components/text-input";
-import { createRef, forwardRef } from "react";
+import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-function LabelledInputField(props) {
-    return (
-        <Field {...props} data-testid="field">
+// ***** Aria *****
+
+test("when an id is provided, it is assigned to the input", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
     );
-}
-
-function LabelledGroupInputField(props) {
-    return (
-        <GroupField {...props} data-testid="field">
-            <Label data-testid="field-label">Your favorite galaxy?</Label>
-            <CheckboxGroup data-testid="checkbox-group">
-                <Checkbox value="milky-way" >Milky Way</Checkbox>
-                <Checkbox value="andromeda">Andromeda</Checkbox>
-                <Checkbox value="medusa">Medusa</Checkbox>
-            </CheckboxGroup>
-        </GroupField>
-    );
-}
-
-const InputField = forwardRef((props, ref) => {
-    return (
-        <Field
-            {...props}
-            ref={ref}
-        >
-            <TextInput />
-        </Field>
-    );
-});
-
-// ***** Ids *****
-
-test("when an id is provided, it is assigned to the input", async () => {
-    const { getByTestId } = render(<LabelledInputField id="foo" />);
 
     const input = await waitFor(() => getByTestId("text-input"));
 
@@ -48,7 +19,12 @@ test("when an id is provided, it is assigned to the input", async () => {
 });
 
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
-    const { getByTestId } = render(<LabelledInputField />);
+    const { getByTestId } = render(
+        <Field data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
 
     const input = await waitFor(() => getByTestId("text-input"));
     const label = await waitFor(() => getByTestId("field-label"));
@@ -57,7 +33,12 @@ test("when the id is auto generated, the label for attribute and the input id ar
 });
 
 test("when an id is provided, the label for attribute and the input id are matching", async () => {
-    const { getByTestId } = render(<LabelledInputField id="foo" />);
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
 
     const input = await waitFor(() => getByTestId("text-input"));
     const label = await waitFor(() => getByTestId("field-label"));
@@ -65,8 +46,13 @@ test("when an id is provided, the label for attribute and the input id are match
     expect(label.getAttribute("for")).toBe(input.getAttribute("id"));
 });
 
-test("when the id is auto generated, the input aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(<LabelledInputField />);
+test("when the id is auto generated, the field aria-labelledby attribute match the label id", async () => {
+    const { getByTestId } = render(
+        <Field data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
 
     const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
@@ -74,8 +60,13 @@ test("when the id is auto generated, the input aria-labelledby attribute match t
     expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
-test("when the id is auto generated, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(<LabelledGroupInputField />);
+test("when an id is provided, the field aria-labelledby attribute match the label id", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
 
     const field = await waitFor(() => getByTestId("field"));
     const label = await waitFor(() => getByTestId("field-label"));
@@ -83,22 +74,34 @@ test("when the id is auto generated, the group field aria-labelledby attribute m
     expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
-test("when an id is provided, the input aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(<LabelledInputField id="foo" />);
+test("when the id is auto generated, the field aria-describedby attribute match the message id", async () => {
+    const { getByTestId } = render(
+        <Field data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+            <HelpMessage data-testid="field-message">Enter a destination</HelpMessage>
+        </Field>
+    );
 
     const field = await waitFor(() => getByTestId("field"));
-    const label = await waitFor(() => getByTestId("field-label"));
+    const message = await waitFor(() => getByTestId("field-message"));
 
-    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });
 
-test("when an id is provided, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(<LabelledGroupInputField id="foo" />);
+test("when an id is provided, the field aria-describedby attribute match the message id", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+            <HelpMessage data-testid="field-message">Enter a destination</HelpMessage>
+        </Field>
+    );
 
     const field = await waitFor(() => getByTestId("field"));
-    const label = await waitFor(() => getByTestId("field-label"));
+    const message = await waitFor(() => getByTestId("field-message"));
 
-    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });
 
 // ***** Refs *****
@@ -107,7 +110,9 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <InputField ref={ref} />
+        <Field ref={ref}>
+            <TextInput />
+        </Field>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -120,11 +125,13 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <InputField
+        <Field
             ref={node => {
                 refNode = node;
             }}
-        />
+        >
+            <TextInput />
+        </Field>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -137,7 +144,9 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <InputField ref={handler} />
+        <Field ref={handler}>
+            <TextInput />
+        </Field>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

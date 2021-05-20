@@ -10,21 +10,24 @@ import {
     isNilOrEmpty,
     mergeProps,
     omitProps,
-    useCommittedRef,
     useControllableState,
     useEventCallback,
+    useFocusWithin,
     useId,
+    useMergedRefs,
     useRefState
 } from "../../shared";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef, useState } from "react";
+import { Box } from "../../box";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
-import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, useFocusWithin, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput, SearchInputProps } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
+import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
+import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -34,7 +37,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     /**
      * Whether or not to open the autocomplete element.
      */
-    open?: boolean;
+    open?: boolean | null;
     /**
      * The initial value of open when in auto controlled mode.
      */
@@ -218,7 +221,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerElement, overlayElement, triggerProps, overlayProps } = usePopup("listbox", {
+    const { isOpen, setIsOpen, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -231,12 +234,15 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         trigger: "none",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
+        disabled,
         allowFlip,
         allowPreventOverflow
     });
 
+    const [triggerWidthRef, triggerWidth] = useTriggerWidth();
+
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useCommittedRef(triggerElement);
+    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef, triggerWidthRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
@@ -305,13 +311,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         close(event);
     }, [setSelection, close]);
 
-    const triggerWidth = useTriggerWidth(triggerElement);
-
     const triggerFocusWithinProps = useFocusWithin({
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(triggerRef)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
-                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayElement)) {
+                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayRef)) {
                     close(event);
                     reset();
                 }
@@ -433,11 +437,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 
     const noResultsMarkup = (
-        <div className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</div>
+        <Box className="o-ui-autocomplete-no-results">{noResultsMessage ?? "No results found."}</Box>
     );
 
     return (
-        <div>
+        <Box>
             <HiddenAutocomplete
                 name={name}
                 value={value}
@@ -476,7 +480,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                         "aria-describedby": ariaDescribedBy,
                         as,
-                        ref: forwardedRef
+                        ref: triggerRef
                     },
                     triggerProps
                 )}
@@ -491,14 +495,15 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined
-                        }
+                        },
+                        ref: overlayRef
                     },
                     overlayProps
                 )}
             >
                 {results.length > 0 ? listboxMarkup : noResultsMarkup}
             </Overlay>
-        </div>
+        </Box>
     );
 }
 

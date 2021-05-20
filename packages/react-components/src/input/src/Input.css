@@ -19,6 +19,7 @@
 
 .o-ui-input input {
     -webkit-appearance: none;
+    outline: none;
     min-height: var(--o-ui-global-scale-hotel);
 }
 
@@ -41,10 +42,10 @@
 }
 
 /* STATE | HOVER */
-.o-ui-input:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus),
-.o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus),
-.o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]):not(:focus),
-.o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus) {
+.o-ui-input:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus-visible),
+.o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus-visible),
+.o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]):not(:focus-visible),
+.o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus-visible) {
     border-color: var(--o-ui-alias-border-1-hover);
 }
 
@@ -52,31 +53,6 @@
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {
     color: var(--o-ui-alias-text-input-placeholder);
-}
-
-/* TRANSPARENT */
-.o-ui-input-transparent.o-ui-input input,
-.o-ui-input-transparent.o-ui-input textarea {
-    background-color: var(--o-ui-global-transparent);
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 1px 0 0 var(--o-ui-alias-border-3);
-    padding-left: 0;
-    padding-right: 0;
-}
-
-/* TRANSPARENT | STATE | FOCUS */
-.o-ui-input.o-ui-input-transparent input:focus,
-.o-ui-input.o-ui-input-transparent.o-ui-input-focus input,
-.o-ui-input.o-ui-input-transparent textarea:focus,
-.o-ui-input.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 var(--o-ui-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-primary-1);
-}
-
-/* TRANSPARENT | STATE | DISABLED */
-.o-ui-input.o-ui-input-transparent input:disabled,
-.o-ui-input.o-ui-input-transparent textarea:disabled {
-    background-color: var(--o-ui-global-transparent);
 }
 
 .o-ui-input input:disabled::placeholder,
@@ -107,33 +83,19 @@
     --o-ui-input-border-color: var(--o-ui-alias-background-negative-2);
 }
 
-.o-ui-input.o-ui-input-invalid input:focus,
+.o-ui-input.o-ui-input-invalid input:focus-visible,
 .o-ui-input-focus.o-ui-input-invalid input,
-.o-ui-input.o-ui-input-invalid textarea:focus {
+.o-ui-input.o-ui-input-invalid textarea:focus-visible {
     box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
     border-color: var(--o-ui-alias-border-negative-1);
 }
 
 /* STATE | HOVER | INVALID */
-.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus),
-.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus),
-.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) input:not([disabled]):not(:focus),
-.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus) {
+.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus-visible),
+.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus-visible),
+.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) input:not([disabled]):not(:focus-visible),
+.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus-visible) {
     border-color: var(--o-ui-alias-border-negative-1-hover);
-}
-
-/* INVALID | TRANSPARENT */
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent input,
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea {
-    box-shadow: 0 1px 0 0 var(--o-ui-global-beetle-200);
-}
-
-/* INVALID | TRANSPARENT | STATE | FOCUS */
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent input:focus,
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus input,
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent textarea:focus,
-.o-ui-input.o-ui-input-invalid.o-ui-input-transparent.o-ui-input-focus textarea {
-    box-shadow: 0 var(--o-ui-focus-ring-thickness-md) 0 0 var(--o-ui-alias-border-negative-1);
 }
 
 /* ICON */
@@ -154,15 +116,6 @@
     padding-left: var(--o-ui-input-padding-with-icon);
 }
 
-/* TRANSPARENT | ICON */
-.o-ui-input-transparent .o-ui-input-icon {
-    left: 0;
-}
-
-.o-ui-input-has-icon.o-ui-input-transparent.o-ui-input input {
-    padding-left: var(--o-ui-global-scale-foxtrot);
-}
-
 /* BUTTON */
 .o-ui-input-button {
     position: absolute !important;
@@ -180,16 +133,11 @@
     padding-right: var(--o-ui-input-padding-with-button);
 }
 
-/* TRANSPARENT | BUTTON */
-.o-ui-input-transparent .o-ui-input-button {
-    right: 0;
-}
-
 /* STATES */
 /* STATES | FOCUS */
-.o-ui-input input:focus,
+.o-ui-input input:focus-visible,
 .o-ui-input-focus input,
-.o-ui-input textarea:focus,
+.o-ui-input textarea:focus-visible,
 .o-ui-input-focus textarea {
     outline: none;
     box-shadow: var(--o-ui-focus-ring-inset-sm);

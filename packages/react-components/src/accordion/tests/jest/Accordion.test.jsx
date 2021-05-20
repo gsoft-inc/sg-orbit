@@ -4,6 +4,7 @@ import { Item } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
 
 // ***** Behaviors *****
 
@@ -61,6 +62,52 @@ test("up arrow keypress select the next item", async () => {
     act(() => {
         fireEvent.keyDown(getByTestId("item-2"), { key: Keys.arrowUp });
     });
+
+    await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
+});
+
+test("when autofocus is true, accordion header is focused on render", async () => {
+    const { getByTestId } = render(
+        <Accordion autoFocus>
+            <Item data-testid="item-1">
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+        </Accordion>
+    );
+
+    await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, accordion header is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Accordion autoFocus={10}>
+            <Item data-testid="item-1">
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+        </Accordion>
+    );
+
+    await waitFor(() => expect(getByTestId("item-1")).not.toHaveFocus());
+
+    await waitDelay(10);
 
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
 });

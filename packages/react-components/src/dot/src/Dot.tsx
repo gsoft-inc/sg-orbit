@@ -29,6 +29,20 @@ export interface InnerDotProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+function useColor(color: string) {
+    return useMemo(() => {
+        if (!isNil(color)) {
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                return color;
+            } else if (color.startsWith("--")) {
+                return `var(${color})`;
+            } else {
+                return `var(--o-ui-global-${color})`;
+            }
+        }
+    }, [color]);
+}
+
 export function InnerDot(props: InnerDotProps) {
     const {
         color,
@@ -64,20 +78,6 @@ export function InnerDot(props: InnerDotProps) {
             {labelMarkup}
         </Box>
     );
-}
-
-function useColor(color: string) {
-    return useMemo(() => {
-        if (!isNil(color)) {
-            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
-                return color;
-            } else if (color.startsWith("--")) {
-                return `var(${color})`;
-            } else {
-                return `var(--o-ui-global-${color})`;
-            }
-        }
-    }, [color]);
 }
 
 export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (

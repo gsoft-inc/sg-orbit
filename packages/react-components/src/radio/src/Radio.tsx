@@ -12,7 +12,6 @@ import {
     omitProps,
     resolveChildren,
     useAutoFocus,
-    useChainedEventCallback,
     useCheckableProps,
     useControllableState,
     useEventCallback,
@@ -50,9 +49,10 @@ export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * Called when the radio checked state change.
      * @param {FormEvent} event - React's original synthetic event.
+     * @param {boolean} isChecked - Whether or not the radio is checked.
      * @returns {void}
      */
-    onChange?: (event: FormEvent<HTMLInputElement>) => void;
+    onChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * Invert the order of the checkmark box and the label.
      */
@@ -122,11 +122,21 @@ export function InnerRadio(props: InnerRadioProps) {
         return forwardInputApi(labelRef);
     });
 
-    const handleChange = useChainedEventCallback(onChange, () => {
-        setIsChecked(!isChecked);
+    const handleStateChange = useEventCallback(event => {
+        const newValue = !isChecked;
+
+        if (!isNil(onChange)) {
+            onChange(event, true);
+        }
+
+        setIsChecked(newValue);
     });
 
-    const handleCheck = useEventCallback((event: FormEvent<HTMLInputElement>) => {
+    const handleCheck = useEventCallback(event => {
+        if (!isNil(onChange)) {
+            onChange(event, true);
+        }
+
         onCheck(event, value);
     });
 
@@ -179,7 +189,7 @@ export function InnerRadio(props: InnerRadioProps) {
                 value={value}
                 name={name}
                 checked={isChecked}
-                onChange={!isNil(onCheck) ? handleCheck : handleChange}
+                onChange={!isNil(onCheck) ? handleCheck : handleStateChange}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 data-type={typeof (value)}

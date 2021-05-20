@@ -9,20 +9,6 @@ import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-compon
 import { TextInput } from "@react-components/text-input";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-/*
-INTERACTION TESTS:
-    - When tabbing out of the popper and no focus lock, tab next focusable element after the trigger.
-    - trigger "hover"
-        - open on "hover"
-        - close when leaving trigger
-        - doesn't close when hover overlay
-        - close when leaving overlay
-        - close on blur
-        - close on esc when focus on overlay
-        - close on esc when focus on trigger
-    - dismissable
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Popover")
         .segment(segment)
@@ -286,7 +272,7 @@ stories()
         </PopoverTrigger>
     )
     .add("manual autofocus", () =>
-        <PopoverTrigger autoFocus open>
+        <PopoverTrigger open>
             <Button>Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>

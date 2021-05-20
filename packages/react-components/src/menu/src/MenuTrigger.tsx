@@ -1,6 +1,19 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
-import { DomProps, FocusTarget, Keys, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useChainedEventCallback, useEventCallback, useId, useRefState } from "../../shared";
+import {
+    DomProps,
+    FocusTarget,
+    Keys,
+    augmentElement,
+    forwardRef,
+    isNil,
+    mergeProps,
+    resolveChildren,
+    useChainedEventCallback,
+    useEventCallback,
+    useId,
+    useRefState
+} from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
 
@@ -83,6 +96,12 @@ export function InnerMenuTrigger({
         }
     });
 
+    const [trigger, menu] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
+
+    if (isNil(trigger) || isNil(menu)) {
+        throw new Error("A menu trigger must have exactly 2 children.");
+    }
+
     const { isOpen, setIsOpen, triggerProps, overlayProps } = usePopup("menu", {
         id,
         open: openProp,
@@ -95,15 +114,10 @@ export function InnerMenuTrigger({
         restoreFocus: true,
         position: `${direction}-${align}` as const,
         offset: [0, 4],
+        disabled: trigger.props.disabled,
         allowFlip,
         allowPreventOverflow
     });
-
-    const [trigger, menu] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
-
-    if (isNil(trigger) || isNil(menu)) {
-        throw new Error("A menu trigger must have exactly 2 children.");
-    }
 
     const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
         setFocusTarget(focusTarget);

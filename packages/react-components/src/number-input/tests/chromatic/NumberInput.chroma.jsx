@@ -30,15 +30,6 @@ stories()
             </div>
         </Stack>
     )
-    .add("min / max", () =>
-        <Stack>
-            <Inline>
-                <NumberInput min={1} max={15} defaultValue={20} placeholder="Age" />
-                <NumberInput min={1} max={15} defaultValue={-20} placeholder="Age" />
-            </Inline>
-            <NumberInput validationState="valid" min={1} max={15} defaultValue={20} placeholder="Age" />
-        </Stack>
-    )
     .add("integer value", () =>
         <NumberInput defaultValue={12} step={1} placeholder="Age" />
     )
@@ -67,16 +58,4 @@ stories()
             <NumberInput validationState="invalid" placeholder="Age" />
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
-    )
-    .add("autofocus", () =>
-        <NumberInput autoFocus placeholder="Age" />
-    )
-    .add("when disabled do not autofocus", () =>
-        <NumberInput autoFocus disabled placeholder="Age" />
-    )
-    .add("when readonly do not autofocus", () =>
-        <NumberInput autoFocus readOnly placeholder="Age" />
-    )
-    .add("autofocus with delay", () =>
-        <NumberInput autoFocus={50} placeholder="Age" />
     );

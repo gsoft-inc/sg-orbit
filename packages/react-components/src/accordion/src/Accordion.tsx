@@ -7,6 +7,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import {
     DomProps,
     Keys,
+    cssModule,
     forwardRef,
     isNil,
     isNumber,
@@ -43,6 +44,10 @@ export interface InnerAccordionProps extends DomProps {
      */
     expansionMode: "single" | "multiple";
     /**
+     * The type of expansion that is allowed.
+     */
+    variant: "borderless" | "contained";
+    /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
     autoFocus?: boolean | number;
@@ -67,6 +72,7 @@ export function InnerAccordion({
     onExpansionChange,
     expansionMode = "single",
     autoFocus,
+    variant = "borderless",
     as = "div",
     children,
     forwardedRef,
@@ -119,7 +125,10 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-accordion",
+                    className: cssModule(
+                        "o-ui-accordion",
+                        variant
+                    ),
                     as,
                     ref: containerRef
                 },

@@ -4,6 +4,81 @@ import { Keys } from "@react-components/shared";
 import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { waitDelay } from "@utils/waitDelay";
+
+// ***** Behaviors *****
+
+test("when autofocus is true, the first item header is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item>
+                <Header data-testid="header-1">Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-1")).toHaveFocus());
+});
+
+test("when autofocus is true and the first item is disabled, the next item header is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item disabled>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header data-testid="header-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-2")).toHaveFocus());
+});
+
+test("when autofocus is true and there is a selected key, the header of the item matching the selected key is focused on render", async () => {
+    const { getByTestId } = render(
+        <Tabs defaultSelectedKey="header-2" autoFocus aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item key="header-2">
+                <Header data-testid="header-2">Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-2")).toHaveFocus());
+});
+
+test("when autofocus is specified with a delay, the first item header is focused after the delay", async () => {
+    const { getByTestId } = render(
+        <Tabs autoFocus aria-label="Tabs">
+            <Item>
+                <Header data-testid="header-1">Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header-1")).not.toHaveFocus());
+
+    await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("header-1")).toHaveFocus());
+});
 
 // ***** Aria *****
 
@@ -20,10 +95,10 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header).toHaveAttribute("id", "foo-tab-0");
-    expect(header).toHaveAttribute("aria-controls", "foo-panel-0");
-    expect(content).toHaveAttribute("id", "foo-panel-0");
-    expect(content).toHaveAttribute("aria-labelledby", "foo-tab-0");
+    await waitFor(() => expect(header).toHaveAttribute("id", "foo-tab-0"));
+    await waitFor(() => expect(header).toHaveAttribute("aria-controls", "foo-panel-0"));
+    await waitFor(() => expect(content).toHaveAttribute("id", "foo-panel-0"));
+    await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", "foo-tab-0"));
 });
 
 test("when an header id is provided, it is assigned to the tab id", async () => {
@@ -39,8 +114,8 @@ test("when an header id is provided, it is assigned to the tab id", async () => 
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header).toHaveAttribute("id", "tab-header");
-    expect(content).toHaveAttribute("aria-labelledby", "tab-header");
+    await waitFor(() => expect(header).toHaveAttribute("id", "tab-header"));
+    await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", "tab-header"));
 });
 
 test("when a content id is provided, it is assigned to the content id", async () => {
@@ -56,8 +131,8 @@ test("when a content id is provided, it is assigned to the content id", async ()
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header).toHaveAttribute("aria-controls", "tab-content");
-    expect(content).toHaveAttribute("id", "tab-content");
+    await waitFor(() => expect(header).toHaveAttribute("aria-controls", "tab-content"));
+    await waitFor(() => expect(content).toHaveAttribute("id", "tab-content"));
 });
 
 test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
@@ -73,10 +148,10 @@ test("when the root id is auto generated, it is used to compose the tab and pane
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header).toHaveAttribute("id");
-    expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
-    expect(content).toHaveAttribute("id");
-    expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id"));
+    await waitFor(() => expect(header).toHaveAttribute("id"));
+    await waitFor(() => expect(header).toHaveAttribute("aria-controls", content.getAttribute("id")));
+    await waitFor(() => expect(content).toHaveAttribute("id"));
+    await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id")));
 });
 
 test("when the header id is auto generated, it is assigned to the tab id", async () => {
@@ -92,8 +167,8 @@ test("when the header id is auto generated, it is assigned to the tab id", async
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(header).toHaveAttribute("id");
-    expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id"));
+    await waitFor(() => expect(header).toHaveAttribute("id"));
+    await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id")));
 });
 
 test("when the content id is auto generated, it is assigned to the tab id", async () => {
@@ -109,8 +184,34 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
     const header = await waitFor(() => getByTestId("header"));
     const content = await waitFor(() => getByTestId("content"));
 
-    expect(content).toHaveAttribute("id");
-    expect(header.getAttribute("aria-controls")).toBe(content.getAttribute("id"));
+    await waitFor(() => expect(content).toHaveAttribute("id"));
+    await waitFor(() => expect(header.getAttribute("aria-controls")).toBe(content.getAttribute("id")));
+});
+
+test("a tab headers container have the \"tablist\" role", async () => {
+    const { getByRole } = render(
+        <Tabs aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByRole("tablist")).toBeInTheDocument());
+});
+
+test("a tab header have the \"tab\" role", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Item>
+                <Header data-testid="header">Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("header")).toHaveAttribute("role", "tab"));
 });
 
 // ***** Behaviors *****
@@ -165,7 +266,7 @@ test("a disabled tab is not tabbable", async () => {
         </Tabs>
     );
 
-    expect(getByTestId("tab-1")).not.toHaveAttribute("tabindex");
+    await waitFor(() => expect(getByTestId("tab-1")).not.toHaveAttribute("tabindex"));
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
 
 });
@@ -415,7 +516,7 @@ test("dont call onSelectionChange when a tab is disabled", async () => {
         fireEvent.click(getByTestId("tab-2"));
     });
 
-    expect(handler).not.toHaveBeenCalled();
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 // ***** Refs *****
@@ -434,8 +535,8 @@ test("header ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("BUTTON");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("BUTTON"));
 });
 
 test("content ref is a DOM element", async () => {
@@ -452,6 +553,6 @@ test("content ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("DIV");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("DIV"));
 });

@@ -40,8 +40,8 @@ a.o-ui-tag:after {
 }
 
 /* AS ANCHOR / BUTTON | STATE | FOCUS */
-button:not([disabled]).o-ui-tag:focus:after,
-a:not([disabled]).o-ui-tag:focus:after,
+button:not([disabled]).o-ui-tag:focus-visible:after,
+a:not([disabled]).o-ui-tag:focus-visible:after,
 button:not([disabled]).o-ui-tag.o-ui-tag-focus:after,
 a:not([disabled]).o-ui-tag.o-ui-tag-focus:after {
     opacity: 1;
@@ -108,8 +108,8 @@ a.o-ui-tag-solid.o-ui-tag-active {
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | FOCUS */
-button.o-ui-tag-solid:focus,
-a.o-ui-tag-solid:focus,
+button.o-ui-tag-solid:focus-visible,
+a.o-ui-tag-solid:focus-visible,
 button.o-ui-tag-solid.o-ui-tag-focus,
 a.o-ui-tag-solid.o-ui-tag-focus {
     outline: none;
@@ -137,12 +137,12 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
-button.o-ui-tag-solid[disabled]:focus,
-button.o-ui-tag-solid.o-ui-tag-disabled:focus,
+button.o-ui-tag-solid[disabled]:focus-visible,
+button.o-ui-tag-solid.o-ui-tag-disabled:focus-visible,
 button.o-ui-tag-solid[disabled].o-ui-tag-focus,
 button.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus,
-a.o-ui-tag-solid[disabled]:focus,
-a.o-ui-tag-solid.o-ui-tag-disabled:focus,
+a.o-ui-tag-solid[disabled]:focus-visible,
+a.o-ui-tag-solid.o-ui-tag-disabled:focus-visible,
 a.o-ui-tag-solid[disabled].o-ui-tag-focus,
 a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
     box-shadow: none;
@@ -174,8 +174,8 @@ a.o-ui-tag-outline.o-ui-tag-active {
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS */
-button.o-ui-tag-outline:focus,
-a.o-ui-tag-outline:focus,
+button.o-ui-tag-outline:focus-visible,
+a.o-ui-tag-outline:focus-visible,
 button.o-ui-tag-outline.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-focus {
     outline: none;
@@ -184,44 +184,44 @@ a.o-ui-tag-outline.o-ui-tag-focus {
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & ACTIVE */
-a.o-ui-tag-outline:focus:active,
+a.o-ui-tag-outline:focus-visible:active,
 a.o-ui-tag-outline.o-ui-tag-focus:active,
-a.o-ui-tag-outline:focus.o-ui-tag-active,
+a.o-ui-tag-outline:focus-visible.o-ui-tag-active,
 a.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active
-button.o-ui-tag-outline:focus:active,
+button.o-ui-tag-outline:focus-visible:active,
 button.o-ui-tag-outline.o-ui-tag-focus:active,
-button.o-ui-tag-outline:focus.o-ui-tag-active,
+button.o-ui-tag-outline:focus-visible.o-ui-tag-active,
 button.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER */
-a.o-ui-tag-outline:hover:focus,
-a.o-ui-tag-outline.o-ui-tag-hover:focus,
+a.o-ui-tag-outline:hover:focus-visible,
+a.o-ui-tag-outline.o-ui-tag-hover:focus-visible,
 a.o-ui-tag-outline:hover.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus,
-button.o-ui-tag-outline:hover:focus,
-button.o-ui-tag-outline.o-ui-tag-hover:focus,
+button.o-ui-tag-outline:hover:focus-visible,
+button.o-ui-tag-outline.o-ui-tag-hover:focus-visible,
 button.o-ui-tag-outline:hover.o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-hover) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER & ACTIVE */
-a.o-ui-tag-outline:hover:focus:active,
-a.o-ui-tag-outline.o-ui-tag-hover:focus:active,
+a.o-ui-tag-outline:hover:focus-visible:active,
+a.o-ui-tag-outline.o-ui-tag-hover:focus-visible:active,
 a.o-ui-tag-outline:hover.o-ui-tag-focus:active,
 a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
-a.o-ui-tag-outline.o-ui-tag-active:hover:focus,
-a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus,
+a.o-ui-tag-outline.o-ui-tag-active:hover:focus-visible,
+a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus-visible,
 a.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
 a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus,
-button.o-ui-tag-outline:hover:focus:active,
-button.o-ui-tag-outline.o-ui-tag-hover:focus:active,
+button.o-ui-tag-outline:hover:focus-visible:active,
+button.o-ui-tag-outline.o-ui-tag-hover:focus-visible:active,
 button.o-ui-tag-outline:hover.o-ui-tag-focus:active,
 button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
-button.o-ui-tag-outline.o-ui-tag-active:hover:focus,
-button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus,
+button.o-ui-tag-outline.o-ui-tag-active:hover:focus-visible,
+button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus-visible,
 button.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus{
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
@@ -237,10 +237,10 @@ a.o-ui-tag-outline.o-ui-tag-disabled {
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
-button.o-ui-tag-outline[disabled]:focus,
-a.o-ui-tag-outline[disabled]:focus,
-button.o-ui-tag-outline.o-ui-tag-disabled:focus,
-a.o-ui-tag-outline.o-ui-tag-disabled:focus,
+button.o-ui-tag-outline[disabled]:focus-visible,
+a.o-ui-tag-outline[disabled]:focus-visible,
+button.o-ui-tag-outline.o-ui-tag-disabled:focus-visible,
+a.o-ui-tag-outline.o-ui-tag-disabled:focus-visible,
 button.o-ui-tag-outline[disabled].o-ui-tag-focus,
 a.o-ui-tag-outline[disabled].o-ui-tag-focus,
 button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus,
@@ -266,24 +266,42 @@ a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
     margin-right: var(--o-ui-global-scale-bravo);
 }
 
-/* CONTENT | ICON */
-.o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-icon {
+/* CONTENT | START ICON */
+.o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-start-icon {
     margin-right: var(--o-ui-global-scale-alpha);
 }
 
-/* CONTENT | ICON | SMALL */
-.o-ui-tag-has-icon.o-ui-tag-sm {
+/* CONTENT | START ICON | SMALL */
+.o-ui-tag-has-start-icon.o-ui-tag-sm {
     padding-left: calc(var(--o-ui-padding-sm) / 1.5);
 }
 
-/* CONTENT | ICON | MEDIUM */
-.o-ui-tag-has-icon.o-ui-tag-md {
+/* CONTENT | START ICON | MEDIUM */
+.o-ui-tag-has-start-icon.o-ui-tag-md {
     padding-left: calc(var(--o-ui-padding-md) / 1.5);
+}
+
+/* CONTENT | END ICON */
+.o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-end-icon {
+    margin-left: var(--o-ui-global-scale-alpha);
+}
+
+/* CONTENT | END ICON | SMALL */
+.o-ui-tag-has-end-icon.o-ui-tag-sm {
+    padding-right: calc(var(--o-ui-padding-sm) / 1.5);
+}
+
+/* CONTENT | END ICON | MEDIUM */
+.o-ui-tag-has-end-icon.o-ui-tag-md {
+    padding-right: calc(var(--o-ui-padding-md) / 1.5);
 }
 
 /* CONTENT | TEXT */
 .o-ui-tag-text {
     flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* CONTENT | REMOVE BUTTON */

@@ -20,7 +20,7 @@
     -moz-appearance: textfield;
 }
 
-.o-ui-number-input input:focus ,
+.o-ui-number-input input:focus-visible ,
 .o-ui-input-focus.o-ui-number-input input,
 .o-ui-number-input input:hover,
 .o-ui-input-hover.o-ui-number-input input {
@@ -72,7 +72,7 @@
 /* SPINNER | VISIBLE */
 .o-ui-number-input:hover .o-ui-number-input-spinner,
 .o-ui-input-hover .o-ui-number-input-spinner,
-.o-ui-number-input input:focus + .o-ui-number-input-spinner,
+.o-ui-number-input input:focus-visible + .o-ui-number-input-spinner,
 .o-ui-input-focus .o-ui-number-input-spinner {
     visibility: visible;
 }

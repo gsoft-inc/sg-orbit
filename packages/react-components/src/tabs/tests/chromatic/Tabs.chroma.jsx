@@ -4,10 +4,9 @@ import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
-import { Tab, TabPanel, Tabs } from "@react-components/tabs";
+import { Tab, TabPanel, Tabs, useTabsContext } from "@react-components/tabs";
 import { Text } from "@react-components/text";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useTabsContext } from "../../src/TabsContext";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tabs")
@@ -425,70 +424,6 @@ stories()
             </Tabs>
         );
     })
-    .add("autofocus", () =>
-        <Tabs autoFocus aria-label="Planets">
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    )
-    .add("do not autofocus disabled tab", () =>
-        <Tabs autoFocus aria-label="Planets">
-            <Item disabled>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    )
-    .add("autofocus + selected key", () =>
-        <Tabs autoFocus defaultSelectedKey="1" aria-label="Planets">
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    )
-    .add("autofocus with delay", () =>
-        <Tabs autoFocus={50} aria-label="Planets">
-            <Item>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-        </Tabs>
-    )
     .add("styling", () =>
         <Stack>
             <Inline>
