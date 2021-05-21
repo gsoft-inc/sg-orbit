@@ -63,10 +63,10 @@ export function createIconLinkTestSuite(element, stories) {
             </Stack>
         )
         .add("external", () =>
-            <IconLink external href="https://www.space.com/spacex-delays-south-korea-military-satellite-launch.html" element={element} />
+            <IconLink external href="https://www.space.com/spacex-delays-south-korea-military-satellite-launch.html" element={element}><AddIcon /></IconLink>
         )
         .add("new tab", () =>
-            <IconLink target="_blank" href="#" element={element} />
+            <IconLink target="_blank" href="#" element={element}><AddIcon /></IconLink>
         );
 }
 
