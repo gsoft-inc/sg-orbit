@@ -106,6 +106,7 @@ export function InnerTag({
                     className: cssModule(
                         "o-ui-tag",
                         variant,
+                        dot && "has-start-dot",
                         icon && "has-start-icon",
                         endIcon && "has-end-icon",
                         removeMarkup && "has-remove-button",
