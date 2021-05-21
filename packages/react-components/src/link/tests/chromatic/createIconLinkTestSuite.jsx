@@ -61,6 +61,12 @@ export function createIconLinkTestSuite(element, stories) {
                     <IconLink disabled aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 </Inline>
             </Stack>
+        )
+        .add("external", () =>
+            <IconLink external href="https://www.space.com/spacex-delays-south-korea-military-satellite-launch.html" element={element} />
+        )
+        .add("new tab", () =>
+            <IconLink target="_blank" href="#" element={element} />
         );
 }
 
