@@ -51,14 +51,28 @@ test("call onChange when the radio is checked", async () => {
         userEvent.click(getInput(getByTestId("radio")));
     });
 
+    await waitFor(() => expect(handler).toHaveBeenCalled());
+});
+
+test("call onValueChange when the radio is checked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Radio value="1" onValueChange={handler} data-testid="radio">1</Radio>
+    );
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("radio")));
+    });
+
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
-// test("call onChange when the radio is unchecked", async () => {
+// test("call onValueChange when the radio is unchecked", async () => {
 //     const handler = jest.fn();
 
 //     const { getByTestId } = render(
-//         <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
+//         <Radio value="1" onValueChange={handler} data-testid="radio">1</Radio>
 //     );
 
 //     act(() => {
@@ -72,11 +86,11 @@ test("call onChange when the radio is checked", async () => {
 //     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 // });
 
-test("dont call onChange when the radio is disabled", async () => {
+test("dont call onValueChange when the radio is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Radio disabled value="1" onChange={handler} data-testid="radio">1</Radio>
+        <Radio disabled value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {

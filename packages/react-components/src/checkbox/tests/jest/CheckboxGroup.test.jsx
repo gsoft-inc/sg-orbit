@@ -173,7 +173,7 @@ test("pass an empty array when no checkbox are selected", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), []));
 });
 
-test("call the checkbox onChange handler when a checkbox is selected", async () => {
+test("call the checkbox onValueChange handler when a checkbox is selected", async () => {
     const handler = jest.fn();
 
     const { getAllByTestId } = render(
@@ -189,6 +189,24 @@ test("call the checkbox onChange handler when a checkbox is selected", async () 
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+});
+
+test("call the checkbox onChange handler when a checkbox is selected", async () => {
+    const handler = jest.fn();
+
+    const { getAllByTestId } = render(
+        <CheckboxGroup>
+            <Checkbox onChange={handler} value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox value="2" data-testid="checkbox">2</Checkbox>
+            <Checkbox value="3" data-testid="checkbox">3</Checkbox>
+        </CheckboxGroup>
+    );
+
+    act(() => {
+        userEvent.click(getInput(getAllByTestId("checkbox")[0]));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalled());
 });
 
 // ***** Refs *****
