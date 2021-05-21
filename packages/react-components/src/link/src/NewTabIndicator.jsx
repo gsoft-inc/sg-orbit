@@ -2,6 +2,6 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 export function NewTabIndicator() {
     return (
-        <VisuallyHidden>(opens in a new tab)</VisuallyHidden>
+        <VisuallyHidden as="span">(opens in a new tab)</VisuallyHidden>
     );
 }

@@ -12,9 +12,9 @@ import {
     omitProps,
     resolveChildren,
     useAutoFocus,
+    useChainedEventCallback,
     useCheckableProps,
     useControllableState,
-    useEventCallback,
     useForwardInputApi,
     useSlots
 } from "../../shared";
@@ -51,6 +51,10 @@ export interface InnerRadioProps extends InteractionStatesProps {
      * @param {FormEvent} event - React's original synthetic event.
      * @param {boolean} isChecked - Whether or not the radio is checked.
      * @returns {void}
+     */
+    onValueChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
+    /**
+     * @ignore
      */
     onChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
@@ -89,6 +93,7 @@ export function InnerRadio(props: InnerRadioProps) {
         defaultChecked,
         autoFocus,
         validationState,
+        onValueChange,
         onChange,
         onCheck,
         reverse,
@@ -122,19 +127,19 @@ export function InnerRadio(props: InnerRadioProps) {
         return forwardInputApi(labelRef);
     });
 
-    const handleStateChange = useEventCallback(event => {
+    const handleStateChange = useChainedEventCallback(onChange, event => {
         const newValue = !isChecked;
 
-        if (!isNil(onChange)) {
-            onChange(event, true);
+        if (!isNil(onValueChange)) {
+            onValueChange(event, true);
         }
 
         setIsChecked(newValue);
     });
 
-    const handleCheck = useEventCallback(event => {
-        if (!isNil(onChange)) {
-            onChange(event, true);
+    const handleCheck = useChainedEventCallback(onChange, event => {
+        if (!isNil(onValueChange)) {
+            onValueChange(event, true);
         }
 
         onCheck(event, value);

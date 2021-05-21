@@ -3,7 +3,7 @@ import "./SearchInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { TextInputProps } from "./TextInput";
@@ -39,7 +39,11 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
      * @param {string} value - The new input value.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent, value: string) => void;
+    onValueChange?: (event: SyntheticEvent, value: string) => void;
+    /**
+     * @ignore
+     */
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * @ignore
      */
@@ -78,6 +82,7 @@ export function InnerSearchInput({
     value,
     defaultValue,
     onChange,
+    onValueChange,
     onKeyDown,
     icon,
     wrapperProps,
@@ -90,18 +95,18 @@ export function InnerSearchInput({
     const inputRef = useMergedRefs(forwardedRef);
 
     const updateValue = useCallback((event: SyntheticEvent, newValue: string) => {
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
+        if (!isNil(onValueChange)) {
+            onValueChange(event, newValue);
         }
 
         setValue(newValue);
-    }, [onChange, setValue]);
+    }, [onValueChange, setValue]);
 
     const clear = useCallback((event: SyntheticEvent) => {
         updateValue(event, "");
     }, [updateValue]);
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         updateValue(event, event.target.value);
     });
 

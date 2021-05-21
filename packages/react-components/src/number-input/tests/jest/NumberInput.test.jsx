@@ -221,15 +221,29 @@ test("call onChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "2");
     });
 
+    await waitFor(() => expect(handler).toHaveBeenCalled());
+});
+
+test("call onValueChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <NumberInput onValueChange={handler} data-testid="input" />
+    );
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "2");
+    });
+
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
 });
 
-test("call onChange when the value is incremented", async () => {
+test("call onValueChange when the value is incremented", async () => {
     const handler = jest.fn();
 
     const { getByTestId, getByLabelText } = render(
         <NumberInput
-            onChange={handler}
+            onValueChange={handler}
             defaultValue={1}
             data-testid="input"
         />
@@ -246,12 +260,12 @@ test("call onChange when the value is incremented", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
 });
 
-test("call onChange when the value is decremented", async () => {
+test("call onValueChange when the value is decremented", async () => {
     const handler = jest.fn();
 
     const { getByTestId, getByLabelText } = render(
         <NumberInput
-            onChange={handler}
+            onValueChange={handler}
             defaultValue={1}
             data-testid="input"
         />
