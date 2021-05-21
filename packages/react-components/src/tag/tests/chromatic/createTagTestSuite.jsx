@@ -53,9 +53,6 @@ export function createTagTestSuite(element, stories) {
                     <CheckCircleIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
-                <Tag fluid element={element}>
-                    <Text>Falcon 9</Text>
-                </Tag>
                 <div className="w-10">
                     <Tag fluid element={element}>
                         <CheckCircleIcon />
