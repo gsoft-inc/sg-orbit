@@ -3,7 +3,7 @@ import "./NumberInput.css";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -59,7 +59,11 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps 
      * @param {number} value - The new value.
      * @returns {void}
      */
-    onChange?: (event: SyntheticEvent, value: number) => void;
+    onValueChange?: (event: SyntheticEvent, value: number) => void;
+    /**
+     * @ignore
+     */
+    onChange?: (event: SyntheticEvent) => void;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -183,6 +187,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         step = 1,
         required,
         validationState,
+        onValueChange,
         onChange,
         autoFocus,
         icon,
@@ -207,8 +212,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const updateValue = (event: SyntheticEvent, newValue: number) => {
         if (newValue !== inputValue) {
-            if (!isNil(onChange)) {
-                onChange(event, newValue);
+            if (!isNil(onValueChange)) {
+                onValueChange(event, newValue);
             }
 
             setValue(newValue);
@@ -259,7 +264,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         }
     };
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newValue: string) => {
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, newValue: string) => {
         clampValue(event, toNumber(newValue));
     });
 

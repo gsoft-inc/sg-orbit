@@ -1,9 +1,10 @@
 import "./Link.css";
 
-import { ArrowIcon, embeddedIconSize } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../text";
 import { augmentElement, forwardRef, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
@@ -84,7 +85,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         formProps
     );
 
-    const linkProps = useLink({
+    const { linkProps, showNewTabIndicator } = useLink({
         cssModule: "o-ui-text-link",
         color,
         underline,
@@ -114,9 +115,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         icon: null
     }), [size]));
 
-    const iconElement = external ? <ArrowIcon /> : icon;
-
-    const iconMarkup = iconElement && augmentElement(iconElement, {
+    const iconMarkup = icon && augmentElement(icon, {
         size: embeddedIconSize(size),
         className: "o-ui-link-end-icon"
     });
@@ -131,6 +130,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
             {startIcon}
             {text}
             {iconMarkup}
+            {showNewTabIndicator && <NewTabIndicator />}
         </As>
     );
 }

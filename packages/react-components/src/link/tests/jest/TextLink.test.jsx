@@ -5,12 +5,6 @@ import { waitDelay } from "@utils/waitDelay";
 
 // ***** External *****
 
-test("when external, add target=\"_blank\"", async () => {
-    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
-
-    await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("target", "_blank"));
-});
-
 test("when external, add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
 

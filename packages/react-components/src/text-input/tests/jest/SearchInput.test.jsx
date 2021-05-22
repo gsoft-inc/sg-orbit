@@ -2,6 +2,7 @@ import { Keys } from "@react-components/shared";
 import { SearchInput } from "@react-components/text-input";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
@@ -75,6 +76,60 @@ test("can focus the input with the focus api", async () => {
     });
 
     await waitFor(() => expect(refNode).toHaveFocus());
+});
+
+test("call onChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <SearchInput onChange={handler} data-testid="input" />
+    );
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    expect(handler).toHaveBeenCalled();
+});
+
+test("call onValueChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <SearchInput onValueChange={handler} data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a");
+});
+
+test("call onValueChange when the value is cleared", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId, container } = render(
+        <SearchInput onValueChange={handler} data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    act(() => {
+        userEvent.click(container.querySelector(".o-ui-search-input-clear-button"));
+    });
+
+    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "");
 });
 
 // ***** Refs *****
