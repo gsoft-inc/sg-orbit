@@ -140,12 +140,12 @@
 }
 
 /* PLACEHOLDER */
-.o-ui-select-trigger-placeholder {
+.o-ui-select-trigger-outline.o-ui-select-trigger-has-placeholder {
     color: var(--o-ui-alias-text-input-placeholder);
 }
 
 /* PLACEHOLDER | INVALID */
-.o-ui-select-trigger-invalid.o-ui-select-trigger-placeholder {
+.o-ui-select-trigger-invalid.o-ui-select-trigger-has-placeholder {
     color: var(--o-ui-alias-text-negative-1);
 }
 
