@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
+import { IconAddon } from "./IconAddon";
 import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
 import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren } from "../../shared";
@@ -80,7 +81,10 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
             .reduce((acc: ReactElement[], x: ReactElement, index) => {
                 if (getSlotKey(x) === "text") {
                     // eslint-disable-next-line react/no-array-index-key
-                    acc.push(<TextAddon {...x.props} key={index} />);
+                    acc.push(<TextAddon key={index}>{x}</TextAddon>);
+                } else if (getSlotKey(x) === "icon") {
+                    // eslint-disable-next-line react/no-array-index-key
+                    acc.push(<IconAddon key={index}>{x}</IconAddon>);
                 } else {
                     acc.push(x);
                 }

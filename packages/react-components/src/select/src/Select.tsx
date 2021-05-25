@@ -8,7 +8,7 @@ import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
 import { useFieldInputProps } from "../../field";
-import { useInputGroupAddonProps } from "../../input-group";
+import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
@@ -122,7 +122,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
 
 export function InnerSelect(props: InnerSelectProps) {
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupAddonProps();
+    const [inputGroupProps] = useInputGroupSelectAddonProps();
 
     const {
         id,

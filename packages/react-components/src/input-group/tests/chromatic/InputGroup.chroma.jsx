@@ -77,6 +77,57 @@ stories()
             </InputGroup>
         </Stack>
     )
+    .add("icon addon", () =>
+        <Stack>
+            <InputGroup>
+                <LightbulbIcon />
+                <TextInput />
+            </InputGroup>
+            <InputGroup>
+                <TextInput />
+                <LightbulbIcon />
+            </InputGroup>
+            <InputGroup>
+                <LightbulbIcon />
+                <TextInput />
+                <LightbulbIcon />
+            </InputGroup>
+        </Stack>
+    )
+    .add("button addon", () =>
+        <Stack>
+            <InputGroup>
+                <Button>Trigger</Button>
+                <TextInput />
+            </InputGroup>
+            <InputGroup>
+                <TextInput />
+                <Button>Copy</Button>
+            </InputGroup>
+            <InputGroup>
+                <Button>Trigger</Button>
+                <TextInput />
+                <Button>Copy</Button>
+            </InputGroup>
+        </Stack>
+    )
+    .add("icon button addon", () =>
+        <Stack>
+            <InputGroup>
+                <IconButton><LightbulbIcon /></IconButton>
+                <TextInput />
+            </InputGroup>
+            <InputGroup>
+                <TextInput />
+                <IconButton><LightbulbIcon /></IconButton>
+            </InputGroup>
+            <InputGroup>
+                <IconButton><LightbulbIcon /></IconButton>
+                <TextInput />
+                <IconButton><LightbulbIcon /></IconButton>
+            </InputGroup>
+        </Stack>
+    )
     .add("menu addon", () =>
         <Stack>
             <Inline>
@@ -150,9 +201,50 @@ stories()
     )
     .add("select addon", () =>
         <Stack>
+            <Inline>
+                <InputGroup>
+                    <Select aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <Select aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </InputGroup>
+            </Inline>
             <InputGroup>
+                <Select placeholder="Planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
                 <TextInput />
-                <Select aria-label="Planets">
+                <Select placeholder="Planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
