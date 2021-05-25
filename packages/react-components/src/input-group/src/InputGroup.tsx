@@ -10,11 +10,6 @@ import { TextAddon } from "./TextAddon";
 import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren } from "../../shared";
 
-/*
-TODO:
-- Support toolbar?
-*/
-
 export interface InnerInputGroupProps {
     /**
      * Whether or not the input group take up the width of its container.

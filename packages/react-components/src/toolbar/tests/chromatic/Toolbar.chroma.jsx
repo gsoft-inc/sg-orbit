@@ -1,8 +1,10 @@
 import { CheckboxGroup } from "@react-components/checkbox";
 import { Field, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
+import { InputGroup } from "../../../input-group";
 import { NotificationIcon } from "@react-components/icons";
 import { Radio, RadioGroup } from "@react-components/radio";
+import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/text-input";
 import { ToggleButton, ToggleIconButton } from "@react-components/button";
 import { Toolbar } from "@react-components/toolbar";
@@ -205,6 +207,10 @@ stories()
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </RadioGroup>
+            <InputGroup>
+                <TextInput />
+                <Text>Days</Text>
+            </InputGroup>
         </Toolbar>
     )
     .add("fields + label", () =>
