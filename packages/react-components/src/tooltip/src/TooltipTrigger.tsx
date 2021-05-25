@@ -50,6 +50,10 @@ interface InnerTooltipTriggerProps {
      */
     allowFlip?: boolean;
     /**
+     * Whether or not the tooltip element position can change to prevent it from being cut off so that it stays visible within its boundary area.
+     */
+    allowPreventOverflow?: boolean;
+    /**
      * z-index of the popover element.
      */
     zIndex?: number;
@@ -89,6 +93,7 @@ export function InnerTooltipTrigger({
     onOpenChange,
     disabled,
     allowFlip = true,
+    allowPreventOverflow = true,
     containerElement,
     zIndex = 10000,
     as = "div",
@@ -112,9 +117,8 @@ export function InnerTooltipTrigger({
         hasArrow: true,
         position: positionProp,
         allowFlip,
-        boundaryElement: containerElement,
-        // Not accepting prevent overflow feature because when the tooltip is big enough, it cause arrow render issue sometimes when the position is left or right.
-        allowPreventOverflow: false
+        allowPreventOverflow,
+        boundaryElement: containerElement
     });
 
     const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef);

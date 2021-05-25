@@ -457,7 +457,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         value: queryRef.current,
                         placeholder,
                         icon: iconMarkup ?? null,
-                        onChange: handleTriggerChange,
+                        onValueChange: handleTriggerChange,
                         onKeyDown: handleTriggerKeyDown,
                         autoFocus,
                         loading: useDeferredValue(loading, 100, false),

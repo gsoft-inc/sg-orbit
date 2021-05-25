@@ -3,6 +3,7 @@ import "./Link.css";
 import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps {
@@ -94,7 +95,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         styleProps
     );
 
-    const linkProps = useLink({
+    const { linkProps, showNewTabIndicator } = useLink({
         cssModule: "o-ui-icon-link",
         color,
         external,
@@ -126,6 +127,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
             )}
         >
             {iconMarkup}
+            {showNewTabIndicator && <NewTabIndicator />}
         </As>
     );
 }

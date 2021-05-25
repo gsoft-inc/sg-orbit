@@ -31,8 +31,7 @@ const AlertContent = forwardRef<InnerAlertContentProps>(({
             <StyleProvider
                 value={{
                     link: {
-                        color: "inherit",
-                        underline: "dotted"
+                        color: "inherit"
                     },
                     heading: {
                         size: "2xs",

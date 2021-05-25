@@ -4,17 +4,7 @@ import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 import { waitDelay } from "@utils/waitDelay";
 
-// ***** External *****
-
-test("when external, add target=\"_blank\"", async () => {
-    const { getByTestId } = render(
-        <Link external href="#" aria-label="Add" data-testid="link">
-            <AddIcon />
-        </Link>
-    );
-
-    await waitFor(() => expect(getByTestId("link")).toHaveAttribute("target", "_blank"));
-});
+// ***** External *****;
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = render(

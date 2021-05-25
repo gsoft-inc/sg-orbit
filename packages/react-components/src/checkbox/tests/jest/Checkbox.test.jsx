@@ -63,7 +63,7 @@ test("when autofocus is specified with a delay, the checkbox is focused after th
 
 // ***** Api *****
 
-test("call onChange when the checkbox is checked", async () => {
+test("call onChange, when the checkbox is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -74,14 +74,46 @@ test("call onChange when the checkbox is checked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalled());
 });
 
 test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onChange={handler} data-testid="checkbox" />
+        <Checkbox onValueChange={handler} data-testid="checkbox" />
+    );
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
+    });
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalled());
+});
+
+test("call onValueChange when the checkbox is checked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Checkbox onValueChange={handler} data-testid="checkbox" />
+    );
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+});
+
+test("call onValueChange when the checkbox is unchecked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Checkbox onValueChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -95,11 +127,11 @@ test("call onChange when the checkbox is unchecked", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
 });
 
-test("call onChange when the checkbox goes from indeterminate to checked", async () => {
+test("call onValueChange when the checkbox goes from indeterminate to checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox defaultIndeterminate onChange={handler} data-testid="checkbox" />
+        <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox" />
     );
 
     act(() => {
@@ -109,11 +141,11 @@ test("call onChange when the checkbox goes from indeterminate to checked", async
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
 });
 
-test("dont call onChange when the checkbox is disabled", async () => {
+test("dont call onValueChange when the checkbox is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox disabled onChange={handler} data-testid="checkbox" />
+        <Checkbox disabled onValueChange={handler} data-testid="checkbox" />
     );
 
     act(() => {

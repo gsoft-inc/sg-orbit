@@ -60,8 +60,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
             <StyleProvider
                 value={{
                     link: {
-                        size: "inherit",
-                        underline: "dotted"
+                        size: "inherit"
                     }
                 }}
             >

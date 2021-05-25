@@ -81,8 +81,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
                     },
                     link: {
                         size: "inherit",
-                        color: "inherit",
-                        underline: "dotted"
+                        color: "inherit"
                     },
                     list: {
                         size: "inherit",

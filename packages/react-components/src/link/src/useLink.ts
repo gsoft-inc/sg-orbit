@@ -37,21 +37,23 @@ export function useLink({
     });
 
     return {
-        target: target ?? external ? "_blank" : undefined,
-        rel: rel ?? external ? "noopener noreferrer" : undefined,
-        className: mergeClasses(
-            module,
-            cssModule(
-                "o-ui-link",
-                color === "inherit" ? "inherit-color" : color,
-                underline === "none" ? "no-underline" : underline,
-                shape,
-                active && "active",
-                focus && "focus",
-                hover && "hover",
-                visited && "visited"
-            )
-        ),
-        ref: linkRef
+        linkProps: {
+            rel: rel ?? external ? "noopener noreferrer" : undefined,
+            className: mergeClasses(
+                module,
+                cssModule(
+                    "o-ui-link",
+                    color === "inherit" ? "inherit-color" : color,
+                    underline === "none" ? "no-underline" : underline,
+                    shape,
+                    active && "active",
+                    focus && "focus",
+                    hover && "hover",
+                    visited && "visited"
+                )
+            ),
+            ref: linkRef
+        },
+        showNewTabIndicator: target === "_blank"
     };
 }

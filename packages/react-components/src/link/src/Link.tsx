@@ -1,6 +1,7 @@
 import "./Link.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { NewTabIndicator } from "./NewTabIndicator";
 import { forwardRef, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
@@ -68,7 +69,7 @@ export function InnerLink(props: InnerLinkProps) {
         styleProps
     );
 
-    const linkProps = useLink({
+    const { linkProps, showNewTabIndicator } = useLink({
         external,
         shape,
         autoFocus,
@@ -88,6 +89,7 @@ export function InnerLink(props: InnerLinkProps) {
             )}
         >
             {children}
+            {showNewTabIndicator && <NewTabIndicator />}
         </As>
     );
 }

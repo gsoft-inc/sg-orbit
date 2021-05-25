@@ -21,7 +21,8 @@ export function createLinkTestSuite(element, stories) {
         )
         .add("external", () =>
             <Link external href="https://www.space.com/spacex-delays-south-korea-military-satellite-launch.html" element={element} />
+        )
+        .add("new tab", () =>
+            <Link target="_blank" href="#" element={element} />
         );
-
-
 }

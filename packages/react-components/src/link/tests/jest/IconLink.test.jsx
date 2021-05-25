@@ -6,16 +6,6 @@ import { waitDelay } from "@utils/waitDelay";
 
 // ***** Behaviors *****
 
-test("when external, add target=\"_blank\"", async () => {
-    const { getByTestId } = render(
-        <IconLink external href="#" aria-label="Add" data-testid="icon-link">
-            <AddIcon />
-        </IconLink>
-    );
-
-    await waitFor(() => expect(getByTestId("icon-link")).toHaveAttribute("target", "_blank"));
-});
-
 test("when external, add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = render(
         <IconLink external href="#" aria-label="Add" data-testid="icon-link">
