@@ -10,26 +10,16 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "../../../tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 /*
 TODO:
-- With Icon addon
-- With Select addon
-- With Popover over TextAddon
-- With Popover over IconAddon
-- With Tooltip over TextAddon
-- With Tooltip over IconAddon
-
 - For all inputs states
 - For all addon states
 
 - In field
 - In toolbar
-*/
-
-/*
-- MAYBE WE SHOULDN'T SUPPORT A BUTTON ADDON?
 */
 
 function stories(segment) {
@@ -251,6 +241,24 @@ stories()
                 </Select>
             </InputGroup>
         </Stack>
+    )
+    .add("tooltip addon", () =>
+        <Inline>
+            <InputGroup>
+                <TextInput />
+                <TooltipTrigger open position="bottom">
+                    <Text>Days</Text>
+                    <Tooltip>In how many days should the launch occurs?</Tooltip>
+                </TooltipTrigger>
+            </InputGroup>
+            <InputGroup>
+                <TextInput />
+                <TooltipTrigger open position="bottom">
+                    <LightbulbIcon />
+                    <Tooltip>In how many days should the launch occurs?</Tooltip>
+                </TooltipTrigger>
+            </InputGroup>
+        </Inline>
     )
     .add("placeholder", () =>
         <InputGroup>

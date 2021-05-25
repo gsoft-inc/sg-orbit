@@ -7,6 +7,7 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { IconAddon } from "./IconAddon";
 import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
+import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren } from "../../shared";
 
 /*
@@ -51,6 +52,41 @@ export interface InnerInputGroupProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+function toAddon(element: ReactElement, key?: number): ReactNode {
+    if (getSlotKey(element) === "text") {
+        return (
+            <TextAddon key={key}>
+                {element}
+            </TextAddon>
+        );
+    }
+
+    if (getSlotKey(element) === "icon") {
+        return (
+            <IconAddon key={key}>
+                {element}
+            </IconAddon>
+        );
+    }
+
+    if (element.type === TooltipTrigger) {
+        const { children, ...props } = element.props;
+
+        const [trigger, tooltip] = parseTooltipTrigger(children);
+
+        const addon = toAddon(trigger);
+
+        return (
+            <TooltipTrigger {...props} key={key}>
+                {addon}
+                {tooltip}
+            </TooltipTrigger>
+        );
+    }
+
+    return element;
+}
+
 export function InnerInputGroup(props: InnerInputGroupProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
@@ -78,16 +114,8 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
 
         return Children
             .toArray(children)
-            .reduce((acc: ReactElement[], x: ReactElement, index) => {
-                if (getSlotKey(x) === "text") {
-                    // eslint-disable-next-line react/no-array-index-key
-                    acc.push(<TextAddon key={index}>{x}</TextAddon>);
-                } else if (getSlotKey(x) === "icon") {
-                    // eslint-disable-next-line react/no-array-index-key
-                    acc.push(<IconAddon key={index}>{x}</IconAddon>);
-                } else {
-                    acc.push(x);
-                }
+            .reduce((acc: ReactNode[], x: ReactElement, index) => {
+                acc.push(toAddon(x, index));
 
                 return acc;
             }, []) as ReactNode[];
