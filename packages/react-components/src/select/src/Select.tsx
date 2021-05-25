@@ -237,7 +237,8 @@ export function InnerSelect(props: InnerSelectProps) {
                             fluid && "fluid",
                             active && "active",
                             focus && "focus",
-                            hover && "hover"
+                            hover && "hover",
+                            isNil(selectedItem) && "has-placeholder"
                         )
                     },
                     triggerProps
