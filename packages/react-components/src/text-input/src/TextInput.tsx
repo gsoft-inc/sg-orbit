@@ -5,9 +5,10 @@ import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } 
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -84,6 +85,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
 export function InnerTextInput(props: InnerTextInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const {
         id,
@@ -105,13 +107,17 @@ export function InnerTextInput(props: InnerTextInputProps) {
         focus,
         hover,
         wrapperProps: userWrapperProps,
-        as: TriggerType = "input",
+        as: As = "input",
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"]),
-        wrappedInputPropsAdapter(fieldProps)
+        wrappedInputPropsAdapter(mergeProps(
+            {},
+            omitProps(toolbarProps, ["orientation"]),
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
@@ -153,7 +159,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const content = (
         <>
             {iconMarkup}
-            <TriggerType
+            <As
                 {...mergeProps(
                     rest,
                     inputProps

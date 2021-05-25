@@ -1,5 +1,5 @@
 import { ForwardedRef } from "react";
-import { MergedRef, cssModule, isNil, mergeClasses, normalizeSize, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { MergedRef, cssModule, isNil, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
 import type { FieldContextType } from "./FieldContext";
 
 export interface UseFieldProps {
@@ -7,7 +7,6 @@ export interface UseFieldProps {
     validationState?: "valid" | "invalid";
     required?: boolean;
     fluid?: boolean;
-    size?: "sm" | "md";
     disabled?: boolean;
     className?: string;
     forwardedRef?: ForwardedRef<any>;
@@ -31,7 +30,6 @@ export function useField({
     validationState,
     required,
     fluid,
-    size,
     disabled,
     className,
     forwardedRef
@@ -56,8 +54,7 @@ export function useField({
             className: mergeClasses(
                 cssModule(
                     "o-ui-field",
-                    fluid && "fluid",
-                    normalizeSize(size)
+                    fluid && "fluid"
                 ),
                 className
             ),
@@ -72,7 +69,6 @@ export function useField({
             messageId,
             required,
             disabled,
-            size,
             fluid,
             validationState,
             hasLabel,

@@ -9,7 +9,7 @@ import { Text } from "../../text";
 import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { useListboxContext } from "./ListboxContext";
 
-// used to generate CollectionItem instead of any in the auto-generated documentation
+// Used to generate CollectionItem instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionItem extends CollectionItemAliasForDocumentation { }
 

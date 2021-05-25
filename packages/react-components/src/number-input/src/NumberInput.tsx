@@ -6,9 +6,10 @@ import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, Mou
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -176,6 +177,7 @@ function toFixed(value: number, precision: number) {
 export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const {
         id,
@@ -204,8 +206,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"]),
-        omitProps(wrappedInputPropsAdapter(fieldProps), ["size"])
+        wrappedInputPropsAdapter(mergeProps(
+            {},
+            omitProps(toolbarProps, ["orientation"]),
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);

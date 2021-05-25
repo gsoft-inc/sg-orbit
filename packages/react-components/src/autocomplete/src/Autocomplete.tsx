@@ -9,7 +9,6 @@ import {
     isNil,
     isNilOrEmpty,
     mergeProps,
-    omitProps,
     useControllableState,
     useEventCallback,
     useFocusWithin,
@@ -202,7 +201,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        omitProps(fieldProps, ["size"])
+        fieldProps
     );
 
     const [focusedItem, setFocusedItem] = useState(null);

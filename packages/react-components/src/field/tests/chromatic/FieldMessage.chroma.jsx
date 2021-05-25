@@ -22,60 +22,32 @@ function Align({ children }) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
-            <HelpMessage size="sm">
+        <HelpMessage>
                 Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-            </HelpMessage>
-            <HelpMessage>
-                Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-            </HelpMessage>
-        </Inline>
+        </HelpMessage>
     )
     .add("icon", () =>
-        <Inline verticalAlign="end">
-            <HelpMessage size="sm">
-                <Align>
-                    <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-                </Align>
-            </HelpMessage>
-            <HelpMessage>
-                <Align>
-                    <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-                </Align>
-            </HelpMessage>
-        </Inline>
+        <HelpMessage>
+            <Align>
+                <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            </Align>
+        </HelpMessage>
     )
     .add("paragraph", () =>
-        <Inline verticalAlign="end">
-            <HelpMessage size="sm">
-                <Paragraph>
+        <HelpMessage>
+            <Paragraph>
                     If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
-                </Paragraph>
-            </HelpMessage>
-            <HelpMessage>
-                <Paragraph>
-                    If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
-                </Paragraph>
-            </HelpMessage>
-        </Inline>
+            </Paragraph>
+        </HelpMessage>
     )
     .add("list", () =>
-        <Inline verticalAlign="end">
-            <HelpMessage size="sm">
-                <UnorderedList>
-                    <ListItem>Celestial</ListItem>
-                    <ListItem>Dark matter</ListItem>
-                    <ListItem>Eclipse</ListItem>
-                </UnorderedList>
-            </HelpMessage>
-            <HelpMessage>
-                <UnorderedList>
-                    <ListItem>Celestial</ListItem>
-                    <ListItem>Dark matter</ListItem>
-                    <ListItem>Eclipse</ListItem>
-                </UnorderedList>
-            </HelpMessage>
-        </Inline>
+        <HelpMessage>
+            <UnorderedList>
+                <ListItem>Celestial</ListItem>
+                <ListItem>Dark matter</ListItem>
+                <ListItem>Eclipse</ListItem>
+            </UnorderedList>
+        </HelpMessage>
     )
     .add("wrappers", () =>
         <HelpMessage>

@@ -33,7 +33,7 @@ export type SelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// Used to generate CollectionNode[] instead of any[] in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 

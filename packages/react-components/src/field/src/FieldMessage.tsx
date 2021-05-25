@@ -1,19 +1,14 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ElementType, ReactNode } from "react";
-import { StyleProvider, createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
+import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Text } from "../../text";
-import { embeddedIconSize } from "../../icons";
 
 interface InnerFieldMessageProps {
     /**
      * The style to use.
      */
     tone: "neutral" | "success" | "error";
-    /**
-     * A message can vary in size.
-     */
-    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -39,15 +34,9 @@ export function getValidationProps(validationState: string) {
     };
 }
 
-const textSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm"
-});
-
 export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
     tone,
     fluid,
-    size,
     as = "div",
     children,
     ...rest
@@ -57,12 +46,11 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
             {...mergeProps(
                 rest,
                 {
-                    size: textSize(size),
+                    size: "sm",
                     className: cssModule(
                         "o-ui-field-message",
                         tone,
-                        fluid && "fluid",
-                        normalizeSize(size)
+                        fluid && "fluid"
                     ),
                     as,
                     ref
@@ -88,7 +76,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
                         color: "inherit"
                     },
                     icon: {
-                        size: embeddedIconSize(size)
+                        size: "sm"
                     }
                 }}
             >

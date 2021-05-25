@@ -8,9 +8,10 @@ import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
 import { useFieldInputProps } from "../../field";
+import { useInputGroupAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
 
-// used to generate OverlayProps instead of any in the auto-generated documentation
+// Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
@@ -121,6 +122,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
 
 export function InnerSelect(props: InnerSelectProps) {
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupAddonProps();
 
     const {
         id,
@@ -158,7 +160,8 @@ export function InnerSelect(props: InnerSelectProps) {
         ...rest
     } = mergeProps(
         props,
-        fieldProps
+        fieldProps,
+        inputGroupProps
     );
 
     const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {

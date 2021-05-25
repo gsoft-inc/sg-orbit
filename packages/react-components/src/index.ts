@@ -43,4 +43,5 @@ export * from "./menu";
 export * from "./tooltip";
 export * from "./autocomplete";
 export * from "./dialog";
+export * from "./input-group";
 export * from "./shared";

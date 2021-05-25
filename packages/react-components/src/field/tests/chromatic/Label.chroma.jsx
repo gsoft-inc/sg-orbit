@@ -11,26 +11,15 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
-            <Label size="sm">Where to?</Label>
-            <Label>Where to?</Label>
-        </Inline>
+        <Label>Where to?</Label>
     )
     .add("complex", () =>
-        <Inline verticalAlign="end">
-            <Label size="sm">
-                <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
-            </Label>
-            <Label>
-                <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
-            </Label>
-        </Inline>
+        <Label>
+            <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
+        </Label>
     )
     .add("as span", () =>
-        <Inline verticalAlign="end">
-            <Label as="span" size="sm">Where to?</Label>
-            <Label as="span">Where to?</Label>
-        </Inline>
+        <Label as="span">Where to?</Label>
     )
     .add("styling", () =>
         <Inline>

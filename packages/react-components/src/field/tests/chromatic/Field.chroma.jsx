@@ -138,32 +138,18 @@ stories()
         </Field>
     )
     .add("checkbox", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Select your favorite galaxy</Label>
+            <Checkbox>Milky Way</Checkbox>
+            <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+        </Field>
     )
     .add("switch", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Engines</Label>
+            <Switch>Milky Way</Switch>
+            <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+        </Field>
     )
     .add("select", () =>
         <Field>

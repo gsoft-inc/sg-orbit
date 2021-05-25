@@ -34,7 +34,7 @@ export const OptionKeyProp = "data-o-ui-key";
 
 type SelectionMode = "none" | "single" | "multiple";
 
-// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// Used to generate CollectionNode[] instead of any[] in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 

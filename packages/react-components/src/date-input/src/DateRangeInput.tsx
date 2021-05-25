@@ -26,6 +26,7 @@ import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
 import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
+import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 export interface DatePreset {
@@ -170,6 +171,7 @@ const DateInput = forwardRef<any, "input">(({
 export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const {
         startDate: startDateProp,
@@ -199,7 +201,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     } = mergeProps(
         props,
         omitProps(toolbarProps, ["orientation"]),
-        fieldProps
+        fieldProps,
+        inputGroupProps
     );
 
     const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);

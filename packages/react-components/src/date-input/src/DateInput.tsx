@@ -6,8 +6,10 @@ import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
 import { forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
+import { useInputGroupProps } from "../../input-group";
+import { wrappedInputPropsAdapter } from "../../input";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -73,19 +75,25 @@ export interface InnerDateInputProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerDateInput({
-    value,
-    defaultValue,
-    placeholder = "dd/mm/yyyy",
-    min,
-    max,
-    onChange,
-    onDateChange,
-    wrapperProps,
-    as = "input",
-    forwardedRef,
-    ...rest
-}: InnerDateInputProps) {
+export function InnerDateInput(props: InnerDateInputProps) {
+    const [inputGroupProps] = useInputGroupProps();
+
+    const {
+        value,
+        defaultValue,
+        placeholder = "dd/mm/yyyy",
+        min,
+        max,
+        onChange,
+        onDateChange,
+        wrapperProps,
+        as = "input",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        wrappedInputPropsAdapter(inputGroupProps)
+    );
 
     const dateProps = useDateInput({
         value,

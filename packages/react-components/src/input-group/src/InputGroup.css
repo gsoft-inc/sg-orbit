@@ -1,0 +1,35 @@
+.o-ui-input-group {
+    display: flex;
+    align-items: center;
+    /* width: 325px; */
+}
+
+.o-ui-input-group-fluid {
+    width: 100%;
+}
+
+/* ADDON | START */
+.o-ui-input-group-input:not(:first-child),
+.o-ui-input-group-input:not(:first-child) input {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.o-ui-input-group-addon:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* ADDON | END */
+.o-ui-input-group-input:not(:last-child),
+.o-ui-input-group-input:not(:last-child) input {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-ui-input-group-addon:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
