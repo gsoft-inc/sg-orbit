@@ -2,10 +2,10 @@ import "./TextInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ClearInputGroupContext, useInputGroupProps } from "../../input-group";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
-import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -165,7 +165,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
                     inputProps
                 )}
             />
-            {buttonMarkup}
+            {/* Otherwise an input button will receive an addon className */}
+            <ClearInputGroupContext>
+                {buttonMarkup}
+            </ClearInputGroupContext>
         </>
     );
 

@@ -1,5 +1,6 @@
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ClearFieldContext } from "../../field";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput, TextInputProps } from "./TextInput";

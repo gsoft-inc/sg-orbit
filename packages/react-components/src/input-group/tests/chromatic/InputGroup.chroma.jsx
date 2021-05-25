@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@react-components/button";
 import { DateInput, DateRangeInput } from "@react-components/date-input";
 import { DisclosureArrow } from "@react-components/disclosure";
+import { Field, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { InputGroup } from "@react-components/input-group";
 import { Item } from "@react-components/collection";
@@ -18,7 +19,6 @@ TODO:
 - For all inputs states
 - For all addon states
 
-- In field
 - In toolbar
 */
 
@@ -375,4 +375,14 @@ stories()
                 <Text>Planet</Text>
             </InputGroup>
         </Stack>
+    )
+    .add("in field", () =>
+        <Field>
+            <Label>Launch date</Label>
+            <InputGroup>
+                <TextInput />
+                <Text>Days</Text>
+            </InputGroup>
+            <HelpMessage>In how many days does your flight will launch?</HelpMessage>
+        </Field>
     );

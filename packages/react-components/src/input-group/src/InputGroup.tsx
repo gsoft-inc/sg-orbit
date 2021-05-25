@@ -12,13 +12,7 @@ import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolv
 
 /*
 TODO:
-- Support field
 - Support toolbar?
-
-- Button -> outline & fluid?
-- Select -> fluid?
-- Menu -> it's the trigger who control
-- Popover & Tooltip -> It's the trigger
 */
 
 export interface InnerInputGroupProps {
