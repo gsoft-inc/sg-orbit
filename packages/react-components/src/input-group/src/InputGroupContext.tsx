@@ -96,6 +96,7 @@ export function useInputGroupSelectAddonProps(): [UseInputGroupSelectAddonPropsR
     const props = isInInputGroup && {
         disabled,
         readOnly,
+        allowResponsiveMenuWidth: false,
         className: "o-ui-input-group-addon o-ui-input-group-select-addon"
     };
 

@@ -1,7 +1,6 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { CalendarIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
@@ -309,7 +308,6 @@ const RangeInput = forwardRef<any>((props, ref) => {
                 focusWithinProps
             )}
         >
-            <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput
                 value={startDate}
                 placeholder={placeholder}

@@ -1,7 +1,6 @@
 import "./DateInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { CalendarIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
 import { forwardRef, mergeProps } from "../../shared";
@@ -111,7 +110,6 @@ export function InnerDateInput(props: InnerDateInputProps) {
                 rest,
                 {
                     placeholder,
-                    icon: <CalendarIcon />,
                     wrapperProps: mergeProps(
                         wrapperProps ?? {},
                         {

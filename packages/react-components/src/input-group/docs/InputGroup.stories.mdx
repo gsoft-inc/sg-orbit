@@ -1,0 +1,247 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Autocomplete } from "@react-components/autocomplete"
+import { Button, IconButton } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { DisclosureArrow } from "@react-components/disclosure";
+import { Divider, InnerDivider } from "@react-components/divider";
+import { HelpIcon, IconList, InfoIcon, LightbulbIcon, NotificationIcon, VerticalDotsIcon, WarningIcon } from "@react-components/icons";
+import { IconAddon, InnerIconAddon, InnerInputGroup, InnerTextAddon, InputGroup, TextAddon } from "@react-components/input-group";
+import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
+import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
+import { NumberInput } from "@react-components/number-input";
+import { PasswordInput } from "@react-components/input";
+import { Select } from "@react-components/select";
+import { Stack } from "@react-components/layout";
+import { Text } from "@react-components/text";
+import { TextInput } from "@react-components/text-input";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
+
+<Meta
+    title="Components/InputGroup"
+    id="input-group"
+/>
+
+# InputGroup
+
+<Tagline>An input group combines an input component with addons.</Tagline>
+
+<ComponentInfo
+    usage={"import { InputGroup, TextAddon, IconAddon, InputGroupContext, useInputGroupProps, useInputGroupAddonProps } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/input-group/src"
+/>
+
+## Usage
+
+An input group can combine an input with a *start* addon, an *end* addon or *both*. All Orbit's input can be combined, you can even make it work with a [custom input](#custom-input).
+
+### Default
+
+A default input group.
+
+<Preview>
+    <Story name="default">
+        <InputGroup>
+            <TextInput />
+            <Text>days</Text>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Inputs
+
+An input group can have any Orbit's input.
+
+<Preview>
+    <Story name="inputs">
+        <Stack>
+            <InputGroup>
+                <Text>https://</Text>
+                <TextInput />
+            </InputGroup>
+            <InputGroup>
+                <NumberInput />
+                <Text>passengers</Text>
+            </InputGroup>
+            <InputGroup>
+                <WarningIcon />
+                <PasswordInput />
+            </InputGroup>
+        </Stack>
+    </Story>
+</Preview>
+
+### Text addon
+
+An input group can have a textual addon to offer additional hints. A text addon shouldn't replace a [field label](?path=/docs/field--input#label) or a [field description](?path=/docs/field--input#helpmessage).
+
+<Preview>
+    <Story name="text addon">
+        <InputGroup>
+            <Text>https://</Text>
+            <TextInput />
+            <Text>.space</Text>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Icon addon
+
+An input group can have an icon addon.
+
+<Preview>
+    <Story name="icon addon">
+        <InputGroup>
+            <TextInput />
+            <InfoIcon />
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Menu addon
+
+An input group can have a menu addon.
+
+<Preview>
+    <Story name="menu addon">
+        <InputGroup>
+            <Autocomplete placeholder="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="jupiter">Jupiter</Item>
+            </Autocomplete>
+            <MenuTrigger>
+                <IconButton>
+                    <DisclosureArrow />
+                </IconButton>
+                <Menu>
+                    <Item key="andromeda">Andromeda</Item>
+                    <Item key="milky-way">Milky way</Item>
+                    <Item key="virgo">Virgo</Item>
+                </Menu>
+            </MenuTrigger>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Select addon
+
+An input group can have a select addon.
+
+<Preview>
+    <Story name="select addon">
+        <InputGroup>
+            <TextInput />
+            <Select defaultSelectedKey="days">
+                <Item key="days">days</Item>
+                <Item key="weeks">weeks</Item>
+                <Item key="years">years</Item>
+            </Select>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Tooltip addon
+
+An input group can have a tooltip addon.
+
+<Preview>
+    <Story name="tooltip addon">
+        <InputGroup>
+            <TextInput />
+            <TooltipTrigger>
+                <InfoIcon />
+                <Tooltip>In how many days should the launch occurs?</Tooltip>
+            </TooltipTrigger>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Disabled
+
+An input group can set as disabled the input and the addon(s).
+
+<Preview>
+    <Story name="disabled">
+        <InputGroup disabled>
+            <TextInput />
+            <Select defaultSelectedKey="days">
+                <Item key="days">days</Item>
+                <Item key="weeks">weeks</Item>
+                <Item key="years">years</Item>
+            </Select>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Readonly
+
+An input group can set as readonly the input and the addon(s).
+
+<Preview>
+    <Story name="readonly">
+        <InputGroup readOnly>
+            <TextInput />
+            <Select defaultSelectedKey="days">
+                <Item key="days">days</Item>
+                <Item key="weeks">weeks</Item>
+                <Item key="years">years</Item>
+            </Select>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Fluid
+
+An input group can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <InputGroup fluid>
+            <Text>https://</Text>
+            <TextInput />
+            <Text>.space</Text>
+        </InputGroup>
+    </Story>
+</Preview>
+
+### Custom input
+
+Any input implementing the `InputGroupContext` can integrate with an input group component. This is usually done by using the `useInputGroupProps` hook.
+
+<Preview filePath="/input-group/docs/CustomInput" />
+
+### Custom addon
+
+Any addon implementing the `InputGroupContext` can integrate with an input group component. This is usually done by using the `useInputGroupAddonProps` hook.
+
+<Preview filePath="/input-group/docs/CustomAddon" />
+
+## API
+
+### InputGroup
+
+<ComponentInfo
+    usage={"import { InputGroup } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerInputGroup} sort="alpha" />
+
+### TextAddon
+
+<ComponentInfo
+    usage={"import { TextAddon } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerTextAddon} sort="alpha" />
+
+### IconAddon
+
+<ComponentInfo
+    usage={"import { IconAddon } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerIconAddon} sort="alpha" />

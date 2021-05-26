@@ -1,3 +1,4 @@
+import { Autocomplete } from "@react-components/autocomplete";
 import { Button, IconButton } from "@react-components/button";
 import { DateInput, DateRangeInput } from "@react-components/date-input";
 import { DisclosureArrow } from "@react-components/disclosure";
@@ -10,7 +11,7 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
-import { Tooltip, TooltipTrigger } from "../../../tooltip";
+import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -617,4 +618,79 @@ stories()
                 </InputGroup>
             </Inline>
         </Stack>
+    )
+    .add("autocomplete", () =>
+        <Stack>
+            <Inline>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                </InputGroup>
+                <InputGroup>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                    <Text>Origin</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                    <Text>Origin</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Origin</Text>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Origin</Text>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <Autocomplete>
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                </InputGroup>
+            </Inline>
+        </Stack>
+    )
+    .add("styling", () =>
+        <Inline>
+            <InputGroup className="border-red">
+                <Text>Days</Text>
+                <TextInput />
+            </InputGroup>
+            <InputGroup style={{ border: "1px solid red" }}>
+                <Text>Days</Text>
+                <TextInput />
+            </InputGroup>
+        </Inline>
     );

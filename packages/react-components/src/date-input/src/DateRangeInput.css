@@ -65,11 +65,6 @@
     --o-ui-date-range-input-border-color: var(--o-ui-alias-border-negative-1);
 }
 
-/* ICON */
-.o-ui-date-range-input .o-ui-date-range-input-icon {
-    flex-shrink: 0;
-}
-
 /* DATE INPUT */
 .o-ui-date-range-input-date-input {
     font-size: var(--o-ui-global-type-scale-7);

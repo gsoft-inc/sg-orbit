@@ -26,6 +26,8 @@ import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../
 import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
+import { useInputGroupProps } from "../../input-group";
+import { wrappedInputPropsAdapter } from "../../input";
 import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
@@ -160,6 +162,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupProps();
 
     const {
         id,
@@ -201,7 +204,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        fieldProps
+        wrappedInputPropsAdapter(mergeProps(
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [focusedItem, setFocusedItem] = useState(null);
@@ -440,7 +446,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 
     return (
-        <Box>
+        <>
             <HiddenAutocomplete
                 name={name}
                 value={value}
@@ -502,7 +508,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             >
                 {results.length > 0 ? listboxMarkup : noResultsMarkup}
             </Overlay>
-        </Box>
+        </>
     );
 }
 

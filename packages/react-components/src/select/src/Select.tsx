@@ -99,6 +99,10 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      */
     allowPreventOverflow?: boolean;
     /**
+     * Whether or not the selection menu should match the trigger width.
+     */
+    allowResponsiveMenuWidth?: boolean;
+    /**
      * z-index of the overlay element.
      */
     zIndex?: number;
@@ -145,6 +149,7 @@ export function InnerSelect(props: InnerSelectProps) {
         disabled,
         allowFlip = true,
         allowPreventOverflow = true,
+        allowResponsiveMenuWidth,
         zIndex = 10000,
         active,
         focus,
@@ -179,7 +184,7 @@ export function InnerSelect(props: InnerSelectProps) {
         disabled,
         allowFlip,
         allowPreventOverflow,
-        allowResponsiveMenuWidth: variant !== "ghost",
+        allowResponsiveMenuWidth: allowResponsiveMenuWidth ?? variant !== "ghost",
         ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,
