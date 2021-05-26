@@ -8,18 +8,30 @@
     width: 100%;
 }
 
-/* YADA */
+/* STATES */
+.o-ui-input-group:not(:focus-within) > *:hover {
+    z-index: 1;
+}
+
+.o-ui-input-group > *:focus,
+.o-ui-input-group > *:focus-within {
+    z-index: 2;
+}
+
+.o-ui-input-group button:after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* ADDON */
 .o-ui-input-group > :first-child:not(.o-ui-input-group-input) {
     margin-right: -1px;
 }
 
 .o-ui-input-group > :last-child:not(.o-ui-input-group-input) {
     margin-left: -1px;
-}
-
-.o-ui-input-group:not(:focus-within) > *:hover,
-.o-ui-input-group > *:focus {
-    z-index: 1;
 }
 
 /* ADDON | START */

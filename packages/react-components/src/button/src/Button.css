@@ -34,7 +34,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
-    border-radius: var(--o-ui-shape-pill);
+    border-radius: inherit;
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -178,11 +178,6 @@ a.o-ui-button {
     background-color: var(--o-ui-global-transparent);
     color: var(--o-ui-alias-text-2);
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-4) inset;
-}
-
-/* OUTLINE | ROUNDED */
-.o-ui-button-outline.o-ui-button-rounded {
-    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* OUTLINE | HOVER */
@@ -507,10 +502,6 @@ a.o-ui-button {
 
 /* ROUNDED */
 .o-ui-button-rounded {
-    border-radius: var(--o-ui-shape-rounded);
-}
-
-.o-ui-button-rounded:after {
     border-radius: var(--o-ui-shape-rounded);
 }
 
