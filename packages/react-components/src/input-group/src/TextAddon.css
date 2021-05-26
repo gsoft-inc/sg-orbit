@@ -1,0 +1,12 @@
+.o-ui-input-group-text-addon {
+    display: flex;
+    align-items: center;
+    font-size: var(--o-ui-global-type-scale-7);
+    padding: 0 var(--o-ui-global-scale-charlie);
+    min-height: var(--o-ui-global-scale-hotel);
+    border-radius: var(--o-ui-shape-rounded);
+    border: 1px solid var(--o-ui-alias-border-1);
+    color: var(--o-ui-alias-text-1);
+    background-color: var(--o-ui-alias-background-3);
+    flex-shrink: 0;
+}
