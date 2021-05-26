@@ -1,10 +1,11 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { CalendarIcon, VerticalDotsIcon } from "../../icons";
+import { CalendarIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
+import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
 import {
     InteractionStatesProps,
@@ -398,6 +399,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const rangeRef = useRef<HTMLInputElement>();
 
     useImperativeHandle(forwardedRef, () => {
+        // For presets, used the input group container as the ref element.
         if (!isNil(presets)) {
             const element = containerRef.current;
 
@@ -428,6 +430,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
         if (!isNil(preset)) {
             applyDates(event, preset.startDate, preset.endDate);
+
+            rangeRef.current?.focus();
         }
     });
 
@@ -471,10 +475,9 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 <MenuTrigger>
                     <IconButton
                         disabled={disabled || readOnly}
-                        condensed
                         aria-label="Date presets"
                     >
-                        <VerticalDotsIcon />
+                        <DisclosureArrow />
                     </IconButton>
                     <Menu onSelectionChange={handleSelectPreset}>
                         {presets.map((x, index) => (
