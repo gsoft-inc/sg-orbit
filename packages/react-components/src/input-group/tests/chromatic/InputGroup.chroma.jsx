@@ -11,7 +11,6 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
-import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -47,35 +46,6 @@ stories()
                 </InputGroup>
                 <InputGroup readOnly>
                     <Text>Days</Text>
-                    <TextInput />
-                </InputGroup>
-            </Inline>
-        </Stack>
-    )
-    .add("icon addon", () =>
-        <Stack>
-            <Inline>
-                <InputGroup>
-                    <LightbulbIcon />
-                    <TextInput />
-                </InputGroup>
-                <InputGroup>
-                    <TextInput />
-                    <LightbulbIcon />
-                </InputGroup>
-                <InputGroup>
-                    <LightbulbIcon />
-                    <TextInput />
-                    <LightbulbIcon />
-                </InputGroup>
-            </Inline>
-            <Inline>
-                <InputGroup disabled>
-                    <LightbulbIcon />
-                    <TextInput />
-                </InputGroup>
-                <InputGroup readOnly>
-                    <LightbulbIcon />
                     <TextInput />
                 </InputGroup>
             </Inline>
@@ -376,24 +346,6 @@ stories()
                 </InputGroup>
             </Inline>
         </Stack>
-    )
-    .add("tooltip addon", () =>
-        <Inline>
-            <InputGroup>
-                <TextInput />
-                <TooltipTrigger open position="bottom">
-                    <Text>Days</Text>
-                    <Tooltip>In how many days should the launch occurs?</Tooltip>
-                </TooltipTrigger>
-            </InputGroup>
-            <InputGroup>
-                <TextInput />
-                <TooltipTrigger open position="bottom">
-                    <LightbulbIcon />
-                    <Tooltip>In how many days should the launch occurs?</Tooltip>
-                </TooltipTrigger>
-            </InputGroup>
-        </Inline>
     )
     .add("placeholder", () =>
         <InputGroup>
