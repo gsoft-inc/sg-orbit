@@ -175,7 +175,7 @@ stories()
                 <InputGroup>
                     <MenuTrigger>
                         <Button>Trigger</Button>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -186,7 +186,7 @@ stories()
                 <InputGroup>
                     <MenuTrigger>
                         <IconButton><DisclosureArrow /></IconButton>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -200,7 +200,7 @@ stories()
                     <TextInput />
                     <MenuTrigger>
                         <Button>Trigger</Button>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -211,7 +211,7 @@ stories()
                     <TextInput />
                     <MenuTrigger>
                         <IconButton><DisclosureArrow /></IconButton>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -222,7 +222,7 @@ stories()
             <InputGroup>
                 <MenuTrigger>
                     <Button>Trigger</Button>
-                    <Menu>
+                    <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
@@ -231,13 +231,37 @@ stories()
                 <TextInput />
                 <MenuTrigger>
                     <IconButton><DisclosureArrow /></IconButton>
-                    <Menu>
+                    <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Menu>
                 </MenuTrigger>
             </InputGroup>
+            <Inline>
+                <InputGroup disabled>
+                    <MenuTrigger>
+                        <Button>Trigger</Button>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <MenuTrigger>
+                        <Button>Trigger</Button>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("select addon", () =>
@@ -335,16 +359,14 @@ stories()
                     <TextInput />
                 </InputGroup>
             </Inline>
-            <Inline>
-                <InputGroup>
-                    <Select focus hover placeholder="Planet" aria-label="Planets">
-                        <Item key="earth">Earth</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Select>
-                    <TextInput />
-                </InputGroup>
-            </Inline>
+            <InputGroup>
+                <Select focus hover placeholder="Planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <TextInput />
+            </InputGroup>
         </Stack>
     )
     .add("placeholder", () =>
@@ -614,15 +636,6 @@ stories()
                     </Autocomplete>
                 </InputGroup>
                 <InputGroup readOnly>
-                    <Text>Origin</Text>
-                    <Autocomplete>
-                        <Item key="earth">Earth</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                        <Item key="jupiter">Jupiter</Item>
-                    </Autocomplete>
-                </InputGroup>
-                <InputGroup>
                     <Text>Origin</Text>
                     <Autocomplete>
                         <Item key="earth">Earth</Item>

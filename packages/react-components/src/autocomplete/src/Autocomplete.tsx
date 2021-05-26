@@ -131,6 +131,10 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     disabled?: boolean;
     /**
+     * Whether or not the autocomplete is readonly.
+     */
+    readOnly?: boolean;
+    /**
      * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
     allowFlip?: boolean;
@@ -187,6 +191,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         name,
         fluid,
         disabled,
+        readOnly,
         allowFlip = true,
         allowPreventOverflow = true,
         zIndex = 10000,
@@ -226,7 +231,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
+    const {
+        isOpen,
+        setIsOpen,
+        triggerProps: { ref: popupTriggerRef, ...triggerProps },
+        overlayProps: { ref: overlayRef, ...overlayProps }
+    } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -239,7 +249,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         trigger: "none",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
-        disabled,
+        disabled: disabled || readOnly,
         allowFlip,
         allowPreventOverflow
     });
@@ -467,6 +477,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         autoFocus,
                         loading: useDeferredValue(loading, 100, false),
                         disabled,
+                        readOnly,
                         validationState,
                         fluid,
                         active,

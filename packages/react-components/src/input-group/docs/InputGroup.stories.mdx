@@ -7,7 +7,6 @@ import { InnerInputGroup, InnerTextAddon, InputGroup } from "@react-components/i
 import { Item } from "@react-components/collection";
 import { Menu, MenuTrigger } from "@react-components/menu";
 import { NumberInput } from "@react-components/number-input";
-import { PasswordInput } from "@react-components/input";
 import { Select } from "@react-components/select";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
@@ -94,7 +93,7 @@ An input group can have a menu addon.
                 <IconButton>
                     <DisclosureArrow />
                 </IconButton>
-                <Menu>
+                <Menu aria-label="Galaxies">
                     <Item key="andromeda">Andromeda</Item>
                     <Item key="milky-way">Milky way</Item>
                     <Item key="virgo">Virgo</Item>
@@ -112,7 +111,7 @@ An input group can have a select addon.
     <Story name="select addon">
         <InputGroup>
             <TextInput />
-            <Select defaultSelectedKey="days">
+            <Select defaultSelectedKey="days" aria-label="Period">
                 <Item key="days">days</Item>
                 <Item key="weeks">weeks</Item>
                 <Item key="years">years</Item>
