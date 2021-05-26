@@ -22,7 +22,7 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
@@ -279,7 +279,7 @@ export function InnerMenu({
 
     return (
         <Box
-            {...mergeProps<Partial<BoxProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     id: rootId,

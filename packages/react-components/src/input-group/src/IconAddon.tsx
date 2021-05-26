@@ -1,9 +1,9 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { forwardRef, mergeProps } from "../../shared";
-import { useInputGroupAddonProps } from "../../input-group";
+import { useInputGroupAddonProps } from "./InputGroupContext";
 
-export interface InnerTextAddonProps {
+export interface InnerIconAddonProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -18,7 +18,7 @@ export interface InnerTextAddonProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerTextAddon(props: InnerTextAddonProps) {
+export function InnerIconAddon(props: InnerIconAddonProps) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     const {
@@ -36,7 +36,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-input-group-text-addon",
+                    className: "o-ui-input-group-icon-addon",
                     as,
                     ref: forwardedRef
                 }
@@ -47,10 +47,10 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     );
 }
 
-export const TextAddon = forwardRef<InnerTextAddonProps>((props, ref) => (
-    <InnerTextAddon {...props} forwardedRef={ref} />
+export const IconAddon = forwardRef<InnerIconAddonProps>((props, ref) => (
+    <InnerIconAddon {...props} forwardedRef={ref} />
 ));
 
-export type TextAddonProps = ComponentProps<typeof TextAddon>;
+export type IconAddonProps = ComponentProps<typeof IconAddon>;
 
-TextAddon.displayName = "TextAddon";
+IconAddon.displayName = "IconAddon";

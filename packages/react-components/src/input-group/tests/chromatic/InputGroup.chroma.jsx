@@ -10,27 +10,8 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
+import { Tooltip, TooltipTrigger } from "../../../tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-
-/*
-TODO:
-- With Icon addon
-- With Select addon
-- With Popover over TextAddon
-- With Popover over IconAddon
-- With Tooltip over TextAddon
-- With Tooltip over IconAddon
-
-- For all inputs states
-- For all addon states
-
-- In field
-- In toolbar
-*/
-
-/*
-- MAYBE WE SHOULDN'T SUPPORT A BUTTON ADDON?
-*/
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/InputGroup")
@@ -41,40 +22,180 @@ function stories(segment) {
 }
 
 stories()
-    .add("start addon", () =>
-        <InputGroup>
-            <Text>Days</Text>
-            <TextInput />
-        </InputGroup>
-    )
-    .add("end addon", () =>
-        <InputGroup>
-            <TextInput />
-            <Text>Days</Text>
-        </InputGroup>
-    )
-    .add("start & end addons", () =>
-        <InputGroup>
-            <Text>Launching in</Text>
-            <TextInput />
-            <Text>Days</Text>
-        </InputGroup>
-    )
     .add("text addon", () =>
         <Stack>
-            <InputGroup>
-                <Text>Days</Text>
-                <TextInput />
-            </InputGroup>
-            <InputGroup>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>Launching in</Text>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Launching in</Text>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+        </Stack>
+    )
+    .add("icon addon", () =>
+        <Stack>
+            <Inline>
+                <InputGroup>
+                    <LightbulbIcon />
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <LightbulbIcon />
+                </InputGroup>
+                <InputGroup>
+                    <LightbulbIcon />
+                    <TextInput />
+                    <LightbulbIcon />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <LightbulbIcon />
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <LightbulbIcon />
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+        </Stack>
+    )
+    .add("button addon", () =>
+        <Stack>
+            <Inline>
+                <InputGroup>
+                    <Button>Trigger</Button>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Button>Copy</Button>
+                </InputGroup>
+                <InputGroup>
+                    <Button>Trigger</Button>
+                    <TextInput />
+                    <Button>Copy</Button>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <Button variant="solid">Copy</Button>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Button color="primary">Copy</Button>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <TextInput />
+                    <Button>Copy</Button>
+                </InputGroup>
+                <InputGroup readOnly>
+                    <TextInput />
+                    <Button>Copy</Button>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <Button active>Copy</Button>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Button focus>Copy</Button>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Button hover>Copy</Button>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <Button focus hover>Copy</Button>
+                </InputGroup>
+            </Inline>
+        </Stack>
+    )
+    .add("icon button addon", () =>
+        <Stack>
+            <Inline>
+                <InputGroup>
+                    <IconButton><LightbulbIcon /></IconButton>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup>
+                    <IconButton><LightbulbIcon /></IconButton>
+                    <TextInput />
+                    <IconButton><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton variant="solid"><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton color="primary"><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <TextInput />
+                    <IconButton><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup readOnly>
+                    <TextInput />
+                    <IconButton><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton active><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton focus><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton hover><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <IconButton focus hover><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("menu addon", () =>
@@ -150,15 +271,128 @@ stories()
     )
     .add("select addon", () =>
         <Stack>
+            <Inline>
+                <InputGroup>
+                    <Select aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput />
+                    <Select aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </InputGroup>
+            </Inline>
             <InputGroup>
+                <Select placeholder="Planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
                 <TextInput />
-                <Select aria-label="Planets">
+                <Select placeholder="Planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
             </InputGroup>
+            <Inline>
+                <InputGroup disabled>
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Select active placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <Select focus placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <Select hover placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Select focus hover placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
         </Stack>
+    )
+    .add("tooltip addon", () =>
+        <Inline>
+            <InputGroup>
+                <TextInput />
+                <TooltipTrigger open position="bottom">
+                    <Text>Days</Text>
+                    <Tooltip>In how many days should the launch occurs?</Tooltip>
+                </TooltipTrigger>
+            </InputGroup>
+            <InputGroup>
+                <TextInput />
+                <TooltipTrigger open position="bottom">
+                    <LightbulbIcon />
+                    <Tooltip>In how many days should the launch occurs?</Tooltip>
+                </TooltipTrigger>
+            </InputGroup>
+        </Inline>
     )
     .add("placeholder", () =>
         <InputGroup>
@@ -174,105 +408,213 @@ stories()
             <Text>Days</Text>
         </InputGroup>
     )
+    .add("states", () =>
+        <Stack>
+            <InputGroup disabled>
+                <TextInput />
+                <Text>Days</Text>
+            </InputGroup>
+            <InputGroup readOnly>
+                <TextInput />
+                <Text>Days</Text>
+            </InputGroup>
+        </Stack>
+    )
     .add("text input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Days</Text>
-                <TextInput />
-            </InputGroup>
-            <InputGroup>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>Launching in</Text>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Launching in</Text>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Days</Text>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup >
+                    <Text>Days</Text>
+                    <TextInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("number input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Days</Text>
-                <NumberInput />
-            </InputGroup>
-            <InputGroup>
-                <NumberInput />
-                <Text>Days</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>Launching in</Text>
-                <NumberInput />
-                <Text>Days</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <NumberInput />
+                </InputGroup>
+                <InputGroup>
+                    <NumberInput />
+                    <Text>Days</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Launching in</Text>
+                    <NumberInput />
+                    <Text>Days</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Days</Text>
+                    <NumberInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Days</Text>
+                    <NumberInput />
+                </InputGroup>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <NumberInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("password input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Access key</Text>
-                <PasswordInput />
-            </InputGroup>
-            <InputGroup>
-                <PasswordInput />
-                <Text>Access key</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>Your</Text>
-                <PasswordInput />
-                <Text>Access key</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>Access key</Text>
+                    <PasswordInput />
+                </InputGroup>
+                <InputGroup>
+                    <PasswordInput />
+                    <Text>Access key</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>Your</Text>
+                    <PasswordInput />
+                    <Text>Access key</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Access key</Text>
+                    <PasswordInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Access key</Text>
+                    <PasswordInput />
+                </InputGroup>
+                <InputGroup>
+                    <Text>Access key</Text>
+                    <PasswordInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("search input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Origin</Text>
-                <SearchInput />
-            </InputGroup>
-            <InputGroup>
-                <SearchInput />
-                <Text>Origin</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>I am from the</Text>
-                <SearchInput />
-                <Text>Planet</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <SearchInput />
+                </InputGroup>
+                <InputGroup>
+                    <SearchInput />
+                    <Text>Origin</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>I am from the</Text>
+                    <SearchInput />
+                    <Text>Planet</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>Origin</Text>
+                    <SearchInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>Origin</Text>
+                    <SearchInput />
+                </InputGroup>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <SearchInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("date input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Origin</Text>
-                <DateInput />
-            </InputGroup>
-            <InputGroup>
-                <DateInput />
-                <Text>Origin</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>I am from the</Text>
-                <DateInput />
-                <Text>Planet</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateInput />
+                </InputGroup>
+                <InputGroup>
+                    <DateInput />
+                    <Text>When</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateInput />
+                    <Text>When</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>When</Text>
+                    <DateInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>When</Text>
+                    <DateInput />
+                </InputGroup>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("date range input", () =>
         <Stack>
-            <InputGroup>
-                <Text>Origin</Text>
-                <DateRangeInput />
-            </InputGroup>
-            <InputGroup>
-                <DateRangeInput />
-                <Text>Origin</Text>
-            </InputGroup>
-            <InputGroup>
-                <Text>I am from the</Text>
-                <DateRangeInput />
-                <Text>Planet</Text>
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateRangeInput />
+                </InputGroup>
+                <InputGroup>
+                    <DateRangeInput />
+                    <Text>When</Text>
+                </InputGroup>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateRangeInput />
+                    <Text>When</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup disabled>
+                    <Text>When</Text>
+                    <DateRangeInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <Text>When</Text>
+                    <DateRangeInput />
+                </InputGroup>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateRangeInput focus />
+                </InputGroup>
+            </Inline>
         </Stack>
     );

@@ -3,7 +3,7 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, Re
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../text";
-import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
+import { TooltipTrigger } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./Menu";
@@ -133,7 +133,7 @@ export function InnerMenuItem({
 
         return (
             <TooltipTrigger
-                {...mergeProps<Partial<TooltipTriggerProps>[]>(
+                {...mergeProps<any>(
                     tooltipProps,
                     {
                         position: "left"

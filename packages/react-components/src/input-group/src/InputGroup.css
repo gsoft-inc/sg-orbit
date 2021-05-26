@@ -1,5 +1,5 @@
 .o-ui-input-group {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     /* width: 325px; */
 }
@@ -32,4 +32,35 @@
 .o-ui-input-group-addon:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+/* TEXT ADDON */
+.o-ui-input-group-text-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--o-ui-global-scale-charlie);
+    min-height: var(--o-ui-global-scale-hotel);
+    border-radius: var(--o-ui-shape-rounded);
+    border: 1px solid var(--o-ui-alias-border-1);
+    color: var(--o-ui-alias-text-input-placeholder);
+    background-color: var(--o-ui-alias-background-1);
+    flex-shrink: 0;
+}
+
+/* ICON ADDON */
+.o-ui-input-group-icon-addon {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--o-ui-global-scale-charlie);
+    min-height: var(--o-ui-global-scale-hotel);
+    border-radius: var(--o-ui-shape-rounded);
+    border: 1px solid var(--o-ui-alias-border-1);
+    background-color: var(--o-ui-alias-background-1);
+    flex-shrink: 0;
+}
+
+/* SELECT ADDON */
+.o-ui-input-group-select-addon {
+    width: auto !important;
+    min-width: 85px;
 }

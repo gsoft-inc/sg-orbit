@@ -74,8 +74,8 @@ export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsR
     const [{ disabled }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        // Maybe not ouline? Maybe something like "grouped" or "group" ?
         variant: "outline",
+        color: "secondary",
         shape: "rounded",
         disabled,
         className: "o-ui-input-group-addon"
@@ -84,4 +84,20 @@ export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsR
     return [props || {}, isInInputGroup];
 }
 
-// export interface UseInputGroup
+export interface UseInputGroupSelectAddonPropsReturn {
+    disabled?: boolean;
+    readOnly?: boolean;
+    className?: string;
+}
+
+export function useInputGroupSelectAddonProps(): [UseInputGroupSelectAddonPropsReturn, boolean] {
+    const [{ disabled, readOnly }, isInInputGroup] = useInputGroupContext();
+
+    const props = isInInputGroup && {
+        disabled,
+        readOnly,
+        className: "o-ui-input-group-addon o-ui-input-group-select-addon"
+    };
+
+    return [props || {}, isInInputGroup];
+}
