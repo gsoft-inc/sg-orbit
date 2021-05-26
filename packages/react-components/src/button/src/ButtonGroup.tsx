@@ -1,7 +1,7 @@
 import "./ButtonGroup.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { Group, GroupProps } from "../../group";
+import { Group } from "../../group";
 import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
@@ -70,7 +70,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
 
     return (
         <Group
-            {...mergeProps<Partial<GroupProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     orientation,

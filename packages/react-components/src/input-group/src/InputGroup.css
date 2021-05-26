@@ -1,5 +1,5 @@
 .o-ui-input-group {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     /* width: 325px; */
 }

@@ -556,30 +556,30 @@ stories()
         <Stack>
             <Inline>
                 <InputGroup>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateInput />
                 </InputGroup>
                 <InputGroup>
                     <DateInput />
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                 </InputGroup>
                 <InputGroup>
-                    <Text>I am from the</Text>
+                    <Text>When</Text>
                     <DateInput />
-                    <Text>Planet</Text>
+                    <Text>When</Text>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup disabled>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateInput />
                 </InputGroup>
                 <InputGroup readOnly>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateInput />
                 </InputGroup>
                 <InputGroup>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateInput focus />
                 </InputGroup>
             </Inline>
@@ -589,30 +589,30 @@ stories()
         <Stack>
             <Inline>
                 <InputGroup>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateRangeInput />
                 </InputGroup>
                 <InputGroup>
                     <DateRangeInput />
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                 </InputGroup>
                 <InputGroup>
-                    <Text>I am from the</Text>
+                    <Text>When</Text>
                     <DateRangeInput />
-                    <Text>Planet</Text>
+                    <Text>When</Text>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup disabled>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateRangeInput />
                 </InputGroup>
                 <InputGroup readOnly>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateRangeInput />
                 </InputGroup>
                 <InputGroup>
-                    <Text>Origin</Text>
+                    <Text>When</Text>
                     <DateRangeInput focus />
                 </InputGroup>
             </Inline>

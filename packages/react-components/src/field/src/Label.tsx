@@ -46,7 +46,7 @@ export function InnerLabel(props: InnerLabelProps) {
 
     return (
         <Text
-            {...mergeProps(
+            {...mergeProps<any>(
                 rest,
                 {
                     size: "sm",

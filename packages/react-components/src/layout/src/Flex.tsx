@@ -1,6 +1,6 @@
 import "./Flex.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
@@ -168,7 +168,7 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergeProps<Partial<BoxProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     className: cssModule(

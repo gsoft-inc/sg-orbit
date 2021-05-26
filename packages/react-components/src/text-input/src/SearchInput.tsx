@@ -6,7 +6,6 @@ import { CrossButton } from "../../button";
 import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
-import { TextInputProps } from "./TextInput";
 import { useInputGroupProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
@@ -151,7 +150,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
 
     return (
         <TextInput
-            {...mergeProps<Partial<TextInputProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     value: inputValue,
