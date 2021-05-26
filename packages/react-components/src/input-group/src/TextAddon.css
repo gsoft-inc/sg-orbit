@@ -6,7 +6,7 @@
     min-height: var(--o-ui-global-scale-hotel);
     border-radius: var(--o-ui-shape-rounded);
     border: 1px solid var(--o-ui-alias-border-1);
-    color: var(--o-ui-alias-text-input-placeholder);
-    background-color: var(--o-ui-alias-background-1);
+    color: var(--o-ui-alias-text-1);
+    background-color: var(--o-ui-alias-background-3);
     flex-shrink: 0;
 }
