@@ -252,7 +252,7 @@ a.o-ui-button {
 /* OUTLINE | SECONDARY | HOVER */
 .o-ui-button-outline.o-ui-button-secondary:hover,
 .o-ui-button-outline.o-ui-button-secondary.o-ui-button-hover {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-border-3-hover) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-hover) inset;
 }
 
 /* OUTLINE | SECONDARY | ACTIVE */
