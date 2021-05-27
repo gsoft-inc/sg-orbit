@@ -28,7 +28,7 @@ render(() => {
     return (
         <InputGroup>
             <TextInput />
-            <CustomAddon>passengers</CustomAddon>
+            <CustomAddon>.space</CustomAddon>
         </InputGroup>
     );
 });
