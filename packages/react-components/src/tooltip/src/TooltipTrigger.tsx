@@ -33,7 +33,6 @@ interface InnerTooltipTriggerProps {
     | "left"
     | "left-start"
     | "left-end";
-
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
@@ -74,7 +73,6 @@ interface InnerTooltipTriggerProps {
      */
     forwardedRef: ForwardedRef<any>;
 }
-
 
 export function parseTooltipTrigger(children: ReactNode) {
     const array = Children.toArray(resolveChildren(children));
@@ -155,10 +153,20 @@ export function InnerTooltipTrigger({
 
     const tooltipId = useId(tooltip.props.id, "o-ui-tooltip");
 
-    const triggerMarkup = augmentElement(trigger, mergeProps(
+    const triggerWithDescribedBy = augmentElement(trigger, {
+        "aria-describedby": isOpen ? tooltipId : undefined
+    });
+
+    // HACK: a disabled element doesn't fire event, therefore the element is wrapped in a div.
+    const triggerElement = !triggerWithDescribedBy.props.disabled ? triggerWithDescribedBy : (
+        <div className="o-ui-tooltip-disabled-wrapper">
+            {triggerWithDescribedBy}
+        </div>
+    );
+
+    const triggerMarkup = augmentElement(triggerElement, mergeProps(
         triggerProps,
         {
-            "aria-describedby": isOpen ? tooltipId : undefined,
             ref: triggerRef
         }
     ));

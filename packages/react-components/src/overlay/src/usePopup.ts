@@ -86,7 +86,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnLeave: isOpen && hideOnLeave,
+        hideOnLeave,
         isDisabled: disabled
     });
 
@@ -106,9 +106,9 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
-        hideOnEscape: isOpen && hideOnEscape,
-        hideOnLeave: isOpen && hideOnLeave,
-        hideOnOutsideClick: isOpen && hideOnOutsideClick
+        hideOnEscape,
+        hideOnLeave,
+        hideOnOutsideClick
     });
 
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
