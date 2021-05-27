@@ -279,7 +279,14 @@ export function createTestSuite(element, stories) {
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
+                </Inline>
+                <Inline>
                     <Select disabled placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select readOnly placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>

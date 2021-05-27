@@ -4,10 +4,8 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { IconAddon } from "./IconAddon";
 import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
-import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren } from "../../shared";
 
 export interface InnerInputGroupProps {
@@ -47,29 +45,6 @@ function toAddon(element: ReactElement, key?: number): ReactNode {
             <TextAddon key={key}>
                 {element}
             </TextAddon>
-        );
-    }
-
-    if (getSlotKey(element) === "icon") {
-        return (
-            <IconAddon key={key}>
-                {element}
-            </IconAddon>
-        );
-    }
-
-    if (element.type === TooltipTrigger) {
-        const { children, ...props } = element.props;
-
-        const [trigger, tooltip] = parseTooltipTrigger(children);
-
-        const addon = toAddon(trigger);
-
-        return (
-            <TooltipTrigger {...props} key={key}>
-                {addon}
-                {tooltip}
-            </TooltipTrigger>
         );
     }
 

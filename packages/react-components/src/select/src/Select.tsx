@@ -91,6 +91,10 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      */
     disabled?: boolean;
     /**
+     * Whether or not the select is readonly.
+     */
+    readOnly?: boolean;
+    /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
     allowFlip?: boolean;
@@ -147,6 +151,7 @@ export function InnerSelect(props: InnerSelectProps) {
         name,
         fluid,
         disabled,
+        readOnly,
         allowFlip = true,
         allowPreventOverflow = true,
         allowResponsiveMenuWidth,
@@ -182,6 +187,7 @@ export function InnerSelect(props: InnerSelectProps) {
         align,
         autoFocus,
         disabled,
+        readOnly,
         allowFlip,
         allowPreventOverflow,
         allowResponsiveMenuWidth: allowResponsiveMenuWidth ?? variant !== "ghost",

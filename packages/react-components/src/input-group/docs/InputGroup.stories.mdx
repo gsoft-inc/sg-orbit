@@ -1,20 +1,16 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Autocomplete } from "@react-components/autocomplete"
-import { Button, IconButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@react-components/disclosure";
-import { Divider, InnerDivider } from "@react-components/divider";
-import { HelpIcon, IconList, InfoIcon, LightbulbIcon, NotificationIcon, VerticalDotsIcon, WarningIcon } from "@react-components/icons";
-import { IconAddon, InnerIconAddon, InnerInputGroup, InnerTextAddon, InputGroup, TextAddon } from "@react-components/input-group";
-import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
-import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@react-components/menu";
+import { IconButton } from "@react-components/button";
+import { InnerInputGroup, InnerTextAddon, InputGroup } from "@react-components/input-group";
+import { Item } from "@react-components/collection";
+import { Menu, MenuTrigger } from "@react-components/menu";
 import { NumberInput } from "@react-components/number-input";
-import { PasswordInput } from "@react-components/input";
 import { Select } from "@react-components/select";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/text-input";
-import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
 <Meta
     title="Components/InputGroup"
@@ -26,7 +22,7 @@ import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 <Tagline>An input group combines an input component with addons.</Tagline>
 
 <ComponentInfo
-    usage={"import { InputGroup, TextAddon, IconAddon, InputGroupContext, useInputGroupProps, useInputGroupAddonProps } from \"@orbit-ui/react-components\";"}
+    usage={"import { InputGroup, TextAddon, InputGroupContext, useInputGroupProps, useInputGroupAddonProps } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/input-group/src"
 />
 
@@ -62,10 +58,6 @@ An input group can have any Orbit's input.
                 <NumberInput />
                 <Text>passengers</Text>
             </InputGroup>
-            <InputGroup>
-                <WarningIcon />
-                <PasswordInput />
-            </InputGroup>
         </Stack>
     </Story>
 </Preview>
@@ -80,19 +72,6 @@ An input group can have a textual addon to offer additional hints. A text addon 
             <Text>https://</Text>
             <TextInput />
             <Text>.space</Text>
-        </InputGroup>
-    </Story>
-</Preview>
-
-### Icon addon
-
-An input group can have an icon addon.
-
-<Preview>
-    <Story name="icon addon">
-        <InputGroup>
-            <TextInput />
-            <InfoIcon />
         </InputGroup>
     </Story>
 </Preview>
@@ -114,7 +93,7 @@ An input group can have a menu addon.
                 <IconButton>
                     <DisclosureArrow />
                 </IconButton>
-                <Menu>
+                <Menu aria-label="Galaxies">
                     <Item key="andromeda">Andromeda</Item>
                     <Item key="milky-way">Milky way</Item>
                     <Item key="virgo">Virgo</Item>
@@ -132,27 +111,11 @@ An input group can have a select addon.
     <Story name="select addon">
         <InputGroup>
             <TextInput />
-            <Select defaultSelectedKey="days">
+            <Select defaultSelectedKey="days" aria-label="Period">
                 <Item key="days">days</Item>
                 <Item key="weeks">weeks</Item>
                 <Item key="years">years</Item>
             </Select>
-        </InputGroup>
-    </Story>
-</Preview>
-
-### Tooltip addon
-
-An input group can have a tooltip addon.
-
-<Preview>
-    <Story name="tooltip addon">
-        <InputGroup>
-            <TextInput />
-            <TooltipTrigger>
-                <InfoIcon />
-                <Tooltip>In how many days should the launch occurs?</Tooltip>
-            </TooltipTrigger>
         </InputGroup>
     </Story>
 </Preview>
@@ -236,12 +199,3 @@ Any addon implementing the `InputGroupContext` can integrate with an input group
 />
 
 <ArgsTable of={InnerTextAddon} sort="alpha" />
-
-### IconAddon
-
-<ComponentInfo
-    usage={"import { IconAddon } from \"@orbit-ui/react-components\";"}
-    compact
-/>
-
-<ArgsTable of={InnerIconAddon} sort="alpha" />

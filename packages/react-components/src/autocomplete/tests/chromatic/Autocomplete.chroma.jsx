@@ -288,6 +288,11 @@ stories()
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
+                <Autocomplete readOnly placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
             </Inline>
         </Stack>
     )

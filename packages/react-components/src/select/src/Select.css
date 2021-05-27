@@ -6,7 +6,7 @@
     background: none;
     color: var(--o-ui-alias-text-1);
     transition: all .2s ease-in;
-    display: flex;
+    display: inline-flex;
     justify-content: flex-end;
     align-items: center;
     min-height: var(--o-ui-global-scale-hotel);

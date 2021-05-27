@@ -11,7 +11,6 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
-import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -47,35 +46,6 @@ stories()
                 </InputGroup>
                 <InputGroup readOnly>
                     <Text>Days</Text>
-                    <TextInput />
-                </InputGroup>
-            </Inline>
-        </Stack>
-    )
-    .add("icon addon", () =>
-        <Stack>
-            <Inline>
-                <InputGroup>
-                    <LightbulbIcon />
-                    <TextInput />
-                </InputGroup>
-                <InputGroup>
-                    <TextInput />
-                    <LightbulbIcon />
-                </InputGroup>
-                <InputGroup>
-                    <LightbulbIcon />
-                    <TextInput />
-                    <LightbulbIcon />
-                </InputGroup>
-            </Inline>
-            <Inline>
-                <InputGroup disabled>
-                    <LightbulbIcon />
-                    <TextInput />
-                </InputGroup>
-                <InputGroup readOnly>
-                    <LightbulbIcon />
                     <TextInput />
                 </InputGroup>
             </Inline>
@@ -205,7 +175,7 @@ stories()
                 <InputGroup>
                     <MenuTrigger>
                         <Button>Trigger</Button>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -216,7 +186,7 @@ stories()
                 <InputGroup>
                     <MenuTrigger>
                         <IconButton><DisclosureArrow /></IconButton>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -230,7 +200,7 @@ stories()
                     <TextInput />
                     <MenuTrigger>
                         <Button>Trigger</Button>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -241,7 +211,7 @@ stories()
                     <TextInput />
                     <MenuTrigger>
                         <IconButton><DisclosureArrow /></IconButton>
-                        <Menu>
+                        <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
                             <Item key="saturn">Saturn</Item>
@@ -252,7 +222,7 @@ stories()
             <InputGroup>
                 <MenuTrigger>
                     <Button>Trigger</Button>
-                    <Menu>
+                    <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
@@ -261,13 +231,37 @@ stories()
                 <TextInput />
                 <MenuTrigger>
                     <IconButton><DisclosureArrow /></IconButton>
-                    <Menu>
+                    <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Menu>
                 </MenuTrigger>
             </InputGroup>
+            <Inline>
+                <InputGroup disabled>
+                    <MenuTrigger>
+                        <Button>Trigger</Button>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <MenuTrigger>
+                        <Button>Trigger</Button>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("select addon", () =>
@@ -365,35 +359,15 @@ stories()
                     <TextInput />
                 </InputGroup>
             </Inline>
-            <Inline>
-                <InputGroup>
-                    <Select focus hover placeholder="Planet" aria-label="Planets">
-                        <Item key="earth">Earth</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Select>
-                    <TextInput />
-                </InputGroup>
-            </Inline>
+            <InputGroup>
+                <Select focus hover placeholder="Planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <TextInput />
+            </InputGroup>
         </Stack>
-    )
-    .add("tooltip addon", () =>
-        <Inline>
-            <InputGroup>
-                <TextInput />
-                <TooltipTrigger open position="bottom">
-                    <Text>Days</Text>
-                    <Tooltip>In how many days should the launch occurs?</Tooltip>
-                </TooltipTrigger>
-            </InputGroup>
-            <InputGroup>
-                <TextInput />
-                <TooltipTrigger open position="bottom">
-                    <LightbulbIcon />
-                    <Tooltip>In how many days should the launch occurs?</Tooltip>
-                </TooltipTrigger>
-            </InputGroup>
-        </Inline>
     )
     .add("placeholder", () =>
         <InputGroup>
@@ -662,15 +636,6 @@ stories()
                     </Autocomplete>
                 </InputGroup>
                 <InputGroup readOnly>
-                    <Text>Origin</Text>
-                    <Autocomplete>
-                        <Item key="earth">Earth</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                        <Item key="jupiter">Jupiter</Item>
-                    </Autocomplete>
-                </InputGroup>
-                <InputGroup>
                     <Text>Origin</Text>
                     <Autocomplete>
                         <Item key="earth">Earth</Item>

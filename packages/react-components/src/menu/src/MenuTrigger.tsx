@@ -16,6 +16,7 @@ import {
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
+import { useInputGroupSelectAddonProps } from "../../input-group";
 
 export interface InnerMenuTriggerProps extends DomProps {
     /**
@@ -71,22 +72,31 @@ export interface InnerMenuTriggerProps extends DomProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerMenuTrigger({
-    id,
-    open: openProp,
-    defaultOpen,
-    onOpenChange,
-    closeOnSelect = true,
-    direction = "bottom",
-    align = "start",
-    allowFlip,
-    allowPreventOverflow,
-    zIndex = 10000,
-    as = "div",
-    children,
-    forwardedRef,
-    ...rest
-}: InnerMenuTriggerProps) {
+export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
+    const [inputGroupProps] = useInputGroupSelectAddonProps();
+
+    const {
+        id,
+        open: openProp,
+        defaultOpen,
+        onOpenChange,
+        closeOnSelect = true,
+        direction = "bottom",
+        align = "start",
+        disabled,
+        readOnly,
+        allowFlip,
+        allowPreventOverflow,
+        zIndex = 10000,
+        as = "div",
+        children,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        inputGroupProps
+    );
+
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
@@ -114,7 +124,7 @@ export function InnerMenuTrigger({
         restoreFocus: true,
         position: `${direction}-${align}` as const,
         offset: [0, 4],
-        disabled: trigger.props.disabled,
+        disabled: disabled || readOnly || trigger.props.disabled,
         allowFlip,
         allowPreventOverflow
     });
