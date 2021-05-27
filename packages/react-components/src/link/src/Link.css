@@ -201,7 +201,7 @@
 
 /* DANGER */
 .o-ui-link-danger {
-    --o-ui-focus-ring-color: var(--o-ui-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-border-negative-1-translucent);
     color: var(--o-ui-alias-text-negative-1);
 }
 
