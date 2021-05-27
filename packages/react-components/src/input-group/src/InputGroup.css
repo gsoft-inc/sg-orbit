@@ -14,15 +14,9 @@
 }
 
 .o-ui-input-group > *:focus,
-.o-ui-input-group > *:focus-within {
+.o-ui-input-group > *:focus-within,
+.o-ui-input-group [class*="-focus"] {
     z-index: 2;
-}
-
-.o-ui-input-group button:after {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 /* ADDON */
