@@ -153,18 +153,20 @@ export function InnerTooltipTrigger({
 
     const tooltipId = useId(tooltip.props.id, "o-ui-tooltip");
 
+    const triggerWithDescribedBy = augmentElement(trigger, {
+        "aria-describedby": isOpen ? tooltipId : undefined
+    });
+
     // HACK: a disabled element doesn't fire event, therefore the element is wrapped in a div.
-    const triggerElement = !trigger.props.disabled ? trigger : (
+    const triggerElement = !triggerWithDescribedBy.props.disabled ? triggerWithDescribedBy : (
         <div className="o-ui-tooltip-disabled-wrapper">
-            {trigger}
+            {triggerWithDescribedBy}
         </div>
     );
 
-    // TODO: move aria-describedby on the button when there is a wrapper?
     const triggerMarkup = augmentElement(triggerElement, mergeProps(
         triggerProps,
         {
-            "aria-describedby": isOpen ? tooltipId : undefined,
             ref: triggerRef
         }
     ));
