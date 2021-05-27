@@ -17,3 +17,8 @@
 .o-ui-tooltip .o-ui-text + .o-ui-icon  {
     margin-left: var(--o-ui-global-scale-alpha);
 }
+
+/* DISABLED WRAPPER */
+.o-ui-tooltip-disabled-wrapper {
+    display: inline-block;
+}

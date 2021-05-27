@@ -21,6 +21,12 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <TooltipTrigger>
+            <Button disabled>Trigger</Button>
+            <Tooltip>Man must rise above the Earth</Tooltip>
+        </TooltipTrigger>
+    )
     .add("default", () =>
         <TooltipTrigger>
             <Button>Trigger</Button>
