@@ -24,7 +24,7 @@
 /* STATE | FOCUS */
 .o-ui-link:focus-visible,
 .o-ui-link-focus {
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 /* STATES | FOCUS | FOCUS RING */
