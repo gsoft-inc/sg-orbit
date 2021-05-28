@@ -157,12 +157,15 @@ describe("\"click\" trigger", () => {
     test("when opened, close on trigger click", async () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
-                defaultOpen
                 trigger="click"
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -176,11 +179,15 @@ describe("\"click\" trigger", () => {
     test("when opened, close on esc keypress", async () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
-                defaultOpen
                 trigger="click"
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -199,11 +206,15 @@ describe("\"click\" trigger", () => {
         const { getByTestId } = render(
             <Popup
                 hideOnEscape={false}
-                defaultOpen
                 trigger="click"
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -223,12 +234,16 @@ describe("\"click\" trigger", () => {
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
-                    defaultOpen
                     trigger="click"
+                    data-triggertestid="trigger"
                     data-overlaytestid="overlay"
                 />
             </>
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -249,12 +264,16 @@ describe("\"click\" trigger", () => {
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
                     hideOnLeave={false}
-                    defaultOpen
                     trigger="click"
+                    data-triggertestid="trigger"
                     data-overlaytestid="overlay"
                 />
             </>
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -272,11 +291,15 @@ describe("\"click\" trigger", () => {
     test("when opened, close on outside click", async () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
-                defaultOpen
                 trigger="click"
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -295,11 +318,15 @@ describe("\"click\" trigger", () => {
         const { getByTestId } = render(
             <Popup
                 hideOnOutsideClick={false}
-                defaultOpen
                 trigger="click"
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -356,10 +383,14 @@ describe("\"hover\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 trigger="hover"
-                defaultOpen
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            fireEvent.mouseEnter(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -440,11 +471,14 @@ describe("\"hover\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 trigger="hover"
-                defaultOpen
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            fireEvent.mouseEnter(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -460,11 +494,14 @@ describe("\"hover\" trigger", () => {
             <Popup
                 hideOnLeave={false}
                 trigger="hover"
-                defaultOpen
                 data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            fireEvent.mouseEnter(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -479,10 +516,14 @@ describe("\"hover\" trigger", () => {
         const { getByTestId, queryByTestId } = render(
             <Popup
                 trigger="hover"
-                defaultOpen
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            fireEvent.mouseEnter(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -502,10 +543,14 @@ describe("\"hover\" trigger", () => {
             <Popup
                 hideOnOutsideClick={false}
                 trigger="hover"
-                defaultOpen
+                data-triggertestid="trigger"
                 data-overlaytestid="overlay"
             />
         );
+
+        act(() => {
+            fireEvent.mouseEnter(getByTestId("trigger"));
+        });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -617,10 +662,14 @@ test("when autoFocus is true, focus the popup element on open", async () => {
     const { getByTestId } = render(
         <Popup
             autoFocus
-            defaultOpen
+            data-triggertestid="trigger"
             data-overlaytestid="overlay"
         />
     );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
 
     await waitFor(() => expect(getByTestId("overlay")).toHaveFocus());
 });
