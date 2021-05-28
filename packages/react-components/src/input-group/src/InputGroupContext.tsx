@@ -54,7 +54,7 @@ export function useInputGroupTextInputProps(): [UseInputGroupPropsReturn, boolea
 
     const props = isInInputGroup && {
         ...context,
-        className: "o-ui-input-group-input, o-ui-input-group-text-input"
+        className: "o-ui-input-group-input o-ui-input-group-text-input"
     };
 
     return [props || {}, isInInputGroup];

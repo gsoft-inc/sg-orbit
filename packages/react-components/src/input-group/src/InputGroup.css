@@ -46,6 +46,7 @@
 .o-ui-input-group-addon:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    flex-shrink: 0;
 }
 
 /* ADDON | END */
@@ -58,6 +59,7 @@
 .o-ui-input-group-addon:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    flex-shrink: 0;
 }
 
 /* TEXT ADDON */
