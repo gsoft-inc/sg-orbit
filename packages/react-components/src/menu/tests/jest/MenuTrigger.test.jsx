@@ -7,7 +7,8 @@ import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
-beforeAll(() => {
+// Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
+beforeEach(() => {
     Transition.disableAnimation = true;
 });
 
@@ -129,8 +130,8 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
 
 test("when selectionMode is \"none\", selecting an item close the menu", async () => {
     const { getByTestId, queryByTestId } = render(
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="none" data-testid="menu">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -138,6 +139,10 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
             </Menu>
         </MenuTrigger>
     );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -148,8 +153,8 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
 
 test("when selectionMode is \"single\", selecting an item close the menu", async () => {
     const { getByTestId, queryByTestId } = render(
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -157,6 +162,10 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
             </Menu>
         </MenuTrigger>
     );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -167,8 +176,8 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
 
 test("when selectionMode is \"multiple\", selecting an item close the menu", async () => {
     const { getByTestId, queryByTestId } = render(
-        <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -178,10 +187,39 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
     );
 
     act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    act(() => {
         userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+});
+
+test("selecting an item focus the trigger", async () => {
+    Transition.disableAnimation = false;
+
+    const { getByTestId } = render(
+        <MenuTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Menu selectionMode="single" data-testid="menu">
+                <Item key="earth" data-testid="earth-item">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Menu>
+        </MenuTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
+    });
+
+    await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
 });
 
 test("when closeOnSelect is false, selecting an item doesn't close the menu", async () => {

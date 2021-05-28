@@ -42,7 +42,8 @@ function Popup({
     );
 }
 
-beforeAll(() => {
+// Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
+beforeEach(() => {
     Transition.disableAnimation = true;
 });
 
@@ -632,31 +633,33 @@ describe("\"none\" trigger", () => {
     });
 });
 
-// test("when restoreFocus is true, closing the popup return the focus to the trigger", async () => {
-//     const { getByTestId, queryByTestId } = render(
-//         <Popup
-//             restoreFocus
-//             data-triggertestid="trigger"
-//             data-overlaytestid="overlay"
-//         />
-//     );
+test("when restoreFocus is true, closing the popup with esc keypress return the focus to the trigger", async () => {
+    Transition.disableAnimation = false;
 
-//     act(() => {
-//         userEvent.click(getByTestId("trigger"));
-//     });
+    const { getByTestId } = render(
+        <Popup
+            restoreFocus
+            data-triggertestid="trigger"
+            data-overlaytestid="overlay"
+        />
+    );
 
-//     act(() => {
-//         getByTestId("overlay").focus();
-//     });
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
 
-//     await waitFor(() => expect(getByTestId("trigger")).not.toHaveFocus());
+    act(() => {
+        getByTestId("overlay").focus();
+    });
 
-//     act(() => {
-//         fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-//     });
+    await waitFor(() => expect(getByTestId("trigger")).not.toHaveFocus());
 
-//     await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
-// });
+    act(() => {
+        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+    });
+
+    await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
+});
 
 test("when autoFocus is true, focus the popup element on open", async () => {
     const { getByTestId } = render(
