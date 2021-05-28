@@ -100,7 +100,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:focus-visible:before,
 .o-ui-tab-focus:before {
-    border-color: var(--o-ui-alias-border-primary-1);
+    border-color: var(--o-ui-focus-ring-color);
 }
 
 /* TAB | STATE | HOVER */
