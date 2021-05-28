@@ -80,7 +80,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     gap: Gap[orientation][normalizeSize(size)],
                     className: cssModule(
                         "o-ui-button-group",
-                        isInField && "as-field"
+                        isInField && "in-field"
                     ),
                     role: !isInField ? "group" : undefined,
                     ref: forwardedRef

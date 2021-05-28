@@ -12,6 +12,7 @@ import { PasswordInput, SearchInput, TextInput } from "@react-components/text-in
 import { Select } from "@react-components/select";
 import { Text } from "@react-components/text";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { subMonths, subWeeks } from "date-fns";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/InputGroup")
@@ -575,6 +576,19 @@ stories()
                     <Text>When</Text>
                     <DateRangeInput />
                     <Text>When</Text>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateRangeInput
+                        presets={[
+                            { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                            { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                            { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                            { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                        ]}
+                    />
                 </InputGroup>
             </Inline>
             <Inline>

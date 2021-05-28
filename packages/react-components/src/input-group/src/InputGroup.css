@@ -16,21 +16,6 @@
     width: 100%;
 }
 
-/* NUMBER INPUT */
-.o-ui-input-group .o-ui-input-group-number-input {
-    width: 100px;
-}
-
-/* DATE INPUT */
-.o-ui-input-group .o-ui-input-group-date-input {
-    width: 125px;
-}
-
-/* DATE RANGE INPUT */
-.o-ui-input-group .o-ui-input-group-date-range-input {
-    width: 275px;
-}
-
 /* STATES */
 .o-ui-input-group:not(:focus-within) > *:hover {
     z-index: 1;
@@ -91,18 +76,6 @@
 /* TEXT ADDON | DISABLED */
 .o-ui-input-group-addon[disabled] {
     opacity: var(--o-ui-disabled-opacity);
-}
-
-/* ICON ADDON */
-.o-ui-input-group-icon-addon {
-    display: flex;
-    align-items: center;
-    padding: 0 var(--o-ui-global-scale-charlie);
-    min-height: var(--o-ui-global-scale-hotel);
-    border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-alias-border-1);
-    background-color: var(--o-ui-alias-background-3);
-    flex-shrink: 0;
 }
 
 /* SELECT ADDON */

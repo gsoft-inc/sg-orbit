@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useContext } from "react";
-import { isNil, mergeClasses } from "../../shared";
+import { isNil } from "../../shared";
 
 export interface InputGroupContextType {
     fluid?: boolean;
@@ -49,34 +49,15 @@ export function useInputGroupProps(): [UseInputGroupPropsReturn, boolean] {
     return [props || {}, isInInputGroup];
 }
 
-function useInputGroupKnownModuleProps(moduleName: string): [UseInputGroupPropsReturn, boolean] {
+export function useInputGroupTextInputProps(): [UseInputGroupPropsReturn, boolean] {
     const [context, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
         ...context,
-        className: mergeClasses(
-            "o-ui-input-group-input",
-            `o-ui-input-group-${moduleName}`
-        )
+        className: "o-ui-input-group-input, o-ui-input-group-text-input"
     };
 
     return [props || {}, isInInputGroup];
-}
-
-export function useInputGroupTextInputProps(): [UseInputGroupPropsReturn, boolean] {
-    return useInputGroupKnownModuleProps("text-input");
-}
-
-export function useInputGroupNumberInputProps(): [UseInputGroupPropsReturn, boolean] {
-    return useInputGroupKnownModuleProps("number-input");
-}
-
-export function useInputGroupDateInputProps(): [UseInputGroupPropsReturn, boolean] {
-    return useInputGroupKnownModuleProps("date-input");
-}
-
-export function useInputGroupDateRangeInputProps(): [UseInputGroupPropsReturn, boolean] {
-    return useInputGroupKnownModuleProps("date-range-input");
 }
 
 /* Addons */

@@ -3,9 +3,9 @@ import "./DateInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
-import { forwardRef, mergeProps } from "../../shared";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
-import { useInputGroupDateInputProps } from "../../input-group";
+import { useInputGroupProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -75,7 +75,7 @@ export interface InnerDateInputProps {
 }
 
 export function InnerDateInput(props: InnerDateInputProps) {
-    const [inputGroupProps] = useInputGroupDateInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         value,
@@ -113,7 +113,10 @@ export function InnerDateInput(props: InnerDateInputProps) {
                     wrapperProps: mergeProps(
                         wrapperProps ?? {},
                         {
-                            className: "o-ui-date-input"
+                            className: cssModule(
+                                "o-ui-date-input",
+                                isInGroup && "in-group"
+                            )
                         }
                     ),
                     as
