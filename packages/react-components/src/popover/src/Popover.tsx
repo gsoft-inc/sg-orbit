@@ -32,7 +32,7 @@ export function InnerPopover({
         },
         heading: {
             size: "sm",
-            as: "h1"
+            as: "h3"
         },
         content: {
             className: "o-ui-popover-content",
