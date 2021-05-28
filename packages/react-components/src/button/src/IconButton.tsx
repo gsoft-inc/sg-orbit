@@ -5,6 +5,7 @@ import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactE
 import { EmbeddedIcon } from "../../icons";
 import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
+import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 export interface InnerIconButtonProps extends InteractionStatesProps {
@@ -82,6 +83,7 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
 
 export function InnerIconButton(props: InnerIconButtonProps) {
     const [toolbarProps] = useToolbarProps();
+    const [inputGroupProps] = useInputGroupButtonAddonProps();
 
     const {
         variant = "solid",
@@ -104,7 +106,8 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"])
+        omitProps(toolbarProps, ["orientation"]),
+        inputGroupProps
     );
 
     const buttonProps = useButton({

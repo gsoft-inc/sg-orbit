@@ -1,5 +1,5 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { Inline, InlineProps } from "../../layout";
+import { Inline } from "../../layout";
 import { augmentElement, forwardRef, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
@@ -38,7 +38,7 @@ export function InnerRow(props: InnerRowProps) {
 
     return (
         <Inline
-            {...mergeProps<Partial<InlineProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     fluid,

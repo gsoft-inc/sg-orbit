@@ -6,9 +6,10 @@ import { CrossButton } from "../../button";
 import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
-import { TextInputProps } from "./TextInput";
+import { useInputGroupTextInputProps } from "../../input-group";
+import { wrappedInputPropsAdapter } from "../../input";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -78,18 +79,25 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerSearchInput({
-    value,
-    defaultValue,
-    onChange,
-    onValueChange,
-    onKeyDown,
-    icon,
-    wrapperProps,
-    as = "input",
-    forwardedRef,
-    ...rest
-}: InnerSearchInputProps) {
+export function InnerSearchInput(props: InnerSearchInputProps) {
+    const [inputGroupProps] = useInputGroupTextInputProps();
+
+    const {
+        value,
+        defaultValue,
+        onChange,
+        onValueChange,
+        onKeyDown,
+        icon,
+        wrapperProps,
+        as = "input",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        wrappedInputPropsAdapter(inputGroupProps)
+    );
+
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const inputRef = useMergedRefs(forwardedRef);
@@ -142,7 +150,7 @@ export function InnerSearchInput({
 
     return (
         <TextInput
-            {...mergeProps<Partial<TextInputProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     value: inputValue,

@@ -15,12 +15,16 @@ function slotDecorator<P>(slotName: string, ElementType: P) {
 
 export { slotDecorator as slot };
 
+export function getSlotKey(element: ReactElement) {
+    return (element.props && element.props["slot"]) ?? (element.type && (element.type as SlotableType)[SlotKey]);
+}
+
 function findSlots(children: ReactNode, slots: string[]) {
     return Children
         .toArray(children)
         .reduce((acc: Record<string, any>, x: ReactElement) => {
             if (!isNil(x)) {
-                const slotKey = (x.props && x.props["slot"]) ?? (x.type && (x.type as SlotableType)[SlotKey]);
+                const slotKey = getSlotKey(x);
 
                 if (!isNil(slotKey) && slots.includes(slotKey)) {
                     acc[slotKey] = x;

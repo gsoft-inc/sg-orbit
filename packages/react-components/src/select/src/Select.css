@@ -6,7 +6,7 @@
     background: none;
     color: var(--o-ui-alias-text-1);
     transition: all .2s ease-in;
-    display: flex;
+    display: inline-flex;
     justify-content: flex-end;
     align-items: center;
     min-height: var(--o-ui-global-scale-hotel);
@@ -65,7 +65,7 @@
 /* TRIGGER | GHOST | STATE | INVALID | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus-visible.o-ui-select-trigger-invalid {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-negative-1);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-negative-1-translucent);
 }
 
 /* TRIGGER | GHOST | PLACEHOLDER / VALUE */
@@ -94,7 +94,7 @@
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus-visible:not(:hover) {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
     border: 1px solid var(--o-ui-alias-border-negative-1);
 }
 
@@ -117,19 +117,17 @@
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-outline:not([disabled]):focus-visible:not(:hover) {
-    box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
-    border: 1px solid var(--o-ui-alias-border-primary-1);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus-visible {
-    box-shadow: 0 0 0 1px var(--o-ui-focus-ring-color);
-    border: 1px solid var(--o-ui-alias-border-primary-1);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus-visible.o-ui-select-trigger-invalid {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
     border: 1px solid var(--o-ui-alias-border-negative-1);
 }
 

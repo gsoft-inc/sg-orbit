@@ -1,3 +1,8 @@
 .o-ui-date-input {
     width: 160px;
 }
+
+/* IN GROUP */
+.o-ui-date-input-in-group {
+    width: 140px;
+}

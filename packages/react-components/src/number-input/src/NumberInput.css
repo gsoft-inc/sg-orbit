@@ -18,12 +18,6 @@
 
 .o-ui-number-input input {
     -moz-appearance: textfield;
-}
-
-.o-ui-number-input input:focus-visible ,
-.o-ui-input-focus.o-ui-number-input input,
-.o-ui-number-input input:hover,
-.o-ui-input-hover.o-ui-number-input input {
     padding-right: calc(var(--o-ui-spinner-width) + 2px);
 }
 
@@ -132,4 +126,9 @@
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
     background-color: var(--o-ui-alias-background-4-active);
+}
+
+/* IN GROUP */
+.o-ui-number-input-in-group {
+    width: 100px;
 }

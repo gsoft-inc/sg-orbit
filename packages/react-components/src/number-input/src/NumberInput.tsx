@@ -3,12 +3,25 @@ import "./NumberInput.css";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import {
+    DomProps,
+    InteractionStatesProps,
+    cssModule,
+    forwardRef,
+    isNil,
+    mergeClasses,
+    mergeProps,
+    omitProps,
+    useChainedEventCallback,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -176,6 +189,7 @@ function toFixed(value: number, precision: number) {
 export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         id,
@@ -204,8 +218,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"]),
-        omitProps(wrappedInputPropsAdapter(fieldProps), ["size"])
+        wrappedInputPropsAdapter(mergeProps(
+            {},
+            omitProps(toolbarProps, ["orientation"]),
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
@@ -327,9 +345,16 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 wrapperPropsProp,
                 wrapperProps,
                 {
-                    className: cssModule(
-                        "o-ui-input",
-                        iconMarkup && "has-icon"
+                    className: mergeClasses(
+                        cssModule(
+                            "o-ui-input",
+                            iconMarkup && "has-icon",
+                            isInGroup && "in-group"
+                        ),
+                        cssModule(
+                            "o-ui-number-input",
+                            isInGroup && "in-group"
+                        )
                     ),
                     as
                 }

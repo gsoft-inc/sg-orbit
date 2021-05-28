@@ -2,11 +2,13 @@ import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { TextInput, TextInputProps } from "./TextInput";
+import { TextInput } from "./TextInput";
 import { forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
+import { wrappedInputPropsAdapter } from "../../input";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -79,13 +81,20 @@ export interface InnerPasswordInputProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerPasswordInput({
-    value,
-    defaultValue,
-    wrapperProps,
-    forwardedRef,
-    ...rest
-}: InnerPasswordInputProps) {
+export function InnerPasswordInput(props: InnerPasswordInputProps) {
+    const [inputGroupProps] = useInputGroupTextInputProps();
+
+    const {
+        value,
+        defaultValue,
+        wrapperProps,
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        wrappedInputPropsAdapter(inputGroupProps)
+    );
+
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);
 
@@ -112,7 +121,7 @@ export function InnerPasswordInput({
 
     return (
         <TextInput
-            {...mergeProps<Partial<TextInputProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     value: inputValue,

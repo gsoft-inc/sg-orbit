@@ -8,9 +8,10 @@ import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../text";
 import { useFieldInputProps } from "../../field";
+import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
 
-// used to generate OverlayProps instead of any in the auto-generated documentation
+// Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
@@ -90,6 +91,10 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      */
     disabled?: boolean;
     /**
+     * Whether or not the select is readonly.
+     */
+    readOnly?: boolean;
+    /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
     allowFlip?: boolean;
@@ -97,6 +102,10 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
     allowPreventOverflow?: boolean;
+    /**
+     * Whether or not the selection menu should match the trigger width.
+     */
+    allowResponsiveMenuWidth?: boolean;
     /**
      * z-index of the overlay element.
      */
@@ -121,6 +130,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
 
 export function InnerSelect(props: InnerSelectProps) {
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupSelectAddonProps();
 
     const {
         id,
@@ -141,8 +151,10 @@ export function InnerSelect(props: InnerSelectProps) {
         name,
         fluid,
         disabled,
+        readOnly,
         allowFlip = true,
         allowPreventOverflow = true,
+        allowResponsiveMenuWidth,
         zIndex = 10000,
         active,
         focus,
@@ -158,7 +170,8 @@ export function InnerSelect(props: InnerSelectProps) {
         ...rest
     } = mergeProps(
         props,
-        fieldProps
+        fieldProps,
+        inputGroupProps
     );
 
     const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
@@ -174,9 +187,10 @@ export function InnerSelect(props: InnerSelectProps) {
         align,
         autoFocus,
         disabled,
+        readOnly,
         allowFlip,
         allowPreventOverflow,
-        allowResponsiveMenuWidth: variant !== "ghost",
+        allowResponsiveMenuWidth: allowResponsiveMenuWidth ?? variant !== "ghost",
         ariaLabel,
         ariaLabelledBy,
         ariaDescribedBy,

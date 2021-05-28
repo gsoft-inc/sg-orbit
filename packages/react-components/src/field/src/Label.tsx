@@ -2,7 +2,7 @@ import "./Label.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
-import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
+import { forwardRef, mergeProps } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
 export interface InnerLabelProps {
@@ -10,10 +10,6 @@ export interface InnerLabelProps {
      * Whether or not the label show a required state.
      */
     required?: boolean;
-    /**
-     * A label can vary in size.
-     */
-    size?: "sm" | "md";
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -28,11 +24,6 @@ export interface InnerLabelProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const adaptSize = createSizeAdapter({
-    "sm": "xs",
-    "md": "sm"
-});
-
 function RequiredIndicator() {
     return (
         <span className="o-ui-field-label-required" aria-hidden="true">*</span>
@@ -44,7 +35,6 @@ export function InnerLabel(props: InnerLabelProps) {
 
     const {
         required,
-        size,
         as = "label",
         children,
         forwardedRef,
@@ -56,14 +46,11 @@ export function InnerLabel(props: InnerLabelProps) {
 
     return (
         <Text
-            {...mergeProps(
+            {...mergeProps<any>(
                 rest,
                 {
-                    size: adaptSize(size),
-                    className: cssModule(
-                        "o-ui-field-label",
-                        normalizeSize(size)
-                    ),
+                    size: "sm",
+                    className: "o-ui-field-label",
                     as,
                     ref: forwardedRef
                 }

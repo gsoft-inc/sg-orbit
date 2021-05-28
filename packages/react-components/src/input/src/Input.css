@@ -42,10 +42,10 @@
 }
 
 /* STATE | HOVER */
-.o-ui-input:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus-visible),
-.o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus-visible),
-.o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]):not(:focus-visible),
-.o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus-visible) {
+.o-ui-input:not(.o-ui-input-focus):hover input:not([disabled]),
+.o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]),
+.o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]),
+.o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]) {
     border-color: var(--o-ui-alias-border-1-hover);
 }
 
@@ -86,8 +86,7 @@
 .o-ui-input.o-ui-input-invalid input:focus-visible,
 .o-ui-input-focus.o-ui-input-invalid input,
 .o-ui-input.o-ui-input-invalid textarea:focus-visible {
-    box-shadow: var(--o-ui-focus-ring-inset-sm-negative);
-    border-color: var(--o-ui-alias-border-negative-1);
+    box-shadow: var(--o-ui-focus-ring-inset-md);
 }
 
 /* STATE | HOVER | INVALID */
@@ -140,8 +139,7 @@
 .o-ui-input textarea:focus-visible,
 .o-ui-input-focus textarea {
     outline: none;
-    box-shadow: var(--o-ui-focus-ring-inset-sm);
-    border-color: var(--o-ui-alias-border-primary-1);
+    box-shadow: var(--o-ui-focus-ring-inset-md);
 }
 
 /* STATES | DISABLED */

@@ -6,7 +6,7 @@ import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergePr
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 

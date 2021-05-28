@@ -9,7 +9,6 @@ import {
     isNil,
     isNilOrEmpty,
     mergeProps,
-    omitProps,
     useControllableState,
     useEventCallback,
     useFocusWithin,
@@ -21,12 +20,13 @@ import { Box } from "../../box";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
-import { SearchInput, SearchInputProps } from "../../text-input";
+import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
+import { useInputGroupTextInputProps } from "../../input-group";
 import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
@@ -130,6 +130,10 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     disabled?: boolean;
     /**
+     * Whether or not the autocomplete is readonly.
+     */
+    readOnly?: boolean;
+    /**
      * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
     allowFlip?: boolean;
@@ -161,6 +165,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         id,
@@ -185,6 +190,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         name,
         fluid,
         disabled,
+        readOnly,
         allowFlip = true,
         allowPreventOverflow = true,
         zIndex = 10000,
@@ -197,12 +203,14 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         "aria-describedby": ariaDescribedBy,
         overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
+        className,
         children,
         forwardedRef,
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        omitProps(fieldProps, ["size"])
+        fieldProps,
+        inputGroupProps
     );
 
     const [focusedItem, setFocusedItem] = useState(null);
@@ -221,7 +229,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const triggerWrapperRef = useRef();
 
-    const { isOpen, setIsOpen, triggerProps: { ref: popupTriggerRef, ...triggerProps }, overlayProps: { ref: overlayRef, ...overlayProps } } = usePopup("listbox", {
+    const {
+        isOpen,
+        setIsOpen,
+        triggerProps: { ref: popupTriggerRef, ...triggerProps },
+        overlayProps: { ref: overlayRef, ...overlayProps }
+    } = usePopup("listbox", {
         id: menuId,
         open: openProp,
         defaultOpen,
@@ -234,7 +247,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         trigger: "none",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
-        disabled,
+        disabled: disabled || readOnly,
         allowFlip,
         allowPreventOverflow
     });
@@ -441,7 +454,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 
     return (
-        <Box>
+        <>
             <HiddenAutocomplete
                 name={name}
                 value={value}
@@ -450,7 +463,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 disabled={disabled}
             />
             <SearchInput
-                {...mergeProps<Partial<SearchInputProps>[]>(
+                {...mergeProps<any>(
                     rest,
                     {
                         id: triggerId,
@@ -462,6 +475,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         autoFocus,
                         loading: useDeferredValue(loading, 100, false),
                         disabled,
+                        readOnly,
                         validationState,
                         fluid,
                         active,
@@ -470,7 +484,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         className: "o-ui-autocomplete-trigger",
                         type: "text",
                         wrapperProps: mergeProps(
-                            { ref: triggerWrapperRef },
+                            {
+                                className,
+                                ref: triggerWrapperRef
+                            },
                             triggerFocusWithinProps
                         ),
                         role: "combobox",
@@ -503,7 +520,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             >
                 {results.length > 0 ? listboxMarkup : noResultsMarkup}
             </Overlay>
-        </Box>
+        </>
     );
 }
 

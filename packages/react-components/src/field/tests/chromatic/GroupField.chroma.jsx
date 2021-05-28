@@ -15,46 +15,24 @@ function stories(segment) {
 stories()
     .add("checkbox group", () =>
         <Stack gap={13}>
-            <Inline gap={13} verticalAlign="end">
-                <GroupField size="sm">
-                    <Label>Select your packages</Label>
-                    <CheckboxGroup>
-                        <Checkbox value="1">1</Checkbox>
-                        <Checkbox value="2">2</Checkbox>
-                        <Checkbox value="3">3</Checkbox>
-                    </CheckboxGroup>
-                    <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
-                </GroupField>
-                <GroupField>
-                    <Label>Select your packages</Label>
-                    <CheckboxGroup>
-                        <Checkbox value="1">1</Checkbox>
-                        <Checkbox value="2">2</Checkbox>
-                        <Checkbox value="3">3</Checkbox>
-                    </CheckboxGroup>
-                    <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
-                </GroupField>
-            </Inline>
-            <Inline gap={13} verticalAlign="end">
-                <GroupField size="sm">
-                    <Label>Select your packages</Label>
-                    <CheckboxGroup orientation="vertical">
-                        <Checkbox value="1">1</Checkbox>
-                        <Checkbox value="2">2</Checkbox>
-                        <Checkbox value="3">3</Checkbox>
-                    </CheckboxGroup>
-                    <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
-                </GroupField>
-                <GroupField>
-                    <Label>Select your packages</Label>
-                    <CheckboxGroup orientation="vertical">
-                        <Checkbox value="1">1</Checkbox>
-                        <Checkbox value="2">2</Checkbox>
-                        <Checkbox value="3">3</Checkbox>
-                    </CheckboxGroup>
-                    <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
-                </GroupField>
-            </Inline>
+            <GroupField>
+                <Label>Select your packages</Label>
+                <CheckboxGroup>
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+                <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
+            </GroupField>
+            <GroupField>
+                <Label>Select your packages</Label>
+                <CheckboxGroup orientation="vertical">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+                <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
+            </GroupField>
         </Stack>
     )
     .add("radio group", () =>
@@ -81,46 +59,24 @@ stories()
     )
     .add("button group", () =>
         <Stack gap={13}>
-            <Inline gap={13} verticalAlign="end">
-                <GroupField size="sm">
-                    <Label>Would you like to rate your experience?</Label>
-                    <ButtonGroup>
-                        <Button variant="outline">No, thanks</Button>
-                        <Button variant="outline">Remind me later</Button>
-                        <Button>Rate Now</Button>
-                    </ButtonGroup>
-                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
-                </GroupField>
-                <GroupField>
-                    <Label>Would you like to rate your experience?</Label>
-                    <ButtonGroup>
-                        <Button variant="outline">No, thanks</Button>
-                        <Button variant="outline">Remind me later</Button>
-                        <Button>Rate Now</Button>
-                    </ButtonGroup>
-                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
-                </GroupField>
-            </Inline>
-            <Inline gap={13} verticalAlign="end">
-                <GroupField size="sm">
-                    <Label>Would you like to rate your experience?</Label>
-                    <ButtonGroup orientation="vertical">
-                        <Button variant="outline">No, thanks</Button>
-                        <Button variant="outline">Remind me later</Button>
-                        <Button>Rate Now</Button>
-                    </ButtonGroup>
-                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
-                </GroupField>
-                <GroupField>
-                    <Label>Would you like to rate your experience?</Label>
-                    <ButtonGroup orientation="vertical">
-                        <Button variant="outline">No, thanks</Button>
-                        <Button variant="outline">Remind me later</Button>
-                        <Button>Rate Now</Button>
-                    </ButtonGroup>
-                    <HelpMessage>It will only take a minute of your time.</HelpMessage>
-                </GroupField>
-            </Inline>
+            <GroupField>
+                <Label>Would you like to rate your experience?</Label>
+                <ButtonGroup>
+                    <Button variant="outline">No, thanks</Button>
+                    <Button variant="outline">Remind me later</Button>
+                    <Button>Rate Now</Button>
+                </ButtonGroup>
+                <HelpMessage>It will only take a minute of your time.</HelpMessage>
+            </GroupField>
+            <GroupField>
+                <Label>Would you like to rate your experience?</Label>
+                <ButtonGroup orientation="vertical">
+                    <Button variant="outline">No, thanks</Button>
+                    <Button variant="outline">Remind me later</Button>
+                    <Button>Rate Now</Button>
+                </ButtonGroup>
+                <HelpMessage>It will only take a minute of your time.</HelpMessage>
+            </GroupField>
         </Stack>
     )
     .add("date range input", () =>

@@ -65,7 +65,7 @@ function TagItem({
 
     return (
         <Tag
-            {...mergeProps<Partial<TagProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     variant: "outline",

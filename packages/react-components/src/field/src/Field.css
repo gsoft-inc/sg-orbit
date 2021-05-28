@@ -17,13 +17,6 @@
 /* LABEL */
 .o-ui-field .o-ui-field-label {
     grid-area: label;
-}
-
-.o-ui-field .o-ui-field-label-sm {
-    padding-bottom: var(--o-ui-global-scale-alpha);
-}
-
-.o-ui-field .o-ui-field-label-md {
     padding-bottom: var(--o-ui-global-scale-bravo);
 }
 
@@ -35,12 +28,5 @@
 /* MESSAGE */
 .o-ui-field .o-ui-field-message {
     grid-area: message;
-}
-
-.o-ui-field .o-ui-field-message-sm {
-    padding-top: var(--o-ui-global-scale-alpha);
-}
-
-.o-ui-field .o-ui-field-message-md {
     padding-top: var(--o-ui-global-scale-bravo);
 }

@@ -154,7 +154,7 @@
 
 .o-ui-accordion-trigger:focus-visible::before,
 .o-ui-accordion-trigger-focus::before {
-    border-color: var(--o-ui-alias-border-primary-1);
+    border-color: var(--o-ui-focus-ring-color);
 }
 
 /* BORDERED | FIRST ITEM | BORDER RADIUS */

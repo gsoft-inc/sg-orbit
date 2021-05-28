@@ -55,7 +55,7 @@
     top: 50%;
     transform: translateY(-50%);
     bottom: calc(var(--o-ui-global-scale-bravo) - 2px);
-    border: 2px transparent solid;
+    border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
     height: calc(var(--o-ui-global-scale-echo) + var(--o-ui-global-scale-alpha));
@@ -100,7 +100,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:focus-visible:before,
 .o-ui-tab-focus:before {
-    border-color: var(--o-ui-alias-border-primary-1);
+    border-color: var(--o-ui-focus-ring-color);
 }
 
 /* TAB | STATE | HOVER */

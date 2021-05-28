@@ -7,7 +7,7 @@
     }, [show, setShow]);
 
     return (
-        <Stack>
+        <Stack style={{ minHeight: "110px" }}>
             <Button
                 color="secondary"
                 onClick={toggleAlert}

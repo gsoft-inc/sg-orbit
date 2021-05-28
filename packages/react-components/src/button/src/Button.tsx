@@ -7,6 +7,7 @@ import { Text } from "../../text";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
+import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 interface InnerButtonProps extends InteractionStatesProps {
@@ -80,6 +81,7 @@ const condensedTextSize = createSizeAdapter({
 export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
+    const [inputGroupProps] = useInputGroupButtonAddonProps();
 
     const {
         variant = "solid",
@@ -102,7 +104,8 @@ export function InnerButton(props: InnerButtonProps) {
     } = mergeProps(
         props,
         formProps,
-        omitProps(toolbarProps, ["orientation"])
+        omitProps(toolbarProps, ["orientation"]),
+        inputGroupProps
     );
 
     const { ref: buttonRef, ...buttonProps } = useButton({

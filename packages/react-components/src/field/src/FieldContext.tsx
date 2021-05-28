@@ -1,5 +1,5 @@
 import { ElementType, ReactNode, createContext, useContext } from "react";
-import { cssModule, isNil, normalizeSize } from "../../shared";
+import { isNil } from "../../shared";
 
 export interface FieldContextType {
     inputId?: string;
@@ -7,7 +7,6 @@ export interface FieldContextType {
     messageId?: string;
     required?: boolean;
     disabled?: boolean;
-    size?: "sm" | "md";
     fluid?: boolean;
     validationState?: "valid" | "invalid";
     hasLabel?: boolean;
@@ -37,21 +36,32 @@ export function useFieldContext(): [FieldContextType, boolean] {
     return [{}, false];
 }
 
+interface ClearFieldContextProps {
+    children?: ReactNode;
+}
+
+export function ClearFieldContext({ children }: ClearFieldContextProps) {
+    return (
+        <FieldContext.Provider value={null}>
+            { children}
+        </FieldContext.Provider>
+    );
+}
+
 export interface UseFieldLabelProps {
     as?: ElementType;
 }
 
-export type UseFieldLabelPropsReturn = [{
+export interface UseFieldLabelPropsReturn {
     id?: string;
     required?: boolean;
-    size?: "sm" | "md";
     htmlFor?: string;
     className?: string;
     as?: ElementType;
-}, boolean];
+}
 
-export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseFieldLabelPropsReturn {
-    const [{ isGroup, inputId, labelId, required, size, labelClassName }, isInField] = useFieldContext();
+export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFieldLabelPropsReturn, boolean] {
+    const [{ isGroup, inputId, labelId, required, labelClassName }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroup ? "span" : "label"
@@ -60,9 +70,8 @@ export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): UseField
     const props = isInField && {
         id: labelId,
         required,
-        size,
         htmlFor: as === "label" ? inputId : undefined,
-        className: cssModule(labelClassName, normalizeSize(size)),
+        className: labelClassName,
         as
     };
 
@@ -75,7 +84,6 @@ export interface UseFieldInputPropsReturn {
     required?: boolean;
     disabled?: boolean;
     fluid?: boolean;
-    size?: "sm" | "md";
     className?: string;
     "aria-labelledby"?: string;
     "aria-describedby"?: string;
@@ -88,7 +96,6 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
         inputId,
         required,
         fluid,
-        size,
         disabled,
         inputClassName
     }, isInField] = useFieldContext();
@@ -99,7 +106,6 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
         required,
         disabled,
         fluid,
-        size,
         className: inputClassName
     };
 
@@ -108,7 +114,6 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
 
 export interface UseFieldMessagePropsReturn {
     id?: string;
-    size?: "sm" | "md";
     fluid?: boolean;
     validationState?: "valid" | "invalid";
     className?: string;
@@ -118,7 +123,6 @@ export interface UseFieldMessagePropsReturn {
 export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
     const [{
         messageId,
-        size,
         fluid,
         validationState,
         messageClassName
@@ -126,24 +130,11 @@ export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
 
     const props: UseFieldMessagePropsReturn = isInField && {
         id: messageId,
-        size,
         fluid,
         validationState,
-        className: cssModule(messageClassName, normalizeSize(size)),
+        className: messageClassName,
         "aria-live": "polite"
     };
 
     return [props || {}, isInField];
-}
-
-interface ClearFieldContextProps {
-    children?: ReactNode;
-}
-
-export function ClearFieldContext({ children }: ClearFieldContextProps) {
-    return (
-        <FieldContext.Provider value={null}>
-            { children}
-        </FieldContext.Provider>
-    );
 }

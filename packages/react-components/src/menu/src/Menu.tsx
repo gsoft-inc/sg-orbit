@@ -22,7 +22,7 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
@@ -33,7 +33,7 @@ export type SelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
-// used to generate CollectionNode[] instead of any[] in the auto-generated documentation
+// Used to generate CollectionNode[] instead of any[] in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
@@ -279,7 +279,7 @@ export function InnerMenu({
 
     return (
         <Box
-            {...mergeProps<Partial<BoxProps>[]>(
+            {...mergeProps<any>(
                 rest,
                 {
                     id: rootId,
