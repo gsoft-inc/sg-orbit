@@ -1,11 +1,34 @@
 .o-ui-input-group {
     display: inline-flex;
     align-items: center;
-    /* width: 325px; */
 }
 
 .o-ui-input-group-fluid {
     width: 100%;
+}
+
+/* TEXT INPUT */
+.o-ui-input-group-has-text-input:not(.o-ui-input-group-fluid) {
+    width: 325px;
+}
+
+.o-ui-input-group .o-ui-input-group-text-input {
+    width: 100%;
+}
+
+/* NUMBER INPUT */
+.o-ui-input-group .o-ui-input-group-number-input {
+    width: 100px;
+}
+
+/* DATE INPUT */
+.o-ui-input-group .o-ui-input-group-date-input {
+    width: 125px;
+}
+
+/* DATE RANGE INPUT */
+.o-ui-input-group .o-ui-input-group-date-range-input {
+    width: 275px;
 }
 
 /* STATES */

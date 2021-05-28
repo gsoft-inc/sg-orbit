@@ -6,7 +6,7 @@ import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, Mou
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
-import { useInputGroupProps } from "../../input-group";
+import { useInputGroupNumberInputProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -177,7 +177,7 @@ function toFixed(value: number, precision: number) {
 export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupNumberInputProps();
 
     const {
         id,

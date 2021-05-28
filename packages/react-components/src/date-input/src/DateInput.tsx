@@ -5,7 +5,7 @@ import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
 import { forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
-import { useInputGroupProps } from "../../input-group";
+import { useInputGroupDateInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -75,7 +75,7 @@ export interface InnerDateInputProps {
 }
 
 export function InnerDateInput(props: InnerDateInputProps) {
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupDateInputProps();
 
     const {
         value,

@@ -6,7 +6,7 @@ import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
-import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren } from "../../shared";
+import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 
 export interface InnerInputGroupProps {
     /**
@@ -69,6 +69,8 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
         fieldProps
     );
 
+    const ref = useMergedRefs(forwardedRef);
+
     const transformedChildren = useMemo(() => {
         const elements = Children.toArray(resolveChildren(children)).filter(x => !isNil(x));
 
@@ -85,6 +87,8 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
             }, []) as ReactNode[];
     }, [children]);
 
+    const hasTextInput = useHasChild(".o-ui-input-group-text-input", ref);
+
     return (
         <Box
             {...mergeProps(
@@ -92,10 +96,11 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
                 {
                     className: cssModule(
                         "o-ui-input-group",
-                        fluid && "fluid"
+                        fluid && "fluid",
+                        hasTextInput && "has-text-input"
                     ),
                     as,
-                    ref: forwardedRef
+                    ref
                 }
             )}
         >

@@ -6,7 +6,7 @@ import { CrossButton } from "../../button";
 import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
-import { useInputGroupProps } from "../../input-group";
+import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -80,7 +80,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
 }
 
 export function InnerSearchInput(props: InnerSearchInputProps) {
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         value,

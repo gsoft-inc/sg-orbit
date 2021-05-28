@@ -4,7 +4,7 @@ import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput } from "./TextInput";
 import { forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
-import { useInputGroupProps } from "../../input-group";
+import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
 import { wrappedInputPropsAdapter } from "../../input";
 
@@ -82,7 +82,7 @@ export interface InnerPasswordInputProps {
 }
 
 export function InnerPasswordInput(props: InnerPasswordInputProps) {
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         value,

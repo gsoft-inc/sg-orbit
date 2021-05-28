@@ -26,7 +26,7 @@ import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../
 import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
-import { useInputGroupProps } from "../../input-group";
+import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
@@ -166,7 +166,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         id,

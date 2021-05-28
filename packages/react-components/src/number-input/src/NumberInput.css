@@ -18,12 +18,6 @@
 
 .o-ui-number-input input {
     -moz-appearance: textfield;
-}
-
-.o-ui-number-input input:focus-visible ,
-.o-ui-input-focus.o-ui-number-input input,
-.o-ui-number-input input:hover,
-.o-ui-input-hover.o-ui-number-input input {
     padding-right: calc(var(--o-ui-spinner-width) + 2px);
 }
 

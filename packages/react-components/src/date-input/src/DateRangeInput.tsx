@@ -2,7 +2,7 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
-import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
+import { ClearInputGroupContext, InputGroup, useInputGroupDateRangeInputProps, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
 import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
@@ -356,7 +356,7 @@ const RangeInput = forwardRef<any>((props, ref) => {
 export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupDateRangeInputProps();
 
     const {
         startDate: startDateProp,

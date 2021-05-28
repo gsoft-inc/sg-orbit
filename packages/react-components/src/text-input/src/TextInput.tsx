@@ -2,7 +2,7 @@ import "./TextInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
-import { ClearInputGroupContext, useInputGroupProps } from "../../input-group";
+import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -85,7 +85,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
 export function InnerTextInput(props: InnerTextInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         id,

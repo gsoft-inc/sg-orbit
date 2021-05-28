@@ -8,6 +8,7 @@ function CustomInput(props) {
                 {
                     type: "text",
                     style: {
+                        width: "225px",
                         height: "var(--o-ui-global-scale-hotel)",
                         borderLeft: "1px solid hsla(223, 12%, 87%, 1)",
                         borderTop: "1px solid hsla(223, 12%, 87%, 1)",
