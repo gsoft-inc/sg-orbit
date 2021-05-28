@@ -16,7 +16,7 @@ import {
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
-import { useInputGroupSelectAddonProps } from "../../input-group";
+import { useInputGroupMenuAddonProps } from "../../input-group";
 
 export interface InnerMenuTriggerProps extends DomProps {
     /**
@@ -73,7 +73,7 @@ export interface InnerMenuTriggerProps extends DomProps {
 }
 
 export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
-    const [inputGroupProps] = useInputGroupSelectAddonProps();
+    const [inputGroupProps] = useInputGroupMenuAddonProps();
 
     const {
         id,

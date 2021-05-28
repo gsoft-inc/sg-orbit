@@ -127,6 +127,65 @@ export function createTagTestSuite(element, stories) {
                 </div>
             </Stack>
         )
+        .add("alignment", () =>
+            <Stack>
+                <Tag fluid size="sm" element={element}>
+                    <Dot />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <Tag fluid size="sm" element={element}>
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <Tag size="sm" fluid element={element}>
+                    <CheckCircleIcon />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <Tag fluid element={element}>
+                    <Dot />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <Tag fluid element={element}>
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <Tag fluid element={element}>
+                    <CheckCircleIcon />
+                    <Text>Falcon 9</Text>
+                </Tag>
+                <div className="w-10">
+                    <Stack>
+                        <Inline>
+                            <Tag fluid size="sm" element={element}>
+                                <Dot />
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                            <Tag fluid element={element}>
+                                <Dot />
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                        </Inline>
+                        <Inline>
+                            <Tag fluid size="sm" element={element}>
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                            <Tag fluid element={element}>
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                        </Inline>
+                        <Inline>
+                            <Tag size="sm" fluid element={element}>
+                                <CheckCircleIcon />
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                            <Tag fluid element={element}>
+                                <CheckCircleIcon />
+                                <Text>Falcon 9</Text>
+                            </Tag>
+                        </Inline>
+
+                    </Stack>
+                </div>
+            </Stack>
+        )
         .add("counter", () =>
             <Stack>
                 <Inline verticalAlign="end">
