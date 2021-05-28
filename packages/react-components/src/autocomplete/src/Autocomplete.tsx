@@ -16,7 +16,7 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
@@ -27,6 +27,7 @@ import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";
+import { wrappedInputPropsAdapter } from "../../input";
 import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
@@ -146,6 +147,10 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     zIndex?: number;
     /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
+    /**
      * Additional props to render on the menu of options.
      */
     overlayProps?: Partial<OverlayProps>;
@@ -201,16 +206,18 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
+        wrapperProps,
         overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
         as = "input",
-        className,
         children,
         forwardedRef,
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        fieldProps,
-        inputGroupProps
+        wrappedInputPropsAdapter(mergeProps(
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [focusedItem, setFocusedItem] = useState(null);
@@ -484,8 +491,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         className: "o-ui-autocomplete-trigger",
                         type: "text",
                         wrapperProps: mergeProps(
+                            wrapperProps ?? {},
                             {
-                                className,
                                 ref: triggerWrapperRef
                             },
                             triggerFocusWithinProps
