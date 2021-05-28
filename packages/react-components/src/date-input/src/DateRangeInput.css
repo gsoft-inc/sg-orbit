@@ -100,12 +100,7 @@
     right: var(--o-ui-global-scale-alpha);
 }
 
-/* GROUP */
-.o-ui-date-range-input-group {
-    display: inline-flex;
-    align-items: center;
-}
-
-.o-ui-date-range-input-group .o-ui-date-range-input {
-    margin-right: var(--o-ui-global-scale-bravo);
+/* IN GROUP */
+.o-ui-date-range-input-in-group {
+    width: 300px;
 }

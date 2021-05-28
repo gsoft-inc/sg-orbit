@@ -2,7 +2,7 @@ import "./DateRangeInput.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
-import { ClearInputGroupContext, InputGroup, useInputGroupDateRangeInputProps, useInputGroupProps } from "../../input-group";
+import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
 import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
@@ -169,7 +169,9 @@ const DateInput = forwardRef<any, "input">(({
 });
 
 const RangeInput = forwardRef<any>((props, ref) => {
-    const [inputGroupProps] = useInputGroupProps();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, isInField] = useFieldInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         startDate,
@@ -190,7 +192,6 @@ const RangeInput = forwardRef<any>((props, ref) => {
         focus = false,
         hover,
         name,
-        isInField,
         ...rest
     } = mergeProps(
         props,
@@ -300,7 +301,8 @@ const RangeInput = forwardRef<any>((props, ref) => {
                         readOnly && "readonly",
                         active && "active",
                         hasFocus && "focus",
-                        hover && "hover"
+                        hover && "hover",
+                        isInGroup && "in-group"
                     ),
                     role: !isInField ? "group" : undefined,
                     ref: containerRef
@@ -355,8 +357,8 @@ const RangeInput = forwardRef<any>((props, ref) => {
 
 export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [toolbarProps] = useToolbarProps();
-    const [fieldProps, isInField] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupDateRangeInputProps();
+    const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         startDate: startDateProp,
@@ -453,7 +455,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             focus={focus}
             hover={hover}
             name={name}
-            isInField={isInField}
             ref={rangeRef}
         />
     );
@@ -495,6 +496,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             {augmentElement(rangeMarkup, mergeProps(
                 rest,
                 {
+                    className: isInGroup ? "o-ui-date-range-input-in-group" : undefined,
                     as,
                     ref: containerRef
                 }

@@ -3,10 +3,22 @@ import "./NumberInput.css";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import {
+    DomProps,
+    InteractionStatesProps,
+    cssModule,
+    forwardRef,
+    isNil,
+    mergeClasses,
+    mergeProps,
+    omitProps,
+    useChainedEventCallback,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
-import { useInputGroupNumberInputProps } from "../../input-group";
+import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
@@ -177,7 +189,7 @@ function toFixed(value: number, precision: number) {
 export function InnerNumberInput(props: InnerNumberInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
-    const [inputGroupProps] = useInputGroupNumberInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         id,
@@ -333,9 +345,16 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 wrapperPropsProp,
                 wrapperProps,
                 {
-                    className: cssModule(
-                        "o-ui-input",
-                        iconMarkup && "has-icon"
+                    className: mergeClasses(
+                        cssModule(
+                            "o-ui-input",
+                            iconMarkup && "has-icon",
+                            isInGroup && "in-group"
+                        ),
+                        cssModule(
+                            "o-ui-number-input",
+                            isInGroup && "in-group"
+                        )
                     ),
                     as
                 }
