@@ -72,6 +72,10 @@
     --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
 }
 
+.o-ui-overlay:focus-visible .o-ui-overlay-arrow:before {
+    border-width: var(--o-ui-focus-ring-thickness-md);
+}
+
 /* BORDER OFFSET */
 .o-ui-overlay-has-border-offset[data-popper-placement^="top"] {
     border-bottom: var(--o-ui-overlay-border-offset) solid transparent;

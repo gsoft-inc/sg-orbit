@@ -348,11 +348,6 @@ a.o-ui-button {
     color: var(--o-ui-alias-text-negative-1);
 }
 
-/* DANGER */
-.o-ui-button-danger {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
-}
-
 /* FLUID */
 .o-ui-button-fluid {
     width: 100%;

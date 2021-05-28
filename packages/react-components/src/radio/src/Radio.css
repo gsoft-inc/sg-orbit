@@ -113,7 +113,7 @@
     bottom: 0;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-shape-pill);
     transition: var(--o-ui-focus-ring-transition);
 }
