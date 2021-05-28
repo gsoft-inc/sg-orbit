@@ -397,6 +397,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const containerRef = useRef<HTMLElement>();
     const rangeRef = useRef<HTMLInputElement>();
+    const presetButtonRef = useRef<HTMLButtonElement>();
 
     useImperativeHandle(forwardedRef, () => {
         // For presets, used the input group container as the ref element.
@@ -431,7 +432,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         if (!isNil(preset)) {
             applyDates(event, preset.startDate, preset.endDate);
 
-            rangeRef.current?.focus();
+            presetButtonRef.current?.focus();
         }
     });
 
@@ -475,6 +476,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                     <IconButton
                         disabled={disabled || readOnly}
                         aria-label="Date presets"
+                        ref={presetButtonRef}
                     >
                         <DisclosureArrow />
                     </IconButton>
