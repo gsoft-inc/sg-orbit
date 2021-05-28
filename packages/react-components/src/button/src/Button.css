@@ -157,7 +157,6 @@ a.o-ui-button {
 /* SOLID | DANGER */
 .o-ui-button-solid.o-ui-button-danger {
     background-color: var(--o-ui-alias-background-negative-1);
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
 }
 
 /* SOLID | DANGER | HOVER */
@@ -262,7 +261,6 @@ a.o-ui-button {
 .o-ui-button-outline.o-ui-button-danger {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-negative-1) inset;
     color: var(--o-ui-alias-text-negative-1);
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
 }
 
 /* OUTLINE | DANGER | HOVER */
@@ -348,12 +346,6 @@ a.o-ui-button {
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
     color: var(--o-ui-alias-text-negative-1);
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
-}
-
-/* GHOST | INHERIT */
-.o-ui-button.o-ui-button-inherit-color.o-ui-button-ghost {
-    --o-ui-focus-ring-color: currentColor;
 }
 
 /* DANGER */
@@ -558,10 +550,6 @@ a.o-ui-button {
 .o-ui-button-inherit-color.o-ui-button-solid .o-ui-button-text {
     color: var(--o-ui-global-white);
     opacity: .9;
-}
-
-.o-ui-button.o-ui-button-inherit-color.o-ui-button-solid {
-    --o-ui-focus-ring-color: currentColor;
 }
 
 .o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-solid,

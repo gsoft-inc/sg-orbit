@@ -86,7 +86,7 @@
 .o-ui-input.o-ui-input-invalid input:focus-visible,
 .o-ui-input-focus.o-ui-input-invalid input,
 .o-ui-input.o-ui-input-invalid textarea:focus-visible {
-    box-shadow: var(--o-ui-focus-ring-inset-md-negative);
+    box-shadow: var(--o-ui-focus-ring-inset-md);
 }
 
 /* STATE | HOVER | INVALID */

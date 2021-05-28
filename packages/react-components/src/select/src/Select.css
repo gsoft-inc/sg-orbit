@@ -117,12 +117,12 @@
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-outline:not([disabled]):focus-visible:not(:hover) {
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus-visible {
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */

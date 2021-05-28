@@ -7,16 +7,12 @@
     --o-ui-disabled-opacity: 0.4;
     /* FOCUS RING */
     --o-ui-focus-ring-thickness-sm: 1px;
-    --o-ui-focus-ring-thickness-md: 2px;
-    --o-ui-focus-ring-thickness-lg: 4px;
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-primary-1-translucent);
-    --o-ui-focus-ring-color-negative: var(--o-ui-alias-border-negative-1-translucent);
+    --o-ui-focus-ring-thickness-md: 3px;
+    --o-ui-focus-ring-thickness-lg: 5px;
+    --o-ui-focus-ring-color: rgb(31 115 183 / 35%);
     --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-inset-sm-negative: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color-negative);
-    --o-ui-focus-ring-inset-md-negative: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-negative);
-    --o-ui-focus-ring-inset-lg-negative: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color-negative);
     --o-ui-focus-ring-outset-inner-offset: 1px;
     --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-global-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-transition: all .2s ease-in;
