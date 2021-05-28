@@ -9,7 +9,7 @@
     --o-ui-focus-ring-thickness-sm: 1px;
     --o-ui-focus-ring-thickness-md: 3px;
     --o-ui-focus-ring-thickness-lg: 5px;
-    --o-ui-focus-ring-color: rgb(31 115 183 / 35%);
+    --o-ui-focus-ring-color: rgba(31, 115, 183, .35);
     --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
