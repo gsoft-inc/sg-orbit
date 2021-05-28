@@ -84,9 +84,28 @@ export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsR
     return [props || {}, isInInputGroup];
 }
 
+export interface UseInputGroupMenuAddonPropsReturn {
+    disabled?: boolean;
+    readOnly?: boolean;
+    className?: string;
+}
+
+export function useInputGroupMenuAddonProps(): [UseInputGroupMenuAddonPropsReturn, boolean] {
+    const [{ disabled, readOnly }, isInInputGroup] = useInputGroupContext();
+
+    const props = isInInputGroup && {
+        disabled,
+        readOnly,
+        className: "o-ui-input-group-addon"
+    };
+
+    return [props || {}, isInInputGroup];
+}
+
 export interface UseInputGroupSelectAddonPropsReturn {
     disabled?: boolean;
     readOnly?: boolean;
+    allowResponsiveMenuWidth?: boolean;
     className?: string;
 }
 
