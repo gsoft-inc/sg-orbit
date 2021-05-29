@@ -2,6 +2,7 @@ import { ElementType, ReactNode, createContext, useContext } from "react";
 import { isNil } from "../../shared";
 
 export interface FieldContextType {
+    id?: string;
     inputId?: string;
     labelId?: string;
     messageId?: string;
@@ -91,6 +92,7 @@ export interface UseFieldInputPropsReturn {
 
 export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const [{
+        id,
         isGroup,
         validationState,
         inputId,
@@ -103,6 +105,7 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const props = isInField && {
         validationState,
         id: !isGroup ? inputId : undefined,
+        name: id,
         required,
         disabled,
         fluid,

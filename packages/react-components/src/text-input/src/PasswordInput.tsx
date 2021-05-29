@@ -38,9 +38,14 @@ export interface InnerPasswordInputProps {
      */
     validationState?: "valid" | "invalid";
     /**
-     * Called when the text input value change.
-     * @param {ChangeEvent} event - React's original synthetic event.
+     * Called when the input value change.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {string} value - The new input value.
      * @returns {void}
+     */
+    onValueChange?: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
+    /**
+     * @ignore
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**

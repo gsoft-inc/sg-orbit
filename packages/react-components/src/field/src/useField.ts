@@ -64,6 +64,7 @@ export function useField({
             ref
         },
         fieldContext: {
+            id: fieldId,
             inputId,
             labelId,
             messageId,
