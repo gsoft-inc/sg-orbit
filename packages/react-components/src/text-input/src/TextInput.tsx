@@ -2,12 +2,13 @@ import "./TextInput.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useControllableState, useEventCallback } from "../../shared";
+import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
+import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -34,11 +35,15 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
-     * @param {ChangeEvent} event - React's original synthetic event.
-     * @param {string} value - The input value.
+     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {string} value - The new input value.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
+    onValueChange?: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
+    /**
+     * @ignore
+     */
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -84,6 +89,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
 export function InnerTextInput(props: InnerTextInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
         id,
@@ -92,6 +98,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         placeholder,
         required,
         validationState,
+        onValueChange,
         onChange,
         type = "text",
         autoFocus,
@@ -105,22 +112,26 @@ export function InnerTextInput(props: InnerTextInputProps) {
         focus,
         hover,
         wrapperProps: userWrapperProps,
-        as: TriggerType = "input",
+        as: As = "input",
         forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"]),
-        wrappedInputPropsAdapter(fieldProps)
+        wrappedInputPropsAdapter(mergeProps(
+            {},
+            omitProps(toolbarProps, ["orientation"]),
+            fieldProps,
+            inputGroupProps
+        ))
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
 
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
+        if (!isNil(onValueChange)) {
+            onValueChange(event, newValue);
         }
 
         setValue(newValue);
@@ -153,13 +164,16 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const content = (
         <>
             {iconMarkup}
-            <TriggerType
+            <As
                 {...mergeProps(
                     rest,
                     inputProps
                 )}
             />
-            {buttonMarkup}
+            {/* Otherwise an input button will receive an addon className */}
+            <ClearInputGroupContext>
+                {buttonMarkup}
+            </ClearInputGroupContext>
         </>
     );
 

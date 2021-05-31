@@ -3,11 +3,13 @@ import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
+import { InputGroup } from "@react-components/input-group";
 import { Item } from "@react-components/collection";
 import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
+import { Text } from "@react-components/text";
 import { TextArea } from "@react-components/text-area";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -138,32 +140,18 @@ stories()
         </Field>
     )
     .add("checkbox", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Select your favorite galaxy</Label>
-                <Checkbox>Milky Way</Checkbox>
-                <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Select your favorite galaxy</Label>
+            <Checkbox>Milky Way</Checkbox>
+            <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
+        </Field>
     )
     .add("switch", () =>
-        <Inline verticalAlign="end">
-            <Field size="sm">
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-            <Field>
-                <Label>Engines</Label>
-                <Switch>Milky Way</Switch>
-                <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field>
+            <Label>Engines</Label>
+            <Switch>Milky Way</Switch>
+            <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
+        </Field>
     )
     .add("select", () =>
         <Field>
@@ -185,6 +173,16 @@ stories()
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
             <HelpMessage>Must be a planet of the solar system.</HelpMessage>
+        </Field>
+    )
+    .add("input group", () =>
+        <Field>
+            <Label>Launch date</Label>
+            <InputGroup>
+                <TextInput />
+                <Text>Days</Text>
+            </InputGroup>
+            <HelpMessage>In how many days does your flight will launch?</HelpMessage>
         </Field>
     )
     .add("styling", () =>

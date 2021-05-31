@@ -1,5 +1,5 @@
 .o-ui-autocomplete-menu-no-results {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     border: 1px solid var(--o-ui-alias-border-2);
     border-radius: var(--o-ui-global-scale-alpha);

@@ -70,7 +70,9 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
             });
         } else {
             mutationObserver.disconnect();
-            setElements([]);
+            // HACK: It's probably not a good idea to comment this cleanup code but it's currently the only way
+            // for restore focus to work.
+            // setElements([]);
         }
     }, [scopeRef, setScope, handlersRef]);
 

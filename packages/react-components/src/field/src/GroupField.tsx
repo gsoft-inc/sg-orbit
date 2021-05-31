@@ -22,10 +22,6 @@ interface InnerGroupFieldProps extends DomProps {
      */
     fluid?: boolean;
     /**
-     * A field can vary in size.
-     */
-    size?: "sm" | "md";
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -48,7 +44,6 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         validationState,
         required,
         fluid,
-        size,
         disabled,
         as = "div",
         className,
@@ -66,7 +61,6 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         validationState,
         required,
         fluid,
-        size,
         disabled,
         className,
         forwardedRef

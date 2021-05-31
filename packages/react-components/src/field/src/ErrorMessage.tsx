@@ -5,10 +5,6 @@ import { useFieldMessageProps } from "./FieldContext";
 
 export interface InnerErrorMessageProps {
     /**
-     * A message can vary in size.
-     */
-    size?: "sm" | "md";
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;

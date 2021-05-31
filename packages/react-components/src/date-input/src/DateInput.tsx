@@ -1,13 +1,14 @@
 import "./DateInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { CalendarIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
-import { forwardRef, mergeProps } from "../../shared";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
+import { useInputGroupProps } from "../../input-group";
+import { wrappedInputPropsAdapter } from "../../input";
 
-// used to generate BoxProps instead of any in the auto-generated documentation
+// Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
@@ -73,19 +74,25 @@ export interface InnerDateInputProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerDateInput({
-    value,
-    defaultValue,
-    placeholder = "dd/mm/yyyy",
-    min,
-    max,
-    onChange,
-    onDateChange,
-    wrapperProps,
-    as = "input",
-    forwardedRef,
-    ...rest
-}: InnerDateInputProps) {
+export function InnerDateInput(props: InnerDateInputProps) {
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
+
+    const {
+        value,
+        defaultValue,
+        placeholder = "dd/mm/yyyy",
+        min,
+        max,
+        onChange,
+        onDateChange,
+        wrapperProps,
+        as = "input",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        wrappedInputPropsAdapter(inputGroupProps)
+    );
 
     const dateProps = useDateInput({
         value,
@@ -103,11 +110,13 @@ export function InnerDateInput({
                 rest,
                 {
                     placeholder,
-                    icon: <CalendarIcon />,
                     wrapperProps: mergeProps(
                         wrapperProps ?? {},
                         {
-                            className: "o-ui-date-input"
+                            className: cssModule(
+                                "o-ui-date-input",
+                                isInGroup && "in-group"
+                            )
                         }
                     ),
                     as

@@ -18,6 +18,32 @@ test("when an id is provided, it is assigned to the input", async () => {
     expect(input.getAttribute("id")).toBe("foo-input");
 });
 
+test("when an id is provided, it is set as the input name", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
+
+    const input = await waitFor(() => getByTestId("text-input"));
+
+    expect(input.getAttribute("name")).toBe("foo");
+});
+
+test("when an id is provided and a name prop is set on the input, the name attribute on the input have precedence", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput name="bar" data-testid="text-input" />
+        </Field>
+    );
+
+    const input = await waitFor(() => getByTestId("text-input"));
+
+    expect(input.getAttribute("name")).toBe("bar");
+});
+
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
     const { getByTestId } = render(
         <Field data-testid="field">

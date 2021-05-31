@@ -1,12 +1,52 @@
 import { Button } from "@react-components/button";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 import { Transition } from "@react-components/transition";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
     Transition.disableAnimation = true;
+});
+
+// ***** Behaviors *****
+
+test("when the trigger is disabled, open on trigger hover", async () => {
+    const { getByTestId } = render(
+        <TooltipTrigger>
+            <Button disabled data-testid="trigger">Trigger</Button>
+            <Tooltip data-testid="tooltip">Content</Tooltip>
+        </TooltipTrigger>
+    );
+
+    act(() => {
+        // userEvent.hover() doesn't fire when the element is disabled.
+        fireEvent.mouseEnter(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+});
+
+test("when the trigger is disabled, close on trigger leave", async () => {
+    const { getByTestId, queryByTestId } = render(
+        <TooltipTrigger>
+            <Button disabled data-testid="trigger">Trigger</Button>
+            <Tooltip data-testid="tooltip">Content</Tooltip>
+        </TooltipTrigger>
+    );
+
+    act(() => {
+        // userEvent.hover() doesn't fire when the element is disabled.
+        fireEvent.mouseEnter(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+
+    act(() => {
+        fireEvent.mouseLeave(getByTestId("trigger").parentElement);
+    });
+
+    await waitFor(() => expect(queryByTestId("tooltip")).not.toBeInTheDocument());
 });
 
 // ***** Aria *****
@@ -56,7 +96,7 @@ test("when a tooltip is visible, the tooltip trigger aria-describedby match the 
     await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-describedby", "tooltip-id"));
 });
 
-// ***** Aria *****
+// ***** Api *****
 
 test("call onOpenChange when the tooltip appears", async () => {
     const handler = jest.fn();

@@ -8,7 +8,8 @@ import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
-beforeAll(() => {
+// Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
+beforeEach(() => {
     Transition.disableAnimation = true;
 });
 
@@ -113,7 +114,7 @@ test("when a select open with arrow up keypress and there is a selected option, 
 test("selecting an option close the menu", async () => {
     const { getByTestId, queryByTestId } = render(
         <Select
-            defaultOpen
+            data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -121,6 +122,10 @@ test("selecting an option close the menu", async () => {
             <Item key="saturn">Saturn</Item>
         </Select>
     );
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -131,8 +136,30 @@ test("selecting an option close the menu", async () => {
 
 test("selecting an option update the trigger selected value text", async () => {
     const { getByTestId } = render(
+        <Select data-testid="select">
+            <Item key="earth" data-testid="earth-option">Earth</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Select>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
+    });
+
+    await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
+});
+
+test("selecting an option focus the trigger", async () => {
+    Transition.disableAnimation = false;
+
+    const { getByTestId, queryByTestId } = render(
         <Select
-            defaultOpen
+            overlayProps={{ "data-testid": "overlay" }}
             data-testid="select"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -142,10 +169,14 @@ test("selecting an option update the trigger selected value text", async () => {
     );
 
     act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    act(() => {
         userEvent.click(getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
+    await waitFor(() => expect(queryByTestId("select")).toHaveFocus());
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {

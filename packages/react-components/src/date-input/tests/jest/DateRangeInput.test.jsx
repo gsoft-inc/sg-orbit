@@ -343,6 +343,27 @@ test("when a preset is selected, both inputs are filled with the preset dates", 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
 });
 
+test("when a preset is select, the preset menu trigger is focused", async () => {
+    const { container, getByRole } = render(
+        <DateRangeInput
+            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+            name="date-range"
+        />
+    );
+
+    act(() => {
+        userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+    });
+
+    await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByRole("menuitem"));
+    });
+
+    await waitFor(() => expect(container.querySelector(":scope > [aria-label=\"Date presets\"]")).toHaveFocus());
+});
+
 test("when autofocus is true, the date range input is focused on render", async () => {
     const { container, getByTestId } = render(
         <DateRangeInput

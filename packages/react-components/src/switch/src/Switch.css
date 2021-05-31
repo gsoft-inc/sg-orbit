@@ -88,13 +88,13 @@
 .o-ui-switch-control:after {
     opacity: 0;
     content: "";
-    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
-    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
     border-radius: var(--o-ui-shape-pill);
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -106,7 +106,7 @@
 
 /* STATE | FOCUS | INVALID */
 .o-ui-switch-invalid .o-ui-switch-control:after {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
 }
 
 /* STATE | DISABLED */

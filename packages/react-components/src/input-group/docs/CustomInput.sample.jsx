@@ -1,0 +1,31 @@
+function CustomInput(props) {
+    const [inputGroupProps] = useInputGroupProps();
+
+    return (
+        <input
+            {...mergeProps(
+                props,
+                {
+                    type: "text",
+                    style: {
+                        width: "225px",
+                        height: "var(--o-ui-global-scale-hotel)",
+                        border: "1px solid hsla(223, 12%, 87%, 1)",
+                        borderTopLeftRadius: "var(--o-ui-input-border-radius)",
+                        borderBottomLeftRadius: "var(--o-ui-input-border-radius)"
+                    }
+                },
+                inputGroupProps
+            )}
+        />
+    );
+}
+
+render(() => {
+    return (
+        <InputGroup>
+            <CustomInput />
+            <Text>passengers</Text>
+        </InputGroup>
+    );
+});

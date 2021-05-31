@@ -11,9 +11,11 @@
     --o-ui-alias-border-primary-1: var(--o-ui-alias-primary-500);
     --o-ui-alias-border-primary-1-hover: var(--o-ui-alias-primary-700);
     --o-ui-alias-border-primary-1-active: var(--o-ui-alias-primary-900);
+    --o-ui-alias-border-primary-1-translucent: hsla(172, 65%, 48%, 50%);
     --o-ui-alias-border-negative-1: var(--o-ui-global-beetle-500);
     --o-ui-alias-border-negative-1-hover: var(--o-ui-global-beetle-700);
     --o-ui-alias-border-negative-1-active: var(--o-ui-global-beetle-900);
+    --o-ui-alias-border-negative-1-translucent: hsla(348, 98%, 53%, 50%);
     --o-ui-alias-border-negative-2: var(--o-ui-global-beetle-200);
     --o-ui-alias-border-warning-1: var(--o-ui-global-sunray-500);
     --o-ui-alias-border-warning-1-hover: var(--o-ui-global-sunray-700);
@@ -34,9 +36,11 @@
     --o-ui-alias-border-primary-1: var(--o-ui-alias-primary-700);
     --o-ui-alias-border-primary-1-hover: var(--o-ui-alias-primary-400);
     --o-ui-alias-border-primary-1-active: var(--o-ui-alias-primary-300);
+    --o-ui-alias-border-primary-1-translucent: hsla(172, 63%, 45%, 50%);
     --o-ui-alias-border-negative-1: var(--o-ui-global-beetle-700);
     --o-ui-alias-border-negative-1-hover: var(--o-ui-global-beetle-600);
     --o-ui-alias-border-negative-1-active: var(--o-ui-global-beetle-500);
+    --o-ui-alias-border-negative-1-translucent: hsla(348, 83%, 50%, 50%);
     --o-ui-alias-border-negative-2: var(--o-ui-global-beetle-200);
     --o-ui-alias-border-warning-1: var(--o-ui-global-sunray-700);
     --o-ui-alias-border-warning-1-hover: var(--o-ui-global-sunray-600);

@@ -34,7 +34,7 @@
         <Form onSubmit={formik.handleSubmit}>
             <Field id="firstName" validationState={getValidationState("firstName")}>
                 <Label required>First name</Label>
-                <TextInput onChange={formik.handleChange} value={formik.values.firstName} />
+                <TextInput onChange={event => { console.log(event.target.value); formik.handleChange(event); }} value={formik.values.firstName} />
                 <ErrorMessage>{formik.errors.firstName}</ErrorMessage>
             </Field>
             <Field id="lastName" validationState={getValidationState("lastName")}>

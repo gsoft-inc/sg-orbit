@@ -11,8 +11,12 @@
 }
 
 /* OVERLAY */
+.o-ui-popover-overlay > *:first-child {
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-global-transparent);
+}
+
 .o-ui-popover-overlay:focus-visible > *:first-child {
-    border: var(--o-ui-focus-ring-thickness-sm) solid var(--o-ui-focus-ring-color);
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
 }
 
 /* HEADER */

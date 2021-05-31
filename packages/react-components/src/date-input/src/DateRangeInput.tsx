@@ -1,9 +1,10 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { CalendarIcon, VerticalDotsIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
+import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
+import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
 import {
     InteractionStatesProps,
@@ -167,15 +168,14 @@ const DateInput = forwardRef<any, "input">(({
     );
 });
 
-export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
-    const [toolbarProps] = useToolbarProps();
-    const [fieldProps, isInField] = useFieldInputProps();
+const RangeInput = forwardRef<any>((props, ref) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, isInField] = useFieldInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
-        startDate: startDateProp,
-        endDate: endDateProp,
-        defaultStartDate,
-        defaultEndDate,
+        startDate,
+        endDate,
         placeholder,
         min,
         max,
@@ -184,7 +184,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         onDatesChange,
         onFocus,
         onBlur,
-        presets,
         autoFocus,
         fluid,
         disabled,
@@ -193,24 +192,19 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         focus = false,
         hover,
         name,
-        as = "div",
-        forwardedRef,
         ...rest
     } = mergeProps(
         props,
-        omitProps(toolbarProps, ["orientation"]),
-        fieldProps
+        inputGroupProps
     );
 
-    const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);
-    const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
     const [hasFocus, setHasFocus] = useState(focus);
 
     const containerRef = useRef<HTMLElement>();
     const startDateRef = useRef<HTMLInputElement>();
     const endDateRef = useRef<HTMLInputElement>();
 
-    useImperativeHandle(forwardedRef, () => {
+    useImperativeHandle(ref, () => {
         const element = containerRef.current;
 
         element.focus = () => {
@@ -220,23 +214,12 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         return element;
     });
 
-    const applyDates = useCallback((event: SyntheticEvent, newStartDate: Date, newEndDate: Date) => {
-        if (startDate !== newStartDate || endDate !== newEndDate) {
-            if (!isNil(onDatesChange)) {
-                onDatesChange(event, newStartDate, newEndDate);
-            }
-
-            setStartDate(newStartDate);
-            setEndDate(newEndDate);
-        }
-    }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
-
     const handleStartDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
         if (!isNil(newDate) && !isNil(endDate) && newDate > endDate) {
             newDate = endDate;
         }
 
-        applyDates(event, newDate, endDate);
+        onDatesChange(event, newDate, endDate);
 
         if (!isNil(newDate)) {
             endDateRef.current?.focus();
@@ -261,20 +244,11 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             newDate = startDate;
         }
 
-        applyDates(event, startDate, newDate);
-    });
-
-    const handleSelectPreset = useEventCallback((event: SyntheticEvent, keys: string[]) => {
-        const index = parseInt(keys[0]);
-        const preset = presets[index];
-
-        if (!isNil(preset)) {
-            applyDates(event, preset.startDate, preset.endDate);
-        }
+        onDatesChange(event, startDate, newDate);
     });
 
     const handleClearDates = useEventCallback((event: SyntheticEvent) => {
-        applyDates(event, null, null);
+        onDatesChange(event, null, null);
 
         startDateRef?.current.focus();
     });
@@ -313,10 +287,10 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const hasValue = !isNil(startDate) || !isNil(endDate);
 
-    const inputMarkup = (
+    return (
         <Box
             {...mergeProps(
-                focusWithinProps,
+                rest,
                 {
                     onKeyDown: handleContainerKeyDown,
                     className: cssModule(
@@ -327,13 +301,15 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         readOnly && "readonly",
                         active && "active",
                         hasFocus && "focus",
-                        hover && "hover"
+                        hover && "hover",
+                        isInGroup && "in-group"
                     ),
-                    role: !isInField ? "group" : undefined
-                }
+                    role: !isInField ? "group" : undefined,
+                    ref: containerRef
+                },
+                focusWithinProps
             )}
         >
-            <CalendarIcon className="o-ui-date-range-input-icon" />
             <DateInput
                 value={startDate}
                 placeholder={placeholder}
@@ -365,58 +341,169 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                 tabIndex={hasFocus ? 0 : -1}
                 ref={endDateRef}
             />
-            {hasValue && !disabled && !readOnly && <CrossButton
-                onClick={handleClearDates}
-                size="xs"
-                condensed
-                className="o-ui-date-range-input-clear-button"
-                aria-label="Clear dates"
-            />}
+            {hasValue && !disabled && !readOnly &&
+                <ClearInputGroupContext>
+                    <CrossButton
+                        onClick={handleClearDates}
+                        size="xs"
+                        condensed
+                        className="o-ui-date-range-input-clear-button"
+                        aria-label="Clear dates"
+                    />
+                </ClearInputGroupContext>}
         </Box>
     );
+});
 
-    const presetsMarkup = !isNil(presets) && (
-        <MenuTrigger>
-            <IconButton
-                shape="rounded"
-                color="secondary"
-                condensed
-                aria-label="Date presets"
+export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
+    const [toolbarProps] = useToolbarProps();
+    const [fieldProps] = useFieldInputProps();
+    const [inputGroupProps, isInGroup] = useInputGroupProps();
+
+    const {
+        startDate: startDateProp,
+        endDate: endDateProp,
+        defaultStartDate,
+        defaultEndDate,
+        placeholder,
+        min,
+        max,
+        required,
+        validationState,
+        onDatesChange,
+        onFocus,
+        onBlur,
+        presets,
+        autoFocus,
+        fluid,
+        disabled,
+        readOnly,
+        active,
+        focus = false,
+        hover,
+        name,
+        as = "div",
+        forwardedRef,
+        ...rest
+    } = mergeProps(
+        props,
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps,
+        inputGroupProps
+    );
+
+    const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);
+    const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
+
+    const containerRef = useRef<HTMLElement>();
+    const rangeRef = useRef<HTMLInputElement>();
+    const presetButtonRef = useRef<HTMLButtonElement>();
+
+    useImperativeHandle(forwardedRef, () => {
+        // For presets, used the input group container as the ref element.
+        if (!isNil(presets)) {
+            const element = containerRef.current;
+
+            element.focus = () => {
+                rangeRef.current?.focus();
+            };
+
+            return element;
+        }
+
+        return rangeRef.current;
+    });
+
+    const applyDates = useCallback((event: SyntheticEvent, newStartDate: Date, newEndDate: Date) => {
+        if (startDate !== newStartDate || endDate !== newEndDate) {
+            if (!isNil(onDatesChange)) {
+                onDatesChange(event, newStartDate, newEndDate);
+            }
+
+            setStartDate(newStartDate);
+            setEndDate(newEndDate);
+        }
+    }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
+
+    const handleSelectPreset = useEventCallback((event: SyntheticEvent, keys: string[]) => {
+        const index = parseInt(keys[0]);
+        const preset = presets[index];
+
+        if (!isNil(preset)) {
+            applyDates(event, preset.startDate, preset.endDate);
+
+            presetButtonRef.current?.focus();
+        }
+    });
+
+    const rangeMarkup = (
+        <RangeInput
+            startDate={startDate}
+            endDate={endDate}
+            placeholder={placeholder}
+            min={min}
+            max={max}
+            required={required}
+            validationState={validationState}
+            onDatesChange={applyDates}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            autoFocus={autoFocus}
+            fluid={fluid}
+            disabled={disabled}
+            readOnly={readOnly}
+            active={active}
+            focus={focus}
+            hover={hover}
+            name={name}
+            ref={rangeRef}
+        />
+    );
+
+    if (!isNil(presets)) {
+        return (
+            <InputGroup
+                {...mergeProps(
+                    rest,
+                    {
+                        as,
+                        ref: containerRef
+                    }
+                )}
             >
-                <VerticalDotsIcon />
-            </IconButton>
-            <Menu onSelectionChange={handleSelectPreset}>
-                {presets.map((x, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <Item key={index.toString()}>
-                        {x.text}
-                    </Item>
-                ))}
-            </Menu>
-        </MenuTrigger>
-    );
+                {rangeMarkup}
+                <MenuTrigger>
+                    <IconButton
+                        disabled={disabled || readOnly}
+                        aria-label="Date presets"
+                        ref={presetButtonRef}
+                    >
+                        <DisclosureArrow />
+                    </IconButton>
+                    <Menu onSelectionChange={handleSelectPreset}>
+                        {presets.map((x, index) => (
+                            // eslint-disable-next-line react/no-array-index-key
+                            <Item key={index.toString()}>
+                                {x.text}
+                            </Item>
+                        ))}
+                    </Menu>
+                </MenuTrigger>
+            </InputGroup>
+        );
+    }
 
-    const container = !isNil(presets) ? (
-        <Box
-            className="o-ui-date-range-input-group"
-            role="presentation"
-        >
-            {inputMarkup}
-            {presetsMarkup}
-        </Box>
-    ) : inputMarkup;
-
-    // HACK: Returning the augmented element in a fragment to comply with react-docgen.
     return (
-        <>
-            {augmentElement(container, mergeProps(
+        <ClearInputGroupContext>
+            {augmentElement(rangeMarkup, mergeProps(
                 rest,
                 {
+                    className: isInGroup ? "o-ui-date-range-input-in-group" : undefined,
                     as,
                     ref: containerRef
                 }
             ))}
-        </>
+        </ClearInputGroupContext>
     );
 }
 

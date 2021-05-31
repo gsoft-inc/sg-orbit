@@ -53,15 +53,38 @@ export function useOverlayTrigger(isOpen: boolean, {
         }
     });
 
-    // Hotfix for https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
+    // Hotfix: https://bugzilla.mozilla.org/show_bug.cgi?id=1487102
     const handleKeyUp = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.space) {
             event.preventDefault();
         }
     });
 
-    const handleMouseEnter = useEventCallback((event: MouseEvent) => { show(event); });
-    const handleMouseLeave = useEventCallback((event: MouseEvent) => { hide(event); });
+    const handleMouseEnter = useEventCallback((event: MouseEvent) => {
+        show(event);
+
+        if (hideOnLeave) {
+            let target = event.target as HTMLElement;
+
+            // HACK: The current strategy to show an overlay for a disabled trigger is to wrap the trigger in a div.
+            // Strangely, when doing so, event.target is the disable trigger instead of the wrapper. This code ensure we resolve
+            // the target to the wrapper instead of the original disabled trigger.
+            if (target.hasAttribute("disabled")) {
+                target = target.parentElement;
+            }
+
+            // HACK: A mouseleave event is not fired when the element have a disabled child. For more info view: https://github.com/facebook/react/issues/10396.
+            // This is part of a work around to support a tooltip for a disabled button.
+            target.addEventListener("mouseleave", handleMouseLeave);
+        }
+    });
+
+    const handleMouseLeave = useEventCallback((event: any) => {
+        hide(event);
+
+        event.target.removeEventListener("mouseleave", handleMouseLeave);
+    });
+
     const handleFocus = useEventCallback((event: FocusEvent) => { show(event); });
     const handleBlur = useEventCallback((event: FocusEvent) => { hide(event); });
 
@@ -81,7 +104,6 @@ export function useOverlayTrigger(isOpen: boolean, {
             // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
                 onMouseEnter: handleMouseEnter,
-                onMouseLeave: hideOnLeave ? handleMouseLeave : undefined,
                 onFocus: handleFocus,
                 onBlur: hideOnLeave ? handleBlur : undefined
             };
