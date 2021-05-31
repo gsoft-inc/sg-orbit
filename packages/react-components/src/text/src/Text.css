@@ -11,7 +11,7 @@
 
 .o-ui-text-md {
     font-size: var(--o-ui-global-type-scale-7);
-    line-height: var(--o-ui-global-line-height-4);
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .o-ui-text-lg {
@@ -28,20 +28,20 @@
     font-size: var(--o-ui-global-type-scale-4);
     line-height: var(--o-ui-global-line-height-5);
 }
-/* todo */
+
 .o-ui-text-3xl {
     font-size: var(--o-ui-global-type-scale-3);
-    line-height: var(--o-ui-global-line-height-3);
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .o-ui-text-4xl {
     font-size: var(--o-ui-global-type-scale-2);
-    line-height: var(--o-ui-global-line-height-1);
+    line-height: var(--o-ui-global-line-height-3);
 }
 
 .o-ui-text-5xl {
     font-size: var(--o-ui-global-type-scale-1);
-    line-height: var(--o-ui-global-line-height-1);
+    line-height: var(--o-ui-global-line-height-2);
 }
 
 .o-ui-text-inherit-size {
