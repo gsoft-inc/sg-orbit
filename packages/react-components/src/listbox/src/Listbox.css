@@ -144,10 +144,10 @@
 /* SECTION */
 .o-ui-listbox-section {
     display: flex;
-    font-weight: 500;
+    font-variation-settings: "wght" 600;
     padding-left: var(--o-ui-global-scale-charlie);
     cursor: default;
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
     height: var(--o-ui-listbox-option-height);
     color: var(--o-ui-alias-text-3);
     text-transform: uppercase;
@@ -161,7 +161,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
     justify-self: start;
 }
 

@@ -1,101 +1,101 @@
 .lh1 {
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
 }
 
 .lh2 {
-    line-height: 1.142857143;
+        line-height: var(--o-ui-global-line-height-2);
 }
 
 .lh3 {
-    line-height: 1.2;
+        line-height: var(--o-ui-global-line-height-3);
 }
 
 .lh4 {
-    line-height: 1.25;
+        line-height: var(--o-ui-global-line-height-4);
 }
 
 .lh5 {
-    line-height: 1.3333333;
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .lh6 {
-    line-height: 1.5;
+    line-height: var(--o-ui-global-line-height-6);
 }
 
 @media (--breakpoint-not-small) {
     .lh1-ns {
-        line-height: 1;
-    }
+        line-height: var(--o-ui-global-line-height-1);
+        }
 
     .lh2-ns {
-        line-height: 1.142857143;
+        line-height: var(--o-ui-global-line-height-2);
     }
 
     .lh3-ns {
-        line-height: 1.2;
+        line-height: var(--o-ui-global-line-height-3);
     }
 
     .lh4-ns {
-        line-height: 1.25;
+        line-height: var(--o-ui-global-line-height-4);
     }
 
     .lh5-ns {
-        line-height: 1.3333333;
+        line-height: var(--o-ui-global-line-height-5);
     }
 
     .lh6-ns {
-        line-height: 1.5;
+        line-height: var(--o-ui-global-line-height-6);
     }
 }
 
 @media (--breakpoint-medium) {
     .lh1-m {
-        line-height: 1;
-    }
+        line-height: var(--o-ui-global-line-height-1);
+        }
 
     .lh2-m {
-        line-height: 1.142857143;
-    }
+            line-height: var(--o-ui-global-line-height-2);
+        }
 
     .lh3-m {
-        line-height: 1.2;
+            line-height: var(--o-ui-global-line-height-3);
     }
 
     .lh4-m {
-        line-height: 1.25;
+            line-height: var(--o-ui-global-line-height-4);
     }
 
     .lh5-m {
-        line-height: 1.3333333;
+        line-height: var(--o-ui-global-line-height-5);
     }
 
     .lh6-m {
-        line-height: 1.5;
+        line-height: var(--o-ui-global-line-height-6);
     }
 }
 
 @media (--breakpoint-large) {
-    .lh1-l {
-        line-height: 1;
+    .lh1--l {
+        line-height: var(--o-ui-global-line-height-1);
+        }
+
+    .lh2--l {
+            line-height: var(--o-ui-global-line-height-2);
+        }
+
+    .lh3--l {
+            line-height: var(--o-ui-global-line-height-3);
     }
 
-    .lh2-l {
-        line-height: 1.142857143;
+    .lh4--l {
+            line-height: var(--o-ui-global-line-height-4);
     }
 
-    .lh3-l {
-        line-height: 1.2;
+    .lh5--l {
+        line-height: var(--o-ui-global-line-height-5);
     }
 
-    .lh4-l {
-        line-height: 1.25;
-    }
-
-    .lh5-l {
-        line-height: 1.3333333;
-    }
-
-    .lh6-l {
-        line-height: 1.5;
+    .lh6--l {
+        line-height: var(--o-ui-global-line-height-6);
     }
 }

@@ -32,7 +32,7 @@ export function VariablesTable({ variables }) {
                 { title: "Value", headerStyle: { minWidth: "250px" } }
             ]}
             rows={variables.map(x => toRowValues(x))}
-            rowClassName="code f8 o-90"
+            rowClassName="code f7 o-90"
             className="mt2 mb7"
         />
     );

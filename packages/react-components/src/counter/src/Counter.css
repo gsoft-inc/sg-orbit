@@ -8,7 +8,7 @@
 
 /* HIGHLIGHT */
 .o-ui-counter-highlight {
-    font-weight: 500;
+    font-variation-settings: "wght" 500;
 }
 
 /* PUSHED */

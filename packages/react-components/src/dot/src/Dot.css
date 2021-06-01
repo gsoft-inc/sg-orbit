@@ -5,7 +5,7 @@
 .o-ui-dot {
     display: inline-flex;
     align-items: center;
-    color: var(--o-ui-text-1);
+    color: var(--o-ui-alias-text-1);
 }
 
 .o-ui-dot:before {
@@ -15,7 +15,7 @@
     background-color: var(--o-ui-dot-color);
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--o-ui-global-type-scale-8);
+    font-size: var(--o-ui-global-type-scale-7);
 }
 
 /* CONTENT | LABEL */

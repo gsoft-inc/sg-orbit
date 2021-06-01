@@ -1,0 +1,16 @@
+@font-face {
+    src: url("TT-Interphases-Var-Roman.woff2") format("woff2-variations");
+    font-family: "TT Interphases Variable";
+    font-style: normal;
+}
+
+@font-face {
+    src: url("TT-Interphases-Var-Italic.woff2") format("woff2-variations");
+    font-family: "TT Interphases Variable";
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: 400;
+    font-variation-settings: "wght" 600;
+}

@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-1);
     max-width: 100%;
     width: max-content;
     height: max-content;

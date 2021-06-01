@@ -546,7 +546,7 @@ Example:
 
 ### Chromatic QA & custom font
 
-The Storybook configuration doesn't load the *Calibre* custom font if the app is started by the chromatic CLI because visual tests offer inconsistent results when a custom font is loaded. Not sure why.
+The Storybook configuration doesn't load the *Interphases* custom font if the app is started by the chromatic CLI because visual tests offer inconsistent results when a custom font is loaded. Not sure why.
 
 ### How Lerna collect updated packages
 

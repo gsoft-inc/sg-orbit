@@ -1,47 +1,47 @@
 /* SIZE */
 .o-ui-text-xs {
     font-size: var(--o-ui-global-type-scale-9);
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-2);
 }
 
 .o-ui-text-sm {
     font-size: var(--o-ui-global-type-scale-8);
-    line-height: 1.142857143;
+    line-height: var(--o-ui-global-line-height-4);
 }
 
 .o-ui-text-md {
     font-size: var(--o-ui-global-type-scale-7);
-    line-height: 1.25;
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .o-ui-text-lg {
     font-size: var(--o-ui-global-type-scale-6);
-    line-height: 1.3333333;
+    line-height: var(--o-ui-global-line-height-6);
 }
 
 .o-ui-text-xl {
     font-size: var(--o-ui-global-type-scale-5);
-    line-height: 1.2;
+    line-height: var(--o-ui-global-line-height-4);
 }
 
 .o-ui-text-2xl {
     font-size: var(--o-ui-global-type-scale-4);
-    line-height: 1.3333333;
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .o-ui-text-3xl {
     font-size: var(--o-ui-global-type-scale-3);
-    line-height: 1.25;
+    line-height: var(--o-ui-global-line-height-5);
 }
 
 .o-ui-text-4xl {
     font-size: var(--o-ui-global-type-scale-2);
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-3);
 }
 
 .o-ui-text-5xl {
     font-size: var(--o-ui-global-type-scale-1);
-    line-height: 1;
+    line-height: var(--o-ui-global-line-height-2);
 }
 
 .o-ui-text-inherit-size {
