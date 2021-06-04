@@ -11,7 +11,7 @@
     cursor: pointer;
     outline: none;
     font-variation-settings: "wght" 500;
-    transition: all .125s ease-in;
+    transition: var(--t5-focus);
     border: none;
     position: relative;
     width: max-content;
