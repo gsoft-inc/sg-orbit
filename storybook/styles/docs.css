@@ -211,6 +211,7 @@
 .sbdocs.sbdocs-a {
     font-size: var(--o-ui-global-type-scale-6);
     color: var(--o-ui-alias-primary-700) !important;
+    text-decoration: underline;
 }
 
 .sbdocs.sbdocs-a:hover,
