@@ -19,7 +19,9 @@ export function useToolbarContext(): [ToolbarContextType, boolean] {
     return [{}, false];
 }
 
-export function useToolbarProps() {
+export type UseToolbarPropsReturn = ToolbarContextType;
+
+export function useToolbarProps(): [UseToolbarPropsReturn, boolean] {
     return useToolbarContext();
 }
 

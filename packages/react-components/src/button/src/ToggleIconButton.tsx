@@ -1,4 +1,4 @@
-import { AriaLabelingProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { AriaLabelingProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
@@ -68,6 +68,10 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
      */
     active?: boolean;
     /**
+    * @ignore
+    */
+    title?: string;
+    /**
      * React children.
      */
     children: ReactNode;
@@ -78,7 +82,7 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
-    const [checkableProps] = useCheckableProps(props);
+    const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
         variant = "solid",
@@ -88,6 +92,8 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
+        title,
+        "aria-label": ariaLabel,
         as,
         children,
         forwardedRef,
@@ -97,6 +103,10 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         checkableProps
     );
 
+    if (isNil(title) && isNil(ariaLabel)) {
+        console.error("A toggle icon button component must have either a \"title\" or an \"aria-label\" attribute.");
+    }
+
     const { isChecked, buttonProps } = useToggleButton({
         variant,
         shape,
@@ -105,6 +115,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
+        isCheckable,
         forwardedRef
     });
 
@@ -114,7 +125,9 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    as: as
+                    title,
+                    as: as,
+                    "aria-label": ariaLabel
                 },
                 rest,
                 buttonProps

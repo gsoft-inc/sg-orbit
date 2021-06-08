@@ -195,7 +195,7 @@ stories()
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
-            <TextInput />
+            <TextInput aria-label="Label" />
             <ToggleButton>On</ToggleButton>
             <RadioGroup>
                 <Radio value="1">1</Radio>
@@ -208,7 +208,7 @@ stories()
                 <ToggleButton value="3">3</ToggleButton>
             </RadioGroup>
             <InputGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <Text>Days</Text>
             </InputGroup>
         </Toolbar>
@@ -225,7 +225,7 @@ stories()
             </Field>
             <Field>
                 <Label>Search</Label>
-                <TextInput />
+                <TextInput aria-label="Label" />
             </Field>
             <ToggleButton>Activate</ToggleButton>
         </Toolbar>
@@ -239,7 +239,7 @@ stories("/vertical")
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
-            <TextInput />
+            <TextInput aria-label="Label" />
             <ToggleButton>Activate</ToggleButton>
             <RadioGroup>
                 <ToggleButton value="1">1</ToggleButton>
@@ -256,7 +256,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
                 <RadioGroup>
                     <ToggleButton value="1">1</ToggleButton>
@@ -270,7 +270,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
                 <RadioGroup>
                     <ToggleButton value="1">1</ToggleButton>
@@ -284,7 +284,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
                 <RadioGroup>
                     <ToggleButton value="1">1</ToggleButton>
@@ -302,7 +302,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
             <Toolbar verticalAlign="end" orientation="vertical" style={{ height: "500px" }}>
@@ -311,7 +311,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
             <Toolbar verticalAlign="center" orientation="vertical" style={{ height: "500px" }}>
@@ -320,7 +320,7 @@ stories("/vertical")
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <TextInput />
+                <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
         </Inline>

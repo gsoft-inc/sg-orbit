@@ -21,6 +21,8 @@ export interface UseCheckboxProps {
     focus?: boolean;
     hover?: boolean;
     disabled?: boolean;
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
     forwardedRef?: ForwardedRef<any>;
 }
 
@@ -40,6 +42,8 @@ export interface UseCheckboxReturn {
         disabled?: boolean;
         name?: string;
         tabIndex?: number;
+        "aria-label"?: string;
+        "aria-labelledby"?: string;
         "aria-checked": boolean | "mixed";
         "aria-required": boolean;
         "aria-invalid": boolean;
@@ -67,6 +71,8 @@ export function useCheckbox({
     focus,
     hover,
     disabled,
+    ariaLabel,
+    ariaLabelledBy,
     forwardedRef
 }: UseCheckboxProps): UseCheckboxReturn {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
@@ -131,6 +137,8 @@ export function useCheckbox({
             disabled,
             name,
             tabIndex,
+            "aria-label": ariaLabel,
+            "aria-labelledby": ariaLabelledBy,
             "aria-checked": isIndeterminate ? "mixed" : isChecked,
             "aria-required": required ? true : undefined,
             "aria-invalid": validationState === "invalid" ? true : undefined,

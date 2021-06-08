@@ -1,8 +1,8 @@
 import "./Checkbox.css";
 
+import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -10,7 +10,7 @@ import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerCheckboxProps extends InteractionStatesProps {
+export interface InnerCheckboxProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * @ignore
      */
@@ -114,6 +114,9 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         focus,
         hover,
         disabled,
+        "aria-label": ariaLabel,
+        // Usually provided by the field inputs.
+        "aria-labelledby": ariaLabelledBy,
         as = "label",
         children,
         forwardedRef,
@@ -124,6 +127,10 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         omitProps(toolbarProps, ["orientation"]),
         omitProps(fieldProps, ["fluid"])
     );
+
+    if (isNil(children) && isNil(ariaLabel) && isNil(ariaLabelledBy)) {
+        console.error("A checkbox must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
+    }
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
         if (!isNil(onValueChange)) {
@@ -155,6 +162,8 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         focus,
         hover,
         disabled,
+        ariaLabel,
+        ariaLabelledBy,
         forwardedRef
     });
 

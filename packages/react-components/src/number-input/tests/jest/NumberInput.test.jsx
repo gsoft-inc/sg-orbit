@@ -1,3 +1,4 @@
+import { Field, Label } from "@react-components/field";
 import { NumberInput } from "@react-components/number-input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -204,6 +205,21 @@ test("when autofocus is specified with a delay, the input is focused after the d
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
 
     await waitDelay(10);
+
+    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+});
+
+test("when in a field, clicking on the field label focus the input", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">Label</Label>
+            <NumberInput data-testid="input" />
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
 });

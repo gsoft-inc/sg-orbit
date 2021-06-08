@@ -1,8 +1,8 @@
 import { ForwardedRef } from "react";
-import { MergedRef, cssModule, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { MergedRef, cssModule, isNil, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
 import type { FieldContextType } from "./FieldContext";
 
-export interface UseFieldProps {
+export interface UseGroupFieldProps {
     id?: string;
     validationState?: "valid" | "invalid";
     required?: boolean;
@@ -12,17 +12,20 @@ export interface UseFieldProps {
     forwardedRef?: ForwardedRef<any>;
 }
 
-export interface UseFieldReturn {
+export interface UseGroupFieldReturn {
     fieldId: string;
     fieldProps: {
         className: string;
+        role: string;
         ref: MergedRef<any>;
+        "aria-labelledby": string;
+        "aria-describedby": string;
 
     };
     fieldContext: Partial<FieldContextType>;
 }
 
-export function useField({
+export function useGroupField({
     id,
     validationState,
     required,
@@ -30,14 +33,15 @@ export function useField({
     disabled,
     className,
     forwardedRef
-}: UseFieldProps): UseFieldReturn {
+}: UseGroupFieldProps): UseGroupFieldReturn {
     const ref = useMergedRefs(forwardedRef);
 
-    const fieldId = useId(id, "o-ui-field");
+    const fieldId = useId(id, "o-ui-group-field");
 
-    const { hasLabel, hasMessage } = useHasChildren({
+    const { hasLabel, hasMessage, hasRadio } = useHasChildren({
         hasLabel: ".o-ui-field-label",
-        hasMessage: ".o-ui-field-message"
+        hasMessage: ".o-ui-field-message",
+        hasRadio: "[type=\"radio\"]"
     }, ref);
 
     const labelId = hasLabel ? `${fieldId}-label` : undefined;
@@ -54,12 +58,15 @@ export function useField({
                 ),
                 className
             ),
+            role: hasRadio ? "radiogroup" : "group",
+            "aria-labelledby": !isNil(labelId) ? labelId : undefined,
+            "aria-describedby": !isNil(messageId) ? messageId : undefined,
             ref
         },
         fieldContext: {
             id: fieldId,
-            labelId,
             inputId,
+            labelId,
             messageId,
             required,
             disabled,

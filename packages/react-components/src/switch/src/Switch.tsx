@@ -1,8 +1,8 @@
 import "./Switch.css";
 
+import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, forwardRef, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../text";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -10,7 +10,7 @@ import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerSwitchProps extends InteractionStatesProps {
+export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * @ignore
      */
@@ -88,6 +88,8 @@ export function InnerSwitch(props: InnerSwitchProps) {
         focus,
         hover,
         disabled,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
         as = "label",
         children,
         forwardedRef,
@@ -97,6 +99,10 @@ export function InnerSwitch(props: InnerSwitchProps) {
         omitProps(toolbarProps, ["orientation"]),
         fieldProps
     );
+
+    if (isNil(children) && isNil(ariaLabel) && isNil(ariaLabelledBy)) {
+        console.error("A switch must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
+    }
 
     const { wrapperProps, inputProps } = useCheckbox({
         cssModule: "o-ui-switch",
@@ -116,6 +122,8 @@ export function InnerSwitch(props: InnerSwitchProps) {
         focus,
         hover,
         disabled,
+        ariaLabel,
+        ariaLabelledBy,
         forwardedRef
     });
 

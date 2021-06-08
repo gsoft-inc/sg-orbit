@@ -7,7 +7,7 @@ import { render, waitFor } from "@testing-library/react";
 
 test("when an id is provided, it is assigned to the input", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
@@ -20,7 +20,7 @@ test("when an id is provided, it is assigned to the input", async () => {
 
 test("when an id is provided, it is set as the input name", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
@@ -33,7 +33,7 @@ test("when an id is provided, it is set as the input name", async () => {
 
 test("when an id is provided and a name prop is set on the input, the name attribute on the input have precedence", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput name="bar" data-testid="text-input" />
         </Field>
@@ -46,7 +46,7 @@ test("when an id is provided and a name prop is set on the input, the name attri
 
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
     const { getByTestId } = render(
-        <Field data-testid="field">
+        <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
@@ -60,7 +60,7 @@ test("when the id is auto generated, the label for attribute and the input id ar
 
 test("when an id is provided, the label for attribute and the input id are matching", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
@@ -74,60 +74,60 @@ test("when an id is provided, the label for attribute and the input id are match
 
 test("when the id is auto generated, the field aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(
-        <Field data-testid="field">
+        <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
+    const input = await waitFor(() => getByTestId("text-input"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 test("when an id is provided, the field aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
         </Field>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
+    const input = await waitFor(() => getByTestId("text-input"));
     const label = await waitFor(() => getByTestId("field-label"));
 
-    expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
+    expect(input.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 test("when the id is auto generated, the field aria-describedby attribute match the message id", async () => {
     const { getByTestId } = render(
-        <Field data-testid="field">
+        <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
             <HelpMessage data-testid="field-message">Enter a destination</HelpMessage>
         </Field>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
+    const input = await waitFor(() => getByTestId("text-input"));
     const message = await waitFor(() => getByTestId("field-message"));
 
-    expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
+    expect(input.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });
 
-test("when an id is provided, the field aria-describedby attribute match the message id", async () => {
+test("when an id is provided, the input aria-describedby attribute match the message id", async () => {
     const { getByTestId } = render(
-        <Field id="foo" data-testid="field">
+        <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
             <HelpMessage data-testid="field-message">Enter a destination</HelpMessage>
         </Field>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
+    const input = await waitFor(() => getByTestId("text-input"));
     const message = await waitFor(() => getByTestId("field-message"));
 
-    expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
+    expect(input.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });
 
 // ***** Refs *****

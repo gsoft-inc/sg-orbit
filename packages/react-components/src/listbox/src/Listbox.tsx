@@ -415,6 +415,8 @@ export function InnerListbox({
         );
     };
 
+    const activeDescendant = useVirtualFocus ? focusManager.getActiveElement() : null;
+
     return (
         <Box
             {...mergeProps(
@@ -432,6 +434,7 @@ export function InnerListbox({
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
                     "aria-multiselectable": selectionMode === "multiple" ? true : undefined,
                     "aria-invalid": validationState === "invalid" ? true : undefined,
+                    "aria-activedescendant": !isNil(activeDescendant) ? activeDescendant.getAttribute("id") : undefined,
                     as,
                     ref: containerRef
                 }

@@ -67,39 +67,39 @@ export function createTestSuite(element, stories) {
         .add("no label", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <Switch size="sm" element={element} />
-                    <Switch element={element} />
+                    <Switch size="sm" aria-label="Engines" element={element} />
+                    <Switch aria-label="Engines" element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
+                    <Switch size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                     </Switch>
-                    <Switch element={element}>
+                    <Switch aria-label="Email" element={element}>
                         <EmailIcon />
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
+                    <Switch size="sm" aria-label="Email" element={element}>
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
-                    <Switch element={element}>
+                    <Switch aria-label="Email" element={element}>
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
+                    <Switch size="sm" aria-label="Engines" element={element}>
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch element={element}>
+                    <Switch aria-label="Engines" element={element}>
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Switch size="sm" element={element}>
+                    <Switch size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>
-                    <Switch element={element}>
+                    <Switch aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Switch>

@@ -1,5 +1,4 @@
 import { Checkbox } from "@react-components/checkbox";
-import { Field, Label } from "@react-components/field";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";
@@ -11,24 +10,9 @@ function getInput(element) {
 
 // ***** Behaviors *****
 
-test("when in a field, clicking on the field label focus the checkbox", async () => {
-    const { getByTestId } = render(
-        <Field>
-            <Label data-testid="label">I agree</Label>
-            <Checkbox data-testid="checkbox" />
-        </Field>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("label"));
-    });
-
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
-});
-
 test("when autofocus is true, the checkbox is focused on render", async () => {
     const { getByTestId } = render(
-        <Checkbox autoFocus data-testid="checkbox" />
+        <Checkbox autoFocus data-testid="checkbox">Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
@@ -40,7 +24,7 @@ test("when autofocus is true and the checkbox is disabled, the checkbox is not f
             disabled
             autoFocus
             data-testid="checkbox"
-        />
+        >Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
@@ -51,7 +35,7 @@ test("when autofocus is specified with a delay, the checkbox is focused after th
         <Checkbox
             autoFocus={10}
             data-testid="checkbox"
-        />
+        >Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
@@ -67,7 +51,7 @@ test("call onChange, when the checkbox is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onChange={handler} data-testid="checkbox" />
+        <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -81,7 +65,7 @@ test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onValueChange={handler} data-testid="checkbox" />
+        <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -99,7 +83,7 @@ test("call onValueChange when the checkbox is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onValueChange={handler} data-testid="checkbox" />
+        <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -113,7 +97,7 @@ test("call onValueChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onValueChange={handler} data-testid="checkbox" />
+        <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -131,7 +115,7 @@ test("call onValueChange when the checkbox goes from indeterminate to checked", 
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox" />
+        <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -145,7 +129,7 @@ test("dont call onValueChange when the checkbox is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox disabled onValueChange={handler} data-testid="checkbox" />
+        <Checkbox disabled onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {
@@ -164,7 +148,7 @@ test("can focus the checkbox with the focus api", async () => {
                 refNode = node;
             }}
             data-testid="checkbox"
-        />
+        >Milky Way</Checkbox>
     );
 
     act(() => {
@@ -180,7 +164,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Checkbox ref={ref} data-testid="checkbox" />
+        <Checkbox ref={ref} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -198,7 +182,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
             data-testid="checkbox"
-        />
+        >Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -211,7 +195,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Checkbox ref={handler} data-testid="checkbox" />
+        <Checkbox ref={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

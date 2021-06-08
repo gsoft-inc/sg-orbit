@@ -85,7 +85,7 @@ export function useGroupInput({
             role: !isInField ? role : undefined,
             "aria-required": required ? true : undefined,
             "aria-invalid": validationState === "invalid" ? true : undefined,
-            "aria-orientation": orientation,
+            "aria-orientation": role !== "group" ? orientation : undefined,
             "aria-disabled": disabled ? true : undefined,
             ref: groupRef
         },

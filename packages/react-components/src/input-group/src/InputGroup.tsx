@@ -51,20 +51,24 @@ function toAddon(element: ReactElement, key?: number): ReactNode {
     return element;
 }
 
-export function InnerInputGroup(props: InnerInputGroupProps) {
+export function InnerInputGroup({
+    fluid,
+    disabled,
+    readOnly,
+    as = "div",
+    children,
+    forwardedRef,
+    ...rest
+}: InnerInputGroupProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
-    const {
-        fluid,
-        disabled,
-        readOnly,
-        as = "div",
-        children,
-        forwardedRef,
-        ...rest
-    } = mergeProps(
-        props,
+    const inputProps = mergeProps(
+        {
+            fluid,
+            disabled,
+            readOnly
+        },
         omitProps(toolbarProps, ["orientation"]),
         fieldProps
     );
@@ -107,11 +111,7 @@ export function InnerInputGroup(props: InnerInputGroupProps) {
             <ClearToolbar>
                 <ClearFieldContext>
                     <InputGroupContext.Provider
-                        value={{
-                            fluid,
-                            disabled,
-                            readOnly
-                        }}
+                        value={inputProps}
                     >
                         {transformedChildren}
                     </InputGroupContext.Provider>

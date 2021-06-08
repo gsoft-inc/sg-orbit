@@ -80,7 +80,17 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Section>
-        </Listbox>
+        </Listbox>,
+         {
+             a11y: {
+                 config: {
+                     rules: [
+                         { id: "aria-required-children", enabled: false },
+                         { id: "aria-required-parent", enabled: false }
+                     ]
+                 }
+             }
+         }
     )
     .add("mixed sections and items", () =>
         <Listbox aria-label="Planets">
@@ -93,7 +103,16 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Section>
-        </Listbox>
+        </Listbox>,
+         {
+             a11y: {
+                 config: {
+                     rules: [
+                         { id: "aria-required-parent", enabled: false }
+                     ]
+                 }
+             }
+         }
     )
     .add("selected keys", () =>
         <Inline>

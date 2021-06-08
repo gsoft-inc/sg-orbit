@@ -67,46 +67,46 @@ export function createCheckboxTestSuite(element, stories) {
         .add("no label", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <Checkbox size="sm" element={element} />
-                    <Checkbox element={element} />
+                    <Checkbox size="sm" aria-label="Milky Way" element={element} />
+                    <Checkbox aria-label="Milky Way"element={element} />
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Checkbox size="sm" element={element}>
+                    <Checkbox size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                     </Checkbox>
-                    <Checkbox element={element}>
+                    <Checkbox element={element} aria-label="Email">
                         <EmailIcon />
                     </Checkbox>
-                    <Checkbox disabled element={element}>
+                    <Checkbox disabled aria-label="Email" element={element}>
                         <EmailIcon />
                     </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Checkbox size="sm" element={element}>
+                    <Checkbox size="sm" aria-label="Email" element={element}>
                         <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconList>
                     </Checkbox>
-                    <Checkbox element={element}>
+                    <Checkbox aria-label="Email" element={element}>
                         <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
                         </IconList>
                     </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Checkbox size="sm" element={element}>
+                    <Checkbox size="sm" aria-label="Milky Way" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox element={element}>
+                    <Checkbox aria-label="Milky Way" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <Checkbox size="sm" element={element}>
+                    <Checkbox size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
-                    <Checkbox element={element}>
+                    <Checkbox aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
                     </Checkbox>
