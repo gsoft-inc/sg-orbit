@@ -161,7 +161,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: var(--o-ui-global-line-height-1);
+    line-height: var(--o-ui-global-line-height-2);
     justify-self: start;
 }
 

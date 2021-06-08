@@ -63,6 +63,12 @@
     transform: translate(-50%, -50%) scale(1) rotate(2deg);
 }
 
+/* CHECKED | SMALL */
+.o-ui-checkbox-sm.o-ui-checkbox-checked .o-ui-checkbox-box:after {
+    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    transform: translate(-50%, -50%) scale(0.75) rotate(2deg);
+}
+
 /* BOX | INDETERMINATE */
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
