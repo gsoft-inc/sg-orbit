@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 
 test("accept numbers", async () => {
     const { getByTestId } = render(
-        <NumberInput data-testid="input" />
+        <NumberInput aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -25,7 +25,7 @@ test("accept numbers", async () => {
 
 test("accept negative numbers", async () => {
     const { getByTestId } = render(
-        <NumberInput data-testid="input" />
+        <NumberInput aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -57,7 +57,7 @@ test("accept negative numbers", async () => {
 
 test("do not accept non numeric characters", async () => {
     const { getByTestId } = render(
-        <NumberInput data-testid="input" />
+        <NumberInput aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -79,7 +79,7 @@ test("do not accept non numeric characters", async () => {
 
 test("increment value on increment button click", async () => {
     const { getByTestId, getByLabelText } = render(
-        <NumberInput defaultValue={1} data-testid="input" />
+        <NumberInput defaultValue={1} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -95,7 +95,7 @@ test("increment value on increment button click", async () => {
 
 test("decrement value on decrement button click", async () => {
     const { getByTestId, getByLabelText } = render(
-        <NumberInput defaultValue={1} data-testid="input" />
+        <NumberInput defaultValue={1} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -111,7 +111,7 @@ test("decrement value on decrement button click", async () => {
 
 test("when no value has been set yet and the increment button is clicked, set value to 1", async () => {
     const { getByTestId, getByLabelText } = render(
-        <NumberInput data-testid="input" />
+        <NumberInput aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -127,7 +127,7 @@ test("when no value has been set yet and the increment button is clicked, set va
 
 test("when no value has been set yet and the decrement button is clicked, set value to -1", async () => {
     const { getByTestId, getByLabelText } = render(
-        <NumberInput data-testid="input" />
+        <NumberInput aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -143,7 +143,7 @@ test("when no value has been set yet and the decrement button is clicked, set va
 
 test("when the entered value is lower than the min value, reset value to min value", async () => {
     const { getByTestId } = render(
-        <NumberInput min={3} data-testid="input" />
+        <NumberInput min={3} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -159,7 +159,7 @@ test("when the entered value is lower than the min value, reset value to min val
 
 test("when the entered value is greater than the max value, reset the value to the max value", async () => {
     const { getByTestId } = render(
-        <NumberInput max={1} data-testid="input" />
+        <NumberInput max={1} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -175,7 +175,7 @@ test("when the entered value is greater than the max value, reset the value to t
 
 test("when autofocus is true, the input is focused on render", async () => {
     const { getByTestId } = render(
-        <NumberInput autoFocus data-testid="input" />
+        <NumberInput autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
@@ -183,7 +183,7 @@ test("when autofocus is true, the input is focused on render", async () => {
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
     const { getByTestId } = render(
-        <NumberInput disabled autoFocus data-testid="input" />
+        <NumberInput disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -191,7 +191,7 @@ test("when autofocus is true and the input is disabled, the input is not focused
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
     const { getByTestId } = render(
-        <NumberInput readOnly autoFocus data-testid="input" />
+        <NumberInput readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -199,7 +199,7 @@ test("when autofocus is true and the input is readonly, the input is not focused
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
     const { getByTestId } = render(
-        <NumberInput autoFocus={10} data-testid="input" />
+        <NumberInput autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -213,7 +213,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
     const { getByTestId } = render(
         <Field>
             <Label data-testid="label">Label</Label>
-            <NumberInput data-testid="input" />
+            <NumberInput aria-label="Label" data-testid="input" />
         </Field>
     );
 
@@ -230,7 +230,7 @@ test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <NumberInput onChange={handler} data-testid="input" />
+        <NumberInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -244,7 +244,7 @@ test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <NumberInput onValueChange={handler} data-testid="input" />
+        <NumberInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -261,6 +261,7 @@ test("call onValueChange when the value is incremented", async () => {
         <NumberInput
             onValueChange={handler}
             defaultValue={1}
+            aria-label="Label"
             data-testid="input"
         />
     );
@@ -283,6 +284,7 @@ test("call onValueChange when the value is decremented", async () => {
         <NumberInput
             onValueChange={handler}
             defaultValue={1}
+            aria-label="Label"
             data-testid="input"
         />
     );
@@ -306,6 +308,7 @@ test("can focus the input with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -322,7 +325,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <NumberInput ref={ref} />
+        <NumberInput ref={ref} aria-label="Label" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -339,6 +342,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -352,7 +356,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <NumberInput ref={handler} />
+        <NumberInput ref={handler} aria-label="Label" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

@@ -14,6 +14,7 @@ test("clear value on clear button click", async () => {
                 "data-testid": "input-wrapper"
             }}
             defaultValue="Mars"
+            aria-label="Label"
         />
     );
 
@@ -28,7 +29,7 @@ test("clear value on clear button click", async () => {
 
 test("clear value on esc", async () => {
     const { getByTestId } = render(
-        <SearchInput data-testid="input" defaultValue="Mars" />
+        <SearchInput data-testid="input" defaultValue="Mars" aria-label="Label" />
     );
 
     await waitFor(() => expect(getByTestId("input").value).toBe("Mars"));
@@ -48,6 +49,7 @@ test("focus input on clear", async () => {
                 "data-testid": "input-wrapper"
             }}
             defaultValue="Mars"
+            aria-label="Label"
         />
     );
 
@@ -68,6 +70,7 @@ test("can focus the input with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -82,7 +85,7 @@ test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SearchInput onChange={handler} data-testid="input" />
+        <SearchInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -96,7 +99,7 @@ test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <SearchInput onValueChange={handler} data-testid="input" />
+        <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -114,7 +117,7 @@ test("call onValueChange when the value is cleared", async () => {
     const handler = jest.fn();
 
     const { getByTestId, container } = render(
-        <SearchInput onValueChange={handler} data-testid="input" />
+        <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -138,7 +141,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <SearchInput ref={ref} />
+        <SearchInput ref={ref} aria-label="Label" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -155,6 +158,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -168,7 +172,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <SearchInput ref={handler} />
+        <SearchInput ref={handler} aria-label="Label" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

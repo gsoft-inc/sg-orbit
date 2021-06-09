@@ -64,10 +64,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      */
     fluid?: boolean;
     /**
-    * @ignore
-    */
-    title?: string;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -94,7 +90,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         focus,
         hover,
         type,
-        title,
         "aria-label": ariaLabel,
         as = "button",
         children,
@@ -106,8 +101,8 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         inputGroupProps
     );
 
-    if (isNil(title) && isNil(ariaLabel)) {
-        console.error("An icon button component must have either a \"title\" or an \"aria-label\" attribute.");
+    if (isNil(ariaLabel)) {
+        console.error("An icon button component must have an \"aria-label\" attribute.");
     }
 
     const buttonProps = useButton({
@@ -139,7 +134,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    title,
                     as,
                     "aria-label": ariaLabel
                 },

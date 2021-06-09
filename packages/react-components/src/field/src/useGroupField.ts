@@ -1,5 +1,5 @@
 import { ForwardedRef } from "react";
-import { MergedRef, cssModule, isNil, mergeClasses, useHasChildren, useId, useMergedRefs } from "../../shared";
+import { MergedRef, cssModule, isNil, mergeClasses, useHasChildren, useId, useIsInitialRender, useMergedRefs } from "../../shared";
 import type { FieldContextType } from "./FieldContext";
 
 export interface UseGroupFieldProps {
@@ -44,9 +44,13 @@ export function useGroupField({
         hasRadio: "[type=\"radio\"]"
     }, ref);
 
-    const labelId = hasLabel ? `${fieldId}-label` : undefined;
-    const inputId = hasLabel ? `${fieldId}-input` : undefined;
-    const messageId = hasMessage ? `${fieldId}-message` : undefined;
+    // HACK: We are always rendering the ids on the first render since we can only assert if there are specific children on the second re-render
+    // which can break the constraints of some components (like a TextInput).
+    const isInitialRender = useIsInitialRender();
+
+    const labelId = hasLabel || isInitialRender ? `${fieldId}-label` : undefined;
+    const inputId = hasLabel || isInitialRender ? `${fieldId}-input` : undefined;
+    const messageId = hasMessage || isInitialRender ? `${fieldId}-message` : undefined;
 
     return {
         fieldId,

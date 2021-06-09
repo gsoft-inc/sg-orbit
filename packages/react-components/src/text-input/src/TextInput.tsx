@@ -1,9 +1,9 @@
 import "./TextInput.css";
 
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextInputProps extends DomProps, InteractionStatesProps {
+export interface InnerTextInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
     /**
      * A controlled value.
      */
@@ -111,6 +111,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
         active,
         focus,
         hover,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
         as: As = "input",
         forwardedRef,
@@ -124,6 +126,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
             inputGroupProps
         ))
     );
+
+    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
+        console.error("An input component must have either an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a placeholder.");
+    }
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
@@ -167,6 +173,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
             <As
                 {...mergeProps(
                     rest,
+                    {
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": ariaLabelledBy
+                    },
                     inputProps
                 )}
             />

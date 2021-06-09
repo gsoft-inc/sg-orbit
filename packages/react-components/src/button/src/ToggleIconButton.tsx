@@ -68,10 +68,6 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
      */
     active?: boolean;
     /**
-    * @ignore
-    */
-    title?: string;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -92,7 +88,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
-        title,
         "aria-label": ariaLabel,
         as,
         children,
@@ -103,8 +98,8 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         checkableProps
     );
 
-    if (isNil(title) && isNil(ariaLabel)) {
-        console.error("A toggle icon button component must have either a \"title\" or an \"aria-label\" attribute.");
+    if (isNil(ariaLabel)) {
+        console.error("A toggle icon button component must have an \"aria-label\" attribute.");
     }
 
     const { isChecked, buttonProps } = useToggleButton({
@@ -125,7 +120,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    title,
                     as: as,
                     "aria-label": ariaLabel
                 },

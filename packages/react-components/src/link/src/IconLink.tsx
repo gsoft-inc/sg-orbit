@@ -54,10 +54,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
     /**
     * @ignore
     */
-    title?: string;
-    /**
-    * @ignore
-    */
     visited?: boolean;
     /**
     * @ignore
@@ -71,7 +67,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const {
         target,
         rel,
-        title,
         color,
         condensed,
         external,
@@ -92,8 +87,8 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         styleProps
     );
 
-    if (isNil(title) && isNil(ariaLabel)) {
-        console.error("An icon link component must have either a \"title\" or an \"aria-label\" attribute.");
+    if (isNil(ariaLabel)) {
+        console.error("An icon link component must have an \"aria-label\" attribute.");
     }
 
     const { linkProps, showNewTabIndicator } = useLink({
@@ -122,7 +117,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
             {...mergeProps(
                 rest,
                 {
-                    title: title,
                     "aria-label": ariaLabel
                 },
                 linkProps

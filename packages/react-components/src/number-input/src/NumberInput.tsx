@@ -1,9 +1,7 @@
 import "./NumberInput.css";
 
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { CaretIcon } from "../../icons";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
 import {
+    AriaLabelingProps,
     DomProps,
     InteractionStatesProps,
     cssModule,
@@ -16,6 +14,9 @@ import {
     useControllableState,
     useEventCallback
 } from "../../shared";
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
+import { CaretIcon } from "../../icons";
+import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
@@ -25,7 +26,7 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerNumberInputProps extends DomProps, InteractionStatesProps {
+export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
     /**
      * A controlled value.
      */
@@ -212,6 +213,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         active,
         focus,
         hover,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
         wrapperProps: wrapperPropsProp,
         as = "div",
         forwardedRef,
@@ -225,6 +228,10 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             inputGroupProps
         ))
     );
+
+    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
+        console.error("An input component must have either an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a placeholder.");
+    }
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
@@ -326,6 +333,10 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             <input
                 {...mergeProps(
                     rest,
+                    {
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": ariaLabelledBy
+                    },
                     inputProps
                 )}
             />

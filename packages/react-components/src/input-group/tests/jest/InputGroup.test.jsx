@@ -14,7 +14,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
             <Label data-testid="label">Label</Label>
             <InputGroup>
                 <Text>Text</Text>
-                <TextInput data-testid="input" />
+                <TextInput aria-label="Label" data-testid="input" />
             </InputGroup>
         </Field>
     );
@@ -34,7 +34,7 @@ test("ref is a DOM element", async () => {
     render(
         <InputGroup ref={ref}>
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 
@@ -54,7 +54,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             }}
         >
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 
@@ -70,7 +70,7 @@ test("set ref once", async () => {
     render(
         <InputGroup ref={handler}>
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 

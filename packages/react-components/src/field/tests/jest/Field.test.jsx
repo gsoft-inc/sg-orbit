@@ -137,7 +137,7 @@ test("ref is a DOM element", async () => {
 
     render(
         <Field ref={ref}>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </Field>
     );
 
@@ -156,7 +156,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
         >
-            <TextInput />
+            <TextInput aria-label="Label" />
         </Field>
     );
 
@@ -171,7 +171,7 @@ test("set ref once", async () => {
 
     render(
         <Field ref={handler}>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </Field>
     );
 

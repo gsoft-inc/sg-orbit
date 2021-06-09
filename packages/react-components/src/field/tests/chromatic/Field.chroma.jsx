@@ -103,13 +103,11 @@ stories()
         </Field>
     )
     .add("states", () =>
-        <Inline>
-            <Field disabled>
-                <Label>Where to?</Label>
-                <TextInput />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field disabled>
+            <Label>Where to?</Label>
+            <TextInput />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
     )
     .add("text input", () =>
         <Field>

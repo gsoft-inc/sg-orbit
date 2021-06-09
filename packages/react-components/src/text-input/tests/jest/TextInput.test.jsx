@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 
 test("when autofocus is true, the input is focused on render", async () => {
     const { getByTestId } = render(
-        <TextInput autoFocus data-testid="input" />
+        <TextInput autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
@@ -17,7 +17,7 @@ test("when autofocus is true, the input is focused on render", async () => {
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
     const { getByTestId } = render(
-        <TextInput disabled autoFocus data-testid="input" />
+        <TextInput disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -25,7 +25,7 @@ test("when autofocus is true and the input is disabled, the input is not focused
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
     const { getByTestId } = render(
-        <TextInput readOnly autoFocus data-testid="input" />
+        <TextInput readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -33,7 +33,7 @@ test("when autofocus is true and the input is readonly, the input is not focused
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
     const { getByTestId } = render(
-        <TextInput autoFocus={10} data-testid="input" />
+        <TextInput autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
@@ -64,7 +64,7 @@ test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <TextInput onChange={handler} data-testid="input" />
+        <TextInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
@@ -82,6 +82,7 @@ test("can focus the input with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -98,7 +99,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <TextInput ref={ref} />
+        <TextInput ref={ref} aria-label="Label" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -115,6 +116,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -128,7 +130,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <TextInput ref={handler} />
+        <TextInput ref={handler} aria-label="Label" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
