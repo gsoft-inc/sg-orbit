@@ -91,6 +91,13 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
+    const contextualProps = mergeProps(
+        {},
+        omitProps(toolbarProps, ["orientation"]),
+        fieldProps,
+        inputGroupProps
+    );
+
     const {
         id,
         value,
@@ -119,16 +126,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
         ...rest
     } = mergeProps(
         props,
-        wrappedInputPropsAdapter(mergeProps(
-            {},
-            omitProps(toolbarProps, ["orientation"]),
-            fieldProps,
-            inputGroupProps
-        ))
+        wrappedInputPropsAdapter(contextualProps)
     );
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
-        console.error("An input component must have either an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a placeholder.");
+        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

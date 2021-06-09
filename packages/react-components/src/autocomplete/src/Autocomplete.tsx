@@ -172,6 +172,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
+    const contextualProps = mergeProps(
+        fieldProps,
+        inputGroupProps
+    );
+
     const {
         id,
         open: openProp,
@@ -214,10 +219,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        wrappedInputPropsAdapter(mergeProps(
-            fieldProps,
-            inputGroupProps
-        ))
+        wrappedInputPropsAdapter(contextualProps)
     );
 
     const [focusedItem, setFocusedItem] = useState(null);

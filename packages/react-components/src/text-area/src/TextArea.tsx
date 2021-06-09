@@ -132,7 +132,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     );
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
-        console.error("An input component must have either an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a placeholder.");
+        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
