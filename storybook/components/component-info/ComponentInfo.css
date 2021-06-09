@@ -36,6 +36,10 @@
     overflow-y: hidden;
 }
 
+.o-ui-sb-component-info-value a {
+    font-size: var(--o-ui-global-type-scale-7) !important;
+}
+
 .o-ui-sb-component-info code {
     white-space: nowrap;
     padding: var(--o-ui-global-scale-bravo) 0;
