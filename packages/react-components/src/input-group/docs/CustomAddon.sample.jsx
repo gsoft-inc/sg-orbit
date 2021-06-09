@@ -27,7 +27,7 @@ function CustomAddon({ children, ...props }) {
 render(() => {
     return (
         <InputGroup>
-            <TextInput />
+            <TextInput arial-label="Url" />
             <CustomAddon>.space</CustomAddon>
         </InputGroup>
     );

@@ -24,7 +24,7 @@ function CustomInput(props) {
 render(() => {
     return (
         <InputGroup>
-            <CustomInput />
+            <CustomInput aria-label="Number of passengers" />
             <Text>passengers</Text>
         </InputGroup>
     );

@@ -134,7 +134,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             {
                 tabIndex: !restoreFocus && isOpen ? -1 : undefined,
                 "aria-haspopup": type,
-                "aria-expanded": isOpen ? true : undefined,
+                "aria-expanded": isOpen,
                 "aria-controls": isOpen ? overlayId : undefined,
                 ref: triggerRef
             },

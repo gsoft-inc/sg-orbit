@@ -252,7 +252,7 @@ stories()
                 <Item>Jupiter</Item>
                 <Item>Mars</Item>
             </Menu>
-            <Menu defaultSelectedKeys={["0"]} style={{ width: "150px" }} aria-label="Planets">
+            <Menu defaultSelectedKeys={["0"]} selectionMode="single" style={{ width: "150px" }} aria-label="Planets">
                 <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                 <Item>Jupiter</Item>
                 <Item>Mars</Item>

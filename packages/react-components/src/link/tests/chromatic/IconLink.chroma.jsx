@@ -15,7 +15,7 @@ function stories(segment) {
 
 createIconLinkTestSuite(<IconLink />, stories());
 
-createIconLinkTestSuite(<IconLink as="button" />, stories("/button"));
+createIconLinkTestSuite(<IconLink as="button" type="button" />, stories("/button"));
 
 stories()
     .add("styling", () =>

@@ -13,18 +13,18 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <TextInput />
-            <TextInput loading />
-            <TextInput disabled></TextInput>
-            <TextInput readOnly></TextInput>
+            <TextInput aria-label="Label" />
+            <TextInput loading aria-label="Label" />
+            <TextInput disabled aria-label="Label"></TextInput>
+            <TextInput readOnly aria-label="Label"></TextInput>
             <div>
-                <TextInput fluid></TextInput>
+                <TextInput fluid aria-label="Label"></TextInput>
             </div>
             <div className="w-10">
-                <TextInput fluid></TextInput>
+                <TextInput fluid aria-label="Label"></TextInput>
             </div>
             <div>
-                <TextInput loading fluid></TextInput>
+                <TextInput loading fluid aria-label="Label"></TextInput>
             </div>
         </Stack>
     )
@@ -47,29 +47,29 @@ stories()
     )
     .add("value", () =>
         <Stack>
-            <TextInput defaultValue="SpaceX will win the race!" />
-            <TextInput loading defaultValue="SpaceX will win the race!" />
-            <TextInput disabled defaultValue="SpaceX will win the race!" />
-            <TextInput readOnly defaultValue="SpaceX will win the race!" />
+            <TextInput defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextInput loading defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextInput disabled defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextInput readOnly defaultValue="SpaceX will win the race!" aria-label="Label" />
             <Inline>
-                <TextInput defaultValue="SpaceX will win the race!" />
-                <TextInput value="SpaceX will win the race!" />
+                <TextInput defaultValue="SpaceX will win the race!" aria-label="Label" />
+                <TextInput value="SpaceX will win the race!" aria-label="Label" />
             </Inline>
             <div>
-                <TextInput fluid defaultValue="SpaceX will win the race!"></TextInput>
+                <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
             </div>
             <div className="w-10">
-                <TextInput fluid defaultValue="SpaceX will win the race!"></TextInput>
+                <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
             </div>
             <div>
-                <TextInput loading fluid defaultValue="SpaceX will win the race!"></TextInput>
+                <TextInput loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
             </div>
         </Stack>
     )
     .add("icon", () =>
         <Stack>
-            <TextInput icon={<MagnifierIcon />} placeholder="Where to?" />
-            <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" />
+            <TextInput icon={<MagnifierIcon />} placeholder="Where to?" aria-label="Label" />
+            <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" placeholder="Where to?" />
             <TextInput loading icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput readOnly icon={<MagnifierIcon />} placeholder="Where to?" />
@@ -84,7 +84,7 @@ stories()
     .add("button", () =>
         <Stack>
             <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-            <TextInput button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" />
+            <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" defaultValue="SpaceX will win the race!" />
             <Inline>
                 <TextInput disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
                 <TextInput readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
@@ -124,9 +124,9 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <TextInput className="bg-red" />
-            <TextInput style={{ backgroundColor: "red" }} />
-            <TextInput wrapperProps={{ className: "border-red" }} />
-            <TextInput wrapperProps={{ style: { border: "1px solid red" } }} />
+            <TextInput className="bg-red" aria-label="Label" />
+            <TextInput style={{ backgroundColor: "red" }} aria-label="Label" />
+            <TextInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
+            <TextInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>
     );

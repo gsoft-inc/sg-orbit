@@ -60,6 +60,7 @@ export function InnerLink(props: InnerLinkProps) {
         active,
         focus,
         hover,
+        disabled,
         as: As = "a",
         children,
         forwardedRef,
@@ -77,6 +78,7 @@ export function InnerLink(props: InnerLinkProps) {
         focus,
         hover,
         target,
+        disabled,
         rel,
         forwardedRef
     });

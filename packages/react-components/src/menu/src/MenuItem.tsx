@@ -31,7 +31,7 @@ export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const Role: Record<SelectionMode, string> = {
+const RoleBySelectionMode: Record<SelectionMode, string> = {
     none: "menuitem",
     single: "menuitemradio",
     multiple: "menuitemcheckbox"
@@ -92,6 +92,8 @@ export function InnerMenuItem({
         }
     }), [labelId, descriptionId]));
 
+    const role = RoleBySelectionMode[selectionMode];
+
     const itemMarkup = (
         <Box
             {...mergeProps(
@@ -107,11 +109,11 @@ export function InnerMenuItem({
                         focus && "focus",
                         hover && "hover"
                     ),
-                    role: Role[selectionMode],
+                    role,
                     // Disabled menu item are still focusable.
                     tabIndex: -1,
                     [ItemKeyProp]: key,
-                    "aria-checked": !disabled && selectedKeys.includes(key),
+                    "aria-checked": role !== RoleBySelectionMode.none ? (!disabled && selectedKeys.includes(key)) : undefined,
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
                     "aria-describedby": description && descriptionId,

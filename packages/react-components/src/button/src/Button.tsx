@@ -96,7 +96,7 @@ export function InnerButton(props: InnerButtonProps) {
         active,
         focus,
         hover,
-        type = "button",
+        type,
         as = "button",
         children,
         forwardedRef,
@@ -121,6 +121,7 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         hover,
         type,
+        as,
         forwardedRef
     });
 

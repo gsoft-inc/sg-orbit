@@ -11,14 +11,14 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <PasswordInput />
-            <PasswordInput disabled></PasswordInput>
-            <PasswordInput readOnly></PasswordInput>
+            <PasswordInput aria-label="Label" />
+            <PasswordInput disabled aria-label="Label"></PasswordInput>
+            <PasswordInput readOnly aria-label="Label"></PasswordInput>
             <div>
-                <PasswordInput fluid></PasswordInput>
+                <PasswordInput fluid aria-label="Label"></PasswordInput>
             </div>
             <div className="w-10">
-                <PasswordInput fluid></PasswordInput>
+                <PasswordInput fluid aria-label="Label"></PasswordInput>
             </div>
         </Stack>
     )
@@ -37,18 +37,18 @@ stories()
     )
     .add("value", () =>
         <Stack>
-            <PasswordInput defaultValue="test123!" />
-            <PasswordInput disabled defaultValue="test123!" />
-            <PasswordInput readOnly defaultValue="test123!" />
+            <PasswordInput defaultValue="test123!" aria-label="Label" />
+            <PasswordInput disabled defaultValue="test123!" aria-label="Label" />
+            <PasswordInput readOnly defaultValue="test123!" aria-label="Label" />
             <Inline>
                 <PasswordInput placeholder="What's your secret?" defaultValue="test123!" />
-                <PasswordInput value="test123!" />
+                <PasswordInput value="test123!" aria-label="Label" />
             </Inline>
             <div>
-                <PasswordInput fluid defaultValue="test123!"></PasswordInput>
+                <PasswordInput fluid defaultValue="test123!" aria-label="Label"></PasswordInput>
             </div>
             <div className="w-10">
-                <PasswordInput fluid defaultValue="test123!"></PasswordInput>
+                <PasswordInput fluid defaultValue="test123!" aria-label="Label"></PasswordInput>
             </div>
         </Stack>
     )

@@ -100,7 +100,7 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
             const wrapperSlot = (Wrapper as SlotableType)[SlotKey];
 
             if (isNil(wrapperSlot)) {
-                throw new Error("A default wrapper should have a slot key.");
+                throw new Error("A default wrapper must have a slot key.");
             }
 
             slotElements[wrapperSlot] = (

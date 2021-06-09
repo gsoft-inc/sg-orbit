@@ -1,4 +1,3 @@
-import { Field, Label } from "@react-components/field";
 import { Switch } from "@react-components/switch";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
@@ -11,24 +10,9 @@ function getInput(element) {
 
 // ***** Behaviors *****
 
-test("when in a field, clicking on the field label focus the switch", async () => {
-    const { getByTestId } = render(
-        <Field>
-            <Label data-testid="label">I agree</Label>
-            <Switch data-testid="switch" />
-        </Field>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("label"));
-    });
-
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
-});
-
 test("when autofocus is true, the switch is focused on render", async () => {
     const { getByTestId } = render(
-        <Switch autoFocus data-testid="switch" />
+        <Switch autoFocus data-testid="switch">Engines</Switch>
     );
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
@@ -36,7 +20,7 @@ test("when autofocus is true, the switch is focused on render", async () => {
 
 test("when autofocus is true and the switch is disabled, do not focus the switch on render", async () => {
     const { getByTestId } = render(
-        <Switch disabled autoFocus data-testid="switch" />
+        <Switch disabled autoFocus data-testid="switch">Engines</Switch>
     );
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
@@ -44,7 +28,7 @@ test("when autofocus is true and the switch is disabled, do not focus the switch
 
 test("when autofocus is specified with a delay, the switch is focused after the delay", async () => {
     const { getByTestId } = render(
-        <Switch autoFocus={10} data-testid="switch" />
+        <Switch autoFocus={10} data-testid="switch">Engines</Switch>
     );
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
@@ -58,7 +42,7 @@ test("when autofocus is specified with a delay, the switch is focused after the 
 
 test("a switch role is \"switch\"", async () => {
     const { getByTestId } = render(
-        <Switch data-testid="switch" />
+        <Switch data-testid="switch">Engines</Switch>
     );
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveAttribute("role", "switch"));
@@ -70,7 +54,7 @@ test("call onChange when the switch is turned on", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} data-testid="switch" />
+        <Switch onChange={handler} data-testid="switch">Engines</Switch>
     );
 
     act(() => {
@@ -84,7 +68,7 @@ test("call onChange when the switch is turned off", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} data-testid="switch" />
+        <Switch onChange={handler} data-testid="switch">Engines</Switch>
     );
 
     act(() => {
@@ -102,7 +86,7 @@ test("dont call onChange when the switch is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch disabled onChange={handler} data-testid="switch" />
+        <Switch disabled onChange={handler} data-testid="switch">Engines</Switch>
     );
 
     act(() => {
@@ -120,7 +104,7 @@ test("can focus the switch with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
-        />
+        >Engines</Switch>
     );
 
     act(() => {
@@ -136,7 +120,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Switch ref={ref} />
+        <Switch ref={ref}>Engines</Switch>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -153,7 +137,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
-        />
+        >Engines</Switch>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -166,7 +150,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Switch ref={handler} />
+        <Switch ref={handler}>Engines</Switch>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

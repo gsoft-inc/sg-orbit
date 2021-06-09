@@ -39,11 +39,18 @@ stories()
             </Field>
             <div>
                 <Field>
-                    <TextInput />
+                    <TextInput placeholder="Where to?" />
                     <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
                 </Field>
             </div>
-        </Stack>
+        </Stack>,
+         {
+             a11y: {
+                 config: {
+                     rules: [{ id: "label-title-only", enabled: false }]
+                 }
+             }
+         }
     )
     .add("validation", () =>
         <Inline>
@@ -96,13 +103,11 @@ stories()
         </Field>
     )
     .add("states", () =>
-        <Inline>
-            <Field disabled>
-                <Label>Where to?</Label>
-                <TextInput />
-                <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-            </Field>
-        </Inline>
+        <Field disabled>
+            <Label>Where to?</Label>
+            <TextInput />
+            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
+        </Field>
     )
     .add("text input", () =>
         <Field>
@@ -141,14 +146,12 @@ stories()
     )
     .add("checkbox", () =>
         <Field>
-            <Label>Select your favorite galaxy</Label>
             <Checkbox>Milky Way</Checkbox>
             <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
         </Field>
     )
     .add("switch", () =>
         <Field>
-            <Label>Engines</Label>
             <Switch>Milky Way</Switch>
             <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
         </Field>

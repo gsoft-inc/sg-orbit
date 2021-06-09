@@ -1,4 +1,4 @@
-import { AriaAttributes, ForwardedRef } from "react";
+import { AriaAttributes, ElementType, ForwardedRef } from "react";
 import { InteractionStatesProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseButtonProps extends InteractionStatesProps {
@@ -11,6 +11,7 @@ export interface UseButtonProps extends InteractionStatesProps {
     loading?: boolean;
     size?: Size;
     type?: "button" | "submit" | "reset";
+    as?: ElementType;
     forwardedRef?: ForwardedRef<any>;
 }
 
@@ -35,6 +36,7 @@ export function useButton({
     focus,
     hover,
     type,
+    as,
     forwardedRef
 }: UseButtonProps): UseButtonReturn {
     const buttonRef = useMergedRefs(forwardedRef);
@@ -60,7 +62,7 @@ export function useButton({
                 normalizeSize(size)
             )
         ),
-        type,
+        type: type ?? as === "button" ? "button" : undefined,
         "aria-live": "polite",
         "aria-busy": loading,
         ref: buttonRef

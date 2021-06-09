@@ -42,6 +42,13 @@ export const parameters = {
         container: ({ context, children }) => withDocsContainer(context, children),
         // Disable DocsPage feature.
         page: null
+    },
+    a11y: {
+        config: {
+            rules: [
+                { id: "button-name", enabled: false }
+            ]
+        }
     }
 };
 

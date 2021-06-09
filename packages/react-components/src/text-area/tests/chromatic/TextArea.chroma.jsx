@@ -15,18 +15,18 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <TextArea />
-            <TextArea loading />
-            <TextArea disabled />
-            <TextArea readOnly />
+            <TextArea aria-label="Label" />
+            <TextArea loading aria-label="Label" />
+            <TextArea disabled aria-label="Label" />
+            <TextArea readOnly aria-label="Label" />
             <div>
-                <TextArea fluid></TextArea>
+                <TextArea fluid aria-label="Label"></TextArea>
             </div>
             <div className="w-10">
-                <TextArea fluid></TextArea>
+                <TextArea fluid aria-label="Label"></TextArea>
             </div>
             <div>
-                <TextArea loading fluid></TextArea>
+                <TextArea loading fluid aria-label="Label"></TextArea>
             </div>
         </Stack>
     )
@@ -49,29 +49,29 @@ stories()
     )
     .add("value", () =>
         <Stack>
-            <TextArea defaultValue="SpaceX will win the race!" />
-            <TextArea loading defaultValue="SpaceX will win the race!" />
-            <TextArea disabled defaultValue="SpaceX will win the race!" />
-            <TextArea readOnly defaultValue="SpaceX will win the race!" />
+            <TextArea defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextArea loading defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextArea disabled defaultValue="SpaceX will win the race!" aria-label="Label" />
+            <TextArea readOnly defaultValue="SpaceX will win the race!" aria-label="Label" />
             <Inline>
-                <TextArea defaultValue="SpaceX will win the race!" />
-                <TextArea value="SpaceX will win the race!" />
+                <TextArea defaultValue="SpaceX will win the race!" aria-label="Label" />
+                <TextArea value="SpaceX will win the race!" aria-label="Label" />
             </Inline>
             <div>
-                <TextArea fluid defaultValue="SpaceX will win the race!"></TextArea>
+                <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
             </div>
             <div className="w-10">
-                <TextArea fluid defaultValue="SpaceX will win the race!"></TextArea>
+                <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
             </div>
             <div>
-                <TextArea loading fluid defaultValue="SpaceX will win the race!"></TextArea>
+                <TextArea loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
             </div>
         </Stack>
     )
     .add("button", () =>
         <Stack>
             <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-            <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" />
+            <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" aria-label="Label" />
             <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
             <TextArea readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
             <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
@@ -111,21 +111,21 @@ stories()
     )
     .add("autosize", () =>
         <Inline align="start">
-            <TextArea defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." />
-            <TextArea maxRows={5} defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." />
+            <TextArea defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
+            <TextArea maxRows={5} defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
         </Inline>
     )
     .add("no resize", () =>
-        <TextArea resize="none" />
+        <TextArea resize="none" aria-label="Label" />
     )
     .add("rows", () =>
-        <TextArea rows={12} />
+        <TextArea rows={12} aria-label="Label" />
     )
     .add("styling", () =>
         <Inline>
-            <TextArea className="bg-red" />
-            <TextArea style={{ backgroundColor: "red" }} />
-            <TextArea wrapperProps={{ className: "border-red" }} />
-            <TextArea wrapperProps={{ style: { border: "1px solid red" } }} />
+            <TextArea className="bg-red" aria-label="Label" />
+            <TextArea style={{ backgroundColor: "red" }} aria-label="Label" />
+            <TextArea wrapperProps={{ className: "border-red" }} aria-label="Label" />
+            <TextArea wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>
     );

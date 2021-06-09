@@ -19,6 +19,7 @@ test("when a query matching existing values is entered, open the overlay with th
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -44,6 +45,7 @@ test("when a query matching no values is entered, open the overlay with a not fo
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -65,6 +67,7 @@ test("when opening, the focus stay on the input", async () => {
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -87,6 +90,7 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -115,6 +119,7 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
     const { container, getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -143,6 +148,7 @@ test("when opened, clicking on a value close the overlay & select the value", as
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -171,6 +177,7 @@ test("when opened, enter keypress on a value close the overlay & select the valu
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -203,6 +210,7 @@ test("when opened, on esc keypress hide the overlay and focus the input", async 
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -229,6 +237,7 @@ test("when opened, down arrow keypress virtually focus the first value", async (
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -253,6 +262,7 @@ test("when opened, up arrow keypress virtually focus the last value", async () =
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="mars">Mars</Item>
@@ -276,6 +286,7 @@ test("when opened, home keypress virtually focus the first value", async () => {
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -299,6 +310,7 @@ test("when opened, end keypress virtually focus the last value", async () => {
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="mars">Mars</Item>
@@ -322,6 +334,7 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -350,6 +363,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
     const { getByTestId, queryByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -400,6 +414,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
             <Button>Previous</Button>
             <Autocomplete
                 overlayProps={{ "data-testid": "overlay" }}
+                aria-label="Planet"
                 data-testid="autocomplete"
             >
                 <Item key="earth">Earth</Item>
@@ -439,6 +454,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
             <Button data-testid="previous">Previous</Button>
             <Autocomplete
                 overlayProps={{ "data-testid": "overlay" }}
+                aria-label="Planet"
                 data-testid="autocomplete"
             >
                 <Item key="earth">Earth</Item>
@@ -469,6 +485,7 @@ test("when the clear button is clicked, the focus is moved to the input", async 
     const { container, getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -495,7 +512,7 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
     const { getByTestId } = render(
         <Field>
             <Label data-testid="label">Autocomplete</Label>
-            <Autocomplete data-testid="autocomplete">
+            <Autocomplete aria-label="Planet" data-testid="autocomplete">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
@@ -513,7 +530,11 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
 
 test("when autofocus is true, the autocomplete trigger is focused on render", async () => {
     const { getByTestId } = render(
-        <Autocomplete autoFocus data-testid="autocomplete">
+        <Autocomplete
+            autoFocus
+            aria-label="Planet"
+            data-testid="autocomplete"
+        >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -526,7 +547,12 @@ test("when autofocus is true, the autocomplete trigger is focused on render", as
 
 test("when autofocus is true and the autocomplete is disabled, the autocomplete trigger is not focused on render", async () => {
     const { getByTestId } = render(
-        <Autocomplete disabled autoFocus data-testid="autocomplete">
+        <Autocomplete
+            disabled
+            autoFocus
+            aria-label="Planet"
+            data-testid="autocomplete"
+        >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -539,7 +565,11 @@ test("when autofocus is true and the autocomplete is disabled, the autocomplete 
 
 test("when autofocus is specified with a delay, the autocomplete trigger is focused after the delay", async () => {
     const { getByTestId } = render(
-        <Autocomplete autoFocus={10} data-testid="autocomplete">
+        <Autocomplete
+            autoFocus={10}
+            aria-label="Planet"
+            data-testid="autocomplete"
+        >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -558,7 +588,7 @@ test("when autofocus is specified with a delay, the autocomplete trigger is focu
 
 test("an autocomplete have the \"combobox\" role", async () => {
     const { getByTestId } = render(
-        <Autocomplete data-testid="autocomplete">
+        <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -571,7 +601,7 @@ test("an autocomplete have the \"combobox\" role", async () => {
 
 test("an autocomplete have an aria-haspopup attribute", async () => {
     const { getByTestId } = render(
-        <Autocomplete data-testid="autocomplete">
+        <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -586,6 +616,7 @@ test("an autocomplete have an aria-expanded attribute", async () => {
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -608,6 +639,7 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
     const { getByTestId } = render(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -634,6 +666,7 @@ test("call onSearch when the query is updated", async () => {
     const { getByTestId } = render(
         <Autocomplete
             onSearch={handler}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -656,6 +689,7 @@ test("do not call onSearch when the query is empty", async () => {
     const { getByTestId } = render(
         <Autocomplete
             onSearch={handler}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -682,6 +716,7 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
     const { getByTestId } = render(
         <Autocomplete
             onOpenChange={handler}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -704,6 +739,7 @@ test("call onOpenChange when the autocomplete overlay close", async () => {
     const { getByTestId } = render(
         <Autocomplete
             onOpenChange={handler}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -730,6 +766,7 @@ test("call onSelectionChange when a value is selected", async () => {
     const { getByTestId } = render(
         <Autocomplete
             onSelectionChange={handler}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -757,6 +794,7 @@ test("calling the focus function on the autocomplete ref will focus the autocomp
         <Autocomplete
             defaultOpen
             ref={ref}
+            aria-label="Planet"
             data-testid="autocomplete"
         >
             <Item key="earth">Earth</Item>
@@ -779,7 +817,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Autocomplete defaultOpen ref={ref}>
+        <Autocomplete defaultOpen ref={ref} aria-label="Planet">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -802,6 +840,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Planet"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -823,6 +862,7 @@ test("set ref once", async () => {
         <Autocomplete
             defaultOpen
             ref={handler}
+            aria-label="Planet"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
