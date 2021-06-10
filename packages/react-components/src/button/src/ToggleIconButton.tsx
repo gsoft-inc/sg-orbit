@@ -1,4 +1,4 @@
-import { AriaLabelingProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { AriaLabelingProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
@@ -78,7 +78,7 @@ interface InnerToggleIconButtonProps extends AriaLabelingProps {
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
-    const [checkableProps] = useCheckableProps(props);
+    const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
         variant = "solid",
@@ -88,6 +88,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
+        "aria-label": ariaLabel,
         as,
         children,
         forwardedRef,
@@ -97,6 +98,10 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         checkableProps
     );
 
+    if (isNil(ariaLabel)) {
+        console.error("A toggle icon button component must have an \"aria-label\" attribute.");
+    }
+
     const { isChecked, buttonProps } = useToggleButton({
         variant,
         shape,
@@ -105,6 +110,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         value,
         onChange,
         active,
+        isCheckable,
         forwardedRef
     });
 
@@ -114,7 +120,8 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    as: as
+                    as: as,
+                    "aria-label": ariaLabel
                 },
                 rest,
                 buttonProps

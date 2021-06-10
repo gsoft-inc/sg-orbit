@@ -1,8 +1,30 @@
+import { Field, Label } from "@react-components/field";
 import { InputGroup } from "@react-components/input-group";
 import { Text } from "@react-components/text";
 import { TextInput } from "@react-components/text-input";
+import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+// ***** Behaviors *****
+
+test("when in a field, clicking on the field label focus the input", async () => {
+    const { getByTestId } = render(
+        <Field>
+            <Label data-testid="label">Label</Label>
+            <InputGroup>
+                <Text>Text</Text>
+                <TextInput aria-label="Label" data-testid="input" />
+            </InputGroup>
+        </Field>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("label"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+});
 
 // ***** Refs *****
 
@@ -12,7 +34,7 @@ test("ref is a DOM element", async () => {
     render(
         <InputGroup ref={ref}>
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 
@@ -32,7 +54,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             }}
         >
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 
@@ -48,7 +70,7 @@ test("set ref once", async () => {
     render(
         <InputGroup ref={handler}>
             <Text>Text</Text>
-            <TextInput />
+            <TextInput aria-label="Label" />
         </InputGroup>
     );
 

@@ -1,14 +1,14 @@
 import "./IconButton.css";
 
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerIconButtonProps extends InteractionStatesProps {
+export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * The icon button style to use.
      */
@@ -52,10 +52,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
      */
     onClick?: (event: MouseEvent) => void;
     /**
-     * A label providing an accessible name to the icon button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
-    "aria-label": string;
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -67,10 +63,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps {
      * Whether or not the button take up the width of its container.
      */
     fluid?: boolean;
-    /**
-    * @ignore
-    */
-    title?: string;
     /**
      * React children.
      */
@@ -97,8 +89,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         active,
         focus,
         hover,
-        type = "button",
-        title,
+        type,
         "aria-label": ariaLabel,
         as = "button",
         children,
@@ -109,6 +100,10 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         omitProps(toolbarProps, ["orientation"]),
         inputGroupProps
     );
+
+    if (isNil(ariaLabel)) {
+        console.error("An icon button component must have an \"aria-label\" attribute.");
+    }
 
     const buttonProps = useButton({
         cssModule: "o-ui-icon-button",
@@ -123,6 +118,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         focus,
         hover,
         type,
+        as,
         forwardedRef
     });
 
@@ -138,7 +134,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    title: title ?? ariaLabel,
                     as,
                     "aria-label": ariaLabel
                 },

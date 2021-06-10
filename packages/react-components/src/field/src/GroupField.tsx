@@ -5,8 +5,8 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { DomProps, forwardRef, mergeProps } from "../../shared";
 import { FieldContext } from "./FieldContext";
-import { useField } from "./useField";
 import { useFormField } from "../../form";
+import { useGroupField } from "./useGroupField";
 
 interface InnerGroupFieldProps extends DomProps {
     /**
@@ -56,7 +56,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         toolbarProps
     );
 
-    const { fieldProps, fieldContext } = useField({
+    const { fieldProps, fieldContext } = useGroupField({
         id,
         validationState,
         required,

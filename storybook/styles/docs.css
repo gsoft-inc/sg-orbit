@@ -204,13 +204,14 @@
     border: none !important;
     border-radius: 0 !important;
     background-color: transparent !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
 }
 
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
     font-size: var(--o-ui-global-type-scale-6);
     color: var(--o-ui-alias-primary-700) !important;
+    text-decoration: underline;
 }
 
 .sbdocs.sbdocs-a:hover,

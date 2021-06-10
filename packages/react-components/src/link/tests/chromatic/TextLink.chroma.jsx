@@ -14,7 +14,7 @@ function stories(segment) {
 
 createTextLinkTestSuite(<TextLink />, stories());
 
-createTextLinkTestSuite(<TextLink as="button" />, stories("/button"));
+createTextLinkTestSuite(<TextLink as="button" type="button" />, stories("/button"));
 
 stories()
     .add("styling", () =>

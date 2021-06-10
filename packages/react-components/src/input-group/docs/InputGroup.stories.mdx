@@ -37,7 +37,7 @@ A default input group.
 <Preview>
     <Story name="default">
         <InputGroup>
-            <TextInput />
+            <TextInput aria-label="Elapsed days" />
             <Text>days</Text>
         </InputGroup>
     </Story>
@@ -52,10 +52,10 @@ An input group can have any Orbit's input.
         <Stack>
             <InputGroup>
                 <Text>https://</Text>
-                <TextInput />
+                <TextInput aria-label="Url" />
             </InputGroup>
             <InputGroup>
-                <NumberInput />
+                <NumberInput aria-label="Number of passengers" />
                 <Text>passengers</Text>
             </InputGroup>
         </Stack>
@@ -70,7 +70,7 @@ An input group can have a textual addon to offer additional hints. A text addon 
     <Story name="text addon">
         <InputGroup>
             <Text>https://</Text>
-            <TextInput />
+            <TextInput aria-label="Url" />
             <Text>.space</Text>
         </InputGroup>
     </Story>
@@ -90,7 +90,7 @@ An input group can have a menu addon.
                 <Item key="jupiter">Jupiter</Item>
             </Autocomplete>
             <MenuTrigger>
-                <IconButton>
+                <IconButton aria-label="Select a galaxy">
                     <DisclosureArrow />
                 </IconButton>
                 <Menu aria-label="Galaxies">
@@ -127,7 +127,7 @@ An input group can set as disabled the input and the addon(s).
 <Preview>
     <Story name="disabled">
         <InputGroup disabled>
-            <TextInput />
+            <TextInput aria-label="Period" />
             <Select defaultSelectedKey="days">
                 <Item key="days">days</Item>
                 <Item key="weeks">weeks</Item>
@@ -144,8 +144,8 @@ An input group can set as readonly the input and the addon(s).
 <Preview>
     <Story name="readonly">
         <InputGroup readOnly>
-            <TextInput />
-            <Select defaultSelectedKey="days">
+            <TextInput arial-label="Elapsed time" />
+            <Select defaultSelectedKey="days" aria-label="Period">
                 <Item key="days">days</Item>
                 <Item key="weeks">weeks</Item>
                 <Item key="years">years</Item>
@@ -162,7 +162,7 @@ An input group can take the width of its container.
     <Story name="fluid">
         <InputGroup fluid>
             <Text>https://</Text>
-            <TextInput />
+            <TextInput aria-label="Url" />
             <Text>.space</Text>
         </InputGroup>
     </Story>

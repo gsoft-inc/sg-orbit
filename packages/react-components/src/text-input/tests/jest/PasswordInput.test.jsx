@@ -12,6 +12,7 @@ test("can focus the input with the focus api", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -28,7 +29,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <PasswordInput ref={ref} />
+        <PasswordInput ref={ref} aria-label="Label" />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -45,6 +46,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
+            aria-label="Label"
         />
     );
 
@@ -58,7 +60,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <PasswordInput ref={handler} />
+        <PasswordInput ref={handler} aria-label="Label" />
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

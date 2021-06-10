@@ -62,7 +62,7 @@ export interface UseFieldLabelPropsReturn {
 }
 
 export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFieldLabelPropsReturn, boolean] {
-    const [{ isGroup, inputId, labelId, required, labelClassName }, isInField] = useFieldContext();
+    const [{ inputId, labelId, required, labelClassName, isGroup }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroup ? "span" : "label"
@@ -93,13 +93,15 @@ export interface UseFieldInputPropsReturn {
 export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const [{
         id,
-        isGroup,
-        validationState,
         inputId,
+        labelId,
+        messageId,
+        validationState,
         required,
         fluid,
         disabled,
-        inputClassName
+        inputClassName,
+        isGroup
     }, isInField] = useFieldContext();
 
     const props = isInField && {
@@ -109,7 +111,9 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
         required,
         disabled,
         fluid,
-        className: inputClassName
+        className: inputClassName,
+        "aria-labelledby": !isGroup ? (!isNil(labelId) ? labelId : undefined) : undefined,
+        "aria-describedby": !isGroup ? (!isNil(messageId) ? messageId : undefined) : undefined
     };
 
     return [props || {}, isInField];

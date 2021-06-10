@@ -75,6 +75,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         focus,
         hover,
         visited,
+        disabled,
         as: As = "a",
         children,
         forwardedRef,
@@ -95,6 +96,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         focus,
         hover,
         visited,
+        disabled,
         target,
         rel,
         forwardedRef

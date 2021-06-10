@@ -12,18 +12,18 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <SearchInput />
-            <SearchInput loading></SearchInput>
-            <SearchInput disabled></SearchInput>
-            <SearchInput readOnly></SearchInput>
+            <SearchInput aria-label="Label" />
+            <SearchInput loading aria-label="Label"></SearchInput>
+            <SearchInput disabled aria-label="Label"></SearchInput>
+            <SearchInput readOnly aria-label="Label"></SearchInput>
             <div>
-                <SearchInput fluid></SearchInput>
+                <SearchInput fluid aria-label="Label"></SearchInput>
             </div>
             <div className="w-10">
-                <SearchInput fluid></SearchInput>
+                <SearchInput fluid aria-label="Label"></SearchInput>
             </div>
             <div>
-                <SearchInput loading fluid></SearchInput>
+                <SearchInput loading fluid aria-label="Label"></SearchInput>
             </div>
         </Stack>
     )
@@ -46,29 +46,29 @@ stories()
     )
     .add("value", () =>
         <Stack>
-            <SearchInput defaultValue="Mars" />
-            <SearchInput loading defaultValue="Mars" />
-            <SearchInput disabled defaultValue="Mars" />
-            <SearchInput readOnly defaultValue="Mars" />
+            <SearchInput defaultValue="Mars" aria-label="Label" />
+            <SearchInput loading defaultValue="Mars" aria-label="Label" />
+            <SearchInput disabled defaultValue="Mars" aria-label="Label" />
+            <SearchInput readOnly defaultValue="Mars" aria-label="Label" />
             <Inline>
                 <SearchInput placeholder="Where to?" defaultValue="Mars" />
                 <SearchInput value="Mars" />
             </Inline>
             <div>
-                <SearchInput fluid defaultValue="Mars"></SearchInput>
+                <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
             </div>
             <div className="w-10">
-                <SearchInput fluid defaultValue="Mars"></SearchInput>
+                <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
             </div>
             <div>
-                <SearchInput loading fluid defaultValue="Mars"></SearchInput>
+                <SearchInput loading fluid defaultValue="Mars" aria-label="Label"></SearchInput>
             </div>
         </Stack>
     )
     .add("custom icon", () =>
         <Stack>
-            <SearchInput icon={<EmailIcon />} placeholder="Where to?" />
-            <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" />
+            <SearchInput icon={<EmailIcon />} placeholder="Where to?" aria-label="Label" />
+            <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" aria-label="Label" />
             <SearchInput loading icon={<EmailIcon />} placeholder="Where to?" />
             <SearchInput disabled icon={<EmailIcon />} placeholder="Where to?" />
             <SearchInput readOnly icon={<EmailIcon />} placeholder="Where to?" />

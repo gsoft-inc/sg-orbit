@@ -1,8 +1,8 @@
 import "./TextArea.css";
 
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -10,7 +10,7 @@ import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input"
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextAreaProps extends DomProps, InteractionStatesProps {
+export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
     /**
      * A controlled value.
      */
@@ -120,6 +120,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         active,
         focus,
         hover,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
         as = "div",
         forwardedRef,
@@ -128,6 +130,10 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         props,
         wrappedInputPropsAdapter(fieldProps)
     );
+
+    if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
+        console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
+    }
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
@@ -189,6 +195,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
                 {...mergeProps(
                     rest,
                     {
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": ariaLabelledBy,
                         rows,
                         style: {
                             ["--o-ui-resize" as any]: resize

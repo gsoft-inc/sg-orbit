@@ -1,11 +1,13 @@
 import { ReactNode, createContext, useContext } from "react";
-import { isNil } from "../../shared";
+import { UseFieldInputPropsReturn } from "../../field";
+import { UseToolbarPropsReturn } from "../../toolbar";
+import { isNil, mergeProps } from "../../shared";
 
-export interface InputGroupContextType {
+export type InputGroupContextType = {
     fluid?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
-}
+} & UseFieldInputPropsReturn & UseToolbarPropsReturn;
 
 export const InputGroupContext = createContext<InputGroupContextType>(null);
 
@@ -31,20 +33,19 @@ export function ClearInputGroupContext({ children }: ClearInputGroupContextProps
 
 /* Inputs */
 
-export interface UseInputGroupPropsReturn {
+export type UseInputGroupPropsReturn = {
     fluid?: boolean;
     disabled?: boolean;
     readOnly?: boolean;
     className?: string;
-}
+} & UseFieldInputPropsReturn & UseToolbarPropsReturn;
 
 export function useInputGroupProps(): [UseInputGroupPropsReturn, boolean] {
     const [context, isInInputGroup] = useInputGroupContext();
 
-    const props = isInInputGroup && {
-        ...context,
+    const props = isInInputGroup && mergeProps(context, {
         className: "o-ui-input-group-input"
-    };
+    });
 
     return [props || {}, isInInputGroup];
 }
@@ -52,10 +53,9 @@ export function useInputGroupProps(): [UseInputGroupPropsReturn, boolean] {
 export function useInputGroupTextInputProps(): [UseInputGroupPropsReturn, boolean] {
     const [context, isInInputGroup] = useInputGroupContext();
 
-    const props = isInInputGroup && {
-        ...context,
+    const props = isInInputGroup && mergeProps(context, {
         className: "o-ui-input-group-input o-ui-input-group-text-input"
-    };
+    });
 
     return [props || {}, isInInputGroup];
 }

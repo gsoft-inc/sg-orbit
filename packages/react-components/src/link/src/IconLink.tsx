@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, mergeProps, useStyleProps } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, isNil, mergeProps, useStyleProps } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
@@ -44,10 +44,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
      */
     disabled?: boolean;
     /**
-     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
-    "aria-label": string;
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -55,10 +51,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    title?: string;
     /**
     * @ignore
     */
@@ -75,7 +67,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const {
         target,
         rel,
-        title,
         color,
         condensed,
         external,
@@ -85,6 +76,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         focus,
         hover,
         visited,
+        disabled,
         "aria-label": ariaLabel,
         as: As = "a",
         children,
@@ -95,6 +87,10 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         styleProps
     );
 
+    if (isNil(ariaLabel)) {
+        console.error("An icon link component must have an \"aria-label\" attribute.");
+    }
+
     const { linkProps, showNewTabIndicator } = useLink({
         cssModule: "o-ui-icon-link",
         color,
@@ -104,6 +100,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         focus,
         hover,
         visited,
+        disabled,
         target,
         rel,
         forwardedRef
@@ -120,7 +117,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
             {...mergeProps(
                 rest,
                 {
-                    title: title ?? ariaLabel,
                     "aria-label": ariaLabel
                 },
                 linkProps

@@ -197,7 +197,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the item se
         fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"none\", enter keypress don't toggle the item selection", async () => {
@@ -217,7 +217,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the item selec
         fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"none\", mouse click doesn't toggle the item selection", async () => {
@@ -233,7 +233,7 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the item select
         userEvent.click(getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"single\", spacebar keypress toggle the item selection", async () => {

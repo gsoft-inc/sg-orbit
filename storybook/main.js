@@ -24,13 +24,24 @@ if (includeChromatic) {
 
 module.exports = {
     stories: stories,
-    addons: [{
-        name: "@storybook/addon-essentials",
-        options: {
-            actions: false,
-            backgrounds: false,
-            controls: false
+    addons: [
+        {
+            name: "@storybook/addon-essentials",
+            options: {
+                actions: false,
+                backgrounds: false,
+                controls: false
+            }
+        },
+        {
+            name: "@storybook/addon-a11y",
+            options: {
+                runOnly: {
+                    type: "tag",
+                    values: ["wcag2a", "wcag2aa"]
+                }
+            }
         }
-    }],
+    ],
     webpackFinal: customizeWebpack
 };

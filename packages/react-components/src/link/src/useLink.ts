@@ -8,6 +8,7 @@ export interface UseLinkProps extends InteractionStatesProps {
     shape?: string;
     external?: boolean;
     autoFocus?: boolean | number;
+    disabled?: boolean;
     visited?: boolean;
     target?: string;
     rel?: string;
@@ -24,6 +25,7 @@ export function useLink({
     active,
     focus,
     hover,
+    disabled,
     visited,
     target,
     rel,
@@ -49,9 +51,11 @@ export function useLink({
                     active && "active",
                     focus && "focus",
                     hover && "hover",
-                    visited && "visited"
+                    visited && "visited",
+                    disabled && "disabled"
                 )
             ),
+            tabIndex: disabled ? -1 : undefined,
             ref: linkRef
         },
         showNewTabIndicator: target === "_blank"

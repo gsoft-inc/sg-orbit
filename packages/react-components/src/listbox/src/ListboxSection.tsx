@@ -38,6 +38,7 @@ export function InnerListboxSection({
                         id,
                         className: "o-ui-listbox-section",
                         "aria-hidden": true,
+                        role: "presentation",
                         as,
                         ref: forwardedRef
                     }

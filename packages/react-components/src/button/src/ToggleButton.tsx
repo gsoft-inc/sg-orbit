@@ -19,7 +19,7 @@ interface InnerToggleButtonProps {
     /**
      * Called when the toggle button checked state change.
      * @param {SyntheticEvent} event - React's original SyntheticEvent.
-     * @param {bool} isChecked - Whether the button is checked.
+     * @param {bool} isChecked - Whether the button is checked or not.
      * @returns {void}
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
@@ -66,7 +66,7 @@ interface InnerToggleButtonProps {
 }
 
 export function InnerToggleButton(props: InnerToggleButtonProps) {
-    const [checkableProps] = useCheckableProps(props);
+    const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
         variant = "solid",
@@ -95,6 +95,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
+        isCheckable,
         forwardedRef
     });
 
