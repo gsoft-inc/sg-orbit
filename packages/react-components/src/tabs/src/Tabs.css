@@ -28,7 +28,7 @@
     background: transparent;
     padding: calc(var(--o-ui-global-scale-charlie) + 1px);
     border: transparent;
-    transition: var(--o-ui-t2-productive);
+    transition: all var(--o-ui-timing-2) var(--o-ui-easing-productive);
     width: max-content;
     min-width: var(--o-ui-global-scale-mike);
     height: max-content;

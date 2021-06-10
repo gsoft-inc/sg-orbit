@@ -7,7 +7,7 @@
     line-height: var(--o-ui-global-line-height-1);
     color: var(--o-ui-alias-text-1);
     border-radius: var(--o-ui-shape-pill);
-    transition: all 0.1s linear;
+    transition: all var(--o-ui-timing-2) var(--o-ui-easing-productive);
     width: max-content;
     height: max-content;
 }

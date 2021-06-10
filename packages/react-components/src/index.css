@@ -15,34 +15,18 @@
     --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-outset-inner-offset: 1px;
     --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-global-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-transition: var(--t1-focus);
+    --o-ui-focus-ring-transition: all var(--o-ui-timing-1) var(--o-ui-easing-focus);
     /* TRANSITIONS */
     /* TIMING */
-    --o-ui-t1: .1s;
-    --o-ui-t2: .2s;
-    --o-ui-t3: .25s;
-    --o-ui-t4: .3s;
-    --o-ui-t5: .5s;
+    --o-ui-timing-1: .1s;
+    --o-ui-timing-2: .2s;
+    --o-ui-timing-3: .3s;
+    --o-ui-timing-4: .5s;
+    --o-ui-timing-5: .8s;
     /* EASING */
-    --o-ui-productive: cubic-bezier(0.22, 0.61, 0.36, 1);
-    --o-ui-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-    --o-ui-expressive: linear;
-    /* COMBINATIONS */
-    --o-ui-t1-productive: all var(--o-ui-t1) var(--o-ui-productive);
-    --o-ui-t2-productive: all var(--o-ui-t2) var(--o-ui-productive);
-    --o-ui-t3-productive: all var(--o-ui-t3) var(--o-ui-productive);
-    --o-ui-t4-productive: all var(--o-ui-t4) var(--o-ui-productive);
-    --o-ui-t5-productive: all var(--o-ui-t5) var(--o-ui-productive);
-    --o-ui-t1-focus: all var(--o-ui-t1) var(--o-ui-focus);
-    --o-ui-t2-focus: all var(--o-ui-t2) var(--o-ui-focus);
-    --o-ui-t3-focus: all var(--o-ui-t3) var(--o-ui-focus);
-    --o-ui-t4-focus: all var(--o-ui-t4) var(--o-ui-focus);
-    --o-ui-t5-focus: all var(--o-ui-t5) var(--o-ui-focus);
-    --o-ui-t1-expressive: all var(--o-ui-t1) var(--o-ui-expressive);
-    --o-ui-t2-expressive: all var(--o-ui-t2) var(--o-ui-expressive);
-    --o-ui-t3-expressive: all var(--o-ui-t3) var(--o-ui-expressive);
-    --o-ui-t4-expressive: all var(--o-ui-t4) var(--o-ui-expressive);
-    --o-ui-t5-expressive: all var(--o-ui-t5) var(--o-ui-expressive);
+    --o-ui-easing-productive: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --o-ui-easing-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    --o-ui-easing-expressive: cubic-bezier(0.72, -0.66, 0.15, 1.5);
     /* DEFAULTS */
     color: var(--o-ui-alias-text-1);
 }
@@ -62,11 +46,11 @@
 
 /* ANIMATIONS | FADE */
 .o-ui-fade-in {
-    animation: o-ui-fade-in-animation var(--o-ui-t2) var(--o-ui-productive);
+    animation: o-ui-fade-in-animation var(--o-ui-timing-5) var(--o-ui-easing-productive);
 }
 
 .o-ui-fade-out {
-    animation: o-ui-fade-out-animation var(--o-ui-t2) var(--o-ui-productive);
+    animation: o-ui-fade-out-animation var(--o-ui-timing-2) var(--o-ui-easing-productive);
 }
 
 @keyframes o-ui-fade-in-animation {
@@ -90,9 +74,10 @@
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otherwise it won't work. */
 .o-ui-slide-down {
-    transition: var(--o-ui-t2-productive);
+    --timing: var(--o-ui-timing-5);
+    transition: all var(--timing) var(--o-ui-easing-productive);
 }
 
 .o-ui-slide-up {
-    transition: var(--o-ui-t2-productive);
+    transition: all var(--o-ui-timing-2) var(--o-ui-easing-productive);
 }

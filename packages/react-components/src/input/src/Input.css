@@ -31,7 +31,7 @@
     border: 1px solid var(--o-ui-input-border-color);
     color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);
-    transition: all .12s ease-in, padding 0s linear;
+    transition: all var(--o-ui-timing-2) var(--o-ui-easing-productive), padding 0s linear;
     width: 100%;
 }
 
