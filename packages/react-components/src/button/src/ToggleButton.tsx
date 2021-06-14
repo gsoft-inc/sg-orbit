@@ -3,7 +3,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } 
 import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-interface InnerToggleButtonProps {
+export interface InnerToggleButtonProps {
     /**
      * A controlled checked value.
      */

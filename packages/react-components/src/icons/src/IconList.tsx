@@ -2,7 +2,7 @@ import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, Reac
 import { Inline } from "../../layout";
 import { forwardRef, slot } from "../../shared";
 
-interface InnerIconListProps {
+export interface InnerIconListProps {
     /**
      * Whether or not the IconList is disabled.
      */

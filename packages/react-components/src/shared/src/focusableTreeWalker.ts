@@ -20,7 +20,7 @@ export const FocusableElementSelector = [...FocusableElement, "[tabindex]"].join
 
 export const TabbableElementSelector = [...FocusableElement, "[tabindex]:not([tabindex=\"-1\"])"].join(":not([tabindex=\"-1\"]),");
 
-interface FocusableTreeWalkerOptions {
+export interface FocusableTreeWalkerOptions {
     tabbable?: boolean;
 }
 

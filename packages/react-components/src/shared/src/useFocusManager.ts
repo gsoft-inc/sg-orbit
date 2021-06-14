@@ -39,7 +39,7 @@ export class ElementIterator<T> {
     }
 }
 
-interface FocusManagerOptions {
+export interface FocusManagerOptions {
     isVirtual?: boolean;
     keyProp?: string;
 }

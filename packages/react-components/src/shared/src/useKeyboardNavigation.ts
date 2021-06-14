@@ -4,11 +4,11 @@ import { isNil } from "./assertions";
 import { useEventCallback } from "./useEventCallback";
 import type { FocusManager } from "./useFocusManager";
 
-interface KeyboardNavigationOptions {
+export interface KeyboardNavigationOptions {
     onSelect?: (event: KeyboardEvent, element: Element) => void;
 }
 
-interface KeyboardNavigationBindings {
+export interface KeyboardNavigationBindings {
     previous?: Keys[];
     next?: Keys[];
     first?: Keys[];

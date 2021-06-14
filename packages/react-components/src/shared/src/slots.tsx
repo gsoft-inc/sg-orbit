@@ -3,7 +3,7 @@ import { augmentElement, isEmptyArray, isFunction, isNil, isString, isUndefined,
 
 const SlotKey = "__slot__";
 
-interface SlotableType {
+export interface SlotableType {
     [SlotKey]?: string;
 }
 
@@ -55,7 +55,7 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
     return useMemo(() => getRawSlots(children, slots), [children, slots]);
 }
 
-interface SlotOptions {
+export interface SlotOptions {
     _: {
         defaultWrapper?: ComponentType<any>;
         required?: string[];

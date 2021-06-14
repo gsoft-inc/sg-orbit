@@ -6,7 +6,7 @@ import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo
 import { Text } from "../../text";
 import { augmentElement, cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot } from "../../shared";
 
-interface InnerAvatarProps {
+export interface InnerAvatarProps {
     /**
      * The name of the person in the avatar.
      */

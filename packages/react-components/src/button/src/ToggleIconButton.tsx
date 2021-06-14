@@ -3,7 +3,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, Syn
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
-interface InnerToggleIconButtonProps extends AriaLabelingProps {
+export interface InnerToggleIconButtonProps extends AriaLabelingProps {
     /**
      * A controlled checked value.
      */

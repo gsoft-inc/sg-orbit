@@ -9,7 +9,7 @@ TODO:
     - I believe we need some way to hide the elements behind the underlay from screen readers.. See spectrum.
 */
 
-interface InnerDialogTriggerProps {
+export interface InnerDialogTriggerProps {
     /**
      * Whether or not to show the modal element.
      */

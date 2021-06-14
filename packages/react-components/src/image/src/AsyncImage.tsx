@@ -2,7 +2,7 @@ import { ComponentProps, ReactElement, ReactNode, useEffect, useRef, useState } 
 import { InnerImageProps, Image as OrbitImage } from "./Image";
 import { forwardRef, isNil } from "../../shared";
 
-interface InnerAsyncImageProps extends InnerImageProps {
+export interface InnerAsyncImageProps extends InnerImageProps {
     /**
      * The number of milliseconds to delay the rendering of the fallback.
      */

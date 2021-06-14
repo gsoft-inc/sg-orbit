@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { isNil, mergeProps } from "../../shared";
 
-interface HiddenSelectProps extends ComponentProps<"input"> {
+export interface HiddenSelectProps extends ComponentProps<"input"> {
     /**
      * Name of the element. Used by the server to identify the fields in form submits. View [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes).
      */

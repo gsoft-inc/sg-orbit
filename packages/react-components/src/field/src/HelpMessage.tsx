@@ -3,7 +3,7 @@ import { FieldMessage, getValidationProps } from "./FieldMessage";
 import { forwardRef, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-interface InnerHelpMessageProps {
+export interface InnerHelpMessageProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
