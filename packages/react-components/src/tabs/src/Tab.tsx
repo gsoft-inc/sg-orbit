@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../text";
@@ -72,10 +72,6 @@ export function InnerTab({
         onSelect(event, key);
     });
 
-    const handleFocus = useEventCallback((event: FocusEvent) => {
-        onSelect(event, key);
-    });
-
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
             case Keys.enter:
@@ -100,7 +96,6 @@ export function InnerTab({
                 {
                     id: tabId,
                     onClick: handleClick,
-                    onFocus: !isManual ? handleFocus : undefined,
                     onKeyDown: isManual ? handleKeyDown : undefined,
                     onKeyUp: isManual ? handleKeyUp : undefined,
                     className: cssModule(

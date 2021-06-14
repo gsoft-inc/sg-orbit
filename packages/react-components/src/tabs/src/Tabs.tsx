@@ -78,11 +78,14 @@ export function InnerTabs({
     const [tabs, panels] = useTabsItems(children, useId(id, "o-ui-tabs"));
 
     const handleSelect = useEventCallback((event: SyntheticEvent, newKey: string) => {
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, newKey);
-        }
+        if (newKey !== selectedKey) {
+            if (!isNil(onSelectionChange)) {
+                onSelectionChange(event, newKey);
 
-        setSelectedKey(newKey);
+            }
+
+            setSelectedKey(newKey);
+        }
     });
 
     // Ensure the selected key match a valid tab which is not disabled.

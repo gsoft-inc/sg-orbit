@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ForwardedRef } from "react";
-import { Keys, forwardRef, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
+import { Keys, forwardRef, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
 import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
 import { useTabsContext } from "./TabsContext";
@@ -34,7 +34,7 @@ export function InnerTabList({
     forwardedRef,
     ...rest
 }: InnerTabListProps) {
-    const { selectedKey, orientation } = useTabsContext();
+    const { selectedKey, orientation, onSelect, isManual } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
     const tabRef = useMergedRefs(setFocusRef, forwardedRef);
@@ -49,7 +49,13 @@ export function InnerTabList({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
+    const handleKeyboardSelect = useEventCallback((event, element) => {
+        onSelect(event, element?.getAttribute(TabKeyProp));
+    });
+
+    const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation], {
+        onSelect: !isManual ? handleKeyboardSelect : undefined
+    });
 
     return (
         <Box
