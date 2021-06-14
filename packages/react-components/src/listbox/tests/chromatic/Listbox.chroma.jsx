@@ -82,14 +82,16 @@ stories()
             </Section>
         </Listbox>,
          {
-             a11y: {
-                 config: {
-                     rules: [
-                         { id: "aria-required-children", enabled: false },
-                         { id: "aria-required-parent", enabled: false }
-                     ]
-                 }
-             }
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-children", enabled: false },
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
          }
     )
     .add("mixed sections and items", () =>
@@ -105,13 +107,15 @@ stories()
             </Section>
         </Listbox>,
          {
-             a11y: {
-                 config: {
-                     rules: [
-                         { id: "aria-required-parent", enabled: false }
-                     ]
-                 }
-             }
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
          }
     )
     .add("selected keys", () =>

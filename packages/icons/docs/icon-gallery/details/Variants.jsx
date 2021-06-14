@@ -6,7 +6,7 @@ import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
 import { VARIANT_SHAPE } from "../shapes";
 import { arrayOf, shape, string } from "prop-types";
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const H2 = components.h2;
 const H4 = components.h4;

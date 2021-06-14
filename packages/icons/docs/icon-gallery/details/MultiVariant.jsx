@@ -6,7 +6,7 @@ import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Snippet } from "@stories/components";
 import { cloneElement } from "react";
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const H4 = components.h4;
 

@@ -1,15 +1,10 @@
 .o-ui-avatar {
-    display: inline;
+    display: inline-flex;
     border-radius: 100%;
     overflow: hidden;
 }
 
 /* SIZES */
-.o-ui-avatar-2xs {
-    width: 16px;
-    height: 16px;
-}
-
 .o-ui-avatar-xs {
     width: 24px;
     height: 24px;
@@ -38,4 +33,20 @@
 .o-ui-avatar-2xl {
     width: 64px;
     height: 64px;
+}
+
+/* IMAGE */
+.o-ui-avatar-image {
+    width: 100%;
+    height: 100%;
+}
+
+/* INTIALS */
+.o-ui-avatar-initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--o-ui-global-white);
+    width: 100%;
+    height: 100%;
 }
