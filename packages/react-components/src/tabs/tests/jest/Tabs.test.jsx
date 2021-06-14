@@ -5,8 +5,243 @@ import { Tabs } from "@react-components/tabs";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
+
+test("first tab is tabbable", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Item data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("tab-1")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "-1"));
+});
+
+test("selected tab is tabbable", async () => {
+    const { getByTestId } = render(
+        <Tabs defaultSelectedKey="tab-2" aria-label="Tabs">
+            <Item key="tab-1" data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item key="tab-2" data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("tab-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
+});
+
+test("a disabled tab is not tabbable", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Item disabled data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("tab-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
+
+});
+
+test("when manual, focusing a tab doesn't change the active tab", async () => {
+    const { getByTestId } = render(
+        <Tabs manual aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-2").focus();
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));
+});
+
+test("when manual, spacebar keypress makes a tab active", async () => {
+    const { getByTestId } = render(
+        <Tabs manual aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.space });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when manual, enter keypress makes a tab active", async () => {
+    const { getByTestId } = render(
+        <Tabs manual aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.enter });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when horizontal, right arrow keypress select the next tab", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Item data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+            <Item>
+                <Header>Header 3</Header>
+                <Content>Content 3</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowRight });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when horizontal, left arrow keypress select the next tab", async () => {
+    const { getByTestId } = render(
+        <Tabs aria-label="Tabs">
+            <Item data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+            <Item data-testid="tab-3">
+                <Header>Header 3</Header>
+                <Content>Content 3</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowLeft });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when vertical, down arrow keypress select the next tab", async () => {
+    const { getByTestId } = render(
+        <Tabs orientation="vertical" aria-label="Tabs">
+            <Item data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+            <Item>
+                <Header>Header 3</Header>
+                <Content>Content 3</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowDown });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
+});
+
+test("when vertical, up arrow keypress select the next tab", async () => {
+    const { getByTestId } = render(
+        <Tabs orientation="vertical" aria-label="Tabs">
+            <Item data-testid="tab-1">
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item>
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+            <Item data-testid="tab-3">
+                <Header>Header 3</Header>
+                <Content>Content 3</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowUp });
+    });
+
+    await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
+});
 
 test("when autofocus is true, the first item header is focused on render", async () => {
     const { getByTestId } = render(
@@ -214,263 +449,6 @@ test("a tab header have the \"tab\" role", async () => {
     await waitFor(() => expect(getByTestId("header")).toHaveAttribute("role", "tab"));
 });
 
-// ***** Behaviors *****
-
-test("first tab is tabbable", async () => {
-    const { getByTestId } = render(
-        <Tabs aria-label="Tabs">
-            <Item data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    await waitFor(() => expect(getByTestId("tab-1")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "-1"));
-});
-
-test("selected tab is tabbable", async () => {
-    const { getByTestId } = render(
-        <Tabs defaultSelectedKey="tab-2" aria-label="Tabs">
-            <Item key="tab-1" data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item key="tab-2" data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    await waitFor(() => expect(getByTestId("tab-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
-});
-
-test("a disabled tab is not tabbable", async () => {
-    const { getByTestId } = render(
-        <Tabs aria-label="Tabs">
-            <Item disabled data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    await waitFor(() => expect(getByTestId("tab-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
-
-});
-
-test("when automatic, focusing a tab change the active tab", async () => {
-    const { getByTestId } = render(
-        <Tabs aria-label="Tabs">
-            <Item>
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-2").focus();
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when manual, focusing a tab shouldn't change the active tab", async () => {
-    const { getByTestId } = render(
-        <Tabs manual aria-label="Tabs">
-            <Item>
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-2").focus();
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));
-});
-
-test("when manual, spacebar keypress makes a tab active", async () => {
-    const { getByTestId } = render(
-        <Tabs manual aria-label="Tabs">
-            <Item>
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.space });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when manual, enter keypress makes a tab active", async () => {
-    const { getByTestId } = render(
-        <Tabs manual aria-label="Tabs">
-            <Item>
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-2"), { key: Keys.enter });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when horizontal, right arrow keypress select the next tab", async () => {
-    const { getByTestId } = render(
-        <Tabs aria-label="Tabs">
-            <Item data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-            <Item>
-                <Header>Header 3</Header>
-                <Content>Content 3</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-1").focus();
-    });
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowRight });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when horizontal, left arrow keypress select the next tab", async () => {
-    const { getByTestId } = render(
-        <Tabs aria-label="Tabs">
-            <Item data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item>
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-            <Item data-testid="tab-3">
-                <Header>Header 3</Header>
-                <Content>Content 3</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-1").focus();
-    });
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowLeft });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when vertical, down arrow keypress select the next tab", async () => {
-    const { getByTestId } = render(
-        <Tabs orientation="vertical" aria-label="Tabs">
-            <Item data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item data-testid="tab-2">
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-            <Item>
-                <Header>Header 3</Header>
-                <Content>Content 3</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-1").focus();
-    });
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowDown });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
-});
-
-test("when vertical, up arrow keypress select the next tab", async () => {
-    const { getByTestId } = render(
-        <Tabs orientation="vertical" aria-label="Tabs">
-            <Item data-testid="tab-1">
-                <Header>Header 1</Header>
-                <Content>Content 1</Content>
-            </Item>
-            <Item>
-                <Header>Header 2</Header>
-                <Content>Content 2</Content>
-            </Item>
-            <Item data-testid="tab-3">
-                <Header>Header 3</Header>
-                <Content>Content 3</Content>
-            </Item>
-        </Tabs>
-    );
-
-    act(() => {
-        getByTestId("tab-1").focus();
-    });
-
-    act(() => {
-        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowUp });
-    });
-
-    await waitFor(() => expect(getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
-});
-
 // ***** Api *****
 
 test("call onSelectionChange when the active tab change", async () => {
@@ -494,6 +472,58 @@ test("call onSelectionChange when the active tab change", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
+});
+
+test("call onSelectionChange once when a tab is clicked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Tabs onSelectionChange={handler} aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("dont' call onSelectionChange when the active tab is clicked", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Tabs onSelectionChange={handler} aria-label="Tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+            <Item data-testid="tab-2">
+                <Header>Header 2</Header>
+                <Content>Content 2</Content>
+            </Item>
+        </Tabs>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("dont call onSelectionChange when a tab is disabled", async () => {
