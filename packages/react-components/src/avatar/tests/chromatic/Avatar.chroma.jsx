@@ -28,7 +28,7 @@ stories()
             <Avatar size="sm" name="Neil Armstrong">
                 <img src={Person} alt="Neil Armstrong" />
             </Avatar>
-            <Avatar size="md" name="Neil Armstrong">
+            <Avatar name="Neil Armstrong">
                 <img src={Person} alt="Neil Armstrong" />
             </Avatar>
             <Avatar size="lg" name="Neil Armstrong">
@@ -58,7 +58,7 @@ stories()
             <Inline verticalAlign="center">
                 <Avatar size="xs" name="Neil Armstrong" />
                 <Avatar size="sm" name="Neil Armstrong" />
-                <Avatar size="md" name="Neil Armstrong" />
+                <Avatar name="Neil Armstrong" />
                 <Avatar size="lg" name="Neil Armstrong" />
                 <Avatar size="xl" name="Neil Armstrong" />
                 <Avatar size="2xl" name="Neil Armstrong" />

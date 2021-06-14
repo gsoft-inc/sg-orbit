@@ -108,7 +108,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
     forwardedRef: ForwardedRef<any>;
 }
 
-export interface SpinnerProps extends ComponentProps<"div"> {
+interface SpinnerProps extends ComponentProps<"div"> {
     onIncrement?: (event: MouseEvent) => void;
     onDecrement?: (event: MouseEvent) => void;
     onFocus?: (event: FocusEvent) => void;
