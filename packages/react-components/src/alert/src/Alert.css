@@ -26,7 +26,6 @@
 .o-ui-alert-content {
     flex-grow: 1;
     white-space: pre-wrap;
-    word-break: break-all;
 }
 
 .o-ui-alert-has-icon .o-ui-alert-content,
