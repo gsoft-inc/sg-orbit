@@ -16,38 +16,38 @@
 
 /* SIZES */
 .o-ui-avatar-2xs {
-    width: var(--o-ui-avatar-2xs);
-    height: var(--o-ui-avatar-2xs);
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-avatar-xs {
-    width: var(--o-ui-avatar-xs);
-    height: var(--o-ui-avatar-xs);
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
 }
 
 .o-ui-avatar-sm {
-    width: var(--o-ui-avatar-sm);
-    height: var(--o-ui-avatar-sm);
+    width: var(--o-ui-global-scale-golf);
+    height: var(--o-ui-global-scale-golf);
 }
 
 .o-ui-avatar-md {
-    width: var(--o-ui-avatar-md);
-    height: var(--o-ui-avatar-md);
+    width: var(--o-ui-global-scale-hotel);
+    height: var(--o-ui-global-scale-hotel);
 }
 
 .o-ui-avatar-lg {
-    width: var(--o-ui-avatar-lg);
-    height: var(--o-ui-avatar-lg);
+    width: var(--o-ui-global-scale-india);
+    height: var(--o-ui-global-scale-india);
 }
 
 .o-ui-avatar-xl {
-    width: var(--o-ui-avatar-xl);
-    height: var(--o-ui-avatar-xl);
+    width: var(--o-ui-global-scale-juliett);
+    height: var(--o-ui-global-scale-juliett);
 }
 
 .o-ui-avatar-2xl {
-    width: var(--o-ui-avatar-2xl);
-    height: var(--o-ui-avatar-2xl);
+    width: var(--o-ui-global-scale-kilo);
+    height: var(--o-ui-global-scale-kilo);
 }
 
 /* IMAGE */
@@ -56,8 +56,8 @@
     height: 100%;
 }
 
-/* INTIALS */
-.o-ui-avatar-initials {
+/* TEXT */
+.o-ui-avatar-text {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -74,18 +74,16 @@
 }
 
 /* GROUPS | REMAININGS */
-.o-ui-remaining-avatars {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    overflow: hidden;
+.o-ui-avatar-group-remainings {
     background-color: var(--o-ui-global-cloud-50);
+}
+
+.o-ui-avatar-group-remainings .o-ui-avatar-text {
     color: var(--o-ui-global-marine-400);
 }
 
 /* GROUPS | REMAININGS | SIZES */
-.o-ui-remaining-avatars-2xs {
+/* .o-ui-remaining-avatars-2xs {
     width: var(--o-ui-avatar-2xs);
     height: var(--o-ui-avatar-2xs);
 }
@@ -118,4 +116,4 @@
 .o-ui-remaining-avatars-2xl {
     width: var(--o-ui-avatar-2xl);
     height: var(--o-ui-avatar-2xl);
-}
+} */

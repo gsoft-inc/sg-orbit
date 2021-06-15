@@ -1,15 +1,15 @@
+import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Group } from "../../group";
-import { Text } from "../../text";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
+import { augmentElement, cssModule, forwardRef, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
 export interface InnerAvatarGroupProps {
     /**
      * The avatars of the group can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -26,7 +26,7 @@ export interface InnerAvatarGroupProps {
 
 interface RemainingAvatarsProps {
     count: number;
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
 function RemainingAvatars({ count, size, ...rest }: RemainingAvatarsProps) {
@@ -35,16 +35,19 @@ function RemainingAvatars({ count, size, ...rest }: RemainingAvatarsProps) {
             {...mergeProps(
                 rest,
                 {
-                    className: cssModule(
-                        "o-ui-remaining-avatars",
-                        normalizeSize(size)
+                    className: mergeClasses(
+                        "o-ui-avatar-group-remainings",
+                        cssModule(
+                            "o-ui-avatar",
+                            normalizeSize(size)
+                        )
                     )
                 }
             )}
         >
-            <Text size={size}>
+            <AvatarText size={size}>
                 {`+${count}`}
-            </Text>
+            </AvatarText>
         </Box>
     );
 }

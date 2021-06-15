@@ -41,7 +41,7 @@ function AvatarImage({
     name,
     src,
     retryCount
-}: Partial<InnerAvatarProps>) {
+}: Partial<AvatarProps>) {
     if (!isString(src)) {
         return (
             // @ts-ignore
@@ -78,17 +78,7 @@ const O365InitialsColorsForName = [
     "#B91D47"
 ];
 
-const textSize = createSizeAdapter({
-    "2xs": "xs",
-    "xs": "xs",
-    "sm": "sm",
-    "md": "md",
-    "lg": "lg",
-    "xl": "xl",
-    "2xl": "2xl"
-});
-
-function AvatarInitials({ name, size }: Partial<InnerAvatarProps>) {
+function AvatarInitials({ name, size }: Partial<AvatarProps>) {
     const initials = useMemo(() => {
         const cleanName = name.replace(/\s+/g, " ").trim();
 
@@ -113,17 +103,51 @@ function AvatarInitials({ name, size }: Partial<InnerAvatarProps>) {
     }, [name]);
 
     return (
-        <Text
-            size={textSize(size)}
-            className="o-ui-avatar-initials"
+        <AvatarText
+            size={size}
             style={{
                 backgroundColor: color
             }}
             role="img"
             aria-label={name}
-            as="span"
         >
             {initials}
+        </AvatarText>
+    );
+}
+
+export type AvatarTextProps = Partial<AvatarProps> & {
+    children: ReactNode;
+};
+
+const textSize = createSizeAdapter({
+    "2xs": "xs",
+    "xs": "xs",
+    "sm": "sm",
+    "md": "md",
+    "lg": "lg",
+    "xl": "xl",
+    "2xl": "2xl"
+});
+
+export function AvatarText({
+    size,
+    as = "span",
+    children,
+    ...rest
+}: AvatarTextProps) {
+    return (
+        <Text
+            {...mergeProps<any>(
+                rest,
+                {
+                    size: textSize(size),
+                    className: "o-ui-avatar-text",
+                    as
+                }
+            )}
+        >
+            {children}
         </Text>
     );
 }
