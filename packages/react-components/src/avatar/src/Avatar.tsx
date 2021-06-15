@@ -66,7 +66,7 @@ function AvatarImage({
     );
 }
 
-const InitialsColorsForName = [
+const O365InitialsColorsForName = [
     "#99B433",
     "#6BA5E7",
     "#E773BD",
@@ -104,7 +104,7 @@ function AvatarInitials({ name, size }: Partial<InnerAvatarProps>) {
             hashCode ^= (character << shift) + (character >> (8 - shift));
         }
 
-        return InitialsColorsForName[hashCode % InitialsColorsForName.length];
+        return O365InitialsColorsForName[hashCode % O365InitialsColorsForName.length];
     }, [name]);
 
     return (

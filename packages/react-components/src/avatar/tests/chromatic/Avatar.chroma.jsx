@@ -7,7 +7,6 @@ function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Avatar")
         .segment(segment)
         .parameters(paramsBuilder()
-            .chromaticDelay(100)
             .a11y({
                 config: {
                     rules: [

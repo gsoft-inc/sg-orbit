@@ -48,6 +48,8 @@ function RemainingAvatars({ count, size, ...rest }: RemainingAvatarsProps) {
     );
 }
 
+const AvailableSlots = 4;
+
 export function InnerAvatarGroup({
     size,
     as = "div",
@@ -57,20 +59,20 @@ export function InnerAvatarGroup({
 }: InnerAvatarGroupProps) {
     const avatars = Children.toArray(children);
 
-    const isExceeding = avatars.length > 4;
+    const isExceeding = avatars.length > AvailableSlots;
 
-    const shown = isExceeding ? avatars.slice(0, 3) : avatars;
-    const remaining = isExceeding ? avatars.slice(3) : null;
+    const shownAvatars = isExceeding ? avatars.slice(0, AvailableSlots - 1) : avatars;
+    const remainingAvatars = isExceeding ? avatars.slice(AvailableSlots - 1) : null;
 
-    const avatarsMarkup = shown.map((x: ReactElement) => {
+    const avatarsMarkup = shownAvatars.map((x: ReactElement) => {
         return augmentElement(x, {
             size
         });
     });
 
-    const remainingMarkup = remaining && (
+    const remainingAvatarsMarkup = remainingAvatars && (
         <RemainingAvatars
-            count={remaining.length}
+            count={remainingAvatars.length}
             size={size}
         />
     );
@@ -88,7 +90,7 @@ export function InnerAvatarGroup({
             )}
         >
             {avatarsMarkup}
-            {remainingMarkup}
+            {remainingAvatarsMarkup}
         </Group>
     );
 }

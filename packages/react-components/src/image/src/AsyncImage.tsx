@@ -1,6 +1,6 @@
-import { ComponentProps, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
+import { ComponentProps, ReactElement, ReactNode, useCallback, useEffect, useState } from "react";
 import { InnerImageProps, Image as OrbitImage } from "./Image";
-import { forwardRef, isNil } from "../../shared";
+import { forwardRef, isNil, useRefState } from "../../shared";
 
 export interface InnerAsyncImageProps extends InnerImageProps {
     /**
@@ -28,29 +28,35 @@ function InnerAsyncImage({
     const [isLoaded, setIsLoaded] = useState(false);
     const [failureCount, setFailureCount] = useState(0);
 
-    const [canRender, setCanRender] = useState(false);
+    const [imageRef, setImage] = useRefState<HTMLImageElement>();
 
-    const imageRef = useRef<HTMLImageElement>();
+    const [canRender, setCanRender] = useState(false);
+    const [canRenderTimeoutIdRef, setCanRenderTimeoutId] = useRefState<ReturnType<typeof setTimeout>>();
 
     if (retryCount < 1) {
         throw new Error("An async image retry count must be equal or greater to 1.");
     }
 
-    const dispose = () => {
-        if (!isNil(imageRef.current)) {
-            imageRef.current.onload = null;
-            imageRef.current.onerror = null;
-            imageRef.current = null;
+    const disposeImage = useCallback(() => {
+        const image = imageRef.current;
+
+        if (!isNil(image)) {
+            image.onload = null;
+            image.onerror = null;
+
+            setImage(null);
         }
-    };
+    }, [imageRef, setImage]);
 
     useEffect(() => {
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             setCanRender(true);
         }, delay);
-    }, [delay]);
 
-    // Reset  when the "src" change.
+        setCanRenderTimeoutId(timeoutId);
+    }, [delay, setCanRenderTimeoutId]);
+
+    // Reset when the image "src" change.
     useEffect(() => {
         setIsLoaded(false);
         setFailureCount(0);
@@ -58,24 +64,30 @@ function InnerAsyncImage({
 
     useEffect(() => {
         if (!isLoaded && failureCount < retryCount) {
-            imageRef.current = new Image();
-            imageRef.current.src = src;
+            const image = new Image();
+            image.src = src;
 
-            imageRef.current.onload = () => {
-                dispose();
+            image.onload = () => {
+                disposeImage();
                 setIsLoaded(true);
+
+                if (!isNil(canRenderTimeoutIdRef.current)) {
+                    clearTimeout(canRenderTimeoutIdRef.current);
+                }
             };
 
-            imageRef.current.onerror = () => {
-                dispose();
+            image.onerror = () => {
+                disposeImage();
                 setFailureCount(failureCount + 1);
             };
 
+            setImage(image);
+
             return () => {
-                dispose();
+                disposeImage();
             };
         }
-    }, [src, retryCount, isLoaded, failureCount]);
+    }, [src, retryCount, isLoaded, failureCount, setImage, disposeImage, canRenderTimeoutIdRef]);
 
     if (!canRender && !isLoaded) {
         return null;
