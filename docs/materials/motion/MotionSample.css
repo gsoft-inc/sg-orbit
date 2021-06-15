@@ -1,3 +1,47 @@
+.animation-player {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.play-animation {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: rgba(3, 6, 209, 0.6);
+    padding: 4px 6px;
+    font-size: .75rem;
+    cursor: pointer;
+    color: white;
+    line-height: 1;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+    transition: background-color var(--o-ui-timing-2) var(--o-ui-easing-focus);
+}
+
+.play-animation:hover {
+    background-color: rgba(3, 6, 209, 0.75);
+}
+
+.play-animation:after {
+    opacity: 0;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    border-radius: inherit;
+    transition: var(--o-ui-focus-ring-transition);
+}
+
+.play-animation:focus-visible::after {
+    opacity: 1;
+}
+
 .motion-sample {
     --duration: var(--o-ui-timing-2);
     --easing: var(--o-ui-easing-productive);
@@ -5,5 +49,5 @@
 }
 
 .slide {
-    transform: translate(150px);
+    transform: translate(125px);
 }

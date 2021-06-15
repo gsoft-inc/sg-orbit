@@ -13,11 +13,44 @@ import { Table, Tagline } from "@stories/components";
 
 ## Utilities
 
-Our motion utilities consists of two set of values, *durations* as well as *easings*.
+Our motion utilities consists of two set of values, *durations* as well as *easings*. Both variables can be combined in transition as well in CSS animations to set the tone of an animation/transition(animation is used interchangeably with transition from now on).
+
+## Usage
+
+Durations and easings can be refered to in CSS [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well as in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) declarations.
+
+In transition declaration :
+
+```css
+.tease {
+    transition: color var(--o-ui-timing-1) var(--o-ui-easing-focus);
+}
+```
+
+In animation declaration :
+
+```css
+
+@keyframes tease-animation  {
+    0% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.tease {
+    animation: tease-animation var(--o-ui-timing-2) var(--o-ui-easing-productive);
+}
+
+```
 
 ### Duration
 
-Timing is everything. Durations helps convey a message and makes transitions smooth and responsive. Different durations should be used for different cases. A chart is available down below to help making an informed desicion while designing animations.
+Orbit exposes 5 [durations](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration), they help convey a message and makes animations smooth and responsive.
 
 <Table
     columns={[
@@ -35,7 +68,19 @@ Timing is everything. Durations helps convey a message and makes transitions smo
 
 ### Easings
 
-Easings adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides 3 pre-defined easings, each having their use.
+[Easings](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) denotes a mathematical function that describes the rate at which a numerical value changes. They adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides 3 pre-defined easings, each having their use.
+
+#### Productive
+
+Used in animations that are not in the way, they quickly change from one state to another.
+
+#### Focus
+
+Used in animations that are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
+
+#### Expressive
+
+Used in animations that are meant to give a sense of completeness or resolution to the user. Use them wisely.
 
 <Table
     columns={[
@@ -49,23 +94,11 @@ Easings adds life to motion, providing natural rests, they set the mood of an an
     ]}
 />
 
-#### Productive
-
-Productive animations are not in the way, they quickly change from one state to another.
-
-#### Focus
-
-Focus animations are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
-
-#### Expressive
-
-Expressive animations are meant to give a sense of completeness or resolution to the user. Use them wisely.
-
 ## Utilities
 
 ### Variables
 
-Reusables durations and easings are exposed through CSS Custom Properties(aka variables).
+Durations and easings are exposed through CSS Custom Properties(aka variables).
 
 ### Durations
 
@@ -90,7 +123,7 @@ Reusables durations and easings are exposed through CSS Custom Properties(aka va
     columns={[
         { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code f7 o-90" },
         { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" },
-        { title: "Example", headerStyle: { width: "300px" } }
+        { title: "Example", headerStyle: { width: "325px" } }
     ]}
     rows={[
         ["cubic-bezier(0.22, 0.61, 0.36, 1)", "--o-ui-easing-productive", <MotionSample duration="500" easing="(0.22, 0.61, 0.36, 1)"/>],
