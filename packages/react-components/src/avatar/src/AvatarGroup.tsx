@@ -2,6 +2,7 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Group } from "../../group";
 import { Text } from "../../text";
+import { Tooltip, TooltipTrigger } from "../../tooltip";
 import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize } from "../../shared";
 
 export interface InnerAvatarGroupProps {
@@ -78,20 +79,25 @@ export function InnerAvatarGroup({
     );
 
     return (
-        <Group
-            {...mergeProps<any>(
-                rest,
-                {
-                    gap: 1,
-                    className: "o-ui-avatar-group",
-                    as,
-                    ref: forwardedRef
-                }
-            )}
-        >
-            {avatarsMarkup}
-            {remainingAvatarsMarkup}
-        </Group>
+        <TooltipTrigger>
+            <Group
+                {...mergeProps<any>(
+                    rest,
+                    {
+                        gap: 1,
+                        className: "o-ui-avatar-group",
+                        as,
+                        ref: forwardedRef
+                    }
+                )}
+            >
+                {avatarsMarkup}
+                {remainingAvatarsMarkup}
+            </Group>
+            <Tooltip>
+                {avatars.map((x: ReactElement) => x?.props?.name).filter(x => x).join(", ")}
+            </Tooltip>
+        </TooltipTrigger>
     );
 }
 

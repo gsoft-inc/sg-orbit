@@ -21,30 +21,19 @@ function stories(segment) {
 stories()
     .add("local image", () =>
         <Inline verticalAlign="center">
-            <Avatar size="xs" name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
-            <Avatar size="sm" name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
-            <Avatar name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
-            <Avatar size="lg" name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
-            <Avatar size="xl" name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
-            <Avatar size="2xl" name="Neil Armstrong">
-                <img src={Person} alt="Neil Armstrong" />
-            </Avatar>
+            <Avatar src={Person} size="2xs" name="Neil Armstrong" />
+            <Avatar src={Person} size="xs" name="Neil Armstrong" />
+            <Avatar src={Person} size="sm" name="Neil Armstrong" />
+            <Avatar src={Person} name="Neil Armstrong" />
+            <Avatar src={Person} size="lg" name="Neil Armstrong" />
+            <Avatar src={Person} size="xl" name="Neil Armstrong" />
+            <Avatar src={Person} size="2xl" name="Neil Armstrong" />
         </Inline>
     )
     .add("remote image", () =>
         <Inline>
-            <Avatar size="2xl" name="Neil Armstrong" src="https://via.placeholder.com/64" />
-            <Avatar size="2xl" name="Neil Armstrong" src="https://via.placeholder.com" />
+            <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me/api/portraits/men/10.jpg" />
+            <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me" />
         </Inline>,
          {
              ...paramsBuilder()
@@ -55,6 +44,7 @@ stories()
     .add("initials", () =>
         <Stack>
             <Inline verticalAlign="center">
+                <Avatar size="2xs" name="Neil Armstrong" />
                 <Avatar size="xs" name="Neil Armstrong" />
                 <Avatar size="sm" name="Neil Armstrong" />
                 <Avatar name="Neil Armstrong" />

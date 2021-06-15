@@ -1,10 +1,10 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Avatar } from "@react-components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@react-components/listbox";
-import { LargeAvatar, SmallAvatar } from "./Avatar.jsx"
 import { Text } from "@react-components/text";
 import { Tooltip, TooltipTrigger } from "@react-components/tooltip";
 
@@ -150,29 +150,6 @@ However, think twice before adding *end* icons, *start* icons should be your go 
     </Story>
 </Preview>
 
-### Item avatar
-
-A listbox item can have an avatar.
-
-<Preview scope={{ SmallAvatar }}>
-    <Story name="item avatar">
-        <Listbox aria-label="Planets">
-            <Item key="earth">
-                <SmallAvatar slot="avatar">ER</SmallAvatar>
-                <Text>Earth</Text>
-            </Item>
-            <Item key="jupiter">
-                <SmallAvatar slot="avatar">JU</SmallAvatar>
-                <Text>Jupiter</Text>
-            </Item>
-            <Item key="mars">
-                <SmallAvatar slot="avatar">MA</SmallAvatar>
-                <Text>Mars</Text>
-            </Item>
-        </Listbox>
-    </Story>
-</Preview>
-
 ### Item description
 
 A listbox item can have a description.
@@ -196,7 +173,7 @@ A listbox item can have a description.
     </Story>
 </Preview>
 
-A can be paired with an [icon](?path=/docs/icon-gallery--page).
+A description can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="item description + icon">
@@ -220,23 +197,23 @@ A can be paired with an [icon](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-A can also be paired with an avatar.
+A description can also be paired with an [avatar](?path=/docs/avatar--default-story).
 
-<Preview scope={{ LargeAvatar }}>
+<Preview>
     <Story name="item description + avatar">
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar">ER</LargeAvatar>
+                <Avatar name="Earth" />
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar">JU</LargeAvatar>
+                <Avatar name="Jupiter" />
                 <Text>Jupiter</Text>
                 <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar">MA</LargeAvatar>
+                <Avatar name="Mars" />
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>

@@ -21,6 +21,10 @@ stories()
     .add("default", () =>
         <Inline gap={13}>
             <Stack>
+                <AvatarGroup size="2xs">
+                    <Avatar name="Sally Ride" />
+                    <Avatar name="Alan Shepard" />
+                </AvatarGroup>
                 <AvatarGroup size="xs">
                     <Avatar name="Sally Ride" />
                     <Avatar name="Alan Shepard" />
@@ -47,6 +51,12 @@ stories()
                 </AvatarGroup>
             </Stack>
             <Stack>
+                <AvatarGroup size="2xs">
+                    <Avatar name="Sally Ride" />
+                    <Avatar name="Alan Shepard" />
+                    <Avatar name="Chris Hadfield" />
+                    <Avatar name="Christa McAuliffe" />
+                </AvatarGroup>
                 <AvatarGroup size="xs">
                     <Avatar name="Sally Ride" />
                     <Avatar name="Alan Shepard" />
@@ -88,6 +98,13 @@ stories()
     )
     .add("with remainings", () =>
         <Stack>
+            <AvatarGroup size="2xs">
+                <Avatar name="Sally Ride" />
+                <Avatar name="Alan Shepard" />
+                <Avatar name="Chris Hadfield" />
+                <Avatar name="Christa McAuliffe" />
+                <Avatar name="Neil Armstrong" />
+            </AvatarGroup>
             <AvatarGroup size="xs">
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />

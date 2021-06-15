@@ -1,4 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Avatar } from "@react-components/avatar";
 import { Button, IconButton } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@react-components/disclosure";
@@ -191,7 +192,7 @@ A menu item can have a description.
 A description can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
-    <Story name="description + icon">
+    <Story name="item description + icon">
         <MenuTrigger>
             <IconButton color="secondary" aria-label="View tasks">
                 <VerticalDotsIcon />
@@ -211,6 +212,35 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
                     <LightbulbIcon />
                     <Text>Land...</Text>
                     <Text slot="description">Land on Of Course I Still Love You</Text>
+                </Item>
+            </Menu>
+        </MenuTrigger>
+    </Story>
+</Preview>
+
+A description can also be paired with an [avatar](?path=/docs/avatar--default-story)
+
+<Preview>
+    <Story name="item description + avatar">
+        <MenuTrigger>
+            <IconButton color="secondary" aria-label="View tasks">
+                <VerticalDotsIcon />
+            </IconButton>
+            <Menu>
+                <Item key="launch">
+                    <Avatar name="Sally Ride" />
+                    <Text>Sally Ride</Text>
+                    <Text slot="description">First American woman to go into space</Text>
+                </Item>
+                <Item key="eject">
+                    <Avatar name="Alan Shepard" />
+                    <Text>Alan Shepard</Text>
+                    <Text slot="description">American astronaut, naval aviator, test pilot, and businessman</Text>
+                </Item>
+                <Item key="land">
+                    <Avatar name="Chris Hadfield" />
+                    <Text>Chris Hadfield</Text>
+                    <Text slot="description">First Canadian Astronaut to walk in space</Text>
                 </Item>
             </Menu>
         </MenuTrigger>

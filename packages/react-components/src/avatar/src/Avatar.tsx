@@ -2,9 +2,9 @@ import "./Avatar.css";
 
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../text";
-import { augmentElement, cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot } from "../../shared";
+import { createSizeAdapter, cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot } from "../../shared";
 
 export interface InnerAvatarProps {
     /**
@@ -12,17 +12,17 @@ export interface InnerAvatarProps {
      */
     name: string;
     /**
-     * The url of the avatar image.
+     * The url of a remote image or an image object.
      */
-    src?: string;
+    src?: string | ReactNode;
     /**
-     * The allowed number of retry to load a remote avatar.
+     * The allowed number of retry to load a remote image.
      */
     retryCount?: number;
     /**
      * An avatar can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -32,10 +32,6 @@ export interface InnerAvatarProps {
      */
     slot?: string;
     /**
-     * React children.
-     */
-    children?: ReactNode;
-    /**
      * @ignore
      */
     forwardedRef: ForwardedRef<any>;
@@ -44,15 +40,13 @@ export interface InnerAvatarProps {
 function AvatarImage({
     name,
     src,
-    retryCount,
-    children
+    retryCount
 }: Partial<InnerAvatarProps>) {
-    if (!isNil(children)) {
-        // @ts-ignore
-        return augmentElement(Children.only(children), {
-            className: "o-ui-avatar-image",
-            alt: name
-        });
+    if (!isString(src)) {
+        return (
+            // @ts-ignore
+            <img src={src} alt={name} className="o-ui-avatar-image" />
+        );
     }
 
     return (
@@ -60,6 +54,7 @@ function AvatarImage({
             src={src}
             alt={name}
             retryCount={retryCount}
+            className="o-ui-avatar-image"
         >
             <AvatarInitials name={name} />
         </AsyncImage>
@@ -82,6 +77,16 @@ const O365InitialsColorsForName = [
     "#DA532C",
     "#B91D47"
 ];
+
+const textSize = createSizeAdapter({
+    "2xs": "xs",
+    "xs": "xs",
+    "sm": "sm",
+    "md": "md",
+    "lg": "lg",
+    "xl": "xl",
+    "2xl": "2xl"
+});
 
 function AvatarInitials({ name, size }: Partial<InnerAvatarProps>) {
     const initials = useMemo(() => {
@@ -109,7 +114,7 @@ function AvatarInitials({ name, size }: Partial<InnerAvatarProps>) {
 
     return (
         <Text
-            size={size}
+            size={textSize(size)}
             className="o-ui-avatar-initials"
             style={{
                 backgroundColor: color
@@ -129,19 +134,16 @@ export function InnerAvatar({
     retryCount,
     size,
     as = "div",
-    children,
     forwardedRef,
     ...rest
 }: InnerAvatarProps) {
-    const content = !isNil(src) || !isNil(children)
+    const content = !isNil(src)
         ? (
             <AvatarImage
                 name={name}
                 src={src}
                 retryCount={retryCount}
-            >
-                {children}
-            </AvatarImage>
+            />
         ) : (
             <AvatarInitials
                 name={name}
@@ -158,7 +160,6 @@ export function InnerAvatar({
                         "o-ui-avatar",
                         normalizeSize(size)
                     ),
-                    title: name,
                     as,
                     ref: forwardedRef
                 }

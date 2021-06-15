@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Autocomplete, InnerAutocomplete } from "@react-components/autocomplete";
-import { Avatar } from "./Avatar";
+import { Avatar } from "@react-components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpIcon, IconList, LightbulbIcon, MagnifierIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@react-components/collection";
@@ -164,23 +164,23 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     </Story>
 </Preview>
 
-A description can be paired with an avatar.
+A description can be paired with an [avatar](?path=/docs/avatar--default-story).
 
-<Preview scope={{ Avatar }}>
+<Preview>
     <Story name="item description + avatar">
         <Autocomplete placeholder="Planets" aria-label="Planets">
             <Item key="earth">
-                <Avatar slot="avatar">ER</Avatar>
+                <Avatar name="Earth" />
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <Avatar slot="avatar">JU</Avatar>
+                <Avatar name="Jupiter" />
                 <Text>Jupiter</Text>
                 <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <Avatar slot="avatar">MA</Avatar>
+                <Avatar name="Mars" />
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
