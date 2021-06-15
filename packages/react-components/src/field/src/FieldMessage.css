@@ -1,5 +1,7 @@
 .o-ui-field-message {
     max-width: 50ch;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 /* FLUID */

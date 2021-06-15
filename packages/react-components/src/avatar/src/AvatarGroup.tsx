@@ -98,7 +98,7 @@ export function InnerAvatarGroup({
                 {remainingAvatarsMarkup}
             </Group>
             <Tooltip>
-                {avatars.map((x: ReactElement) => x?.props?.name).filter(x => x).join(", ")}
+                {avatars.map((x: ReactElement) => x?.props?.name).filter(x => x).join("\r\n")}
             </Tooltip>
         </TooltipTrigger>
     );
