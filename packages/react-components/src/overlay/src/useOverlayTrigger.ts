@@ -64,7 +64,13 @@ export function useOverlayTrigger(isOpen: boolean, {
         show(event);
 
         if (hideOnLeave) {
-            let target = event.target as HTMLElement;
+            // It's very important to attach the "mouseleave" handler to event.currentTarget (aka the element onMouseEnter is attached to)
+            // and not event.target since onMouseEnter also fire for the children of the trigger (which it shouldn't according to
+            // https://stackoverflow.com/questions/41745341/mouseenter-event-does-not-fire-when-entering-parent-from-child-element and
+            // https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event).
+            // If the "mouseleave" handler is attached to event.target, it might be a child instead of the trigger and hide will be called even if the
+            // cursor is still in the trigger.
+            let target = event.currentTarget as HTMLElement;
 
             // HACK: The current strategy to show an overlay for a disabled trigger is to wrap the trigger in a div.
             // Strangely, when doing so, event.target is the disable trigger instead of the wrapper. This code ensure we resolve
