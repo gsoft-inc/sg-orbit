@@ -1,0 +1,9 @@
+.motion-sample {
+    --duration: var(--o-ui-timing-2);
+    --easing: var(--o-ui-easing-productive);
+    transition: transform var(--duration) var(--easing);
+}
+
+.slide {
+    transform: translate(150px);
+}

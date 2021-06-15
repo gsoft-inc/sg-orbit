@@ -74,8 +74,7 @@
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otherwise it won't work. */
 .o-ui-slide-down {
-    --timing: var(--o-ui-timing-5);
-    transition: all var(--timing) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-timing-5) var(--o-ui-easing-productive);
 }
 
 .o-ui-slide-up {

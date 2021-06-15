@@ -1,0 +1,100 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { MotionSample } from "./MotionSample"
+import { Table, Tagline } from "@stories/components";
+
+<Meta
+    title="Materials/Motion"
+    id="motion"
+/>
+
+# Motion
+
+<Tagline>Motion is a way to convey a message without telling a word, from giving a visual hint to a user about what just happened to rewarding him.</Tagline>
+
+## Utilities
+
+Our motion utilities consists of two set of values, *durations* as well as *easings*.
+
+### Duration
+
+Timing is everything. Durations helps convey a message and makes transitions smooth and responsive. Different durations should be used for different cases. A chart is available down below to help making an informed desicion while designing animations.
+
+<Table
+    columns={[
+        { title: "Duration", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" }
+    ]}
+    rows={[
+        ["t1", "100ms"],
+        ["t2", "200ms"],
+        ["t3", "300ms"],
+        ["t4", "500ms"],
+        ["t5", "800ms"]
+    ]}
+/>
+
+### Easings
+
+Easings adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides 3 pre-defined easings, each having their use.
+
+<Table
+    columns={[
+        { title: "Easing", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Value", headerStyle: { width: "400px" }, rowClassName: "code f7 o-90" }
+    ]}
+    rows={[
+        ["productive", "cubic-bezier(0.22, 0.61, 0.36, 1)"],
+        ["focus", "cubic-bezier(0.46, 0.03, 0.52, 0.96)"],
+        ["expressive", "cubic-bezier(0.72, -0.66, 0.15, 1.5)"]
+    ]}
+/>
+
+#### Productive
+
+Productive animations are not in the way, they quickly change from one state to another.
+
+#### Focus
+
+Focus animations are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
+
+#### Expressive
+
+Expressive animations are meant to give a sense of completeness or resolution to the user. Use them wisely.
+
+## Utilities
+
+### Variables
+
+Reusables durations and easings are exposed through CSS Custom Properties(aka variables).
+
+### Durations
+
+<Table
+    columns={[
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Example", headerStyle: { width: "500px" } }
+    ]}
+    rows={[
+        ["100ms", "--o-ui-timing-1", <MotionSample duration="100"/>],
+        ["200ms", "--o-ui-timing-2", <MotionSample duration="200"/>],
+        ["300ms", "--o-ui-timing-3", <MotionSample duration="300"/>],
+        ["500ms", "--o-ui-timing-4", <MotionSample duration="500"/>],
+        ["800ms", "--o-ui-timing-5", <MotionSample duration="800"/>]
+    ]}
+/>
+
+### Easings
+
+<Table
+    columns={[
+        { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code f7 o-90" },
+        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" },
+        { title: "Example", headerStyle: { width: "300px" } }
+    ]}
+    rows={[
+        ["cubic-bezier(0.22, 0.61, 0.36, 1)", "--o-ui-easing-productive", <MotionSample duration="500" easing="(0.22, 0.61, 0.36, 1)"/>],
+        ["cubic-bezier(0.46, 0.03, 0.52, 0.96)", "--o-ui-easing-focus", <MotionSample duration="500" easing="(0.46, 0.03, 0.52, 0.96)"/>],
+        ["cubic-bezier(0.72, -0.66, 0.15, 1.5)", "--o-ui-easing-expressive", <MotionSample duration="500" easing="(0.72, -0.66, 0.15, 1.5)"/>]
+    ]}
+/>
