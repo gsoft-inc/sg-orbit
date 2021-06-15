@@ -6,7 +6,7 @@
     padding: var(--o-ui-global-scale-charlie);
     max-width: 325px;
     white-space: pre-wrap;
-    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 /* We need a .o-ui-tooltip-content class */
