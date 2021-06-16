@@ -10,6 +10,7 @@
 
 .o-ui-avatar {
     display: inline-flex;
+    flex-shrink: 0;
     border-radius: var(--o-ui-shape-circular);
     overflow: hidden;
 }

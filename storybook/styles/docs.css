@@ -304,6 +304,7 @@
 .sbdocs.sbdocs-blockquote {
     padding: var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-delta) var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-charlie);
     background-color: var(--o-ui-global-moonstone-50);
+    font-size: 15px;
 }
 
 /* ELEMENTS | KBD */
