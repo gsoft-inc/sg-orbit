@@ -1,7 +1,7 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 import type { SelectionMode } from "./Menu";
 
-interface MenuContextType {
+export interface MenuContextType {
     onSelect?: (event: SyntheticEvent, key: string) => void;
     selectionMode?: SelectionMode;
     selectedKeys?: string[];

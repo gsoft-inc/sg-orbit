@@ -71,11 +71,14 @@ export function InnerMenuItem({
         icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-menu-item-start-icon",
-                size: isNil(all.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : "md"
             };
         },
-        avatar: {
-            className: "o-ui-menu-item-option-avatar"
+        avatar: (_matching: ReactElement, all: Record<string, any>) => {
+            return {
+                className: "o-ui-menu-item-option-avatar",
+                size: isNil(all.description) ? "2xs" : "sm"
+            };
         },
         text: {
             id: labelId,

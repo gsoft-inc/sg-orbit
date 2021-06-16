@@ -19,7 +19,7 @@ export function useInputGroupContext(): [InputGroupContextType, boolean] {
         : [{}, false];
 }
 
-interface ClearInputGroupContextProps {
+export interface ClearInputGroupContextProps {
     children?: ReactNode;
 }
 

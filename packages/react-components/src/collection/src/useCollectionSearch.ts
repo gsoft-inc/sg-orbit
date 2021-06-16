@@ -33,7 +33,8 @@ function useNodesFiltering(nodes: CollectionNode[]): [CollectionItem[], (query: 
 
     return [results, filter];
 }
-interface UseCollectionSearchOptions {
+
+export interface UseCollectionSearchOptions {
     onSearch?: (event: SyntheticEvent, query: string) => void;
 }
 

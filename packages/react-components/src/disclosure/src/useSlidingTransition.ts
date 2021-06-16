@@ -19,7 +19,7 @@ enum SlidingDirection {
     up = "Up"
 }
 
-interface SlidingTransitionState {
+export interface SlidingTransitionState {
     transitionState: TransitionState;
     direction: SlidingDirection;
 }
@@ -41,7 +41,7 @@ function reducer(state: SlidingTransitionState, action: ActionType) {
     });
 }
 
-interface SlidingTransition {
+export interface SlidingTransition {
     transitionClasses: string;
     transitionProps: {
         onTransitionEnd?: () => void;

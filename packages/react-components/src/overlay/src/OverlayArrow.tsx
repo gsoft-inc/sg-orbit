@@ -2,7 +2,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { forwardRef, mergeProps } from "../../shared";
 
-interface InnerOverlayArrowProps {
+export interface InnerOverlayArrowProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */

@@ -107,11 +107,14 @@ export function InnerListboxOption({
         icon: (_matching: ReactElement, all: Record<string, any>) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(all.description) ? "sm" : undefined
+                size: isNil(all.description) ? "sm" : "md"
             };
         },
-        avatar: {
-            className: "o-ui-listbox-option-avatar"
+        avatar: (_matching: ReactElement, all: Record<string, any>) => {
+            return {
+                className: "o-ui-listbox-option-avatar",
+                size: isNil(all.description) ? "2xs" : "sm"
+            };
         },
         text: {
             id: labelId,

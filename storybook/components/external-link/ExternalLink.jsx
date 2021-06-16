@@ -1,4 +1,4 @@
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const A = components.a;
 

@@ -3,7 +3,7 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
 
-interface InnerCrossButtonProps extends AriaLabelingProps {
+export interface InnerCrossButtonProps extends AriaLabelingProps {
     /**
      * Whether or not the button content should takes additional space.
      */

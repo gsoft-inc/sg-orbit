@@ -5,6 +5,8 @@
     border: 1px solid var(--o-ui-alias-border-2);
     padding: var(--o-ui-global-scale-charlie);
     max-width: 325px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 
 /* We need a .o-ui-tooltip-content class */

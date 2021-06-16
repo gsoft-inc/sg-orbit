@@ -8,7 +8,7 @@ import { FieldContext } from "./FieldContext";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
-interface InnerGroupFieldProps extends DomProps {
+export interface InnerGroupFieldProps extends DomProps {
     /**
      * Whether the field should display as "valid" or "invalid".
      */

@@ -3,7 +3,7 @@ import { isFunction, isNil, isUndefined } from "./assertions";
 import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
-interface CompositeKeyWeakMapNode<T> {
+export interface CompositeKeyWeakMapNode<T> {
     value?: T;
     map: WeakMap<any, any>;
 }

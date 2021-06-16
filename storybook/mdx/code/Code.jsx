@@ -1,5 +1,5 @@
 import { Snippet } from "@stories/components";
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const StorybookCode = components.code;
 

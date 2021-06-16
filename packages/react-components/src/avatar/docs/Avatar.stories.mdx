@@ -1,0 +1,130 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Avatar, AvatarGroup, InnerAvatar, InnerAvatarGroup } from "@react-components/avatar";
+import { ChrisHadfield } from "./assets";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@react-components/layout";
+
+<Meta
+    title="Components/Avatar"
+    id="avatar"
+    parameters={{
+        a11y: {
+            config: {
+                rules: [
+                    { id: "color-contrast", enabled: false }
+                ]
+            }
+        }
+    }}
+/>
+
+# Avatar
+
+<Tagline>An avatar is a graphical representation of a user and typically appears in list and card views, along side a user's information and/or content that they have created</Tagline>
+
+<ComponentInfo
+    usage={"import { Avatar, AvatarGroup } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/avatar/src"
+/>
+
+## Usage
+
+### Default
+
+By default, an avatar display the initials of a user.
+
+Since ShareGate's applications are closely tied to [Microsoft Office 365](https://www.office.com/), our avatar aims to be similar to O365 personas. Therefore, our initials avatar background colors matches O365 personas.
+
+<Preview>
+    <Story name="default">
+        <Avatar name="Alan Shepard" />
+    </Story>
+</Preview>
+
+### Local image
+
+An avatar can accept a local image.
+
+<Preview scope={{ ChrisHadfield }}>
+    <Story name="local image">
+        <Avatar src={ChrisHadfield} name="Chris Hadfield" />
+    </Story>
+</Preview>
+
+### Remote image
+
+An avatar can accept a remote image url. If the remote image loading is *delayed* or *fail to load*, the user initials will be displayed.
+
+<Preview>
+    <Story name="remote image">
+        <Avatar src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Individual_Portrait_of_Astronaut_Chris_Hadfield.jpg/480px-Individual_Portrait_of_Astronaut_Chris_Hadfield.jpg" name="Chris Hadfield" />
+    </Story>
+</Preview>
+
+### Size
+
+An avatar component can vary in size.
+
+<Preview scope={{ ChrisHadfield }}>
+    <Story name="size">
+        <Inline verticalAlign="center">
+            <Avatar size="2xs" src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar size="xs" src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar size="sm" src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar name="Chris Hadfield" src={ChrisHadfield} />
+            <Avatar size="lg" src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar size="xl" src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar size="2xl" src={ChrisHadfield} name="Chris Hadfield" />
+        </Inline>
+    </Story>
+</Preview>
+
+## AvatarGroup
+
+In some cases, you might want to stack avatars as a group.
+
+<Preview scope={{ ChrisHadfield }}>
+    <Story name="avatar group">
+        <AvatarGroup>
+            <Avatar name="Sally Ride" />
+            <Avatar name="Alan Shepard" />
+            <Avatar src={ChrisHadfield} name="Chris Hadfield" />
+        </AvatarGroup>
+    </Story>
+</Preview>
+
+### Remainings
+
+An avatar group have a maximum of 4 slots. Once this threshold is exceeded, the remaining avatars count is indicated as the fourth slot.
+
+<Preview scope={{ ChrisHadfield }}>
+    <Story name="avatar group remainings">
+        <AvatarGroup>
+            <Avatar name="Sally Ride" />
+            <Avatar name="Alan Shepard" />
+            <Avatar src={ChrisHadfield} name="Chris Hadfield" />
+            <Avatar name="Christa McAuliffe" />
+            <Avatar name="Neil Armstrong" />
+        </AvatarGroup>
+    </Story>
+</Preview>
+
+## API
+
+### Avatar
+
+<ComponentInfo
+    usage={"import { Avatar } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerAvatar} sort="alpha" />
+
+### AvatarGroup
+
+<ComponentInfo
+    usage={"import { AvatarGroup } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerAvatarGroup} sort="alpha" />

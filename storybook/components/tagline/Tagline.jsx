@@ -1,6 +1,6 @@
 import "./Tagline.css";
 
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const P = components.p;
 

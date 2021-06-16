@@ -11,7 +11,7 @@ import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
 import { Text } from "@react-components/text";
 import { TextArea } from "@react-components/text-area";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Field")
@@ -45,11 +45,13 @@ stories()
             </div>
         </Stack>,
          {
-             a11y: {
-                 config: {
-                     rules: [{ id: "label-title-only", enabled: false }]
-                 }
-             }
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [{ id: "label-title-only", enabled: false }]
+                     }
+                 })
+                 .build()
          }
     )
     .add("validation", () =>
