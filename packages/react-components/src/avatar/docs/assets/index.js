@@ -1,4 +1,4 @@
-import ChrisHadfield from "./hadfield.jpg";
+import ChrisHadfield from "./hadfield.png";
 
 export { ChrisHadfield };
 
