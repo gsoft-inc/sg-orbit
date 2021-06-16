@@ -12,11 +12,24 @@ import {
     omitProps,
     useChainedEventCallback,
     useControllableState,
-    useEventCallback
+    useEventCallback,
+    useFocusWithin
 } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
+import {
+    ChangeEvent,
+    ChangeEventHandler,
+    ComponentProps,
+    ElementType,
+    FocusEvent,
+    FocusEventHandler,
+    ForwardedRef,
+    MouseEvent,
+    ReactElement,
+    SyntheticEvent,
+    useCallback
+} from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
@@ -77,7 +90,15 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
     /**
      * @ignore
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: ChangeEventHandler;
+    /**
+     * @ignore
+     */
+    onFocus?: FocusEventHandler;
+    /**
+     * @ignore
+     */
+    onBlur?: FocusEventHandler;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -211,6 +232,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         validationState,
         onValueChange,
         onChange,
+        onFocus,
+        onBlur,
         autoFocus,
         icon,
         disabled,
@@ -291,8 +314,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         }
     };
 
-    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, newValue: string) => {
-        clampValue(event, toNumber(newValue));
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
+        clampValue(event, toNumber(event.target.value));
     });
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -305,6 +328,19 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const handleStepperFocus = useEventCallback(() => {
         inputRef.current.focus();
+    });
+
+    const focusWithinProps = useFocusWithin({
+        onFocus: useEventCallback(event => {
+            if (!isNil(onFocus)) {
+                onFocus(event);
+            }
+        }),
+        onBlur: useEventCallback(event => {
+            if (!isNil(onBlur)) {
+                onBlur(event);
+            }
+        })
     });
 
     const { wrapperProps, inputProps, inputRef } = useInput({
@@ -370,7 +406,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                         )
                     ),
                     as
-                }
+                },
+                focusWithinProps
             )}
         >
             {content}

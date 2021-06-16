@@ -211,7 +211,8 @@ test("call the checkbox onChange handler when a checkbox is selected", async () 
         userEvent.click(getInput(getAllByTestId("checkbox")[0]));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalled());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

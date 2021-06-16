@@ -1,7 +1,7 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, FocusEvent, FocusEventHandler, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
 import { DisclosureArrow } from "../../disclosure";
@@ -87,11 +87,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     /**
      * @ignore
      */
-    onFocus?: (event: FocusEvent) => void;
+    onFocus?: FocusEventHandler;
     /**
      * @ignore
      */
-    onBlur?: (event: FocusEvent) => void;
+    onBlur?: FocusEventHandler;
     /**
      * Array of pre-determined dates range.
      */

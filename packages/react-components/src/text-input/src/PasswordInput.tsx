@@ -1,5 +1,5 @@
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
 import { TextInput } from "./TextInput";
@@ -47,7 +47,7 @@ export interface InnerPasswordInputProps {
     /**
      * @ignore
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     /**
      * Whether or not the input should autofocus on render.
      */

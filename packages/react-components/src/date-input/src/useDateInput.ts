@@ -1,4 +1,4 @@
-import { ChangeEvent, ForwardedRef, useCallback, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, ForwardedRef, useCallback, useState } from "react";
 import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
@@ -60,7 +60,7 @@ export interface UseDateInputProps {
     defaultValue?: Date;
     min?: Date;
     max?: Date;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
 }

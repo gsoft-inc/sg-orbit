@@ -13,6 +13,16 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <NumberInput placeholder="Age"
+            onFocus={() => {
+                console.log("focus");
+            }}
+            onBlur={() => {
+                console.log("blur");
+            }}
+        />
+    )
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />

@@ -58,7 +58,8 @@ test("call onChange, when the checkbox is checked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalled());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onChange when the checkbox is unchecked", async () => {
@@ -76,7 +77,8 @@ test("call onChange when the checkbox is unchecked", async () => {
         userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalled());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onValueChange when the checkbox is checked", async () => {

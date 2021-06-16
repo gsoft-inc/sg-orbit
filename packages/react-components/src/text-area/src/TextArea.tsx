@@ -1,8 +1,8 @@
 import "./TextArea.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -41,7 +41,11 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, Ar
      * @param {string} value - The input value.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+    onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+    /**
+     * @ignore
+     */
+    onChange?: ChangeEventHandler;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -107,6 +111,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         resize,
         required,
         validationState,
+        onValueChange,
         onChange,
         type = "text",
         autoFocus,
@@ -138,11 +143,11 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
-    const handleChange = useEventCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = event.target.value;
 
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
+        if (!isNil(onValueChange)) {
+            onValueChange(event, newValue);
         }
 
         setValue(newValue);

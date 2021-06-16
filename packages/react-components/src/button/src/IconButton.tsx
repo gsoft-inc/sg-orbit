@@ -2,7 +2,7 @@ import "./IconButton.css";
 
 import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, MouseEventHandler, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
@@ -46,11 +46,9 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      */
     type?: "button" | "submit" | "reset";
     /**
-     * Called when the icon button is click.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
+     * @ignore
      */
-    onClick?: (event: MouseEvent) => void;
+    onClick?: MouseEventHandler;
     /**
      * An HTML element type or a custom React element type to render as.
      */

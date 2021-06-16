@@ -92,7 +92,8 @@ test("call onChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "a");
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalled());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onValueChange when the value change", async () => {

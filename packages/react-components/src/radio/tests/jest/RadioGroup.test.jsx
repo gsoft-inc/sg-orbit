@@ -271,7 +271,8 @@ test("call the radio onChange handler when a radio is selected", async () => {
         userEvent.click(getInput(getByTestId("radio-1")));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalled());
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

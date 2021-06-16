@@ -1,4 +1,4 @@
-import { ChangeEvent, ForwardedRef } from "react";
+import { ChangeEvent, ChangeEventHandler, ForwardedRef } from "react";
 import { cssModule, isNil, isNumber, mergeClasses, useAutoFocus, useEventCallback, useMergedRefs } from "../../shared";
 
 export interface UseInputProps {
@@ -8,7 +8,7 @@ export interface UseInputProps {
     placeholder?: string;
     required?: boolean;
     validationState?: "valid" | "invalid";
-    onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, value: string) => void;
+    onChange?: ChangeEventHandler;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     autoFocus?: boolean | number;
     disabled?: boolean;
@@ -44,7 +44,7 @@ export function useInput({
 
     const handleChange = useEventCallback((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!isNil(onChange)) {
-            onChange(event, event.target.value);
+            onChange(event);
         }
     });
 

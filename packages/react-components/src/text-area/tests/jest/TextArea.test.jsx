@@ -60,6 +60,21 @@ test("when in a field, clicking on the field label focus the input", async () =>
 
 // ***** Api *****
 
+test("call onValueChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <TextArea onValueChange={handler} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
@@ -71,7 +86,7 @@ test("call onChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "a");
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
