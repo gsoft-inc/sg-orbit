@@ -4,7 +4,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { Text } from "../../text";
 import { forwardRef, mergeProps } from "../../shared";
 
-interface InnerTooltipProps {
+export interface InnerTooltipProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */

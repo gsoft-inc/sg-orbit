@@ -6,6 +6,7 @@ class ParamsBuilder {
     _sortPriority = null;
     _excludeFromDocs = false;
     _component = null;
+    _a11y = null;
 
     canvasLayout(config) {
         if (!isNil(config)) {
@@ -69,6 +70,12 @@ class ParamsBuilder {
         return this;
     }
 
+    a11y(config) {
+        this._a11y = config;
+
+        return this;
+    }
+
     build() {
         const params = {};
 
@@ -86,6 +93,10 @@ class ParamsBuilder {
 
         if (!isNil(this._component)) {
             params.component = this._component;
+        }
+
+        if (!isNil(this._a11y)) {
+            params.a11y = this._a11y;
         }
 
         const docs = {};

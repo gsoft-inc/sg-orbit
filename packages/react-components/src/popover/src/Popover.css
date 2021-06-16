@@ -24,6 +24,12 @@
     margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
+/* CONTENT */
+.o-ui-popover-content {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
 /* FOOTER */
 .o-ui-popover-footer {
     margin-top: var(--o-ui-global-scale-delta);

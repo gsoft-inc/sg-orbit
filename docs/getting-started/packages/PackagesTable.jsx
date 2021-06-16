@@ -2,7 +2,7 @@ import "./PackagesTable.css";
 
 import { ExternalLink, Table } from "@stories/components";
 import { arrayOf, element, oneOfType, shape, string } from "prop-types";
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 
 const Img = components.img;
 

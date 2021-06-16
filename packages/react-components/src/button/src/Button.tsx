@@ -10,7 +10,7 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-interface InnerButtonProps extends InteractionStatesProps {
+export interface InnerButtonProps extends InteractionStatesProps {
     /**
      * The button style to use.
      */

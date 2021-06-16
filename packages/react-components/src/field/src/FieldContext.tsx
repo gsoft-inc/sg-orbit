@@ -37,7 +37,7 @@ export function useFieldContext(): [FieldContextType, boolean] {
     return [{}, false];
 }
 
-interface ClearFieldContextProps {
+export interface ClearFieldContextProps {
     children?: ReactNode;
 }
 

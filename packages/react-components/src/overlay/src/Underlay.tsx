@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { forwardRef, mergeProps } from "../../shared";
 
-interface InnerUnderlayProps {
+export interface InnerUnderlayProps {
     /**
      * z-index of the underlay.
      */

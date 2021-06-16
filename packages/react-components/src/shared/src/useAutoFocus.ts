@@ -5,7 +5,7 @@ import { disposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
-interface AbstractAutoFocusOptions {
+export interface AbstractAutoFocusOptions {
     isDisabled?: boolean;
     delay?: number;
     onFocus?: (element?: HTMLElement) => void;
@@ -29,7 +29,7 @@ function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusO
     }, [isDisabled, delay, onFocus]);
 }
 
-interface AutoFocusOptions {
+export interface AutoFocusOptions {
     isDisabled?: boolean;
     delay?: number;
     onFocus?: (element?: HTMLElement) => void;

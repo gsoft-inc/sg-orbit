@@ -4,7 +4,7 @@ import { ComponentProps, ElementType, ReactNode } from "react";
 import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
 import { Text } from "../../text";
 
-interface InnerFieldMessageProps {
+export interface InnerFieldMessageProps {
     /**
      * The style to use.
      */

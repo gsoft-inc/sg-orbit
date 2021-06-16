@@ -1,6 +1,6 @@
 import { ModalContext } from "./ModalContext";
 import { NAVIGATE_URL } from "@storybook/core-events";
-import { components } from "@storybook/components/html";
+import { components } from "@storybook/components";
 import { mergeClasses } from "@react-components/shared";
 import { useContext } from "react";
 import addons from "@storybook/addons";

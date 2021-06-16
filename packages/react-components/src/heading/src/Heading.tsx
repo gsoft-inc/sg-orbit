@@ -3,7 +3,7 @@ import "./Heading.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-interface InnerHeadingProps {
+export interface InnerHeadingProps {
     /**
      * A heading can vary in size.
      */

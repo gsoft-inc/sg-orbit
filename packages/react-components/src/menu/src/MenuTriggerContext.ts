@@ -1,6 +1,6 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
-interface MenuTriggerContextType {
+export interface MenuTriggerContextType {
     isOpen?: boolean;
     open?: (event: SyntheticEvent, focusTarget: string) => void;
     close?: (event: SyntheticEvent) => void;

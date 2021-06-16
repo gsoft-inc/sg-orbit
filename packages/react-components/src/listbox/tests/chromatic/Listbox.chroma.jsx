@@ -1,11 +1,10 @@
+import { Avatar } from "@react-components/avatar";
 import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
-import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Listbox, ListboxOption } from "@react-components/listbox";
 import { Text } from "@react-components/text";
-import { mergeProps } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
 
@@ -16,36 +15,6 @@ function stories(segment) {
             .chromaticDelay(100)
             .build())
         .build();
-}
-
-export function SmallAvatar({ children, ...rest }) {
-    return (
-        <div
-            {...mergeProps(
-                rest,
-                {
-                    className: "w5 h5 f8 br-100 flex items-center justify-center"
-                }
-            )}
-        >
-            {children}
-        </div>
-    );
-}
-
-export function LargeAvatar({ children, ...rest }) {
-    return (
-        <div
-            {...mergeProps(
-                rest,
-                {
-                    className: "w7 h7 bg-primary-500 white br-100 flex items-center justify-center"
-                }
-            )}
-        >
-            <span>{children}</span>
-        </div>
-    );
 }
 
 stories()
@@ -82,14 +51,16 @@ stories()
             </Section>
         </Listbox>,
          {
-             a11y: {
-                 config: {
-                     rules: [
-                         { id: "aria-required-children", enabled: false },
-                         { id: "aria-required-parent", enabled: false }
-                     ]
-                 }
-             }
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-children", enabled: false },
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
          }
     )
     .add("mixed sections and items", () =>
@@ -105,13 +76,15 @@ stories()
             </Section>
         </Listbox>,
          {
-             a11y: {
-                 config: {
-                     rules: [
-                         { id: "aria-required-parent", enabled: false }
-                     ]
-                 }
-             }
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
          }
     )
     .add("selected keys", () =>
@@ -210,21 +183,15 @@ stories()
     .add("item with avatar", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
-                </SmallAvatar>
+                <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="Earth" />
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
-                </SmallAvatar>
+                <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="Jupiter" />
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <SmallAvatar slot="avatar">
-                    <Image shape="circular" src="https://randomuser.me/api/portraits/men/10.jpg" alt="this user does not exist" />
-                </SmallAvatar>
+                <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="Mars" />
                 <Text>Mars</Text>
             </Item>
         </Listbox>
@@ -232,17 +199,17 @@ stories()
     .add("item with avatar and description", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <LargeAvatar slot="avatar">EL</LargeAvatar>
+                <Avatar name="Earth" />
                 <Text>Earth</Text>
                 <Text slot="description">Earth</Text>
             </Item>
             <Item key="jupiter">
-                <LargeAvatar slot="avatar">JU</LargeAvatar>
+                <Avatar name="Jupiter" />
                 <Text>Jupiter</Text>
                 <Text slot="description">Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LargeAvatar slot="avatar">MA</LargeAvatar>
+                <Avatar name="Mars" />
                 <Text>Mars</Text>
                 <Text slot="description">Mars</Text>
             </Item>
@@ -288,7 +255,7 @@ stories()
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Avatar name="Mars" />
                     <Text>Mars</Text>
                     <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                 </Item>
@@ -304,7 +271,7 @@ stories()
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LargeAvatar slot="avatar">EL</LargeAvatar>
+                    <Avatar name="Mars" />
                     <Text>Mars</Text>
                     <Text slot="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                 </Item>

@@ -5,7 +5,7 @@ import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverl
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
-interface InnerTooltipTriggerProps {
+export interface InnerTooltipTriggerProps {
     /**
     * Whether or not to show the tooltip.
     */

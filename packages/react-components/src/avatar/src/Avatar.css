@@ -1,0 +1,83 @@
+.o-ui {
+    --o-ui-avatar-2xs: var(--o-ui-global-scale-echo);
+    --o-ui-avatar-xs: var(--o-ui-global-scale-foxtrot);
+    --o-ui-avatar-sm: var(--o-ui-global-scale-golf);
+    --o-ui-avatar-md: var(--o-ui-global-scale-hotel);
+    --o-ui-avatar-lg: var(--o-ui-global-scale-india);
+    --o-ui-avatar-xl: var(--o-ui-global-scale-juliett);
+    --o-ui-avatar-2xl: var(--o-ui-global-scale-kilo);
+}
+
+.o-ui-avatar {
+    display: inline-flex;
+    border-radius: var(--o-ui-shape-circular);
+    overflow: hidden;
+}
+
+/* SIZES */
+.o-ui-avatar-2xs {
+    width: var(--o-ui-global-scale-echo);
+    height: var(--o-ui-global-scale-echo);
+}
+
+.o-ui-avatar-xs {
+    width: var(--o-ui-global-scale-foxtrot);
+    height: var(--o-ui-global-scale-foxtrot);
+}
+
+.o-ui-avatar-sm {
+    width: var(--o-ui-global-scale-golf);
+    height: var(--o-ui-global-scale-golf);
+}
+
+.o-ui-avatar-md {
+    width: var(--o-ui-global-scale-hotel);
+    height: var(--o-ui-global-scale-hotel);
+}
+
+.o-ui-avatar-lg {
+    width: var(--o-ui-global-scale-india);
+    height: var(--o-ui-global-scale-india);
+}
+
+.o-ui-avatar-xl {
+    width: var(--o-ui-global-scale-juliett);
+    height: var(--o-ui-global-scale-juliett);
+}
+
+.o-ui-avatar-2xl {
+    width: var(--o-ui-global-scale-kilo);
+    height: var(--o-ui-global-scale-kilo);
+}
+
+/* IMAGE */
+.o-ui-avatar-image {
+    width: 100%;
+    height: 100%;
+}
+
+/* TEXT */
+.o-ui-avatar-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--o-ui-global-white);
+    width: 100%;
+    height: 100%;
+}
+
+/* GROUPS */
+.o-ui-avatar-group {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+}
+
+/* GROUPS | REMAININGS */
+.o-ui-avatar-group-remainings {
+    background-color: var(--o-ui-alias-background-3);
+}
+
+.o-ui-avatar-group-remainings .o-ui-avatar-text {
+    color: var(--o-ui-alias-text-2);
+}

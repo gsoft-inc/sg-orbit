@@ -8,7 +8,7 @@ import { FieldContext } from "./FieldContext";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
-interface InnerFieldProps extends DomProps {
+export interface InnerFieldProps extends DomProps {
     /**
      * Whether the field should display as "valid" or "invalid".
      */
