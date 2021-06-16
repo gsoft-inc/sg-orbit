@@ -213,6 +213,7 @@ test("call onChange when a radio is selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onChange with a numeric value when the radio value is numeric", async () => {
@@ -233,6 +234,7 @@ test("call onChange with a numeric value when the radio value is numeric", async
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 1));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call the radio onValueChange handler when a radio is selected", async () => {
@@ -251,6 +253,7 @@ test("call the radio onValueChange handler when a radio is selected", async () =
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call the radio onChange handler when a radio is selected", async () => {
@@ -361,8 +364,8 @@ describe("with toggle buttons", () => {
             userEvent.click(getByTestId("button-1"));
         });
 
-        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
         await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
+        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
 });
 

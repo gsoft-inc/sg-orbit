@@ -426,6 +426,7 @@ test("call onOpenChange when the menu open", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onOpenChange when the menu close", async () => {
@@ -454,6 +455,7 @@ test("call onOpenChange when the menu close", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

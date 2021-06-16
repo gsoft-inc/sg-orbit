@@ -252,6 +252,7 @@ test("call onValueChange when the value change", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onValueChange when the value is incremented", async () => {
@@ -275,6 +276,7 @@ test("call onValueChange when the value is incremented", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onValueChange when the value is decremented", async () => {
@@ -298,7 +300,33 @@ test("call onValueChange when the value is decremented", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 0));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
+
+// test("call onBlur when the input lose focus", async () => {
+//     const handler = jest.fn();
+
+//     const { getByTestId } = render(
+//         <NumberInput
+//             onBlur={handler}
+//             defaultValue={1}
+//             aria-label="Label"
+//             data-testid="input"
+//         />
+//     );
+
+//     act(() => {
+//         getByTestId("input").focus();
+//     });
+
+//     act(() => {
+//         userEvent.click(document.body);
+//     });
+
+//     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+// });
+
+// do not call onBlur when a spinner arrow is clicked
 
 test("can focus the input with the focus api", async () => {
     let refNode = null;

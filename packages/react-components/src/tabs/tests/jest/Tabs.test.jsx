@@ -472,6 +472,7 @@ test("call onSelectionChange when the active tab change", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onSelectionChange once when a tab is clicked", async () => {

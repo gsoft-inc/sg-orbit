@@ -92,7 +92,7 @@ test("call onChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "a");
     });
 
-    expect(handler).toHaveBeenCalled();
+    await waitFor(() => expect(handler).toHaveBeenCalled());
 });
 
 test("call onValueChange when the value change", async () => {
@@ -110,7 +110,8 @@ test("call onValueChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "a");
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onValueChange when the value is cleared", async () => {
@@ -132,7 +133,8 @@ test("call onValueChange when the value is cleared", async () => {
         userEvent.click(container.querySelector(".o-ui-search-input-clear-button"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), "");
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ""));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 // ***** Refs *****
@@ -146,8 +148,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("INPUT");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("INPUT"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -164,8 +166,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("INPUT");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("INPUT"));
 });
 
 test("set ref once", async () => {

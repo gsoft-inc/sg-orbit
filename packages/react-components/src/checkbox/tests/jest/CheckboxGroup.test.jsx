@@ -97,6 +97,7 @@ test("call onChange when a single checkbox is selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onChange when multiple checkbox are selected", async () => {
@@ -121,6 +122,7 @@ test("call onChange when multiple checkbox are selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1", "3"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onChange when a checkbox is unselected", async () => {
@@ -149,6 +151,7 @@ test("call onChange when a checkbox is unselected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["3"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));
 });
 
 test("pass an empty array when no checkbox are selected", async () => {
@@ -171,6 +174,7 @@ test("pass an empty array when no checkbox are selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), []));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call the checkbox onValueChange handler when a checkbox is selected", async () => {
@@ -189,6 +193,7 @@ test("call the checkbox onValueChange handler when a checkbox is selected", asyn
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call the checkbox onChange handler when a checkbox is selected", async () => {
@@ -299,8 +304,8 @@ describe("with toggle buttons", () => {
             userEvent.click(getByTestId("button-1"));
         });
 
-        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
         await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
+        await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
 
     test("call onChange when a button is untoggled", async () => {
@@ -323,5 +328,6 @@ describe("with toggle buttons", () => {
         });
 
         await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), []));
+        await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
     });
 });

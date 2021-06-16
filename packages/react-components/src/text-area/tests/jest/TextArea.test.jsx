@@ -72,6 +72,7 @@ test("call onChange when the value change", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("can focus the input with the focus api", async () => {

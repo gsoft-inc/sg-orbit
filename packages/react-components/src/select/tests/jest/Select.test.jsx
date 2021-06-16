@@ -419,6 +419,7 @@ test("call onOpenChange when the select open", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onOpenChange when the select close", async () => {
@@ -446,6 +447,7 @@ test("call onOpenChange when the select close", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onSelectionChange when an option is selected", async () => {
@@ -467,6 +469,7 @@ test("call onSelectionChange when an option is selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

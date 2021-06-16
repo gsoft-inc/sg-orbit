@@ -506,6 +506,7 @@ test("when the start date and the end date are applied, call onDatesChange with 
     type(getEndDateInput(container), "01012021");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), new Date(2020, 0, 1), new Date(2021, 0, 1)));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("when the dates are cleared, call onDatesChange with null for both dates", async () => {
