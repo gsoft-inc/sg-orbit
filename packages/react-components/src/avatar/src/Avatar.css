@@ -10,7 +10,7 @@
 
 .o-ui-avatar {
     display: inline-flex;
-    border-radius: 100%;
+    border-radius: var(--o-ui-shape-circular);
     overflow: hidden;
 }
 
@@ -75,45 +75,9 @@
 
 /* GROUPS | REMAININGS */
 .o-ui-avatar-group-remainings {
-    background-color: var(--o-ui-global-cloud-50);
+    background-color: var(--o-ui-alias-background-3);
 }
 
 .o-ui-avatar-group-remainings .o-ui-avatar-text {
-    color: var(--o-ui-global-marine-400);
+    color: var(--o-ui-alias-text-2);
 }
-
-/* GROUPS | REMAININGS | SIZES */
-/* .o-ui-remaining-avatars-2xs {
-    width: var(--o-ui-avatar-2xs);
-    height: var(--o-ui-avatar-2xs);
-}
-
-.o-ui-remaining-avatars-xs {
-    width: var(--o-ui-avatar-xs);
-    height: var(--o-ui-avatar-xs);
-}
-
-.o-ui-remaining-avatars-sm {
-    width: var(--o-ui-avatar-sm);
-    height: var(--o-ui-avatar-sm);
-}
-
-.o-ui-remaining-avatars-md {
-    width: var(--o-ui-avatar-md);
-    height: var(--o-ui-avatar-md);
-}
-
-.o-ui-remaining-avatars-lg {
-    width: var(--o-ui-avatar-lg);
-    height: var(--o-ui-avatar-lg);
-}
-
-.o-ui-remaining-avatars-xl {
-    width: var(--o-ui-avatar-xl);
-    height: var(--o-ui-avatar-xl);
-}
-
-.o-ui-remaining-avatars-2xl {
-    width: var(--o-ui-avatar-2xl);
-    height: var(--o-ui-avatar-2xl);
-} */
