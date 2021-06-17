@@ -1,7 +1,7 @@
 import { Field, Label } from "@react-components/field";
 import { NumberInput } from "@react-components/number-input";
 import { act, render, waitFor } from "@testing-library/react";
-import { createRef } from "react";
+import { createRef, useCallback } from "react";
 import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
@@ -141,6 +141,78 @@ test("when no value has been set yet and the decrement button is clicked, set va
     await waitFor(() => expect(getByTestId("input")).toHaveValue(-1));
 });
 
+test("when a max value is specified, do not increment over the max value", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput defaultValue={1} max={2} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Increment value"));
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Increment value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(2));
+});
+
+test("when a max value is specified and no value has been set yet, do not increment over the max value", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput max={0} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Increment value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(0));
+});
+
+test("when a min value is specified, do not decrement under the min value", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput defaultValue={5} min={4} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Decrement value"));
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Decrement value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(4));
+});
+
+test("when a min value is specified and no value has been set yet, do not decrement under the max value", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput min={4} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Decrement value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(4));
+});
+
 test("when the entered value is lower than the min value, reset value to min value", async () => {
     const { getByTestId } = render(
         <NumberInput min={3} aria-label="Label" data-testid="input" />
@@ -179,6 +251,42 @@ test("when the entered value is greater than the max value, reset the value to t
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));
+});
+
+test("when the entered value is equal to the min value, the decrement stepper is disabled", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput min={2} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    await waitFor(() => expect(getByLabelText("Decrement value")).not.toHaveAttribute("disabled"));
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "2");
+    });
+
+    await waitFor(() => expect(getByLabelText("Decrement value")).toHaveAttribute("disabled"));
+});
+
+test("when the entered value is equal to the max value, the increment stepper is disabled", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput max={2} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    await waitFor(() => expect(getByLabelText("Increment value")).not.toHaveAttribute("disabled"));
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "2");
+    });
+
+    await waitFor(() => expect(getByLabelText("Increment value")).toHaveAttribute("disabled"));
 });
 
 test("when autofocus is true, the input is focused on render", async () => {
@@ -419,6 +527,36 @@ test("can focus the input with the focus api", async () => {
     });
 
     await waitFor(() => expect(refNode).toHaveFocus());
+});
+
+test("when the entered value exceed the specified min or max value, onValueChange is called before onBlur", async () => {
+    const handleValueChange = jest.fn();
+
+    const onBlur = () => {
+        expect(handleValueChange).toHaveBeenCalledTimes(2);
+    };
+
+    const { getByTestId } = render(
+        <NumberInput
+            onValueChange={handleValueChange}
+            onBlur={onBlur}
+            min={5}
+            aria-label="Label"
+            data-testid="input"
+        />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "4");
+    });
+
+    act(() => {
+        userEvent.click(document.body);
+    });
 });
 
 // ***** Refs *****

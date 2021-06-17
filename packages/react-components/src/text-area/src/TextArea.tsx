@@ -1,6 +1,6 @@
 import "./TextArea.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
 import { useFieldInputProps } from "../../field";

@@ -1,6 +1,5 @@
 import { act, render, waitFor } from "@testing-library/react";
 import { useFocusWithin } from "@react-components/shared";
-import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 
 function FocusWithin({ onFocus, onBlur, disabled, children }) {

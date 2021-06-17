@@ -133,14 +133,16 @@ interface SpinnerProps extends ComponentProps<"div"> {
     onIncrement?: (event: MouseEvent) => void;
     onDecrement?: (event: MouseEvent) => void;
     onFocus?: (event: FocusEvent) => void;
-    disabled?: boolean;
+    disableIncrement?: boolean;
+    disableDecrement?: boolean;
 }
 
 function Spinner({
     onIncrement,
     onDecrement,
     onFocus,
-    disabled,
+    disableIncrement,
+    disableDecrement,
     ...rest
 }: SpinnerProps) {
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -166,7 +168,7 @@ function Spinner({
                 className="o-ui-number-input-spinner-increment"
                 type="button"
                 tabIndex={-1}
-                disabled={disabled}
+                disabled={disableIncrement}
                 onFocus={onFocus}
                 aria-label="Increment value"
             >
@@ -177,7 +179,7 @@ function Spinner({
                 className="o-ui-number-input-spinner-decrement"
                 type="button"
                 tabIndex={-1}
-                disabled={disabled}
+                disabled={disableDecrement}
                 onFocus={onFocus}
                 aria-label="Decrement value"
             >
@@ -222,7 +224,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const {
         id,
-        value,
+        value: valueProp,
         defaultValue,
         placeholder,
         min,
@@ -258,7 +260,17 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
-    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null);
+
+    const updateValue = (event: SyntheticEvent, newValue: number) => {
+        if (newValue !== value) {
+            setValue(newValue);
+
+            if (!isNil(onValueChange)) {
+                onValueChange(event, newValue);
+            }
+        }
+    };
 
     const validateRange = useCallback(newValue => {
         let isAboveMax = false;
@@ -279,38 +291,30 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         };
     }, [min, max]);
 
-    const updateValue = (event: SyntheticEvent, newValue: number) => {
-        if (newValue !== inputValue) {
-            setValue(newValue);
+    const clampOrSetValue = (event: SyntheticEvent, newValue: number) => {
+        if (!isNil(newValue)) {
+            const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
 
-            if (!isNil(onValueChange)) {
-                onValueChange(event, newValue);
-            }
-        }
-    };
-
-    const clampValue = (event: SyntheticEvent, newValue: number) => {
-        const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
-
-        if (isInRange) {
-            updateValue(event, newValue);
-        } else {
-            if (isBelowMin) {
-                updateValue(event, min);
-            } else if (isAboveMax) {
-                updateValue(event, max);
+            if (isInRange) {
+                updateValue(event, newValue);
+            } else {
+                if (isBelowMin) {
+                    updateValue(event, min);
+                } else if (isAboveMax) {
+                    updateValue(event, max);
+                }
             }
         }
     };
 
     const applyStep = (event: SyntheticEvent, factor: number) => {
-        if (!isNil(inputValue)) {
-            const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
-            const newValue = toFixed(inputValue + factor * step, precision);
+        if (!isNil(value)) {
+            const precision = Math.max(countDecimalPlaces(value), countDecimalPlaces(step));
+            const newValue = toFixed(value + factor * step, precision);
 
-            clampValue(event, newValue);
+            clampOrSetValue(event, newValue);
         } else {
-            updateValue(event, factor * step);
+            clampOrSetValue(event, factor * step);
         }
     };
 
@@ -337,9 +341,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             }
         }),
         onBlur: useEventCallback(event => {
-            if (!isNil(inputValue)) {
-                clampValue(event, inputValue);
-            }
+            clampOrSetValue(event, value);
 
             if (!isNil(onBlur)) {
                 onBlur(event);
@@ -350,7 +352,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-number-input",
         id,
-        value: !isNil(inputValue) ? inputValue : "",
+        value: !isNil(value) ? value : "",
         placeholder,
         required,
         validationState,
@@ -376,6 +378,9 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 {...mergeProps(
                     rest,
                     {
+                        min,
+                        max,
+                        step,
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy
                     },
@@ -386,7 +391,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}
-                disabled={readOnly || disabled}
+                disableIncrement={readOnly || disabled || (!isNil(value) && value >= max)}
+                disableDecrement={readOnly || disabled || (!isNil(value) && value <= min)}
                 aria-hidden={loading}
             />
         </>

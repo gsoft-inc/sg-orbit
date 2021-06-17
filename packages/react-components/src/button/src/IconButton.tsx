@@ -2,7 +2,7 @@ import "./IconButton.css";
 
 import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, MouseEventHandler, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";

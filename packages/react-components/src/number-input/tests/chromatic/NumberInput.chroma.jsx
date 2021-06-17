@@ -2,6 +2,7 @@ import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/number-input";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/NumberInput")
@@ -13,9 +14,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <NumberInput placeholder="Age" min={15} />
-    )
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />
