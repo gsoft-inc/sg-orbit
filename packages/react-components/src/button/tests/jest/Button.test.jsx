@@ -48,11 +48,6 @@ test("when type is specified, the type is forwarded properly", async () => {
         >Next</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
-
-
-    await waitDelay(10);
-
     await waitFor(() => expect(getByTestId("button")).toHaveProperty("type", "submit"));
 });
 
