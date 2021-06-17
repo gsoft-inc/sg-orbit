@@ -17,7 +17,7 @@
     border: none;
     -webkit-appearance: none;
     outline: none;
-    transition: background-color var(--o-ui-timing-2) var(--o-ui-easing-focus);
+    transition: background-color var(--o-ui-duration-2) var(--o-ui-easing-focus);
 }
 
 .play-animation:hover {
@@ -43,7 +43,7 @@
 }
 
 .motion-sample {
-    --duration: var(--o-ui-timing-2);
+    --duration: var(--o-ui-duration-2);
     --easing: var(--o-ui-easing-productive);
     transition: transform var(--duration) var(--easing);
 }
