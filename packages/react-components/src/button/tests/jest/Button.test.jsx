@@ -40,6 +40,17 @@ test("when autofocus is specified with a delay, the button is focused after the 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
 });
 
+test("when type is specified, the type is forwarded properly", async () => {
+    const { getByTestId } = render(
+        <Button
+            type="submit"
+            data-testid="button"
+        >Next</Button>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "submit"));
+});
+
 // ***** Api *****
 
 test("can focus the button with the focus api", async () => {
