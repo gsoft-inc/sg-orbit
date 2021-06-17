@@ -154,6 +154,10 @@ test("when the entered value is lower than the min value, reset value to min val
         userEvent.type(getByTestId("input"), "2");
     });
 
+    act(() => {
+        userEvent.click(document.body);
+    });
+
     await waitFor(() => expect(getByTestId("input")).toHaveValue(3));
 });
 
@@ -168,6 +172,10 @@ test("when the entered value is greater than the max value, reset the value to t
 
     act(() => {
         userEvent.type(getByTestId("input"), "2");
+    });
+
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));

@@ -260,16 +260,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, null);
 
-    const updateValue = (event: SyntheticEvent, newValue: number) => {
-        if (newValue !== inputValue) {
-            if (!isNil(onValueChange)) {
-                onValueChange(event, newValue);
-            }
-
-            setValue(newValue);
-        }
-    };
-
     const validateRange = useCallback(newValue => {
         let isAboveMax = false;
         let isBelowMin = false;
@@ -288,6 +278,16 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             isBelowMin
         };
     }, [min, max]);
+
+    const updateValue = (event: SyntheticEvent, newValue: number) => {
+        if (newValue !== inputValue) {
+            setValue(newValue);
+
+            if (!isNil(onValueChange)) {
+                onValueChange(event, newValue);
+            }
+        }
+    };
 
     const clampValue = (event: SyntheticEvent, newValue: number) => {
         const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
@@ -315,7 +315,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     };
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
-        clampValue(event, toNumber(event.target.value));
+        updateValue(event, toNumber(event.target.value));
     });
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -337,6 +337,10 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             }
         }),
         onBlur: useEventCallback(event => {
+            if (!isNil(inputValue)) {
+                clampValue(event, inputValue);
+            }
+
             if (!isNil(onBlur)) {
                 onBlur(event);
             }
