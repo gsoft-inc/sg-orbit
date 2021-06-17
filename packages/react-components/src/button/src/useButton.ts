@@ -62,7 +62,7 @@ export function useButton({
                 normalizeSize(size)
             )
         ),
-        type: type ?? as === "button" ? "button" : undefined,
+        type: type ?? (as === "button" ? "button" : undefined),
         "aria-live": "polite",
         "aria-busy": loading,
         ref: buttonRef
