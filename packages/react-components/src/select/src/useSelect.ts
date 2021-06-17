@@ -108,11 +108,11 @@ export function useSelect(children: ReactNode, {
         const newKey = newKeys[0] ?? null;
 
         if (newKey !== selectedKey) {
+            setSelectedKey(newKey);
+
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, newKey);
             }
-
-            setSelectedKey(newKey);
         }
     }, [selectedKey, setSelectedKey, onSelectionChange]);
 

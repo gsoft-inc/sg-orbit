@@ -63,11 +63,11 @@ export function InnerDialogTrigger({
     const modalRef = useMergedRefs(forwardedRef);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
+        setIsOpen(newValue);
+
         if (!isNil(onOpenChange)) {
             onOpenChange(event, newValue);
         }
-
-        setIsOpen(newValue);
     }, [onOpenChange, setIsOpen]);
 
     const open = useCallback((event: SyntheticEvent) => {

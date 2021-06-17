@@ -179,6 +179,35 @@ A component shouldn't stop the propagation of an event. Instead, other parts of 
 
 For more information, read the following [blog post](https://css-tricks.com/dangers-stopping-event-propagation/).
 
+#### Handler event argument
+
+Every component should provide the initiating event as the first argument when calling a user event handler.
+
+```jsx
+const handleChange = event => {
+    if (!isNil(onValueChange)) {
+        onValueChange(event, event.target.value);
+    }
+});
+```
+
+#### Do the component stuff before calling the event handler
+
+Before calling the user event handler always execute all the component logic related to the event.
+
+```jsx
+const handleChange = event => {
+    const newValue = event.target.value;
+
+    // Call setValue before calling onValueChange.
+    setValue(newValue);
+
+    if (!isNil(onValueChange)) {
+        onValueChange(event, newValue);
+    }
+});
+```
+
 #### Spread props
 
 Unhandled props should always be spread on the root element of the component. If it's not practical to spread the props on the root element, consider adding an additional prop for the root element props (like `wrapperProps`) and spread those props on the root element.
@@ -192,6 +221,20 @@ function MyComponent({ className, children ...rest }) {
     );
 }
 ```
+
+#### As prop
+
+A component should always accept an `as` prop and apply it to the root element of the component. The `as` prop allow the consumer to specify the type of the element to render. A default value should always be provided.
+
+The following usage should be possible for all components:
+
+```jsx
+<Button as="link" href="#>Click me!</Button>
+```
+
+#### Ref
+
+A component should always accept a `ref` prop and apply it to the root element of the component.
 
 ### Developer experience
 

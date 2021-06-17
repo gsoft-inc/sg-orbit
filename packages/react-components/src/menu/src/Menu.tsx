@@ -133,12 +133,12 @@ export function InnerMenu({
             newKeys = selectedKeys.includes(key) ? [] : [key];
         }
 
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, newKeys);
-        }
-
         if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
+        }
+
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKeys);
         }
     });
 

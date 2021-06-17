@@ -42,11 +42,12 @@ export class ElementIterator<T> {
 export interface FocusManagerOptions {
     isVirtual?: boolean;
     keyProp?: string;
+    onFocus?: (activeElement: HTMLElement, options: Omit<FocusManagerOptions, "onFocus">) => void;
 }
 
 export interface FocusOptions {
-    onFocus?: (element?: HTMLElement) => void;
-    onNotFound?: () => void;
+    onFocus?: (activeElement: HTMLElement, options: Omit<FocusManagerOptions, "onFocus">) => void;
+    onNotFound?: (options: Omit<FocusManagerOptions, "onFocus">) => void;
     canFocus?: (element: HTMLElement) => boolean;
 }
 
@@ -54,11 +55,13 @@ export class FocusManager {
     private scope;
     private isVirtual;
     private keyProp;
+    private onFocus;
 
-    constructor(scope: DomScope, { isVirtual = false, keyProp }: FocusManagerOptions = {}) {
+    constructor(scope: DomScope, { isVirtual = false, keyProp, onFocus }: FocusManagerOptions = {}) {
         this.scope = scope;
         this.isVirtual = isVirtual;
         this.keyProp = keyProp;
+        this.onFocus = onFocus;
     }
 
     private focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
@@ -77,14 +80,16 @@ export class FocusManager {
                 if (isFunction(element.focus)) {
                     element.focus();
 
-                    if (!isNil(onFocus)) {
-                        onFocus(element);
-                    }
+                    [onFocus, this.onFocus].forEach(handler => {
+                        if (!isNil(handler)) {
+                            handler(element, { isVirtual: this.isVirtual, keyProp: this.keyProp });
+                        }
+                    });
                 }
             }
         } else {
             if (!isNil(onNotFound)) {
-                onNotFound();
+                onNotFound({ isVirtual: this.isVirtual, keyProp: this.keyProp });
             }
         }
 
@@ -263,6 +268,6 @@ export class FocusManager {
     }
 }
 
-export function useFocusManager(scope: DomScope, { isVirtual, keyProp }: FocusManagerOptions = {}) {
-    return useMemo(() => new FocusManager(scope, { isVirtual, keyProp }), [scope, isVirtual, keyProp]);
+export function useFocusManager(scope: DomScope, { isVirtual, keyProp, onFocus }: FocusManagerOptions = {}) {
+    return useMemo(() => new FocusManager(scope, { isVirtual, keyProp, onFocus }), [scope, isVirtual, keyProp, onFocus]);
 }

@@ -681,6 +681,7 @@ test("call onSearch when the query is updated", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "e"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("do not call onSearch when the query is empty", async () => {
@@ -731,6 +732,7 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onOpenChange when the autocomplete overlay close", async () => {
@@ -758,6 +760,7 @@ test("call onOpenChange when the autocomplete overlay close", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onSelectionChange when a value is selected", async () => {
@@ -785,6 +788,7 @@ test("call onSelectionChange when a value is selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), { key: "earth", value: "Earth" }));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("calling the focus function on the autocomplete ref will focus the autocomplete", async () => {

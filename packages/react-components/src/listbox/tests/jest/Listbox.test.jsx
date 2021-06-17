@@ -797,6 +797,7 @@ test("call onSelectionChange when a single option is selected", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onSelectionChange when multiple options are selected in sequence", async () => {
@@ -822,6 +823,7 @@ test("call onSelectionChange when multiple options are selected in sequence", as
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onSelectionChange when multiple options are selected at once", async () => {
@@ -856,6 +858,7 @@ test("call onSelectionChange when multiple options are selected at once", async 
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onFocusChange when an option is programatically focused", async () => {
@@ -874,6 +877,7 @@ test("call onFocusChange when an option is programatically focused", async () =>
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("dont call onFocusChange when a disabled option is programatically focused", async () => {
@@ -914,6 +918,7 @@ test("call onFocusChange when an option is focused following an arrow down keypr
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("call onFocusChange when an option is focused following an arrow up keypress", async () => {
@@ -936,6 +941,7 @@ test("call onFocusChange when an option is focused following an arrow up keypres
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("when focusOnHover is true, call onFocusChange when an option is hovered with mouse", async () => {
@@ -957,6 +963,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("when focusOnHover is true, dont call onFocusChange when a disabled option is hovered with mouse", async () => {
@@ -1003,6 +1010,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("when useVirtualFocus is true, call onFocusChange when an option is focused following an arrow down keypress", async () => {
@@ -1028,6 +1036,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 // ***** Refs *****

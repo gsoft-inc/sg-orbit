@@ -1,7 +1,7 @@
 import "./DateInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef } from "react";
 import { TextInput } from "../../text-input";
 import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { useDateInput } from "./useDateInput";
@@ -44,7 +44,7 @@ export interface InnerDateInputProps {
     /**
      * @ignore
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     /**
      * Called when the date change.
      * @param {ChangeEvent} event - React's original synthetic event.

@@ -1,7 +1,20 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, SyntheticEvent, useCallback, useImperativeHandle, useRef, useState } from "react";
+import {
+    ChangeEvent,
+    ComponentProps,
+    ElementType,
+    FocusEvent,
+    FocusEventHandler,
+    ForwardedRef,
+    KeyboardEvent,
+    SyntheticEvent,
+    useCallback,
+    useImperativeHandle,
+    useRef,
+    useState
+} from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
 import { DisclosureArrow } from "../../disclosure";
@@ -87,11 +100,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     /**
      * @ignore
      */
-    onFocus?: (event: FocusEvent) => void;
+    onFocus?: FocusEventHandler;
     /**
      * @ignore
      */
-    onBlur?: (event: FocusEvent) => void;
+    onBlur?: FocusEventHandler;
     /**
      * Array of pre-determined dates range.
      */
@@ -219,10 +232,15 @@ const RangeInput = forwardRef<any>((props, ref) => {
             newDate = endDate;
         }
 
-        onDatesChange(event, newDate, endDate);
+        // Defering because useDateInput is used in controlled mode and otherwise the value will not be updated when the value is clamped.
+        requestAnimationFrame(() => {
+            if (!isNil(newDate)) {
+                endDateRef.current?.focus();
+            }
+        });
 
-        if (!isNil(newDate)) {
-            endDateRef.current?.focus();
+        if (!isNil(onDatesChange)) {
+            onDatesChange(event, newDate, endDate);
         }
     });
 
@@ -244,13 +262,17 @@ const RangeInput = forwardRef<any>((props, ref) => {
             newDate = startDate;
         }
 
-        onDatesChange(event, startDate, newDate);
+        if (!isNil(onDatesChange)) {
+            onDatesChange(event, startDate, newDate);
+        }
     });
 
     const handleClearDates = useEventCallback((event: SyntheticEvent) => {
-        onDatesChange(event, null, null);
-
         startDateRef?.current.focus();
+
+        if (!isNil(onDatesChange)) {
+            onDatesChange(event, null, null);
+        }
     });
 
     const handleContainerKeyDown = useEventCallback((event: KeyboardEvent) => {
@@ -270,18 +292,18 @@ const RangeInput = forwardRef<any>((props, ref) => {
 
     const focusWithinProps = useFocusWithin({
         onFocus: useEventCallback((event: FocusEvent) => {
+            setHasFocus(true);
+
             if (!isNil(onFocus)) {
                 onFocus(event);
             }
-
-            setHasFocus(true);
         }),
         onBlur: useEventCallback((event: FocusEvent) => {
+            setHasFocus(false);
+
             if (!isNil(onBlur)) {
                 onBlur(event);
             }
-
-            setHasFocus(false);
         })
     });
 
@@ -416,12 +438,12 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const applyDates = useCallback((event: SyntheticEvent, newStartDate: Date, newEndDate: Date) => {
         if (startDate !== newStartDate || endDate !== newEndDate) {
+            setStartDate(newStartDate);
+            setEndDate(newEndDate);
+
             if (!isNil(onDatesChange)) {
                 onDatesChange(event, newStartDate, newEndDate);
             }
-
-            setStartDate(newStartDate);
-            setEndDate(newEndDate);
         }
     }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
 

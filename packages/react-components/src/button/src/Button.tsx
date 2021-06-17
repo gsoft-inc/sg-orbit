@@ -52,7 +52,7 @@ export interface InnerButtonProps extends InteractionStatesProps {
      */
     type?: "button" | "submit" | "reset";
     /**
-    * Called when the button is click.
+    * @ignore
     */
     onClick?: MouseEventHandler;
     /**

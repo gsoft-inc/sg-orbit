@@ -196,7 +196,10 @@ export function InnerListbox({
 
     const selectionManager = useSelectionManager(items, { selectedKeys });
 
-    const focusManager = useFocusManager(focusScope, { isVirtual: useVirtualFocus, keyProp: OptionKeyProp });
+    const focusManager = useFocusManager(focusScope, {
+        isVirtual: useVirtualFocus,
+        keyProp: OptionKeyProp
+    });
 
     // Would be nice to find a better way to give control over the focused item to the parent.
     useImperativeHandle(forwardedRef, () => {
@@ -208,12 +211,12 @@ export function InnerListbox({
     });
 
     const updateSelectedKeys = (event: SyntheticEvent, newKeys: string[]) => {
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, newKeys);
-        }
-
         if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
+        }
+
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKeys);
         }
     };
 
@@ -251,10 +254,6 @@ export function InnerListbox({
                 const activeElement = focusManager.focusNext();
                 const key = activeElement.getAttribute(OptionKeyProp);
 
-                if (!isNil(onFocusChange)) {
-                    onFocusChange(event, key, activeElement);
-                }
-
                 if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
@@ -262,6 +261,11 @@ export function InnerListbox({
                         updateSelectedKeys(event, newKeys);
                     }
                 }
+
+                if (useVirtualFocus && !isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
+
                 break;
             }
             case Keys.arrowUp: {
@@ -271,16 +275,16 @@ export function InnerListbox({
 
                 const key = activeElement.getAttribute(OptionKeyProp);
 
-                if (!isNil(onFocusChange)) {
-                    onFocusChange(event, key, activeElement);
-                }
-
                 if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
+                }
+
+                if (useVirtualFocus && !isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
                 }
                 break;
             }
@@ -289,7 +293,7 @@ export function InnerListbox({
 
                 const activeElement = focusManager.focusFirst();
 
-                if (!isNil(onFocusChange)) {
+                if (useVirtualFocus && !isNil(onFocusChange)) {
                     onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;
@@ -299,7 +303,7 @@ export function InnerListbox({
 
                 const activeElement = focusManager.focusLast();
 
-                if (!isNil(onFocusChange)) {
+                if (useVirtualFocus && !isNil(onFocusChange)) {
                     onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
                 break;

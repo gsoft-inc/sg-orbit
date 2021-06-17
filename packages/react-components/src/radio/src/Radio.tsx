@@ -130,11 +130,11 @@ export function InnerRadio(props: InnerRadioProps) {
     const handleStateChange = useChainedEventCallback(onChange, event => {
         const newValue = !isChecked;
 
+        setIsChecked(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, true);
         }
-
-        setIsChecked(newValue);
     });
 
     const handleCheck = useChainedEventCallback(onChange, event => {
@@ -142,7 +142,9 @@ export function InnerRadio(props: InnerRadioProps) {
             onValueChange(event, true);
         }
 
-        onCheck(event, value);
+        if (!isNil(onCheck)) {
+            onCheck(event, value);
+        }
     });
 
     const content = resolveChildren(children);

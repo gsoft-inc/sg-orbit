@@ -79,12 +79,12 @@ export function InnerTabs({
 
     const handleSelect = useEventCallback((event: SyntheticEvent, newKey: string) => {
         if (newKey !== selectedKey) {
+            setSelectedKey(newKey);
+
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, newKey);
 
             }
-
-            setSelectedKey(newKey);
         }
     });
 

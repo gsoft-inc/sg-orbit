@@ -67,11 +67,11 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
+            setIsOpen(newValue);
+
             if (!isNil(onOpenChange)) {
                 onOpenChange(event, newValue);
             }
-
-            setIsOpen(newValue);
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 

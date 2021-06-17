@@ -60,6 +60,21 @@ test("when in a field, clicking on the field label focus the input", async () =>
 
 // ***** Api *****
 
+test("call onValueChange when the value change", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <TextInput onValueChange={handler} aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
@@ -71,7 +86,8 @@ test("call onChange when the value change", async () => {
         userEvent.type(getByTestId("input"), "a");
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("can focus the input with the focus api", async () => {
@@ -104,8 +120,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("INPUT");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("INPUT"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -122,8 +138,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("INPUT");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("INPUT"));
 });
 
 test("set ref once", async () => {

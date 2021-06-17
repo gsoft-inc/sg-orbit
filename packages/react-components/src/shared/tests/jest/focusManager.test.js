@@ -81,7 +81,7 @@ describe("focusFirst", () => {
         focusManager.focusFirst({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0]);
+        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
     });
 
     test("call onNotFound when the scope is empty", () => {
@@ -182,7 +182,7 @@ describe("focusLast", () => {
         focusManager.focusLast({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[elements.length - 1]);
+        expect(onFocus).toHaveBeenCalledWith(elements[elements.length - 1], expect.anything());
     });
 
     test("call onNotFound when the scope is empty", () => {
@@ -323,7 +323,7 @@ describe("focusNext", () => {
         focusManager.focusNext({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[1]);
+        expect(onFocus).toHaveBeenCalledWith(elements[1], expect.anything());
     });
 
     test("call onNotFound when the scope is empty", () => {
@@ -490,7 +490,7 @@ describe("focusPrevious", () => {
         focusManager.focusPrevious({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0]);
+        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
     });
 
     test("call onNotFound when the scope is empty", () => {
@@ -604,7 +604,7 @@ describe("focusKey", () => {
         expect(elements[1]).toHaveFocus();
     });
 
-    test("can onFocus when the matching element is focused", () => {
+    test("call onFocus when the matching element is focused", () => {
         const onFocus = jest.fn();
 
         const Key = "data-key";
@@ -621,7 +621,7 @@ describe("focusKey", () => {
         focusManager.focusKey("1", { onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[1]);
+        expect(onFocus).toHaveBeenCalledWith(elements[1], expect.anything());
     });
 
     test("call onNotFound when no elements match the key", () => {
@@ -743,5 +743,43 @@ describe("virtual focus", () => {
         focusManager.focusFirst();
 
         expect(focusManager.hasFocus()).toBeTruthy();
+    });
+});
+
+describe("global onFocus", () => {
+    test("call global onFocus when an element is focused", () => {
+        const onFocus = jest.fn();
+
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { onFocus });
+        focusManager.focusFirst();
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
+    });
+
+    test("call global onFocus when a function specific onFocus is specified", () => {
+        const onFocus = jest.fn();
+
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new FocusManager(new Scope(elements), { onFocus });
+        focusManager.focusFirst({ onFocus: () => {} });
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
     });
 });

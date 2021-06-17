@@ -13,16 +13,20 @@ export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinOp
     const [isFocusWithinRef, setIsFocusWithin] = useRefState(false);
 
     const handleFocus = useEventCallback((event: FocusEvent) => {
-        if (!isNil(onFocus)) {
-            onFocus(event);
-        }
+        // We don't want to trigger multiple onFocus when moving focus inside the element. Only trigger if the currentTarget doesn't
+        // include the relatedTarget (where the focus is moving).
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+            if (!isNil(onFocus)) {
+                onFocus(event);
+            }
 
-        setIsFocusWithin(true);
+            setIsFocusWithin(true);
+        }
     });
 
     const handleBlur = useEventCallback((event: FocusEvent) => {
         // We don't want to trigger onBlur and then immediately onFocus again when moving focus inside the element. Only trigger if the currentTarget doesn't
-        // include the relatedTarget (where focus is moving).
+        // include the relatedTarget (where the focus is moving).
         if (isFocusWithinRef.current && !event.currentTarget.contains(event.relatedTarget as Node)) {
             if (!isNil(onBlur)) {
                 onBlur(event);
