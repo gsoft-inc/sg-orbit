@@ -26,7 +26,7 @@
     background-color: var(--o-ui-alias-background-primary-1);
     border-radius: var(--o-ui-shape-circular);
     transform: scale(0) translate(-2px, -2px);
-    transition: all var(--o-ui-duration-1) var(--o-ui-easing--productive);
+    transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing--productive);
     width: var(--o-ui-global-scale-echo);
     height: var(--o-ui-global-scale-echo);
 }

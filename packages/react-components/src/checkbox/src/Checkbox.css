@@ -24,7 +24,7 @@
     height: var(--o-ui-global-scale-echo);
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1) inset;
     border-radius: var(--o-ui-shape-rounded);
-    transition: all var(--o-ui-duration-2) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;
     z-index: 2;
 }
@@ -55,7 +55,7 @@
     mask-size: var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
     background-color: var(--o-ui-global-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
-    transition: all var(--o-ui-duration-1) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
     border-radius: var(--o-ui-shape-rounded);
 }
 
@@ -79,7 +79,7 @@
 
 /* not working since intedermenate class is removed as soon as it's clicked */
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {
-    transition: transform var(--o-ui-duration-2) var(--o-ui-easing-focus) 0.0625s;
+    transition: transform var(--o-ui-easing-duration-2) var(--o-ui-easing-focus) 0.0625s;
 }
 
 /* BOX | INDETERMINATE | STATE | INVALID */

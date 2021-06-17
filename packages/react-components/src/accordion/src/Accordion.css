@@ -36,7 +36,7 @@
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    transition: background-color var(--o-ui-duration-3) var(--o-ui-easing-focus), border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
+    transition: background-color var(--o-ui-easing-duration-3) var(--o-ui-easing-focus), border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
     width: 100%;
     color: var(--o-ui-alias-text-2);
     line-height: inherit;

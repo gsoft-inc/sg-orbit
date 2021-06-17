@@ -1,16 +1,16 @@
 .dim {
     opacity: 1;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .dim:hover, .dim:focus {
     opacity: .5;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .dim:active {
     opacity: .8;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 /*
@@ -20,12 +20,12 @@
 */
 
 .glow {
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .glow:hover, .glow:focus {
     opacity: 1;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 /*
@@ -45,12 +45,12 @@
 
 .hide-child .child {
     opacity: 0;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .hide-child:hover .child, .hide-child:focus .child, .hide-child:active .child {
     opacity: 1;
-    transition: opacity var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .underline-hover:hover, .underline-hover:focus {
@@ -64,7 +64,7 @@
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
-    transition: transform var(--o-ui-duration-2) var(--o-ui-easing-focus)
+    transition: transform var(--o-ui-easing-duration-2) var(--o-ui-easing-focus)
 }
 
 .grow:hover, .grow:focus {
@@ -79,7 +79,7 @@
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
-    transition: transform var(--o-ui-duration-3) var(--o-ui-easing-focus);
+    transition: transform var(--o-ui-easing-duration-3) var(--o-ui-easing-focus);
 }
 
 .grow-large:hover, .grow-large:focus {
@@ -106,7 +106,7 @@
 .shadow-hover {
     cursor: pointer;
     position: relative;
-    transition: all var(--o-ui-duration-5) var(--o-ui-easing-focus);
+    transition: all var(--o-ui-easing-duration-5) var(--o-ui-easing-focus);
 }
 
 .shadow-hover::after {
@@ -120,7 +120,7 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    transition: opacity var(--o-ui-duration-5) var(--o-ui-easing-focus);
+    transition: opacity var(--o-ui-easing-duration-5) var(--o-ui-easing-focus);
 }
 
 .shadow-hover:hover::after, .shadow-hover:focus::after {
@@ -131,5 +131,5 @@
  * many different transition possibilities. */
 
 .bg-animate, .bg-animate:hover, .bg-animate:focus {
-    transition: background-color var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: background-color var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }

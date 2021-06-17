@@ -17,7 +17,7 @@
     border-radius: var(--o-ui-shape-pill);
     position: relative;
     flex-shrink: 0;
-    transition: all var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 .o-ui-switch .o-ui-switch-control::before {
@@ -27,7 +27,7 @@
     border-radius: var(--o-ui-shape-circular);
     position: absolute;
     transform: translate(2px, 2px);
-    transition: all var(--o-ui-duration-2) var(--o-ui-easing-focus);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
 /* LABEL */

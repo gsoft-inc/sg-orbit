@@ -5,7 +5,7 @@
     border: none;
     background: none;
     color: var(--o-ui-alias-text-1);
-    transition: all var(--o-ui-duration-2) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;

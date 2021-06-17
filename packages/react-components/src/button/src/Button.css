@@ -11,7 +11,7 @@
     cursor: pointer;
     outline: none;
     font-variation-settings: "wght" 500;
-    transition: all var(--o-ui-duration-2) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     border: none;
     position: relative;
     width: max-content;

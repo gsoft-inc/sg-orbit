@@ -23,7 +23,7 @@ In transition declaration :
 
 ```css
 .tease {
-    transition: color var(--o-ui-duration-1) var(--o-ui-easing-focus);
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
 }
 ```
 
@@ -42,7 +42,7 @@ In animation declaration :
 }
 
 .tease {
-    animation: tease-animation var(--o-ui-duration-2) var(--o-ui-easing-productive);
+    animation: tease-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }
 ```
 
@@ -107,11 +107,11 @@ Durations and easings are exposed through CSS Custom Properties(aka variables).
         { title: "Example", headerStyle: { width: "500px" } }
     ]}
     rows={[
-        ["100ms", "--o-ui-duration-1", <MotionSample duration="100"/>],
-        ["200ms", "--o-ui-duration-2", <MotionSample duration="200"/>],
-        ["300ms", "--o-ui-duration-3", <MotionSample duration="300"/>],
-        ["500ms", "--o-ui-duration-4", <MotionSample duration="500"/>],
-        ["800ms", "--o-ui-duration-5", <MotionSample duration="800"/>]
+        ["100ms", "--o-ui-easing-duration-1", <MotionSample duration="100"/>],
+        ["200ms", "--o-ui-easing-duration-2", <MotionSample duration="200"/>],
+        ["300ms", "--o-ui-easing-duration-3", <MotionSample duration="300"/>],
+        ["500ms", "--o-ui-easing-duration-4", <MotionSample duration="500"/>],
+        ["800ms", "--o-ui-easing-duration-5", <MotionSample duration="800"/>]
     ]}
 />
 
