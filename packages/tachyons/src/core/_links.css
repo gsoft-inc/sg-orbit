@@ -1,21 +1,21 @@
 .link {
     text-decoration: none;
-    transition: color .15s ease-in;
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
 }
 
 .link:link, .link:visited {
-    transition: color .15s ease-in;
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
 }
 
 .link:hover {
-    transition: color .15s ease-in;
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
 }
 
 .link:active {
-    transition: color .15s ease-in;
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
 }
 
 .link:focus {
-    transition: color .15s ease-in;
+    transition: color var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
     outline: 1px dotted currentColor;
 }

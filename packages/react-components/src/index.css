@@ -15,7 +15,18 @@
     --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
     --o-ui-focus-ring-outset-inner-offset: 1px;
     --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-global-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-transition: all .2s ease-in;
+    --o-ui-focus-ring-transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
+    /* TRANSITIONS */
+    /* TIMING */
+    --o-ui-easing-duration-1: .1s;
+    --o-ui-easing-duration-2: .2s;
+    --o-ui-easing-duration-3: .3s;
+    --o-ui-easing-duration-4: .5s;
+    --o-ui-easing-duration-5: .8s;
+    /* EASING */
+    --o-ui-easing-productive: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --o-ui-easing-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    --o-ui-easing-expressive: cubic-bezier(0.58, 0.01, 0.15, 1.5);
     /* DEFAULTS */
     color: var(--o-ui-alias-text-1);
 }
@@ -35,11 +46,11 @@
 
 /* ANIMATIONS | FADE */
 .o-ui-fade-in {
-    animation: o-ui-fade-in-animation .2s;
+    animation: o-ui-fade-in-animation var(--o-ui-easing-duration-5) var(--o-ui-easing-productive);
 }
 
 .o-ui-fade-out {
-    animation: o-ui-fade-out-animation .2s;
+    animation: o-ui-fade-out-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }
 
 @keyframes o-ui-fade-in-animation {
@@ -63,9 +74,9 @@
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otherwise it won't work. */
 .o-ui-slide-down {
-    transition: all .2s linear;
+    transition: all var(--o-ui-easing-duration-5) var(--o-ui-easing-productive);
 }
 
 .o-ui-slide-up {
-    transition: all .2s linear;
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }

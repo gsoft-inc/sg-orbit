@@ -36,7 +36,7 @@
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    transition: background-color .3s ease-in, border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
+    transition: background-color var(--o-ui-easing-duration-3) var(--o-ui-easing-focus), border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
     width: 100%;
     color: var(--o-ui-alias-text-2);
     line-height: inherit;
@@ -128,6 +128,7 @@
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
+    transition: var(--o-ui-focus-ring-transition);
 }
 
 /* FOCUS | BORDERLESS */
