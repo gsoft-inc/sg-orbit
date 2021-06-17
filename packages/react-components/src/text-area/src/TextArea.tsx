@@ -146,11 +146,11 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = event.target.value;
 
+        setValue(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, newValue);
         }
-
-        setValue(newValue);
     });
 
     const { wrapperProps, inputProps, inputRef } = useInput({

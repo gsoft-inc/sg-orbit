@@ -292,14 +292,14 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }
 
         if (value !== newValue) {
+            setValue(newValue);
+
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, isNil(newKey) ? null : {
                     key: newKey,
                     value: newValue
                 });
             }
-
-            setValue(newValue);
         }
 
         setQuery(clearOnSelect ? "" : newValue ?? "", true);

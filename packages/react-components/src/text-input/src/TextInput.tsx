@@ -138,11 +138,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
 
+        setValue(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, newValue);
         }
-
-        setValue(newValue);
     });
 
     const { wrapperProps, inputProps } = useInput({

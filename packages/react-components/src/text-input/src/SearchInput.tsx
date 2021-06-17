@@ -103,11 +103,11 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     const inputRef = useMergedRefs(forwardedRef);
 
     const updateValue = useCallback((event: SyntheticEvent, newValue: string) => {
+        setValue(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, newValue);
         }
-
-        setValue(newValue);
     }, [onValueChange, setValue]);
 
     const clear = useCallback((event: SyntheticEvent) => {
@@ -123,6 +123,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
             onKeyDown(event);
         }
 
+        // Can't change for now otherwise Autocomplete will break.
         if (!event.isPropagationStopped()) {
             if (event.key === Keys.esc) {
                 event.preventDefault();

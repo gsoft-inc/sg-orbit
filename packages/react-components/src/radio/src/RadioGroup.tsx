@@ -175,11 +175,11 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
-        setCheckedValue(newValue);
-
         if (!isNil(onChange)) {
             onChange(event, newValue);
         }
+
+        setCheckedValue(newValue);
     });
 
     const groupName = useId(name, "radio-group");

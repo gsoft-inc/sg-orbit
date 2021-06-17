@@ -2,7 +2,6 @@ import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/number-input";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/NumberInput")

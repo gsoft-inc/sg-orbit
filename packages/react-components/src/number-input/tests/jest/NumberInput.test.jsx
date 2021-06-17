@@ -1,7 +1,7 @@
 import { Field, Label } from "@react-components/field";
 import { NumberInput } from "@react-components/number-input";
 import { act, render, waitFor } from "@testing-library/react";
-import { createRef, useCallback } from "react";
+import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 

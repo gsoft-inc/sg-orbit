@@ -211,12 +211,12 @@ export function InnerListbox({
     });
 
     const updateSelectedKeys = (event: SyntheticEvent, newKeys: string[]) => {
-        if (!isNil(onSelectionChange)) {
-            onSelectionChange(event, newKeys);
-        }
-
         if (selectionMode !== "none") {
             setSelectedKeys(newKeys);
+        }
+
+        if (!isNil(onSelectionChange)) {
+            onSelectionChange(event, newKeys);
         }
     };
 
@@ -254,10 +254,6 @@ export function InnerListbox({
                 const activeElement = focusManager.focusNext();
                 const key = activeElement.getAttribute(OptionKeyProp);
 
-                if (useVirtualFocus && !isNil(onFocusChange)) {
-                    onFocusChange(event, key, activeElement);
-                }
-
                 if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
@@ -265,6 +261,11 @@ export function InnerListbox({
                         updateSelectedKeys(event, newKeys);
                     }
                 }
+
+                if (useVirtualFocus && !isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
+                }
+
                 break;
             }
             case Keys.arrowUp: {
@@ -274,16 +275,16 @@ export function InnerListbox({
 
                 const key = activeElement.getAttribute(OptionKeyProp);
 
-                if (useVirtualFocus && !isNil(onFocusChange)) {
-                    onFocusChange(event, key, activeElement);
-                }
-
                 if (selectionMode === "multiple") {
                     if (event.shiftKey) {
                         const newKeys = selectionManager.toggleKey(key);
 
                         updateSelectedKeys(event, newKeys);
                     }
+                }
+
+                if (useVirtualFocus && !isNil(onFocusChange)) {
+                    onFocusChange(event, key, activeElement);
                 }
                 break;
             }

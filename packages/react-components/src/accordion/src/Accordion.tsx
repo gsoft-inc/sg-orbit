@@ -113,11 +113,11 @@ export function InnerAccordion({
             newKeys = expandedKeys.filter(x => x !== toggledKey);
         }
 
+        setExpandedKeys(newKeys);
+
         if (!isNil(onExpansionChange)) {
             onExpansionChange(event, newKeys);
         }
-
-        setExpandedKeys(newKeys);
     });
 
     return (
