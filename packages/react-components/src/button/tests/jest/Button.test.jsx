@@ -48,7 +48,7 @@ test("when type is specified, the type is forwarded properly", async () => {
         >Next</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveProperty("type", "submit"));
+    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "submit"));
 });
 
 // ***** Api *****
