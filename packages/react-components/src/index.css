@@ -26,7 +26,7 @@
     /* EASING */
     --o-ui-easing-productive: cubic-bezier(0.22, 0.61, 0.36, 1);
     --o-ui-easing-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
-    --o-ui-easing-expressive: cubic-bezier(0.64, 0.95, 0.32, 1.43);
+    --o-ui-easing-expressive: cubic-bezier(0.58, 0.01, 0.15, 1.5);
     /* DEFAULTS */
     color: var(--o-ui-alias-text-1);
 }
