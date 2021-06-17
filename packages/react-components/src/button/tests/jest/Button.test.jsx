@@ -40,12 +40,24 @@ test("when autofocus is specified with a delay, the button is focused after the 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
 });
 
-test("when type is specified, the type is forwarded properly", async () => {
+// ***** Aria *****
+
+test("when no type is specified, the type is default to \"button\"", async () => {
+    const { getByTestId } = render(
+        <Button
+            data-testid="button"
+        >Cutoff</Button>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "button"));
+});
+
+test("when type is specified, the type is forwarded", async () => {
     const { getByTestId } = render(
         <Button
             type="submit"
             data-testid="button"
-        >Next</Button>
+        >Cutoff</Button>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "submit"));
