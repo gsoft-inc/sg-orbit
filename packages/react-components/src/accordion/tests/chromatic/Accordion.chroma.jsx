@@ -19,6 +19,18 @@ createAccordionTestSuite(<Accordion variant="borderless" />, stories("/borderles
 createAccordionTestSuite(<Accordion variant="bordered" />, stories("/bordered"));
 
 stories()
+    .add("conditional rendering", () =>
+        <Accordion>
+            <Item>
+                <Header as="h3">Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            {false && <Item>
+                <Header as="h3">Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>}
+        </Accordion>
+    )
     .add("styling", () =>
         <Stack>
             <Inline>

@@ -424,6 +424,18 @@ stories()
             </Tabs>
         );
     })
+    .add("conditional rendering", () =>
+        <Tabs aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            {false && <Item key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>}
+        </Tabs>
+    )
     .add("styling", () =>
         <Stack>
             <Inline>

@@ -35,6 +35,11 @@ export class AccordionBuilder {
         }
 
         return Children.map(children, (element: ReactElement, index) => {
+            // Support conditional rendering like {false && <Item ... />}
+            if (isNil(element)) {
+                return null;
+            }
+
             const [header, content] = Children.toArray(element.props.children) as ReactElement[];
 
             if (isNil(header) || isNil(content)) {
