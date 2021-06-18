@@ -133,7 +133,7 @@
 .o-ui-menu-item-label {
     display: inline-block;
     white-space: nowrap;
-    line-height: var(--o-ui-global-line-height-1);
+    line-height: var(--o-ui-global-line-height-2);
     overflow: hidden;
     text-overflow: ellipsis;
     grid-area: label;

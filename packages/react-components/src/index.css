@@ -46,7 +46,7 @@
 
 /* ANIMATIONS | FADE */
 .o-ui-fade-in {
-    animation: o-ui-fade-in-animation var(--o-ui-easing-duration-5) var(--o-ui-easing-productive);
+    animation: o-ui-fade-in-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }
 
 .o-ui-fade-out {
@@ -74,7 +74,7 @@
 /* ANIMATIONS | SLIDE */
 /* Must be a transition on height otherwise it won't work. */
 .o-ui-slide-down {
-    transition: all var(--o-ui-easing-duration-5) var(--o-ui-easing-productive);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }
 
 .o-ui-slide-up {
