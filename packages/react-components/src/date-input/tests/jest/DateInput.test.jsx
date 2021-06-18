@@ -372,8 +372,8 @@ test("when the input value has a valid date and the date has been cleared, call 
         userEvent.clear(getByTestId("date"));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), null));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("when the input value has a valid date and a partial date has been entered, do not call onDateChange on date reset", async () => {
@@ -446,7 +446,29 @@ test("when the input value has a valid date and is focused then blured with the 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
-test("when the entered value exceed the specified min or max value, onValueChange is called before onBlur", async () => {
+test("when a valid date is entered, typing an extra digit doesn't call onDateChange", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <DateInput
+            onDateChange={handler}
+            data-testid="date"
+        />
+    );
+
+    act(() => {
+        getByTestId("date").focus();
+    });
+
+    type(getByTestId("date"), "01012020");
+
+    type(getByTestId("date"), "1");
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), new Date(2020, 0, 1)));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("when a valid date is entered and the date exceed the specified min or max value, onDateChange is called with clamp date before onBlur is called", async () => {
     const handleDateChange = jest.fn();
 
     const onBlur = () => {

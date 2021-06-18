@@ -51,6 +51,10 @@ function toLongString(date: Date) {
         : "";
 }
 
+function datesAreEqual(x: Date, y: Date) {
+    return x?.getTime() === y?.getTime();
+}
+
 function isTyping(inputValue: string) {
     return inputValue.length > 0 && inputValue.length < InputMask.length;
 }
@@ -101,7 +105,7 @@ export function useDateInput({
     const ref = useMergedRefs(setInputElement, forwardedRef);
 
     const applyValue = useCallback((event, newDate) => {
-        if (value !== newDate) {
+        if (!datesAreEqual(value, newDate)) {
             setValue(newDate);
 
             if (!isNil(onDateChange)) {
