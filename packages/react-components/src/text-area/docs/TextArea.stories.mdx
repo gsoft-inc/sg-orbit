@@ -83,11 +83,17 @@ A text area can take the width of its container.
 
 ### Validation
 
-A text input can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+A text area can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
 
 The example below illustrates how one would validate that a text area doesn't exceed 25 characters (yes it could also be done with maxLength).
 
 <Preview filePath="/text-area/docs/LengthValidation" />
+
+### Controlled
+
+A text area `value` can be handled in controlled mode.
+
+<Preview filePath="/text-area/docs/ControlledTextArea" />
 
 ## API
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, ForwardedRef, useCallback, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, ForwardedRef, SyntheticEvent, useCallback, useState } from "react";
 import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
@@ -51,6 +51,10 @@ function toLongString(date: Date) {
         : "";
 }
 
+function datesAreEqual(x: Date, y: Date) {
+    return x?.getTime() === y?.getTime();
+}
+
 function isTyping(inputValue: string) {
     return inputValue.length > 0 && inputValue.length < InputMask.length;
 }
@@ -60,8 +64,8 @@ export interface UseDateInputProps {
     defaultValue?: Date;
     min?: Date;
     max?: Date;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
+    onChange?: ChangeEventHandler;
+    onDateChange?: (event: SyntheticEvent, date: Date) => void;
     forwardedRef: ForwardedRef<any>;
 }
 
@@ -100,28 +104,19 @@ export function useDateInput({
 
     const ref = useMergedRefs(setInputElement, forwardedRef);
 
-    const reset = useCallback(() => {
-        const stringValue = toNumericString(value);
+    const applyValue = useCallback((event, newDate) => {
+        if (!datesAreEqual(value, newDate)) {
+            setValue(newDate);
 
-        // Reset the value to the last selected one.
-        if (stringValue !== inputValueRef.current) {
-            setInputValue(value ? stringValue : "", true);
-        }
-    }, [value, inputValueRef, setInputValue]);
-
-    const applyValue = useCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
-        if (value !== newDate) {
             if (!isNil(onDateChange)) {
                 onDateChange(event, newDate);
             }
-
-            setValue(newDate);
         }
 
         setInputValue(toNumericString(newDate), true);
     }, [onDateChange, value, setValue, setInputValue]);
 
-    const commit = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue) => {
+    const applyRawValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
         if (rawValue === "") {
             applyValue(event, null);
         } else {
@@ -129,23 +124,40 @@ export function useDateInput({
 
             if (isNil(newDate)) {
                 newDate = value ?? null;
-            } else if (!isNil(min) && min > newDate) {
-                newDate = min;
-            } else if (!isNil(max) && max < newDate) {
-                newDate = max;
             }
 
             applyValue(event, newDate);
         }
-    }, [value, min, max, applyValue]);
+    }, [value, applyValue]);
+
+    const syncInputValue = useCallback(() => {
+        const stringValue = toNumericString(value);
+
+        // When the value have not been applied, reset the input value to the last applied one.
+        if (stringValue !== inputValueRef.current) {
+            setInputValue(!isNil(value) ? stringValue : "", true);
+        }
+
+
+    }, [value, inputValueRef, setInputValue]);
+
+    const clampValue = useCallback(event => {
+        if (!isNil(value)) {
+            if (!isNil(min) && min > value) {
+                applyValue(event, min);
+            } else if (!isNil(max) && max < value) {
+                applyValue(event, max);
+            }
+        }
+    }, [min, max, value, applyValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;
 
         if (newValue === "" && !isNil(value)) {
-            commit(event, newValue);
+            applyRawValue(event, newValue);
         } else if (newValue.length === InputMask.length) {
-            commit(event, newValue);
+            applyRawValue(event, newValue);
         } else {
             setInputValue(newValue, true);
         }
@@ -155,8 +167,10 @@ export function useDateInput({
         setHasFocus(true);
     });
 
-    const handleBlur = useEventCallback(() => {
-        reset();
+    const handleBlur = useEventCallback(event => {
+        clampValue(event);
+        syncInputValue();
+
         setHasFocus(false);
     });
 

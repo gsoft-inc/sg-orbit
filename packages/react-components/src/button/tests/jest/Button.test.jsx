@@ -40,12 +40,24 @@ test("when autofocus is specified with a delay, the button is focused after the 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
 });
 
-test("when type is specified, the type is forwarded properly", async () => {
+// ***** Aria *****
+
+test("when no type is specified, the type is default to \"button\"", async () => {
+    const { getByTestId } = render(
+        <Button
+            data-testid="button"
+        >Cutoff</Button>
+    );
+
+    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "button"));
+});
+
+test("when type is specified, the type is forwarded", async () => {
     const { getByTestId } = render(
         <Button
             type="submit"
             data-testid="button"
-        >Next</Button>
+        >Cutoff</Button>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "submit"));
@@ -82,8 +94,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("BUTTON");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("BUTTON"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -99,8 +111,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("BUTTON");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("BUTTON"));
 });
 
 test("set ref once", async () => {

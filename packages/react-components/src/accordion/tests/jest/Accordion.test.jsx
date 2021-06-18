@@ -145,6 +145,7 @@ test("when single, call onExpansionChange when the expanded tab change", async (
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("when multiple, call onExpansionChange when the expanded tabs change", async () => {
@@ -184,6 +185,7 @@ test("when multiple, call onExpansionChange when the expanded tabs change", asyn
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));
 });
 
 // ***** Refs *****

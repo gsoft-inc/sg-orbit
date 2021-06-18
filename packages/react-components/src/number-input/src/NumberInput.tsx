@@ -12,11 +12,24 @@ import {
     omitProps,
     useChainedEventCallback,
     useControllableState,
-    useEventCallback
+    useEventCallback,
+    useFocusWithin
 } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
-import { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, MouseEvent, ReactElement, SyntheticEvent, useCallback } from "react";
+import {
+    ChangeEvent,
+    ChangeEventHandler,
+    ComponentProps,
+    ElementType,
+    FocusEvent,
+    FocusEventHandler,
+    ForwardedRef,
+    MouseEvent,
+    ReactElement,
+    SyntheticEvent,
+    useCallback
+} from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
@@ -77,7 +90,15 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
     /**
      * @ignore
      */
-    onChange?: (event: SyntheticEvent) => void;
+    onChange?: ChangeEventHandler;
+    /**
+     * @ignore
+     */
+    onFocus?: FocusEventHandler;
+    /**
+     * @ignore
+     */
+    onBlur?: FocusEventHandler;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -112,14 +133,16 @@ interface SpinnerProps extends ComponentProps<"div"> {
     onIncrement?: (event: MouseEvent) => void;
     onDecrement?: (event: MouseEvent) => void;
     onFocus?: (event: FocusEvent) => void;
-    disabled?: boolean;
+    disableIncrement?: boolean;
+    disableDecrement?: boolean;
 }
 
 function Spinner({
     onIncrement,
     onDecrement,
     onFocus,
-    disabled,
+    disableIncrement,
+    disableDecrement,
     ...rest
 }: SpinnerProps) {
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -145,7 +168,7 @@ function Spinner({
                 className="o-ui-number-input-spinner-increment"
                 type="button"
                 tabIndex={-1}
-                disabled={disabled}
+                disabled={disableIncrement}
                 onFocus={onFocus}
                 aria-label="Increment value"
             >
@@ -156,7 +179,7 @@ function Spinner({
                 className="o-ui-number-input-spinner-decrement"
                 type="button"
                 tabIndex={-1}
-                disabled={disabled}
+                disabled={disableDecrement}
                 onFocus={onFocus}
                 aria-label="Decrement value"
             >
@@ -201,7 +224,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const {
         id,
-        value,
+        value: valueProp,
         defaultValue,
         placeholder,
         min,
@@ -211,6 +234,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         validationState,
         onValueChange,
         onChange,
+        onFocus,
+        onBlur,
         autoFocus,
         icon,
         disabled,
@@ -235,15 +260,15 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
-    const [inputValue, setValue] = useControllableState(value, defaultValue, null);
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null);
 
     const updateValue = (event: SyntheticEvent, newValue: number) => {
-        if (newValue !== inputValue) {
+        if (newValue !== value) {
+            setValue(newValue);
+
             if (!isNil(onValueChange)) {
                 onValueChange(event, newValue);
             }
-
-            setValue(newValue);
         }
     };
 
@@ -266,33 +291,35 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         };
     }, [min, max]);
 
-    const clampValue = (event: SyntheticEvent, newValue: number) => {
-        const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
+    const clampOrSetValue = (event: SyntheticEvent, newValue: number) => {
+        if (!isNil(newValue)) {
+            const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
 
-        if (isInRange) {
-            updateValue(event, newValue);
-        } else {
-            if (isBelowMin) {
-                updateValue(event, min);
-            } else if (isAboveMax) {
-                updateValue(event, max);
+            if (isInRange) {
+                updateValue(event, newValue);
+            } else {
+                if (isBelowMin) {
+                    updateValue(event, min);
+                } else if (isAboveMax) {
+                    updateValue(event, max);
+                }
             }
         }
     };
 
     const applyStep = (event: SyntheticEvent, factor: number) => {
-        if (!isNil(inputValue)) {
-            const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
-            const newValue = toFixed(inputValue + factor * step, precision);
+        if (!isNil(value)) {
+            const precision = Math.max(countDecimalPlaces(value), countDecimalPlaces(step));
+            const newValue = toFixed(value + factor * step, precision);
 
-            clampValue(event, newValue);
+            clampOrSetValue(event, newValue);
         } else {
-            updateValue(event, factor * step);
+            clampOrSetValue(event, factor * step);
         }
     };
 
-    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, newValue: string) => {
-        clampValue(event, toNumber(newValue));
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
+        updateValue(event, toNumber(event.target.value));
     });
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -307,10 +334,25 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         inputRef.current.focus();
     });
 
+    const focusWithinProps = useFocusWithin({
+        onFocus: useEventCallback(event => {
+            if (!isNil(onFocus)) {
+                onFocus(event);
+            }
+        }),
+        onBlur: useEventCallback(event => {
+            clampOrSetValue(event, value);
+
+            if (!isNil(onBlur)) {
+                onBlur(event);
+            }
+        })
+    });
+
     const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-number-input",
         id,
-        value: !isNil(inputValue) ? inputValue : "",
+        value: !isNil(value) ? value : "",
         placeholder,
         required,
         validationState,
@@ -336,6 +378,9 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 {...mergeProps(
                     rest,
                     {
+                        min,
+                        max,
+                        step,
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy
                     },
@@ -346,7 +391,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}
-                disabled={readOnly || disabled}
+                disableIncrement={readOnly || disabled || (!isNil(value) && value >= max)}
+                disableDecrement={readOnly || disabled || (!isNil(value) && value <= min)}
                 aria-hidden={loading}
             />
         </>
@@ -370,7 +416,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                         )
                     ),
                     as
-                }
+                },
+                focusWithinProps
             )}
         >
             {content}

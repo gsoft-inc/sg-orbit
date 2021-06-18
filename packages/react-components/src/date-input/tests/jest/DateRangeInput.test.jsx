@@ -179,6 +179,10 @@ test("when the start date is lower than the min date, reset the start date to th
 
     type(getStartDateInput(container), "02022019");
 
+    act(() => {
+        userEvent.click(document.body);
+    });
+
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
 });
 
@@ -195,6 +199,10 @@ test("when the start date is greater than the max date, reset the start date to 
     });
 
     type(getStartDateInput(container), "02022021");
+
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
 });
@@ -213,7 +221,11 @@ test("when the end date is lower than the min date, reset the end date to the mi
 
     type(getEndDateInput(container), "02022019");
 
-    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("01/01/2020"));
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
 });
 
 test("when the end date is greater than the max date, reset the end date to the max date value", async () => {
@@ -230,7 +242,11 @@ test("when the end date is greater than the max date, reset the end date to the 
 
     type(getEndDateInput(container), "02022021");
 
-    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("01/01/2020"));
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
 });
 
 test("clear both dates on clear button click", async () => {
@@ -506,6 +522,7 @@ test("when the start date and the end date are applied, call onDatesChange with 
     type(getEndDateInput(container), "01012021");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), new Date(2020, 0, 1), new Date(2021, 0, 1)));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 test("when the dates are cleared, call onDatesChange with null for both dates", async () => {

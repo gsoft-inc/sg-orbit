@@ -2,7 +2,7 @@ import "./TextInput.css";
 
 import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -43,7 +43,7 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps, A
     /**
      * @ignore
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     /**
      * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
      */
@@ -138,11 +138,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
 
+        setValue(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, newValue);
         }
-
-        setValue(newValue);
     });
 
     const { wrapperProps, inputProps } = useInput({

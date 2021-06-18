@@ -95,7 +95,11 @@ test("when the entered date is lower than the min date, reset value to min date"
 
     type(getByTestId("date"), "01012020");
 
-    await waitFor(() => expect(getByTestId("date")).toHaveValue("01/01/2021"));
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
 });
 
 test("when the entered date is greater than the max date, reset the date to the max date value", async () => {
@@ -112,7 +116,11 @@ test("when the entered date is greater than the max date, reset the date to the 
 
     type(getByTestId("date"), "01012022");
 
-    await waitFor(() => expect(getByTestId("date")).toHaveValue("01/01/2021"));
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
 });
 
 test("when a valid date has been entered, convert the date format to a read format on blur", async () => {
@@ -364,8 +372,8 @@ test("when the input value has a valid date and the date has been cleared, call 
         userEvent.clear(getByTestId("date"));
     });
 
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), null));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("when the input value has a valid date and a partial date has been entered, do not call onDateChange on date reset", async () => {
@@ -436,6 +444,55 @@ test("when the input value has a valid date and is focused then blured with the 
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
+});
+
+test("when a valid date is entered, typing an extra digit doesn't call onDateChange", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <DateInput
+            onDateChange={handler}
+            data-testid="date"
+        />
+    );
+
+    act(() => {
+        getByTestId("date").focus();
+    });
+
+    type(getByTestId("date"), "01012020");
+
+    type(getByTestId("date"), "1");
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), new Date(2020, 0, 1)));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("when a valid date is entered and the date exceed the specified min or max value, onDateChange is called with clamp date before onBlur is called", async () => {
+    const handleDateChange = jest.fn();
+
+    const onBlur = () => {
+        expect(handleDateChange).toHaveBeenCalledTimes(2);
+    };
+
+    const { getByTestId } = render(
+        <DateInput
+            onDateChange={handleDateChange}
+            onBlur={onBlur}
+            min={new Date(2021, 0, 1)}
+            data-testid="date"
+        />
+    );
+
+    act(() => {
+        getByTestId("date").focus();
+    });
+
+    type(getByTestId("date"), "01012020");
+
+    act(() => {
+        userEvent.click(document.body);
+    });
 });
 
 test("can focus the date input with the focus api", async () => {

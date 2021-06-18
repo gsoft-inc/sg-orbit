@@ -76,10 +76,10 @@
 }
 
 /* SPINNER | ACTIVE */
-.o-ui-number-input-spinner-increment:active,
-.o-ui-number-input-spinner-decrement:active,
-.o-ui-number-input-spinner-increment:hover:active,
-.o-ui-number-input-spinner-decrement:hover:active {
+.o-ui-number-input-spinner-increment:active:not(:disabled),
+.o-ui-number-input-spinner-decrement:active:not(:disabled),
+.o-ui-number-input-spinner-increment:hover:active:not(:disabled),
+.o-ui-number-input-spinner-decrement:hover:active:not(:disabled) {
     background-color: var(--o-ui-alias-background-4-active);
 }
 
@@ -89,9 +89,10 @@
     background-color: var(--o-ui-alias-background-4-hover);
 }
 
+/* SPINNER | DISABLED */
 .o-ui-number-input-spinner-increment:disabled,
 .o-ui-number-input-spinner-decrement:disabled {
-    visibility: hidden;
+    opacity: var(--o-ui-disabled-opacity);
 }
 
 /* SPINNER | LOADING */

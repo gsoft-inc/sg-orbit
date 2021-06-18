@@ -54,7 +54,8 @@ test("call onChange when the button is selected", async () => {
         userEvent.click(getByTestId("toggle-button"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), true);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onChange when the button is unselected", async () => {
@@ -72,7 +73,8 @@ test("call onChange when the button is unselected", async () => {
         userEvent.click(getByTestId("toggle-button"));
     });
 
-    expect(handler).toHaveBeenLastCalledWith(expect.anything(), false);
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 // ***** Refs *****
@@ -86,8 +88,8 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("BUTTON");
+    await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("BUTTON"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -104,8 +106,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("BUTTON");
+    await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("BUTTON"));
 });
 
 test("set ref once", async () => {

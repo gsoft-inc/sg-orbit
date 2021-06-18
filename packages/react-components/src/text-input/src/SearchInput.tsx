@@ -1,7 +1,7 @@
 import "./SearchInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, SyntheticEvent, useCallback } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
 import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
@@ -44,11 +44,11 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
     /**
      * @ignore
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     /**
      * @ignore
      */
-    onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
+    onKeyDown?: KeyboardEventHandler;
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -103,11 +103,11 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     const inputRef = useMergedRefs(forwardedRef);
 
     const updateValue = useCallback((event: SyntheticEvent, newValue: string) => {
+        setValue(newValue);
+
         if (!isNil(onValueChange)) {
             onValueChange(event, newValue);
         }
-
-        setValue(newValue);
     }, [onValueChange, setValue]);
 
     const clear = useCallback((event: SyntheticEvent) => {
@@ -123,6 +123,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
             onKeyDown(event);
         }
 
+        // Can't change for now otherwise Autocomplete will break.
         if (!event.isPropagationStopped()) {
             if (event.key === Keys.esc) {
                 event.preventDefault();

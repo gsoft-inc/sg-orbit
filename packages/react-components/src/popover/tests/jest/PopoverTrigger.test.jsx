@@ -358,6 +358,7 @@ test("call onOpenChange when the popover appears", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onOpenChange when the popover disappear", async () => {
@@ -382,6 +383,7 @@ test("call onOpenChange when the popover disappear", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
 // ***** Refs *****

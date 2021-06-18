@@ -103,11 +103,11 @@ export function InnerTooltipTrigger({
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
+            setIsOpen(newValue);
+
             if (!isNil(onOpenChange)) {
                 onOpenChange(event, newValue);
             }
-
-            setIsOpen(newValue);
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 

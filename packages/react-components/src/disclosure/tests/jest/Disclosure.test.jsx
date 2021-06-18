@@ -105,6 +105,7 @@ test("call onOpenChange when expand", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 test("call onOpenChange when close", async () => {
@@ -122,6 +123,7 @@ test("call onOpenChange when close", async () => {
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 

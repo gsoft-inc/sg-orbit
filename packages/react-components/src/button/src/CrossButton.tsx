@@ -1,5 +1,5 @@
 import { AriaLabelingProps, forwardRef, slot } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton } from "./IconButton";
 
@@ -21,11 +21,9 @@ export interface InnerCrossButtonProps extends AriaLabelingProps {
      */
     disabled?: boolean;
     /**
-     * Called when the button is click.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
+     * @ignore
      */
-    onClick?: (event: MouseEvent) => void;
+    onClick?: MouseEventHandler;
     /**
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
