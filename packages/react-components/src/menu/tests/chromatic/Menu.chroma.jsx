@@ -460,6 +460,13 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Menu>
     )
+    .add("conditional rendering", () =>
+        <Menu aria-label="Planets">
+            {false && <Item key="earth">Earth</Item>}
+            <Item>Jupiter</Item>
+            <Item>Mars</Item>
+        </Menu>
+    )
     .add("styling", () =>
         <Inline>
             <Menu className="border-red" aria-label="Planets">

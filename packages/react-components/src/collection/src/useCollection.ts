@@ -151,6 +151,11 @@ export class CollectionBuilder {
         const that = this;
 
         return Children.map(elements, (element: ReactElement) => {
+            // Support conditional rendering like {false && <Item ... />}
+            if (isNil(element)) {
+                return null;
+            }
+
             switch (element.type) {
                 case Section:
                     return that.parseSection(element, incrementIndex);

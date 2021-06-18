@@ -383,6 +383,13 @@ stories()
                  .build()
          }
     )
+    .add("conditional rendering", () =>
+        <Autocomplete placeholder="Select a planet" aria-label="Planets">
+            {false && <Item key="earth">Earth</Item>}
+            <Item key="mars">Mars</Item>
+            <Item key="saturn">Saturn</Item>
+        </Autocomplete>
+    )
     .add("styling", () =>
         <Inline>
             <Autocomplete className="border-red" placeholder="Select a planet" aria-label="Planets">
