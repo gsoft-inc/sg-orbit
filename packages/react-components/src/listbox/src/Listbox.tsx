@@ -192,7 +192,6 @@ export function InnerListbox({
     useVirtualFocus,
     tabbable = true,
     fluid,
-    style: { height, ...style } = {},
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "div",
@@ -387,8 +386,7 @@ export function InnerListbox({
         getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-option-height")); }, [themeComputedStyle]),
         getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-border-size")); }, [themeComputedStyle]),
         itemSelector: ".o-ui-listbox-option",
-        sectionSelector: "o-ui-listbox-section",
-        disabled: !isNil(height)
+        sectionSelector: "o-ui-listbox-section"
     });
 
     const rootId = useId(id, "o-ui-listbox");
@@ -458,10 +456,6 @@ export function InnerListbox({
                         fluid && "fluid",
                         validationState
                     ),
-                    style: {
-                        height,
-                        ...style
-                    },
                     onKeyDown: handleKeyDown,
                     role: "listbox",
                     "aria-label": ariaLabel,
