@@ -46,7 +46,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
             {...mergeProps<any>(
                 rest,
                 {
-                    size: "sm",
+                    size: "md",
                     className: cssModule(
                         "o-ui-field-message",
                         tone,

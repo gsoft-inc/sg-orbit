@@ -123,7 +123,7 @@ export function InnerListboxOption({
         description: {
             id: descriptionId,
             className: "o-ui-listbox-option-description",
-            size: "sm"
+            size: "md"
         },
         "end-icon": {
             size: "sm",
