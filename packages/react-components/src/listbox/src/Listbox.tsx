@@ -24,11 +24,23 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
+import {
+    CSSProperties,
+    ComponentProps,
+    ElementType,
+    ForwardedRef,
+    KeyboardEvent,
+    ReactNode,
+    SyntheticEvent,
+    useCallback,
+    useImperativeHandle,
+    useMemo
+} from "react";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
+import { useThemeComputedStyle } from "../../collection/src/useThemeComputedStyle";
 
 export const OptionKeyProp = "data-o-ui-key";
 
@@ -98,6 +110,10 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      */
     fluid?: boolean;
     /**
+     * @ignore
+     */
+    style?: CSSProperties;
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -160,7 +176,6 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
     }, [items, selectedKeys]);
 }
 
-
 export function InnerListbox({
     id,
     selectedKeys: selectedKeysProp,
@@ -177,6 +192,7 @@ export function InnerListbox({
     useVirtualFocus,
     tabbable = true,
     fluid,
+    style: { height, ...style } = {},
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "div",
@@ -365,6 +381,16 @@ export function InnerListbox({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
+    const themeComputedStyle = useThemeComputedStyle(containerRef);
+
+    const scrollableProps = useScrollableCollection(containerRef, {
+        getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-option-height")); }, [themeComputedStyle]),
+        getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-border-size")); }, [themeComputedStyle]),
+        itemSelector: ".o-ui-listbox-option",
+        sectionSelector: "o-ui-listbox-section",
+        disabled: !isNil(height)
+    });
+
     const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
@@ -432,6 +458,10 @@ export function InnerListbox({
                         fluid && "fluid",
                         validationState
                     ),
+                    style: {
+                        height,
+                        ...style
+                    },
                     onKeyDown: handleKeyDown,
                     role: "listbox",
                     "aria-label": ariaLabel,
@@ -441,7 +471,8 @@ export function InnerListbox({
                     "aria-activedescendant": !isNil(activeDescendant) ? activeDescendant.getAttribute("id") : undefined,
                     as,
                     ref: containerRef
-                }
+                },
+                scrollableProps
             )}
         >
             <ListboxContext.Provider
