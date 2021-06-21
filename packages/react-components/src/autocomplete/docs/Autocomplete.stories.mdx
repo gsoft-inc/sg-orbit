@@ -304,7 +304,7 @@ An autocomplete items can be fetch from a remote source.
 
 We provide an utility hook called `useAsyncSearch` which accept an *async* function responsible of fetching the data. You could roll your own utility hook as long as it returns a *loading indicator* and provide a function to handle *search* requests.
 
-> In most cases, you should pass the `signal` arg to your `fetch` request.
+> In most cases, you should pass the [`signal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) arg to your `fetch` request.
 
 <Preview filePath="/autocomplete/docs/RemoteItems" scope={{ ApiKey: "8aa06f2e50msh9ff37516b3c0282p1e8624jsn81c867aa0d74" }} />
 
