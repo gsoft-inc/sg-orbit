@@ -49,7 +49,7 @@ export function InnerLabel(props: InnerLabelProps) {
             {...mergeProps<any>(
                 rest,
                 {
-                    size: "sm",
+                    size: "md",
                     className: "o-ui-field-label",
                     as,
                     ref: forwardedRef
