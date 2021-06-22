@@ -512,7 +512,7 @@ stories()
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
-            <Item focus key="mars">
+            <Item key="mars">
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
@@ -553,7 +553,7 @@ stories()
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
-                <Item focus key="mars">
+                <Item key="mars">
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>

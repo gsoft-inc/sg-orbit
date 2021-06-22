@@ -529,7 +529,7 @@ test("can focus the input with the focus api", async () => {
     await waitFor(() => expect(refNode).toHaveFocus());
 });
 
-test("when the entered value exceed the specified min or max value, onValueChange is called with the clamp value before onBlur is called", async () => {
+test("when the entered value exceed the specified min or max value, onValueChange is called with the clamped value before onBlur is called", async () => {
     const handleValueChange = jest.fn();
 
     const onBlur = () => {

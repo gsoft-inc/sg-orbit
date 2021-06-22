@@ -1,5 +1,13 @@
 import { RefObject, useMemo } from "react";
-import { isNil, isNilOrEmpty } from "../../shared";
+import { isNil } from "../../shared";
+
+export function toPixelValue(value: string) {
+    if (value.endsWith("rem")) {
+        return (parseFloat(value) * parseFloat(getComputedStyle(document.documentElement).fontSize)).toString();
+    }
+
+    return value;
+}
 
 export class ThemeComputedStyle {
     private componentRef: RefObject<Element>;
@@ -18,34 +26,12 @@ export class ThemeComputedStyle {
         return themeElement;
     }
 
-    private toPixelValue(value: string) {
-        if (value.endsWith("rem")) {
-            return (parseFloat(value) * parseFloat(getComputedStyle(document.documentElement).fontSize)).toString();
-        }
-
-        return value;
-    }
-
     getPropertyValue(name: string) {
         return window.getComputedStyle(this.getThemeElement()).getPropertyValue(name);
     }
 
-    getRequiredPropertyValue(name: string) {
-        const value = this.getPropertyValue(name);
-
-        if (isNilOrEmpty(value)) {
-            throw new Error(`Cannot find required CSS property "${name}"`);
-        }
-
-        return value;
-    }
-
     getSpacingValue(name: string) {
-        return this.toPixelValue(this.getPropertyValue(name));
-    }
-
-    getRequiredSpacingValue(name: string) {
-        return this.toPixelValue(this.getRequiredPropertyValue(name));
+        return toPixelValue(this.getPropertyValue(name));
     }
 }
 

@@ -467,6 +467,165 @@ stories()
             <Item>Mars</Item>
         </Menu>
     )
+    .add("scrolling with too many items", () =>
+        <Menu selectionMode="single" aria-label="Planets">
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Menu>
+    )
+    .add("scrolling with sections", () =>
+        <Menu selectionMode="single" aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Section>
+        </Menu>,
+         {
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-children", enabled: false },
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
+         }
+    )
+    .add("scrolling with dividers", () =>
+        <Menu selectionMode="single" aria-label="Planets">
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Divider />
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Divider />
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Menu>
+    )
+    .add("scrolling with descriptions", () =>
+        <Menu selectionMode="single" aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="makemake">
+                <Text>Makemake</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="mercury">
+                <Text>Mercury</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="neptune">
+                <Text>Neptune</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="saturn">
+                <Text>Saturn</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="uranus">
+                <Text>Uranus</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="venus">
+                <Text>Venus</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+        </Menu>
+    )
+    .add("scrolling mix & match", () =>
+        <Menu selectionMode="single" aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">
+                    <Text>Earth</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">See you in 2026</Text>
+                </Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Divider />
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Section>
+        </Menu>
+    )
+    .add("scrolling with custom style height", () =>
+        <Menu selectionMode="single" style={{ height: "200px" }} aria-label="Planets">
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Menu>
+    )
     .add("styling", () =>
         <Inline>
             <Menu className="border-red" aria-label="Planets">

@@ -2,19 +2,38 @@ import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "../../shared";
 
 interface UseScrollableCollectionOptions {
-    getMaxHeight?: () => number;
-    getBorderHeight?: () => number;
-    getPaddingHeight?: () => number;
+    maxHeight?: number;
+    borderHeight?: number;
+    paddingHeight?: number;
     itemSelector?: string;
     sectionSelector?: string;
     dividerSelector?: string;
     disabled?: boolean;
 }
 
+function toPixels(value: string) {
+    if (isNil(value)) {
+        return 0;
+    }
+
+    if (value.endsWith("rem")) {
+        return parseFloat(value) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
+
+    return parseInt(value);
+}
+
+function getOuterHeight(element: HTMLElement) {
+    const clientRect = element.getBoundingClientRect();
+    const computedStyle = window.getComputedStyle(element);
+
+    return clientRect.height + toPixels(computedStyle.marginTop) + toPixels(computedStyle.marginBottom);
+}
+
 export function useScrollableCollection(containerRef: RefObject<Element>, {
-    getMaxHeight,
-    getBorderHeight,
-    getPaddingHeight,
+    maxHeight = 500,
+    borderHeight = 0,
+    paddingHeight = 0,
     itemSelector,
     sectionSelector,
     dividerSelector,
@@ -25,26 +44,28 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
     useLayoutEffect(() => {
         if (!disabled) {
             if (!isNil(containerRef.current)) {
-                const borderHeight = !isNil(getBorderHeight) ? getBorderHeight() : 0;
-                const paddingHeight = !isNil(getPaddingHeight) ? getPaddingHeight() : 0;
-                const maxHeight = !isNil(getMaxHeight) ? getMaxHeight() + borderHeight + paddingHeight : 500;
+                const adjustedMaxHeight = maxHeight + borderHeight + paddingHeight;
 
                 let height = borderHeight + paddingHeight;
 
-                containerRef.current.querySelectorAll([itemSelector, sectionSelector, dividerSelector].filter(x => x).join(", ")).forEach((x: Element) => {
-                    const elementHeight = x.getBoundingClientRect().height;
+                const elements = !isNil(itemSelector) || !isNil(sectionSelector) || !isNil(dividerSelector)
+                    ? containerRef.current.querySelectorAll([itemSelector, sectionSelector, dividerSelector].filter(x => x).join(", "))
+                    : Array.from(containerRef.current.children);
 
-                    if (height + elementHeight > maxHeight) {
+                elements.forEach((x: HTMLElement) => {
+                    const outerHeight = getOuterHeight(x);
+
+                    if (height + outerHeight > adjustedMaxHeight) {
                         return false;
                     }
 
-                    height += elementHeight;
+                    height += outerHeight;
                 });
 
                 setCollectionHeight(`${height}px`);
             }
         }
-    }, [containerRef, getMaxHeight, getBorderHeight, getPaddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
+    }, [containerRef, maxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
 
     return isNil(collectionHeight) ? {} : {
         style: {
