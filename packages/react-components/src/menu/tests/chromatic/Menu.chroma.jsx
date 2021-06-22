@@ -595,6 +595,7 @@ stories()
             <Section title="Not Visited">
                 <Item key="ceres">Ceres</Item>
                 <Item key="charon">Charon</Item>
+                <Divider />
                 <Item key="eris">Eris</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="haumea">Haumea</Item>
