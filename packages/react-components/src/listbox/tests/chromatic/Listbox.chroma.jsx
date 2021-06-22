@@ -18,6 +18,13 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <Listbox ref={element => { console.log(element); }}>
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    )
     .add("only items", () =>
         <Listbox aria-label="Planets">
             <Item key="earth">Earth</Item>

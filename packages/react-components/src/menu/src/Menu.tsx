@@ -24,11 +24,10 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useCallback } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { useThemeComputedStyle } from "../../theme-provider";
 
 export type SelectionMode = "none" | "single" | "multiple";
 
@@ -200,11 +199,9 @@ export function InnerMenu({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const themeComputedStyle = useThemeComputedStyle(containerRef);
-
     const scrollableProps = useScrollableCollection(containerRef, {
-        getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-menu-item-height")); }, [themeComputedStyle]),
-        getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-menu-border-size")); }, [themeComputedStyle]),
+        maxHeight: 12 * 32, // 32px is the default menu item height.
+        paddingHeight: 2 * 1, // A menu have a border-size of 1px
         itemSelector: ".o-ui-menu-item",
         sectionSelector: ".o-ui-menu-section-title",
         dividerSelector: ".o-ui-menu-divider",

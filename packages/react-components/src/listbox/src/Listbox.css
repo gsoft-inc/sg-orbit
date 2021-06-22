@@ -1,5 +1,7 @@
 /*
-IMPORTANT: The Listbox component hardcoded the "o-ui-listbox-option" and "o-ui-listbox-section" classes, do not rename them.
+IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or rename them:
+    - Properties: "--o-ui-listbox-border-size" and "--o-ui-listbox-option-height"
+    - Classes: "o-ui-listbox-option" and "o-ui-listbox-section"
 */
 
 .o-ui {

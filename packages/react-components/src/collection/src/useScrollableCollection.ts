@@ -2,9 +2,9 @@ import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "../../shared";
 
 interface UseScrollableCollectionOptions {
-    getMaxHeight?: () => number;
-    getBorderHeight?: () => number;
-    getPaddingHeight?: () => number;
+    maxHeight?: number;
+    borderHeight?: number;
+    paddingHeight?: number;
     itemSelector?: string;
     sectionSelector?: string;
     dividerSelector?: string;
@@ -31,9 +31,9 @@ function getOuterHeight(element: HTMLElement) {
 }
 
 export function useScrollableCollection(containerRef: RefObject<Element>, {
-    getMaxHeight,
-    getBorderHeight,
-    getPaddingHeight,
+    maxHeight = 500,
+    borderHeight = 0,
+    paddingHeight = 0,
     itemSelector,
     sectionSelector,
     dividerSelector,
@@ -44,9 +44,7 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
     useLayoutEffect(() => {
         if (!disabled) {
             if (!isNil(containerRef.current)) {
-                const borderHeight = !isNil(getBorderHeight) ? getBorderHeight() : 0;
-                const paddingHeight = !isNil(getPaddingHeight) ? getPaddingHeight() : 0;
-                const maxHeight = !isNil(getMaxHeight) ? getMaxHeight() + borderHeight + paddingHeight : 500;
+                const adjustedMaxHeight = maxHeight + borderHeight + paddingHeight;
 
                 let height = borderHeight + paddingHeight;
 
@@ -57,7 +55,7 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
                 elements.forEach((x: HTMLElement) => {
                     const outerHeight = getOuterHeight(x);
 
-                    if (height + outerHeight > maxHeight) {
+                    if (height + outerHeight > adjustedMaxHeight) {
                         return false;
                     }
 
@@ -67,7 +65,7 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
                 setCollectionHeight(`${height}px`);
             }
         }
-    }, [containerRef, getMaxHeight, getBorderHeight, getPaddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
+    }, [containerRef, maxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
 
     return isNil(collectionHeight) ? {} : {
         style: {

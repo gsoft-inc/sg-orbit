@@ -24,23 +24,20 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import {
-    CSSProperties,
     ComponentProps,
     ElementType,
     ForwardedRef,
     KeyboardEvent,
     ReactNode,
     SyntheticEvent,
-    useCallback,
     useImperativeHandle,
     useMemo
 } from "react";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { useThemeComputedStyle } from "../../theme-provider";
 
 export const OptionKeyProp = "data-o-ui-key";
 
@@ -109,10 +106,6 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      * Whether or not the listbox take up the width of its container.
      */
     fluid?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -380,11 +373,9 @@ export function InnerListbox({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
-    const themeComputedStyle = useThemeComputedStyle(containerRef);
-
     const scrollableProps = useScrollableCollection(containerRef, {
-        getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-option-height")); }, [themeComputedStyle]),
-        getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-border-size")); }, [themeComputedStyle]),
+        maxHeight: 12 * 32 + 2 * 1, // 32px is the default listbox option height.
+        paddingHeight: 2 * 1, // A listbox have a border-size of 1px
         itemSelector: ".o-ui-listbox-option",
         sectionSelector: ".o-ui-listbox-section"
     });

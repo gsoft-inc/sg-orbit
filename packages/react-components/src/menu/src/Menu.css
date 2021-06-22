@@ -1,5 +1,7 @@
 /*
-IMPORTANT: The Menu component hardcoded the "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider" classes, do not rename them.
+IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or rename them:
+    - Properties: "--o-ui-menu-border-size" and "--o-ui-menu-item-height"
+    - Classes: "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider"
 */
 
 .o-ui {
