@@ -39,13 +39,13 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
     dividerSelector,
     disabled
 }: UseScrollableCollectionOptions = {}) {
-    const [collectionHeight, setCollectionHeight] = useState<string>();
+    const adjustedMaxHeight = maxHeight + borderHeight + paddingHeight;
+
+    const [collectionHeight, setCollectionHeight] = useState<string>(`${adjustedMaxHeight}px`);
 
     useLayoutEffect(() => {
         if (!disabled) {
             if (!isNil(containerRef.current)) {
-                const adjustedMaxHeight = maxHeight + borderHeight + paddingHeight;
-
                 let height = borderHeight + paddingHeight;
 
                 const elements = !isNil(itemSelector) || !isNil(sectionSelector) || !isNil(dividerSelector)
@@ -65,7 +65,7 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
                 setCollectionHeight(`${height}px`);
             }
         }
-    }, [containerRef, maxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
+    }, [containerRef, adjustedMaxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
 
     return isNil(collectionHeight) ? {} : {
         style: {
