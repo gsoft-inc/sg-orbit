@@ -11,6 +11,25 @@ interface UseScrollableCollectionOptions {
     disabled?: boolean;
 }
 
+function toPixels(value: string) {
+    if (isNil(value)) {
+        return 0;
+    }
+
+    if (value.endsWith("rem")) {
+        return parseFloat(value) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    }
+
+    return parseInt(value);
+}
+
+function getOuterHeight(element: HTMLElement) {
+    const clientRect = element.getBoundingClientRect();
+    const computedStyle = window.getComputedStyle(element);
+
+    return clientRect.height + toPixels(computedStyle.marginTop) + toPixels(computedStyle.marginBottom);
+}
+
 export function useScrollableCollection(containerRef: RefObject<Element>, {
     getMaxHeight,
     getBorderHeight,
@@ -31,14 +50,18 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
 
                 let height = borderHeight + paddingHeight;
 
-                containerRef.current.querySelectorAll([itemSelector, sectionSelector, dividerSelector].filter(x => x).join(", ")).forEach((x: Element) => {
-                    const elementHeight = x.getBoundingClientRect().height;
+                const elements = !isNil(itemSelector) || !isNil(sectionSelector) || !isNil(dividerSelector)
+                    ? containerRef.current.querySelectorAll([itemSelector, sectionSelector, dividerSelector].filter(x => x).join(", "))
+                    : Array.from(containerRef.current.children);
 
-                    if (height + elementHeight > maxHeight) {
+                elements.forEach((x: HTMLElement) => {
+                    const outerHeight = getOuterHeight(x);
+
+                    if (height + outerHeight > maxHeight) {
                         return false;
                     }
 
-                    height += elementHeight;
+                    height += outerHeight;
                 });
 
                 setCollectionHeight(`${height}px`);

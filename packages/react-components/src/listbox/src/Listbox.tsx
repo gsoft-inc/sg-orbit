@@ -40,7 +40,7 @@ import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, 
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { useThemeComputedStyle } from "../../collection/src/useThemeComputedStyle";
+import { useThemeComputedStyle } from "../../theme-provider";
 
 export const OptionKeyProp = "data-o-ui-key";
 

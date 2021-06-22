@@ -23,11 +23,12 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
+import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useCallback } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
+import { useThemeComputedStyle } from "../../theme-provider";
 
 export type SelectionMode = "none" | "single" | "multiple";
 
@@ -199,6 +200,17 @@ export function InnerMenu({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
+    const themeComputedStyle = useThemeComputedStyle(containerRef);
+
+    const scrollableProps = useScrollableCollection(containerRef, {
+        getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-menu-item-height")); }, [themeComputedStyle]),
+        getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-menu-border-size")); }, [themeComputedStyle]),
+        itemSelector: ".o-ui-menu-item",
+        sectionSelector: ".o-ui-menu-section-title",
+        dividerSelector: ".o-ui-menu-divider",
+        disabled: selectionMode === "none"
+    });
+
     const nodes = useCollectionNodes(children, nodesProp);
 
     const rootId = useId(id, "o-ui-menu");
@@ -297,7 +309,8 @@ export function InnerMenu({
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     as,
                     ref: containerRef
-                }
+                },
+                scrollableProps
             )}
         >
             <MenuContext.Provider

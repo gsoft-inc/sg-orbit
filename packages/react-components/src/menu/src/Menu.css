@@ -1,11 +1,12 @@
 .o-ui {
+    --o-ui-menu-border-size: 1px;
     --o-ui-menu-item-height: var(--o-ui-global-scale-golf);
     --o-ui-menu-item-checkmark-size: var(--o-ui-global-scale-charlie);
 }
 
 .o-ui-menu {
     background-color: var(--o-ui-alias-background-1);
-    border: 1px solid var(--o-ui-alias-border-2);
+    border: var(--o-ui-menu-border-size) solid var(--o-ui-alias-border-2);
     list-style-type: none;
     padding: 0;
     margin: 0;

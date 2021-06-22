@@ -468,7 +468,7 @@ test("when a valid date is entered, typing an extra digit doesn't call onDateCha
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("when a valid date is entered and the date exceed the specified min or max value, onDateChange is called with clamp date before onBlur is called", async () => {
+test("when a valid date is entered and the date exceed the specified min or max value, onDateChange is called with the clamped date before onBlur is called", async () => {
     const handleDateChange = jest.fn();
 
     const onBlur = () => {
