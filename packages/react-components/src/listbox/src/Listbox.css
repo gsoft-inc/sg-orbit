@@ -1,3 +1,7 @@
+/*
+IMPORTANT: The Listbox component hardcoded the "o-ui-listbox-option" and "o-ui-listbox-section" classes, do not rename them.
+*/
+
 .o-ui {
     --o-ui-listbox-border-size: 1px;
     --o-ui-listbox-option-height: var(--o-ui-global-scale-golf);

@@ -386,7 +386,7 @@ export function InnerListbox({
         getMaxHeight: useCallback(() => { return 12 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-option-height")); }, [themeComputedStyle]),
         getBorderHeight: useCallback(() => { return 2 * parseInt(themeComputedStyle.getRequiredSpacingValue("--o-ui-listbox-border-size")); }, [themeComputedStyle]),
         itemSelector: ".o-ui-listbox-option",
-        sectionSelector: "o-ui-listbox-section"
+        sectionSelector: ".o-ui-listbox-section"
     });
 
     const rootId = useId(id, "o-ui-listbox");

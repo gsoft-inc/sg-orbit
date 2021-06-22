@@ -1,3 +1,7 @@
+/*
+IMPORTANT: The Menu component hardcoded the "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider" classes, do not rename them.
+*/
+
 .o-ui {
     --o-ui-menu-border-size: 1px;
     --o-ui-menu-item-height: var(--o-ui-global-scale-golf);
