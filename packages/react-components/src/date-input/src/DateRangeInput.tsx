@@ -17,6 +17,7 @@ import {
 } from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton, IconButton } from "../../button";
+import { DateInputMask, useDateInput } from "./useDateInput";
 import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
 import {
@@ -38,7 +39,6 @@ import {
 } from "../../shared";
 import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
-import { useDateInput } from "./useDateInput";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -233,15 +233,43 @@ const RangeInput = forwardRef<any>((props, ref) => {
         }
 
         // Defering because useDateInput is used in controlled mode and otherwise the value will not be updated when the value is clamped.
-        requestAnimationFrame(() => {
-            if (!isNil(newDate)) {
-                endDateRef.current?.focus();
-            }
-        });
+        // requestAnimationFrame(() => {
+        //     if (!isNil(newDate)) {
+        //         endDateRef.current?.focus();
+        //     }
+        // });
 
         if (!isNil(onDatesChange)) {
             onDatesChange(event, newDate, endDate);
         }
+    });
+
+    const handleEndDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
+        if (!isNil(newDate) && !isNil(startDate) && newDate < startDate) {
+            newDate = startDate;
+        }
+
+        if (!isNil(onDatesChange)) {
+            onDatesChange(event, startDate, newDate);
+        }
+    });
+
+    const handleStartDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.value.length === DateInputMask.length) {
+            // Defering because useDateInput is used in controlled mode and otherwise the value will not be updated when the value is clamped.
+            requestAnimationFrame(() => {
+                endDateRef.current?.focus();
+            });
+        }
+
+        // // @ts-ignore
+        // const newCharacter = event.nativeEvent.data;
+
+        // console.log(event.target.value);
+
+        // if (/\d/.test(newCharacter)) {
+        //     console.log(event.target.value);
+        // }
     });
 
     const handleEndDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -254,16 +282,6 @@ const RangeInput = forwardRef<any>((props, ref) => {
             if (isNilOrEmpty(event.target.value)) {
                 startDateRef.current?.focus();
             }
-        }
-    });
-
-    const handleEndDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
-        if (!isNil(newDate) && !isNil(startDate) && newDate < startDate) {
-            newDate = startDate;
-        }
-
-        if (!isNil(onDatesChange)) {
-            onDatesChange(event, startDate, newDate);
         }
     });
 
@@ -339,6 +357,7 @@ const RangeInput = forwardRef<any>((props, ref) => {
                 validationState={validationState}
                 min={min}
                 max={max}
+                onChange={handleStartDateInputValueChange}
                 onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
                 disabled={disabled}

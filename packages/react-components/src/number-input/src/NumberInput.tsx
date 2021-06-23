@@ -7,13 +7,15 @@ import {
     cssModule,
     forwardRef,
     isNil,
+    isNilOrEmpty,
     mergeClasses,
     mergeProps,
     omitProps,
     useChainedEventCallback,
     useControllableState,
     useEventCallback,
-    useFocusWithin
+    useFocusWithin,
+    useRefState
 } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
@@ -28,7 +30,8 @@ import {
     MouseEvent,
     ReactElement,
     SyntheticEvent,
-    useCallback
+    useCallback,
+    useMemo
 } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -72,10 +75,6 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
      * The step used to increment or decrement the value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
      */
     step?: number;
-    /**
-     * Clamps the input value between min & max boundaries.
-     */
-    // clampValue?: boolean;
     /**
      * Whether or not the input should display as "valid" or "invalid".
      */
@@ -197,6 +196,10 @@ function countDecimalPlaces(value: number) {
 }
 
 function toNumber(value: string) {
+    if (isNilOrEmpty(value)) {
+        return null;
+    }
+
     const result = parseFloat(value);
 
     if (isNaN(result)) {
@@ -260,7 +263,20 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
-    const [value, setValue] = useControllableState(valueProp, defaultValue, null);
+    const [inputValueRef, setInputValue] = useRefState("");
+
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
+        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+            // Keep input value "mostly" in sync with the initial or controlled value.
+            if (isInitial || isControlled) {
+                const rawValue = isNil(newValue) ? "" : newValue.toString();
+
+                setInputValue(rawValue);
+            }
+
+            return undefined;
+        }, [setInputValue])
+    });
 
     const updateValue = (event: SyntheticEvent, newValue: number) => {
         if (newValue !== value) {
@@ -269,6 +285,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             if (!isNil(onValueChange)) {
                 onValueChange(event, newValue);
             }
+        }
+
+        const newInputValue = isNil(newValue) ? "" : newValue.toString();
+
+        if (newInputValue !== inputValueRef.current) {
+            setInputValue(newInputValue, true);
         }
     };
 
@@ -308,9 +330,11 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     };
 
     const applyStep = (event: SyntheticEvent, factor: number) => {
-        if (!isNil(value)) {
-            const precision = Math.max(countDecimalPlaces(value), countDecimalPlaces(step));
-            const newValue = toFixed(value + factor * step, precision);
+        const inputValue = toNumber(inputValueRef.current);
+
+        if (!isNil(inputValue)) {
+            const precision = Math.max(countDecimalPlaces(inputValue), countDecimalPlaces(step));
+            const newValue = toFixed(inputValue + factor * step, precision);
 
             clampOrSetValue(event, newValue);
         } else {
@@ -319,7 +343,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     };
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
-        updateValue(event, toNumber(event.target.value));
+        setInputValue(event.target.value, true);
     });
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -341,7 +365,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
             }
         }),
         onBlur: useEventCallback(event => {
-            clampOrSetValue(event, value);
+            clampOrSetValue(event, toNumber(inputValueRef.current));
 
             if (!isNil(onBlur)) {
                 onBlur(event);
@@ -352,7 +376,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const { wrapperProps, inputProps, inputRef } = useInput({
         cssModule: "o-ui-number-input",
         id,
-        value: !isNil(value) ? value : "",
+        value: inputValueRef.current,
         placeholder,
         required,
         validationState,
@@ -368,6 +392,9 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         hover,
         forwardedRef
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const numericInputValue = useMemo(() => toNumber(inputValueRef.current), [inputValueRef.current]);
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
@@ -391,8 +418,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}
-                disableIncrement={readOnly || disabled || (!isNil(value) && value >= max)}
-                disableDecrement={readOnly || disabled || (!isNil(value) && value <= min)}
+                disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
+                disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
                 aria-hidden={loading}
             />
         </>

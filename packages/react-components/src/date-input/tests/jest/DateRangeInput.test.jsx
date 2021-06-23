@@ -54,7 +54,15 @@ test("when the focus is in the end date input and the end date input value is em
         <DateRangeInput name="date-range" />
     );
 
+    act(() => {
+        getStartDateInput(container).focus();
+    });
+
     type(getStartDateInput(container), "01012020");
+
+    act(() => {
+        getEndDateInput(container).focus();
+    });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveFocus());
 
@@ -74,6 +82,10 @@ test("when the focus is in the end date input and the end date input value is em
 
     type(getStartDateInput(container), "01012020");
 
+    act(() => {
+        getEndDateInput(container).focus();
+    });
+
     await waitFor(() => expect(getEndDateInput(container)).toHaveFocus());
 
     type(getEndDateInput(container), "ab");
@@ -87,7 +99,7 @@ test("when the focus is in the end date input and the end date input value is no
     );
 
     act(() => {
-        getStartDateInput(container).focus();
+        getEndDateInput(container).focus();
     });
 
     type(getEndDateInput(container), "01012020");
@@ -145,7 +157,17 @@ test("when the start date is greater than the end date, reset the start date to 
 
     type(getStartDateInput(container), "02022021");
 
+    act(() => {
+        userEvent.click(document.body);
+    });
+
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getStartDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
 });
 
 test("when the end date is lower than the start date, reset the end date to the start date value", async () => {
@@ -161,6 +183,16 @@ test("when the end date is lower than the start date, reset the end date to the 
     });
 
     type(getEndDateInput(container), "02022019");
+
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getEndDateInput(container).focus();
+    });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("01/01/2020"));
 });
@@ -184,6 +216,12 @@ test("when the start date is lower than the min date, reset the start date to th
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getStartDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
 });
 
 test("when the start date is greater than the max date, reset the start date to the max date value", async () => {
@@ -205,6 +243,12 @@ test("when the start date is greater than the max date, reset the start date to 
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getStartDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
 });
 
 test("when the end date is lower than the min date, reset the end date to the min date value", async () => {
@@ -226,6 +270,12 @@ test("when the end date is lower than the min date, reset the end date to the mi
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getEndDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("01/01/2020"));
 });
 
 test("when the end date is greater than the max date, reset the end date to the max date value", async () => {
@@ -247,6 +297,12 @@ test("when the end date is greater than the max date, reset the end date to the 
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+
+    act(() => {
+        getEndDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("01/01/2020"));
 });
 
 test("clear both dates on clear button click", async () => {
@@ -357,6 +413,18 @@ test("when a preset is selected, both inputs are filled with the preset dates", 
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
+
+    act(() => {
+        getStartDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
+
+    act(() => {
+        getEndDateInput(container).focus();
+    });
+
+    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("07/01/2020"));
 });
 
 test("when a preset is select, the preset menu trigger is focused", async () => {
@@ -477,6 +545,10 @@ test("when a start date is applied, call onDatesChange with the new start date",
 
     type(getStartDateInput(container), "01012020");
 
+    act(() => {
+        userEvent.click(document.body);
+    });
+
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), new Date(2020, 0, 1), null));
 });
@@ -496,6 +568,10 @@ test("when an end date is applied, call onDatesChange with the new end date", as
     });
 
     type(getEndDateInput(container), "01012020");
+
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), null, new Date(2020, 0, 1)));
@@ -517,9 +593,17 @@ test("when the start date and the end date are applied, call onDatesChange with 
 
     type(getStartDateInput(container), "01012020");
 
+    act(() => {
+        getEndDateInput(container).focus();
+    });
+
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), new Date(2020, 0, 1), null));
 
     type(getEndDateInput(container), "01012021");
+
+    act(() => {
+        userEvent.click(document.body);
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), new Date(2020, 0, 1), new Date(2021, 0, 1)));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

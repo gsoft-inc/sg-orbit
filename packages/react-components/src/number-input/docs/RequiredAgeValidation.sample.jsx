@@ -1,14 +1,16 @@
 () => {
     const [value, setValue] = useState(18);
 
-    const handleChange = useCallback((event, newValue) => {
+    const handleValueChange = useCallback((event, newValue) => {
         setValue(newValue);
         console.log(newValue);
     }, [setValue]);
 
-    const handleClick = useCallback(() => { setValue(""); }, [setValue]);
+    const handleClearClick = useCallback(() => {
+        setValue(null);
+    }, [setValue]);
 
-    const isValid = useMemo(() => value !== "", [value]);
+    const isValid = useMemo(() => !isNil(value), [value]);
 
     return (
         <Inline verticalAlign="center">
@@ -17,11 +19,11 @@
                 value={value}
                 min={1}
                 placeholder="Age"
-                onChange={handleChange}
+                onValueChange={handleValueChange}
             />
             <TextLink
                 as="button"
-                onClick={handleClick}
+                onClick={handleClearClick}
             >
                 clear
             </TextLink>
