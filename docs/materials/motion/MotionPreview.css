@@ -1,0 +1,17 @@
+.motion-preview {
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.object {
+    --duration: var(--o-ui-easing-duration-2);
+    --easing: var(--o-ui-easing-focus);
+    background-color: #6B5B7B;
+    width: 10rem;
+    height: 10rem;
+    transition: transform var(--duration) var(--easing);
+}
+
+.object-animated {
+    transform: translateX(100px);
+}
