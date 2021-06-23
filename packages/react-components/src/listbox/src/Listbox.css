@@ -150,7 +150,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or re
 /* SECTION */
 .o-ui-listbox-section {
     display: flex;
-    font-variation-settings: "wght" 600;
+    font-variation-settings: "wght" 500;
     padding-left: var(--o-ui-global-scale-charlie);
     cursor: default;
     line-height: var(--o-ui-global-line-height-1);

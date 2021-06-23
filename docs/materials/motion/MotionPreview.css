@@ -1,0 +1,17 @@
+.o-ui-sb-motion-preview {
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.o-ui-sb-object {
+    --o-ui-sb-duration: var(--o-ui-easing-duration-2);
+    --o-ui-sb-easing: var(--o-ui-easing-focus);
+    background-color: #6B5B7B;
+    width: 10rem;
+    height: 10rem;
+    transition: transform var(--o-ui-sb-duration) var(--o-ui-sb-easing);
+}
+
+.o-ui-sb-object-animated {
+    transform: translateX(100px);
+}

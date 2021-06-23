@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs/blocks";
-import { MotionSample } from "./MotionSample"
+import { MotionPreview } from "./MotionPreview"
 import { Table, Tagline } from "@stories/components";
 
 <Meta
@@ -103,15 +103,14 @@ Durations and easings are exposed through CSS Custom Properties(aka variables).
 <Table
     columns={[
         { title: "Value", headerStyle: { width: "150px" }, rowClassName: "code f7 o-90" },
-        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" },
-        { title: "Example", headerStyle: { width: "500px" } }
+        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" }
     ]}
     rows={[
-        ["100ms", "--o-ui-easing-duration-1", <MotionSample duration="100"/>],
-        ["200ms", "--o-ui-easing-duration-2", <MotionSample duration="200"/>],
-        ["300ms", "--o-ui-easing-duration-3", <MotionSample duration="300"/>],
-        ["500ms", "--o-ui-easing-duration-4", <MotionSample duration="500"/>],
-        ["800ms", "--o-ui-easing-duration-5", <MotionSample duration="800"/>]
+        ["100ms", "--o-ui-easing-duration-1"],
+        ["200ms", "--o-ui-easing-duration-2"],
+        ["300ms", "--o-ui-easing-duration-3"],
+        ["500ms", "--o-ui-easing-duration-4"],
+        ["800ms", "--o-ui-easing-duration-5"]
     ]}
 />
 
@@ -120,12 +119,13 @@ Durations and easings are exposed through CSS Custom Properties(aka variables).
 <Table
     columns={[
         { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code f7 o-90" },
-        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" },
-        { title: "Example", headerStyle: { width: "325px" } }
+        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" }
     ]}
     rows={[
-        ["cubic-bezier(0.22, 0.61, 0.36, 1)", "--o-ui-easing-productive", <MotionSample duration="500" easing="(0.22, 0.61, 0.36, 1)"/>],
-        ["cubic-bezier(0.46, 0.03, 0.52, 0.96)", "--o-ui-easing-focus", <MotionSample duration="500" easing="(0.46, 0.03, 0.52, 0.96)"/>],
-        ["cubic-bezier(0.58, 0.01, 0.15, 1.5)", "--o-ui-easing-expressive", <MotionSample duration="800" easing="(0.58, 0.01, 0.15, 1.5)"/>]
+        ["cubic-bezier(0.46, 0.03, 0.52, 0.96)", "--o-ui-easing-focus"],
+        ["cubic-bezier(0.22, 0.61, 0.36, 1)", "--o-ui-easing-productive"],
+        ["cubic-bezier(0.58, 0.01, 0.15, 1.5)", "--o-ui-easing-expressive"]
     ]}
 />
+
+<MotionPreview />

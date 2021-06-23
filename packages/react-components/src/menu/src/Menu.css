@@ -150,7 +150,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
 .o-ui-menu-section-title {
     cursor: default;
     display: flex;
-    font-weight: 500;
+    font-weight: 400;
+    font-variation-settings: "wght" 500;
     padding-left: var(--o-ui-global-scale-charlie);
     height: var(--o-ui-menu-item-height);
     line-height: var(--o-ui-global-line-height-1);
