@@ -357,7 +357,7 @@ test("call onChange when the value change", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("call onValueChange when the value change", async () => {
+test("call onValueChange when the value change and the input lose focus", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -366,6 +366,10 @@ test("call onValueChange when the value change", async () => {
 
     act(() => {
         userEvent.type(getByTestId("input"), "2");
+    });
+
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
@@ -533,7 +537,7 @@ test("when the entered value exceed the specified min or max value, onValueChang
     const handleValueChange = jest.fn();
 
     const onBlur = () => {
-        expect(handleValueChange).toHaveBeenCalledTimes(2);
+
     };
 
     const { getByTestId } = render(
@@ -557,6 +561,9 @@ test("when the entered value exceed the specified min or max value, onValueChang
     act(() => {
         userEvent.click(document.body);
     });
+
+    await waitFor(() => expect(handleValueChange).toHaveBeenLastCalledWith(expect.anything(), 5));
+    await waitFor(() => expect(handleValueChange).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

@@ -67,7 +67,7 @@ test("when the input has no value and a partial date has been entered, reset to 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
 });
 
-test("when the input has no value and an invalid date has been entered, clear the input value", async () => {
+test("when the input has no value and a malformed date has been entered, clear the input value", async () => {
     const { getByTestId } = render(
         <DateInput data-testid="date" />
     );
@@ -123,7 +123,7 @@ test("when the entered date is greater than the max date, reset the date to the 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
 });
 
-test("when a valid date has been entered, convert the date format to a read format on blur", async () => {
+test("when a valid date is entered, convert the date format to a read format on blur", async () => {
     const { getByTestId } = render(
         <DateInput data-testid="date" />
     );
@@ -183,7 +183,7 @@ test("when the input value has a valid date and a partial date has been entered 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
 });
 
-test("when the input value has a valid date and an invalid date has been entered, reset to the last valid date", async () => {
+test("when the input value has a valid date and a malformed date has been entered, reset to the last valid date", async () => {
     const { getByTestId } = render(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
@@ -303,7 +303,7 @@ test("when the input has no value and a partial date has been cleared, do not ca
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
-test("when the input has no value and an invalid date has been entered, do not call onDateChange", async () => {
+test("when the input has no value and a malformed date has been entered, do not call onDateChange", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -402,7 +402,7 @@ test("when the input value has a valid date and a partial date has been entered,
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
-test("when the input value has a valid date and an invalid date has been entered, do not call onDateChange", async () => {
+test("when the input value has a valid date and a malformed date has been entered, do not call onDateChange", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -446,7 +446,7 @@ test("when the input value has a valid date and is focused then blured with the 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
-test("when a valid date is entered, typing an extra digit doesn't call onDateChange", async () => {
+test("when a valid date has been entered, typing an extra digit doesn't call onDateChange", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
@@ -468,17 +468,12 @@ test("when a valid date is entered, typing an extra digit doesn't call onDateCha
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("when a valid date is entered and the date exceed the specified min or max value, onDateChange is called with the clamped date before onBlur is called", async () => {
+test("when a valid date has been entered and the date exceed the specified min or max value, onDateChange is called with the clamped date before onBlur is called", async () => {
     const handleDateChange = jest.fn();
-
-    const onBlur = () => {
-        expect(handleDateChange).toHaveBeenCalledTimes(2);
-    };
 
     const { getByTestId } = render(
         <DateInput
             onDateChange={handleDateChange}
-            onBlur={onBlur}
             min={new Date(2021, 0, 1)}
             data-testid="date"
         />
@@ -493,6 +488,9 @@ test("when a valid date is entered and the date exceed the specified min or max 
     act(() => {
         userEvent.click(document.body);
     });
+
+    await waitFor(() => expect(handleDateChange).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 0, 1)));
+    await waitFor(() => expect(handleDateChange).toHaveBeenCalledTimes(2));
 });
 
 test("can focus the date input with the focus api", async () => {

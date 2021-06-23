@@ -90,6 +90,8 @@ export function useDateInput({
                 // Do not sync the input value with the value when the user is typing. When in controlled mode, on every keypress the component will be
                 // re-rendered with the NON updated value (since onDateChange is only called upon date completion) which will prevent the input value
                 // from being updated in key press.
+
+                // TODO: NOT USEFULL ONCE CHANGE TO BLUR
                 if (!isTyping(inputValueRef.current)) {
                     setInputValue(rawValue);
                 }
@@ -104,7 +106,7 @@ export function useDateInput({
 
     const ref = useMergedRefs(setInputElement, forwardedRef);
 
-    const applyValue = useCallback((event, newDate) => {
+    const updateValue = useCallback((event, newDate) => {
         if (!datesAreEqual(value, newDate)) {
             setValue(newDate);
 
@@ -116,9 +118,9 @@ export function useDateInput({
         setInputValue(toNumericString(newDate), true);
     }, [onDateChange, value, setValue, setInputValue]);
 
-    const applyRawValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
+    const updateFromRawValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
         if (rawValue === "") {
-            applyValue(event, null);
+            updateValue(event, null);
         } else {
             let newDate = toDate(rawValue);
 
@@ -126,11 +128,11 @@ export function useDateInput({
                 newDate = value ?? null;
             }
 
-            applyValue(event, newDate);
+            updateValue(event, newDate);
         }
-    }, [value, applyValue]);
+    }, [value, updateValue]);
 
-    const syncInputValue = useCallback(() => {
+    const resetInputValue = useCallback(() => {
         const stringValue = toNumericString(value);
 
         // When the value have not been applied, reset the input value to the last applied one.
@@ -144,20 +146,20 @@ export function useDateInput({
     const clampValue = useCallback(event => {
         if (!isNil(value)) {
             if (!isNil(min) && min > value) {
-                applyValue(event, min);
+                updateValue(event, min);
             } else if (!isNil(max) && max < value) {
-                applyValue(event, max);
+                updateValue(event, max);
             }
         }
-    }, [min, max, value, applyValue]);
+    }, [min, max, value, updateValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = (event.target as HTMLInputElement).value;
 
         if (newValue === "" && !isNil(value)) {
-            applyRawValue(event, newValue);
+            updateFromRawValue(event, newValue);
         } else if (newValue.length === InputMask.length) {
-            applyRawValue(event, newValue);
+            updateFromRawValue(event, newValue);
         } else {
             setInputValue(newValue, true);
         }
@@ -169,7 +171,7 @@ export function useDateInput({
 
     const handleBlur = useEventCallback(event => {
         clampValue(event);
-        syncInputValue();
+        resetInputValue();
 
         setHasFocus(false);
     });
