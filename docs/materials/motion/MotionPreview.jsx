@@ -26,7 +26,7 @@ export function MotionPreview() {
     };
 
     return (
-        <div className="motion-preview bt b--cloud-100">
+        <div className="o-ui-sb-motion-preview bt b--cloud-100">
             <H4>Motion Preview</H4>
             <Inline className="mb4" verticalAlign="end">
                 <Field>
@@ -49,7 +49,7 @@ export function MotionPreview() {
                 </Field>
                 <Button shape="rounded" color="primary" onClick={handleClick}>Play this motion</Button>
             </Inline>
-            <div style={{ "--duration": `var(--o-ui-easing-${duration})`, "--easing": `var(--o-ui-easing-${easing})` }} className={`mt6 object ${isAnimated ? "object-animated" : ""}`}></div>
+            <div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></div>
         </div>
     );
 }
