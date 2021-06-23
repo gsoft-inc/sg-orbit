@@ -93,6 +93,26 @@ test("increment value on increment button click", async () => {
     await waitFor(() => expect(getByTestId("input")).toHaveValue(2));
 });
 
+test("when a value has been entered, increment the entered value on increment button click", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "10");
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Increment value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(11));
+});
+
 test("decrement value on decrement button click", async () => {
     const { getByTestId, getByLabelText } = render(
         <NumberInput defaultValue={1} aria-label="Label" data-testid="input" />
@@ -109,7 +129,27 @@ test("decrement value on decrement button click", async () => {
     await waitFor(() => expect(getByTestId("input")).toHaveValue(0));
 });
 
-test("when no value has been set yet and the increment button is clicked, set value to 1", async () => {
+test("when a value has been entered, decrement the entered value on decrement button click", async () => {
+    const { getByTestId, getByLabelText } = render(
+        <NumberInput aria-label="Label" data-testid="input" />
+    );
+
+    act(() => {
+        getByTestId("input").focus();
+    });
+
+    act(() => {
+        userEvent.type(getByTestId("input"), "10");
+    });
+
+    act(() => {
+        userEvent.click(getByLabelText("Decrement value"));
+    });
+
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(9));
+});
+
+test("when no value has been entered yet and the increment button is clicked, set value to 1", async () => {
     const { getByTestId, getByLabelText } = render(
         <NumberInput aria-label="Label" data-testid="input" />
     );
@@ -125,7 +165,7 @@ test("when no value has been set yet and the increment button is clicked, set va
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));
 });
 
-test("when no value has been set yet and the decrement button is clicked, set value to -1", async () => {
+test("when no value has been entered yet and the decrement button is clicked, set value to -1", async () => {
     const { getByTestId, getByLabelText } = render(
         <NumberInput aria-label="Label" data-testid="input" />
     );
@@ -213,7 +253,7 @@ test("when a min value is specified and no value has been set yet, do not decrem
     await waitFor(() => expect(getByTestId("input")).toHaveValue(4));
 });
 
-test("when the entered value is lower than the min value, reset value to min value", async () => {
+test("when the entered value is lower than the min value, reset value to min value on blur", async () => {
     const { getByTestId } = render(
         <NumberInput min={3} aria-label="Label" data-testid="input" />
     );
@@ -233,7 +273,7 @@ test("when the entered value is lower than the min value, reset value to min val
     await waitFor(() => expect(getByTestId("input")).toHaveValue(3));
 });
 
-test("when the entered value is greater than the max value, reset the value to the max value", async () => {
+test("when the entered value is greater than the max value, reset the value to the max value on blur", async () => {
     const { getByTestId } = render(
         <NumberInput max={1} aria-label="Label" data-testid="input" />
     );
