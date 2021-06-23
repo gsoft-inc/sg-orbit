@@ -76,10 +76,6 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
      */
     step?: number;
     /**
-     * Clamps the input value between min & max boundaries.
-     */
-    // clampValue?: boolean;
-    /**
      * Whether or not the input should display as "valid" or "invalid".
      */
     validationState?: "valid" | "invalid";

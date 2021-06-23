@@ -13,18 +13,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <NumberInput
-            onValueChange={(event, newValue) => {
-                console.log(newValue);
-            }}
-            onBlur={() => {
-                console.log("onBlur");
-            }}
-            min={5}
-            placeholder="Age"
-        />
-    )
     .add("default", () =>
         <Stack>
             <NumberInput placeholder="Age" />

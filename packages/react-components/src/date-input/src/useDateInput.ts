@@ -82,23 +82,26 @@ export function useDateInput({
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
         onChange: useCallback((newValue, { isInitial, isControlled }) => {
-            // Keep input value in sync with the initial or controlled value and keep the value in a string form to faciliate internal manipulation.
             // Keep input value "mostly" in sync with the initial or controlled value.
             if (isInitial || isControlled) {
                 const rawValue = newValue ? toNumericString(newValue) : "";
+
+                setInputValue(rawValue);
 
                 // Do not sync the input value with the value when the user is typing. When in controlled mode, on every keypress the component will be
                 // re-rendered with the NON updated value (since onDateChange is only called upon date completion) which will prevent the input value
                 // from being updated in key press.
 
-                // TODO: NOT USEFULL ONCE CHANGE TO BLUR
-                if (!isTyping(inputValueRef.current)) {
-                    setInputValue(rawValue);
-                }
+                // // TODO: NOT USEFULL ONCE CHANGE TO BLUR
+                // if (!isTyping(inputValueRef.current)) {
+                //     console.log("onChange");
+
+                //     setInputValue(rawValue);
+                // }
             }
 
             return undefined;
-        }, [inputValueRef, setInputValue])
+        }, [setInputValue])
     });
 
     const [inputElement, setInputElement] = useState<HTMLInputElement>();
@@ -115,54 +118,78 @@ export function useDateInput({
             }
         }
 
-        setInputValue(toNumericString(newDate), true);
-    }, [onDateChange, value, setValue, setInputValue]);
+        const newInputValue = toNumericString(newDate);
 
-    const updateFromRawValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
-        if (rawValue === "") {
+        if (newInputValue !== inputValueRef.current) {
+            setInputValue(newInputValue, true);
+        }
+    }, [onDateChange, value, setValue, inputValueRef, setInputValue]);
+
+    // const updateFromInputValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
+    //     if (rawValue === "") {
+    //         updateValue(event, null);
+    //     } else {
+    //         let newDate = toDate(rawValue);
+
+    //         if (isNil(newDate)) {
+    //             newDate = value ?? null;
+    //         }
+
+    //         updateValue(event, newDate);
+    //     }
+    // }, [value, updateValue]);
+
+    const updateFromInputValue = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const inputValue = inputValueRef.current;
+
+        if (inputValue === "") {
             updateValue(event, null);
         } else {
-            let newDate = toDate(rawValue);
+            let newDate = toDate(inputValue);
 
             if (isNil(newDate)) {
                 newDate = value ?? null;
+            } else if (!isNil(min) && min > newDate) {
+                newDate = min;
+            } else if (!isNil(max) && max < newDate) {
+                newDate = max;
             }
 
             updateValue(event, newDate);
         }
-    }, [value, updateValue]);
+    }, [value, inputValueRef, min, max, updateValue]);
 
-    const resetInputValue = useCallback(() => {
-        const stringValue = toNumericString(value);
+    // const resetInputValue = useCallback(() => {
+    //     const stringValue = toNumericString(value);
 
-        // When the value have not been applied, reset the input value to the last applied one.
-        if (stringValue !== inputValueRef.current) {
-            setInputValue(!isNil(value) ? stringValue : "", true);
-        }
+    //     // When the value have not been applied, reset the input value to the last applied one.
+    //     if (stringValue !== inputValueRef.current) {
+    //         setInputValue(!isNil(value) ? stringValue : "", true);
+    //     }
+    // }, [value, inputValueRef, setInputValue]);
 
-
-    }, [value, inputValueRef, setInputValue]);
-
-    const clampValue = useCallback(event => {
-        if (!isNil(value)) {
-            if (!isNil(min) && min > value) {
-                updateValue(event, min);
-            } else if (!isNil(max) && max < value) {
-                updateValue(event, max);
-            }
-        }
-    }, [min, max, value, updateValue]);
+    // const clampValue = useCallback(event => {
+    //     if (!isNil(value)) {
+    //         if (!isNil(min) && min > value) {
+    //             updateValue(event, min);
+    //         } else if (!isNil(max) && max < value) {
+    //             updateValue(event, max);
+    //         }
+    //     }
+    // }, [min, max, value, updateValue]);
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
-        const newValue = (event.target as HTMLInputElement).value;
+        setInputValue(event.target.value, true);
 
-        if (newValue === "" && !isNil(value)) {
-            updateFromRawValue(event, newValue);
-        } else if (newValue.length === InputMask.length) {
-            updateFromRawValue(event, newValue);
-        } else {
-            setInputValue(newValue, true);
-        }
+        // const newValue = event.target.value;
+
+        // if (newValue === "" && !isNil(value)) {
+        //     updateFromInputValue(event, newValue);
+        // } else if (newValue.length === InputMask.length) {
+        //     updateFromInputValue(event, newValue);
+        // } else {
+        //     setInputValue(newValue, true);
+        // }
     });
 
     const handleFocus = useEventCallback(() => {
@@ -170,8 +197,10 @@ export function useDateInput({
     });
 
     const handleBlur = useEventCallback(event => {
-        clampValue(event);
-        resetInputValue();
+        updateFromInputValue(event);
+
+
+        // resetInputValue();
 
         setHasFocus(false);
     });
