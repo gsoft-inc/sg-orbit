@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { ElementType, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
@@ -35,7 +36,7 @@ export function ThemeProvider({
     colorScheme,
     defaultColorScheme,
     children,
-    as: TriggerType = "div",
+    as = "div",
     ...rest
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
@@ -54,7 +55,7 @@ export function ThemeProvider({
                 setColorScheme
             }}
         >
-            <TriggerType
+            <Box
                 {...mergeProps(
                     rest,
                     {
@@ -62,12 +63,13 @@ export function ThemeProvider({
                             "o-ui",
                             `o-ui-${theme}`,
                             `o-ui-${colorScheme}`
-                        )
+                        ),
+                        as
                     }
                 )}
             >
                 {children}
-            </TriggerType>
+            </Box>
         </ThemeContext.Provider>
     );
 }

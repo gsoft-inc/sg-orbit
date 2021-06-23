@@ -1,5 +1,5 @@
 import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
-import { augmentElement, isEmptyArray, isFunction, isNil, isString, isUndefined, resolveChildren } from "../../shared";
+import { augmentElement, isEmptyArray, isFunction, isNil, isString, isUndefined, resolveChildren } from "..";
 
 const SlotKey = "__slot__";
 

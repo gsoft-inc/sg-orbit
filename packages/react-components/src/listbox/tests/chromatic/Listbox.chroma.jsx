@@ -455,8 +455,127 @@ stories()
             </Listbox>
         );
     })
-    .add("scrolling", () =>
+    .add("scrolling with too many options", () =>
         <Listbox aria-label="Planets">
+            <Item key="ceres">Ceres</Item>
+            <Item key="charon">Charon</Item>
+            <Item key="earth">Earth</Item>
+            <Item key="eris">Eris</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="haumea">Haumea</Item>
+            <Item key="makemake">Makemake</Item>
+            <Item key="mars">Mars</Item>
+            <Item key="mercury">Mercury</Item>
+            <Item key="neptune">Neptune</Item>
+            <Item key="pluto">Pluto</Item>
+            <Item key="saturn">Saturn</Item>
+            <Item key="uranus">Uranus</Item>
+            <Item key="venus">Venus</Item>
+        </Listbox>
+    )
+    .add("scrolling with sections", () =>
+        <Listbox aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Section>
+        </Listbox>,
+         {
+             ...paramsBuilder()
+                 .a11y({
+                     config: {
+                         rules: [
+                             { id: "aria-required-parent", enabled: false }
+                         ]
+                     }
+                 })
+                 .build()
+         }
+    )
+    .add("scrolling with descriptions", () =>
+        <Listbox aria-label="Planets">
+            <Item key="earth">
+                <Text>Earth</Text>
+                <Text slot="description">Home sweet home!</Text>
+            </Item>
+            <Item key="mars">
+                <Text>Mars</Text>
+                <Text slot="description">See you in 2026</Text>
+            </Item>
+            <Item key="jupiter">
+                <Text>Jupiter</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="makemake">
+                <Text>Makemake</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="mercury">
+                <Text>Mercury</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="neptune">
+                <Text>Neptune</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="saturn">
+                <Text>Saturn</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="uranus">
+                <Text>Uranus</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+            <Item key="venus">
+                <Text>Venus</Text>
+                <Text slot="description">A description!</Text>
+            </Item>
+        </Listbox>
+    )
+    .add("scrolling mix & match", () =>
+        <Listbox aria-label="Planets">
+            <Section title="Visited">
+                <Item key="earth">
+                    <Text>Earth</Text>
+                    <Text slot="description">Home sweet home!</Text>
+                </Item>
+                <Item key="mars">
+                    <Text>Mars</Text>
+                    <Text slot="description">See you in 2026</Text>
+                </Item>
+                <Item key="saturn">Saturn</Item>
+            </Section>
+            <Section title="Not Visited">
+                <Item key="ceres">Ceres</Item>
+                <Item key="charon">Charon</Item>
+                <Item key="eris">Eris</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="haumea">Haumea</Item>
+                <Item key="makemake">Makemake</Item>
+                <Item key="mercury">Mercury</Item>
+                <Item key="neptune">Neptune</Item>
+                <Item key="saturn">Saturn</Item>
+                <Item key="uranus">Uranus</Item>
+                <Item key="venus">Venus</Item>
+            </Section>
+        </Listbox>
+    )
+    .add("scrolling with custom style height", () =>
+        <Listbox style={{ height: "200px" }} aria-label="Planets">
             <Item key="ceres">Ceres</Item>
             <Item key="charon">Charon</Item>
             <Item key="earth">Earth</Item>

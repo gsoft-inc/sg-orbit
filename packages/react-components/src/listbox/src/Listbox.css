@@ -1,4 +1,11 @@
+/*
+IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or rename them:
+    - Properties: "--o-ui-listbox-border-size" and "--o-ui-listbox-option-height"
+    - Classes: "o-ui-listbox-option" and "o-ui-listbox-section"
+*/
+
 .o-ui {
+    --o-ui-listbox-border-size: 1px;
     --o-ui-listbox-option-height: var(--o-ui-global-scale-golf);
     --o-ui-listbox-option-checkmark-size: var(--o-ui-global-scale-charlie);
 }
@@ -6,13 +13,12 @@
 .o-ui-listbox {
     width: max-content;
     max-width: 325px;
-    max-height: calc(12 * var(--o-ui-listbox-option-height));
     overflow-y: auto;
     background-color: var(--o-ui-alias-background-1);
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-alias-elevation-lifted);
-    border: 1px solid var(--o-ui-alias-border-2);
+    border: var(--o-ui-listbox-border-size) solid var(--o-ui-alias-border-2);
 }
 
 /* FLUID */

@@ -24,8 +24,17 @@ import {
     useRefState
 } from "../../shared";
 import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, useImperativeHandle, useMemo } from "react";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
+import {
+    ComponentProps,
+    ElementType,
+    ForwardedRef,
+    KeyboardEvent,
+    ReactNode,
+    SyntheticEvent,
+    useImperativeHandle,
+    useMemo
+} from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -159,7 +168,6 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
         };
     }, [items, selectedKeys]);
 }
-
 
 export function InnerListbox({
     id,
@@ -365,6 +373,13 @@ export function InnerListbox({
         delay: isNumber(autoFocus) ? autoFocus : undefined
     });
 
+    const scrollableProps = useScrollableCollection(containerRef, {
+        maxHeight: 12 * 32 + 2 * 1, // 32px is the default listbox option height.
+        paddingHeight: 2 * 1, // A listbox have a border-size of 1px
+        itemSelector: ".o-ui-listbox-option",
+        sectionSelector: ".o-ui-listbox-section"
+    });
+
     const rootId = useId(id, "o-ui-listbox");
 
     const renderOption = ({
@@ -441,7 +456,8 @@ export function InnerListbox({
                     "aria-activedescendant": !isNil(activeDescendant) ? activeDescendant.getAttribute("id") : undefined,
                     as,
                     ref: containerRef
-                }
+                },
+                scrollableProps
             )}
         >
             <ListboxContext.Provider
