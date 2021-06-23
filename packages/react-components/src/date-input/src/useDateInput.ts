@@ -2,11 +2,11 @@ import { ChangeEvent, ChangeEventHandler, ForwardedRef, SyntheticEvent, useCallb
 import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
-const InputMask = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/];
+export const DateInputMask = [/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/];
 
 // Date.parse() implementation is inconsistent accross browsers. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse.
 function toDate(rawValue: string) {
-    if (rawValue.length !== InputMask.length) {
+    if (rawValue.length !== DateInputMask.length) {
         return null;
     }
 
@@ -55,10 +55,6 @@ function datesAreEqual(x: Date, y: Date) {
     return x?.getTime() === y?.getTime();
 }
 
-function isTyping(inputValue: string) {
-    return inputValue.length > 0 && inputValue.length < InputMask.length;
-}
-
 export interface UseDateInputProps {
     value?: Date | null;
     defaultValue?: Date;
@@ -87,17 +83,6 @@ export function useDateInput({
                 const rawValue = newValue ? toNumericString(newValue) : "";
 
                 setInputValue(rawValue);
-
-                // Do not sync the input value with the value when the user is typing. When in controlled mode, on every keypress the component will be
-                // re-rendered with the NON updated value (since onDateChange is only called upon date completion) which will prevent the input value
-                // from being updated in key press.
-
-                // // TODO: NOT USEFULL ONCE CHANGE TO BLUR
-                // if (!isTyping(inputValueRef.current)) {
-                //     console.log("onChange");
-
-                //     setInputValue(rawValue);
-                // }
             }
 
             return undefined;
@@ -125,20 +110,6 @@ export function useDateInput({
         }
     }, [onDateChange, value, setValue, inputValueRef, setInputValue]);
 
-    // const updateFromInputValue = useCallback((event: ChangeEvent<HTMLInputElement>, rawValue: string) => {
-    //     if (rawValue === "") {
-    //         updateValue(event, null);
-    //     } else {
-    //         let newDate = toDate(rawValue);
-
-    //         if (isNil(newDate)) {
-    //             newDate = value ?? null;
-    //         }
-
-    //         updateValue(event, newDate);
-    //     }
-    // }, [value, updateValue]);
-
     const updateFromInputValue = useCallback((event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = inputValueRef.current;
 
@@ -159,37 +130,8 @@ export function useDateInput({
         }
     }, [value, inputValueRef, min, max, updateValue]);
 
-    // const resetInputValue = useCallback(() => {
-    //     const stringValue = toNumericString(value);
-
-    //     // When the value have not been applied, reset the input value to the last applied one.
-    //     if (stringValue !== inputValueRef.current) {
-    //         setInputValue(!isNil(value) ? stringValue : "", true);
-    //     }
-    // }, [value, inputValueRef, setInputValue]);
-
-    // const clampValue = useCallback(event => {
-    //     if (!isNil(value)) {
-    //         if (!isNil(min) && min > value) {
-    //             updateValue(event, min);
-    //         } else if (!isNil(max) && max < value) {
-    //             updateValue(event, max);
-    //         }
-    //     }
-    // }, [min, max, value, updateValue]);
-
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value, true);
-
-        // const newValue = event.target.value;
-
-        // if (newValue === "" && !isNil(value)) {
-        //     updateFromInputValue(event, newValue);
-        // } else if (newValue.length === InputMask.length) {
-        //     updateFromInputValue(event, newValue);
-        // } else {
-        //     setInputValue(newValue, true);
-        // }
     });
 
     const handleFocus = useEventCallback(() => {
@@ -198,16 +140,12 @@ export function useDateInput({
 
     const handleBlur = useEventCallback(event => {
         updateFromInputValue(event);
-
-
-        // resetInputValue();
-
         setHasFocus(false);
     });
 
     const maskProps = useMaskedInput({
         inputElement,
-        mask: InputMask
+        mask: DateInputMask
     });
 
     return mergeProps(

@@ -1,7 +1,6 @@
 import { DateInput } from "@react-components/date-input";
 import { Inline, Stack } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
-import { useCallback, useRef, useState } from "react";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/DateInput")
@@ -13,9 +12,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <DateInput min={new Date(2021, 0, 1)} />
-    )
     .add("default", () =>
         <Stack>
             <DateInput />
