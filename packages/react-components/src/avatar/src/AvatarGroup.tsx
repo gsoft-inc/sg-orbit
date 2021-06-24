@@ -3,7 +3,7 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { Group } from "../../group";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, forwardRef, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { augmentElement, cssModule, forwardRef, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
 export interface InnerAvatarGroupProps {
     /**
@@ -25,30 +25,49 @@ export interface InnerAvatarGroupProps {
 }
 
 interface RemainingAvatarsProps {
-    count: number;
+    avatars: ReactElement[];
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
-function RemainingAvatars({ count, size, ...rest }: RemainingAvatarsProps) {
+function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
     return (
-        <Box
-            {...mergeProps(
-                rest,
-                {
-                    className: mergeClasses(
-                        "o-ui-avatar-group-remainings",
-                        cssModule(
-                            "o-ui-avatar",
-                            normalizeSize(size)
+        <TooltipTrigger>
+            <Box
+                {...mergeProps<any>(
+                    rest,
+                    {
+                        className: mergeClasses(
+                            "o-ui-avatar-group-remainings",
+                            cssModule(
+                                "o-ui-avatar",
+                                normalizeSize(size)
+                            )
                         )
-                    )
-                }
-            )}
-        >
-            <AvatarText size={size}>
-                {`+${count}`}
-            </AvatarText>
-        </Box>
+                    }
+                )}
+            >
+                <AvatarText size={size}>
+                    {`+${avatars.length}`}
+                </AvatarText>
+            </Box>
+            <Tooltip>
+                <ul className="o-ui-avatar-group-remainings-list">
+                    {avatars.filter((x: ReactElement) => !isNil(x?.props?.name)).map((x: ReactElement) => {
+                        const name = x?.props?.name;
+
+                        return (
+                            <li className="o-ui-avatar-group-remainings-list-item" key={name}>
+                                {augmentElement(x, {
+                                    size: "sm",
+                                    className: "o-ui-avatar-group-remainings-list-item-avatar"
+                                })}
+                                <span>{name}</span>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </Tooltip>
+        </TooltipTrigger>
     );
 }
 
@@ -69,38 +88,40 @@ export function InnerAvatarGroup({
     const remainingAvatars = isExceeding ? avatars.slice(AvailableSlots - 1) : null;
 
     const avatarsMarkup = shownAvatars.map((x: ReactElement) => {
-        return augmentElement(x, {
-            size
-        });
+        const name = x?.props?.name;
+
+        return (
+            <TooltipTrigger key={name}>
+                {augmentElement(x, {
+                    size
+                })}
+                <Tooltip>{name}</Tooltip>
+            </TooltipTrigger>
+        );
     });
 
     const remainingAvatarsMarkup = remainingAvatars && (
         <RemainingAvatars
-            count={remainingAvatars.length}
+            avatars={remainingAvatars as ReactElement[]}
             size={size}
         />
     );
 
     return (
-        <TooltipTrigger>
-            <Group
-                {...mergeProps<any>(
-                    rest,
-                    {
-                        gap: 1,
-                        className: "o-ui-avatar-group",
-                        as,
-                        ref: forwardedRef
-                    }
-                )}
-            >
-                {avatarsMarkup}
-                {remainingAvatarsMarkup}
-            </Group>
-            <Tooltip>
-                {avatars.map((x: ReactElement) => x?.props?.name).filter(x => x).join("\r\n")}
-            </Tooltip>
-        </TooltipTrigger>
+        <Group
+            {...mergeProps<any>(
+                rest,
+                {
+                    gap: 1,
+                    className: "o-ui-avatar-group",
+                    as,
+                    ref: forwardedRef
+                }
+            )}
+        >
+            {avatarsMarkup}
+            {remainingAvatarsMarkup}
+        </Group>
     );
 }
 

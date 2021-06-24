@@ -84,3 +84,18 @@
 .o-ui-avatar-group-remainings .o-ui-avatar-text {
     color: var(--o-ui-alias-text-2);
 }
+
+/* GROUPS | REMAININGS | TOOLTIP */
+.o-ui-avatar-group-remainings-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.o-ui-avatar-group-remainings-list-item:not(:last-child) {
+    margin-bottom: var(--o-ui-global-scale-bravo);
+}
+
+.o-ui-avatar-group-remainings-list-item-avatar {
+    margin-right: var(--o-ui-global-scale-bravo);
+}
