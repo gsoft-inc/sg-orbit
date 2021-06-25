@@ -3,7 +3,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@react-components/field";
-import { Form, InnerForm, InnerRow, Row } from "@react-components/form";
+import { Fieldset, Form, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 
@@ -96,6 +96,70 @@ Multiple form fields can be inlined on the same row.
             <Button type="submit">
                 Submit
             </Button>
+        </Form>
+    </Story>
+</Preview>
+
+### Fieldset
+
+Form fields can be grouped together within fieldsets.
+
+<Preview>
+    <Story name="fieldset">
+        <Form>
+            <Fieldset label="Shipping Address">
+                <Row>
+                    <Field required>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field required>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Row>
+                    <Field required>
+                        <Label>Address</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Appartment</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Field required>
+                    <Label>Postal code</Label>
+                    <TextInput />
+                </Field>
+            </Fieldset>
+            <Fieldset label="Billing Address">
+                <Row>
+                    <Field required>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field required>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Row>
+                    <Field required>
+                        <Label>Address</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Appartment</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+                <Field required>
+                    <Label>Postal code</Label>
+                    <TextInput />
+                </Field>
+            </Fieldset>
+            <Button>Submit</Button>
         </Form>
     </Story>
 </Preview>
