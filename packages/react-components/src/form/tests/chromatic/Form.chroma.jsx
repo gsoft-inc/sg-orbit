@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
-import { DateInput, DateRangeInput } from "@react-components/date-input";
+import { DateInput } from "@react-components/date-input";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
