@@ -101,27 +101,6 @@ stories()
             </Form>
         </Inline>
     )
-    .add("with fieldset", () =>
-        <Form>
-            <Field>
-                <Label>FullName</Label>
-                <TextInput />
-            </Field>
-            <fieldset>
-                <legend>Trip</legend>
-                <Field>
-                    <Label>Departure date</Label>
-                    <DateRangeInput name="filter" placeholder="dd/mm/yyyy" />
-                </Field>
-                <Field>
-                    <Label>Where to?</Label>
-                    <TextArea />
-                    <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
-                </Field>
-            </fieldset>
-            <Button>Submit</Button>
-        </Form>
-    )
     .add("with nested div", () =>
         <Form>
             <Field>
