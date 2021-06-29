@@ -6,7 +6,6 @@ import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useCont
 /*
 TODO:
     - FocusTrap
-    - I believe we need some way to hide the elements behind the underlay from screen readers.. See spectrum.
 */
 
 export interface InnerDialogTriggerProps {
@@ -81,7 +80,7 @@ export function InnerDialogTrigger({
     const [trigger, modal] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(modal)) {
-        throw new Error("A modal trigger must have exactly 2 children.");
+        throw new Error("A dialog trigger must have exactly 2 children.");
     }
 
     const triggerProps = useOverlayTrigger(isOpen, {
@@ -108,7 +107,7 @@ export function InnerDialogTrigger({
 
     const modalMarkup = augmentElement(modal, {
         dismissable,
-        zIndex: zIndex + 1,
+        zIndex: zIndex + 1, // <- set as style
         ref: modalRef
     });
 

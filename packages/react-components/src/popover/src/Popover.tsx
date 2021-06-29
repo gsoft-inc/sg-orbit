@@ -59,7 +59,7 @@ export function InnerPopover({
         </header>
     );
 
-    const footerMarkup = (button || buttonGroup || footer) && (
+    const footerMarkup = (footer || button || buttonGroup) && (
         <footer className="o-ui-popover-footer">
             {footer}
             {button}

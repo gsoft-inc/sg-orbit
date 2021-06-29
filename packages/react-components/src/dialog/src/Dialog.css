@@ -1,0 +1,56 @@
+/* WRAPPER */
+.o-ui-dialog-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* z-index: 2; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 1em;
+}
+
+/* WRAPPER | SCROLLING */
+.o-ui-dialog-wrapper-scrolling {
+    align-items: flex-start;
+}
+
+/* DIALOG */
+.o-ui-dialog {
+    /* width: 720px; */
+    /* padding: 1.5rem; */
+    /* background-color: var(--o-ui-global-white); */
+    position: relative;
+    /* outline: none; */
+    background-color: var(--o-ui-global-white);
+}
+
+/* DIALOG | SIZES */
+.o-ui-dialog-sm {
+    width: 544px;
+}
+
+.o-ui-dialog-md {
+    width: 800px;
+}
+
+.o-ui-dialog-lg {
+    width: 960px;
+}
+
+.o-ui-dialog-fullscreen {
+    width: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
+    height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
+}
+
+/* CLOSE BUTTON */
+.o-ui-dialog-close-button {
+    position: absolute;
+    top: var(--o-ui-global-scale-bravo);
+    right: var(--o-ui-global-scale-bravo);
+}
+
+

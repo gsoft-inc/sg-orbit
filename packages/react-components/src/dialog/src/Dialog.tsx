@@ -1,14 +1,20 @@
-import "./Modal.css";
+import "./Dialog.css";
 
 import {
     AriaLabelingProps,
     DomProps,
+    MergedRef,
     cssModule,
     forwardRef,
     isNil,
+    isNumber,
+    isString,
     mergeProps,
-    useAutoFocus,
+    normalizeSize,
+    useAutoFocusChild,
     useEventCallback,
+    useFocusManager,
+    useFocusScope,
     useId,
     useMergedRefs,
     useRefState,
@@ -16,19 +22,27 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, Ref, useEffect, useMemo, useState } from "react";
-import { Content } from "../../placeholders";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
+import { Text } from "../../text";
 import { Underlay } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export interface InnerModalProps extends DomProps, AriaLabelingProps {
+export interface InnerDialogProps extends DomProps, AriaLabelingProps {
+    /**
+     * A dialog can vary in size.
+     */
+    size?: "sm" | "md" | "lg" | "fullscreen";
     /**
      * Whether or not the dialog should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-     * z-index of the modal.
+     * Whether or not the dialog should autoFocus an element on render.
+     */
+    autoFocus?: boolean | number;
+    /**
+     * z-index of the dialog.
      */
     zIndex?: number;
     /**
@@ -81,7 +95,7 @@ function useHideBodyScrollbar() {
     }, [stateRef, setState]);
 }
 
-function useElementHasVerticalScrollbar() {
+function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     const [hasScrollbar, setHasScrollbar] = useState(false);
     const [elementRef, setElement] = useRefState<HTMLElement>();
 
@@ -97,55 +111,96 @@ function useElementHasVerticalScrollbar() {
     ];
 }
 
-export function InnerModal({
+export function InnerDialog({
     id,
-    dismissable,
+    size,
+    dismissable = true,
+    autoFocus,
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = "div",
     wrapperProps,
+    as = "div",
     children,
     forwardedRef,
     ...rest
-}: InnerModalProps) {
-    const modalRef = useMergedRefs(forwardedRef);
+}: InnerDialogProps) {
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const wrapperRef = useRef<HTMLElement>();
+    const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
+    const dismissButtonRef = useRef<HTMLButtonElement>();
 
     const { close } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
-    const [wrapperRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
+    const [hasVerticalScrollbarRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
 
-    useAutoFocus(modalRef);
+    const focusManager = useFocusManager(focusScope);
+
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        canFocus: useCallback((element: HTMLElement) => {
+            return element !== dialogRef.current && element !== dismissButtonRef.current;
+        }, [dialogRef, dismissButtonRef]),
+        onNotFound: useEventCallback(() => {
+            dialogRef.current?.focus();
+        })
+    });
 
     const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
         close(event);
     });
 
-    const modalId = useId(id, "o-ui-modal");
-    const headingId = `${modalId}-heading`;
+    const dialogId = useId(id, "o-ui-dialog");
+    const headingId = `${dialogId}-heading`;
 
-    const { heading, content } = useSlots(children, useMemo(() => ({
+    const { header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
-            defaultWrapper: Content
+            required: ["heading", "content"]
         },
         heading: {
             id: headingId,
-            className: "o-ui-modal-heading"
+            className: "o-ui-dialog-heading",
+            as: "h3"
+        },
+        header: {
+            className: "o-ui-dialog-header",
+            as: "header"
         },
         content: {
-            className: "o-ui-modal-content"
+            className: "o-ui-dialog-content"
+        },
+        footer: {
+            className: "o-ui-dialog-footer-text",
+            as: "footer"
+        },
+        button: {
+            className: "o-ui-dialog-button"
+        },
+        "button-group": {
+            className: "o-ui-dialog-button-group"
         }
     }), [headingId]));
+
+    const headerMarkup = isString(header?.props?.children)
+        ? <Text>{header}</Text>
+        : header;
+
+    const footerMarkup = isString(footer?.props?.children)
+        ? <Text>{footer}</Text>
+        : footer;
 
     const closeButtonMarkup = dismissable && (
         <CrossButton
             onClick={handleCloseButtonClick}
             condensed
             size="xs"
-            className="o-ui-modal-close-button"
+            className="o-ui-dialog-close-button"
             aria-label="Close"
+            ref={dismissButtonRef}
         />
     );
 
@@ -153,18 +208,18 @@ export function InnerModal({
         <>
             <Underlay zIndex={zIndex} />
             <Box
-                {...mergeProps(
+                {...mergeProps<any>(
                     wrapperProps ?? {},
                     {
                         className: cssModule(
-                            "o-ui-modal-wrapper",
+                            "o-ui-dialog-wrapper",
                             wrapperHasVerticalScrollbar && "scrolling"
                         ),
                         style: {
                             zIndex: zIndex + 1
                         },
                         as,
-                        ref: wrapperRef as Ref<HTMLElement>
+                        ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef)
                     }
                 )}
             >
@@ -172,29 +227,36 @@ export function InnerModal({
                     {...mergeProps(
                         rest,
                         {
-                            className: "o-ui-modal",
+                            className: cssModule(
+                                "o-ui-dialog",
+                                size === "fullscreen" ? size : normalizeSize(size)
+                            ),
                             tabIndex: -1,
                             role: "dialog",
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
-                            ref: modalRef
+                            ref: dialogRef
                         }
                     )}
                 >
                     {closeButtonMarkup}
                     {heading}
+                    {headerMarkup}
                     {content}
+                    {footerMarkup}
+                    {button}
+                    {buttonGroup}
                 </Box>
             </Box>
         </>
     );
 }
 
-export const Modal = forwardRef<InnerModalProps>((props, ref) => (
-    <InnerModal {...props} forwardedRef={ref} />
+export const Dialog = forwardRef<InnerDialogProps>((props, ref) => (
+    <InnerDialog {...props} forwardedRef={ref} />
 ));
 
-export type ModalProps = ComponentProps<typeof Modal>;
+export type DialogProps = ComponentProps<typeof Dialog>;
 
-Modal.displayName = "Modal";
+Dialog.displayName = "Dialog";
