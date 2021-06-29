@@ -5,7 +5,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* z-index: 2; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,11 +19,12 @@
 
 /* DIALOG */
 .o-ui-dialog {
-    /* width: 720px; */
-    /* padding: 1.5rem; */
-    /* background-color: var(--o-ui-global-white); */
     position: relative;
-    /* outline: none; */
+    display: grid;
+    grid-template-areas:
+        "heading header"
+        "content content"
+        "footer buttons";
     background-color: var(--o-ui-global-white);
 }
 
@@ -44,6 +44,32 @@
 .o-ui-dialog-fullscreen {
     width: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
     height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
+}
+
+/* DIALOG | HEADING */
+.o-ui-dialog-heading {
+    grid-area: "heading";
+}
+
+/* DIALOG | HEADER */
+.o-ui-dialog-header {
+    grid-area: "header";
+}
+
+/* DIALOG | CONTENT */
+.o-ui-dialog-content {
+    grid-area: "content";
+}
+
+/* DIALOG | FOOTER */
+.o-ui-dialog-footer {
+    grid-area: "footer";
+}
+
+/* DIALOG | BUTTONS */
+.o-ui-dialog-button,
+.o-ui-dialog-button-group {
+    grid-area: "buttons";
 }
 
 /* CLOSE BUTTON */

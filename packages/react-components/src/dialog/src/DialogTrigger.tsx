@@ -93,7 +93,6 @@ export function InnerDialogTrigger({
         hideOnLeave: false
     });
 
-    // TODO: not sure it should use this hook, it's been designed for popups.
     const overlayDismissProps = useOverlayLightDismiss(modalRef, {
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
@@ -107,7 +106,7 @@ export function InnerDialogTrigger({
 
     const modalMarkup = augmentElement(modal, {
         dismissable,
-        zIndex: zIndex + 1, // <- set as style
+        zIndex: zIndex + 1,
         ref: modalRef
     });
 

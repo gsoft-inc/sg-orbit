@@ -174,7 +174,7 @@ export function InnerDialog({
             className: "o-ui-dialog-content"
         },
         footer: {
-            className: "o-ui-dialog-footer-text",
+            className: "o-ui-dialog-footer",
             as: "footer"
         },
         button: {
