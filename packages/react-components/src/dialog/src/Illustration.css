@@ -1,0 +1,20 @@
+/*
+SWITCH TO FLEX COMPONENT INSTEAD???
+*/
+
+.o-ui-illustration {
+    display: inline-flex;
+}
+
+/* ORIENTATION */
+.o-ui-illustration-horizontal {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-ui-illustration-vertical {
+    flex-direction: column;
+    height: 100%;
+}

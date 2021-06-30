@@ -1,7 +1,7 @@
 import "./Image.css";
 
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
+import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
 export interface InnerImageProps {
     /**
