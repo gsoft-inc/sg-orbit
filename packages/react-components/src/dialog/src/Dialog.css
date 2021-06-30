@@ -21,11 +21,35 @@
 .o-ui-dialog {
     position: relative;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-areas:
         "heading header"
         "content content"
         "footer buttons";
     background-color: var(--o-ui-global-white);
+    padding: var(--o-ui-global-scale-india);
+    border-radius: var(--o-ui-global-scale-bravo);
+}
+
+.o-ui-dialog:focus-visible {
+    outline: none;
+}
+
+.o-ui-dialog::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-global-scale-bravo);
+    opacity: 0;
+}
+
+.o-ui-dialog:focus-visible::before {
+    opacity: 1;
 }
 
 /* DIALOG | SIZES */
@@ -48,28 +72,33 @@
 
 /* DIALOG | HEADING */
 .o-ui-dialog-heading {
-    grid-area: "heading";
+    grid-area: heading;
+    align-self: center;
+    margin-bottom: 0;
 }
 
 /* DIALOG | HEADER */
 .o-ui-dialog-header {
-    grid-area: "header";
+    grid-area: header;
+    align-self: center;
 }
 
 /* DIALOG | CONTENT */
 .o-ui-dialog-content {
-    grid-area: "content";
+    grid-area: content;
+    margin-top: var(--o-ui-global-scale-delta);
 }
 
 /* DIALOG | FOOTER */
 .o-ui-dialog-footer {
-    grid-area: "footer";
+    grid-area: footer;
+    margin-top: var(--o-ui-global-scale-foxtrot);
 }
 
 /* DIALOG | BUTTONS */
 .o-ui-dialog-button,
 .o-ui-dialog-button-group {
-    grid-area: "buttons";
+    grid-area: buttons;
 }
 
 /* CLOSE BUTTON */
@@ -78,5 +107,3 @@
     top: var(--o-ui-global-scale-bravo);
     right: var(--o-ui-global-scale-bravo);
 }
-
-
