@@ -21,7 +21,7 @@
 .o-ui-dialog {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: max-content 1fr max-content;
     grid-template-areas:
         "banner heading header"
         "banner content content"
@@ -72,7 +72,7 @@
 
 /* DIALOG | IMAGE */
 .o-ui-dialog-image {
-    grid-area: "banner";
+    grid-area: banner;
 }
 
 /* DIALOG | HEADING */
@@ -104,6 +104,7 @@
 .o-ui-dialog-button,
 .o-ui-dialog-button-group {
     grid-area: buttons;
+    margin-top: var(--o-ui-global-scale-delta);
 }
 
 /* CLOSE BUTTON */
