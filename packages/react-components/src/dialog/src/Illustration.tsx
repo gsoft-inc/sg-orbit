@@ -1,9 +1,9 @@
 import "./Illustration.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Flex } from "../../layout";
-import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
 
 export interface InnerIllustrationProps {
     /**
@@ -28,6 +28,22 @@ export interface InnerIllustrationProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+function useColor(color: string) {
+    return useMemo(() => {
+        if (!isNil(color)) {
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                return color;
+            } else if (color.startsWith("--")) {
+                return `var(${color})`;
+            } else {
+                const prefix = color.includes("primary") ? "alias" : "global";
+
+                return `var(--o-ui-${prefix}-${color})`;
+            }
+        }
+    }, [color]);
+}
+
 export function InnerIllustration({
     orientation = "horizontal",
     color,
@@ -47,7 +63,7 @@ export function InnerIllustration({
                         orientation
                     ),
                     style: {
-                        backgroundColor: color
+                        backgroundColor: useColor(color)
                     },
                     as,
                     ref: forwardedRef
