@@ -22,7 +22,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
 import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
@@ -159,9 +159,12 @@ export function InnerDialog({
     const dialogId = useId(id, "o-ui-dialog");
     const headingId = `${dialogId}-heading`;
 
-    const { header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { banner, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
+        },
+        banner: {
+            className: "o-ui-dialog-banner"
         },
         heading: {
             id: headingId,
@@ -188,11 +191,11 @@ export function InnerDialog({
     }), [headingId]));
 
     const headerMarkup = isString(header?.props?.children)
-        ? <Text>{header}</Text>
+        ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
         : header;
 
     const footerMarkup = isString(footer?.props?.children)
-        ? <Text>{footer}</Text>
+        ? cloneElement(footer, { children: <Text>{footer?.props?.children}</Text> })
         : footer;
 
     const closeButtonMarkup = dismissable && (
@@ -244,6 +247,7 @@ export function InnerDialog({
                     )}
                 >
                     {closeButtonMarkup}
+                    {banner}
                     {heading}
                     {headerMarkup}
                     {content}
