@@ -200,8 +200,8 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("autofocus with focusable element", () =>
-        <Dialog autoFocus>
+    .add("(MOVE TO JEST) autofocus with focusable element", () =>
+        <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
@@ -214,8 +214,8 @@ stories()
             </ButtonGroup>
         </Dialog>
     )
-    .add("autofocus without any focusable element", () =>
-        <Dialog autoFocus>
+    .add("(MOVE TO JEST) autofocus without any focusable element", () =>
+        <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
@@ -224,7 +224,7 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("manual focus", () =>
+    .add("(MOVE TO JEST) manual focus", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>

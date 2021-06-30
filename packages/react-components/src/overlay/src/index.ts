@@ -5,6 +5,7 @@ export * from "./useOverlayTrigger";
 export * from "./useOverlayPosition";
 export * from "./useOverlayLightDismiss";
 export * from "./useRestoreFocus";
+export * from "./useTrapFocus";
 export * from "./usePopup";
 export * from "./useTriggerWidth";
 export * from "./isTargetParent";

@@ -53,8 +53,6 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
                     if (!isNil(nextElement)) {
                         nextElement.focus();
                     } else {
-                        // If there is no next element, blur the focused element to move focus to the element to restore.
-                        // focusedElement.blur();
                         elementToRestore.focus();
                     }
                 }

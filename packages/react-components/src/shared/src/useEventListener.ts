@@ -19,13 +19,13 @@ export function useEventListener(eventTarget: EventTarget | (() => EventTarget),
     }, [eventTarget, eventName, listener, active, options]);
 }
 
-export function useDocumentListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active: boolean, options?: boolean | EventListenerOptions) {
+export function useDocumentListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: boolean | EventListenerOptions) {
     const documentTarget = useCallback(() => document, []);
 
     useEventListener(documentTarget, eventName, listener, active, options);
 }
 
-export function useWindowListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active: boolean, options?: boolean | EventListenerOptions) {
+export function useWindowListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: boolean | EventListenerOptions) {
     const documentTarget = useCallback(() => window, []);
 
     useEventListener(documentTarget, eventName, listener, active, options);

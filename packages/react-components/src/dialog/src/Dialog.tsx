@@ -25,7 +25,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
-import { Underlay } from "../../overlay";
+import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
@@ -137,10 +137,10 @@ export function InnerDialog({
 
     const [hasVerticalScrollbarRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
 
+    const restoreFocusProps = useRestoreFocus(focusScope);
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         canFocus: useCallback((element: HTMLElement) => {
             return element !== dialogRef.current && element !== dismissButtonRef.current;
@@ -149,6 +149,8 @@ export function InnerDialog({
             dialogRef.current?.focus();
         })
     });
+
+    useTrapFocus(focusManager);
 
     const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
         close(event);
@@ -237,7 +239,8 @@ export function InnerDialog({
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
                             ref: dialogRef
-                        }
+                        },
+                        restoreFocusProps
                     )}
                 >
                     {closeButtonMarkup}
