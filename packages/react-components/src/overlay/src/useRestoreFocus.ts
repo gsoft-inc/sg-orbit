@@ -1,7 +1,7 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
 // NOTE: This restore focus only works because we use an animation to fade away the overlay. Without an animation, the active element will always be the body which
-// will be out of scope. To fix this, it would probably requires this code to become a React element instead.
+// will be out of scope. To fix this, it would probably requires this code to become a React element instead of a React hook.
 
 import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { KeyboardEvent, useLayoutEffect } from "react";
@@ -22,38 +22,41 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
     // This is important when using portals for overlays, so that focus goes to the expected element when tabbing out of the overlay.
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
-            const focusedElement = event.target;
+            // Since stopImmediatePropagation doesn't work in React, it's a small hack to ensure this hook works well with useTrapFocus.
+            if (!event.isPropagationStopped) {
+                const focusedElement = event.target;
 
-            // Create a DOM tree walker that matches all tabbable elements.
-            const walker = createFocusableTreeWalker(document.body, { tabbable: true });
-            walker.currentNode = focusedElement as Node;
+                // Create a DOM tree walker that matches all tabbable elements.
+                const walker = createFocusableTreeWalker(document.body, { tabbable: true });
+                walker.currentNode = focusedElement as Node;
 
-            const next = () => {
-                return event.shiftKey ? walker.previousNode() : walker.nextNode() as HTMLElement;
-            };
+                const next = () => {
+                    return event.shiftKey ? walker.previousNode() : walker.nextNode() as HTMLElement;
+                };
 
-            // Find the next tabbable element after the currently focused element.
-            let nextElement = next() as HTMLElement;
+                // Find the next tabbable element after the currently focused element.
+                let nextElement = next() as HTMLElement;
 
-            // If there is no next element, or it is outside the current scope, move focus to the
-            // next element after the node to restore to instead.
-            if (isNil(nextElement) || !scope.isInScope(nextElement)) {
-                const elementToRestore = elementToRestoreRef.current;
+                // If there is no next element, or it is outside the current scope, move focus to the
+                // next element after the node to restore to instead.
+                if (isNil(nextElement) || !scope.isInScope(nextElement)) {
+                    const elementToRestore = elementToRestoreRef.current;
 
-                if (document.body.contains(elementToRestore)) {
-                    walker.currentNode = elementToRestore;
+                    if (document.body.contains(elementToRestore)) {
+                        walker.currentNode = elementToRestore;
 
-                    // Skip over elements within the scope, in case the scope immediately follows the node to restore.
-                    do {
-                        nextElement = next() as HTMLElement;
-                    } while (nextElement === event.currentTarget || scope.isInScope(nextElement));
+                        // Skip over elements within the scope, in case the scope immediately follows the node to restore.
+                        do {
+                            nextElement = next() as HTMLElement;
+                        } while (nextElement === event.currentTarget || scope.isInScope(nextElement));
 
-                    event.preventDefault();
+                        event.preventDefault();
 
-                    if (!isNil(nextElement)) {
-                        nextElement.focus();
-                    } else {
-                        elementToRestore.focus();
+                        if (!isNil(nextElement)) {
+                            nextElement.focus();
+                        } else {
+                            elementToRestore.focus();
+                        }
                     }
                 }
             }

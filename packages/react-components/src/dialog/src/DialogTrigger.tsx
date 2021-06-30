@@ -3,14 +3,9 @@ import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 
-/*
-TODO:
-    - FocusTrap
-*/
-
 export interface InnerDialogTriggerProps {
     /**
-     * Whether or not to show the modal element.
+     * Whether or not to show the dialog.
      */
     open?: boolean | null;
     /**
@@ -25,11 +20,11 @@ export interface InnerDialogTriggerProps {
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * Whether or not the modal should close on outside interactions.
+     * Whether or not the dialog should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-     * z-index of the modal.
+     * z-index of the dialog.
      */
     zIndex?: number;
     /**

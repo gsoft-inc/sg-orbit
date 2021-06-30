@@ -1,7 +1,7 @@
 import "./Image.css";
 
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { cssModule, forwardRef, mergeProps } from "../../shared";
 
 export interface InnerImageProps {
     /**
@@ -45,7 +45,6 @@ export interface InnerImageProps {
     */
     forwardedRef: ForwardedRef<any>;
 }
-
 
 export function InnerImage({
     shape,

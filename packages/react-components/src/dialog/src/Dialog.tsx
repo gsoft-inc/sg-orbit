@@ -137,8 +137,10 @@ export function InnerDialog({
 
     const [hasVerticalScrollbarRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
 
-    const restoreFocusProps = useRestoreFocus(focusScope);
     const focusManager = useFocusManager(focusScope);
+
+    const trapFocusProps = useTrapFocus(focusManager);
+    const restoreFocusProps = useRestoreFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
         delay: isNumber(autoFocus) ? autoFocus : undefined,
@@ -149,8 +151,6 @@ export function InnerDialog({
             dialogRef.current?.focus();
         })
     });
-
-    useTrapFocus(focusManager);
 
     const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
         close(event);
@@ -244,7 +244,9 @@ export function InnerDialog({
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
                             ref: dialogRef
                         },
-                        restoreFocusProps
+                        restoreFocusProps,
+                        // Must be after restoreFocusProps to work.
+                        trapFocusProps
                     )}
                 >
                     {closeButtonMarkup}

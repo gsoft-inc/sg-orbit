@@ -21,7 +21,7 @@ stories()
     .add("size", () =>
         <Stack>
             <Image width="200px" src={Launch} alt="SpaceX launch" />
-            <Image height="200px" src={Launch} alt="SpaceX launch" />
+            <Image width="200px" height="200px" src={Launch} alt="SpaceX launch" />
             <Image size="200px" src={Launch} alt="SpaceX launch" />
         </Stack>
     )
