@@ -1,4 +1,4 @@
-import { Illustration } from "@react-components/dialog";
+import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Nasa } from "./assets";
@@ -10,14 +10,9 @@ function stories(segment) {
         .build();
 }
 
-/*
-- color
-- styling
-*/
-
 stories()
     .add("default", () =>
-        <Illustration>
+        <Illustration orientation="vertical">
             <Image src={Nasa} width="100px" alt="NASA" />
         </Illustration>
     )
