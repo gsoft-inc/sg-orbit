@@ -1,9 +1,6 @@
-import "./Illustration.css";
-
-import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Flex } from "../../layout";
-import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
+import { forwardRef, isNil, mergeProps, slot } from "../../shared";
 
 export interface InnerIllustrationProps {
     /**
@@ -52,18 +49,20 @@ export function InnerIllustration({
     forwardedRef,
     ...rest
 }: InnerIllustrationProps) {
+    const isHorizontal = orientation === "horizontal";
+
     return (
-        <Box
-            {...mergeProps(
+        <Flex
+            {...mergeProps<any>(
                 rest,
                 {
-                    // direction: orientation === "horizontal" ? "row" : "column",
-                    className: cssModule(
-                        "o-ui-illustration",
-                        orientation
-                    ),
+                    direction: isHorizontal ? "column" : "row",
+                    alignItems: "center",
+                    justifyContent: "center",
                     style: {
-                        backgroundColor: useColor(color)
+                        backgroundColor: useColor(color),
+                        width: isHorizontal ? "100%" : undefined,
+                        height: isHorizontal ? undefined : "100%"
                     },
                     as,
                     ref: forwardedRef
@@ -71,7 +70,7 @@ export function InnerIllustration({
             )}
         >
             {children}
-        </Box>
+        </Flex>
     );
 }
 

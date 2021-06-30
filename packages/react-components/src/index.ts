@@ -45,4 +45,5 @@ export * from "./autocomplete";
 export * from "./dialog";
 export * from "./input-group";
 export * from "./avatar";
+export * from "./illustration";
 export * from "./shared";
