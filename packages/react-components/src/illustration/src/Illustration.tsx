@@ -1,12 +1,18 @@
+import "./Illustration.css";
+
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Flex } from "../../layout";
-import { forwardRef, isNil, mergeProps, slot } from "../../shared";
+import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerIllustrationProps {
     /**
      * The orientation of the illustration.
      */
     orientation?: "horizontal" | "vertical";
+    /**
+     * The illustration shape.
+     */
+    shape?: "straight" | "rounded";
     /**
      * The illustration background color, e.g "primary-200".
      */
@@ -43,34 +49,51 @@ function useColor(color: string) {
 
 export function InnerIllustration({
     orientation = "horizontal",
+    shape = "straight",
     color,
     as = "div",
     children,
     forwardedRef,
     ...rest
 }: InnerIllustrationProps) {
-    const isHorizontal = orientation === "horizontal";
+    const { image, heading, content } = useSlots(children, useMemo(() => ({
+        _: {
+            required: ["image"]
+        },
+        image: {
+            className: "o-ui-illustration-image"
+        },
+        heading: {
+            className: "o-ui-illustration-heading",
+            as: "h3"
+        },
+        content: {
+            className: "o-ui-illustration-content"
+        }
+    }), []));
 
     return (
-        <Flex
+        <Box
             {...mergeProps<any>(
                 rest,
                 {
-                    direction: isHorizontal ? "column" : "row",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    className: cssModule(
+                        "o-ui-illustration",
+                        orientation,
+                        shape
+                    ),
                     style: {
-                        backgroundColor: useColor(color),
-                        width: isHorizontal ? "100%" : undefined,
-                        height: isHorizontal ? undefined : "100%"
+                        backgroundColor: useColor(color)
                     },
                     as,
                     ref: forwardedRef
                 }
             )}
         >
-            {children}
-        </Flex>
+            {image}
+            {heading}
+            {content}
+        </Box>
     );
 }
 

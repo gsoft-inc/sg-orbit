@@ -42,6 +42,16 @@ stories()
             </Illustration>
         </Inline>
     )
+    .add("straight", () =>
+        <Illustration shape="straight" color="primary-200">
+            <Image src={Nasa} width="100px" alt="NASA" />
+        </Illustration>
+    )
+    .add("rounded", () =>
+        <Illustration shape="rounded" color="primary-200">
+            <Image src={Nasa} width="100px" alt="NASA" />
+        </Illustration>
+    )
     .add("color", () =>
         <Stack>
             <Illustration color="primary-200">

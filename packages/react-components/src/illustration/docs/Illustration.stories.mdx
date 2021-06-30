@@ -1,0 +1,91 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@react-components/placeholders";
+import { Heading } from "@react-components/heading";
+import { Illustration, InnerIllustration } from "@react-components/illustration";
+import { Image } from "@react-components/image";
+import { Inline } from "@react-components/layout";
+import { NoResults, Storage } from "./assets";
+
+<Meta
+    title="Components/Illustration"
+    id="illustration"
+/>
+
+# Illustration
+
+<Tagline>Use this component to compose an illustration with optionally a background color or content.</Tagline>
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/illustration/src"
+/>
+
+## Usage
+
+### Horizontal
+
+An illustration can render horizontally.
+
+<Preview scope={{ NoResults }}>
+    <Story name="horizontal">
+        <Illustration>
+            <Image src={NoResults} alt="No Results" />
+            <Heading>Can't find "Saturn".</Heading>
+            <Content>Please try another search.</Content>
+        </Illustration>
+    </Story>
+</Preview>
+
+### Vertical
+
+An illustration can render vertically.
+
+<Preview scope={{ Storage }} style={{ height: "400px" }}>
+    <Story name="vertical">
+        <Illustration orientation="vertical" color="primary-50" style={{ width: "256px" }}>
+            <Image src={Storage} alt="Storage" width="160px" />
+        </Illustration>
+    </Story>
+</Preview>
+
+### Shape
+
+An illustration can use a different shape.
+
+<Preview scope={{ Storage }} style={{ height: "400px" }}>
+    <Story name="shape">
+        <Inline style={{ height: "100%" }}>
+            <Illustration shape="straight" orientation="vertical" color="primary-50" style={{ width: "256px" }}>
+                <Image src={Storage} alt="Storage" width="160px" />
+            </Illustration>
+            <Illustration shape="rounded" orientation="vertical" color="primary-50" style={{ width: "256px" }}>
+                <Image src={Storage} alt="Storage" width="160px" />
+            </Illustration>
+        </Inline>
+    </Story>
+</Preview>
+
+### Color
+
+An illustration backgroud color can be a name from our foundations (e.g. `sunray-50`, `primary-500`), an hexadecimal color code `#c5cac8`, an `hsl`, an `hsla`, a `rgb` or a `rgba` color code.
+
+<Preview scope={{ Storage }} style={{ height: "400px" }}>
+    <Story name="color">
+        <Illustration color="hsla(174, 61%, 94%, 1)" orientation="vertical" style={{ width: "256px" }}>
+            <Image src={Storage} alt="Storage" width="160px" />
+        </Illustration>
+    </Story>
+</Preview>
+
+## API
+
+### Illustration
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
+    slots={["image", "heading", "content"]}
+    compact
+/>
+
+<ArgsTable of={InnerIllustration} sort="alpha" />

@@ -25,6 +25,15 @@ stories()
             <Image size="200px" src={Launch} alt="SpaceX launch" />
         </Stack>
     )
+    .add("straight", () =>
+        <Inline verticalAlign="end">
+            <Image shape="straight" size="50px" src={Launch} alt="SpaceX launch" />
+            <Image shape="straight" size="100px" src={Launch} alt="SpaceX launch" />
+            <Image shape="straight" size="200px" src={Launch} alt="SpaceX launch" />
+            <Image shape="straight" size="300px" src={Launch} alt="SpaceX launch" />
+            <Image shape="straight" src={Launch} alt="SpaceX launch" />
+        </Inline>
+    )
     .add("rounded", () =>
         <Inline verticalAlign="end">
             <Image shape="rounded" size="50px" src={Launch} alt="SpaceX launch" />
