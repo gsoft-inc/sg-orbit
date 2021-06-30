@@ -159,12 +159,13 @@ export function InnerDialog({
     const dialogId = useId(id, "o-ui-dialog");
     const headingId = `${dialogId}-heading`;
 
-    const { banner, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
-        banner: {
-            className: "o-ui-dialog-banner"
+        illustration: {
+            orientation: "vertical",
+            className: "o-ui-dialog-illustration"
         },
         heading: {
             id: headingId,
@@ -247,7 +248,7 @@ export function InnerDialog({
                     )}
                 >
                     {closeButtonMarkup}
-                    {banner}
+                    {illustration}
                     {heading}
                     {headerMarkup}
                     {content}

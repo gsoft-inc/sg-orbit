@@ -37,7 +37,9 @@ function useColor(color: string) {
             } else if (color.startsWith("--")) {
                 return `var(${color})`;
             } else {
-                return `var(--o-ui-global-${color})`;
+                const prefix = color.includes("primary") ? "alias" : "global";
+
+                return `var(--o-ui-${prefix}-${color})`;
             }
         }
     }, [color]);

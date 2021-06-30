@@ -22,9 +22,9 @@
     position: relative;
     display: grid;
     grid-template-areas:
-        "banner heading header"
-        "banner content content"
-        "banner footer buttons";
+        "illustration heading header"
+        "illustration content content"
+        "illustration footer buttons";
     background-color: var(--o-ui-global-white);
 }
 
@@ -46,9 +46,10 @@
     height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
 }
 
-/* DIALOG | IMAGE */
-.o-ui-dialog-image {
-    grid-area: "banner";
+/* DIALOG | ILLUSTRATION */
+.o-ui-dialog-illustration {
+    grid-area: illustration;
+    width: 256px;
 }
 
 /* DIALOG | HEADING */

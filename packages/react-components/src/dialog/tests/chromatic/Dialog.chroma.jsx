@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { ButtonGroup } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Dialog } from "@react-components/dialog";
+import { Dialog, Illustration } from "@react-components/dialog";
 import { Footer, Header } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { Image } from "@react-components";
@@ -115,11 +115,11 @@ stories()
             </ButtonGroup>
         </Dialog>
     )
-    .add("with banner", () =>
+    .add("with illustration", () =>
         <Dialog>
-            <div>
-                <Image src={Nasa} alt="NASA" />
-            </div>
+            <Illustration>
+                <Image src={Nasa} alt="NASA" width="200px" />
+            </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
@@ -130,6 +130,9 @@ stories()
     )
     .add("all sections", () =>
         <Dialog>
+            <Illustration>
+                <Image src={Nasa} alt="NASA" width="200px" />
+            </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Header>
                 <TextLink href="https://www.nature.com/articles/d41586-020-03421-y" external>View the whole story</TextLink>
