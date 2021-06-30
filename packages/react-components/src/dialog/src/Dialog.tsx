@@ -249,12 +249,15 @@ export function InnerDialog({
                 >
                     {closeButtonMarkup}
                     {illustration}
-                    {heading}
-                    {headerMarkup}
-                    {content}
-                    {footerMarkup}
-                    {button}
-                    {buttonGroup}
+                    <div className="o-ui-dialog-aside">
+                        {heading}
+                        {headerMarkup}
+                        {content}
+                        {footerMarkup}
+                        {button}
+                        {buttonGroup}
+
+                    </div>
                 </Box>
             </Box>
         </>
