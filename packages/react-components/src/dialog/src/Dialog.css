@@ -75,7 +75,7 @@
 
 .o-ui-dialog-fullscreen {
     width: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
-    height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
+    min-height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
 }
 
 /* DIALOG | ILLUSTRATION */
@@ -118,6 +118,11 @@
 .o-ui-dialog-button-group {
     grid-area: buttons;
     margin-top: var(--o-ui-global-scale-delta);
+}
+
+/* DIALOG | BUTTONS AFTER FOOTER*/
+.o-ui-dialog-footer + * {
+    margin-left: var(--o-ui-global-scale-delta);
 }
 
 /* CLOSE BUTTON */
