@@ -56,7 +56,6 @@
         "heading header"
         "content content"
         "footer buttons";
-    grid-column-gap: var(--o-ui-global-scale-echo);
 }
 
 /* DIALOG | SIZES */
@@ -96,6 +95,7 @@
 .o-ui-dialog-header {
     grid-area: header;
     align-self: center;
+    margin-left: var(--o-ui-global-scale-delta);
 }
 
 /* DIALOG | CONTENT */
