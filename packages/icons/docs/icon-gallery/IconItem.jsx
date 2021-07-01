@@ -1,6 +1,6 @@
 import "./IconItem.css";
 
-import { Content, DialogTrigger, Heading, Modal } from "@react-components";
+import { Content, Dialog, DialogTrigger, Heading } from "@react-components";
 import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";
@@ -44,7 +44,7 @@ export function IconItem({ name, multiVariant, variants }) {
                     </div>
                 </div>
             </div>
-            <Modal>
+            <Dialog>
                 <Heading>{displayName}</Heading>
                 <Content>
                     <IconDetail
@@ -53,7 +53,7 @@ export function IconItem({ name, multiVariant, variants }) {
                         variants={variants}
                     />
                 </Content>
-            </Modal>
+            </Dialog>
         </DialogTrigger>
     );
 }
