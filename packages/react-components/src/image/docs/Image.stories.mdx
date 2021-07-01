@@ -31,6 +31,7 @@ An image can use a different shape.
 <Preview scope={{ LaunchImage }}>
     <Story name="shape">
         <Inline>
+            <Image shape="straight" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
             <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
             <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
         </Inline>
@@ -64,5 +65,10 @@ _Avoid serving images that are unecessary big, images should be resized to the i
 ## API
 
 ### Image
+
+<ComponentInfo
+    usage={"import { Image } from \"@orbit-ui/react-components\";"}
+    compact
+/>
 
 <ArgsTable of={InnerImage} sort="alpha" />

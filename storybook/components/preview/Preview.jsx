@@ -51,17 +51,17 @@ function CodeEditor({
     );
 }
 
-function DecoratedLivePreview() {
+function DecoratedLivePreview({ ...rest }) {
     const docsContext = useContext(DocsContext);
 
     const decorators = docsContext.storyStore._globalMetadata.decorators;
 
     return decorators
-        ? defaultDecorateStory(() => <JarlePreview />, decorators)(docsContext)
-        : <JarlePreview />;
+        ? defaultDecorateStory(() => <JarlePreview {...rest} />, decorators)(docsContext)
+        : <JarlePreview {...rest} />;
 }
 
-function FilePreview({ filePath, language, scope, noInline }) {
+function FilePreview({ filePath, language, scope, noInline, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -80,12 +80,12 @@ function FilePreview({ filePath, language, scope, noInline }) {
             scope={scope}
             noInline={noInline}
         >
-            <DecoratedLivePreview />
+            <DecoratedLivePreview {...rest} />
         </CodeEditor>
     );
 }
 
-function MdxSourcePreview({ mdxSource, language, scope, noInline }) {
+function MdxSourcePreview({ mdxSource, language, scope, noInline, ...rest }) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
@@ -98,7 +98,7 @@ function MdxSourcePreview({ mdxSource, language, scope, noInline }) {
             scope={scope}
             noInline={noInline}
         >
-            <DecoratedLivePreview />
+            <DecoratedLivePreview {...rest} />
         </CodeEditor>
     );
 }
@@ -110,7 +110,7 @@ function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentMeta }) {
     );
 }
 
-function StoryPreview({ language, scope, noInline, children }) {
+function StoryPreview({ language, scope, noInline, children, ...rest }) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
@@ -126,7 +126,7 @@ function StoryPreview({ language, scope, noInline, children }) {
             noInline={noInline}
         >
             <div id={storyBlockIdFromId(storyId)}>
-                <DecoratedLivePreview />
+                <DecoratedLivePreview {...rest} />
             </div>
         </CodeEditor>
     );
@@ -138,11 +138,13 @@ export function Preview({
     language,
     scope,
     noInline,
-    children
+    children,
+    ...rest
 }) {
     if (!isNil(filePath)) {
         return (
             <FilePreview
+                {...rest}
                 filePath={filePath}
                 language={language}
                 scope={scope}
@@ -154,6 +156,7 @@ export function Preview({
     if (!isNil(mdxSource)) {
         return (
             <MdxSourcePreview
+                {...rest}
                 mdxSource={mdxSource}
                 language={language}
                 scope={scope}
@@ -164,6 +167,7 @@ export function Preview({
 
     return (
         <StoryPreview
+            {...rest}
             language={language}
             scope={scope}
             noInline={noInline}

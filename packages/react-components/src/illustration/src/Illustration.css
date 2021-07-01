@@ -1,0 +1,32 @@
+.o-ui-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ORIENTATION */
+.o-ui-illustration-horizontal {
+    flex-direction: column;
+    width: 100%;
+}
+
+.o-ui-illustration-vertical {
+    flex-direction: row;
+    height: 100%;
+}
+
+/* SHAPES */
+.o-ui-illustration-rounded {
+    border-radius: var(--o-ui-shape-rounded);
+}
+
+/* CONTENT */
+.o-ui-illustration-heading {
+    margin-top: var(--o-ui-global-scale-foxtrot);
+    margin-bottom: 0;
+}
+
+.o-ui-illustration-content {
+    margin-top: var(--o-ui-global-scale-bravo);
+}
+
