@@ -1,4 +1,5 @@
-import NoResults from "./no-results.png";
-import Storage from "./storage.png";
+import NoResults from "./no-results.svg";
+import StoragePrimary from "./storage-primary.png";
+import StorageSunray from "./storage-sunray.png";
 
-export { Storage, NoResults };
+export { StoragePrimary, StorageSunray, NoResults };

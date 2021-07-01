@@ -2,6 +2,7 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { Text } from "../../text";
 import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerIllustrationProps {
@@ -65,10 +66,12 @@ export function InnerIllustration({
         },
         heading: {
             className: "o-ui-illustration-heading",
+            size: "sm",
             as: "h3"
         },
         content: {
-            className: "o-ui-illustration-content"
+            className: "o-ui-illustration-content",
+            as: Text
         }
     }), []));
 
