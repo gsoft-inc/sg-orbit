@@ -193,9 +193,11 @@ stories()
     .add("styling", () =>
         <Inline>
             <Field className="border-red">
+                <Label>Launch date</Label>
                 <TextInput />
             </Field>
             <Field style={{ border: "1px solid red" }}>
+                <Label>Launch date</Label>
                 <TextInput />
             </Field>
         </Inline>

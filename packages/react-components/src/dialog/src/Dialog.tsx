@@ -28,6 +28,9 @@ import { Text } from "../../text";
 import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
+// TODO: AlertDialog might have too many difference and we might prefer to extract a useDialog hooks to share a few things but allow greater customization.
+// TODO: Maybe DialogTrigger should also become a useDialogTrigger hook instead of a component.
+
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
     /**
      * A dialog can vary in size.
@@ -41,6 +44,12 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps {
      * Whether or not the dialog should autoFocus an element on render.
      */
     autoFocus?: boolean | number;
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {MouseEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onDismiss: (event: MouseEvent) => void;
     /**
      * z-index of the dialog.
      */
@@ -116,6 +125,7 @@ export function InnerDialog({
     size,
     dismissable = true,
     autoFocus,
+    onDismiss,
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -145,15 +155,36 @@ export function InnerDialog({
     useAutoFocusChild(focusManager, {
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         canFocus: useCallback((element: HTMLElement) => {
-            return element !== dialogRef.current && element !== dismissButtonRef.current;
+            // Do not autofocus the dialog itself.
+            if (element === dialogRef.current) {
+                return false;
+            }
+
+            // Do not autofocus the dismiss button.
+            if (element === dismissButtonRef.current) {
+                return false;
+            }
+
+            // Do not autofocus a link.
+            if (element?.tagName === "A") {
+                return false;
+            }
+
+            return true;
         }, [dialogRef, dismissButtonRef]),
         onNotFound: useEventCallback(() => {
             dialogRef.current?.focus();
         })
     });
 
-    const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
-        close(event);
+    const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
+        if (!isNil(close)) {
+            close(event);
+        }
+
+        if (!isNil(onDismiss)) {
+            onDismiss(event);
+        }
     });
 
     const dialogId = useId(id, "o-ui-dialog");
@@ -199,13 +230,13 @@ export function InnerDialog({
         ? cloneElement(footer, { children: <Text>{footer?.props?.children}</Text> })
         : footer;
 
-    const closeButtonMarkup = dismissable && (
+    const dismissButtonMarkup = dismissable && (
         <CrossButton
-            onClick={handleCloseButtonClick}
+            onClick={handleDismissButtonClick}
             condensed
             size="xs"
-            className="o-ui-dialog-close-button"
-            aria-label="Close"
+            className="o-ui-dialog-dismiss-button"
+            aria-label="Dismiss"
             ref={dismissButtonRef}
         />
     );
@@ -249,9 +280,9 @@ export function InnerDialog({
                         trapFocusProps
                     )}
                 >
-                    {closeButtonMarkup}
+                    {dismissButtonMarkup}
                     {illustration}
-                    <div className="o-ui-dialog-aside">
+                    <Box className="o-ui-dialog-aside">
                         {heading}
                         {headerMarkup}
                         {content}
@@ -259,7 +290,7 @@ export function InnerDialog({
                         {button}
                         {buttonGroup}
 
-                    </div>
+                    </Box>
                 </Box>
             </Box>
         </>

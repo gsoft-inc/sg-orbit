@@ -125,8 +125,8 @@
     margin-left: var(--o-ui-global-scale-delta);
 }
 
-/* CLOSE BUTTON */
-.o-ui-dialog-close-button {
+/* DISMISS BUTTON */
+.o-ui-dialog-dismiss-button {
     position: absolute;
     top: var(--o-ui-global-scale-delta);
     right: var(--o-ui-global-scale-delta);
