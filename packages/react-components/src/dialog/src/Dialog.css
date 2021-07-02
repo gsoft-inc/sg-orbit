@@ -97,9 +97,6 @@
     align-self: center;
     margin-left: var(--o-ui-global-scale-delta);
     max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 /* DIALOG | CONTENT */
