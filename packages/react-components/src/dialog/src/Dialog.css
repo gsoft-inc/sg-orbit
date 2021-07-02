@@ -24,7 +24,7 @@
     border-radius: var(--o-ui-global-scale-bravo);
     display: grid;
     grid-template-areas: "illustration aside";
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: auto auto;
 }
 
 .o-ui-dialog:focus-visible {
@@ -50,14 +50,8 @@
 
 .o-ui-dialog-aside {
     padding: var(--o-ui-global-scale-india);
-    display: grid;
     grid-area: aside;
-    grid-template-columns: 1fr max-content;
-    grid-template-rows: max-content max-content;
-    grid-template-areas:
-        "heading header"
-        "content content"
-        "footer buttons";
+    overflow: hidden;
 }
 
 /* DIALOG | SIZES */
@@ -80,49 +74,67 @@
 
 /* DIALOG | ILLUSTRATION */
 .o-ui-dialog-illustration {
-    grid-area: illustration;
     width: 256px;
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
+    grid-area: illustration;
+}
+
+/* DIALOG | HEAD SECTION */
+.o-ui-dialog-head-section {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* DIALOG | HEADING */
 .o-ui-dialog-heading {
-    grid-area: heading;
     align-self: center;
     margin-bottom: 0;
 }
 
 /* DIALOG | HEADER */
 .o-ui-dialog-header {
-    grid-area: header;
     align-self: center;
     margin-left: var(--o-ui-global-scale-delta);
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* DIALOG | CONTENT */
 .o-ui-dialog-content {
-    grid-area: content;
     margin-top: var(--o-ui-global-scale-delta);
+    display: flex;
+    flex-direction: column;
+}
+
+/* DIALOG | FOOTER SECTION */
+.o-ui-dialog-footer-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--o-ui-global-scale-foxtrot);
 }
 
 /* DIALOG | FOOTER */
 .o-ui-dialog-footer {
     grid-area: footer;
-    margin-top: var(--o-ui-global-scale-foxtrot);
     align-self: center;
 }
 
-/* DIALOG | BUTTONS */
+/* DIALOG | 'BUTTON'S */
 .o-ui-dialog-button,
 .o-ui-dialog-button-group {
-    grid-area: buttons;
-    margin-top: var(--o-ui-global-scale-delta);
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
-/* DIALOG | BUTTONS AFTER FOOTER*/
-.o-ui-dialog-footer + * {
-    margin-left: var(--o-ui-global-scale-delta);
+.o-ui-dialog-button-group {
+    flex-wrap: wrap;
+}
+
+.o-ui-dialog-footer + .o-ui-dialog-button-group {
+    flex-shrink: 0;
 }
 
 /* DISMISS BUTTON */
