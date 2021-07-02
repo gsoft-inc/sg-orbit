@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     overflow: auto;
-    padding: 1em;
+    padding: 1rem;
 }
 
 /* WRAPPER | SCROLLING */
@@ -20,7 +20,7 @@
 /* DIALOG */
 .o-ui-dialog {
     position: relative;
-    background-color: var(--o-ui-global-white);
+    background-color: var(--o-ui-alias-background-1);
     border-radius: var(--o-ui-global-scale-bravo);
     display: grid;
     grid-template-areas: "illustration aside";
@@ -97,6 +97,7 @@
     align-self: center;
     margin-left: var(--o-ui-global-scale-delta);
     max-width: 200px;
+    flex-shrink: 0;
 }
 
 /* DIALOG | CONTENT */
@@ -119,7 +120,7 @@
     align-self: center;
 }
 
-/* DIALOG | 'BUTTON'S */
+/* DIALOG | BUTTONS */
 .o-ui-dialog-button,
 .o-ui-dialog-button-group {
     justify-content: flex-end;
