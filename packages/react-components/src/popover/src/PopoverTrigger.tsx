@@ -37,7 +37,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
         | "left-end");
     /**
      * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {boolean} isOpen - Indicate if the popover is visible.
      * @returns {void}
      */
@@ -55,7 +55,7 @@ export interface InnerPopoverTriggerProps extends DomProps {
      */
     allowPreventOverflow?: boolean;
     /**
-     * z-index of the popover element.
+     * The z-index of the popover element.
      */
     zIndex?: number;
     /**

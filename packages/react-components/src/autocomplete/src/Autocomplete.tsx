@@ -85,14 +85,14 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     validationState?: "valid" | "invalid";
     /**
      * Called when the input query change and new search results are expected.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string} query - The search query.
      * @returns {void}
      */
     onSearch?: (event: SyntheticEvent, query: string) => void;
     /**
      * Called when the autocomplete value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {Object} selection - The new selection.
      * @param {string} selection.key - The selected key.
      * @param {string} selection.value - The selected value.
@@ -101,7 +101,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
     onSelectionChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
     /**
      * Called when the autocomplete open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
@@ -143,7 +143,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     allowPreventOverflow?: boolean;
     /**
-     * z-index of the overlay element.
+     * The z-index of the overlay element.
      */
     zIndex?: number;
     /**

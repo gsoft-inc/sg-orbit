@@ -34,7 +34,7 @@ export interface InnerAccordionProps extends DomProps {
     defaultExpandedKeys?: string[];
     /**
      * Called when an accordion item is toggled.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {String[]} keys - The keys of the expanded items.
      * @returns {void}
      */

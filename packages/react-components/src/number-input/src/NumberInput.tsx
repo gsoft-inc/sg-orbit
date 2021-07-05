@@ -81,7 +81,7 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
     validationState?: "valid" | "invalid";
     /**
      * Called when the input value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {number} value - The new value.
      * @returns {void}
      */

@@ -18,7 +18,7 @@ export interface InnerToggleIconButtonProps extends AriaLabelingProps {
     value?: string;
     /**
      * Called when the toggle icon button checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
      */

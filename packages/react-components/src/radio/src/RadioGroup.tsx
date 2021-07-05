@@ -48,7 +48,7 @@ export interface InnerRadioGroupProps {
     name?: string;
     /**
      * Called when any of the group elements is checked or unchecked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string} value - The new value.
      * @returns {void}
      */
@@ -198,7 +198,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
                     checkedValue
                 }}
             >
-                {Children.map(children, (x: ReactElement) => {
+                {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                     return augmentElement(x, {
                         ...itemProps,
                         role: "radio",

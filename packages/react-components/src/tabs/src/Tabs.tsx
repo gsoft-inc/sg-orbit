@@ -20,7 +20,7 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
     defaultSelectedKey?: string;
     /**
      * Called when the selected tab change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string} key - The selected tab key.
      * @returns {void}
      */

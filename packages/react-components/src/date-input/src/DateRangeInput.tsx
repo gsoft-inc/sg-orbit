@@ -91,7 +91,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the date(s) are / is applied.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {Object} startDate - Selected start date.
      * @param {Object} endDate - Selected end date.
      * @returns {void}

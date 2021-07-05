@@ -29,9 +29,11 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 // TODO: AlertDialog might have too many difference and we might prefer to extract a useDialog hooks to share a few things but allow greater customization. <- I don't think so
 
-// TODO: Maybe DialogTrigger should also become a useDialogTrigger hook instead of a component. <- I think YES
-
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
+    /**
+     * The dialog role.
+     */
+    role?: "dialog" | "alertdialog";
     /**
      * A dialog can vary in size.
      */
@@ -47,7 +49,7 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps {
      */
     onDismiss: (event: MouseEvent) => void;
     /**
-     * z-index of the dialog.
+     * The z-index of the dialog.
      */
     zIndex?: number;
     /**
@@ -118,6 +120,7 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
 
 export function InnerDialog({
     id,
+    role = "dialog",
     size,
     dismissable = true,
     onDismiss,
@@ -264,7 +267,7 @@ export function InnerDialog({
                                 size === "fullscreen" ? size : normalizeSize(size)
                             ),
                             tabIndex: -1,
-                            role: "dialog",
+                            role,
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,

@@ -22,7 +22,7 @@ export interface InnerOverlayProps {
      */
     containerElement?: HTMLElement;
     /**
-     * z-index of the overlay.
+     * The z-index of the overlay.
      */
     zIndex?: number;
     /**

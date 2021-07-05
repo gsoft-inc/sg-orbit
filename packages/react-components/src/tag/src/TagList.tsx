@@ -14,14 +14,14 @@ export interface InnerTagListProps {
     size?: "sm" | "md";
     /**
      * Called when an item is removed from the list.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string} key - The item key.
      * @returns {void}
      */
     onRemove?: (event: SyntheticEvent, key: string) => void;
     /**
      * Called when all items are cleared from the list.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @returns {void}
      */
     onClear?: (event: SyntheticEvent) => void;

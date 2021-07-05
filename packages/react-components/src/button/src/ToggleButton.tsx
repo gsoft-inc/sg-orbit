@@ -18,7 +18,7 @@ export interface InnerToggleButtonProps {
     value?: string;
     /**
      * Called when the toggle button checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isChecked - Whether the button is checked or not.
      * @returns {void}
      */

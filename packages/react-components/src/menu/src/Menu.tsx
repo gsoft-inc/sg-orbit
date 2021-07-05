@@ -52,7 +52,7 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when the selected keys change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {String[]} keys - The keys of the selected items..
      * @returns {void}
      */

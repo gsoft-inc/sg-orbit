@@ -42,7 +42,7 @@ stories()
     )
     .add("choice", () =>
         <Modal>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Heading>Space agencies</Heading>
             <Content>
                 <Card>
                     <Image src={SpaceX} alt="SpaceX" width="149px" />
@@ -61,7 +61,7 @@ stories()
     )
     .add("choice with text", () =>
         <Modal>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Heading>Space agencies</Heading>
             <Content>
                 <Text>Which of the following space agency do you prefer?</Text>
                 <Card>
@@ -81,7 +81,7 @@ stories()
     )
     .add("choice with content between cards", () =>
         <Modal>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Heading>Space agencies</Heading>
             <Content>
                 <Text>Which of the following space agency do you prefer?</Text>
                 <Card>

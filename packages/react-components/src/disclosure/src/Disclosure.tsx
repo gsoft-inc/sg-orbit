@@ -17,7 +17,7 @@ export interface InnerDisclosureProps extends DomProps {
     defaultOpen?: boolean;
     /**
      * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */

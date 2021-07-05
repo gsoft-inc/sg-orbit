@@ -14,7 +14,7 @@ export interface InnerTagProps extends InteractionStatesProps {
     variant?: "solid" | "outline";
     /**
      * Called when the remove button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @returns {void}
      */
     onRemove?: (event: SyntheticEvent) => void;

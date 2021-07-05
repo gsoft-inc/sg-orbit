@@ -26,7 +26,7 @@ export interface InnerModalProps extends DomProps, AriaLabelingProps {
       */
     onDismiss: (event: MouseEvent) => void;
     /**
-      * z-index of the modal.
+      * The z-index of the modal.
       */
     zIndex?: number;
     /**

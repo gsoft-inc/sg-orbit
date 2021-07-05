@@ -6,7 +6,7 @@ import { forwardRef, mergeProps } from "../../shared";
 
 export interface InnerUnderlayProps {
     /**
-     * z-index of the underlay.
+     * The z-index of the underlay.
      */
     zIndex?: number;
     /**
