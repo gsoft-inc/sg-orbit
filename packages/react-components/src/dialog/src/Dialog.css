@@ -118,7 +118,7 @@
 /* DIALOG | FOOTER */
 .o-ui-dialog-footer {
     grid-area: footer;
-    align-self: start;
+    align-self: center;
 }
 
 /* DIALOG | BUTTONS */
