@@ -47,7 +47,7 @@
 
 /* IMAGE */
 .o-ui-popover img {
-    border-radius: var(--o-ui-global-border-radius-pill);
+    border-radius: var(--o-ui-shape-pill);
 }
 
 /* BUTTONS */
