@@ -7,7 +7,7 @@
     --o-ui-text-button-pill-padding-md: var(--o-ui-global-scale-echo);
     --o-ui-text-button-pill-padding-ratio-factor: 1.5;
     --o-ui-text-button-rounded-padding-ratio-factor: 2;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: max-content;

@@ -3,191 +3,146 @@ import "./Modal.css";
 import {
     AriaLabelingProps,
     DomProps,
-    cssModule,
     forwardRef,
+    getSlotKey,
     isNil,
     mergeProps,
-    useAutoFocus,
-    useEventCallback,
-    useId,
-    useMergedRefs,
-    useRefState,
-    useResizeObserver,
     useSlots
 } from "../../shared";
-import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, Ref, useEffect, useMemo, useState } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { CrossButton } from "../../button";
-import { Underlay } from "../../overlay";
-import { useDialogTriggerContext } from "./DialogTriggerContext";
+import { Dialog } from "./Dialog";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
-     * Whether or not the dialog should close on outside interactions.
+     * Whether or not the modal should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-     * z-index of the modal.
-     */
+      * Called when the modal dismiss button is clicked.
+      * @param {MouseEvent} event - React's original synthetic event.
+      * @returns {void}
+      */
+    onDismiss: (event: MouseEvent) => void;
+    /**
+      * z-index of the modal.
+      */
     zIndex?: number;
     /**
-     * Additional props to render on the wrapper element.
-     */
+      * Additional props to render on the wrapper element.
+      */
     wrapperProps?: Record<string, any>;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
+      * An HTML element type or a custom React element type to render as.
+      */
     as?: ElementType;
     /**
-     * React children.
-     */
+      * React children.
+      */
     children: ReactNode;
     /**
-     * @ignore
-     */
+      * @ignore
+      */
     forwardedRef: ForwardedRef<any>;
 }
 
-function useHideBodyScrollbar() {
-    const [stateRef, setState] = useRefState({
-        isVisible: true,
-        originalPosition: ""
-    });
+function useModalContentMarkup(content: ReactElement) {
+    return useMemo(() => {
+        const before: ReactNode[] = [];
+        const cards: ReactNode[] = [];
+        const after: ReactNode[] = [];
 
-    useEffect(() => {
-        if (stateRef.current.isVisible) {
-            setState({
-                isVisible: false,
-                originalPosition: document.body.style.overflowY
-            });
+        let hasEncounteredCard = false;
 
-            document.body.style.overflowY = "hidden";
+        Children.forEach(content.props.children, (x: ReactElement) => {
+            if (getSlotKey(x) === "card") {
+                cards.push(x);
+
+                hasEncounteredCard = true;
+            } else {
+                if (hasEncounteredCard) {
+                    after.push(x);
+                } else {
+                    before.push(x);
+                }
+            }
+        });
+
+        const hasCards = cards.length > 0;
+
+        if (hasCards && cards.length !== 2) {
+            throw new Error("A choice modal must have exactly 2 card components.");
         }
 
-        return () => {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            const state = stateRef.current;
-
-            if (!state.isVisible) {
-                setState({
-                    isVisible: true,
-                    originalPosition: ""
-                });
-
-                document.body.style.overflowY = state.originalPosition;
-            }
+        return {
+            hasCards,
+            contentMarkup: (
+                <Content {...content.props}>
+                    {before}
+                    {!hasCards ? undefined : (
+                        <div className="o-ui-modal-choice-container">{cards}</div>
+                    )}
+                    {after}
+                </Content>
+            )
         };
-    }, [stateRef, setState]);
-}
-
-function useElementHasVerticalScrollbar() {
-    const [hasScrollbar, setHasScrollbar] = useState(false);
-    const [elementRef, setElement] = useRefState<HTMLElement>();
-
-    const handleElementResize = useEventCallback(() => {
-        setHasScrollbar(elementRef.current.scrollHeight > elementRef.current.clientHeight);
-    });
-
-    const resizeRef = useResizeObserver(handleElementResize);
-
-    return [
-        useMergedRefs(setElement, resizeRef),
-        hasScrollbar
-    ];
+    }, [content]);
 }
 
 export function InnerModal({
-    id,
-    dismissable,
+    dismissable = true,
     zIndex = 1,
-    "aria-label": ariaLabel,
-    "aria-labelledby": ariaLabelledBy,
-    as = "div",
-    wrapperProps,
     children,
     forwardedRef,
     ...rest
 }: InnerModalProps) {
-    const modalRef = useMergedRefs(forwardedRef);
-
-    const { close } = useDialogTriggerContext();
-
-    useHideBodyScrollbar();
-
-    const [wrapperRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
-
-    useAutoFocus(modalRef);
-
-    const handleCloseButtonClick = useEventCallback((event: MouseEvent) => {
-        close(event);
-    });
-
-    const modalId = useId(id, "o-ui-modal");
-    const headingId = `${modalId}-heading`;
-
-    const { heading, content } = useSlots(children, useMemo(() => ({
+    const { illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
-            defaultWrapper: Content
+            required: ["heading", "content"]
         },
-        heading: {
-            id: headingId,
-            className: "o-ui-modal-heading"
-        },
-        content: {
-            className: "o-ui-modal-content"
-        }
-    }), [headingId]));
+        illustration: null,
+        heading: null,
+        header: null,
+        content: null,
+        footer: null,
+        button: null,
+        "button-group": null
+    }), []));
 
-    const closeButtonMarkup = dismissable && (
-        <CrossButton
-            onClick={handleCloseButtonClick}
-            condensed
-            size="xs"
-            className="o-ui-modal-close-button"
-            aria-label="Close"
-        />
-    );
+    const { hasCards, contentMarkup } = useModalContentMarkup(content);
+
+    const size = useMemo(() => {
+        if (!isNil(illustration)) {
+            return "md";
+        }
+
+        if (hasCards) {
+            return "lg";
+        }
+
+        return "sm";
+    }, [illustration, hasCards]);
 
     return (
-        <>
-            <Underlay zIndex={zIndex} />
-            <Box
-                {...mergeProps(
-                    wrapperProps ?? {},
-                    {
-                        className: cssModule(
-                            "o-ui-modal-wrapper",
-                            wrapperHasVerticalScrollbar && "scrolling"
-                        ),
-                        style: {
-                            zIndex: zIndex + 1
-                        },
-                        as,
-                        ref: wrapperRef as Ref<HTMLElement>
-                    }
-                )}
-            >
-                <Box
-                    {...mergeProps(
-                        rest,
-                        {
-                            className: "o-ui-modal",
-                            tabIndex: -1,
-                            role: "dialog",
-                            "aria-modal": true,
-                            "aria-label": ariaLabel,
-                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
-                            ref: modalRef
-                        }
-                    )}
-                >
-                    {closeButtonMarkup}
-                    {heading}
-                    {content}
-                </Box>
-            </Box>
-        </>
+        <Dialog
+            {...mergeProps<any>(
+                rest,
+                {
+                    size,
+                    dismissable,
+                    zIndex,
+                    ref: forwardedRef
+                }
+            )}
+        >
+            {illustration}
+            {heading}
+            {header}
+            {contentMarkup}
+            {footer}
+            {button}
+            {buttonGroup}
+        </Dialog>
     );
 }
 

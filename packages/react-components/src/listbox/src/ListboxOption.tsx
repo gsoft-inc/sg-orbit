@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
@@ -104,16 +104,16 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (_matching: ReactElement, all: Record<string, any>) => {
+        icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(all.description) ? "sm" : "md"
+                size: isNil(slotElements.description) ? "sm" : "md"
             };
         },
-        avatar: (_matching: ReactElement, all: Record<string, any>) => {
+        avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
-                size: isNil(all.description) ? "2xs" : "sm"
+                size: isNil(slotElements.description) ? "2xs" : "sm"
             };
         },
         text: {

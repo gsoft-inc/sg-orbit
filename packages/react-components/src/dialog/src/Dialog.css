@@ -21,7 +21,7 @@
 .o-ui-dialog {
     position: relative;
     background-color: var(--o-ui-global-white);
-    border-radius: var(--o-ui-global-scale-bravo);
+    border-radius: var(--o-ui-shape-rounded);
     display: grid;
     grid-template-areas: "illustration aside";
     grid-template-columns: max-content 1fr;
@@ -39,7 +39,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    border-radius: var(--o-ui-global-scale-bravo);
+    border-radius: var(--o-ui-shape-rounded);
     border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
     opacity: 0;
 }

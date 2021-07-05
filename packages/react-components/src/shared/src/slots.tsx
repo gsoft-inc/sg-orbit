@@ -1,5 +1,7 @@
 import { Children, ComponentType, ReactElement, ReactNode, useMemo } from "react";
-import { augmentElement, isEmptyArray, isFunction, isNil, isString, isUndefined, resolveChildren } from "..";
+import { augmentElement } from "./augmentElement";
+import { isEmptyArray, isFunction, isNil, isString, isUndefined } from "./assertions";
+import { resolveChildren } from "./resolveChildren";
 
 const SlotKey = "__slot__";
 
@@ -19,10 +21,12 @@ export function getSlotKey(element: ReactElement) {
     return (element.props && element.props["slot"]) ?? (element.type && (element.type as SlotableType)[SlotKey]);
 }
 
+export type SlotElements = Record<string, ReactElement>;
+
 function findSlots(children: ReactNode, slots: string[]) {
     return Children
         .toArray(children)
-        .reduce((acc: Record<string, any>, x: ReactElement) => {
+        .reduce((acc: SlotElements, x: ReactElement) => {
             if (!isNil(x)) {
                 const slotKey = getSlotKey(x);
 
@@ -32,10 +36,11 @@ function findSlots(children: ReactNode, slots: string[]) {
             }
 
             return acc;
-        }, {}) as Record<string, any>;
+        }, {}) as SlotElements;
 }
 
-export function getRawSlots(children: ReactNode, slots: string[]) {
+// TODO: Fix TS return
+export function getRawSlots(children: ReactNode, slots: string[]): Record<string, any> {
     if (isNil(children)) {
         return {};
     }
@@ -58,20 +63,20 @@ export function useRawSlots(children: ReactNode, slots: string[]) {
 export interface SlotOptions {
     _: {
         defaultWrapper?: ComponentType<any>;
-        required?: string[];
+        required?: string[] | ((slotElements: SlotElements) => string[]);
     };
 }
 
-type SlotElements<T extends SlotOptions> = {
+type GetSlotsReturn<T extends SlotOptions> = {
     [key in keyof Omit<T, "_">]?: ReactElement;
 };
 
-export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): SlotElements<T> {
+export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, ...slots }: T): GetSlotsReturn<T> {
     if (isNil(children)) {
         return {};
     }
 
-    let slotElements: Record<string, any> = {};
+    let slotElements: SlotElements = {};
 
     children = resolveChildren(children);
 
@@ -82,15 +87,19 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
     const { required, defaultWrapper: Wrapper } = _;
 
     if (!isNil(required)) {
-        const unfulfilledSlots: string[] = [];
+        let unfulfilledSlots: string[] = [];
 
-        required.forEach(x => {
-            if (isUndefined(slotElements[x])) {
-                unfulfilledSlots.push(x);
-            }
-        });
+        if (isFunction(required)) {
+            unfulfilledSlots = required(slotElements);
+        } else {
+            required.forEach(x => {
+                if (isUndefined(slotElements[x])) {
+                    unfulfilledSlots.push(x);
+                }
+            });
+        }
 
-        if (unfulfilledSlots.length !== 0) {
+        if (!isNil(unfulfilledSlots) && unfulfilledSlots.length !== 0) {
             throw new Error(`Required slot${unfulfilledSlots.length > 1 ? "s" : ""} ${unfulfilledSlots.map(x => `"${x}"`).join(", ")} must receive a component.`);
         }
     }
@@ -119,13 +128,15 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
         }
 
         if (!isNil(slotProps)) {
-            slotElements[x] = augmentElement(slotElements[x], slotProps);
+            slotElements[x] = augmentElement(slotElements[x] as ReactElement, slotProps);
         }
     });
 
-    return slotElements as SlotElements<T>;
+    return slotElements as GetSlotsReturn<T>;
 }
 
-export function useSlots<T extends SlotOptions>(children: ReactNode, slots: T) {
+type UseSlotsReturn<T extends SlotOptions> = GetSlotsReturn<T>;
+
+export function useSlots<T extends SlotOptions>(children: ReactNode, slots: T): UseSlotsReturn<T> {
     return useMemo(() => getSlots(children, slots), [children, slots]);
 }

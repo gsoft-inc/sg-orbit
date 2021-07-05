@@ -7,7 +7,6 @@ import {
     cssModule,
     forwardRef,
     isNil,
-    isNumber,
     isString,
     mergeProps,
     normalizeSize,
@@ -28,8 +27,9 @@ import { Text } from "../../text";
 import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-// TODO: AlertDialog might have too many difference and we might prefer to extract a useDialog hooks to share a few things but allow greater customization.
-// TODO: Maybe DialogTrigger should also become a useDialogTrigger hook instead of a component.
+// TODO: AlertDialog might have too many difference and we might prefer to extract a useDialog hooks to share a few things but allow greater customization. <- I don't think so
+
+// TODO: Maybe DialogTrigger should also become a useDialogTrigger hook instead of a component. <- I think YES
 
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
     /**
@@ -41,11 +41,7 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps {
      */
     dismissable?: boolean;
     /**
-     * Whether or not the dialog should autoFocus an element on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Called when the dismiss button is clicked.
+     * Called when the dialog dismiss button is clicked.
      * @param {MouseEvent} event - React's original synthetic event.
      * @returns {void}
      */
@@ -124,7 +120,6 @@ export function InnerDialog({
     id,
     size,
     dismissable = true,
-    autoFocus,
     onDismiss,
     zIndex = 1,
     "aria-label": ariaLabel,
@@ -153,7 +148,6 @@ export function InnerDialog({
     const restoreFocusProps = useRestoreFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
         canFocus: useCallback((element: HTMLElement) => {
             // Do not autofocus the dialog itself.
             if (element === dialogRef.current) {
@@ -208,7 +202,8 @@ export function InnerDialog({
             as: "header"
         },
         content: {
-            className: "o-ui-dialog-content"
+            className: "o-ui-dialog-content",
+            as: Text
         },
         footer: {
             className: "o-ui-dialog-footer",

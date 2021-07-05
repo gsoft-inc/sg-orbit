@@ -1,0 +1,13 @@
+.o-ui-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--o-ui-global-white);
+    border-radius: var(--o-ui-shape-rounded);
+    box-shadow: 0 0 0 1px var(--o-ui-alias-border-4) inset;
+}
+
+/* FLUID */
+.o-ui-card-fluid {
+    width: 100%;
+}

@@ -40,6 +40,30 @@ const RequiredCard = forwardRef(({ children, ...rest }, ref) => {
     );
 });
 
+const FunctionalRequiredCard = forwardRef(({ children, ...rest }, ref) => {
+    const { title, content } = useSlots(children, {
+        _: {
+            required: slotElements => {
+                return Object.keys(slotElements).some(x => x === "content")
+                    ? []
+                    : ["content"];
+            }
+        },
+        title: null,
+        content: null
+    });
+
+    return (
+        <Box
+            {...rest}
+            ref={ref}
+        >
+            {title}
+            {content}
+        </Box>
+    );
+});
+
 const Wrapper = slot("content", ({ children }) => {
     return (
         <div data-testid="wrapper">
@@ -89,6 +113,40 @@ test("do not throw an exception when a required slot is fulfilled", () => {
         <RequiredCard>
             <Box slot="content">Content</Box>
         </RequiredCard>,
+        withErrorBoundary(() => {
+            hasError = true;
+        })
+    );
+
+    expect(hasError).toBeFalsy();
+});
+
+test("throw an exception when required is a function and unfilled slots are returned", () => {
+    let hasError = false;
+
+    const unmuteErrors = muteReactTestRendererConsoleErrors();
+
+    render(
+        <FunctionalRequiredCard>
+            <Box>Content</Box>
+        </FunctionalRequiredCard>,
+        withErrorBoundary(() => {
+            hasError = true;
+        })
+    );
+
+    unmuteErrors();
+
+    expect(hasError).toBeTruthy();
+});
+
+test("do not throw an exception when required is a function and no unfilled slots are returned", () => {
+    let hasError = false;
+
+    render(
+        <FunctionalRequiredCard>
+            <Box slot="content">Content</Box>
+        </FunctionalRequiredCard>,
         withErrorBoundary(() => {
             hasError = true;
         })

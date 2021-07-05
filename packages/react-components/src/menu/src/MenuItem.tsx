@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../text";
 import { TooltipTrigger } from "../../tooltip";
@@ -68,16 +68,16 @@ export function InnerMenuItem({
         _: {
             defaultWrapper: Text
         },
-        icon: (_matching: ReactElement, all: Record<string, any>) => {
+        icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-menu-item-start-icon",
-                size: isNil(all.description) ? "sm" : "md"
+                size: isNil(slotElements.description) ? "sm" : "md"
             };
         },
-        avatar: (_matching: ReactElement, all: Record<string, any>) => {
+        avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-menu-item-option-avatar",
-                size: isNil(all.description) ? "2xs" : "sm"
+                size: isNil(slotElements.description) ? "2xs" : "sm"
             };
         },
         text: {
