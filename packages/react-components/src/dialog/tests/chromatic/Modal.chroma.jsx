@@ -16,10 +16,6 @@ function stories(segment) {
         .build();
 }
 
-/*
-- overflow tests
-*/
-
 stories()
     .add("default", () =>
         <Modal>
@@ -82,23 +78,25 @@ stories()
                 </Card>
             </Content>
         </Modal>
+    )
+    .add("choice with content between cards", () =>
+        <Modal>
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>
+                <Text>Which of the following space agency do you prefer?</Text>
+                <Card>
+                    <Image src={SpaceX} alt="SpaceX" width="149px" />
+                    <Heading>Space X</Heading>
+                    <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
+                    <Button>Choose</Button>
+                </Card>
+                <Text>Thank you for participating.</Text>
+                <Card>
+                    <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
+                    <Heading>Blue Origin</Heading>
+                    <Content>We're committed to building a road to space so our children can build the future.</Content>
+                    <Button>Choose</Button>
+                </Card>
+            </Content>
+        </Modal>
     );
-
-/*
-    <Modal>
-        <Heading>Iconic Arecibo Observatory collapses</Heading>
-        <Content>Which of the following space agency do you prefer?</Content>
-        <Card>
-            <Image src={SpaceX} alt="SpaceX" width="149px" />
-            <Heading>Space X</Heading>
-            <Content> It's about believing in the future and thinking that the future will be better than the past.</Content>
-            <Button>Choose</Button>
-        </Card>
-        <Card>
-            <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
-            <Heading>Blue Origin</Heading>
-            <Content>We're committed to building a road to space so our children can build the future.</Content>
-            <Button>Choose</Button>
-        </Card>
-    </Modal>
-*/

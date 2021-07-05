@@ -3,6 +3,7 @@ import "./Modal.css";
 import {
     AriaLabelingProps,
     DomProps,
+    augmentElement,
     forwardRef,
     getSlotKey,
     isNil,
@@ -54,9 +55,12 @@ function useModalContentMarkup(content: ReactElement) {
 
         let hasEncounteredCard = false;
 
-        Children.forEach(content.props.children, (x: ReactElement) => {
+        Children.forEach(content.props.children, (x: ReactElement, index) => {
             if (getSlotKey(x) === "card") {
-                cards.push(x);
+                cards.push(augmentElement(x, {
+                    key: index,
+                    className: "o-ui-modal-choice"
+                }));
 
                 hasEncounteredCard = true;
             } else {
