@@ -198,7 +198,8 @@ export function InnerDialog({
         heading: {
             id: headingId,
             className: "o-ui-dialog-heading",
-            as: "h3"
+            as: "h3",
+            size: "sm"
         },
         header: {
             className: "o-ui-dialog-header",

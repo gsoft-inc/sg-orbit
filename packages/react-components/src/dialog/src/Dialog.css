@@ -94,9 +94,8 @@
 
 /* DIALOG | HEADER */
 .o-ui-dialog-header {
-    align-self: start;
+    align-self: center;
     margin-left: var(--o-ui-global-scale-delta);
-    margin-top: var(--o-ui-global-scale-alpha);
     max-width: 200px;
     flex-shrink: 0;
 }
@@ -134,10 +133,6 @@
 
 .o-ui-dialog-button-group > :first-child {
     margin-left: var(--o-ui-global-scale-delta);
-}
-
-.o-ui-dialog-footer + .o-ui-dialog-button-group {
-    flex-shrink: 0;
 }
 
 /* DISMISS BUTTON */
