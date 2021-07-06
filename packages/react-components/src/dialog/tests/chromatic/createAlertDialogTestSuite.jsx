@@ -29,8 +29,8 @@ export function createAlertDialogTestSuite(element, stories) {
         )
         .add("secondary button", () =>
             <AlertDialog
-                primaryButtonLabel="Yes"
-                secondaryButton="Postpone"
+                primaryButtonLabel="Launch"
+                secondaryButtonLabel="Postpone"
                 element={element}
             >
                 <Heading>Launch</Heading>
@@ -39,8 +39,8 @@ export function createAlertDialogTestSuite(element, stories) {
         )
         .add("secondary button disabled", () =>
             <AlertDialog
-                primaryButtonLabel="Yes"
-                secondaryButton="Postpone"
+                primaryButtonLabel="Launch"
+                secondaryButtonLabel="Postpone"
                 secondaryButtonDisabled
                 element={element}
             >
@@ -60,9 +60,9 @@ export function createAlertDialogTestSuite(element, stories) {
         )
         .add("all 3 buttons", () =>
             <AlertDialog
-                primaryButtonLabel="Yes"
+                primaryButtonLabel="Launch"
                 secondaryButtonLabel="Postpone"
-                cancelButton="No"
+                cancelButtonLabel="Cancel"
                 element={element}
             >
                 <Heading>Launch</Heading>

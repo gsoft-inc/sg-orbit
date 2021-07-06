@@ -80,19 +80,19 @@
     grid-area: illustration;
 }
 
-/* DIALOG | HEAD SECTION */
-.o-ui-dialog-head-section {
+/* DIALOG | HEADER SECTION */
+.o-ui-dialog-header-section {
     display: flex;
     justify-content: space-between;
 }
 
-/* DIALOG | HEADING */
+/* DIALOG | HEADER SECTION | HEADING */
 .o-ui-dialog-heading {
     align-self: center;
     margin-bottom: 0;
 }
 
-/* DIALOG | HEADER */
+/* DIALOG | HEADER SECTION | HEADER */
 .o-ui-dialog-header {
     align-self: center;
     margin-left: var(--o-ui-global-scale-delta);
@@ -114,13 +114,13 @@
     margin-top: var(--o-ui-global-scale-foxtrot);
 }
 
-/* DIALOG | FOOTER */
+/* DIALOG | FOOTER SECTION | FOOTER */
 .o-ui-dialog-footer {
     grid-area: footer;
     align-self: center;
 }
 
-/* DIALOG | BUTTONS */
+/* DIALOG | FOOTER SECTION | BUTTONS */
 .o-ui-dialog-button,
 .o-ui-dialog-button-group {
     justify-content: flex-end;

@@ -240,6 +240,21 @@ export function InnerDialog({
         />
     );
 
+    const headerSectionMarkup = (!isNil(heading) || !isNil(headerMarkup)) && (
+        <Box className="o-ui-dialog-header-section">
+            {heading}
+            {headerMarkup}
+        </Box>
+    );
+
+    const footerSectionMarkup = (!isNil(footerMarkup) || !isNil(button) || !isNil(buttonGroup)) && (
+        <Box className="o-ui-dialog-footer-section">
+            {footerMarkup}
+            {button}
+            {buttonGroup}
+        </Box>
+    );
+
     return (
         <>
             <Underlay zIndex={zIndex} />
@@ -282,16 +297,9 @@ export function InnerDialog({
                     {dismissButtonMarkup}
                     {illustration}
                     <Box className="o-ui-dialog-aside">
-                        <Box className="o-ui-dialog-head-section">
-                            {heading}
-                            {headerMarkup}
-                        </Box>
+                        {headerSectionMarkup}
                         {content}
-                        <Box className="o-ui-dialog-footer-section">
-                            {footerMarkup}
-                            {button}
-                            {buttonGroup}
-                        </Box>
+                        {footerSectionMarkup}
                     </Box>
                 </Box>
             </Box>

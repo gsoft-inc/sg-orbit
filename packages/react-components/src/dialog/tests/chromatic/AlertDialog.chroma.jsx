@@ -1,5 +1,4 @@
 import { AlertDialog } from "@react-components/dialog";
-import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { createAlertDialogTestSuite } from "./createAlertDialogTestSuite";
