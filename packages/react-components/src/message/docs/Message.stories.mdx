@@ -1,205 +1,205 @@
-import { Alert, AlertTemplate, ErrorAlert, InfoAlert, InnerAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
 import { EmailIcon } from "@react-components/icons";
+import { ErrorMessage, InfoMessage, InnerMessage, Message, MessageTemplate, PositiveMessage, WarningMessage } from "@react-components/message";
 import { Heading } from "@react-components/heading";
 import { TextLink } from "@react-components/link";
 
 <Meta
-    title="Components/Alert"
-    id="alert"
+    title="Components/Message"
+    id="message"
 />
 
-# Alert
+# Message
 
-<Tagline>An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.</Tagline>
+<Tagline>A message is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.</Tagline>
 
 <ComponentInfo
-    usage={"import { Alert, Content } from \"@orbit-ui/react-components\";"}
+    usage={"import { Message, Content } from \"@orbit-ui/react-components\";"}
     ariaPath="#alert"
-    githubPath="/packages/react-components/src/alert/src"
+    githubPath="/packages/react-components/src/message/src"
 />
 
 ## Usage
 
 ### Default
 
-A default alert.
+A default message.
 
 <Preview>
     <Story name="default">
-        <Alert>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Alert>
+        <Message>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Message>
     </Story>
 </Preview>
 
 ### Icon
 
-An alert can have an [icon](?path=/docs/icon-gallery--page).
+A message can have an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
-        <Alert>
+        <Message>
             <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-        </Alert>
+        </Message>
     </Story>
 </Preview>
 
 ### Rich content
 
-An alert can also accept rich content.
+A message can also accept rich content.
 
 <Preview>
     <Story name="rich content">
-        <Alert>
+        <Message>
             <EmailIcon />
             <Content>
                 <Heading>booking@spacetravel.com</Heading>
                 Your email has been sent! Tracking info available <TextLink href="#">here</TextLink>.
             </Content>
-        </Alert>
+        </Message>
     </Story>
 </Preview>
 
 ### Action
 
-An alert can accept an action [button](?path=/docs/button--default-story).
+A message can accept an action [button](?path=/docs/button--default-story).
 
 <Preview>
     <Story name="action">
-        <Alert>
+        <Message>
             <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </Alert>
+        </Message>
     </Story>
 </Preview>
 
 ### Dismissible
 
-An alert can be dismissible by specifying an `onDismiss` handler.
+A message can be dismissible by specifying an `onDismiss` handler.
 
 <Preview>
     <Story name="dismissible">
-        <Alert onDismiss={() => {}}>
+        <Message onDismiss={() => {}}>
             <EmailIcon />
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </Alert>
+        </Message>
     </Story>
 </Preview>
 
 ### Info
 
-Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
+Use an info message to notify a user of a change that's relevant for them to achieve their current goal.
 
 <Preview>
     <Story name="info">
-        <InfoAlert onDismiss={() => {}}>
+        <InfoMessage onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </InfoAlert>
+        </InfoMessage>
     </Story>
 </Preview>
 
 ### Positive
 
-Use a positive alert to inform a user that an action has completed successfuly.
+Use a positive message to inform a user that an action has completed successfuly.
 
 <Preview>
     <Story name="positive">
-        <PositiveAlert onDismiss={() => {}}>
+        <PositiveMessage onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </PositiveAlert>
+        </PositiveMessage>
     </Story>
 </Preview>
 
 ### Warning
 
-Use a warning alert to help a user avoid an issue.
+Use a warning message to help a user avoid an issue.
 
 <Preview>
     <Story name="warning">
-        <WarningAlert onDismiss={() => {}}>
+        <WarningMessage onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
             <Button>Retry</Button>
-        </WarningAlert>
+        </WarningMessage>
     </Story>
 </Preview>
 
 ### Error
 
-Use an error alert to help a user understand a critical issue at the system level.
+Use an error message to help a user understand a critical issue at the system level.
 
 <Preview>
     <Story name="error">
-        <ErrorAlert onDismiss={() => {}}>
+        <ErrorMessage onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
-        </ErrorAlert>
+        </ErrorMessage>
     </Story>
 </Preview>
 
 ### Controlled
 
-An alert can handle `show` state in controlled mode.
+A message can handle `show` state in controlled mode.
 
-<Preview filePath="/alert/docs/ControlledAlert" />
+<Preview filePath="/message/docs/ControlledMessage" />
 
 ## Props
 
-### Alert
+### Message
 
 <ComponentInfo
-    usage={"import { Alert } from \"@orbit-ui/react-components\";"}
+    usage={"import { Message } from \"@orbit-ui/react-components\";"}
     slots={["icon", "content", "button"]}
     compact
 />
 
-<ArgsTable of={InnerAlert} sort="alpha" />
+<ArgsTable of={InnerMessage} sort="alpha" />
 
-### InfoAlert
+### InfoMessage
 
 <ComponentInfo
-    usage={"import { InfoAlert } from \"@orbit-ui/react-components\";"}
+    usage={"import { InfoMessage } from \"@orbit-ui/react-components\";"}
     slots={["content", "button"]}
     compact
 />
 
-<ArgsTable of={AlertTemplate} sort="alpha" />
+<ArgsTable of={MessageTemplate} sort="alpha" />
 
-### PositiveAlert
+### PositiveMessage
 
 <ComponentInfo
-    usage={"import { PositiveAlert } from \"@orbit-ui/react-components\";"}
+    usage={"import { PositiveMessage } from \"@orbit-ui/react-components\";"}
     slots={["content", "button"]}
     compact
 />
 
-<ArgsTable of={AlertTemplate} sort="alpha" />
+<ArgsTable of={MessageTemplate} sort="alpha" />
 
-### WarningAlert
+### WarningMessage
 
 <ComponentInfo
-    usage={"import { WarningAlert } from \"@orbit-ui/react-components\";"}
+    usage={"import { WarningMessage } from \"@orbit-ui/react-components\";"}
     slots={["content", "button"]}
     compact
 />
 
-<ArgsTable of={AlertTemplate} sort="alpha" />
+<ArgsTable of={MessageTemplate} sort="alpha" />
 
-### ErrorAlert
+### ErrorMessage
 
 <ComponentInfo
-    usage={"import { ErrorAlert } from \"@orbit-ui/react-components\";"}
+    usage={"import { ErrorMessage } from \"@orbit-ui/react-components\";"}
     slots={["content", "button"]}
     compact
 />
 
-<ArgsTable of={AlertTemplate} sort="alpha" />
+<ArgsTable of={MessageTemplate} sort="alpha" />
 
 ### Content
 

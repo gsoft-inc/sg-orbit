@@ -1,39 +1,39 @@
-import { Alert } from "@react-components/alert";
+import { Message } from "@react-components/message";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
-test("when an alert tone is info, role is \"status\"", async () => {
+test("when a message tone is info, role is \"status\"", async () => {
     const { getByTestId } = render(
-        <Alert tone="info" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+        <Message tone="info" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
-test("when an alert tone is positive, role is \"status\"", async () => {
+test("when a message tone is positive, role is \"status\"", async () => {
     const { getByTestId } = render(
-        <Alert tone="positive" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+        <Message tone="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
-test("when an alert tone is warning, role is \"alert\"", async () => {
+test("when a message tone is warning, role is \"alert\"", async () => {
     const { getByTestId } = render(
-        <Alert tone="warning" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+        <Message tone="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));
 });
 
-test("when an alert tone is error, role is \"alert\"", async () => {
+test("when a message tone is error, role is \"alert\"", async () => {
     const { getByTestId } = render(
-        <Alert tone="error" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+        <Message tone="error" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));
 });
 
 // ***** Refs *****
@@ -42,7 +42,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Alert ref={ref}>Scheduled launch today at 1PM.</Alert>
+        <Message ref={ref}>Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -55,13 +55,13 @@ test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Alert
+        <Message
             ref={node => {
                 refNode = node;
             }}
         >
             Scheduled launch today at 1PM.
-        </Alert>
+        </Message>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -74,9 +74,9 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Alert ref={handler}>
+        <Message ref={handler}>
             Scheduled launch today at 1PM.
-        </Alert>
+        </Message>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

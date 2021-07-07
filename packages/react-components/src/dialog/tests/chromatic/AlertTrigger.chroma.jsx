@@ -1,11 +1,11 @@
-import { AlertDialog, AlertDialogTrigger } from "@react-components/dialog";
+import { Alert, AlertTrigger } from "@react-components/dialog";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/AlertDialogTrigger")
+    return storiesOfBuilder(module, "Chromatic/AlertTrigger")
         .segment(segment)
         .build();
 }
@@ -17,21 +17,21 @@ JEST TRIGGER TESTS
 
 stories()
     .add("default", () =>
-        <AlertDialogTrigger>
+        <AlertTrigger>
             <Button>Open</Button>
-            <AlertDialog primaryButtonLabel="Yes">
+            <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
-        </AlertDialogTrigger>
+            </Alert>
+        </AlertTrigger>
     )
     .add("open", () =>
-        <AlertDialogTrigger defaultOpen>
+        <AlertTrigger defaultOpen>
             <Button>Open</Button>
-            <AlertDialog primaryButtonLabel="Yes">
+            <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
                 <Button>Close</Button>
-            </AlertDialog>
-        </AlertDialogTrigger>
+            </Alert>
+        </AlertTrigger>
     );

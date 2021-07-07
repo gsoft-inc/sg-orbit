@@ -1,4 +1,4 @@
-import "./AlertDialog.css";
+import "./Alert.css";
 
 import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
@@ -8,12 +8,7 @@ import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-/*
-TODO:
-- should it listen for esc and call onCancel when esc is called. In short, override useOverlayLightDismiss.
-*/
-
-export interface InnerAlertDialogProps extends DomProps, AriaLabelingProps {
+export interface InnerAlertProps extends DomProps, AriaLabelingProps {
     /**
      * The style to use.
      */
@@ -82,7 +77,7 @@ export interface InnerAlertDialogProps extends DomProps, AriaLabelingProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerAlertDialog({
+export function InnerAlert({
     tone = "confirmation",
     primaryButtonLabel,
     primaryButtonDisabled,
@@ -97,7 +92,7 @@ export function InnerAlertDialog({
     children,
     forwardedRef,
     ...rest
-}: InnerAlertDialogProps) {
+}: InnerAlertProps) {
     const { close } = useDialogTriggerContext();
 
     const { heading, content } = useSlots(children, useMemo(() => ({
@@ -202,10 +197,10 @@ export function InnerAlertDialog({
     );
 }
 
-export const AlertDialog = forwardRef<InnerAlertDialogProps>((props, ref) => (
-    <InnerAlertDialog {...props} forwardedRef={ref} />
+export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
+    <InnerAlert {...props} forwardedRef={ref} />
 ));
 
-export type AlertDialogProps = ComponentProps<typeof AlertDialog>;
+export type AlertProps = ComponentProps<typeof Alert>;
 
-AlertDialog.displayName = "AlertDialog";
+Alert.displayName = "Alert";

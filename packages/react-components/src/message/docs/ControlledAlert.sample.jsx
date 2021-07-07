@@ -1,7 +1,7 @@
 () => {
     const [show, setShow] = useState(true);
 
-    const toggleAlert = useCallback(() => {
+    const toggleVisibility = useCallback(() => {
         setShow(x => !x);
         console.log(!show);
     }, [show, setShow]);
@@ -10,18 +10,18 @@
         <Stack style={{ minHeight: "110px" }}>
             <Button
                 color="secondary"
-                onClick={toggleAlert}
+                onClick={toggleVisibility}
             >
                 {show ? "Hide" : "Show"}
             </Button>
-            <Alert
+            <Message
                 show={show}
-                onDismiss={toggleAlert}
+                onDismiss={toggleVisibility}
             >
                 <EmailIcon />
                 <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
                 <Button>Undo</Button>
-            </Alert>
+            </Message>
         </Stack>
     );
 };

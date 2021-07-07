@@ -1,4 +1,4 @@
-import "./Alert.css";
+import "./Message.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
@@ -15,9 +15,9 @@ const Role = {
     error: "alert"
 };
 
-type InnerAlertContentProps = TextProps;
+type InnerMessageContentProps = TextProps;
 
-const AlertContent = forwardRef<InnerAlertContentProps>(({
+const MessageContent = forwardRef<InnerMessageContentProps>(({
     as = "div",
     children,
     ...rest
@@ -35,7 +35,7 @@ const AlertContent = forwardRef<InnerAlertContentProps>(({
                     },
                     heading: {
                         size: "2xs",
-                        className: "o-ui-alert-title"
+                        className: "o-ui-message-title"
                     }
                 }}
             >
@@ -45,7 +45,7 @@ const AlertContent = forwardRef<InnerAlertContentProps>(({
     );
 });
 
-export interface InnerAlertProps {
+export interface InnerMessageProps {
     /**
      * A controlled show value.
      */
@@ -78,7 +78,7 @@ export interface InnerAlertProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerAlert({
+export function InnerMessage({
     show = true,
     tone = "info",
     onDismiss,
@@ -87,7 +87,7 @@ export function InnerAlert({
     children,
     forwardedRef,
     ...rest
-}: InnerAlertProps) {
+}: InnerMessageProps) {
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, content, button } = useSlots(children, useMemo(() => ({
@@ -95,18 +95,18 @@ export function InnerAlert({
             defaultWrapper: Content
         },
         icon: {
-            className: "o-ui-alert-icon"
+            className: "o-ui-message-icon"
         },
         content: {
-            className: "o-ui-alert-content",
-            as: AlertContent
+            className: "o-ui-message-content",
+            as: MessageContent
         },
         button: {
             variant: "ghost",
             color: "inherit",
             condensed: true,
             size: "sm",
-            className: "o-ui-alert-action"
+            className: "o-ui-message-action"
         }
     }), []));
 
@@ -115,7 +115,7 @@ export function InnerAlert({
             color="inherit"
             onClick={onDismiss}
             size="sm"
-            className="o-ui-alert-dismiss"
+            className="o-ui-message-dismiss"
             aria-label="Dismiss"
         />
     );
@@ -129,7 +129,7 @@ export function InnerAlert({
                     enter: "o-ui-fade-in",
                     leave: "o-ui-fade-out",
                     className: cssModule(
-                        "o-ui-alert",
+                        "o-ui-message",
                         tone,
                         icon && "has-icon",
                         button && "has-action",
@@ -149,13 +149,13 @@ export function InnerAlert({
     );
 }
 
-export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
-    <InnerAlert {...props} forwardedRef={ref} />
+export const Message = forwardRef<InnerMessageProps>((props, ref) => (
+    <InnerMessage {...props} forwardedRef={ref} />
 ));
 
-export type AlertProps = ComponentProps<typeof Alert>;
+export type MessageProps = ComponentProps<typeof Message>;
 
-Alert.displayName = "Alert";
+Message.displayName = "Message";
 
 ////////
 
@@ -167,12 +167,12 @@ const variations: { tone: keyof typeof Role; icon: ReactElement }[] = [
 ];
 
 const [
-    InfoAlert,
-    PositiveAlert,
-    WarningAlert,
-    ErrorAlert
+    InfoMessage,
+    PositiveMessage,
+    WarningMessage,
+    ErrorMessage
 ] = Object.values(variations).map(({ tone, icon }) => {
-    return forwardRef<InnerAlertProps>(({
+    return forwardRef<InnerMessageProps>(({
         children,
         ...rest
     }, ref) => {
@@ -185,7 +185,7 @@ const [
         }), []));
 
         return (
-            <Alert
+            <Message
                 tone={tone}
                 {...rest}
                 ref={ref}
@@ -193,12 +193,12 @@ const [
                 {icon}
                 {content}
                 {button}
-            </Alert>
+            </Message>
         );
     });
 });
 
-export interface AlertTemplateProps {
+export interface MessageTemplateProps {
     /**
      * A controlled show value.
      */
@@ -221,24 +221,24 @@ export interface AlertTemplateProps {
 
 // Dummy component for documentation purpose.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function AlertTemplate(_props: AlertTemplateProps): JSX.Element {
+export function MessageTemplate(_props: MessageTemplateProps): JSX.Element {
     return null;
 }
 
-InfoAlert.displayName = "InfoAlert";
-PositiveAlert.displayName = "PositiveAlert";
-WarningAlert.displayName = "WarningAlert";
-ErrorAlert.displayName = "ErrorAlert";
+InfoMessage.displayName = "InfoMessage";
+PositiveMessage.displayName = "PositiveMessage";
+WarningMessage.displayName = "WarningMessage";
+ErrorMessage.displayName = "ErrorMessage";
 
 
-export type InfoAlertProps = ComponentProps<typeof InfoAlert>;
-export type PositiveAlertProps = ComponentProps<typeof PositiveAlert>;
-export type WarningAlertProps = ComponentProps<typeof WarningAlert>;
-export type ErrorAlertProps = ComponentProps<typeof ErrorAlert>;
+export type InfoMessageProps = ComponentProps<typeof InfoMessage>;
+export type PositiveMessageProps = ComponentProps<typeof PositiveMessage>;
+export type WarningMessageProps = ComponentProps<typeof WarningMessage>;
+export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>;
 
 export {
-    InfoAlert,
-    PositiveAlert,
-    WarningAlert,
-    ErrorAlert
+    InfoMessage,
+    PositiveMessage,
+    WarningMessage,
+    ErrorMessage
 };

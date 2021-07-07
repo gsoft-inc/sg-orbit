@@ -1,7 +1,7 @@
-import { AlertDialog } from "@react-components/dialog";
+import { Alert } from "@react-components/dialog";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
-import { createAlertDialogTestSuite } from "./createAlertDialogTestSuite";
+import { createAlertTestSuite } from "./createAlertTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
 /*
@@ -13,35 +13,35 @@ JEST TEST:
 */
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/AlertDialog")
+    return storiesOfBuilder(module, "Chromatic/Alert")
         .segment(segment)
         .build();
 }
 
-createAlertDialogTestSuite(<AlertDialog tone="confirmation" />, stories("/confirmation"));
+createAlertTestSuite(<Alert tone="confirmation" />, stories("/confirmation"));
 
-createAlertDialogTestSuite(<AlertDialog tone="destructive" />, stories("/destructive"));
+createAlertTestSuite(<Alert tone="destructive" />, stories("/destructive"));
 
-createAlertDialogTestSuite(<AlertDialog tone="warning" />, stories("/warning"));
+createAlertTestSuite(<Alert tone="warning" />, stories("/warning"));
 
-createAlertDialogTestSuite(<AlertDialog tone="error" />, stories("/error"));
+createAlertTestSuite(<Alert tone="error" />, stories("/error"));
 
 stories()
     .add("className", () =>
-        <AlertDialog
+        <Alert
             primaryButtonLabel="Yes"
             className="border-red"
         >
             <Heading>Launch</Heading>
             <Content>Are you use you want to launch the space shuttle?</Content>
-        </AlertDialog>
+        </Alert>
     )
     .add("styles", () =>
-        <AlertDialog
+        <Alert
             primaryButtonLabel="Yes"
             style={{ border: "1px solid red" }}
         >
             <Heading>Launch</Heading>
             <Content>Are you use you want to launch the space shuttle?</Content>
-        </AlertDialog>
+        </Alert>
     );

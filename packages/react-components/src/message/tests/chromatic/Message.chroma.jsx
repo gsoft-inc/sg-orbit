@@ -1,7 +1,7 @@
-import { Alert, ErrorAlert, InfoAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
+import { ErrorMessage, InfoMessage, Message, PositiveMessage, WarningMessage } from "@react-components/message";
 import { Heading } from "@react-components/heading";
 import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
@@ -11,7 +11,7 @@ import { TextLink } from "@react-components/link";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Alert")
+    return storiesOfBuilder(module, "Chromatic/Message")
         .segment(segment)
         .parameters(paramsBuilder()
             .chromaticDelay(100)
@@ -22,70 +22,70 @@ function stories(segment) {
 stories()
     .add("text only", () =>
         <Inline verticalAlign="end">
-            <Alert>Scheduled launch today at 1PM.</Alert>
-            <Alert>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            <Message>Scheduled launch today at 1PM.</Message>
+            <Message>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
         </Inline>
     )
     .add("text + dismiss", () =>
         <Inline verticalAlign="end">
-            <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.</Alert>
-            <Alert onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Alert>
+            <Message onDismiss={() => {}}>Scheduled launch today at 1PM.</Message>
+            <Message onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
         </Inline>
     )
     .add("icon + text", () =>
         <Inline verticalAlign="end">
-            <Alert>
+            <Message>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
-            </Alert>
-            <Alert>
+            </Message>
+            <Message>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
-            </Alert>
+            </Message>
         </Inline>
     )
     .add("icon + text + dismiss", () =>
         <Inline verticalAlign="end">
-            <Alert onDismiss={() => {}}>
+            <Message onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
-            </Alert>
-            <Alert onDismiss={() => {}}>
+            </Message>
+            <Message onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
-            </Alert>
+            </Message>
         </Inline>
     )
     .add("icon + text + action", () =>
         <Inline verticalAlign="end">
-            <Alert>
+            <Message>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>
-            </Alert>
-            <Alert>
+            </Message>
+            <Message>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
                 <Button>Undo</Button>
-            </Alert>
+            </Message>
         </Inline>
     )
     .add("icon + text + action + dismiss", () =>
         <Inline verticalAlign="end">
-            <Alert onDismiss={() => {}}>
+            <Message onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>
-            </Alert>
-            <Alert onDismiss={() => {}}>
+            </Message>
+            <Message onDismiss={() => {}}>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
                 <Button>Undo</Button>
-            </Alert>
+            </Message>
         </Inline>
     )
     .add("rich content", () =>
-        <Alert onDismiss={() => {}}>
+        <Message onDismiss={() => {}}>
             <InfoIcon />
             <Content>
                 <Heading>Scheduled launch</Heading>
@@ -96,35 +96,35 @@ stories()
                 </UnorderedList>
             </Content>
             <Button>Undo</Button>
-        </Alert>
+        </Message>
     )
     .add("contained", () =>
         <div style={{ width: "500px" }}>
-            <Alert>
+            <Message>
                 <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
-            </Alert>
+            </Message>
         </div>
     )
     .add("box as content", () =>
-        <Alert>
+        <Message>
             <InfoIcon />
             <Box slot="content">Scheduled launch today at 1PM.</Box>
             <Button>Undo</Button>
-        </Alert>
+        </Message>
     )
     .add("styling", () =>
         <Stack>
-            <Alert className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
-            <Alert style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Alert>
+            <Message className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
+            <Message style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
         </Stack>
     );
 
 [
-    { name: "info", ElementType: InfoAlert },
-    { name: "success", ElementType: PositiveAlert },
-    { name: "warning", ElementType: WarningAlert },
-    { name: "error", ElementType: ErrorAlert }
+    { name: "info", ElementType: InfoMessage },
+    { name: "success", ElementType: PositiveMessage },
+    { name: "warning", ElementType: WarningMessage },
+    { name: "error", ElementType: ErrorMessage }
 ]
     .forEach(({ name, ElementType }) => {
         stories()

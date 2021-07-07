@@ -2,43 +2,43 @@ import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { cloneElement } from "react";
 
-function AlertDialog({ element, ...rest }) {
+function Alert({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createAlertDialogTestSuite(element, stories) {
+export function createAlertTestSuite(element, stories) {
     return stories
         .add("default", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Yes"
                 element={element}
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         )
         .add("primary button disabled", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Yes"
                 primaryButtonDisabled
                 element={element}
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         )
         .add("secondary button", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Launch"
                 secondaryButtonLabel="Postpone"
                 element={element}
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         )
         .add("secondary button disabled", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Launch"
                 secondaryButtonLabel="Postpone"
                 secondaryButtonDisabled
@@ -46,20 +46,20 @@ export function createAlertDialogTestSuite(element, stories) {
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         )
         .add("cancel button", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Yes"
                 cancelButtonLabel="No"
                 element={element}
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         )
         .add("all 3 buttons", () =>
-            <AlertDialog
+            <Alert
                 primaryButtonLabel="Launch"
                 secondaryButtonLabel="Postpone"
                 cancelButtonLabel="Cancel"
@@ -67,6 +67,6 @@ export function createAlertDialogTestSuite(element, stories) {
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </AlertDialog>
+            </Alert>
         );
 }

@@ -27,7 +27,7 @@ export * from "./group";
 export * from "./link";
 export * from "./list";
 export * from "./image";
-export * from "./alert";
+export * from "./message";
 export * from "./placeholders";
 export * from "./transition";
 export * from "./divider";
