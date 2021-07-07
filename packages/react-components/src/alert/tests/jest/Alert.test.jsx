@@ -28,9 +28,9 @@ test("when an alert tone is warning, role is \"alert\"", async () => {
     await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
 });
 
-test("when an alert tone is critical, role is \"alert\"", async () => {
+test("when an alert tone is error, role is \"alert\"", async () => {
     const { getByTestId } = render(
-        <Alert tone="critical" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+        <Alert tone="error" data-testid="alert">Scheduled launch today at 1PM.</Alert>
     );
 
     await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));

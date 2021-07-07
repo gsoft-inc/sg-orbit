@@ -27,8 +27,6 @@ import { Text } from "../../text";
 import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-// TODO: AlertDialog might have too many difference and we might prefer to extract a useDialog hooks to share a few things but allow greater customization. <- I don't think so
-
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
     /**
      * The dialog role.
@@ -42,12 +40,6 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps {
      * Whether or not the dialog should close on outside interactions.
      */
     dismissable?: boolean;
-    /**
-     * Called when the dialog dismiss button is clicked.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
-     */
-    onDismiss: (event: MouseEvent) => void;
     /**
      * The z-index of the dialog.
      */
@@ -123,12 +115,11 @@ export function InnerDialog({
     role = "dialog",
     size,
     dismissable = true,
-    onDismiss,
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     wrapperProps,
-    as = "div",
+    as = "section",
     children,
     forwardedRef,
     ...rest
@@ -147,7 +138,9 @@ export function InnerDialog({
 
     const focusManager = useFocusManager(focusScope);
 
-    const trapFocusProps = useTrapFocus(focusManager);
+    // const trapFocusProps = useTrapFocus(focusManager);
+    useTrapFocus(focusManager);
+
     const restoreFocusProps = useRestoreFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
@@ -177,10 +170,6 @@ export function InnerDialog({
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         if (!isNil(close)) {
             close(event);
-        }
-
-        if (!isNil(onDismiss)) {
-            onDismiss(event);
         }
     });
 
@@ -269,7 +258,6 @@ export function InnerDialog({
                         style: {
                             zIndex: zIndex + 1
                         },
-                        as,
                         ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef)
                     }
                 )}
@@ -287,11 +275,10 @@ export function InnerDialog({
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
+                            as,
                             ref: dialogRef
                         },
-                        restoreFocusProps,
-                        // Must be after restoreFocusProps to work.
-                        trapFocusProps
+                        restoreFocusProps
                     )}
                 >
                     {dismissButtonMarkup}

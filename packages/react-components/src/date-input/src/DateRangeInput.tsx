@@ -39,6 +39,7 @@ import {
 } from "../../shared";
 import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
+import { useDisposables } from "../../../dist";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -217,6 +218,8 @@ const RangeInput = forwardRef<any>((props, ref) => {
     const startDateRef = useRef<HTMLInputElement>();
     const endDateRef = useRef<HTMLInputElement>();
 
+    const disposables = useDisposables();
+
     useImperativeHandle(ref, () => {
         const element = containerRef.current;
 
@@ -231,13 +234,6 @@ const RangeInput = forwardRef<any>((props, ref) => {
         if (!isNil(newDate) && !isNil(endDate) && newDate > endDate) {
             newDate = endDate;
         }
-
-        // Defering because useDateInput is used in controlled mode and otherwise the value will not be updated when the value is clamped.
-        // requestAnimationFrame(() => {
-        //     if (!isNil(newDate)) {
-        //         endDateRef.current?.focus();
-        //     }
-        // });
 
         if (!isNil(onDatesChange)) {
             onDatesChange(event, newDate, endDate);
@@ -257,19 +253,10 @@ const RangeInput = forwardRef<any>((props, ref) => {
     const handleStartDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.value.length === DateInputMask.length) {
             // Defering because useDateInput is used in controlled mode and otherwise the value will not be updated when the value is clamped.
-            requestAnimationFrame(() => {
+            disposables.requestAnimationFrame(() => {
                 endDateRef.current?.focus();
             });
         }
-
-        // // @ts-ignore
-        // const newCharacter = event.nativeEvent.data;
-
-        // console.log(event.target.value);
-
-        // if (/\d/.test(newCharacter)) {
-        //     console.log(event.target.value);
-        // }
     });
 
     const handleEndDateInputValueChange = useEventCallback((event: ChangeEvent<HTMLInputElement>) => {

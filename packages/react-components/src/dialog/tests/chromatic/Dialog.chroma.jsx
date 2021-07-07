@@ -25,11 +25,16 @@ DIALOG JEST TESTS:
 
 - can close a dialog not in a trigger context with the dismiss button (no exception)
 
+TRAP FOCUS TESTS:
+- works with tab
+- works when focusing an element outside
+
 TRIGGER JEST TESTS:
 - WAI-ARIA markup
-- restore focus on close
-- when dismissable is false
--
+- restore focus on close (works with trac focus)
+- when dismissable is false, can close with esc
+- when dismissable is false, do not close on outside click
+- when dismissable is true, can close on outside click
 */
 
 function stories(segment) {
@@ -39,6 +44,20 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <>
+            <Button>First</Button>
+            <Button>Second</Button>
+            <Dialog>
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
+                    <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
+                    <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
+                </Content>
+            </Dialog>
+        </>
+    )
     .add("default", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>

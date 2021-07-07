@@ -45,7 +45,7 @@ export function InnerDialogTrigger({
     open: openProp,
     defaultOpen,
     onOpenChange,
-    dismissable,
+    dismissable = true,
     zIndex = 1,
     as = "div",
     children,
@@ -99,7 +99,7 @@ export function InnerDialogTrigger({
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
-    const modalMarkup = augmentElement(modal, {
+    const dialogMarkup = augmentElement(modal, {
         dismissable,
         zIndex: zIndex + 1,
         ref: modalRef
@@ -125,7 +125,7 @@ export function InnerDialogTrigger({
                     overlayDismissProps
                 )}
             >
-                {modalMarkup}
+                {dialogMarkup}
             </Overlay>
         </DialogTriggerContext.Provider>
     );

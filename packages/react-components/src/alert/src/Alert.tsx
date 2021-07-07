@@ -12,7 +12,7 @@ const Role = {
     info: "status",
     positive: "status",
     warning: "alert",
-    critical: "alert"
+    error: "alert"
 };
 
 type InnerAlertContentProps = TextProps;
@@ -53,7 +53,7 @@ export interface InnerAlertProps {
     /**
      * The style to use.
      */
-    tone?: "info" | "positive" | "warning" | "critical";
+    tone?: "info" | "positive" | "warning" | "error";
     /**
      * Called when the dismiss button is clicked.
      * @param {MouseEvent} event - React's original synthetic event.
@@ -163,14 +163,14 @@ const variations: { tone: keyof typeof Role; icon: ReactElement }[] = [
     { tone: "info", icon: <NotificationIcon /> },
     { tone: "positive", icon: <CheckIcon /> },
     { tone: "warning", icon: <WarningIcon /> },
-    { tone: "critical", icon: <InfoIcon /> }
+    { tone: "error", icon: <InfoIcon /> }
 ];
 
 const [
     InfoAlert,
     PositiveAlert,
     WarningAlert,
-    CriticalAlert
+    ErrorAlert
 ] = Object.values(variations).map(({ tone, icon }) => {
     return forwardRef<InnerAlertProps>(({
         children,
@@ -228,17 +228,17 @@ export function AlertTemplate(_props: AlertTemplateProps): JSX.Element {
 InfoAlert.displayName = "InfoAlert";
 PositiveAlert.displayName = "PositiveAlert";
 WarningAlert.displayName = "WarningAlert";
-CriticalAlert.displayName = "CriticalAlert";
+ErrorAlert.displayName = "ErrorAlert";
 
 
 export type InfoAlertProps = ComponentProps<typeof InfoAlert>;
 export type PositiveAlertProps = ComponentProps<typeof PositiveAlert>;
 export type WarningAlertProps = ComponentProps<typeof WarningAlert>;
-export type CriticalAlertProps = ComponentProps<typeof CriticalAlert>;
+export type ErrorAlertProps = ComponentProps<typeof ErrorAlert>;
 
 export {
     InfoAlert,
     PositiveAlert,
     WarningAlert,
-    CriticalAlert
+    ErrorAlert
 };

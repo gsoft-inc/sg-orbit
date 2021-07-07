@@ -4,19 +4,20 @@ import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProp
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
 import { Dialog } from "./Dialog";
+import { Header } from "../../placeholders";
+import { InfoIcon, WarningIcon } from "../../icons";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 /*
 TODO:
-- Support esc
-- tone look
+- should it listen for esc and call onCancel when esc is called. In short, override useOverlayLightDismiss.
 */
 
 export interface InnerAlertDialogProps extends DomProps, AriaLabelingProps {
     /**
      * The style to use.
      */
-    tone?: "confirmation" | "danger" | "error";
+    tone?: "confirmation" | "destructive" | "warning" | "error";
     /**
      * The primary button label.
      */
@@ -125,9 +126,21 @@ export function InnerAlertDialog({
         }
     });
 
+    const warningIconMarkup = tone === "warning" && (
+        <Header>
+            <WarningIcon className="o-ui-alert-warning-icon" />
+        </Header>
+    );
+
+    const errorIconMarkup = tone === "error" && (
+        <Header>
+            <InfoIcon className="o-ui-alert-error-icon" />
+        </Header>
+    );
+
     const primaryButtonMarkup = (
         <Button
-            color={tone === "danger" ? "danger" : "primary"}
+            color={tone === "destructive" ? "danger" : "primary"}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
@@ -181,6 +194,8 @@ export function InnerAlertDialog({
             )}
         >
             {heading}
+            {warningIconMarkup}
+            {errorIconMarkup}
             {content}
             {buttonsMarkup}
         </Dialog>

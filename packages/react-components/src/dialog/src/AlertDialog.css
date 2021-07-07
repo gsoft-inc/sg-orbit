@@ -1,0 +1,7 @@
+.o-ui-alert-warning-icon {
+    fill: var(--o-ui-alias-icon-warning-2);
+}
+
+.o-ui-alert-error-icon {
+    fill: var(--o-ui-alias-icon-negative-2);
+}

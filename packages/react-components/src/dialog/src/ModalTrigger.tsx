@@ -5,12 +5,14 @@ import { forwardRef } from "../../shared";
 export type InnerModalTriggerProps = InnerDialogTriggerProps;
 
 export function InnerModalTrigger({
+    dismissable = true,
     forwardedRef,
     ...rest
 }: InnerModalTriggerProps) {
     return (
         <DialogTrigger
             {...rest}
+            dismissable={dismissable}
             ref={forwardedRef}
         />
     );

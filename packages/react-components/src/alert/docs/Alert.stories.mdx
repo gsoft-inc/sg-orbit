@@ -1,4 +1,4 @@
-import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
+import { Alert, AlertTemplate, ErrorAlert, InfoAlert, InnerAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
@@ -130,16 +130,16 @@ Use a warning alert to help a user avoid an issue.
     </Story>
 </Preview>
 
-### Critical
+### Error
 
 Use an error alert to help a user understand a critical issue at the system level.
 
 <Preview>
-    <Story name="critical">
-        <CriticalAlert onDismiss={() => {}}>
+    <Story name="error">
+        <ErrorAlert onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
-        </CriticalAlert>
+        </ErrorAlert>
     </Story>
 </Preview>
 
@@ -191,10 +191,10 @@ An alert can handle `show` state in controlled mode.
 
 <ArgsTable of={AlertTemplate} sort="alpha" />
 
-### CriticalAlert
+### ErrorAlert
 
 <ComponentInfo
-    usage={"import { CriticalAlert } from \"@orbit-ui/react-components\";"}
+    usage={"import { ErrorAlert } from \"@orbit-ui/react-components\";"}
     slots={["content", "button"]}
     compact
 />

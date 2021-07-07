@@ -64,6 +64,10 @@ export class FocusManager {
         this.onFocus = onFocus;
     }
 
+    get elements() {
+        return this.scope.elements;
+    }
+
     private focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
         if (!isNil(element)) {
             if (this.isVirtual) {
@@ -237,8 +241,8 @@ export class FocusManager {
         return this.focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);
     }
 
-    hasFocus() {
-        return !isNil(this.getActiveElement());
+    isInScope(element: HTMLElement) {
+        return !isNil(element) && this.scope.isInScope(element as HTMLElement);
     }
 
     getActiveElement() {
@@ -248,23 +252,7 @@ export class FocusManager {
             return elements.find(x => x.classList.contains(VirtualFocusCssClass));
         }
 
-        const activeElement = document.activeElement as HTMLElement;
-
-        if (this.scope.isInScope(activeElement)) {
-            return activeElement;
-        }
-
-        return null;
-    }
-
-    getActiveKey() {
-        if (isNil(this.keyProp)) {
-            throw new Error("\"getActiveKey\" cannot be called without providing a `keyProp` to the FocusManager.");
-        }
-
-        const activeElement = this.getActiveElement();
-
-        return !isNil(activeElement) ? activeElement.getAttribute(this.keyProp) : null;
+        return document.activeElement;
     }
 }
 

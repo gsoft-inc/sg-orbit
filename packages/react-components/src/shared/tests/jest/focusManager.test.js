@@ -727,8 +727,9 @@ describe("virtual focus", () => {
         expect(elements[1]).not.toHaveFocus();
     });
 
-    test("hasFocus", () => {
+    test("isInScope", () => {
         const elements = [
+            createInput(),
             createInput(),
             createInput(),
             createInput()
@@ -736,13 +737,10 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new FocusManager(new Scope([elements[1], elements[2], elements[3]]), { isVirtual: true });
 
-        expect(focusManager.hasFocus()).toBeFalsy();
-
-        focusManager.focusFirst();
-
-        expect(focusManager.hasFocus()).toBeTruthy();
+        expect(focusManager.isInScope(elements[1])).toBeTruthy();
+        expect(focusManager.isInScope(elements[0])).toBeFalsy();
     });
 });
 

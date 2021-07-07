@@ -1,6 +1,6 @@
 // The focus restore logic has been greatly inspired from: https://github.com/adobe/react-spectrum/blob/c2c187606d447a6daa185e0b0507c22883ab3147/packages/%40react-aria/focus/src/FocusScope.tsx#L324
 
-// NOTE: This restore focus only works because we use an animation to fade away the overlay. Without an animation, the active element will always be the body which
+// This restore focus hook only works because we use an animation to fade away the overlay. Without an animation, the active element will always be the body which
 // will be out of scope. To fix this, it would probably requires this code to become a React element instead of a React hook.
 
 import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
@@ -23,7 +23,7 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
             // Since stopImmediatePropagation doesn't work in React, it's a small hack to ensure this hook works well with useTrapFocus.
-            if (!event.isPropagationStopped) {
+            if (!event.isPropagationStopped()) {
                 const focusedElement = event.target;
 
                 // Create a DOM tree walker that matches all tabbable elements.

@@ -1,7 +1,7 @@
 import { FocusManager, FocusOptions } from "./useFocusManager";
 import { FocusTarget } from "./focusTarget";
 import { RefObject, useLayoutEffect } from "react";
-import { disposables } from "./useDisposables";
+import { createDisposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
@@ -13,18 +13,18 @@ export interface AbstractAutoFocusOptions {
 
 function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusOptions) {
     useLayoutEffect(() => {
-        const d = disposables();
+        const disposables = createDisposables();
 
         if (!isDisabled) {
             if (delay) {
-                d.setTimeout(() => { onFocus(); }, delay);
+                disposables.setTimeout(() => { onFocus(); }, delay);
             } else {
-                d.nextFrame(() => { onFocus(); });
+                disposables.nextFrame(() => { onFocus(); });
             }
         }
 
         return () => {
-            d.dispose();
+            disposables.dispose();
         };
     }, [isDisabled, delay, onFocus]);
 }
@@ -59,7 +59,7 @@ export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTa
         delay,
         onFocus: useEventCallback(() => {
             // Do not autofocus another child if there is already one focused.
-            if (!focusManager.hasFocus()) {
+            if (!focusManager.isInScope(document.activeElement as HTMLElement)) {
                 focusManager.focusTarget(target, { canFocus, onFocus, onNotFound });
             }
         })

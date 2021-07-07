@@ -77,12 +77,12 @@
     fill: var(--o-ui-alias-icon-warning-2);
 }
 
-/* TONE | CRITICAL */
-.o-ui-alert-critical {
+/* TONE | ERROR */
+.o-ui-alert-error {
     background-color: var(--o-ui-alias-background-negative-2);
     color: var(--o-ui-alias-text-negative-2);
 }
 
-.o-ui-alert-critical .o-ui-alert-icon {
+.o-ui-alert-error .o-ui-alert-icon {
     fill: var(--o-ui-alias-icon-negative-2);
 }

@@ -20,7 +20,9 @@ function stories(segment) {
 
 createAlertDialogTestSuite(<AlertDialog tone="confirmation" />, stories("/confirmation"));
 
-createAlertDialogTestSuite(<AlertDialog tone="danger" />, stories("/danger"));
+createAlertDialogTestSuite(<AlertDialog tone="destructive" />, stories("/destructive"));
+
+createAlertDialogTestSuite(<AlertDialog tone="warning" />, stories("/warning"));
 
 createAlertDialogTestSuite(<AlertDialog tone="error" />, stories("/error"));
 
