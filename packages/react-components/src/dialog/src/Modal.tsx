@@ -16,28 +16,32 @@ import { Dialog } from "./Dialog";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
+     * Whether or not the modal should take almost all the available space.
+     */
+    fullscreen?: boolean;
+    /**
      * Whether or not the modal should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-      * The z-index of the modal.
-      */
+     * The z-index of the modal.
+     */
     zIndex?: number;
     /**
-      * Additional props to render on the wrapper element.
-      */
+     * Additional props to render on the wrapper element.
+     */
     wrapperProps?: Record<string, any>;
     /**
-      * An HTML element type or a custom React element type to render as.
-      */
+     * An HTML element type or a custom React element type to render as.
+     */
     as?: ElementType;
     /**
       * React children.
       */
     children: ReactNode;
     /**
-      * @ignore
-      */
+     * @ignore
+     */
     forwardedRef: ForwardedRef<any>;
 }
 
@@ -88,6 +92,7 @@ function useModalContentMarkup(content: ReactElement) {
 }
 
 export function InnerModal({
+    fullscreen,
     dismissable = true,
     zIndex = 1,
     children,
@@ -118,8 +123,8 @@ export function InnerModal({
             return "lg";
         }
 
-        return "sm";
-    }, [illustration, hasCards]);
+        return fullscreen ? "fullscreen" : "sm";
+    }, [fullscreen, illustration, hasCards]);
 
     return (
         <Dialog

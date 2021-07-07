@@ -1,6 +1,16 @@
+import { Apollo11, ET, TheMartian } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
+import { ButtonGroup } from "@react-components/button";
+import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Modal, ModalTrigger } from "@react-components/date-input";
+import { Content, Footer, Header, InnerContent, InnerFooter, InnerHeader } from "@react-components/placeholders";
+import { Heading, InnerHeading } from "@react-components/heading";
+import { Illustration, InnerIllustration } from "@react-components/illustration";
+import { Image } from "@react-components/image";
+import { InnerModal, InnerModalTrigger, Modal, ModalTrigger } from "@react-components/dialog";
+import { Paragraph } from "@react-components/paragraph";
+import { TextLink } from "@react-components/link";
 
 <Meta
     title="Components/Modal"
@@ -20,5 +30,280 @@ import { Modal, ModalTrigger } from "@react-components/date-input";
 ## Usage
 
 ### Default
+
+A modal must have an heading and a content.
+
+<Preview>
+    <Story name="default">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Illustration
+
+A modal can have an illustration.
+
+<Preview scope={{ Apollo11 }}>
+    <Story name="illustration">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Illustration>
+                    <Image src={Apollo11} alt="Apollo 11 poster" />
+                </Illustration>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Choice
+
+A modal can offer a choice between 2 propositions.
+
+<Preview scope={{ ET, TheMartian }}>
+    <Story name="choice">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Which of the following movie is the greatest space movie?</Heading>
+                <Content>
+                    <Card>
+                        <Image src={ET} alt="E.T. poster" />
+                        <Heading>E.T.</Heading>
+                        <Content>"E.T. phone home,"" mutters the titular character as he attempts to contact his home planet, and audiences around the world fell in love. The timeless story of an intimate friendship between a boy and his alien friend, “E.T.” has resonated with generations of families, and is widely considered one of the greatest films of all time.</Content>
+                        <Button color="primary">Choose</Button>
+                    </Card>
+                    <Card>
+                        <Image src={TheMartian} alt="The Martian poster" />
+                        <Heading>The Martian</Heading>
+                        <Content>Based on the popular novel, “The Martian” is about mankind joining for a singular mission: save astronaut Mark Watney, who was abandoned on Mars after the rest of his crew made an emergency exit during a dust storm.</Content>
+                        <Button color="primary">Choose</Button>
+                    </Card>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Header
+
+A modal can have an header.
+
+<Preview>
+    <Story name="header">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Apollo 11</Heading>
+                <Header>
+                    <TextLink href="https://en.wikipedia.org/wiki/Apollo_11_(2019_film)" external>Wikipedia</TextLink>
+                </Header>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Footer
+
+A modal can have a footer.
+
+<Preview>
+    <Story name="footer">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+                <Footer>Copyright © 2021</Footer>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Buttons
+
+A modal can have a single button
+
+<Preview>
+    <Story name="button">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+                <Button color="primary">Choose</Button>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+Or a group of buttons
+
+<Preview>
+    <Story name="button group">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+                <ButtonGroup>
+                    <Button color="secondary">Select</Button>
+                    <Button color="primary">Next</Button>
+                </ButtonGroup>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Fullscreen
+
+A modal can take almost all the available space.
+
+<Preview>
+    <Story name="fullscreen">
+        <ModalTrigger>
+            <Button>Open</Button>
+            <Modal fullscreen>
+                <Heading>Apollo 11</Heading>
+                <Content>
+                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Not dismissable
+
+A modal can doesn't have to be dismissable.
+
+<Preview>
+    <Story name="not dismissable">
+        <ModalTrigger dismissable={false}>
+            {close => {
+                return (
+                    <>
+                        <Button>Open</Button>
+                        <Modal>
+                            <Heading>Apollo 11</Heading>
+                            <Content>
+                                <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                                <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                            </Content>
+                            <Button onClick={close}>Close</Button>
+                        </Modal>
+                    </>
+                );
+            }}
+        </ModalTrigger>
+    </Story>
+</Preview>
+
+### Controlled
+
+## API
+
+### ModalTrigger
+
+<ComponentInfo
+    usage={"import { ModalTrigger } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerModalTrigger} sort="alpha" />
+
+### Modal
+
+<ComponentInfo
+    usage={"import { Modal } from \"@orbit-ui/react-components\";"}
+    slots={["illustration", "heading", "header", "content", "footer", "button", "button-group"]}
+    compact
+/>
+
+<ArgsTable of={InnerModal} sort="alpha" />
+
+### Illustration
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerIllustration} sort="alpha" />
+
+### Card
+
+<ComponentInfo
+    usage={"import { Card } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerCard} sort="alpha" />
+
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} sort="alpha" />
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />
+
+### Footer
+
+<ComponentInfo
+    usage={"import { Footer } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerFooter} sort="alpha" />
+
+
 
 

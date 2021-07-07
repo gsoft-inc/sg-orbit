@@ -35,6 +35,7 @@ TRIGGER JEST TESTS:
 - when dismissable is false, can close with esc
 - when dismissable is false, do not close on outside click
 - when dismissable is true, can close on outside click
+- the "close" function
 */
 
 function stories(segment) {

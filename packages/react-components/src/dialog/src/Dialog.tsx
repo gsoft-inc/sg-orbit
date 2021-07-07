@@ -138,7 +138,6 @@ export function InnerDialog({
 
     const focusManager = useFocusManager(focusScope);
 
-    // const trapFocusProps = useTrapFocus(focusManager);
     useTrapFocus(focusManager);
 
     const restoreFocusProps = useRestoreFocus(focusScope);
