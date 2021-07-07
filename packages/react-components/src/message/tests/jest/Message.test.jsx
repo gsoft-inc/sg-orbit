@@ -4,33 +4,33 @@ import { render, waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
-test("when a message tone is info, role is \"status\"", async () => {
+test("when a message variant is \"informative\", role is \"status\"", async () => {
     const { getByTestId } = render(
-        <Message tone="info" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="informative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
-test("when a message tone is positive, role is \"status\"", async () => {
+test("when a message variant is \"warning\", role is \"alert\"", async () => {
     const { getByTestId } = render(
-        <Message tone="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
-    );
-
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
-});
-
-test("when a message tone is warning, role is \"alert\"", async () => {
-    const { getByTestId } = render(
-        <Message tone="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));
 });
 
-test("when a message tone is error, role is \"alert\"", async () => {
+test("when a message variant is \"positive\", role is \"status\"", async () => {
     const { getByTestId } = render(
-        <Message tone="error" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
+    );
+
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
+});
+
+test("when a message variant is \"negative\", role is \"alert\"", async () => {
+    const { getByTestId } = render(
+        <Message variant="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));

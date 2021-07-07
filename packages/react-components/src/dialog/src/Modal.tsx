@@ -10,7 +10,7 @@ import {
     mergeProps,
     useSlots
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { Dialog } from "./Dialog";
 
@@ -19,12 +19,6 @@ export interface InnerModalProps extends DomProps, AriaLabelingProps {
      * Whether or not the modal should close on outside interactions.
      */
     dismissable?: boolean;
-    /**
-      * Called when the modal dismiss button is clicked.
-      * @param {MouseEvent} event - React's original synthetic event.
-      * @returns {void}
-      */
-    onDismiss: (event: MouseEvent) => void;
     /**
       * The z-index of the modal.
       */

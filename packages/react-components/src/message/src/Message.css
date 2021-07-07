@@ -5,12 +5,6 @@
     width: 100%;
     height: max-content;
     border-radius: var(--o-ui-shape-rounded);
-}
-
-/* LAYOUT */
-.o-ui-message-has-icon,
-.o-ui-message-has-action,
-.o-ui-message-has-dismiss {
     padding-top: var(--o-ui-global-scale-bravo);
     padding-bottom: var(--o-ui-global-scale-bravo);
 }
@@ -27,14 +21,10 @@
     flex-grow: 1;
     white-space: pre-wrap;
     overflow-wrap: break-word;
-}
-
-.o-ui-message-has-icon .o-ui-message-content,
-.o-ui-message-has-action .o-ui-message-content,
-.o-ui-message-has-dismiss .o-ui-message-content {
     padding-top: calc(var(--o-ui-global-scale-charlie) / 2);
     padding-bottom: calc(var(--o-ui-global-scale-charlie) / 2);
 }
+
 /* ACTION */
 .o-ui-message-action {
     margin-left: var(--o-ui-global-scale-charlie);
@@ -47,24 +37,14 @@
     margin-left: var(--o-ui-global-scale-bravo);
 }
 
-/* TONE | INFO */
-.o-ui-message-info {
+/* TONE | INFORMATIVE */
+.o-ui-message-informative {
     background-color: var(--o-ui-alias-background-info-1);
     color: var(--o-ui-alias-text-info-1);
 }
 
-.o-ui-message-info .o-ui-message-icon {
+.o-ui-message-informative .o-ui-message-icon {
     fill: var(--o-ui-alias-icon-info-1);
-}
-
-/* TONE | POSITIVE */
-.o-ui-message-positive {
-    background-color: var(--o-ui-alias-background-positive-2);
-    color: var(--o-ui-alias-text-positive-2);
-}
-
-.o-ui-message-positive .o-ui-message-icon {
-    fill: var(--o-ui-alias-icon-positive-2);
 }
 
 /* TONE | WARNING */
@@ -77,12 +57,22 @@
     fill: var(--o-ui-alias-icon-warning-2);
 }
 
-/* TONE | ERROR */
-.o-ui-message-error {
+/* TONE | POSITIVE */
+.o-ui-message-positive {
+    background-color: var(--o-ui-alias-background-positive-2);
+    color: var(--o-ui-alias-text-positive-2);
+}
+
+.o-ui-message-positive .o-ui-message-icon {
+    fill: var(--o-ui-alias-icon-positive-2);
+}
+
+/* TONE | NEGATIVE */
+.o-ui-message-negative {
     background-color: var(--o-ui-alias-background-negative-2);
     color: var(--o-ui-alias-text-negative-2);
 }
 
-.o-ui-message-error .o-ui-message-icon {
+.o-ui-message-negative .o-ui-message-icon {
     fill: var(--o-ui-alias-icon-negative-2);
 }

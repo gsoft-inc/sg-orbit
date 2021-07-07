@@ -3,8 +3,8 @@ import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
 import { EmailIcon } from "@react-components/icons";
-import { ErrorMessage, InfoMessage, InnerMessage, Message, MessageTemplate, PositiveMessage, WarningMessage } from "@react-components/message";
 import { Heading } from "@react-components/heading";
+import { InnerMessage, Message } from "@react-components/message";
 import { TextLink } from "@react-components/link";
 
 <Meta
@@ -91,29 +91,16 @@ A message can be dismissible by specifying an `onDismiss` handler.
     </Story>
 </Preview>
 
-### Info
+### Informative
 
-Use an info message to notify a user of a change that's relevant for them to achieve their current goal.
-
-<Preview>
-    <Story name="info">
-        <InfoMessage onDismiss={() => {}}>
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </InfoMessage>
-    </Story>
-</Preview>
-
-### Positive
-
-Use a positive message to inform a user that an action has completed successfuly.
+Use an informative message to notify a user of a change that's relevant for them to achieve their current goal.
 
 <Preview>
-    <Story name="positive">
-        <PositiveMessage onDismiss={() => {}}>
+    <Story name="informative">
+        <Message variant="informative" onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
-        </PositiveMessage>
+        </Message>
     </Story>
 </Preview>
 
@@ -123,23 +110,36 @@ Use a warning message to help a user avoid an issue.
 
 <Preview>
     <Story name="warning">
-        <WarningMessage onDismiss={() => {}}>
+        <Message variant="warning" onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
             <Button>Retry</Button>
-        </WarningMessage>
+        </Message>
     </Story>
 </Preview>
 
-### Error
+### Positive
 
-Use an error message to help a user understand a critical issue at the system level.
+Use a positive message to inform a user that an action has completed successfuly.
 
 <Preview>
-    <Story name="error">
-        <ErrorMessage onDismiss={() => {}}>
+    <Story name="positive">
+        <Message variant="positive" onDismiss={() => {}}>
+            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
+            <Button>Undo</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Negative
+
+Use a negative message to help a user understand a critical issue at the system level.
+
+<Preview>
+    <Story name="negative">
+        <Message variant="negative" onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
-        </ErrorMessage>
+        </Message>
     </Story>
 </Preview>
 
@@ -155,51 +155,11 @@ A message can handle `show` state in controlled mode.
 
 <ComponentInfo
     usage={"import { Message } from \"@orbit-ui/react-components\";"}
-    slots={["icon", "content", "button"]}
+    slots={["content", "button"]}
     compact
 />
 
 <ArgsTable of={InnerMessage} sort="alpha" />
-
-### InfoMessage
-
-<ComponentInfo
-    usage={"import { InfoMessage } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={MessageTemplate} sort="alpha" />
-
-### PositiveMessage
-
-<ComponentInfo
-    usage={"import { PositiveMessage } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={MessageTemplate} sort="alpha" />
-
-### WarningMessage
-
-<ComponentInfo
-    usage={"import { WarningMessage } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={MessageTemplate} sort="alpha" />
-
-### ErrorMessage
-
-<ComponentInfo
-    usage={"import { ErrorMessage } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={MessageTemplate} sort="alpha" />
 
 ### Content
 

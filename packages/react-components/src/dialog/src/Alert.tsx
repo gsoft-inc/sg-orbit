@@ -12,7 +12,7 @@ export interface InnerAlertProps extends DomProps, AriaLabelingProps {
     /**
      * The style to use.
      */
-    tone?: "confirmation" | "destructive" | "warning" | "error";
+    variant?: "confirmation" | "destructive" | "warning" | "negative";
     /**
      * The primary button label.
      */
@@ -78,7 +78,7 @@ export interface InnerAlertProps extends DomProps, AriaLabelingProps {
 }
 
 export function InnerAlert({
-    tone = "confirmation",
+    variant = "confirmation",
     primaryButtonLabel,
     primaryButtonDisabled,
     secondaryButtonLabel,
@@ -121,21 +121,21 @@ export function InnerAlert({
         }
     });
 
-    const warningIconMarkup = tone === "warning" && (
+    const warningIconMarkup = variant === "warning" && (
         <Header>
-            <WarningIcon className="o-ui-alert-warning-icon" />
+            <WarningIcon size="lg" className="o-ui-alert-warning-icon" />
         </Header>
     );
 
-    const errorIconMarkup = tone === "error" && (
+    const errorIconMarkup = variant === "negative" && (
         <Header>
-            <InfoIcon className="o-ui-alert-error-icon" />
+            <InfoIcon size="lg" className="o-ui-alert-negative-icon" />
         </Header>
     );
 
     const primaryButtonMarkup = (
         <Button
-            color={tone === "destructive" ? "danger" : "primary"}
+            color={variant === "destructive" ? "danger" : "primary"}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}

@@ -1,11 +1,10 @@
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { ErrorMessage, InfoMessage, Message, PositiveMessage, WarningMessage } from "@react-components/message";
 import { Heading } from "@react-components/heading";
-import { InfoIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
+import { Message } from "@react-components/message";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -32,53 +31,25 @@ stories()
             <Message onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
         </Inline>
     )
-    .add("icon + text", () =>
+    .add("text + action", () =>
         <Inline verticalAlign="end">
             <Message>
-                <InfoIcon />
-                <Content>Scheduled launch today at 1PM.</Content>
-            </Message>
-            <Message>
-                <InfoIcon />
-                <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
-            </Message>
-        </Inline>
-    )
-    .add("icon + text + dismiss", () =>
-        <Inline verticalAlign="end">
-            <Message onDismiss={() => {}}>
-                <InfoIcon />
-                <Content>Scheduled launch today at 1PM.</Content>
-            </Message>
-            <Message onDismiss={() => {}}>
-                <InfoIcon />
-                <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
-            </Message>
-        </Inline>
-    )
-    .add("icon + text + action", () =>
-        <Inline verticalAlign="end">
-            <Message>
-                <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>
             </Message>
             <Message>
-                <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
                 <Button>Undo</Button>
             </Message>
         </Inline>
     )
-    .add("icon + text + action + dismiss", () =>
+    .add("text + action + dismiss", () =>
         <Inline verticalAlign="end">
             <Message onDismiss={() => {}}>
-                <InfoIcon />
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>
             </Message>
             <Message onDismiss={() => {}}>
-                <InfoIcon />
                 <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
                 <Button>Undo</Button>
             </Message>
@@ -86,7 +57,6 @@ stories()
     )
     .add("rich content", () =>
         <Message onDismiss={() => {}}>
-            <InfoIcon />
             <Content>
                 <Heading>Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
@@ -100,15 +70,11 @@ stories()
     )
     .add("contained", () =>
         <div style={{ width: "500px" }}>
-            <Message>
-                <InfoIcon />
-                <Content>Scheduled launch today at 1PM.</Content>
-            </Message>
+            <Message>Scheduled launch today at 1PM.</Message>
         </div>
     )
     .add("box as content", () =>
         <Message>
-            <InfoIcon />
             <Box slot="content">Scheduled launch today at 1PM.</Box>
             <Button>Undo</Button>
         </Message>
@@ -120,40 +86,34 @@ stories()
         </Stack>
     );
 
-[
-    { name: "info", ElementType: InfoMessage },
-    { name: "success", ElementType: PositiveMessage },
-    { name: "warning", ElementType: WarningMessage },
-    { name: "error", ElementType: ErrorMessage }
-]
-    .forEach(({ name, ElementType }) => {
-        stories()
-            .add(name, () =>
-                <Stack>
-                    <ElementType onDismiss={() => {}}>
-                        <Content>
-                            <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
-                        </Content>
-                    </ElementType>
-                    <ElementType onDismiss={() => {}}>
-                        A launch is scheduled today at 1PM.
-                    </ElementType>
-                    <ElementType>
-                        A launch is scheduled today at 1PM.
-                    </ElementType>
-                    <ElementType onDismiss={() => {}}>
-                        <Content>
-                            <Heading>Scheduled launch</Heading>
-                            <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-                        </Content>
-                    </ElementType>
-                    <ElementType onDismiss={() => {}}>
-                        <Content>
-                            <Heading>Scheduled launch</Heading>
-                            <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
-                        </Content>
-                        <Button>Cancel</Button>
-                    </ElementType>
-                </Stack>
-            );
-    });
+["informative", "warning", "positive", "negative"].forEach(variant => {
+    stories()
+        .add(variant, () =>
+            <Stack>
+                <Message variant={variant} onDismiss={() => {}}>
+                    <Content>
+                        <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
+                    </Content>
+                </Message>
+                <Message variant={variant} onDismiss={() => {}}>
+                    A launch is scheduled today at 1PM.
+                </Message>
+                <Message variant={variant}>
+                    A launch is scheduled today at 1PM.
+                </Message>
+                <Message variant={variant} onDismiss={() => {}}>
+                    <Content>
+                        <Heading>Scheduled launch</Heading>
+                        <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
+                    </Content>
+                </Message>
+                <Message variant={variant} onDismiss={() => {}}>
+                    <Content>
+                        <Heading>Scheduled launch</Heading>
+                        <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
+                    </Content>
+                    <Button>Cancel</Button>
+                </Message>
+            </Stack>
+        );
+});

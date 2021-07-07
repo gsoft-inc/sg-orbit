@@ -18,13 +18,13 @@ function stories(segment) {
         .build();
 }
 
-createAlertTestSuite(<Alert tone="confirmation" />, stories("/confirmation"));
+createAlertTestSuite(<Alert variant="confirmation" />, stories("/confirmation"));
 
-createAlertTestSuite(<Alert tone="destructive" />, stories("/destructive"));
+createAlertTestSuite(<Alert variant="destructive" />, stories("/destructive"));
 
-createAlertTestSuite(<Alert tone="warning" />, stories("/warning"));
+createAlertTestSuite(<Alert variant="warning" />, stories("/warning"));
 
-createAlertTestSuite(<Alert tone="error" />, stories("/error"));
+createAlertTestSuite(<Alert variant="negative" />, stories("/negative"));
 
 stories()
     .add("className", () =>

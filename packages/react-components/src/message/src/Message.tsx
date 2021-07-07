@@ -1,19 +1,12 @@
 import "./Message.css";
 
 import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { StyleProvider, augmentElement, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../text";
 import { Transition } from "../../transition";
-
-const Role = {
-    info: "status",
-    positive: "status",
-    warning: "alert",
-    error: "alert"
-};
 
 type InnerMessageContentProps = TextProps;
 
@@ -53,7 +46,7 @@ export interface InnerMessageProps {
     /**
      * The style to use.
      */
-    tone?: "info" | "positive" | "warning" | "error";
+    variant?: "informative" | "warning" | "positive" | "negative";
     /**
      * Called when the dismiss button is clicked.
      * @param {MouseEvent} event - React's original synthetic event.
@@ -78,9 +71,23 @@ export interface InnerMessageProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+const Role = {
+    informative: "status",
+    warning: "alert",
+    positive: "status",
+    negative: "alert"
+};
+
+const Icon = {
+    informative: <NotificationIcon />,
+    warning: <WarningIcon />,
+    positive: <CheckIcon />,
+    negative: <InfoIcon />
+};
+
 export function InnerMessage({
     show = true,
-    tone = "info",
+    variant = "informative",
     onDismiss,
     role: roleProp,
     as = "div",
@@ -90,12 +97,9 @@ export function InnerMessage({
 }: InnerMessageProps) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { icon, content, button } = useSlots(children, useMemo(() => ({
+    const { content, button } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Content
-        },
-        icon: {
-            className: "o-ui-message-icon"
         },
         content: {
             className: "o-ui-message-content",
@@ -109,6 +113,10 @@ export function InnerMessage({
             className: "o-ui-message-action"
         }
     }), []));
+
+    const iconMarkup = augmentElement(Icon[variant], {
+        className: "o-ui-message-icon"
+    });
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
@@ -130,18 +138,15 @@ export function InnerMessage({
                     leave: "o-ui-fade-out",
                     className: cssModule(
                         "o-ui-message",
-                        tone,
-                        icon && "has-icon",
-                        button && "has-action",
-                        dismissMarkup && "has-dismiss"
+                        variant
                     ),
-                    role: (roleProp ?? Role[tone]) ?? "alert",
+                    role: (roleProp ?? Role[variant]) ?? "alert",
                     as,
                     ref
                 }
             )}
         >
-            {icon}
+            {iconMarkup}
             {content}
             {button}
             {dismissMarkup}
@@ -156,89 +161,3 @@ export const Message = forwardRef<InnerMessageProps>((props, ref) => (
 export type MessageProps = ComponentProps<typeof Message>;
 
 Message.displayName = "Message";
-
-////////
-
-const variations: { tone: keyof typeof Role; icon: ReactElement }[] = [
-    { tone: "info", icon: <NotificationIcon /> },
-    { tone: "positive", icon: <CheckIcon /> },
-    { tone: "warning", icon: <WarningIcon /> },
-    { tone: "error", icon: <InfoIcon /> }
-];
-
-const [
-    InfoMessage,
-    PositiveMessage,
-    WarningMessage,
-    ErrorMessage
-] = Object.values(variations).map(({ tone, icon }) => {
-    return forwardRef<InnerMessageProps>(({
-        children,
-        ...rest
-    }, ref) => {
-        const { content, button } = useSlots(children, useMemo(() => ({
-            _: {
-                defaultWrapper: Content
-            },
-            content: null,
-            button: null
-        }), []));
-
-        return (
-            <Message
-                tone={tone}
-                {...rest}
-                ref={ref}
-            >
-                {icon}
-                {content}
-                {button}
-            </Message>
-        );
-    });
-});
-
-export interface MessageTemplateProps {
-    /**
-     * A controlled show value.
-     */
-    show?: boolean;
-    /**
-     * Called when the dismiss button is clicked.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
-     */
-    onDismiss?: (event: MouseEvent) => void;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-}
-
-// Dummy component for documentation purpose.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function MessageTemplate(_props: MessageTemplateProps): JSX.Element {
-    return null;
-}
-
-InfoMessage.displayName = "InfoMessage";
-PositiveMessage.displayName = "PositiveMessage";
-WarningMessage.displayName = "WarningMessage";
-ErrorMessage.displayName = "ErrorMessage";
-
-
-export type InfoMessageProps = ComponentProps<typeof InfoMessage>;
-export type PositiveMessageProps = ComponentProps<typeof PositiveMessage>;
-export type WarningMessageProps = ComponentProps<typeof WarningMessage>;
-export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>;
-
-export {
-    InfoMessage,
-    PositiveMessage,
-    WarningMessage,
-    ErrorMessage
-};
