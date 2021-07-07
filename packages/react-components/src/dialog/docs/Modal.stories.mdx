@@ -208,7 +208,7 @@ A modal can doesn't have to be dismissable.
 <Preview>
     <Story name="not dismissable">
         <ModalTrigger dismissable={false}>
-            {close => {
+            {({ close }) => {
                 return (
                     <>
                         <Button>Open</Button>
@@ -228,6 +228,10 @@ A modal can doesn't have to be dismissable.
 </Preview>
 
 ### Controlled
+
+The `open` state can be handled in controlled mode.
+
+<Preview filePath="/dialog/docs/ControlledModal" />
 
 ## API
 
