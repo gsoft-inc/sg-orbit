@@ -1,3 +1,4 @@
+import { Box } from "@react-components/box";
 import { act, render, waitFor } from "@testing-library/react";
 import { useFocusWithin } from "@react-components/shared";
 import userEvent from "@testing-library/user-event";
@@ -6,9 +7,9 @@ function FocusWithin({ onFocus, onBlur, disabled, children }) {
     const focusWithinProps = useFocusWithin({ onFocus, onBlur, isDisabled: disabled });
 
     return (
-        <div {...focusWithinProps}>
+        <Box {...focusWithinProps}>
             {children}
-        </div>
+        </Box>
     );
 }
 
