@@ -81,6 +81,7 @@
     justify-content: center;
     /* Cannot set a max-content width because links will not wrap on multiple lines anymore */
     height: max-content;
+    width: fit-content;
 }
 
 .o-ui-link-text {
