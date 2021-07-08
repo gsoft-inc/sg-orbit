@@ -6,7 +6,7 @@ function Alert({ element, ...rest }) {
     return cloneElement(element, rest);
 }
 
-export function createAlertTestSuite(element, stories) {
+export function createTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Alert

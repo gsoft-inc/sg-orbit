@@ -12,7 +12,7 @@ import {
 } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { Dialog } from "./Dialog";
+import { Dialog } from "../../dialog";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**

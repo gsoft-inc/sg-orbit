@@ -1,4 +1,4 @@
-import { Alert, AlertTrigger } from "@react-components/dialog";
+import { Alert, AlertTrigger } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";

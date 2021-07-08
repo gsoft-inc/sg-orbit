@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
-import { Modal, ModalTrigger } from "@react-components/dialog";
+import { Modal, ModalTrigger } from "@react-components/modal";
 import { Paragraph } from "@react-components/paragraph";
 import { storiesOfBuilder } from "@stories/utils";
 

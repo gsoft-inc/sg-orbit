@@ -5,7 +5,7 @@ import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
-import { Modal } from "@react-components/dialog";
+import { Modal } from "@react-components/modal";
 import { Paragraph } from "@react-components/paragraph";
 import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";

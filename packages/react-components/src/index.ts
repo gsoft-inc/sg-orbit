@@ -47,4 +47,6 @@ export * from "./input-group";
 export * from "./avatar";
 export * from "./illustration";
 export * from "./card";
+export * from "./modal";
+export * from "./alert";
 export * from "./shared";

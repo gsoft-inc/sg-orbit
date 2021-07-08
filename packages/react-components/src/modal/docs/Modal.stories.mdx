@@ -8,7 +8,7 @@ import { Content, Footer, Header, InnerContent, InnerFooter, InnerHeader } from 
 import { Heading, InnerHeading } from "@react-components/heading";
 import { Illustration, InnerIllustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
-import { InnerModal, InnerModalTrigger, Modal, ModalTrigger } from "@react-components/dialog";
+import { InnerModal, InnerModalTrigger, Modal, ModalTrigger } from "@react-components/modal";
 import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 
@@ -218,7 +218,10 @@ A modal can doesn't have to be dismissable.
                                 <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
                                 <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
                             </Content>
-                            <Button onClick={close}>Close</Button>
+                            <Button
+                                color="primary"
+                                onClick={close}
+                            >Close</Button>
                         </Modal>
                     </>
                 );
@@ -231,7 +234,7 @@ A modal can doesn't have to be dismissable.
 
 The `open` state can be handled in controlled mode.
 
-<Preview filePath="/dialog/docs/ControlledModal" />
+<Preview filePath="/modal/docs/ControlledModal" />
 
 ## API
 

@@ -1,7 +1,7 @@
-import { Alert } from "@react-components/dialog";
+import { Alert } from "@react-components/alert";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
-import { createAlertTestSuite } from "./createAlertTestSuite";
+import { createTestSuite } from "./createTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
 /*
@@ -18,13 +18,13 @@ function stories(segment) {
         .build();
 }
 
-createAlertTestSuite(<Alert variant="confirmation" />, stories("/confirmation"));
+createTestSuite(<Alert variant="confirmation" />, stories("/confirmation"));
 
-createAlertTestSuite(<Alert variant="destructive" />, stories("/destructive"));
+createTestSuite(<Alert variant="destructive" />, stories("/destructive"));
 
-createAlertTestSuite(<Alert variant="warning" />, stories("/warning"));
+createTestSuite(<Alert variant="warning" />, stories("/warning"));
 
-createAlertTestSuite(<Alert variant="negative" />, stories("/negative"));
+createTestSuite(<Alert variant="negative" />, stories("/negative"));
 
 stories()
     .add("className", () =>

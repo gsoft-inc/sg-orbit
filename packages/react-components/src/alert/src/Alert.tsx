@@ -3,10 +3,9 @@ import "./Alert.css";
 import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
-import { Dialog } from "./Dialog";
+import { Dialog, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
-import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerAlertProps extends DomProps, AriaLabelingProps {
     /**
