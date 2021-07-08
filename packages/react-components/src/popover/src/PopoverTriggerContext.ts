@@ -1,8 +1,8 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface PopoverTriggerContextType {
-    close?: (event: SyntheticEvent) => void;
     isOpen?: boolean;
+    close?: (event: SyntheticEvent) => void;
 }
 
 export const PopoverTriggerContext = createContext<PopoverTriggerContextType>({});

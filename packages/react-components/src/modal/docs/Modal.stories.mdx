@@ -22,9 +22,9 @@ import { TextLink } from "@react-components/link";
 <Tagline>A modal is a dialog box that sits on the top of the current page. Modals block access to the rest of the page and force user interaction.</Tagline>
 
 <ComponentInfo
-    usage={"import { Modal, ModalTrigger } from \"@orbit-ui/react-components\";"}
+    usage={"import { Modal, ModalTrigger, Heading, Header, Content, Footer, ModalTriggerContext, useModalTriggerContext } from \"@orbit-ui/react-components\";"}
     ariaPath="#dialog_modal"
-    githubPath="/packages/react-components/src/dialog/src"
+    githubPath="/packages/react-components/src/modal/src"
 />
 
 ## Usage
@@ -201,12 +201,20 @@ A modal can take almost all the available space.
     </Story>
 </Preview>
 
-### Not dismissable
+### Modal context
 
-A modal can doesn't have to be dismissable.
+A modal `isOpen` state or `close` function can be retrieved from `useModalTriggerContext`.
+
+<Preview filePath="/modal/docs/ModalContext" />
+
+### Dismissable
+
+By default, a modal will dismiss on outside interactions. However, in some cases, you might want to force the user to explicitly dismiss the modal with a targeted call to action. This is what the dismissable prop is for.
+
+A call to action can dismiss the modal by calling a `close` function which can be retrieved from either `useModalTriggerContext` or the render props.
 
 <Preview>
-    <Story name="not dismissable">
+    <Story name="dismissable">
         <ModalTrigger dismissable={false}>
             {({ close }) => {
                 return (
@@ -256,24 +264,6 @@ The `open` state can be handled in controlled mode.
 />
 
 <ArgsTable of={InnerModal} sort="alpha" />
-
-### Illustration
-
-<ComponentInfo
-    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
-    compact
-/>
-
-<ArgsTable of={InnerIllustration} sort="alpha" />
-
-### Card
-
-<ComponentInfo
-    usage={"import { Card } from \"@orbit-ui/react-components\";"}
-    compact
-/>
-
-<ArgsTable of={InnerCard} sort="alpha" />
 
 ### Heading
 

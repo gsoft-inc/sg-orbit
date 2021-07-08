@@ -109,7 +109,6 @@ export function InnerDialogTrigger({
         <DialogTriggerContext.Provider
             value={{
                 isOpen,
-                open,
                 close
             }}
         >

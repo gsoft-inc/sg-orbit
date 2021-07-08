@@ -19,6 +19,8 @@ function stories(segment) {
 /*
 TRIGGER JEST TESTS:
 - pass dismissable to both trigger & dialog
+- close function
+- context
 */
 
 stories()
