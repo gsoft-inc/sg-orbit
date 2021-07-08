@@ -111,8 +111,8 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         hideOnOutsideClick
     });
 
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
     const focusManager = useFocusManager(focusScope, { keyProp });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
 
     useAutoFocusChild(focusManager, {
         ...autoFocusOptions,

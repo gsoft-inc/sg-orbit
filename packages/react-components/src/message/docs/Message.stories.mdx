@@ -2,7 +2,6 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
-import { EmailIcon } from "@react-components/icons";
 import { Heading } from "@react-components/heading";
 import { InnerMessage, Message } from "@react-components/message";
 import { TextLink } from "@react-components/link";
@@ -30,20 +29,7 @@ A default message.
 
 <Preview>
     <Story name="default">
-        <Message>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Message>
-    </Story>
-</Preview>
-
-### Icon
-
-A message can have an [icon](?path=/docs/icon-gallery--page).
-
-<Preview>
-    <Story name="icon">
-        <Message>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-        </Message>
+        <Message>We offer the safest space travel of the industry!</Message>
     </Story>
 </Preview>
 
@@ -54,10 +40,9 @@ A message can also accept rich content.
 <Preview>
     <Story name="rich content">
         <Message>
-            <EmailIcon />
             <Content>
-                <Heading>booking@spacetravel.com</Heading>
-                Your email has been sent! Tracking info available <TextLink href="#">here</TextLink>.
+                <Heading>Travel with us!</Heading>
+                We offer the safest space travel of the industry. Consult our safety policy <TextLink href="#">here</TextLink>.
             </Content>
         </Message>
     </Story>
@@ -70,24 +55,19 @@ A message can accept an action [button](?path=/docs/button--default-story).
 <Preview>
     <Story name="action">
         <Message>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
+            <Content>We offer the safest space travel of the industry!</Content>
+            <Button>Book now</Button>
         </Message>
     </Story>
 </Preview>
 
-### Dismissible
+### Dismissable
 
-A message can be dismissible by specifying an `onDismiss` handler.
+A message can be dismissable by specifying an `onDismiss` handler.
 
 <Preview>
-    <Story name="dismissible">
-        <Message onDismiss={() => {}}>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </Message>
+    <Story name="dismissable">
+        <Message onDismiss={() => {}}>We offer the safest space travel of the industry!</Message>
     </Story>
 </Preview>
 
@@ -98,8 +78,8 @@ Use an informative message to notify a user of a change that's relevant for them
 <Preview>
     <Story name="informative">
         <Message variant="informative" onDismiss={() => {}}>
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
+            <Content>We offer the safest space travel of the industry!</Content>
+            <Button>Book now</Button>
         </Message>
     </Story>
 </Preview>

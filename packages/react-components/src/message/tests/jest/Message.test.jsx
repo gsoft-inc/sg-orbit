@@ -17,7 +17,7 @@ test("when a message variant is \"warning\", role is \"alert\"", async () => {
         <Message variant="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
 });
 
 test("when a message variant is \"positive\", role is \"status\"", async () => {
@@ -33,7 +33,7 @@ test("when a message variant is \"negative\", role is \"alert\"", async () => {
         <Message variant="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "message"));
+    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
 });
 
 // ***** Refs *****

@@ -173,7 +173,6 @@ export function InnerDialog({
     });
 
     const dialogId = useId(id, "o-ui-dialog");
-    const headingId = `${dialogId}-heading`;
 
     const { illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
@@ -184,7 +183,7 @@ export function InnerDialog({
             className: "o-ui-dialog-illustration"
         },
         heading: {
-            id: headingId,
+            id: `${dialogId}-heading`,
             className: "o-ui-dialog-heading",
             as: "h3",
             size: "sm"
@@ -207,7 +206,9 @@ export function InnerDialog({
         "button-group": {
             className: "o-ui-dialog-button-group"
         }
-    }), [headingId]));
+    }), [dialogId]));
+
+    const headingId = heading?.props?.id;
 
     const headerMarkup = isString(header?.props?.children)
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
@@ -274,7 +275,7 @@ export function InnerDialog({
                             role,
                             "aria-modal": true,
                             "aria-label": ariaLabel,
-                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? heading?.props?.id : undefined,
+                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                             as,
                             ref: dialogRef
                         },

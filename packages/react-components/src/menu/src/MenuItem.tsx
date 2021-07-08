@@ -61,9 +61,6 @@ export function InnerMenuItem({
         (event.target as HTMLElement).focus();
     });
 
-    const labelId = `${id}-label`;
-    const descriptionId = `${id}-description`;
-
     const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
@@ -81,11 +78,11 @@ export function InnerMenuItem({
             };
         },
         text: {
-            id: labelId,
+            id: `${id}-label`,
             className: "o-ui-menu-item-label"
         },
         description: {
-            id: descriptionId,
+            id: `${id}-description`,
             className: "o-ui-menu-item-description",
             size: "md"
         },
@@ -93,7 +90,10 @@ export function InnerMenuItem({
             size: "sm",
             className: "o-ui-menu-item-end-icon"
         }
-    }), [labelId, descriptionId]));
+    }), [id]));
+
+    const labelId = text?.props?.id;
+    const descriptionId = description?.props?.id;
 
     const role = RoleBySelectionMode[selectionMode];
 

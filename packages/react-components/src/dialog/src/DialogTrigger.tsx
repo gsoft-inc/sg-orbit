@@ -54,7 +54,7 @@ export function InnerDialogTrigger({
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const modalRef = useMergedRefs(forwardedRef);
+    const dialogRef = useMergedRefs(forwardedRef);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         setIsOpen(newValue);
@@ -88,7 +88,7 @@ export function InnerDialogTrigger({
         hideOnLeave: false
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(modalRef, {
+    const overlayDismissProps = useOverlayLightDismiss(dialogRef, {
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
@@ -102,7 +102,7 @@ export function InnerDialogTrigger({
     const dialogMarkup = augmentElement(modal, {
         dismissable,
         zIndex: zIndex + 1,
-        ref: modalRef
+        ref: dialogRef
     });
 
     return (

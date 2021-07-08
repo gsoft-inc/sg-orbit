@@ -97,9 +97,6 @@ export function InnerListboxOption({
         setHasMouseOver(false);
     });
 
-    const labelId = `${id}-label`;
-    const descriptionId = `${id}-description`;
-
     const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
@@ -117,11 +114,11 @@ export function InnerListboxOption({
             };
         },
         text: {
-            id: labelId,
+            id: `${id}-label`,
             className: "o-ui-listbox-option-label"
         },
         description: {
-            id: descriptionId,
+            id: `${id}-description`,
             className: "o-ui-listbox-option-description",
             size: "md"
         },
@@ -129,7 +126,10 @@ export function InnerListboxOption({
             size: "sm",
             className: "o-ui-listbox-option-end-icon"
         }
-    }), [labelId, descriptionId]));
+    }), [id]));
+
+    const labelId = text?.props?.id;
+    const descriptionId = description?.props?.id;
 
     const optionMarkup = (
         <Box

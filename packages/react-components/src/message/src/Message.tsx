@@ -1,6 +1,6 @@
 import "./Message.css";
 
-import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
+import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
@@ -79,7 +79,7 @@ const Role = {
 };
 
 const Icon = {
-    informative: <NotificationIcon />,
+    informative: <InfoIcon />,
     warning: <WarningIcon />,
     positive: <CheckIcon />,
     negative: <InfoIcon />
