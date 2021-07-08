@@ -275,6 +275,64 @@ test("call the radio onChange handler when a radio is selected", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
+// ***** Aria *****
+
+test("when a name is provided, the group elements name attribute match the provided name", async () => {
+    const { getByTestId } = render(
+        <RadioGroup name="foo">
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveAttribute("name", "foo"));
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("name", "foo"));
+    await waitFor(() => expect(getInput(getByTestId("radio-3"))).toHaveAttribute("name", "foo"));
+});
+
+test("when no name is provided, all the group elements share the same auto generated name", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2" data-testid="radio-2">2</Radio>
+            <Radio value="3" data-testid="radio-3">3</Radio>
+        </RadioGroup>
+    );
+
+    const name = getInput(getByTestId("radio-1")).getAttribute("name");
+
+    await waitFor(() => expect(name).toBeDefined());
+    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("name", name));
+    await waitFor(() => expect(getInput(getByTestId("radio-3"))).toHaveAttribute("name", name));
+});
+
+test("a radio group role is \"radiogroup\"", async () => {
+    const { getByTestId } = render(
+        <RadioGroup data-testid="radio-group">
+            <Radio value="1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("radio-group")).toHaveAttribute("role", "radiogroup"));
+});
+
+test("when a radio group elements are not radio, their role is \"radio\"", async () => {
+    const { getByTestId } = render(
+        <RadioGroup>
+            <ToggleButton value="1" data-testid="radio-1">1</ToggleButton>
+            <ToggleButton value="2" data-testid="radio-2">2</ToggleButton>
+            <ToggleButton value="3" data-testid="radio-3">3</ToggleButton>
+        </RadioGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("radio-1")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(getByTestId("radio-2")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(getByTestId("radio-3")).toHaveAttribute("role", "radio"));
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

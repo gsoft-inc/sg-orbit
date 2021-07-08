@@ -79,6 +79,22 @@ test("when autofocus is specified with a delay, the first checkbox is focused af
     await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).toHaveFocus());
 });
 
+// ***** Aria *****
+
+test("when a checkbox group elements are not checkbox, their role is \"checkbox\"", async () => {
+    const { getAllByTestId } = render(
+        <CheckboxGroup>
+            <ToggleButton value="1" data-testid="checkbox">1</ToggleButton>
+            <ToggleButton value="2" data-testid="checkbox">2</ToggleButton>
+            <ToggleButton value="3" data-testid="checkbox">3</ToggleButton>
+        </CheckboxGroup>
+    );
+
+    await waitFor(() => expect(getAllByTestId("checkbox")[0]).toHaveAttribute("role", "checkbox"));
+    await waitFor(() => expect(getAllByTestId("checkbox")[1]).toHaveAttribute("role", "checkbox"));
+    await waitFor(() => expect(getAllByTestId("checkbox")[2]).toHaveAttribute("role", "checkbox"));
+});
+
 // ***** Api *****
 
 test("call onChange when a single checkbox is selected", async () => {

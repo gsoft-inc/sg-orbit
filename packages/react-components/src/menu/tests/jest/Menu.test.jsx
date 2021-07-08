@@ -506,6 +506,18 @@ test("when autofocus is specified with a delay, the first menu item is focused a
 
 // ***** Aria *****
 
+test("when an id is provided, the menu id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <Menu id="foo" aria-label="Planets" data-testid="menu">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("id", "foo"));
+});
+
 test("a menu role is \"menu\"", async () => {
     const { getByTestId } = render(
         <Menu aria-label="Planets" data-testid="menu">

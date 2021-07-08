@@ -124,6 +124,7 @@ export function InnerDisclosure({
                 {...mergeProps(
                     rest,
                     {
+                        id: rootId,
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
                         as,
                         ref: contentRef

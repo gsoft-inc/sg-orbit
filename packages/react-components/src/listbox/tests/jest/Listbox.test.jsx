@@ -523,6 +523,18 @@ test("a letter keypress move the focus to the first option starting with that le
 
 // ***** Aria *****
 
+test("when an id is provided, the listbox id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <Listbox id="foo" data-testid="listbox">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Listbox>
+    );
+
+    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("id", "foo"));
+});
+
 test("a listbox role is \"listbox\"", async () => {
     const { getByTestId } = render(
         <Listbox data-testid="listbox">

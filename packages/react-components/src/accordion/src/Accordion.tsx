@@ -84,7 +84,9 @@ export function InnerAccordion({
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const items = useAccordionItems(children, useId(id, "o-ui-accordion"));
+    const accordionId = useId(id, "o-ui-accordion");
+
+    const items = useAccordionItems(children, accordionId);
 
     const focusManager = useFocusManager(focusScope);
 
@@ -125,6 +127,7 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
+                    id: accordionId,
                     className: cssModule(
                         "o-ui-accordion",
                         variant

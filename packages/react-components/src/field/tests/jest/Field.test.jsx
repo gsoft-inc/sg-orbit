@@ -5,6 +5,17 @@ import { render, waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
+test("when an id is provided, the field id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <Field id="foo" data-testid="field">
+            <Label data-testid="field-label">Where to?</Label>
+            <TextInput data-testid="text-input" />
+        </Field>
+    );
+
+    await waitFor(() => expect(getByTestId("field")).toHaveAttribute("id", "foo"));
+});
+
 test("when an id is provided, it is assigned to the input", async () => {
     const { getByTestId } = render(
         <Field id="foo">

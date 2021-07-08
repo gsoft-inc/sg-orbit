@@ -265,6 +265,7 @@ export function InnerDialog({
                     {...mergeProps(
                         rest,
                         {
+                            id: dialogId,
                             className: cssModule(
                                 "o-ui-dialog",
                                 size === "fullscreen" ? size : normalizeSize(size)

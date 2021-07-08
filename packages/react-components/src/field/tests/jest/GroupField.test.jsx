@@ -5,6 +5,21 @@ import { render, waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
+test("when an id is provided, the group field id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <GroupField id="foo" data-testid="field">
+            <Label data-testid="field-label">Your favorite galaxy?</Label>
+            <CheckboxGroup>
+                <Checkbox value="milky-way" >Milky Way</Checkbox>
+                <Checkbox value="andromeda">Andromeda</Checkbox>
+                <Checkbox value="medusa">Medusa</Checkbox>
+            </CheckboxGroup>
+        </GroupField>
+    );
+
+    await waitFor(() => expect(getByTestId("field")).toHaveAttribute("id", "foo"));
+});
+
 test("when the id is auto generated, the group field aria-labelledby attribute match the label id", async () => {
     const { getByTestId } = render(
         <GroupField data-testid="field">
