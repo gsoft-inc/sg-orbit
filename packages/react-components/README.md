@@ -222,6 +222,10 @@ function MyComponent({ className, children ...rest }) {
 }
 ```
 
+#### Slots
+
+All "slotable" components should accept an optionnal slot property.
+
 #### As prop
 
 A component should always accept an `as` prop and apply it to the root element of the component. The `as` prop allow the consumer to specify the type of the element to render. A default value should always be provided.

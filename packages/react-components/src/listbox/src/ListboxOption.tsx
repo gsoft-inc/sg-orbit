@@ -104,13 +104,13 @@ export function InnerListboxOption({
         icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(slotElements.description) ? "sm" : "md"
+                size: isNil(slotElements.description) ? "sm" : "lg"
             };
         },
         avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
-                size: isNil(slotElements.description) ? "2xs" : "sm"
+                size: isNil(slotElements.description) ? "2xs" : "md"
             };
         },
         text: {

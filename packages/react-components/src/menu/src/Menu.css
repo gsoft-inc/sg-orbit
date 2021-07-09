@@ -1,6 +1,5 @@
 /*
-IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or rename them:
-    - Properties: "--o-ui-menu-border-size" and "--o-ui-menu-item-height"
+IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrollable size, do not remove or rename them:
     - Classes: "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider"
 */
 
@@ -57,6 +56,10 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
     margin-right: var(--o-ui-global-scale-alpha);
     grid-row-start: 1;
     grid-row-end: 3;
+}
+
+.o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
+    margin-right: var(--o-ui-global-scale-bravo);
 }
 
 /* ITEM | ICON | END  */

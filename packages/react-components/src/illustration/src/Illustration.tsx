@@ -23,6 +23,10 @@ export interface InnerIllustrationProps {
      */
     as?: ElementType;
     /**
+     * Default slot override.
+     */
+    slot?: string;
+    /**
      * React children.
      */
     children: ReactNode;

@@ -68,13 +68,13 @@ export function InnerMenuItem({
         icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-menu-item-start-icon",
-                size: isNil(slotElements.description) ? "sm" : "md"
+                size: isNil(slotElements.description) ? "sm" : "lg"
             };
         },
         avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-menu-item-option-avatar",
-                size: isNil(slotElements.description) ? "2xs" : "sm"
+                size: isNil(slotElements.description) ? "2xs" : "md"
             };
         },
         text: {

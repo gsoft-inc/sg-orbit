@@ -6,18 +6,6 @@ import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
-/*
-Behaviors
-- clicking on the dismiss button close the dialog (move to trigger test)
-
-Api
-- call onOpenChange when the dismiss button is clicked (move to trigger test)
-
-Ref
-- classic refs
-
-*/
-
 // ***** Behaviors *****
 
 test("when an element is manually autofocus, keep the focus on this element", async () => {
