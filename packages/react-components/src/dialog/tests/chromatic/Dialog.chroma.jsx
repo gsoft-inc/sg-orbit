@@ -28,7 +28,7 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("with text header", () =>
+    .add("text header", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Header>02 December 2020</Header>
@@ -39,7 +39,7 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("with link header", () =>
+    .add("link header", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Header>
@@ -52,7 +52,7 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("with text footer", () =>
+    .add("text footer", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -63,7 +63,7 @@ stories()
             <Footer>02 December 2020</Footer>
         </Dialog>
     )
-    .add("with link footer", () =>
+    .add("link footer", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -76,7 +76,7 @@ stories()
             </Footer>
         </Dialog>
     )
-    .add("with button", () =>
+    .add("button", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -87,7 +87,7 @@ stories()
             <Button>Close</Button>
         </Dialog>
     )
-    .add("with button group", () =>
+    .add("button group", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -101,7 +101,7 @@ stories()
             </ButtonGroup>
         </Dialog>
     )
-    .add("with footer & button group", () =>
+    .add("footer & button group", () =>
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -116,7 +116,7 @@ stories()
             </ButtonGroup>
         </Dialog>
     )
-    .add("with illustration", () =>
+    .add("illustration", () =>
         <Dialog>
             <Illustration>
                 <Image src={Nasa} alt="NASA" width="200px" />
@@ -129,7 +129,7 @@ stories()
             </Content>
         </Dialog>
     )
-    .add("with illustration having a background color", () =>
+    .add("illustration having a background color", () =>
         <Dialog>
             <Illustration color="sunray-50">
                 <Image src={Nasa} alt="NASA" width="200px" />
@@ -316,44 +316,6 @@ stories()
                 <Paragraph>Proin hendrerit volutpat diam, at cursus elit euismod ac. Donec in enim quis diam fermentum auctor. Suspendisse dignissim eros quis consectetur mattis. Vestibulum vel hendrerit libero. Vestibulum auctor nisl a ligula accumsan pharetra. Morbi blandit tristique est ac pulvinar. Vestibulum ornare, nulla a elementum facilisis, erat justo tristique tortor, eget rutrum nisi tortor id sapien. Morbi mattis semper urna vitae ornare.</Paragraph>
                 <Paragraph>Donec ut purus tempus, eleifend lacus sit amet, varius tellus. Aliquam sed fringilla enim. Suspendisse luctus neque volutpat justo finibus, id auctor purus pellentesque. Fusce vulputate commodo enim ut consequat. Sed elit justo, feugiat ac augue a, rhoncus imperdiet nulla. Maecenas rutrum nulla non massa elementum, sit amet volutpat ex dignissim. Duis vulputate turpis a nisi dictum, a finibus erat feugiat. Donec mollis tristique neque at commodo. Suspendisse quis lacus in erat gravida iaculis et a nisi.</Paragraph>
             </Content>
-        </Dialog>
-    )
-    .add("(MOVE TO JEST) autofocus with focusable element", () =>
-        <Dialog>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
-            <Content>
-                <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
-                <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
-                <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
-            </Content>
-            <ButtonGroup>
-                <Button>Close</Button>
-                <Button color="primary">Next</Button>
-            </ButtonGroup>
-        </Dialog>
-    )
-    .add("(MOVE TO JEST) autofocus without any focusable element", () =>
-        <Dialog>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
-            <Content>
-                <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
-                <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
-                <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
-            </Content>
-        </Dialog>
-    )
-    .add("(MOVE TO JEST) manual focus", () =>
-        <Dialog>
-            <Heading>Iconic Arecibo Observatory collapses</Heading>
-            <Content>
-                <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
-                <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
-                <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
-            </Content>
-            <ButtonGroup>
-                <Button>Close</Button>
-                <Button autoFocus color="primary">Next</Button>
-            </ButtonGroup>
         </Dialog>
     )
     .add("wrapper className", () =>

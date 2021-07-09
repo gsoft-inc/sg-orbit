@@ -1,16 +1,15 @@
 import "./Card.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Content } from "../../placeholders";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
 import { Text } from "../../text";
-import { cssModule, forwardRef, mergeProps, slot, useSlots } from "../../shared";
-
-/*
-TODO: Add sizes support
-*/
+import { cssModule, forwardRef, isString, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {
+    /**
+     * The orientation of the card.
+     */
+    orientation: "horizontal" | "vertical";
     /**
      * Whether or not the card take up the width of its container.
      */
@@ -34,22 +33,26 @@ export interface InnerCardProps {
 }
 
 export function InnerCard({
+    orientation = "vertical",
     fluid,
-    as = "div",
+    as = "section",
     children,
     forwardedRef,
     ...rest
 }: InnerCardProps) {
-    const { image, heading, content, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { image, heading, header, content, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
-            defaultWrapper: Content
+            required: ["heading", "content"]
         },
         image: {
             className: "o-ui-card-image"
         },
         heading: {
             className: "o-ui-card-heading",
-            as: "h4"
+            as: "h5"
+        },
+        header: {
+            className: "o-ui-card-header"
         },
         content: {
             className: "o-ui-card-content",
@@ -63,6 +66,10 @@ export function InnerCard({
         }
     }), []));
 
+    const headerMarkup = isString(header?.props?.children)
+        ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
+        : header;
+
     return (
         <Box
             {...mergeProps(
@@ -70,6 +77,7 @@ export function InnerCard({
                 {
                     className: cssModule(
                         "o-ui-card",
+                        orientation,
                         fluid && "fluid"
                     ),
                     as,
@@ -79,6 +87,7 @@ export function InnerCard({
         >
             {image}
             {heading}
+            {headerMarkup}
             {content}
             {button}
             {buttonGroup}

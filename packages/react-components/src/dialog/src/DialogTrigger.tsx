@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
@@ -54,7 +54,7 @@ export function InnerDialogTrigger({
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const dialogRef = useMergedRefs(forwardedRef);
+    const dialogRef = useRef();
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         setIsOpen(newValue);
@@ -119,7 +119,8 @@ export function InnerDialogTrigger({
                     {
                         show: isOpen,
                         zIndex,
-                        as
+                        as,
+                        ref: forwardedRef
                     },
                     overlayDismissProps
                 )}

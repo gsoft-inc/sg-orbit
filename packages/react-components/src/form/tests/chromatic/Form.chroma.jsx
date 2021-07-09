@@ -101,7 +101,7 @@ stories()
             </Form>
         </Inline>
     )
-    .add("with nested div", () =>
+    .add("nested div", () =>
         <Form>
             <Field>
                 <Label>FullName</Label>
@@ -123,7 +123,7 @@ stories()
             <Button>Submit</Button>
         </Form>
     )
-    .add("with group field", () =>
+    .add("group field", () =>
         <Form>
             <Field>
                 <Label>FullName</Label>
