@@ -1,7 +1,7 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
-import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 
 export interface InnerDialogTriggerProps {
     /**

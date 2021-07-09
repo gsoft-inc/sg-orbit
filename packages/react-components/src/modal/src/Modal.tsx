@@ -106,7 +106,9 @@ export function InnerModal({
         illustration: null,
         heading: null,
         header: null,
-        content: null,
+        content: {
+            className: "o-ui-modal-content"
+        },
         footer: null,
         button: null,
         "button-group": null
