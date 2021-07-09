@@ -45,10 +45,10 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
-    padding-top: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
+    align-content: center;
 }
 
 /* OPTION | DESCRIPTION */
