@@ -27,7 +27,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item {
     min-height: var(--o-ui-menu-item-height);
     list-style: none;
-    padding-right: var(--o-ui-global-scale-hotel);
+    padding-right: var(--o-ui-global-scale-echo);
     padding-left: var(--o-ui-global-scale-charlie);
     margin: 0;
     display: flex;
@@ -56,6 +56,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     margin-right: var(--o-ui-global-scale-alpha);
     grid-row-start: 1;
     grid-row-end: 3;
+    align-self: start;
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
@@ -182,4 +183,5 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-global-scale-bravo);
     grid-area: aside;
+    align-self: start;
 }
