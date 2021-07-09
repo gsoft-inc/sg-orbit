@@ -7,8 +7,7 @@ import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
 
-// Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
-beforeEach(() => {
+beforeAll(() => {
     Transition.disableAnimation = true;
 });
 
