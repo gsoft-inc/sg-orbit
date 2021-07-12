@@ -178,9 +178,7 @@ export function InnerDialog({
         _: {
             required: ["heading", "content"]
         },
-        image: {
-            className: "o-ui-dialog-image"
-        },
+        image: null,
         illustration: {
             orientation: "vertical",
             className: "o-ui-dialog-illustration"
@@ -212,6 +210,12 @@ export function InnerDialog({
     }), [dialogId]));
 
     const headingId = heading?.props?.id;
+
+    const imageMarkup = image && (
+        <Box className="o-ui-dialog-image">
+            {image}
+        </Box>
+    );
 
     const headerMarkup = isString(header?.props?.children)
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
@@ -286,7 +290,7 @@ export function InnerDialog({
                     )}
                 >
                     {dismissButtonMarkup}
-                    {image}
+                    {imageMarkup}
                     {illustration}
                     <Box className="o-ui-dialog-aside">
                         {headerSectionMarkup}

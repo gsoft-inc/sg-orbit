@@ -82,8 +82,9 @@
 }
 
 .o-ui-dialog-image {
-    /* The important have been temporary added because of Tachyon */
-    max-width: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* DIALOG | HEADER SECTION */
