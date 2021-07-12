@@ -48,18 +48,16 @@ A modal must have an heading and a content.
     </Story>
 </Preview>
 
-### Illustration
+### Image
 
-A modal can have an [illustration](?path=/docs/illustration--horizontal) which takes all the space available:
+A modal can have an [image](?path=/story/chromatic-image--default):
 
 <Preview scope={{ Apollo11Poster }}>
     <Story name="illustration full page">
         <ModalTrigger>
             <Button>Open</Button>
             <Modal>
-                <Illustration>
-                    <Image src={Apollo11Poster} alt="Apollo 11 poster" />
-                </Illustration>
+                <Image src={Apollo11Poster} alt="Apollo 11 poster" />
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
                     <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
@@ -80,10 +78,10 @@ Or a centered [illustration](?path=/docs/illustration--horizontal) with a backgr
                 <Illustration color="#fff">
                     <Image src={Apollo11Badge} alt="Apollo 11 poster" width="225px" />
                 </Illustration>
-                <Heading>Apollo 11 movie</Heading>
+                <Heading>Apollo 11</Heading>
                 <Content>
-                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
-                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                    <Paragraph>Apollo 11 was the spaceflight that first landed humans on the Moon. Commander Neil Armstrong and lunar module pilot Buzz Aldrin formed the American crew that landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC.</Paragraph>
+                    <Paragraph>Armstrong became the first person to step onto the lunar surface six hours and 39 minutes later on July 21 at 02:56 UTC; Aldrin joined him 19 minutes later. They spent about two and a quarter hours together outside the spacecraft, and collected 47.5 pounds (21.5 kg) of lunar material to bring back to Earth. Command module pilot Michael Collins flew the Command Module Columbia alone in lunar orbit while they were on the Moon's surface. Armstrong and Aldrin spent 21 hours, 36 minutes on the lunar surface, at a site they had named Tranquility Base upon landing, before lifting off to rejoin Columbia in lunar orbit.</Paragraph>
                 </Content>
             </Modal>
         </ModalTrigger>

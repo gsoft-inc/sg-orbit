@@ -23,7 +23,7 @@
     background-color: var(--o-ui-alias-background-1);
     border-radius: var(--o-ui-shape-rounded);
     display: grid;
-    grid-template-areas: "illustration aside";
+    grid-template-areas: "image aside";
     grid-template-columns: min-content auto;
 }
 
@@ -72,12 +72,18 @@
     min-height: calc(100% - (2 * var(--o-ui-global-scale-hotel)));
 }
 
-/* DIALOG | ILLUSTRATION */
+/* DIALOG | IMAGE & ILLUSTRATION */
+.o-ui-dialog-image,
 .o-ui-dialog-illustration {
     width: 256px;
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
-    grid-area: illustration;
+    grid-area: image;
+}
+
+.o-ui-dialog-image {
+    /* The important have been temporary added because of Tachyon */
+    max-width: none !important;
 }
 
 /* DIALOG | HEADER SECTION */
@@ -117,7 +123,6 @@
 
 /* DIALOG | FOOTER SECTION | FOOTER */
 .o-ui-dialog-footer {
-    grid-area: footer;
     align-self: center;
 }
 
