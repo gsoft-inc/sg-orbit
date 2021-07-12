@@ -56,11 +56,11 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     margin-right: var(--o-ui-global-scale-alpha);
     grid-row-start: 1;
     grid-row-end: 3;
-    align-self: start;
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
     margin-right: var(--o-ui-global-scale-bravo);
+    align-self: start;
 }
 
 /* ITEM | ICON | END  */

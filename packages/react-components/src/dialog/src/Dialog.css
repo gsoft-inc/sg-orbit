@@ -52,6 +52,8 @@
     padding: var(--o-ui-global-scale-india);
     grid-area: aside;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* DIALOG | SIZES */
@@ -112,7 +114,8 @@
 .o-ui-dialog-footer-section {
     display: flex;
     justify-content: space-between;
-    margin-top: var(--o-ui-global-scale-foxtrot);
+    padding-top: var(--o-ui-global-scale-foxtrot);
+    margin-top: auto;
 }
 
 /* DIALOG | FOOTER SECTION | FOOTER */
