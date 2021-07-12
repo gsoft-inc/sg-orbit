@@ -197,22 +197,6 @@ The example below illustrates how one would validate if the user has checked all
 
 <Preview filePath="/checkbox/docs/AllCheckedValidation" />
 
-### Toggle buttons
-
-In somes cases, you might want a group of toggle buttons to behave like a checkbox group.
-
-<Preview>
-    <Story name="toggle buttons">
-        <CheckboxGroup gap={2}>
-            <ToggleButton value="none" variant="outline">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
-            <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
-            <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
-        </CheckboxGroup>
-    </Story>
-</Preview>
-
 ### Custom components
 
 Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckableProps` hook.

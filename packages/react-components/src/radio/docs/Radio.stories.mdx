@@ -170,22 +170,6 @@ The example below illustrates how one would validate if a specific value of the 
 
 <Preview filePath="/radio/docs/ValueSelectedValidation" />
 
-### Toggle buttons
-
-In somes cases, you might want a group of toggle buttons to behave like a radio group.
-
-<Preview>
-    <Story name="toggle buttons">
-        <RadioGroup gap={2} orientation="horizontal">
-            <ToggleButton value="none" variant="outline">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
-            <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
-            <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
-        </RadioGroup>
-    </Story>
-</Preview>
-
 ### Custom components
 
 Any component implementing the `CheckableContext` can behave like a radio group. This is usually done by using the `useCheckableProps` hook.
