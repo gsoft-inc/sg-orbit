@@ -110,6 +110,17 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     ];
 }
 
+function isElementInViewport(element: HTMLElement) {
+    const clientRect = element.getBoundingClientRect();
+
+    return (
+        clientRect.top >= 0 &&
+        clientRect.left >= 0 &&
+        clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        clientRect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
 export function InnerDialog({
     id,
     role = "dialog",
@@ -156,6 +167,10 @@ export function InnerDialog({
 
             // Do not autofocus a link.
             if (element?.tagName === "A") {
+                return false;
+            }
+
+            if (!isElementInViewport(element)) {
                 return false;
             }
 
