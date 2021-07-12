@@ -1,0 +1,217 @@
+import { Alert, AlertTrigger, InnerAlert } from "@react-components/alert";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Box } from "@react-components/box";
+import { Button } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, InnerContent } from "@react-components/placeholders";
+import { Heading, InnerHeading } from "@react-components/heading";
+import { Inline } from "@react-components/layout";
+import { Text } from "@react-components/text";
+
+<Meta
+    title="Components/Alert"
+    id="alert"
+/>
+
+# Alert
+
+<Tagline>An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.</Tagline>
+
+<ComponentInfo
+    usage={"import { Alert, Heading, Content, useAlertTriggerContext } from \"@orbit-ui/react-components\";"}
+    ariaPath="#alertdialog"
+    githubPath="/packages/react-components/src/alert/src"
+/>
+
+## Usage
+
+### Default
+
+An alert must have an heading, some content and a primary button label.
+
+<Preview>
+    <Story name="default">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert primaryButtonLabel="Yes">
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Secondary button
+
+An alert can have a secondary button.
+
+<Preview>
+    <Story name="secondary button">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                secondaryButtonLabel="Postpone"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Cancel button
+
+An alert can have a cancel button.
+
+<Preview>
+    <Story name="cancel button">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Disabled buttons
+
+An alert primary and secondary buttons can be disabled.
+
+<Preview>
+    <Story name="disabled buttons">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                primaryButtonDisabled
+                secondaryButtonLabel="Postpone"
+                secondaryButtonDisabled
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Confirmation
+
+Use a confirmation alert when a non destructive action is required from a user.
+
+<Preview>
+    <Story name="confirmation">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="confirmation"
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Destructive
+
+Use a destructive alert to confirm a permanent change, like deleting data.
+
+<Preview>
+    <Story name="destructive">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="destructive"
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Eject</Heading>
+                <Content>Are you use you want to eject?</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Warning
+
+Use a warning alert to inform of a significant change.
+
+<Preview>
+    <Story name="warning">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="warning"
+                primaryButtonLabel="Ok"
+                secondaryButtonLabel="Diagnose"
+            >
+                <Heading>Low carburant</Heading>
+                <Content>The space shuttle will be out of carburant in an hour.</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Negative
+
+Use a negative alert to inform that something went wrong, like a server error.
+
+<Preview>
+    <Story name="negative">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="negative"
+                primaryButtonLabel="Retry"
+                cancelButtonLabel="Cancel"
+            >
+                <Heading>Network error</Heading>
+                <Content>Something went wrong while connecting to the network. Please try again in a few minutes.</Content>
+            </Alert>
+        </AlertTrigger>
+    </Story>
+</Preview>
+
+### Controlled
+
+The `open` state can be handled in controlled mode.
+
+<Preview filePath="/alert/docs/ControlledAlert" />
+
+## API
+
+### Alert
+
+<ComponentInfo
+    usage={"import { Alert } from \"@orbit-ui/react-components\";"}
+    slots={["heading", "content"]}
+    compact
+/>
+
+<ArgsTable of={InnerAlert} sort="alpha" />
+
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />
