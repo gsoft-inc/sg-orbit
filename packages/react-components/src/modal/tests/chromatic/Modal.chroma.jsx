@@ -16,13 +16,6 @@ function stories(segment) {
         .build();
 }
 
-/*
-TRIGGER JEST TESTS:
-- pass dismissable to both trigger & dialog
-- close function
-- context
-*/
-
 stories()
     .add("default", () =>
         <Modal>
