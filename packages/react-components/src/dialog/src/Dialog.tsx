@@ -174,9 +174,12 @@ export function InnerDialog({
 
     const dialogId = useId(id, "o-ui-dialog");
 
-    const { illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
+        },
+        image: {
+            className: "o-ui-dialog-image"
         },
         illustration: {
             orientation: "vertical",
@@ -283,6 +286,7 @@ export function InnerDialog({
                     )}
                 >
                     {dismissButtonMarkup}
+                    {image}
                     {illustration}
                     <Box className="o-ui-dialog-aside">
                         {headerSectionMarkup}

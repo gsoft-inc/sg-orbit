@@ -99,10 +99,11 @@ export function InnerModal({
     forwardedRef,
     ...rest
 }: InnerModalProps) {
-    const { illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
+        image: null,
         illustration: null,
         heading: null,
         header: null,
@@ -117,7 +118,7 @@ export function InnerModal({
     const { hasCards, contentMarkup } = useModalContentMarkup(content);
 
     const size = useMemo(() => {
-        if (!isNil(illustration)) {
+        if (!isNil(image) || !isNil(illustration)) {
             return "md";
         }
 
@@ -126,7 +127,7 @@ export function InnerModal({
         }
 
         return fullscreen ? "fullscreen" : "sm";
-    }, [fullscreen, illustration, hasCards]);
+    }, [fullscreen, image, illustration, hasCards]);
 
     return (
         <Dialog
@@ -140,6 +141,7 @@ export function InnerModal({
                 }
             )}
         >
+            {image}
             {illustration}
             {heading}
             {header}
