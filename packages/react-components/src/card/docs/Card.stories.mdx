@@ -1,0 +1,113 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Card, InnerCard } from "@react-components/card";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
+import { Heading, InnerHeading } from "@react-components/heading";
+
+<Meta
+    title="Components/Card"
+    id="card"
+/>
+
+# Alert
+
+<Tagline>An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.</Tagline>
+
+<ComponentInfo
+    usage={"import { Card, Heading, Header, Content } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/card/src"
+/>
+
+## Usage
+
+### Default
+
+A modal must have an heading and a content.
+
+<Preview>
+    <Story name="default">
+        <Card>
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Image
+
+A card can have an [image](?path=/story/chromatic-image--default):
+
+-ADD_STORY-
+
+Or a centered [illustration](?path=/docs/illustration--horizontal) with a background color:
+
+-ADD_STORY-
+
+### Header
+
+A card can have an header.
+
+-ADD_STORY-
+
+### Buttons
+
+A card can have a single button:
+
+-ADD_STORY-
+
+Or a group of buttons:
+
+-ADD_STORY-
+
+### Orientation
+
+A card can render horizontally.
+
+-ADD_STORY-
+
+### Fluid
+
+A card can take the width of its container.
+
+-ADD_STORY-
+
+## API
+
+### Card
+
+<ComponentInfo
+    usage={"import { Card } from \"@orbit-ui/react-components\";"}
+    slots={["image", "illustration", "heading", "header", "content", "button", "button-group"]}
+    compact
+/>
+
+<ArgsTable of={InnerCard} sort="alpha" />
+
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} sort="alpha" />
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />
+
+
