@@ -48,6 +48,7 @@ export function InnerCard({
             className: "o-ui-card-image"
         },
         illustration: {
+            orientation,
             className: "o-ui-card-illustration"
         },
         heading: {
