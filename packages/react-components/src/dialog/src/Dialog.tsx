@@ -201,8 +201,8 @@ export function InnerDialog({
         heading: {
             id: `${dialogId}-heading`,
             className: "o-ui-dialog-heading",
-            as: "h3",
-            size: "sm"
+            size: "sm",
+            as: "h3"
         },
         header: {
             className: "o-ui-dialog-header",

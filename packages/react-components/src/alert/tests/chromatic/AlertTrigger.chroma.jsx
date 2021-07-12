@@ -25,7 +25,7 @@ stories()
             </Alert>
         </AlertTrigger>
     )
-    .add("open", () =>
+    .add("default open", () =>
         <AlertTrigger defaultOpen>
             <Button>Open</Button>
             <Alert primaryButtonLabel="Yes">

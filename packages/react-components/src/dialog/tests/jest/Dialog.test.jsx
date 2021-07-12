@@ -37,7 +37,7 @@ test("when no element is focused, autofocus the first focusable element", async 
     await waitFor(() => expect(getByTestId("focusable-element")).toHaveFocus());
 });
 
-test("when no element is focused and there are no focusablement element, autofocus the dialog element", async () => {
+test("when no element is focused and there are no focusable element, autofocus the dialog element", async () => {
     const { getByTestId } = render(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>

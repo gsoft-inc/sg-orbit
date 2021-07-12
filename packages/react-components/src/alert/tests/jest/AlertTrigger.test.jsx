@@ -2,8 +2,36 @@ import { Alert, AlertTrigger } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
+import { act } from "@testing-library/react-hooks";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+// ***** Behaviors *****
+
+test("do not dismiss on outside click", async () => {
+    const { getByTestId } = render(
+        <AlertTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Alert data-testid="alert">
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+});
 
 // ***** Refs *****
 
