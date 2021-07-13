@@ -1,8 +1,11 @@
+import { Apollo11Banner, Nasa } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Content, InnerContent, InnerHeader } from "@react-components/placeholders";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading } from "@react-components/typography";
+import { Illustration } from "@react-components/illustration";
 
 <Meta
     title="Components/Card"
@@ -37,39 +40,100 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
--ADD_STORY-
+<Preview scope={{ Apollo11Banner }}>
+    <Story name="image">
+        <Card style={{ "width": "300px" }}>
+            <Image src={Apollo11Banner} alt="Appolo 11 Banner" />
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
 
 Or a centered [illustration](?path=/docs/illustration--horizontal) with a background color:
 
--ADD_STORY-
+<Preview scope={{ Nasa }}>
+    <Story name="illustration">
+        <Card >
+            <Illustration color="sunray-50">
+                <Image src={Nasa} alt="NASA" width="100px" />
+            </Illustration>
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
 
 ### Header
 
 A card can have an header.
 
--ADD_STORY-
+<Preview>
+    <Story name="header">
+        <Card>
+            <Heading>Nasa</Heading>
+            <Header>2021/01/01</Header>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
 
 ### Buttons
 
 A card can have a single [button](?path=/docs/button--default-story):
 
--ADD_STORY-
+<Preview>
+    <Story name="button">
+        <Card>
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Button>Visit</Button>
+        </Card>
+    </Story>
+</Preview>
 
 Or a [group of button](?path=/docs/button--default-story#button-group):
 
--ADD_STORY-
+<Preview>
+    <Story name="buttons">
+        <Card >
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <ButtonGroup>
+                <Button>Next</Button>
+                <Button>Visit</Button>
+            </ButtonGroup>
+        </Card>
+    </Story>
+</Preview>
 
 ### Orientation
 
 A card can render horizontally.
 
--ADD_STORY-
+<Preview>
+    <Story name="horizontal">
+        <Card orientation="horizontal">
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
 
 ### Fluid
 
 A card can take the width of its container.
 
--ADD_STORY-
+<Preview>
+    <Story name="fluid">
+        <div style={{ "width": "450px" }}>
+            <Card fluid>
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            </Card>
+        </div>
+    </Story>
+</Preview>
 
 ## API
 

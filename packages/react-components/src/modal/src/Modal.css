@@ -1,5 +1,7 @@
 /* CHOICE */
 .o-ui-modal-choice-container {
-    display: flex;
-    align-items: center;
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--o-ui-global-scale-golf);
 }
