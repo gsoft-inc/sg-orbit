@@ -1,5 +1,5 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { forwardRef, mergeProps } from "../../shared";
 
 export interface InnerListItemProps {

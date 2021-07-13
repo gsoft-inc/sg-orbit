@@ -5,7 +5,7 @@ import { CollectionItem as CollectionItemAliasForDocumentation } from "../../col
 import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useListboxContext } from "./ListboxContext";
 

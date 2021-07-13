@@ -5,7 +5,7 @@ import { Counter } from "@react-components/counter";
 import { InfoIcon } from "@react-components/icons";
 import { Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { augmentElement } from "@react-components/shared";
 import { cloneElement } from "react";
 

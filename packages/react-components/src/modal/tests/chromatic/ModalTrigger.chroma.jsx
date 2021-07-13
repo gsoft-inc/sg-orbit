@@ -1,8 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Modal, ModalTrigger } from "@react-components/modal";
-import { Paragraph } from "@react-components/paragraph";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

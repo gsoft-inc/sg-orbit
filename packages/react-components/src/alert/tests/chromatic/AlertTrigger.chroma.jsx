@@ -1,7 +1,7 @@
 import { Alert, AlertTrigger } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -9,11 +9,6 @@ function stories(segment) {
         .segment(segment)
         .build();
 }
-
-/*
-JEST TRIGGER TESTS
-- cannot dismiss on outside click
-*/
 
 stories()
     .add("default", () =>

@@ -6,7 +6,7 @@ import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";

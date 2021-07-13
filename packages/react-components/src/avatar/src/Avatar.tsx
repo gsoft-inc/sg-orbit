@@ -3,7 +3,7 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { createSizeAdapter, cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot } from "../../shared";
 
 export interface InnerAvatarProps {

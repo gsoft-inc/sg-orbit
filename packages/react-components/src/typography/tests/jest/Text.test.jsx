@@ -1,4 +1,4 @@
-import { Paragraph } from "@react-components/paragraph";
+import { Text } from "@react-components/typography";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -8,41 +8,41 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Paragraph ref={ref}>Body</Paragraph>
+        <Text ref={ref}>Text</Text>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("P");
+    expect(ref.current.tagName).toBe("SPAN");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode = null;
 
     render(
-        <Paragraph
+        <Text
             ref={node => {
                 refNode = node;
             }}
         >
-            Body
-        </Paragraph>
+            Text
+        </Text>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
     expect(refNode instanceof HTMLElement).toBeTruthy();
-    expect(refNode.tagName).toBe("P");
+    expect(refNode.tagName).toBe("SPAN");
 });
 
 test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Paragraph ref={handler}>
-            Body
-        </Paragraph>
+        <Text ref={handler}>
+            Text
+        </Text>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

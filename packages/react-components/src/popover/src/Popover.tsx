@@ -17,7 +17,7 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useCallback, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 export interface InnerPopoverProps extends DomProps, AriaLabelingProps {

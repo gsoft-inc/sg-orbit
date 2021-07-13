@@ -3,7 +3,7 @@ import "./Disclosure.css";
 import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import { DomProps, Keys, augmentElement, cssModule, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
 export interface InnerDisclosureProps extends DomProps {

@@ -1,7 +1,7 @@
 import { Alert, AlertTrigger } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { act } from "@testing-library/react-hooks";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";

@@ -1,4 +1,4 @@
-import { H1, H2, H3, H4, H5, H6, Heading } from "@react-components/heading";
+import { H1, H2, H3, H4, H5, H6, Heading } from "@react-components/typography";
 import { Inline, Stack } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 

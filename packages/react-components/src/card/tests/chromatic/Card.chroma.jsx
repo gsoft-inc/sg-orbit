@@ -1,6 +1,6 @@
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Inline } from "@react-components/layout";
 import { createTestSuite } from "./createTestSuite";
 import { storiesOfBuilder } from "@stories/utils";

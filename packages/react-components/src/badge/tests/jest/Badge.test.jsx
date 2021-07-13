@@ -1,5 +1,5 @@
 import { Badge } from "@react-components/badge";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { createRef } from "react";
 import { forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";

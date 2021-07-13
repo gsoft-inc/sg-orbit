@@ -18,7 +18,7 @@ import {
     useForwardInputApi,
     useSlots
 } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 
 export interface InnerRadioProps extends InteractionStatesProps {

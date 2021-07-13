@@ -1,7 +1,7 @@
 import { Item, Section } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { Listbox } from "@react-components/listbox";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";

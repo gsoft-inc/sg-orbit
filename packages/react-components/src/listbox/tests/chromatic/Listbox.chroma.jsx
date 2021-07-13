@@ -4,7 +4,7 @@ import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon }
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Listbox, ListboxOption } from "@react-components/listbox";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useListboxContext } from "@react-components/listbox";
 

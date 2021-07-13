@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Content, Footer } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Popover } from "@react-components/popover";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";

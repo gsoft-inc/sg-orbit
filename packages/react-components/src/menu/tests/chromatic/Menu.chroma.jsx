@@ -5,7 +5,7 @@ import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/ico
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Menu, MenuItem } from "@react-components/menu";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

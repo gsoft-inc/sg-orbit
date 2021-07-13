@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { augmentElement, forwardRef, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";

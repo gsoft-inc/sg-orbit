@@ -1,7 +1,7 @@
 import { Counter } from "@react-components/counter";
 import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 
 function Button({ element, ...rest }) {

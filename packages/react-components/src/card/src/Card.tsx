@@ -2,7 +2,7 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { cssModule, forwardRef, isString, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {

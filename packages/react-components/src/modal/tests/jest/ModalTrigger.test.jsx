@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Modal, ModalTrigger } from "@react-components/modal";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";

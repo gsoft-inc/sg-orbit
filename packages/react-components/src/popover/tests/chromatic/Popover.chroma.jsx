@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Footer } from "@react-components/placeholders";
 import { Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
 import { Popover } from "@react-components/popover";

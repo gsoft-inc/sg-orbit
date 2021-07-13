@@ -23,7 +23,7 @@ import {
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 

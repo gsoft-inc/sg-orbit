@@ -3,11 +3,10 @@ import { ButtonGroup } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Dialog } from "@react-components/dialog";
 import { Footer, Header } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components";
 import { Nasa } from "./assets";
-import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 

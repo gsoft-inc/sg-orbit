@@ -2,7 +2,7 @@ import "./MotionPreview.css";
 
 import { Button } from "@react-components/button";
 import { Field, Label } from "@react-components/field";
-import { H4 } from "@react-components/heading";
+import { H4 } from "@react-components/typography";
 import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Select } from "@react-components/select";

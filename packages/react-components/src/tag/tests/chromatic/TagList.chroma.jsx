@@ -4,7 +4,7 @@ import { HelpIcon, LightbulbIcon, NotificationIcon } from "@react-components/ico
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { TagList } from "@react-components/tag";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

@@ -1,8 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Dialog, DialogTrigger } from "@react-components/dialog";
-import { Heading } from "@react-components/heading";
-import { Paragraph } from "@react-components/paragraph";
+import { Heading, Paragraph } from "@react-components/typography";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

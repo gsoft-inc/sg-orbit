@@ -1,6 +1,6 @@
 import { Alert } from "@react-components/alert";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { createTestSuite } from "./createTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 

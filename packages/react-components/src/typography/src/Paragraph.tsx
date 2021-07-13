@@ -2,7 +2,7 @@ import "./Paragraph.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { StyleProvider, cssModule, forwardRef, mergeProps, normalizeSize, useStyleProps } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 
 export interface InnerParagraphProps {
     /**

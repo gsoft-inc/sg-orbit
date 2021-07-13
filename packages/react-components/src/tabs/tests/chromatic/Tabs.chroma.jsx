@@ -5,7 +5,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs, useTabsContext } from "@react-components/tabs";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
