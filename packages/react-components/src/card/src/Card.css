@@ -123,6 +123,8 @@
 .o-ui-card-horizontal .o-ui-card-illustration,
 .o-ui-card-horizontal .o-ui-card-image {
     grid-area: image;
+    border-bottom-left-radius: inherit;
+    border-top-left-radius: inherit;
 }
 
 /* IMAGE | VERTICAL */
@@ -132,4 +134,6 @@
     grid-column-end: 3;
     justify-self: center;
     width: 100%;
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
 }
