@@ -4,6 +4,7 @@ export * from "./Underlay";
 export * from "./useOverlayTrigger";
 export * from "./useOverlayPosition";
 export * from "./useOverlayLightDismiss";
+export * from "./useOverlayFocusRing";
 export * from "./useRestoreFocus";
 export * from "./useTrapFocus";
 export * from "./usePopup";

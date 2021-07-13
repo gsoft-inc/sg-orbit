@@ -27,7 +27,7 @@
     grid-template-columns: min-content auto;
 }
 
-.o-ui-dialog:focus-visible {
+/* .o-ui-dialog:focus-visible {
     outline: none;
 }
 
@@ -46,8 +46,9 @@
 
 .o-ui-dialog:focus-visible::before {
     opacity: 1;
-}
+} */
 
+/* DIALOG | ASIDE */
 .o-ui-dialog-aside {
     padding: var(--o-ui-global-scale-india);
     grid-area: aside;

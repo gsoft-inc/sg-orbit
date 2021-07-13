@@ -33,13 +33,13 @@ import {
     omitProps,
     useAutoFocus,
     useControllableState,
+    useDisposables,
     useEventCallback,
     useFocusWithin,
     useMergedRefs
 } from "../../shared";
 import { Item } from "../../collection";
 import { Menu, MenuTrigger } from "../../menu";
-import { useDisposables } from "../../../dist";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 

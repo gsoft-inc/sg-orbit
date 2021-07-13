@@ -90,7 +90,6 @@ export function useSelect(children: ReactNode, {
         hideOnEscape: true,
         hideOnLeave: true,
         restoreFocus: true,
-        autoFocus: false,
         trigger: "click",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
