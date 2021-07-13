@@ -26,7 +26,7 @@ stories()
             </Modal>
         </ModalTrigger>
     )
-    .add("open", () =>
+    .add("default open", () =>
         <ModalTrigger defaultOpen>
             <Button>Open</Button>
             <Modal>

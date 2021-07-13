@@ -5,350 +5,112 @@ import { Form } from "@react-components/form";
 import { Heading } from "@react-components/heading";
 import { Image } from "@react-components/image";
 import { Launch } from "./assets";
-import { Popover, PopoverTrigger, usePopoverTriggerContext } from "@react-components/popover";
+import { Popover } from "@react-components/popover";
 import { TextInput } from "@react-components/text-input";
+import { TextLink } from "@react-components/link";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Popover")
         .segment(segment)
         .parameters(paramsBuilder()
-            .canvasLayout({
-                padding: "150px 350px"
-            })
-            .chromaticDelay(100)
-            .chromaticPauseAnimationAtEnd()
             .build())
         .build();
 }
 
 stories()
     .add("default", () =>
-        <PopoverTrigger>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+        </Popover>
     )
-    .add("default open", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
+    .add("text footer", () =>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Footer>Step 2/4</Footer>
+        </Popover>
     )
-    .add("open on focus", () =>
-        <PopoverTrigger trigger="hover">
-            <Button autoFocus>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("footer", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Footer>Step 2/4</Footer>
-            </Popover>
-        </PopoverTrigger>
+    .add("link footer", () =>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Footer>
+                <TextLink href="https://www.google.com" external>Step 2/4</TextLink>
+            </Footer>
+        </Popover>
     )
     .add("button", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Button>Accept</Button>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Button>Accept</Button>
+        </Popover>
     )
     .add("button group", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <ButtonGroup>
-                    <Button color="secondary">Cancel</Button>
-                    <Button color="primary">Accept</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <ButtonGroup>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Accept</Button>
+            </ButtonGroup>
+        </Popover>
     )
     .add("all slots", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Footer>Step 2/4</Footer>
-                <ButtonGroup>
-                    <Button color="secondary">Cancel</Button>
-                    <Button color="primary">Accept</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Footer>Step 2/4</Footer>
+            <ButtonGroup>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Accept</Button>
+            </ButtonGroup>
+        </Popover>
     )
     .add("form", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>
-                    <Form fluid>
-                        <Field>
-                            <Label>First Name</Label>
-                            <TextInput name="first-name" />
-                        </Field>
-                        <Field>
-                            <Label>Last Name</Label>
-                            <TextInput name="last-name" />
-                        </Field>
-                    </Form>
-                </Content>
-                <ButtonGroup>
-                    <Button color="secondary">Cancel</Button>
-                    <Button color="primary">Save</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>
+                <Form fluid>
+                    <Field>
+                        <Label>First Name</Label>
+                        <TextInput name="first-name" />
+                    </Field>
+                    <Field>
+                        <Label>Last Name</Label>
+                        <TextInput name="last-name" />
+                    </Field>
+                </Form>
+            </Content>
+            <ButtonGroup>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Save</Button>
+            </ButtonGroup>
+        </Popover>
     )
     .add("image", () =>
-        <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>
-                    <Image src={Launch} alt="SpaceX launch" />
-                </Content>
-                <ButtonGroup>
-                    <Button color="secondary">Cancel</Button>
-                    <Button color="primary">Save</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
+        <Popover>
+            <Heading>Space News</Heading>
+            <Content>
+                <Image src={Launch} alt="SpaceX launch" />
+            </Content>
+            <ButtonGroup>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Save</Button>
+            </ButtonGroup>
+        </Popover>
     )
-    .add("position auto", () =>
-        <PopoverTrigger position="auto" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
+    .add("className", () =>
+        <Popover className="border-red">
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+        </Popover>
     )
-    .add("position auto-start", () =>
-        <PopoverTrigger position="auto-start" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position auto-end", () =>
-        <PopoverTrigger position="auto-end" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position top", () =>
-        <PopoverTrigger position="top" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position top-start", () =>
-        <PopoverTrigger position="top-start" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position top-end", () =>
-        <PopoverTrigger position="top-end" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position bottom", () =>
-        <PopoverTrigger position="bottom" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position bottom-start", () =>
-        <PopoverTrigger position="bottom-start" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position bottom-end", () =>
-        <PopoverTrigger position="bottom-end" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position right", () =>
-        <PopoverTrigger position="right" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position right-start", () =>
-        <PopoverTrigger position="right-start" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position right-end", () =>
-        <PopoverTrigger position="right-end" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position left", () =>
-        <PopoverTrigger position="left" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position left-start", () =>
-        <PopoverTrigger position="left-start" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("position left-end", () =>
-        <PopoverTrigger position="left-end" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("manual autofocus", () =>
-        <PopoverTrigger open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>
-                    <Form fluid>
-                        <Field>
-                            <Label>First Name</Label>
-                            <TextInput name="first-name" />
-                        </Field>
-                        <Field>
-                            <Label>Last Name</Label>
-                            <TextInput name="last-name" />
-                        </Field>
-                    </Form>
-                </Content>
-                <ButtonGroup>
-                    <Button autoFocus color="secondary">Cancel</Button>
-                    <Button color="primary">Save</Button>
-                </ButtonGroup>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("custom component", () => {
-        const PrimaryPopover = ({ children }) => {
-            const { isOpen } = usePopoverTriggerContext();
-
-            return (
-                <Popover style={isOpen ? { backgroundColor: "var(--o-ui-alias-primary-500)" } : undefined}>
-                    {children}
-                </Popover>
-            );
-        };
-
-        return (
-            <PopoverTrigger open>
-                <Button>Toggle</Button>
-                <PrimaryPopover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </PrimaryPopover>
-            </PopoverTrigger>
-        );
-    })
-    .add("popover trigger className", () =>
-        <PopoverTrigger className="border-red" open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("popover trigger style", () =>
-        <PopoverTrigger style={{ border: "1px solid red" }} open>
-            <Button>Toggle</Button>
-            <Popover>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("popover className", () =>
-        <PopoverTrigger open>
-            <Button>Toggle</Button>
-            <Popover className="border-red">
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    )
-    .add("popover style", () =>
-        <PopoverTrigger open>
-            <Button>Toggle</Button>
-            <Popover style={{ border: "1px solid red" }}>
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
+    .add("style", () =>
+        <Popover style={{ border: "1px solid red" }}>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+        </Popover>
     );

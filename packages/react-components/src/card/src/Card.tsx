@@ -69,7 +69,7 @@ export function InnerCard({
         "button-group": {
             className: "o-ui-card-button-group"
         }
-    }), []));
+    }), [orientation]));
 
     const headerMarkup = isString(header?.props?.children)
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })

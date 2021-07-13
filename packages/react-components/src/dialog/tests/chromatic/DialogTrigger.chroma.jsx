@@ -30,7 +30,7 @@ stories()
             </Dialog>
         </DialogTrigger>
     )
-    .add("open", () =>
+    .add("default open", () =>
         <DialogTrigger defaultOpen>
             <Button>Open</Button>
             <Dialog>

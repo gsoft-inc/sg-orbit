@@ -1,5 +1,5 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
-import { DomProps, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useAutoFocus, useMergedRefs } from "../../shared";
+import { DomProps, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
@@ -12,10 +12,6 @@ export interface InnerPopoverTriggerProps extends DomProps {
      * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen?: boolean;
-    /**
-     * The interaction that triggers the popover.
-     */
-    trigger?: "click" | "hover";
     /**
      * Position of the popover element related to the trigger.
      */
@@ -80,7 +76,6 @@ export function InnerPopoverTrigger({
     id,
     open,
     defaultOpen,
-    trigger: triggerProp = "click",
     position: positionProp = "bottom",
     onOpenChange,
     dismissable = true,
@@ -101,19 +96,15 @@ export function InnerPopoverTrigger({
         defaultOpen,
         onOpenChange,
         hideOnEscape: true,
-        hideOnLeave: triggerProp === "hover" && dismissable,
+        hideOnLeave: dismissable,
         hideOnOutsideClick: dismissable,
         restoreFocus: true,
-        trigger: triggerProp,
+        trigger: "click",
         hasArrow: true,
         position: positionProp,
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement
-    });
-
-    useAutoFocus(overlayRef, {
-        isDisabled: !isOpen || triggerProp !== "click"
     });
 
     const close = useCallback((event: SyntheticEvent) => {

@@ -126,7 +126,7 @@ export function InnerAlert({
         </Header>
     );
 
-    const errorIconMarkup = variant === "negative" && (
+    const negativeIconMarkup = variant === "negative" && (
         <Header>
             <InfoIcon size="lg" className="o-ui-alert-negative-icon" />
         </Header>
@@ -189,7 +189,7 @@ export function InnerAlert({
         >
             {heading}
             {warningIconMarkup}
-            {errorIconMarkup}
+            {negativeIconMarkup}
             {content}
             {buttonsMarkup}
         </Dialog>
