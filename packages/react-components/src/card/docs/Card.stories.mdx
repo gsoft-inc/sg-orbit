@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { Heading, InnerHeading } from "@react-components/typography";
+import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 
 <Meta
@@ -27,11 +27,11 @@ import { Illustration } from "@react-components/illustration";
 
 A card must have an heading and a content.
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="default">
         <Card>
             <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government.</Content>
         </Card>
     </Story>
 </Preview>
@@ -40,19 +40,22 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ Apollo11Banner }}>
+<Preview scope={{ Apollo11Banner }} style={{ "width": "300px" }}>
     <Story name="image">
-        <Card style={{ "width": "300px" }}>
+        <Card>
             <Image src={Apollo11Banner} alt="Appolo 11 Banner" />
-            <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Heading>Apollo 11 movie</Heading>
+            <Content>
+                <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
+                <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+            </Content>
         </Card>
     </Story>
 </Preview>
 
 Or a centered [illustration](?path=/docs/illustration--horizontal) with a background color:
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Nasa }} style={{ "width": "300px" }}>
     <Story name="illustration">
         <Card >
             <Illustration color="sunray-50">
@@ -68,7 +71,7 @@ Or a centered [illustration](?path=/docs/illustration--horizontal) with a backgr
 
 A card can have an header.
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="header">
         <Card>
             <Heading>Nasa</Heading>
@@ -82,7 +85,7 @@ A card can have an header.
 
 A card can have a single [button](?path=/docs/button--default-story):
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="button">
         <Card>
             <Heading>Nasa</Heading>
@@ -94,7 +97,7 @@ A card can have a single [button](?path=/docs/button--default-story):
 
 Or a [group of button](?path=/docs/button--default-story#button-group):
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="buttons">
         <Card >
             <Heading>Nasa</Heading>
@@ -111,7 +114,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 
 A card can render horizontally.
 
-<Preview>
+<Preview style={{ "width": "600px" }}>
     <Story name="horizontal">
         <Card orientation="horizontal">
             <Heading>Nasa</Heading>
@@ -126,7 +129,7 @@ A card can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <div style={{ "width": "450px" }}>
+        <div>
             <Card fluid>
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
