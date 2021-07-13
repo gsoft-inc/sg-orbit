@@ -3,7 +3,7 @@ import "./Card.css";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
 import { Text } from "../../text";
-import { cssModule, forwardRef, isString, mergeProps, slot, useSlots } from "../../shared";
+import { cssModule, forwardRef, isNil, isString, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {
     /**
@@ -75,6 +75,19 @@ export function InnerCard({
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
         : header;
 
+    const imageMarkup = image && (
+        <Box className="o-ui-card-image">
+            {image}
+        </Box>
+    );
+
+    const footerSectionMarkup = (!isNil(button) || !isNil(buttonGroup)) && (
+        <Box className="o-ui-card-footer-section">
+            {button}
+            {buttonGroup}
+        </Box>
+    );
+
     return (
         <Box
             {...mergeProps(
@@ -90,16 +103,15 @@ export function InnerCard({
                 }
             )}
         >
-            {image}
+            {imageMarkup}
             {illustration}
-            <Box className="o-ui-card-header-section">
-                {heading}
-                {headerMarkup}
-            </Box>
-            {content}
-            <Box className="o-ui-card-footer-section">
-                {button}
-                {buttonGroup}
+            <Box className="o-ui-card-aside-area">
+                <Box className="o-ui-card-header-section">
+                    {heading}
+                    {headerMarkup}
+                </Box>
+                {content}
+                {footerSectionMarkup}
             </Box>
         </Box>
     );

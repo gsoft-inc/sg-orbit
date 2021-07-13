@@ -1,3 +1,4 @@
+import { AppoloBanner } from "./assets";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
@@ -19,13 +20,6 @@ export function createTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Card element={element}>
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
-            </Card>
-        )
-        .add("image", () =>
-            <Card element={element}>
-                <Image src={Nasa} alt="Nasa" width="100px" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
             </Card>
