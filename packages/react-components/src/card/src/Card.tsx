@@ -53,6 +53,7 @@ export function InnerCard({
         },
         heading: {
             className: "o-ui-card-heading",
+            size: "sm",
             as: "h5"
         },
         header: {
@@ -91,11 +92,15 @@ export function InnerCard({
         >
             {image}
             {illustration}
-            {heading}
-            {headerMarkup}
+            <Box className="o-ui-card-header-section">
+                {heading}
+                {headerMarkup}
+            </Box>
             {content}
-            {button}
-            {buttonGroup}
+            <Box className="o-ui-card-footer-section">
+                {button}
+                {buttonGroup}
+            </Box>
         </Box>
     );
 }
