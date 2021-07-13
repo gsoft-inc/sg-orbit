@@ -1,4 +1,3 @@
-import { AppoloBanner } from "./assets";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
 import { Heading } from "@react-components/heading";
