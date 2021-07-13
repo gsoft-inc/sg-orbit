@@ -24,7 +24,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../text";
-import { Underlay, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerDialogProps extends DomProps, AriaLabelingProps {
@@ -181,6 +181,8 @@ export function InnerDialog({
         })
     });
 
+    const focusRingProps = useOverlayFocusRing();
+
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         if (!isNil(close)) {
             close(event);
@@ -301,6 +303,7 @@ export function InnerDialog({
                             as,
                             ref: dialogRef
                         },
+                        focusRingProps,
                         restoreFocusProps
                     )}
                 >

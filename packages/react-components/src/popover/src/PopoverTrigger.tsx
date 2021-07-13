@@ -96,7 +96,7 @@ export function InnerPopoverTrigger({
         defaultOpen,
         onOpenChange,
         hideOnEscape: true,
-        hideOnLeave: dismissable,
+        hideOnLeave: false,
         hideOnOutsideClick: dismissable,
         restoreFocus: true,
         trigger: "click",

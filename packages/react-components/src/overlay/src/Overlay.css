@@ -66,16 +66,6 @@
     border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
 }
 
-/* TODO: this arrow focus style should not be here since there are no style for a focus overlay, doesn't make sense... My guess is that it should be moved to popover. */
-/* ARROW | STATE | FOCUS */
-.o-ui-overlay:focus-visible .o-ui-overlay-arrow {
-    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
-}
-
-.o-ui-overlay:focus-visible .o-ui-overlay-arrow:before {
-    border-width: var(--o-ui-focus-ring-thickness-md);
-}
-
 /* BORDER OFFSET */
 .o-ui-overlay-has-border-offset[data-popper-placement^="top"] {
     border-bottom: var(--o-ui-overlay-border-offset) solid transparent;
@@ -91,4 +81,35 @@
 
 .o-ui-overlay-has-border-offset[data-popper-placement^="right"] {
     border-left: var(--o-ui-overlay-border-offset) solid transparent;
+}
+
+/* STATE | FOCUS */
+.o-ui-overlay-focus-ring:focus-visible {
+    outline: none;
+}
+
+.o-ui-overlay-focus-ring::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: var(--o-ui-shape-rounded);
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
+    opacity: 0;
+}
+
+.o-ui-overlay-focus-ring:focus-visible::before {
+    opacity: 1;
+}
+
+/* STATE | FOCUS | ARROW */
+.o-ui-overlay-focus-ring:focus-visible + .o-ui-overlay-arrow {
+    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
+}
+
+.o-ui-overlay-focus-ring:focus-visible + .o-ui-overlay-arrow:before {
+    border-width: var(--o-ui-focus-ring-thickness-md);
 }

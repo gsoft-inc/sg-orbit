@@ -37,7 +37,13 @@ function Popup({
     return (
         <>
             <Button {...triggerProps} data-testid={triggerTestId}>Trigger</Button>
-            <Overlay {...overlayProps} data-testid={overlayTestId}>Overlay</Overlay>
+            <Overlay
+                {...overlayProps}
+                tabIndex={-1}
+                data-testid={overlayTestId}
+            >
+                Overlay
+            </Overlay>
         </>
     );
 }
@@ -343,230 +349,6 @@ describe("\"click\" trigger", () => {
     });
 });
 
-describe("\"hover\" trigger", () => {
-    test("when closed, open on trigger focus", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-
-        act(() => {
-            fireEvent.focus(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when closed, open on trigger hover", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when opened, close on esc keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("overlay").focus();
-        });
-
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when opened and hideOnEscape is false, do not close on esc keypress", async () => {
-        const { getByTestId } = render(
-            <Popup
-                hideOnEscape={false}
-                trigger="hover"
-                defaultOpen
-                data-overlaytestid="overlay"
-            />
-        );
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("overlay").focus();
-        });
-
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when opened, close on trigger blur", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                defaultOpen
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            fireEvent.blur(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when opened and hideOnLeave is false, do not close on trigger blur", async () => {
-        const { getByTestId } = render(
-            <Popup
-                hideOnLeave={false}
-                trigger="hover"
-                defaultOpen
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            fireEvent.blur(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when opened, close on trigger leave", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when opened and hideOnLeave is false, do not close on trigger leave", async () => {
-        const { getByTestId } = render(
-            <Popup
-                hideOnLeave={false}
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            fireEvent.mouseLeave(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when opened, close on outside click", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <Popup
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("overlay").focus();
-        });
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when opened and hideOnOutsideClick is false, do not close on outside click", async () => {
-        const { getByTestId } = render(
-            <Popup
-                hideOnOutsideClick={false}
-                trigger="hover"
-                data-triggertestid="trigger"
-                data-overlaytestid="overlay"
-            />
-        );
-
-        act(() => {
-            fireEvent.mouseEnter(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("overlay").focus();
-        });
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-});
-
 describe("\"none\" trigger", () => {
     test("when closed, do not open on trigger click", async () => {
         const { getByTestId, queryByTestId } = render(
@@ -659,22 +441,6 @@ test("when restoreFocus is true, closing the popup with esc keypress return the 
     });
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
-});
-
-test("when autoFocus is true, focus the popup element on open", async () => {
-    const { getByTestId } = render(
-        <Popup
-            autoFocus
-            data-triggertestid="trigger"
-            data-overlaytestid="overlay"
-        />
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
-
-    await waitFor(() => expect(getByTestId("overlay")).toHaveFocus());
 });
 
 // ***** Aria *****

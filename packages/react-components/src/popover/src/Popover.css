@@ -7,38 +7,7 @@
     /* Must keep a max width. */
     width: 325px;
     position: relative;
-    border: 1px solid var(--o-ui-alias-border-2);
 }
-
-.o-ui-popover:focus-visible {
-    outline: none;
-}
-
-.o-ui-popover::before {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    border-radius: var(--o-ui-shape-rounded);
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
-    opacity: 0;
-}
-
-.o-ui-popover:focus-visible::before {
-    opacity: 1;
-}
-
-/* OVERLAY */
-/* .o-ui-popover-overlay > *:first-child {
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-global-transparent);
-}
-
-.o-ui-popover-overlay:focus-visible > *:first-child {
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
-} */
 
 /* HEADER | SECTION */
 .o-ui-popover-header-section {

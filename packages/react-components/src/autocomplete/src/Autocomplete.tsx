@@ -251,7 +251,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         hideOnEscape: true,
         hideOnLeave: true,
         restoreFocus: true,
-        autoFocus,
         // An autocomplete take care of his own trigger logic.
         trigger: "none",
         position: `${direction}-${align}` as const,

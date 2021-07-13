@@ -1,10 +1,24 @@
 import "./Popover.css";
 
-import { AriaLabelingProps, DomProps, forwardRef, isNil, isString, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs, useSlots } from "../../shared";
+import {
+    AriaLabelingProps,
+    DomProps,
+    forwardRef,
+    isNil,
+    isString,
+    mergeProps,
+    useAutoFocusChild,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useId,
+    useMergedRefs,
+    useSlots
+} from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useCallback, useMemo } from "react";
 import { Text } from "../../text";
-import { useTrapFocus } from "../../overlay";
+import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 export interface InnerPopoverProps extends DomProps, AriaLabelingProps {
     /**
@@ -56,6 +70,8 @@ export function InnerPopover({
             popoverRef.current?.focus();
         })
     });
+
+    const focusRingProps = useOverlayFocusRing();
 
     const popoverId = useId(id, "o-ui-popover");
 
@@ -119,7 +135,8 @@ export function InnerPopover({
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                     as,
                     ref: popoverRef
-                }
+                },
+                focusRingProps
             )}
         >
             {headerSectionMarkup}
