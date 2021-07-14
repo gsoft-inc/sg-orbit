@@ -145,6 +145,30 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
     </Story>
 </Preview>
 
+### Tab
+
+A card can render any components like [tabs](?path=/story/tabs--default-story).
+
+<Preview style={{ "width": "600px" }}>
+    <Story name="tab">
+        <Card>
+            <Heading>Nasa</Heading>
+            <Content>
+                <Tabs aria-label="NASA">
+                    <Item key="vision">
+                        <Header>Vision</Header>
+                        <Content>We reach for new heights and reveal the unknown for the benefit of humankind</Content>
+                    </Item>
+                    <Item key="mission">
+                        <Header>Mission</Header>
+                        <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
+                    </Item>
+                </Tabs>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
 ### Orientation
 
 A card can render horizontally.
@@ -166,30 +190,6 @@ A card can render horizontally.
                 <Paragraph>
                     <em>Please note that we are moving from December 12th to December 23rd.</em>
                 </Paragraph>
-            </Content>
-        </Card>
-    </Story>
-</Preview>
-
-### Tab
-
-A card can render any components like Tabs.
-
-<Preview>
-    <Story name="tab">
-        <Card style={{ "width": "600px" }}>
-            <Heading>Nasa</Heading>
-            <Content>
-                <Tabs aria-label="NASA">
-                    <Item key="vision">
-                        <Header>Vision</Header>
-                        <Content>We reach for new heights and reveal the unknown for the benefit of humankind</Content>
-                    </Item>
-                    <Item key="mission">
-                        <Header>Mission</Header>
-                        <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
-                    </Item>
-                </Tabs>
             </Content>
         </Card>
     </Story>

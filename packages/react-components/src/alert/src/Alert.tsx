@@ -134,7 +134,7 @@ export function InnerAlert({
 
     const primaryButtonMarkup = (
         <Button
-            color={variant === "destructive" ? "danger" : "primary"}
+            color={variant === "destructive" ? "danger" : undefined}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}

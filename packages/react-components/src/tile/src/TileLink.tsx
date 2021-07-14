@@ -1,7 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { InteractionStatesProps, forwardRef } from "../../shared";
+import { InteractionStatesProps, forwardRef, mergeProps } from "../../shared";
 import { Link } from "../../link";
-import { mergeProps } from "../../../dist";
 import { useTile } from "./useTile";
 
 export interface InnerTileLinkProps extends InteractionStatesProps {
@@ -82,7 +81,7 @@ export const TileLink = forwardRef<InnerTileLinkProps>((props, ref) => (
     <InnerTileLink {...props} forwardedRef={ref} />
 ));
 
-export type TileProps = ComponentProps<typeof TileLink>;
+export type TileLinkProps = ComponentProps<typeof TileLink>;
 
 TileLink.displayName = "TileLink";
 

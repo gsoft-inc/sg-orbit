@@ -14,6 +14,10 @@ import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, Reac
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
 
+/*
+TODO: choice button should be outline
+*/
+
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
      * Whether or not the modal should take almost all the available space.
