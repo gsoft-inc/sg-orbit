@@ -14,9 +14,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Card orientation="horizontal" />, stories("/horizontal"));
+createTestSuite(<Card orientation="horizontal" style={{ "width": "500px" }} />, stories("/horizontal"));
 
-createTestSuite(<Card orientation="vertical" />, stories("/vertical"));
+createTestSuite(<Card orientation="vertical" style={{ "width": "300px" }} />, stories("/vertical"));
 
 stories()
     .add("styling", () =>
