@@ -88,24 +88,24 @@
 }
 
 /* ASIDE | HORIZONTAL */
-.o-ui-card-horizontal .o-ui-card-aside-area {
+.o-ui-card-horizontal .o-ui-card-aside {
     grid-area: aside;
     padding: var(--o-ui-global-scale-golf);
 }
 
-.o-ui-card-horizontal .o-ui-card-illustration + .o-ui-card-aside-area {
+.o-ui-card-horizontal .o-ui-card-illustration + .o-ui-card-aside {
     padding-left: var(--o-ui-global-scale-foxtrot);
 }
 
 /* ASIDE | VERTICAL */
-.o-ui-card-vertical .o-ui-card-aside-area {
+.o-ui-card-vertical .o-ui-card-aside {
     grid-column-start: 1;
     grid-column-end: 3;
     padding: var(--o-ui-global-scale-golf);
 }
 
-.o-ui-card-vertical .o-ui-card-illustration + .o-ui-card-aside-area,
-.o-ui-card-vertical .o-ui-card-image + .o-ui-card-aside-area {
+.o-ui-card-vertical .o-ui-card-illustration + .o-ui-card-aside,
+.o-ui-card-vertical .o-ui-card-image + .o-ui-card-aside {
     padding: var(--o-ui-global-scale-foxtrot) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf);
 }
 

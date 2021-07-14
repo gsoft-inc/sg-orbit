@@ -112,7 +112,7 @@ export function InnerCard({
         >
             {imageMarkup}
             {illustration}
-            <Box className="o-ui-card-aside-area">
+            <Box className="o-ui-card-aside">
                 {headerSectionMarkup}
                 {content}
                 {footerSectionMarkup}

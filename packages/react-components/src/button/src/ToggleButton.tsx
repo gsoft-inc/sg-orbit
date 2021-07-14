@@ -1,9 +1,9 @@
 import { Button } from "./Button";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
-import { forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionStatesProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleButtonProps {
+export interface InnerToggleButtonProps extends InteractionStatesProps {
     /**
      * A controlled checked value.
      */
@@ -52,10 +52,6 @@ export interface InnerToggleButtonProps {
      */
     as?: ElementType;
     /**
-     * @ignore
-     */
-    active?: boolean;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -77,7 +73,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as,
+        as = "button",
         children,
         forwardedRef,
         ...rest
