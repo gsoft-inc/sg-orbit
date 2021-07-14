@@ -5,7 +5,9 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Item } from "@react-components/collection";
 import { Nasa, NasaHeadquarters } from "./assets";
+import { Tabs } from "@react-components/tabs";
 
 <Meta
     title="Components/Card"
@@ -169,6 +171,30 @@ A card can render horizontally.
     </Story>
 </Preview>
 
+### Tab
+
+A card can render any components like Tabs.
+
+<Preview>
+    <Story name="tab">
+        <Card>
+            <Heading>Nasa</Heading>
+            <Content>
+                <Tabs aria-label="NASA">
+                    <Item key="vision">
+                        <Header>Vision</Header>
+                        <Content>We reach for new heights and reveal the unknown for the benefit of humankind</Content>
+                    </Item>
+                    <Item key="mission">
+                        <Header>Mission</Header>
+                        <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
+                    </Item>
+                </Tabs>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
 ### Fluid
 
 A card can take the width of its container.
@@ -178,6 +204,27 @@ A card can take the width of its container.
         <Card fluid>
             <Heading>Nasa</Heading>
             <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Max Content
+
+A card can adapt to the width of its content.
+
+<Preview>
+    <Story name="max-content">
+        <Card>
+            <Heading>Apollo 11</Heading>
+            <Content>
+                <Paragraph>
+                    <strong>    Release Date</strong><br/>
+                    <em>March 1, 2019</em>
+                </Paragraph>
+                <Paragraph>
+                    The personal and professional lives of Neil Armstrong, Buzz Aldrin and Michael Collins prior to their July 1969 moon mission.
+                </Paragraph>
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -220,5 +267,3 @@ A card can take the width of its container.
 />
 
 <ArgsTable of={InnerContent} sort="alpha" />
-
-
