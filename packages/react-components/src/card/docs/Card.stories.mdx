@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { Heading, InnerHeading } from "@react-components/typography";
+import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 
 <Meta
@@ -126,10 +126,15 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
             <Heading>Nasa Headquarters</Heading>
             <Header>No unexpected visitors allowed</Header>
             <Content>
+                <Paragraph>
             300 E. Street SW, Suite 5R30<br/>
             Washington, DC 20546<br/>
             (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+            (202) 358-4338 (Fax)<br/>
+                </Paragraph>
+                <Paragraph>
+                    <em>Any trespassers are going to be sent in space.</em>
+                </Paragraph>
             </Content>
             <ButtonGroup>
                 <Button variant="outline">Cancel a Booking</Button>
