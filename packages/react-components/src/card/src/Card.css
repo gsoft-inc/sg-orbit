@@ -4,6 +4,8 @@
     border-radius: var(--o-ui-shape-rounded);
     border: 1px solid var(--o-ui-alias-border-1);
     align-content: start;
+    width: max-content;
+    max-width: 100%;
 }
 
 /* HORIZONTAL */

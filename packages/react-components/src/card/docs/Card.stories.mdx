@@ -1,4 +1,3 @@
-import { Apollo11Banner, Nasa } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
@@ -6,6 +5,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Nasa, NasaHeadquarters } from "./assets";
 
 <Meta
     title="Components/Card"
@@ -30,8 +30,13 @@ A card must have an heading and a content.
 <Preview style={{ "width": "300px" }}>
     <Story name="default">
         <Card>
-            <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government.</Content>
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -40,14 +45,16 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ Apollo11Banner }} style={{ "width": "300px" }}>
+<Preview scope={{ NasaHeadquarters }} style={{ "width": "300px" }}>
     <Story name="image">
         <Card>
-            <Image src={Apollo11Banner} alt="Appolo 11 Banner" />
-            <Heading>Apollo 11 movie</Heading>
+            <Image src={NasaHeadquarters} alt="Appolo 11 Banner" />
+            <Heading>Nasa Headquarters</Heading>
             <Content>
-                <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
-                <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
+                300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)
             </Content>
         </Card>
     </Story>
@@ -58,11 +65,16 @@ Or a centered [illustration](?path=/docs/illustration--horizontal) with a backgr
 <Preview scope={{ Nasa }} style={{ "width": "300px" }}>
     <Story name="illustration">
         <Card >
-            <Illustration color="sunray-50">
+            <Illustration color="marine-100">
                 <Image src={Nasa} alt="NASA" width="100px" />
             </Illustration>
-            <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Heading>Nasa Headquarters</Heading>
+            <Content>
+            300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -74,9 +86,14 @@ A card can have an header.
 <Preview style={{ "width": "300px" }}>
     <Story name="header">
         <Card>
-            <Heading>Nasa</Heading>
-            <Header>2021/01/01</Header>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Heading>Nasa Headquarters</Heading>
+            <Header>No unexpected visitors allowed.</Header>
+            <Content>
+            300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -88,9 +105,15 @@ A card can have a single [button](?path=/docs/button--default-story):
 <Preview style={{ "width": "300px" }}>
     <Story name="button">
         <Card>
-            <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
-            <Button>Visit</Button>
+            <Heading>Nasa Headquarters</Heading>
+            <Header>No unexpected visitors allowed.</Header>
+            <Content>
+            300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)
+            </Content>
+            <Button>Plan a visit</Button>
         </Card>
     </Story>
 </Preview>
@@ -100,11 +123,21 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 <Preview style={{ "width": "300px" }}>
     <Story name="buttons">
         <Card >
-            <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Heading>Nasa Headquarters</Heading>
+            <Content>
+                <Paragraph>
+            300 E. Street SW, Suite 5R30<br/>
+            Washington, DC 20546<br/>
+            (202) 358-0001 (Office)<br/>
+            (202) 358-4338 (Fax)<br/>
+                </Paragraph>
+                <Paragraph>
+                    <em>Any trespassers are going to be sent in space.</em>
+                </Paragraph>
+            </Content>
             <ButtonGroup>
-                <Button>Next</Button>
-                <Button>Visit</Button>
+                <Button variant="outline">Cancel a Booking</Button>
+                <Button>Plan a Visit</Button>
             </ButtonGroup>
         </Card>
     </Story>
@@ -114,11 +147,24 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 
 A card can render horizontally.
 
-<Preview style={{ "width": "600px" }}>
+<Preview scope={{ Nasa }}>
     <Story name="horizontal">
         <Card orientation="horizontal">
+            <Illustration color="marine-100">
+                <Image src={Nasa} alt="NASA" width="100px" />
+            </Illustration>
             <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -129,12 +175,10 @@ A card can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <div>
-            <Card fluid>
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
-            </Card>
-        </div>
+        <Card fluid>
+            <Heading>Nasa</Heading>
+            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+        </Card>
     </Story>
 </Preview>
 
