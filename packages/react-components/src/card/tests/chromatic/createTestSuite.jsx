@@ -1,12 +1,11 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Item } from "@react-components/collection";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { Nasa } from "./assets";
-import { Paragraph } from "@react-components/paragraph";
 import { Tabs } from "@react-components/tabs";
 import { TextLink } from "@react-components/link";
 import { cloneElement } from "react";

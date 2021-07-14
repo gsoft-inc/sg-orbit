@@ -3,7 +3,7 @@ import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider } from "@react-components/divider";
 import { Item, Section } from "@react-components/collection";
 import { Menu, MenuTrigger } from "@react-components/menu";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { VerticalDotsIcon } from "@react-components/icons";
 import { forwardRef } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";

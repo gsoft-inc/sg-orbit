@@ -1,7 +1,7 @@
 import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { Inline, Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

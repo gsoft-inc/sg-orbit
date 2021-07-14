@@ -1,6 +1,6 @@
 import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { ToggleButton } from "@react-components/button";
 import { storiesOfBuilder } from "@stories/utils";
 

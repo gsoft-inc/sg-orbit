@@ -1,7 +1,7 @@
 import { GroupIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 import { paramsBuilder } from "@stories/utils";
 

@@ -5,7 +5,7 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMe
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
 import { StyleProvider, augmentElement, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
-import { Text, TextProps } from "../../text";
+import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
 type InnerMessageContentProps = TextProps;

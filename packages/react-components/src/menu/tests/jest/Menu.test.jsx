@@ -2,7 +2,7 @@ import { Divider } from "@react-components/divider";
 import { Item, Section } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { Menu } from "@react-components/menu";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";

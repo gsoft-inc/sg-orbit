@@ -1,9 +1,8 @@
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { Launch } from "./assets";
 import { Link } from "@react-components/link";
-import { Paragraph } from "@react-components/paragraph";
 import { createLinkTestSuite } from "./createLinkTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 

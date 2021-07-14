@@ -2,7 +2,7 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { cssModule, forwardRef, isNil, isString, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {
@@ -81,6 +81,13 @@ export function InnerCard({
         </Box>
     );
 
+    const headerSectionMarkup = (
+        <Box className="o-ui-card-header-section">
+            {heading}
+            {headerMarkup}
+        </Box>
+    );
+
     const footerSectionMarkup = (!isNil(button) || !isNil(buttonGroup)) && (
         <Box className="o-ui-card-footer-section">
             {button}
@@ -106,10 +113,7 @@ export function InnerCard({
             {imageMarkup}
             {illustration}
             <Box className="o-ui-card-aside-area">
-                <Box className="o-ui-card-header-section">
-                    {heading}
-                    {headerMarkup}
-                </Box>
+                {headerSectionMarkup}
                 {content}
                 {footerSectionMarkup}
             </Box>

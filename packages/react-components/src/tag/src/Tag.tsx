@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
 import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 export interface InnerTagProps extends InteractionStatesProps {

@@ -2,9 +2,8 @@ import "./Accordion.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
-import { Heading } from "../../heading";
+import { Heading, Text } from "../../typography";
 import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useSlots } from "../../shared";
-import { Text } from "../../text";
 
 export interface InnerAccordionHeaderProps extends InteractionStatesProps {
     /**

@@ -2,7 +2,7 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerIllustrationProps {

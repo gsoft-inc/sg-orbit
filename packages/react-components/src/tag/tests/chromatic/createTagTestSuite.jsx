@@ -2,7 +2,7 @@ import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
 import { Dot } from "@react-components/dot";
 import { Inline, Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 
 function Tag({ element, ...rest }) {

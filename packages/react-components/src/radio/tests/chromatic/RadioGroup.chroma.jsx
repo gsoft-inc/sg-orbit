@@ -3,7 +3,7 @@ import { Field, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { Tag } from "@react-components/tag";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { ToggleButton } from "@react-components/button";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useCallback } from "react";

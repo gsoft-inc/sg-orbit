@@ -1,7 +1,7 @@
 import { AppoloBanner, AppoloPoster } from "./assets";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { createTestSuite } from "./createTestSuite";
@@ -47,19 +47,14 @@ stories()
             </Stack>
         </Inline>
     )
-    .add("layout", () =>
+    .add("grid layout", () =>
         <div style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
-            <Card
-                fluid
-            >
+            <Card fluid>
                 <Image src={AppoloBanner} alt="Appolo 11 Banner" width="100px" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
-            <Card
-                orientation="horizontal"
-                fluid
-            >
+            <Card orientation="horizontal" fluid>
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>

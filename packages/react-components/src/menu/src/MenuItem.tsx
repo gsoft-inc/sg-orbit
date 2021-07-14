@@ -2,7 +2,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
 import { DomProps, InteractionStatesProps, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";

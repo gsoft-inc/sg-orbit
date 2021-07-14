@@ -1,5 +1,5 @@
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { cloneElement } from "react";
 
 function Alert({ element, ...rest }) {

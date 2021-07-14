@@ -1,11 +1,10 @@
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
 import { Message } from "@react-components/message";
-import { Paragraph } from "@react-components/paragraph";
 import { TextLink } from "@react-components/link";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 

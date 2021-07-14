@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Popover, PopoverTrigger } from "@react-components/popover";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 

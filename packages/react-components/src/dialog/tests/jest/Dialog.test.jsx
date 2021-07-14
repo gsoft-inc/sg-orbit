@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content, Footer, Header } from "@react-components/placeholders";
 import { Dialog } from "@react-components/dialog";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";

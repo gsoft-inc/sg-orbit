@@ -1,6 +1,6 @@
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 

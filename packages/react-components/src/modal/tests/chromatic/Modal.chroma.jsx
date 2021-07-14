@@ -2,12 +2,10 @@ import { BlueOrigin, Nasa, SpaceX } from "./assets";
 import { Button } from "@react-components/button";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading, Paragraph, Text } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Modal } from "@react-components/modal";
-import { Paragraph } from "@react-components/paragraph";
-import { Text } from "@react-components/text";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

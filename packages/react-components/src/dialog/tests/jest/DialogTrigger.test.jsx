@@ -1,7 +1,7 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Dialog, DialogTrigger, useDialogTriggerContext } from "@react-components/dialog";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Keys } from "@react-components/shared";
 import { Transition } from "@react-components/transition";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";

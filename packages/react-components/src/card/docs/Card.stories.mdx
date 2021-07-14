@@ -4,7 +4,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
-import { Heading, InnerHeading } from "@react-components/heading";
+import { Heading, InnerHeading } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 
 <Meta
@@ -27,7 +27,7 @@ import { Illustration } from "@react-components/illustration";
 
 A card must have an heading and a content.
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="default">
         <Card>
             <Heading>NASA Headquarters</Heading>
@@ -45,7 +45,7 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ Apollo11Banner }}>
+<Preview scope={{ Apollo11Banner }} style={{ "width": "300px" }}>
     <Story name="image">
         <Card>
             <Image src={Apollo11Banner} alt="Appolo 11 Banner" />
@@ -62,7 +62,7 @@ A card can have an [image](?path=/story/chromatic-image--default):
 
 Or a centered [illustration](?path=/docs/illustration--horizontal) with a background color:
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Nasa }} style={{ "width": "300px" }}>
     <Story name="illustration">
         <Card >
             <Illustration color="marine-100">
@@ -83,7 +83,7 @@ Or a centered [illustration](?path=/docs/illustration--horizontal) with a backgr
 
 A card can have an header.
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="header">
         <Card>
             <Heading>Nasa Headquarters</Heading>
@@ -102,7 +102,7 @@ A card can have an header.
 
 A card can have a single [button](?path=/docs/button--default-story):
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="button">
         <Card>
             <Heading>Nasa Headquarters</Heading>
@@ -120,7 +120,7 @@ A card can have a single [button](?path=/docs/button--default-story):
 
 Or a [group of button](?path=/docs/button--default-story#button-group):
 
-<Preview>
+<Preview style={{ "width": "300px" }}>
     <Story name="buttons">
         <Card >
             <Heading>Nasa Headquarters</Heading>

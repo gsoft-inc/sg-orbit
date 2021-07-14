@@ -1,4 +1,4 @@
-import { P, Paragraph } from "@react-components/paragraph";
+import { P, Paragraph } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
