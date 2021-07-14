@@ -1,3 +1,4 @@
+import { Box } from "../../../box";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
 import { Heading, Paragraph } from "@react-components/typography";
@@ -164,15 +165,6 @@ export function createTestSuite(element, stories) {
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 </ButtonGroup>
-            </Card>
-        )
-        .add("fluid", () =>
-            <Card
-                fluid
-                element={element}
-            >
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         );
 }

@@ -14,9 +14,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Card orientation="horizontal" />, stories("/horizontal"));
+createTestSuite(<Card orientation="horizontal" style={{ "width": "500px" }} />, stories("/horizontal"));
 
-createTestSuite(<Card orientation="vertical" />, stories("/vertical"));
+createTestSuite(<Card orientation="vertical" style={{ "width": "300px" }} />, stories("/vertical"));
 
 stories()
     .add("styling", () =>
@@ -49,14 +49,23 @@ stories()
     )
     .add("grid layout", () =>
         <div style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
-            <Card fluid>
+            <Card>
                 <Image src={AppoloBanner} alt="Appolo 11 Banner" width="100px" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
-            <Card orientation="horizontal" fluid>
+            <Card orientation="horizontal">
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+        </div>
+    ).add("min width", () =>
+        <div style={{ "display": "flex" }}>
+            <Card style={{ "width": "auto" }}>
+                <Heading>Nasa</Heading>
+                <Content>
+                    Pizza Planet
+                </Content>
             </Card>
         </div>
     );

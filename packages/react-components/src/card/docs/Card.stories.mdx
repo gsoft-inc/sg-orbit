@@ -5,7 +5,9 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Item } from "@react-components/collection";
 import { Nasa, NasaHeadquarters } from "./assets";
+import { Tabs } from "@react-components/tabs";
 
 <Meta
     title="Components/Card"
@@ -149,7 +151,7 @@ A card can render horizontally.
 
 <Preview scope={{ Nasa }}>
     <Story name="horizontal">
-        <Card orientation="horizontal">
+        <Card orientation="horizontal" style={{ "width": "800px" }}>
             <Illustration color="marine-100">
                 <Image src={Nasa} alt="NASA" width="100px" />
             </Illustration>
@@ -169,15 +171,26 @@ A card can render horizontally.
     </Story>
 </Preview>
 
-### Fluid
+### Tab
 
-A card can take the width of its container.
+A card can render any components like Tabs.
 
 <Preview>
-    <Story name="fluid">
-        <Card fluid>
+    <Story name="tab">
+        <Card style={{ "width": "600px" }}>
             <Heading>Nasa</Heading>
-            <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+            <Content>
+                <Tabs aria-label="NASA">
+                    <Item key="vision">
+                        <Header>Vision</Header>
+                        <Content>We reach for new heights and reveal the unknown for the benefit of humankind</Content>
+                    </Item>
+                    <Item key="mission">
+                        <Header>Mission</Header>
+                        <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
+                    </Item>
+                </Tabs>
+            </Content>
         </Card>
     </Story>
 </Preview>
@@ -220,5 +233,3 @@ A card can take the width of its container.
 />
 
 <ArgsTable of={InnerContent} sort="alpha" />
-
-
