@@ -87,7 +87,7 @@ A card can have an header.
     <Story name="header">
         <Card>
             <Heading>Nasa Headquarters</Heading>
-            <Header>No unexpected visitors allowed</Header>
+            <Header>No unexpected visitors allowed.</Header>
             <Content>
             300 E. Street SW, Suite 5R30<br/>
             Washington, DC 20546<br/>
@@ -106,7 +106,7 @@ A card can have a single [button](?path=/docs/button--default-story):
     <Story name="button">
         <Card>
             <Heading>Nasa Headquarters</Heading>
-            <Header>No unexpected visitors allowed</Header>
+            <Header>No unexpected visitors allowed.</Header>
             <Content>
             300 E. Street SW, Suite 5R30<br/>
             Washington, DC 20546<br/>
@@ -124,7 +124,6 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
     <Story name="buttons">
         <Card >
             <Heading>Nasa Headquarters</Heading>
-            <Header>No unexpected visitors allowed</Header>
             <Content>
                 <Paragraph>
             300 E. Street SW, Suite 5R30<br/>
@@ -156,10 +155,15 @@ A card can render horizontally.
             </Illustration>
             <Heading>Nasa</Heading>
             <Content>
-            300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
             </Content>
         </Card>
     </Story>
