@@ -3,6 +3,7 @@ import "./Modal.css";
 import {
     AriaLabelingProps,
     DomProps,
+    StyleProvider,
     augmentElement,
     forwardRef,
     getSlotKey,
@@ -13,10 +14,6 @@ import {
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
-
-/*
-TODO: choice button should be outline
-*/
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
@@ -86,7 +83,15 @@ function useModalContentMarkup(content: ReactElement) {
                 <Content {...content.props}>
                     {before}
                     {!hasCards ? undefined : (
-                        <div className="o-ui-modal-choice-container">{cards}</div>
+                        <StyleProvider
+                            value={{
+                                button: {
+                                    variant: "outline"
+                                }
+                            }}
+                        >
+                            <div className="o-ui-modal-choice-container">{cards}</div>
+                        </StyleProvider>
                     )}
                     {after}
                 </Content>

@@ -2,7 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots } from "../../shared";
+import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -82,6 +82,9 @@ export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
     const [inputGroupProps] = useInputGroupButtonAddonProps();
+    const [styleProps] = useStyleProps("button");
+
+    console.log(styleProps);
 
     const {
         variant = "solid",
@@ -105,7 +108,8 @@ export function InnerButton(props: InnerButtonProps) {
         props,
         formProps,
         omitProps(toolbarProps, ["orientation"]),
-        inputGroupProps
+        inputGroupProps,
+        styleProps
     );
 
     const { ref: buttonRef, ...buttonProps } = useButton({
